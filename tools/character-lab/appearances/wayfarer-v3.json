@@ -1,0 +1,12 @@
+{
+	"schemaVersion": 1,
+	"id": "wayfarer-v3",
+	"label": "Wayfarer",
+	"note": "Replacement SPR drawings by part. Each part applies only to actors whose native part source matches the pack's template (inspection B6). Slots not listed keep native art. ACT data is never changed.",
+	"parts": {
+		"body": {"manifest": "res://tools/character-lab/assets/native-wayfarer-v3/costume.json", "field": "body"},
+		"head": {"manifest": "res://tools/character-lab/assets/native-head-v2/head.json", "field": "head"}
+	},
+	"palette": "res://tools/character-lab/style/wayfarer-style-v1.json",
+	"review": "Visually accepted 2026-09-24: body slots 82-86 and 54 (attack2 front view + one ready drawing), head slot 1."
+}

@@ -28,10 +28,10 @@ Each item keeps its evidence so the detail is not lost, and an *Expected result*
 
 ## B. Runtime integration — before custom characters reach the game
 
-- [ ] **B5. Godot frame cache ignores appearance.** `scripts/ro_sprite_actor.gd` `_render_frame()` caches by `kind:state:direction:frame:weapon`; `_draw_part()` caches images by `source:index`. Two swordsmen with different outfits would share frames. Both importers work around this by clearing `Actor._frame_cache` / `_image_cache` manually.
+- [x] **B5. Godot frame cache ignores appearance.** `scripts/ro_sprite_actor.gd` `_render_frame()` caches by `kind:state:direction:frame:weapon`; `_draw_part()` caches images by `source:index`. Two swordsmen with different outfits would share frames. Both importers work around this by clearing `Actor._frame_cache` / `_image_cache` manually.
   *Fix:* include selected body/head/headgear/palette identity in both keys.
   *Expected result:* Two actors of the same job with different outfits or heads render their own art side by side in Godot. The importers no longer need to clear the actor caches by hand.
-- [ ] **B6. The game cannot load Character Lab output.** The Godot actor only loads native SPR pairs and has no headgear part. Needs a module manifest (“for part P, replace SPR indexes with these PNGs / this palette”) and a headgear layer. (ROADMAP step 5; these are the concrete missing pieces.)
+- [x] **B6. The game cannot load Character Lab output.** The Godot actor only loads native SPR pairs and has no headgear part. Needs a module manifest (“for part P, replace SPR indexes with these PNGs / this palette”) and a headgear layer. (ROADMAP step 5; these are the concrete missing pieces.)
   *Expected result:* The accepted Wayfarer body and head (and a headgear choice) appear on the player in the Godot field, animating with the native ACT. Swapping outfit or headgear during play changes only that module.
 - [~] **B7. Slot list is hardcoded to one action/facing.** `export_native_template.gd` hardcodes `[82,83,84,85,86,54]` and direction 6.
   *Fix:* derive required slots from ACT — walk every action group × direction the job uses and collect the image indexes each part references. That set is the real per-character art budget (usually far smaller than frames × 8 because RO reuses drawings and mirrors W↔E). Measure it before committing to the workflow's scale.
@@ -82,3 +82,10 @@ Each item keeps its evidence so the detail is not lost, and an *Expected result*
   - **Workflow implication:** plan generation boards per *action group × drawn view* (e.g. "attack2 back: 87–91"), not per direction.
   - **Style-bible rule found (A4):** mirrored views flip asymmetric details. The Wayfarer hip pouch changes sides between S and E. Either design costumes to tolerate flipping (RO does) or keep key details symmetric.
   - Still open for B7: `export_native_template.gd` still hardcodes its six slots. Its *Expected result* (template exporter reads the inventory) belongs to the recipe loader work (D14).
+- 2026-09-24 — **B5 + B6 landed.**
+  - `ro_sprite_actor.gd` has `set_appearance(manifest)` and `set_headgear("" | "cap" | "hat")`. The frame cache key includes the look; replaced parts get a distinct `source` identity, so the image cache cannot mix looks. ACT records stay shared with the native data (identity-checked in the test).
+  - Appearance manifests live in `tools/character-lab/appearances/`. `wayfarer-v3.json` points to the accepted packs, and every file is checked against the pack's SHA-256 on load. A part applies only when its native source matches the pack's template: Swordsman body art never repaints the Novice, while the shared head applies to both. The look persists across job changes and saves (`look` in the save file).
+  - In game: **O** cycles the outfit and **H** cycles headgear; the message reports coverage (e.g. "body 6/118, head 1/15"). QA flags: `--appearance=<manifest>`, `--headgear=<id>`.
+  - `tests/appearance_test.gd` (48 checks, local assets): a native and a Wayfarer actor render interleaved. The game actor matches the Lab fixtures pixel for pixel for none/cap/hat (27 frames), and matches native after removing the look. Existing suites unchanged: gameplay QA 71, progression playthrough 39, sprite 352, map 2614, RSM 179, rules 68.
+  - Visible limit: only the covered drawings change. Walk, idle and the attack back view still show native Swordsman clothing under the Wayfarer head, until those drawings exist (see B7 budget).
+  - Headgear draw order is still the single studied order (C9 open), and the game reads art packs from `tools/character-lab/assets/`. Exported builds would need those packs included.

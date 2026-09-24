@@ -8,7 +8,11 @@ const ORIGIN := Vector2i(96, 156)
 const PIXEL_SIZE := 0.03125
 const CHARACTER_GROUPS := {"idle": 0, "walk": 1, "sit": 2, "pickup": 3, "ready": 4, "attack": 10, "hit": 6, "dead": 8, "cast": 12}
 const MONSTER_GROUPS := {"idle": 0, "walk": 1, "attack": 2, "hit": 3, "dead": 4}
+# Native reference headgear from the Character Lab equipment study (local assets).
+const HEADGEAR_SOURCES := {"cap": "res://tools/character-lab/assets/native-equipment-v1/source/cap", "hat": "res://tools/character-lab/assets/native-equipment-v1/source/hat"}
 static var _data_cache: Dictionary = {}
+static var _appearance_cache: Dictionary = {}
+static var _used_slot_cache: Dictionary = {}
 static var _frame_cache: Dictionary = {}
 static var _image_cache: Dictionary = {}
 static var _feet_cache: Dictionary = {}
@@ -35,6 +39,17 @@ var weapon_visible: bool = true
 var _configured: bool = false
 var _feet_offset: float = 0.0
 var _rest_state: String = "idle"
+# Appearance: replacement SPR drawings per part (inspection B5/B6). ACT records
+# stay shared with the native data; only texture slots are substituted.
+var appearance_id: String = ""
+var appearance_path: String = ""
+var appearance_label: String = ""
+var headgear_id: String = ""
+var coverage: Dictionary = {}
+var _appearance: Dictionary = {}
+var _native_parts: Dictionary = {}
+var _headgear: Dictionary = {}
+var _look_key: String = ""
 
 func configure(actor_kind: String) -> void:
 	# Job changes can replace the presentation on the same gameplay actor.
@@ -77,6 +92,8 @@ func configure(actor_kind: String) -> void:
 	# One neutral-pose foot registration is shared by every direction/action.
 	# Do not recenter individual frames: the ACT data contains intentional motion.
 	_feet_offset = _neutral_feet_offset()
+	_native_parts = {"body": _body, "head": _head}
+	_apply_look()
 	_sprite.offset = Vector2(CANVAS.x / 2 - ORIGIN.x, ORIGIN.y + _feet_offset - CANVAS.y / 2)
 	_sprite.position.y = 0.035
 	_sprite.cast_shadow = GeometryInstance3D.SHADOW_CASTING_SETTING_OFF
@@ -96,6 +113,111 @@ static func _load(base: String) -> Dictionary:
 		data["source"] = base
 		_data_cache[base] = data
 	return _data_cache[base]
+
+## Load a replacement-art manifest (tools/character-lab/appearances/*.json).
+## Every replacement file must match the SHA-256 recorded by its art pack.
+static func load_appearance(path: String) -> Dictionary:
+	if _appearance_cache.has(path):
+		return _appearance_cache[path]
+	var manifest: Variant = JSON.parse_string(FileAccess.get_file_as_string(path)) if FileAccess.file_exists(path) else null
+	if not manifest is Dictionary or not manifest.get("parts") is Dictionary:
+		push_warning("Appearance manifest unavailable: " + path)
+		return {}
+	var result := {"id": str(manifest.get("id", path.get_file().get_basename())), "label": str(manifest.get("label", "")), "path": path, "parts": {}}
+	for part: String in manifest.parts:
+		var entry: Dictionary = manifest.parts[part]
+		var pack_path: String = entry.manifest
+		var pack: Variant = JSON.parse_string(FileAccess.get_file_as_string(pack_path)) if FileAccess.file_exists(pack_path) else null
+		if not pack is Dictionary or not pack.get(entry.field) is Dictionary:
+			push_warning("Appearance part unavailable: %s (%s)" % [part, pack_path])
+			return {}
+		var template: Variant = JSON.parse_string(FileAccess.get_file_as_string(pack.originalTemplate)) if FileAccess.file_exists(pack.get("originalTemplate", "")) else null
+		if not template is Dictionary:
+			push_warning("Appearance template unavailable for " + part)
+			return {}
+		var textures := {}
+		for index: String in pack[entry.field]:
+			var record: Dictionary = pack[entry.field][index]
+			var file: String = pack_path.get_base_dir() + "/" + record.file
+			if FileAccess.get_sha256(file) != record.sha256:
+				push_error("Appearance file changed since import: " + file)
+				return {}
+			# Raw PNG bytes, not an imported resource: the pack's hash covers these exact bytes.
+			var image := Image.new()
+			if image.load_png_from_buffer(FileAccess.get_file_as_bytes(file)) != OK:
+				push_error("Appearance image unreadable: " + file)
+				return {}
+			textures[int(index)] = ImageTexture.create_from_image(image)
+		result.parts[part] = {"source": template.parts[part].source, "textures": textures}
+	_appearance_cache[path] = result
+	return result
+
+## "" restores native art. Returns false when the manifest cannot be used.
+func set_appearance(path: String) -> bool:
+	var look: Dictionary = {} if path.is_empty() else load_appearance(path)
+	if not path.is_empty() and look.is_empty():
+		return false
+	_appearance = look
+	appearance_id = look.get("id", "")
+	appearance_path = path
+	appearance_label = look.get("label", appearance_id)
+	if _configured:
+		_apply_look()
+		_render_frame()
+	return true
+
+## "", "cap" or "hat". Headgear is its own ACT/SPR part, attached like the head.
+func set_headgear(id: String) -> bool:
+	if not id.is_empty() and (not HEADGEAR_SOURCES.has(id) or not FileAccess.file_exists(HEADGEAR_SOURCES[id] + ".act")):
+		return false
+	headgear_id = id
+	if _configured:
+		_apply_look()
+		_render_frame()
+	return true
+
+func _apply_look() -> void:
+	coverage = {}
+	for part: String in _native_parts:
+		var native: Dictionary = _native_parts[part]
+		var look := native
+		var replacement: Dictionary = _appearance.get("parts", {}).get(part, {})
+		# A body pack drawn for the Swordsman must not repaint the Novice body.
+		if not native.is_empty() and not replacement.is_empty() and replacement.source == native.source:
+			look = native.duplicate()
+			var textures: Array[Texture2D] = native.textures.duplicate()
+			var replaced := 0
+			for index: int in replacement.textures:
+				var texture: Texture2D = replacement.textures[index]
+				if index < textures.size() and texture.get_size() == textures[index].get_size():
+					textures[index] = texture
+					replaced += 1
+				else:
+					push_error("Appearance %s %s slot %d does not fit the native SPR image" % [appearance_id, part, index])
+			look.textures = textures
+			# Distinct identity keeps the shared image cache from mixing looks.
+			look.source = "%s@%s" % [native.source, appearance_id]
+			coverage[part] = {"replaced": replaced, "used": _used_slots(native)}
+		if part == "body":
+			_body = look
+		else:
+			_head = look
+	_headgear = {}
+	if not headgear_id.is_empty() and kind in ["novice", "swordsman"]:
+		_headgear = _load(HEADGEAR_SOURCES[headgear_id])
+	_look_key = "%s|%s|%s" % [_body.get("source", ""), _head.get("source", ""), _headgear.get("source", "")]
+	_current_key = ""
+
+static func _used_slots(data: Dictionary) -> int:
+	if not _used_slot_cache.has(data.source):
+		var used := {}
+		for action: Dictionary in data.actions:
+			for frame: Dictionary in action.frames:
+				for layer: Dictionary in frame.layers:
+					if layer.index >= 0:
+						used[layer.index] = true
+		_used_slot_cache[data.source] = used.size()
+	return _used_slot_cache[data.source]
 
 func set_motion(value: Vector3) -> void:
 	velocity = value
@@ -207,7 +329,7 @@ func _render_frame() -> void:
 	if state in ["idle", "sit"] and kind in ["novice", "swordsman"]:
 		# These three source poses encode head direction, not an idle cycle.
 		frame_index = 0
-	var key := "%s:%s:%d:%d:%s" % [kind, state, direction, frame_index, weapon_visible]
+	var key := "%s:%s:%s:%d:%d:%s" % [kind, _look_key, state, direction, frame_index, weapon_visible]
 	if key == _current_key:
 		return
 	_current_key = key
@@ -219,6 +341,11 @@ func _render_frame() -> void:
 			var head_action: Dictionary = _get_action(_head, state, direction)
 			var head_frame: Dictionary = head_action.frames[frame_index % head_action.frames.size()]
 			_draw_part(image, _head, head_frame, _attachment(body_frame, head_frame))
+		if not _headgear.is_empty():
+			# Same anchor rule as the head; drawn above it for the studied facing.
+			var gear_action: Dictionary = _get_action(_headgear, state, direction)
+			var gear_frame: Dictionary = gear_action.frames[frame_index % gear_action.frames.size()]
+			_draw_part(image, _headgear, gear_frame, _attachment(body_frame, gear_frame))
 		if weapon_visible and not _weapon.is_empty():
 			var weapon_action: Dictionary = _get_action(_weapon, state, direction)
 			var weapon_frame: Dictionary = weapon_action.frames[frame_index % weapon_action.frames.size()]

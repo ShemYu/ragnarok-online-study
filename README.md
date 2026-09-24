@@ -46,6 +46,8 @@ On another Mac, run **Setup.command** once online, or install Godot 4.5+ and ope
 | I / Alt+E / Ctrl+E | Inventory and weapon equipment |
 | C | Stats and skills |
 | T / Talk to Guide | Approach the training instructor |
+| O | Cycle outfit: native RO art / Wayfarer replacement art (needs the local Character Lab packs) |
+| H | Cycle headgear: none / Cap / Hat (native reference headgear) |
 | Esc | Close windows, then cancel the current command |
 
 Speak to the instructor to begin a **3 Poring / 2 Lunatic** exercise. Claiming its accelerated training reward reaches Novice Job 10. Speak again to become a Swordsman, then earn a job level and spend a skill point on Bash in Status. The reward and short quest are conveniences for this local study, not a reproduction of RO's original novice tutorial.
@@ -78,7 +80,8 @@ Character, stats, equipment, inventory, skills, quest and kill count save automa
 | `scripts/main.gd` | Commands, timed combat, AI, quest, interaction and persistence |
 | `scripts/rpg_rules.gd` | Stats, damage, EXP, items and class/skill rules |
 | `scripts/ro_sprite_data.gd` | SPR image decoding and ACT animation parsing |
-| `scripts/ro_sprite_actor.gd` | Head/body/equipment composition and camera-relative animation |
+| `scripts/ro_sprite_actor.gd` | Head/body/headgear/equipment composition, replacement-art appearances and camera-relative animation |
+| `tools/character-lab/appearances/*.json` | Replacement-art looks: which art pack replaces which part's SPR drawings |
 | `scripts/field_world_ro.gd` | Active native field crop, elevation, blocked cells and navigation |
 | `scripts/ro_map_data.gd` | GND/GAT parsing, textured terrain and baked shading |
 | `scripts/ro_model_data.gd` | Native RSM model parsing and rendering |

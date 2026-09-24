@@ -8,6 +8,9 @@ const Rules = preload("res://scripts/rpg_rules.gd")
 const SAVE_PATH := "user://progress-v2.json"
 const ATTACK_RANGE := 1.35
 var GUIDE_POSITION := Vector3(-3, 0, 4)
+# Replacement-art looks for the player (inspection B6). "" is native RO art.
+const APPEARANCES := ["", "res://tools/character-lab/appearances/wayfarer-v3.json"]
+const HEADGEARS := ["", "cap", "hat"]
 const SPAWNS = [Vector3(-4,0,0), Vector3(3,0,-3), Vector3(-6,0,-5), Vector3(4,0,5), Vector3(3,0,-7), Vector3(-8,0,1)]
 
 var field: FieldWorld
@@ -74,6 +77,11 @@ func _ready() -> void:
 	player = ActorVisual.new()
 	add_child(player)
 	player.configure("novice")
+	for argument in OS.get_cmdline_user_args():
+		if argument.begins_with("--appearance="):
+			player.set_appearance(argument.trim_prefix("--appearance="))
+		elif argument.begins_with("--headgear="):
+			player.set_headgear(argument.trim_prefix("--headgear="))
 	player.position = player_spawn
 	_setup_destination()
 	for i in SPAWNS.size():
@@ -583,6 +591,34 @@ func toggle_weapon() -> void:
 	hud.show_message("Knife equipped." if character.equipped_weapon=="knife" else "Knife unequipped. Barehand damage and animation active.")
 	_save_progress()
 
+func cycle_appearance() -> void:
+	var current := maxi(0, APPEARANCES.find(player.appearance_path))
+	for step in range(1, APPEARANCES.size() + 1):
+		var path: String = APPEARANCES[(current + step) % APPEARANCES.size()]
+		if player.set_appearance(path):
+			hud.show_message(_look_message())
+			_save_progress()
+			return
+	hud.show_message("No replacement art is available in this checkout.")
+
+func cycle_headgear() -> void:
+	var current := HEADGEARS.find(player.headgear_id)
+	for step in range(1, HEADGEARS.size() + 1):
+		if player.set_headgear(HEADGEARS[(current + step) % HEADGEARS.size()]):
+			hud.show_message("Headgear: %s." % ("none" if player.headgear_id.is_empty() else player.headgear_id))
+			_save_progress()
+			return
+
+func _look_message() -> String:
+	if player.appearance_id.is_empty():
+		return "Outfit: native RO art."
+	var parts := []
+	for part: String in player.coverage:
+		parts.append("%s %d/%d" % [part, player.coverage[part].replaced, player.coverage[part].used])
+	if parts.is_empty():
+		return "Outfit: %s has no drawings for this job yet." % player.appearance_label
+	return "Outfit: %s (replaced drawings %s; the rest stay native)." % [player.appearance_label, ", ".join(parts)]
+
 func _refresh_derived() -> void:
 	derived = Rules.derived_stats(character)
 	hp = clampf(hp,0,max_hp)
@@ -789,6 +825,8 @@ func _unhandled_input(event: InputEvent) -> void:
 			KEY_I: hud.toggle_inventory()
 			KEY_C: hud.toggle_status()
 			KEY_T: talk_to_guide()
+			KEY_O: cycle_appearance()
+			KEY_H: cycle_headgear()
 			KEY_ESCAPE:
 				if not hud.close_panels():
 					_cancel_target()
@@ -814,7 +852,8 @@ func _save_progress() -> void:
 	var temp_path := save_path+".tmp"
 	var file := FileAccess.open(temp_path,FileAccess.WRITE)
 	if file:
-		file.store_string(JSON.stringify({"version":2,"character":character,"quest":quest,"kills":kills}))
+		var look := {"appearance":player.appearance_path,"headgear":player.headgear_id}
+		file.store_string(JSON.stringify({"version":2,"character":character,"quest":quest,"kills":kills,"look":look}))
 		file.close()
 		if DirAccess.rename_absolute(temp_path,save_path)!=OK:
 			push_warning("Could not replace the local progress file.")
@@ -863,6 +902,11 @@ func _load_progress() -> void:
 	if character.job_class=="Swordsman":
 		player.configure("swordsman")
 		player.weapon_visible = character.equipped_weapon=="knife"
+	var look: Dictionary = data.get("look",{}) if data.get("look") is Dictionary else {}
+	if str(look.get("appearance","")) in APPEARANCES:
+		player.set_appearance(str(look.get("appearance","")))
+	if str(look.get("headgear","")) in HEADGEARS:
+		player.set_headgear(str(look.get("headgear","")))
 	hud.show_message("Local character and training progress restored.")
 
 func _notification(what: int) -> void:
