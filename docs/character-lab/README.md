@@ -7,6 +7,7 @@
 Saved on 2026-09-24. This milestone records the successful Wayfarer costume/head substitution on one original RO attack and facing. It preserves the earlier experiments so the change in approach remains reviewable.
 
 - [Findings and review](native-art-poc-v0.1.0.md): what worked, what failed, exact scope and evidence.
+- [Workflow inspection, 2026-09-24](INSPECTION-2026-09-24.md): prioritized fix checklist for multi-character, same-style production.
 - [Reusable workflow](WORKFLOW.md): existing stages and commands, module contracts, proposed extraction into a generic recipe.
 - [Snapshot inventory](releases/native-art-poc-v0.1.0/manifest.json), [restorable archive](releases/native-art-poc-v0.1.0/source.zip), and [verification](releases/native-art-poc-v0.1.0/verification.json).
 - [Live comparison](http://127.0.0.1:8767/native.html).

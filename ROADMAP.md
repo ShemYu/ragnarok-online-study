@@ -11,6 +11,8 @@ The [milestone review](docs/character-lab/native-art-poc-v0.1.0.md) separates th
 
 ## Next: make the successful process reusable
 
+The [2026-09-24 workflow inspection](docs/character-lab/INSPECTION-2026-09-24.md) lists the concrete fixes (palette discipline, import resampling, runtime integration, RO draw order and hit timing) and their order.
+
 1. Review the current head without a hat and under both native hats.
 2. Move job-specific paths, slot sizes and crop coordinates out of the body/head import scripts into validated configuration.
 3. Reproduce the saved body and head from that configuration without changing native actions or output bytes.
