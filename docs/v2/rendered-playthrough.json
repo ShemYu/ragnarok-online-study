@@ -1,0 +1,17 @@
+{
+	"checks": 54,
+	"failures": [],
+	"fixture": "Fresh QA character; saving disabled; RNG seed 20260923; ambient wander timers set to 999 seconds and existing ambient routes cleared. Monster combat and all player movement/attacks run on the real frame timeline.",
+	"input": "Input.parse_input_event mouse clicks on projected world positions and actual GUI rectangles, plus right-drag motion.",
+	"observations": [
+		"One normal Poring was defeated using click-to-chase and scheduled attacks. No HP or damage fixture was applied.",
+		"Compact window size: (960, 640); UI viewport: (960.0, 640.0)."
+	],
+	"screenshots": [
+		"field-preview.png",
+		"status-preview.png",
+		"training-preview.png",
+		"combat-preview.png",
+		"compact-preview.png"
+	]
+}

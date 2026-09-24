@@ -1,0 +1,66 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="theme-color" content="#f2eee4">
+  <title>Attack Study · Character Atelier</title>
+  <link rel="stylesheet" href="attack.css">
+</head>
+<body>
+  <header class="masthead">
+    <a class="brand" href="index.html" aria-label="Back to Character Atelier"><span class="brand-mark" aria-hidden="true">✧</span><span><span class="eyebrow">LOCAL CHARACTER WORKSHOP</span><span class="brand-name">Character Atelier</span></span></a>
+    <nav><a class="back-link" href="modular.html">Modular attack ↗</a> · <a class="back-link" href="video.html">Grok attack video ↗</a> · <a class="back-link" href="index.html">← Appearance study</a></nav>
+  </header>
+  <main class="workshop">
+    <section class="intro">
+      <div><p class="eyebrow">MOTION STUDY / 01</p><h1>A first sword attack</h1><p class="intro-copy">Watch the pose change from anticipation to strike, then inspect each frame.</p></div>
+      <span class="study-badge">One direction · sprite animation</span>
+    </section>
+    <div id="error-message" class="error-message" role="alert" hidden></div>
+    <section class="comparison" aria-label="Attack animation comparison">
+      <article class="viewport-card">
+        <div class="viewport-heading"><div><p class="eyebrow">ORIGINAL ATTACK EXPERIMENT</p><h2 id="original-name">Wayfarer</h2></div><span class="source-label">Original artwork</span></div>
+        <div class="canvas-wrap"><canvas id="original-canvas" width="192" height="192" aria-label="Original character attack animation"></canvas></div>
+        <div class="viewport-footer"><span id="original-frame">Loading artwork…</span><span id="original-phase">—</span></div>
+      </article>
+      <article class="viewport-card reference">
+        <div class="viewport-heading"><div><p class="eyebrow">CLASSIC RO REFERENCE</p><h2 id="reference-name">Swordsman</h2></div><span class="source-label">Reference artwork</span></div>
+        <div class="canvas-wrap"><canvas id="reference-canvas" width="192" height="192" aria-label="Ragnarok reference attack animation"></canvas></div>
+        <div class="viewport-footer"><span id="reference-frame">Loading artwork…</span><span>Same cycle progress</span></div>
+      </article>
+    </section>
+    <section class="controls panel" aria-label="Attack playback controls">
+      <div class="transport-row">
+        <div class="transport">
+          <button id="play-toggle" class="button primary" disabled aria-label="Pause animation">Pause</button>
+          <button id="play-once" class="button" disabled>Play once ↗</button>
+          <button id="restart" class="button quiet" disabled title="Return to the first frame">Restart</button>
+        </div>
+        <div class="playback-options">
+          <label class="check-label"><input id="loop-toggle" type="checkbox" checked disabled>Loop</label>
+          <label class="inline-label" for="speed-select">Speed <select id="speed-select" disabled><option value="0.5">0.5×</option><option value="1" selected>1×</option><option value="1.5">1.5×</option></select></label>
+        </div>
+      </div>
+      <div class="timeline-row">
+        <button id="previous-frame" class="step-button" disabled aria-label="Previous frame" title="Previous frame">‹</button>
+        <div class="timeline"><label class="sr-only" for="frame-slider">Attack frame</label><input id="frame-slider" type="range" min="0" max="0" value="0" step="1" disabled><div class="timeline-labels"><span>Ready</span><span id="strike-label">Strike</span><span>Recovery</span></div></div>
+        <button id="next-frame" class="step-button" disabled aria-label="Next frame" title="Next frame">›</button>
+      </div>
+      <div class="readout-row"><p id="playback-status" role="status">Loading the local attack study…</p><span id="cycle-duration">—</span></div>
+      <div class="progress-track" aria-hidden="true"><div id="cycle-progress"></div></div>
+    </section>
+    <section class="details-row">
+      <div class="panel display-panel">
+        <div><h3>View the pixels</h3><p class="small-note">Full frame stays visible at every scale.</p></div>
+        <div class="display-controls"><fieldset><legend>Preview scale</legend><div class="segmented" id="zoom-controls"><button data-zoom="2" aria-pressed="false">2×</button><button data-zoom="3" aria-pressed="true">3×</button><button data-zoom="4" aria-pressed="false">4×</button></div></fieldset><label class="select-label" for="background-select">Backdrop<select id="background-select"><option value="plain">Parchment</option><option value="checker">Transparency grid</option></select></label><label class="check-label baseline-label"><input id="baseline-toggle" type="checkbox" checked>Feet line</label></div>
+        <p id="scale-note" class="small-note">Requested 3× · fits the available width.</p>
+      </div>
+      <div class="panel export-panel"><h3>Keep a frame</h3><p id="export-note" class="small-note">Export the current original pose as a PNG.</p><div class="export-actions"><button class="button" id="export-png" disabled>Prepare PNG</button><button class="button quiet" id="export-recipe" disabled>Frame recipe</button></div><a id="download-link" class="download-link" hidden></a><p id="export-status" class="small-note" aria-live="polite"></p></div>
+    </section>
+    <section class="study-note"><span>WHAT THIS PROVES</span><div><p><strong>This is a full-body sprite sequence.</strong> The equipment is painted into each frame. It demonstrates attack motion; headgear and weapons are not yet interchangeable here.</p><p>The RO reference is separate artwork. Its animation follows the same normalized cycle progress for comparison, so its original playback speed is not being reproduced.</p></div></section>
+  </main>
+  <footer class="page-footer"><span>Study the motion before expanding the wardrobe.</span><span>LOCAL PROTOTYPE / ATTACK LAB</span></footer>
+  <script src="attack.js"></script>
+</body>
+</html>

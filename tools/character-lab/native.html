@@ -1,0 +1,119 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="theme-color" content="#f2eee4">
+  <meta name="character-lab-version" content="native-art-poc-v0.1.0">
+  <title>Character Atelier · Wayfarer on RO actions</title>
+  <link rel="stylesheet" href="native.css">
+</head>
+<body>
+  <header class="masthead">
+    <div class="brand-mark" aria-hidden="true">✧</div>
+    <div><p class="eyebrow">LOCAL CHARACTER WORKSHOP</p><h1>Character Atelier</h1></div>
+    <nav aria-label="Workshop"><a href="index.html">Appearance</a><a href="video.html">Video study</a><a href="modular.html">Previous cutout study</a><span aria-current="page">RO action template</span></nav>
+  </header>
+
+  <main>
+    <section class="intro">
+      <div><p class="eyebrow">WAYFARER · RO MODULES &amp; ACTION</p><h2>Our character. The original action.</h2><p class="lead">Wayfarer’s chestnut hair and adventurer outfit, fitted to RO’s original poses and separate equipment layers.</p></div>
+      <span class="badge">v0.1.0 · One direction · 96 ms per frame</span>
+    </section>
+
+    <section class="comparison" aria-label="Synchronized original and replacement animation">
+      <figure class="preview-panel">
+        <figcaption><div><p class="eyebrow">SOURCE ACTION</p><h3>Original RO <span>· local reconstruction</span></h3></div><span class="panel-number" aria-hidden="true">01</span></figcaption>
+        <canvas id="native-canvas" width="512" height="400" role="img" aria-label="Original Ragnarok Swordsman animation reconstructed from local ACT and SPR data.">Canvas support is needed to show the source animation.</canvas>
+        <p class="preview-note">Original body, head, weapon, and trail.</p>
+      </figure>
+      <figure class="preview-panel custom-panel">
+        <figcaption><div><p class="eyebrow">WAYFARER COSTUME</p><h3>Our artwork <span>· original action</span></h3></div><span class="panel-number" aria-hidden="true">02</span></figcaption>
+        <canvas id="custom-canvas" width="512" height="400" role="img" aria-label="Replacement costume drawings following the original Ragnarok animation frames and attachment positions.">Canvas support is needed to show the costume study.</canvas>
+        <p class="preview-note">Swap the head, costume and equipment independently. Hats and dagger remain original reference assets.</p>
+      </figure>
+    </section>
+
+    <section class="playback-panel" aria-label="Shared animation controls">
+      <div class="transport">
+        <button id="play" class="primary" type="button">Play action <span aria-hidden="true">▶</span></button>
+        <button id="restart" type="button">Restart</button>
+        <button id="previous" class="step-button" type="button" aria-label="Previous frame">← Frame</button>
+        <button id="next" class="step-button" type="button" aria-label="Next frame">Frame →</button>
+        <label class="check"><input id="loop" type="checkbox"> Loop</label>
+        <output id="frame-label" for="scrub">Frame 1 / 9 · 0 ms</output>
+      </div>
+      <div class="timeline-heading"><label for="scrub">Shared playhead</label><span>Original frame holds · no interpolation</span></div>
+      <input id="scrub" type="range" min="0" max="8" step="1" value="0" aria-describedby="timeline-note">
+      <div class="frame-strip" role="group" aria-label="Inspect an original action frame">
+        <button type="button" data-frame="0" aria-pressed="true"><span>01</span><small>0 ms</small></button>
+        <button type="button" data-frame="1" aria-pressed="false"><span>02</span><small>96 ms</small></button>
+        <button type="button" data-frame="2" aria-pressed="false"><span>03</span><small>192 ms</small></button>
+        <button type="button" data-frame="3" aria-pressed="false"><span>04</span><small>288 ms</small></button>
+        <button type="button" data-frame="4" aria-pressed="false"><span>05</span><small>384 ms</small></button>
+        <button type="button" data-frame="5" aria-pressed="false"><span>06</span><small>480 ms</small></button>
+        <button type="button" data-frame="6" aria-pressed="false"><span>07</span><small>576 ms</small></button>
+        <button type="button" data-frame="7" aria-pressed="false"><span>08</span><small>672 ms</small></button>
+        <button type="button" data-frame="8" aria-pressed="false"><span>09</span><small>768 ms</small></button>
+      </div>
+      <div class="playback-foot"><p id="timeline-note">The source ends in follow-through. Restart and loop jump directly to frame 1; no recovery pose is added.</p><p id="status" role="status" aria-live="polite">Loading original action and costume drawings…</p></div>
+    </section>
+
+    <section class="inspection-grid" aria-label="Artwork and template inspection">
+      <div class="options-panel">
+        <p class="eyebrow">CUSTOMIZE THE RIGHT-HAND PREVIEW</p><h3>Separate modules. One action.</h3>
+        <div class="equipment-controls">
+          <label class="select-row" for="costume-select"><span>Body &amp; clothes</span><select id="costume-select"><option value="wayfarer" selected>Wayfarer costume</option><option value="custom">Earlier teal repaint</option><option value="original">Original body</option></select></label>
+          <label class="select-row" for="head-select"><span>Head &amp; hair</span><select id="head-select"><option value="wayfarer" selected>Wayfarer head</option><option value="original">Original RO head</option></select></label>
+          <label class="select-row" for="headgear-select"><span>Headgear</span><select id="headgear-select"><option value="none" selected>None</option></select></label>
+          <label class="select-row" for="weapon-select"><span>Weapon</span><select id="weapon-select"><option value="native" selected>Original dagger</option><option value="none">None</option></select></label>
+        </div>
+        <p class="module-note">Body and clothes form one module; face and hair form another. Hats and weapons stay separate. All follow the original ACT data.</p>
+        <p class="control-label">Visibility · both previews</p>
+        <div class="layer-checks" role="group" aria-label="Shared visible layers">
+          <label class="check"><input id="show-head" type="checkbox" checked> Head</label>
+          <label class="check"><input id="show-weapon" type="checkbox" checked> Weapon</label>
+          <label class="check"><input id="show-trail" type="checkbox" checked> Trail</label>
+        </div>
+        <div class="debug-checks">
+          <label class="check"><input id="show-anchors" type="checkbox"> Show attachment points</label>
+          <label class="check"><input id="show-template-boundaries" type="checkbox"> Show body drawing bounds</label>
+        </div>
+        <p class="note">This attack reuses one head drawing across all nine frames. The original neck attachment and hat positions are preserved. Select “Original body” and “Original RO head” to compare source artwork.</p>
+      </div>
+      <div class="facts-panel">
+        <p class="eyebrow">CURRENT SOURCE FRAME</p><h3>Read directly from the action.</h3>
+        <table id="source-facts"><caption class="sr-only">Original frame data and attachment positions</caption><tbody><tr><th scope="row">Action</th><td>86 · male Swordsman</td></tr><tr><th scope="row">Frame duration</th><td>96 ms</td></tr><tr><th scope="row">SPR index / offset</th><td>Loading…</td></tr><tr><th scope="row">Head anchor</th><td>Loading…</td></tr></tbody></table>
+        <p id="regression-status" class="note" role="status">Checking original rendering against the existing reference export…</p>
+      </div>
+    </section>
+
+    <section class="performance-panel" aria-labelledby="performance-title">
+      <div class="section-heading">
+        <div><p class="eyebrow">TRY MORE CHARACTERS</p><h3 id="performance-title">How does it run?</h3></div>
+        <div class="performance-controls"><label for="actor-count">Characters</label><select id="actor-count"><option value="1">1</option><option value="32" selected>32</option><option value="128">128</option></select><button id="benchmark" type="button" disabled>Measure performance</button></div>
+      </div>
+      <canvas id="performance-canvas" width="960" height="360" role="img" aria-label="Repeated characters using the selected costume and equipment to inspect local browser rendering performance.">Canvas support is needed to show the performance scene.</canvas>
+      <div class="performance-readout"><output id="perf-status" role="status" aria-live="polite">Preparing the scene…</output><output id="perf-results" aria-label="Measured browser performance"></output></div>
+      <p class="note">The live scene repeats the selected character using cached frames. Measurements describe this page in your local browser, not a game-engine benchmark.</p>
+    </section>
+
+    <section class="drawing-panel" aria-labelledby="drawing-title">
+      <div class="section-heading"><div><p class="eyebrow">THE REUSABLE TEMPLATE</p><h3 id="drawing-title">Five drawings make this nine-frame action.</h3></div><p class="note">Repeated frames reuse the same sprite slot.</p></div>
+      <div id="slot-gallery" class="slot-gallery" aria-label="The five unique body drawings and their replacements"><p class="note">Loading the pose templates…</p></div>
+    </section>
+
+    <details class="format-notes">
+      <summary>What RO’s modular template actually contains <span>SPR drawings + ACT animation data</span></summary>
+      <div class="format-body">
+        <section><h3>The drawings and the instructions.</h3><p><strong>SPR</strong> stores the sprite artwork. <strong>ACT</strong> selects drawings over time and records their positions, transforms, timing, and attachment anchors. The body and clothes are one module; head, headgear, weapon, and effects are separate modules.</p><p><strong>Body poses are complete drawings. An ACT does not pose a single unposed character.</strong> A replacement costume needs artwork for the sprite slots used by the action, with compatible alignment.</p></section>
+        <section><h3>This small test.</h3><p>Local male Swordsman action 86: the east / southeast dagger attack, reconstructed from the available ACT and SPR data. Its nine frames use five unique body drawings and one head drawing, held for 96 ms each. The source is retained, including its repeated drawings and final follow-through.</p><p>The Wayfarer head and clothes follow those pose templates. Separate equipment follows its source action data. The original head remains selectable; hats, weapon and effects are reference assets. This is a local reconstruction, not footage captured from the official client.</p></section>
+        <section class="source-links"><h3>References and earlier studies.</h3><a href="https://github.com/Tokeiburu/ActEditor" target="_blank" rel="noreferrer">Tokeiburu’s Act Editor ↗</a><a href="https://ragnarokresearchlab.github.io/file-formats/act/" target="_blank" rel="noreferrer">Ragnarok Research Lab · ACT format ↗</a><a href="https://ragnarokresearchlab.github.io/file-formats/spr/" target="_blank" rel="noreferrer">Ragnarok Research Lab · SPR format ↗</a><a href="modular.html">Previous cutout study ↗</a><a href="video.html">Generated video study ↗</a></section>
+      </div>
+    </details>
+    <p class="scope-note">This test covers one action and one facing. A full replacement job needs matching drawings for its other actions and directions; headgear and weapon artwork must also match their required views.</p>
+  </main>
+  <footer><span>Keep the action. Study the artwork.</span><span>LOCAL PROTOTYPE / CHARACTER LAB</span></footer>
+  <script type="module" src="native.js"></script>
+</body>
+</html>

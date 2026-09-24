@@ -1,0 +1,21 @@
+{
+	"character": {
+		"base_level": 6,
+		"bash_level": 1,
+		"job_class": "Swordsman",
+		"job_level": 2
+	},
+	"check_count": 47,
+	"command": ".tools/Godot.app/Contents/MacOS/Godot --headless --path . --script res://tests/progression_playthrough.gd -- --qa-progression",
+	"engine_version": "4.5.1-stable (official)",
+	"fixture": "Fresh default novice in the real main scene; --qa-progression disables loading and saving. No stat, damage, EXP, death or position injection.",
+	"game_seconds": 198.32,
+	"max_fps": 120,
+	"natural_kills": 20,
+	"potion_uses": 6,
+	"recorded_utc": "2026-09-23T13:27:28Z",
+	"result": "pass",
+	"save_unchanged": true,
+	"time_scale": 8.0,
+	"wall_seconds": 25.06
+}
