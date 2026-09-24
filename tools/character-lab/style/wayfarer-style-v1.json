@@ -1,0 +1,99 @@
+{
+	"colors": [
+		"#010101",
+		"#090306",
+		"#11080b",
+		"#250f13",
+		"#361714",
+		"#2f1c29",
+		"#411f1a",
+		"#532220",
+		"#4a271a",
+		"#79146b",
+		"#34313a",
+		"#572d20",
+		"#4c2e39",
+		"#663628",
+		"#3c414b",
+		"#5d3f47",
+		"#744030",
+		"#474f57",
+		"#804b37",
+		"#6f4e55",
+		"#525f64",
+		"#96543d",
+		"#8b583f",
+		"#7d5c60",
+		"#5e6e70",
+		"#996146",
+		"#8e6968",
+		"#ad6644",
+		"#a26a4c",
+		"#687b7a",
+		"#9b766f",
+		"#b9744f",
+		"#a78377",
+		"#c78259",
+		"#b59182",
+		"#cc9062",
+		"#df927b",
+		"#d2996c",
+		"#e3a069",
+		"#eea182",
+		"#d1ad93",
+		"#eeb073",
+		"#f4bd86",
+		"#e9c3a1",
+		"#f8ce9d",
+		"#f9deb5",
+		"#fcefc6",
+		"#fbf7ee"
+	],
+	"derivedFrom": {
+		"method": "median cut in Oklab (chroma x1.0), variance split score, 6 Lloyd passes, RGB cluster mean, luminance order",
+		"requestedColors": 48,
+		"sources": [
+			{
+				"file": "res://tools/character-lab/assets/native-wayfarer-v2/costume/body/054.png",
+				"pixels": 1698,
+				"sha256": "9a08bdd806e42ae51a1a7cf13f78e0542050c814f4b8e43f4f01fb0bc79873f2"
+			},
+			{
+				"file": "res://tools/character-lab/assets/native-wayfarer-v2/costume/body/082.png",
+				"pixels": 1625,
+				"sha256": "c4373715ba19ac7a5c8e8b80a689443e0d451240a139729397cb55a112c1defd"
+			},
+			{
+				"file": "res://tools/character-lab/assets/native-wayfarer-v2/costume/body/083.png",
+				"pixels": 1500,
+				"sha256": "a90c6106ac4c8b7a796c2fc79af4f845d5c05a73e1e3369d67bcb12df07f41ec"
+			},
+			{
+				"file": "res://tools/character-lab/assets/native-wayfarer-v2/costume/body/084.png",
+				"pixels": 1592,
+				"sha256": "c1186426fd18f74f4d62574b673a7847aede95cb2a462ce65c7e7b4a870dbe32"
+			},
+			{
+				"file": "res://tools/character-lab/assets/native-wayfarer-v2/costume/body/085.png",
+				"pixels": 1398,
+				"sha256": "bb8645e3e04a83aa9269d07bf439601fed2736da183ec9bd990719f224e990fc"
+			},
+			{
+				"file": "res://tools/character-lab/assets/native-wayfarer-v2/costume/body/086.png",
+				"pixels": 1363,
+				"sha256": "18ddd11004c104e27af4f5c33685651b02da6aac720fd8e46c3dfa67506631ec"
+			},
+			{
+				"file": "res://tools/character-lab/assets/native-head-v1/head/001.png",
+				"pixels": 420,
+				"sha256": "eceecc9f4653b78ef9146bdd7b576b1ac2ad21ffc92a142f803fc028b96f9cde"
+			}
+		],
+		"weighting": "variance"
+	},
+	"id": "wayfarer-style-v1",
+	"key": "#ff00ff",
+	"keyBlendThreshold": 0.5,
+	"note": "Opaque style colors; transparency is separate (SPR index 0). Edit by hand, then bump id.",
+	"schemaVersion": 1
+}

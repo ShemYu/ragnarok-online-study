@@ -1,6 +1,8 @@
 import {nativeFrameAt,nativePartFrame,composeNative,pixelDifference} from './native-core.mjs';
 
 const BASE='./assets/native-template-v1/', WAYFARER='./assets/native-wayfarer-v2/', EQUIPMENT='./assets/native-equipment-v1/', HEAD='./assets/native-head-v1/';
+// Palette-indexed imports (inspection A1–A3). Optional: the page still works without them.
+const WAYFARER_INDEXED='./assets/native-wayfarer-v3/', HEAD_INDEXED='./assets/native-head-v2/';
 const $=id=>document.getElementById(id);
 let template,equipment,originalTextures,frame=0,playing=false,time=0,last=0,completed=false,ready=false;
 const outfits={},heads={},gearTextures={},cache=new Map(),MAX_CACHE=128;
@@ -12,6 +14,7 @@ const duration=()=>template.sequences.attack.durationMs;
 const delay=()=>template.parts.body.actions.attack.delayMs;
 
 async function json(path,base=BASE){const r=await fetch(base+path);if(!r.ok)throw new Error(`Cannot load ${path} (${r.status}).`);return r.json();}
+async function optionalJson(path,base){try{return await json(path,base);}catch{return null;}}
 async function pixels(path,base=BASE) {
   const image=new Image();image.src=base+path;await image.decode();
   const c=document.createElement('canvas');c.width=image.naturalWidth;c.height=image.naturalHeight;
@@ -131,14 +134,20 @@ function gallery() {
   }
 }
 try {
-  const [source,oldCostume,wayfarer,gear,headDefinition]=await Promise.all([json('template.json'),json('costume.json'),json('costume.json',WAYFARER),json('equipment.json',EQUIPMENT),json('head.json',HEAD)]);template=source;equipment=gear;
+  const [source,oldCostume,wayfarer,gear,headDefinition,indexedCostume,indexedHead]=await Promise.all([json('template.json'),json('costume.json'),json('costume.json',WAYFARER),json('equipment.json',EQUIPMENT),json('head.json',HEAD),optionalJson('costume.json',WAYFARER_INDEXED),optionalJson('head.json',HEAD_INDEXED)]);template=source;equipment=gear;
   originalTextures={};await Promise.all(Object.entries(template.parts).map(async([part,definition])=>{originalTextures[part]=await loadTextures(definition.textures,BASE);}));
   outfits.original=originalTextures;
   heads.original=originalTextures.head;
   const replacementHead=await loadTextures(headDefinition.head,HEAD);
   for(const [index,image] of Object.entries(replacementHead)){const sourceHead=originalTextures.head[index];if(!sourceHead||image.width!==sourceHead.width||image.height!==sourceHead.height)throw new Error(`Head ${index} does not fit its native SPR slot.`);}
   heads.wayfarer={...originalTextures.head,...replacementHead};
-  for(const [name,definition,base] of [['custom',oldCostume,BASE],['wayfarer',wayfarer,WAYFARER]]){
+  if(indexedHead){
+    const head=await loadTextures(indexedHead.head,HEAD_INDEXED);
+    for(const [index,image] of Object.entries(head)){const sourceHead=originalTextures.head[index];if(!sourceHead||image.width!==sourceHead.width||image.height!==sourceHead.height)throw new Error(`Indexed head ${index} does not fit its native SPR slot.`);}
+    heads['wayfarer-indexed']={...originalTextures.head,...head};
+  } else $('head-select').querySelector('[value="wayfarer-indexed"]')?.remove();
+  if(!indexedCostume)$('costume-select').querySelector('[value="wayfarer-indexed"]')?.remove();
+  for(const [name,definition,base] of [['custom',oldCostume,BASE],['wayfarer',wayfarer,WAYFARER],...(indexedCostume?[['wayfarer-indexed',indexedCostume,WAYFARER_INDEXED]]:[])]){
     const body=await loadTextures(definition.body,base);
     for(const [index,image] of Object.entries(body)){const original=originalTextures.body[index];if(!original||image.width!==original.width||image.height!==original.height)throw new Error(`Replacement ${index} does not fit its SPR slot.`);}
     outfits[name]={...originalTextures,body:{...originalTextures.body,...body}};
@@ -148,16 +157,16 @@ try {
     const option=document.createElement('option');option.value=id;option.textContent=definition.label||definition.name||`RO ${id}`;$('headgear-select').append(option);
   }
   const checks=[];
-  for(const [name,base,prefix] of [['original',BASE,'attack/'],['custom',BASE,'costume/attack/'],['wayfarer',WAYFARER,'costume/attack/']]){
+  for(const [name,base,prefix] of [['original',BASE,'attack/'],['custom',BASE,'costume/attack/'],['wayfarer',WAYFARER,'costume/attack/'],...(indexedCostume?[['wayfarer-indexed',WAYFARER_INDEXED,'costume/attack/']]:[])]){
     for(let i=0;i<9;i++)checks.push((async()=>pixelDifference(composeNative(template,outfits[name],i),await pixels(`${prefix}frame-${String(i).padStart(2,'0')}.png`,base)))());
   }
   for(const [id,definition] of Object.entries(equipment.parts)){
     const {model,textures}=assembly({outfit:'original',gear:id});
     for(let i=0;i<9;i++)checks.push((async()=>pixelDifference(composeNative(model,textures,i),await pixels(definition.sequences.attack.frames[i].file,EQUIPMENT)))());
   }
-  for(const gear of ['none','cap','hat']){
-    const {model,textures}=assembly({outfit:'wayfarer',head:'wayfarer',gear});
-    for(let i=0;i<9;i++)checks.push((async()=>pixelDifference(composeNative(model,textures,i),await pixels(headDefinition.sequences[gear].frames[i].file,HEAD)))());
+  for(const [outfit,head,definition,base] of [['wayfarer','wayfarer',headDefinition,HEAD],...(indexedCostume&&indexedHead?[['wayfarer-indexed','wayfarer-indexed',indexedHead,HEAD_INDEXED]]:[])])for(const gear of ['none','cap','hat']){
+    const {model,textures}=assembly({outfit,head,gear});
+    for(let i=0;i<9;i++)checks.push((async()=>pixelDifference(composeNative(model,textures,i),await pixels(definition.sequences[gear].frames[i].file,base)))());
   }
   const results=await Promise.all(checks),exact=results.every(result=>result.pixels===0);
   $('regression-status').textContent=exact?`Verified: ${results.length} original, costume, head and equipment frames match the local native-data renderer pixel for pixel. Source ACT files are unchanged.`:'Renderer verification failed; inspect the native frame comparison before relying on this result.';

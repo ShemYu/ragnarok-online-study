@@ -25,6 +25,36 @@ All paths in the table are relative to `tools/character-lab/` unless stated othe
 
 The current importer uses normalized RGB thresholds `r > 0.65`, `b > 0.6`, `g < 0.45` and `r + b - 2*g > 0.85` for the magenta key. This is a saved adapter choice, not a universal transparency rule. A future design containing magenta needs a different keyed background or a transparent-image adapter, followed by fresh review.
 
+## Indexed style-palette adapter (2026-09-24)
+
+Added after the [workflow inspection](INSPECTION-2026-09-24.md), items A1–A3. `--palette=<style.json>` on either importer selects `indexed_import.gd` instead of the resize-and-threshold path above. Without the flag, both importers still reproduce `native-wayfarer-v2` and `native-head-v1` byte for byte.
+
+- **Palette only.** Every opaque output pixel is an exact entry of the style palette, with full alpha. Body and head of one character, and different characters of one style, share the same file. Manifests record `import.palette` (id, path, SHA-256) and per-slot `uniqueColors`, `offPalettePixels`, `keyTintedPixels` and `partialAlphaPixels`; the import asserts that the last three are zero.
+- **Grid-independent downscale.** Each source pixel is classified first. Each target pixel then takes the majority class of its fractional source block (ties: the block center). A 1536×1024 result of a 1440×960 reference imports correctly.
+- **Key unmixing.** An edge pixel is modelled as `t·magenta + (1−t)·palette color`; `t ≥ keyBlendThreshold` (0.5) becomes transparent, otherwise the palette color.
+
+Build or rebuild a palette from accepted artwork, then review and edit it by hand. It is an asset with its own version:
+
+```sh
+.tools/Godot.app/Contents/MacOS/Godot --headless --path . --script res://tools/character-lab/build_style_palette.gd -- \
+  --id=wayfarer-style-v1 --colors=48 --out=res://tools/character-lab/style/wayfarer-style-v1.json \
+  --inputs=<comma-separated accepted slot PNGs>
+```
+
+The default split is variance-based median cut in Oklab plus six k-means passes. Population weighting under-served the small teal vest; the variance split gives it a three-to-four shade ramp. Automatic palettes remain a bootstrap. Hand-authored material ramps belong to the style bible (inspection A4).
+
+Import a new pack from a saved generated board without touching earlier packs:
+
+```sh
+G=.tools/Godot.app/Contents/MacOS/Godot; A=res://tools/character-lab/assets; P=res://tools/character-lab/style/wayfarer-style-v1.json
+$G --headless --path . --script res://tools/character-lab/import_native_costume.gd -- --output-dir=$A/native-wayfarer-v3/ --source=$A/native-wayfarer-v2/costume-slot-board.png --palette=$P
+$G --headless --path . --script res://tools/character-lab/import_native_head.gd -- --output-dir=$A/native-head-v2/ --source=$A/native-head-v1/generated-head.png --costume=$A/native-wayfarer-v3/ --palette=$P
+$G --headless --path . --script res://tests/indexed_import_test.gd
+node --test tools/character-lab/tests/native-indexed.test.mjs
+```
+
+`indexed_import_test.gd` uses synthetic images only. `native-indexed.test.mjs` needs the local packs; it checks palette membership and 36 frames of Node/Godot pixel parity. The viewer offers both packs as "style palette" options and includes them in its startup parity check.
+
 ## Reproduce the existing candidate
 
 For review and version preservation, use the implemented snapshot entry point first:

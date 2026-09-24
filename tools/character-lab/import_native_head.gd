@@ -1,15 +1,31 @@
 extends SceneTree
 ## Replace native head SPR 1; preserve all head/body/equipment ACT records.
+## Options: --output-dir=<pack> --source=<generated board> --costume=<body pack>
+## --palette=<style.json> (indexed adapter, inspection A1–A3). Defaults reproduce native-head-v1.
 const Actor = preload("res://scripts/ro_sprite_actor.gd")
 const SpriteData = preload("res://scripts/ro_sprite_data.gd")
-const BASE := "res://tools/character-lab/assets/native-head-v1/"
+const Indexed = preload("res://tools/character-lab/indexed_import.gd")
+const SLOT := "res://tools/character-lab/assets/native-head-v1/"
 const TEMPLATE := "res://tools/character-lab/assets/native-template-v1/"
-const COSTUME := "res://tools/character-lab/assets/native-wayfarer-v2/"
 const EQUIPMENT := "res://tools/character-lab/assets/native-equipment-v1/"
-const SOURCE := BASE+"generated-head.png"
 const VIEW := 6
+var BASE := SLOT
+var COSTUME := "res://tools/character-lab/assets/native-wayfarer-v2/"
+var SOURCE := ""
+var PALETTE_PATH := ""
 
 func _initialize() -> void:
+	for argument in OS.get_cmdline_user_args():
+		if argument.begins_with("--output-dir="):
+			BASE = argument.trim_prefix("--output-dir=").trim_suffix("/")+"/"
+		elif argument.begins_with("--source="):
+			SOURCE = argument.trim_prefix("--source=")
+		elif argument.begins_with("--costume="):
+			COSTUME = argument.trim_prefix("--costume=").trim_suffix("/")+"/"
+		elif argument.begins_with("--palette="):
+			PALETTE_PATH = argument.trim_prefix("--palette=")
+	if SOURCE.is_empty():
+		SOURCE = BASE+"generated-head.png"
 	call_deferred("run")
 
 func rect_array(rect: Rect2i) -> Array:
@@ -17,7 +33,8 @@ func rect_array(rect: Rect2i) -> Array:
 
 func save_image(image: Image, path: String) -> Dictionary:
 	DirAccess.make_dir_recursive_absolute(ProjectSettings.globalize_path((BASE+path).get_base_dir()))
-	assert(image.save_png(BASE+path) == OK,"Cannot save "+path)
+	if not Indexed.save_png(image,BASE+path):
+		quit(1)
 	return {"file":path,"width":image.get_width(),"height":image.get_height(),"sha256":FileAccess.get_sha256(BASE+path),"bounds":rect_array(image.get_used_rect())}
 
 func visible_pixels(image: Image) -> int:
@@ -47,22 +64,32 @@ func fingerprints(parts: Dictionary) -> Dictionary:
 	return result
 
 func run() -> void:
-	var layout: Dictionary = JSON.parse_string(FileAccess.get_file_as_string(BASE+"head-slot.json"))
+	var layout: Dictionary = JSON.parse_string(FileAccess.get_file_as_string(SLOT+"head-slot.json"))
 	var template: Dictionary = JSON.parse_string(FileAccess.get_file_as_string(TEMPLATE+"template.json"))
 	var costume: Dictionary = JSON.parse_string(FileAccess.get_file_as_string(COSTUME+"costume.json"))
 	var equipment: Dictionary = JSON.parse_string(FileAccess.get_file_as_string(EQUIPMENT+"equipment.json"))
 	var board := Image.load_from_file(SOURCE)
 	assert(board != null,"Generated head board missing")
 	var source_size := board.get_size()
-	board.convert(Image.FORMAT_RGBA8)
-	board.resize(int(layout.canvas[0]),int(layout.canvas[1]),Image.INTERPOLATE_NEAREST)
 	var keyed_pixels := 0
-	for y in board.get_height():
-		for x in board.get_width():
-			var color := board.get_pixel(x,y)
-			if color.r > 0.65 and color.b > 0.6 and color.g < 0.45 and color.r+color.b-2*color.g > 0.85:
-				board.set_pixel(x,y,Color(0,0,0,0))
-				keyed_pixels += 1
+	var palette := {}
+	var indexed_stats := {}
+	if PALETTE_PATH:
+		palette = Indexed.load_palette(PALETTE_PATH)
+		assert(not palette.is_empty(),"Style palette missing")
+		var imported: Dictionary = Indexed.import_board(board,Vector2i(int(layout.canvas[0]),int(layout.canvas[1])),palette)
+		board = imported.image
+		indexed_stats = imported.stats
+		keyed_pixels = board.get_width()*board.get_height()-visible_pixels(board)
+	else:
+		board.convert(Image.FORMAT_RGBA8)
+		board.resize(int(layout.canvas[0]),int(layout.canvas[1]),Image.INTERPOLATE_NEAREST)
+		for y in board.get_height():
+			for x in board.get_width():
+				var color := board.get_pixel(x,y)
+				if color.r > 0.65 and color.b > 0.6 and color.g < 0.45 and color.r+color.b-2*color.g > 0.85:
+					board.set_pixel(x,y,Color(0,0,0,0))
+					keyed_pixels += 1
 	var crop := Rect2i(int(layout.imageRect[0]),int(layout.imageRect[1]),int(layout.imageRect[2]),int(layout.imageRect[3]))
 	var replacement := board.get_region(crop)
 	var original := Image.load_from_file(TEMPLATE+"sprites/head/001.png")
@@ -72,13 +99,20 @@ func run() -> void:
 	head_metadata["imageRect"] = layout.imageRect
 	var diagnostic := alpha_overlap(original,replacement)
 	diagnostic["visiblePixelsOutsideFixedCrop"] = visible_pixels(board)-visible_pixels(replacement)
+	diagnostic["uniqueColors"] = Indexed.unique_colors(replacement)
+	diagnostic["nativeUniqueColors"] = Indexed.unique_colors(original)
+	if PALETTE_PATH:
+		diagnostic.merge(Indexed.validate(replacement,palette))
+		assert(diagnostic.offPalettePixels == 0 and diagnostic.keyTintedPixels == 0 and diagnostic.partialAlphaPixels == 0,"Indexed head is not clean")
 	var output := {
-		"schemaVersion":1,"name":"Wayfarer head on original RO attachment action","sourceImage":"generated-head.png","sourceImageSha256":FileAccess.get_sha256(SOURCE),"sourceImageSize":[source_size.x,source_size.y],
-		"sourceDirection":VIEW,"sourceHeadIndex":1,"originalTemplate":TEMPLATE+"template.json","originalTemplateSha256":FileAccess.get_sha256(TEMPLATE+"template.json"),"costumeManifest":COSTUME+"costume.json","costumeManifestSha256":FileAccess.get_sha256(COSTUME+"costume.json"),"equipmentManifestSha256":FileAccess.get_sha256(EQUIPMENT+"equipment.json"),"slotMetadataSha256":FileAccess.get_sha256(BASE+"head-slot.json"),
+		"schemaVersion":1,"name":"Wayfarer head on original RO attachment action","sourceImage":SOURCE.trim_prefix(BASE) if SOURCE.begins_with(BASE) else SOURCE,"sourceImageSha256":FileAccess.get_sha256(SOURCE),"sourceImageSize":[source_size.x,source_size.y],
+		"sourceDirection":VIEW,"sourceHeadIndex":1,"originalTemplate":TEMPLATE+"template.json","originalTemplateSha256":FileAccess.get_sha256(TEMPLATE+"template.json"),"costumeManifest":COSTUME+"costume.json","costumeManifestSha256":FileAccess.get_sha256(COSTUME+"costume.json"),"equipmentManifestSha256":FileAccess.get_sha256(EQUIPMENT+"equipment.json"),"slotMetadataSha256":FileAccess.get_sha256(SLOT+"head-slot.json"),
 		"import":{"operation":"Resize entire board to 64x64 nearest-neighbor once, remove magenta background, then fixed [17,19,30,26] crop. No individual recentering, resizing, silhouette masks, warping, or ACT edits.","nativeBoardSize":[64,64],"backgroundKey":"r > 0.65 and b > 0.6 and g < 0.45 and r+b-2*g > 0.85 (RGB normalized 0..1)","backgroundPixelsRemoved":keyed_pixels,"normalizedBoard":save_image(board,"imported-board.png")},
 		"head":{"1":head_metadata},"diagnostics":{"1":diagnostic},"sequences":{},"sourceFiles":{},
 		"limits":["One facing and one head image slot, reused by all nine native attack frames; not a full head direction library.","Generated replacement face and hair use the original head slot registration and ACT. A headgear module remains a separate original RO reference asset.","Wayfarer costume repaint and original dagger/trail are retained; reference composites use the local renderer, not the official client.","Geometry and timing checks do not constitute artistic approval of the head or every headgear combination."]
 	}
+	if PALETTE_PATH:
+		output.import = {"adapter":Indexed.ADAPTER,"operation":"Classify every source pixel against the style palette (magenta edges unmixed), then take the majority class of each fractional block of the whole board, then fixed [17,19,30,26] crop. No individual recentering, resizing, silhouette masks, warping, or ACT edits.","nativeBoardSize":[64,64],"palette":{"id":palette.id,"file":PALETTE_PATH,"sha256":palette.sha256,"colors":palette.colors.size()},"backgroundPixelsRemoved":keyed_pixels,"stats":indexed_stats,"normalizedBoard":output.import.normalizedBoard}
 	var actor := Actor.new()
 	root.add_child(actor)
 	actor.configure("swordsman")

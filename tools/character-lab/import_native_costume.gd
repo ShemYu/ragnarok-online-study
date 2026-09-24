@@ -1,24 +1,34 @@
 extends SceneTree
 ## Deterministic import of the generated repaint into unchanged native SPR slots.
 ## No per-sprite alignment, warping, masking to source silhouettes, or ACT edits.
+## --palette=<style.json> selects the indexed adapter (inspection A1–A3):
+## block-majority downscale, key unmixing and palette-only output.
 const Actor = preload("res://scripts/ro_sprite_actor.gd")
+const Indexed = preload("res://tools/character-lab/indexed_import.gd")
 const TEMPLATE_BASE := "res://tools/character-lab/assets/native-template-v1/"
 var BASE := TEMPLATE_BASE
 var SOURCE := BASE+"costume-slot-board.png"
+var SOURCE_OVERRIDE := ""
+var PALETTE_PATH := ""
 const PART_NAMES := ["body","head","weapon","trail"]
 
 func _initialize() -> void:
 	for argument in OS.get_cmdline_user_args():
 		if argument.begins_with("--output-dir="):
 			BASE = argument.trim_prefix("--output-dir=").trim_suffix("/")+"/"
-	SOURCE = BASE+"costume-slot-board.png"
+		elif argument.begins_with("--source="):
+			SOURCE_OVERRIDE = argument.trim_prefix("--source=")
+		elif argument.begins_with("--palette="):
+			PALETTE_PATH = argument.trim_prefix("--palette=")
+	SOURCE = SOURCE_OVERRIDE if SOURCE_OVERRIDE else BASE+"costume-slot-board.png"
 	call_deferred("run")
 
 func rect_array(rect: Rect2i) -> Array:
 	return [rect.position.x,rect.position.y,rect.size.x,rect.size.y]
 
 func save_image(image: Image, path: String) -> Dictionary:
-	assert(image.save_png(BASE+path) == OK,"Cannot save "+path)
+	if not Indexed.save_png(image,BASE+path):
+		quit(1)
 	return {"file":path,"width":image.get_width(),"height":image.get_height(),"sha256":FileAccess.get_sha256(BASE+path),"bounds":rect_array(image.get_used_rect())}
 
 func visible_pixels(image: Image) -> int:
@@ -59,19 +69,29 @@ func run() -> void:
 	var board := Image.load_from_file(SOURCE)
 	assert(board != null,"Generated costume board missing")
 	var source_size := board.get_size()
-	board.convert(Image.FORMAT_RGBA8)
-	board.resize(int(layout.canvas[0]),int(layout.canvas[1]),Image.INTERPOLATE_NEAREST)
+	var palette := {}
+	var indexed_stats := {}
 	var keyed_pixels := 0
-	for y in board.get_height():
-		for x in board.get_width():
-			var color := board.get_pixel(x,y)
-			if color.r > 0.65 and color.b > 0.6 and color.g < 0.45 and color.r+color.b-2*color.g > 0.85:
-				board.set_pixel(x,y,Color(0,0,0,0))
-				keyed_pixels += 1
+	if PALETTE_PATH:
+		palette = Indexed.load_palette(PALETTE_PATH)
+		assert(not palette.is_empty(),"Style palette missing")
+		var imported: Dictionary = Indexed.import_board(board,Vector2i(int(layout.canvas[0]),int(layout.canvas[1])),palette)
+		board = imported.image
+		indexed_stats = imported.stats
+		keyed_pixels = board.get_width()*board.get_height()-visible_pixels(board)
+	else:
+		board.convert(Image.FORMAT_RGBA8)
+		board.resize(int(layout.canvas[0]),int(layout.canvas[1]),Image.INTERPOLATE_NEAREST)
+		for y in board.get_height():
+			for x in board.get_width():
+				var color := board.get_pixel(x,y)
+				if color.r > 0.65 and color.b > 0.6 and color.g < 0.45 and color.r+color.b-2*color.g > 0.85:
+					board.set_pixel(x,y,Color(0,0,0,0))
+					keyed_pixels += 1
 	var result := {
 		"name":"Wayfarer costume on native Swordsman action",
 		"schemaVersion":1,
-		"sourceImage":"costume-slot-board.png",
+		"sourceImage":SOURCE.trim_prefix(BASE) if SOURCE.begins_with(BASE) else SOURCE,
 		"sourceImageSha256":FileAccess.get_sha256(SOURCE),
 		"sourceImageSize":[source_size.x,source_size.y],
 		"originalTemplate":TEMPLATE_BASE+"template.json",
@@ -81,6 +101,8 @@ func run() -> void:
 		"body":{},"sequences":{},"diagnostics":{},
 		"caveats":["Repaint derived from original RO body references; original head, weapon and trail remain native reference artwork.","Same bitmap dimensions and ACT data preserve the template, but generated pixels can still drift inside their slots. Per-slot alpha overlap quantifies this rather than proving artistic approval.","Reconstruction through the existing local renderer, not a capture of the official game client."]
 	}
+	if PALETTE_PATH:
+		result.import = {"adapter":Indexed.ADAPTER,"operation":"Classify every source pixel against the style palette (magenta edges unmixed), then take the majority class of each fractional block of the whole board, then fixed imageRect crops from sprite-slots.json. No individual resizing, recentering, source silhouette masks, warping, or ACT edits.","nativeBoardSize":[288,192],"palette":{"id":palette.id,"file":PALETTE_PATH,"sha256":palette.sha256,"colors":palette.colors.size()},"backgroundPixelsRemoved":keyed_pixels,"stats":indexed_stats}
 	result.import["normalizedBoard"] = save_image(board,"costume/imported-board.png")
 	var replacements: Dictionary = {}
 	for slot: Dictionary in layout.slots:
@@ -97,9 +119,14 @@ func run() -> void:
 		result.body[str(index)] = metadata
 		var diagnostic := alpha_overlap(original,replacement)
 		diagnostic["visiblePixelsOutsideFixedCrop"] = visible_pixels(board.get_region(cell))-visible_pixels(replacement)
+		diagnostic["uniqueColors"] = Indexed.unique_colors(replacement)
+		diagnostic["nativeUniqueColors"] = Indexed.unique_colors(original)
+		if PALETTE_PATH:
+			diagnostic.merge(Indexed.validate(replacement,palette))
+			assert(diagnostic.offPalettePixels == 0 and diagnostic.keyTintedPixels == 0 and diagnostic.partialAlphaPixels == 0,"Indexed slot %d is not clean" % index)
 		result.diagnostics[str(index)] = diagnostic
 		replacements[index] = ImageTexture.create_from_image(replacement)
-		print("SPR %d alphaIoU %.6f; outside fixed crop: %d pixels" % [index,diagnostic.alphaIoU,diagnostic.visiblePixelsOutsideFixedCrop])
+		print("SPR %d alphaIoU %.6f; outside fixed crop: %d pixels; colors %d (native %d)" % [index,diagnostic.alphaIoU,diagnostic.visiblePixelsOutsideFixedCrop,diagnostic.uniqueColors,diagnostic.nativeUniqueColors])
 	var scene := Node3D.new()
 	root.add_child(scene)
 	var actor := Actor.new()

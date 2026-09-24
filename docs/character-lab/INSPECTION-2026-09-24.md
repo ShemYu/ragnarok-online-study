@@ -14,13 +14,13 @@ Each item keeps its evidence so the detail is not lost, and an *Expected result*
 
 ## A. Style consistency — blocks "many characters, same style"
 
-- [ ] **A1. No palette discipline.** Unique colors per sprite: native body slots 82–86 use 37–49 colors, generated Wayfarer slots use 1,347–1,691; native head slot 1 uses 19, generated head 417. RO sprites are indexed (one 256-color palette, index 0 transparent). This is the main source of style drift between characters, and it prevents palette dyes (RO's cheap clothing/hair variants) and writing back real `.spr` files.
+- [~] **A1. No palette discipline.** Unique colors per sprite: native body slots 82–86 use 37–49 colors, generated Wayfarer slots use 1,347–1,691; native head slot 1 uses 19, generated head 417. RO sprites are indexed (one 256-color palette, index 0 transparent). This is the main source of style drift between characters, and it prevents palette dyes (RO's cheap clothing/hair variants) and writing back real `.spr` files.
   *Fix:* importers quantize every pixel to a fixed, versioned **style palette** (shared skin/outline/metal/leather ramps + per-character costume ramps). Record the palette hash in the manifest; fail when pixels are outside it.
   *Expected result:* Every replacement slot uses only colors from one reviewed palette (target: tens of colors per slot, like native, not ~1,500). Two different characters imported with the same palette share skin, outline and metal colors exactly. Manifests record the palette id and SHA-256, and the import fails on off-palette pixels. Recolors become palette edits, not new drawings.
-- [ ] **A2. Resize grid is not aligned.** The body reference board was 1440×960 (5×); ImageGen returned 1536×1024 (5.333×). `import_native_costume.gd` resizes straight to 288×192 with nearest sampling, so each output pixel is one arbitrary sample of a 5.33-pixel block → doubled/dropped pixels and noisy clusters. `import_native_head.gd` has the same issue (1024 → 64).
+- [x] **A2. Resize grid is not aligned.** The body reference board was 1440×960 (5×); ImageGen returned 1536×1024 (5.333×). `import_native_costume.gd` resizes straight to 288×192 with nearest sampling, so each output pixel is one arbitrary sample of a 5.33-pixel block → doubled/dropped pixels and noisy clusters. `import_native_head.gd` has the same issue (1024 → 64).
   *Fix:* per target pixel, classify all source pixels inside its (fractional) block against the palette and take the majority class. Deterministic, grid-independent, no single-sample noise.
   *Expected result:* Importing the same generated board at 1440×960, 1536×1024 or any other size of the same layout gives the same slot bitmaps (or near-identical ones). No isolated single-pixel speckle from sampling; outlines stay continuous.
-- [ ] **A3. Magenta fringe survives the key.** 1–5 pinkish opaque pixels remain in most body slots and in the head (visible at hair edges on `native-head-v1/none/attack/contact-3x.png`). The RGB threshold key misses anti-aliased blends of magenta with sprite colors.
+- [x] **A3. Magenta fringe survives the key.** 1–5 pinkish opaque pixels remain in most body slots and in the head (visible at hair edges on `native-head-v1/none/attack/contact-3x.png`). The RGB threshold key misses anti-aliased blends of magenta with sprite colors.
   *Fix:* treat a pixel as `t·key + (1−t)·paletteColor`; if the best fit is mostly key, it is transparent, otherwise it becomes the palette color. Report remaining key-like pixels; fail if any survive.
   *Expected result:* Zero pink/magenta-tinted opaque pixels in any imported slot, reported as a counted diagnostic. Hair and sleeve edges read cleanly on the contact sheet at 3×.
 - [ ] **A4. No machine-readable style bible.** Style lives in prose in each `prompt.txt` plus one design reference image. For the 2nd…10th character, store once and reuse in every prompt and check: palette, outline color, light direction (RO: top-left), cluster size, head:body ratio, per-character turnaround sheet.
@@ -56,7 +56,7 @@ Each item keeps its evidence so the detail is not lost, and an *Expected result*
   *Expected result:* Public CI runs `native-core.mjs` tests on synthetic fixtures (no RO files) and fails on composition, attachment or draw-order regressions.
 - [ ] **D14. Importers are Wayfarer-specific.** The head importer hardcodes the Wayfarer body pack and head slot; the costume importer only accepts `--output-dir`. Move this into the recipe loader proposed in [WORKFLOW.md](WORKFLOW.md), including palette/style-bible references from A1/A4.
   *Expected result:* Body and head imports run from one recipe file for any character/pack. Wayfarer v2 is reproduced byte-for-byte through the recipe, and a second character needs only a new recipe, with no script edits.
-- [ ] **D15. Side effects inside `assert`.** `assert(image.save_png(...) == OK)` performs the save inside the assertion; builds with asserts disabled skip the save.
+- [~] **D15. Side effects inside `assert`.** `assert(image.save_png(...) == OK)` performs the save inside the assertion; builds with asserts disabled skip the save.
   *Expected result:* No side effects inside `assert`. Failed saves report an error and exit non-zero.
 
 ## Order of work
@@ -69,3 +69,8 @@ Each item keeps its evidence so the detail is not lost, and an *Expected result*
 ## Progress log
 
 - 2026-09-24 — inspection recorded; work started on branch `fix/style-consistent-import`.
+- 2026-09-24 — **A1–A3 adapter landed** (`tools/character-lab/indexed_import.gd`, `build_style_palette.gd`, `--palette` on both importers; see [WORKFLOW.md](WORKFLOW.md#indexed-style-palette-adapter-2026-09-24)). Legacy path still reproduces v2 body / v1 head byte for byte.
+  - Result on the saved Wayfarer boards → local packs `native-wayfarer-v3` + `native-head-v2` with palette `wayfarer-style-v1` (48 colors): body slots **46–48 colors** (native 37–55, previously 1,347–1,691), head **20** (native 19, previously 417). **0** off-palette, key-tinted or partial-alpha pixels. Silhouette IoU unchanged (0.926–0.964 body, 0.820 head). 108/108 viewer frames pixel-identical to Godot, no console errors.
+  - A2 confirmed: head source was 1254×1254 for a 1024 reference, and body 1536×1024 for 1440×960. Both now import through fractional block majority.
+  - **Open for A1:** the ready-pose vest reads slightly duller than v2 because the automatic palette has only 3–4 teal shades. Needs visual review; the durable fix is hand-authored ramps (A4). The palette is auto-derived and not yet reviewed. A1 stays partial until a second character shares it.
+  - D15 fixed in the two importers only (`Indexed.save_png`); exporters still save inside `assert`.
