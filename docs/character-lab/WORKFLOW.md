@@ -55,6 +55,25 @@ node --test tools/character-lab/tests/native-indexed.test.mjs
 
 `indexed_import_test.gd` uses synthetic images only. `native-indexed.test.mjs` needs the local packs; it checks palette membership and 36 frames of Node/Godot pixel parity. The viewer offers both packs as "style palette" options and includes them in its startup parity check.
 
+## Generation gate (2026-09-25)
+
+Size rules are a limit of the harness, not advice in a prompt. `tools/character-lab/style/style-bible-v1.json` holds the palette reference, skin palette indices and per-part slot rules (area, bounds, silhouette overlap, outline length and, for heads, the native face size). The same numbers drive three steps:
+
+1. **Brief.** `verify_candidate.gd --brief --part=head` prints the SIZE CONTRACT section. Paste it unchanged into the generation prompt.
+2. **Gate.** Check the untouched generated board before importing it: `verify_candidate.gd --part=head --source=<generated png>` prints PASS/FAIL per slot with reasons, and exits 1 on failure. `--pack=<dir>` checks an already-imported pack.
+3. **Import.** `--style-bible=<json>` on either importer sets the palette and runs the same gate first. A failing candidate writes nothing, unless `--allow-contract-failure` is given for a study pack; the manifest then records the failure. Passing manifests record the contract result and bible hash.
+
+```sh
+G=.tools/Godot.app/Contents/MacOS/Godot; A=res://tools/character-lab/assets; B=res://tools/character-lab/style/style-bible-v1.json
+$G --headless --path . --script res://tools/character-lab/verify_candidate.gd -- --brief --part=head
+$G --headless --path . --script res://tools/character-lab/verify_candidate.gd -- --part=head --source=$A/native-head-v3/generated-head.png
+$G --headless --path . --script res://tools/character-lab/import_native_head.gd -- --output-dir=$A/native-head-v3/ --costume=$A/native-wayfarer-v3/ --style-bible=$B
+```
+
+Rejected candidates are regenerated, never scaled or repaired in the importer. Scaling pixel art by one or two pixels destroys the clusters, and repairing would hide the difference from review. `tests/slot_contract_test.gd` checks the contract on synthetic heads.
+
+At introduction, the accepted body `native-wayfarer-v3` passed every slot. Head `native-head-v2` failed: area 86% and face 25% of native (a 5×5 face against 10×11). That matched the user's in-game observation that the head looked small.
+
 ## Reproduce the existing candidate
 
 For review and version preservation, use the implemented snapshot entry point first:

@@ -1,0 +1,34 @@
+{
+	"schemaVersion": 1,
+	"id": "style-bible-v1",
+	"note": "Machine-readable style rules shared by every character of this style (inspection A4). verify_candidate.gd prints the prompt SIZE CONTRACT from these numbers and gates generated candidates; the importers refuse candidates that fail.",
+	"palette": {"file": "res://tools/character-lab/style/wayfarer-style-v1.json", "sha256": "0e85caddbf7abcca49cf6b38a5da84889eeae16a07aa2d95243a92e30bc2a25c"},
+	"materials": {
+		"skin": [36, 40, 43, 44, 45, 46],
+		"skinNote": "Palette indices counted as face skin. Derived with verify_candidate.gd --derive, then reviewed. Very light hair could be counted as skin; the face check only looks at the lower 55% of the head."
+	},
+	"slotRules": {
+		"head": {
+			"areaRatio": [0.95, 1.10],
+			"bboxTolerance": 1,
+			"alphaIoUMin": 0.80,
+			"outlineRatioMax": 1.25,
+			"face": {"minRatio": 0.80, "boxTolerance": 2},
+			"why": "The head is a shared module: native hats are drawn and anchored for the native skull, and RO identity depends on the large rounded face. Head size is a template rule, not a per-character choice (user review 2026-09-25)."
+		},
+		"body": {
+			"areaRatio": [0.90, 1.10],
+			"bboxTolerance": 2,
+			"alphaIoUMin": 0.85,
+			"outlineRatioMax": 1.25,
+			"why": "Costumes may change the silhouette a little, but hands, feet and neck must stay where the native ACT expects them."
+		}
+	},
+	"nativeFaces": {
+		"head:1": {"box": [11, 13, 10, 11], "pixels": 65, "source": "res://assets/reference-ro/novice-male-head-1 SPR 1", "derivedBy": "verify_candidate.gd --derive (largest skin component in the lower 55% of the native head)"}
+	},
+	"designRules": [
+		"Mirrored views flip asymmetric details (inspection B7): a hip pouch changes sides between S and E. Design costumes to tolerate the flip, or keep key details symmetric.",
+		"Raw SPR head and body slots face LEFT; the game mirrors them. Prompts must follow the slot's facing, not the design reference's."
+	]
+}

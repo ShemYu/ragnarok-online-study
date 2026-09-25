@@ -5,11 +5,17 @@ extends SceneTree
 ## block-majority downscale, key unmixing and palette-only output.
 const Actor = preload("res://scripts/ro_sprite_actor.gd")
 const Indexed = preload("res://tools/character-lab/indexed_import.gd")
+const Gate = preload("res://tools/character-lab/verify_candidate.gd")
 const TEMPLATE_BASE := "res://tools/character-lab/assets/native-template-v1/"
 var BASE := TEMPLATE_BASE
 var SOURCE := BASE+"costume-slot-board.png"
 var SOURCE_OVERRIDE := ""
 var PALETTE_PATH := ""
+# --style-bible=<json> sets the palette and enforces the slot contract (inspection A4);
+# a failing candidate writes nothing unless --allow-contract-failure is given.
+var BIBLE_PATH := ""
+var ALLOW_CONTRACT_FAILURE := false
+var contract := {}
 const PART_NAMES := ["body","head","weapon","trail"]
 
 func _initialize() -> void:
@@ -20,6 +26,10 @@ func _initialize() -> void:
 			SOURCE_OVERRIDE = argument.trim_prefix("--source=")
 		elif argument.begins_with("--palette="):
 			PALETTE_PATH = argument.trim_prefix("--palette=")
+		elif argument.begins_with("--style-bible="):
+			BIBLE_PATH = argument.trim_prefix("--style-bible=")
+		elif argument == "--allow-contract-failure":
+			ALLOW_CONTRACT_FAILURE = true
 	SOURCE = SOURCE_OVERRIDE if SOURCE_OVERRIDE else BASE+"costume-slot-board.png"
 	call_deferred("run")
 
@@ -69,6 +79,11 @@ func run() -> void:
 	var board := Image.load_from_file(SOURCE)
 	assert(board != null,"Generated costume board missing")
 	var source_size := board.get_size()
+	var bible := {}
+	if BIBLE_PATH:
+		bible = Gate.load_bible(BIBLE_PATH)
+		assert(not bible.is_empty(),"Style bible unusable")
+		PALETTE_PATH = bible.palette.file
 	var palette := {}
 	var indexed_stats := {}
 	var keyed_pixels := 0
@@ -79,6 +94,15 @@ func run() -> void:
 		board = imported.image
 		indexed_stats = imported.stats
 		keyed_pixels = board.get_width()*board.get_height()-visible_pixels(board)
+		if not bible.is_empty():
+			contract = Gate.gate("body",bible,board,"")
+			for index: String in contract.slots:
+				for failure: String in contract.slots[index].failures:
+					print("CONTRACT body SPR %s: %s" % [index,failure])
+			if not contract.pass and not ALLOW_CONTRACT_FAILURE:
+				push_error("Candidate fails the style bible slot contract; nothing was written. Regenerate, or pass --allow-contract-failure for a study pack.")
+				quit(1)
+				return
 	else:
 		board.convert(Image.FORMAT_RGBA8)
 		board.resize(int(layout.canvas[0]),int(layout.canvas[1]),Image.INTERPOLATE_NEAREST)
@@ -103,6 +127,8 @@ func run() -> void:
 	}
 	if PALETTE_PATH:
 		result.import = {"adapter":Indexed.ADAPTER,"operation":"Classify every source pixel against the style palette (magenta edges unmixed), then take the majority class of each fractional block of the whole board, then fixed imageRect crops from sprite-slots.json. No individual resizing, recentering, source silhouette masks, warping, or ACT edits.","nativeBoardSize":[288,192],"palette":{"id":palette.id,"file":PALETTE_PATH,"sha256":palette.sha256,"colors":palette.colors.size()},"backgroundPixelsRemoved":keyed_pixels,"stats":indexed_stats}
+	if not contract.is_empty():
+		result["contract"] = {"bible":BIBLE_PATH,"bibleSha256":FileAccess.get_sha256(BIBLE_PATH),"pass":contract.pass,"allowedFailure":not contract.pass,"slots":contract.slots}
 	result.import["normalizedBoard"] = save_image(board,"costume/imported-board.png")
 	var replacements: Dictionary = {}
 	for slot: Dictionary in layout.slots:
