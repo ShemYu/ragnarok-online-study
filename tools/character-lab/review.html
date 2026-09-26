@@ -1,0 +1,67 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Before / after review · Character Lab</title>
+  <link rel="stylesheet" href="review.css">
+</head>
+<body>
+  <main class="viz-root">
+    <header class="page-head">
+      <div>
+        <p class="eyebrow">Character Lab · review</p>
+        <h1>Before and after</h1>
+        <p class="lede">Palette cleanup of the Wayfarer art, and every head candidate measured against the native RO head. Numbers come from the same checks the importer enforces.</p>
+      </div>
+      <div class="head-actions">
+        <a href="native.html">Native comparison →</a>
+        <button id="theme" type="button" aria-label="Toggle dark mode">Dark mode</button>
+      </div>
+    </header>
+    <p id="status" class="muted">Loading review data…</p>
+
+    <section class="kpis" id="kpis" aria-label="Summary"></section>
+
+    <section class="card">
+      <h2>1 · Palette cleanup: colors per drawing</h2>
+      <p class="sub">Same generated images, imported twice. <strong>Before</strong>: resize + magenta threshold. <strong>After</strong>: shared style palette. The gray tick is the native RO drawing. Logarithmic scale.</p>
+      <div class="legend" id="legend-colors"></div>
+      <div class="chart" id="chart-colors"></div>
+      <details><summary>Table view</summary><div id="table-colors"></div></details>
+      <h3>The drawings</h3>
+      <div class="strip" id="strip-body"></div>
+    </section>
+
+    <section class="card">
+      <h2>2 · Head size against native</h2>
+      <p class="sub">Checked automatically after generation. The shaded band is what passes. Candidates from prompt <strong>v0.1.0</strong> (first head) and <strong>v0.2.0</strong> (size contract + V3 design reference).</p>
+      <div class="legend" id="legend-heads"></div>
+      <div class="multiples">
+        <div><h3>Head area, % of native</h3><div class="chart" id="chart-area"></div></div>
+        <div><h3>Face skin, % of native</h3><div class="chart" id="chart-face"></div></div>
+      </div>
+      <details><summary>Table view</summary><div id="table-heads"></div></details>
+      <h3>The heads</h3>
+      <p class="sub">Native first. Dashed box: native face area. Magnified 8×.</p>
+      <div class="strip heads" id="strip-heads"></div>
+    </section>
+
+    <section class="card">
+      <h2>3 · Prompt comparison</h2>
+      <p class="sub">Generation is random, so compare pass rate and medians over several candidates, not one image.</p>
+      <div id="table-prompts"></div>
+      <p class="note">Add candidates: save each untouched generated head in <code>tools/character-lab/assets/native-head-v3/candidates/</code>, then run<br><code>.tools/Godot.app/Contents/MacOS/Godot --headless --path . --script res://tools/character-lab/export_review.gd</code> and reload this page.</p>
+    </section>
+
+    <section class="card">
+      <h2>4 · Body size against native</h2>
+      <p class="sub">Wayfarer body (after cleanup). Passing band 90–110% of the native drawing's area.</p>
+      <div class="chart" id="chart-body"></div>
+      <details><summary>Table view</summary><div id="table-body"></div></details>
+    </section>
+  </main>
+  <div id="tooltip" class="tooltip" role="status" hidden></div>
+  <script type="module" src="review.js"></script>
+</body>
+</html>
