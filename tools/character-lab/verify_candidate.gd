@@ -2,7 +2,8 @@ extends SceneTree
 ## Generation gate (inspection A4): check a generated board, or already-imported
 ## slot bitmaps, against the style bible's slot contract before anything is imported.
 ##
-##   --part=head|body                     which native slots
+##   --part=head|body                     which native slots (the saved attack-front and head boards)
+##   --board=<board dir>                  or: any board made by export_slot_board.gd
 ##   --source=<generated board png>       candidate straight from ImageGen
 ##   --pack=<art pack dir>                or: already-imported costume/body or head PNGs
 ##   --brief                              print the prompt SIZE CONTRACT for this part
@@ -39,7 +40,18 @@ static func load_bible(path: String) -> Dictionary:
 	return bible
 
 ## Slot definitions: [{index, rect (in the normalized board), native (Image)}], canvas, offset, scale.
-static func slots(part: String) -> Dictionary:
+## `board_dir` selects a board written by export_slot_board.gd instead of the saved ones.
+static func slots(part: String, board_dir: String = "") -> Dictionary:
+	if not board_dir.is_empty():
+		var base := board_dir.trim_suffix("/") + "/"
+		var board: Dictionary = JSON.parse_string(FileAccess.get_file_as_string(base + "sprite-slots.json"))
+		var list := []
+		for slot: Dictionary in board.slots:
+			var r: Array = slot.imageRect
+			var native := Image.new()
+			native.load_png_from_buffer(FileAccess.get_file_as_bytes(base + slot.sourceFile))
+			list.append({"index": int(slot.index), "rect": Rect2i(int(r[0]), int(r[1]), int(r[2]), int(r[3])), "native": native, "file": "%s/%03d.png" % [board.part, int(slot.index)]})
+		return {"canvas": Vector2i(int(board.canvas[0]), int(board.canvas[1])), "scale": int(board.scale), "slots": list, "part": board.part}
 	if part == "head":
 		var layout: Dictionary = JSON.parse_string(FileAccess.get_file_as_string(HEAD_SLOT))
 		var r: Array = layout.imageRect
@@ -52,8 +64,8 @@ static func slots(part: String) -> Dictionary:
 	return {"canvas": Vector2i(int(sprite_slots.canvas[0]), int(sprite_slots.canvas[1])), "scale": int(sprite_slots.scale), "slots": result}
 
 ## Check every slot of `part`. `board` is a normalized palette board (or null to read `pack`).
-static func gate(part: String, bible: Dictionary, board: Image, pack: String) -> Dictionary:
-	var definition := slots(part)
+static func gate(part: String, bible: Dictionary, board: Image, pack: String, board_dir: String = "") -> Dictionary:
+	var definition := slots(part, board_dir)
 	var rules: Dictionary = bible.slotRules[part]
 	var results := {}
 	var passed := true
@@ -66,7 +78,10 @@ static func gate(part: String, bible: Dictionary, board: Image, pack: String) ->
 	return {"pass": passed, "slots": results}
 
 func run() -> void:
+	var board_dir := option("board")
 	var part := option("part", "head")
+	if not board_dir.is_empty():
+		part = slots("", board_dir).part
 	var bible_path := option("bible", "res://tools/character-lab/style/style-bible-v1.json")
 	if option("derive") == "true":
 		derive(part)
@@ -77,7 +92,7 @@ func run() -> void:
 		quit(1)
 		return
 	if option("brief") == "true":
-		var definition := slots(part)
+		var definition := slots(part, board_dir)
 		for slot: Dictionary in definition.slots:
 			var face: Dictionary = bible.get("nativeFaces", {}).get("%s:%d" % [part, slot.index], {})
 			print("[%s SPR %d]" % [part, slot.index])
@@ -92,12 +107,12 @@ func run() -> void:
 			push_error("Cannot load candidate " + source)
 			quit(1)
 			return
-		board = Indexed.import_board(raw, slots(part).canvas, bible._palette).image
+		board = Indexed.import_board(raw, slots(part, board_dir).canvas, bible._palette).image
 	elif option("pack").is_empty():
 		push_error("Give --source=<generated board> or --pack=<imported art pack>")
 		quit(1)
 		return
-	var result := gate(part, bible, board, option("pack"))
+	var result := gate(part, bible, board, option("pack"), board_dir)
 	for index: String in result.slots:
 		var slot: Dictionary = result.slots[index]
 		var m: Dictionary = slot.metrics

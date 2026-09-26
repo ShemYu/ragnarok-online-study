@@ -74,6 +74,24 @@ Rejected candidates are regenerated, never scaled or repaired in the importer. S
 
 At introduction, the accepted body `native-wayfarer-v3` passed every slot. Head `native-head-v2` failed: area 86% and face 25% of native (a 5×5 face against 10×11). That matched the user's in-game observation that the head looked small.
 
+## Boards for any action and view (2026-09-26)
+
+`export_slot_board.gd` makes a generation board for any action group and drawn view, from the ACT-driven inventory (`export_slot_inventory.gd`). `--direction` picks the view containing that direction. Each board folder under `tools/character-lab/assets/boards/<job>-<part>-<group>-<view>/` holds:
+
+- `slot-board-5x.png`: image 1 for the generator (raw SPR drawings on magenta, same placement rule as the original template board);
+- `design-reference.png`: image 2, from the character spec `tools/character-lab/characters/<id>.json` (for Wayfarer, the accepted front-view clothing);
+- `prompt.txt`: filled from the character spec and the style bible, including a per-cell SIZE CONTRACT and the raw facing (front view faces screen-left toward the camera; back view faces screen-left away from it);
+- `context-frames.png` (how the drawings play), `sprite-slots.json` (layout, sequences, source hashes), `HOWTO.txt` and `candidates/`.
+
+```sh
+G=.tools/Godot.app/Contents/MacOS/Godot; B=res://tools/character-lab/assets/boards/swordsman-male-body-attack2-W-NW-N-NE/
+$G --headless --path . --script res://tools/character-lab/export_slot_board.gd -- --group=attack2 --direction=2
+$G --headless --path . --script res://tools/character-lab/verify_candidate.gd -- --board=$B --source=<candidate>
+$G --headless --path . --script res://tools/character-lab/import_slot_board.gd -- --board=$B --source=<candidate> --output-dir=res://tools/character-lab/assets/<new pack>/
+```
+
+`import_slot_board.gd` applies the palette adapter and the slot contract (refusing failures), then writes `pack.json`, the part's PNGs and fixture frames for every direction of the view. It checks that the native ACT is unchanged. Appearance manifests accept a list of packs per part, merged by slot, e.g. `"body": [<attack front pack>, <attack back pack>]`. `tests/slot_board_test.gd` runs the whole path without generated art: a shrunken candidate is refused and writes nothing; the board's own native image imports with every silhouette pixel-exact; a merged look covers 11 body drawings.
+
 ## Reproduce the existing candidate
 
 For review and version preservation, use the implemented snapshot entry point first:

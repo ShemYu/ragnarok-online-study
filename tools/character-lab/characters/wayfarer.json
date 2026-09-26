@@ -1,0 +1,18 @@
+{
+	"schemaVersion": 1,
+	"id": "wayfarer",
+	"label": "Wayfarer",
+	"styleBible": "res://tools/character-lab/style/style-bible-v1.json",
+	"parts": {
+		"body": {
+			"designReference": "res://tools/character-lab/assets/native-wayfarer-v3/costume/imported-board.png",
+			"designReferenceNote": "The accepted Wayfarer clothing on the native attack front view (visually accepted 2026-09-24). New views must match it exactly.",
+			"costume": "open dark desaturated teal vest over a warm ivory short-sleeved shirt, chest strap with brass buckle, SINGLE brown leather waist belt with brass square buckle, small leather hip pouch, dark gray-violet trousers, brown leather cuffed boots and wrist guards",
+			"replaces": "Replace the Swordsman's chest armor with the teal open vest and ivory shirt. Replace the wide armor skirt/hip plate with the single leather belt and trousers/pouch. Cloth sleeves may cover the current shoulder forms but must NOT become inflated balls. No duplicate belt, no segmented doll joints."
+		},
+		"head": {
+			"designReference": "res://tools/character-lab/assets/video-tests/grok-wayfarer-attack-v3/source.png",
+			"designReferenceNote": "User-preferred V3 head (2026-09-25): closest to RO proportions."
+		}
+	}
+}

@@ -125,30 +125,41 @@ static func load_appearance(path: String) -> Dictionary:
 		return {}
 	var result := {"id": str(manifest.get("id", path.get_file().get_basename())), "label": str(manifest.get("label", "")), "path": path, "parts": {}}
 	for part: String in manifest.parts:
-		var entry: Dictionary = manifest.parts[part]
-		var pack_path: String = entry.manifest
-		var pack: Variant = JSON.parse_string(FileAccess.get_file_as_string(pack_path)) if FileAccess.file_exists(pack_path) else null
-		if not pack is Dictionary or not pack.get(entry.field) is Dictionary:
-			push_warning("Appearance part unavailable: %s (%s)" % [part, pack_path])
-			return {}
-		var template: Variant = JSON.parse_string(FileAccess.get_file_as_string(pack.originalTemplate)) if FileAccess.file_exists(pack.get("originalTemplate", "")) else null
-		if not template is Dictionary:
-			push_warning("Appearance template unavailable for " + part)
-			return {}
+		# One pack, or several packs (e.g. attack front view + back view) merged by slot.
+		var entries: Array = manifest.parts[part] if manifest.parts[part] is Array else [manifest.parts[part]]
 		var textures := {}
-		for index: String in pack[entry.field]:
-			var record: Dictionary = pack[entry.field][index]
-			var file: String = pack_path.get_base_dir() + "/" + record.file
-			if FileAccess.get_sha256(file) != record.sha256:
-				push_error("Appearance file changed since import: " + file)
+		var source := ""
+		for entry: Dictionary in entries:
+			var pack_path: String = entry.manifest
+			var pack: Variant = JSON.parse_string(FileAccess.get_file_as_string(pack_path)) if FileAccess.file_exists(pack_path) else null
+			var field: String = entry.get("field", part)
+			if not pack is Dictionary or not pack.get(field) is Dictionary:
+				push_warning("Appearance part unavailable: %s (%s)" % [part, pack_path])
 				return {}
-			# Raw PNG bytes, not an imported resource: the pack's hash covers these exact bytes.
-			var image := Image.new()
-			if image.load_png_from_buffer(FileAccess.get_file_as_bytes(file)) != OK:
-				push_error("Appearance image unreadable: " + file)
+			var pack_source := str(pack.get("nativeSource", ""))
+			if pack_source.is_empty():
+				var template: Variant = JSON.parse_string(FileAccess.get_file_as_string(pack.originalTemplate)) if FileAccess.file_exists(pack.get("originalTemplate", "")) else null
+				if not template is Dictionary:
+					push_warning("Appearance template unavailable for " + part)
+					return {}
+				pack_source = template.parts[part].source
+			if not source.is_empty() and source != pack_source:
+				push_error("Appearance %s mixes packs for different native sources" % part)
 				return {}
-			textures[int(index)] = ImageTexture.create_from_image(image)
-		result.parts[part] = {"source": template.parts[part].source, "textures": textures}
+			source = pack_source
+			for index: String in pack[field]:
+				var record: Dictionary = pack[field][index]
+				var file: String = pack_path.get_base_dir() + "/" + record.file
+				if FileAccess.get_sha256(file) != record.sha256:
+					push_error("Appearance file changed since import: " + file)
+					return {}
+				# Raw PNG bytes, not an imported resource: the pack's hash covers these exact bytes.
+				var image := Image.new()
+				if image.load_png_from_buffer(FileAccess.get_file_as_bytes(file)) != OK:
+					push_error("Appearance image unreadable: " + file)
+					return {}
+				textures[int(index)] = ImageTexture.create_from_image(image)
+		result.parts[part] = {"source": source, "textures": textures}
 	_appearance_cache[path] = result
 	return result
 
