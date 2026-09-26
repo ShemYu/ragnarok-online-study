@@ -220,7 +220,63 @@ function render(data) {
   percentBars($('chart-body'), body.map(b => ({label: `Body ${b.slot}`, value: b.contract.areaRatio, color: 'var(--series-1)', notes: b.contract.failures})), data.rules.body.areaRatio, 'Body drawing area as a percentage of native');
   table($('table-body'), [['Drawing'], ['Result'], ['Area', 1], ['Silhouette overlap', 1], ['Outline', 1]],
     body.map(b => [`Body ${b.slot} · ${b.role}`, statusBadge(document.createElement('span'), b.contract.pass), pct(b.contract.areaRatio), b.contract.alphaIoU.toFixed(3), pct(b.contract.outlineRatio)]));
+  renderBoards(data.boardCandidates || []);
   $('status').textContent = `Data generated ${data.generatedAt} · palette ${data.palette.id}.`;
+}
+
+// Candidates are identities: fixed categorical order, capped at three in the dot plot
+// (all-pairs form); every candidate stays in the table and image rows.
+const CANDIDATE_SERIES = ['var(--series-1)', 'var(--series-2)', 'var(--series-3)'];
+function overlapDots(container, board) {
+  const shown = board.candidates.slice(0, 3), slots = board.candidates[0].slots.map(s => s.index);
+  const W = 560, L = 80, R = 24, T = 24, rowH = 30, H = T + slots.length * rowH + 6, lo = 0.8, hi = 1.0;
+  const x = v => L + (Math.max(lo, Math.min(hi, v)) - lo) / (hi - lo) * (W - L - R);
+  const svg = el('svg', {viewBox: `0 0 ${W} ${H}`, style: `max-width:${W}px`, role: 'img', 'aria-label': 'Silhouette overlap with the native drawing per slot and candidate'}, container);
+  el('rect', {class: 'band', x: x(0.85), y: T - 4, width: x(hi) - x(0.85), height: H - T}, svg);
+  for (const t of [0.8, 0.85, 0.9, 0.95, 1]) {
+    el('line', {class: 'grid', x1: x(t), x2: x(t), y1: T - 4, y2: H - 2}, svg);
+    el('text', {x: x(t), y: T - 9, 'text-anchor': 'middle'}, svg, t.toFixed(2));
+  }
+  slots.forEach((index, i) => {
+    const cy = T + i * rowH + rowH / 2;
+    el('text', {class: 'label', x: L - 10, y: cy + 4, 'text-anchor': 'end'}, svg, `SPR ${index}`);
+    shown.forEach((c, k) => {
+      const slot = c.slots.find(s => s.index === index);
+      el('circle', {cx: x(slot.alphaIoU), cy: cy + (k - (shown.length - 1) / 2) * 6, r: 5, fill: CANDIDATE_SERIES[k], stroke: 'var(--surface-1)', 'stroke-width': 2}, svg);
+    });
+    const hit = el('rect', {class: 'hit', x: 0, y: cy - rowH / 2, width: W, height: rowH}, svg);
+    hoverable(hit, () => [`SPR ${index} · silhouette overlap`, shown.map((c, k) => { const slot = c.slots.find(s => s.index === index); return {value: slot.alphaIoU.toFixed(3), label: `${c.id} · area ${pct(slot.areaRatio)}`, color: CANDIDATE_SERIES[k]}; })]);
+  });
+}
+
+function renderBoards(boards) {
+  if (!boards.length) return;
+  $('boards-card').hidden = false;
+  for (const board of boards) {
+    const wrap = html('div', {}, $('boards'));
+    html('h3', {}, wrap, `${board.group} · ${board.view.join(', ')} view (raw facing ${board.rawFacing.join('/')}) · ${board.candidates.length} candidate(s)`);
+    const legend = html('div', {class: 'legend'}, wrap);
+    board.candidates.slice(0, 3).forEach((c, k) => { const s = html('span', {}, legend); html('i', {class: 'key-dot', style: `background:${CANDIDATE_SERIES[k]}`}, s); s.append(c.id); });
+    { const s = html('span', {}, legend); html('i', {class: 'key-band'}, s); s.append('Passing band (≥ 0.85)'); }
+    overlapDots(html('div', {class: 'chart'}, wrap), board);
+    const details = html('details', {}, wrap); html('summary', {}, details, 'Table view');
+    const rows = [];
+    for (const c of board.candidates) for (const slot of c.slots) rows.push([c.id, `SPR ${slot.index}`, statusBadge(document.createElement('span'), slot.pass), pct(slot.areaRatio), slot.alphaIoU.toFixed(3), pct(slot.outlineRatio)]);
+    table(details, [['Candidate'], ['Drawing'], ['Result'], ['Area', 1], ['Silhouette overlap', 1], ['Outline', 1]], rows);
+    html('h3', {}, wrap, 'Drawings (after palette cleanup)');
+    const strip = html('div', {class: 'strip'}, wrap);
+    { const f = html('figure', {}, strip); sprite(f, board.nativeBoard, 1, 'Native board'); html('figcaption', {}, f, 'Native RO'); }
+    for (const c of board.candidates) { const f = html('figure', {}, strip); sprite(f, c.image, 1, c.id); const cap = html('figcaption', {}, f, `${c.id} `); statusBadge(cap, c.pass); }
+    for (const c of board.candidates) {
+      if (!Object.keys(c.contacts).length) continue;
+      html('h3', {}, wrap, `${c.id} in the game's frames (native head and dagger)`);
+      const frames = html('div', {class: 'strip'}, wrap);
+      for (const direction of board.view) {
+        if (!c.contacts[direction]) continue;
+        const f = html('figure', {class: 'wide'}, frames); sprite(f, c.contacts[direction], 1, `${c.id} ${direction}`); html('figcaption', {}, f, `Facing ${direction}`);
+      }
+    }
+  }
 }
 
 $('theme').addEventListener('click', () => {

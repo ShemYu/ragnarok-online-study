@@ -1,0 +1,15 @@
+{
+	"schemaVersion": 1,
+	"id": "wayfarer-preview",
+	"label": "Wayfarer preview (attack back view v2)",
+	"note": "Review look: the accepted Wayfarer v3 body plus the attack2 back-view candidate v2 (SPR 87-91), which passes the slot contract but is not yet visually accepted. Accepted look stays in wayfarer-v3.json.",
+	"parts": {
+		"body": [
+			{"manifest": "res://tools/character-lab/assets/native-wayfarer-v3/costume.json", "field": "body"},
+			{"manifest": "res://tools/character-lab/assets/native-wayfarer-attack-back-v2/pack.json", "field": "body"}
+		],
+		"head": {"manifest": "res://tools/character-lab/assets/native-head-v2/head.json", "field": "head"}
+	},
+	"palette": "res://tools/character-lab/style/wayfarer-style-v1.json",
+	"review": "Pending user review (2026-09-26)."
+}

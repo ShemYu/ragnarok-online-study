@@ -168,11 +168,22 @@ func run() -> void:
 	print("Board %s: %d drawings %s, view %s (raw facing %s), %dx%d cells -> %s" % [group, slots.size(), slots, view_name, layout.view.rawFacing, cell.x, cell.y, out])
 	quit()
 
+## Five-view groups (idle/walk/sit) draw S, SW, W, NW, N separately; two-view groups
+## draw a front view (raw S/SW) and a back view (raw W/NW).
+static func is_back_view(raw: Array) -> bool:
+	return raw.has("NW") or raw.has("N")
+
 func facing_words(raw: Array) -> String:
+	if raw.has("S") and raw.size() == 1:
+		return "straight TOWARD the camera (front view)"
 	if raw.has("S") or raw.has("SW"):
 		return "screen-LEFT, turned TOWARD the camera (front view)"
-	if raw.has("W") or raw.has("NW"):
+	if raw.has("N") and raw.size() == 1:
+		return "straight AWAY from the camera (back view: we see only the back)"
+	if is_back_view(raw):
 		return "screen-LEFT, turned AWAY from the camera (back view: we mostly see the back and the left side)"
+	if raw.has("W"):
+		return "screen-LEFT in profile (side view)"
 	return "the direction shown in the context frames"
 
 func build_prompt(layout: Dictionary, character: Dictionary, spec: Dictionary) -> String:
@@ -182,11 +193,15 @@ func build_prompt(layout: Dictionary, character: Dictionary, spec: Dictionary) -
 	var lines := []
 	lines.append("Use case: precise-object-edit.")
 	lines.append("Asset type: native Ragnarok Online %s sprite replacement board — %s action, %s view (%s)." % [layout.part, layout.group, ", ".join(layout.view.directions), character.get("label", "character")])
-	lines.append("Edit target image 1: a %d-column by %d-row board of %d HEADLESS %s sprites on pure magenta, %dx%d, every logical pixel a solid %dx%d block. KEEP its exact layout, relative scale, pixel positions, all %d poses, limb angles, bare hands, feet contact, neck openings and body proportions. These are raw unmirrored SPR image slots of one animation, played left-to-right then top-to-bottom, not a storyboard to redesign. The raw drawings face %s; keep that facing." % [layout.layout[0], layout.layout[1], n, layout.part, layout.enlargedCanvas[0], layout.enlargedCanvas[1], layout.scale, layout.scale, n, facing_words(layout.view.rawFacing)])
+	lines.append("Edit target image 1: a %d-column by %d-row board of %d HEADLESS %s sprites on pure magenta, %dx%d, drawn at %dx (each logical pixel is a %dx%d block). The importer rescales the whole board and removes the magenta itself, so a slightly different output size or soft magenta edges are acceptable; the layout, proportions and pixel-cluster look are what must stay. KEEP its exact layout, relative scale, pixel positions, all %d poses, limb angles, bare hands, feet contact, neck openings and body proportions. These are raw unmirrored SPR image slots of one animation, played left-to-right then top-to-bottom, not a storyboard to redesign. The raw drawings face %s; keep that facing." % [layout.layout[0], layout.layout[1], n, layout.part, layout.enlargedCanvas[0], layout.enlargedCanvas[1], layout.scale, layout.scale, layout.scale, n, facing_words(layout.view.rawFacing)])
 	if not layout.boards.designReference.is_empty():
 		lines.append("Design reference image 2: the ACCEPTED %s clothing already drawn on other native poses. Match it exactly — same garments, colors, buckles, pouch and boots — seen from this view. Use ONLY the clothing design; keep image 1's anatomy." % character.get("label", "character"))
 	if spec.has("costume"):
 		lines.append("Primary request: Dress EACH image-1 body in the SAME recognizable outfit: %s. %s" % [spec.costume, spec.get("replaces", "")])
+	if is_back_view(layout.view.rawFacing):
+		# Learned from attack2 back view v1 -> v2 (2026-09-26): without this, bent-forward
+		# poses got front details (shirt opening, chest and belt buckles) painted on the back.
+		lines.append("BACK VIEW: ALL %d poses, including bent-forward ones, expose the BACK and left side. The garments are seen from behind (e.g. the back of a vest covers the torso). Do not turn any torso toward the viewer and do not paint front-only details (shirt opening, chest buckle, front belt buckle) onto the back. Preserve the original back neck opening." % n)
 	lines.append("Mirrored views flip asymmetric details; draw them as they appear from this raw facing, the game mirrors other directions.")
 	lines.append("")
 	lines.append("SIZE CONTRACT (checked automatically after generation; a candidate outside it is rejected, not repaired):")
@@ -199,5 +214,5 @@ func build_prompt(layout: Dictionary, character: Dictionary, spec: Dictionary) -
 		lines.append("- Solid clean silhouettes (outline length at most %d%% of native): no ragged fringes, no detached specks." % roundi(float(rules.outlineRatioMax) * 100))
 	lines.append("")
 	lines.append("Invariant: same %d complete HEADLESS drawings in the SAME cells, exactly registered. No heads, hair, headgear, weapons, text, extra sprites, shadows, guides, labels or scene." % n)
-	lines.append("Pixel art: native RO body bitmap look, thin dark-brown contours, small crisp clusters, controlled subdued colors; no smoothing, no 3D, no large illustrated chibi. Keep flat pure #FF00FF background everywhere outside the sprites. Output the same board size and layout as image 1.")
+	lines.append("Pixel art: native RO body bitmap look, thin dark-brown contours, small crisp clusters, controlled subdued colors; no smoothing, no 3D, no large illustrated chibi. Keep a flat #FF00FF background everywhere outside the sprites. Output the same board layout and aspect ratio as image 1.")
 	return "\n".join(lines)

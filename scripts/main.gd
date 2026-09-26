@@ -9,7 +9,7 @@ const SAVE_PATH := "user://progress-v2.json"
 const ATTACK_RANGE := 1.35
 var GUIDE_POSITION := Vector3(-3, 0, 4)
 # Replacement-art looks for the player (inspection B6). "" is native RO art.
-const APPEARANCES := ["", "res://tools/character-lab/appearances/wayfarer-v3.json"]
+const APPEARANCES := ["", "res://tools/character-lab/appearances/wayfarer-v3.json", "res://tools/character-lab/appearances/wayfarer-preview.json"]
 const HEADGEARS := ["", "cap", "hat"]
 const SPAWNS = [Vector3(-4,0,0), Vector3(3,0,-3), Vector3(-6,0,-5), Vector3(4,0,5), Vector3(3,0,-7), Vector3(-8,0,1)]
 

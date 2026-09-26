@@ -79,8 +79,86 @@ func run() -> void:
 		Indexed.save_png(slot, A + shown)
 		data.headCandidates.append({"id": "v0.2.0 · %d" % n, "prompt": "v0.2.0", "designReference": "V3 compact attack art", "image": shown, "source": "native-head-v3/candidates/" + name,
 			"contract": summary(Contract.check("head", native_head, slot, bible.slotRules.head, face, bible._skin))})
+	data["boardCandidates"] = board_candidates(bible)
 	var file := FileAccess.open(OUT + "review.json", FileAccess.WRITE)
 	file.store_string(JSON.stringify(data, "\t") + "\n")
 	file.close()
 	print("Review data: %d body slots, %d head candidates (%d new) -> %sreview.json" % [data.body.size(), data.headCandidates.size(), n, OUT])
 	quit()
+
+
+## Every board under assets/boards/ with generated candidates (any PNG below candidates/).
+func board_candidates(bible: Dictionary) -> Array:
+	var result := []
+	var packs := {}
+	for dir in DirAccess.get_directories_at(A):
+		if FileAccess.file_exists(A + dir + "/pack.json"):
+			var pack: Dictionary = JSON.parse_string(FileAccess.get_file_as_string(A + dir + "/pack.json"))
+			packs[str(pack.get("sourceImage", ""))] = {"dir": dir, "pack": pack}
+	if not DirAccess.dir_exists_absolute(A + "boards"):
+		return result
+	for name in DirAccess.get_directories_at(A + "boards"):
+		var board_dir := A + "boards/" + name + "/"
+		var files := []
+		collect_pngs(board_dir + "candidates/", files)
+		if files.is_empty():
+			continue
+		var layout: Dictionary = JSON.parse_string(FileAccess.get_file_as_string(board_dir + "sprite-slots.json"))
+		DirAccess.make_dir_recursive_absolute(ProjectSettings.globalize_path(OUT + "boards/" + name))
+		var native := Image.load_from_file(board_dir + "slot-board.png")
+		native.convert(Image.FORMAT_RGBA8)
+		for y in native.get_height():
+			for x in native.get_width():
+				var c := native.get_pixel(x, y)
+				if c.r8 == 255 and c.g8 == 0 and c.b8 == 255:
+					native.set_pixel(x, y, Color(0, 0, 0, 0))
+		Indexed.save_png(native, OUT + "boards/%s/native.png" % name)
+		var entry := {"board": name, "part": layout.part, "group": layout.group, "view": layout.view.directions, "rawFacing": layout.view.rawFacing, "nativeBoard": "review/boards/%s/native.png" % name, "candidates": []}
+		for path: String in files:
+			var raw := Image.new()
+			if raw.load_png_from_buffer(FileAccess.get_file_as_bytes(path)) != OK:
+				continue
+			var id := path.trim_prefix(board_dir + "candidates/").get_basename().replace("/candidate", "")
+			var board: Image = Indexed.import_board(raw, Vector2i(int(layout.canvas[0]), int(layout.canvas[1])), bible._palette).image
+			var shown := "review/boards/%s/%s.png" % [name, id.replace("/", "-")]
+			Indexed.save_png(board, A + shown)
+			var gate := Gate.gate(layout.part, bible, board, "", board_dir)
+			var slots := []
+			for index: String in gate.slots:
+				var slot: Dictionary = gate.slots[index]
+				slots.append({"index": int(index), "pass": slot.pass, "failures": slot.failures, "areaRatio": slot.metrics.get("areaRatio", 0.0), "alphaIoU": slot.metrics.get("alphaIoU", 0.0), "outlineRatio": slot.metrics.get("outlineRatio", 0.0)})
+			var candidate := {"id": id, "source": path.trim_prefix(A), "sourceSize": [raw.get_width(), raw.get_height()], "image": shown, "pass": gate.pass, "slots": slots, "pack": null, "contacts": {}}
+			if packs.has(path):
+				var found: Dictionary = packs[path]
+				candidate.pack = found.dir
+				for direction: String in found.pack.fixtures:
+					var cropped := "review/boards/%s/%s-%s.png" % [name, id.replace("/", "-"), direction]
+					Indexed.save_png(crop_strip(Image.load_from_file(A + found.dir + "/" + found.pack.fixtures[direction].contact.file)), A + cropped)
+					candidate.contacts[direction] = cropped
+			entry.candidates.append(candidate)
+		result.append(entry)
+	return result
+
+func collect_pngs(dir: String, into: Array) -> void:
+	if not DirAccess.dir_exists_absolute(dir):
+		return
+	for file in DirAccess.get_files_at(dir):
+		if file.to_lower().ends_with(".png"):
+			into.append(dir + file)
+	for sub in DirAccess.get_directories_at(dir):
+		collect_pngs(dir + sub + "/", into)
+	into.sort()
+
+## A 192-px-per-frame contact strip cropped to the union of used pixels, doubled.
+func crop_strip(strip: Image) -> Image:
+	var count := strip.get_width() / 192
+	var used := Rect2i()
+	for i in count:
+		var r := strip.get_region(Rect2i(i * 192, 0, 192, 192)).get_used_rect()
+		used = r if used.size == Vector2i.ZERO else used.merge(r)
+	used = used.grow(4).intersection(Rect2i(0, 0, 192, 192))
+	var out := Image.create(count * used.size.x, used.size.y, false, Image.FORMAT_RGBA8)
+	for i in count:
+		out.blit_rect(strip, Rect2i(i * 192 + used.position.x, used.position.y, used.size.x, used.size.y), Vector2i(i * used.size.x, 0))
+	out.resize(out.get_width() * 2, out.get_height() * 2, Image.INTERPOLATE_NEAREST)
+	return out
