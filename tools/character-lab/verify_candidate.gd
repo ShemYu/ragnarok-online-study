@@ -63,16 +63,40 @@ static func slots(part: String, board_dir: String = "") -> Dictionary:
 		result.append({"index": int(slot.index), "rect": Rect2i(int(r[0]), int(r[1]), int(r[2]), int(r[3])), "native": Image.load_from_file(TEMPLATE + slot.sourceFile), "file": "costume/body/%03d.png" % int(slot.index)})
 	return {"canvas": Vector2i(int(sprite_slots.canvas[0]), int(sprite_slots.canvas[1])), "scale": int(sprite_slots.scale), "slots": result}
 
+## Rules for one slot. A bible with "faceViews" (v2) picks the face rule per head
+## view; a slot it does not list gets a rule that fails. v1 rules are returned unchanged.
+static func slot_rules(bible: Dictionary, part: String, index: int) -> Dictionary:
+	var rules: Dictionary = bible.slotRules[part]
+	if not rules.has("faceViews"):
+		return rules
+	var selected := rules.duplicate(true)
+	match str(rules.faceViews.get(str(index), "")):
+		"face":
+			pass
+		"rear":
+			selected["face"] = rules.rearFace
+		_:
+			selected["face"] = {"unknownView": true}
+	return selected
+
+## Native face numbers for one slot: the bible's recorded entry, otherwise (bible
+## "measureNativeFaces") measured from the native drawing with the rule that derived head:1.
+static func native_face(bible: Dictionary, part: String, index: int, native: Image) -> Dictionary:
+	var recorded: Dictionary = bible.get("nativeFaces", {}).get("%s:%d" % [part, index], {})
+	if not recorded.is_empty() or not bible.get("measureNativeFaces", false) or not bible.slotRules[part].has("face"):
+		return recorded
+	var m := Contract.measure(native, Contract.native_skin)
+	return {"box": m.faceBox, "pixels": m.facePixels, "measured": true}
+
 ## Check every slot of `part`. `board` is a normalized palette board (or null to read `pack`).
 static func gate(part: String, bible: Dictionary, board: Image, pack: String, board_dir: String = "") -> Dictionary:
 	var definition := slots(part, board_dir)
-	var rules: Dictionary = bible.slotRules[part]
 	var results := {}
 	var passed := true
 	for slot: Dictionary in definition.slots:
 		var image: Image = board.get_region(slot.rect) if board else Image.load_from_file(pack.trim_suffix("/") + "/" + slot.file)
-		var face: Dictionary = bible.get("nativeFaces", {}).get("%s:%d" % [part, slot.index], {})
-		var result := Contract.check(part, slot.native, image, rules, face, bible._skin)
+		var face := native_face(bible, part, slot.index, slot.native)
+		var result := Contract.check(part, slot.native, image, slot_rules(bible, part, slot.index), face, bible._skin)
 		results[str(slot.index)] = result
 		passed = passed and result.pass
 	return {"pass": passed, "slots": results}
@@ -82,9 +106,15 @@ func run() -> void:
 	var part := option("part", "head")
 	if not board_dir.is_empty():
 		part = slots("", board_dir).part
-	var bible_path := option("bible", "res://tools/character-lab/style/style-bible-v1.json")
+	# Boards written by board_export.gd name their style bible; older boards use v1.
+	var board_bible := ""
+	if not board_dir.is_empty():
+		var board_layout: Variant = JSON.parse_string(FileAccess.get_file_as_string(board_dir.trim_suffix("/") + "/sprite-slots.json"))
+		if board_layout is Dictionary:
+			board_bible = str(board_layout.get("styleBible", ""))
+	var bible_path := option("bible", board_bible if not board_bible.is_empty() else "res://tools/character-lab/style/style-bible-v1.json")
 	if option("derive") == "true":
-		derive(part)
+		derive(part, board_dir)
 		return
 	var bible := load_bible(bible_path)
 	if bible.is_empty() or not bible.slotRules.has(part):
@@ -94,9 +124,8 @@ func run() -> void:
 	if option("brief") == "true":
 		var definition := slots(part, board_dir)
 		for slot: Dictionary in definition.slots:
-			var face: Dictionary = bible.get("nativeFaces", {}).get("%s:%d" % [part, slot.index], {})
 			print("[%s SPR %d]" % [part, slot.index])
-			print(Contract.brief(part, slot.native, bible.slotRules[part], face, slot.rect.position, definition.scale))
+			print(Contract.brief(part, slot.native, slot_rules(bible, part, slot.index), native_face(bible, part, slot.index, slot.native), slot.rect.position, definition.scale))
 		quit()
 		return
 	var board: Image = null
@@ -127,8 +156,8 @@ func run() -> void:
 		file.close()
 	quit(0 if result.pass else 1)
 
-func derive(part: String) -> void:
-	var definition := slots(part)
+func derive(part: String, board_dir: String = "") -> void:
+	var definition := slots(part, board_dir)
 	for slot: Dictionary in definition.slots:
 		var m := Contract.measure(slot.native, Contract.native_skin)
 		print("%s:%d native area %d bbox %s edge %d face %d px box %s" % [part, slot.index, m.area, m.bbox, m.edgePixels, m.facePixels, m.faceBox])

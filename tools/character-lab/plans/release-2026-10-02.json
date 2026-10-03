@@ -1,0 +1,273 @@
+{
+  "schemaVersion": 1,
+  "id": "release-2026-10-02",
+  "note": "Fresh export of the exact native geometry used by the passing raw candidates. Export the complete four-head board, then make metadata-only selections for head 0 and heads 3-4 without changing its canvas, crops or bitmaps. All boards record current native body timelines.",
+  "job": "swordsman-male",
+  "inventory": "res://tools/character-lab/assets/slot-inventory/swordsman-male.json",
+  "output": "res://tools/character-lab/assets/completion-2026-10-02/release-boards/",
+  "styleBible": "res://tools/character-lab/style/style-bible-v2.json",
+  "layouts": {
+    "body": {
+      "scale": 5,
+      "minCell": 96,
+      "margin": 8,
+      "placement": "bottom",
+      "columns": 3
+    },
+    "head": {
+      "scale": 16,
+      "minCell": 64,
+      "margin": 6,
+      "placement": "center",
+      "columns": 2
+    }
+  },
+  "boards": [
+    {
+      "id": "wayfarer-body-idle-all",
+      "part": "body",
+      "character": "res://tools/character-lab/assets/completion-2026-10-02/wayfarer-generation-spec.json",
+      "layout": {
+        "scale": 4,
+        "minCell": 128,
+        "margin": 8,
+        "placement": "bottom",
+        "columns": 3
+      },
+      "slots": [
+        0,
+        1,
+        2,
+        3,
+        4
+      ],
+      "groups": [
+        "idle"
+      ]
+    },
+    {
+      "id": "wayfarer-body-walk-S",
+      "part": "body",
+      "character": "res://tools/character-lab/assets/completion-2026-10-02/wayfarer-generation-spec.json",
+      "layout": {
+        "scale": 5,
+        "minCell": 96,
+        "margin": 8,
+        "placement": "bottom",
+        "columns": 3
+      },
+      "view": "S",
+      "groups": [
+        "walk"
+      ]
+    },
+    {
+      "id": "wayfarer-body-walk-SW",
+      "part": "body",
+      "character": "res://tools/character-lab/assets/completion-2026-10-02/wayfarer-generation-spec.json",
+      "layout": {
+        "scale": 5,
+        "minCell": 96,
+        "margin": 8,
+        "placement": "bottom",
+        "columns": 3
+      },
+      "view": "SW",
+      "groups": [
+        "walk"
+      ]
+    },
+    {
+      "id": "wayfarer-body-walk-W",
+      "part": "body",
+      "character": "res://tools/character-lab/assets/completion-2026-10-02/wayfarer-generation-spec.json",
+      "layout": {
+        "scale": 5,
+        "minCell": 96,
+        "margin": 8,
+        "placement": "bottom",
+        "columns": 3
+      },
+      "view": "W",
+      "groups": [
+        "walk"
+      ]
+    },
+    {
+      "id": "wayfarer-body-walk-NW",
+      "part": "body",
+      "character": "res://tools/character-lab/assets/completion-2026-10-02/wayfarer-generation-spec.json",
+      "layout": {
+        "scale": 5,
+        "minCell": 96,
+        "margin": 8,
+        "placement": "bottom",
+        "columns": 3
+      },
+      "view": "NW",
+      "groups": [
+        "walk"
+      ]
+    },
+    {
+      "id": "wayfarer-body-walk-N",
+      "part": "body",
+      "character": "res://tools/character-lab/assets/completion-2026-10-02/wayfarer-generation-spec.json",
+      "layout": {
+        "scale": 5,
+        "minCell": 96,
+        "margin": 8,
+        "placement": "bottom",
+        "columns": 3
+      },
+      "view": "N",
+      "groups": [
+        "walk"
+      ]
+    },
+    {
+      "id": "wayfarer-body-ready-front",
+      "part": "body",
+      "character": "res://tools/character-lab/assets/completion-2026-10-02/wayfarer-generation-spec.json",
+      "layout": {
+        "scale": 4,
+        "minCell": 128,
+        "margin": 8,
+        "placement": "bottom",
+        "columns": 3
+      },
+      "view": "S",
+      "groups": [
+        "ready"
+      ],
+      "exclude": [
+        54
+      ]
+    },
+    {
+      "id": "wayfarer-body-ready-back",
+      "part": "body",
+      "character": "res://tools/character-lab/assets/completion-2026-10-02/wayfarer-generation-spec.json",
+      "layout": {
+        "scale": 4,
+        "minCell": 128,
+        "margin": 8,
+        "placement": "bottom",
+        "columns": 3
+      },
+      "view": "W",
+      "groups": [
+        "ready"
+      ]
+    },
+    {
+      "id": "wayfarer-head-1",
+      "part": "head",
+      "character": "res://tools/character-lab/assets/completion-2026-10-02/wayfarer-generation-spec.json",
+      "layout": {
+        "scale": 16,
+        "minCell": 64,
+        "margin": 6,
+        "placement": "center",
+        "columns": 1
+      },
+      "slots": [
+        1
+      ],
+      "groups": [
+        "idle",
+        "walk",
+        "ready",
+        "attack2"
+      ]
+    },
+    {
+      "id": "wayfarer-head-2",
+      "part": "head",
+      "character": "res://tools/character-lab/assets/completion-2026-10-02/wayfarer-generation-spec.json",
+      "layout": {
+        "scale": 16,
+        "minCell": 64,
+        "margin": 6,
+        "placement": "center",
+        "columns": 1
+      },
+      "slots": [
+        2
+      ],
+      "groups": [
+        "idle",
+        "walk",
+        "ready",
+        "attack2"
+      ]
+    },
+    {
+      "id": "wayfarer-head-other-views",
+      "part": "head",
+      "character": "res://tools/character-lab/assets/completion-2026-10-02/wayfarer-generation-spec.json",
+      "layout": {
+        "scale": 16,
+        "minCell": 64,
+        "margin": 6,
+        "placement": "center",
+        "columns": 2
+      },
+      "slots": [
+        0,
+        2,
+        3,
+        4
+      ],
+      "groups": [
+        "idle",
+        "walk",
+        "ready",
+        "attack2"
+      ]
+    },
+    {
+      "id": "lantern-scholar-body-front",
+      "part": "body",
+      "character": "res://tools/character-lab/characters/lantern-scholar.json",
+      "layout": {
+        "scale": 4,
+        "minCell": 128,
+        "margin": 8,
+        "placement": "bottom",
+        "columns": 3
+      },
+      "slots": [
+        82,
+        83,
+        84,
+        85,
+        86,
+        54
+      ],
+      "groups": [
+        "attack2",
+        "ready"
+      ]
+    },
+    {
+      "id": "lantern-scholar-head-1",
+      "part": "head",
+      "character": "res://tools/character-lab/characters/lantern-scholar.json",
+      "layout": {
+        "scale": 16,
+        "minCell": 64,
+        "margin": 6,
+        "placement": "center",
+        "columns": 1
+      },
+      "slots": [
+        1
+      ],
+      "groups": [
+        "attack2",
+        "ready"
+      ]
+    }
+  ]
+}

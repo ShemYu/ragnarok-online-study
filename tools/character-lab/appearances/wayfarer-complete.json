@@ -1,0 +1,71 @@
+{
+  "schemaVersion": 1,
+  "id": "wayfarer-complete",
+  "label": "Wayfarer complete (idle, walk, ready, attack; candidate)",
+  "note": "Candidate completion look: protected accepted front attack + ready 54, protected user-pending back attack preview, 56 newly imported body drawings and five head views. Required packs must exist before the game loads it. The selected four states cover all eight directions; other states retain explicit native fallback.",
+  "parts": {
+    "body": [
+      {
+        "manifest": "res://tools/character-lab/assets/native-wayfarer-v3/costume.json",
+        "field": "body"
+      },
+      {
+        "manifest": "res://tools/character-lab/assets/native-wayfarer-attack-back-v2/pack.json",
+        "field": "body"
+      },
+      {
+        "manifest": "res://tools/character-lab/assets/completion-2026-10-02/packs/wayfarer-body-idle-all/pack.json",
+        "field": "body"
+      },
+      {
+        "manifest": "res://tools/character-lab/assets/completion-2026-10-02/packs/wayfarer-body-walk-s/pack.json",
+        "field": "body"
+      },
+      {
+        "manifest": "res://tools/character-lab/assets/completion-2026-10-02/packs/wayfarer-body-walk-sw/pack.json",
+        "field": "body"
+      },
+      {
+        "manifest": "res://tools/character-lab/assets/completion-2026-10-02/packs/wayfarer-body-walk-w/pack.json",
+        "field": "body"
+      },
+      {
+        "manifest": "res://tools/character-lab/assets/completion-2026-10-02/packs/wayfarer-body-walk-nw/pack.json",
+        "field": "body"
+      },
+      {
+        "manifest": "res://tools/character-lab/assets/completion-2026-10-02/packs/wayfarer-body-walk-n/pack.json",
+        "field": "body"
+      },
+      {
+        "manifest": "res://tools/character-lab/assets/completion-2026-10-02/packs/wayfarer-body-ready-front/pack.json",
+        "field": "body"
+      },
+      {
+        "manifest": "res://tools/character-lab/assets/completion-2026-10-02/packs/wayfarer-body-ready-back/pack.json",
+        "field": "body"
+      }
+    ],
+    "head": [
+      {
+        "manifest": "res://tools/character-lab/assets/completion-2026-10-02/packs/wayfarer-head-0/pack.json",
+        "field": "head"
+      },
+      {
+        "manifest": "res://tools/character-lab/assets/completion-2026-10-02/packs/wayfarer-head-1/pack.json",
+        "field": "head"
+      },
+      {
+        "manifest": "res://tools/character-lab/assets/completion-2026-10-02/packs/wayfarer-head-2/pack.json",
+        "field": "head"
+      },
+      {
+        "manifest": "res://tools/character-lab/assets/completion-2026-10-02/packs/wayfarer-head-rear/pack.json",
+        "field": "head"
+      }
+    ]
+  },
+  "palette": "res://tools/character-lab/style/wayfarer-style-v1.json",
+  "styleBible": "res://tools/character-lab/style/style-bible-v2.json",
+  "review": "Not accepted by the user. Technical gates and Codex visual review are recorded in the run reports; user approval, if given, is recorded separately."
+}

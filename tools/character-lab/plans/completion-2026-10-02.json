@@ -1,0 +1,26 @@
+{
+	"schemaVersion": 1,
+	"id": "completion-2026-10-02",
+	"note": "Generation boards for the completion milestone. Wayfarer: idle + walk for the five drawn views (body 0-44), ready front without the accepted SPR 54 (55-59), ready back (60-65), head views 0-4. Lantern Scholar: the six front body drawings (attack2 front 82-86 + ready 54) and head 1; its full ready front (55-59) is optional. Attack2 front (82-86, 54) and back (87-91) already exist for the Wayfarer.",
+	"job": "swordsman-male",
+	"inventory": "res://tools/character-lab/assets/slot-inventory/swordsman-male.json",
+	"output": "res://tools/character-lab/assets/completion-2026-10-02/boards/",
+	"styleBible": "res://tools/character-lab/style/style-bible-v2.json",
+	"layouts": {
+		"body": {"scale": 5, "minCell": 96, "margin": 8, "placement": "bottom", "columns": 3},
+		"head": {"scale": 10, "minCell": 48, "margin": 6, "placement": "center", "columns": 3}
+	},
+	"boards": [
+		{"id": "wayfarer-body-idle-walk-S", "character": "res://tools/character-lab/characters/wayfarer-complete.json", "part": "body", "view": "S", "groups": ["idle", "walk"]},
+		{"id": "wayfarer-body-idle-walk-SW", "character": "res://tools/character-lab/characters/wayfarer-complete.json", "part": "body", "view": "SW", "groups": ["idle", "walk"]},
+		{"id": "wayfarer-body-idle-walk-W", "character": "res://tools/character-lab/characters/wayfarer-complete.json", "part": "body", "view": "W", "groups": ["idle", "walk"]},
+		{"id": "wayfarer-body-idle-walk-NW", "character": "res://tools/character-lab/characters/wayfarer-complete.json", "part": "body", "view": "NW", "groups": ["idle", "walk"]},
+		{"id": "wayfarer-body-idle-walk-N", "character": "res://tools/character-lab/characters/wayfarer-complete.json", "part": "body", "view": "N", "groups": ["idle", "walk"]},
+		{"id": "wayfarer-body-ready-front", "character": "res://tools/character-lab/characters/wayfarer-complete.json", "part": "body", "view": "S", "groups": ["ready"], "exclude": [54]},
+		{"id": "wayfarer-body-ready-back", "character": "res://tools/character-lab/characters/wayfarer-complete.json", "part": "body", "view": "W", "groups": ["ready"]},
+		{"id": "wayfarer-head-views", "character": "res://tools/character-lab/characters/wayfarer-complete.json", "part": "head", "slots": [0, 1, 2, 3, 4], "groups": ["idle", "walk", "ready", "attack2"]},
+		{"id": "lantern-scholar-body-front", "character": "res://tools/character-lab/characters/lantern-scholar.json", "part": "body", "slots": [82, 83, 84, 85, 86, 54], "groups": ["attack2", "ready"]},
+		{"id": "lantern-scholar-head-1", "character": "res://tools/character-lab/characters/lantern-scholar.json", "part": "head", "slots": [1], "groups": ["attack2", "ready"]},
+		{"id": "lantern-scholar-body-ready-front", "optional": true, "character": "res://tools/character-lab/characters/lantern-scholar.json", "part": "body", "view": "S", "groups": ["ready"], "exclude": [54]}
+	]
+}

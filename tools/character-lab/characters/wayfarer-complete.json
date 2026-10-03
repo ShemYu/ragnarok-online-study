@@ -1,0 +1,26 @@
+{
+	"schemaVersion": 2,
+	"id": "wayfarer",
+	"label": "Wayfarer",
+	"note": "Character spec for the 2026-10-02 completion milestone (idle, walk, ready and attack in all eight directions, head views 0-4). The older characters/wayfarer.json stays as the spec of the saved attack2 back-view board.",
+	"styleBible": "res://tools/character-lab/style/style-bible-v2.json",
+	"job": "swordsman-male",
+	"parts": {
+		"body": {
+			"costume": "open dark desaturated teal vest over a warm ivory short-sleeved shirt, chest strap with brass buckle, SINGLE brown leather waist belt with brass square buckle, small leather hip pouch, dark gray-violet trousers, brown leather cuffed boots and wrist guards",
+			"replaces": "Replace the Swordsman's chest armor with the teal open vest and ivory shirt. Replace the wide armor skirt/hip plate with the single leather belt and trousers/pouch. Cloth sleeves may cover the current shoulder forms but must NOT become inflated balls. No duplicate belt, no segmented doll joints.",
+			"avoid": "Any head, hair or headgear; a cape; armor plates; inflated shoulders; a second belt.",
+			"designReferences": [
+				{"file": "res://tools/character-lab/assets/native-wayfarer-v3/costume/imported-board.png", "role": "the ACCEPTED Wayfarer clothing on the native attack front view (5 attack drawings + 1 ready drawing; visually accepted by the user 2026-09-24). Match these garments, colors and buckles exactly."},
+				{"file": "res://tools/character-lab/assets/native-wayfarer-attack-back-v2/imported-board.png", "role": "the same clothing seen from BEHIND (attack2 back view v2; technically passing, visual acceptance still pending). Use it for how the back of the vest, belt and trousers look."}
+			]
+		},
+		"head": {
+			"description": "soft rounded mass of warm sandy-copper hair made of a few broad layered locks, side-swept fringe over the forehead, large rounded RO face with a full cheek and small chin, one large dark brown eye per visible side with a tiny highlight, calm expression. Same hair silhouette and color in every view; seen from behind it is a rounded mass of layered copper locks.",
+			"avoid": "Any feather, bandana, cap, hat or baked headgear (hats are a separate module that sits on this skull); an exposed neck, collar or shoulders; a smaller or narrower face than the native head.",
+			"designReferences": [
+				{"file": "res://tools/character-lab/assets/video-tests/grok-wayfarer-attack-v3/source.png", "role": "the user-preferred Wayfarer \"V3\" character art (2026-09-25). Use ONLY its head: hair style, hair color and face style. Do not copy its body, sword, clothing, neck length or its higher drawing resolution."}
+			]
+		}
+	}
+}

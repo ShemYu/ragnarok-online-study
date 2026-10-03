@@ -1,0 +1,12 @@
+{
+	"schemaVersion": 1,
+	"id": "fixture-wayfarer-body",
+	"label": "Wayfarer body for fixtures: accepted front attack + ready 54 (v3) and the attack back-view preview (v2)",
+	"note": "Fixture look only (art_recipe.py --fixture-look). Lets the ready-front board and the new head render on the existing Wayfarer clothing. Not a game appearance.",
+	"parts": {
+		"body": [
+			{"manifest": "res://tools/character-lab/assets/native-wayfarer-v3/costume.json", "field": "body"},
+			{"manifest": "res://tools/character-lab/assets/native-wayfarer-attack-back-v2/pack.json", "field": "body"}
+		]
+	}
+}

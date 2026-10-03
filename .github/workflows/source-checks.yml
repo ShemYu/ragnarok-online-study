@@ -22,9 +22,16 @@ jobs:
           python3 - <<'PY'
           import ast
           from pathlib import Path
-          for name in ("tools/character-lab/pipeline.py", "tools/check_public_tree.py"):
+          names = ("tools/character-lab/pipeline.py", "tools/character-lab/art_recipe.py", "tools/check_public_tree.py")
+          for name in names:
               ast.parse(Path(name).read_text(encoding="utf-8"), filename=name)
-          print("Python syntax passed: 2 files.")
+          print(f"Python syntax passed: {len(names)} files.")
           PY
+      - name: Run asset-independent recipe validation tests
+        env:
+          PYTHONDONTWRITEBYTECODE: '1'
+        run: python3 -m unittest discover -s tools/character-lab/tests -p 'test_*.py' -v
       - name: Run asset-independent motion and modularity tests
         run: node --test tools/character-lab/tests/modular-motion.test.mjs tools/character-lab/tests/modular-engine.test.mjs
+      - name: Run source-independent native composition tests (inspection D13)
+        run: node --test tools/character-lab/tests/native-core-synthetic.test.mjs

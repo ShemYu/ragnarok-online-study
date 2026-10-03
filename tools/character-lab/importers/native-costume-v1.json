@@ -1,0 +1,50 @@
+{
+	"schemaVersion": 1,
+	"id": "native-costume-v1",
+	"schema": "costume-v1",
+	"note": "Configuration of the saved body importer (import_native_costume.gd): the native-template-v1 six-slot layout (attack2 front SPR 82-86 + ready SPR 54), Swordsman action 86 / direction 6 fixtures and the costume.json manifest shape. The code lives in art_import.gd; this file holds the job, template, slots, fixtures and labels. New art uses board_export.gd + import_slot_board.gd instead.",
+	"part": "body",
+	"actorKind": "swordsman",
+	"partNames": ["body", "head", "weapon", "trail"],
+	"templateDir": "res://tools/character-lab/assets/native-template-v1/",
+	"layout": "res://tools/character-lab/assets/native-template-v1/sprite-slots.json",
+	"defaultOutputDir": "res://tools/character-lab/assets/native-template-v1/",
+	"defaultSource": "costume-slot-board.png",
+	"manifest": "costume.json",
+	"outputDirs": ["costume/body", "costume/attack", "costume/ready"],
+	"files": {
+		"slot": "costume/body/%03d.png",
+		"normalizedBoard": "costume/imported-board.png",
+		"frame": "costume/%s/frame-%02d.png",
+		"contact": "costume/attack/contact.png",
+		"contact3x": "costume/attack/contact-3x.png"
+	},
+	"direction": 6,
+	"states": [
+		{"state": "ready", "frames": 1},
+		{"state": "attack", "frames": "all", "contact": true}
+	],
+	"contact": {"columns": 3, "cell": 192, "size": [576, 576], "scaled": [1728, 1728]},
+	"expectedSequence": {"state": "attack", "slots": [82, 83, 83, 83, 84, 85, 86, 86, 86]},
+	"recipeContract": {
+		"note": "What a recipe module using this importer must state (art_recipe.py validates it).",
+		"action": {
+			"attack": {"sourceAction": 86, "direction": 6, "sequence": [82, 83, 83, 83, 84, 85, 86, 86, 86], "frameDurationMs": 96},
+			"ready": {"sourceAction": 38, "direction": 6, "slots": [54]}
+		}
+	},
+	"verificationExtras": {"reusedIndex83Frames": [1, 2, 3], "reusedIndex86Frames": [6, 7, 8]},
+	"legacyKey": {"r": 0.65, "b": 0.6, "g": 0.45, "sum": 0.85, "text": "r > 0.65 and b > 0.6 and g < 0.45 and r+b-2*g > 0.85 (RGB normalized 0..1)"},
+	"labels": {
+		"defaultCharacter": "Wayfarer",
+		"name": "{character} costume on native Swordsman action",
+		"legacyOperation": "Resize entire board to {canvas} nearest-neighbor once, then fixed imageRect crops from sprite-slots.json. No individual resizing, recentering, source silhouette masks, warping, or ACT edits.",
+		"indexedOperation": "Classify every source pixel against the style palette (magenta edges unmixed), then take the majority class of each fractional block of the whole board, then fixed imageRect crops from sprite-slots.json. No individual resizing, recentering, source silhouette masks, warping, or ACT edits.",
+		"caveats": [
+			"Repaint derived from original RO body references; original head, weapon and trail remain native reference artwork.",
+			"Same bitmap dimensions and ACT data preserve the template, but generated pixels can still drift inside their slots. Per-slot alpha overlap quantifies this rather than proving artistic approval.",
+			"Reconstruction through the existing local renderer, not a capture of the official game client."
+		],
+		"done": "Costume imported: {slots} body bitmaps, {frames} native attack frames, ACT unchanged."
+	}
+}

@@ -4,7 +4,7 @@ Reverse-engineering Ragnarok Online's file formats, rendering and animation to l
 
 **This public repository contains source code, tests and research notes.** Native RO files, reference images, generated artwork/video, visual fixtures and full local snapshots are excluded. A fresh clone can run the source-only checks below; the game and visual demos require separately supplied local assets. Your existing local asset folders continue to work. See [public repository scope and local asset setup](docs/PUBLIC_REPOSITORY.md).
 
-Start with the [v0.1.0 findings](docs/character-lab/native-art-poc-v0.1.0.md), [repeatable artwork workflow](docs/character-lab/WORKFLOW.md) and [next milestones](ROADMAP.md). The current result preserves one native attack while replacing the body/clothing and head; it is not yet a complete original job.
+Start with the [v0.1.0 findings](docs/character-lab/native-art-poc-v0.1.0.md), [repeatable artwork workflow](docs/character-lab/WORKFLOW.md) and [next milestones](ROADMAP.md). The [2026-10-02 completion milestone](docs/character-lab/COMPLETION-2026-10-02.md) now verifies Wayfarer idle, walk, ready and dagger attack in eight directions through the game actor: 67 body drawings and five head views, with separate native cap/hat modules. A second character, Lantern Scholar, proves the same import workflow with six body drawings and one head. The new looks are installed locally, and [final acceptance and the frame viewer](docs/character-lab/COMPLETION-QA-2026-10-02.md) are ready. Other actions retain native artwork; user artwork approval remains separate.
 
 ## Source-only checks
 
@@ -12,10 +12,11 @@ With Node.js 22+ and Python 3.9+:
 
 ```sh
 python3 tools/check_public_tree.py
-node --test tools/character-lab/tests/modular-motion.test.mjs tools/character-lab/tests/modular-engine.test.mjs
+node --test tools/character-lab/tests/modular-motion.test.mjs tools/character-lab/tests/modular-engine.test.mjs tools/character-lab/tests/native-core-synthetic.test.mjs
+PYTHONDONTWRITEBYTECODE=1 python3 -m unittest discover -s tools/character-lab/tests -p 'test_*.py'
 ```
 
-The public CI runs these checks. The native fixture tests, browser comparisons and visual performance measurements documented in the milestone require the local asset pack and are not reproduced by CI.
+The public CI runs these checks, including 11 synthetic native composition tests without RO assets. The native fixture tests, browser comparisons and visual performance measurements documented in the milestone require the local asset pack and are not reproduced by CI.
 
 ## Local game prototype
 
@@ -46,7 +47,7 @@ On another Mac, run **Setup.command** once online, or install Godot 4.5+ and ope
 | I / Alt+E / Ctrl+E | Inventory and weapon equipment |
 | C | Stats and skills |
 | T / Talk to Guide | Approach the training instructor |
-| O | Cycle outfit: native RO art / Wayfarer replacement art (needs the local Character Lab packs) |
+| O | Cycle outfit: native RO art / Wayfarer looks / Lantern Scholar proof (only looks whose local Character Lab packs are installed) |
 | H | Cycle headgear: none / Cap / Hat (native reference headgear) |
 | Esc | Close windows, then cancel the current command |
 
@@ -66,7 +67,7 @@ See [map revision details and before/after images](docs/MAP_V3.md). This revisio
 
 ## Character Lab
 
-Double-click **Character Lab.command**, then open the printed local browser address. The current [native-action PoC](http://127.0.0.1:8767/native.html) applies Wayfarer clothing and a separate head to one original RO attack, with independent headgear and weapon layers. Earlier appearance, sprite-sheet, video and cutout experiments remain available. This is a separate Character Lab study; the replacement designs are not integrated as game jobs. [Usage and artwork notes](tools/character-lab/README.md) · [v0.1.0 findings, workflow and snapshot](docs/character-lab/README.md).
+Double-click **Character Lab.command**, then open the printed local browser address. The saved [native-action PoC](http://127.0.0.1:8767/native.html) applies Wayfarer clothing and a separate head to one original RO attack, with independent headgear and weapon layers. Earlier appearance, sprite-sheet, video and cutout experiments remain available. The newer [completion milestone](docs/character-lab/COMPLETION-2026-10-02.md) uses the same native construction for the four-state Wayfarer slice and a smaller Scholar proof, verified in isolated Godot actor fixtures. Candidate appearances load on the existing Swordsman once their verified packs are installed; they do not add game classes. [Usage and artwork notes](tools/character-lab/README.md) · [v0.1.0 findings, workflow and snapshot](docs/character-lab/README.md).
 
 ## Saves
 
@@ -102,9 +103,11 @@ A useful first experiment is changing `walk_speed` in `rpg_rules.gd`, then compa
 .tools/Godot.app/Contents/MacOS/Godot --headless --path . --script res://tests/ro_model_data_test.gd
 .tools/Godot.app/Contents/MacOS/Godot --headless --path . --script res://tests/map_integration_test.gd
 .tools/Godot.app/Contents/MacOS/Godot --headless --path . -- --qa
-.tools/Godot.app/Contents/MacOS/Godot --path . -- --qa-playthrough
-.tools/Godot.app/Contents/MacOS/Godot --headless --path . --script res://tests/progression_playthrough.gd -- --qa-progression
+.tools/Godot.app/Contents/MacOS/Godot --path . -- --qa-playthrough --evidence-dir=<new absolute folder>
+.tools/Godot.app/Contents/MacOS/Godot --headless --path . --script res://tests/progression_playthrough.gd -- --qa-progression --evidence-dir=<new absolute folder>
 ```
+
+The two playthroughs write their screenshots and reports to `--evidence-dir`. The saved `docs/v3` evidence is only rewritten with `--update-saved-evidence`. In a sandbox that cannot write Godot's user data folder, add `--log-file <absolute path>` after the Godot executable on every command.
 
 Integration QA uses a separate temporary save. See [current validation evidence](docs/QA_V3.md), [revision 2 validation history](docs/QA.md), [study notes](docs/STUDY.md), [sprite provenance and format research](docs/RO_ASSET_RESEARCH.md), [native map notes](docs/MAP_V3.md) and [previous environment notes](docs/ENVIRONMENT_V2.md). The V1 baseline is preserved in `docs/baseline-v1/`; its procedural actor and test remain historical references and are no longer used by the game.
 

@@ -1,0 +1,40 @@
+{
+	"schemaVersion": 1,
+	"id": "style-bible-v2",
+	"note": "Style bible v1 plus face rules for every native head view (head SPR 0-4), added 2026-10-02 for the completion milestone. Palette, skin tags and all thresholds are copied unchanged from v1; v1 stays the bible of the saved packs. Native face numbers for slots without a recorded entry are measured from the pinned native drawing with the same rule that produced head:1 (verify_candidate.gd prints them, and the gate records them in every result).",
+	"palette": {"file": "res://tools/character-lab/style/wayfarer-style-v1.json", "sha256": "0e85caddbf7abcca49cf6b38a5da84889eeae16a07aa2d95243a92e30bc2a25c"},
+	"materials": {
+		"skin": [36, 40, 43, 44, 45, 46],
+		"skinNote": "Palette indices counted as face skin. Derived with verify_candidate.gd --derive, then reviewed. Very light hair could be counted as skin; the face check only looks at the lower 55% of the head."
+	},
+	"slotRules": {
+		"head": {
+			"areaRatio": [0.95, 1.10],
+			"bboxTolerance": 1,
+			"alphaIoUMin": 0.80,
+			"outlineRatioMax": 1.25,
+			"face": {"minRatio": 0.80, "boxTolerance": 2},
+			"faceViews": {"0": "face", "1": "face", "2": "face", "3": "rear", "4": "rear"},
+			"rearFace": {"minRatio": 0.5, "maxRatio": 1.5, "slackPixels": 4},
+			"faceViewsNote": "Head SPR 0 (S), 1 (SW) and 2 (W profile) show the face: the v1 rule (at least 80% of the native face skin, face box within 2 px) applies to each slot's own native face. SPR 3 (NW) and 4 (N) are rear views: the visible skin (cheek, ear, nape) must stay within 50%-150% of the native visible skin, plus or minus 4 px, so a rear head can neither lose its visible skin nor gain a frontal face. A head slot without a listed view fails the gate.",
+			"why": "The head is a shared module: native hats are drawn and anchored for the native skull, and RO identity depends on the large rounded face. Head size is a template rule, not a per-character choice (user review 2026-09-25)."
+		},
+		"body": {
+			"areaRatio": [0.90, 1.10],
+			"bboxTolerance": 2,
+			"alphaIoUMin": 0.85,
+			"outlineRatioMax": 1.25,
+			"why": "Costumes may change the silhouette a little, but hands, feet and neck must stay where the native ACT expects them."
+		}
+	},
+	"measureNativeFaces": true,
+	"nativeFaces": {
+		"head:1": {"box": [11, 13, 10, 11], "pixels": 65, "source": "res://assets/reference-ro/novice-male-head-1 SPR 1", "derivedBy": "verify_candidate.gd --derive (largest skin component in the lower 55% of the native head)"}
+	},
+	"designRules": [
+		"Mirrored views flip asymmetric details (inspection B7): a hip pouch changes sides between S and E. Design costumes to tolerate the flip, or keep key details symmetric.",
+		"Raw SPR head and body slots face LEFT; the game mirrors them. Prompts must follow the slot's facing, not the design reference's.",
+		"Body boards are headless; head boards are heads only (face and hair, no neck, body or headgear). Headgear is a separate native module that sits on the native skull.",
+		"Rear head views (SPR 3, 4) show hair and only the native amount of cheek/ear/nape skin; never a face."
+	]
+}

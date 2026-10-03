@@ -133,6 +133,10 @@ static func load_appearance(path: String) -> Dictionary:
 			var pack_path: String = entry.manifest
 			var pack: Variant = JSON.parse_string(FileAccess.get_file_as_string(pack_path)) if FileAccess.file_exists(pack_path) else null
 			var field: String = entry.get("field", part)
+			# An entry marked optional (e.g. a pack still under review) may be absent; its slots stay native.
+			if not FileAccess.file_exists(pack_path) and entry.get("optional", false):
+				push_warning("Optional appearance pack not installed, its slots stay native: " + pack_path)
+				continue
 			if not pack is Dictionary or not pack.get(field) is Dictionary:
 				push_warning("Appearance part unavailable: %s (%s)" % [part, pack_path])
 				return {}

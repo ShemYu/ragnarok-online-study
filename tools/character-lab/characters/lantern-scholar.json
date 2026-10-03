@@ -1,0 +1,25 @@
+{
+	"schemaVersion": 2,
+	"id": "lantern-scholar",
+	"label": "Lantern Scholar",
+	"note": "Second-character reuse proof on the same palette, style bible and native Swordsman template. Design source: the original Lantern Scholar concept (assets/lantern-scholar-v3.png), adapted to the native male Swordsman body and novice male head silhouettes, which are the only native templates in this study. The concept's beret, hair ribbon and pin are omitted from the head art; real headgear stays a separate module.",
+	"styleBible": "res://tools/character-lab/style/style-bible-v2.json",
+	"job": "swordsman-male",
+	"parts": {
+		"body": {
+			"costume": "teal academic coat with squared lapels and cream trim and cream turned-back cuffs, open over an ivory undershirt with a small brown neck bow, slim brown leather belt with a brass buckle, a small closed brown field notebook in a holder at the hip, dark navy shorts, cream socks and sturdy brown ankle boots",
+			"replaces": "Replace the Swordsman's chest armor and armor skirt with the coat, undershirt, belt and shorts. The coat follows the native torso and skirt silhouette: its hem may hang to the native armor-skirt line but must not widen, lengthen or trail beyond the native sprite outline. Keep the native body proportions; this is a costume, not a new body.",
+			"avoid": "Any head, hair, hat or beret; a cape; armor plates; the Wayfarer's open vest, chest strap or hip pouch (this is a different character); inflated shoulders.",
+			"designReferences": [
+				{"file": "res://tools/character-lab/assets/lantern-scholar-v3.png", "role": "the original Lantern Scholar concept sheet (front, left profile, back, right profile). Use ONLY the costume design: coat cut, trim, colors, belt, notebook, shorts and boots. Ignore its beret, its body proportions and its higher drawing resolution."}
+			]
+		},
+		"head": {
+			"description": "copper-orange chin-length bob with straight side-swept bangs, hair framing the large rounded RO face, large dark brown eyes with a small highlight, small calm mouth. No ribbon, pin or headband. Clearly a different hairstyle from the Wayfarer's layered sandy-copper locks: a smooth rounded bob with a straight lower edge.",
+			"avoid": "The concept's teal beret, its ivory ribbon and bronze pin, or any other baked headgear; an exposed neck, collar or shoulders; a smaller face than the native head.",
+			"designReferences": [
+				{"file": "res://tools/character-lab/assets/lantern-scholar-v3.png", "role": "the original Lantern Scholar concept sheet. Use ONLY the hair and face: bob cut, hair color, eyes. Leave out the beret, ribbon and pin completely."}
+			]
+		}
+	}
+}

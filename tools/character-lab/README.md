@@ -4,6 +4,12 @@
 
 **Saved milestone: [native-art-poc v0.1.0](../../docs/character-lab/README.md).** The review, reusable workflow and restorable snapshot preserve the successful native-action artwork approach. Verify it with `python3 tools/character-lab/pipeline.py verify` from the repository root.
 
+**Completion milestone (2026-10-02):** Wayfarer idle/walk/ready/attack in eight directions, head v3 and the Lantern Scholar front proof are installed and verified. [Open the local frame viewer](assets/completion-2026-10-02/review.html); [final acceptance](../../docs/character-lab/COMPLETION-QA-2026-10-02.md) records scope, evidence and save-free play commands.
+
+The browser pages below preserve their earlier studies. The completion fixtures are Godot actor outputs under `logs/completion-2026-10-02/wayfarer-isolated-review/` and `scholar-isolated-review/`; this milestone does not replace the saved `native.html` attack comparison. After verified packs are installed, the two new appearance manifests can be reviewed with `--no-save --review-job=swordsman --appearance=<manifest>`, as documented in the handoff.
+
+**Reproduce the current saved packs from configuration:** `python3 tools/character-lab/art_recipe.py run tools/character-lab/recipes/wayfarer-saved-art-v1.json --out <new folder>` rebuilds body v3, the historical head v2 and the back-view preview v2. It re-imports their saved generated images, compares every saved PNG byte for byte and writes a report. It never writes into existing packs. See [the workflow section](../../docs/character-lab/WORKFLOW.md#reproduce-the-saved-wayfarer-packs-from-a-recipe-d14-2026-10-02).
+
 ## Original RO action with replacement artwork
 
 The **Head & hair** selector now independently switches between a new chestnut-haired Wayfarer head and the original RO reference. It retains the original 30×26 head slot and native ACT attachment; Cap/Hat remain separate modules. [Head artwork, prompt and import records](assets/native-head-v1/README.md) document the addition. The clothing accepted in the previous study is retained.

@@ -104,7 +104,7 @@ python3 tools/character-lab/pipeline.py verify-snapshot docs/character-lab/relea
 
 The default configuration is `tools/character-lab/pipeline/native-art-poc-v0.1.0.json`. `verify` checks source/manifest hashes and runs the 18 native Node tests; it does not regenerate artwork or Godot exports. `snapshot` writes an immutable local artifact archive and inventory below `docs/character-lab/releases/native-art-poc-v0.1.0/` and refuses to overwrite that release. The pack preserves the Character Lab (including earlier experiments), selected native ACT/SPR sources, the local Godot source decoder/actor and project file, and this study's documentation. This is an artifact version, independent of whether the repository has a Git commit or tag.
 
-The pipeline configuration is a working verification/packaging contract. It is separate from the proposed generic artwork recipe below; it does not automate the ImageGen step or remove the hardcoded importer assumptions.
+The pipeline configuration is a working verification/packaging contract for the v0.1.0 snapshot. Rebuilding the current accepted packs from validated configuration is done by `art_recipe.py`, described [below](#reproduce-the-saved-wayfarer-packs-from-a-recipe-d14-2026-10-02). Neither automates the ImageGen step.
 
 Run from the repository root. These commands use saved generated images and local source assets; they do not call ImageGen again. They overwrite derived files in the named packs, so verify the saved baseline first and use a new pack for a new candidate.
 
@@ -136,60 +136,86 @@ The next small extraction is a recipe loader around these existing pieces:
 
 Start by expressing the existing successful body and head packs through that recipe, then prove a second case. A complete job editor, generic rig or large plugin system is not necessary to validate this reuse.
 
-## Proposed recipe shape
+## Reproduce the saved Wayfarer packs from a recipe (D14, 2026-10-02)
 
-The following is a **design sketch, not an implemented API**. Existing JSON manifests remain the current contract. Paths are shown relative to `tools/character-lab/`; hash placeholders must be replaced from actual files. A future loader should reject missing or incompatible slot dimensions and source hashes rather than silently aligning images.
+The earlier "proposed recipe shape" sketch is replaced by a smaller, implemented contract for this saved-art milestone. `tools/character-lab/art_recipe.py` reads `tools/character-lab/recipes/wayfarer-saved-art-v1.json` and rebuilds three saved packs from their saved generated images with the existing importers. It does not generate art and does not change any appearance manifest.
 
-```json
-{
-  "schemaVersion": 1,
-  "recipeId": "wayfarer-native-attack-east",
-  "recipeVersion": "1.0.0",
-  "source": {
-    "template": "assets/native-template-v1/template.json",
-    "sha256": "<exact template bytes>",
-    "actionVersion": "swordsman-male-dagger-86-direction-6-v1",
-    "action": "attack",
-    "sourceAction": 86,
-    "sourceDirection": 6
-  },
-  "modules": {
-    "body": {
-      "manifest": "assets/native-wayfarer-v2/costume.json",
-      "artVersion": "native-wayfarer-v2",
-      "sha256": "<manifest bytes>",
-      "requiredSlots": [82, 83, 84, 85, 86]
-    },
-    "head": {
-      "manifest": "assets/native-head-v1/head.json",
-      "artVersion": "native-head-v1",
-      "sha256": "<manifest bytes>",
-      "requiredSlots": [1]
-    },
-    "headgear": {
-      "manifest": "assets/native-equipment-v1/equipment.json",
-      "sha256": "<manifest bytes>",
-      "selected": "none",
-      "reviewVariants": ["none", "cap", "hat"]
-    },
-    "weapon": {"from": "source.parts.weapon", "visible": true},
-    "trail": {"from": "source.parts.trail", "visible": true}
-  },
-  "invariants": {
-    "sourceActionUnchanged": true,
-    "sourceSlotDimensionsUnchanged": true,
-    "individualRecentering": false,
-    "frameInterpolation": false
-  },
-  "review": {
-    "technicalEvidence": "<saved verification record>",
-    "visualEvidence": "<dated review record>",
-    "scope": "one attack, one direction"
-  }
-}
+| Module | Adapter (importer) | SPR slots | Saved pack reproduced | Status | Gate |
+| --- | --- | --- | --- | --- | --- |
+| `body-attack-front` | `native-costume-v1` (`import_native_costume.gd`) | 82–86 attack + 54 ready, layout `native-template-v1/sprite-slots.json` | `native-wayfarer-v3` | accepted | strict |
+| `head-v2-historical` | `native-head-v1` (`import_native_head.gd`) | head 1, layout `native-head-v1/head-slot.json` | `native-head-v2` | historical | recorded failure |
+| `body-attack-back-v2` | `slot-board-v1` (`import_slot_board.gd`) | 87–91, board `swordsman-male-body-attack2-W-NW-N-NE` | `native-wayfarer-attack-back-v2` | pending visual review | strict |
+
+The body layout must be the six-slot template layout. A generic attack2 board has only five slots and cannot express ready slot 54, so it cannot stand in for v3.
+
+```sh
+python3 tools/character-lab/art_recipe.py validate tools/character-lab/recipes/wayfarer-saved-art-v1.json
+python3 tools/character-lab/art_recipe.py run tools/character-lab/recipes/wayfarer-saved-art-v1.json --out /tmp/wayfarer-reproduction-1
+# Strict gating of every module, including the historical head: must exit 1 and create nothing.
+python3 tools/character-lab/art_recipe.py run tools/character-lab/recipes/wayfarer-saved-art-v1.json --out /tmp/wayfarer-strict-1 --strict
+PYTHONDONTWRITEBYTECODE=1 python3 -m unittest discover -s tools/character-lab/tests -p 'test_*.py' -v
 ```
 
-Generation and import settings should remain separately referenced, not mixed into playback timing. An import adapter needs `generatedImage`, `generatedImageSha256`, `slotLayout`, `slotLayoutSha256`, `normalizeCanvas`, `sampling`, `backgroundKey` and `outputPart`; its output is the part's indexed texture map plus diagnostics. These are proposed field names, not options currently accepted by the scripts.
+`--module <id>` (repeatable) limits a run; the head needs its fixture body module selected too. `--godot` or `GODOT` selects the executable (default `.tools/Godot.app/Contents/MacOS/Godot`). Prefer an output directory outside the repository; a later Godot launch may add `.import` caches to output inside it.
+
+**Godot logs.** Every Godot call the runner makes passes an absolute `--log-file`. That keeps Godot out of its default `user://logs` rotation, which crashed with signal 11 in a sandbox that cannot write the user's application-data folder.
+
+- The log files go in a private temporary folder under `--log-dir`, `ART_RECIPE_LOG_DIR` or the system temporary folder. That folder must exist and must not be inside the output or a protected folder.
+- After the gates pass, the logs are copied to `<out>/godot-logs/`. On a refused gate they are deleted with the temporary folder, and the Godot output is printed instead.
+- When running the importers or `verify_candidate.gd` by hand in such a sandbox, add `--log-file <absolute path>` after `--headless` in the same way.
+
+**What `validate` (and the first stage of `run`) checks, writing nothing.** Exit status 2 on any failure.
+
+- Schema: known keys only, `schemaVersion` the JSON integer 1 (not `true` or `1.0`), known adapter/status/gate values, unique module ids and outputs, a reason for every expected manifest difference. Action contracts compare JSON values with booleans kept distinct from numbers.
+- Pinned SHA-256 of every input: native ACT/SPR files, template, slot layout, equipment manifest, style bible, palette (also against the bible's own palette reference) and each generated image. The native drawings fed to the size gate are pinned too: template body drawings by the hashes `template.json` records under `parts.body.textures`, the native head by `head-slot.json` (cross-checked with the template) and board drawings by their `sourceSha256`. All pinned inputs are re-hashed after the run.
+- Paths: recipe paths are `res://` and must resolve, after symlinks, inside the repository. File records in saved and reproduced manifests must be relative and stay inside their own pack folder (the palette `res://` record excepted). Absolute paths, `..` and symlinks leading outside are rejected.
+- Coverage: `coverage.parts.<part>` needs a positive integer `total` (and optional `gameplay` no larger than it) for every module's part. If `coverage.inventory` exists it must be valid JSON with matching `parts.<part>.uniqueSlotCount`. If the inventory file is absent, the report says the totals are declarations only.
+- Geometry: the layout's slot indexes and `imageRect`s equal the recipe's, in order; every crop lies inside its cell and the canvas; every crop has the native drawing's exact size; the generated image has the declared size and the canvas aspect ratio.
+- Action contract: `native-costume-v1` and `native-head-v1` still hardcode Swordsman action 86, direction 6, 96 ms frames, ready action 38 and the cap/hat variants, so the recipe must state exactly those values. Attack slots must be the drawings of the attack sequence and ready slots `[54]`. For boards, group, view directions, sequences and frame duration must match the board's layout.
+- Saved packs: every file recorded in the saved manifest still has its hash. Each saved manifest is cross-checked only against the dependencies it actually records:
+  - **Body v3 and head v2:** generated image, slot layout, template, palette, plus equipment and the body pack for the head. Both predate the slot contract and were imported with `--palette` only, so their manifests record no style bible. The bible pin and its strict/recorded gate are applied for the first time by the reproduction; the expected `contract` difference says so.
+  - **Back-view v2:** generated image, board layout and palette, plus the style bible it was gated with.
+- Labels: the output folder must keep the saved pack's name, so a reproduction cannot be relabelled as another version, such as `native-head-v3`. Only a `historical` module may use the `recorded-failure` gate.
+- Output: `--out` must be new or empty, must not contain the repository, and must not be inside `assets/`, `docs/`, `scenes/`, `scripts/`, `tests/`, `.git`, `.godot`, `.tools` or the Character Lab asset, appearance, character, style, recipe, pipeline, QA or test folders.
+
+**Gate stage.** `verify_candidate.gd` checks every selected candidate before anything is imported (it writes no files). Strict modules must PASS. A `recorded-failure` module must still FAIL. If it now passes, the recipe is stale and the run stops. `--strict` treats every module as strict, so the undersized head v2 stops the run. A failed gate exits 1, and the output directory is not created.
+
+**Import stage.** Each module is imported into `<out>/<saved pack name>/` with `--style-bible`, so accepted modules are gated again by the importer. The historical head adds `--allow-contract-failure`, and its manifest records `contract.pass = false` instead of skipping the gate. Head fixtures render on the freshly reproduced body; the back view is imported independently. Importers record `"recipe": {"path", "sha256", "module"}`. Although `recipe` is a declared manifest difference, its content must equal exactly the validated recipe's path, the SHA-256 of the validated bytes and the module id; absent or different provenance fails. The recipe is read once; that one read is both hashed and parsed. At the end of validation the file must still have that hash, otherwise validation fails with exit 2. The recipe's bytes are then re-hashed before the gates and again before the output folder is created; a change at either point exits 2 with nothing written. They are re-hashed once more at the end, and an edit during the imports is reported as a problem. The costume importer now creates its folders only after its gate.
+
+**Comparison and report.** For each module, every file record in the saved manifest must reappear at the same JSON path with the same file name and SHA-256, and the reproduced file must have those bytes. That covers slot drawings, normalized boards, fixture frames and contact boards. Every other manifest difference must be listed under `expectedManifestDifferences`. The recipe currently allows these:
+
+- `recipe` everywhere;
+- `contract` for the body (strict result now recorded) and the head (failing result now recorded);
+- `costumeManifest` and `costumeManifestSha256` for the head (it uses the reproduced body).
+
+The run also checks importer-reported ACT fingerprints, slot sets, source actions and frame counts and timing, and flags stray files. It re-hashes all pinned inputs after the run, and hashes the saved pack, appearance, style and source folders before and after (Godot `.import` caches are reported, not failed). `<out>/reproduction-report.json` and `<out>/REPORT.md` record the outcome, the coverage per part and the recipe's remaining decisions. Exit 0 only when everything matches.
+
+The report only states what that run established. It lists the selected modules and names the unselected ones, which are neither imported nor counted in coverage. Each module's import is recorded as `completed`, `failed` or `skipped after … failed`. PNG counts and per-module checks appear only for modules that were compared, and inputs changed during the run are listed by name. The claims "fixtures rendered on the reproduced body" and "ACT unchanged" appear only when that module's check passed. Failure reports are written whenever the output folder already exists, that is, after the gate stage.
+
+**Limits.** D14 remains partial. The two native adapters (`import_native_costume.gd`, `import_native_head.gd`, plus the hardcoded template and head-slot paths in `verify_candidate.gd`) remain fixed to this one Swordsman action and facing; the recipe validates against them rather than generalizing them. Other actions and views go through `slot-board-v1`. Byte equality depends on the same Godot build (4.5.1 here) re-encoding the PNGs. The report does not run a browser or the game and does not refresh saved browser evidence. Weapon, trail and headgear remain native reference modules and are not recipe modules. A second character (A1), head v3, walk boards and visual acceptance of the back view are outside this recipe.
+
+Asset-independent tests (`tools/character-lab/tests/test_art_recipe.py`) build a miniature repository and a fake Godot. The fake Godot requires `--log-file`, simulates gates and either a successful slot-board import, a failing import or an import that alters an input.
+
+- **Rejected configurations:** changed or missing sources, and same-size altered native drawings (template, head and board); missing template drawing hashes; geometry and aspect mismatches; a five-slot layout in place of the six-slot body; action-contract and schema errors, including boolean `schemaVersion` and indexes; relabelling and acceptance of the failing head.
+- **Coverage and paths:** malformed inventory and coverage entries; symlinked inputs and saved records outside the repository or pack; `..` and absolute record paths; unsafe output and log folders.
+- **Runs:** a strict head failure, a stale recorded failure or a failing accepted body exits 1 without creating the output folder, and logs stay in a removed private folder.
+- **Reports:** a back-view-only run passes and reports only that module. A failed import reports nothing it did not check. An input changed mid-run is named. Absent or wrong recipe provenance (missing block, other module, hash or path) fails. A recipe edited during an import is reported, and a recipe edited after validation exits 2 before any Godot call. Empty and `.` paths, including `res://.`, are rejected as invalid configuration.
+- **Comparison:** byte and manifest comparison, keeping `true` distinct from `1`. `ART_RECIPE_LOCAL=1` adds the real recipe validation and the real strict head refusal. `ART_RECIPE_FULL=1` adds a full reproduction into a temporary folder.
+
+Independent local acceptance results and the retained output paths are in [the 2026-10-02 QA handoff](REPRODUCTION-QA-2026-10-02.md).
+
+## New art for any action, view or character (2026-10-02)
+
+The reproduction above rebuilds saved packs. New art uses the same runner with `slot-board-v2` modules (`artwork-import-recipe`):
+
+1. A board plan exports the boards.
+2. A character spec supplies the text and design references.
+3. `lock` and `pin` record the board and candidate hashes.
+4. `run` gates, imports and verifies.
+5. `promote` installs the packs.
+6. `coverage` lists native fallback per action and direction.
+
+The saved costume and head importers now read their template, slots, actions, fixtures and labels from `tools/character-lab/importers/*.json`. Commands, the module table and open dependencies are in [COMPLETION-2026-10-02.md](COMPLETION-2026-10-02.md).
 
 ## Version boundaries and saved evidence
 
@@ -206,11 +232,24 @@ A frozen artifact pack should record a stable version ID, source and dependency 
 
 Keep changes narrow: a new art candidate gets a new art directory and recipe selection while the source action stays fixed. A new action gets its own coverage and fixtures. Never silently relabel older evidence as covering additional actions, directions, hats or artwork.
 
-## Current evidence and review scope
+## Evidence and review scope
+
+### Current scope (2026-10-02)
+
+- **Accepted look:** `tools/character-lab/appearances/wayfarer-v3.json` uses body `native-wayfarer-v3` (SPR 82–86 + 54) and head `native-head-v2` with palette `wayfarer-style-v1`. The head fails the size contract added on 2026-09-25 and stays only until a head v3 candidate passes the strict gate; none has been generated.
+- **Preview look:** `wayfarer-preview.json` adds the attack2 back view v2 (SPR 87–91). It passes the slot contract but awaits the user's visual acceptance.
+- **Game integration** (inspection B5/B6, 2026-09-24): the Godot actor loads appearance manifests. **O** cycles outfits and **H** cycles headgear, and `tests/appearance_test.gd` compares game frames with the Lab fixtures.
+  - Coverage is still small: body 6 of 118 drawings accepted (+5 pending), head 1 of 15.
+  - Walk, idle and the other actions show native Swordsman clothing. Draw order, hit timing and unarmed-action items C8–C12 remain open.
+- **Reproduction:** `art_recipe.py` (above) rebuilds these three packs from their saved generated images and writes a dated report. Such a report covers its own run only; it adds no browser or visual review.
+
+### v0.1.0 evidence (historical, 2026-09-24 and earlier)
+
+These records describe the first PoC packs (body v2, head v1). They are kept as history, not as evidence for the current v3/v2 look:
 
 - [Body pack and prompt](../../tools/character-lab/assets/native-wayfarer-v2/README.md): Wayfarer clothing identity on native body poses; earlier teal-only repaint remains preserved.
 - [Head pack and prompt](../../tools/character-lab/assets/native-head-v1/README.md): independent face/hair replacement; original head remains available for comparison.
 - [Source template contract](../../tools/character-lab/assets/native-template-v1/README.md) and [equipment contract](../../tools/character-lab/assets/native-equipment-v1/README.md).
 - [Body browser record](../../tools/character-lab/assets/native-wayfarer-v2/browser-verification.json) and [head browser record](../../tools/character-lab/assets/native-head-v1/browser-verification.json): saved observations, not live guarantees.
 
-The user described the native-template clothing result as “way better” and said it fixed inconsistency with the first design. That is useful positive direction for this PoC. It is not blanket acceptance of every headgear combination or a complete production job. The result remains a costume/head adaptation using native RO poses and reference equipment; it does not establish a wholly original asset set, full eight-direction animation, or integration into gameplay.
+The user described the native-template clothing result as “way better” and said it fixed inconsistency with the first design. That is useful positive direction for this PoC. It is not blanket acceptance of every headgear combination or a complete production job. At v0.1.0 the result was a costume/head adaptation using native RO poses and reference equipment. It did not establish a wholly original asset set, full eight-direction animation or gameplay integration. Gameplay loading was added later (B5/B6, above), with the coverage limits listed there.

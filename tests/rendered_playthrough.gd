@@ -2,7 +2,10 @@ extends RefCounted
 ## Rendered integration test. Launch the normal game with -- --qa-playthrough.
 ## The fixture seeds RNG and delays ambient wandering; every tested player
 ## command is sent through Input.parse_input_event, including real GUI clicks.
-const OUT := "res://docs/v3/"
+## Evidence goes to --evidence-dir=<new absolute folder>. The saved docs/v3 screenshots
+## and report are only rewritten with --update-saved-evidence instead.
+const SAVED_OUT := "res://docs/v3/"
+var OUT := ""
 var game: Node
 var checks := 0
 var failures: Array[String] = []
@@ -16,6 +19,15 @@ func check(condition: bool, message: String) -> void:
 
 func run(active_game: Node) -> void:
 	game = active_game
+	for argument in OS.get_cmdline_user_args():
+		if argument.begins_with("--evidence-dir="):
+			OUT = argument.trim_prefix("--evidence-dir=").trim_suffix("/") + "/"
+	if OUT.is_empty() and "--update-saved-evidence" in OS.get_cmdline_user_args():
+		OUT = SAVED_OUT
+	if OUT.is_empty():
+		push_error("RENDERED_QA: pass --evidence-dir=<new folder> (saved docs/v3 evidence is only rewritten with --update-saved-evidence).")
+		game.get_tree().quit(2)
+		return
 	DirAccess.make_dir_recursive_absolute(OUT)
 	check(game.qa_mode and not game.save_enabled, "Playthrough must use isolated QA mode with saving disabled")
 	game.get_window().size = Vector2i(1280, 800)

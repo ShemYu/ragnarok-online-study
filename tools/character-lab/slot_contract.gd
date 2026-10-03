@@ -74,18 +74,33 @@ static func check(part: String, native: Image, replacement: Image, rules: Dictio
 		var face_rules: Dictionary = rules.face
 		var face_ratio := float(r.facePixels) / maxi(1, int(native_face.pixels))
 		metrics["faceRatio"] = face_ratio
-		if face_ratio < float(face_rules.minRatio):
-			failures.append("face skin is %.0f%% of native (%d vs %d px); min %.0f%%" % [face_ratio * 100, r.facePixels, native_face.pixels, float(face_rules.minRatio) * 100])
-		var fb: Array = r.faceBox
-		var nf: Array = native_face.box
-		var slack := int(face_rules.boxTolerance)
-		if fb.is_empty():
-			failures.append("no face skin found in the lower head")
+		if native_face.get("measured", false):
+			metrics["nativeFace"] = native_face
+		if face_rules.get("unknownView", false):
+			failures.append("the style bible lists no face view for this %s slot" % part)
+		elif face_rules.has("maxRatio"):
+			# Rear view: keep the native amount of visible cheek/ear/nape skin; no frontal face.
+			var rear_slack := int(face_rules.get("slackPixels", 0))
+			var low := maxi(0, floori(int(native_face.pixels) * float(face_rules.minRatio)) - rear_slack)
+			var high := ceili(int(native_face.pixels) * float(face_rules.maxRatio)) + rear_slack
+			metrics["faceRange"] = [low, high]
+			if r.facePixels < low or r.facePixels > high:
+				failures.append("rear view shows %d px of face skin, native %d (allowed %d-%d; no frontal face, keep the visible cheek/ear)" % [r.facePixels, native_face.pixels, low, high])
 		else:
-			if int(fb[2]) < int(nf[2]) - slack:
-				failures.append("face width %d px, native %d (min %d)" % [fb[2], nf[2], int(nf[2]) - slack])
-			if int(fb[3]) < int(nf[3]) - slack:
-				failures.append("face height %d px, native %d (min %d)" % [fb[3], nf[3], int(nf[3]) - slack])
+			if face_ratio < float(face_rules.minRatio):
+				failures.append("face skin is %.0f%% of native (%d vs %d px); min %.0f%%" % [face_ratio * 100, r.facePixels, native_face.pixels, float(face_rules.minRatio) * 100])
+			var fb: Array = r.faceBox
+			var nf: Array = native_face.box
+			var slack := int(face_rules.boxTolerance)
+			if nf.is_empty():
+				failures.append("the native %s drawing has no measurable face; give this slot a rear view in the style bible" % part)
+			elif fb.is_empty():
+				failures.append("no face skin found in the lower head")
+			else:
+				if int(fb[2]) < int(nf[2]) - slack:
+					failures.append("face width %d px, native %d (min %d)" % [fb[2], nf[2], int(nf[2]) - slack])
+				if int(fb[3]) < int(nf[3]) - slack:
+					failures.append("face height %d px, native %d (min %d)" % [fb[3], nf[3], int(nf[3]) - slack])
 	return {"pass": failures.is_empty(), "failures": failures, "metrics": metrics}
 
 
@@ -102,7 +117,14 @@ static func brief(part: String, native: Image, rules: Dictionary, native_face: D
 		(b[0] + offset.x) * scale, (b[0] + b[2] + offset.x) * scale - 1, (b[1] + offset.y) * scale, (b[1] + b[3] + offset.y) * scale - 1])
 	if rules.has("outlineRatioMax"):
 		lines.append("- Keep a solid, rounded outer outline like the native drawing (outline length at most %d%% of native): no see-through gaps between locks, no thin isolated spikes." % roundi(float(rules.outlineRatioMax) * 100))
-	if rules.has("face") and not native_face.is_empty():
+	if rules.has("face") and not native_face.is_empty() and rules.face.get("unknownView", false):
+		lines.append("- (No face rule for this slot in the style bible: the gate will reject it.)")
+	elif rules.has("face") and not native_face.is_empty() and rules.face.has("maxRatio"):
+		var rear_slack := int(rules.face.get("slackPixels", 0))
+		var low := maxi(0, floori(int(native_face.pixels) * float(rules.face.minRatio)) - rear_slack)
+		var high := ceili(int(native_face.pixels) * float(rules.face.maxRatio)) + rear_slack
+		lines.append("- REAR VIEW: this head is seen from behind. Show hair, and only %d-%d logical pixels of visible skin (cheek, ear or nape; the native shows %d). Do NOT draw eyes, mouth or a frontal face." % [low, high, native_face.pixels])
+	elif rules.has("face") and not native_face.is_empty() and not (native_face.box as Array).is_empty():
 		var f: Array = native_face.box
 		lines.append("- Face: visible skin at least %d%% of the native face (%d logical pixels), spanning about slot x%d-x%d, y%d-y%d (board x%d-x%d, y%d-y%d). Keep RO's large rounded face, full cheek and jaw; hair must not cover or shrink it." % [
 			roundi(float(rules.face.minRatio) * 100), native_face.pixels, f[0], f[0] + f[2] - 1, f[1], f[1] + f[3] - 1,

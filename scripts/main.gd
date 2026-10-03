@@ -9,7 +9,9 @@ const SAVE_PATH := "user://progress-v2.json"
 const ATTACK_RANGE := 1.35
 var GUIDE_POSITION := Vector3(-3, 0, 4)
 # Replacement-art looks for the player (inspection B6). "" is native RO art.
-const APPEARANCES := ["", "res://tools/character-lab/appearances/wayfarer-v3.json", "res://tools/character-lab/appearances/wayfarer-preview.json"]
+## Looks whose packs are not installed are skipped when cycling.
+const APPEARANCES := ["", "res://tools/character-lab/appearances/wayfarer-v3.json", "res://tools/character-lab/appearances/wayfarer-preview.json",
+	"res://tools/character-lab/appearances/wayfarer-complete.json", "res://tools/character-lab/appearances/lantern-scholar-proof.json"]
 const HEADGEARS := ["", "cap", "hat"]
 const SPAWNS = [Vector3(-4,0,0), Vector3(3,0,-3), Vector3(-6,0,-5), Vector3(4,0,5), Vector3(3,0,-7), Vector3(-8,0,1)]
 
@@ -66,7 +68,8 @@ var sp: float:
 func _ready() -> void:
 	rng.seed = 20260923
 	qa_mode = "--qa" in OS.get_cmdline_user_args() or "--qa-playthrough" in OS.get_cmdline_user_args() or "--qa-progression" in OS.get_cmdline_user_args()
-	save_enabled = not qa_mode
+	# --no-save: neither read nor write the local progress file (art review sessions).
+	save_enabled = not qa_mode and not "--no-save" in OS.get_cmdline_user_args()
 	field = FieldWorld.new()
 	add_child(field)
 	field.build()
@@ -77,6 +80,10 @@ func _ready() -> void:
 	player = ActorVisual.new()
 	add_child(player)
 	player.configure("novice")
+	# Art review only: show the Swordsman sprites (the Wayfarer art is drawn for them) without
+	# changing the character's job or rules. Requires --no-save so nothing is persisted.
+	if "--review-job=swordsman" in OS.get_cmdline_user_args() and not save_enabled:
+		player.configure("swordsman")
 	for argument in OS.get_cmdline_user_args():
 		if argument.begins_with("--appearance="):
 			player.set_appearance(argument.trim_prefix("--appearance="))

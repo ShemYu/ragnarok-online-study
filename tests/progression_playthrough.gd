@@ -1,13 +1,16 @@
 extends SceneTree
 ## A complete adventure through the normal frame loop, without injected damage,
 ## EXP, stats, teleporting, forced deaths, or skipped attack/respawn timers.
-## Run: Godot --headless --path . --script res://tests/progression_playthrough.gd -- --qa-progression
+## Run: Godot --headless --log-file <abs log> --path . --script res://tests/progression_playthrough.gd -- --qa-progression --evidence-dir=<new absolute folder>
 ## Commands are the same movement, target, instructor, potion and skill commands
 ## used by a player. Time scale accelerates the whole simulation equally.
+## The report goes to --evidence-dir. The saved docs/v3 report is only rewritten with
+## --update-saved-evidence instead.
 
 const SCENE = preload("res://scenes/main.tscn")
 const WALL_TIMEOUT_SECONDS := 120.0
-const REPORT_PATH := "res://docs/v3/progression-playthrough.json"
+const SAVED_REPORT_PATH := "res://docs/v3/progression-playthrough.json"
+var REPORT_PATH := ""
 const RUN_COMMAND := ".tools/Godot.app/Contents/MacOS/Godot --headless --path . --script res://tests/progression_playthrough.gd -- --qa-progression"
 var game
 var wall_started := 0
@@ -25,6 +28,15 @@ func run() -> void:
 	if "--qa-progression" not in OS.get_cmdline_user_args():
 		push_error("Pass -- --qa-progression to keep the playthrough isolated from saved progress.")
 		quit(1)
+		return
+	for argument in OS.get_cmdline_user_args():
+		if argument.begins_with("--evidence-dir="):
+			REPORT_PATH = argument.trim_prefix("--evidence-dir=").trim_suffix("/") + "/progression-playthrough.json"
+	if REPORT_PATH.is_empty() and "--update-saved-evidence" in OS.get_cmdline_user_args():
+		REPORT_PATH = SAVED_REPORT_PATH
+	if REPORT_PATH.is_empty():
+		push_error("Pass --evidence-dir=<new folder> (the saved docs/v3 report is only rewritten with --update-saved-evidence).")
+		quit(2)
 		return
 	Engine.time_scale = 8.0
 	Engine.max_fps = 120

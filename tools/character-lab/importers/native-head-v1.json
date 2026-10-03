@@ -1,0 +1,47 @@
+{
+	"schemaVersion": 1,
+	"id": "native-head-v1",
+	"schema": "head-v1",
+	"note": "Configuration of the saved head importer (import_native_head.gd): head SPR 1 from native-head-v1/head-slot.json, attack action 86 / direction 6 fixtures under none/cap/hat and the head.json manifest shape. The code lives in art_import.gd. New heads use board_export.gd + import_slot_board.gd instead.",
+	"part": "head",
+	"actorKind": "swordsman",
+	"templateDir": "res://tools/character-lab/assets/native-template-v1/",
+	"layout": "res://tools/character-lab/assets/native-head-v1/head-slot.json",
+	"nativeImage": "sprites/head/%03d.png",
+	"equipmentDir": "res://tools/character-lab/assets/native-equipment-v1/",
+	"defaultOutputDir": "res://tools/character-lab/assets/native-head-v1/",
+	"defaultSource": "generated-head.png",
+	"defaultCostume": "res://tools/character-lab/assets/native-wayfarer-v2/",
+	"manifest": "head.json",
+	"files": {
+		"slot": "head/%03d.png",
+		"normalizedBoard": "imported-board.png",
+		"frame": "%s/attack/frame-%02d.png",
+		"contact": "%s/attack/contact.png",
+		"contact3x": "%s/attack/contact-3x.png"
+	},
+	"direction": 6,
+	"state": "attack",
+	"expectedFrames": 9,
+	"variants": ["none", "cap", "hat"],
+	"recipeContract": {
+		"note": "What a recipe module using this importer must state (art_recipe.py validates it).",
+		"action": {"attack": {"sourceAction": 86, "direction": 6, "sequence": [1, 1, 1, 1, 1, 1, 1, 1, 1], "frameDurationMs": 96}}
+	},
+	"contact": {"columns": 3, "cell": 192, "size": [576, 576], "scaled": [1728, 1728]},
+	"verificationExtras": {"headAttackIndexSequence": [1, 1, 1, 1, 1, 1, 1, 1, 1], "headReadyIndexSequence": [1, 1, 1, 1, 1, 1], "compositeFixtureCount": 27},
+	"legacyKey": {"r": 0.65, "b": 0.6, "g": 0.45, "sum": 0.85, "text": "r > 0.65 and b > 0.6 and g < 0.45 and r+b-2*g > 0.85 (RGB normalized 0..1)"},
+	"labels": {
+		"defaultCharacter": "Wayfarer",
+		"name": "{character} head on original RO attachment action",
+		"legacyOperation": "Resize entire board to {canvas} nearest-neighbor once, remove magenta background, then fixed {crop} crop. No individual recentering, resizing, silhouette masks, warping, or ACT edits.",
+		"indexedOperation": "Classify every source pixel against the style palette (magenta edges unmixed), then take the majority class of each fractional block of the whole board, then fixed {crop} crop. No individual recentering, resizing, silhouette masks, warping, or ACT edits.",
+		"limits": [
+			"One facing and one head image slot, reused by all nine native attack frames; not a full head direction library.",
+			"Generated replacement face and hair use the original head slot registration and ACT. A headgear module remains a separate original RO reference asset.",
+			"Wayfarer costume repaint and original dagger/trail are retained; reference composites use the local renderer, not the official client.",
+			"Geometry and timing checks do not constitute artistic approval of the head or every headgear combination."
+		],
+		"done": "Head imported: one {size} bitmap, {fixtures} native composites; six ACT records unchanged. AlphaIoU: {iou}; pixels outside fixed crop: {outside}"
+	}
+}

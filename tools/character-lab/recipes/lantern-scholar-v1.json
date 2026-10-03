@@ -1,0 +1,196 @@
+{
+	"schemaVersion": 1,
+	"kind": "artwork-import-recipe",
+	"id": "lantern-scholar-proof",
+	"version": "1.0.0",
+	"description": "Second-character configuration reuse proof using the same palette, style bible v2 and male native Swordsman template: six front body drawings (attack2 82-86 and ready 54) plus head 1. Two required modules only. Attack fixtures retain all nine native frames under none/cap/hat. Other motion drawings are explicit native fallback; optional ready-front 55-59 is outside this minimum proof.",
+	"style": {
+		"bible": {
+			"file": "res://tools/character-lab/style/style-bible-v2.json",
+			"sha256": "c2696fd1ab5fe6929b317eef611a614f509cd5fb90999ce40d038e75ac7e75b6"
+		},
+		"palette": {
+			"file": "res://tools/character-lab/style/wayfarer-style-v1.json",
+			"sha256": "0e85caddbf7abcca49cf6b38a5da84889eeae16a07aa2d95243a92e30bc2a25c"
+		}
+	},
+	"nativeSources": {
+		"res://assets/reference-ro/novice-male-head-1.act": "96cb4c7daada65ead29ade650c34da1cba93937d3b360c5468506c3d056219de",
+		"res://assets/reference-ro/novice-male-head-1.spr": "dfc548c5cfd9aeb66616c5912df78773c2798834f9412a309a5a2b4f5868ac95",
+		"res://assets/reference-ro/swordsman-male-body.act": "12afea28bc2e114adda7c20d7cd8541ff4824d0bf9ad6119d8a67558a6c3bb52",
+		"res://assets/reference-ro/swordsman-male-body.spr": "a7835d5a2052c3271810016591af578e8455006b4abbc93e7f748856f35b0df9",
+		"res://assets/reference-ro/swordsman-male-dagger-trail.act": "194ae0f5873d0e5e1a4a406b7aee6c272173e24cb743057c098db9c471012757",
+		"res://assets/reference-ro/swordsman-male-dagger-trail.spr": "f69078b11ce93f99a35b0d6d82cbae436cce4e188f9bc4e5e8dcc2cff72a1f3b",
+		"res://assets/reference-ro/swordsman-male-dagger.act": "5cd162a94dacc111739f82ac7166e05e1efff9965ecdc4ddbdcf278f0d50d43e",
+		"res://assets/reference-ro/swordsman-male-dagger.spr": "7a2eadffcae9fbfbbe9f675ea376f7eb09e801624ae9bdd556d713802e2f4672",
+		"res://tools/character-lab/assets/native-equipment-v1/source/cap.act": "c6066f5d7605a67ade42e52c912428921830f7a86575c91c4104ea5c5cc76266",
+		"res://tools/character-lab/assets/native-equipment-v1/source/cap.spr": "16dbb8bd1b4a1431c3176558e713af5147992b5eedd059dc5a4de77b00b921c1",
+		"res://tools/character-lab/assets/native-equipment-v1/source/hat.act": "886afa9a041f91ce2202b585d073c251a3f0c2b63f25c007e66c7284fd35b8d8",
+		"res://tools/character-lab/assets/native-equipment-v1/source/hat.spr": "fe3d1722ac0b00ffc01bc6813214f2860c8fde25d05d1df63ca07c3c30e45497"
+	},
+	"modules": [
+		{
+			"id": "lantern-scholar-body-front",
+			"part": "body",
+			"adapter": "slot-board-v2",
+			"status": "reviewed-by-codex",
+			"gate": "strict",
+			"output": "lantern-scholar-body-front",
+			"install": "res://tools/character-lab/assets/completion-2026-10-02/packs/lantern-scholar-body-front",
+			"layout": {
+				"file": "res://tools/character-lab/assets/completion-2026-10-02/release-boards/lantern-scholar-body-front/sprite-slots.json",
+				"sha256": "0917e50f76669e815f2416ab6f4ec4b518c67b3b50ecd0c7f7f94c7e7716b91e",
+				"slots": [
+					{
+						"index": 82,
+						"use": [
+							"attack"
+						],
+						"imageRect": [
+							40,
+							48,
+							47,
+							72
+						]
+					},
+					{
+						"index": 83,
+						"use": [
+							"attack"
+						],
+						"imageRect": [
+							170,
+							47,
+							43,
+							73
+						]
+					},
+					{
+						"index": 84,
+						"use": [
+							"attack"
+						],
+						"imageRect": [
+							297,
+							51,
+							45,
+							69
+						]
+					},
+					{
+						"index": 85,
+						"use": [
+							"attack"
+						],
+						"imageRect": [
+							39,
+							186,
+							49,
+							62
+						]
+					},
+					{
+						"index": 86,
+						"use": [
+							"attack"
+						],
+						"imageRect": [
+							167,
+							188,
+							49,
+							60
+						]
+					},
+					{
+						"index": 54,
+						"use": [
+							"ready"
+						],
+						"imageRect": [
+							294,
+							181,
+							52,
+							67
+						]
+					}
+				],
+				"canvas": [
+					384,
+					256
+				]
+			},
+			"generatedImage": {
+				"file": "res://tools/character-lab/assets/completion-2026-10-02/release-boards/lantern-scholar-body-front/candidates/candidate.png",
+				"sha256": "f2067a0143f4b37c75c3500269eac1684d778ba8ca5d8292b49b997d99a51710",
+				"size": [
+					1536,
+					1024
+				]
+			}
+		},
+		{
+			"id": "lantern-scholar-head-1",
+			"part": "head",
+			"adapter": "slot-board-v2",
+			"status": "reviewed-by-codex",
+			"gate": "strict",
+			"output": "lantern-scholar-head-1",
+			"install": "res://tools/character-lab/assets/completion-2026-10-02/packs/lantern-scholar-head-1",
+			"layout": {
+				"file": "res://tools/character-lab/assets/completion-2026-10-02/release-boards/lantern-scholar-head-1/sprite-slots.json",
+				"sha256": "4141fd421ecf9c82d9c5803e3afb0061b744247bf7c8364e8a4d3867b45ad6db",
+				"slots": [
+					{
+						"index": 1,
+						"use": [
+							"attack",
+							"ready"
+						],
+						"imageRect": [
+							17,
+							19,
+							30,
+							26
+						]
+					}
+				],
+				"canvas": [
+					64,
+					64
+				]
+			},
+			"generatedImage": {
+				"file": "res://tools/character-lab/assets/completion-2026-10-02/release-boards/lantern-scholar-head-1/candidates/candidate.png",
+				"sha256": "df5320f47a885a31c8761d8bb01c776aff781921f62d4b9aee2b4b4a3858b699",
+				"size": [
+					1254,
+					1254
+				]
+			},
+			"fixtureLook": {
+				"modules": [
+					"lantern-scholar-body-front"
+				]
+			}
+		}
+	],
+	"coverage": {
+		"inventory": "res://tools/character-lab/assets/slot-inventory/swordsman-male.json",
+		"parts": {
+			"body": {
+				"total": 118,
+				"gameplay": 94
+			},
+			"head": {
+				"total": 15
+			}
+		}
+	},
+	"decisions": [
+		"This proves reuse of the palette, style bible, template and import workflow for a second character; it is not full second-job motion coverage. Idle, walk, back views, ready back and other head views stay native.",
+		"The concept is a female scholar; the only native templates here are the male Swordsman body and male novice head, so the art is a costume and hairstyle adaptation onto those silhouettes. A female template would need female native sources, which this study does not include.",
+		"The concept's beret, ribbon and pin are not drawn into the head; cap/hat remain separate native modules.",
+		"The optional ready-front 55-59 module is not selected or promised by this proof; the ready animation explicitly includes native drawings except replacement slot 54.",
+		"Codex independently reviewed the strict-passing generated drawings and the merged game-actor contact sheets (2026-10-02). This records Codex review; user approval is not recorded. See logs/completion-2026-10-02/ for visual and runtime evidence."
+	]
+}

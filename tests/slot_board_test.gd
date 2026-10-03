@@ -1,18 +1,29 @@
 extends SceneTree
-## Run: Godot --headless --path . --script res://tests/slot_board_test.gd
+## Run: Godot --headless --log-file <abs log> --path . --script res://tests/slot_board_test.gd -- \
+##        --out-dir=<new absolute folder> [--log-dir=<absolute writable folder>]
 ## Inspection B7/D14 pipeline, end to end, without generated art: the attack2
 ## back-view board's own native image is imported as a stand-in candidate.
-## Requires the local RO reference pack, slot inventory and Wayfarer v3 pack.
+## Everything is written below --out-dir (board, packs, look); saved boards and packs
+## are never touched. Requires the local RO reference pack, slot inventory and Wayfarer v3 pack.
 
 const Actor = preload("res://scripts/ro_sprite_actor.gd")
-const BOARD := "res://tools/character-lab/assets/boards/swordsman-male-body-attack2-W-NW-N-NE/"
-const PACK := "user://slot-board-test-pack/"
-const LOOK := "user://slot-board-test-look.json"
+var OUT := ""
+var LOGS := ""
+var BOARD := ""
+var PACK := ""
+var LOOK := ""
 var checks := 0
 var failures := 0
+var calls := 0
 
 func _initialize() -> void:
 	call_deferred("run")
+
+func option(name: String) -> String:
+	for argument in OS.get_cmdline_user_args():
+		if argument.begins_with("--%s=" % name):
+			return argument.trim_prefix("--%s=" % name)
+	return ""
 
 func check(condition: bool, message: String) -> void:
 	checks += 1
@@ -22,13 +33,26 @@ func check(condition: bool, message: String) -> void:
 
 func godot(arguments: Array) -> int:
 	var output := []
-	var code := OS.execute(OS.get_executable_path(), ["--headless", "--path", ProjectSettings.globalize_path("res://")] + arguments, output, true)
+	calls += 1
+	# An explicit log file keeps the child out of the user:// log folder.
+	var log_file := LOGS.path_join("slot-board-test-%02d.log" % calls)
+	var code := OS.execute(OS.get_executable_path(), ["--headless", "--log-file", log_file, "--path", ProjectSettings.globalize_path("res://")] + arguments, output, true)
 	if code != 0:
 		print("\n".join(output))
 	return code
 
 func run() -> void:
-	check(godot(["--script", "res://tools/character-lab/export_slot_board.gd", "--", "--group=attack2", "--direction=2"]) == 0, "Board export must succeed")
+	OUT = option("out-dir").trim_suffix("/")
+	if OUT.is_empty() or not OUT.is_absolute_path() or OUT.begins_with("res://") or DirAccess.dir_exists_absolute(OUT + "/board"):
+		push_error("Give --out-dir=<new absolute folder outside saved assets>; it must not contain an earlier run")
+		quit(2)
+		return
+	LOGS = option("log-dir").trim_suffix("/") if not option("log-dir").is_empty() else OUT + "/logs"
+	DirAccess.make_dir_recursive_absolute(LOGS)
+	BOARD = OUT + "/board/"
+	PACK = OUT + "/pack/"
+	LOOK = OUT + "/merged-look.json"
+	check(godot(["--script", "res://tools/character-lab/export_slot_board.gd", "--", "--group=attack2", "--direction=2", "--out=" + BOARD]) == 0, "Board export must succeed")
 	var layout: Dictionary = JSON.parse_string(FileAccess.get_file_as_string(BOARD + "sprite-slots.json"))
 	var slots := []
 	for slot: Dictionary in layout.slots:
@@ -43,9 +67,8 @@ func run() -> void:
 	var shrunk := bad.duplicate()
 	shrunk.resize(bad.get_width() * 8 / 10, bad.get_height() * 8 / 10, Image.INTERPOLATE_NEAREST)
 	small.blit_rect(shrunk, Rect2i(Vector2i.ZERO, shrunk.get_size()), Vector2i(bad.get_width() / 10, bad.get_height() / 10))
-	small.save_png("user://slot-board-test-bad.png")
-	DirAccess.remove_absolute(ProjectSettings.globalize_path(PACK + "pack.json"))
-	check(godot(["--script", "res://tools/character-lab/import_slot_board.gd", "--", "--board=" + BOARD, "--source=user://slot-board-test-bad.png", "--output-dir=" + PACK]) != 0, "Shrunken candidate must be refused")
+	small.save_png(OUT + "/bad-candidate.png")
+	check(godot(["--script", "res://tools/character-lab/import_slot_board.gd", "--", "--board=" + BOARD, "--source=" + OUT + "/bad-candidate.png", "--output-dir=" + PACK]) != 0, "Shrunken candidate must be refused")
 	check(not FileAccess.file_exists(PACK + "pack.json"), "A refused candidate must not write a pack")
 	# The native board itself passes and keeps every silhouette pixel-exact.
 	check(godot(["--script", "res://tools/character-lab/import_slot_board.gd", "--", "--board=" + BOARD, "--source=" + BOARD + "slot-board-5x.png", "--output-dir=" + PACK, "--name=native passthrough"]) == 0, "Native passthrough import must succeed")
@@ -75,7 +98,7 @@ func run() -> void:
 	check(actor.set_appearance(LOOK), "Merged look must load")
 	check(actor.coverage.get("body", {}).get("replaced", 0) == 11, "Front (6) + back (5) body drawings: %s" % [actor.coverage])
 	if failures == 0 and checks >= 14:
-		print("SLOT_BOARD_TEST_PASS (%d checks)" % checks)
+		print("SLOT_BOARD_TEST_PASS (%d checks) -> %s" % [checks, OUT])
 	else:
 		push_error("SLOT_BOARD_TEST_FAIL: %d of %d checks" % [failures, checks])
 	quit(1 if failures or checks < 14 else 0)

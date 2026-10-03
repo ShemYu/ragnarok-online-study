@@ -1,0 +1,138 @@
+{
+	"schemaVersion": 1,
+	"kind": "artwork-reproduction-recipe",
+	"id": "wayfarer-saved-art",
+	"version": "1.0.0",
+	"description": "Reproduce the saved Wayfarer art packs from their saved generated images, without generating new art (inspection D14). Every input is pinned by SHA-256; art_recipe.py rejects the recipe before writing anything if a source, layout, palette, style bible or saved pack differs.",
+	"style": {
+		"bible": {"file": "res://tools/character-lab/style/style-bible-v1.json", "sha256": "9e00dee16652a92349e6752ff11762d92e7fae67ef13c09984f7a8bee840143b"},
+		"palette": {"file": "res://tools/character-lab/style/wayfarer-style-v1.json", "sha256": "0e85caddbf7abcca49cf6b38a5da84889eeae16a07aa2d95243a92e30bc2a25c"}
+	},
+	"nativeSources": {
+		"res://assets/reference-ro/novice-male-head-1.act": "96cb4c7daada65ead29ade650c34da1cba93937d3b360c5468506c3d056219de",
+		"res://assets/reference-ro/novice-male-head-1.spr": "dfc548c5cfd9aeb66616c5912df78773c2798834f9412a309a5a2b4f5868ac95",
+		"res://assets/reference-ro/swordsman-male-body.act": "12afea28bc2e114adda7c20d7cd8541ff4824d0bf9ad6119d8a67558a6c3bb52",
+		"res://assets/reference-ro/swordsman-male-body.spr": "a7835d5a2052c3271810016591af578e8455006b4abbc93e7f748856f35b0df9",
+		"res://assets/reference-ro/swordsman-male-dagger-trail.act": "194ae0f5873d0e5e1a4a406b7aee6c272173e24cb743057c098db9c471012757",
+		"res://assets/reference-ro/swordsman-male-dagger-trail.spr": "f69078b11ce93f99a35b0d6d82cbae436cce4e188f9bc4e5e8dcc2cff72a1f3b",
+		"res://assets/reference-ro/swordsman-male-dagger.act": "5cd162a94dacc111739f82ac7166e05e1efff9965ecdc4ddbdcf278f0d50d43e",
+		"res://assets/reference-ro/swordsman-male-dagger.spr": "7a2eadffcae9fbfbbe9f675ea376f7eb09e801624ae9bdd556d713802e2f4672",
+		"res://tools/character-lab/assets/native-equipment-v1/source/cap.act": "c6066f5d7605a67ade42e52c912428921830f7a86575c91c4104ea5c5cc76266",
+		"res://tools/character-lab/assets/native-equipment-v1/source/cap.spr": "16dbb8bd1b4a1431c3176558e713af5147992b5eedd059dc5a4de77b00b921c1",
+		"res://tools/character-lab/assets/native-equipment-v1/source/hat.act": "886afa9a041f91ce2202b585d073c251a3f0c2b63f25c007e66c7284fd35b8d8",
+		"res://tools/character-lab/assets/native-equipment-v1/source/hat.spr": "fe3d1722ac0b00ffc01bc6813214f2860c8fde25d05d1df63ca07c3c30e45497"
+	},
+	"modules": [
+		{
+			"id": "body-attack-front",
+			"label": "Wayfarer body v3: attack2 front view (SPR 82-86) + one ready drawing (SPR 54)",
+			"part": "body",
+			"adapter": "native-costume-v1",
+			"status": "accepted",
+			"gate": "strict",
+			"output": "native-wayfarer-v3",
+			"reproduces": {"pack": "res://tools/character-lab/assets/native-wayfarer-v3/", "manifest": "costume.json"},
+			"generatedImage": {"file": "res://tools/character-lab/assets/native-wayfarer-v2/costume-slot-board.png", "sha256": "17c69e63d4ec4c2d415d4b8fed65dadaae856b0a94bc10fd1de63d579a91d95a", "size": [1536, 1024]},
+			"template": {"file": "res://tools/character-lab/assets/native-template-v1/template.json", "sha256": "dd513f4c4447b4e63db20d7c67adb9cc8d0a88be499db17018d84629799975e8"},
+			"layout": {
+				"file": "res://tools/character-lab/assets/native-template-v1/sprite-slots.json",
+				"sha256": "fd9321ad15779a1edbba24b07f4c8816d6368109bfe76827ae3958424bf31c3b",
+				"canvas": [288, 192],
+				"slots": [
+					{"index": 82, "use": ["attack"], "imageRect": [24, 16, 47, 72]},
+					{"index": 83, "use": ["attack"], "imageRect": [122, 15, 43, 73]},
+					{"index": 84, "use": ["attack"], "imageRect": [217, 19, 45, 69]},
+					{"index": 85, "use": ["attack"], "imageRect": [23, 122, 49, 62]},
+					{"index": 86, "use": ["attack"], "imageRect": [119, 124, 49, 60]},
+					{"index": 54, "use": ["ready"], "imageRect": [214, 117, 52, 67]}
+				]
+			},
+			"action": {
+				"attack": {"sourceAction": 86, "direction": 6, "sequence": [82, 83, 83, 83, 84, 85, 86, 86, 86], "frameDurationMs": 96},
+				"ready": {"sourceAction": 38, "direction": 6, "slots": [54]}
+			},
+			"expectedManifestDifferences": [
+				{"path": "contract", "reason": "The saved v3 manifest predates the slot contract (it was imported with --palette). Accepted modules are now imported with --style-bible, which records the passing contract result."},
+				{"path": "recipe", "reason": "New provenance: recipe path, recipe SHA-256 and module id."}
+			]
+		},
+		{
+			"id": "head-v2-historical",
+			"label": "Wayfarer head v2 (head SPR 1), historical: fails the current head size contract",
+			"part": "head",
+			"adapter": "native-head-v1",
+			"status": "historical",
+			"gate": "recorded-failure",
+			"recordedFailure": {
+				"since": "2026-09-25",
+				"reason": "Undersized: area 86% and face 25% of native (5x5 face against 10x11). Visually accepted on 2026-09-24 before the contract existed; still referenced by appearances/wayfarer-v3.json.",
+				"replacement": "native-head-v3: no generated candidates exist yet; it must pass the strict gate and is never produced from this source."
+			},
+			"output": "native-head-v2",
+			"reproduces": {"pack": "res://tools/character-lab/assets/native-head-v2/", "manifest": "head.json"},
+			"generatedImage": {"file": "res://tools/character-lab/assets/native-head-v1/generated-head.png", "sha256": "68b56556c7fd5f4207c5683c4bd81450f6edcf14b5af6b39518be06cb4ccfdff", "size": [1254, 1254]},
+			"template": {"file": "res://tools/character-lab/assets/native-template-v1/template.json", "sha256": "dd513f4c4447b4e63db20d7c67adb9cc8d0a88be499db17018d84629799975e8"},
+			"layout": {
+				"file": "res://tools/character-lab/assets/native-head-v1/head-slot.json",
+				"sha256": "4f41f404c90180e435f39c596c1c01c529884b574b2b7ae8bb0199117bcc2aaa",
+				"canvas": [64, 64],
+				"slots": [
+					{"index": 1, "use": ["attack", "ready"], "imageRect": [17, 19, 30, 26]}
+				]
+			},
+			"equipment": {"file": "res://tools/character-lab/assets/native-equipment-v1/equipment.json", "sha256": "e5fe6e893a4122be9bb3e628334fcf61636fad7a5911855aeb903621ae5fb317", "variants": ["none", "cap", "hat"]},
+			"fixtureBody": "body-attack-front",
+			"action": {
+				"attack": {"sourceAction": 86, "direction": 6, "sequence": [1, 1, 1, 1, 1, 1, 1, 1, 1], "frameDurationMs": 96}
+			},
+			"expectedManifestDifferences": [
+				{"path": "contract", "reason": "The head is imported with --style-bible --allow-contract-failure, so the manifest records the failing contract instead of skipping the gate silently. The saved v2 manifest was imported with --palette only."},
+				{"path": "costumeManifest", "reason": "Fixtures use the freshly reproduced body module in the output directory instead of the saved v3 pack."},
+				{"path": "costumeManifestSha256", "reason": "The reproduced body manifest gains contract and recipe fields, so its bytes differ from the saved costume.json; its PNGs are compared byte for byte."},
+				{"path": "recipe", "reason": "New provenance: recipe path, recipe SHA-256 and module id."}
+			]
+		},
+		{
+			"id": "body-attack-back-v2",
+			"label": "Wayfarer attack2 back view v2 (SPR 87-91), preview",
+			"part": "body",
+			"adapter": "slot-board-v1",
+			"status": "pending-visual-review",
+			"gate": "strict",
+			"output": "native-wayfarer-attack-back-v2",
+			"name": "Wayfarer attack2 back view v2",
+			"reproduces": {"pack": "res://tools/character-lab/assets/native-wayfarer-attack-back-v2/", "manifest": "pack.json"},
+			"generatedImage": {"file": "res://tools/character-lab/assets/boards/swordsman-male-body-attack2-W-NW-N-NE/candidates/2026-09-26-v2/candidate.png", "sha256": "7ca7ab212c38af31fe4768f9def2585d5d7539fdfe67cf427edab21886dd8e2f", "size": [1536, 1024]},
+			"layout": {
+				"file": "res://tools/character-lab/assets/boards/swordsman-male-body-attack2-W-NW-N-NE/sprite-slots.json",
+				"sha256": "5c16cb01497c432ebe2c0d2d1059de922a5f0d9ab29bcdce8ab72523886d0b1c",
+				"canvas": [288, 192],
+				"slots": [
+					{"index": 87, "use": ["attack"], "imageRect": [30, 19, 35, 69]},
+					{"index": 88, "use": ["attack"], "imageRect": [126, 19, 35, 69]},
+					{"index": 89, "use": ["attack"], "imageRect": [219, 17, 41, 71]},
+					{"index": 90, "use": ["attack"], "imageRect": [25, 121, 45, 63]},
+					{"index": 91, "use": ["attack"], "imageRect": [121, 122, 45, 62]}
+				]
+			},
+			"action": {
+				"attack": {"group": "attack2", "groupIndex": 10, "directions": ["W", "NW", "N", "NE"], "sequence": [87, 88, 88, 88, 89, 90, 91, 91, 91], "frameDurationMs": 96}
+			},
+			"expectedManifestDifferences": [
+				{"path": "recipe", "reason": "New provenance: recipe path, recipe SHA-256 and module id."}
+			]
+		}
+	],
+	"coverage": {
+		"inventory": "res://tools/character-lab/assets/slot-inventory/swordsman-male.json",
+		"parts": {
+			"body": {"total": 118, "gameplay": 94},
+			"head": {"total": 15}
+		}
+	},
+	"decisions": [
+		"Attack back view v2 (SPR 87-91) passes the slot contract but awaits the user's visual acceptance. Accepting it means adding its pack to appearances/wayfarer-v3.json; this recipe does not change any appearance.",
+		"Head v3 has no generated candidates. Generate with prompt docs/character-lab/prompts/wayfarer-head-v0.2.0.txt, gate strictly, and add it as a new strict module. Until then the accepted look keeps the historical, contract-failing head v2.",
+		"A second character on the same style bible (inspection A1) and walk/idle boards are outside this recipe."
+	]
+}
