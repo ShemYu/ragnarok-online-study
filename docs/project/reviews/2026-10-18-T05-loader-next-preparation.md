@@ -1,0 +1,20 @@
+# Dictionary loader — next bounded work
+
+2026-10-18, root. Forward preparation after the [loader source review](2026-10-18-T05-loader-preparation.md), separate from the current [NPC core](2026-10-18-T05.004.md). No loader, package, installed change or full-language acceptance is claimed.
+
+Root personally read the entire private proposal/notes/pins and checked17 source/reference pins plus the proposal and notes. The production dictionary's19706353 bytes were streamed and hashed without decoding/parsing: SHAbe3825ca74db764f8d9ffbea9ba8f15ac17b1fd5bde49975d4b36c59ba704fc2. Private proposal SHA9a221a86c6dc159164a5864a7b1154b72e2b0e2037a18e58dd80baff8a617340; notes SHAafcffd644afbd007d37669588f21f63c9c21a0220548b2cd3f5b96d182369797; pins SHAe452bfe432212c3c8fdfc129a256ed3d25c3e5e54aa72c4af4d7bfd9009c498f; root check SHA85d525e2cb6d24d4e68cad7a48f9672f8eabcc40b046422cdcad3d57daa0e932. These are source/preparation results, not runtime performance evidence.
+
+The combined draft is split **before freezing or dispatching**:
+
+1. A bounded dictionary loader and detached native fixture. It must return synchronously, handle readiness/failure/disposal, verify the fixed body's length/hash before decoding/parsing, and prove ordinary full-body load costs and failure behavior in an owned local page. The actual corrected/root-verified NPC core commit/hash is a prerequisite; the selected raw repair base is insufficient.
+2. Private package generation, supported staging/HTTP qualification and an installed pilot. This follows loader qualification and proves actual module-relative resources, route admission, MIME/body identity and cache behavior. Its live pilot requires a fresh full progress backup and controlled game availability. The user already authorized necessary local implementation; this decomposition adds no new approval gate.
+
+The first child should own only loader/tests/fixture builder/runbook. Package generation and any stock staging/native execution are excluded until their separate frozen boundary. Task IDs/common base/exact selected core and final interfaces remain unfilled; no task is silently dispatched from a draft.
+
+Primary source confirms separate import/init deadlines, sequential initialization before the engine and asynchronous returned-disposer adoption. Cleanup must be registered synchronously and late Promise outcomes handled even if the scope is already disposed. A manager-ready signal is not dictionary/core readiness. Adjacent ESM/resources resolve from module location; source does not provide an injected dictionary/base URL. Proposed request/cancellation/deadline/status choices remain authored policy until frozen identically for both providers.
+
+Root also inspected client.rs205–223/cache.rs96–116/config.rs205–231: the server cache is checked before blocking asset resolution, and oversized entries may be served uncached. Default cache settings do not establish the current runtime profile. HTTP no-store/query changes do not prove server-LRU bypass, and native compression can separate wire size from decoded-body identity. Earlier binary/checksum and proxy/shadow qualifications remain unresolved; no whole-binary equivalence is inferred.
+
+Before the next pair, freeze one meaningful loader contract and independently prepared expected groups/fault evidence. Bound buffering and total work; perform one fatal UTF8 decode/JSON parse after digest, without a dictionary clone/full-key scan. A deadline cannot promise hard interruption of synchronous parsing. Measure actual body/parse timing and observed resource costs; no speculative heap or bill estimate. Readiness must include the core's actual ready state, and missing injections/groups must remain distinguishable from observed failures.
+
+Root owns final brief/pins, real independent Claude/Grok dispatch, personal source/execution/browser verification and local checkpoints. Source preparation requires no game reopen, save/settings/cache change or internet interruption. Full colored/link/template/name/UI/story coverage and the content contract remain required; no critical issue forcing a goal change is established.
