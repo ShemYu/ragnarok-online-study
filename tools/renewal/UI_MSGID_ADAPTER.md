@@ -1,5 +1,7 @@
 # ui-text msgid compatibility adapter (T05.003)
 
+Root-corrected 1.0.1 from selected raw Claude `b724e385` (unchanged integration `c4931e6`). Root verification is recorded in the [task review](../../docs/project/reviews/2026-10-18-T05.003.md); this remains a detached source/fixture tool, with no installed mod.
+
 The packaged `ui-text` element (`UI/Elements/UIText.js`, and the identical
 class in the packaged `Online.js`) looks up and observes only `msg`. Two
 packaged templates write their title id as `msgid` instead, so the title never
@@ -24,7 +26,7 @@ settings and network are untouched.
 | `ui_msgid_fixture.py` | Builds the detached browser fixture from the exact pinned `UIText.js` |
 | `UI_MSGID_ADAPTER.md` | This runbook |
 
-Node 24 and Python 3.9 standard library only; no packages or network.
+Node24 and Python3.9 standard library only; no packages or network. Correction regressions run authored API/boot code under Node event/element doubles, plus authored builder fault probes; the stock UIText and complete generated harness are never executed by those tests. Temporary test files stay beside the test module and are removed.
 
 ## Adapter contract
 
@@ -115,7 +117,7 @@ The builder refuses a source that is not a regular, non-link file of exactly
 796 bytes with SHA-256
 `8b93dde4d26829fbe5dc9ce18170dbdd7c6f236bd165ec6695556f4564531d8f`, an
 `OUTPUT` that already exists (a dangling link included), or a link or missing
-parent. It writes a fresh `0700` directory of `0600` files, removing it again
+parent, including linked ancestor components. System aliases such as `/var` must be supplied by their physical non-link spelling. Descriptor size is checked before reading; UIText reads stop after at most797bytes, and authored adapter/generator reads are capped at1MiB. These checks do not close concurrent same-user path-replacement races. It writes a fresh `0700` directory of `0600` files, removing it again
 if writing fails, and prints a summary with hashes and the output's basename
 only.
 
@@ -136,12 +138,9 @@ template shapes, not copied.
 
 **Page behaviour.** It starts as `NOT RUN — 25 cases expected`, runs each case
 with a 3 s bound and lists `PASS`/`FAIL` per case with its assertion count,
-then the totals. It shows `PASS` only if all 25 defined cases ran and passed,
+then the totals. Every authored API-double listener/replay/cleanup exception reaches the boot failure sink and therefore per-case and aggregate failure. It shows `PASS` only if all 25 defined cases ran and passed,
 each made at least one assertion, and no load, CSP or runtime error or
-unhandled rejection was recorded. Anything else stays visibly `FAIL`. One
-narrow exception: the browser's own `/favicon.ico` request blocked by
-`img-src 'none'` is listed under notes rather than failing the page; every
-other violation fails it.
+unhandled rejection was recorded. Anything else stays visibly `FAIL`. No CSP violation is exempt, including a favicon-shaped image request. The frozen `img-src 'none'` policy is preserved and no favicon resource is added. Root observed no favicon notes/errors in the target raw fixture; a future surface-specific favicon violation must visibly fail pending diagnosis.
 
 Cases: real registration and upgrade; real `connectedCallback` for an existing
 `msg`; both sites through the real `attributeChangedCallback`; UTF-8 Chinese
@@ -185,3 +184,16 @@ and lists it in the generated config. That is not staged or installed here.
 Source rollback is a revert of the task commit. Deleting a verified fixture
 output (`.tools/renewal/T05.003/fixture`) is a separate step. No installed
 state changed, so no save or settings restore is needed.
+
+## Root corrections and verification boundary
+
+- The existing-msg case verifies an initialized real element, nonempty lookup activity and only the correct283 ID, without assuming one initial call. Root raw browser observation was2 calls, from upgrade and connection.
+- The authored API double requires an error sink; both harness runtime constructors pass the visible boot failure sink. Listener, replay and cleanup sentinel errors have authored Node regressions.
+- Every CSP event is fatal, including same-origin/external favicon-shaped URLs. The frozen img-src 'none' policy is unchanged and no favicon resource/data allowance is added. Root browser negatives are recorded separately in the task review.
+- Source and output path components reject links before creation; exact796-byte source size is checked on the descriptor before reading, with at most797bytes read to detect growth. A source that grows is refused.
+- The adapter is byte-identical to the raw submission. The original UIText CRLF bytes still change only at the DB import. No install, real table, active-window, game or language acceptance follows.
+
+Root verification must include the full authored Node suite, fresh builder and all25 browser cases. In isolated negative copies, inject an append listener, replay listener or cleanup exception and require visible per-case/aggregate FAIL; check favicon-shaped CSP event reporting under authored doubles and actual module/CSP failure handling in the detached browser; confirm the target surface remains free of unexpected baseline CSP errors. A future favicon issue is a visible failure pending diagnosis. The task review records actual root results; generator output alone claims no browser success.
+
+
+Root integrated verification:24 authored Node tests pass with0 skipped/failed; a freshly generated fixture passes all25 real-browser cases/120 assertions. Separate append/replay/cleanup error, zero-assertion and missing-module modes remain visibly FAIL. An actual blocked inline-script control changes prior PASS to FAIL and never runs its sentinel. Common adapter checks pass20 groups plus2 additional shared-root/text-only boundaries. This qualifies the detached source/fixture tool only. Real message selection, supported installed packaging, active-window layout/remaining UI and full Traditional Chinese acceptance remain separate. See the task review for exact hashes, raw-provider comparison, timings and resource cleanup.

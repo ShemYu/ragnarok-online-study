@@ -43,26 +43,61 @@ def sha256(data):
     return hashlib.sha256(data).hexdigest()
 
 
-def read_regular(path, what):
-    """Bytes of a regular, non-link file, read without following a final link."""
-    try:
-        info = os.lstat(path)
-    except FileNotFoundError:
-        raise Refused(f'{what}: not found')
-    if stat.S_ISLNK(info.st_mode):
-        raise Refused(f'{what}: is a symbolic link')
+def checked_path(path, what, missing_leaf=False):
+    """Reject linked components without resolving them away before checking."""
+    absolute = Path(path)
+    if not absolute.is_absolute():
+        absolute = Path.cwd() / absolute
+    current = Path(absolute.anchor)
+    parts = absolute.parts[1:]
+    for index, part in enumerate(parts):
+        current = current / part
+        last = index == len(parts) - 1
+        try:
+            info = os.lstat(current)
+        except FileNotFoundError:
+            if missing_leaf and last:
+                return str(absolute)
+            raise Refused(f'{what}: path component not found')
+        if stat.S_ISLNK(info.st_mode):
+            raise Refused(f'{what}: symbolic link component')
+        if not last and not stat.S_ISDIR(info.st_mode):
+            raise Refused(f'{what}: parent component is not a directory')
+    return str(absolute)
+
+
+def read_regular(path, what, expected_size=None):
+    """Private authored inputs are capped; stock UIText is exactly796 bytes."""
+    path = checked_path(path, what)
+    info = os.lstat(path)
     if not stat.S_ISREG(info.st_mode):
         raise Refused(f'{what}: not a regular file')
     fd = os.open(path, os.O_RDONLY | os.O_NOFOLLOW | getattr(os, 'O_NONBLOCK', 0))
     try:
-        if not stat.S_ISREG(os.fstat(fd).st_mode):
-            raise Refused(f'{what}: not a regular file')
-        chunks = []
-        while True:
-            chunk = os.read(fd, 65536)
+        before = os.fstat(fd)
+        if not stat.S_ISREG(before.st_mode) or (before.st_dev, before.st_ino) != (info.st_dev, info.st_ino):
+            raise Refused(f'{what}: regular file identity changed')
+        if expected_size is not None and before.st_size != expected_size:
+            raise Refused(f'{what}: size {before.st_size}, expected {expected_size}')
+        cap = expected_size if expected_size is not None else 1024 * 1024
+        if before.st_size > cap:
+            raise Refused(f'{what}: size exceeds read limit')
+        chunks, total = [], 0
+        while total <= cap:
+            chunk = os.read(fd, min(65536, cap + 1 - total))
             if not chunk:
                 break
+            total += len(chunk)
+            if total > cap:
+                raise Refused(f'{what}: read limit exceeded')
             chunks.append(chunk)
+        after = os.fstat(fd)
+        identity = lambda value: (value.st_dev, value.st_ino, value.st_size,
+                                  value.st_mtime_ns, value.st_ctime_ns)
+        if identity(before) != identity(after):
+            raise Refused(f'{what}: file changed while reading')
+        if expected_size is not None and total != expected_size:
+            raise Refused(f'{what}: size changed while reading')
         return b''.join(chunks)
     finally:
         os.close(fd)
@@ -102,13 +137,15 @@ export default {
 API_DOUBLE = r'''// Authored client API 1 double: the lifecycle parts the adapter uses.
 // Fresh frozen descriptor per append, microtask replay from the current
 // registry, removal emitted before detachment, scoped idempotent cleanup.
-export function createRuntime() {
+export function createRuntime(onError) {
+	if (typeof onError !== 'function') throw new TypeError('API double needs a visible error sink');
 	const listeners = new Map();
 	const components = new Map();
 	const reports = [];
+	function report(error) { reports.push(error); onError(error); }
 	function emit(event, value) {
 		for (const listener of [...(listeners.get(event) || [])]) {
-			try { listener(value); } catch (error) { reports.push(error); }
+			try { listener(value); } catch (error) { report(error); }
 		}
 	}
 	function scope(name = 'ui-msgid') {
@@ -120,7 +157,7 @@ export function createRuntime() {
 			const once = () => {
 				if (done) return;
 				done = true; cleanups.delete(once);
-				try { fn(); } catch (error) { reports.push(error); }
+				try { fn(); } catch (error) { report(error); }
 			};
 			if (disposed) once(); else cleanups.add(once);
 			return once;
@@ -134,7 +171,7 @@ export function createRuntime() {
 			if (replay) queueMicrotask(() => {
 				if (disposed || !listeners.get(event)?.has(listener)) return;
 				const values = event === 'ui:append' ? [...components.values()] : [];
-				for (const value of values) { try { listener(value); } catch (error) { reports.push(error); } }
+				for (const value of values) { try { listener(value); } catch (error) { report(error); } }
 			});
 			return off;
 		};
@@ -183,14 +220,7 @@ BOOT = r'''// Classic script, runs before the module graph: records load, CSP an
 	window.addEventListener('unhandledrejection', function (event) { fail('unhandled rejection: ' + event.reason); });
 	document.addEventListener('securitypolicyviolation', function (event) {
 		var text = 'CSP violation: ' + event.effectiveDirective + ' ' + event.blockedURI;
-		// The browser's own favicon request is blocked by img-src 'none' too;
-		// it is shown, not hidden, and every other violation fails the page.
-		if (event.effectiveDirective === 'img-src' && /^https?:\/\/[^/]+\/favicon\.ico$/.test(event.blockedURI)) {
-			boot.notes.push(text + ' (browser favicon request, blocked; not fixture code)');
-			var notes = document.getElementById('notes');
-			if (notes) notes.textContent = boot.notes.join('\n');
-			return;
-		}
+
 		fail(text);
 	});
 	setTimeout(function () { if (!boot.finished) fail('harness did not complete within 20 s'); }, 20000);
@@ -206,6 +236,7 @@ import { createRuntime } from './api-double.js';
 import initialize, { createMsgidAdapter } from './ui_msgid_adapter.js';
 
 const boot = window.__t05Boot;
+const onApiError = error => boot.fail('API double: ' + String(error && error.message || error));
 const statusEl = document.getElementById('status');
 const totalsEl = document.getElementById('totals');
 const listEl = document.getElementById('cases');
@@ -242,7 +273,7 @@ const slotOf = comp => comp.root.querySelector('ui-text');
 
 function setup(entries = TABLE) {
 	reset(entries);
-	const runtime = createRuntime();
+	const runtime = createRuntime(onApiError);
 	const scope = runtime.scope();
 	return { runtime, scope };
 }
@@ -275,7 +306,9 @@ test('connectedCallback reads an existing msg', async t => {
 	setup();
 	const comp = makeComponent('Other', '<ui-text msg="283">x</ui-text>');
 	t.equal(slotOf(comp).textContent, SKILL_ZH, 'lookup on connect');
-	t.same(calls, ['283'], 'one lookup');
+	t.equal(slotOf(comp)._initialized, true, 'ordinary connection ran');
+	t.ok(calls.length > 0, 'lookup occurred');
+	t.ok(calls.every(id => id === '283'), 'only the ordinary message id was requested');
 });
 
 test('SkillListV2/283 reacts through attributeChangedCallback', async t => {
@@ -576,7 +609,7 @@ test('cleanup twice; nothing after disposal', async t => {
 });
 
 test('API version gate', async t => {
-	const runtime = createRuntime();
+	const runtime = createRuntime(onApiError);
 	let threw = 0;
 	for (const api of [undefined, {}, { version: 2 }, { version: '1' }]) {
 		try { initialize(null, api); } catch { threw++; }
@@ -689,10 +722,8 @@ def write_private(directory, name, data):
 def build(source_path, output):
     if os.path.lexists(output):
         raise Refused('OUTPUT: already exists')
-    parent = os.path.dirname(os.path.abspath(output))
-    if os.path.islink(parent) or not os.path.isdir(parent):
-        raise Refused('OUTPUT: parent must be an existing, non-link directory')
-    source = read_regular(source_path, 'UITEXT_SOURCE')
+    output = checked_path(output, 'OUTPUT', missing_leaf=True)
+    source = read_regular(source_path, 'UITEXT_SOURCE', expected_size=SOURCE_BYTES)
     transformed, offset = transform(source)
     generator = Path(__file__).resolve()
     adapter = read_regular(str(generator.with_name(ADAPTER)), ADAPTER)

@@ -15,10 +15,10 @@ import assert from 'node:assert/strict';
 import { spawnSync } from 'node:child_process';
 import { createHash } from 'node:crypto';
 import fs from 'node:fs';
-import os from 'node:os';
 import path from 'node:path';
 import test from 'node:test';
 import { fileURLToPath } from 'node:url';
+import vm from 'node:vm';
 
 import initialize, { createMsgidAdapter } from './ui_msgid_adapter.mjs';
 
@@ -561,7 +561,7 @@ test('the adapter source uses no globals, storage, network or observers', () => 
 
 // --- fixture builder -----------------------------------------------------------
 
-function tempDir() { return fs.mkdtempSync(path.join(os.tmpdir(), 't05-003-')); }
+function tempDir() { return fs.mkdtempSync(path.join(fs.realpathSync(here), '.test-temp-')); }
 function build(source, output) {
     return spawnSync('python3', ['-I', builder, source, output], { encoding: 'utf8' });
 }
@@ -631,6 +631,9 @@ test('fresh fixture from the pinned UIText (inspected, not executed)', { skip: !
         assert.match(html, /default-src 'none'/);
         assert.match(html, /script-src 'self'/);
         assert.match(html, /NOT RUN/);
+        assert.match(html, /img-src 'none'/);
+        assert.doesNotMatch(html, /rel="icon"|data:image/);
+        assert.equal('favicon' in provenance, false);
         for (const file of fs.readdirSync(output).filter(name => name.endsWith('.js'))) {
             const text = fs.readFileSync(path.join(output, file), 'utf8');
             for (const spec of text.matchAll(/^\s*import\s[^'"]*['"]([^'"]+)['"]/gm)) {
@@ -641,4 +644,145 @@ test('fresh fixture from the pinned UIText (inspected, not executed)', { skip: !
     } finally {
         fs.rmSync(dir, { recursive: true, force: true });
     }
+});
+
+// --- private correction regressions: authored code only, no UIText execution ---
+
+function authoredLiteral(name) {
+    const source = fs.readFileSync(builder, 'utf8');
+    const prefix = name + " = r'''";
+    const start = source.indexOf(prefix);
+    assert.notEqual(start, -1, name);
+    assert.equal(source.indexOf(prefix, start + prefix.length), -1, 'unique literal');
+    const end = source.indexOf("\n'''", start + prefix.length);
+    assert.notEqual(end, -1, name);
+    return source.slice(start + prefix.length, end);
+}
+
+function bootDouble() {
+    const windowListeners = new Map();
+    const documentListeners = new Map();
+    const elements = new Map(['status', 'errors', 'notes'].map(id => [id, { dataset: {}, textContent: '' }]));
+    const window = { addEventListener(name, listener) { windowListeners.set(name, listener); } };
+    const document = {
+        getElementById(id) { return elements.get(id) || null; },
+        addEventListener(name, listener) { documentListeners.set(name, listener); },
+    };
+    // Only the authored boot literal executes under inert element/event doubles.
+    // No generated harness module, pinned UIText, browser, storage or network executes.
+    vm.runInNewContext(authoredLiteral('BOOT'), { window, document, setTimeout() { return 1; } });
+    return { boot: window.__t05Boot, windowListeners, documentListeners, elements };
+}
+
+test('authored API double makes append, replay and cleanup errors visible', async () => {
+    const literal = authoredLiteral('API_DOUBLE');
+    const { createRuntime: fixtureRuntime } = await import('data:text/javascript;base64,' + Buffer.from(literal).toString('base64'));
+    assert.throws(() => fixtureRuntime(), /visible error sink/);
+    const state = bootDouble();
+    const onError = error => state.boot.fail('API double: ' + error.message);
+    const immediate = fixtureRuntime(onError);
+    const a = immediate.scope();
+    a.api.on('ui:append', () => { throw new Error('append sentinel'); }, { replay: false });
+    immediate.append({ name: 'Other', root: {}, host: {} });
+    assert.equal(state.boot.errors.length, 1);
+    assert.equal(state.elements.get('status').dataset.state, 'fail');
+
+    const replay = fixtureRuntime(onError);
+    replay.append({ name: 'Other', root: {}, host: {} });
+    const b = replay.scope();
+    b.api.on('ui:append', () => { throw new Error('replay sentinel'); });
+    await flush();
+    assert.equal(state.boot.errors.length, 2);
+    b.api.cleanup(() => { throw new Error('cleanup sentinel'); });
+    b.dispose();
+    assert.equal(state.boot.errors.length, 3);
+    assert.match(state.elements.get('errors').textContent, /append sentinel/);
+    assert.match(state.elements.get('errors').textContent, /replay sentinel/);
+    assert.match(state.elements.get('errors').textContent, /cleanup sentinel/);
+    a.dispose();
+    assert.equal(immediate.reports.length, 1);
+    assert.equal(replay.reports.length, 2);
+
+    const harness = authoredLiteral('HARNESS');
+    const constructors = [...harness.matchAll(/\bcreateRuntime\(([^)]*)\)/g)];
+    assert.equal(constructors.length, 2);
+    assert.equal(constructors.every(match => match[1] === 'onApiError'), true, 'every harness runtime has the visible sink');
+    assert.match(harness, /boot\.errors\.length === 0/);
+});
+
+test('authored boot treats every CSP violation as failure, including favicon-shaped URLs', () => {
+    const state = bootDouble();
+    const listener = state.documentListeners.get('securitypolicyviolation');
+    assert.equal(typeof listener, 'function');
+    const urls = ['https://outside.invalid/favicon.ico', 'http://127.0.0.1:8793/favicon.ico', 'data:blocked-sentinel'];
+    for (const blockedURI of urls) listener({ effectiveDirective: 'img-src', blockedURI });
+    assert.equal(state.boot.errors.length, urls.length);
+    assert.equal(state.elements.get('status').dataset.state, 'fail');
+    assert.match(state.elements.get('errors').textContent, /outside\.invalid/);
+});
+
+test('builder rejects linked ancestors for source and output before creating files', () => {
+    const dir = tempDir();
+    try {
+        const real = path.join(dir, 'real');
+        const nested = path.join(real, 'nested');
+        fs.mkdirSync(nested, { recursive: true });
+        const padded = path.join(nested, 'UIText.js');
+        fs.writeFileSync(padded, Buffer.alloc(796, 0x20));
+        const alias = path.join(dir, 'alias');
+        fs.symlinkSync(real, alias, 'dir');
+        const sourceAlias = path.join(alias, 'nested', 'UIText.js');
+        let result = build(sourceAlias, path.join(dir, 'output'));
+        assert.notEqual(result.status, 0);
+        assert.match(result.stderr, /symbolic link component/);
+        assert.equal(fs.existsSync(path.join(dir, 'output')), false);
+        result = build(padded, path.join(alias, 'nested', 'output'));
+        assert.notEqual(result.status, 0);
+        assert.match(result.stderr, /symbolic link component/);
+        assert.equal(fs.existsSync(path.join(nested, 'output')), false);
+    } finally { fs.rmSync(dir, { recursive: true, force: true }); }
+});
+
+test('source exact-size check precedes reads, and reads remain capped on growth', () => {
+    const dir = tempDir();
+    try {
+        const oversized = path.join(dir, 'oversized.js');
+        fs.writeFileSync(oversized, Buffer.alloc(797, 0x20));
+        const exact = path.join(dir, 'exact.js');
+        fs.writeFileSync(exact, Buffer.alloc(796, 0x20));
+        const probe = String.raw`
+import importlib.util, sys
+spec = importlib.util.spec_from_file_location('authored_builder', sys.argv[1])
+module = importlib.util.module_from_spec(spec)
+spec.loader.exec_module(module)
+reads = []
+def never_read(fd, count):
+    reads.append(count)
+    raise AssertionError('oversized source reached read')
+module.os.read = never_read
+try:
+    module.read_regular(sys.argv[2], 'UITEXT_SOURCE', expected_size=796)
+except module.Refused:
+    pass
+else:
+    raise AssertionError('oversized source accepted')
+assert reads == []
+def growing(fd, count):
+    reads.append(count)
+    return b'x' * count
+module.os.read = growing
+try:
+    module.read_regular(sys.argv[3], 'UITEXT_SOURCE', expected_size=796)
+except module.Refused:
+    pass
+else:
+    raise AssertionError('unbounded growth accepted')
+assert reads == [797], reads
+print('bounded authored-reader checks passed')
+`;
+        const result = spawnSync('python3', ['-I', '-B', '-c', probe, builder, oversized, exact], { encoding: 'utf8', timeout: 10000 });
+        assert.equal(result.status, 0, result.stderr);
+        assert.match(result.stdout, /bounded authored-reader checks passed/);
+        assert.equal(fs.existsSync(path.join(dir, 'output')), false);
+    } finally { fs.rmSync(dir, { recursive: true, force: true }); }
 });
