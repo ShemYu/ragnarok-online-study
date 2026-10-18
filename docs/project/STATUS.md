@@ -14,9 +14,9 @@ Updated: 2026-10-18. Coordinator: Codex. Active scope: **execute the documented 
 | --- | --- |
 | [T06.002.003.001 YAML graph](reviews/2026-10-18-T06.002.003.001.md) | **ready_for_user** at root-correctede10398a after unchanged416df7c; Claude15/20 selected versus Grok13/20. Root69 tests/zero skips, fresh CLI and every38538 complete row/15 visits/15 edges/15 exact reads pass. Raw source-profile catalog only; projections/native/effective/playable scope remains open. Both resources released. |
 | [T05.002 Chinese plugin audit](reviews/2026-10-18-T05.002.md) | **ready_for_user**, source/proposal only: Claude15/20 versus Grok14/20; root-verified corrected synthesis recommends adapt. No plugin executed/installed. New scoped NPC adapter/fixtures T05.004 planned; full Chinese coverage remains open. Both resources released. |
-| [T05.003 UI binding adapter](reviews/2026-10-18-T05.003.md) | Claude b724e385 is preserved/released; root full-file review,20 Node tests and fresh builder pass. Detached browser24/25: incorrect initial lookup-count assertion, plus root-reproduced ancestor-link refusal gaps; corrections/neutral cases pending. Grok ctx_7571d60c7582 reports reviewing/no blocker at11:34UTC, still active on common8223ba3/spec04c7270bâ€¦269305. Compare both before selecting; no installed-game mutation. |
+| [T05.003 UI binding adapter](reviews/2026-10-18-T05.003.md) | Claude b724e385 is preserved/released; root full-file review,20 Node tests and fresh builder pass. Detached browser24/25: incorrect initial lookup-count assertion, plus root-reproduced ancestor-link refusal gaps; corrections/neutral cases pending. Grok b66f767 is also preserved/released; root13 Node tests/fresh fixture/raw browser25/25 pass, but independent shared-root cleanup and text-only negatives fail; builder shares ancestor-link gaps. Common neutral cases/comparison/corrections next; no installed-game mutation. |
 
-Latest authoritative scoped fleet:37 total,1 active/34 released/2 older user-retained; only original UI Grok remains active. Both YAML/audit pairs and UI Claude are released. Continue the same attempts and consuming inbox loop. Quiet waits do not authorize cancellation/retry. Older retained terminals remain untouched. Earlier launch-state paragraphs below are historical; this table is the current resume point.
+Latest authoritative scoped fleet:37 total,0 active/35 released/2 older user-retained. Both YAML/audit/UI pairs are settled and released; no reclaimable resources remain. Root owns comparison/corrections and verification. Older retained terminals remain untouched. Earlier launch-state paragraphs below are historical; this table is the current resume point.
 
 ## How many steps until play?
 
@@ -54,7 +54,7 @@ The first playtest is an intermediate checkpoint within the full milestone. T01â
 ## Next action and owner
 
 
-1. **Root:** supervise the remaining original UI Grok Dispatch above; process every delivered message, preserve raw committed reports/source/proof, validate settlements and decide release/reuse before acknowledging. No duplicate attempts on silence.
+1. **Root:** both raw UI submissions are now preserved and released. Run the same neutral browser cases, compare bounded task results and separately correct/requalify the selected integration; no raw or fixture PASS is full installed-game acceptance.
 2. **Root:** personally review/execute meaningful candidate checks, compare each pair, isolate any corrections and verify the selected integration before ready_for_user. Detached UI fixtures are separate from the running game.
 3. **Root:** continue only immutable/source/private-fixture preparation independently. The raw YAML tool is now selected/corrected/verified; subsequent monster/item/quest/skill projections remain planned. Update task-linked evidence before advancing.
 4. **User clarification pending:** finite content target and solo party-gate policy. Preserve full maps/monsters/story/Traditional Chinese goal while waiting; do not invent a complete-MVP estimate or substitute UI-only coverage.
