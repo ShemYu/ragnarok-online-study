@@ -284,6 +284,7 @@ class Output:
         self.root = root
         self.created = []  # (relative path, dev, ino, is_dir), creation order
         self.records = {}  # relative path -> {path, bytes, sha256, mode}
+        self.root_created_unverified = False
 
     def path(self, relative):
         return self.root if relative == "." else os.path.join(self.root, relative)
@@ -294,10 +295,14 @@ class Output:
             os.mkdir(target, DIR_MODE)
         except OSError as error:
             raise PackageError(f"cannot create directory {relative} ({_why(error)})") from None
+        if relative == ".":
+            self.root_created_unverified = True
         st = os.lstat(target)
         if not stat.S_ISDIR(st.st_mode):
             raise PackageError(f"created directory {relative} is not a directory")
         self.created.append((relative, st.st_dev, st.st_ino, True))
+        if relative == ".":
+            self.root_created_unverified = False
         # A restrictive umask may have removed bits (even owner search/read,
         # so no descriptor can be opened yet): set the exact mode by path on
         # the directory just created, then confirm identity and mode.
@@ -454,6 +459,8 @@ class Output:
         Returns None when everything owned is gone, else a short reason.
         """
         if not self.created:
+            if self.root_created_unverified:
+                return "new output root ownership is unverified; it was left untouched"
             return None
         root_rel, dev, ino, _ = self.created[0]
         try:

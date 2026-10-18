@@ -645,6 +645,35 @@ class G05PublicationFailures(Work):
             self.assertIn("cannot open", str(self.fail_build()))
         self.failed()
 
+    def test_post_mkdir_inspection_reports_unverified_root(self):
+        real_mkdir, real_lstat = os.mkdir, os.lstat
+        state = {"created": False, "injected": False}
+        before = {p: snapshot(p) for p in (self.loader, self.core, self.dictionary)}
+
+        def mkdir(path, *args, **kwargs):
+            result = real_mkdir(path, *args, **kwargs)
+            if str(path) == str(self.out):
+                state["created"] = True
+            return result
+
+        def lstat(path, *args, **kwargs):
+            if str(path) == str(self.out) and state["created"] and not state["injected"]:
+                state["injected"] = True
+                raise OSError(errno.EIO, os.strerror(errno.EIO))
+            return real_lstat(path, *args, **kwargs)
+
+        with mock.patch.object(pkg.os, "mkdir", mkdir), mock.patch.object(pkg.os, "lstat", lstat):
+            message = str(self.fail_build())
+        self.assertTrue(state["injected"])
+        self.assertIn("cleanup", message)
+        self.assertIn("unverified", message)
+        # Successful creation alone is insufficient ownership proof for removal.
+        self.assertTrue(self.out.is_dir())
+        self.assertEqual(os.listdir(self.out), [])
+        self.assertFalse((self.out / "COMPLETE.json").exists())
+        self.assertEqual(open_fds(), self.fds)
+        self.assertEqual(before, {p: snapshot(p) for p in before})
+
     def test_interrupt_mid_copy_cleans_and_reraises(self):
         with self.nth("fsync", 5, lambda real, fd: (_ for _ in ()).throw(KeyboardInterrupt())):
             with self.assertRaises(KeyboardInterrupt):
