@@ -65,7 +65,7 @@ integrity graph using the existing upstream field names:
    `inputs.selection[...]` pins and `source.revision`; profile
    `rathena-0693b8c-renewal-use_grf-off`, `renewal true`, `required_use_grf` the
    integer 0, `required_db_path "db"`, name lengths 12/16, `max_mapindex` 2000;
-   `reverse_count` equals the reverse rows; no `unresolved_*` candidate.
+   exact-integer `reverse_count` equals the reverse rows; no `unresolved_*` candidate.
 3. **Monster**: status complete, `stop null`, `unresolved []`; the marker binds
    the actual manifest and both streams; `records_file`/`history_file` bind
    actual bytes/hash and 2699 LF rows each; generator `monster_projection.py`
@@ -89,6 +89,11 @@ Strict JSON refuses duplicate keys, `NaN`/`Infinity` and exponent overflow
 (`1e309`, nested `-1e400`). IDs, ordinals, counts and spans must be non-bool
 integers; finite floats and booleans elsewhere in upstream manifests (timings,
 profile flags) are accepted as data.
+Fixed binding dictionaries compare scalar types as well as values: equal-valued
+floats cannot stand in for raw output bytes/rows, producer/selection bytes,
+source selection indexes/certified offsets or map reverse counts. Authored
+post-admission tests exercise these helpers behind the production byte pins;
+they are not a way to admit changed artifact bytes through the CLI.
 
 ## Core semantics
 
@@ -168,10 +173,13 @@ There is no exit 1 or partial success. The output must not exist (links
 included, left unchanged); its parent must be yours, not group/world writable and
 outside every input root. Files are created `O_EXCL|O_NOFOLLOW` 0600 with a
 short-write loop (zero progress fails), fsynced, closed and read back with owned
-inode/regular/mode checks; the directory identity, 0700 mode, exact entries and
-file modes are rechecked before its fsync/close. On any late failure the run's
-own completion record and manifest are unlinked only if still the owned inode;
-foreign replacements and preexisting state stay untouched.
+inode/regular/mode checks. Before and again after the directory fsync, while its
+owned FD is retained, check the directory identity/owner/0700 mode, its target
+pathname's non-link identity/owner/mode, the exact entries and every owned file's
+regular identity/0600 mode. On late failure the run's own completion record and
+manifest are unlinked only if still the owned inode. A renamed owned directory
+is cleaned through its retained FD; a foreign replacement target is left
+untouched. Foreign file replacements and preexisting state stay untouched.
 
 Close errors are always fatal. Cleanup first observes whether a failed
 descriptor was released, is still owned (at most one guarded extra close) or is
@@ -180,6 +188,9 @@ after-real close, different-inode reuse and final directory close. Identity is
 captured on entry to the close helper; it is not descriptor-generation proof
 against concurrent or same-inode reuse, and no universal native close-error
 recovery or atomic protection against same-user races is claimed.
+The final checks establish the observed state before close, not an atomic
+guarantee against changes after that check or arbitrary concurrent pathname/FD
+replacement.
 
 ## Tests
 
@@ -202,6 +213,33 @@ production byte-pin bypass. Nine negative controls replace real producer
 functions (base lowercasing, last-candidate, retained-only, latest declaration,
 span deduplication, gap and opaque recovery, sprite-0 sentinel, a counter fault)
 and require the golden or conservation check to fail, then pass again.
+
+## Separate unselected correction trial
+
+This revision is an internal correction trial based on unchanged Claude commit
+`df0a6c54b7b9cd85836aa1a08f71a120fe45d723`. It does not select a provider,
+qualify the task for the coordinator or change the independent raw comparison.
+Only this producer, its tests and this runbook change.
+
+The trial's explicit frozen-root run with `-W error::ResourceWarning` passes
+**74 tests, zero skips/failures**. Four new regression methods cover sixteen
+equal-valued float binding controls; the existing descriptive timing float and
+profile boolean positive; five final-directory-fsync metadata controls
+(directory mode, each of three file modes, extra entry); and directory/symlink
+target replacement. Both replacement controls verify owned stash marker and
+manifest revocation, exact foreign target preservation and producer FD release
+before fixture cleanup. Existing tests now cover all six regular write/readback
+close stages before/after real close, explicitly bind different-inode FD reuse,
+retain the original foreign-replacement inode and check intruder-case FD release.
+
+Loading the exact unchanged raw producer from that Git commit into a separate
+in-memory module and running these four methods gives **23 expected subtest
+failures, zero errors/skips** (16 binding, five metadata, two replacement); the
+descriptive-value positive passes. The raw provider checkout is never edited.
+Private 0600 receipts are under the trial's ignored
+`.tools/renewal/root-correction-trial-1/`. The coordinator must review this diff
+and personally rerun applicable checks before considering adoption. These finite
+serial controls do not extend the concurrency or close-recovery guarantee.
 
 ## Rollback
 

@@ -881,18 +881,26 @@ class F09Publication(TempCase):
         return state
 
     def test_file_close_before_and_after_real_close(self):
-        for before in (True, False):
-            with self.subTest(before_real=before):
-                self.tmp2 = self.tmp
-                self.close_fault(before, lambda i: stat.S_ISREG(i.st_mode))
-                target = os.path.join(self.tmp, f"out-{before}")
-                with self.assertRaises(P.ReferenceError) as ctx:
-                    P.publish(target, unit_built())
-                self.assert_owned_closed()
-                self.assert_failed_publication(target)
-                self.assertIn("close failed", str(ctx.exception))
-                self.assertIn("descriptor release observed" if not before else
-                              "descriptor release observed", str(ctx.exception))
+        # Rows, manifest and marker each have a write-close and readback-close.
+        for stage in range(1, 7):
+            for before in (True, False):
+                with self.subTest(regular_close=stage, before_real=before):
+                    calls = [0]
+
+                    def match(info):
+                        if stat.S_ISREG(info.st_mode):
+                            calls[0] += 1
+                            return calls[0] == stage
+                        return False
+
+                    injected = self.close_fault(before, match)
+                    target = os.path.join(self.tmp, f"out-{stage}-{before}")
+                    with self.assertRaises(P.ReferenceError):
+                        P.publish(target, unit_built())
+                    self.assertTrue(injected["done"])
+                    self.assert_owned_closed()
+                    self.assert_failed_publication(target)
+                    P._os_close = REAL["close"]
 
     def test_final_directory_close_before_and_after_real_close(self):
         for before in (True, False):
@@ -920,14 +928,21 @@ class F09Publication(TempCase):
     def test_after_real_close_different_inode_reuse_untouched(self):
         foreign_path = os.path.join(self.tmp, "foreign")
         Path(foreign_path).write_bytes(b"foreign bytes")
+        os.chmod(foreign_path, 0o600)
+        foreign_info = os.stat(foreign_path)
+        foreign_identity = (foreign_info.st_dev, foreign_info.st_ino)
         held = {}
 
         def close(fd):
             info = os.fstat(fd)
             if not held and stat.S_ISREG(info.st_mode):
+                held["closed_fd"] = fd
+                held["original_identity"] = (info.st_dev, info.st_ino)
                 REAL["close"](fd)
-                reused = os.open(foreign_path, os.O_RDONLY)
+                reused = REAL["open"](foreign_path, os.O_RDONLY)
                 held["fd"] = reused
+                now = os.fstat(reused)
+                held["foreign_identity"] = (now.st_dev, now.st_ino)
                 raise OSError(errno.EIO, "injected close after reuse")
             return REAL["close"](fd)
         P._os_close = close
@@ -936,31 +951,55 @@ class F09Publication(TempCase):
             with self.assertRaises(P.ReferenceError) as ctx:
                 P.publish(target, unit_built())
             fd = held["fd"]
+            self.assertEqual(fd, held["closed_fd"])
+            self.assertEqual(held["foreign_identity"], foreign_identity)
+            self.assertNotEqual(held["original_identity"], foreign_identity)
             self.assertFalse(fd_closed(fd))
+            current = os.fstat(fd)
+            self.assertEqual((current.st_dev, current.st_ino), foreign_identity)
             self.assertEqual(os.pread(fd, 100, 0), b"foreign bytes")
             self.assert_owned_closed(keep=(fd,))
             self.assert_failed_publication(target)
             self.assertIn("foreign descriptor left untouched", str(ctx.exception))
         finally:
             if "fd" in held:
-                os.close(held["fd"])
+                # Close only this fixture's still-retained foreign descriptor.
+                current = os.fstat(held["fd"])
+                self.assertEqual((current.st_dev, current.st_ino), foreign_identity)
+                REAL["close"](held["fd"])
 
     def test_foreign_replacement_untouched_on_late_failure(self):
         target = self.target()
+        retained = self.target("retained-owned-manifest")
+        replacement = {}
 
         def fsync(fd):
             REAL["fsync"](fd)
             if stat.S_ISDIR(os.fstat(fd).st_mode):
                 manifest = os.path.join(target, P.OUTPUT_MANIFEST)
-                os.unlink(manifest)
+                original = os.stat(manifest)
+                # Keep the original inode allocated: unlink/recreate can reuse it.
+                os.rename(manifest, retained)
                 Path(manifest).write_bytes(b"foreign")
+                os.chmod(manifest, 0o600)
+                foreign = os.stat(manifest)
+                replacement.update(original=(original.st_dev, original.st_ino),
+                                   identity=(foreign.st_dev, foreign.st_ino),
+                                   mode=stat.S_IMODE(foreign.st_mode))
                 raise OSError(errno.EIO, "injected")
         P._os_fsync = fsync
         with self.assertRaises(P.ReferenceError) as ctx:
             P.publish(target, unit_built())
         self.assert_owned_closed()
         self.assertFalse(os.path.lexists(os.path.join(target, P.OUTPUT_COMPLETE)))
-        self.assertEqual(Path(target, P.OUTPUT_MANIFEST).read_bytes(), b"foreign")
+        manifest = Path(target, P.OUTPUT_MANIFEST)
+        now = manifest.stat()
+        self.assertNotEqual(replacement["original"], replacement["identity"])
+        self.assertEqual((now.st_dev, now.st_ino), replacement["identity"])
+        self.assertEqual(stat.S_IMODE(now.st_mode), replacement["mode"])
+        self.assertEqual(manifest.read_bytes(), b"foreign")
+        original = os.stat(retained)
+        self.assertEqual((original.st_dev, original.st_ino), replacement["original"])
         self.assertIn("foreign file, left untouched", str(ctx.exception))
 
     def test_unexpected_entry_refused(self):
@@ -974,8 +1013,104 @@ class F09Publication(TempCase):
         P._os_fsync = fsync
         with self.assertRaises(P.ReferenceError):
             P.publish(target, unit_built())
+        self.assert_owned_closed()
         self.assert_failed_publication(target)
         self.assertTrue(os.path.exists(os.path.join(target, "intruder")))
+
+    def test_post_directory_fsync_metadata_checks(self):
+        # These hooks run AFTER the real final directory fsync, not at an earlier
+        # file fsync. Observe cleanup before restoring the authored proof modes.
+        cases = [("directory-mode", None), ("stream-mode", P.OUTPUT_ROWS),
+                 ("manifest-mode", P.OUTPUT_MANIFEST), ("marker-mode", P.OUTPUT_COMPLETE),
+                 ("extra-entry", None)]
+        for case, filename in cases:
+            with self.subTest(case=case):
+                target = self.target(case)
+                hook = {}
+
+                def fsync(fd):
+                    REAL["fsync"](fd)
+                    info = os.fstat(fd)
+                    if not stat.S_ISDIR(info.st_mode) or hook:
+                        return
+                    hook["owned_identity"] = (info.st_dev, info.st_ino)
+                    if case == "directory-mode":
+                        os.fchmod(fd, 0o755)
+                    elif filename is not None:
+                        os.chmod(os.path.join(target, filename), 0o644)
+                    else:
+                        extra = Path(target, "authored-intruder")
+                        extra.write_bytes(b"preserve authored extra entry")
+                        os.chmod(extra, 0o600)
+                        now = extra.stat()
+                        hook["extra_identity"] = (now.st_dev, now.st_ino)
+
+                P._os_fsync = fsync
+                try:
+                    with self.assertRaises(P.ReferenceError):
+                        P.publish(target, unit_built())
+                    self.assertTrue(hook)
+                    self.assert_owned_closed()
+                    self.assert_failed_publication(target)
+                    now = os.stat(target)
+                    self.assertEqual((now.st_dev, now.st_ino), hook["owned_identity"])
+                    if case == "extra-entry":
+                        extra = Path(target, "authored-intruder")
+                        now = extra.stat()
+                        self.assertEqual((now.st_dev, now.st_ino), hook["extra_identity"])
+                        self.assertEqual(extra.read_bytes(), b"preserve authored extra entry")
+                finally:
+                    P._os_fsync = REAL["fsync"]
+                    if os.path.isdir(target):
+                        os.chmod(target, 0o700)
+                        for child in Path(target).iterdir():
+                            os.chmod(child, 0o600)
+
+    def test_post_directory_fsync_target_replacement_revokes_stash(self):
+        for kind in ("directory", "symlink"):
+            with self.subTest(replacement=kind):
+                target = self.target("target-" + kind)
+                stash = self.target("owned-stash-" + kind)
+                foreign = target if kind == "directory" else self.target("foreign-" + kind)
+                hook = {}
+
+                def snapshot():
+                    at_target, folder = os.lstat(target), os.stat(foreign)
+                    sentinel = Path(foreign, "foreign-sentinel")
+                    entry = sentinel.stat()
+                    return ((at_target.st_dev, at_target.st_ino, at_target.st_mode),
+                            os.readlink(target) if stat.S_ISLNK(at_target.st_mode) else None,
+                            (folder.st_dev, folder.st_ino, folder.st_mode),
+                            tuple(sorted(os.listdir(foreign))),
+                            (entry.st_dev, entry.st_ino, entry.st_mode), sentinel.read_bytes())
+
+                def fsync(fd):
+                    REAL["fsync"](fd)
+                    info = os.fstat(fd)
+                    if not stat.S_ISDIR(info.st_mode) or hook:
+                        return
+                    hook["owned_identity"] = (info.st_dev, info.st_ino)
+                    os.rename(target, stash)
+                    os.mkdir(foreign, 0o700)
+                    sentinel = Path(foreign, "foreign-sentinel")
+                    sentinel.write_bytes(b"foreign state; preserve exactly")
+                    os.chmod(sentinel, 0o600)
+                    if kind == "symlink":
+                        os.symlink(foreign, target)
+                    hook["foreign_before"] = snapshot()
+
+                P._os_fsync = fsync
+                try:
+                    with self.assertRaises(P.ReferenceError):
+                        P.publish(target, unit_built())
+                    self.assertIn("foreign_before", hook)
+                    self.assert_owned_closed()
+                    self.assert_failed_publication(stash)
+                    owned = os.stat(stash)
+                    self.assertEqual((owned.st_dev, owned.st_ino), hook["owned_identity"])
+                    self.assertEqual(snapshot(), hook["foreign_before"])
+                finally:
+                    P._os_fsync = REAL["fsync"]
 
     def test_existing_output_and_links_untouched(self):
         existing = self.target("exists")
@@ -1378,6 +1513,56 @@ class F08PostAdmissionBridgeMutations(unittest.TestCase):
         P._admit_raw(datas["raw"])
         P._admit_map(datas["map"])
         P._admit_monster(datas["monster"])
+
+    def test_integer_bindings_reject_equal_valued_floats(self):
+        # All are authored POST-ADMISSION helper controls. The production CLI
+        # refuses their changed bytes at the fixed pins before reaching here.
+        cases = [
+            ("raw", P.RAW_MANIFEST, ("producer", "bytes"), rebind_raw),
+            ("raw", P.RAW_MANIFEST, ("inputs", "selection_manifest", "bytes"), rebind_raw),
+            ("raw", P.RAW_MANIFEST, ("inputs", "selection_complete", "bytes"), rebind_raw),
+            ("raw", P.RAW_MANIFEST, ("sources", 0, "selection_index"), rebind_raw),
+            ("raw", P.RAW_MANIFEST, ("sources", 0, "certified_offset"), rebind_raw),
+            ("map", P.MAP_MANIFEST, ("inputs", "selection", "selection-manifest.json", "bytes"),
+             rebind_map),
+            ("map", P.MAP_MANIFEST, ("inputs", "selection", "selection-complete.json", "bytes"),
+             rebind_map),
+            ("map", P.MAP_MANIFEST, ("index", "state", "reverse_count"), rebind_map),
+        ]
+        for artifact in (P.RAW_MANIFEST, P.RAW_COMPLETE):
+            for output in (P.RAW_LINES, P.RAW_EVENTS):
+                for field in ("bytes", "rows"):
+                    cases.append(("raw", artifact, ("outputs", output, field),
+                                  rebind_raw if artifact == P.RAW_MANIFEST else None))
+        self.assertEqual(len(cases), 16)
+        for bundle, artifact, path, rebind in cases:
+            def mutate(obj):
+                parent = obj
+                for key in path[:-1]:
+                    parent = parent[key]
+                value = parent[path[-1]]
+                self.assertIs(type(value), int)
+                replacement = float(value)
+                self.assertEqual(value, replacement)  # equality alone cannot refuse this
+                parent[path[-1]] = replacement
+
+            with self.subTest(bundle=bundle, artifact=artifact, path=path):
+                datas = self.mutated(bundle, artifact, mutate, rebind)
+                with self.assertRaises(P.ReferenceError):
+                    getattr(P, "_admit_" + bundle)(datas[bundle])
+
+    def test_descriptive_float_and_profile_booleans_remain_valid(self):
+        # Change an existing descriptive timing field, not an identity integer.
+        datas = self.mutated("monster", P.MON_MANIFEST,
+                             lambda m: m["timings_seconds"].update(history=0.125), rebind_monster)
+        monster, _ = P._admit_monster(datas["monster"])
+        self.assertIs(type(monster["timings_seconds"]["history"]), float)
+        self.assertEqual(monster["timings_seconds"]["history"], 0.125)
+        self.assertIs(monster["profile"]["renewal"], True)
+        self.assertIs(monster["profile"]["item_monster_sql_branch"], False)
+        self.assertIs(monster["profile"]["should_load_generator"], False)
+        maps, _, _ = P._admit_map(self.fresh()["map"])
+        self.assertIs(maps["profile"]["renewal"], True)
 
     def mutated(self, bundle, name, fn, rebind):
         datas = self.fresh()

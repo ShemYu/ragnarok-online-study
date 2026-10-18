@@ -726,6 +726,18 @@ def _binds(obj, data, what):
           and obj.get("sha256") == sha256(data), f"{what} does not bind the actual bytes")
 
 
+def _same_binding(actual, expected):
+    """Compare the small fixed binding dictionaries without numeric coercion.
+
+    Only these identity dictionaries are compared here, not whole manifests:
+    descriptive timing floats and profile booleans keep their existing meanings.
+    """
+    if type(expected) is dict:
+        return (type(actual) is dict and set(actual) == set(expected)
+                and all(_same_binding(actual[key], value) for key, value in expected.items()))
+    return type(actual) is type(expected) and actual == expected
+
+
 def _admit_raw(datas):
     manifest = strict_json(datas[RAW_MANIFEST], "raw manifest")
     marker = strict_json(datas[RAW_COMPLETE], "raw completion")
@@ -743,9 +755,11 @@ def _admit_raw(datas):
                            "sha256": sha256(datas[RAW_LINES])},
                RAW_EVENTS: {"bytes": len(datas[RAW_EVENTS]), "rows": len(events),
                             "sha256": sha256(datas[RAW_EVENTS])}}
-    _need(marker["outputs"] == outputs and manifest.get("outputs") == outputs,
+    _need(_same_binding(marker["outputs"], outputs)
+          and _same_binding(manifest.get("outputs"), outputs),
           "raw marker/manifest outputs do not bind both actual streams")
-    _need(manifest.get("producer") == RAW_PRODUCER, "raw producer is not the qualified pilot")
+    _need(_same_binding(manifest.get("producer"), RAW_PRODUCER),
+          "raw producer is not the qualified pilot")
     inputs = manifest.get("inputs")
     _need(type(inputs) is dict, "raw inputs missing")
     _need(type(inputs.get("reader")) is dict and inputs["reader"].get("sha256") == READER_SHA,
@@ -753,8 +767,8 @@ def _admit_raw(datas):
     _need(type(inputs.get("snapshot_manifest")) is dict
           and inputs["snapshot_manifest"].get("sha256") == SNAPSHOT_MANIFEST_SHA,
           "raw snapshot manifest identity differs")
-    _need(inputs.get("selection_manifest") == SELECTION_MANIFEST
-          and inputs.get("selection_complete") == SELECTION_COMPLETE,
+    _need(_same_binding(inputs.get("selection_manifest"), SELECTION_MANIFEST)
+          and _same_binding(inputs.get("selection_complete"), SELECTION_COMPLETE),
           "raw selection identity differs")
     counters = manifest.get("counters")
     _need(type(counters) is dict and all(counters.get(k) == v and type(counters.get(k)) is int
@@ -767,11 +781,13 @@ def _admit_raw(datas):
     for position, source in enumerate(sources):
         _need(type(source) is dict and source.get("source_index") == position
               and type(source.get("source_index")) is int
+              and _is_u(source.get("selection_index"))
               and source.get("selection_index") == RAW_SELECTION_INDICES[position]
               and source.get("framing") == "complete" and source.get("projection") == "complete",
               f"raw source {position} is not complete framing/projection")
         size = source.get("bytes")
-        _need(_is_u(size) and source.get("certified_offset") == size,
+        _need(_is_u(size) and _is_u(source.get("certified_offset"))
+              and source.get("certified_offset") == size,
               f"raw source {position} is not certified to its end")
         mine = [e for e in events if e.get("source_index") == position]
         source_counters = source.get("counters")
@@ -810,8 +826,8 @@ def _admit_map(datas):
           "map snapshot identity differs")
     selection = inputs.get("selection")
     _need(type(selection) is dict
-          and selection.get("selection-manifest.json") == SELECTION_MANIFEST
-          and selection.get("selection-complete.json") == SELECTION_COMPLETE,
+          and _same_binding(selection.get("selection-manifest.json"), SELECTION_MANIFEST)
+          and _same_binding(selection.get("selection-complete.json"), SELECTION_COMPLETE),
           "map selection identity differs")
     source = manifest.get("source")
     _need(type(source) is dict and source.get("revision") == RATHENA_REVISION,
@@ -829,6 +845,7 @@ def _admit_map(datas):
     index = manifest.get("index")
     state = index.get("state") if type(index) is dict else None
     _need(type(state) is dict and type(state.get("reverse")) is list
+          and _is_u(state.get("reverse_count"))
           and state.get("reverse_count") == len(state["reverse"]),
           "map index reverse state missing")
     candidates = manifest.get("candidates")
@@ -1029,6 +1046,23 @@ def _read_back(dir_fd, name, expect, owned):
     return data
 
 
+def _check_publication(dir_fd, target, identity, owned):
+    """Check the retained directory, its pathname and the exact private output set."""
+    info = os.fstat(dir_fd)
+    _need((info.st_dev, info.st_ino) == identity and stat.S_ISDIR(info.st_mode)
+          and info.st_uid == os.geteuid() and stat.S_IMODE(info.st_mode) == 0o700,
+          "output directory is no longer the owned private directory")
+    at_path = os.lstat(target)
+    _need(stat.S_ISDIR(at_path.st_mode) and (at_path.st_dev, at_path.st_ino) == identity
+          and at_path.st_uid == os.geteuid() and stat.S_IMODE(at_path.st_mode) == 0o700,
+          "output pathname no longer names the owned private directory")
+    _need(set(os.listdir(dir_fd)) == set(owned) == {OUTPUT_ROWS, OUTPUT_MANIFEST,
+                                                    OUTPUT_COMPLETE},
+          "output directory entries are not exactly the three owned files")
+    for name in owned:
+        _check_written(dir_fd, name, owned[name])
+
+
 def _revoke(dir_fd, owned, names):
     """Unlink owned files by verified inode; foreign replacements stay untouched."""
     problems = []
@@ -1082,16 +1116,12 @@ def publish(target, built):
         _need(len(marker) <= LIMITS["completion_bytes"], "completion exceeds completion_bytes")
         _write_new(dir_fd, OUTPUT_COMPLETE, marker, owned)
         _read_back(dir_fd, OUTPUT_COMPLETE, marker, owned)
-        info = os.fstat(dir_fd)
-        _need((info.st_dev, info.st_ino) == identity and stat.S_ISDIR(info.st_mode)
-              and info.st_uid == os.geteuid() and stat.S_IMODE(info.st_mode) == 0o700,
-              "output directory is no longer the owned private directory")
-        _need(set(os.listdir(dir_fd)) == set(owned) == {OUTPUT_ROWS, OUTPUT_MANIFEST,
-                                                        OUTPUT_COMPLETE},
-              "output directory entries are not exactly the three owned files")
-        for name in owned:
-            _check_written(dir_fd, name, owned[name])
+        _check_publication(dir_fd, target, identity, owned)
         _os_fsync(dir_fd)
+        # Keep the owned FD until the post-fsync check finishes. If the pathname
+        # was replaced, failure cleanup can still revoke this run's marker and
+        # manifest in the renamed directory without touching the foreign target.
+        _check_publication(dir_fd, target, identity, owned)
         try:
             _os_close(dir_fd)
         except OSError as exc:
