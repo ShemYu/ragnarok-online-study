@@ -45,7 +45,7 @@ T01–T03 are verified within their scopes: **one step remains for a basic playt
 
 ## Next action and owner
 
-1. **Coordinator now:** checkpoint the intermediate T04 records, then follow [Baseline resume actions](BASELINE.md#resume-actions): diagnose the missing item sprite with paired T04.002 plans, finish T04.001 restricted-network checks. The resource sampler completed; see [measured results](RESOURCES.md), and do not restart it.
+1. **Coordinator now:** checkpoint the intermediate T04 records, then follow [Baseline resume actions](BASELINE.md#resume-actions): diagnose the missing item sprite with paired T04.002 plans, finish T04.001 restricted-network checks. Its signed-app sandbox attempt failed at initialization; restore the supported normal launch and retain the failed method as evidence. The resource sampler completed; see [measured results](RESOURCES.md), and do not restart it.
 2. **User:** the solo-gate decision remains open; it does not block source auditing, assets or baseline play. Gameplay evaluation follows coordinator verification.
 3. **Next checkpoint:** T04 baseline report and basic playtest. Native desktop-window usability remains an open observation; the documented browser entry point is verified. Mechanical task reviews can be grouped at the P1 phase gate.
 
