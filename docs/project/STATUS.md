@@ -155,3 +155,6 @@ Latest T06 raw-pilot lifecycle: Claude task_787ec15ce0b5/ctx_ee964d622267 and Gr
 
 
 Latest T05.008 resume point: both raw native read-only inspections/SRI controls pass and all owned files/tabs are cleaned; newest six saved tables/all three runtime manifests/21 protected files/three absences exact. [Root score/selection](reviews/2026-10-19-T05.008.md#raw-candidate-score-and-corrected-basis-selection): Claude15/20 versus Grok12/20; neither raw candidate may mutate live caches. Corrected Claude basis699078b is selected, with root66test/all10shared-control rework credited separately. Next source integration/reverification, latest-controller native check, then selected serial cache and true original/OFF→repaired/ON/save/cleanup. This supersedes prior no-selection/Grok-native-next wording; no task readiness or percentage change.
+
+
+Latest T05.008 source integration: selected unchanged Claude commit→3228016, root corrections→c1bd9ef/c401bb7, all five files exact699078b. Fresh integrated66tests/zero skips,11CLI/14entry VM/all10shared faults/2cancellation/digest-window controls pass. [Integration record](reviews/2026-10-19-T05.008.md#selected-corrected-source-integrated-and-reverified). Latest native-controller identity/read-only and selected serial live cache/OFF/ON/save/cleanup remain next. Raw comparison completed; no readiness or scope change.
