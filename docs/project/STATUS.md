@@ -45,7 +45,7 @@ T01–T03 are verified within their scopes: **one step remains for a basic playt
 
 ## Next action and owner
 
-1. **Coordinator now:** T04.003 supported overlay repair is verified and enabled; its [comparison/result](reviews/2026-10-18-T04.003.md) records both immutable candidate commits, root corrections, full Lua equality and actual gameplay/rollback. Continue parent T04 normal-monster EXP and host/browser offline proof. User explicitly requires internet to stay connected; use read-only traffic metrics/source auditing and keep full network-unavailable behavior unverified. T05 [paired read-only plans](reviews/2026-10-18-T05.md) run independently; root reviews both before executing the Chinese pilot. Resource observation is complete and must not be restarted. Current ordinary character is saved at Izlude **176,211**; user stats/items/quests are preserved. Fresh E is pre-overlay, F includes overlay; preserve all older archives.
+1. **Coordinator now:** T04.003 supported overlay repair is verified and enabled; its [comparison/result](reviews/2026-10-18-T04.003.md) records both immutable candidate commits, root corrections, full Lua equality and actual gameplay/rollback. Continue parent T04 normal-monster EXP and host/browser offline proof. User explicitly requires internet to stay connected; use read-only traffic metrics/source auditing and keep full network-unavailable behavior unverified. T05 [paired read-only plans](reviews/2026-10-18-T05.md) are reviewed (14/20 each); root corrected encoding/decoder/monster/resource claims, with actual Chinese pilot pending. T04.004 [paired network plans](reviews/2026-10-18-T04.004.md) are reviewed (Claude 14/20, Grok 15/20); calibrated connected-session metrics are next. Resource observation is complete and must not be restarted. Current ordinary character naturally reached **prt_fild08 367,212** through the Izlude west portal; ordinary-monster EXP remains pending. Field fog-on rendering is pale green; fixed-camera `/fog` off clears it and on reproduces it, a temporary workaround with root cause open. User stats/items/quests are preserved. Fresh E is pre-overlay, F includes overlay; preserve all older archives.
 2. **User:** the solo-gate decision remains open; it does not block source auditing, assets or baseline play. Gameplay evaluation follows coordinator verification.
 3. **Next checkpoint:** T04 baseline report and basic playtest. Native desktop-window usability remains an open observation; the documented browser entry point is verified. Mechanical task reviews can be grouped at the P1 phase gate.
 
@@ -75,6 +75,10 @@ Do not restart the older Character Lab roadmap. Do not assume a previous worker'
 
 | 2026-10-18 | Verified T04.003 supported item-table repair end to end | Both raw outputs preserve every item value; selected Claude 17/20 versus Grok 16/20, root-corrected 1.0.1 passes 13 tests/full Lua equality plus actual art/pickup/equipment/relaunch/off-on rollback; full offline/normal-monster EXP remain |
 | 2026-10-18 | Started paired T05 source-audit plans | Same frozen brief/pins, read-only candidate reports; no Chinese pilot or complete-story claim |
+
+| 2026-10-18 | Reviewed both T05 source plans and T04.004 observation plans | T05 14/20 each, neither unchanged; actual pinned Big5 quest decoder yields zero replacement strings. Network plans 14/20 and 15/20; runtime monitoring pending, internet stays connected |
+| 2026-10-18 | Reached prt_fild08 naturally and isolated fog contribution to green rendering | Supported `/fog` off clears it; on reproduces at fixed position/camera. Temporary workaround only; ordinary EXP and permanent diagnosis remain open |
+
 
 ## Historical project
 

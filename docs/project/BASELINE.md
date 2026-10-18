@@ -80,3 +80,9 @@ Normal logout at 05:14 UTC saved `izlude 188,211`, save point `izlude 128,142`, 
 Evidence remains ignored: `T04-observations.jsonl` and named screenshots, `T04-save-{A,B}.json`, `T04-relaunch-check.json`, `T04-after-restore-A.json`, `T04-after-restore-B.json`, backup metadata, raw logs and resource samples. The local test login is in a separate user-only ignored file; never publish it or the admin URL. See [paired review](reviews/2026-10-18-T04.md).
 
 Git revert restores these source/docs records only. Recover game state through the preserved, tested A archive or verified automatic B archive; machine asset paths and GRFs remain separate. No existing user's progress was overwritten.
+
+## Prontera field fog discriminator — partial T04 checkpoint
+
+2026-10-18. Root naturally walked the existing group-0 character through Izlude's west portal (`20,98`) to **prt_fild08 367,212**. This is an actual second ordinary-map transition, not a GM warp. Ordinary-monster EXP remains pending.
+
+The field rendered nearly solid pale green while minimap/UI and ~60 FPS remained normal. At fixed position/camera, ordinary local chat command `/fog` reported `fog off` and immediately revealed textured terrain, water, buildings and the character. A second `/fog` reported `fog on` and reproduced the green field. Private before/off/on screenshots are under `.tools/renewal/evidence/T04-field-*`. Root inspected pinned ProcessCommand.js178–185 and MapRenderer.js627–634: supported fog toggle and per-map parameters are real. The external fog table/parser needs diagnosis; no engine/asset root cause or permanent fix is claimed. Fog may be kept off as an explicit temporary playtest workaround; toggle again to restore. Do not qualify fog-on rendering or all-map compatibility from the workaround. Preserve progress and never restore older E/F just to undo natural walking.
