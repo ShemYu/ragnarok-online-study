@@ -2,6 +2,8 @@
 
 Worker candidate for the [frozen brief](../../docs/project/tasks/T05.006.md). It generates one fixed private folder package around the root-qualified loader, the unchanged NPC core and the pinned dictionary. **Generating a package does not complete T05.006.** The task completes only after root qualifies a package and runs the backed-up installed pilot below. Nothing in this file is root verification, native or live evidence, or user acceptance. Full Chinese UI and story, formatting, templates, names, real IME, and world, episode, solo and offline qualification remain open.
 
+Current coordinator result: the [installed pilot review](../../docs/project/reviews/2026-10-18-T05.006.md#remaining-known-navigation-error-gate-resolved-without-waiving-it) is ready_for_user after backed-up ordinary dialogue/save/relaunch/off-on qualification and the later scoped navigation/cache repair. This runbook describes source behavior and evaluation steps; user acceptance/full localization remain separate.
+
 | File | Role |
 | --- | --- |
 | `npc_plaintext_package.py` | Fixed generator (Python 3.9 standard library only) |

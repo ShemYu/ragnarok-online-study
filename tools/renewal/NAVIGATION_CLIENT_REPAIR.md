@@ -169,7 +169,7 @@ or game code is executed by these tests.
 The original candidate supplied a plan-only delivery proposal. Root has since
 qualified the working runtime, actual serving, Chinese searches and ordinary
 portal/save/re-entry; see the [current verification record](../../docs/project/reviews/2026-10-19-T05.007.md).
-Full app relaunch and off/on rollback remain open. The bundle and alias mod
+Full working-root app relaunch and actual browser off/on rollback now pass in [the root T05.008 record](../../docs/project/reviews/2026-10-19-T05.008.md#final-cleanup-and-ordinary-page-handoff-qualified). The default app runtime remains stock; it is a distinct launch path. The bundle and alias mod
 are separate deliveries: the mod cannot replace `Online.js`, and the bundle
 alone does not satisfy the six requests.
 
@@ -275,6 +275,6 @@ shortcuts; IME, audio, settings and network unchanged.
   come from root's earlier audit; this generator does not re-measure them.
 - A string consisting only of a UTF-8 BOM under a UTF-8 `userCharpage` would
   decode to nothing and be refused; Big5 is unaffected.
-- Root's bounded installed results and remaining relaunch/rollback/console
+- Root's bounded installed results and the later qualified relaunch/rollback/console
   checks are in the linked review. Complete world, episode, story,
   Traditional Chinese and solo/offline gates remain open.
