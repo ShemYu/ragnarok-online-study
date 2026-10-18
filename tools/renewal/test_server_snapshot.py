@@ -177,6 +177,41 @@ class OuterTest(unittest.TestCase):
             self.assertEqual(snap.read_outer(path, {"bytes": 15, "sha256": sha(b"not the archive")}),
                              b"not the archive")
 
+    def test_input_symlink_and_fifo_are_refused_without_output(self):
+        with tempfile.TemporaryDirectory() as tmp:
+            root = Path(tmp)
+            (root / "archive").write_bytes(b"data")
+            (root / "link").symlink_to(root / "archive")
+            os.mkfifo(root / "fifo")
+            for name in ("link", "fifo"):
+                with self.subTest(name), mock.patch("sys.stderr", io.StringIO()):
+                    self.assertEqual(snap.main([str(root / name), str(root / "out")]), 2)
+                self.assertFalse(os.path.lexists(root / "out"))
+            self.assertEqual((root / "archive").read_bytes(), b"data")
+
+    def test_rejects_duplicate_json_keys_at_any_depth(self):
+        for body in (b'{"Config":"first","Config":"second"}',
+                     b'{"rootfs":{"diff_ids":[],"diff_ids":["other"]}}'):
+            with self.subTest(body), self.assertRaisesRegex(snap.SnapshotError, "duplicate JSON"):
+                snap.load_json(body, "test metadata")
+
+    def test_rejects_falsey_nonobject_layer_sources(self):
+        original = image([BASE])
+        with tarfile.open(fileobj=io.BytesIO(original), mode="r:gz") as outer:
+            members = [(m.name, outer.extractfile(m).read()) for m in outer.getmembers()]
+        entry = json.loads(dict(members)["manifest.json"])[0]
+        digest = "sha256:" + entry["Layers"][0].rsplit("/", 1)[1]
+        for value in ([], "", 0, None):
+            for level in ("container", "entry"):
+                changed = dict(entry)
+                changed["LayerSources"] = value if level == "container" else {digest: value}
+                data = tar([(name, json.dumps([changed]).encode()
+                             if name == "manifest.json" else body)
+                            for name, body in members], gz=True)
+                with self.subTest(value=value, level=level):
+                    with self.assertRaisesRegex(snap.SnapshotError, "LayerSources"):
+                        self.build(data)
+
     def test_cli_refuses_unpinned_input_without_creating_output(self):
         with tempfile.TemporaryDirectory() as tmp:
             path = Path(tmp) / "images.tar.gz"
@@ -253,6 +288,36 @@ class LayerTest(unittest.TestCase):
         files = self.files(BASE, [("rathena/conf/.wh.a.conf", b""),
                                   ("rathena/conf/a.conf", b"recreated")])
         self.assertEqual(files["rathena/conf/a.conf"], b"recreated")
+
+    def test_malformed_whiteouts_reject_before_deleting_lower_data(self):
+        markers = ("rathena/db/.wh.re", "rathena/db/.wh..wh..opq",
+                   ".wh.rathena", ".wh..wh..opq")
+        for marker in markers:
+            for value in ("sym", "hard", "fifo", "dir", b"nonempty"):
+                with self.subTest(marker=marker, value=value):
+                    tree = layers_tree(BASE)
+                    before = {p: n["data"] for p, n in tree.selected_files().items()}
+                    bad = (marker, value, "never-followed") if value in ("sym", "hard") else (marker, value)
+                    upper = tar([("rathena/conf/.wh.a.conf", b""), bad])
+                    with self.assertRaisesRegex(snap.SnapshotError, "empty nonsparse regular"):
+                        tree.apply_layer(1, sha(upper), upper)
+                    self.assertEqual({p: n["data"] for p, n in tree.selected_files().items()}, before)
+
+    def test_opaque_child_of_lower_file_is_explicitly_unsupported(self):
+        with self.assertRaisesRegex(snap.SnapshotError, "non-directory"):
+            layers_tree([("rathena/conf/sub", b"keep")],
+                        [("rathena/conf/sub/.wh..wh..opq", b"")])
+
+    def test_malformed_marker_names_reject_before_any_deletion(self):
+        for marker in ("rathena/db/.wh.", "rathena/db/.wh..", ".wh..wh.plnk",
+                       "unselected/.wh..wh.plnk"):
+            with self.subTest(marker=marker):
+                tree = layers_tree(BASE)
+                before = {p: n["data"] for p, n in tree.selected_files().items()}
+                upper = tar([("rathena/conf/.wh.a.conf", b""), (marker, b"")])
+                with self.assertRaisesRegex(snap.SnapshotError, "unsupported whiteout"):
+                    tree.apply_layer(1, sha(upper), upper)
+                self.assertEqual({p: n["data"] for p, n in tree.selected_files().items()}, before)
 
     def test_rejects_selected_links_and_specials(self):
         cases = {
@@ -354,6 +419,35 @@ class OutputTest(unittest.TestCase):
             snap.build_snapshot(image([[("rathena/db/Mob.yml", b"a"),
                                         ("rathena/db/mob.yml", b"b")]]), TAG, None)
 
+    def test_rejects_aliased_directory_prefixes_and_file_directory_aliases(self):
+        pairs = (("A/one.txt", "a/two.txt"), ("é/one.txt", "e\u0301/two.txt"),
+                 ("A", "a/child.txt"), ("é", "e\u0301/child.txt"))
+        for first, second in pairs:
+            paths = {"rathena/conf/" + first: b"one", "rathena/conf/" + second: b"two"}
+            with self.subTest(first=first, second=second):
+                with self.assertRaisesRegex(snap.SnapshotError, "collide"):
+                    snap.build_snapshot(image([list(paths.items())]), TAG, None)
+                with self.assertRaisesRegex(snap.SnapshotError, "collide"):
+                    snap.write_output(self.root / "out", paths, self.manifest)
+                self.assertFalse(os.path.lexists(self.root / "out"))
+        paths = {"rathena/conf/A/one.txt": b"one", "rathena/conf/A/two.txt": b"two"}
+        snap.check_collisions(paths)  # Repeated identical directory prefixes are valid.
+
+    def test_direct_writer_refuses_unsafe_paths_before_staging(self):
+        for path in ("../escape", "rathena/conf/../../escape", "/absolute", "other/file"):
+            with self.subTest(path), self.assertRaises(snap.SnapshotError):
+                snap.write_output(self.root / "out", {path: b"bad"}, self.manifest)
+            self.assertEqual(list(self.root.iterdir()), [])
+
+    def test_failed_readback_leaves_no_completion_manifest(self):
+        target = self.root / "out"
+        with mock.patch.object(snap, "_read_back", return_value=b"corrupt"):
+            with self.assertRaisesRegex(snap.SnapshotError, "incomplete output"):
+                snap.write_output(target, self.files, self.manifest)
+        self.assertTrue(target.is_dir())
+        self.assertFalse((target / snap.MANIFEST_NAME).exists())
+        self.assertFalse(list(self.root.glob(".snapshot-staging-*")))
+
 
 @unittest.skipUnless(PINNED_INPUT.is_file(), f"pinned input absent: {PINNED_INPUT}")
 class PinnedInputTest(unittest.TestCase):
@@ -374,8 +468,9 @@ class PinnedInputTest(unittest.TestCase):
         self.assertEqual(self.manifest["unresolved_out_of_scope"], [])
 
     def test_every_file_matches_direct_layer_read(self):
-        """Independently re-read each file from its recorded layer member, and check no
-        later layer touches its path or an ancestor."""
+        """Re-read each file's recorded member and check no later exact-path entry.
+        This is a pinned-input byte check, not a general ancestor/whiteout oracle.
+        """
         outer = tarfile.open(fileobj=io.BytesIO(self.data), mode="r:gz")
         manifest = json.load(outer.extractfile("manifest.json"))
         entry = [e for e in manifest if snap.PINNED_TAG in e["RepoTags"]][0]

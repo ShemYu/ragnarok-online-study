@@ -42,13 +42,20 @@ output/
   layer's entries apply in tar order: a directory merges into a lower directory;
   any other entry replaces what was there, including a whole directory subtree;
   the last definition in a layer wins.
+- All whiteout markers must be empty, nonsparse regular files. Malformed
+  types, payloads and unsupported marker names reject before changing lower-layer state,
+  including out-of-scope markers. Duplicate JSON keys and
+  nonobject `LayerSources` metadata reject explicitly. Input symlinks and
+  nonregular files are refused without following them or blocking on a FIFO.
 - Links and special files are never followed or created. A final link,
   hardlink, device, FIFO or sparse entry at `rathena`, a scope directory or any
   selected path is an error, as is a selected entry below a non-directory. The
   same out of scope is counted, and entries beneath such a non-directory are
   listed under `unresolved_out_of_scope` rather than resolved through the link.
 - Paths that would collide on a case/normalization-insensitive filesystem are
-  refused. Files are written into a private staging directory with
+  refused, including aliased directory prefixes and file/directory aliases.
+  Both the resolver and publication preflight enforce this. Files are written
+  into a private staging directory with
   `O_EXCL|O_NOFOLLOW` through directory handles, the destination is reserved with
   an exclusive `mkdir`, the tree is moved in, every file is read back and
   compared, and the manifest is written last.

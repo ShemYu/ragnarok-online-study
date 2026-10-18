@@ -28,7 +28,7 @@ import tarfile
 import tempfile
 import unicodedata
 
-VERSION = "1.0.0"
+VERSION = "1.0.1"
 PINNED_OUTER = {"bytes": 95222524,
                 "sha256": "d2487c4047bca8451155939d3f9778777279d07e4bdf7faeeabf5f1ea91f7dd8"}
 PINNED_TAG = "ragnarokmac/rathena:20221005"
@@ -71,7 +71,8 @@ LIMITS = (
     "'..' components are refused anywhere in the outer archive or any applied layer.",
     "Tar data after a layer's end-of-archive marker is ignored, as tar readers do.",
     "Published paths that collide under case or Unicode normalization are refused, "
-    "because the default macOS filesystem would merge them.",
+    "including every directory prefix, because the default macOS filesystem would "
+    "merge them. Whiteout markers must be empty, nonsparse regular files.",
     "Publication reserves the destination with an exclusive mkdir, then moves the staged "
     "tree in and writes the manifest last. A concurrent writer running as the same user "
     "could interfere between those steps; without the manifest the output is incomplete.",
@@ -139,7 +140,11 @@ def read_regular(tf, info, where, limit):
 
 def read_outer(path, pin=PINNED_OUTER):
     """Read the outer archive once and return its bytes after the size/hash pin."""
-    with open(path, "rb") as handle:
+    try:
+        fd = os.open(path, os.O_RDONLY | os.O_NOFOLLOW | os.O_NONBLOCK)
+    except OSError as exc:
+        raise SnapshotError(f"cannot open input without following symlinks: {exc}") from None
+    with os.fdopen(fd, "rb") as handle:
         info = os.fstat(handle.fileno())
         if not stat.S_ISREG(info.st_mode):
             raise SnapshotError(f"input is not a regular file: {path}")
@@ -185,8 +190,18 @@ class OuterArchive:
 
 
 def load_json(data, what):
+    def unique_pairs(pairs):
+        result = {}
+        for key, value in pairs:
+            if key in result:
+                raise SnapshotError(f"{what}: duplicate JSON key {key!r}")
+            result[key] = value
+        return result
+
     try:
-        return json.loads(data.decode("utf-8"))
+        return json.loads(data.decode("utf-8"), object_pairs_hook=unique_pairs)
+    except SnapshotError:
+        raise
     except (UnicodeDecodeError, ValueError) as exc:
         raise SnapshotError(f"{what}: invalid JSON: {exc}") from None
 
@@ -283,6 +298,14 @@ class Tree:
                  "opaque": 0, "removed_by_whiteout": 0, "selected_files": 0}
         for ordinal, info in enumerate(tar_members(tf, where)):
             path = normalize_member(info.name, where)
+            base = path.rpartition("/")[2]
+            if base.startswith(WHITEOUT):
+                if entry_kind(info) != "file" or info.size != 0:
+                    raise SnapshotError(f"{where}: whiteout marker {path!r} must be an "
+                                        "empty nonsparse regular file")
+                if base != OPAQUE and (base.startswith(WHITEOUT + WHITEOUT)
+                                       or base[len(WHITEOUT):] in ("", ".", "..")):
+                    raise SnapshotError(f"{where}: unsupported whiteout marker {path!r}")
             seen[path] = seen.get(path, 0) + 1
             entries.append((ordinal, seen[path], path, info))
         stats["members"] = len(entries)
@@ -296,10 +319,6 @@ class Tree:
             if base == OPAQUE:
                 stats["opaque"] += 1
                 stats["removed_by_whiteout"] += self._remove(parent, with_self=False)
-            elif base.startswith(WHITEOUT + WHITEOUT) or base[len(WHITEOUT):] in ("", ".", ".."):
-                if affects_selection(parent):
-                    raise SnapshotError(f"{where}: unsupported whiteout marker {path!r}")
-                self.unresolved.append(path)
             else:
                 target = (parent + "/" if parent else "") + base[len(WHITEOUT):]
                 stats["removed_by_whiteout"] += self._remove(target)
@@ -372,11 +391,14 @@ def resolve_layers(layers):
 def check_collisions(paths):
     seen = {}
     for path in paths:
-        key = unicodedata.normalize("NFC", path).casefold()
-        if key in seen:
-            raise SnapshotError(f"paths {seen[key]!r} and {path!r} collide on a "
-                                "case/normalization-insensitive filesystem")
-        seen[key] = path
+        parts = path.split("/")
+        for depth in range(1, len(parts) + 1):
+            prefix = "/".join(parts[:depth])
+            key = unicodedata.normalize("NFC", prefix).casefold()
+            if key in seen and seen[key] != prefix:
+                raise SnapshotError(f"paths {seen[key]!r} and {prefix!r} collide on a "
+                                    "case/normalization-insensitive filesystem")
+            seen[key] = prefix
 
 
 # --- Snapshot build ---------------------------------------------------------------
@@ -402,7 +424,7 @@ def build_snapshot(data, tag=PINNED_TAG, expect=PINNED_IMAGE, generator_sha256=N
     diff_ids = rootfs.get("diff_ids") if isinstance(rootfs, dict) else None
     if diff_ids != ["sha256:" + d for d in digests]:
         raise SnapshotError("config rootfs.diff_ids do not equal the uncompressed layer digests")
-    sources = entry.get("LayerSources") or {}
+    sources = entry.get("LayerSources", {})
     if not isinstance(sources, dict):
         raise SnapshotError("LayerSources is not an object")
 
@@ -410,8 +432,9 @@ def build_snapshot(data, tag=PINNED_TAG, expect=PINNED_IMAGE, generator_sha256=N
     for index, ref in enumerate(refs):
         digest, layer = outer.blob(ref, f"layer {index}")
         source = sources.get("sha256:" + digest, {})
-        if source and (not isinstance(source, dict)
-                       or source.get("digest") != "sha256:" + digest
+        if not isinstance(source, dict):
+            raise SnapshotError(f"layer {index}: LayerSources entry is not an object")
+        if source and (source.get("digest") != "sha256:" + digest
                        or source.get("size") != len(layer)):
             raise SnapshotError(f"layer {index}: LayerSources entry disagrees with the blob")
         tree.apply_layer(index, digest, layer)
@@ -531,6 +554,11 @@ def trusted_parent(out_dir):
 
 def write_output(out_dir, files, manifest_bytes):
     """Publish files and manifest into a new directory; never replace anything."""
+    for path in files:
+        if (not isinstance(path, str) or normalize_member(path, "output") != path
+                or not selected(path)):
+            raise SnapshotError(f"unsafe or out-of-scope output path {path!r}")
+    check_collisions(files)
     target = trusted_parent(out_dir)
     if os.path.lexists(target):
         raise SnapshotError(f"output already exists, refusing to overwrite: {target}")
