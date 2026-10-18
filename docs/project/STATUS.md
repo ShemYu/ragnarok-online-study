@@ -22,7 +22,7 @@ The first playtest is an intermediate checkpoint within the full milestone. T01�
 | 4 | T04 | Coordinator verifies walking, combat, loot, map travel, save/reload, offline operation and recovery; basic playtest can be offered |
 | 5 | T05 | Coordinator verifies Chinese UI/input and a server story-dialogue sample; Chinese playtest can be offered |
 
-T01–T03 are verified within their scopes: **one step remains for a basic playtest, two for a Chinese playtest**. Current task status is in the opening section and [task board](TASKS.md). The planning budget remains 2–4 engineering hours for a basic feasibility trial **after compatible assets are available**, assuming no substantial runtime or encoding fix. Taiwan login/character-screen loading passed; map/gameplay and comprehensive text loading are pending. This is not a delivery promise. Complete maps/monsters/story/Chinese coverage still needs T06–T13 and a gap-based estimate; a task row may expand into many implementation children.
+T01–T03 are verified within their scopes: **one step remains for a basic playtest, two for a Chinese playtest**. Current task status is in the opening section and [task board](TASKS.md). The planning budget remains 2–4 engineering hours for a basic feasibility trial **after compatible assets are available**, assuming no substantial runtime or encoding fix. Taiwan login, maps, tutorial combat and recovery passed within T04 scope. An item-table compatibility fix and full offline verification remain; comprehensive Chinese/content loading is pending. This is not a delivery promise. Complete maps/monsters/story/Chinese coverage still needs T06–T13 and a gap-based estimate; a task row may expand into many implementation children.
 
 ## Confirmed versus pending
 
@@ -36,7 +36,7 @@ T01–T03 are verified within their scopes: **one step remains for a basic playt
 | Candidate release, published requirements and Taiwan download page | Source-checked | [Versioned sources and limits](GOAL.md#evidence-sources) |
 | Tagged app/dependency pins and official Taiwan installer URL | Coordinator source checks completed and paired T01 review integrated | [Foundation trial manifest](FOUNDATION.md), [T01 review](reviews/2026-10-18-T01.md); no binary/gameplay result |
 | Installed app and local server/browser startup | Verified within T03 scope | [Installation](INSTALLATION.md): signed/notarized exact ZIP, generated settings, loopback listeners, character slots and graceful shutdown; native UI, gameplay and restore still open |
-| Ordinary trial play/save/recovery | Partial coordinator verification; T04 open | [Baseline](BASELINE.md): group 0, natural map travel, quest, equipment, full relaunch and A database restore; reverse restore/pickup/offline/full resources pending |
+| Ordinary trial play/save/recovery | Partial coordinator verification; T04 open | [Baseline](BASELINE.md): group 0, natural map travel, quest, equipment, full relaunch and A/B recovery; resource observation complete; pickup and full offline checks pending |
 | Exact Renewal episode / all-content contract | Unresolved | T06 inventory → T07 contract; no inferred cutoff |
 | Taiwan/Big5 text compatibility and complete zh-TW story | Unverified | T02/T05 pilot, then inventory; client translation does not translate server scripts |
 | Local GRF availability | Taiwan assets acquired, hashed and used for initial browser loading | [Asset manifest](ASSETS.md), [installation](INSTALLATION.md): mixed GRF families source-supported; explicit event → data0 → data order; native Taiwan precedence/exhaustive retrieval still unverified |
@@ -45,7 +45,7 @@ T01–T03 are verified within their scopes: **one step remains for a basic playt
 
 ## Next action and owner
 
-1. **Coordinator now:** commit the T04.002 diagnosis and guest-trial results, then freeze T04.003's implementation brief and launch real Claude/Grok candidates in separate Orca branches/worktrees. Root verifies both locally before serial runtime integration. Continue independent T04.001 host/browser offline checks without changing the user's general networking. The resource sampler is complete and must not be restarted. Current ordinary character is in Izlude 183,211; state C remains the pre-trial backup at 188,211.
+1. **Coordinator now:** use the frozen [T04.003 implementation brief](tasks/T04.003.md) to launch real Claude/Grok candidates in separate Orca branches/worktrees. Root verifies both locally before serial runtime integration. Continue independent T04.001 host/browser offline checks without changing the user's general networking. The resource sampler is complete and must not be restarted. Current ordinary character is in Izlude 183,211; state C remains the pre-trial backup at 188,211.
 2. **User:** the solo-gate decision remains open; it does not block source auditing, assets or baseline play. Gameplay evaluation follows coordinator verification.
 3. **Next checkpoint:** T04 baseline report and basic playtest. Native desktop-window usability remains an open observation; the documented browser entry point is verified. Mechanical task reviews can be grouped at the P1 phase gate.
 
