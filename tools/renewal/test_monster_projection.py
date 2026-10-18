@@ -14,6 +14,7 @@ bypassed.
 """
 
 import hashlib
+import errno
 import json
 import os
 from pathlib import Path
@@ -448,6 +449,67 @@ class BranchTests(Base):
 class ProvenanceTests(Base):
     """Identity bridge: MOB-only global order, repeated visits, Clear epochs, unchanged rows."""
 
+    def test_repeated_visit_occurrences_reserve_each_emission(self):
+        files = files_of(extra={"db/import/mob_db.yml": MH + rows("  - Id: 1001\n" + BASE)})
+        files["rathena/db/mob_db.yml"] = (MH +
+            "Footer:\n  Imports:\n    - Path: db/import/mob_db.yml\n"
+            "    - Path: db/import/mob_db.yml\n").encode("utf-8")
+        fx = Fixture(self.tmp, files)
+        target, manifest, _h = fx.project(caps=dict(mp.CAPS, max_target_occurrences=5))
+        self.assertEqual(manifest["status"], "unsupported")
+        self.assertEqual(manifest["stop"]["detail"], "max_target_occurrences")
+        self.assertEqual(len(records(target)), 1)
+        self.assertEqual(manifest["work_usage"]["target_occurrences"], 3)
+        self.assertEqual(len(manifest["parser_attempts"]), 2)  # root + once-parsed repeated leaf
+        self.assertEqual(manifest["unresolved"][0]["rows"], 1)
+        self.assertFalse((target / mp.OUTPUT_COMPLETE).exists())
+        exact, boundary, _h = fx.project("exact-cap", caps=dict(mp.CAPS, max_target_occurrences=6))
+        self.assertEqual(boundary["status"], "complete")
+        self.assertEqual(boundary["work_usage"]["target_occurrences"], 6)
+        self.assertEqual(len(records(exact)), 2)
+
+    def test_last_visit_keeps_its_unfinished_current_suffix(self):
+        fx = Fixture(self.tmp, files_of(rows("  - Id: 1001\n" + BASE,
+                                           "  - Id: 1002\n" + BASE)))
+        target, manifest, _h = fx.project(caps=dict(mp.CAPS, max_declarations=1))
+        self.assertEqual(manifest["status"], "unsupported")
+        self.assertEqual(len(records(target)), 1)
+        self.assertEqual(manifest["unresolved"], [{
+            "kind": "visit_suffix_not_projected", "visit": 1, "path": "db/mob_db.yml",
+            "first_local_ordinal": 1, "first_global_ordinal": 2, "rows": 1}])
+        self.assertFalse((target / mp.OUTPUT_COMPLETE).exists())
+
+    def test_raw_numeric_metadata_refuses_boolean_aliases(self):
+        for key, replacement in (("epoch", False), ("local_ordinal", False),
+                                 ("database_ordinal", False), ("root_order", True),
+                                 ("global_ordinal", True)):
+            with self.subTest(key=key):
+                fx = Fixture(self.tmp, files_of(rows("  - Id: 1001\n" + BASE)), name="cat-" + key)
+                lines = fx.lines()
+                row = json.loads(lines[-1])
+                self.assertEqual(row[key], int(replacement))  # demonstrates Python equality trap
+                row[key] = replacement
+                lines[-1] = mp.render_row(row)
+                fx.rewrite(lines)  # coherent fixture pins/marker do not rescue a wrong JSON type
+                with self.assertRaises(mp.InputError):
+                    fx.project("out-" + key)
+                self.assertFalse((self.tmp / ("out-" + key)).exists())
+
+    def test_nested_raw_boolean_is_not_reconstructed_integer(self):
+        fx = Fixture(self.tmp, files_of(rows("  - Id: 1001\n" + BASE)))
+        lines = fx.lines()
+        row = json.loads(lines[-1])
+        self.assertEqual(row["raw_ids"][0]["field_ordinal"], 0)
+        row["raw_ids"][0]["field_ordinal"] = False
+        lines[-1] = mp.render_row(row)
+        fx.rewrite(lines)
+        target, manifest, _h = fx.project()
+        self.assertEqual(manifest["status"], "unsupported")
+        self.assertEqual(manifest["stop"]["kind"], "provenance_mismatch")
+        self.assertEqual(records(target), [])
+        self.assertEqual(manifest["unresolved"][0]["rows"], 1)
+        self.assertFalse((target / mp.OUTPUT_COMPLETE).exists())
+
     def repeated(self):
         root = MH + rows("  - Id: 1001\n" + BASE + "    Level: 1\n") + \
             "Footer:\n  Imports:\n    - Path: db/import/mob_db.yml\n" \
@@ -638,6 +700,9 @@ class ParserAndLimitTests(Base):
                          manifest["parser_attempts"][0]["parser_attempt"]["stdout_observed_bytes"],
                          9)
         self.assertEqual(len(calls), 2)  # no retry after unknown work
+        self.assertEqual(manifest["unresolved"][0]["visit"], 2)
+        self.assertEqual(manifest["unresolved"][0]["first_local_ordinal"], 0)
+        self.assertEqual(manifest["unresolved"][0]["rows"], 1)
         self.assertFalse((target / mp.OUTPUT_COMPLETE).exists())
 
     def test_node_budget_and_projection_caps(self):
@@ -695,6 +760,163 @@ class ParserAndLimitTests(Base):
 class PublicationTests(Base):
     def fixture(self):
         return Fixture(self.tmp, files_of(rows("  - Id: 1001\n" + BASE)))
+
+    def assert_fd_closed(self, fd):
+        with self.assertRaises(OSError) as caught:
+            os.fstat(fd)
+        self.assertEqual(caught.exception.errno, errno.EBADF)
+
+    @staticmethod
+    def close_held_test_fd(fd, expected, close):
+        """Test-owned fallback only; a reused unrelated descriptor is preserved."""
+        if fd is not None:
+            try:
+                info = os.fstat(fd)
+            except OSError as exc:
+                if exc.errno != errno.EBADF:
+                    raise
+            else:
+                if (info.st_dev, info.st_ino) == expected:
+                    close(fd)
+
+    def fdopen_refusal(self, wanted, output):
+        fx = self.fixture()
+        target = self.tmp / output
+        state = {"directory": None, "fd": None, "identity": None, "guard": None, "hits": 0}
+        real_open, real_fdopen, real_close = os.open, os.fdopen, os.close
+        held = []
+
+        def tracking_open(path, flags, *a, **k):
+            fd = real_open(path, flags, *a, **k)
+            if flags == mp.DIR_FLAGS and Path(path) == target:
+                state["directory"] = fd
+            elif path == wanted and k.get("dir_fd") == state["directory"] and \
+                    flags & os.O_CREAT and flags & os.O_EXCL:
+                info = os.fstat(fd)
+                state.update(fd=fd, identity=(info.st_dev, info.st_ino), guard=os.dup(fd))
+            return fd
+
+        def failing_fdopen(fd, *a, **k):
+            if fd == state["fd"] and not state["hits"]:
+                state["hits"] += 1
+                raise OSError(errno.EIO, "controlled fdopen failure")
+            return real_fdopen(fd, *a, **k)
+        try:
+            with mock.patch.object(mp.os, "open", tracking_open), \
+                    mock.patch.object(mp.os, "fdopen", failing_fdopen):
+                try:
+                    fx.project(output)
+                except mp.OutputError as exc:
+                    held.append(exc)  # retain the actual exception until checks/cleanup finish
+            self.assertEqual(state["hits"], 1)
+            self.assertEqual(len(held), 1)
+            self.assertIn("controlled fdopen failure", str(held[0]))
+            self.assert_fd_closed(state["fd"])
+            self.assert_fd_closed(state["directory"])
+            self.assertFalse((target / mp.OUTPUT_COMPLETE).exists())
+        finally:
+            self.close_held_test_fd(state["fd"], state["identity"], real_close)
+            if state["guard"] is not None:
+                real_close(state["guard"])
+
+    def test_record_fdopen_setup_failure_closes_raw_descriptor(self):
+        self.fdopen_refusal(mp.OUTPUT_DECLARATIONS, "record-setup")
+
+    def test_write_new_fdopen_setup_failure_closes_raw_descriptor(self):
+        for wanted in (mp.OUTPUT_MANIFEST, mp.OUTPUT_COMPLETE):
+            with self.subTest(file=wanted):
+                # Each helper builds a fresh raw catalog under this private parent.
+                with tempfile.TemporaryDirectory(dir=self.tmp) as child:
+                    original = self.tmp
+                    self.tmp = Path(child)
+                    try:
+                        self.fdopen_refusal(wanted, "new-setup")
+                    finally:
+                        self.tmp = original
+
+    def test_final_directory_close_before_release_is_retried_and_closed(self):
+        fx = self.fixture()
+        target = self.tmp / "before-close"
+        state = {"fd": None, "identity": None, "guard": None, "hits": 0}
+        real_open, real_close = os.open, os.close
+        held = []
+
+        def tracking_open(path, flags, *a, **k):
+            fd = real_open(path, flags, *a, **k)
+            if flags == mp.DIR_FLAGS and Path(path) == target and state["fd"] is None:
+                info = os.fstat(fd)
+                state.update(fd=fd, identity=(info.st_dev, info.st_ino), guard=os.dup(fd))
+            return fd
+
+        def failing_close(fd):
+            if fd == state["fd"] and not state["hits"] and (target / mp.OUTPUT_COMPLETE).exists():
+                state["hits"] += 1
+                raise OSError(errno.EIO, "controlled before-close failure")
+            return real_close(fd)
+        try:
+            with mock.patch.object(mp.os, "open", tracking_open), \
+                    mock.patch.object(mp.os, "close", failing_close):
+                try:
+                    fx.project("before-close")
+                except mp.OutputError as exc:
+                    held.append(exc)
+            self.assertEqual((state["hits"], len(held)), (1, 1))
+            self.assert_fd_closed(state["fd"])
+            self.assertFalse((target / mp.OUTPUT_COMPLETE).exists())
+        finally:
+            self.close_held_test_fd(state["fd"], state["identity"], real_close)
+            if state["guard"] is not None:
+                real_close(state["guard"])
+
+    def test_after_close_reused_foreign_descriptor_is_preserved(self):
+        fx = self.fixture()
+        target, foreign = self.tmp / "reused-close", self.tmp / "foreign.bin"
+        foreign.write_bytes(b"foreign resource")
+        pin = os.stat(foreign)
+        foreign_identity = (pin.st_dev, pin.st_ino)
+        state = {"fd": None, "identity": None, "guard": None, "foreign_fd": None, "hits": 0}
+        real_open, real_close = os.open, os.close
+        held = []
+
+        def tracking_open(path, flags, *a, **k):
+            fd = real_open(path, flags, *a, **k)
+            if flags == mp.DIR_FLAGS and Path(path) == target and state["fd"] is None:
+                info = os.fstat(fd)
+                state.update(fd=fd, identity=(info.st_dev, info.st_ino), guard=os.dup(fd))
+            return fd
+
+        def failing_close(fd):
+            if fd == state["fd"] and not state["hits"] and (target / mp.OUTPUT_COMPLETE).exists():
+                state["hits"] += 1
+                real_close(fd)
+                self.assert_fd_closed(fd)
+                replacement = real_open(foreign, os.O_RDONLY | os.O_NOFOLLOW)
+                state["foreign_fd"] = replacement
+                if replacement != fd:
+                    self.assert_fd_closed(fd)
+                    os.dup2(replacement, fd, inheritable=False)
+                    real_close(replacement)
+                    state["foreign_fd"] = fd
+                raise OSError(errno.EIO, "controlled after-close failure with foreign reuse")
+            return real_close(fd)
+        try:
+            with mock.patch.object(mp.os, "open", tracking_open), \
+                    mock.patch.object(mp.os, "close", failing_close):
+                try:
+                    fx.project("reused-close")
+                except mp.OutputError as exc:
+                    held.append(exc)
+            self.assertEqual((state["hits"], len(held)), (1, 1))
+            info = os.fstat(state["foreign_fd"])
+            self.assertEqual((info.st_dev, info.st_ino), foreign_identity)
+            self.assertEqual(os.pread(state["foreign_fd"], 64, 0), b"foreign resource")
+            self.assertEqual(foreign.read_bytes(), b"foreign resource")
+            self.assertFalse((target / mp.OUTPUT_COMPLETE).exists())
+        finally:
+            self.close_held_test_fd(state["foreign_fd"], foreign_identity, real_close)
+            self.close_held_test_fd(state["fd"], state["identity"], real_close)
+            if state["guard"] is not None:
+                real_close(state["guard"])
 
     def test_private_complete_and_deterministic_records(self):
         fx = self.fixture()

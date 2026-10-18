@@ -1,6 +1,6 @@
 # Declared monster fields and conditional prefix operations (T06.002.003.002)
 
-Version `1.0.0`, an independent Claude implementation of the frozen brief
+Version `1.0.1`, root-corrected from Claude4f9c777 after the independent paired review of the frozen brief
 [T06.002.003.002](../../docs/project/tasks/T06.002.003.002.md). It bridges the selected
 raw YAML catalog ([T06.002.003.001](YAML_GRAPH_INVENTORY.md), 1.0.1) to later
 monster, spawn, client and text inventories. It is **not** an accepted or
@@ -84,7 +84,9 @@ bounded profile; membership and later parsing stay unresolved by design.
    exact row key set, `global_ordinal` equal to its line number, a visit whose
    Body range contains it, and matching database, root order, file, file hash,
    epoch, local and per-database ordinals. Per-visit and per-database row counts
-   must equal the manifest. Only `database == "MOB_DB"` rows are kept, in global
+   must equal the manifest. JSON booleans are distinct from numeric ordinals and
+   epochs; nested reconstructed values also retain exact JSON value types.
+   Only `database == "MOB_DB"` rows are kept, in global
    order (no glob, sort or dedupe).
 6. **Derived MOB selection.** Visits, row count, first/last global ordinals,
    epochs, Clear events and distinct files are derived from the bound manifest and
@@ -100,6 +102,8 @@ bounded profile; membership and later parsing stay unresolved by design.
    the prerequisite row exactly. Repeated visits of a file reuse its immutable
    parsed rows but attach their own visit/epoch/ordinals. A mismatch, parser
    refusal or limit is a qualified `unsupported` stop, never a projection.
+   `unresolved` includes the unfinished current visit (its first unprojected
+   local/global ordinal and remaining rows), followed by later unvisited visits.
 
 Import selection is not rerun or extended; the prerequisite's conditional
 callback-return assumption is inherited. Raw catalog completeness does not attest
@@ -224,7 +228,9 @@ failed attempts keep exact observed work and null unknown totals, and there is n
 retry. Projection caps: 100,000 declarations, 1,000,000 target occurrences,
 256 MiB declarations, 64 MiB history, 16 MiB manifest, 10,000 diagnostics, 16 MiB
 raw line. Writers reserve bytes before each write; counts, diagnostics and history
-advance only after a record is written. Caps are refusal policy, not native
+advance only after a record is written. Target occurrences are reserved per
+emitted declaration, including each repeated visit of cached parsed rows.
+Caps are refusal policy, not native
 behaviour. **There is no hard memory bound**: Psych builds its AST before
 node/scalar checks, and the snapshot reader keeps all verified bytes.
 
@@ -239,6 +245,12 @@ removed; a replaced marker or directory is preserved and reported, and a cleanup
 failure is reported. Partial records/manifest may remain without the marker:
 inspect and delete them before retrying. A same-user concurrent writer could
 still race between steps.
+
+Writer setup keeps raw-descriptor cleanup guarded until fdopen transfers
+ownership. If final directory close reports a failure, cleanup retains the
+original descriptor only while it still identifies the owned directory. An
+already closed or reused foreign descriptor is not closed again; the owned
+completion marker is checked through the existing cleanup path.
 
 Rollback: revert the source commit. Deleting a verified owned output directory is
 a separate step. No installed state, save or database is touched.
@@ -277,15 +289,23 @@ a replaced foreign marker while the old inode is kept open, owned-marker removal
 cleanup failure and unexpected errors. The CLI test checks there is no pin,
 profile, parser or source option.
 
+Private supplemental correction regressions cover repeated-visit occurrence
+charging at/over the cap, a stopped last visit's current suffix, coherently
+repinned boolean metadata and nested provenance, fdopen setup failures in both
+writers, final close before release, and after-close reuse of the integer FD by
+a foreign file. These are authored fixtures, not full actual-data verification.
+
 The actual-input test runs a fresh CLI and re-derives every declaration from the
 actual inputs: every raw row equals the catalog's MOB rows, every key and value
 span hashes to the snapshot bytes, occurrence counts match the raw field list,
 every name hex is recomputed, every supported number equals its text, no EXP
 stored value exists, and the history and manifest/marker hashes match.
 
-## Actual result
+## Raw worker actual result (historical)
 
-Recorded in the [attempt report](#attempt-report) at the end of this file.
+Recorded in the [attempt report](#attempt-report) at the end of this file. Those
+hashes and39-test observations describe the original raw Claude submission,
+not the root-corrected1.0.1 implementation. See the [root review](../../docs/project/reviews/2026-10-18-T06.002.003.002.md) for attribution, integrated verification and remaining scope.
 
 ## What this is not
 

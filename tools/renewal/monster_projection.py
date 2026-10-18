@@ -39,7 +39,7 @@ import sys
 import time
 import types
 
-VERSION = "1.0.0"
+VERSION = "1.0.1"
 TOOL = "tools/renewal/monster_projection.py"
 OUTPUT_DECLARATIONS = "monster-declarations.jsonl"
 OUTPUT_HISTORY = "monster-id-history.jsonl"
@@ -259,6 +259,18 @@ def render_row(row):
     return (canonical_json(row) + "\n").encode("ascii")
 
 
+def same_json(left, right):
+    """Exact JSON value equality, including bool/int/float distinctions."""
+    if type(left) is not type(right):
+        return False
+    if isinstance(left, dict):
+        return left.keys() == right.keys() and all(same_json(value, right[key])
+                                                   for key, value in left.items())
+    if isinstance(left, list):
+        return len(left) == len(right) and all(same_json(a, b) for a, b in zip(left, right))
+    return left == right
+
+
 def strict_json(data, what):
     """Strict JSON: UTF-8, duplicate keys and NaN/Infinity refused."""
     def pairs(items):
@@ -469,7 +481,7 @@ class RecordScan:
             raise InputError(f"raw record {index} does not have the selected row keys")
         if render_row(row) != data:
             raise InputError(f"raw record {index} is not the selected canonical encoding")
-        if row["global_ordinal"] != index:
+        if not same_json(row["global_ordinal"], index):
             raise InputError(f"raw record {index} has global_ordinal {row['global_ordinal']}")
         number = row["visit"]
         if not _int(number) or number >= len(self.visits):
@@ -485,7 +497,7 @@ class RecordScan:
                 "epoch": body.get("epoch"), "local_ordinal": index - first,
                 "database_ordinal": self.per_db.get(database, 0)}
         for key, value in want.items():
-            if row[key] != value:
+            if not same_json(row[key], value):
                 raise InputError(f"raw record {index} {key} is {row[key]!r}, expected {value!r}")
         self.per_db[database] = self.per_db.get(database, 0) + 1
         self.per_visit[number] = self.per_visit.get(number, 0) + 1
@@ -924,7 +936,6 @@ class Projection:
         self.diagnostics = []
         self.history = {}
         self.ordinal = 0
-        self.occurrences = 0
         self.usage = {"parser_attempts": 0, "input_bytes_parsed": 0, "nodes": 0,
                       "exact_ast_nodes": 0, "unknown_node_count_attempts": 0,
                       "adapter_stdout_bytes": 0, "adapter_stderr_bytes": 0,
@@ -935,10 +946,19 @@ class Projection:
     def run(self):
         visits = self.prereq.mob_visits
         for position, visit in enumerate(visits):
+            first_ordinal = self.ordinal
             try:
                 self.visit(visit)
             except Halt as halt:
                 self.stop = dict(halt.record, visit=visit["visit"])
+                emitted = self.ordinal - first_ordinal
+                first = visit["body"].get("first_global_ordinal")
+                self.unresolved.append({
+                    "kind": "visit_suffix_not_projected" if emitted else "visit_not_projected",
+                    "visit": visit["visit"], "path": visit["path"],
+                    "first_local_ordinal": emitted,
+                    "first_global_ordinal": None if first is None else first + emitted,
+                    "rows": visit["body"]["rows"] - emitted})
                 for later in visits[position + 1:]:
                     self.unresolved.append({"kind": "visit_not_projected",
                                             "visit": later["visit"], "path": later["path"],
@@ -994,11 +1014,6 @@ class Projection:
                         raise Halt("provenance_mismatch", f"reparsed Body row {local} is not "
                                    "a mapping")
                     fields = observe(row, lines, yg)
-                    used = sum(f["occurrence_count"] for f in fields)
-                    if self.occurrences + used > self.caps["max_target_occurrences"]:
-                        raise Halt("work_limit", "max_target_occurrences",
-                                   limit=self.caps["max_target_occurrences"])
-                    self.occurrences += used
                     rows.append((yg.row_record(row, lines), fields))
             shape["body_present"] = body is not None
         except yg.Stop as stop:
@@ -1045,7 +1060,7 @@ class Projection:
                 "database_ordinal": None if expected is None else expected["database_ordinal"],
                 "global_ordinal": index, **record,
             }
-            if expected is None or declaration != expected:
+            if expected is None or not same_json(declaration, expected):
                 raise Halt("provenance_mismatch", "reconstructed raw row differs from the "
                            "prerequisite row", global_ordinal=index)
             self.declare(expected, fields)
@@ -1053,6 +1068,10 @@ class Projection:
     def declare(self, raw, fields):
         if self.ordinal >= self.caps["max_declarations"]:
             raise Halt("work_limit", "max_declarations", limit=self.caps["max_declarations"])
+        used = sum(f["occurrence_count"] for f in fields)
+        if self.usage["target_occurrences"] + used > self.caps["max_target_occurrences"]:
+            raise Halt("work_limit", "max_target_occurrences",
+                       limit=self.caps["max_target_occurrences"])
         stage, branches, gaps, by_design = project(fields)
         record = {"projection_ordinal": self.ordinal, "raw_declaration": raw,
                   "fields": fields, "id_stage": stage, "branches": branches,
@@ -1073,7 +1092,7 @@ class Projection:
         self.diagnostics.extend(diags)
         self.counts.add(record)
         self.usage["declarations"] += 1
-        self.usage["target_occurrences"] += sum(f["occurrence_count"] for f in fields)
+        self.usage["target_occurrences"] += used
         if stage.get("id") is not None:
             entry = self.history.setdefault(stage["id"], {
                 "id": stage["id"], "id_decimal": str(stage["id"]),
@@ -1194,11 +1213,11 @@ class RecordFile:
             info = os.fstat(fd)
             created[name] = (info.st_dev, info.st_ino)
             os.fchmod(fd, 0o600)
+            self.handle = os.fdopen(fd, "wb")
         except BaseException:
             os.close(fd)
             raise
         self.name, self.limit, self.cap_name = name, limit, cap_name
-        self.handle = os.fdopen(fd, "wb")
         self.digest = hashlib.sha256()
         self.bytes = self.lines = 0
 
@@ -1234,10 +1253,15 @@ def write_new(dir_fd, name, data, created):
     fd = os.open(name, os.O_WRONLY | os.O_CREAT | os.O_EXCL | os.O_NOFOLLOW, 0o600,
                  dir_fd=dir_fd)
     created[name] = None  # never unlink an unverified identity during cleanup
-    with os.fdopen(fd, "wb") as handle:
-        info = os.fstat(handle.fileno())
+    try:
+        info = os.fstat(fd)
         created[name] = (info.st_dev, info.st_ino)
-        os.fchmod(handle.fileno(), 0o600)
+        os.fchmod(fd, 0o600)
+        handle = os.fdopen(fd, "wb")
+    except BaseException:
+        os.close(fd)
+        raise
+    with handle:
         handle.write(data)
         handle.flush()
         os.fsync(handle.fileno())
@@ -1386,8 +1410,22 @@ def publish(target, files, prereq, provenance, yg, limits, caps=CAPS, ruby=None,
                              created[OUTPUT_COMPLETE])
         if sorted(os.listdir(out_fd)) != sorted(created):
             raise OutputError("output directory holds files this run did not write")
-        closing_fd, out_fd = out_fd, None
-        os.close(closing_fd)  # part of publication: a close error must fail before success
+        try:
+            os.close(out_fd)  # part of publication: a close error must fail before success
+        except BaseException:
+            # close may fail before OR after releasing the descriptor. Retain it
+            # for cleanup only while it still denotes this owned directory;
+            # EBADF or a reused foreign descriptor must not be closed again.
+            try:
+                current = os.fstat(out_fd)
+            except OSError:
+                out_fd = None
+            else:
+                if (current.st_dev, current.st_ino) != identity:
+                    out_fd = None
+            raise
+        else:
+            out_fd = None
     except Exception as exc:
         note = "; partial output remains (not complete); inspect it before deleting or retrying"
         if writer is not None:
