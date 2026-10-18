@@ -14,7 +14,7 @@ Every task uses an independent Claude candidate and Grok candidate. This compare
 4. Each worker submits its result, branch/commit where applicable, checks, limitations and evidence. Orca `worker_done` settles worker ownership, not user acceptance. Follow the version-matched Orca skill for launch, mail, release and recovery.
 5. The coordinator reads both, checks primary-source claims, and personally executes the relevant checks on each candidate or records the exact reason a check cannot be performed. Reject unsupported PASS claims. A blocked check stays blocked.
 6. Record scores, actual elapsed time when observable, corrections/rework, candidate artifacts, scope and chosen approach in a task-linked review. Select the stronger verified candidate, combine useful elements with attribution, or reject both and redispatch. Do not reward speed over correctness.
-7. Integrate only the selected change, rerun the required checks on the integrated revision, update tasks/status, and make a local checkpoint commit. Only then mark `ready_for_user` and assemble a concise evaluation packet.
+7. Integrate only the selected change, rerun the required checks on the integrated revision, update tasks/status, and make a local checkpoint commit for that completed/verified step before advancing. This applies to research, no-change findings and gap-task children too: commit the redacted evidence even when no code changes. Only then mark `ready_for_user` and assemble a concise evaluation packet.
 8. Record the user's evaluation and any issue tasks. Close/release settled workers. Update the next action before ending the coordinator turn.
 
 The planning comparison is deliberately a read-only proposal comparison, not an implementation benchmark. Re-evaluate model fit as actual tasks generate evidence.
@@ -32,6 +32,12 @@ Score each dimension 0–4, with a brief evidence-based reason; total /20. A sev
 | Git/state discipline | Correct branch/ownership, bounded diff, source rollback and external-state recovery |
 
 Elapsed time and rework are reported alongside the score, not inferred from transcript size. If exact API cost/tokens or model version are unavailable, write `not observed`. Do not compare unrecorded costs or claim statistical superiority from one pair.
+
+## Critical issues and goal changes
+
+The user requires prompt notification if a critical issue may force a goal change. Once supported by evidence, report the failed requirement, the verified facts, available options, the coordinator's recommendation and each option's effect on the agreed goal. Ask for the user's decision before changing scope; elapsed time or silence is not acceptance. Continue independent work that preserves the goal while waiting. Ordinary implementation defects that can be fixed within scope stay in the task board and do not require a fresh approval request.
+
+Commit the critical-issue evidence and any resulting user decision. Do not silently reduce all-content coverage, replace Traditional Chinese story requirements with UI-only translation, or count admin shortcuts as normal solo progression.
 
 ## Task status
 

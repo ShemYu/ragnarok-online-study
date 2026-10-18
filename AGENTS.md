@@ -21,7 +21,9 @@
 - Workers own only their dispatched scope. Implementation attempts need separate branches/worktrees; two worktrees do not isolate an app's external database.
 - The coordinator must personally perform the applicable verification before `ready_for_user`. A worker's PASS is a candidate result, not coordinator verification or user acceptance.
 - Update the task row, status, evidence and next action at every meaningful checkpoint. A stateless worker must not need a chat transcript to resume.
+- Before advancing from a completed or coordinator-verified step, commit its owned changes and redacted verification record on its task/coordination branch. Include no-change findings as Markdown evidence; never rely on an uncommitted report or chat alone.
 - Never promote a sample playthrough into proof that all maps, monsters or quests work. Track coverage and remaining gaps explicitly.
+- Notify the user promptly when evidence shows a critical issue may require changing the agreed goal. Explain the evidence, options and scope impact; wait for the user's decision before changing the goal. Continue independent work that preserves it.
 
 ## Git and local data
 
