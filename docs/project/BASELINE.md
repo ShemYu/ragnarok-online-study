@@ -8,6 +8,10 @@ Historical T04.003 checkpoint: [T04.003](reviews/2026-10-18-T04.003.md) repaired
 
 On2026-10-19 JST root re-entered the existing T04Novice at prt_fild08 170,375, base3/job7, EXP781/146, HP51/SP13, then normal character-select logout. A complete six-table read-only snapshot records online0 and all current inventory/quest/skill/registry fields. Fresh full **H** is1862904bytes, SHA256 `d5176952bcdd6e5895b5bb71ee675a37dff74d9e996666274db11c85ec44912d`; every archive payload, protected settings/mod file and selected saved row matches that boundary. Both existing overlays are included/enabled. Actual read-only restore preview was cancelled; **H has not been restored**. Earlier A→B→A→B remains the tested recovery reference, and no old archive may overwrite newer progress. [Current save/backup evidence and next installed gate](reviews/2026-10-18-T05.006.md#fresh-full-h-created-and-validated-before-installation). A later controlled app/asset/service restart preserved every selected saved field and protected file/mode/absence; actual service/assets readiness and unchanged two-mod baseline were verified before installation. This does not independently prove a guest-VM power cycle. [Cold lifecycle evidence](reviews/2026-10-18-T05.006.md#pre-install-cold-lifecycle-and-collision-check). Earlier state/location paragraphs below retain their historical scope.
 
+## Later ordinary live save — Izlude
+
+T05.006 subsequently used only ordinary walking to reach Carocc and verified the named Chinese/body/fallback/control samples. Current normal logout save is **izlude194,211**, base3/job7, EXP781/146, HP51/SP13, zeny0. The complete six-table comparison against H attributes exactly last_map/last_x/last_y, last_login and body_direction changes to travel/sign-in/NPC facing; every other selected field/schema/row is equal. This newer save supersedes H's field location for subsequent restart/off-on comparisons; H remains preserved and was never restored. [Actual dialogue and preservation proof](reviews/2026-10-18-T05.006.md#ordinary-live-sample-and-saved-progress). Re-entry/full relaunch/off-on gates remain next.
+
 ## Verified so far
 
 | Check | Actual result |
