@@ -13,7 +13,7 @@ Coordinator evidence, 2026-10-18. Base `022ab07`. This is an **intermediate chec
 | Combat observation | Nearest-monster attack produced an attack pose, a fallen Poring sprite and player HP loss (40 → 31). This alone does not close the kill/drop/loot scenario; a confirmed pickup remains open |
 | Equipment interaction | Equipment window showed `短劍` and `棉襯衫`. Double-clicking the sword removed it; double-clicking its inventory item re-equipped it, with matching Chinese system messages. Removing the shirt created state B |
 | Save and full relaunch | Logged out through the game menu; read-only SQL confirmed online 0. Gracefully stopped the entire app/VM, observed phase Stopped and no game/admin listeners, then started a new headless process and logged in again. Character, item/equipment and quest tuples matched A; visible map coordinates and quest title also returned |
-| Backup A → restore A | Used actual browser Settings → Save data → Back up everything, then Restore everything; Renewal plus settings/mods selected. After changing equipment to B and preserving a separate B archive, restoring A returned all recorded character, item and quest rows **exactly** to A. The server returned Ready. Root re-entered the world, observed the restored location/quest and both equipped items. Restoration of the automatic B safety copy is still next |
+| Backup A → restore A | Used actual browser Settings → Save data → Back up everything, then Restore everything; Renewal plus settings/mods selected. After changing equipment to B and preserving a separate B archive, restoring A returned all recorded character, item and quest rows **exactly** to A. The server returned Ready. Root re-entered the world, observed the restored location/quest and both equipped items. The automatic B safety copy was then restored: all three logged-out SQL groups matched B exactly, and the game showed position 74,101, the quest and no equipped shirt. Normal inventory double-click re-equipped the shirt, with Chinese confirmation |
 
 ### Saved states
 
@@ -37,7 +37,7 @@ Private backups are under `.tools/renewal/backups`, user-only files in a user-on
 | `T04-A-quest.tar.gz` | 15358 | `0e47c2965ef097a76d3c648e1785d2d29b5ab12815b9d6e26f2a48943b9e4432` |
 | `T04-B-equipment.tar.gz` | 15433 | `5be72a77581fe55e164b36d84ebae47cf941ca9216b959eca6542ad5afeb4849` |
 
-Restoring A automatically preserved B at `state/world-backups/before-restore-everything-20261018-045612-50ac23d8.tar.gz` under app support: **15463 bytes**, SHA-256 **`33447c4e7b1dd7b72cf32a1a4ce641308c5c9ccd0e14b73109320ff86932fb74`**. Do not delete it. Next restore this automatic copy and compare B, then re-enter the world and verify the shirt is absent from equipped slots. Preserve both manual archives and every automatic safety archive.
+Restoring A automatically preserved B at `state/world-backups/before-restore-everything-20261018-045612-50ac23d8.tar.gz` under app support: **15463 bytes**, SHA-256 **`33447c4e7b1dd7b72cf32a1a4ce641308c5c9ccd0e14b73109320ff86932fb74`**. Do not delete it. At 05:03–05:06 UTC the actual Save data UI restored this automatic B copy. Read-only character, inventory and quest outputs matched the original B snapshot exactly, including online 0. Root entered the world and verified position 74,101, the quest and an empty shirt slot. The shirt was then re-equipped through inventory, with `棉襯衫 裝備穿著完成` confirmation. The A → B → A → B recovery rehearsal passed for these recorded fields. Preserve both manual archives and every automatic safety archive. Reverse restoration created `before-restore-everything-20261018-050318-6e37a808.tar.gz`: 15424 bytes, SHA-256 `09c2bb5b29af229a8e4b4d704545b7f4a6be0987d9cedeafe80ba1c25c866577`.
 
 ## Resource observation running
 
@@ -62,11 +62,11 @@ Local measurement-script SHA-256: `00109327e4bec72d145775c1dde066a0aa218e0ea9a2e
 ## Resume actions
 
 1. Confirm branch/HEAD/status and this task's owned files. Revalidate the existing app and sampler handles/processes; do not restart a live job because an observation timed out. The current coordinator's execution handles are recorded locally in `.tools/renewal/evidence/T04-live-handles.json`; they are hints, not proof of liveness.
-2. A re-entry/equipment/quest/location has passed; further input checks have moved the character afterwards. Use Settings → Save data → Restore everything to restore the automatic B archive above, verify the B tuple and visible unequipped shirt, then restore normal equipment through UI. No admin move/quest completion.
+2. A and reverse-B restoration, visible quest/location/equipment and normal shirt re-equipping have passed. Continue the bounded input diagnostic in Issues and limits; no admin move/quest completion.
 3. Finish normal combat and a real drop pickup; verify inventory change. Investigate targeting if necessary, with a reproducer before creating any fix child.
 4. Complete a calibrated offline trial and the full timed resource/disk report. The sampler ends about 05:15:26 UTC; inspect its actual completion and samples, not just its intended duration.
 5. Commit each meaningful verified checkpoint. Keep T04 `in_progress` until all required checks pass; then prepare the basic playtest. T05 Chinese pilot follows, with no reduction of the full goal.
 
-Evidence remains ignored: `T04-observations.jsonl` and named screenshots, `T04-save-{A,B}.json`, `T04-relaunch-check.json`, `T04-after-restore-A.json`, backup metadata, raw logs and resource samples. The local test login is in a separate user-only ignored file; never publish it or the admin URL. See [paired review](reviews/2026-10-18-T04.md).
+Evidence remains ignored: `T04-observations.jsonl` and named screenshots, `T04-save-{A,B}.json`, `T04-relaunch-check.json`, `T04-after-restore-A.json`, `T04-after-restore-B.json`, backup metadata, raw logs and resource samples. The local test login is in a separate user-only ignored file; never publish it or the admin URL. See [paired review](reviews/2026-10-18-T04.md).
 
-Git revert restores these source/docs records only. Recover game state through the preserved, tested A archive or later verified B archive; machine asset paths and GRFs remain separate. No existing user's progress was overwritten.
+Git revert restores these source/docs records only. Recover game state through the preserved, tested A archive or verified automatic B archive; machine asset paths and GRFs remain separate. No existing user's progress was overwritten.
