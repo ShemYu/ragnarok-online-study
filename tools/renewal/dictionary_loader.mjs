@@ -128,7 +128,7 @@ export function createInitializer({
         || typeof expected.sha256 !== 'string' || !SHA256.test(expected.sha256)) {
         throw new TypeError('dictionary loader: expected must be {bytes, sha256}');
     }
-    if (!Number.isSafeInteger(timeoutMs) || timeoutMs <= 0) throw new TypeError('dictionary loader: timeoutMs must be a positive integer');
+    if (!Number.isFinite(timeoutMs) || !Number.isInteger(timeoutMs) || timeoutMs <= 0) throw new TypeError('dictionary loader: timeoutMs must be a positive finite integer');
     const module = absoluteURL(moduleURL, 'moduleURL');
     const page = absoluteURL(pageURL, 'pageURL');
     if (module.protocol !== 'http:' && module.protocol !== 'https:') throw new TypeError('dictionary loader: module must be served over HTTP(S)');
@@ -174,9 +174,10 @@ function load(api, { initializeCore, url, pin, timeoutMs, fetchImpl, digestImpl,
     dictionaryReady.then(undefined, noop);
     const ready = new Promise((resolve, reject) => { resolveReady = resolve; rejectReady = reject; });
     ready.then(undefined, noop);
-    let signalStop;
-    const halted = new Promise(resolve => { signalStop = resolve; }).then(() => { throw STOP; });
-    halted.then(undefined, noop);
+    // Only the current awaited operation owns a cancellation callback. A shared
+    // unresolved Promise.race loser would accumulate one reaction per read and
+    // can retain completed read results on some Promise implementations.
+    let cancelPending = null;
 
     const elapsed = since => Math.max(0, now() - since);
     function enter(next) { phase = next; stageStarted = now(); }
@@ -190,9 +191,33 @@ function load(api, { initializeCore, url, pin, timeoutMs, fetchImpl, digestImpl,
         if (!live()) throw STOP;
         if (overdue()) throw new Stage('TIMEOUT');
     }
-    // A pending native/trusted wait, bounded by the terminal signal. Late
-    // outcomes of `promise` are consumed by the race itself.
-    function wait(promise) { return Promise.race([promise, halted]); }
+    function stopPending() {
+        const cancel = cancelPending;
+        cancelPending = null;
+        if (cancel) cancel();
+    }
+    // Observe late outcomes even when the dependency synchronously disposed
+    // the scope before returning its Promise. Completed waits leave no shared
+    // stop reaction holding their result; native work is not physically aborted.
+    function wait(promise) {
+        return new Promise((resolve, reject) => {
+            let settled = false;
+            const finish = (publish, value) => {
+                if (settled) return;
+                settled = true;
+                if (cancelPending === cancel) cancelPending = null;
+                publish(value);
+            };
+            const cancel = () => finish(reject, STOP);
+            if (!live()) {
+                Promise.resolve(promise).then(noop, noop);
+                reject(STOP);
+                return;
+            }
+            cancelPending = cancel;
+            Promise.resolve(promise).then(value => finish(resolve, value), error => finish(reject, error));
+        });
+    }
 
     function readCoreState() {
         if (!core) return;
@@ -206,7 +231,7 @@ function load(api, { initializeCore, url, pin, timeoutMs, fetchImpl, digestImpl,
     function release() {
         if (deadline !== null) { clearTimeout(deadline); deadline = null; }
         if (tick !== null) { clearTimeout(tick); tick = null; }
-        signalStop();
+        stopPending();
         if (controller) { try { controller.abort(); } catch { /* ignored */ } }
         const stream = reader || body;
         reader = body = null;
@@ -274,6 +299,7 @@ function load(api, { initializeCore, url, pin, timeoutMs, fetchImpl, digestImpl,
         return handle;
     }
     if (!live()) return handle;
+    if (overdue()) { fail('TIMEOUT'); return handle; }
 
     controller = new AbortController();
     // A timer may fire marginally early; TIMEOUT only once the monotonic
@@ -284,15 +310,15 @@ function load(api, { initializeCore, url, pin, timeoutMs, fetchImpl, digestImpl,
             if (!live()) return;
             if (overdue()) fail('TIMEOUT');
             else arm(Math.max(1, Math.ceil(timeoutMs - elapsed(started))));
-        }, ms);
+        }, Math.min(ms, 2147483647));
     };
-    arm(timeoutMs);
+    arm(Math.max(0, timeoutMs - elapsed(started)));
 
     let candidate;
     try {
         candidate = initializeCore({ dictionaryReady }, api);
     } catch {
-        fail('CORE');
+        fail(overdue() ? 'TIMEOUT' : 'CORE');
         return handle;
     }
     if (!candidate || typeof candidate !== 'object' || typeof candidate.dispose !== 'function' || typeof candidate.diagnostics !== 'function') {
@@ -306,6 +332,7 @@ function load(api, { initializeCore, url, pin, timeoutMs, fetchImpl, digestImpl,
         return handle;
     }
     core = candidate;
+    if (overdue()) { fail('TIMEOUT'); return handle; }
 
     try {
         const made = statusFactory();
@@ -315,12 +342,14 @@ function load(api, { initializeCore, url, pin, timeoutMs, fetchImpl, digestImpl,
             return handle;
         }
         status = made;
+        if (overdue()) { fail('TIMEOUT'); return handle; }
         status.update('loading', null);
     } catch {
-        fail('STATUS');
+        fail(overdue() ? 'TIMEOUT' : 'STATUS');
         return handle;
     }
     if (!live()) return handle;
+    if (overdue()) { fail('TIMEOUT'); return handle; }
 
     run().catch(error => {
         if (error === STOP) return;
@@ -330,6 +359,7 @@ function load(api, { initializeCore, url, pin, timeoutMs, fetchImpl, digestImpl,
 
     async function run() {
         enter('request');
+        check();
         let response;
         try {
             response = await wait(fetchImpl(url, {
@@ -431,7 +461,7 @@ function load(api, { initializeCore, url, pin, timeoutMs, fetchImpl, digestImpl,
         timings.totalMs = elapsed(started);
         clearTimeout(deadline);
         deadline = null;
-        signalStop();
+        stopPending();
         resolveReady('ready');
     }
 }

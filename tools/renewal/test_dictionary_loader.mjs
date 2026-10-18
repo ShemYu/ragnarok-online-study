@@ -210,6 +210,9 @@ test('D01 gates reject synchronously before any work', () => {
     // Page query/fragment are allowed; https works too.
     assert.equal(typeof createInitializer({ ...good, pageURL: PAGE }), 'function');
     assert.equal(typeof createInitializer({ ...good, moduleURL: 'https://a.test/m.mjs', pageURL: 'https://a.test/p?q#f' }), 'function');
+    // The contract gives timeout a finite integer, unlike safe-integer bytes.
+    // Factory construction starts no timer, including for this large value.
+    assert.equal(typeof createInitializer({ ...good, timeoutMs: Number.MAX_SAFE_INTEGER + 1 }), 'function');
 });
 
 test('D01 returns a frozen non-thenable handle synchronously while loading', async () => {
@@ -814,4 +817,86 @@ test('no unhandled rejections across the suite', async () => {
 test('production default export is the bound initializer', () => {
     assert.equal(typeof initialize, 'function');
     assert.equal(initialize.length, 2);
+});
+
+// Root regressions for observed post-budget setup and per-operation stop handling.
+test('D06 setup exhaustion prevents later owned work and requests', async () => {
+    const hold = () => { const end = performance.now() + 60; while (performance.now() < end) {} };
+    for (const stage of ['cleanup', 'core', 'status-create', 'status-loading']) {
+        let coreCalls = 0, statusCreates = 0, requests = 0, removals = 0;
+        const cleanups = [];
+        const api = { version: 1, on() { return () => {}; }, cleanup(fn) { cleanups.push(fn); if (stage === 'cleanup') hold(); } };
+        const init = createInitializer({
+            moduleURL: MODULE, pageURL: PAGE, expected: pinOf(TINY), timeoutMs: 25,
+            initializeCore({ dictionaryReady }) {
+                coreCalls++;
+                dictionaryReady.catch(() => {});
+                if (stage === 'core') hold();
+                return { dispose() {}, diagnostics() { return { state: 'loading' }; } };
+            },
+            statusFactory() {
+                statusCreates++;
+                if (stage === 'status-create') hold();
+                return { update(state) { if (state === 'loading' && stage === 'status-loading') hold(); }, dispose() { removals++; } };
+            },
+            fetchImpl() { requests++; return Promise.reject(new Error('post-budget request')); },
+            digestImpl() { throw new Error('unreached digest'); }, parseImpl: JSON.parse,
+        });
+        const handle = init(null, api);
+        assert.equal(await outcome(handle), 'TIMEOUT', stage);
+        assert.equal(handle.diagnostics().state, 'failed', stage);
+        assert.equal(requests, 0, stage);
+        assert.ok(handle.diagnostics().totalMs >= 25, stage);
+        if (stage === 'cleanup') assert.equal(coreCalls, 0);
+        if (stage === 'cleanup' || stage === 'core') assert.equal(statusCreates, 0);
+        handle.dispose();
+        for (const fn of cleanups.reverse()) fn();
+        assert.equal(removals, statusCreates, stage);
+    }
+});
+
+test('D06 initial timer uses the budget remaining after cleanup registration', async () => {
+    // Queue an independent observer first. Timer due-order distinguishes the
+    // original total budget from a fresh full budget after the 60ms setup.
+    const observe = sleep(140);
+    const owned = scope();
+    const cleanup = owned.api.cleanup;
+    let delayed = false;
+    owned.api.cleanup = fn => {
+        cleanup(fn);
+        if (delayed) return;
+        delayed = true;
+        const end = performance.now() + 60;
+        while (performance.now() < end) {}
+    };
+    let requests = 0;
+    const run = harness({ api: owned, timeoutMs: 120, fetchImpl: () => { requests++; return new Promise(() => {}); } });
+    const result = outcome(run.handle);
+    try {
+        assert.equal(requests, 1, 'setup leaves time for one pending request');
+        await observe;
+        assert.equal(run.handle.diagnostics().state, 'failed');
+        assert.equal(await result, 'TIMEOUT');
+    } finally { run.handle.dispose(); owned.dispose(); }
+});
+
+test('D06 reentrant disposal still observes the dependency returned afterward', async () => {
+    for (const stage of ['fetch', 'read', 'digest']) {
+        const owned = scope();
+        const before = unhandled.length;
+        const rejectAfterDispose = () => { owned.dispose(); return Promise.reject(new Error('late dependency outcome')); };
+        const config = { api: owned };
+        if (stage === 'fetch') config.fetchImpl = rejectAfterDispose;
+        if (stage === 'read') config.res = response({ stream: {
+            getReader() { return { read: rejectAfterDispose, cancel() { return Promise.resolve(); } }; },
+            cancel() { return Promise.resolve(); },
+        } });
+        if (stage === 'digest') config.digestImpl = rejectAfterDispose;
+        const run = harness(config);
+        assert.equal(await outcome(run.handle), 'DISPOSED', stage);
+        await sleep(10);
+        assert.equal(unhandled.length, before, stage);
+        assert.equal(run.handle.diagnostics().state, 'disposed', stage);
+        run.handle.dispose(); owned.dispose();
+    }
 });

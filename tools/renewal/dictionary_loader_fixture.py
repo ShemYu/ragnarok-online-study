@@ -1046,54 +1046,91 @@ async function d08(t) {
 async function d09(t) {
 	t.ok(FULL_AVAILABLE, 'full/ production body copied into this fixture');
 	if (!FULL_AVAILABLE) return;
-	const observation = { longTasks: [], lags: [], memory: null };
+	// Import precedes the initializer measurement window. No global cache or GC
+	// operation is performed; this is only the new owned fixture page.
+	const module = await import('../full/dictionary_loader.mjs');
+	const observation = { longTasks: [], samples: [] };
 	let observer = null;
 	if (typeof PerformanceObserver === 'function' && (PerformanceObserver.supportedEntryTypes || []).includes('longtask')) {
-		observer = new PerformanceObserver(list => { for (const e of list.getEntries()) observation.longTasks.push(Math.round(e.duration)); });
-		observer.observe({ type: 'longtask' });
+		try {
+			observer = new PerformanceObserver(list => {
+				for (const e of list.getEntries()) observation.longTasks.push({ startTime: e.startTime, duration: e.duration });
+			});
+			observer.observe({ type: 'longtask' });
+		} catch { if (observer) observer.disconnect(); observer = null; }
 	}
-	let sampling = true;
-	let last = performance.now();
-	(function sample() { if (!sampling) return; const now = performance.now(); observation.lags.push(now - last - 50); last = now; setTimeout(sample, 50); })();
 	const heap = () => (performance.memory && Number.isFinite(performance.memory.usedJSHeapSize) ? performance.memory.usedJSHeapSize : null);
-	const heapBefore = heap();
-	performance.clearResourceTimings();
-	const module = await import('../full/dictionary_loader.mjs');
 	const scope = runtime.scope('t05-full');
-	const started = performance.now();
-	const handle = module.default(null, scope.api);
-	const labels = [statusText()];
-	let outcome = null;
-	try { outcome = await handle.ready; } catch (error) { outcome = 'rejected:' + error.code; }
-	const wall = performance.now() - started;
-	labels.push(statusText());
-	const heapAfter = heap();
-	sampling = false;
-	if (observer) observer.disconnect();
-	const d = handle.diagnostics();
-	t.equal(outcome, 'ready', 'production default ready over the full body');
-	t.equal(labels[0], STATUS_TEXT.loading, 'loading label first');
-	t.equal(labels[1], STATUS_TEXT.ready, 'ready label only after full pipeline');
-	t.equal(d.receivedBytes, DICTIONARY_PIN.bytes, 'received exactly 19706353 decoded bytes');
-	t.equal(d.coreState, 'ready', 'unchanged core ready');
-	for (const key of ['requestMs', 'readMs', 'digestMs', 'decodeMs', 'parseMs', 'activateMs', 'totalMs']) t.ok(Number.isFinite(d[key]), `${key} observed`);
-	await sleep(50);
-	const entries = performance.getEntriesByType('resource').filter(e => new URL(e.name).pathname === '/full/dict.json');
-	t.equal(entries.length, 1, 'one production request beside full/ entry');
-	const entry = entries[0];
-	if (entry && entry.decodedBodySize) t.equal(entry.decodedBodySize, DICTIONARY_PIN.bytes, 'resource decoded size');
-	handle.dispose(); scope.dispose();
+	let handle = null;
+	let sampleTimer = null;
+	let sampling = true;
+	let recorded = null;
+	try {
+		performance.clearResourceTimings();
+		const heapBefore = heap();
+		const started = performance.now();
+		let due = started + 50;
+		function sample() {
+			if (!sampling) return;
+			const fired = performance.now();
+			observation.samples.push({ due, fired, lagMs: fired - due });
+			due = fired + 50;
+			sampleTimer = setTimeout(sample, 50);
+		}
+		// The first observation is an actual scheduled callback, never an eager
+		// call misreported as a 50ms timer firing.
+		sampleTimer = setTimeout(sample, 50);
+		handle = module.default(null, scope.api);
+		const labels = [statusText()];
+		let outcome = null;
+		try { outcome = await handle.ready; } catch (error) { outcome = 'rejected:' + error.code; }
+		const readyAt = performance.now();
+		const wall = readyAt - started;
+		labels.push(statusText());
+		const heapAfter = heap();
+		const d = handle.diagnostics();
+		t.equal(outcome, 'ready', 'production default ready over the full body');
+		t.equal(labels[0], STATUS_TEXT.loading, 'loading label first');
+		t.equal(labels[1], STATUS_TEXT.ready, 'ready label only after full pipeline');
+		t.equal(d.receivedBytes, DICTIONARY_PIN.bytes, 'received exactly 19706353 decoded bytes');
+		t.equal(d.coreState, 'ready', 'unchanged core ready');
+		for (const key of ['requestMs', 'readMs', 'digestMs', 'decodeMs', 'parseMs', 'activateMs', 'totalMs']) t.ok(Number.isFinite(d[key]), `${key} observed`);
+		// Yield after readiness so queued responsiveness/observer callbacks can
+		// actually run, then drain pending records before disconnecting.
+		await sleep(110);
+		if (observer) for (const e of observer.takeRecords()) observation.longTasks.push({ startTime: e.startTime, duration: e.duration });
+		const ended = performance.now();
+		const entries = performance.getEntriesByType('resource').filter(e => e.startTime >= started && new URL(e.name).pathname === '/full/dict.json');
+		t.equal(entries.length, 1, 'one production request beside full/ entry');
+		const entry = entries[0];
+		if (entry && entry.decodedBodySize) t.equal(entry.decodedBodySize, DICTIONARY_PIN.bytes, 'resource decoded size');
+		t.ok(observation.samples.length > 0, 'scheduled timer callbacks were actually observed');
+		recorded = Object.freeze({
+			...d, wallMs: wall,
+			window: { started, readyAt, ended, moduleImport: 'before measurement', samplerIntervalMs: 50, postReadyYieldMs: 110 },
+			resource: entry ? { transferSize: entry.transferSize, encodedBodySize: entry.encodedBodySize, decodedBodySize: entry.decodedBodySize, duration: entry.duration } : 'unobserved',
+			longTasks: observer ? observation.longTasks : 'unobserved (longtask unavailable)',
+			longTaskLimit: 'an empty delivered/drained list does not prove absence of blocking work',
+			timerSamples: observation.samples,
+			maxTimerLagMs: observation.samples.length ? Math.max(0, ...observation.samples.map(s => s.lagMs)) : 'unobserved',
+			heap: heapBefore === null ? 'unobserved (no performance.memory)' : { before: heapBefore, atReady: heapAfter, note: 'coarse, non-standard snapshots; not peak, retained heap or isolated dictionary bytes' },
+		});
+	} finally {
+		sampling = false;
+		if (sampleTimer !== null) clearTimeout(sampleTimer);
+		if (observer) observer.disconnect();
+		try { if (handle) handle.dispose(); } finally { scope.dispose(); }
+	}
 	t.equal(handle.diagnostics().state, 'disposed', 'disposed after full run');
 	t.equal(statusText(), null, 'status removed');
-	const lags = observation.lags.filter(Number.isFinite);
-	window.__t05D09 = Object.freeze({
-		...d, wallMs: wall,
-		resource: entry ? { transferSize: entry.transferSize, encodedBodySize: entry.encodedBodySize, decodedBodySize: entry.decodedBodySize, duration: entry.duration } : 'unobserved',
-		longTasks: observer ? observation.longTasks : 'unobserved (longtask unsupported)',
-		maxTimerLagMs: lags.length ? Math.max(...lags) : 'unobserved',
-		heap: heapBefore === null ? 'unobserved (no performance.memory)' : { before: heapBefore, after: heapAfter, note: 'coarse, non-standard; not peak' },
-	});
-	noteText('D09: ' + JSON.stringify(window.__t05D09));
+	window.__t05D09 = recorded;
+	// Keep all measured primitive evidence visible; ordinary short notes stay
+	// bounded separately rather than truncating the cost JSON to 400 characters.
+	const costs = document.createElement('pre');
+	costs.id = 'd09-costs';
+	costs.textContent = JSON.stringify(recorded, null, 2);
+	document.body.appendChild(costs);
+	noteText('D09: complete observations are visible in #d09-costs and window.__t05D09.');
 }
 
 // --- D10 ---------------------------------------------------------------------
