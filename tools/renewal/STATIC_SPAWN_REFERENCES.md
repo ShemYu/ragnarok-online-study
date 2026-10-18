@@ -214,12 +214,17 @@ functions (base lowercasing, last-candidate, retained-only, latest declaration,
 span deduplication, gap and opaque recovery, sprite-0 sentinel, a counter fault)
 and require the golden or conservation check to fail, then pass again.
 
-## Separate unselected correction trial
+## Corrected integration and historical trial
 
-This revision is an internal correction trial based on unchanged Claude commit
-`df0a6c54b7b9cd85836aa1a08f71a120fe45d723`. It does not select a provider,
-qualify the task for the coordinator or change the independent raw comparison.
-Only this producer, its tests and this runbook change.
+This correction originated in a separate internal trial based on unchanged
+Claude `df0a6c54b7b9cd85836aa1a08f71a120fe45d723`. After personally reviewing
+both raw submissions, root selected Claude16/20 versus Grok13/20 as a correction
+basis; neither raw passed unchanged. Unchanged raw integration is536392e and
+the separate source correction is79c9a1c. Both original submissions remain
+preserved. The [root review](../../docs/project/reviews/2026-10-19-T06.002.003.005.002.md#root-corrected-integration-qualified)
+records the integrated74tests/71core/16CLI/12supplement controls, full354-row
+oracle equality, private canonical output and remaining boundaries. This is
+source-only readiness, not installed-world or user acceptance.
 
 The trial's explicit frozen-root run with `-W error::ResourceWarning` passes
 **74 tests, zero skips/failures**. Four new regression methods cover sixteen
@@ -237,15 +242,19 @@ in-memory module and running these four methods gives **23 expected subtest
 failures, zero errors/skips** (16 binding, five metadata, two replacement); the
 descriptive-value positive passes. The raw provider checkout is never edited.
 Private 0600 receipts are under the trial's ignored
-`.tools/renewal/root-correction-trial-1/`. The coordinator must review this diff
-and personally rerun applicable checks before considering adoption. These finite
-serial controls do not extend the concurrency or close-recovery guarantee.
+`.tools/renewal/root-correction-trial-1/`. Root subsequently read the full diff
+and personally reran these checks before adoption, then reran the integrated
+checks. Identical additional EOF/readback-append controls pass raw Claude and
+the correction; raw Grok fails those controls. These finite serial controls
+do not extend the concurrency or close-recovery guarantee.
 
 ## Rollback
 
-Source rollback: revert this task's commit (three files). Generated output lives
-only under the private ignored `.tools/`; delete that directory. No database,
-save, install or runtime state is touched.
+Source rollback uses reverse-order Git reverts of this task's documentation,
+correction79c9a1c and unchanged raw536392e checkpoints. Generated output lives
+only under private ignored `.tools/`; preserve or remove only the known owned
+output separately. Git does not roll back that output. No database, save,
+install or runtime state is touched by this source task.
 
 ## Not established
 
