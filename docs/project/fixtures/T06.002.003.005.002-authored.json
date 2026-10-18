@@ -1,0 +1,1327 @@
+{
+  "cases": [
+    {
+      "candidates": [
+        {
+          "attempts": [
+            {
+              "file": "unit.dat",
+              "ordinal": 3,
+              "outcome": "read"
+            }
+          ],
+          "cache": {
+            "file": "unit.dat",
+            "ordinal": 3
+          },
+          "config_file": "unit.conf",
+          "config_line": 1,
+          "disposition": "retained",
+          "index_id": 7,
+          "index_lookup": {
+            "id": 7,
+            "normalised": "Foo"
+          },
+          "name": "Foo",
+          "ordinal": 0,
+          "raw": "Foo",
+          "slot": 2
+        },
+        {
+          "attempts": [
+            {
+              "file": "unit.dat",
+              "ordinal": 4,
+              "outcome": "read"
+            }
+          ],
+          "cache": {
+            "file": "unit.dat",
+            "ordinal": 4
+          },
+          "config_file": "unit.conf",
+          "config_line": 2,
+          "disposition": "discarded_duplicate_index",
+          "duplicate_of_ordinal": 0,
+          "index_lookup": {
+            "id": 7,
+            "normalised": "Foo"
+          },
+          "name": "Foo.gat",
+          "ordinal": 1,
+          "raw": "Foo.gat.gat"
+        },
+        {
+          "attempts": [
+            {
+              "file": "unit.dat",
+              "ordinal": 5,
+              "outcome": "unresolved_unsafe_payload"
+            }
+          ],
+          "config_file": "unit.conf",
+          "config_line": 3,
+          "disposition": "unresolved_unsafe",
+          "index_lookup": {
+            "id": 7,
+            "normalised": "Foo"
+          },
+          "name": "Foo",
+          "ordinal": 2,
+          "raw": "Foo",
+          "uncertainty_since_ordinal": 2
+        }
+      ],
+      "events": [
+        {
+          "detail": {
+            "fields": [
+              {
+                "name": "w1",
+                "raw_hex": "466f6f2e474154",
+                "span": [
+                  0,
+                  7
+                ]
+              },
+              {
+                "name": "w2",
+                "raw_hex": "6d6f6e73746572",
+                "span": [
+                  8,
+                  15
+                ]
+              },
+              {
+                "name": "w3",
+                "raw_hex": "4e",
+                "span": [
+                  16,
+                  17
+                ]
+              },
+              {
+                "name": "w4",
+                "raw_hex": "313030322c31",
+                "span": [
+                  18,
+                  24
+                ]
+              }
+            ],
+            "gaps": [],
+            "keyword": "monster",
+            "projection_state": "supported",
+            "tabs": 3,
+            "values": {
+              "amount": {
+                "origin": "declared",
+                "span": [
+                  23,
+                  24
+                ],
+                "value": 1
+              },
+              "delay": {
+                "origin": "default",
+                "span": null,
+                "value": 5000
+              },
+              "event": {
+                "origin": "absent",
+                "span": null,
+                "value": null
+              },
+              "map": {
+                "origin": "declared",
+                "span": [
+                  0,
+                  7
+                ],
+                "value": "466f6f2e474154"
+              },
+              "name": {
+                "origin": "declared",
+                "span": [
+                  16,
+                  17
+                ],
+                "value": "4e"
+              },
+              "sprite": {
+                "origin": "declared",
+                "span": [
+                  18,
+                  22
+                ],
+                "value": 1002
+              },
+              "variance": {
+                "origin": "default",
+                "span": null,
+                "value": 0
+              },
+              "x": {
+                "origin": "default",
+                "span": null,
+                "value": 0
+              },
+              "xs": {
+                "origin": "default",
+                "span": null,
+                "value": 0
+              },
+              "y": {
+                "origin": "default",
+                "span": null,
+                "value": 0
+              },
+              "ys": {
+                "origin": "default",
+                "span": null,
+                "value": 0
+              }
+            }
+          },
+          "event_index": 0,
+          "kind": "static",
+          "schema": 1,
+          "sha256": "ed4a9b8e34deaa6b89bd2fb57bc20f1a2296e4fa1cce3ee15e11e1eef1a29296",
+          "source_index": 0,
+          "span": [
+            0,
+            25
+          ]
+        },
+        {
+          "detail": {
+            "fields": [
+              {
+                "name": "w1",
+                "raw_hex": "666f6f2e676174",
+                "span": [
+                  25,
+                  32
+                ]
+              },
+              {
+                "name": "w2",
+                "raw_hex": "6d6f6e73746572",
+                "span": [
+                  33,
+                  40
+                ]
+              },
+              {
+                "name": "w3",
+                "raw_hex": "4e",
+                "span": [
+                  41,
+                  42
+                ]
+              },
+              {
+                "name": "w4",
+                "raw_hex": "313030332c31",
+                "span": [
+                  43,
+                  49
+                ]
+              }
+            ],
+            "gaps": [],
+            "keyword": "monster",
+            "projection_state": "supported",
+            "tabs": 3,
+            "values": {
+              "amount": {
+                "origin": "declared",
+                "span": [
+                  48,
+                  49
+                ],
+                "value": 1
+              },
+              "delay": {
+                "origin": "default",
+                "span": null,
+                "value": 5000
+              },
+              "event": {
+                "origin": "absent",
+                "span": null,
+                "value": null
+              },
+              "map": {
+                "origin": "declared",
+                "span": [
+                  25,
+                  32
+                ],
+                "value": "666f6f2e676174"
+              },
+              "name": {
+                "origin": "declared",
+                "span": [
+                  41,
+                  42
+                ],
+                "value": "4e"
+              },
+              "sprite": {
+                "origin": "declared",
+                "span": [
+                  43,
+                  47
+                ],
+                "value": 1003
+              },
+              "variance": {
+                "origin": "default",
+                "span": null,
+                "value": 0
+              },
+              "x": {
+                "origin": "default",
+                "span": null,
+                "value": 0
+              },
+              "xs": {
+                "origin": "default",
+                "span": null,
+                "value": 0
+              },
+              "y": {
+                "origin": "default",
+                "span": null,
+                "value": 0
+              },
+              "ys": {
+                "origin": "default",
+                "span": null,
+                "value": 0
+              }
+            }
+          },
+          "event_index": 1,
+          "kind": "static",
+          "schema": 1,
+          "sha256": "5b2cefd0fdac124a80b7da7210a69e09e717339f4303a35b24eeb1ca05e0a46f",
+          "source_index": 0,
+          "span": [
+            25,
+            50
+          ]
+        },
+        {
+          "detail": {
+            "fields": [
+              {
+                "name": "w1",
+                "raw_hex": "4d697373696e67",
+                "span": [
+                  50,
+                  57
+                ]
+              },
+              {
+                "name": "w2",
+                "raw_hex": "6d6f6e73746572",
+                "span": [
+                  58,
+                  65
+                ]
+              },
+              {
+                "name": "w3",
+                "raw_hex": "4e",
+                "span": [
+                  66,
+                  67
+                ]
+              },
+              {
+                "name": "w4",
+                "raw_hex": "302c31",
+                "span": [
+                  68,
+                  71
+                ]
+              }
+            ],
+            "gaps": [],
+            "keyword": "monster",
+            "projection_state": "supported",
+            "tabs": 3,
+            "values": {
+              "amount": {
+                "origin": "declared",
+                "span": [
+                  70,
+                  71
+                ],
+                "value": 1
+              },
+              "delay": {
+                "origin": "default",
+                "span": null,
+                "value": 5000
+              },
+              "event": {
+                "origin": "absent",
+                "span": null,
+                "value": null
+              },
+              "map": {
+                "origin": "declared",
+                "span": [
+                  50,
+                  57
+                ],
+                "value": "4d697373696e67"
+              },
+              "name": {
+                "origin": "declared",
+                "span": [
+                  66,
+                  67
+                ],
+                "value": "4e"
+              },
+              "sprite": {
+                "origin": "declared",
+                "span": [
+                  68,
+                  69
+                ],
+                "value": 0
+              },
+              "variance": {
+                "origin": "default",
+                "span": null,
+                "value": 0
+              },
+              "x": {
+                "origin": "default",
+                "span": null,
+                "value": 0
+              },
+              "xs": {
+                "origin": "default",
+                "span": null,
+                "value": 0
+              },
+              "y": {
+                "origin": "default",
+                "span": null,
+                "value": 0
+              },
+              "ys": {
+                "origin": "default",
+                "span": null,
+                "value": 0
+              }
+            }
+          },
+          "event_index": 2,
+          "kind": "static",
+          "schema": 1,
+          "sha256": "17f56451ab7c46d3a2eaf3e6632e7bd22fe2727927a0dba205ef2981675a1ee1",
+          "source_index": 0,
+          "span": [
+            50,
+            72
+          ]
+        },
+        {
+          "detail": {
+            "fields": [
+              {
+                "name": "w1",
+                "raw_hex": "456d707479",
+                "span": [
+                  72,
+                  77
+                ]
+              },
+              {
+                "name": "w2",
+                "raw_hex": "6d6f6e73746572",
+                "span": [
+                  78,
+                  85
+                ]
+              },
+              {
+                "name": "w3",
+                "raw_hex": "4e",
+                "span": [
+                  86,
+                  87
+                ]
+              },
+              {
+                "name": "w4",
+                "raw_hex": "313030322c31",
+                "span": [
+                  88,
+                  94
+                ]
+              }
+            ],
+            "gaps": [],
+            "keyword": "monster",
+            "projection_state": "supported",
+            "tabs": 3,
+            "values": {
+              "amount": {
+                "origin": "declared",
+                "span": [
+                  93,
+                  94
+                ],
+                "value": 1
+              },
+              "delay": {
+                "origin": "default",
+                "span": null,
+                "value": 5000
+              },
+              "event": {
+                "origin": "absent",
+                "span": null,
+                "value": null
+              },
+              "map": {
+                "origin": "declared",
+                "span": [
+                  72,
+                  77
+                ],
+                "value": "456d707479"
+              },
+              "name": {
+                "origin": "declared",
+                "span": [
+                  86,
+                  87
+                ],
+                "value": "4e"
+              },
+              "sprite": {
+                "origin": "declared",
+                "span": [
+                  88,
+                  92
+                ],
+                "value": 1002
+              },
+              "variance": {
+                "origin": "default",
+                "span": null,
+                "value": 0
+              },
+              "x": {
+                "origin": "default",
+                "span": null,
+                "value": 0
+              },
+              "xs": {
+                "origin": "default",
+                "span": null,
+                "value": 0
+              },
+              "y": {
+                "origin": "default",
+                "span": null,
+                "value": 0
+              },
+              "ys": {
+                "origin": "default",
+                "span": null,
+                "value": 0
+              }
+            }
+          },
+          "event_index": 3,
+          "kind": "static",
+          "schema": 1,
+          "sha256": "f4d228fffde2730100dfe360b0e778c566322d603a6559f6301bf7bd0671ed86",
+          "source_index": 0,
+          "span": [
+            72,
+            95
+          ]
+        },
+        {
+          "detail": {
+            "fields": [
+              {
+                "name": "w1",
+                "raw_hex": "466f6f",
+                "span": [
+                  95,
+                  98
+                ]
+              },
+              {
+                "name": "w2",
+                "raw_hex": "6d6f6e73746572",
+                "span": [
+                  99,
+                  106
+                ]
+              },
+              {
+                "name": "w3",
+                "raw_hex": "4e",
+                "span": [
+                  107,
+                  108
+                ]
+              },
+              {
+                "name": "w4",
+                "raw_hex": "313030322c312c",
+                "span": [
+                  109,
+                  116
+                ]
+              }
+            ],
+            "gaps": [
+              {
+                "code": "delay_form",
+                "span": [
+                  116,
+                  116
+                ]
+              }
+            ],
+            "keyword": "monster",
+            "projection_state": "gap",
+            "tabs": 3,
+            "values": null
+          },
+          "event_index": 4,
+          "kind": "static",
+          "schema": 1,
+          "sha256": "8ad1f51764903955824c1b49f025e7273ce11fe520bd8bb631756647479644f3",
+          "source_index": 0,
+          "span": [
+            95,
+            117
+          ]
+        },
+        {
+          "detail": {
+            "body": {
+              "sha256": "7b9ddadf0429db593204c95f180a77da7d2b04fafa6ec8a0a3988ba200a31569",
+              "span": [
+                132,
+                152
+              ]
+            },
+            "close": {
+              "sha256": "d10b36aa74a59bcf4a88185837f658afaf3646eff2bb16c3928d0e9335e945d2",
+              "span": [
+                152,
+                153
+              ]
+            },
+            "header": {
+              "sha256": "5c080112babc284126549826d4c330be3402eecdd8ae172b882c5d9190550db6",
+              "span": [
+                117,
+                131
+              ]
+            },
+            "open": {
+              "sha256": "021fb596db81e6d02bf3d2586ee3981fe519f275c0ac9ca76bbcf2ebb4097d96",
+              "span": [
+                131,
+                132
+              ]
+            }
+          },
+          "event_index": 5,
+          "kind": "opaque",
+          "schema": 1,
+          "sha256": "184b8793c9f098d5f6f2f4babc73e3d73185bc5a33f5d325824a07f084fd0eff",
+          "source_index": 0,
+          "span": [
+            117,
+            153
+          ]
+        },
+        {
+          "detail": null,
+          "event_index": 6,
+          "kind": "whitespace",
+          "schema": 1,
+          "sha256": "01ba4719c80b6fe911b091a7c05124b64eeece964e09c058ef8f9805daca546b",
+          "source_index": 0,
+          "span": [
+            153,
+            154
+          ]
+        },
+        {
+          "detail": null,
+          "event_index": 7,
+          "kind": "line_comment",
+          "schema": 1,
+          "sha256": "0179e73e641b23a42241bde2f1e17666541a5a6fd4d04eea9305b9af5d5fa748",
+          "source_index": 0,
+          "span": [
+            154,
+            177
+          ]
+        },
+        {
+          "detail": null,
+          "event_index": 8,
+          "kind": "whitespace",
+          "schema": 1,
+          "sha256": "01ba4719c80b6fe911b091a7c05124b64eeece964e09c058ef8f9805daca546b",
+          "source_index": 0,
+          "span": [
+            177,
+            178
+          ]
+        },
+        {
+          "detail": {
+            "fault_offset": 178,
+            "reason": "unsupported_construct"
+          },
+          "event_index": 9,
+          "kind": "suffix",
+          "schema": 1,
+          "sha256": "3636bab4fb0f10fb4af723e25040c362e70d98398da780cdb8f76a75d2a34e6d",
+          "source_index": 0,
+          "span": [
+            178,
+            202
+          ]
+        }
+      ],
+      "expected": {
+        "counters": {
+          "events": 10,
+          "map_candidate_none": 1,
+          "map_candidate_occurrences": 3,
+          "map_candidate_present": 1,
+          "map_index_missing": 1,
+          "map_index_nonzero": 2,
+          "map_index_zero": 1,
+          "monster_declaration_occurrences": 5,
+          "monster_history_missing": 1,
+          "monster_history_present": 3,
+          "not_static": 3,
+          "opaque": 1,
+          "static_gap": 1,
+          "static_supported": 4,
+          "suffix": 1
+        },
+        "rows": [
+          {
+            "event_index": 0,
+            "map": {
+              "candidate_state": "present",
+              "candidates": [
+                {
+                  "attempts": [
+                    {
+                      "file": "unit.dat",
+                      "ordinal": 3,
+                      "outcome": "read"
+                    }
+                  ],
+                  "cache": {
+                    "file": "unit.dat",
+                    "ordinal": 3
+                  },
+                  "config_file": "unit.conf",
+                  "config_line": 1,
+                  "disposition": "retained",
+                  "index_id": 7,
+                  "index_lookup": {
+                    "id": 7,
+                    "normalised": "Foo"
+                  },
+                  "name": "Foo",
+                  "ordinal": 0,
+                  "raw": "Foo",
+                  "slot": 2
+                },
+                {
+                  "attempts": [
+                    {
+                      "file": "unit.dat",
+                      "ordinal": 4,
+                      "outcome": "read"
+                    }
+                  ],
+                  "cache": {
+                    "file": "unit.dat",
+                    "ordinal": 4
+                  },
+                  "config_file": "unit.conf",
+                  "config_line": 2,
+                  "disposition": "discarded_duplicate_index",
+                  "duplicate_of_ordinal": 0,
+                  "index_lookup": {
+                    "id": 7,
+                    "normalised": "Foo"
+                  },
+                  "name": "Foo.gat",
+                  "ordinal": 1,
+                  "raw": "Foo.gat.gat"
+                },
+                {
+                  "attempts": [
+                    {
+                      "file": "unit.dat",
+                      "ordinal": 5,
+                      "outcome": "unresolved_unsafe_payload"
+                    }
+                  ],
+                  "config_file": "unit.conf",
+                  "config_line": 3,
+                  "disposition": "unresolved_unsafe",
+                  "index_lookup": {
+                    "id": 7,
+                    "normalised": "Foo"
+                  },
+                  "name": "Foo",
+                  "ordinal": 2,
+                  "raw": "Foo",
+                  "uncertainty_since_ordinal": 2
+                }
+              ],
+              "index": {
+                "id": 7,
+                "state": "nonzero"
+              },
+              "normalised": "Foo",
+              "raw_hex": "466f6f2e474154"
+            },
+            "monster": {
+              "history": {
+                "declaration_count": 2,
+                "declarations": [
+                  {
+                    "database": "MOB_DB",
+                    "database_ordinal": 0,
+                    "epoch": 0,
+                    "file": "db/unit.yml",
+                    "file_sha256": "1111111111111111111111111111111111111111111111111111111111111111",
+                    "fingerprint_sha256": "4444444444444444444444444444444444444444444444444444444444444444",
+                    "global_ordinal": 100,
+                    "id_byte_span": [
+                      11,
+                      17
+                    ],
+                    "id_span_sha256": "844f27a1bf223252f9cdde8a364e5ad6fdf1c004b656a8ea10a634a92ac59d23",
+                    "id_style": "plain",
+                    "id_text": "001002",
+                    "local_ordinal": 0,
+                    "projection_ordinal": 0,
+                    "projection_status": "modelled",
+                    "row_byte_span": [
+                      10,
+                      20
+                    ],
+                    "row_span_sha256": "2222222222222222222222222222222222222222222222222222222222222222",
+                    "visit": 4
+                  },
+                  {
+                    "database": "MOB_DB",
+                    "database_ordinal": 1,
+                    "epoch": 1,
+                    "file": "db/unit.yml",
+                    "file_sha256": "1111111111111111111111111111111111111111111111111111111111111111",
+                    "fingerprint_sha256": "4444444444444444444444444444444444444444444444444444444444444444",
+                    "global_ordinal": 101,
+                    "id_byte_span": [
+                      11,
+                      17
+                    ],
+                    "id_span_sha256": "844f27a1bf223252f9cdde8a364e5ad6fdf1c004b656a8ea10a634a92ac59d23",
+                    "id_style": "plain",
+                    "id_text": "001002",
+                    "local_ordinal": 1,
+                    "projection_ordinal": 1,
+                    "projection_status": "modelled",
+                    "row_byte_span": [
+                      10,
+                      20
+                    ],
+                    "row_span_sha256": "2222222222222222222222222222222222222222222222222222222222222222",
+                    "visit": 5
+                  }
+                ],
+                "id": 1002,
+                "id_decimal": "1002",
+                "meaning": "declared-Id history index, not one accepted entity",
+                "source_gate": "in_range"
+              },
+              "sprite": 1002,
+              "state": "declared_history"
+            },
+            "raw": {
+              "kind": "static",
+              "sha256": "ed4a9b8e34deaa6b89bd2fb57bc20f1a2296e4fa1cce3ee15e11e1eef1a29296",
+              "span": [
+                0,
+                25
+              ]
+            },
+            "schema": 1,
+            "source_index": 0,
+            "unjoined": null
+          },
+          {
+            "event_index": 1,
+            "map": {
+              "candidate_state": "not_applicable",
+              "candidates": [],
+              "index": {
+                "id": 0,
+                "state": "zero"
+              },
+              "normalised": "foo",
+              "raw_hex": "666f6f2e676174"
+            },
+            "monster": {
+              "history": null,
+              "sprite": 1003,
+              "state": "no_declared_history"
+            },
+            "raw": {
+              "kind": "static",
+              "sha256": "5b2cefd0fdac124a80b7da7210a69e09e717339f4303a35b24eeb1ca05e0a46f",
+              "span": [
+                25,
+                50
+              ]
+            },
+            "schema": 1,
+            "source_index": 0,
+            "unjoined": null
+          },
+          {
+            "event_index": 2,
+            "map": {
+              "candidate_state": "not_applicable",
+              "candidates": [],
+              "index": {
+                "id": null,
+                "state": "missing"
+              },
+              "normalised": "Missing",
+              "raw_hex": "4d697373696e67"
+            },
+            "monster": {
+              "history": {
+                "declaration_count": 1,
+                "declarations": [
+                  {
+                    "database": "MOB_DB",
+                    "database_ordinal": 2,
+                    "epoch": 1,
+                    "file": "db/unit.yml",
+                    "file_sha256": "1111111111111111111111111111111111111111111111111111111111111111",
+                    "fingerprint_sha256": "4444444444444444444444444444444444444444444444444444444444444444",
+                    "global_ordinal": 102,
+                    "id_byte_span": [
+                      11,
+                      12
+                    ],
+                    "id_span_sha256": "5feceb66ffc86f38d952786c6d696c79c2dbc239dd4e91b46729d73a27fb57e9",
+                    "id_style": "plain",
+                    "id_text": "0",
+                    "local_ordinal": 2,
+                    "projection_ordinal": 2,
+                    "projection_status": "modelled",
+                    "row_byte_span": [
+                      10,
+                      20
+                    ],
+                    "row_span_sha256": "2222222222222222222222222222222222222222222222222222222222222222",
+                    "visit": 6
+                  }
+                ],
+                "id": 0,
+                "id_decimal": "0",
+                "meaning": "declared-Id history index, not one accepted entity",
+                "source_gate": "out_of_range"
+              },
+              "sprite": 0,
+              "state": "declared_history"
+            },
+            "raw": {
+              "kind": "static",
+              "sha256": "17f56451ab7c46d3a2eaf3e6632e7bd22fe2727927a0dba205ef2981675a1ee1",
+              "span": [
+                50,
+                72
+              ]
+            },
+            "schema": 1,
+            "source_index": 0,
+            "unjoined": null
+          },
+          {
+            "event_index": 3,
+            "map": {
+              "candidate_state": "none",
+              "candidates": [],
+              "index": {
+                "id": 9,
+                "state": "nonzero"
+              },
+              "normalised": "Empty",
+              "raw_hex": "456d707479"
+            },
+            "monster": {
+              "history": {
+                "declaration_count": 2,
+                "declarations": [
+                  {
+                    "database": "MOB_DB",
+                    "database_ordinal": 0,
+                    "epoch": 0,
+                    "file": "db/unit.yml",
+                    "file_sha256": "1111111111111111111111111111111111111111111111111111111111111111",
+                    "fingerprint_sha256": "4444444444444444444444444444444444444444444444444444444444444444",
+                    "global_ordinal": 100,
+                    "id_byte_span": [
+                      11,
+                      17
+                    ],
+                    "id_span_sha256": "844f27a1bf223252f9cdde8a364e5ad6fdf1c004b656a8ea10a634a92ac59d23",
+                    "id_style": "plain",
+                    "id_text": "001002",
+                    "local_ordinal": 0,
+                    "projection_ordinal": 0,
+                    "projection_status": "modelled",
+                    "row_byte_span": [
+                      10,
+                      20
+                    ],
+                    "row_span_sha256": "2222222222222222222222222222222222222222222222222222222222222222",
+                    "visit": 4
+                  },
+                  {
+                    "database": "MOB_DB",
+                    "database_ordinal": 1,
+                    "epoch": 1,
+                    "file": "db/unit.yml",
+                    "file_sha256": "1111111111111111111111111111111111111111111111111111111111111111",
+                    "fingerprint_sha256": "4444444444444444444444444444444444444444444444444444444444444444",
+                    "global_ordinal": 101,
+                    "id_byte_span": [
+                      11,
+                      17
+                    ],
+                    "id_span_sha256": "844f27a1bf223252f9cdde8a364e5ad6fdf1c004b656a8ea10a634a92ac59d23",
+                    "id_style": "plain",
+                    "id_text": "001002",
+                    "local_ordinal": 1,
+                    "projection_ordinal": 1,
+                    "projection_status": "modelled",
+                    "row_byte_span": [
+                      10,
+                      20
+                    ],
+                    "row_span_sha256": "2222222222222222222222222222222222222222222222222222222222222222",
+                    "visit": 5
+                  }
+                ],
+                "id": 1002,
+                "id_decimal": "1002",
+                "meaning": "declared-Id history index, not one accepted entity",
+                "source_gate": "in_range"
+              },
+              "sprite": 1002,
+              "state": "declared_history"
+            },
+            "raw": {
+              "kind": "static",
+              "sha256": "f4d228fffde2730100dfe360b0e778c566322d603a6559f6301bf7bd0671ed86",
+              "span": [
+                72,
+                95
+              ]
+            },
+            "schema": 1,
+            "source_index": 0,
+            "unjoined": null
+          },
+          {
+            "event_index": 4,
+            "map": null,
+            "monster": null,
+            "raw": {
+              "kind": "static",
+              "sha256": "8ad1f51764903955824c1b49f025e7273ce11fe520bd8bb631756647479644f3",
+              "span": [
+                95,
+                117
+              ]
+            },
+            "schema": 1,
+            "source_index": 0,
+            "unjoined": {
+              "code": "static_projection_gap",
+              "detail": [
+                {
+                  "code": "delay_form",
+                  "span": [
+                    116,
+                    116
+                  ]
+                }
+              ]
+            }
+          },
+          {
+            "event_index": 5,
+            "map": null,
+            "monster": null,
+            "raw": {
+              "kind": "opaque",
+              "sha256": "184b8793c9f098d5f6f2f4babc73e3d73185bc5a33f5d325824a07f084fd0eff",
+              "span": [
+                117,
+                153
+              ]
+            },
+            "schema": 1,
+            "source_index": 0,
+            "unjoined": {
+              "code": "opaque_script",
+              "detail": null
+            }
+          },
+          {
+            "event_index": 6,
+            "map": null,
+            "monster": null,
+            "raw": {
+              "kind": "whitespace",
+              "sha256": "01ba4719c80b6fe911b091a7c05124b64eeece964e09c058ef8f9805daca546b",
+              "span": [
+                153,
+                154
+              ]
+            },
+            "schema": 1,
+            "source_index": 0,
+            "unjoined": {
+              "code": "not_static",
+              "detail": null
+            }
+          },
+          {
+            "event_index": 7,
+            "map": null,
+            "monster": null,
+            "raw": {
+              "kind": "line_comment",
+              "sha256": "0179e73e641b23a42241bde2f1e17666541a5a6fd4d04eea9305b9af5d5fa748",
+              "span": [
+                154,
+                177
+              ]
+            },
+            "schema": 1,
+            "source_index": 0,
+            "unjoined": {
+              "code": "not_static",
+              "detail": null
+            }
+          },
+          {
+            "event_index": 8,
+            "map": null,
+            "monster": null,
+            "raw": {
+              "kind": "whitespace",
+              "sha256": "01ba4719c80b6fe911b091a7c05124b64eeece964e09c058ef8f9805daca546b",
+              "span": [
+                177,
+                178
+              ]
+            },
+            "schema": 1,
+            "source_index": 0,
+            "unjoined": {
+              "code": "not_static",
+              "detail": null
+            }
+          },
+          {
+            "event_index": 9,
+            "map": null,
+            "monster": null,
+            "raw": {
+              "kind": "suffix",
+              "sha256": "3636bab4fb0f10fb4af723e25040c362e70d98398da780cdb8f76a75d2a34e6d",
+              "span": [
+                178,
+                202
+              ]
+            },
+            "schema": 1,
+            "source_index": 0,
+            "unjoined": {
+              "code": "uncertified_suffix",
+              "detail": {
+                "fault_offset": 178,
+                "reason": "unsupported_construct"
+              }
+            }
+          }
+        ]
+      },
+      "histories": [
+        {
+          "declaration_count": 1,
+          "declarations": [
+            {
+              "database": "MOB_DB",
+              "database_ordinal": 2,
+              "epoch": 1,
+              "file": "db/unit.yml",
+              "file_sha256": "1111111111111111111111111111111111111111111111111111111111111111",
+              "fingerprint_sha256": "4444444444444444444444444444444444444444444444444444444444444444",
+              "global_ordinal": 102,
+              "id_byte_span": [
+                11,
+                12
+              ],
+              "id_span_sha256": "5feceb66ffc86f38d952786c6d696c79c2dbc239dd4e91b46729d73a27fb57e9",
+              "id_style": "plain",
+              "id_text": "0",
+              "local_ordinal": 2,
+              "projection_ordinal": 2,
+              "projection_status": "modelled",
+              "row_byte_span": [
+                10,
+                20
+              ],
+              "row_span_sha256": "2222222222222222222222222222222222222222222222222222222222222222",
+              "visit": 6
+            }
+          ],
+          "id": 0,
+          "id_decimal": "0",
+          "meaning": "declared-Id history index, not one accepted entity",
+          "source_gate": "out_of_range"
+        },
+        {
+          "declaration_count": 2,
+          "declarations": [
+            {
+              "database": "MOB_DB",
+              "database_ordinal": 0,
+              "epoch": 0,
+              "file": "db/unit.yml",
+              "file_sha256": "1111111111111111111111111111111111111111111111111111111111111111",
+              "fingerprint_sha256": "4444444444444444444444444444444444444444444444444444444444444444",
+              "global_ordinal": 100,
+              "id_byte_span": [
+                11,
+                17
+              ],
+              "id_span_sha256": "844f27a1bf223252f9cdde8a364e5ad6fdf1c004b656a8ea10a634a92ac59d23",
+              "id_style": "plain",
+              "id_text": "001002",
+              "local_ordinal": 0,
+              "projection_ordinal": 0,
+              "projection_status": "modelled",
+              "row_byte_span": [
+                10,
+                20
+              ],
+              "row_span_sha256": "2222222222222222222222222222222222222222222222222222222222222222",
+              "visit": 4
+            },
+            {
+              "database": "MOB_DB",
+              "database_ordinal": 1,
+              "epoch": 1,
+              "file": "db/unit.yml",
+              "file_sha256": "1111111111111111111111111111111111111111111111111111111111111111",
+              "fingerprint_sha256": "4444444444444444444444444444444444444444444444444444444444444444",
+              "global_ordinal": 101,
+              "id_byte_span": [
+                11,
+                17
+              ],
+              "id_span_sha256": "844f27a1bf223252f9cdde8a364e5ad6fdf1c004b656a8ea10a634a92ac59d23",
+              "id_style": "plain",
+              "id_text": "001002",
+              "local_ordinal": 1,
+              "projection_ordinal": 1,
+              "projection_status": "modelled",
+              "row_byte_span": [
+                10,
+                20
+              ],
+              "row_span_sha256": "2222222222222222222222222222222222222222222222222222222222222222",
+              "visit": 5
+            }
+          ],
+          "id": 1002,
+          "id_decimal": "1002",
+          "meaning": "declared-Id history index, not one accepted entity",
+          "source_gate": "in_range"
+        }
+      ],
+      "id": "A_distinct_states_and_all_occurrences",
+      "reverse": [
+        {
+          "id": 7,
+          "name": "Foo"
+        },
+        {
+          "id": 0,
+          "name": "foo"
+        },
+        {
+          "id": 9,
+          "name": "Empty"
+        }
+      ]
+    }
+  ],
+  "kind": "authored post-admission unit fixture, never production admission or native evidence",
+  "normalisation_cases": [
+    {
+      "expected": "Foo",
+      "raw_hex": "466f6f2e474154"
+    },
+    {
+      "expected": "foo",
+      "raw_hex": "666f6f2e676174"
+    },
+    {
+      "expected": "abcdefghijk",
+      "raw_hex": "6162636465666768696a6b2e474154"
+    },
+    {
+      "expected": "Foo",
+      "raw_hex": "466f6f"
+    },
+    {
+      "expected": "FOO",
+      "raw_hex": "464f4f"
+    }
+  ],
+  "schema": 1,
+  "task": "T06.002.003.005.002"
+}
