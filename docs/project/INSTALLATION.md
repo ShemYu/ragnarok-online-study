@@ -59,3 +59,8 @@ The original Taiwan item assets remain pinned and unchanged. A supported local m
 ## Verified narrow server-text pilot (T05.001)
 
 Supported mod **tw-carocc-pilot0.1.0** is installed/enabled alongside the item repair. Authored [generator/runbook](../../tools/renewal/CAROCC_ZH_PILOT.md), source checkpoint307e2bf; NPC SHA463a1dca3401a4c445ac44995b56eda2733df34d01ae23e803410e0b71d18f55. Only8 opening/menu/Hello display literals are translated; copied quest logic/IDs/rewards/other branches are byte-preserved. Root verified actual Chinese dialogue, normal re-entry, unchanged save and supported disable/re-enable rollback. [Comparison, proof and evaluation](reviews/2026-10-18-T05.001.md). Disable this mod and Apply to restore stock English; Git alone does not uninstall it. Full story/UI/IME/content remain separate requirements.
+
+
+## NPC dictionary package — installed gate, live qualification open
+
+T05.006 now has npc-plaintext-zh-tw1.0.0 installed/enabled through the supported inner-folder picker, Apply and Stop→Start. Root verified all five installed files/four staged resources, generated registration, four actual decoded HTTP identities and the fresh real-game core-ready status. The six-table saved state still exactly matches fresh H; only the expected enabled-list addition changed among prior protected files. Both older overlays remain enabled. [Exact installed gate and limits](reviews/2026-10-18-T05.006.md#supported-installation-and-actual-servedcore-readiness). Ordinary live dialogue, persistence and off/on qualification remain required; no full language/story/IME/content acceptance. Disable only this package through supported Apply/rebuild/lifecycle to roll it back; never restore an older database merely to toggle it.
