@@ -164,20 +164,24 @@ and CLI stdout write/flush/short-return failures)
 and this runbook's sections. JavaScript is only parsed; no Lua, WASM, browser
 or game code is executed by these tests.
 
-## Serial delivery plan (plan-only)
+## Serial delivery and rollback
 
-One later installed delivery, owned and qualified by root. Nothing here has
-been run against the installed app. The bundle and the alias mod are separate
-deliveries: the mod cannot replace `Online.js`, and the bundle alone does not
-satisfy the six requests.
+The original candidate supplied a plan-only delivery proposal. Root has since
+qualified the working runtime, actual serving, Chinese searches and ordinary
+portal/save/re-entry; see the [current verification record](../../docs/project/reviews/2026-10-19-T05.007.md).
+Full app relaunch and off/on rollback remain open. The bundle and alias mod
+are separate deliveries: the mod cannot replace `Online.js`, and the bundle
+alone does not satisfy the six requests.
 
 ### Preservation
 
 Before any runtime change:
 
-1. Quit the app normally after an ordinary save. Take a fresh full backup of
-   the newest save/database, `state/mods` (including `enabled.txt` /
-   `disabled.txt`), mod settings and app settings; read every file back. The
+1. Save and log out normally. While Settings is still available, use
+   **Save data → Back up everything** for a fresh full backup of the newest
+   save/database, `state/mods` (including `enabled.txt` / `disabled.txt`), mod
+   settings and app settings; validate/read every member and compare the
+   selected saved rows. Only then stop/quit the app. The
    older H backup excludes the runtime and predates the current package/save,
    so it is not a substitute and must not be restored to test rollback.
 2. Separately preserve the exact original runtime/client artifacts that will
@@ -194,11 +198,13 @@ The packaged app serves the client from
 `projectRoot()` in the Electron source returns `RAGNAROKMAC_ROOT` when set,
 otherwise the installed `runtime` copy of the signed payload. The candidate
 route is a developer root: a separate copy of the runtime tree whose
-`dist/Web/Online.js` is the repaired file, selected through
-`RAGNAROKMAC_ROOT`. **This is conditional and unverified**: it is source
-behaviour, not shown to apply to the installed binary, and it changes how the
-app is launched. Do not patch the signed app or the current materialized
-`runtime` tree. If the route cannot be qualified without wider changes, stop
+`dist/Web/Online.js` is the repaired file. Set **both `RAGNAROKMAC_ROOT` and
+`RAGNAROK_OFFLINE_ROOT` to the same absolute runtime**: Electron and the
+supervisor read different overrides. Preserve the existing data/state/nebula
+bindings. Root qualified this route against the signed installed executable
+and actual asset process/HTTP response; see the verification record above.
+It changes how the app is launched. Do not patch the signed app or current
+materialized `runtime` tree. If the route cannot be qualified without wider changes, stop
 and report rather than choosing another override.
 
 Confirm the actually served `Online.js` over HTTP equals the repaired
@@ -211,9 +217,13 @@ Install only the inner `OUTPUT/tw-navigation-request-compat/` folder (Settings
 → Mods → Add mod from folder, or by copying the folder into the mods
 directory). A fresh supported installation is enabled even though `default` is
 `off`, which is why the fresh backup comes first. Its `data/` layer is served
-ahead of the GRFs after an app restart, and the overlay fingerprint change
-drops the client's cache. Confirm each of the six served
-`data/luafiles514/lua files/navigation/navi_*_krpri.lub` responses equals its
+ahead of the GRFs after an app restart. An overlay fingerprint change triggers
+cache cleanup in Electron's `defaultSession`; this does **not** establish that external
+Chrome's cache was cleared. The client's FileManager can read browser
+filesystem entries before HTTP. Verify actual fresh-client behavior/request
+evidence as well as server bytes; do not infer browser rollback from a server
+hash or reload alone, or clear unrelated browser storage. Confirm each of the
+six served `data/luafiles514/lua files/navigation/navi_*_krpri.lub` responses equals its
 Taiwan source.
 
 In this pinned app, Mods **Apply & restart server** calls `stack_up` and can
@@ -234,13 +244,23 @@ shortcuts; IME, audio, settings and network unchanged.
 
 ### Rollback
 
-- Alias mod: switch it off in Settings → Mods (or list it in `disabled.txt`),
-  restart, confirm the six requests return to their previous behaviour; remove
-  the folder only after that. Switching it back on demonstrates off/on.
-- Bundle: stop using the developer root (launch without `RAGNAROKMAC_ROOT`),
-  confirm the served `Online.js` is again the preserved original
+- Alias mod: switch only it off in Settings → Mods, Apply, then perform the
+  supported Stop/Start or full app lifecycle above. Preserve unrelated mod
+  states; compare the enabled/disabled name sets rather than restoring old
+  lists. Confirm the six requests return to their previous behaviour before
+  considering removal. Keep the installed folder for the off/on test.
+- Bundle: after saving and General Stop, verify the old game listeners and
+  VM/assets are stopped, quit the app and verify app/admin exit. Launch once
+  with both runtime-root overrides selecting the original runtime (or both
+  unset), keeping current data/state/nebula bindings. Confirm the served
+  `Online.js` is again the preserved original
   (`80f4371c…33ea`). The installed runtime was never edited, so nothing is
   restored over it.
+- Re-enable only the alias, Apply, then repeat the qualified cold lifecycle
+  with both runtime roots selecting the repaired working tree. Verify all
+  six aliases, repaired bundle, actual fresh-client behavior and the newest
+  saved state. Leave the repaired configuration enabled. This final start
+  can also qualify full app relaunch when its evidence covers that gate.
 - Keep the current saved state; the fresh backup is for recovery only, not a
   rollback step. Git reverts source only; it restores no app, save or
   installed file.
@@ -255,6 +275,6 @@ shortcuts; IME, audio, settings and network unchanged.
   come from root's earlier audit; this generator does not re-measure them.
 - A string consisting only of a UTF-8 BOM under a UTF-8 `userCharpage` would
   decode to nothing and be refused; Big5 is unaffected.
-- The serial plan above is plan-only. Developer-root delivery is unverified in
-  the installed binary. Complete world, episode, story, Traditional Chinese
-  and solo/offline gates remain open.
+- Root's bounded installed results and remaining relaunch/rollback/console
+  checks are in the linked review. Complete world, episode, story,
+  Traditional Chinese and solo/offline gates remain open.
