@@ -46,7 +46,7 @@ If an inventory shows no work is needed in one of T08–T11, both models assess 
 | T06.003.004 | P2 | Deferred/dynamic client resource dependencies | T06.003.003, selected server entities/config | `planned` | Audio/effects/entity SPR/ACT/palette/equipment/extensions, separate conditional activation and actual rendering |
 | T06.004 | P2 | Localization units and story-chain inventory | T06.002, T06.003 | `planned` | Client/server text units, encodings, quest/script chains and unresolved dynamic branches |
 | T06.005 | P2 | Reconciled content/gap report | T06.002–T06.004 | `planned` | Root audits both candidate methods/results; T07 user scope/estimate follows |
-| T07 | P2 | Exact episode/content contract and full-work estimate | T06 | `planned` | Paired coverage assessments; root audits evidence; user accepts scope |
+| T07 | P2 | Exact episode/content contract and full-work estimate | T06 | `planned` | [Root content-target preparation](reviews/2026-10-18-T07-contract-preparation.md) checks selected story transitions/deviations and finite target choices; no episode/contract/full estimate selected. Paired coverage assessment and explicit user scope acceptance still required |
 | T08 | P3 | Client/launcher localization gaps resolved | T07 | `planned` | Separate candidate branches and fixture outputs; one task per gap batch |
 | T09 | P3 | Server NPC/story/system localization gaps resolved | T07 | `planned` | Separate candidate branches; preserve quest logic and IDs |
 | T10 | P3 | Missing/broken in-scope gameplay content resolved | T07 | `planned` | Reproducer and child task per defect; compare isolated implementations |
