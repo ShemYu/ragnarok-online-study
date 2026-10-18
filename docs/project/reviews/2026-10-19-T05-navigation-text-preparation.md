@@ -68,11 +68,52 @@ Private inventory is
 `.tools/renewal/t06-static-spawn-pair-1/navigation-full-text-inventory-1.md`,
 0600. Root personally reads all of it and checks the primary source sites;
 supplementary internal assistance is not credited as Claude/Grok benchmarking.
-Actual compiled occurrences, selected resource winners, pixels, Chinese
-terminology, implementation and native behavior remain unqualified.
+Selected resource winners, pixels, Chinese terminology, implementation and
+native behavior remain unqualified. Later compiled-site checks are below.
 
 Next owner root: finish exact compiled-site/resource preparation, choose a
 bounded contract and terms, then obtain independent actual Claude/Grok attempts
 from one committed base. Personally verify the selected source and later native
 behavior before any evaluation packet. This documentation checkpoint is
 reversible with git revert; it has no external-state rollback step.
+
+## Later root compiled-site qualification
+
+Root personally checks all66candidate English literal sites, all34contexts and
+five guard-only sites against the exact repaired bundle. Every source byte span,
+length and SHA matches; contexts each occur exactly once in their declared
+window. Root inspects every short literal/context and verifies all seven bound
+modules/windows, both JSON string tokens and their decoded equality to the
+upstream raw HTML/CSS, the protected9700-byte loader repair, and all67unchanged
+complement pieces. Total **184bound span checks** pass without executing stock
+source or changing any bundle byte. This is a text-site denominator for the
+prospective transform, not a denominator for the complete game UI.
+
+Private data ledger60694bytes/SHA
+**5154f9cbef4c3ab7274cea6d4ad50432e2f122b282638bdb60be9ec56004fa96**
+is navigation-compiled-literal-ledger-1.json under the earlier preparation
+directory. Root qualification receipt navigation-ledger-root-qualification-1.json
+SHA**323ba8d97c54ebdea9603e504a3c28dea8a25fde0b9a44eaf3a3d62379fc967c**.
+Six distinct Unknown and three Select a result sites are retained. Compiled
+empty-result advice contains actual UTF-8 arrows; the upstream patch-template
+escape spelling is not the compiled byte spelling. No translated output or
+new implementation contract has been frozen.
+
+Root also personally reads the exact compiled UIButton implementation and all
+Find state/click sites. A narrower prospective solution for the two English
+bitmap captions is to retain the **ui-button elements**, classes, disabled
+attributes and handlers, remove only their bg/hover/down attributes before new
+component construction, and add Chinese text with scoped120×20CSS visual states.
+Missing image paths return without loading; the element preserves text children.
+This avoids raster edits and native-button keyboard changes. It remains a
+design choice to encode and verify in the next brief, not an installed repair.
+
+The disabled appearance must be defined with **[disabled] CSS**: without image
+callbacks initial connection does not call update, while later events can set
+inline opacity0.5/cursor default. Preserve those semantics, restrict hover/press
+rules to enabled controls, and test actual text fit, state changes, inert Share,
+Find click/reset and absence of these six bitmap requests. Removing attributes
+from an already initialized element would leave captured bitmap URIs intact,
+so a live DOM-only change is not equivalent. No new keyboard accessibility claim
+is made. Original exact bitmap attributes/CSS guards and final Chinese terms
+still need root review/freeze before the actual provider pair.
