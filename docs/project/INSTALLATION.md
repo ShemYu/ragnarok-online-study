@@ -49,7 +49,7 @@ Ignored coordinator records: `.tools/renewal/evidence/T03-{artifact,packaged-sou
 
 Git rollback is `git revert <T03-checkpoint>` and affects source/documentation only. It does not uninstall the app or restore the VM/database. Keep this fresh trial state and assets until T04's application backup plus real progress-restoration rehearsal succeeds. To undo an unused fresh trial, first stop the owned app/VM cleanly, then **move** this run's app/support directory to a named recovery location; preserve it instead of deleting uncertain state. Never apply that procedure to later user progress without a tested backup. The project and Homebrew tooling are separate.
 
-Later verified recovery supersedes that historical T03 gate: T04 demonstrated real A→B→A→B progress restoration; current G preserves later earned progress. Never apply fresh-install removal or old-save restoration to later play merely to remove a mod.
+Later verified recovery supersedes that historical T03 gate: T04 demonstrated real A→B→A→B progress restoration. The fresh [T05.006 H backup](reviews/2026-10-18-T05.006.md#fresh-full-h-created-and-validated-before-installation) now preserves the newer current save and both installed overlays, with archive/member/current-row equality and read-only inspection verified; H itself has not been restored. Never apply fresh-install removal or older A–G restoration to later play merely to remove a mod.
 
 
 ## Verified client-only item overlay (T04.003)
