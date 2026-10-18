@@ -10,7 +10,7 @@ On2026-10-19 JST root re-entered the existing T04Novice at prt_fild08 170,375, b
 
 ## Later ordinary live save — Izlude
 
-T05.006 subsequently used only ordinary walking to reach Carocc and verified the named Chinese/body/fallback/control samples. Current normal logout save is **izlude194,211**, base3/job7, EXP781/146, HP51/SP13, zeny0. The complete six-table comparison against H attributes exactly last_map/last_x/last_y, last_login and body_direction changes to travel/sign-in/NPC facing; every other selected field/schema/row is equal. This newer save supersedes H's field location for subsequent restart/off-on comparisons; H remains preserved and was never restored. [Actual dialogue and preservation proof](reviews/2026-10-18-T05.006.md#ordinary-live-sample-and-saved-progress). Re-entry/full relaunch/off-on gates remain next.
+T05.006 subsequently used only ordinary walking to reach Carocc and verified the named Chinese/body/fallback/control samples. Current normal logout save is **izlude194,211**, base3/job7, EXP781/146, HP51/SP13, zeny0. The complete six-table comparison against H attributes exactly last_map/last_x/last_y, last_login and body_direction changes to travel/sign-in/NPC facing; every other selected field/schema/row is equal. This newer save supersedes H's field location for subsequent restart/off-on comparisons; H remains preserved and was never restored. [Actual dialogue and preservation proof](reviews/2026-10-18-T05.006.md#ordinary-live-sample-and-saved-progress). Normal re-entry and full owned app/asset/service relaunch now repeat both exact Chinese lines and preserve all saved fields except expected sign-in time; fourteen protected files/modes/absences remain unchanged. Off/on gate remains next.
 
 ## Verified so far
 
