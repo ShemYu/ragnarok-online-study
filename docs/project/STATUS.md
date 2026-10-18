@@ -71,8 +71,8 @@ Do not restart the older Character Lab roadmap. Do not assume a previous worker'
 | 2026-10-18 | Completed the scheduled resource observation and host helper restriction control | 181 samples / 1800 seconds; state C backed up; external helper denied while localhost and unrestricted controls succeeded. App/VM/browser offline proof remains open |
 | 2026-10-18 | Verified guest-isolated play/save and precise Taiwan table diagnosis | All five guest/container IPv4 external controls denied, actual UI login/walk/save/re-entry passed, rules restored exactly. Modern item table and four resource GETs verified; T04.003 implementation next |
 
+| 2026-10-18 | Dispatched paired T04.003 actual implementations | Same frozen commit, private inputs and acceptance criteria; separate Orca worktrees/branches. No runtime installation or candidate PASS yet |
+
 ## Historical project
 
 The repository still contains the Godot field prototype, native format readers and Character Lab source. Its older QA reports describe earlier local assets and are historical evidence. They do not establish the Renewal candidate's current behaviour. The source-only checkout does not include those old visual assets. See the root [README](../../README.md) and the preserved research links there.
-
-| 2026-10-18 | Dispatched paired T04.003 actual implementations | Same frozen commit, private inputs and acceptance criteria; separate Orca worktrees/branches. No runtime installation or candidate PASS yet |
