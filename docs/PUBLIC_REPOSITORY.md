@@ -1,5 +1,7 @@
 # Public repository and local study assets
 
+> This source-only asset/publication policy remains applicable. The earlier Godot study described below is historical; see the [current Renewal milestone](project/GOAL.md), [status](project/STATUS.md) and [Git/state workflow](project/WORKFLOW.md). The new milestone's app, databases, game files and raw local evidence also stay outside public Git history.
+
 This repository records an independent, offline Ragnarok Online reverse-engineering study. The goal is to understand formats, animation composition and game development through a new local implementation. It is not the original game source, an official client, or a multiplayer server.
 
 ## What is versioned publicly

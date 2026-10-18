@@ -1,5 +1,7 @@
 # Revision 3 validation — 24 September 2026
 
+> Historical Godot QA evidence. For the active Renewal integration, use [current status](project/STATUS.md) and its [verification gates](project/PHASES.md); this report does not verify that runtime.
+
 Environment: macOS, Apple M1 Max, Godot **4.5.1**, GL Compatibility renderer. The active scene uses native `prt_fild08` terrain and props. The [revision 2 report](QA.md), procedural field implementation and [previous field capture](v2/field-preview.png) remain preserved.
 
 ## Verified checks

@@ -1,10 +1,24 @@
-# Ragnarok Online Study
+# Ragnarok Online Study — Renewal solo milestone
 
-Reverse-engineering Ragnarok Online's file formats, rendering and animation to learn game development and build a local, offline game. The current work includes a Godot field prototype and a browser Character Lab for applying replacement artwork to native actions.
+The current goal is a personally playable, Mac-local **Modern / Renewal RO** build with the agreed episode's maps, monsters and story, Traditional Chinese game UI/text, persistent progress and a verified solo play path. The proposed foundation is an existing RO emulator/client stack; exact episode coverage and Chinese compatibility are still unverified.
+
+**Start at [current status](docs/project/STATUS.md).** Stateless agents should read [AGENTS.md](AGENTS.md), then the assigned task and evidence. This pass changes documentation only; the new runtime has not been installed or tested.
+
+| Planning document | Purpose |
+| --- | --- |
+| [Goal and feasibility](docs/project/GOAL.md) | Decisions, known facts, uncertainties, candidate sources and initial estimates |
+| [Supervisory phases](docs/project/PHASES.md) | Coordinator verification and end-user acceptance at each gate |
+| [Task board](docs/project/TASKS.md) | Dependencies, task deliverables, status and verification contracts |
+| [Workflow and Git control](docs/project/WORKFLOW.md) | Paired Claude/Grok comparison, stateless handoff, branches and rollback |
+| [Roadmap](ROADMAP.md) | Active direction and deferred historical work |
+
+## Historical Godot and Character Lab study
+
+The source below preserves the earlier work reverse-engineering RO file formats, rendering and animation to learn game development. It includes a Godot field prototype and a browser Character Lab. These are historical research, separate from the new Renewal integration candidate and its future verification.
 
 **This public repository contains source code, tests and research notes.** Native RO files, reference images, generated artwork/video, visual fixtures and full local snapshots are excluded. A fresh clone can run the source-only checks below; the game and visual demos require separately supplied local assets. Your existing local asset folders continue to work. See [public repository scope and local asset setup](docs/PUBLIC_REPOSITORY.md).
 
-Start with the [v0.1.0 findings](docs/character-lab/native-art-poc-v0.1.0.md), [repeatable artwork workflow](docs/character-lab/WORKFLOW.md) and [next milestones](ROADMAP.md). The current result preserves one native attack while replacing the body/clothing and head; it is not yet a complete original job.
+The historical [v0.1.0 findings](docs/character-lab/native-art-poc-v0.1.0.md) and [artwork workflow](docs/character-lab/WORKFLOW.md) preserve one native attack with replacement body/clothing and head. They do not establish the new milestone's content or localization.
 
 ## Source-only checks
 
@@ -17,11 +31,11 @@ node --test tools/character-lab/tests/modular-motion.test.mjs tools/character-la
 
 The public CI runs these checks. The native fixture tests, browser comparisons and visual performance measurements documented in the milestone require the local asset pack and are not reproduced by CI.
 
-## Local game prototype
+## Historical local game prototype
 
 A standalone **Godot 4 + GDScript** learning project. The game simulation, rendering and saves run in one desktop app. Playing requires no game server, account, database service or internet connection.
 
-Godot is the chosen engine because this project needs 3D scenery, camera-facing 2D sprites, an editable scene system and a native local executable together. The bundled runtime is pinned to **Godot 4.5.1**, rather than tracking engine updates during the study.
+Godot was chosen for this prototype's 3D scenery, camera-facing 2D sprites, editable scene system and native local executable. Its runtime is pinned to **Godot 4.5.1**. This version choice concerns the historical prototype, not the proposed Renewal app.
 
 ## Play with local assets
 

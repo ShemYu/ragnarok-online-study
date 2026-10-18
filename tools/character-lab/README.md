@@ -1,5 +1,7 @@
 # Character Lab
 
+> Historical/deferred artwork tooling. Read the [current Renewal milestone status](../../docs/project/STATUS.md) before resuming this work; the Character Lab is not the active runtime or proof of its Chinese/content coverage.
+
 **Public checkout:** the visual studies require the separately retained local asset pack. Source-only tests run without it; the native verification command below requires it. Asset links in this document refer to local files. See [setup and repository scope](../../docs/PUBLIC_REPOSITORY.md).
 
 **Saved milestone: [native-art-poc v0.1.0](../../docs/character-lab/README.md).** The review, reusable workflow and restorable snapshot preserve the successful native-action artwork approach. Verify it with `python3 tools/character-lab/pipeline.py verify` from the repository root.

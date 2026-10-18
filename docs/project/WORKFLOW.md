@@ -1,0 +1,83 @@
+# Task execution, model comparison and Git control
+
+## Stateless startup
+
+Read root [AGENTS.md](../../AGENTS.md), [Status](STATUS.md), [Goal](GOAL.md), the assigned [task](TASKS.md) and its [phase](PHASES.md). Verify branch, base commit and working-tree ownership. Read the task's linked evidence, not every historical transcript. If the task lacks acceptance criteria or inputs, ask the coordinator before mutating anything.
+
+## Paired Claude/Grok task protocol
+
+Every task uses an independent Claude candidate and Grok candidate. This compares performance on that task type; no blanket model winner is assumed.
+
+1. Freeze one task brief: ID, target, exact base commit/input hashes, deliverable, allowed mutations, constraints, dependencies, timebox, acceptance checks and user-visible outcome. Use the same brief and same input set for both providers. Record launch defaults/model identities as observed; do not invent hidden model or token-cost data.
+2. For documentation/research, collect isolated read-only proposals or separately owned draft files. Neither agent may read the sibling's answer before submitting. For code, use separate Orca-managed task worktrees/branches from the same commit and independent fixture outputs.
+3. For a live app/database task, two Git worktrees are insufficient isolation. Compare read-only plans or rehearsals first, label the benchmark **plan-only**, select one for serial execution, and have the coordinator verify it. Compare two actual executions only when separate app state or a tested restore procedure makes that safe. Never call a plan-only winner a proven better implementer.
+4. Each worker submits its result, branch/commit where applicable, checks, limitations and evidence. Orca `worker_done` settles worker ownership, not user acceptance. Follow the version-matched Orca skill for launch, mail, release and recovery.
+5. The coordinator reads both, checks primary-source claims, and personally executes the relevant checks on each candidate or records the exact reason a check cannot be performed. Reject unsupported PASS claims. A blocked check stays blocked.
+6. Record scores, actual elapsed time when observable, corrections/rework, candidate artifacts, scope and chosen approach in a task-linked review. Select the stronger verified candidate, combine useful elements with attribution, or reject both and redispatch. Do not reward speed over correctness.
+7. Integrate only the selected change, rerun the required checks on the integrated revision, update tasks/status, and make a local checkpoint commit. Only then mark `ready_for_user` and assemble a concise evaluation packet.
+8. Record the user's evaluation and any issue tasks. Close/release settled workers. Update the next action before ending the coordinator turn.
+
+The planning comparison is deliberately a read-only proposal comparison, not an implementation benchmark. Re-evaluate model fit as actual tasks generate evidence.
+
+## Scorecard
+
+Score each dimension 0–4, with a brief evidence-based reason; total /20. A severe factual or ownership violation prevents selection regardless of total.
+
+| Dimension | Evidence |
+| --- | --- |
+| Correctness and evidence | Verified claims, calibrated uncertainty, correct scope/version/source boundaries |
+| Task coverage | Requested deliverables and acceptance criteria addressed without silent omissions |
+| Verification design/results | Reproducible checks, appropriate negative cases, user-visible acceptance |
+| Handoff clarity | Stateless agent can identify inputs, status, artifacts, blockers and next action |
+| Git/state discipline | Correct branch/ownership, bounded diff, source rollback and external-state recovery |
+
+Elapsed time and rework are reported alongside the score, not inferred from transcript size. If exact API cost/tokens or model version are unavailable, write `not observed`. Do not compare unrecorded costs or claim statistical superiority from one pair.
+
+## Task status
+
+| Status | Meaning |
+| --- | --- |
+| `planned` | Defined; dependencies or prior phase have not cleared |
+| `in_progress` | Assigned ownership and active attempt recorded |
+| `candidate_submitted` | Worker supplied an answer/change; coordinator has not verified it |
+| `self_verified` | Coordinator personally completed the stated checks on the current artifact |
+| `ready_for_user` | Self-verification passed, limitations/rollback documented, evaluation packet available |
+| `accepted` | User explicitly accepted the stated scope/version; record date/decision |
+| `needs_fix` | A candidate or user review failed; link the issue and next attempt |
+| `blocked` | Name the missing input and exact next action; do not call an uncertain result a pass |
+| `deferred` | Explicitly outside the active milestone or moved by a recorded decision |
+
+Task and phase acceptance are separate: mechanical internal tasks can be reviewed together at their phase gate, but each still requires coordinator verification. “Latest result” must not overwrite an older result's evidence or version.
+
+## Git branch and checkpoint policy
+
+- Baseline before this pass: `c6314bbd85caa01f54fdcc38d62168e101e2c5a4`. Current coordination branch: `ShemYu/reverse-the-Ragnarok-Online-to-play-by-myself`. It is not the default branch.
+- Documentation-only reviews may share a checkout only while read-only or when file ownership is explicitly disjoint. All mutating implementation candidates get dedicated branches such as `task/T05-claude-a1` and `task/T05-grok-a1` from the same recorded commit.
+- Create/manage Orca worktrees with the Orca CLI, loading its placement guide before doing so. Skip setup hooks for documentation-only work. Never manually repurpose another agent's active branch/worktree.
+- Before edits, inspect status/HEAD; commit only owned paths. Before checkpointing, inspect the diff and staged path list, run applicable checks, and update evidence. Local commits are authorized; publishing/pushing and merging to the default branch are separate actions.
+- Integrate a selected committed candidate onto the coordination branch with a traceable commit/cherry-pick, resolve conflicts explicitly, and reverify the integrated result. Retain the rejected candidate commit and review record for comparison.
+- Suggested messages: `docs(P0): define Renewal milestone and verification workflow`, `task(T05): verify Traditional Chinese pilot`, `fix(T09): preserve quest variables during localization`.
+- Record each checkpoint with task, parent/base commit, verification and external-state backup reference. Locate the current documentation checkpoint with `git log -1 --format='%h %s' -- AGENTS.md docs/project` instead of embedding a commit's own hash into its files.
+
+## Rollback
+
+For an already committed source checkpoint, inspect the branch/status and use `git revert <checkpoint-commit>` on the coordination branch. Revert dependent checkpoints in reverse dependency order and re-run relevant checks. Do not use destructive reset, force-push or deletion of unrelated work as the routine rollback method.
+
+Git does **not** restore the installed app, application-support files, GRFs, MariaDB, saves or local evidence. Before a runtime mutation, create a named app/database/settings backup, record app/server/client versions and input hashes, and prove restoration on isolated test state. If isolation is unavailable, report that limitation before touching the user's save. A backup's existence alone is not a successful restore test.
+
+Keep assets/installers/databases/raw logs/screenshots local and ignored; commit redacted Markdown results. Do not broaden `.gitignore` or source-publication rules just to include evidence files.
+
+## Minimal handoff record
+
+Each task-linked review must record:
+
+- Task/phase ID; date; owner and next owner/action.
+- Baseline, candidate and integrated commit; app/server/client versions and input hashes where applicable.
+- Identical brief, Claude/Grok outputs or durable references, observed provider/model information, benchmark type and score rationale.
+- Coordinator's own commands/actions and actual results; failures, fixes, skipped checks and limitations.
+- User evaluation steps, expected visible behaviour, known gaps, source rollback and external backup/restore reference.
+- Current status, elapsed effort if observed, and the condition needed to advance.
+
+## Verification for documentation changes
+
+The coordinator reviews the full diff, checks local Markdown paths/anchors, checks task/dependency/status consistency and historical labels, runs `git diff --check`, and runs `python3 tools/check_public_tree.py` after staging the intended files. These checks establish documentation/source-tree hygiene, not runtime feasibility. Game tests are not required for prose-only changes; no app, generator or installer is run during P0.

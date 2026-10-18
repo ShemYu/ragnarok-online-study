@@ -1,5 +1,7 @@
 # Revision 2 validation — 23 September 2026
 
+> Historical Godot QA evidence. For the active Renewal integration, use [current status](project/STATUS.md) and its [verification gates](project/PHASES.md); this report does not verify that runtime.
+
 Environment: macOS, Apple M1 Max, official Godot **4.5.1.stable.f62fdbde1**, GL Compatibility renderer. Commands are listed in the project README. The V1 report and source snapshot are preserved under `docs/baseline-v1/`.
 
 ## Rule and native-animation checks

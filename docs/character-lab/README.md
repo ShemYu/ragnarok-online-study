@@ -1,5 +1,7 @@
 # Character Lab milestones
 
+> Historical/deferred artwork research. Start with the [current Renewal milestone status](../project/STATUS.md) before resuming this work. These saved art checks do not verify the new game's content or Chinese localization.
+
 **Public checkout:** source and notes are available here; artwork, visual evidence and full archives remain local. Asset/archive links below refer to the local study pack. See [repository scope and setup](../PUBLIC_REPOSITORY.md).
 
 ## v0.1.0 — native actions with replacement artwork

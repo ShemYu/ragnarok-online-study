@@ -1,5 +1,7 @@
 # Study notes
 
+> Historical Godot reconstruction notes. The active Modern / Renewal solo milestone uses the separate [project goal](project/GOAL.md), [status](project/STATUS.md) and [phase plan](project/PHASES.md). Results below do not establish the new candidate runtime's behaviour.
+
 ## Engine and reconstruction approach
 
 **Godot 4 + GDScript** provides the scene graph, local game loop, GUI, navigation, 3D scenery and sprite billboards used here. The runtime is pinned to 4.5.1 for reproducibility. It is a new local implementation, not the original Ragnarok engine. No RO server process is part of this project.
