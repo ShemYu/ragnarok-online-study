@@ -15,7 +15,7 @@ If an inventory shows no work is needed in one of T08–T11, both models assess 
 | T00 | P0 | Documentation, feasibility, task plan and Git/verification protocol | — | `accepted` | Checkpoint `35ad527`; user gave go-ahead to follow strategy and finish all steps |
 | T01 | P1 | Pinned foundation/source manifest | T00 | `ready_for_user` | [Verified manifest](FOUNDATION.md), [paired review](reviews/2026-10-18-T01.md); Claude 17/20, Grok 18/20; source audit only |
 | T02 | P1 | Asset acquisition/extraction manifest; runtime compatibility pending | T01 | `ready_for_user` | [Verified acquisition](ASSETS.md), [paired review](reviews/2026-10-18-T02.md); Claude 18/20, Grok 14/20 on plans; root extracted/hashed actual files |
-| T03 | P1 | Reproducible local installation with version/hash record | T02 | `planned` | Paired plans/rehearsals first; serialize any shared app-state execution |
+| T03 | P1 | Reproducible local installation with version/hash record | T02 | `ready_for_user` | [Installation](INSTALLATION.md), [paired review](reviews/2026-10-18-T03.md); Claude 14/20, Grok 17/20 on plans. Root verified headless/browser character screen and shutdown; native-window interaction open |
 | T04 | P1 | Baseline play, persistence, offline and resource report | T03 | `planned` | Paired test designs; coordinator personally runs integrated scenarios |
 | T05 | P1 | Traditional Chinese encoding/UI/story pilot | T04 | `planned` | Isolated text fixtures and independent diagnosis; root verifies in game |
 | T06 | P2 | Full candidate content and localization inventory | T04, T05 | `planned` | Independently generated inventories or validators on the same snapshot |
@@ -51,7 +51,7 @@ If an inventory shows no work is needed in one of T08–T11, both models assess 
 ### T03 — local installation
 
 - **Output:** version-pinned, reproducible installation and a record of created app/support files, configured memory/network mode and rollback/removal procedure.
-- **Coordinator verification:** verify the downloaded artifact against the recorded hash; personally launch the app; record actual app/server/client versions and startup result. Establish backup and isolated restoration procedure before changing any existing saves.
+- **Coordinator verification:** verify the downloaded artifact against the recorded hash; personally launch the app; record actual app/server/client versions and startup result. Establish backup and isolated restoration procedure before changing any existing saves. T03 used the publisher's supported headless/browser mode after native window control failed across apps; this mode and its native-UI limitation are explicit in [Installation](INSTALLATION.md).
 - **User evaluation:** launch the app through the documented entry point and reach the character screen without agent intervention.
 
 ### T04 — basic play, persistence and resource baseline

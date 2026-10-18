@@ -17,6 +17,8 @@ Every task uses an independent Claude candidate and Grok candidate. This compare
 7. Integrate only the selected change, rerun the required checks on the integrated revision, update tasks/status, and make a local checkpoint commit for that completed/verified step before advancing. This applies to research, no-change findings and gap-task children too: commit the redacted evidence even when no code changes. Only then mark `ready_for_user` and assemble a concise evaluation packet.
 8. Record the user's evaluation and any issue tasks. Close/release settled workers. Update the next action before ending the coordinator turn.
 
+While independent read-only plans run, the coordinator may perform independently verified, reversible preparation on immutable inputs or fresh isolated state. Record this explicitly; do not mutate candidate input artifacts, touch existing user progress, read a sibling answer on a worker's behalf, or claim both plans informed an action performed before submission. Read and evaluate both plans before the final verification checkpoint or user handoff. If the frozen brief promises a stricter serial order, follow it or record the deviation and its comparison limits; changing this workflow does not retroactively satisfy an earlier brief.
+
 The planning comparison is deliberately a read-only proposal comparison, not an implementation benchmark. Re-evaluate model fit as actual tasks generate evidence.
 
 ## Scorecard
@@ -69,7 +71,7 @@ Task and phase acceptance are separate: mechanical internal tasks can be reviewe
 
 For an already committed source checkpoint, inspect the branch/status and use `git revert <checkpoint-commit>` on the coordination branch. Revert dependent checkpoints in reverse dependency order and re-run relevant checks. Do not use destructive reset, force-push or deletion of unrelated work as the routine rollback method.
 
-Git does **not** restore the installed app, application-support files, GRFs, MariaDB, saves or local evidence. Before a runtime mutation, create a named app/database/settings backup, record app/server/client versions and input hashes, and prove restoration on isolated test state. If isolation is unavailable, report that limitation before touching the user's save. A backup's existence alone is not a successful restore test.
+Git does **not** restore the installed app, application-support files, GRFs, MariaDB, saves or local evidence. Before a runtime mutation of existing progress/state, create a named app/database/settings backup, record app/server/client versions and input hashes, and prove restoration on isolated test state. A verified fresh installation with no prior state may be initialized without a nonexistent save backup; record that preflight and preserve the resulting trial state. T04 must still demonstrate backup/restore using actual test progress. If isolation is unavailable, report that limitation before touching the user's save. A backup's existence alone is not a successful restore test.
 
 Keep assets/installers/databases/raw logs/screenshots local and ignored; commit redacted Markdown results. Do not broaden `.gitignore` or source-publication rules just to include evidence files.
 

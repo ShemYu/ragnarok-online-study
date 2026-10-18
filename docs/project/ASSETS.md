@@ -1,6 +1,6 @@
 # Taiwan asset acquisition — T02
 
-Coordinator-verified 2026-10-18. Acquisition and extraction passed. Runtime loading, Traditional Chinese rendering and content coverage remain unverified. Trial files are ignored under `.tools/renewal/`; no game payload is in Git.
+Coordinator-verified 2026-10-18. Acquisition and extraction passed. T03 subsequently verified [initial browser loading and character selection](INSTALLATION.md); exhaustive retrieval, Traditional Chinese coverage and content completeness remain unverified. Trial files are ignored under `.tools/renewal/`; no game payload is in Git.
 
 ## Provenance and fingerprints
 
@@ -18,7 +18,7 @@ Extracted client root: **`.tools/renewal/assets/tw-20260409/app`**. The complete
 | `app/data0.grf` | 2123919641 | Master of Magic / `0x102` | `913402ace1d3c67818b4f070650a07eb157a6d62df9e394d596d59b4c7e6678a` |
 | `app/event.grf` | 5833135 | Master of Magic / `0x102` | `7fff4e0eececd10df9a9c4f83b70d78dc4dbb99c5ece64b117df7db8a2f85575` |
 
-Header table offsets are within each file. Header arithmetic yields 148154, 92065 and 43 entries respectively; tables have **not** been decoded or reconciled, and these are not unique-world/content counts. No `rdata.grf` is present. There are **203 BGM files, 30 System files and 5 AI files**. Loose text candidates include `System/iteminfo*.lub`, `System/LuaFiles514/MsgString.lub` and `PatchClient/Lua Files/MsgStringz/StringTable_TW.lub`. Their presence does not establish readable Chinese or server-side translated dialogue.
+Header table offsets are within each file. **T03 correction:** the pinned reader interprets GRF 3.0's count directly, giving **148161**, while legacy 1.02 arithmetic gives **92065** and **43**. T02 incorrectly subtracted the legacy adjustment from the 3.0 count (148154); archive bytes/hashes are unchanged. Tables have **not** been fully decoded or reconciled, and these are not unique-world/content counts. No `rdata.grf` is present. There are **203 BGM files, 30 System files and 5 AI files**. Loose text candidates include `System/iteminfo*.lub`, `System/LuaFiles514/MsgString.lub` and `PatchClient/Lua Files/MsgStringz/StringTable_TW.lub`. Their presence does not establish readable Chinese or server-side translated dialogue. T03's [installation record](INSTALLATION.md) adds successful browser startup and character selection, not exhaustive archive coverage.
 
 ## Reproducible extraction
 
@@ -44,10 +44,10 @@ The stock Homebrew innoextract formula reported 1.9. Instead, the coordinator bu
 
 | Input | Acquisition | Runtime/Chinese result |
 | --- | --- | --- |
-| Official Taiwan April 2026 client | Downloaded, extracted, hashed; three GRF versions identified | Pending T03/T05; verify all three formats and load order, fonts/input, text and server dialogue |
+| Official Taiwan April 2026 client | Downloaded, extracted, hashed; three GRF versions identified | T03 initial browser loading/character selection passed; exhaustive archive retrieval, native Taiwan priority, fonts/input, text and server dialogue pending |
 | Publisher's baseline kRO client | Not locally acquired | Only a publisher-tested baseline; not a local fallback PASS |
 | Optional English art pack / `official_data.grf` | Not acquired | Not needed to close this acquisition step; do not substitute it for Chinese |
 
-Next is T03: verify the pinned app artifact and actual bundled reader/runtime, install, select this client root and test loading. T04 supplies gameplay/persistence/offline/recovery evidence; T05 supplies the Chinese pilot. No client date or file count defines an episode. See the [paired review](reviews/2026-10-18-T02.md) and [Status](STATUS.md).
+T03's later [installation record](INSTALLATION.md) identifies the pinned app, actual bundled reader/runtime and verified browser startup. Next T04 supplies gameplay/persistence/offline/recovery evidence; T05 supplies the Chinese pilot. No client date or file count defines an episode. See the [acquisition review](reviews/2026-10-18-T02.md) and current [Status](STATUS.md).
 
-Git rollback restores documentation/source records only. This step changed no app or save data. Downloads/extraction/build files remain local; preserve them while the app references them. Homebrew package state is separate from Git and must be considered separately if undoing setup.
+Git rollback restores documentation/source records only. The T02 acquisition step changed no app or save data; T03's later installation is recorded separately. Downloads/extraction/build files remain local; preserve them while the app references them. Homebrew package state is separate from Git and must be considered separately if undoing setup.

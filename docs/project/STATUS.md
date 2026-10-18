@@ -5,8 +5,8 @@ Updated: 2026-10-18. Coordinator: Codex. Active scope: **execute the documented 
 ## Where we are
 
 - **Goal:** personally playable Mac-local Modern / Renewal RO, with the agreed episode's complete map/monster/story scope, Traditional Chinese game UI/text and persistent solo progression. See [Goal](GOAL.md).
-- **Phase:** P1 foundation feasibility. **Task:** T02, `ready_for_user` for acquisition/extraction; next T03. T01 checkpoint is `8cb598d`; T02's checkpoint is discoverable with `git log -1 --format='%h %s' -- docs/project/ASSETS.md`. Later gameplay/user acceptance is still pending.
-- **Runtime:** Ragnarok Offline v1.6.3 remains a candidate; app binary not yet acquired/installed. Actual Taiwan assets have been downloaded, extracted and hashed: [manifest](ASSETS.md). No game, Chinese, content or restore test has been run for this foundation.
+- **Phase:** P1 foundation feasibility. **Task:** T03, `ready_for_user` for supported headless/browser startup; T04 next after the T03 Git checkpoint. T01/T02 were checkpointed at `8cb598d` / `2523fd4`. Gameplay and user acceptance remain pending.
+- **Runtime:** Ragnarok Offline v1.6.3 is installed and verified to the browser character-selection screen with Taiwan assets: [installation](INSTALLATION.md), [paired T03 review](reviews/2026-10-18-T03.md). Root stopped the app/VM cleanly after verification. Native window control failed across apps and remains unverified. No character, gameplay, full Chinese, content or restore PASS yet.
 - **Git:** coordination branch `ShemYu/reverse-the-Ragnarok-Online-to-play-by-myself`; starting commit `c6314bbd85caa01f54fdcc38d62168e101e2c5a4`. Current documentation checkpoint: locate with `git log -1 --format='%h %s' -- AGENTS.md docs/project` after commit.
 - **First paired benchmark:** independent Claude/Grok documentation-planning proposals on the same brief. Both scored 12/20 and needed corrections; the coordinator integrated a synthesis. This is a proposal comparison, not a runtime or coding benchmark. See [Planning review](reviews/2026-10-18-planning.md).
 
@@ -22,7 +22,7 @@ The first playtest is an intermediate checkpoint within the full milestone. T01�
 | 4 | T04 | Coordinator verifies walking, combat, loot, map travel, save/reload, offline operation and recovery; basic playtest can be offered |
 | 5 | T05 | Coordinator verifies Chinese UI/input and a server story-dialogue sample; Chinese playtest can be offered |
 
-T01–T02 are verified within their scopes: **two steps remain for a basic playtest, three for a Chinese playtest**. Current task status is in the opening section and [task board](TASKS.md). The planning budget remains 2–4 engineering hours for a basic feasibility trial **after compatible assets are available**, assuming no substantial runtime or encoding fix. Taiwan loading is not verified yet. This is not a delivery promise. Complete maps/monsters/story/Chinese coverage still needs T06–T13 and a gap-based estimate; a task row may expand into many implementation children.
+T01–T03 are verified within their scopes: **one step remains for a basic playtest, two for a Chinese playtest**. Current task status is in the opening section and [task board](TASKS.md). The planning budget remains 2–4 engineering hours for a basic feasibility trial **after compatible assets are available**, assuming no substantial runtime or encoding fix. Taiwan login/character-screen loading passed; map/gameplay and comprehensive text loading are pending. This is not a delivery promise. Complete maps/monsters/story/Chinese coverage still needs T06–T13 and a gap-based estimate; a task row may expand into many implementation children.
 
 ## Confirmed versus pending
 
@@ -35,17 +35,18 @@ T01–T02 are verified within their scopes: **two steps remain for a basic playt
 | Mac M1 Max / 64 GB RAM / 500+ GiB free | Locally inspected | Read-only hardware/disk inspection; private serial/UUID excluded from records |
 | Candidate release, published requirements and Taiwan download page | Source-checked | [Versioned sources and limits](GOAL.md#evidence-sources) |
 | Tagged app/dependency pins and official Taiwan installer URL | Coordinator source checks completed and paired T01 review integrated | [Foundation trial manifest](FOUNDATION.md), [T01 review](reviews/2026-10-18-T01.md); no binary/gameplay result |
+| Installed app and local server/browser startup | Verified within T03 scope | [Installation](INSTALLATION.md): signed/notarized exact ZIP, generated settings, loopback listeners, character slots and graceful shutdown; native UI, gameplay and restore still open |
 | Exact Renewal episode / all-content contract | Unresolved | T06 inventory → T07 contract; no inferred cutoff |
 | Taiwan/Big5 text compatibility and complete zh-TW story | Unverified | T02/T05 pilot, then inventory; client translation does not translate server scripts |
-| Local GRF availability | Taiwan assets acquired and hashed | [Asset manifest](ASSETS.md): data.grf 3.0, data0/event 1.02; loading/load order pending |
+| Local GRF availability | Taiwan assets acquired, hashed and used for initial browser loading | [Asset manifest](ASSETS.md), [installation](INSTALLATION.md): mixed GRF families source-supported; explicit event → data0 → data order; native Taiwan precedence/exhaustive retrieval still unverified |
 | Companions/rule changes for party-only gates | Awaiting user decision | Optional scope question sent; no gameplay changes depend on an assumed answer |
 | Full milestone time/cost | Unknown | T07 estimates from gap inventory; setup estimates are not full delivery estimates |
 
 ## Next action and owner
 
-1. **Coordinator now:** from the committed T02 checkpoint, verify the pinned T03 app artifact/bundled reader, install and test the acquired client root. Both modern and legacy GRF formats/load order need an actual loading result.
+1. **Coordinator now:** checkpoint the verified T03 records, then run T04 paired test designs and actual normal-player gameplay, persistence, offline, backup/restore and 30-minute resource observation. Triage recorded startup warnings/errors; do not infer a clean world from the ready event.
 2. **User:** the solo-gate decision remains open; it does not block source auditing, assets or baseline play. Gameplay evaluation follows coordinator verification.
-3. **Next checkpoint:** T03 installed/identified app and startup/character-screen result. T01/T02 evidence is available; mechanical task reviews can be grouped at the P1 phase gate.
+3. **Next checkpoint:** T04 baseline report and basic playtest. Native desktop-window usability remains an open observation; the documented browser entry point is verified. Mechanical task reviews can be grouped at the P1 phase gate.
 
 Do not restart the older Character Lab roadmap. Do not assume a previous worker's PASS is current coordinator verification. Read the [task board](TASKS.md) and [workflow](WORKFLOW.md) before dispatching work.
 
@@ -62,6 +63,7 @@ Do not restart the older Character Lab roadmap. Do not assume a previous worker'
 | 2026-10-18 | Completed paired T01 source audit and coordinator manifest verification | Claude 17/20, Grok 18/20 on research only; tagged source/dependencies pinned, no installed app or gameplay claim |
 | 2026-10-18 | Recorded first-play checkpoints and stronger user checkpoint/escalation requirement | Three steps after T01 for basic play, four for Chinese pilot; commit every completed/verified step and seek a user decision before a critical goal change |
 | 2026-10-18 | Completed T02 paired plans and actual coordinator acquisition/extraction | 4936 files hashed, three GRFs identified, 203 BGM files; mixed versions/load order and Chinese remain untested; two steps to basic play, three to Chinese pilot |
+| 2026-10-18 | Completed T03 installation and supported browser character-screen verification | Claude 14/20, Grok 17/20 on plans; root verified artifact/signature/configuration/server readiness/loopback/login/shutdown. Native control unavailable; T04 gameplay/recovery and T05 Chinese pending. Corrected GRF 3.0 header count, documented preparation-order deviation |
 
 ## Historical project
 
