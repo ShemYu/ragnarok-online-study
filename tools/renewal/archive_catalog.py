@@ -11,14 +11,17 @@ Each archive is opened through a no-follow descriptor, size-checked, and then
 streamed once: the same pass computes the full SHA-256 and captures the header
 and the file-table bytes that are then parsed. Identity (device, inode, size,
 mtime, ctime) is compared before and after, and the path must still name the
-same regular file. Payloads are never read, decrypted or decompressed.
+same regular file. Payload bytes pass through the full-archive hash; they are
+never interpreted, extracted, decrypted or decompressed.
 
 The header, table and record rules follow RemoteClient src/grf.rs and the
 one-round block transform of src/des.rs at the pinned revision (rules below).
-Checks the source itself performs are reported as source rejections; additional
-strict checks (zlib end-of-stream, checksum, trailing data, bounded output) are
-validator-policy refusals, and source-accepted variants this child does not
-implement are refused as unsupported. No refusal produces a completion record.
+Checks the source itself performs, including surfaced decompression errors and
+decoded-size mismatch, are reported as source rejections. Additional complete
+zlib framing/no-trailing and work limits are validator policies; source-accepted
+variants this child does not implement are refused as unsupported. Failures
+remove only verified owned completion files; cleanup failures or foreign
+replacements are diagnosed, and the output must be treated as failed.
 
 Output is one JSONL file of raw records per archive in archive/table order, a
 manifest and a hash-binding completion record written last. Status complete
@@ -37,7 +40,7 @@ import struct
 import sys
 import zlib
 
-VERSION = "1.0.0"
+VERSION = "1.0.1"
 OUTPUT_MANIFEST = "catalog-manifest.json"
 OUTPUT_COMPLETE = "catalog-complete.json"
 OUTPUT_FAILED = "catalog-failed.json"
@@ -146,7 +149,8 @@ PROFILE = {
                     "INI parsing, ordering or priority beyond the pinned basenames",
                     "filename codecs (CP949/UTF-8/Latin-1), Unicode or path normalisation, "
                     "case folding, .gat stripping, key merging or precedence",
-                    "payload read, decryption, decompression or validation"],
+                    "payload interpretation, extraction, decryption, decompression or "
+                    "validation (opaque bytes are read for full-archive hashing)"],
     "assumptions": ["The pinned input manifest's order and archive identities are the frozen "
                     "inputs; installed loose files, caches and overrides are separate state.",
                     "Names are raw table bytes; legacy names are the clear bytes after the "
@@ -168,8 +172,9 @@ VALIDATOR_POLICY = [
     "Unsupported: source-accepted variants not implemented here are refused as unsupported.",
     "Leftover bytes after the declared record count are recorded (length and hash), as the "
     "source does not reject them.",
-    "Any refusal leaves no completion record; status complete only means the bounded raw "
-    "catalog was produced.",
+    "On failure, cleanup removes only a verified owned completion file when possible. "
+    "Removal failures or foreign replacements are diagnosed; that directory remains "
+    "failed despite any marker. Successful completion means only the bounded raw catalog.",
 ]
 
 EXCLUSIONS = [
@@ -702,7 +707,9 @@ def catalog_archive_bytes(blob, name="archive.grf", emit=None):
 # --- Pinned inputs ----------------------------------------------------------------------
 
 DIR_FLAGS = os.O_RDONLY | os.O_DIRECTORY | os.O_NOFOLLOW
-FILE_FLAGS = os.O_RDONLY | os.O_NOFOLLOW
+# Opening a FIFO must not wait for a writer before fstat can reject it. Regular
+# files retain ordinary read semantics with O_NONBLOCK on the supported host.
+FILE_FLAGS = os.O_RDONLY | os.O_NOFOLLOW | os.O_NONBLOCK
 
 
 def _open_dir(path, what):
@@ -888,7 +895,9 @@ class RecordFile:
     def __init__(self, dir_fd, name, created):
         fd = os.open(name, os.O_WRONLY | os.O_CREAT | os.O_EXCL | os.O_NOFOLLOW, 0o600,
                      dir_fd=dir_fd)
-        created.append(name)
+        created[name] = None
+        info = os.fstat(fd)
+        created[name] = (info.st_dev, info.st_ino)
         self.name = name
         self.handle = os.fdopen(fd, "wb")
         os.fchmod(self.handle.fileno(), 0o600)
@@ -915,31 +924,41 @@ class RecordFile:
 def _write_new(dir_fd, name, data, created):
     fd = os.open(name, os.O_WRONLY | os.O_CREAT | os.O_EXCL | os.O_NOFOLLOW, 0o600,
                  dir_fd=dir_fd)
-    created.append(name)  # this run owns the file from here on
+    # Remember ownership before writing: write/flush/close can fail after the
+    # exclusive creation. None means identity capture failed; never unlink an
+    # unverified file during cleanup.
+    created[name] = None
     with os.fdopen(fd, "wb") as handle:
+        info = os.fstat(handle.fileno())
+        created[name] = (info.st_dev, info.st_ino)
         os.fchmod(handle.fileno(), 0o600)
         handle.write(data)
         handle.flush()
         os.fsync(handle.fileno())
 
 
-def _verify_published(dir_fd, name, size, digest):
+def _verify_published(dir_fd, name, size, digest, expected_identity=None):
     """Read back a published file by no-follow descriptor: size, hash and private mode."""
     fd = os.open(name, FILE_FLAGS, dir_fd=dir_fd)
     try:
         info = os.fstat(fd)
+        if not stat.S_ISREG(info.st_mode) or stat.S_IMODE(info.st_mode) != 0o600 or \
+                info.st_uid != os.geteuid() or info.st_size != size or \
+                (expected_identity is not None and
+                (info.st_dev, info.st_ino) != expected_identity):
+            raise OutputError(f"published {name} is not the owned private regular file")
         hasher = hashlib.sha256()
         total = 0
-        while True:
-            chunk = os.read(fd, 1 << 20)
+        while total <= size:
+            chunk = os.read(fd, min(1 << 20, size + 1 - total))
             if not chunk:
                 break
             hasher.update(chunk)
             total += len(chunk)
+        after = os.fstat(fd)
     finally:
         os.close(fd)
-    if not stat.S_ISREG(info.st_mode) or stat.S_IMODE(info.st_mode) != 0o600 or \
-            info.st_uid != os.geteuid() or total != size or hasher.hexdigest() != digest:
+    if total != size or hasher.hexdigest() != digest or _identity(info) != _identity(after):
         raise OutputError(f"published {name} differs from the generated bytes or mode")
 
 
@@ -983,7 +1002,7 @@ def run(input_dir, archive_root, output, archive_pins=ARCHIVE_PINS, input_pins=I
         os.close(root_fd)
         raise OutputError(f"output exists or cannot be created, refusing: {target}: "
                           f"{exc.strerror}") from None
-    out_fd, identity, created = None, None, []
+    out_fd, identity, created = None, None, {}
     usage = {"archive_bytes_hashed": 0, "table_bytes_captured": 0, "records": 0,
              "record_file_bytes": 0}
     try:
@@ -1006,7 +1025,7 @@ def run(input_dir, archive_root, output, archive_pins=ARCHIVE_PINS, input_pins=I
             del stored
             record_file = writer.close()
             _verify_published(out_fd, record_file["file"], record_file["bytes"],
-                              record_file["sha256"])
+                              record_file["sha256"], created[record_file["file"]])
             usage["records"] += counts["raw_records"]
             usage["record_file_bytes"] += record_file["bytes"]
             if usage["records"] > WORK_LIMITS["max_records_total"]:
@@ -1015,6 +1034,11 @@ def run(input_dir, archive_root, output, archive_pins=ARCHIVE_PINS, input_pins=I
                              "sha256": pin["sha256"], "header": header, "table": table,
                              "input_manifest_agreement": agreement,
                              "counts": counts, "records_file": record_file})
+        # All archive reads are finished. A close error must fail inside the
+        # publication transaction, before a success record can exist. Relinquish
+        # the descriptor first so a close error cannot trigger a second close.
+        closing_root, root_fd = root_fd, None
+        os.close(closing_root)
         provenance = {
             "generator": {"tool": "tools/renewal/archive_catalog.py", "version": VERSION,
                           "source_sha256": sha256(Path(__file__).read_bytes())},
@@ -1026,7 +1050,8 @@ def run(input_dir, archive_root, output, archive_pins=ARCHIVE_PINS, input_pins=I
         manifest = build_manifest(provenance, archives, usage)
         manifest_bytes = render(manifest)
         _write_new(out_fd, OUTPUT_MANIFEST, manifest_bytes, created)
-        _verify_published(out_fd, OUTPUT_MANIFEST, len(manifest_bytes), sha256(manifest_bytes))
+        _verify_published(out_fd, OUTPUT_MANIFEST, len(manifest_bytes), sha256(manifest_bytes),
+                          created[OUTPUT_MANIFEST])
         complete = render({
             "generator_version": VERSION, "status": manifest["status"],
             "catalog_manifest": OUTPUT_MANIFEST,
@@ -1034,8 +1059,12 @@ def run(input_dir, archive_root, output, archive_pins=ARCHIVE_PINS, input_pins=I
             "record_files": {a["records_file"]["file"]: a["records_file"]["sha256"]
                              for a in archives},
         })
+        hashes = {"manifest_sha256": sha256(manifest_bytes),
+                  "manifest_bytes": len(manifest_bytes),
+                  "complete_sha256": sha256(complete)}
         _write_new(out_fd, OUTPUT_COMPLETE, complete, created)
-        _verify_published(out_fd, OUTPUT_COMPLETE, len(complete), sha256(complete))
+        _verify_published(out_fd, OUTPUT_COMPLETE, len(complete), hashes["complete_sha256"],
+                          created[OUTPUT_COMPLETE])
         if sorted(os.listdir(out_fd)) != sorted(created):
             raise OutputError("output directory holds files this run did not write")
         # Close is part of publication, not a finally action allowed to turn a
@@ -1043,7 +1072,7 @@ def run(input_dir, archive_root, output, archive_pins=ARCHIVE_PINS, input_pins=I
         closing_fd, out_fd = out_fd, None
         os.close(closing_fd)
     except Exception as exc:
-        note = "; partial output without a completion record remains (failed); inspect it " \
+        note = "; partial output remains (failed); inspect it " \
                "before deleting or retrying"
         if OUTPUT_COMPLETE in created:
             cleanup_fd, reopened = out_fd, False
@@ -1055,6 +1084,10 @@ def run(input_dir, archive_root, output, archive_pins=ARCHIVE_PINS, input_pins=I
                     current = os.fstat(cleanup_fd)
                     if (current.st_dev, current.st_ino) != identity:
                         raise OutputError("reserved output directory was replaced")
+                marker = os.stat(OUTPUT_COMPLETE, dir_fd=cleanup_fd, follow_symlinks=False)
+                if not stat.S_ISREG(marker.st_mode) or \
+                        (marker.st_dev, marker.st_ino) != created[OUTPUT_COMPLETE]:
+                    raise OutputError("completion was replaced; foreign file preserved")
                 os.unlink(OUTPUT_COMPLETE, dir_fd=cleanup_fd)
             except FileNotFoundError:
                 pass
@@ -1070,26 +1103,30 @@ def run(input_dir, archive_root, output, archive_pins=ARCHIVE_PINS, input_pins=I
         category = exc.category if isinstance(exc, CatalogError) else "unexpected"
         error = type(exc) if isinstance(exc, CatalogError) else OutputError
         if out_fd is not None and OUTPUT_FAILED not in created:
-            # Best effort, path-free marker; the missing completion record is what counts.
+            # Best effort and path-free; a foreign completion may remain, so the
+            # diagnostic must not claim that this directory has no such file.
             try:
                 _write_new(out_fd, OUTPUT_FAILED, render({
                     "generator_version": VERSION, "status": "failed", "category": category,
                     "files_written_by_run": sorted(set(created) - {OUTPUT_COMPLETE}),
-                    "meaning": "partial output; no completion record; do not use"}), created)
+                    "meaning": "failed publication; do not use this directory as a "
+                               "completed catalog"}), created)
             except Exception as marker:
                 note += f"; failure marker not written ({type(marker).__name__})"
         prefix = "unexpected: " if category == "unexpected" else ""
         raise error(f"{prefix}{exc}{note}") from None
     finally:
-        os.close(root_fd)
+        if root_fd is not None:
+            try:
+                os.close(root_fd)
+            except OSError:
+                pass  # failure already reported, before completion publication
         if out_fd is not None:
             try:
                 os.close(out_fd)
             except Exception:
                 pass  # failure already reported; never mask its cleanup outcome
-    return target, manifest, {"manifest_sha256": sha256(manifest_bytes),
-                              "manifest_bytes": len(manifest_bytes),
-                              "complete_sha256": sha256(complete)}
+    return target, manifest, hashes
 
 
 def main(argv=None):

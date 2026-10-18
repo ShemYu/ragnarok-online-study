@@ -12,6 +12,7 @@ $T06_CLIENT_INPUTS and $T06_ARCHIVE_ROOT and is skipped when they are unset or
 absent. There is no way to bypass the CLI pins.
 """
 
+import errno
 import hashlib
 import json
 import os
@@ -19,6 +20,7 @@ from pathlib import Path
 import random
 import stat
 import struct
+import subprocess
 import sys
 import tempfile
 import unittest
@@ -750,10 +752,10 @@ class PublicationTests(unittest.TestCase):
     def test_completion_readback_failure_removes_completion(self):
         real = ac._verify_published
 
-        def failing(dir_fd, name, size, digest):
+        def failing(dir_fd, name, size, digest, *identity):
             if name == ac.OUTPUT_COMPLETE:
                 raise ac.OutputError("simulated readback mismatch")
-            return real(dir_fd, name, size, digest)
+            return real(dir_fd, name, size, digest, *identity)
 
         with mock.patch.object(ac, "_verify_published", failing):
             with self.assertRaisesRegex(ac.OutputError, "readback"):
@@ -800,6 +802,149 @@ class PublicationTests(unittest.TestCase):
             code = ac.main([str(self.fx.inputs), str(self.fx.root), str(out)])
         self.assertEqual(code, 2)
         self.assertFalse(os.path.lexists(out))
+
+
+class RootPublicationRegressions(unittest.TestCase):
+    """Coordinator regressions for independently reproduced raw-candidate defects."""
+
+    setUp = PublicationTests.setUp
+    tearDown = PublicationTests.tearDown
+    assert_failed = PublicationTests.assert_failed
+
+    def check_fifo_refused(self, operation, path):
+        # A bounded owned child prevents a regression from hanging the suite.
+        code = """
+import importlib.util, os, sys
+from pathlib import Path
+spec = importlib.util.spec_from_file_location('ac', sys.argv[1])
+ac = importlib.util.module_from_spec(spec)
+spec.loader.exec_module(ac)
+parent, name = Path(sys.argv[3]).parent, Path(sys.argv[3]).name
+fd = os.open(parent, ac.DIR_FLAGS)
+try:
+    try:
+        if sys.argv[2] == 'input':
+            ac._read_pinned(fd, name, {'bytes': 1, 'sha256': '0' * 64})
+        elif sys.argv[2] == 'archive':
+            ac.read_archive(fd, {'file': name, 'bytes': 1},
+                            {'archive_bytes_hashed': 0, 'table_bytes_captured': 0})
+        else:
+            ac._verify_published(fd, name, 0, ac.sha256(b''))
+    except ac.CatalogError:
+        sys.exit(0)
+    raise AssertionError('FIFO accepted')
+finally:
+    os.close(fd)
+"""
+        result = subprocess.run([sys.executable, "-I", "-B", "-c", code,
+                                 str(Path(ac.__file__).resolve()), operation, str(path)],
+                                capture_output=True, timeout=3, check=False)
+        self.assertEqual(result.returncode, 0, result.stderr.decode())
+
+    def test_root_fifo_input_archive_and_readback_refused(self):
+        for operation in ("input", "archive", "readback"):
+            with self.subTest(operation):
+                path = self.fx.base / (operation + ".fifo")
+                os.mkfifo(path, 0o600)
+                self.check_fifo_refused(operation, path)
+
+    def test_root_archive_root_close_error_prevents_completion(self):
+        real_open, real_close = ac._open_dir, os.close
+        state = {"fd": None, "closed": False, "injected": False}
+
+        def track(path, what):
+            fd = real_open(path, what)
+            if what == "acquired archive root":
+                state["fd"] = fd
+            return fd
+
+        def fail(fd):
+            if fd == state["fd"] and not state["closed"]:
+                state["closed"] = True
+                real_close(fd)
+                state["injected"] = True
+                raise OSError(errno.EIO, "injected archive-root close")
+            real_close(fd)
+
+        with mock.patch.object(ac, "_open_dir", track), \
+                mock.patch.object(ac.os, "close", fail):
+            with self.assertRaisesRegex(ac.OutputError, "archive-root close"):
+                self.fx.run()
+        self.assertTrue(state["injected"])
+        self.assert_failed()
+
+    def test_root_output_directory_close_error_removes_completion(self):
+        real_open, real_close = os.open, os.close
+        state = {"fd": None, "injected": False}
+
+        def track(path, flags, *args, **kwargs):
+            fd = real_open(path, flags, *args, **kwargs)
+            if path == self.fx.base / "out":
+                state["fd"] = fd
+            return fd
+
+        def fail(fd):
+            real_close(fd)
+            if fd == state["fd"] and not state["injected"]:
+                state["injected"] = True
+                raise OSError(errno.EIO, "injected output-directory close")
+
+        with mock.patch.object(ac.os, "open", track), \
+                mock.patch.object(ac.os, "close", fail):
+            with self.assertRaisesRegex(ac.OutputError, "output-directory close"):
+                self.fx.run()
+        self.assertTrue(state["injected"])
+        self.assert_failed()
+
+    def test_root_foreign_completion_preserved_even_with_identical_bytes(self):
+        real_verify = ac._verify_published
+        for kind in ("different", "identical", "symlink"):
+            with self.subTest(kind):
+                out = "foreign-" + kind
+                replacement = b"foreign completion; preserve me\n"
+
+                def replace(fd, name, size, digest, *identity):
+                    nonlocal replacement
+                    if name == ac.OUTPUT_COMPLETE:
+                        original = self.fx.base / out / name
+                        if kind == "identical":
+                            replacement = original.read_bytes()
+                        # Keep the original inode alive to avoid inode reuse.
+                        os.rename(name, "owned-marker.saved", src_dir_fd=fd, dst_dir_fd=fd)
+                        if kind == "symlink":
+                            referent = self.fx.base / "foreign-referent"
+                            referent.write_bytes(replacement)
+                            os.symlink(referent, name, dir_fd=fd)
+                        else:
+                            foreign = os.open(name, os.O_WRONLY | os.O_CREAT | os.O_EXCL,
+                                              0o600, dir_fd=fd)
+                            with os.fdopen(foreign, "wb") as handle:
+                                handle.write(replacement)
+                    return real_verify(fd, name, size, digest, *identity)
+
+                with mock.patch.object(ac, "_verify_published", replace):
+                    with self.assertRaisesRegex(ac.OutputError, "foreign file preserved"):
+                        self.fx.run(out)
+                target = self.fx.base / out
+                self.assertEqual((target / ac.OUTPUT_COMPLETE).read_bytes(), replacement)
+                self.assertEqual((target / ac.OUTPUT_COMPLETE).is_symlink(), kind == "symlink")
+                failed = json.loads((target / ac.OUTPUT_FAILED).read_bytes())
+                self.assertEqual(failed["status"], "failed")
+                self.assertNotIn("no completion", failed["meaning"])
+
+    def test_root_partial_completion_write_error_removes_owned_marker(self):
+        real_fsync = os.fsync
+
+        def fail(fd):
+            marker = self.fx.base / "out" / ac.OUTPUT_COMPLETE
+            if marker.exists() and os.fstat(fd).st_ino == marker.stat().st_ino:
+                raise OSError(errno.EIO, "injected completion fsync")
+            return real_fsync(fd)
+
+        with mock.patch.object(ac.os, "fsync", fail):
+            with self.assertRaisesRegex(ac.OutputError, "completion fsync"):
+                self.fx.run()
+        self.assert_failed()
 
 
 @unittest.skipUnless(

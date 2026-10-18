@@ -187,16 +187,26 @@ The output parent must exist, be a real directory owned by you and not be
 group/world writable. The target is created with an exclusive `mkdir` (0700), so
 an existing file, directory, or live or dangling symlink is refused unchanged.
 
-Files are created with `O_EXCL|O_NOFOLLOW` (0600). Records are streamed and
-hashed as they are written. Each file is then read back by no-follow descriptor
-and checked for size, hash, mode and owner before the next step. The completion
-record comes last. A directory listing must then show only files this run wrote.
+Version1.0.1 opens inputs/readbacks with `O_NOFOLLOW|O_NONBLOCK` and rejects
+nonregular files before reading, so a FIFO cannot wait for a writer. Files are
+created with `O_EXCL|O_NOFOLLOW` (0600), recording device/inode ownership before
+writes. Records are streamed and hashed as they are written. Readback checks
+identity/type/size/mode/owner before reading, caps reads at expected size plus
+one byte, then checks hash and stable descriptor identity. Archive-root close
+is protected and occurs before the manifest/completion. The completion record
+comes last; output-directory close is also protected. A directory listing must
+show only files this run wrote.
 
-On any refusal, I/O error or ordinary unexpected exception after the completion
-record exists, that record is removed. If its removal fails, the error says so.
-Foreign files are never removed. Reverting the source commit and deleting an
-output directory are separate rollbacks. No installed or external state is
-changed, so none needs restoring.
+On refusal, I/O error or ordinary unexpected exception, cleanup removes only a
+regular completion file whose device/inode matches this run's creation. A
+foreign replacement or unknown ownership is preserved and the diagnostic says
+the output failed despite the remaining record. A failed marker also labels
+the directory unusable. An owned partial marker is cleaned after write/fsync
+failure; cleanup errors are reported. These checks assume a private parent and
+ordinary filesystem failures; identity-check-then-unlink is not an atomic
+defense against an adversarial same-user replacement or inode reuse. Reverting
+source and removing a verified owned scratch output are separate rollbacks.
+No installed or external state is changed, so none needs restoring.
 
 ## What this is not
 
