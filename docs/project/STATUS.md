@@ -76,6 +76,8 @@ Do not restart the older Character Lab roadmap. Do not assume a previous worker'
 
 ## Decision and progress log
 
+The independent [T05.003 UI binding child](reviews/2026-10-18-T05.003.md) is frozen for a real Claude/Grok implementation pair. Root verified twelve pinned primary inputs and incorporated actual descriptor/replay/removal semantics before dispatch. Four authored files and a detached browser fixture are in scope; no installed mod or current-game change. Dispatch/base/candidate results are pending. Both older Grok attempts remain live on their original tasks; no restart or deadline-based cancellation. Content-target clarification is pending; the full goal remains unchanged.
+
 | Date | Change | Evidence / effect |
 | --- | --- | --- |
 | 2026-10-18 | Reframed milestone from a small custom Godot game to a full-content personal Renewal build | Existing emulator/client integration is the proposed foundation; Godot/art factory deferred |
