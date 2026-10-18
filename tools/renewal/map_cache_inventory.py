@@ -44,7 +44,7 @@ import zlib
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 import server_selection  # noqa: E402  (canonical snapshot verifier, used unmodified)
 
-VERSION = "1.0.0"
+VERSION = "1.0.1"
 OUTPUT_MANIFEST = "map-cache-manifest.json"
 OUTPUT_COMPLETE = "map-cache-complete.json"
 SNAPSHOT_SERVER_ROOT = "rathena/"
@@ -385,15 +385,18 @@ def build_index(files, db_path):
 
 def decode_record(payload, cells, budget):
     """Strict bounded decode. Return (record fields, problem or None)."""
-    if budget["decoded"] + cells > WORK_LIMITS["max_decoded_bytes_total"]:
+    # Reserve the maximum output before calling zlib: checksum errors can hide
+    # bytes already produced, and the extra byte is real work on overlong data.
+    cap = cells + 1
+    if budget["decoded"] + cap > WORK_LIMITS["max_decoded_bytes_total"]:
         raise InventoryError(f"aggregate decoded size above "
                              f"{WORK_LIMITS['max_decoded_bytes_total']} bytes; refused")
+    budget["decoded"] += cap
     decoder = zlib.decompressobj()
     try:
-        out = decoder.decompress(payload, cells + 1)
+        out = decoder.decompress(payload, cap)
     except zlib.error as exc:
         return {}, f"zlib_error: {exc}"
-    budget["decoded"] += len(out)
     fields = {"decoded_bytes": len(out)}
     if len(out) > cells:
         return fields, "decoded_longer_than_expected"
@@ -553,6 +556,7 @@ def reconcile(candidates, index, caches):
     present = [c for c in caches if c.get("present")]
     loaded = {}
     results = []
+    uncertain_since = None
     for ordinal, candidate in enumerate(candidates):
         name = candidate["name"].encode("ascii")
         attempts = []
@@ -570,6 +574,15 @@ def reconcile(candidates, index, caches):
                   "index_lookup": {"normalised": text(normalised), "id": idx}}
         if success is not None and success["outcome"].startswith("unresolved"):
             result["disposition"] = "unresolved_unsafe"
+            if uncertain_since is None:
+                uncertain_since = ordinal
+            result["uncertainty_since_ordinal"] = uncertain_since
+        elif uncertain_since is not None:
+            # The source ignores decode failures. An unsafe prior read can
+            # occupy an index and shift compacted slots; keep subsequent local
+            # evidence, but do not claim a definite continuation through it.
+            result["disposition"] = "unresolved_due_to_prior_candidate"
+            result["uncertainty_since_ordinal"] = uncertain_since
         elif not idx or success is None:
             reasons = []
             if idx is None:
@@ -731,7 +744,7 @@ def build_manifest(server_files, selection, provenance):
     entries_unsafe = any(e.get("decode") == "unsafe"
                          for c in caches if c.get("present") for e in c["entries"])
     files_unsafe = any(c.get("status") == "unsafe" for c in caches)
-    unresolved = any(r["disposition"] == "unresolved_unsafe" for r in results)
+    unresolved = any(r["disposition"].startswith("unresolved") for r in results)
     status = "incomplete" if (entries_unsafe or files_unsafe or unresolved) else "complete"
     reads = index.reads + [{k: c[k] for k in ("path", "present", "bytes", "sha256") if k in c}
                            for c in caches]
@@ -756,6 +769,9 @@ def build_manifest(server_files, selection, provenance):
         "validator_policy": VALIDATOR_POLICY,
         "work_limits": WORK_LIMITS,
         "work_used": budget,
+        "work_accounting": "work_used.decoded reserves expected cells+1 before each "
+                           "inflate, including failed decodes; it is an upper-bound "
+                           "work reservation, not the actual decoded-byte total",
         "not_checked": NOT_CHECKED,
     }
 
@@ -820,10 +836,11 @@ def write_output(out_dir, manifest_bytes, status):
     except OSError as exc:
         raise InventoryError(f"output exists or cannot be created, refusing: {target}: "
                              f"{exc}") from None
-    out_fd, created = None, []
+    out_fd, identity, created = None, None, []
     try:
         out_fd = os.open(target, DIR_FLAGS)
         info = os.fstat(out_fd)
+        identity = (info.st_dev, info.st_ino)
         if info.st_uid != os.geteuid() or info.st_mode & 0o077:
             raise InventoryError("reserved output directory is not private to you")
         _write_new(out_fd, OUTPUT_MANIFEST, manifest_bytes)
@@ -832,21 +849,45 @@ def write_output(out_dir, manifest_bytes, status):
         _read_back(out_fd, OUTPUT_COMPLETE, complete)
         if sorted(os.listdir(out_fd)) != sorted((OUTPUT_MANIFEST, OUTPUT_COMPLETE)):
             raise InventoryError("output directory holds files this run did not write")
-    except (OSError, InventoryError) as exc:
+        # Close is part of publication, not a finally action allowed to turn a
+        # success marker into a failed CLI result without running cleanup.
+        closing_fd, out_fd = out_fd, None
+        os.close(closing_fd)
+    except Exception as exc:
         note = "; incomplete output without a completion record remains, inspect it " \
                "before deleting or retrying"
         if OUTPUT_COMPLETE in created:
+            cleanup_fd = out_fd
+            reopened = False
             try:
-                os.unlink(OUTPUT_COMPLETE, dir_fd=out_fd)
+                if cleanup_fd is None:
+                    # A failed close may already have closed the descriptor.
+                    # Reopen only the directory this run reserved, never a
+                    # replacement installed at that pathname by another writer.
+                    cleanup_fd = os.open(target, DIR_FLAGS)
+                    reopened = True
+                    current = os.fstat(cleanup_fd)
+                    if (current.st_dev, current.st_ino) != identity:
+                        raise InventoryError("reserved output directory was replaced")
+                os.unlink(OUTPUT_COMPLETE, dir_fd=cleanup_fd)
             except FileNotFoundError:
                 pass
-            except OSError as cleanup:
+            except Exception as cleanup:
                 note = (f"; could not remove {OUTPUT_COMPLETE} ({cleanup}); treat this output "
                         "as failed and incomplete despite the record")
+            finally:
+                if reopened:
+                    try:
+                        os.close(cleanup_fd)
+                    except Exception:
+                        pass  # preserve the publication/marker-cleanup diagnostic
         raise InventoryError(f"could not publish output to {target}: {exc}{note}") from None
     finally:
         if out_fd is not None:
-            os.close(out_fd)
+            try:
+                os.close(out_fd)
+            except Exception:
+                pass  # failure already reported; never mask its cleanup outcome
     return target, sha256(complete)
 
 

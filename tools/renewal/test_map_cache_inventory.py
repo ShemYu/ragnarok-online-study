@@ -334,6 +334,60 @@ class StrictPayloadTests(unittest.TestCase):
             with self.assertRaises(mci.InventoryError):
                 inventory(b"", {MAIN: cache(entry("a", 2, 2), entry("b", 2, 2))}, [])
 
+    def test_error_and_lookahead_work_is_reserved_before_inflate(self):
+        good = zlib.compress(bytes(4))
+        checksum_bad = good[:-1] + bytes([good[-1] ^ 1])
+        for payload in (checksum_bad, zlib.compress(bytes(5))):
+            with self.subTest(payload=payload):
+                budget = {"decoded": 0}
+                real = mci.zlib.decompressobj
+                with mock.patch.dict(mci.WORK_LIMITS, {"max_decoded_bytes_total": 9}), \
+                        mock.patch.object(mci.zlib, "decompressobj", wraps=real) as factory:
+                    _, problem = mci.decode_record(payload, 4, budget)
+                    self.assertIsNotNone(problem)
+                    self.assertEqual(budget["decoded"], 5)
+                    with self.assertRaises(mci.InventoryError):
+                        mci.decode_record(payload, 4, budget)
+                    self.assertEqual(factory.call_count, 1)
+                    self.assertEqual(budget["decoded"], 5)
+
+    def test_exact_reservation_boundary(self):
+        payload = zlib.compress(bytes(4))
+        with mock.patch.dict(mci.WORK_LIMITS, {"max_decoded_bytes_total": 5}):
+            budget = {"decoded": 0}
+            fields, problem = mci.decode_record(payload, 4, budget)
+            self.assertIsNone(problem)
+            self.assertEqual(fields["decoded_bytes"], 4)
+            self.assertEqual(budget["decoded"], 5)
+        with mock.patch.dict(mci.WORK_LIMITS, {"max_decoded_bytes_total": 4}), \
+                mock.patch.object(mci.zlib, "decompressobj") as factory:
+            with self.assertRaises(mci.InventoryError):
+                mci.decode_record(payload, 4, {"decoded": 0})
+            factory.assert_not_called()
+
+    def test_prior_unsafe_candidate_invalidates_later_occupancy_and_slots(self):
+        good = zlib.compress(bytes(4))
+        bad = good[:-1] + bytes([good[-1] ^ 1])
+        files = {"db/map_index.txt": b"before 3\nA 1\nB 2\n",
+                 MAIN: cache(entry("before", 1, 1), entry("A.gat", 2, 2, payload=bad),
+                             entry("A", 2, 2), entry("B", 1, 1))}
+        names = ["before", "A.gat", "A", "B", "missing"]
+        manifest = mci.build_manifest(files, selection_doc(names), PROVENANCE)
+        rows = manifest["candidates"]
+        self.assertEqual(manifest["status"], "incomplete")
+        self.assertEqual(disposition(rows), ["retained", "unresolved_unsafe"]
+                         + ["unresolved_due_to_prior_candidate"] * 3)
+        self.assertEqual(rows[0]["slot"], 0)
+        for row in rows[1:]:
+            self.assertNotIn("slot", row)
+            self.assertNotIn("index_id", row)
+            self.assertEqual(row["uncertainty_since_ordinal"], 1)
+        self.assertEqual(rows[2]["index_lookup"]["id"], 1)
+        self.assertEqual(rows[3]["index_lookup"]["id"], 2)
+        self.assertEqual(rows[2]["attempts"][-1]["outcome"], "read")
+        self.assertEqual(rows[4]["attempts"][-1]["outcome"], "not_found")
+        self.assertEqual(rows[3]["config_line"], 4)
+
     def test_unsafe_attempt_precedes_index_check(self):
         """An unindexed candidate whose cache record is corrupt is unresolved, not discarded."""
         caches = {MAIN: cache(entry("a", 2, 2, payload=b"junk"))}
@@ -640,6 +694,103 @@ class OutputTests(unittest.TestCase):
             with self.assertRaisesRegex(mci.InventoryError, "without a completion record"):
                 mci.write_output(self.parent / "out", b"{}\n", "complete")
         self.assertEqual(os.listdir(self.parent / "out"), ["map-cache-manifest.json"])
+
+    def test_unexpected_post_readback_failures_remove_owned_completion(self):
+        real = mci._read_back
+        for number, exception in enumerate((RuntimeError, MemoryError)):
+            with self.subTest(exception=exception.__name__):
+                def fail_after_readback(fd, name, expect):
+                    real(fd, name, expect)
+                    if name == mci.OUTPUT_COMPLETE:
+                        raise exception("injected after actual readback")
+
+                target = self.parent / str(number)
+                with mock.patch.object(mci, "_read_back", fail_after_readback):
+                    with self.assertRaisesRegex(mci.InventoryError, "without a completion record"):
+                        mci.write_output(target, b'{"status":"complete"}\n', "complete")
+                self.assertEqual(os.listdir(target), [mci.OUTPUT_MANIFEST])
+
+    def test_unexpected_marker_cleanup_failure_is_explicit(self):
+        real = mci._read_back
+
+        def fail(fd, name, expect):
+            real(fd, name, expect)
+            if name == mci.OUTPUT_COMPLETE:
+                raise RuntimeError("readback failure")
+
+        with mock.patch.object(mci, "_read_back", fail), \
+                mock.patch.object(mci.os, "unlink", side_effect=RuntimeError("cleanup failure")):
+            with self.assertRaisesRegex(mci.InventoryError, "could not remove.*cleanup failure"):
+                mci.write_output(self.parent / "out", b"{}\n", "complete")
+
+    def test_final_directory_close_failure_removes_owned_marker(self):
+        real_read, real_close = mci._read_back, mci.os.close
+        for number, exception in enumerate((OSError, RuntimeError, MemoryError)):
+            seen = []
+
+            def capture(fd, name, expect):
+                real_read(fd, name, expect)
+                if name == mci.OUTPUT_COMPLETE:
+                    seen.append(fd)
+
+            def close_then_fail(fd):
+                real_close(fd)
+                if seen and fd == seen[0]:
+                    raise exception("injected final directory close")
+
+            target = self.parent / f"close-{number}"
+            with self.subTest(exception=exception.__name__), \
+                    mock.patch.object(mci, "_read_back", capture), \
+                    mock.patch.object(mci.os, "close", close_then_fail):
+                with self.assertRaisesRegex(mci.InventoryError, "without a completion record"):
+                    mci.write_output(target, b"{}\n", "complete")
+            self.assertEqual(os.listdir(target), [mci.OUTPUT_MANIFEST])
+
+    def test_close_failure_cleanup_refuses_replacement_directory(self):
+        target, moved = self.parent / "out", self.parent / "moved"
+        real_read, real_close = mci._read_back, mci.os.close
+        seen = []
+
+        def capture(fd, name, expect):
+            real_read(fd, name, expect)
+            if name == mci.OUTPUT_COMPLETE:
+                seen.append(fd)
+
+        def replace_then_fail(fd):
+            real_close(fd)
+            if seen and fd == seen.pop():
+                target.rename(moved)
+                target.mkdir(mode=0o700)
+                (target / mci.OUTPUT_COMPLETE).write_bytes(b"foreign")
+                raise OSError("injected final close and replacement")
+
+        with mock.patch.object(mci, "_read_back", capture), \
+                mock.patch.object(mci.os, "close", replace_then_fail):
+            with self.assertRaisesRegex(mci.InventoryError, "could not remove.*directory was replaced"):
+                mci.write_output(target, b"{}\n", "complete")
+        self.assertEqual((target / mci.OUTPUT_COMPLETE).read_bytes(), b"foreign")
+        self.assertTrue((moved / mci.OUTPUT_COMPLETE).is_file())
+
+    def test_failure_close_does_not_mask_marker_cleanup_error(self):
+        real_read, real_close = mci._read_back, mci.os.close
+        seen = []
+
+        def fail_readback(fd, name, expect):
+            real_read(fd, name, expect)
+            if name == mci.OUTPUT_COMPLETE:
+                seen.append(fd)
+                raise RuntimeError("injected readback")
+
+        def close_then_fail(fd):
+            real_close(fd)
+            if seen and fd == seen[0]:
+                raise OSError("injected failure close")
+
+        with mock.patch.object(mci, "_read_back", fail_readback), \
+                mock.patch.object(mci.os, "close", close_then_fail), \
+                mock.patch.object(mci.os, "unlink", side_effect=PermissionError("unlink denied")):
+            with self.assertRaisesRegex(mci.InventoryError, "could not remove.*unlink denied"):
+                mci.write_output(self.parent / "out", b"{}\n", "complete")
 
     def test_manifest_write_failure_leaves_no_completion(self):
         def fail(*args, **kwargs):

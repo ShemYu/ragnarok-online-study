@@ -113,8 +113,11 @@ for:
   cell histogram are recorded; payloads are never copied out.
 - Cell values 0..6 are recognised; others are counted as unknown cells (the
   source warns and uses zero flags) without failing the record.
-- Work limits: 65536 index chunks, 65535 records per file and in total, 512 MiB
-  aggregate decoded output, 65536 candidates. Exceeding one is a refusal.
+- Work limits: 65536 index chunks, 65535 records per file, 65536 records in total,
+  512 MiB aggregate decode-work reservation, 65536 candidates. Each inflate reserves
+  `xs*ys+1` before calling zlib, including failures and the lookahead byte. The
+  reservation is an upper bound; `summary.cache_decoded_bytes` is the actual
+  successful output total. Exceeding a limit is a refusal before that inflate.
 
 A structural or name rule failure makes the whole file `unsafe`; a candidate
 whose attempt reaches it, or reaches a bad name, is `unresolved_unsafe`. A
@@ -123,6 +126,14 @@ payload failure is unsafe for that record; a candidate matching it is
 refusals, not source-proven removals. Conservatively, a file broken only by
 policy (for example trailing bytes) also leaves names found before the defect
 unresolved.
+
+After the first unsafe candidate, every later occurrence remains
+`unresolved_due_to_prior_candidate` (or `unresolved_unsafe` for its own unsafe
+attempt), with `uncertainty_since_ordinal`. Local cache/index evidence and
+provenance are still recorded, but no definite retention, removal or compacted
+slot is claimed through that prefix. The source ignores decode failures, so
+earlier occupancy and slot shifts cannot safely be inferred. An unsafe unused
+record still makes the inventory incomplete without poisoning unrelated rows.
 
 ## Output
 
@@ -144,7 +155,12 @@ completion record is written only after the manifest is verified, and the
 directory must then hold exactly the two files. On failure, a completion record
 this run created is removed; if removal fails the error says so and the output
 must be treated as failed. A partial directory without a completion record is
-left for inspection. Another process running as the same user can still race
+left for inspection. Ordinary exceptions, including final directory-close
+failures, run this cleanup. If a failed close already closed the descriptor,
+cleanup reopens and verifies the reserved directory's device/inode before
+removing its marker; a replacement directory is left alone and the error
+reports cleanup failure. A later close cannot mask that diagnostic.
+Another process running as the same user can still race
 between steps; treat any output without a valid completion record, or whose
 manifest hash differs from it, as failed.
 
