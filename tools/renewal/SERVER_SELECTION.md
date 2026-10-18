@@ -27,7 +27,11 @@ output/
 └── selection-complete.json   written last: manifest SHA-256 and generator version
 ```
 
-Without `selection-complete.json` the output is incomplete.
+Without `selection-complete.json` the publication is incomplete. A published
+report still needs `status: complete`: exit `0` means complete selection, exit `1`
+means a published selection with missing/unsupported references, and exit `2`
+means integrity/input/publication refusal. A failed run is never accepted merely
+because a completion filename exists.
 
 ## Input checks
 
@@ -79,8 +83,8 @@ is **not** proof of the installed binary's compile options or command line.
   ` map` and `map ` are unknown keys. A key that reaches the width without `:`
   is silently ignored (`ignored_key_overflow`). A `//` before the colon makes
   the key itself contain a newline and become unknown.
-- **Refused input** (no output): physical lines over 1023 bytes (fgets would
-  split them), NUL or control bytes other than tab/CR/LF in a visited config
+- **Refused input** (no output): physical records over 1023 bytes **including the
+  newline** (fgets would split them), NUL or control bytes other than tab/CR/LF in a visited config
   file, non-ASCII recorded values, absolute paths, `..`, backslashes, import
   cycles, nesting deeper than 32 and more than 4096 visits.
 - **Settings.** Values are kept only for `map`, `delmap`, `npc`, `delnpc`,
@@ -91,13 +95,17 @@ is **not** proof of the installed binary's compile options or command line.
 - **Maps.** Every addition is kept in order with its file and line, including
   duplicates. `map: clear` and `delmap: all` (any case) empty the list;
   `delmap` removes only the first exact normalized match. Names strip a final
-  `.gat` in any case, clip to 11 bytes and keep their case. The 1499-slot limit
+  `.gat` in any case only when it is the full remaining C-string tail, then
+  clip to 11 bytes and keep their case. A bounded prefix ending in .gat followed
+  by more bytes is not a stripped suffix. The 1499-slot limit
   rejects further additions, which are listed separately. Distinct names are a
   separate list. These are configuration candidates, not loaded maps.
 - **NPC sources.** `npc: clear` and `delnpc: all` (any case) empty the list. An
   existing regular file is added once per exact raw string, so `npc/x.txt`,
   `./npc/x.txt` and `npc/./x.txt` are distinct entries for one file (reported
   under `same_file_aliases`). `delnpc` removes only the identical raw string.
+  A regular file followed by `/` or `/.` fails directory traversal and is not
+  opened/selected. Valid directory aliases such as ./npc/./x.txt remain valid.
   Missing files, directories, case mismatches and paths outside the snapshot's
   four directories are not added and are reported with provenance.
 
@@ -129,4 +137,14 @@ modelled server behaviour and do not by themselves make the result incomplete.
   exclusive `mkdir`, moves the manifest in through directory descriptors, reads
   it back, and writes the completion record last. A concurrent writer running
   as the same user could interfere between those steps; on failure after the
-  reservation an incomplete directory may remain for inspection.
+  reservation an incomplete directory may remain for inspection. On write or
+  readback failure the tool removes its completion marker through the owned
+  directory descriptor. If the operating system also refuses that cleanup,
+  the error explicitly says the marker could not be removed; that failed output
+  must remain incomplete regardless of a filename's presence.
+
+Version 1.0.1 includes coordinator fixes to the Claude candidate: terminal-file-dot,
+fgets boundary, full-tail .gat diagnostics and completion failure regressions
+were reproduced against the source profile before correction. Grok's correct
+boundary/name behavior and explicit incomplete exit informed those corrections;
+its independent candidate and comparison remain in project review history.

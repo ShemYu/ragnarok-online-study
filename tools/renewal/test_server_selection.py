@@ -7,6 +7,9 @@ the default .tools/renewal/t06-candidates/integrated-2, and is skipped when abse
 """
 
 import hashlib
+from contextlib import redirect_stdout
+import errno
+import io
 import json
 import os
 from pathlib import Path
@@ -14,6 +17,7 @@ import stat
 import sys
 import tempfile
 import unittest
+from unittest import mock
 
 sys.path.insert(0, str(Path(__file__).resolve().parent))
 import server_selection as sel  # noqa: E402
@@ -98,9 +102,10 @@ class ParserRules(unittest.TestCase):
         self.assertEqual(keys, [("map_config", "k" * 31), ("npc_config", "q" * 40)])
 
     def test_overlong_nul_and_control_input_rejected(self):
-        ok = b"map: " + b"x" * (sel.LINE_MAX - 5) + b"\n"
+        ok = b"map: " + b"x" * (sel.LINE_MAX - 6) + b"\n"
         self.assertEqual(len(run(tree(ok))["maps"]["candidates"]), 1)
-        for bad in (b"map: " + b"x" * (sel.LINE_MAX - 4) + b"\n", b"map: a\0b\n",
+        self.assertEqual(len(run(tree(ok[:-1] + b"x"))["maps"]["candidates"]), 1)
+        for bad in (b"map: " + b"x" * (sel.LINE_MAX - 5) + b"\n", b"map: a\0b\n",
                     b"map: a\x0bb\n", b"// \x1b comment\n"):
             with self.assertRaises(sel.SelectionError):
                 run(tree(bad))
@@ -123,6 +128,12 @@ class ParserRules(unittest.TestCase):
                                    ("api_token", False, 1), ("password", False, 1)})
         location = [u for u in result["ignored_settings"] if u["key"] == "passwd"][0]
         self.assertEqual(location["locations"], [{"file": "conf/map_athena.conf", "line": 2}])
+
+    def test_comment_derived_sensitive_values_are_absent(self):
+        result = run(tree(b"passwd: //SECRET_A\napi_token // note: SECRET_B\nmap: ok\n"))
+        self.assertEqual(maps(result), ["ok"])
+        for secret in (b"SECRET_A", b"SECRET_B"):
+            self.assertNotIn(secret, sel.render(result))
 
     def test_db_path_and_use_grf(self):
         conf = b"db_path: abcdefghijklmnop\nuse_grf: YES\nuse_grf: 7\n"
@@ -199,6 +210,32 @@ class ImportOrder(unittest.TestCase):
             with self.assertRaises(sel.SelectionError, msg=line):
                 run(tree(line))
 
+    def test_regular_file_directory_suffixes_do_not_execute_or_select(self):
+        files = tree(b"import: conf/a.conf/.\nimport: conf/a.conf/\n"
+                     b"npc: npc/x.txt/.\nnpc: npc/x.txt/\n",
+                     conf__a_DOT_conf=b"map: wrong\n", npc__x_DOT_txt=b"x")
+        result = run(files)
+        self.assertEqual(maps(result), [])
+        self.assertEqual(npcs(result), [])
+        self.assertEqual(result["status"], "incomplete")
+        self.assertEqual(len(result["diagnostics"]), 4)
+        self.assertTrue(all(d["kind"].endswith("_missing") for d in result["diagnostics"]))
+        # Directory aliases remain valid; only traversal through a regular file fails.
+        valid = tree(b"import: ./conf/./a.conf\nnpc: ./npc/./x.txt\n",
+                     conf__a_DOT_conf=b"map: good\n", npc__x_DOT_txt=b"x")
+        self.assertEqual(maps(run(valid)), ["good"])
+        self.assertEqual(npcs(run(valid)), ["./npc/./x.txt"])
+
+    def test_repeated_import_and_event_work_is_bounded(self):
+        files = tree(b"import: conf/a.conf\nimport: conf/a.conf\n",
+                     conf__a_DOT_conf=b"map: a\n")
+        with mock.patch.object(sel, "MAX_VISITS", 2):
+            with self.assertRaisesRegex(sel.SelectionError, "config visits"):
+                run(files)
+        with mock.patch.object(sel, "MAX_EVENTS", 3):
+            with self.assertRaisesRegex(sel.SelectionError, "configuration events"):
+                run(files)
+
 
 class MapList(unittest.TestCase):
     def test_duplicates_clear_all_and_delete_first(self):
@@ -225,9 +262,9 @@ class MapList(unittest.TestCase):
         self.assertEqual(flags[0], ["gat_stripped"])
         self.assertEqual(flags[3], ["too_long_warning", "clipped"])
         self.assertEqual(flags[5], ["gat_stripped", "empty_name"])
-        # 16+ chars: only the first 15 are examined for '.gat' (string[len-4] at len 15).
+        # stricmp examines the full tail at string[len-4], including the extra X.
         self.assertEqual(sel.map_name(b"abcdefghijk.gatX"), (b"abcdefghijk", [
-            "too_long_warning", "gat_stripped"]))
+            "too_long_warning", "clipped"]))
 
     def test_capacity(self):
         conf = b"".join(b"map: m%d\n" % i for i in range(sel.MAP_SLOTS + 2))
@@ -421,6 +458,66 @@ class Publication(unittest.TestCase):
         with self.assertRaisesRegex(sel.SelectionError, "does not exist"):
             sel.write_output(Path(self.tmp.name, "absent", "out"), b"{}\n")
         self.assertEqual(os.listdir(open_parent), [])
+
+    def test_completion_readback_failure_removes_marker(self):
+        real_read = sel._read_back
+
+        def fail_complete(fd, name, expected):
+            if name == sel.OUTPUT_COMPLETE:
+                raise OSError(errno.EIO, "synthetic completion readback failure")
+            return real_read(fd, name, expected)
+
+        target = self.parent / "out"
+        with mock.patch.object(sel, "_read_back", side_effect=fail_complete):
+            with self.assertRaisesRegex(sel.SelectionError, "incomplete output"):
+                sel.write_output(target, b"{}\n")
+        self.assertTrue((target / sel.OUTPUT_MANIFEST).is_file())
+        self.assertFalse((target / sel.OUTPUT_COMPLETE).exists())
+        self.assertEqual(os.listdir(self.parent), ["out"])
+
+    def test_partial_completion_write_failure_removes_marker(self):
+        real_write = sel._write_new
+
+        def fail_complete(fd, name, data):
+            real_write(fd, name, data[:1] if name == sel.OUTPUT_COMPLETE else data)
+            if name == sel.OUTPUT_COMPLETE:
+                raise OSError(errno.ENOSPC, "synthetic partial completion write")
+
+        target = self.parent / "out"
+        with mock.patch.object(sel, "_write_new", side_effect=fail_complete):
+            with self.assertRaisesRegex(sel.SelectionError, "incomplete output"):
+                sel.write_output(target, b"{}\n")
+        self.assertFalse((target / sel.OUTPUT_COMPLETE).exists())
+        self.assertEqual(os.listdir(self.parent), ["out"])
+
+    def test_failed_marker_cleanup_is_explicit(self):
+        real_read, real_unlink = sel._read_back, os.unlink
+
+        def fail_complete(fd, name, expected):
+            if name == sel.OUTPUT_COMPLETE:
+                raise OSError(errno.EIO, "synthetic read failure")
+            return real_read(fd, name, expected)
+
+        def deny_marker(path, *args, **kwargs):
+            if path == sel.OUTPUT_COMPLETE:
+                raise OSError(errno.EACCES, "synthetic unlink failure")
+            return real_unlink(path, *args, **kwargs)
+
+        target = self.parent / "out"
+        with mock.patch.object(sel, "_read_back", side_effect=fail_complete), \
+                mock.patch.object(os, "unlink", side_effect=deny_marker):
+            with self.assertRaisesRegex(sel.SelectionError, "could not remove completion marker"):
+                sel.write_output(target, b"{}\n")
+        self.assertTrue((target / sel.OUTPUT_COMPLETE).is_file())
+
+    def test_incomplete_cli_report_uses_nonzero_exit(self):
+        missing = tree(b"npc: npc/missing.txt\n")
+        with mock.patch.object(sel, "read_snapshot", return_value=(b"{}\n", missing)), \
+                redirect_stdout(io.StringIO()):
+            code = sel.main(["synthetic-snapshot", str(self.parent / "out")])
+        self.assertEqual(code, 1)
+        output = json.loads((self.parent / "out" / sel.OUTPUT_MANIFEST).read_bytes())
+        self.assertEqual(output["status"], "incomplete")
 
 
 @unittest.skipUnless((PINNED_SNAPSHOT / sel.SNAPSHOT_MANIFEST).is_file(),

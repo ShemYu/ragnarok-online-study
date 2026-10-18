@@ -29,7 +29,7 @@ import stat
 import sys
 import tempfile
 
-VERSION = "1.0.0"
+VERSION = "1.0.1"
 PINNED_MANIFEST_SHA256 = "79ee4eff2ed1621aa3be6247d0aedefc5f44abd65025617de652f41644c1dbd0"
 PINNED_COUNTS = {"files": 1683, "bytes": 68752782}
 SNAPSHOT_MANIFEST = "snapshot-manifest.json"
@@ -288,7 +288,7 @@ def split_lines(data, where):
         end = len(data) if end < 0 else end + 1
         number += 1
         line = data[start:end]
-        if len(line.rstrip(b"\n")) > LINE_MAX:
+        if len(line) > LINE_MAX:
             raise SelectionError(f"{where}:{number}: line longer than {LINE_MAX} bytes would be "
                                  "split by fgets; unsupported input")
         yield number, line
@@ -338,7 +338,9 @@ def map_name(raw):
     if length == MAP_NAME_LEN_EXT:
         flags.append("too_long_warning")
         length -= 1
-    if length >= 4 and raw[length - 4:length].lower() == b".gat":
+    # stricmp compares the entire remaining C string, even when strnlen hit
+    # its bound. A prefix ending in .gat followed by more bytes is no suffix.
+    if length >= 4 and raw[length - 4:].lower() == b".gat":
         length -= 4
         flags.append("gat_stripped")
     if length > MAP_NAME_LEN - 1:
@@ -352,7 +354,7 @@ def map_name(raw):
 # --- Path resolution --------------------------------------------------------------
 
 def logical_path(raw, where):
-    """Safe server-root-relative path for raw config text, or raise. Returns (path, trailing_slash)."""
+    """Return a safe logical path and whether its raw suffix requires a directory."""
     if any(b >= 0x80 for b in raw):
         raise SelectionError(f"{where}: non-ASCII path {text(raw)!r}; unsupported input")
     value = raw.decode("ascii")
@@ -363,7 +365,8 @@ def logical_path(raw, where):
     parts = value.split("/")
     if ".." in parts:
         raise SelectionError(f"{where}: '..' in path {value!r}; refused")
-    trailing = value.endswith("/")
+    # POSIX file/. requires file to be a directory just as file/ does.
+    trailing = value.endswith("/") or parts[-1] == "."
     parts = [p for p in parts if p not in ("", ".")]
     return "/".join(parts), trailing
 
@@ -386,7 +389,7 @@ class Tree:
     def lookup(self, path, trailing):
         """Return (kind, detail): file, directory, missing, case_mismatch, outside_snapshot_scope."""
         if path in self.files:
-            return ("missing", "trailing slash on a regular file") if trailing else ("file", None)
+            return ("missing", "directory suffix on a regular file") if trailing else ("file", None)
         if path in self.dirs:
             return "directory", None
         if path.casefold() in self.fold:
@@ -733,8 +736,20 @@ def write_output(out_dir, manifest_bytes):
         _write_new(out_fd, OUTPUT_COMPLETE, complete)
         _read_back(out_fd, OUTPUT_COMPLETE, complete)
     except (OSError, SelectionError) as exc:
-        note = ("; incomplete output without selection-complete.json may remain, inspect it "
-                "before retrying" if reserved else "")
+        cleanup_error = None
+        if out_fd is not None:
+            try:
+                os.unlink(OUTPUT_COMPLETE, dir_fd=out_fd)
+            except FileNotFoundError:
+                pass
+            except OSError as cleanup_exc:
+                cleanup_error = cleanup_exc
+        if cleanup_error is not None:
+            note = ("; could not remove completion marker; treat this failed output as "
+                    "incomplete and inspect it before retrying")
+        else:
+            note = ("; incomplete output without selection-complete.json may remain, inspect it "
+                    "before retrying" if reserved else "")
         raise SelectionError(f"could not publish output to {target}: {exc}{note}") from None
     finally:
         for fd in (stage_fd, out_fd):
@@ -769,7 +784,7 @@ def main(argv=None):
     print(json.dumps({"output": str(target), "selection_manifest_sha256": sha256(data),
                       "status": selection["status"], "counts": selection["counts"]},
                      sort_keys=True))
-    return 0
+    return 0 if selection["status"] == "complete" else 1
 
 
 if __name__ == "__main__":

@@ -1,4 +1,12 @@
-# Taiwan item table to UTF-8 source mod (T04.003)
+# Renewal project tools
+
+Related tools have separate scope and input pins:
+
+- [Immutable shipped-server snapshot](SERVER_SNAPSHOT.md) — T06.001.
+- [Ordered stock map/NPC configuration selection](SERVER_SELECTION.md) — T06.002.001.
+- [Traditional Chinese Carocc pilot](CAROCC_ZH_PILOT.md) — T05.001.
+
+## Taiwan item table to UTF-8 source mod (T04.003)
 
 `tw_iteminfo_utf8.py` turns the Taiwan client's compiled modern item table
 (`System/iteminfo_new.lub`, Lua 5.1 bytecode) into a client-only mod whose
