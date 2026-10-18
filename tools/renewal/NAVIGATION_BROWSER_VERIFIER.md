@@ -38,9 +38,11 @@ and validated before `OUTPUT` is created.
 Success prints one JSON line `{"files": 5, "manifest_sha256": …, "output":
 <basename>, "state": "generated", "task": "T05.008"}`. A refusal or failure
 exits 1 with a one-line, path-free diagnosis and no traceback. A wrong
-argument count or a leading `-` exits 2 with usage. A failed write, fsync or
-close removes only the files this run created, then the new directory. A
-partial `OUTPUT` is never left behind or reused.
+argument count or a leading `-` exits 2 with usage. Write, fsync and file-close
+failures attempt to remove only files this run created. A directory-close failure is reported with a bounded refusal and is
+never retried with uncertain descriptor ownership; failed output may remain,
+even if every artifact was written. Do not consume a failed output. Every
+existing output, including a failed tree, is refused rather than overwritten.
 
 ## Output
 
@@ -131,9 +133,11 @@ timeouts. No page or CLI input reaches it.
   `localStorage` and `sessionStorage` twice. It sorts the `[key, value]`
   pairs, serializes them as JSON (unambiguous) and reports only `count` and
   `sha256` per area. An unavailable, throwing or unstable read refuses the
-  action, and a changed snapshot is reported as `storage-changed`, never as
-  success. No key, value, cookie, credential, exception message or stack is
-  ever rendered. This checks WebStorage equality only. It does not cover
+  action. A fresh unchanged-storage guard also runs immediately before each
+  file removal and alias request, after their asynchronous preflight work.
+  Changed storage stops the next mutation and is reported as `storage-changed`,
+  never as success. No key, value, cookie, credential, exception message or
+  stack is ever rendered. This checks WebStorage equality only. It does not cover
   cookies, IndexedDB or any filesystem file it does not read.
 - **Finite outcomes.** Each report has `state`, one of `inspected`,
   `removed-verified`, `refreshed-verified`, `refused`, `failed` or
@@ -201,8 +205,11 @@ runs these steps in order:
 4. **Absence recheck.** All six filesystem copies must still be absent.
 
 Every fetch uses `redirect:'error'`, `credentials:'same-origin'` and an abort
-signal. A response must have `redirected === false`, exactly the requested
-`url` and `type === 'basic'`. Bodies are read with a cap: the pinned size for
+signal. The fetch/read timeout is an inactivity limit per operation, not an
+overall response deadline. Oversized-body cancellation is awaited with the
+same settlement tracking: rejection is handled, and a timed-out cancellation
+keeps mutation locked until it settles and a later clean inspection succeeds.
+A response must have `redirected === false`, exactly the requested `url` and `type === 'basic'`. Bodies are read with a cap: the pinned size for
 a 200, or 64 KiB for a 404. They are never exposed. In original mode every
 response must be 404, and a default-phase 200 is `stale-default-response`. In
 repaired mode every response must be 200 with the exact size and SHA-256.
@@ -218,7 +225,7 @@ T05_008_INPUT_ROOT=<frozen input root> \
 node --test tools/renewal/test_navigation_browser_cache.mjs
 ```
 
-Python tests (13):
+Python tests (14):
 
 - **G01 (needs the frozen input root; skipped, never passed, without it).**
   Checks the eight frozen inputs and their modes without mutating them. Runs
@@ -237,7 +244,7 @@ Python tests (13):
   expression shape: one module script, listeners registered before insertion,
   and no import/eval/Blob/config/storage tokens.
 
-Node tests (43, authored doubles plus Node WebCrypto):
+Node tests (48, authored doubles plus Node WebCrypto):
 
 - **Module.** Import has no side effects. Production pins equal the
   generator profile, and alias encoding equals FileManager's. A source scan
@@ -290,3 +297,11 @@ the cache. Two worktrees do not isolate browser cache or the app database.
 WebStorage equality says nothing about cookies or unread filesystem files.
 This verifier does not establish complete cache clearance, offline
 readiness, full Chinese coverage or world readiness.
+
+Root regression additions R01–R05 cover storage changes during the full cache
+precheck, first target revalidation and bundle preflight (zero mutation),
+a later storage change stopping the next alias request, rejecting cancellation
+without an unhandled error, and pending cancellation remaining locked through
+inspection until real settlement. The Python directory-close control requires
+one bounded failure, no retry and refusal to reuse the retained failed tree.
+These remain authored checks; the browser/cache/save gates above stay separate.

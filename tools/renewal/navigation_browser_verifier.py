@@ -478,6 +478,14 @@ def _write_file(directory_fd, name, data, created):
     os.close(fd)
 
 
+def _close_directory(fd):
+    try:
+        os.close(fd)
+    except OSError:
+        # Never retry a close whose descriptor ownership is uncertain.
+        raise VerifierError("closing OUTPUT failed; do not use this output")
+
+
 def _write_tree(output, files):
     """Create OUTPUT and its files exclusively; manifest last."""
     try:
@@ -502,8 +510,9 @@ def _write_tree(output, files):
             except OSError:
                 pass
         if directory_fd is not None:
-            os.close(directory_fd)
+            closing_fd = directory_fd
             directory_fd = None
+            _close_directory(closing_fd)
         try:
             os.rmdir(output)
         except OSError:
@@ -512,7 +521,9 @@ def _write_tree(output, files):
         raise VerifierError("writing OUTPUT failed: %s" % reason)
     finally:
         if directory_fd is not None:
-            os.close(directory_fd)
+            closing_fd = directory_fd
+            directory_fd = None
+            _close_directory(closing_fd)
 
 
 def build(api_path, output, profile=PROFILE, module_path=AUTHORED_MODULE):

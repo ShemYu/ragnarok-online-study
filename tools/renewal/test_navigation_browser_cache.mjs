@@ -696,6 +696,91 @@ test('C23 concurrent actions are refused while one runs', async () => {
 	assert.ok(s.changes.some(c => c.busy));
 });
 
+// Root regression controls for mutations after asynchronous preflight work.
+test('R01 storage changed during full precheck or first revalidation prevents every delete', async () => {
+	for (const changeAt of [6, 7]) {
+		const local = new Area({ [SECRET_KEY]: SECRET_VALUE });
+		let opens = 0;
+		const s = setup({ files: matchingFiles(), local, fsOptions: { hooks: { getFile: () => {
+			if (++opens === changeAt) { local.map.set(SECRET_KEY, 'changed'); }
+		} } } });
+		const r = await s.verifier.remove();
+		assert.equal(r.code, 'storage-changed');
+		assert.equal(r.state, 'failed');
+		assert.equal(ops(s.fsd.log, 'remove').length, 0);
+		assert.equal(s.fsd.files.size, 6);
+		assertPrivate(r, s.areas);
+	}
+});
+
+test('R02 storage changed during bundle preflight prevents every alias request', async () => {
+	const local = new Area({ [SECRET_KEY]: SECRET_VALUE });
+	const route = serverRoute('original');
+	const s = setup({ local, route: (u, init) => {
+		if (init.cache === 'no-store') { local.map.set(SECRET_KEY, 'changed'); }
+		return route(u, init);
+	} });
+	const r = await s.verifier.refresh('original');
+	assert.equal(r.code, 'storage-changed');
+	assert.equal(r.state, 'failed');
+	assert.equal(s.fetchLog.length, 1);
+	assert.equal(r.http.length, 0);
+	assertPrivate(r, s.areas);
+});
+
+test('R03 storage changed after one alias request prevents the next request and locks', async () => {
+	const local = new Area({ [SECRET_KEY]: SECRET_VALUE });
+	const route = serverRoute('original');
+	const s = setup({ local, route: (u, init) => {
+		if (init.cache === 'reload') { local.map.set(SECRET_KEY, 'changed'); }
+		return route(u, init);
+	} });
+	const r = await s.verifier.refresh('original');
+	assert.equal(r.code, 'storage-changed');
+	assert.equal(s.fetchLog.length, 2);
+	assert.equal(r.lock.mutation_locked, true);
+	assertPrivate(r, s.areas);
+});
+
+test('R04 overflow cancellation rejection is handled without leaking its error', async () => {
+	let cancels = 0;
+	const url = aliasUrl(PINS_TARGETS[0].path);
+	const body = { getReader: () => ({
+		read: async () => ({ done: false, value: new Uint8Array(PINS_TARGETS[0].bytes + 1) }),
+		cancel: () => { cancels += 1; return Promise.reject(new Error(SECRET_VALUE)); }
+	}) };
+	const s = setup({ route: serverRoute('repaired', { [url + '|reload']: u => response(u, 200, null, { body }) }) });
+	const r = await s.verifier.refresh('repaired');
+	await sleep(5); // node:test also fails if a rejection escapes this action.
+	assert.equal(r.code, 'body-too-large');
+	assert.equal(r.state, 'failed');
+	assert.equal(cancels, 1);
+	assertPrivate(r, s.areas);
+});
+
+test('R05 unsettled overflow cancellation requires settlement and a later clean inspection', async () => {
+	let release;
+	const url = aliasUrl(PINS_TARGETS[0].path);
+	const body = { getReader: () => ({
+		read: async () => ({ done: false, value: new Uint8Array(PINS_TARGETS[0].bytes + 1) }),
+		cancel: () => new Promise(resolve => { release = resolve; })
+	}) };
+	const s = setup({ pins: { fetchTimeoutMs: 40 }, route: serverRoute('repaired', { [url + '|reload']: u => response(u, 200, null, { body }) }) });
+	const r = await s.verifier.refresh('repaired');
+	assert.equal(r.state, 'uncertain');
+	assert.equal(r.code, 'timeout');
+	assert.equal(r.lock.pending, 1);
+	const pendingInspection = await s.verifier.inspect();
+	assert.equal(pendingInspection.released_lock, undefined);
+	assert.equal(pendingInspection.lock.can_mutate, false);
+	release();
+	await sleep(5);
+	assert.equal(s.verifier.status().pending, 0);
+	assert.equal(s.verifier.status().mutation_locked, true);
+	assert.equal((await s.verifier.inspect()).released_lock, true);
+	assertPrivate(r, s.areas);
+});
+
 // ======================================================== HTTP refresh
 
 test('C24 refresh original: preflight then six reload and six default 404s', async () => {

@@ -460,10 +460,11 @@ export function createVerifier(adapters, pins = {}) {
 			}
 			total += chunk.byteLength;
 			if (total > cap) {
-				try {
-					reader.cancel();
-				} catch {
-					// cancellation is best effort; the read already failed
+				// Cancellation is asynchronous too. Keep an unsettled cleanup
+				// token visible so inspection cannot unlock another mutation.
+				const cancelled = await timedPromise(() => reader.cancel(), fetchTimeoutMs);
+				if (cancelled.outcome === 'timeout') {
+					return { ...record, bytes: total, code: 'timeout' };
 				}
 				return { ...record, bytes: total, code: 'body-too-large' };
 			}
@@ -556,6 +557,11 @@ export function createVerifier(adapters, pins = {}) {
 		const ctx = { mutated: false, uncertain: false };
 		try {
 			report.storage.before = await snapshot();
+			ctx.guardStorage = async () => {
+				if (!sameSnapshot(report.storage.before, await snapshot())) {
+					throw new Stop('storage-changed');
+				}
+			};
 			const outcome = await body(report, ctx);
 			report.storage.after = await snapshot();
 			report.storage.unchanged = sameSnapshot(report.storage.before, report.storage.after);
@@ -644,6 +650,7 @@ export function createVerifier(adapters, pins = {}) {
 				if (typeof again.entry.remove !== 'function') {
 					throw new Stop('unsupported');
 				}
+				await ctx.guardStorage();
 				ctx.mutated = true;
 				const r = await callbackOp((ok, fail) => again.entry.remove(ok, fail));
 				if (r.outcome === 'timeout') {
@@ -696,6 +703,7 @@ export function createVerifier(adapters, pins = {}) {
 			report.http = http;
 			for (const phase of ['reload', 'default']) {
 				for (const target of targets) {
+					await ctx.guardStorage();
 					if (phase === 'reload') {
 						ctx.mutated = true;
 					}

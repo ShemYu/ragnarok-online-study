@@ -327,6 +327,29 @@ class G02Refusals(Work):
                 self.assertRefused(message, api, out)
             self.assertFalse(os.path.lexists(str(out)))
 
+    def test_final_directory_close_is_bounded_and_never_retried(self):
+        api = self.write("api.html", FIX_API)
+        out = self.dir / "failed-close"
+        real_close = os.close
+        closes = []
+
+        def fail_directory(fd):
+            directory = stat.S_ISDIR(os.fstat(fd).st_mode)
+            real_close(fd)
+            if directory:
+                closes.append(fd)
+                raise OSError(5, "Input/output error")
+
+        with mock.patch.object(gen.os, "close", fail_directory):
+            with self.assertRaises(gen.VerifierError) as caught:
+                self.build(api, out)
+        self.assertIn("closing OUTPUT failed", str(caught.exception))
+        self.assertEqual(len(closes), 1)
+        # A failed output may remain. It is never a completion marker and
+        # even a fully written failed tree must not be reused/overwritten.
+        self.assertEqual(sorted(p.name for p in out.iterdir()), FIVE)
+        self.assertRefused("OUTPUT already exists", api, out)
+
     def test_cli_usage_and_refusal(self):
         for args in ([], ["one"], ["a", "b", "c"], ["-h", "x"], ["x", "--out"]):
             result = subprocess.run([sys.executable, "-I", "-B", str(GENERATOR)] + args,
