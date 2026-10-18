@@ -1,6 +1,6 @@
 # T04 measured resource observation
 
-Coordinator inspected the actual completed dataset on 2026-10-18; parent T04 remains open for pickup and offline checks. Frozen runtime/source/assets are in [Installation](INSTALLATION.md). This report replaces estimates with one measured session, not a full-world minimum specification.
+Coordinator inspected the actual completed dataset on 2026-10-18; parent T04 remains open for full host/browser offline and fog-rendering checks. Ordinary pickup and EXP/persistence later passed. Frozen runtime/source/assets are in [Installation](INSTALLATION.md). This report replaces estimates with one measured session, not a full-world minimum specification.
 
 ## Duration and method
 
@@ -43,4 +43,4 @@ The trial footprint is not a minimal end-user installation; do not add nested ro
 
 ## Practical limit and next action
 
-This Mac has ample headroom for the measured baseline. A different machine's minimum RAM/CPU requirement is not established by this one run. Keep the current VM setting for the next pilot, test the missing item assets, then repeat performance checks on the eventual integrated Chinese/content build in T12. Raw measurements/screenshots remain ignored; this redacted method, fingerprints and results are version controlled.
+This Mac has ample headroom for the measured baseline. A different machine's minimum RAM/CPU requirement is not established by this one run. Keep the current VM setting for the Chinese pilot; the bounded item-art repair/pickup/relaunch/rollback is now verified in [T04.003](reviews/2026-10-18-T04.003.md). Repeat performance checks on the eventual integrated Chinese/content build in T12. Raw measurements/screenshots remain ignored; this redacted method, fingerprints and results are version controlled.

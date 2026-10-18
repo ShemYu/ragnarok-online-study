@@ -24,37 +24,39 @@ Godot and the asset factory are deferred research for this milestone. Reusing a 
 
 | Area | Current evidence | Judgment / unresolved work |
 | --- | --- | --- |
-| Mac hardware | Locally inspected M1 Max, 64 GB RAM, more than 500 GiB free | Likely sufficient; actual CPU, memory, GPU/frame time and thermal behaviour unmeasured |
-| Packaged local runtime | Publisher provides Apple Silicon v1.6.3 and describes a bundled RO stack | Credible trial candidate; no installation or local gameplay verified |
+| Mac hardware | M1 Max,64GB RAM; [30-minute measured session](RESOURCES.md) | Ample headroom in the measured baseline; heavy content, GPU timing and thermal behaviour unmeasured |
+| Packaged local runtime | Exact signed/notarized1.6.3 installed; ordinary combat, loot, portals, save/re-entry, full relaunch and A/B recovery verified | Viable for the tested browser baseline; native window and full host/browser offline behavior remain open |
 | Renewal content | Publisher documents Renewal mode and tested kRO client assets | Exact episode, quest/instance completion and Taiwan equivalence unknown |
-| Traditional Chinese | Official Taiwan client download exists; candidate documents an English overlay and Korean/Western decoding | Taiwan/Big5 compatibility, UI coverage and server dialogue translation unverified; primary technical risk |
+| Traditional Chinese | Taiwan assets acquired; Chinese item/skill rendering and direct Unicode chat verified; [T05 pilot](reviews/2026-10-18-T05.md) | Stock Carocc is English; paired text-only Chinese pilot implementation active. Full game UI/story, active quest text and real macOS IME remain open |
 | Full world/story | Existing emulator content provides a head start | Asset/database presence is not proof of working AI, quests, instance logic or solo completion |
-| Progress and recovery | Publisher documents database backup/restore | Must test locally; a Git revert cannot recover a save or database |
+| Progress and recovery | Ordinary earned EXP, inventory/equipment/quests survive re-entry/relaunch; actual A→B→A→B recovery verified | Fresh full G preserves later progress before story pilot. Git alone cannot recover external state; preserve all archives |
 
 Conclusion: **conditionally feasible as an integration/localization project**. Full latest-official-content parity and complete Chinese story coverage have no defensible schedule yet. Missing emulator features or translations can turn them into substantial implementation work. Do not promise a complete world on the setup estimate.
 
 ## Estimates and resource budget
 
-These are planning estimates from the discussion, not measurements, guaranteed delivery dates or a full-milestone quote.
+Initial allowances and later observations are distinguished below. Neither is a guaranteed delivery date or a full-milestone quote.
 
 | Work/resource | Initial planning allowance | Assumptions |
 | --- | --- | --- |
 | Basic feasibility trial | 2–4 engineering hours after compatible assets are available | Packaged app works; no substantial runtime or encoding fix required |
 | First coverage/localization inventory | 1–3 working days | Inventory/report only; not all quests tested or translated |
 | Full milestone | Unestimated until inventory and a pilot establish remaining work | Count translation units, missing systems and verification workload first |
-| RAM | Budget 6–8 GB for the combined app initially | Publisher's VM default ceiling is 4 GB; total host usage is not yet measured |
-| Disk | Reserve 20–30 GB initially | App, approximately 4.5 GB runtime data, game assets, extraction and backup headroom; actual footprint unmeasured |
+| RAM | Initial allowance6–8GB; measured app/asset/VM summed RSS median1.85GiB, maximum1.87GiB | Excludes shared Chrome; Chrome's other tabs prevent game-only attribution. Configured VM maximum4GiB is separate; [method and limits](RESOURCES.md) |
+| Disk | Initial allowance20–30GB; observed ignored engineering tree13.49GiB, installed app0.51GiB, app support1.06GiB | Asset tree4.50GiB is nested in engineering tree; do not add nested rows. Downloads/source/backups make this larger than a minimal install |
 | New infrastructure | No cloud host or hardware purchase expected for the trial | Existing Mac; external service/API purchases are not part of this plan |
 
-At the trial checkpoint, record actual elapsed engineering time and observed resources, then re-estimate. Simulated population starts disabled; benchmark optional companions separately.
+Actual sampled viewport3440×1296/DPR1, visible59.9–60FPS at a60FPS cap; this is not a continuous frame-time or heavy-scene measurement. Simulated population remains disabled. Full engineering effort/API cost was not reliably metered; paired dispatch durations are task-level elapsed observations. Setup required item-table repair and further Chinese/rendering work, so the initial2–4hour assumption is not a delivery promise. T07 re-estimates from the remaining inventory.
 
-## Known local starting state
+Internet remains connected at the user's instruction. [Calibrated connected metrics](reviews/2026-10-18-T04.004.md) demonstrate local traffic and a guest-NAT blind spot in host per-process counters; quiet counters cannot establish full offline operation. Earlier guest-only denial/play is limited separate evidence. Do not disconnect the Mac or mark full host/browser offline proof passed.
+
+## Historical starting state before T01–T05
 
 - Source checkpoint before this documentation work: `c6314bbd85caa01f54fdcc38d62168e101e2c5a4`.
 - Coordination branch: `ShemYu/reverse-the-Ragnarok-Online-to-play-by-myself`.
 - Earlier Godot code and source-only checks exist. Reference and Character Lab asset directories in this checkout contain READMEs only.
 - A bounded search of Downloads, the original project directory and Applications found no matching GRF/archive candidate. This is not a machine-wide absence claim.
-- No Ragnarok Offline app or game asset download/install was performed during the source research. No local runtime, Chinese or gameplay result has been established.
+- No app/asset download or runtime test had occurred at that original source-research checkpoint. Later installation/gameplay/Chinese results are described above and in [current status](STATUS.md).
 
 ## Evidence sources
 
