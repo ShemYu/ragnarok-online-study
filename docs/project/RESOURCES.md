@@ -41,6 +41,8 @@ Allocated disk measured by `du -sk` after the trial:
 
 The trial footprint is not a minimal end-user installation; do not add nested rows together. Sparse disk logical capacity differs from allocated storage. Full-content qualification may load heavier scenes and add overlays/backups.
 
+Later inventory checkpoint on2026-10-18: the current checkout's ignored .tools/renewal tree is **15734228KiB, approximately15.01GiB**, after preserving paired catalogs, independent references and native-response evidence. This supersedes13.49GiB only for that checkout tree's later footprint; it excludes sibling worker worktrees, installed app/support and other locations. It is not a new game-only disk requirement. A separate read-only /api/health check returned200/status ok/version1.0.5, with installed app and asset-process executables present. No game input/settings/network change or new performance sampler was used; this is service liveness, not renewed gameplay/full-world performance qualification.
+
 ## Practical limit and next action
 
 This Mac has ample headroom for the measured baseline. A different machine's minimum RAM/CPU requirement is not established by this one run. Keep the current VM setting for the Chinese pilot; the bounded item-art repair/pickup/relaunch/rollback is now verified in [T04.003](reviews/2026-10-18-T04.003.md). Repeat performance checks on the eventual integrated Chinese/content build in T12. Raw measurements/screenshots remain ignored; this redacted method, fingerprints and results are version controlled.
