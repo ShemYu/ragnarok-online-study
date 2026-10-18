@@ -5,14 +5,14 @@ Updated: 2026-10-18. Coordinator: Codex. Active scope: **execute the documented 
 ## Where we are
 
 - **Available now:** basic provisional play with verified combat/travel/loot/equipment, persistence/recovery, repaired Chinese item data and a narrow Chinese Carocc dialogue pilot. This is prior bounded root verification; full milestone/user acceptance remains open.
-- **Current work:** P1 Chinese compatibility and independent P2 content-inventory preparation. The raw archive catalog is ready_for_user atcd7d13c; YAML graph and broader Chinese-source comparison remain unfinished. See the active attempts below.
+- **Current work:** P1 Chinese compatibility and independent P2 content-inventory preparation. The raw archive catalog is ready_for_user atcd7d13c and raw YAML graph ate10398a; broader Chinese-source comparison/UI repair remain unfinished. See the active attempts below.
 - **Unresolved scope:** the exact “all maps, monsters and story” denominator/episode. A user clarification is pending between the pinned build's explicit manifest/gaps and a specified official Taiwan episode. No answer or reduced goal is assumed; T07/full cost estimate remain open.
 - **Runtime boundary:** leave the existing game, newer progress and Mac internet untouched. Last fresh read-only health check10:56:51UTC was HTTP200/statusok; no new gameplay/SQL/save/settings observation is implied. Full host/browser offline behavior remains inconclusive; counters have a demonstrated guest-NAT blind spot.
 - **Git:** coordination branch ShemYu/reverse-the-Ragnarok-Online-to-play-by-myself; local checkpoints only. Find the latest documentation commit with `git log -1 --format='%h %s' -- AGENTS.md docs/project`. No critical issue forcing a goal change is established.
 
 | Active bounded task | Original attempts and next owner |
 | --- | --- |
-| [T06.002.003.001 YAML graph](reviews/2026-10-18-T06.002.003.001.md) | Raw Claude573127d is preserved/released and root-reviewed; five bounded gaps plus adjacent cases reproduced. A private correction proposal passes root69 tests and complete38538-row/15-visit/15-edge comparison, but remains unselected/unintegrated. Both raw candidates match every actual row/graph in their schemas. Root26 negative probes/30 uniform shape cases support selecting Claude15/20 versus Grok13/20, with mandatory corrections. Integration/final rerun remain pending. |
+| [T06.002.003.001 YAML graph](reviews/2026-10-18-T06.002.003.001.md) | **ready_for_user** at root-correctede10398a after unchanged416df7c; Claude15/20 selected versus Grok13/20. Root69 tests/zero skips, fresh CLI and every38538 complete row/15 visits/15 edges/15 exact reads pass. Raw source-profile catalog only; projections/native/effective/playable scope remains open. Both resources released. |
 | [T05.002 Chinese plugin audit](reviews/2026-10-18-T05.002.md) | Raw Claude60dfed7 is preserved/released and root-read with denominator/markup corrections. Grok1f28b323 is now settled/preserved/released and root-read; root must verify material proof, compare both and freeze a bounded adaptation task. No plugin installed. |
 | [T05.003 UI binding adapter](reviews/2026-10-18-T05.003.md) | Claude b724e385 is now preserved/released; full root checks/browser work pending. Grok ctx_7571d60c7582 remains active from common8223ba3/spec04c7270b…269305. Root will read/test both and inspect detached real-custom-element fixtures before selecting; no installed-game mutation. |
 
@@ -56,7 +56,7 @@ The first playtest is an intermediate checkpoint within the full milestone. T01�
 
 1. **Root:** supervise the remaining original UI Grok Dispatch above; process every delivered message, preserve raw committed reports/source/proof, validate settlements and decide release/reuse before acknowledging. No duplicate attempts on silence.
 2. **Root:** personally review/execute meaningful candidate checks, compare each pair, isolate any corrections and verify the selected integration before ready_for_user. Detached UI fixtures are separate from the running game.
-3. **Root:** continue only immutable/source/private-fixture preparation independently. Current private YAML correction results are not a selected provider result; update task-linked evidence before advancing.
+3. **Root:** continue only immutable/source/private-fixture preparation independently. The raw YAML tool is now selected/corrected/verified; subsequent monster/item/quest/skill projections remain planned. Update task-linked evidence before advancing.
 4. **User clarification pending:** finite content target and solo party-gate policy. Preserve full maps/monsters/story/Traditional Chinese goal while waiting; do not invent a complete-MVP estimate or substitute UI-only coverage.
 5. **Future installed changes:** require fresh progress preservation and root-controlled game availability. Do not restore an older save, change browser/IME/audio/window/settings, or disconnect the internet. Current runtime and full offline/IME/remaining P1 samples remain as qualified above.
 
