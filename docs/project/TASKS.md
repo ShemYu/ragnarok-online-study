@@ -1,6 +1,6 @@
 # Task board
 
-Task owner: coordinator unless dispatched. Date: 2026-10-18. All runtime tasks below are **planned**, not executed. Current authorization is documentation only. See [Workflow](WORKFLOW.md) for state transitions, paired comparisons and Git control; [Status](STATUS.md) is the resume point.
+Task owner: coordinator unless dispatched. Date: 2026-10-18. The user has authorized executing the strategy and finishing all steps after the documentation checkpoint. Task states below distinguish completed evidence from future work. See [Workflow](WORKFLOW.md) for state transitions, paired comparisons and Git control; [Status](STATUS.md) is the resume point.
 
 ## Dependency map
 
@@ -12,8 +12,8 @@ If an inventory shows no work is needed in one of T08–T11, both models assess 
 
 | Task | Phase | Deliverable | Depends on | Status | Paired comparison / evidence |
 | --- | --- | --- | --- | --- | --- |
-| T00 | P0 | Documentation, feasibility, task plan and Git/verification protocol | — | `ready_for_user` | [Planning review](reviews/2026-10-18-planning.md); both proposals reviewed, coordinator synthesis verified |
-| T01 | P1 | Pinned foundation/source manifest | T00 | `planned` | Same release/source questions for both models; existing research is input, not a completed paired task |
+| T00 | P0 | Documentation, feasibility, task plan and Git/verification protocol | — | `accepted` | Checkpoint `35ad527`; user gave go-ahead to follow strategy and finish all steps |
+| T01 | P1 | Pinned foundation/source manifest | T00 | `in_progress` | Paired source/release audit; independent coordinator verification pending |
 | T02 | P1 | Asset acquisition/extraction manifest; runtime compatibility pending | T01 | `planned` | Both inspect versions/compatibility independently; only one controlled acquisition |
 | T03 | P1 | Reproducible local installation with version/hash record | T02 | `planned` | Paired plans/rehearsals first; serialize any shared app-state execution |
 | T04 | P1 | Baseline play, persistence, offline and resource report | T03 | `planned` | Paired test designs; coordinator personally runs integrated scenarios |

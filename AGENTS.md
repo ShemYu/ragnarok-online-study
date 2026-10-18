@@ -11,7 +11,7 @@
 
 - The first milestone is a Mac-local, solo **Modern / Renewal RO** installation with the agreed episode's maps, monsters and story, Traditional Chinese game UI and text, and persistent progress.
 - The exact episode and completeness are **not verified**. The candidate is Ragnarok Offline v1.6.3, not a confirmed foundation.
-- This pass is **documentation only**. Do not install software, download game assets, modify runtime state or change game code under the documentation task.
+- Execution is now **active**: after the documentation checkpoint, the user instructed the coordinator to follow the strategy and finish all steps. Local acquisition, installation, implementation and verification required by the task board are authorized. Keep publication/default-branch merges separate and preserve per-task isolation and rollback. The earlier documentation-only restriction applied to T00, not this execution pass.
 - Earlier Godot and Character Lab code and reports are historical research. They do not prove the new milestone works. Preserve them.
 
 ## Coordination and evidence

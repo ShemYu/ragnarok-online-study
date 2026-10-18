@@ -2,7 +2,7 @@
 
 ## Active milestone — Modern / Renewal solo RO
 
-The user now prioritizes playing a complete, episode-scoped Renewal world/story locally on a Mac, with Traditional Chinese and persistent solo progress. An existing emulator/client stack is the proposed foundation. Exact episode coverage, Taiwan text compatibility and full story completion remain unverified. The present pass changes documentation only.
+The user now prioritizes playing a complete, episode-scoped Renewal world/story locally on a Mac, with Traditional Chinese and persistent solo progress. An existing emulator/client stack is the proposed foundation. Exact episode coverage, Taiwan text compatibility and full story completion remain unverified. The documentation checkpoint is complete and the user has authorized executing all steps.
 
 1. **P0:** document goal, feasibility, task ownership, paired model comparison, root verification and Git/state recovery.
 2. **P1:** establish a version-pinned local runtime, compatible assets, basic gameplay/persistence/recovery, measured resources and a Chinese pilot.

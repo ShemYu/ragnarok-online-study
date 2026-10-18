@@ -1,10 +1,12 @@
 # Renewal solo milestone: goal and feasibility
 
-Last reviewed: 2026-10-18. Owner: coordinating Codex agent. Current work: documentation only.
+Last reviewed: 2026-10-18. Owner: coordinating Codex agent. Current work: active execution of the documented strategy.
 
 ## User decisions
 
 The first milestone is a personally playable, Mac-local **Modern / Renewal Ragnarok Online** build, including maps, monsters, story/quests, Traditional Chinese game UI and text, and persistent solo progress. The user requested durable documentation for stateless agents, supervised phases, task-level Claude/Grok comparisons, coordinator verification before user evaluation, and Git rollback controls.
+
+After documentation checkpoint `35ad527`, the user instructed “follow the strategy I told you, finished all these steps” and activated the thread goal. This authorizes local execution of the task board; the earlier documentation-only boundary applied to T00. It is not evidence that the game or later acceptance gates are complete.
 
 The user selected Renewal rather than classic/pre-renewal. “All” must be evaluated against a named episode/content manifest; it does not currently identify an episode or prove parity with the latest Taiwan or Korean service. Do not silently reduce the requested story or world to a sample.
 

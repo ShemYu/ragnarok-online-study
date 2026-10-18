@@ -2,7 +2,7 @@
 
 The current goal is a personally playable, Mac-local **Modern / Renewal RO** build with the agreed episode's maps, monsters and story, Traditional Chinese game UI/text, persistent progress and a verified solo play path. The proposed foundation is an existing RO emulator/client stack; exact episode coverage and Chinese compatibility are still unverified.
 
-**Start at [current status](docs/project/STATUS.md).** Stateless agents should read [AGENTS.md](AGENTS.md), then the assigned task and evidence. This pass changes documentation only; the new runtime has not been installed or tested.
+**Start at [current status](docs/project/STATUS.md).** Stateless agents should read [AGENTS.md](AGENTS.md), then the assigned task and evidence. The user has authorized executing the strategy after the documentation checkpoint. Runtime and content claims require the task-specific evidence recorded there.
 
 | Planning document | Purpose |
 | --- | --- |
