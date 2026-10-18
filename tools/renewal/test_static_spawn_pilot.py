@@ -926,6 +926,20 @@ class F09Prerequisites(TempDirCase):
                     P.strict_json(bad, "x")
         self.assertEqual(P.strict_json(b'{"a":[1,true]}', "x"), {"a": [1, True]})
 
+    def test_strict_json_nested_exponent_overflow(self):
+        # parse_constant alone does not see exponent overflow through parse_float.
+        for number in (b"1e309", b"-1e309"):
+            for body in (b'{"nested":{"value":' + number + b'}}',
+                         b'{"nested":[0,{"value":' + number + b'}]}'):
+                with self.subTest(body=body):
+                    with self.assertRaises(P.PilotError):
+                        P.strict_json(body, "authored overflow")
+        finite = P.strict_json(b'{"nested":[1e3,-1.25,0,true,null]}', "finite")
+        self.assertEqual(finite, {"nested": [1000.0, -1.25, 0, True, None]})
+        self.assertIs(type(finite["nested"][0]), float)
+        self.assertEqual(P.strict_json(b'{"nested":["1e309","-1e309"]}', "strings"),
+                         {"nested": ["1e309", "-1e309"]})
+
     def test_bounded_reads(self):
         path = os.path.join(self.tmp, "f")
         Path(path).write_bytes(b"abc")
@@ -1251,6 +1265,230 @@ class F10Publication(TempDirCase):
         status, _ = P.execute(self.context(b"m\tmonster\tN\t1002\n"), self.out(), P.LIMITS)
         self.assertEqual(status, 1)
         self.assertEqual(set(os.listdir(self.out())), {P.LINES_OUT, P.EVENTS_OUT, P.MANIFEST_OUT})
+
+
+class F10CloseOwnership(TempDirCase):
+    """Finite synchronous owned-FD controls; no arbitrary concurrent-reuse claim."""
+
+    SRC = b"m\tmonster\tN\t1002,1\n"
+
+    @staticmethod
+    def fd_identity(fd):
+        try:
+            info = os.fstat(fd)
+        except OSError as exc:
+            if exc.errno == errno.EBADF:
+                return None
+            raise
+        return info.st_dev, info.st_ino
+
+    def close_fixture_tokens(self, tokens):
+        # Called only AFTER liveness assertions. This releases observed fixture
+        # leaks on a failing producer without making those observations pass.
+        for token in reversed(tokens):
+            if token is not None and self.fd_identity(token["fd"]) == token["identity"]:
+                self.saved["_os_close"](token["fd"])
+
+    def close_case(self, role, after_real=False, reuse_foreign=False, read_error=False):
+        context = unit_context([self.SRC, b""])
+        label = role + ("-reuse" if reuse_foreign else "-after" if after_real else "-before")
+        target = self.out(label)
+        source = self.out(label + ".source")
+        Path(source).write_bytes(b"source bytes")
+        os.chmod(source, 0o600)
+        real_open, real_close = self.saved["_os_open"], self.saved["_os_close"]
+        real_read = self.saved["_os_read"]
+        opened, current = [], {}
+        state = {"selected": None, "injected": False, "owned_real_closes": 0,
+                 "expired_close_attempts": 0, "foreign_close_attempts": 0,
+                 "read_error": False, "foreign": None}
+        donor = None
+        if reuse_foreign:
+            donor_path = self.out(label + ".donor")
+            Path(donor_path).write_bytes(b"private foreign descriptor")
+            os.chmod(donor_path, 0o600)
+            donor_fd = real_open(donor_path, os.O_RDONLY | os.O_NOFOLLOW)
+            donor = {"fd": donor_fd, "identity": self.fd_identity(donor_fd)}
+        before = open_fds()
+
+        def selected_open(path, flags):
+            path = os.fspath(path)
+            access = flags & os.O_ACCMODE
+            if role == "source":
+                return path == source and access == os.O_RDONLY
+            if role == "stream-readback":
+                return path == P.LINES_OUT and access == os.O_RDONLY
+            if role == "marker-write":
+                return path == P.COMPLETE_OUT and access == os.O_WRONLY
+            if role == "marker-readback":
+                return path == P.COMPLETE_OUT and access == os.O_RDONLY
+            if role == "directory":
+                return path == target and bool(flags & os.O_DIRECTORY)
+            raise AssertionError("unknown authored close role")
+
+        def opener(path, flags, *args, **kwargs):
+            fd = real_open(path, flags, *args, **kwargs)
+            token = {"fd": fd, "identity": self.fd_identity(fd)}
+            opened.append(token)
+            current[fd] = token  # A later legitimate open is a NEW lifetime.
+            if state["selected"] is None and selected_open(path, flags):
+                state["selected"] = token
+            return fd
+
+        def closer(fd):
+            identity = self.fd_identity(fd)
+            foreign = state["foreign"]
+            if foreign is not None and fd == foreign["fd"] and identity == foreign["identity"]:
+                state["foreign_close_attempts"] += 1
+            token = state["selected"]
+            if token is not None and fd == token["fd"] and current.get(fd) is token:
+                if identity is None:
+                    state["expired_close_attempts"] += 1
+                elif identity == token["identity"]:
+                    if not state["injected"]:
+                        state["injected"] = True
+                        if after_real or reuse_foreign:
+                            real_close(fd)
+                            state["owned_real_closes"] += 1
+                            if reuse_foreign:
+                                self.assertNotEqual(token["identity"], donor["identity"])
+                                self.assertNotEqual(fd, donor["fd"])
+                                # Exactly this test-owned number was just closed;
+                                # no arbitrary concurrent descriptor is displaced.
+                                os.dup2(donor["fd"], fd)
+                                state["foreign"] = {"fd": fd,
+                                                    "identity": self.fd_identity(fd)}
+                                self.assertEqual(state["foreign"]["identity"], donor["identity"])
+                        raise OSError(errno.EIO, "authored close fault")
+                    real_close(fd)
+                    state["owned_real_closes"] += 1
+                    return
+            return real_close(fd)
+
+        def reader(fd, count):
+            token = state["selected"]
+            if read_error and token is not None and fd == token["fd"] \
+                    and self.fd_identity(fd) == token["identity"] and not state["read_error"]:
+                state["read_error"] = True
+                raise OSError(errno.EIO, "authored read fault")
+            return real_read(fd, count)
+
+        P._os_open, P._os_close, P._os_read = opener, closer, reader
+        error = None
+        try:
+            try:
+                if role == "source":
+                    P.read_regular(source, 64, "authored source")
+                else:
+                    P.execute(context, target, P.LIMITS)
+            except BaseException as exc:
+                error = exc  # Keep the actual traceback alive through observation.
+            # Capture real liveness BEFORE assertions or fixture cleanup can
+            # unwind this scope. Number-only sets cannot identify an FD swap.
+            live_owned = [(token["fd"], token["identity"]) for token in opened
+                          if self.fd_identity(token["fd"]) == token["identity"]]
+            observed_fds = open_fds()
+            foreign = state["foreign"]
+            foreign_identity = None if foreign is None else self.fd_identity(foreign["fd"])
+            self.assertTrue(state["injected"], "the intended close fault was not reached")
+            self.assertIsInstance(error, P.PilotError)
+            if read_error:
+                self.assertTrue(state["read_error"], "the primary read fault was not reached")
+            self.assertEqual(live_owned, [], "owned descriptors survived failure cleanup")
+            if reuse_foreign:
+                self.assertIsNotNone(foreign, "the different-inode reuse was not installed")
+                self.assertEqual(foreign_identity, donor["identity"],
+                                 "the deliberately retained foreign FD was not preserved")
+            self.assertEqual(state["owned_real_closes"], 1)
+            self.assertEqual(state["expired_close_attempts"], 0, "double close on expired lifetime")
+            self.assertEqual(state["foreign_close_attempts"], 0, "foreign reused FD was closed")
+            expected_fds = before
+            if reuse_foreign:
+                os.lseek(foreign["fd"], 0, os.SEEK_SET)
+                self.assertEqual(real_read(foreign["fd"], 64), b"private foreign descriptor")
+                # The pre-existing number-only helper observes 0..1023; the
+                # per-token identities above/ here cover every selected FD.
+                if foreign["fd"] < 1024:
+                    expected_fds = before | {foreign["fd"]}
+            self.assertEqual(observed_fds, expected_fds, "unexpected live descriptor after failure")
+            self.assertFalse(os.path.lexists(os.path.join(target, P.COMPLETE_OUT)))
+        finally:
+            for name, value in self.saved.items():
+                setattr(P, name, value)
+            self.close_fixture_tokens(opened + [state["foreign"], donor])
+
+    def test_source_read_close_before_and_after_real_close(self):
+        for after in (False, True):
+            with self.subTest(after_real=after):
+                self.close_case("source", after_real=after)
+
+    def test_stream_readback_close_before_and_after_real_close(self):
+        for after in (False, True):
+            with self.subTest(after_real=after):
+                self.close_case("stream-readback", after_real=after)
+
+    def test_marker_write_close_before_and_after_real_close(self):
+        for after in (False, True):
+            with self.subTest(after_real=after):
+                self.close_case("marker-write", after_real=after)
+
+    def test_marker_readback_close_before_and_after_real_close(self):
+        for after in (False, True):
+            with self.subTest(after_real=after):
+                self.close_case("marker-readback", after_real=after)
+
+    def test_final_directory_close_before_and_after_real_close(self):
+        for after in (False, True):
+            with self.subTest(after_real=after):
+                self.close_case("directory", after_real=after)
+
+    def test_source_fd_released_when_read_and_close_both_fail(self):
+        # This control verifies cleanup after both faults, not diagnostic prose.
+        self.close_case("source", read_error=True)
+
+    def test_after_real_close_different_inode_reuse_is_untouched(self):
+        for role in ("source", "marker-write", "directory"):
+            with self.subTest(role=role):
+                self.close_case(role, reuse_foreign=True)
+
+    def test_late_private_mode_change_is_refused(self):
+        for name in (P.LINES_OUT, P.COMPLETE_OUT):
+            with self.subTest(name=name):
+                context = unit_context([self.SRC, b""])
+                target = self.out("mode-" + name)
+                real_open = self.saved["_os_open"]
+                opened, changed = [], []
+
+                def opener(path, flags, *args, **kwargs):
+                    fd = real_open(path, flags, *args, **kwargs)
+                    token = {"fd": fd, "identity": self.fd_identity(fd)}
+                    opened.append(token)
+                    if path == name and (flags & os.O_ACCMODE) == os.O_RDONLY and not changed:
+                        self.assertEqual(stat.S_IMODE(os.fstat(fd).st_mode), 0o600)
+                        os.fchmod(fd, 0o644)
+                        self.assertEqual(stat.S_IMODE(os.fstat(fd).st_mode), 0o644)
+                        changed.append(token)
+                    return fd
+
+                P._os_open = opener
+                before, error = open_fds(), None
+                try:
+                    try:
+                        P.execute(context, target, P.LIMITS)
+                    except BaseException as exc:
+                        error = exc  # Observe liveness before clearing the traceback.
+                    live_owned = [(token["fd"], token["identity"]) for token in opened
+                                  if self.fd_identity(token["fd"]) == token["identity"]]
+                    observed_fds = open_fds()
+                    self.assertEqual(len(changed), 1, "readback mode mutation was not reached")
+                    self.assertIsInstance(error, P.PilotError)
+                    self.assertEqual(live_owned, [], "owned descriptors survived mode refusal")
+                    self.assertEqual(observed_fds, before)
+                    self.assertFalse(os.path.lexists(os.path.join(target, P.COMPLETE_OUT)))
+                finally:
+                    for attr, value in self.saved.items():
+                        setattr(P, attr, value)
+                    self.close_fixture_tokens(opened)
 
 
 # --- Negative controls: each fault must fail the comparison it targets ------------

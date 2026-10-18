@@ -60,7 +60,8 @@ qualified. Diagnostics are bounded and replace the given roots and home path.
 2. `selection-manifest.json` (953299 / `d62e31fd…631aec9a`) and
    `selection-complete.json` (185 / `26b9e804…b197`) are bounded no-follow
    regular-file reads, hash/size-checked before strict JSON decoding (duplicate
-   keys, `NaN`/`Infinity` and bool-as-integer are refused).
+   keys, `NaN`/`Infinity`, exponent overflow such as `1e309` at any nesting
+   depth, and bool-as-integer are refused).
 3. The selection's generator, `source`, `profile` and `input` must bind the
    unchanged reader and the verified snapshot; status `complete`; exactly 839
    `npc_sources.files`, each with exactly the seven entry keys.
@@ -136,12 +137,34 @@ below 2 are refused before any output; output-cap overruns are fatal.
 ## Publication
 
 Every owned file is created with `O_EXCL|O_NOFOLLOW` mode `0600`, written with a
-short-write loop (zero progress is an error), fsynced, closed once and read back.
-A close failure is treated as released and never retried. The marker binds the
-read-back manifest bytes and the stream pins and is written last; the directory
-is fsynced and closed last. On any later failure the marker and manifest are
-unlinked only if their inode is still the one this run created; foreign files
-and replacements are left untouched and reported.
+short-write loop (zero progress is an error), fsynced, closed and read back.
+Readback checks the regular-file type, owned inode and exact `0600` mode before
+and after the read. Before the final directory fsync/close, the publisher checks
+the owned directory identity and `0700` mode, exact entry set and all file modes
+and identities again. A late permission change is fatal, not silently repaired.
+The marker binds the read-back manifest bytes and the stream pins and is written
+last. On any later failure the marker and manifest are unlinked only if their
+inode is still the one this run created; foreign replacements stay untouched.
+
+A close error always fails publication. Before opening anything else, cleanup
+checks whether the descriptor was released, still identifies the owned inode,
+or is foreign/unknown. In the still-owned case it makes at most one guarded
+additional close attempt; a final directory close failure retains that owned
+handle for marker/manifest revocation before the additional close. An already
+released directory may be reopened and rechecked for revocation. Foreign or
+unknown descriptor slots are left untouched and reported; a persistent close
+failure is reported as unresolved cleanup. These checks cover the authored
+serial before/after-close and different-inode-reuse fixtures. Inode identity is
+captured on entry to the close helper, which assumes its supplied descriptor
+is still owned then. Post-error foreign/unknown preservation is not a guarantee
+against reuse before that initial close. Inode identity is not descriptor-generation
+proof against arbitrary concurrent or reentrant same-inode reuse, and the
+metadata checks do not establish atomic protection
+against all external races or universal native close-error recovery.
+
+These are coordinator corrections to the selected Claude submission. Grok's
+independent candidate already checked readback file modes; that useful control
+is retained here alongside the additional identity and final-set checks.
 
 ## Tests
 
@@ -151,7 +174,7 @@ sources, counters, stream pins, file modes, producer/input/marker binding),
 defaults, opaque context, physical hazards, headers/columns, numeric/byte
 subset, cutoffs, caps and reservations, prerequisite binding and publication
 faults injected through the producer's raw OS-operation attributes (short and
-zero writes, write/fsync errors, close after the real close, open/readback
+zero writes, write/fsync errors, close before and after the real close, open/readback
 failures, directory fsync/close, foreign collisions and replacements). Negative
 controls run real tests under deliberate producer faults (CRLF normalization,
 empty-token defaulting, event `1` as boss, suffix byte loss, opaque-body
@@ -159,6 +182,14 @@ monsters counted as static, deduplication, character-based name clipping) and
 require each to fail before passing again on the baseline. With
 `STATIC_SPAWN_FROZEN_ROOT`, the canonical run and tampered-copy refusals
 (selection marker, one snapshot byte, one extra snapshot file) are exercised.
+
+Coordinator-added regressions hold actual exception tracebacks while observing
+owned descriptors before fixture cleanup. They cover before/after close on
+source reads, stream readback, marker write/readback and final directory close;
+combined read/close errors; controlled different-inode descriptor reuse;
+readback permission changes; and nested positive/negative exponent overflow.
+Foreign reuse fixtures check that the foreign descriptor remains open with its
+original bytes. These controls do not certify arbitrary concurrent reuse.
 
 ## Not established
 
