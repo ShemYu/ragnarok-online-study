@@ -56,6 +56,8 @@ The first playtest is an intermediate checkpoint within the full milestone. T01â
 
 Supplemental client-dependency source audit is [partially root-verified](reviews/2026-10-18-T06.003-preparation.md): embedded filenames/aliases, core/model/texture failure boundaries and RemoteClient priority/name identity checked against12 hashed files in two clean pinned source repos. Deferred resources, actual archive catalog and complete closure remain unverified. T06.003 stays planned; this is preparation, not a paired implementation or map coverage result.
 
+Server-definition preparation is [root-checked for the first boundaries](reviews/2026-10-18-T06.002.003-preparation.md): shared YAML selection differs from database-specific in-place mutations and final runtime modifiers. The board separates seven planned children; none is dispatched or passed. Item/quest/skill-specific semantics need further root checks before their briefs. Do not implement a generic deep merge or expand the monster-first inventory into a new full server emulator.
+
 Do not restart the older Character Lab roadmap. Do not assume a previous worker's PASS is current coordinator verification. Read the [task board](TASKS.md) and [workflow](WORKFLOW.md) before dispatching work.
 
 ## Decision and progress log
