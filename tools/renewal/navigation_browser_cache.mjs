@@ -281,22 +281,27 @@ export function createVerifier(adapters, pins = {}) {
 		}
 	}
 
-	async function snapshotArea(getter) {
-		const first = readArea(getter);
-		const second = readArea(getter);
-		if (first !== second) {
-			throw new Stop('storage-unstable');
-		}
-		const count = JSON.parse(first).length;
-		return { count, sha256: await sha256(new TextEncoder().encode(first)) };
-	}
-
-	async function snapshot() {
+	function readStorage() {
 		const s = a.storages || {};
 		if (typeof s.local !== 'function' || typeof s.session !== 'function') {
 			throw new Stop('storage-unavailable');
 		}
-		return { local: await snapshotArea(s.local), session: await snapshotArea(s.session) };
+		const first = { local: readArea(s.local), session: readArea(s.session) };
+		const second = { local: readArea(s.local), session: readArea(s.session) };
+		if (first.local !== second.local || first.session !== second.session) {
+			throw new Stop('storage-unstable');
+		}
+		return first;
+	}
+
+	async function snapshot(raw) {
+		const area = async value => ({
+			count: JSON.parse(value).length,
+			sha256: await sha256(new TextEncoder().encode(value))
+		});
+		// Only this explicit public projection may enter a report. Canonical
+		// key/value strings stay in the action closure, never in ctx or output.
+		return { local: await area(raw.local), session: await area(raw.session) };
 	}
 
 	const sameSnapshot = (x, y) => !!x && !!y
@@ -556,25 +561,36 @@ export function createVerifier(adapters, pins = {}) {
 		notify();
 		const ctx = { mutated: false, uncertain: false };
 		try {
-			report.storage.before = await snapshot();
-			ctx.guardStorage = async () => {
-				if (!sameSnapshot(report.storage.before, await snapshot())) {
+			const baseline = readStorage();
+			ctx.guardStorage = () => {
+				const current = readStorage();
+				if (current.local !== baseline.local || current.session !== baseline.session) {
 					throw new Stop('storage-changed');
 				}
 			};
+			report.storage.before = await snapshot(baseline);
+			ctx.guardStorage();
 			const outcome = await body(report, ctx);
-			report.storage.after = await snapshot();
+			report.storage.after = await snapshot(readStorage());
+			// Hashing yields. Re-read synchronously before reporting success or
+			// releasing a previous uncertainty lock; old hashes are insufficient.
+			ctx.guardStorage();
 			report.storage.unchanged = sameSnapshot(report.storage.before, report.storage.after);
 			if (!report.storage.unchanged) {
 				throw new Stop('storage-changed');
 			}
 			report.state = outcome;
+			if (locked && ctx.releaseLock && pending.size === 0) {
+				locked = false;
+				report.released_lock = true;
+			}
 		} catch (error) {
 			const code = error instanceof Stop ? error.code : 'internal-error';
 			report.code = code;
 			if (report.storage.before && !report.storage.after) {
 				try {
-					report.storage.after = await snapshot();
+					report.storage.after = await snapshot(readStorage());
+					ctx.guardStorage();
 					report.storage.unchanged = sameSnapshot(report.storage.before, report.storage.after);
 				} catch {
 					report.storage.unchanged = false;
@@ -611,18 +627,9 @@ export function createVerifier(adapters, pins = {}) {
 				const first = list.find(t => t.state === 'failure');
 				throw new Stop(first.code || 'lookup-error');
 			}
+			// run() releases only after its final synchronous storage guard.
+			ctx.releaseLock = startedClear && report.removal_eligible;
 			return 'inspected';
-		}).then(report => {
-			// Only a complete, clean inspection that began and ended with no
-			// outstanding callback may release an earlier uncertain mutation.
-			if (locked && startedClear && pending.size === 0 && report.state === 'inspected'
-				&& report.removal_eligible && report.storage.unchanged) {
-				locked = false;
-				report.lock = status();
-				report.released_lock = true;
-				notify();
-			}
-			return report;
 		});
 	}
 
@@ -650,7 +657,7 @@ export function createVerifier(adapters, pins = {}) {
 				if (typeof again.entry.remove !== 'function') {
 					throw new Stop('unsupported');
 				}
-				await ctx.guardStorage();
+				ctx.guardStorage();
 				ctx.mutated = true;
 				const r = await callbackOp((ok, fail) => again.entry.remove(ok, fail));
 				if (r.outcome === 'timeout') {
@@ -703,7 +710,7 @@ export function createVerifier(adapters, pins = {}) {
 			report.http = http;
 			for (const phase of ['reload', 'default']) {
 				for (const target of targets) {
-					await ctx.guardStorage();
+					ctx.guardStorage();
 					if (phase === 'reload') {
 						ctx.mutated = true;
 					}

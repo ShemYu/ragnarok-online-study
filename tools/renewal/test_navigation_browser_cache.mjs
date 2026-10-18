@@ -781,6 +781,115 @@ test('R05 unsettled overflow cancellation requires settlement and a later clean 
 	assertPrivate(r, s.areas);
 });
 
+test('R06 storage changed during initial hashing prevents all mutations', async () => {
+	for (const action of ['remove', 'refresh']) {
+		const local = new Area({ [SECRET_KEY]: SECRET_VALUE });
+		const canonical = JSON.stringify([[SECRET_KEY, SECRET_VALUE]]);
+		let injected = false;
+		const s = setup({ files: action === 'remove' ? matchingFiles() : new Map(), local, adapters: { subtle: {
+			digest: async (algorithm, bytes) => {
+				if (!injected && new TextDecoder().decode(bytes) === canonical) {
+					injected = true;
+					await Promise.resolve();
+					local.map.set(SECRET_KEY, 'changed');
+				}
+				return webcrypto.subtle.digest(algorithm, bytes);
+			}
+		} } });
+		const r = action === 'remove' ? await s.verifier.remove() : await s.verifier.refresh('original');
+		assert.equal(injected, true);
+		assert.equal(r.code, 'storage-changed');
+		assert.equal(r.storage.before.local.sha256, sha(encode(canonical)));
+		assert.equal(r.storage.unchanged, false);
+		assert.equal(ops(s.fsd.log, 'remove').length, 0);
+		assert.equal(s.fetchLog.length, 0);
+		assert.equal(s.fsd.files.size, action === 'remove' ? 6 : 0);
+		assertPrivate(r, s.areas);
+	}
+});
+
+test('R07 no asynchronous storage hash separates final file validation from deletion', async () => {
+	const local = new Area({ [SECRET_KEY]: SECRET_VALUE });
+	const canonical = JSON.stringify([[SECRET_KEY, SECRET_VALUE]]);
+	let fileReads = 0;
+	let windowDigests = 0;
+	const s = setup({ files: matchingFiles(), local,
+		fsOptions: { hooks: { file: () => { fileReads += 1; } } },
+		adapters: { subtle: { digest: async (algorithm, bytes) => {
+			if (fileReads >= 7 && ops(s.fsd.log, 'remove').length === 0
+				&& new TextDecoder().decode(bytes) === canonical) {
+				windowDigests += 1;
+				await Promise.resolve();
+				local.map.set(SECRET_KEY, 'changed');
+			}
+			return webcrypto.subtle.digest(algorithm, bytes);
+		} } }
+	});
+	const r = await s.verifier.remove();
+	assert.equal(windowDigests, 0, 'a digest yield must not open the reproduced pre-delete window');
+	assert.equal(r.state, 'removed-verified');
+	assert.equal(ops(s.fsd.log, 'remove').length, 6);
+	assertPrivate(r, s.areas);
+});
+
+test('R08 storage changed during final hashing cannot publish removal success', async () => {
+	const local = new Area({ [SECRET_KEY]: SECRET_VALUE });
+	const canonical = JSON.stringify([[SECRET_KEY, SECRET_VALUE]]);
+	let injected = false;
+	const s = setup({ files: matchingFiles(), local, adapters: { subtle: {
+		digest: async (algorithm, bytes) => {
+			if (!injected && ops(s.fsd.log, 'remove').length === 6
+				&& new TextDecoder().decode(bytes) === canonical) {
+				injected = true;
+				await Promise.resolve();
+				local.map.set(SECRET_KEY, 'changed');
+			}
+			return webcrypto.subtle.digest(algorithm, bytes);
+		}
+	} } });
+	const r = await s.verifier.remove();
+	assert.equal(injected, true);
+	assert.equal(r.code, 'storage-changed');
+	assert.equal(r.state, 'failed');
+	assert.equal(r.storage.unchanged, false);
+	assert.equal(r.lock.mutation_locked, true);
+	assert.equal(r.removed, 6);
+	assertPrivate(r, s.areas);
+});
+
+test('R09 storage changed during inspection final hashing cannot release a prior lock', async () => {
+	const local = new Area({ [SECRET_KEY]: SECRET_VALUE });
+	const canonical = JSON.stringify([[SECRET_KEY, SECRET_VALUE]]);
+	let inspecting = false;
+	let localDigests = 0;
+	const files = matchingFiles();
+	files.get(PINS_TARGETS[0].path).removeError = domError('InvalidModificationError', 9);
+	const s = setup({ files, local, adapters: { subtle: {
+		digest: async (algorithm, bytes) => {
+			if (inspecting && new TextDecoder().decode(bytes) === canonical && ++localDigests === 2) {
+				await Promise.resolve();
+				local.map.set(SECRET_KEY, 'changed');
+			}
+			return webcrypto.subtle.digest(algorithm, bytes);
+		}
+	} } });
+	assert.equal((await s.verifier.remove()).lock.mutation_locked, true);
+	delete files.get(PINS_TARGETS[0].path).removeError;
+	inspecting = true;
+	const r = await s.verifier.inspect();
+	assert.equal(localDigests, 2);
+	assert.equal(r.code, 'storage-changed');
+	assert.equal(r.state, 'failed');
+	assert.equal(r.storage.unchanged, false);
+	assert.equal(r.released_lock, undefined);
+	assert.equal(r.lock.pending, 0);
+	assert.equal(r.lock.can_mutate, false);
+	assert.equal(r.lock.mutation_locked, true);
+	assertPrivate(r, s.areas);
+	inspecting = false;
+	assert.equal((await s.verifier.inspect()).released_lock, true);
+});
+
 // ======================================================== HTTP refresh
 
 test('C24 refresh original: preflight then six reload and six default 404s', async () => {

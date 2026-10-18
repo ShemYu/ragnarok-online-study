@@ -133,12 +133,16 @@ timeouts. No page or CLI input reaches it.
   `localStorage` and `sessionStorage` twice. It sorts the `[key, value]`
   pairs, serializes them as JSON (unambiguous) and reports only `count` and
   `sha256` per area. An unavailable, throwing or unstable read refuses the
-  action. A fresh unchanged-storage guard also runs immediately before each
-  file removal and alias request, after their asynchronous preflight work.
+  action. The exact initial canonical strings remain private in the action
+  closure. A fresh synchronous comparison runs immediately before each file
+  removal and alias request, after their asynchronous preflight work, with
+  no awaited checksum between this comparison and the operation. Another
+  synchronous comparison follows final hashing before success or lock release.
   Changed storage stops the next mutation and is reported as `storage-changed`,
   never as success. No key, value, cookie, credential, exception message or
   stack is ever rendered. This checks WebStorage equality only. It does not cover
-  cookies, IndexedDB or any filesystem file it does not read.
+  cookies, IndexedDB or any filesystem file it does not read. It does not make
+  separate browser documents atomic; close old game documents/workers first.
 - **Finite outcomes.** Each report has `state`, one of `inspected`,
   `removed-verified`, `refreshed-verified`, `refused`, `failed` or
   `uncertain`. It also has `code` from the fixed `CODES` list, the fixed
@@ -298,10 +302,14 @@ WebStorage equality says nothing about cookies or unread filesystem files.
 This verifier does not establish complete cache clearance, offline
 readiness, full Chinese coverage or world readiness.
 
-Root regression additions R01–R05 cover storage changes during the full cache
+Root regression additions R01–R09 cover storage changes during the full cache
 precheck, first target revalidation and bundle preflight (zero mutation),
 a later storage change stopping the next alias request, rejecting cancellation
 without an unhandled error, and pending cancellation remaining locked through
-inspection until real settlement. The Python directory-close control requires
-one bounded failure, no retry and refusal to reuse the retained failed tree.
+inspection until real settlement. Hash-window controls require zero operations
+after an initial-digest storage change, no storage-digest yield between final
+file validation and deletion, failure after a final-digest storage change,
+and retention of an earlier lock when inspection's final digest sees a change.
+All reports retain only the count/hash projection. The Python directory-close
+control requires one bounded failure, no retry and refusal to reuse the retained failed tree.
 These remain authored checks; the browser/cache/save gates above stay separate.
