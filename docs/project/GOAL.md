@@ -1,6 +1,6 @@
 # Renewal solo milestone: goal and feasibility
 
-Last reviewed: 2026-10-18. Owner: coordinating Codex agent. Current work: active execution of the documented strategy.
+Last reviewed: 2026-10-19. Owner: coordinating Codex agent. Current work: active execution of the documented strategy.
 
 ## User decisions
 
@@ -29,7 +29,7 @@ Godot and the asset factory are deferred research for this milestone. Reusing a 
 | Renewal content | Publisher documents Renewal mode and tested kRO client assets | Exact episode, quest/instance completion and Taiwan equivalence unknown |
 | Traditional Chinese | Taiwan assets acquired; Chinese item/skill rendering and direct Unicode chat verified; [T05 pilot](reviews/2026-10-18-T05.md) | Narrow Carocc Chinese opening/menu/Hello, save/re-entry and off/on rollback now verified. Full game UI/story, active quest text and real macOS IME remain open |
 | Full world/story | Existing emulator content provides a head start | Asset/database presence is not proof of working AI, quests, instance logic or solo completion |
-| Progress and recovery | Ordinary earned EXP, inventory/equipment/quests survive re-entry/relaunch; actual A→B→A→B recovery verified | Fresh full G preserves later progress before story pilot. Git alone cannot recover external state; preserve all archives |
+| Progress and recovery | Ordinary earned EXP, inventory/equipment/quests survive re-entry/relaunch; actual A→B→A→B recovery verified | Newest full L is archive/live-state qualified before Navigation localization, including all selected saved fields and protected/runtime preservation. This is not a new restore rehearsal. Git alone cannot recover external state; preserve all archives |
 
 Conclusion: **conditionally feasible as an integration/localization project**. Full latest-official-content parity and complete Chinese story coverage have no defensible schedule yet. Missing emulator features or translations can turn them into substantial implementation work. Do not promise a complete world on the setup estimate.
 
