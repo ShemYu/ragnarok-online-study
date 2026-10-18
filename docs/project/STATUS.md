@@ -158,3 +158,6 @@ Latest T05.008 resume point: both raw native read-only inspections/SRI controls 
 
 
 Latest T05.008 source integration: selected unchanged Claude commit→3228016, root corrections→c1bd9ef/c401bb7, all five files exact699078b. Fresh integrated66tests/zero skips,11CLI/14entry VM/all10shared faults/2cancellation/digest-window controls pass. [Integration record](reviews/2026-10-19-T05.008.md#selected-corrected-source-integrated-and-reverified). Latest native-controller identity/read-only and selected serial live cache/OFF/ON/save/cleanup remain next. Raw comparison completed; no readiness or scope change.
+
+
+Latest installed cache checkpoint: latest integrated controller natively verifies exact0dbebd68 module/SRI, then after fresh full K and closing the old game document removes only6recognized reconstructible copies with6independent missing results.35local/0session counts/hashes, all six save tables,21protected/3absences and all runtime baselines (plus only5owned probe files) pass. [Selected serial result](reviews/2026-10-19-T05.008.md#selected-native-six-cache-removal-and-preservation-qualified). Next actual original/OFF HTTP/game and repaired/ON regression, full cleanup. Game document currently closed for cache testing; signed working app runs, internet/mute/preferences unchanged. No parent readiness/percentage/goal change.
