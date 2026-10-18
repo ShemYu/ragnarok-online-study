@@ -45,15 +45,15 @@ Root inspected the pinned rAthena sources (`0693b8c69911d5ca42269684aa036b67d67f
 
 The actual Captain reward visibly changed the character to base/job 2/2 (5.8% base); read-only SQL recorded base EXP 52/job EXP 9, completed 21001 and active 21008. The later Sailor reward visibly changed job level to 3 and base EXP display to 17%. This is quest EXP, not normal monster EXP. Ground pickup and normal monster EXP still need their own scenario outside this tutorial mob.
 
-## Resource observation running
+## Resource observation complete
 
-An ignored Python sampler started **04:45:26 UTC**, with 10-second samples for a planned 1800 seconds / 181 points, ending about **05:15:26 UTC**. It is still live at this checkpoint; no 30-minute result is claimed. `.tools/renewal/T04-resource-sample.py` records cumulative CPU-time deltas and RSS by app Electron, asset server, VM daemon, matching host Virtualization processes and **all shared Chrome processes**. RSS sums can double-count shared pages; Chrome includes other user tabs and is not the game's exclusive memory cost. The Virtualization group also sums every matching process: the final report must verify sole ownership/counts against the app lifecycle, or label it shared/uncertain. No per-tab memory claim is available.
+The sampler actually exited successfully: 181 records spanning 1800.002 seconds between first/last samples. Root checked the data, grouping, CPU method, process counts and maintenance gaps. [Measured resource report](RESOURCES.md) records median/max usage, FPS limits and disk footprint. App/asset/VM summed RSS was median 1.85 GiB when all core groups were present; shared Chrome is separately labeled and cannot be treated as exclusive game cost. This mixed play/maintenance session is not a heavy-combat stress test.
 
-The trial uses a **3440×1296 visible viewport, DPR 1**. The game's graphics UI lists a **60 FPS limit**, left unchanged; its legacy resolution selector displays 800×600 while the actual viewport is larger, so do not report that selector as the measured resolution. Root enabled the supported **Esc → Graphics Settings → Basic → FPS Display**. Observed readings near 60 are approximately one-second client render-loop averages, sampled at named scenarios; they are not GPU timing or frame-time percentiles. CUA's read-only page scope did not expose `requestAnimationFrame`, so the proposed injected frame logger was not used. A Chrome-internal diagnostics URL was policy-blocked; no alternate route to that blocked page was attempted.
+Local measurement-script SHA-256: `00109327e4bec72d145775c1dde066a0aa218e0ea9a2e45f2901ecaa0d6a4986`; read-only save-query helper: `af74dcf1828d9c770f4984849ee08e1a82e5ec0c0288d46b5cac3f4baceaf5cb`. They remain ignored with raw evidence.
 
-This is a **mixed gameplay/maintenance observation**: tutorial play, menus, logout, a full app restart, backups and restore. Preserve the timestamps and report maintenance gaps separately from active scenes. It is not a continuous heavy-combat stress test. Final CPU/memory/FPS/disk figures remain open until the actual observation finishes and is inspected.
+### Current state C before further runtime trials
 
-Local measurement-script SHA-256: `00109327e4bec72d145775c1dde066a0aa218e0ea9a2e45f2901ecaa0d6a4986`; read-only save-query helper: `af74dcf1828d9c770f4984849ee08e1a82e5ec0c0288d46b5cac3f4baceaf5cb`. They remain with ignored trial tooling/evidence; this Git checkpoint preserves their fingerprints, method and results, not private execution files. Through the partial observation, matching Virtualization process counts were 0 or 1; recheck the completed series.
+Normal logout at 05:14 UTC saved `izlude 188,211`, save point `izlude 128,142`, base/job levels 2/3, EXP 152/17, zeny 0, Knife equip mask 2, shirt mask 16, item 23484 ×1, Magnifier 611 ×4 and quests 21001/21008 both state 2. This includes the one deliberately dropped test Magnifier; no pickup is claimed. Read-only SQL showed online 0. Actual Save data → Back up everything created private `T04-C-izlude.tar.gz`: **15839 bytes**, SHA-256 **`f5a8faa9568b5ee91b7576ee79a407a2552bd01a06dbaac812f53920c0c5da0e`**, mode 0600. It uses the A/B-tested backup format; restoring C itself has not yet been rehearsed.
 
 ## Issues and limits
 
@@ -69,10 +69,10 @@ Local measurement-script SHA-256: `00109327e4bec72d145775c1dde066a0aa218e0ea9a2e
 
 ## Resume actions
 
-1. Confirm branch/HEAD/status and this task's owned files. Revalidate the existing app and sampler handles/processes; do not restart a live job because an observation timed out. The current coordinator's execution handles are recorded locally in `.tools/renewal/evidence/T04-live-handles.json`; they are hints, not proof of liveness.
+1. Confirm branch/HEAD/status and this task's owned files. Revalidate the existing app handle/process; the resource sampler has completed and must not be restarted. The current coordinator's execution handles are recorded locally in `.tools/renewal/evidence/T04-live-handles.json`; they are hints, not proof of liveness.
 2. A/B restoration, controlled NPC targeting, natural tutorial combat, quest-item acquisition and Sailor turn-in have passed. The ordinary ship exit reached Izlude; actual game showed position 193,211. No admin move/quest completion.
 3. Diagnose the missing ground-item sprite in T04.002, then repeat ordinary pickup. A normal inventory drag dropped one of five test Magnifiers, leaving four; its sprite failed to load. Do not claim a pickup PASS or silently replace normal loot with tutorial rewards.
-4. Complete a calibrated offline trial and the full timed resource/disk report. The sampler ends about 05:15:26 UTC; inspect its actual completion and samples, not just its intended duration.
+4. Continue the calibrated offline trial in T04.001. The resource observation/report is complete within its stated scope.
 5. Commit each meaningful verified checkpoint. Keep T04 `in_progress` until all required checks pass; then prepare the basic playtest. T05 Chinese pilot follows, with no reduction of the full goal.
 
 Evidence remains ignored: `T04-observations.jsonl` and named screenshots, `T04-save-{A,B}.json`, `T04-relaunch-check.json`, `T04-after-restore-A.json`, `T04-after-restore-B.json`, backup metadata, raw logs and resource samples. The local test login is in a separate user-only ignored file; never publish it or the admin URL. See [paired review](reviews/2026-10-18-T04.md).
