@@ -873,7 +873,7 @@ class G04PublicationFailures(Work):
     def test_cli_failure_has_no_success_or_traceback(self):
         original = gen.build
         out, err = io.StringIO(), io.StringIO()
-        with mock.patch.object(gen, "build", lambda *a: original(*a, profile=self.profile)), \
+        with mock.patch.object(gen, "build", lambda *a, **k: original(*a, profile=self.profile, **k)), \
                 self.nth("fsync", 5, lambda real, fd: self.eio()), \
                 mock.patch.object(sys, "stdout", out), mock.patch.object(sys, "stderr", err):
             code = gen.main([str(self.bundle), str(self.tables), str(self.out)])
@@ -883,11 +883,59 @@ class G04PublicationFailures(Work):
         self.assertNotIn(str(self.dir), err.getvalue())
         self.assertLessEqual(len(err.getvalue()), 400)
         self.failed()
-        with mock.patch.object(gen, "build", lambda *a: (_ for _ in ()).throw(ValueError("x"))), \
+        with mock.patch.object(gen, "build", lambda *a, **k: (_ for _ in ()).throw(ValueError("x"))), \
                 mock.patch.object(sys, "stdout", out), mock.patch.object(sys, "stderr", err):
             self.assertEqual(gen.main(["a", "b", "c"]), 1)
         self.assertIn("internal ValueError", err.getvalue())
         self.assertEqual(out.getvalue(), "")
+
+    def check_cli_stdout_failure(self, phase):
+        class Sink:
+            def __init__(self):
+                self.writes = 0
+                self.flushes = 0
+                self.accepted = ""
+
+            def write(self, text):
+                self.writes += 1
+                if phase == "write":
+                    raise OSError(errno.EIO, "stdout write")
+                if phase == "short":
+                    self.accepted += text[:-1]
+                    return len(text) - 1
+                self.accepted += text
+                return len(text)
+
+            def flush(self):
+                self.flushes += 1
+                if phase == "flush":
+                    raise OSError(errno.EIO, "stdout flush")
+
+        original = gen.build
+        sink, err = Sink(), io.StringIO()
+        before = {path: snapshot(path) for path in self.sources()}
+        with mock.patch.object(gen, "build", lambda *a, **k: original(*a, profile=self.profile, **k)), \
+                mock.patch.object(sys, "stdout", sink), mock.patch.object(sys, "stderr", err):
+            code = gen.main([str(self.bundle), str(self.tables), str(self.out)])
+        self.assertEqual(sink.writes, 1, "stdout fault was not reached")
+        self.assertEqual(sink.flushes, 1 if phase == "flush" else 0)
+        self.assertEqual(code, 1)
+        self.assertNotIn("Traceback", err.getvalue())
+        self.assertNotIn(str(self.dir), err.getvalue())
+        self.assertLessEqual(len(err.getvalue()), 400)
+        if phase == "write":
+            self.assertEqual(sink.accepted, "")
+        self.assertEqual({path: snapshot(path) for path in self.sources()}, before)
+        self.failed()
+
+    def test_cli_stdout_write_failure_removes_owned_completion(self):
+        self.check_cli_stdout_failure("write")
+
+    def test_cli_stdout_flush_failure_removes_owned_completion(self):
+        self.check_cli_stdout_failure("flush")
+
+    def test_cli_stdout_short_write_removes_owned_completion(self):
+        self.check_cli_stdout_failure("short")
 
 
 # ------------------------------------------------------------------ G05

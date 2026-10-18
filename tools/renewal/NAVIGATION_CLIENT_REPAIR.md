@@ -138,6 +138,11 @@ harness's (root's) cleanup, not something this code does.
   left and reported; a root whose ownership could not be confirmed is left
   untouched and reported. No adversarial concurrency, retry after an
   ambiguous close, directory fsync or power-loss guarantee is offered.
+- CLI stdout writing and explicit flushing remain inside that owned
+  transaction. A failed or short stdout write, or failed flush, removes usable
+  owned completion through the same identity-aware cleanup. Buffered bytes
+  already accepted by stdout cannot be retracted: consumers must require both
+  exit status zero and a valid completion envelope before using the output.
 
 ## Tests
 
@@ -154,7 +159,8 @@ window and of the whole repaired bundle as a module) is skipped without
 shape and forbidden mechanisms, refusals, injected I/O failures (short/zero/
 failing writes, every fsync, close EIO after a real close including the final
 `COMPLETE.json` read-back, truncation/changes during streaming, read-back
-corruption, partial descriptor acquisition, foreign root/entries, interrupt)
+corruption, partial descriptor acquisition, foreign root/entries, interrupt,
+and CLI stdout write/flush/short-return failures)
 and this runbook's sections. JavaScript is only parsed; no Lua, WASM, browser
 or game code is executed by these tests.
 

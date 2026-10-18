@@ -857,7 +857,7 @@ class Output:
 # ---------------------------------------------------------------- build
 
 
-def build(bundle_path, table_dir, output_path, profile=PROFILE):
+def build(bundle_path, table_dir, output_path, profile=PROFILE, *, _emit=None):
     """Create OUTPUT. Returns the success stdout value. `profile` is fixed in production."""
     pins = {pin["role"]: pin for pin in profile["inputs"]}
     bundle_abs = _resolve_source(bundle_path, "BUNDLE_SOURCE")
@@ -954,6 +954,8 @@ def build(bundle_path, table_dir, output_path, profile=PROFILE):
             "files": len(payload),
             "manifest_sha256": manifest_record["sha256"],
         }
+        if _emit is not None:
+            _emit(result)
     except BaseException as error:
         failure = error
     finally:
@@ -973,13 +975,20 @@ def build(bundle_path, table_dir, output_path, profile=PROFILE):
     return result
 
 
+def _write_success(result):
+    text = json.dumps(result, ensure_ascii=False, sort_keys=True) + "\n"
+    if sys.stdout.write(text) != len(text):
+        raise RepairError("stdout write incomplete")
+    sys.stdout.flush()
+
+
 def main(argv=None):
     args = sys.argv[1:] if argv is None else argv
     if len(args) != 3 or any(a.startswith("-") for a in args):
         sys.stderr.write("usage: navigation_client_repair.py BUNDLE_SOURCE TAIWAN_TABLE_DIR OUTPUT\n")
         return 2
     try:
-        result = build(*args)
+        build(*args, _emit=_write_success)
     except RepairError as error:
         sys.stderr.write(f"navigation_client_repair: refused/failed: {error}\n")
         return 1
@@ -988,12 +997,6 @@ def main(argv=None):
         return 1
     except Exception as error:  # bounded diagnosis, never a traceback
         sys.stderr.write(f"navigation_client_repair: failed: internal {type(error).__name__}\n")
-        return 1
-    try:
-        sys.stdout.write(json.dumps(result, ensure_ascii=False, sort_keys=True) + "\n")
-        sys.stdout.flush()
-    except OSError as error:
-        sys.stderr.write(f"navigation_client_repair: stdout failed: {_why(error)}\n")
         return 1
     return 0
 
