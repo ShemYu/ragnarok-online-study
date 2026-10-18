@@ -172,12 +172,13 @@ export default function initialize(parameters, api) {
     }
 
     function editable(owner, row) {
-        if (row.isContentEditable === true) return true;
         let node = row;
-        for (let depth = 0; node && node !== owner.root && depth < MAX_ANCESTORS; depth++, node = node.parentNode) {
+        for (let depth = 0; node && depth < MAX_ANCESTORS; depth++, node = node.parentNode) {
             if (node.nodeType === ELEMENT && node.hasAttribute('contenteditable')) return true;
+            if (node.isContentEditable === true) return true;
+            if (node === owner.root) return false;
         }
-        return node !== owner.root;
+        return true;
     }
 
     // 'ok', 'overflow' or 'skip'. Called again before every write.
@@ -311,6 +312,13 @@ export default function initialize(parameters, api) {
     const diagnostics = () => Object.freeze({ state, activeRoots: owners.size, ...counts });
     const handle = Object.freeze({ dispose, diagnostics });
 
+    // Attach both Promise handlers even when cleanup below immediately disposes
+    // an already-dead scope. Late rejection must still be consumed.
+    if (state === 'loading') {
+        Promise.prototype.then.call(ready,
+            value => guarded(() => settle(value)),
+            () => guarded(() => { if (state === 'loading') fail(); }));
+    }
     // Registered before any subscription, so a loader that never adopts the
     // returned handle (or adopts it after the scope is gone) still cleans up.
     api.cleanup(dispose);
@@ -323,11 +331,6 @@ export default function initialize(parameters, api) {
             dispose();
             throw error;
         }
-    }
-    if (state === 'loading') {
-        Promise.prototype.then.call(ready,
-            value => guarded(() => settle(value)),
-            () => guarded(() => { if (state === 'loading') fail(); }));
     }
     return handle;
 }

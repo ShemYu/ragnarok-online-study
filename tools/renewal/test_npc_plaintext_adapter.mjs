@@ -837,6 +837,103 @@ test('scope cleanup before loader adoption, and loader re-registration, are safe
     assert.equal(late.diagnostics().state, 'disposed');
 });
 
+test('already-disposed scope consumes late dictionary rejection without subscribing', () => {
+    // A separate process keeps a genuinely unhandled rejection observable across
+    // event-loop turns without letting node:test itself intercept that event.
+    const probe = `
+        import assert from 'node:assert/strict';
+        import initialize from ${JSON.stringify(pathToFileURL(adapterPath).href)};
+        globalThis.MutationObserver = class { observe() {} disconnect() {} };
+        const unhandled = [];
+        process.on('unhandledRejection', error => unhandled.push(String(error.message)));
+        const turn = () => new Promise(resolve => setTimeout(resolve, 0));
+        let subscriptions = 0;
+        for (const late of ['resolve', 'reject']) {
+            let resolve, reject;
+            const dictionaryReady = new Promise((res, rej) => { resolve = res; reject = rej; });
+            const api = {
+                version: 1,
+                cleanup(fn) { fn(); return () => {}; },
+                on() { subscriptions++; throw new Error('disposed API scope'); },
+            };
+            const handle = initialize({ dictionaryReady }, api);
+            assert.equal(handle.diagnostics().state, 'disposed');
+            assert.equal(handle.diagnostics().activeRoots, 0);
+            handle.dispose(); handle.dispose();
+            if (late === 'resolve') resolve({ Hello: '哈囉' });
+            else reject(new Error('authored late dictionary rejection'));
+            await turn(); await turn();
+            assert.equal(handle.diagnostics().state, 'disposed');
+            assert.equal(handle.diagnostics().activeRoots, 0);
+        }
+        assert.equal(subscriptions, 0);
+        assert.deepEqual(unhandled, []);
+        console.log('disposed dictionary resolve/reject handled; subscriptions=0; unhandled=0');
+    `;
+    const env = { ...process.env };
+    delete env.NODE_TEST_CONTEXT;
+    const result = spawnSync(process.execPath, ['--input-type=module', '-e', probe], { encoding: 'utf8', timeout: 10000, env });
+    assert.equal(result.status, 0, result.stdout + result.stderr);
+    assert.match(result.stdout, /subscriptions=0; unhandled=0/);
+});
+
+test('component Element root contenteditable presence excludes initial and later writes', async () => {
+    for (const name of ['NpcBox', 'NpcMenu']) for (const value of ['false', '', 'true', 'plaintext-only', 'unexpected']) {
+        const runtime = createRuntime();
+        const { scope } = load(runtime, ready());
+        const row = el('div', null, 'Hello');
+        row.setAttribute('data-index', '0');
+        const text = row.childNodes[0];
+        const content = el('div', 'content', row);
+        const root = el('div', null, content);
+        root.setAttribute('contenteditable', value);
+        const component = { name, root, host: root };
+        try {
+            runtime.append(component);
+            await settle();
+            assert.equal(text.data, 'Hello', `${name} root attribute ${JSON.stringify(value)} blocks append`);
+            text.data = 'Goodbye';
+            await settle();
+            assert.equal(text.data, 'Goodbye', `${name} root attribute blocks native-shaped observer delivery`);
+            assert.equal(row.childNodes[0], text, 'same Text identity');
+            root.removeAttribute('contenteditable');
+            runtime.append(component);
+            await settle();
+            assert.equal(text.data, '再會', 'fresh append translates after editable mark is removed');
+        } finally {
+            scope.dispose();
+            root.remove();
+        }
+    }
+});
+
+test('loading content replacement waits for fresh append before adopting replacement', async () => {
+    const runtime = createRuntime();
+    let resolve;
+    const { scope, core } = load(runtime, { dictionaryReady: new Promise(res => { resolve = res; }) });
+    const box = createNpcBox();
+    runtime.append(box);
+    const oldRow = box.setText('Hello', 1);
+    try {
+        await settle(); await settle(); // finish registry replay before replacement
+        const replacementRow = el('div', null, 'Goodbye');
+        const replacement = el('div', 'content', replacementRow);
+        box.content.parentNode.replaceChild(replacement, box.content);
+        resolve(dict());
+        await settle(); await settle();
+        assert.equal(core.diagnostics().state, 'ready');
+        assert.equal(oldRow.childNodes[0].data, 'Hello', 'old content is inert');
+        assert.equal(replacementRow.childNodes[0].data, 'Goodbye', 'readiness does not adopt replacement');
+        runtime.append(box);
+        await settle();
+        assert.equal(replacementRow.childNodes[0].data, '再會', 'fresh matching append adopts replacement');
+        assert.equal(oldRow.childNodes[0].data, 'Hello', 'old content remains inert');
+    } finally {
+        scope.dispose();
+    }
+    assert.equal(core.diagnostics().activeRoots, 0);
+});
+
 test('remove while connected, detach/reappend, and name/host mismatches', async () => {
     const runtime = createRuntime();
     const box = createNpcBox();
@@ -1308,6 +1405,50 @@ if (!gcChild) {
             failed.record('a', 4, ['bad']);
             assert.equal(failed.summary().state, 'fail');
 
+            assert.equal(reporter.BASELINE_GROUPS.length, 13);
+            assert.ok(Object.isFrozen(reporter.BASELINE_GROUPS));
+            assert.deepEqual(reporter.BASELINE_GROUPS.map(name => /^G(\d+) /.exec(name)?.[1]),
+                ['1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12', '13']);
+            const omittedG13 = reporter.createReporter(reporter.BASELINE_GROUPS);
+            for (const name of reporter.BASELINE_GROUPS.slice(0, -1)) omittedG13.record(name, 1, []);
+            assert.equal(omittedG13.summary().expected, 13, 'literal denominator survives G13 omission');
+            assert.equal(omittedG13.summary().executed, 12);
+            assert.equal(omittedG13.summary().state, 'fail');
+            assert.equal(omittedG13.summary().groups.at(-1).state, 'not run');
+
+            const makeBaseline = (mode) => {
+                const expected = reporter.BASELINE_GROUPS.concat(mode === 'zero-assertions' ? ['fault: zero assertions'] : []);
+                const result = reporter.createReporter(expected);
+                for (const name of reporter.BASELINE_GROUPS) result.record(name, 1, []);
+                return result;
+            };
+            const ordinary = makeBaseline('baseline');
+            assert.equal(reporter.requireObservedFault(ordinary, 'baseline', []), 'not-applicable');
+            assert.equal(ordinary.summary().state, 'pass', 'normal baseline still passes');
+            const observedMessages = {
+                'api-append-error': 'API double: injected append listener error',
+                'api-replay-error': 'API double: injected replay listener error',
+                'api-cleanup-error': 'API double: injected cleanup error',
+                'unhandled-rejection': 'unhandled rejection: injected unhandled rejection',
+                'csp-inline': 'CSP violation: script-src-elem inline',
+            };
+            for (const mode of ['api-append-error', 'api-replay-error', 'api-cleanup-error', 'zero-assertions', 'unhandled-rejection', 'csp-inline']) {
+                const suppressed = makeBaseline(mode);
+                assert.equal(reporter.requireObservedFault(suppressed, mode, []), 'not-observed', `${mode} label alone is not evidence`);
+                assert.ok(suppressed.summary().failures.includes('fault injection NOT OBSERVED: ' + mode));
+                assert.equal(suppressed.summary().state, 'fail', 'missing fault evidence fails distinctly');
+                const unrelated = makeBaseline(mode);
+                assert.equal(reporter.requireObservedFault(unrelated, mode, ['unrelated error']), 'not-observed', 'unrelated error is not the intended sink');
+                const observed = makeBaseline(mode);
+                if (mode === 'zero-assertions') observed.record('fault: zero assertions', 0, []);
+                assert.equal(reporter.requireObservedFault(observed, mode, observedMessages[mode] ? [observedMessages[mode]] : []), 'observed');
+                assert.ok(!observed.summary().failures.some(text => text.includes('NOT OBSERVED')));
+            }
+            // These are authored reporter inputs, not native CSP/rejection proof.
+            assert.match(harness, /const expected = BASELINE_GROUPS\.concat/);
+            assert.doesNotMatch(harness, /summary\.state === 'pass' && mode === 'baseline'/);
+            assert.match(harness, /requireObservedFault\(reporter, mode, boot\.errors\)/);
+
             const { createRuntime: fixtureRuntime } = await import(pathToFileURL(path.join(output, 'api-double.js')).href);
             assert.throws(() => fixtureRuntime(), /error sink/);
             const errors = [];
@@ -1321,6 +1462,27 @@ if (!gcChild) {
             s.api.cleanup(() => { throw new Error('cleanup fault'); });
             s.dispose();
             assert.deepEqual(errors, ['append fault', 'replay fault', 'cleanup fault']);
+            const sinkMessages = [];
+            const sinkRuntime = fixtureRuntime(error => sinkMessages.push('API double: ' + error.message));
+            const appendScope = sinkRuntime.scope('append-sink');
+            let normal = 0;
+            appendScope.api.on('ui:append', () => { normal++; }, { replay: false });
+            appendScope.api.on('ui:append', () => { throw new Error('injected append listener error'); }, { replay: false });
+            sinkRuntime.append(component);
+            assert.equal(normal, 1, 'normal callback precedes actual caught error');
+            const replayScope = sinkRuntime.scope('replay-sink');
+            replayScope.api.on('ui:append', () => { throw new Error('injected replay listener error'); });
+            await settle();
+            const cleanupScope = sinkRuntime.scope('cleanup-sink');
+            cleanupScope.api.cleanup(() => { throw new Error('injected cleanup error'); });
+            cleanupScope.api.cleanup(() => Promise.reject(new Error('authored async cleanup error')));
+            cleanupScope.dispose();
+            await settle();
+            assert.ok(sinkMessages.includes('API double: authored async cleanup error'), 'async cleanup rejection reaches sink');
+            for (const mode of ['api-append-error', 'api-replay-error', 'api-cleanup-error']) {
+                assert.equal(reporter.requireObservedFault(makeBaseline(mode), mode, sinkMessages), 'observed', `${mode} reaches actual authored API caught-error sink`);
+            }
+            appendScope.dispose(); replayScope.dispose();
             const appended = rt.append(component);
             assert.ok(Object.isFrozen(appended));
             assert.notEqual(rt.append(component), appended, 'fresh descriptor per append');

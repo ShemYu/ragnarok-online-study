@@ -195,8 +195,24 @@ BOOT = r'''// Classic script, runs before the module graph: records load, CSP an
 REPORTER = r'''// Authored aggregate reporter. PASS only when every expected group ran
 // exactly once with at least one assertion and no errors, no unexpected
 // group ran, and no failure was ever recorded. A failure is never cleared.
+// This literal manifest is independent of harness registrations, including G13.
+export const BASELINE_GROUPS = Object.freeze([
+	'G1 Plain dialogue before/after append; duplicate append and replay',
+	'G2 Multiline hit/miss, mixed CJK, CRLF/CR/LF and whitespace',
+	'G3 Adjacent Text never joins; own keys only',
+	'G4 Native-shape menu: omitted options, indexes, mousedown, OK/double-click, cancel 255',
+	'G5 Next/Close and unrelated controls keep identity, values and one action',
+	'G6 InputBox excluded: exact text, parseInt|0 number, value untouched',
+	'G7 Whole-row skips: colours, ITEM/NAVI, comments, controls, editable',
+	'G8 Unsafe/nonstring/oversized mappings; scalar punctuation; HTML-like targets',
+	'G9 Dictionary readiness: pending, late, rejected, malformed, removed and disposed',
+	'G10 Lifecycle: queued current-registry replay, early removal, loader adoption, reappend, mismatches',
+	'G11 Native MutationObserver: changes, replacement, output-as-key, queued callbacks, stale content',
+	'G12 Component/row negatives, every numeric bound and diagnostics',
+	'G13 Reporter controls and aggregate accounting',
+]);
 export function createReporter(expected) {
-	const want = [...expected];
+	const want = Object.freeze([...expected]);
 	const results = new Map();
 	const failures = [];
 	return {
@@ -224,6 +240,26 @@ export function createReporter(expected) {
 			return { state, expected: want.length, executed, passed, failed, assertions, failures: [...failures], unexpected, groups };
 		},
 	};
+}
+
+// A mode label is never evidence that its injection reached the actual sink.
+// Missing evidence fails distinctly; it must not be credited as an observed
+// API/rejection/CSP/zero-assertion fault by a root verifier.
+export function requireObservedFault(reporter, mode, errors) {
+	if (mode === 'baseline') return 'not-applicable';
+	const messages = {
+		'api-append-error': 'API double: injected append listener error',
+		'api-replay-error': 'API double: injected replay listener error',
+		'api-cleanup-error': 'API double: injected cleanup error',
+		'unhandled-rejection': 'unhandled rejection: injected unhandled rejection',
+	};
+	const observed = mode === 'zero-assertions'
+		? reporter.summary().groups.some(group => group.name === 'fault: zero assertions' && group.state === 'fail' && group.assertions === 0)
+		: mode === 'csp-inline'
+			? errors.some(error => /^CSP violation: script-src(?:-elem)? inline$/.test(error))
+			: Object.hasOwn(messages, mode) && errors.includes(messages[mode]);
+	if (!observed) reporter.fail('fault injection NOT OBSERVED: ' + mode);
+	return observed ? 'observed' : 'not-observed';
 }
 '''
 
@@ -489,7 +525,7 @@ HARNESS = r'''// Authored browser harness: the core under the API 1 double with 
 // shadow roots and the browser's own MutationObserver. Thirteen baseline
 // groups run automatically; ?mode= adds exactly one authored reporter fault.
 import initialize, { LIMITS } from './npc_plaintext_adapter.js';
-import { createReporter } from './reporter.js';
+import { BASELINE_GROUPS, createReporter, requireObservedFault } from './reporter.js';
 import { createRuntime } from './api-double.js';
 import { createDictionary, ENTRY_COUNT } from './dictionary.js';
 import * as C from './components.js';
@@ -753,6 +789,32 @@ group(7, 'Whole-row skips: colours, ITEM/NAVI, comments, controls, editable', as
 	t.ok(blocked.isContentEditable, 'native isContentEditable via ancestor');
 	t.same(texts(blocked), ['Hello'], 'editable ancestor up to the root excludes');
 	box2.container.removeAttribute('contenteditable');
+
+	// Descriptor.root may itself be an Element, not just a ShadowRoot. Its
+	// attribute presence excludes even contenteditable="false".
+	for (const value of ['false', '']) {
+		const root = document.createElement('div');
+		root.setAttribute('contenteditable', value);
+		const content = document.createElement('div');
+		content.className = 'content';
+		const row = document.createElement('div');
+		const text = document.createTextNode('Hello');
+		row.appendChild(text); content.appendChild(row); root.appendChild(content);
+		env.area.appendChild(root);
+		const component = { name: 'NpcBox', root, host: root };
+		env.runtime.append(component);
+		await settle();
+		t.equal(text.data, 'Hello', `Element root attribute ${show(value)} blocks initial scan`);
+		text.data = 'Goodbye';
+		await settle();
+		t.equal(text.data, 'Goodbye', 'Element root mark blocks native observer writes');
+		t.equal(row.firstChild, text, 'editable Text identity preserved');
+		root.removeAttribute('contenteditable');
+		env.runtime.append(component);
+		await settle();
+		t.equal(text.data, '再會', 'fresh append works after editable mark removed');
+		env.runtime.remove(component); root.remove();
+	}
 });
 
 group(8, 'Unsafe/nonstring/oversized mappings; scalar punctuation; HTML-like targets', async (t, env) => {
@@ -845,6 +907,48 @@ group(9, 'Dictionary readiness: pending, late, rejected, malformed, removed and 
 		t.equal(loaded.core.diagnostics().state, 'disposed', `disposed stays terminal after late ${late}`);
 		t.same([r.textContent, b.content.lastChild.textContent], ['Hello', 'Goodbye'], `no writes after late ${late}`);
 	}
+	// Cleanup can run synchronously during initialize for an already-dead API
+	// scope. It must still consume a late rejection without subscribing.
+	for (const late of ['resolve', 'reject']) {
+		const rt = env.newRuntime();
+		const scope = rt.scope('already-disposed');
+		scope.dispose();
+		let resolve, reject, subscriptions = 0;
+		const dictionaryReady = new Promise((res, rej) => { resolve = res; reject = rej; });
+		const api = { ...scope.api, on(...args) { subscriptions++; return scope.api.on(...args); } };
+		const disposed = initialize({ dictionaryReady }, api);
+		if (late === 'resolve') resolve(createDictionary()); else reject(new Error('authored immediate-cleanup late rejection'));
+		await settle(); await settle();
+		t.equal(disposed.diagnostics().state, 'disposed', `immediate cleanup stays terminal after ${late}`);
+		t.equal(disposed.diagnostics().activeRoots, 0, 'immediately disposed roots released');
+		t.equal(subscriptions, 0, 'no subscription attempted after synchronous disposal');
+		disposed.dispose();
+	}
+
+	// A readiness trigger may retire replaced loading content, but only a fresh
+	// matching append may adopt the replacement.
+	let resolveReplacement;
+	const rtReplacement = env.newRuntime();
+	const loading = env.load(new Promise(resolve => { resolveReplacement = resolve; }), rtReplacement).core;
+	const replaced = C.createNpcBox();
+	C.mount(rtReplacement, replaced, env.area);
+	const oldRow = replaced.setText('Hello', 1);
+	await settle(); await settle(); // finish registry replay while still loading
+	const replacement = document.createElement('div');
+	replacement.className = 'content';
+	const replacementRow = document.createElement('div');
+	const replacementText = document.createTextNode('Goodbye');
+	replacementRow.appendChild(replacementText); replacement.appendChild(replacementRow);
+	replaced.content.parentNode.replaceChild(replacement, replaced.content);
+	resolveReplacement(createDictionary());
+	await settle(); await settle();
+	t.equal(loading.diagnostics().state, 'ready', 'dictionary ready with replaced loading content');
+	t.equal(oldRow.firstChild.data, 'Hello', 'retired loading content remains untouched');
+	t.equal(replacementText.data, 'Goodbye', 'readiness alone does not adopt replacement');
+	rtReplacement.append(replaced);
+	await settle();
+	t.equal(replacementText.data, '再會', 'fresh append adopts replacement after readiness');
+	t.equal(oldRow.firstChild.data, 'Hello', 'old loading content stays inert after fresh adoption');
 	// Any unhandled rejection above would reach the boot reporter and fail the page.
 	await pause(50);
 	t.equal(boot.errors.length, 0, 'no unhandled rejection or error so far');
@@ -1123,6 +1227,14 @@ group(13, 'Reporter controls and aggregate accounting', async (t) => {
 	twice.record('a', 1, []); twice.record('a', 1, []);
 	t.equal(twice.summary().state, 'fail', 'duplicate group fails');
 	t.equal(createReporter([]).summary().state, 'fail', 'empty expectation fails');
+	const missingLast = createReporter(BASELINE_GROUPS);
+	for (const name of BASELINE_GROUPS.slice(0, -1)) missingLast.record(name, 1, []);
+	t.equal(missingLast.summary().expected, 13, 'literal baseline denominator independent of registrations');
+	t.equal(missingLast.summary().state, 'fail', 'omitting G13 still fails outside its own checks');
+	const suppressed = createReporter(['a']);
+	suppressed.record('a', 1, []);
+	t.equal(requireObservedFault(suppressed, 'csp-inline', []), 'not-observed', 'mode label is not a CSP observation');
+	t.ok(suppressed.summary().failures.some(text => text.includes('NOT OBSERVED')), 'missing fault evidence diagnosed separately');
 	t.equal(groups.length, 13, 'thirteen baseline groups registered');
 	t.same(groups.map(g => g.number), [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13], 'groups in order');
 	t.same(FAULT_MODES, ['api-append-error', 'api-replay-error', 'api-cleanup-error', 'zero-assertions', 'unhandled-rejection', 'csp-inline'], 'six fault modes');
@@ -1207,9 +1319,9 @@ function render(reporter, final) {
 		statusEl.textContent = `RUNNING — ${summary.executed} / ${summary.expected} groups`;
 		return;
 	}
-	const pass = summary.state === 'pass' && mode === 'baseline';
+	const pass = summary.state === 'pass';
 	statusEl.dataset.state = pass ? 'pass' : 'fail';
-	const reason = summary.failures[0] || summary.groups.find(g => g.state !== 'pass')?.name || (mode !== 'baseline' ? `fault mode ${mode}` : 'aggregate');
+	const reason = summary.failures[0] || summary.groups.find(g => g.state !== 'pass')?.name || 'aggregate';
 	statusEl.textContent = pass
 		? `PASS — ${summary.passed} / ${summary.expected} groups, ${summary.assertions} assertions`
 		: `FAIL — ${reason}`;
@@ -1218,7 +1330,7 @@ function render(reporter, final) {
 
 async function main() {
 	const known = mode === 'baseline' || FAULT_MODES.includes(mode);
-	const expected = groups.map(g => g.name).concat(mode === 'zero-assertions' ? ['fault: zero assertions'] : []);
+	const expected = BASELINE_GROUPS.concat(mode === 'zero-assertions' ? ['fault: zero assertions'] : []);
 	const reporter = createReporter(expected);
 	if (!known) reporter.fail('unknown mode: ' + mode);
 	render(reporter, false);
@@ -1239,6 +1351,9 @@ async function main() {
 	stage.appendChild(faultArea);
 	await injectFault(reporter, faultArea);
 	await pause(100);
+	const observation = requireObservedFault(reporter, mode, boot.errors);
+	statusEl.dataset.fault = observation;
+	note(`fault observation ${mode}: ${observation.toUpperCase()}`);
 	boot.finished = true;
 	render(reporter, true);
 	startDemo({ onApiError, note });
