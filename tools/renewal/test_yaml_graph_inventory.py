@@ -617,8 +617,10 @@ class PublicationTests(unittest.TestCase):
         target = self.parent / "c"
 
         def failing_close(fd):
+            is_directory = stat.S_ISDIR(os.fstat(fd).st_mode)
             real_close(fd)
-            if calls["n"] == 0 and os.path.exists(target / yg.OUTPUT_COMPLETE):
+            if (is_directory and calls["n"] == 0
+                    and os.path.exists(target / yg.OUTPUT_COMPLETE)):
                 calls["n"] += 1
                 raise OSError("close failed")
 
@@ -626,15 +628,22 @@ class PublicationTests(unittest.TestCase):
             with self.assertRaises(yg.OutputError):
                 self.publish("c")
         self.assertNotIn(yg.OUTPUT_COMPLETE, os.listdir(target))
+        self.assertEqual(calls["n"], 1, "the actual output directory close was injected")
 
     def test_foreign_marker_replacement_preserved_and_reported(self):
         target = self.parent / "f"
 
         def replace_then_fail(fd):
-            os.unlink(yg.OUTPUT_COMPLETE, dir_fd=fd)
-            with open(os.open(yg.OUTPUT_COMPLETE, os.O_WRONLY | os.O_CREAT, 0o600, dir_fd=fd),
+            # Keep the owned inode allocated so replacement cannot reuse its inode.
+            original = os.stat(yg.OUTPUT_COMPLETE, dir_fd=fd, follow_symlinks=False)
+            os.rename(yg.OUTPUT_COMPLETE, "owned-marker-held", src_dir_fd=fd, dst_dir_fd=fd)
+            with open(os.open(yg.OUTPUT_COMPLETE, os.O_WRONLY | os.O_CREAT | os.O_EXCL,
+                              0o600, dir_fd=fd),
                       "wb") as h:
                 h.write(b"foreign")
+            replacement = os.stat(yg.OUTPUT_COMPLETE, dir_fd=fd, follow_symlinks=False)
+            self.assertNotEqual((original.st_dev, original.st_ino),
+                                (replacement.st_dev, replacement.st_ino))
             raise OSError("listing failed")
 
         with mock.patch.object(yg.os, "listdir", replace_then_fail):
@@ -668,6 +677,210 @@ class PublicationTests(unittest.TestCase):
         target, manifest, _ = self.publish("r", limits=dict(yg.LIMITS, max_record_file_bytes=10))
         self.assertEqual(manifest["status"], "unsupported")
         self.assertEqual(manifest["stop"]["detail"], "max_record_file_bytes")
+        self.assertEqual(manifest["counts"]["raw_rows"], 0)
+        self.assertEqual(manifest["counts"]["raw_id_occurrences"], 0)
+
+
+class CoordinatorRegressionTests(unittest.TestCase):
+    """Coordinator corrections: authored fixtures only, no snapshot/CLI dependency."""
+
+    def test_full_raw_id_text_and_duplicates(self):
+        text = "x" * 1025 + "繁體中文"
+        graph, rows, status = go(files_of(db__item_db_yml=H + body(
+            "  - Id: '" + text + "'\n    Id: \"" + text + "\"\n")))
+        self.assertEqual(status, "complete")
+        self.assertEqual([r["text"] for r in rows[0]["raw_ids"]], [text, text])
+        self.assertTrue(all("text_truncated_from_chars" not in r
+                            for r in rows[0]["raw_ids"]))
+        self.assertEqual(graph.id_stats["ITEM_DB"]["occurrences"], 2)
+
+    def test_leading_zero_versions_preserve_full_text(self):
+        for quote in ("", "'", '"'):
+            text = "0" * 1025 + "3"
+            data = "Header:\n  Type: ITEM_DB\n  Version: " + quote + text + quote + "\n"
+            graph, _, status = go(files_of(db__item_db_yml=data))
+            self.assertEqual(status, "complete")
+            record = graph.visits[0]["header"]["version"]
+            self.assertEqual(record["text"], text)
+            self.assertNotIn("text_truncated_from_chars", record)
+            self.assertEqual(graph.visits[0]["header"]["version_value"], 3)
+        graph, _, status = go(files_of(db__item_db_yml=H.replace("Version: 3", "Version: " + "0" * 200)))
+        self.assertEqual(status, "incomplete")  # decimal zero is below the minimum, not unsupported
+        self.assertEqual(graph.visits[0]["header"]["version_value"], 0)
+
+    def test_long_version_range_and_nondecimal_refusals(self):
+        for text in ("0" * 100 + "65536", "+3", "0x03", "0o3", "３"):
+            graph, _, status = go(files_of(db__item_db_yml=H.replace("Version: 3", "Version: '" + text + "'")))
+            self.assertEqual((status, graph.stop["kind"]),
+                             ("unsupported", "unsupported_version_text"))
+
+    def child_failure(self, setup, expected=yg.ChildFailure, script="sleep 30"):
+        real_popen = subprocess.Popen
+        children = []
+
+        def spawn(*args, **kw):
+            child = real_popen(*args, **kw)
+            children.append(child)
+            return child
+
+        try:
+            with mock.patch.object(yg.subprocess, "Popen", spawn), setup:
+                with self.assertRaises(expected):
+                    yg.run_child([], b"", yg.LIMITS, script=script)
+            self.assertEqual(len(children), 1)
+            self.assertIsNotNone(children[0].poll(), "owned child must be reaped")
+            self.assertTrue(all(h.closed for h in (children[0].stdin, children[0].stdout,
+                                                   children[0].stderr)))
+        finally:
+            # Test owns this child even if a proposed implementation regresses.
+            for child in children:
+                if child.poll() is None:
+                    child.kill()
+                child.wait(timeout=2)
+                for handle in (child.stdin, child.stdout, child.stderr):
+                    handle.close()
+
+    def test_selector_construction_failure_reaps_child(self):
+        self.child_failure(mock.patch.object(yg.selectors, "DefaultSelector",
+                                              side_effect=OSError("selector setup")))
+
+    def test_nonblocking_setup_failure_reaps_child(self):
+        self.child_failure(mock.patch.object(yg.os, "set_blocking",
+                                              side_effect=OSError("nonblocking setup")))
+
+    def test_selector_registration_failure_reaps_child(self):
+        selector = yg.selectors.DefaultSelector()
+        with mock.patch.object(selector, "register", side_effect=RuntimeError("registration")):
+            self.child_failure(mock.patch.object(yg.selectors, "DefaultSelector",
+                                                  return_value=selector))
+        self.assertIsNone(selector.get_map())
+
+    def test_unexpected_io_failure_reaps_child(self):
+        real_read = os.read
+
+        def broken_read(fd, size):
+            # Popen's own error-pipe read uses another size and must remain intact.
+            if size == 1 << 16:
+                raise OSError("read failed")
+            return real_read(fd, size)
+
+        self.child_failure(mock.patch.object(yg.os, "read", broken_read),
+                           script="$stdout.write('x'); $stdout.flush; sleep 30")
+
+    def test_selector_finalization_failure_still_reaps_child(self):
+        selector = yg.selectors.DefaultSelector()
+        close = selector.close
+
+        def broken_close():
+            close()
+            raise OSError("selector close")
+
+        # Force select to fail immediately, then also fail selector close.
+        with mock.patch.object(selector, "select", side_effect=RuntimeError("select")), \
+                mock.patch.object(selector, "close", broken_close):
+            self.child_failure(mock.patch.object(yg.selectors, "DefaultSelector",
+                                                  return_value=selector))
+
+    def test_interrupt_after_spawn_cleans_up_and_propagates(self):
+        self.child_failure(mock.patch.object(yg.selectors, "DefaultSelector",
+                                              side_effect=KeyboardInterrupt()), KeyboardInterrupt)
+
+    def test_malformed_protocol_stops_certain_suffix(self):
+        packets = [b"[]", b"null", b'"text"',
+                   json.dumps({**yg.PARSER_PINS, "outcome": "ok"}).encode(),
+                   json.dumps({**yg.PARSER_PINS, "outcome": "ok", "nodes": [[[], 0, 0, 0, 0]]}).encode(),
+                   json.dumps({**yg.PARSER_PINS, "outcome": "ok", "nodes": [
+                       ["T", 0, 0, 0, 0, 1], ["S", 0, 0, 0, 0, "x", 1, None, None]]}).encode(),
+                   json.dumps({**yg.PARSER_PINS, "outcome": "budget", "budget": "max_depth"}).encode()]
+        for packet in packets:
+            with self.subTest(packet=packet[:100]), \
+                    mock.patch.object(yg, "run_child", return_value=(0, packet, b"", None)):
+                graph, rows, status = go(files_of(db__item_db_yml=H), roots=TWO)
+            self.assertEqual((status, graph.stop["kind"]), ("unsupported", "parser_failure"))
+            self.assertEqual(rows, [])
+            self.assertEqual(len(graph.visits), 1)
+            self.assertEqual(graph.unresolved[0]["kind"], "root_not_started")
+            self.assertEqual(graph.usage["adapter_stdout_bytes"], len(packet))
+            self.assertEqual(graph.usage["unknown_node_count_attempts"], 1)
+            self.assertIsNone(yg.build_manifest(graph, {}, {})["counts"]["ast_nodes"])
+
+    def test_malformed_node_metadata_is_qualified_stop(self):
+        _, out, _, failure = yg.run_child(["1000", "64"], H.encode(), yg.LIMITS)
+        self.assertIsNone(failure)
+        original = json.loads(out)
+        for kind, index, value in (("S", 6, 99), ("S", 7, []), ("M", 6, []),
+                                    ("D", 8, "true")):
+            packet = json.loads(out)
+            next(n for n in packet["nodes"] if n[0] == kind)[index] = value
+            with mock.patch.object(yg, "run_child", return_value=(0, json.dumps(packet).encode(), b"", None)):
+                graph, _, status = go(files_of(db__item_db_yml=H))
+            self.assertEqual((status, graph.stop["kind"]), ("unsupported", "parser_failure"))
+        self.assertEqual(original["outcome"], "ok")
+
+    def test_malformed_nesting_after_valid_document_is_qualified_stop(self):
+        _, out, _, _ = yg.run_child(["1000", "64"], H.encode(), yg.LIMITS)
+        for kind, index, value in (("M", 5, 1), ("D", 5, 0)):
+            packet = json.loads(out)
+            next(n for n in packet["nodes"] if n[0] == kind)[index] = value
+            with mock.patch.object(yg, "run_child", return_value=(0, json.dumps(packet).encode(), b"", None)):
+                graph, _, status = go(files_of(db__item_db_yml=H))
+            self.assertEqual((status, graph.stop["kind"]), ("unsupported", "parser_failure"))
+
+    def test_scalar_refusal_accounts_full_validated_ast_and_bytes(self):
+        files = files_of(db__item_db_yml=H + body("  - Id: 12345\n"))
+        normal, _, _ = go(files)
+        graph, rows, status = go(files, limits=dict(yg.LIMITS, max_scalar_bytes=3))
+        self.assertEqual((status, graph.stop["detail"]), ("unsupported", "max_scalar_bytes"))
+        self.assertEqual(rows, [])
+        self.assertEqual(graph.usage["nodes"], normal.usage["nodes"])
+        self.assertGreater(graph.usage["nodes"], 0)
+        self.assertGreater(graph.usage["adapter_stdout_bytes"], 0)
+        self.assertEqual(graph.usage["unknown_node_count_attempts"], 0)
+        self.assertEqual(graph.stop["adapter"]["node_total"], normal.usage["nodes"])
+
+    def test_node_depth_and_syntax_refusals_have_unknown_totals(self):
+        data = H + body("  - Id: 1\n    A: [[[1]]]\n")
+        for caps in ({"max_nodes_per_file": 5}, {"max_depth": 3}):
+            graph, _, status = go(files_of(db__item_db_yml=data), limits=dict(yg.LIMITS, **caps))
+            self.assertEqual(status, "unsupported")
+            self.assertGreater(graph.usage["nodes"], 0)
+            self.assertGreater(graph.usage["adapter_stdout_bytes"], 0)
+            self.assertEqual(graph.usage["unknown_node_count_attempts"], 1)
+            self.assertIsNone(graph.visits[0]["parser_attempt"]["node_total"])
+        graph, _, _ = go(files_of(db__item_db_yml="Body: [\n"))
+        self.assertEqual(graph.stop["kind"], "parser_refusal")
+        self.assertGreater(graph.usage["adapter_stdout_bytes"], 0)
+        self.assertEqual(graph.usage["unknown_node_count_attempts"], 1)
+
+    def test_cap_crossing_capture_distinguishes_observed_bytes(self):
+        stats = {}
+        _, out, _, failure = yg.run_child([], b"", dict(yg.LIMITS, max_stdout_bytes=10),
+                                          script="$stdout.write('x' * 100)", stats=stats)
+        self.assertEqual((failure, len(out)), ("stdout_cap", 10))
+        self.assertGreater(stats["stdout_observed_bytes"], len(out))
+        self.assertFalse(stats["stdout_complete"])
+
+    def test_setup_error_becomes_accounted_parser_stop(self):
+        with mock.patch.object(yg.selectors, "DefaultSelector", side_effect=OSError("setup")):
+            graph, _, status = go(files_of(db__item_db_yml=H))
+        self.assertEqual((status, graph.stop["kind"]), ("unsupported", "parser_failure"))
+        self.assertEqual(graph.usage["parser_attempts"], 1)
+        self.assertEqual(graph.usage["unknown_node_count_attempts"], 1)
+        self.assertIn("adapter", graph.stop)
+
+    def test_failed_input_bytes_and_emitted_row_statistics(self):
+        data = H + body("  - Id: 1\n")
+        graph, _, _ = go(files_of(db__item_db_yml=data), limits=dict(yg.LIMITS, max_input_bytes=10))
+        self.assertEqual(graph.usage["input_bytes_examined"], len(data.encode()))
+        self.assertEqual(graph.usage["input_bytes_parsed"], len(data.encode()))
+        self.assertEqual(graph.usage["parser_attempts"], 1)
+
+        def refuse(_row):
+            raise yg.Stop("work_limit", "authored writer refusal")
+
+        graph = yg.catalog(files_of(db__item_db_yml=data), refuse, ITEM)
+        self.assertEqual(graph.rows, 0)
+        self.assertEqual(graph.id_stats, {})
 
 
 class CliTests(unittest.TestCase):

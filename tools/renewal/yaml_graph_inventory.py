@@ -43,7 +43,7 @@ import subprocess
 import sys
 import time
 
-VERSION = "1.0.0"
+VERSION = "1.0.1"
 TOOL = "tools/renewal/yaml_graph_inventory.py"
 OUTPUT_RECORDS = "raw-declarations.jsonl"
 OUTPUT_MANIFEST = "yaml-graph-manifest.json"
@@ -159,8 +159,10 @@ EXCLUSIONS = [
 ]
 LIMIT_NOTES = (
     "Hard controls: fixed verified input bytes per file, child CPU seconds (RLIMIT_CPU), "
-    "wall-clock termination, capped stdout/stderr capture, node/depth/scalar budgets in the "
-    "adapter and again in Python, and visit/edge/row/output budgets in the graph.",
+    "wall-clock termination, capped stdout/stderr capture, node/depth traversal budgets in "
+    "the adapter and Python, a scalar-byte budget in Python, and graph/output budgets. "
+    "Psych constructs its AST before these traversal/scalar checks; they are not AST "
+    "construction or hard memory limits.",
     "There is no hard memory bound: address-space/data limits are not set because they fail "
     "on macOS before the parser launches. Peak memory follows the verified input size.",
     "Psych marks are zero-based Unicode character line/column; they are converted to UTF-8 "
@@ -194,10 +196,12 @@ begin
   until stack.empty?
     node, depth = stack.pop
     if nodes.size >= max_nodes
-      out["outcome"] = "budget"; out["budget"] = "max_nodes_per_file"; nodes = nil; break
+      out["outcome"] = "budget"; out["budget"] = "max_nodes_per_file"
+      out["nodes_observed"] = nodes.size; nodes = nil; break
     end
     if depth > max_depth
-      out["outcome"] = "budget"; out["budget"] = "max_depth"; nodes = nil; break
+      out["outcome"] = "budget"; out["budget"] = "max_depth"
+      out["nodes_observed"] = nodes.size; nodes = nil; break
     end
     loc = [node.start_line, node.start_column, node.end_line, node.end_column]
     kids = nil
@@ -262,6 +266,14 @@ class Stop(Exception):
         self.record = {"kind": kind, "detail": detail, **extra}
 
 
+class ChildFailure(Exception):
+    """Ordinary child setup/I/O/finalization failure after all cleanup is attempted."""
+
+    def __init__(self, detail, adapter):
+        super().__init__(detail)
+        self.adapter = adapter
+
+
 def sha256(data):
     return hashlib.sha256(data).hexdigest()
 
@@ -304,28 +316,34 @@ def _child_limits(cpu):
     return apply
 
 
-def run_child(args, data, limits, ruby=RUBY, script=ADAPTER):
+def run_child(args, data, limits, ruby=RUBY, script=ADAPTER, *, stats=None):
     """Run the adapter with stdin=data under CPU/wall/stdout/stderr caps.
 
     Returns (returncode, stdout bytes, stderr bytes, failure or None)."""
+    out, err = bytearray(), bytearray()
+    observed = {"stdout": 0, "stderr": 0}
+    eof = {"stdout": False, "stderr": False}
+    failure = error = None
+    sel = None
+    code = None
+    cleanup_errors = []
     proc = subprocess.Popen(
         [ruby, "--disable-gems", "-W0", "-e", script, "--", *args],
         stdin=subprocess.PIPE, stdout=subprocess.PIPE, stderr=subprocess.PIPE,
         env={"PATH": "/usr/bin:/bin", "LC_ALL": "C"}, cwd="/",
         preexec_fn=_child_limits(limits["cpu_seconds"]), close_fds=True)
-    out, err = bytearray(), bytearray()
-    failure = None
-    deadline = time.monotonic() + limits["wall_seconds"]
-    sel = selectors.DefaultSelector()
-    pending = memoryview(data)
-    os.set_blocking(proc.stdin.fileno(), False)
-    sel.register(proc.stdin, selectors.EVENT_WRITE)
-    sel.register(proc.stdout, selectors.EVENT_READ)
-    sel.register(proc.stderr, selectors.EVENT_READ)
-    if not pending:
-        sel.unregister(proc.stdin)
-        proc.stdin.close()
+    # Everything after successful Popen is covered, including selector setup.
     try:
+        deadline = time.monotonic() + limits["wall_seconds"]
+        sel = selectors.DefaultSelector()
+        pending = memoryview(data)
+        os.set_blocking(proc.stdin.fileno(), False)
+        sel.register(proc.stdin, selectors.EVENT_WRITE)
+        sel.register(proc.stdout, selectors.EVENT_READ)
+        sel.register(proc.stderr, selectors.EVENT_READ)
+        if not pending:
+            sel.unregister(proc.stdin)
+            proc.stdin.close()
         while sel.get_map():
             remaining = deadline - time.monotonic()
             if remaining <= 0:
@@ -343,31 +361,81 @@ def run_child(args, data, limits, ruby=RUBY, script=ADAPTER):
                         proc.stdin.close()
                     continue
                 chunk = os.read(key.fileobj.fileno(), 1 << 16)
+                stream_name = "stdout" if key.fileobj is proc.stdout else "stderr"
+                observed[stream_name] += len(chunk)
                 if not chunk:
+                    eof[stream_name] = True
                     sel.unregister(key.fileobj)
                     continue
                 buf, cap, name = ((out, limits["max_stdout_bytes"], "stdout_cap")
                                   if key.fileobj is proc.stdout else
                                   (err, limits["max_stderr_bytes"], "stderr_cap"))
                 if len(buf) + len(chunk) > cap:
+                    buf += chunk[:max(0, cap - len(buf))]
                     failure = name
                     break
                 buf += chunk
             if failure:
                 break
+    except BaseException as exc:
+        error = exc
     finally:
-        sel.close()
-        if failure is not None and proc.poll() is None:
-            proc.kill()
+        # One cleanup error must not bypass killing/reaping or the other pipes.
+        if sel is not None:
+            try:
+                sel.close()
+            except BaseException as exc:
+                cleanup_errors.append(exc)
+        aborted = failure is not None or error is not None or bool(cleanup_errors)
+        if aborted:
+            try:
+                proc.kill()
+            except BaseException as exc:
+                cleanup_errors.append(exc)
         try:
-            code = proc.wait(timeout=max(1.0, deadline - time.monotonic()))
+            timeout = 1.0 if aborted else max(1.0, deadline - time.monotonic())
+            code = proc.wait(timeout=timeout)
         except subprocess.TimeoutExpired:
-            proc.kill()
-            code = proc.wait()
             failure = failure or "wall_timeout"
+            try:
+                proc.kill()
+            except BaseException as exc:
+                cleanup_errors.append(exc)
+            try:
+                code = proc.wait(timeout=1.0)
+            except BaseException as exc:
+                cleanup_errors.append(exc)
+        except BaseException as exc:
+            cleanup_errors.append(exc)
+            try:
+                proc.kill()
+            except BaseException as cleanup_exc:
+                cleanup_errors.append(cleanup_exc)
+            try:
+                code = proc.wait(timeout=1.0)
+            except BaseException as cleanup_exc:
+                cleanup_errors.append(cleanup_exc)
         for stream in (proc.stdin, proc.stdout, proc.stderr):
-            if not stream.closed:
-                stream.close()
+            try:
+                if not stream.closed:
+                    stream.close()
+            except BaseException as exc:
+                cleanup_errors.append(exc)
+    info = {"stdout_bytes": len(out), "stderr_bytes": len(err), "exit": code,
+            "stdout_observed_bytes": observed["stdout"],
+            "stderr_observed_bytes": observed["stderr"],
+            "stdout_complete": eof["stdout"], "stderr_complete": eof["stderr"]}
+    if cleanup_errors:
+        info["cleanup_errors"] = [type(exc).__name__ for exc in cleanup_errors]
+    if stats is not None:
+        stats.update(info)
+    if error is not None or cleanup_errors:
+        primary = error if error is not None else cleanup_errors[0]
+        primary = next((exc for exc in ([error] if error is not None else []) + cleanup_errors
+                        if not isinstance(exc, Exception)), primary)
+        if not isinstance(primary, Exception):
+            raise primary
+        raise ChildFailure(type(primary).__name__ + ": " + str(primary)[:200], info) from primary
     if failure is None and code == -signal.SIGXCPU:
         failure = "cpu_limit"
     elif failure is None and code is not None and code < 0:
@@ -393,9 +461,12 @@ def check_parser(limits=LIMITS, ruby=RUBY):
     """Confirm the existing Ruby/Psych/libyaml identity before any parse."""
     if not os.path.isfile(ruby):
         raise InputError(f"parser {ruby} is not present")
-    code, out, _err, failure = run_child([str(limits["max_nodes_per_file"]),
-                                          str(limits["max_depth"]), "versions"], b"", limits,
-                                         ruby)
+    try:
+        code, out, _err, failure = run_child([str(limits["max_nodes_per_file"]),
+                                              str(limits["max_depth"]), "versions"], b"", limits,
+                                             ruby)
+    except (ChildFailure, OSError) as exc:
+        raise InputError(f"parser identity check failed ({exc})") from None
     if failure or code != 0:
         raise InputError(f"parser identity check failed ({failure or code})")
     try:
@@ -431,9 +502,11 @@ def build_tree(flat, limits):
         raise Stop("work_limit", "max_nodes_per_file", limit=limits["max_nodes_per_file"])
     counts = {k: 0 for k in "SMQADT"}
     root = None
+    scalar_stop = None
     stack = []  # [node, remaining children]
     for item in flat:
-        if not isinstance(item, list) or len(item) < 5 or item[0] not in counts:
+        if (not isinstance(item, list) or len(item) < 5
+                or not isinstance(item[0], str) or item[0] not in counts):
             raise ValueError("adapter output: malformed node")
         kind = item[0]
         node = Node(kind, (_int(item[1], "mark"), _int(item[2], "mark")),
@@ -444,23 +517,42 @@ def build_tree(flat, limits):
             if len(item) != 9 or not isinstance(item[5], str):
                 raise ValueError("adapter output: malformed scalar")
             node.value, node.style, node.tag, node.anchor = item[5], item[6], item[7], item[8]
+            if (type(node.style) is not int or node.style not in PSYCH_STYLES
+                    or any(v is not None and not isinstance(v, str)
+                           for v in (node.tag, node.anchor))):
+                raise ValueError("adapter output: malformed scalar metadata")
             if len(node.value.encode("utf-8", "surrogatepass")) > limits["max_scalar_bytes"]:
-                raise Stop("work_limit", "max_scalar_bytes", limit=limits["max_scalar_bytes"],
-                           mark=list(node.start))
+                # Validate the entire protocol before calling its node count exact.
+                scalar_stop = scalar_stop or Stop("work_limit", "max_scalar_bytes",
+                                                   limit=limits["max_scalar_bytes"],
+                                                   mark=list(node.start))
         elif kind == "A":
-            if len(item) != 6:
+            if len(item) != 6 or not isinstance(item[5], str):
                 raise ValueError("adapter output: malformed alias")
             node.anchor = item[5]
         elif kind in "MQ":
             if len(item) != 9:
                 raise ValueError("adapter output: malformed container")
             want = _int(item[5], "child count")
+            if kind == "M" and want % 2:
+                raise ValueError("adapter output: odd mapping child count")
             node.style, node.tag, node.anchor = item[6], item[7], item[8]
+            if (type(node.style) is not int or node.style not in (1, 2)
+                    or any(v is not None and not isinstance(v, str)
+                           for v in (node.tag, node.anchor))):
+                raise ValueError("adapter output: malformed container metadata")
             node.children = []
         elif kind == "D":
             if len(item) != 10:
                 raise ValueError("adapter output: malformed document")
             want = _int(item[5], "child count")
+            if want != 1:
+                raise ValueError("adapter output: document must have one child")
+            if (not isinstance(item[6], list) or len(item[6]) not in (0, 2)
+                    or any(type(n) is not int or n < 0 for n in item[6])
+                    or type(item[7]) is not int or item[7] < 0
+                    or type(item[8]) is not bool or type(item[9]) is not bool):
+                raise ValueError("adapter output: malformed document metadata")
             node.extra = {"version": item[6], "tag_directives": item[7],
                           "implicit": item[8], "implicit_end": item[9]}
             node.children = []
@@ -471,6 +563,9 @@ def build_tree(flat, limits):
             node.children = []
         if stack:
             parent = stack[-1]
+            if ((parent[0].kind == "T" and kind != "D")
+                    or (parent[0].kind != "T" and kind in "TD")):
+                raise ValueError("adapter output: invalid stream/document nesting")
             parent[0].children.append(node)
             parent[1] -= 1
         elif root is None:
@@ -485,17 +580,34 @@ def build_tree(flat, limits):
             stack.pop()
     if stack or root is None or root.kind != "T":
         raise ValueError("adapter output: incomplete tree")
+    if scalar_stop is not None:
+        scalar_stop.record["validated_node_counts"] = counts
+        raise scalar_stop
     return root, counts
 
 
 def parse_yaml(data, limits=LIMITS, ruby=RUBY):
     """Bounded Psych parse of verified bytes. Returns (stream Node, info) or raises Stop."""
+    info = {"input_bytes": len(data), "stdout_bytes": 0, "stderr_bytes": 0,
+            "stdout_observed_bytes": 0, "stderr_observed_bytes": 0,
+            "stdout_complete": False, "stderr_complete": False, "exit": None,
+            "node_total": None, "node_count_lower_bound": 0}
     if len(data) > limits["max_input_bytes"]:
         raise Stop("work_limit", "max_input_bytes", limit=limits["max_input_bytes"],
-                   bytes=len(data))
-    code, out, err, failure = run_child([str(limits["max_nodes_per_file"]),
-                                         str(limits["max_depth"])], data, limits, ruby)
-    info = {"stdout_bytes": len(out), "stderr_bytes": len(err), "exit": code}
+                   bytes=len(data), adapter=info)
+    try:
+        code, out, err, failure = run_child([str(limits["max_nodes_per_file"]),
+                                             str(limits["max_depth"])], data, limits, ruby,
+                                            stats=info)
+    except ChildFailure as exc:
+        info.update(exc.adapter)
+        raise Stop("parser_failure", str(exc), adapter=info) from None
+    except OSError as exc:
+        raise Stop("parser_failure", type(exc).__name__ + ": " + str(exc)[:200],
+                   adapter=info) from None
+    info.update(stdout_bytes=len(out), stderr_bytes=len(err), exit=code)
+    info["stdout_observed_bytes"] = max(info["stdout_observed_bytes"], len(out))
+    info["stderr_observed_bytes"] = max(info["stderr_observed_bytes"], len(err))
     if failure is not None:
         raise Stop("parser_limit", failure, adapter=info)
     if code != 0:
@@ -504,11 +616,17 @@ def parse_yaml(data, limits=LIMITS, ruby=RUBY):
         doc = _strict_json(out, "parse")
     except ValueError as exc:
         raise Stop("parser_failure", str(exc), adapter=info) from None
+    if not isinstance(doc, dict):
+        raise Stop("parser_failure", "adapter response is not an object", adapter=info)
     versions = {k: doc.get(k) for k in PARSER_PINS}
     if versions != PARSER_PINS:
         raise Stop("parser_failure", "parser identity changed", adapter=info)
     outcome = doc.get("outcome")
     if outcome == "budget":
+        observed = doc.get("nodes_observed")
+        if type(observed) is not int or not 0 <= observed <= limits["max_nodes_per_file"]:
+            raise Stop("parser_failure", "malformed adapter budget count", adapter=info)
+        info["node_count_lower_bound"] = observed
         raise Stop("work_limit", str(doc.get("budget")), adapter=info)
     if outcome in ("syntax_error", "adapter_refusal"):
         raise Stop("parser_refusal", "Psych refused the input (not a native rapidyaml result)",
@@ -517,13 +635,23 @@ def parse_yaml(data, limits=LIMITS, ruby=RUBY):
     if outcome != "ok":
         raise Stop("parser_failure", "unknown adapter outcome", adapter=info)
     try:
-        tree, counts = build_tree(doc["nodes"], limits)
-    except ValueError as exc:
+        tree, counts = build_tree(doc.get("nodes"), limits)
+    except Stop as stop:
+        counts = stop.record.pop("validated_node_counts", None)
+        if counts is not None:
+            info["node_total"] = info["node_count_lower_bound"] = sum(counts.values())
+            info["nodes"] = {"stream": counts["T"], "document": counts["D"],
+                             "mapping": counts["M"], "sequence": counts["Q"],
+                             "scalar": counts["S"], "alias": counts["A"]}
+        stop.record["adapter"] = info
+        raise
+    except (ValueError, TypeError, KeyError, IndexError) as exc:
         raise Stop("parser_failure", str(exc), adapter=info) from None
     del doc
     info["nodes"] = {"stream": counts["T"], "document": counts["D"], "mapping": counts["M"],
                      "sequence": counts["Q"], "scalar": counts["S"], "alias": counts["A"]}
     info["node_total"] = sum(counts.values())
+    info["node_count_lower_bound"] = info["node_total"]
     return tree, info
 
 
@@ -658,8 +786,8 @@ def scalar_record(node, lines, cap=256):
     if node.kind == "S":
         text = node.value
         record.update({"kind": "scalar", "style": PSYCH_STYLES[node.style],
-                       "text": text[:cap], "null": is_null(node)})
-        if len(text) > cap:
+                       "text": text if cap is None else text[:cap], "null": is_null(node)})
+        if cap is not None and len(text) > cap:
             record["text_truncated_from_chars"] = len(text)
     else:
         record["kind"] = node_kind(node)
@@ -691,10 +819,12 @@ def as_bool(scalar):
 def parse_version(scalar):
     """Bounded Version profile: ASCII decimal 0..65535, quoted or plain, base 10."""
     text = scalar.value
-    if text and len(text) <= 16 and all("0" <= c <= "9" for c in text):
-        value = int(text, 10)
-        if value <= 0xFFFF:
-            return value
+    if text and all("0" <= c <= "9" for c in text):
+        significant = text.lstrip("0") or "0"
+        if len(significant) <= 5:
+            value = int(significant, 10)
+            if value <= 0xFFFF:
+                return value
     raise Stop("unsupported_version_text", "Version is not ASCII decimal 0..65535 (native c4 "
                "conversion accepts other bases and wraps; not modelled)", mark=list(scalar.start))
 
@@ -726,7 +856,7 @@ def row_record(row, lines):
         fields.append({"key": key.value, "key_style": PSYCH_STYLES[key.style],
                        "kind": node_kind(value)})
         if key.value == "Id":
-            raw_ids.append({"field_ordinal": ordinal, **scalar_record(value, lines, cap=1024)})
+            raw_ids.append({"field_ordinal": ordinal, **scalar_record(value, lines, cap=None)})
     return {
         "start_mark": list(row.start), "end_mark": list(row.end),
         "byte_span": [begin, finish], "span_sha256": sha256(lines.data[begin:finish]),
@@ -762,7 +892,11 @@ class Graph:
         self.rows = 0
         self.db = {}
         self.usage = {"visits": 0, "edges": 0, "nodes": 0, "input_bytes_parsed": 0,
-                      "adapter_stdout_bytes": 0, "rows": 0}
+                      "input_bytes_examined": 0, "parser_attempts": 0,
+                      "exact_ast_nodes": 0, "unknown_node_count_attempts": 0,
+                      "adapter_stdout_bytes": 0, "adapter_stderr_bytes": 0,
+                      "adapter_stdout_observed_bytes": 0, "adapter_stderr_observed_bytes": 0,
+                      "rows": 0}
         self.dirs = None
 
     def diag(self, record):
@@ -844,11 +978,18 @@ class Graph:
         read = self.reads.setdefault(path, {"path": path, "bytes": len(data), "sha256": digest,
                                             "visits": []})
         read["visits"].append(visit["visit"])
+        self.usage["input_bytes_examined"] += len(data)
         precheck_bytes(data)
         self.usage["input_bytes_parsed"] += len(data)
-        tree, info = parse_yaml(data, self.limits, self.ruby)
-        self.usage["nodes"] += info["node_total"]
-        self.usage["adapter_stdout_bytes"] += info["stdout_bytes"]
+        self.usage["parser_attempts"] += 1
+        try:
+            tree, info = parse_yaml(data, self.limits, self.ruby)
+        except Stop as stop:
+            info = stop.record.get("adapter")
+            if info is not None:
+                self.charge_parser(visit, info, stop.record["kind"])
+            raise
+        self.charge_parser(visit, info, "ok")
         visit["ast"] = {"nodes": info["nodes"], "node_total": info["node_total"],
                         "adapter_stdout_bytes": info["stdout_bytes"]}
         if self.usage["nodes"] > self.limits["max_nodes_total"]:
@@ -868,6 +1009,19 @@ class Graph:
         self.imports(root, state, root_map, visit, lines, depth, active + [path])
         visit["modeled_graph_return"] = True
         return True
+
+    def charge_parser(self, visit, info, outcome):
+        """Charge a parse exactly once, including refusals and observed prefix work."""
+        visit["parser_attempt"] = {**info, "outcome": outcome}
+        total = info["node_total"]
+        self.usage["nodes"] += info["node_count_lower_bound"]
+        if total is None:
+            self.usage["unknown_node_count_attempts"] += 1
+        else:
+            self.usage["exact_ast_nodes"] += total
+        for name in ("stdout_bytes", "stderr_bytes", "stdout_observed_bytes",
+                     "stderr_observed_bytes"):
+            self.usage["adapter_" + name] += info[name]
 
     def header(self, root, root_map, visit, lines):
         found = find(root_map, "Header")
@@ -897,7 +1051,7 @@ class Graph:
                     if version is None:
                         failure = "missing Version"
                     else:
-                        record["version"] = scalar_record(version[1], lines)
+                        record["version"] = scalar_record(version[1], lines, cap=None)
                         if is_null(version[1]):
                             failure = "Version has no value"
                         else:
@@ -1257,7 +1411,8 @@ def build_manifest(graph, provenance, records):
             "clear_events": len(graph.clears),
             "duplicate_key_sites": sum(v.get("duplicate_key_sites", {}).get("count", 0)
                                        for v in graph.visits),
-            "ast_nodes": graph.usage["nodes"],
+            "ast_nodes": (None if graph.usage["unknown_node_count_attempts"]
+                          else graph.usage["exact_ast_nodes"]),
             "known_failures": len(graph.known_failures),
             "unresolved": len(graph.unresolved),
             "diagnostics": len(graph.diagnostics),
@@ -1280,6 +1435,7 @@ def catalog(files, writer, roots=ROOTS, profile=PROFILE, limits=LIMITS, ruby=RUB
     stats = {}
 
     def emit(row):
+        writer(row)
         count = stats.setdefault(row["database"], {"occurrences": 0, "rows_without_id": 0,
                                                    "rows_with_several_ids": 0,
                                                    "non_scalar_ids": 0})
@@ -1288,7 +1444,6 @@ def catalog(files, writer, roots=ROOTS, profile=PROFILE, limits=LIMITS, ruby=RUB
         count["rows_without_id"] += not ids
         count["rows_with_several_ids"] += len(ids) > 1
         count["non_scalar_ids"] += sum(1 for i in ids if i["kind"] != "scalar")
-        writer(row)
 
     graph = Graph(files, emit, roots, profile, limits, ruby)
     graph.id_stats = stats

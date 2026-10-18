@@ -1,5 +1,12 @@
 # Four-root YAML graph and raw declaration catalog (T06.002.003.001)
 
+Coordinator-corrected version `1.0.1`, based on selected Claude `573127d`.
+Raw provider comparison and the coordinator's separate correction/verification
+are recorded in [the task review](../../docs/project/reviews/2026-10-18-T06.002.003.001.md).
+Corrections preserve full Id/Version text, cover child cleanup, qualify malformed
+protocol, charge failed work with explicit unknown totals, and count only rows
+successfully written. Source-only conditional graph; no native/entity acceptance.
+
 `yaml_graph_inventory.py` verifies the canonical T06.001 snapshot and catalogs
 the stock rAthena YAML import graph of `ITEM_DB`, `SKILL_DB`, `MOB_DB` and
 `QUEST_DB`, plus every raw `Body` row those visits declare, in load order. It
@@ -53,6 +60,11 @@ limits or adapter scripts for tests.
   It calls `Psych.parse_stream` only: no `load`, `safe_load`, `to_ruby`, object
   construction, alias resolution or evaluation. It emits a flat preorder node
   list (kind, marks, scalar text/style, tag, anchor, child counts).
+  Every operation after successful `Popen`, including selector setup and
+  registration, is cleanup-protected. An unexpected setup/I/O/finalization
+  error attempts kill, reap and independent closure of every pipe and becomes
+  a qualified parser stop; interrupts clean up and then propagate. Cleanup
+  failures are reported rather than converted to success.
 
 ## Source profile (`rathena-0693b8c-stock-renewal-yaml-four-roots`)
 
@@ -139,7 +151,14 @@ are listed in `unresolved`. No later clear, row or edge is invented.
   8,000,000 nodes, 256 visits, import depth 16, 4096 edges, 1,000,000 rows,
   512 MiB of records, 10,000 diagnostics. Each child gets 20 s CPU (`RLIMIT_CPU`),
   30 s wall clock and 192 MiB stdout and 64 KiB stderr capture, then is killed.
-  Failed work is charged: a refused file is still recorded as an exact read.
+  The Ruby adapter checks node/depth budgets while walking the already-built
+  Psych AST. Python repeats those checks and checks scalar UTF-8 byte size;
+  it does not prevent Psych from first constructing an AST or the adapter from
+  serializing a large scalar. Input, CPU, wall and capture caps remain the
+  construction/transport controls. Failed attempts retain exact input reads,
+  captured/observed child bytes and known node work; unknown full counts are
+  explicitly null, rather than reported as zero. A refusal stops the certain
+  suffix, so uncounted parser work cannot be followed by more graph parsing.
   **There is no hard memory bound.** Address-space/data limits fail on macOS
   before launch and are not used. Memory follows the fixed verified input size.
 
@@ -160,7 +179,9 @@ keys, ASCII escapes), in global load order:
   included).
 - `raw_ids`: every top-level `Id` field in order with `field_ordinal`, value kind,
   marks, byte span and span hash. A scalar also has decoded `text`, `style` and
-  `null`. Nothing is cast, deduplicated or collapsed. A row without `Id` has `[]`.
+  `null`. The full decoded text is retained within the scalar and output caps;
+  there is no 1024-character preview. Nothing is cast, deduplicated or collapsed.
+  A row without `Id` has `[]`.
 - `fingerprint_sha256`: SHA-256 of
   `json.dumps(form, sort_keys=True, separators=(",", ":"), ensure_ascii=True)`.
   In `form`, a scalar is `{"k":"s","t":<decoded text>,"y":<Psych style 1-5>}`, a
@@ -187,6 +208,37 @@ exclusions. It has no timestamps and no host paths except the pinned
 `/usr/bin/ruby` identity. `yaml-graph-complete.json` binds the manifest SHA-256,
 version, status and the records SHA-256.
 
+### Work accounting
+
+`visits[].parser_attempt` is present for every attempt that passed byte-profile
+prechecks and reached `parse_yaml`, including failures. It records input bytes,
+exit, outcome, stdout/stderr captured bytes, observed bytes, whether each pipe
+reached EOF, `node_total` and `node_count_lower_bound`. Observed bytes include a
+cap-crossing read even when capture retains only the cap-sized prefix. Neither
+count claims all bytes a killed child might otherwise have emitted.
+
+`node_total` is exact only after the complete flat-node protocol is validated;
+a scalar-budget refusal still retains this exact count. Parser traversal budget
+refusals retain their observed node prefix as a lower bound, with null total.
+Syntax refusal, timeout, malformed protocol and setup/I/O failure likewise keep
+the full total null. A max-input refusal records an attempted file, without
+claiming that a child parsed it. These are work observations, not native-parser
+or accepted-record counts.
+
+`work_usage.input_bytes_examined` includes byte-profile failures;
+`input_bytes_parsed` is the legacy name for bytes offered to `parse_yaml`,
+including attempts refused by its input cap. `parser_attempts` counts those
+calls. `nodes` is the charged known/lower-bound sum, `exact_ast_nodes` sums only
+exact attempts, and `unknown_node_count_attempts` counts null-total attempts.
+Captured and observed stdout/stderr bytes aggregate both successes and failures.
+`counts.ast_nodes` is null if any attempt has an unknown total; otherwise it is
+the exact sum. A zero lower bound on an unknown attempt is not an exact zero.
+
+Header Version records retain their full decoded scalar text, including all
+leading zeroes; decimal conversion strips those zeroes before bounded integer
+conversion. Emitted-row and raw-Id statistics advance only after the row writer
+succeeds. An output-cap refusal therefore does not count an un-emitted row.
+
 ## Publication safety
 
 The output parent must exist and be owned by you and not group/world writable.
@@ -206,7 +258,7 @@ Rollback: revert the source commit; delete a verified owned output directory
 separately. No installed state, save or database is touched, so none needs
 restoring.
 
-## Actual result (canonical snapshot)
+## Canonical result (original raw counts; corrected rerun recorded in task review)
 
 Status `complete` (exit 0). 15 visits, all read and current-version compatible:
 four roots, their `db/re` and `db/import` leaves, and the three item leaves
