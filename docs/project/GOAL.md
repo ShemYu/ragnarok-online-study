@@ -27,7 +27,7 @@ Godot and the asset factory are deferred research for this milestone. Reusing a 
 | Mac hardware | M1 Max,64GB RAM; [30-minute measured session](RESOURCES.md) | Ample headroom in the measured baseline; heavy content, GPU timing and thermal behaviour unmeasured |
 | Packaged local runtime | Exact signed/notarized1.6.3 installed; ordinary combat, loot, portals, save/re-entry, full relaunch and A/B recovery verified | Viable for the tested browser baseline; native window and full host/browser offline behavior remain open |
 | Renewal content | Publisher documents Renewal mode and tested kRO client assets | Exact episode, quest/instance completion and Taiwan equivalence unknown |
-| Traditional Chinese | Taiwan assets acquired; Chinese item/skill rendering and direct Unicode chat verified; [T05 pilot](reviews/2026-10-18-T05.md) | Stock Carocc is English; paired text-only Chinese pilot implementation active. Full game UI/story, active quest text and real macOS IME remain open |
+| Traditional Chinese | Taiwan assets acquired; Chinese item/skill rendering and direct Unicode chat verified; [T05 pilot](reviews/2026-10-18-T05.md) | Narrow Carocc Chinese opening/menu/Hello, save/re-entry and off/on rollback now verified. Full game UI/story, active quest text and real macOS IME remain open |
 | Full world/story | Existing emulator content provides a head start | Asset/database presence is not proof of working AI, quests, instance logic or solo completion |
 | Progress and recovery | Ordinary earned EXP, inventory/equipment/quests survive re-entry/relaunch; actual A→B→A→B recovery verified | Fresh full G preserves later progress before story pilot. Git alone cannot recover external state; preserve all archives |
 
