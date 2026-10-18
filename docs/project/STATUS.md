@@ -108,3 +108,5 @@ The independent [T05.003 UI binding child](reviews/2026-10-18-T05.003.md) is fro
 ## Historical project
 
 The repository still contains the Godot field prototype, native format readers and Character Lab source. Its older QA reports describe earlier local assets and are historical evidence. They do not establish the Renewal candidate's current behaviour. The source-only checkout does not include those old visual assets. See the root [README](../../README.md) and the preserved research links there.
+
+**Latest UI dispatch:** T05.003 Claude task_da4579b75ac2/ctx_1d4b61776fb8 and Grok task_7ce74c59ce69/ctx_7571d60c7582 received the same frozen8223ba3 inputs in separate clean branches. Both ready/input_accepted; no candidate yet. Original YAML/Chinese Grok attempts remain active. Root supervises all four; current game/internet untouched. See the task-linked review for exact receipts and corrected prelaunch placement.
