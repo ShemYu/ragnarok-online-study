@@ -12,11 +12,11 @@ Updated: 2026-10-18. Coordinator: Codex. Active scope: **execute the documented 
 
 | Active bounded task | Original attempts and next owner |
 | --- | --- |
-| [T06.002.003.001 YAML graph](reviews/2026-10-18-T06.002.003.001.md) | Raw Claude573127d is preserved/released and root-reviewed; five bounded gaps plus adjacent cases reproduced. A private correction proposal passes root69 tests and complete38538-row/15-visit/15-edge comparison, but remains unselected/unintegrated. Grok ctx_863c2518df70 remains active. Root must review that raw submission before selection. |
+| [T06.002.003.001 YAML graph](reviews/2026-10-18-T06.002.003.001.md) | Raw Claude573127d is preserved/released and root-reviewed; five bounded gaps plus adjacent cases reproduced. A private correction proposal passes root69 tests and complete38538-row/15-visit/15-edge comparison, but remains unselected/unintegrated. Grok65fa3cc is now settled/preserved/released; root source/test/full-output review is underway. Both raw candidates must be evaluated before selection. |
 | [T05.002 Chinese plugin audit](reviews/2026-10-18-T05.002.md) | Raw Claude60dfed7 is preserved/released and root-read with denominator/markup corrections. Grok ctx_fc0b850efdb2 remains active; its latest status reports source/data checks done, reviewing/committing, no blocker. Root must review both, score and freeze a bounded adaptation task. No plugin installed. |
 | [T05.003 UI binding adapter](reviews/2026-10-18-T05.003.md) | Claude ctx_1d4b61776fb8 and Grok ctx_7571d60c7582 run independently from common8223ba3/spec04c7270bâ€¦269305. No candidate yet. Root will read/test both and inspect detached real-custom-element fixtures before selecting; no installed-game mutation. |
 
-Latest authoritative scoped fleet:37 total,4 active/31 released/2 older user-retained; all four original agents live/working with nextAction:none. Continue the same attempts and consuming inbox loop. Quiet waits do not authorize cancellation/retry. Older retained terminals remain untouched. Earlier launch-state paragraphs below are historical; this table is the current resume point.
+Latest authoritative scoped fleet:37 total,3 active/32 released/2 older user-retained; Chinese Grok and both UI original agents remain active. YAML Grok is confirmed released/exited. Continue the same attempts and consuming inbox loop. Quiet waits do not authorize cancellation/retry. Older retained terminals remain untouched. Earlier launch-state paragraphs below are historical; this table is the current resume point.
 
 ## How many steps until play?
 
@@ -54,7 +54,7 @@ The first playtest is an intermediate checkpoint within the full milestone. T01â
 ## Next action and owner
 
 
-1. **Root:** supervise the four original Dispatches above; process every delivered message, preserve raw committed reports/source/proof, validate settlements and decide release/reuse before acknowledging. No duplicate attempts on silence.
+1. **Root:** supervise the three remaining original Dispatches above; process every delivered message, preserve raw committed reports/source/proof, validate settlements and decide release/reuse before acknowledging. No duplicate attempts on silence.
 2. **Root:** personally review/execute meaningful candidate checks, compare each pair, isolate any corrections and verify the selected integration before ready_for_user. Detached UI fixtures are separate from the running game.
 3. **Root:** continue only immutable/source/private-fixture preparation independently. Current private YAML correction results are not a selected provider result; update task-linked evidence before advancing.
 4. **User clarification pending:** finite content target and solo party-gate policy. Preserve full maps/monsters/story/Traditional Chinese goal while waiting; do not invent a complete-MVP estimate or substitute UI-only coverage.
