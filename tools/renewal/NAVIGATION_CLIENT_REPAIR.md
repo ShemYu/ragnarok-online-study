@@ -216,6 +216,14 @@ drops the client's cache. Confirm each of the six served
 `data/luafiles514/lua files/navigation/navi_*_krpri.lub` responses equals its
 Taiwan source.
 
+In this pinned app, Mods **Apply & restart server** calls `stack_up` and can
+report applied while the previous client asset generation is still served.
+After adding or toggling this data mod, use supported **General → Stop → Start**
+or fully quit/start the app before testing. Root qualified Stop/Start with a
+fresh asset process and exact installed, staged and HTTP bytes for all six
+aliases; Apply alone returned 404 for the first alias. Preserve the current
+save through this lifecycle. Source/UI status alone is not serving evidence.
+
 ### Root acceptance gates (not claimed here)
 
 Fresh client entry with the six missing-file errors gone and no new error;
