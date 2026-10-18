@@ -6,7 +6,7 @@ Updated: 2026-10-18. Coordinator: Codex. Active scope: **execute the documented 
 
 - **Goal:** personally playable Mac-local Modern / Renewal RO, with the agreed episode's complete map/monster/story scope, Traditional Chinese game UI/text and persistent solo progression. See [Goal](GOAL.md).
 - **Phase:** P1 foundation feasibility. **Task:** T04, `in_progress` after T03 checkpoint `022ab07`. T03 is `ready_for_user` for supported headless/browser startup; T01/T02 were checkpointed at `8cb598d` / `2523fd4`. Gameplay and user acceptance remain pending.
-- **Runtime:** Ragnarok Offline v1.6.3 is running for the **in-progress T04 trial**. Root created an ordinary character, walked normal portals, received a quest, verified equipment interaction and full shutdown/relaunch persistence, and verified A → B → A → B recovery in the database and actual game. A confirmed pickup, input diagnosis, offline isolation and the full resource observation remain open: [baseline evidence and resume actions](BASELINE.md), [paired T04 review](reviews/2026-10-18-T04.md). Native window control remains unavailable; full Chinese/content scope is unverified.
+- **Runtime:** Ragnarok Offline v1.6.3 is running for the **in-progress T04 trial**. Root created an ordinary character, walked normal portals, received a quest, verified equipment interaction and full shutdown/relaunch persistence, and verified A → B → A → B recovery in the database and actual game. An ordinary ground pickup, offline isolation and the full resource observation remain open: [baseline evidence and resume actions](BASELINE.md), [paired T04 review](reviews/2026-10-18-T04.md). Native window control remains unavailable; full Chinese/content scope is unverified.
 - **Git:** coordination branch `ShemYu/reverse-the-Ragnarok-Online-to-play-by-myself`; starting commit `c6314bbd85caa01f54fdcc38d62168e101e2c5a4`. Current documentation checkpoint: locate with `git log -1 --format='%h %s' -- AGENTS.md docs/project` after commit.
 - **First paired benchmark:** independent Claude/Grok documentation-planning proposals on the same brief. Both scored 12/20 and needed corrections; the coordinator integrated a synthesis. This is a proposal comparison, not a runtime or coding benchmark. See [Planning review](reviews/2026-10-18-planning.md).
 
@@ -45,7 +45,7 @@ T01–T03 are verified within their scopes: **one step remains for a basic playt
 
 ## Next action and owner
 
-1. **Coordinator now:** checkpoint the intermediate T04 records, then follow [Baseline resume actions](BASELINE.md#resume-actions): finish input diagnosis/pickup, restricted-network and resource checks. Preserve the existing live sampler (planned finish 05:15:26 UTC); revalidate its handle/process before waiting. Do not restart it solely on an observation timeout.
+1. **Coordinator now:** checkpoint the intermediate T04 records, then follow [Baseline resume actions](BASELINE.md#resume-actions): finish ordinary ground pickup, restricted-network and resource checks. Preserve the existing live sampler (planned finish 05:15:26 UTC); revalidate its handle/process before waiting. Do not restart it solely on an observation timeout.
 2. **User:** the solo-gate decision remains open; it does not block source auditing, assets or baseline play. Gameplay evaluation follows coordinator verification.
 3. **Next checkpoint:** T04 baseline report and basic playtest. Native desktop-window usability remains an open observation; the documented browser entry point is verified. Mechanical task reviews can be grouped at the P1 phase gate.
 
@@ -66,8 +66,8 @@ Do not restart the older Character Lab roadmap. Do not assume a previous worker'
 | 2026-10-18 | Completed T02 paired plans and actual coordinator acquisition/extraction | 4936 files hashed, three GRFs identified, 203 BGM files; mixed versions/load order and Chinese remain untested; two steps to basic play, three to Chinese pilot |
 | 2026-10-18 | Completed T03 installation and supported browser character-screen verification | Claude 14/20, Grok 17/20 on plans; root verified artifact/signature/configuration/server readiness/loopback/login/shutdown. Native control unavailable; T04 gameplay/recovery and T05 Chinese pending. Corrected GRF 3.0 header count, documented preparation-order deviation |
 | 2026-10-18 | Checkpointed partial T04 verification; task remains open | Claude/Grok plans 14/20 each. Actual group-0 tutorial travel/quest/equipment, full relaunch persistence and A database restore; B safety archive preserved. Thirty-minute sampler running; remaining gates explicit in Baseline |
-
 | 2026-10-18 | Verified reverse-B recovery in SQL and actual game | Exact saved-state match, unequipped shirt, retained quest/location and normal re-equipping; [Baseline](BASELINE.md) |
+| 2026-10-18 | Verified natural tutorial combat and quest turn-in | Captain 21001 → 21008, two quest Wood from natural kills, Sailor consumed them and granted five Magnifiers; ordinary ground pickup remains separate |
 
 ## Historical project
 
