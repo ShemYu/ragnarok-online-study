@@ -32,3 +32,25 @@ Root must qualify the six exports/recursive shapes and actual Taiwan decoding th
 Only after actual global/shape/codec/reference evidence can root freeze an identical independent Claude/Grok repair brief. A six-file data overlay is a possibility, not an adopted implementation. Preserve raw map/link/numeric identities and require named Chinese NPC/MOB searches plus a source-checked ordinary portal route in eventual live acceptance. Quiet logs alone are insufficient. Any incompatible table or decoding result must be recorded and used to bound the repair before dispatch; do not substitute empty/English tables.
 
 T05.006 stays in_progress with its frozen console gate open. Full UI/story/IME/all-content/offline and user acceptance remain separate. Current runtime remains enabled, normally saved/logged out at izlude202,208/base3/job7/EXP781/146/HP51/SP13/zeny0; the browser is retained at character selection. No critical issue requiring a goal change is established.
+
+## Authored native conversion control: a real Big5 ordering defect
+
+Afterc47a6d0, root personally read packaged Online.js313923–314078, the explicit Taiwan→Big5 decoder route and the local Lua runtime's mount/doFile/callback/close implementation. Root staged a private browser verifier from the exact pinned Git-object Lua JS80bed5fb…72ee, WASMcba969b9…e610 and iconv modulea7663d70…0303. The serializer body is extracted verbatim from the hash-pinned packaged `String.raw` block;1898bytes/SHAa68cd15b4ec825281cfb46fd181ba263848960b3f9f316aee69bfbba6de447ec. Its normal callback performs `JSON.parse(iconv.decode(raw,'big5'))`, matching the explicit-codepage source route. No full Online.js/game module is imported and no stock Taiwan chunk is executed in this step.
+
+Root opened the isolated loopback fixture and clicked its actual Run control. Each case used a fresh Lua state, the real doFile API, the exact serializer and callback sink. The independent expected string is obtained by directly decoding the original raw bytes before any JSON escaping. Actual observed results:
+
+| Authored control | Observed result |
+| --- | --- |
+| Ordinary Chinese: raw a741a66e | 你好 equals the direct decoded reference |
+| Big5 trail-backslash: raw b35c | Expected **許**; actual **許u005c**; unequal |
+| ASCII backslash: raw615c62 | Exact a-backslash-b retained |
+| Quote/newline/NUL | All three exact characters retained |
+| Empty table | Converts to an empty array |
+| Nested dense and sparse tables | Exact expected array and object shapes |
+| Missing named global | Explicitly rejected as nil, not an empty-table PASS |
+
+All seven cases actually completed; the fixture reports seven closed states and zero live states. Actual served fixture.js and serializer.lua independently match the staged hashes. In the failing case, the serialized bytes are5b5b22b35c7530303563225d5d: the raw Big5 lead consumes the inserted escape's first backslash as its valid trail byte, leaving literal u005c after 許 when the whole JSON is decoded. This is an observed defect for the authored character through the exact extracted serializer, **not yet a claim that any particular stock Taiwan navigation name is affected or that a live fix is proven**. It disproves the assumption that successful file/Lua/JSON loading alone establishes text equality.
+
+Private evidence is navigation-lua-audit-1 under t05-package-candidates: staging.json SHAd170637e4dbbbd4ef04e9cd8ccc3fb250b8c989ee84258248d1bcaeba67d8e8f; authored-controls-result.json SHAd573015406519a48bbcef317b21cf1fa8672152aeafb18d5fafd892a71c9a219; authored-controls.png SHA1c917482232de25bb2f80095b9df0aa84a9b7f9f7238872af7d5fa9522ad7b60. The exact authored fixture.js is5141bytes/SHA0452a9e43445b3a22222b4ea28d64bfd718a76fb850ac529cfe353ca5bad5464. Root corrected a source-review finding about per-run cleanup counters before staging; this is not a provider benchmark. String-conversion exceptions intentionally fail this small run as incomplete; no general fault/timeout coverage is claimed. The fixture tab and owned server are closed/stopped, with no installed-game/state/settings/network/audio/IME action.
+
+**Next root decision:** measure every actual string/table through a complete raw-byte reference on the six pinned chunks, including raw keys, shapes and numeric/link/map identities. A filename-only overlay cannot be approved before this evidence. If stock names are affected, freeze an identical Claude/Grok repair scope that addresses both retrieval and the observed conversion problem; preserve the full Chinese goal. No alias, decoder patch or task-readiness claim is adopted here. This is a bounded compatibility defect with no evidence requiring a goal change.
