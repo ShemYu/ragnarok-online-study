@@ -1,0 +1,26 @@
+<!doctype html>
+<html lang="en">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'self' blob: 'unsafe-inline' 'wasm-unsafe-eval'; connect-src 'self' blob:; style-src 'unsafe-inline'; base-uri 'none'; object-src 'none'">
+<title>Private Taiwan item table roundtrip</title>
+<style>
+body{font:16px system-ui;max-width:1050px;margin:32px auto;padding:0 20px;color:#17232d;background:#f8fafb}label{display:block;margin:18px 0 6px}input[type=text]{box-sizing:border-box;width:100%;padding:10px;font:14px monospace}button{padding:10px 16px;margin:16px 10px 8px 0;cursor:pointer}pre{white-space:pre-wrap;overflow-wrap:anywhere;background:white;border:1px solid #ccd4db;padding:16px}small{color:#455865}h1{font-size:24px}.inline{display:inline}
+</style>
+<h1>Private Taiwan item table roundtrip</h1>
+<p>Compares every final <code>tbl</code> value in separate pinned Lua 5.1 states. Lua source executes only after you press a button. Use reviewed, trusted generated source.</p>
+<p><small>Original: <code>iteminfo_new.lub</code><br>SHA-256: <code>0c70abe66e6978c55886b9e4acf8a491028f3c439abc1324cef183577a3e2f19</code></small></p>
+<label for="source-url">Generated Lua URL (same origin; used when no file is selected)</label>
+<input id="source-url" type="text" value="./candidate.lua" spellcheck="false">
+<label for="source-file">Or choose a generated UTF-8 Lua file</label>
+<input id="source-file" type="file" accept=".lua,.txt">
+<label for="source-sha">Expected generated-source SHA-256 (optional)</label>
+<input id="source-sha" type="text" placeholder="Optional exact artifact binding" spellcheck="false">
+<p><input id="self-tests" type="checkbox" checked> <label class="inline" for="self-tests">Run type, Unicode, nil, cycle and nonfinite self-checks first</label></p>
+<button id="run" type="button">Compare full tables</button>
+<button id="test" type="button">Run fixture self-checks only</button>
+<p id="status" role="status">Ready for coordinator review; browser execution has not been verified.</p>
+<pre id="result" aria-label="Roundtrip result">No comparison run.</pre>
+<script type="importmap">{"imports":{"lodash":"./lodash-compat.js"}}</script>
+<script type="module" src="./fixture.js"></script>
+</html>
