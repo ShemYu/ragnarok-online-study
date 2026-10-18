@@ -117,3 +117,25 @@ from an already initialized element would leave captured bitmap URIs intact,
 so a live DOM-only change is not equivalent. No new keyboard accessibility claim
 is made. Original exact bitmap attributes/CSS guards and final Chinese terms
 still need root review/freeze before the actual provider pair.
+
+## Final source preparation and frozen follow-up
+
+The preceding pending-freeze statements describe earlier preparation. Root now
+qualifies11additional whole-tag/attribute/CSS spans, bringing the two source
+ledgers to195bound spans. Button ledger10131bytes/SHA
+0d7f488fa72e6e0f5fbecc90ba391468e25c0630fce4b420e777f65c7bf0343f;
+root receipt SHA2dc231a5c6734b50230ed2463a88c4d85d6c2aaef551dcd01e90f555ea977428.
+
+[T05.009](../tasks/T05.009.md) is the separately frozen pure transform/inverse
+task, with [root pre-provider evidence](2026-10-19-T05.009.md):75edits and72
+unchanged pieces, independent expected13173065-byte result SHA67525a4e…4478,
+exact whole inverse and9700-byte loader conservation. Root's final combined
+profile qualification passes129bound checks and all metadata/source pins;
+syntax-only Node check passes. Both custom controls are retained; two Chinese
+text children/scoped CSS replace only their six image attributes. No bitmap
+pixels are edited or certified. The earlier append adapter stays unadopted.
+
+Production remains a small fixed-pin/75fragment module; broad metadata checks
+belong to root external acceptance. No actual pair, implementation install,
+rendered Chinese Navigation or user/full-language acceptance is inferred from
+this contract freeze. New native/delivery/installed/rollback gates remain.

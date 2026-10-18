@@ -1,0 +1,3321 @@
+{
+  "contexts": {
+    "button-find-original-tag": {
+      "bytes": 212,
+      "compiled_text": "<ui-button class=\\\"find-result disabled\\\" disabled bg=\\\"navigation_interface3/btn_find_normal.bmp\\\" hover=\\\"navigation_interface3/btn_find_over.bmp\\\" down=\\\"navigation_interface3/btn_find_press.bmp\\\"></ui-button>",
+      "expected_matches_in_window": 1,
+      "sha256": "e249d9345ec91c22b6d0b756cea04604df4837cb7eed8cd7afb0c8b506efc5d6",
+      "span": [
+        7025300,
+        7025512
+      ],
+      "window": "html"
+    },
+    "button-share-original-tag": {
+      "bytes": 255,
+      "compiled_text": "<ui-button class=\\\"share-result disabled\\\" disabled bg=\\\"navigation_interface3/btn_share_normal.bmp\\\" hover=\\\"navigation_interface3/btn_share_over.bmp\\\" down=\\\"navigation_interface3/btn_share_press.bmp\\\" title=\\\"Not supported by this client\\\"></ui-button>",
+      "expected_matches_in_window": 1,
+      "sha256": "bda38f0132952df8fd89a51f323b8806cd78ff86e1f1f1a152350db903e6016e",
+      "span": [
+        7025037,
+        7025292
+      ],
+      "window": "html"
+    },
+    "c-navi-help": {
+      "bytes": 97,
+      "compiled_text": "\t\t\tdescription: \"Navigate by coordinates or search by name. Usage: /navi map x/y or /navi name\",\n",
+      "expected_matches_in_window": 1,
+      "sha256": "f96bc810a42723f8594a20700f92a334f42d6874cf7e9c34b03048f38f24bfe6",
+      "span": [
+        8809797,
+        8809894
+      ],
+      "window": "navi_command"
+    },
+    "css-action_button_dimensions": {
+      "bytes": 67,
+      "compiled_text": ".Navigation .search-actions ui-button { width:120px; height:20px; }",
+      "expected_matches_in_window": 1,
+      "sha256": "3406114e3328bbeb3503961f106dbb38ee6b98ab04a4305da1eb5fc3a8e60ef8",
+      "span": [
+        7033941,
+        7034008
+      ],
+      "window": "css"
+    },
+    "css-actions_container": {
+      "bytes": 155,
+      "compiled_text": ".Navigation .search-actions { height:23px; padding:2px 7px 1px; display:flex; justify-content:center; gap:4px; box-sizing:border-box; background:#f4f4f4; }",
+      "expected_matches_in_window": 1,
+      "sha256": "2f2da4c3e6942ccbe72f5ac18786e7e62db4e21db2ae84542173ade22ee27276",
+      "span": [
+        7033784,
+        7033939
+      ],
+      "window": "css"
+    },
+    "css-component_disabled_class": {
+      "bytes": 61,
+      "compiled_text": ".Navigation .disabled { filter:grayscale(.55); opacity:.65; }",
+      "expected_matches_in_window": 1,
+      "sha256": "c78dad497210bf53652a3369b71827dd02ea122b5b11610bc2a9cfc241e797e2",
+      "span": [
+        7034010,
+        7034071
+      ],
+      "window": "css"
+    },
+    "db-element-fallback": {
+      "bytes": 203,
+      "compiled_text": "\t\t\t\t\telement: (() => { const code = Number(mob[7]) >>> 16 & 255; const kind = Math.floor(code / 20); const level = code % 20; return (elementNames[kind] || \"Unknown\") + (level ? \" \" + level : \"\"); })(),\n",
+      "expected_matches_in_window": 1,
+      "sha256": "592d63e7993694b2b6fd1c04b1702cf6f1c376321bc76af3b474e96ff647100f",
+      "span": [
+        10831653,
+        10831856
+      ],
+      "window": "search"
+    },
+    "db-element-names": {
+      "bytes": 118,
+      "compiled_text": "\t\t\tconst elementNames = [\"Neutral\", \"Water\", \"Earth\", \"Fire\", \"Wind\", \"Poison\", \"Holy\", \"Shadow\", \"Ghost\", \"Undead\"];\n",
+      "expected_matches_in_window": 1,
+      "sha256": "18f256028171f2750d109aacfe8667ce86b9e67cb88563e13728eda3d43019d0",
+      "span": [
+        10830193,
+        10830311
+      ],
+      "window": "search"
+    },
+    "db-frequency": {
+      "bytes": 221,
+      "compiled_text": "\t\t\t\t\tfrequency: (() => { const count = Number(mob[3]) >>> 16; if (count <= 5) return \"Very Low\"; if (count <= 15) return \"Low\"; if (count <= 40) return \"Average\"; if (count <= 80) return \"High\"; return \"Very High\"; })(),\n",
+      "expected_matches_in_window": 1,
+      "sha256": "c0425c87e0d0d77eeccd7c1bec400cd777511f34c209961ffab81556eae1c06a",
+      "span": [
+        10831379,
+        10831600
+      ],
+      "window": "search"
+    },
+    "db-race-fallback": {
+      "bytes": 57,
+      "compiled_text": "\t\t\t\t\trace: raceNames[Number(mob[7]) & 255] || \"Unknown\",\n",
+      "expected_matches_in_window": 1,
+      "sha256": "e51e80e9ed10630770d2c091f94bdaae2c6b3d704dd36b45b17ab52db3ea5fd7",
+      "span": [
+        10831856,
+        10831913
+      ],
+      "window": "search"
+    },
+    "db-race-names": {
+      "bytes": 141,
+      "compiled_text": "\t\t\tconst raceNames = [\"Formless\", \"Undead\", \"Brute\", \"Plant\", \"Insect\", \"Fish\", \"Demon\", \"Demi-Human\", \"Angel\", \"Dragon\", \"Player\", \"Boss\"];\n",
+      "expected_matches_in_window": 1,
+      "sha256": "94452c7a6c401f7dfbb831f0875d18668d4e80bb1dd87f0ff644faa1ad4c83f0",
+      "span": [
+        10830311,
+        10830452
+      ],
+      "window": "search"
+    },
+    "db-size-fallback": {
+      "bytes": 63,
+      "compiled_text": "\t\t\t\t\tsize: sizeNames[Number(mob[7]) >>> 8 & 255] || \"Unknown\",\n",
+      "expected_matches_in_window": 1,
+      "sha256": "29b379501592331a5ed254311cad49311e8dc0cd08c725b7d712c9315d40fe55",
+      "span": [
+        10831913,
+        10831976
+      ],
+      "window": "search"
+    },
+    "db-size-names": {
+      "bytes": 51,
+      "compiled_text": "\t\t\tconst sizeNames = [\"Small\", \"Medium\", \"Large\"];\n",
+      "expected_matches_in_window": 1,
+      "sha256": "9c6a6375f845528aa53b3cfd2730e01a88ab9fe6591a52c222017f8e05cc9b3e",
+      "span": [
+        10830452,
+        10830503
+      ],
+      "window": "search"
+    },
+    "h-caption": {
+      "bytes": 88,
+      "compiled_text": "<div class=\\\"search-caption\\\">Search result[<span class=\\\"search-count\\\">0</span>]</div>",
+      "expected_matches_in_window": 1,
+      "sha256": "a24660cdcacb8ac6fdc831191a4f35afed1f84848f8ca170e977ea19c345786c",
+      "span": [
+        7024091,
+        7024179
+      ],
+      "window": "html"
+    },
+    "h-columns": {
+      "bytes": 100,
+      "compiled_text": "<div class=\\\"location-columns\\\"><span>Map</span><span>Coordinates</span><span>Frequency</span></div>",
+      "expected_matches_in_window": 1,
+      "sha256": "cab16d38af8be4c34c990e01ffe443117bb67ac10b1f859d3d70ea6890f19eb2",
+      "span": [
+        7024804,
+        7024904
+      ],
+      "window": "html"
+    },
+    "h-detail-name": {
+      "bytes": 48,
+      "compiled_text": "<div class=\\\"detail-name\\\">Select a result</div>",
+      "expected_matches_in_window": 1,
+      "sha256": "fa3f29b361cf82c0e1ac3a29a1b7a87d3628b65244e3afbad74e8a6b1b14c1ca",
+      "span": [
+        7024306,
+        7024354
+      ],
+      "window": "html"
+    },
+    "h-marker-title": {
+      "bytes": 21,
+      "compiled_text": "title=\\\"Path marker\\\"",
+      "expected_matches_in_window": 1,
+      "sha256": "3c7c8d873e4f252c96c450f44e0485d3369fa66ca58cfe262ac39c24e1883794",
+      "span": [
+        7026564,
+        7026585
+      ],
+      "window": "html"
+    },
+    "h-minimize": {
+      "bytes": 70,
+      "compiled_text": "<input type=\\\"checkbox\\\" class=\\\"minimize-toggle\\\" /> Minimize</label>",
+      "expected_matches_in_window": 1,
+      "sha256": "5cf27cab7074902a765d2f195ae7c5dcee4e1dbe66a57a3382d5dab14bab228d",
+      "span": [
+        7025958,
+        7026028
+      ],
+      "window": "html"
+    },
+    "h-mouse": {
+      "bytes": 41,
+      "compiled_text": "<span class=\\\"mouse-label\\\">Mouse:</span>",
+      "expected_matches_in_window": 1,
+      "sha256": "71d94a4895db30d1db0a62c6ed7403cd642ff4f61e5924f94e75b4df65df686b",
+      "span": [
+        7026121,
+        7026162
+      ],
+      "window": "html"
+    },
+    "h-move": {
+      "bytes": 56,
+      "compiled_text": "<button class=\\\"move-button\\\" disabled>✣ MOVE</button>",
+      "expected_matches_in_window": 1,
+      "sha256": "28001c2c1030d2bcfbf071db8e74cb5f577171ea5ed3c88f049fe727af7518dd",
+      "span": [
+        7025816,
+        7025872
+      ],
+      "window": "html"
+    },
+    "h-option-all": {
+      "bytes": 34,
+      "compiled_text": "<option value=\\\"ALL\\\">All</option>",
+      "expected_matches_in_window": 1,
+      "sha256": "458e8fab880aa62ea12845405e8f0145611dca41524ddaceb8af41755a258ecc",
+      "span": [
+        7023641,
+        7023675
+      ],
+      "window": "html"
+    },
+    "h-option-mob": {
+      "bytes": 34,
+      "compiled_text": "<option value=\\\"MOB\\\">MOB</option>",
+      "expected_matches_in_window": 1,
+      "sha256": "8aa27b07917e647d522e7dbeac306ef20361a0ab19c8feacc27594d1ac6fdae8",
+      "span": [
+        7023709,
+        7023743
+      ],
+      "window": "html"
+    },
+    "h-option-npc": {
+      "bytes": 34,
+      "compiled_text": "<option value=\\\"NPC\\\">NPC</option>",
+      "expected_matches_in_window": 1,
+      "sha256": "88c9126a689cfbaae1eb7f0ef6cee021e654c442e47f216c411944b55be0a8a7",
+      "span": [
+        7023675,
+        7023709
+      ],
+      "window": "html"
+    },
+    "h-services": {
+      "bytes": 70,
+      "compiled_text": "<input type=\\\"checkbox\\\" class=\\\"services-toggle\\\" /> Services</label>",
+      "expected_matches_in_window": 1,
+      "sha256": "0d901acb36ccda9d48ebdce5d8730b48b2d1a5ff21a101ff1bcaa3ee36d591a3",
+      "span": [
+        7025691,
+        7025761
+      ],
+      "window": "html"
+    },
+    "h-share-title": {
+      "bytes": 38,
+      "compiled_text": "title=\\\"Not supported by this client\\\"",
+      "expected_matches_in_window": 1,
+      "sha256": "48cca4723f3d2e2f2810f3e612b8c05aafc0be278043b905627d8146df43f751",
+      "span": [
+        7025241,
+        7025279
+      ],
+      "window": "html"
+    },
+    "h-target": {
+      "bytes": 43,
+      "compiled_text": "<span class=\\\"target-label\\\">Target:</span>",
+      "expected_matches_in_window": 1,
+      "sha256": "ff91d8537f30204bc314a8abcc1c49bdd1df7685e890eb36979113aa63eeb068",
+      "span": [
+        7026236,
+        7026279
+      ],
+      "window": "html"
+    },
+    "h-title": {
+      "bytes": 37,
+      "compiled_text": "<div class=\\\"title\\\">Navigation</div>",
+      "expected_matches_in_window": 1,
+      "sha256": "1719ca7b5b5a0eac491f2a48d4bcc63d1e875f65f62f6ae0984efe6252fa64db",
+      "span": [
+        7023196,
+        7023233
+      ],
+      "window": "html"
+    },
+    "n-empty-advice": {
+      "bytes": 187,
+      "compiled_text": "\t\troot.querySelector(\".detail-coordinates\").textContent = results.length ? \"\" : \"Empty? An English GRF can replace these tables. Enable Settings → Mods → navigation-english-tables.\";\n",
+      "expected_matches_in_window": 1,
+      "sha256": "ff1cf7236f3f4f5a4b4af2ac5d09bd507adb43b5bf897c05e31b478916a6b307",
+      "span": [
+        7075114,
+        7075301
+      ],
+      "window": "navigation"
+    },
+    "n-map-click": {
+      "bytes": 28,
+      "compiled_text": "\t\t\tdisplayName: \"Map Click\"\n",
+      "expected_matches_in_window": 1,
+      "sha256": "6c623974781eddcc1b413d5e9c2bacb023808d51f1347e051f0c2673a31c7391",
+      "span": [
+        7080427,
+        7080455
+      ],
+      "window": "navigation"
+    },
+    "n-mapwide": {
+      "bytes": 164,
+      "compiled_text": "\t\troot.querySelector(\".detail-coordinates\").textContent = location.x == null || location.y == null ? \"Map-wide spawn\" : \"(\" + location.x + \", \" + location.y + \")\";\n",
+      "expected_matches_in_window": 1,
+      "sha256": "402a4f5ea85fd1822cc1ec648a564fd8380c2329059defa14409211e79288816",
+      "span": [
+        7071436,
+        7071600
+      ],
+      "window": "navigation"
+    },
+    "n-no-path": {
+      "bytes": 54,
+      "compiled_text": "\tif (options.noPathFound) text += \" (no path found)\";\n",
+      "expected_matches_in_window": 1,
+      "sha256": "24bc8bd4bc95a10b218d6ed7bb88f220219e1529262b1be68d138d3fa5a9cdd5",
+      "span": [
+        7042924,
+        7042978
+      ],
+      "window": "navigation"
+    },
+    "n-no-results": {
+      "bytes": 84,
+      "compiled_text": "\t\t\tresultsContainer.innerHTML = \"<div class=\\\"no-results\\\">No results found</div>\";\n",
+      "expected_matches_in_window": 1,
+      "sha256": "7b19a3d7e737604475c7fa5986a41e516c873c5f2da3a401a45d7b7cfcda7878",
+      "span": [
+        7075874,
+        7075958
+      ],
+      "window": "navigation"
+    },
+    "n-result-summary": {
+      "bytes": 101,
+      "compiled_text": "\t\troot.querySelector(\".detail-name\").textContent = results.length ? \"Select a result\" : \"No result\";\n",
+      "expected_matches_in_window": 1,
+      "sha256": "2f3672b338eadfbc1a65cd2baf5f5429d1cd27a9d47f9c275725fe26f17b87bf",
+      "span": [
+        7074803,
+        7074904
+      ],
+      "window": "navigation"
+    },
+    "n-short-query": {
+      "bytes": 71,
+      "compiled_text": "\t\t\troot.querySelector(\".detail-name\").textContent = \"Select a result\";\n",
+      "expected_matches_in_window": 1,
+      "sha256": "33280e2176035d67477b545e1349bf674ec6341f465b31871c1a0d19e2de3fd9",
+      "span": [
+        7063893,
+        7063964
+      ],
+      "window": "navigation"
+    },
+    "n-spawn-tooltip": {
+      "bytes": 86,
+      "compiled_text": "\t\t\tif (location.spawnCount) frequency.title = location.spawnCount + \" spawn entries\";\n",
+      "expected_matches_in_window": 1,
+      "sha256": "360bb197d4548892528e7540b6b498c7455658ad979eccdcec1af9da96fa9ca9",
+      "span": [
+        7073580,
+        7073666
+      ],
+      "window": "navigation"
+    },
+    "n-stat-element": {
+      "bytes": 52,
+      "compiled_text": "\t\t\taddStat(\"Element\", result.element || \"Unknown\");\n",
+      "expected_matches_in_window": 1,
+      "sha256": "bd30c6b885b69fbbbca695329fa6764faab15463a0807f55b83cab8f69c4b135",
+      "span": [
+        7072667,
+        7072719
+      ],
+      "window": "navigation"
+    },
+    "n-stat-level": {
+      "bytes": 40,
+      "compiled_text": "\t\t\taddStat(\"Lv.\", result.level || \"?\");\n",
+      "expected_matches_in_window": 1,
+      "sha256": "2e17bd3e980b294f4a0c301dd95111424589bf2436aca533d1c956c33350849e",
+      "span": [
+        7072627,
+        7072667
+      ],
+      "window": "navigation"
+    },
+    "n-stat-race": {
+      "bytes": 46,
+      "compiled_text": "\t\t\taddStat(\"Type\", result.race || \"Unknown\");\n",
+      "expected_matches_in_window": 1,
+      "sha256": "f7a75b2e6f203fd02e6edd88f7e91b651f5ff2fbfe0bb3282aed75a7f11a8d3b",
+      "span": [
+        7072719,
+        7072765
+      ],
+      "window": "navigation"
+    },
+    "n-stat-size": {
+      "bytes": 46,
+      "compiled_text": "\t\t\taddStat(\"Size\", result.size || \"Unknown\");\n",
+      "expected_matches_in_window": 1,
+      "sha256": "4ee4a4951885fe48b2a2f66c9ad8adc901ea2003bd29691693e4ef673559831b",
+      "span": [
+        7072765,
+        7072811
+      ],
+      "window": "navigation"
+    }
+  },
+  "counts": {
+    "all_contexts": 39,
+    "bitmap_attribute_removals": 6,
+    "child_insertions": 2,
+    "css_rule_replacements": 1,
+    "old_text_contexts": 34,
+    "text_replacements": 66,
+    "total_edits": 75,
+    "unchanged_complement_pieces": 72
+  },
+  "css_review_choices": {
+    "existing_controls": "Retain both ui-button tag/classes/disabled/handlers; no native button, role, tabindex or keyboard handlers.",
+    "geometry": "120x20 border-box, inherited font, centered inline-flex text",
+    "palette": "Coordinator-adopted finite palette; native fit and contrast remain unmeasured.",
+    "states": "Scoped base/hover/active; hover/active require :not([disabled]); [disabled] opacity .5 and cursor default; existing component disabled-class rule remains untouched.",
+    "status": "COORDINATOR_ADOPTED_SOURCE_ONLY_NATIVE_PENDING"
+  },
+  "derived_output": {
+    "bytes": 13173065,
+    "full_golden_status": "ROOT_SOURCE_GOLDEN_VERIFIED_NATIVE_PENDING",
+    "note": "The independent root recipe binds the unchanged75-edit content through the historical draft; final metadata is separately qualified without reconstructing the golden.",
+    "sha256": "67525a4ec4b834ec02c5ff33b4ca55c119f1380fa131ea329aab880359144478"
+  },
+  "edits": [
+    {
+      "context": "h-title",
+      "derived_output_span": [
+        7023217,
+        7023223
+      ],
+      "id": "A01-title",
+      "input_span": [
+        7023217,
+        7023227
+      ],
+      "inventory_id": "A01",
+      "kind": "text",
+      "new_bytes": 6,
+      "new_runtime_text": "導航",
+      "new_sha256": "8b78651cee9c5dd24d5a5de826c4958a2514259ed118d86f78ad920f1e699986",
+      "new_source": "導航",
+      "old_bytes": 10,
+      "old_sha256": "3db65f8c2a7d1861b4bca37da3adec5aa7905931eb6faddbc595a35f75e6ca40",
+      "old_source": "Navigation",
+      "order": 0
+    },
+    {
+      "context": "h-option-all",
+      "derived_output_span": [
+        7023659,
+        7023665
+      ],
+      "id": "A02-caption-ALL",
+      "input_span": [
+        7023663,
+        7023666
+      ],
+      "inventory_id": "A02",
+      "kind": "text",
+      "new_bytes": 6,
+      "new_runtime_text": "全部",
+      "new_sha256": "5c55a67935af8f4508ba05d6d81c9eb240a2ea0ba886d8428b985e305470da3f",
+      "new_source": "全部",
+      "old_bytes": 3,
+      "old_sha256": "a52ace420f2175d08b1577a1bea5445e36801229c074ef9ed6c55a73401fd9c2",
+      "old_source": "All",
+      "order": 1
+    },
+    {
+      "context": "h-option-npc",
+      "derived_output_span": [
+        7023696,
+        7023702
+      ],
+      "id": "A02-caption-NPC",
+      "input_span": [
+        7023697,
+        7023700
+      ],
+      "inventory_id": "A02",
+      "kind": "text",
+      "new_bytes": 6,
+      "new_runtime_text": "人物",
+      "new_sha256": "8d7aff5a595f8c792d2cbfe0adc5f91d5b382f9cbda52fcbb3b8de758358aff5",
+      "new_source": "人物",
+      "old_bytes": 3,
+      "old_sha256": "f2d1dab083102e349b1d317e2e3c92698b867995b105756cceb701f976edb109",
+      "old_source": "NPC",
+      "order": 2
+    },
+    {
+      "context": "h-option-mob",
+      "derived_output_span": [
+        7023733,
+        7023739
+      ],
+      "id": "A02-caption-MOB",
+      "input_span": [
+        7023731,
+        7023734
+      ],
+      "inventory_id": "A02",
+      "kind": "text",
+      "new_bytes": 6,
+      "new_runtime_text": "魔物",
+      "new_sha256": "159cf3cb91aeffa7c343f72a3372ebfd4c6838046891072c71db48249bc0ad8c",
+      "new_source": "魔物",
+      "old_bytes": 3,
+      "old_sha256": "2402e052a7c65f3089fe20dab7f6bd7422df06331c2bfb14d61cff3b401e01e0",
+      "old_source": "MOB",
+      "order": 3
+    },
+    {
+      "context": "h-caption",
+      "derived_output_span": [
+        7024126,
+        7024139
+      ],
+      "id": "A03-prefix",
+      "input_span": [
+        7024121,
+        7024135
+      ],
+      "inventory_id": "A03",
+      "kind": "text",
+      "new_bytes": 13,
+      "new_runtime_text": "搜尋結果[",
+      "new_sha256": "aa0475963478487e980fccc72ef02673b7dafb7d17315b6b78fb23849562eb50",
+      "new_source": "搜尋結果[",
+      "old_bytes": 14,
+      "old_sha256": "5a264053ccea19b89ae46d436bb7d9208896e103bd4a059794aa09cc41c24a49",
+      "old_source": "Search result[",
+      "order": 4
+    },
+    {
+      "context": "h-detail-name",
+      "derived_output_span": [
+        7024337,
+        7024352
+      ],
+      "id": "A04-detail-initial",
+      "input_span": [
+        7024333,
+        7024348
+      ],
+      "inventory_id": "A04",
+      "kind": "text",
+      "new_bytes": 15,
+      "new_runtime_text": "請選擇結果",
+      "new_sha256": "566e7aab769a22783d8c05a825f50f7158a033cd402abb8e303cb3b4c98679ff",
+      "new_source": "請選擇結果",
+      "old_bytes": 15,
+      "old_sha256": "97caff8aaf35442c8bc1bc38c96d08d686a59a8f4e66631553c25eb0063efb90",
+      "old_source": "Select a result",
+      "order": 5
+    },
+    {
+      "context": "h-columns",
+      "derived_output_span": [
+        7024846,
+        7024852
+      ],
+      "id": "A05-map",
+      "input_span": [
+        7024842,
+        7024845
+      ],
+      "inventory_id": "A05",
+      "kind": "text",
+      "new_bytes": 6,
+      "new_runtime_text": "地圖",
+      "new_sha256": "90e1b1b8a537537d4fe8a7ce6df2f5f8355f70c419651a857596451341339659",
+      "new_source": "地圖",
+      "old_bytes": 3,
+      "old_sha256": "be176b0015c424b78e9f343f8bc3014a7a701cc2eb9000b6acbc04d67dbecb8f",
+      "old_source": "Map",
+      "order": 6
+    },
+    {
+      "context": "h-columns",
+      "derived_output_span": [
+        7024865,
+        7024871
+      ],
+      "id": "A05-coordinates",
+      "input_span": [
+        7024858,
+        7024869
+      ],
+      "inventory_id": "A05",
+      "kind": "text",
+      "new_bytes": 6,
+      "new_runtime_text": "座標",
+      "new_sha256": "bd6f7929bf42d0bd9a9cb2141695394e39c6381fd3ef883474ab942cc7d1e7da",
+      "new_source": "座標",
+      "old_bytes": 11,
+      "old_sha256": "117c132e939b9f65266d1c74695d1bb0d37fc7cfc208743a8eba33f725c370b1",
+      "old_source": "Coordinates",
+      "order": 7
+    },
+    {
+      "context": "h-columns",
+      "derived_output_span": [
+        7024884,
+        7024893
+      ],
+      "id": "A05-frequency",
+      "input_span": [
+        7024882,
+        7024891
+      ],
+      "inventory_id": "A05",
+      "kind": "text",
+      "new_bytes": 9,
+      "new_runtime_text": "出現量",
+      "new_sha256": "4e8fc6bf954cb1e67948324b69b561f7e11f08c445cb6346bc6ee9683236f169",
+      "new_source": "出現量",
+      "old_bytes": 9,
+      "old_sha256": "16b6668d9831a1b8d2d003496db6a62b7f525df6c556d7c04681fbed2251c845",
+      "old_source": "Frequency",
+      "order": 8
+    },
+    {
+      "attribute": "bg",
+      "context": "button-share-original-tag",
+      "derived_output_span": [
+        7025090,
+        7025090
+      ],
+      "id": "A12-share-remove-bg",
+      "input_span": [
+        7025088,
+        7025138
+      ],
+      "kind": "remove_bitmap_attribute",
+      "new_bytes": 0,
+      "new_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "new_source": "",
+      "old_bytes": 50,
+      "old_sha256": "37d190953ebc29da51574574da4edc43ddfbc490d48a41426ca2340d22d3215e",
+      "old_source": " bg=\\\"navigation_interface3/btn_share_normal.bmp\\\"",
+      "order": 9
+    },
+    {
+      "attribute": "hover",
+      "context": "button-share-original-tag",
+      "derived_output_span": [
+        7025090,
+        7025090
+      ],
+      "id": "A12-share-remove-hover",
+      "input_span": [
+        7025138,
+        7025189
+      ],
+      "kind": "remove_bitmap_attribute",
+      "new_bytes": 0,
+      "new_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "new_source": "",
+      "old_bytes": 51,
+      "old_sha256": "589640965d6e763e97254f7e722e4927a44ff770fc6d44f11c124030be8754cd",
+      "old_source": " hover=\\\"navigation_interface3/btn_share_over.bmp\\\"",
+      "order": 10
+    },
+    {
+      "attribute": "down",
+      "context": "button-share-original-tag",
+      "derived_output_span": [
+        7025090,
+        7025090
+      ],
+      "id": "A12-share-remove-down",
+      "input_span": [
+        7025189,
+        7025240
+      ],
+      "kind": "remove_bitmap_attribute",
+      "new_bytes": 0,
+      "new_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "new_source": "",
+      "old_bytes": 51,
+      "old_sha256": "a9d7ca3beb71c461ef2d98855ea70b221980acc7779de4e2dc2d05b637eb049c",
+      "old_source": " down=\\\"navigation_interface3/btn_share_press.bmp\\\"",
+      "order": 11
+    },
+    {
+      "context": "h-share-title",
+      "derived_output_span": [
+        7025099,
+        7025126
+      ],
+      "id": "A06-share-tooltip",
+      "input_span": [
+        7025249,
+        7025277
+      ],
+      "inventory_id": "A06",
+      "kind": "text",
+      "new_bytes": 27,
+      "new_runtime_text": "此用戶端不支援分享",
+      "new_sha256": "ae594ef8b623d26a7c76048e2c38971e2470474e9a8a1da6a08d8f6578611be4",
+      "new_source": "此用戶端不支援分享",
+      "old_bytes": 28,
+      "old_sha256": "e90696d76f92c17029167a4c9369fd207ed3b12c1afe5a310b569a52cc80dd3b",
+      "old_source": "Not supported by this client",
+      "order": 12
+    },
+    {
+      "boundary_after": "</ui-button>",
+      "boundary_before": ">",
+      "context": "button-share-original-tag",
+      "derived_output_span": [
+        7025129,
+        7025135
+      ],
+      "id": "A12-share-insert-child",
+      "input_span": [
+        7025280,
+        7025280
+      ],
+      "kind": "insert_text_child",
+      "new_bytes": 6,
+      "new_runtime_text": "分享",
+      "new_sha256": "7e564575eb7d5eb28b69056282cbdf895d0864f6cdb8e5bc4e336c5775231b9f",
+      "new_source": "分享",
+      "old_bytes": 0,
+      "old_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "old_source": "",
+      "order": 13
+    },
+    {
+      "attribute": "bg",
+      "context": "button-find-original-tag",
+      "derived_output_span": [
+        7025205,
+        7025205
+      ],
+      "id": "A12-find-remove-bg",
+      "input_span": [
+        7025350,
+        7025399
+      ],
+      "kind": "remove_bitmap_attribute",
+      "new_bytes": 0,
+      "new_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "new_source": "",
+      "old_bytes": 49,
+      "old_sha256": "7094805a0848e9fb0fc3fb5458858225f5b4582254853d8b70f251149ab1cc98",
+      "old_source": " bg=\\\"navigation_interface3/btn_find_normal.bmp\\\"",
+      "order": 14
+    },
+    {
+      "attribute": "hover",
+      "context": "button-find-original-tag",
+      "derived_output_span": [
+        7025205,
+        7025205
+      ],
+      "id": "A12-find-remove-hover",
+      "input_span": [
+        7025399,
+        7025449
+      ],
+      "kind": "remove_bitmap_attribute",
+      "new_bytes": 0,
+      "new_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "new_source": "",
+      "old_bytes": 50,
+      "old_sha256": "88e4627aae69a501dfb3744e2d348fec9ca65a93d9a2164969158bea640e5745",
+      "old_source": " hover=\\\"navigation_interface3/btn_find_over.bmp\\\"",
+      "order": 15
+    },
+    {
+      "attribute": "down",
+      "context": "button-find-original-tag",
+      "derived_output_span": [
+        7025205,
+        7025205
+      ],
+      "id": "A12-find-remove-down",
+      "input_span": [
+        7025449,
+        7025499
+      ],
+      "kind": "remove_bitmap_attribute",
+      "new_bytes": 0,
+      "new_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "new_source": "",
+      "old_bytes": 50,
+      "old_sha256": "842134b4b4464585eef18a739fe7ef212919d8272c4114ba92ae35027ac59793",
+      "old_source": " down=\\\"navigation_interface3/btn_find_press.bmp\\\"",
+      "order": 16
+    },
+    {
+      "boundary_after": "</ui-button>",
+      "boundary_before": ">",
+      "context": "button-find-original-tag",
+      "derived_output_span": [
+        7025206,
+        7025212
+      ],
+      "id": "A12-find-insert-child",
+      "input_span": [
+        7025500,
+        7025500
+      ],
+      "kind": "insert_text_child",
+      "new_bytes": 6,
+      "new_runtime_text": "尋路",
+      "new_sha256": "a28a9520da686aa05eafbe529e8506e15284fd721a9c186057f709f33d7fe5e3",
+      "new_source": "尋路",
+      "old_bytes": 0,
+      "old_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "old_source": "",
+      "order": 17
+    },
+    {
+      "context": "h-services",
+      "derived_output_span": [
+        7025456,
+        7025463
+      ],
+      "id": "A07-services",
+      "input_span": [
+        7025744,
+        7025753
+      ],
+      "inventory_id": "A07",
+      "kind": "text",
+      "new_bytes": 7,
+      "new_runtime_text": " 服務",
+      "new_sha256": "156319cea04a987823b8ad5616bfd81bcddd1e607d42b184108f81ad54098c17",
+      "new_source": " 服務",
+      "old_bytes": 9,
+      "old_sha256": "79b4753d0382f80933d11d006e60473aa945ffd502650d076dfabea1bb5efcac",
+      "old_source": " Services",
+      "order": 18
+    },
+    {
+      "context": "h-move",
+      "derived_output_span": [
+        7025565,
+        7025575
+      ],
+      "id": "A08-move",
+      "input_span": [
+        7025855,
+        7025863
+      ],
+      "inventory_id": "A08",
+      "kind": "text",
+      "new_bytes": 10,
+      "new_runtime_text": "✣ 移動",
+      "new_sha256": "0dfc2b91544d6bdc15d97671f0ee2def62e52b5072c3faea802a514ecc73d6f5",
+      "new_source": "✣ 移動",
+      "old_bytes": 8,
+      "old_sha256": "c02020aa644ef3aea1f18887bc1bc38fc398e3fe68c13bc64a723c8ab21ab4a0",
+      "old_source": "✣ MOVE",
+      "order": 19
+    },
+    {
+      "context": "h-minimize",
+      "derived_output_span": [
+        7025723,
+        7025730
+      ],
+      "id": "A09-minimize",
+      "input_span": [
+        7026011,
+        7026020
+      ],
+      "inventory_id": "A09",
+      "kind": "text",
+      "new_bytes": 7,
+      "new_runtime_text": " 縮小",
+      "new_sha256": "7b90373a0c5b039c0b7207017f2f6540c21a1c5b75239bd8d3a998740ecd4ecc",
+      "new_source": " 縮小",
+      "old_bytes": 9,
+      "old_sha256": "d7ab7dbb6579e8c89bd83ce7883cb859a5fcf8638e061e63037fe66c95d288e2",
+      "old_source": " Minimize",
+      "order": 20
+    },
+    {
+      "context": "h-mouse",
+      "derived_output_span": [
+        7025859,
+        7025868
+      ],
+      "id": "A10-mouse",
+      "input_span": [
+        7026149,
+        7026155
+      ],
+      "inventory_id": "A10",
+      "kind": "text",
+      "new_bytes": 9,
+      "new_runtime_text": "滑鼠：",
+      "new_sha256": "c29a6fd8872eea8b2c08d8d71e7310c67f0ab2c717143a35719fe04f320084b3",
+      "new_source": "滑鼠：",
+      "old_bytes": 6,
+      "old_sha256": "f75b476cd7ad3ee5db6f00f045c19cd101c130f90caf40e5dc87816fd48aaac5",
+      "old_source": "Mouse:",
+      "order": 21
+    },
+    {
+      "context": "h-target",
+      "derived_output_span": [
+        7025978,
+        7025987
+      ],
+      "id": "A10-target",
+      "input_span": [
+        7026265,
+        7026272
+      ],
+      "inventory_id": "A10",
+      "kind": "text",
+      "new_bytes": 9,
+      "new_runtime_text": "目標：",
+      "new_sha256": "e8b421563d642422258128005504627d539851f19d391c1dedfac99f512ab6f5",
+      "new_source": "目標：",
+      "old_bytes": 7,
+      "old_sha256": "890d34fffcde315c0575f92eefbdcce15011c60afa718c4a5e6bad4c7b81118f",
+      "old_source": "Target:",
+      "order": 22
+    },
+    {
+      "context": "h-marker-title",
+      "derived_output_span": [
+        7026287,
+        7026299
+      ],
+      "id": "A11-marker-tooltip",
+      "input_span": [
+        7026572,
+        7026583
+      ],
+      "inventory_id": "A11",
+      "kind": "text",
+      "new_bytes": 12,
+      "new_runtime_text": "路徑標記",
+      "new_sha256": "34e46c1d2202dc8d6cc666db87d004bb2954db319dba9fc49a1612fb111adb71",
+      "new_source": "路徑標記",
+      "old_bytes": 11,
+      "old_sha256": "06c966b33e65bef934f5e57efa0ac4d82190fb913a7a9f7ce539da3d19f80247",
+      "old_source": "Path marker",
+      "order": 23
+    },
+    {
+      "context": "css-action_button_dimensions",
+      "derived_output_span": [
+        7033657,
+        7034326
+      ],
+      "id": "A12-action-button-css",
+      "input_span": [
+        7033941,
+        7034008
+      ],
+      "kind": "replace_scoped_css_rule",
+      "new_bytes": 669,
+      "new_decoded_css": ".Navigation .search-actions ui-button { width:120px; height:20px; box-sizing:border-box; display:inline-flex; align-items:center; justify-content:center; border:1px solid #9c9c9c; border-radius:2px; background:linear-gradient(#fff,#e4e4e4); color:#333; line-height:18px; white-space:nowrap; user-select:none; cursor:pointer; }\n.Navigation .search-actions ui-button:not([disabled]):hover { background:linear-gradient(#fff,#e2efff); border-color:#7d9abb; }\n.Navigation .search-actions ui-button:not([disabled]):active { background:linear-gradient(#bfd5ef,#e1edfa); border-color:#627f9f; }\n.Navigation .search-actions ui-button[disabled] { opacity:.5; cursor:default; }",
+      "new_sha256": "ea4dcd0bc16bf394bbfc3ad547710ed602f8cc0ab44a919d5874c3d734845e9a",
+      "new_source": ".Navigation .search-actions ui-button { width:120px; height:20px; box-sizing:border-box; display:inline-flex; align-items:center; justify-content:center; border:1px solid #9c9c9c; border-radius:2px; background:linear-gradient(#fff,#e4e4e4); color:#333; line-height:18px; white-space:nowrap; user-select:none; cursor:pointer; }\\n.Navigation .search-actions ui-button:not([disabled]):hover { background:linear-gradient(#fff,#e2efff); border-color:#7d9abb; }\\n.Navigation .search-actions ui-button:not([disabled]):active { background:linear-gradient(#bfd5ef,#e1edfa); border-color:#627f9f; }\\n.Navigation .search-actions ui-button[disabled] { opacity:.5; cursor:default; }",
+      "old_bytes": 67,
+      "old_sha256": "3406114e3328bbeb3503961f106dbb38ee6b98ab04a4305da1eb5fc3a8e60ef8",
+      "old_source": ".Navigation .search-actions ui-button { width:120px; height:20px; }",
+      "order": 24
+    },
+    {
+      "context": "n-no-path",
+      "derived_output_span": [
+        7043277,
+        7043299
+      ],
+      "id": "B14-no-path",
+      "input_span": [
+        7042959,
+        7042975
+      ],
+      "inventory_id": "B14",
+      "kind": "text",
+      "new_bytes": 22,
+      "new_runtime_text": " （找不到路徑）",
+      "new_sha256": "d26e831d2f69d33cb68b9daa8330ecfa1b34c95b53984b3cf9a0aa171d463dae",
+      "new_source": " （找不到路徑）",
+      "old_bytes": 16,
+      "old_sha256": "7ea4d0e7ceed0a1f93a536057d4daa28f3d5b15a0cdbf3d74cf8feeb5f101a65",
+      "old_source": " (no path found)",
+      "order": 25
+    },
+    {
+      "context": "n-short-query",
+      "derived_output_span": [
+        7064270,
+        7064285
+      ],
+      "id": "B01-short-query",
+      "input_span": [
+        7063946,
+        7063961
+      ],
+      "inventory_id": "B01",
+      "kind": "text",
+      "new_bytes": 15,
+      "new_runtime_text": "請選擇結果",
+      "new_sha256": "566e7aab769a22783d8c05a825f50f7158a033cd402abb8e303cb3b4c98679ff",
+      "new_source": "請選擇結果",
+      "old_bytes": 15,
+      "old_sha256": "97caff8aaf35442c8bc1bc38c96d08d686a59a8f4e66631553c25eb0063efb90",
+      "old_source": "Select a result",
+      "order": 26
+    },
+    {
+      "context": "n-mapwide",
+      "derived_output_span": [
+        7071862,
+        7071877
+      ],
+      "id": "B05-mapwide",
+      "input_span": [
+        7071538,
+        7071552
+      ],
+      "inventory_id": "B05",
+      "kind": "text",
+      "new_bytes": 15,
+      "new_runtime_text": "全地圖出現",
+      "new_sha256": "e6f17b06761ea176016fe1043612f96fc591f593a04c67931a9e81daeaabb1b6",
+      "new_source": "全地圖出現",
+      "old_bytes": 14,
+      "old_sha256": "88e05a44dbf676fd939231a87a651ed82ad76552dbe5e0f99941fcbcdeb6f62d",
+      "old_source": "Map-wide spawn",
+      "order": 27
+    },
+    {
+      "context": "n-stat-level",
+      "derived_output_span": [
+        7072964,
+        7072970
+      ],
+      "id": "B06-label-level",
+      "input_span": [
+        7072639,
+        7072642
+      ],
+      "inventory_id": "B06",
+      "kind": "text",
+      "new_bytes": 6,
+      "new_runtime_text": "等級",
+      "new_sha256": "31b0f533e8dbacadc7c353a5b935777ab46df5be7b65eeefa74dde960962baec",
+      "new_source": "等級",
+      "old_bytes": 3,
+      "old_sha256": "619683f98eb9e8dad44affeed6b79d1bcf7c0e1d8efecdfd0fa42846e9e2ccac",
+      "old_source": "Lv.",
+      "order": 28
+    },
+    {
+      "context": "n-stat-element",
+      "derived_output_span": [
+        7073007,
+        7073013
+      ],
+      "id": "B06-label-element",
+      "input_span": [
+        7072679,
+        7072686
+      ],
+      "inventory_id": "B06",
+      "kind": "text",
+      "new_bytes": 6,
+      "new_runtime_text": "屬性",
+      "new_sha256": "e1d9c41216c516a88ad53d63522f7289b6e6220c5a2b3c18b14fd6e1a8000b11",
+      "new_source": "屬性",
+      "old_bytes": 7,
+      "old_sha256": "4e5b548d6d61f0006840aca106f7464a4b59e5a854317d5b57861b8423901bf6",
+      "old_source": "Element",
+      "order": 29
+    },
+    {
+      "context": "n-stat-element",
+      "derived_output_span": [
+        7073035,
+        7073041
+      ],
+      "id": "B07-stat-unknown-element",
+      "input_span": [
+        7072708,
+        7072715
+      ],
+      "inventory_id": "B07",
+      "kind": "text",
+      "new_bytes": 6,
+      "new_runtime_text": "未知",
+      "new_sha256": "4d8c1c5b42830791a4ce99f630fb9f02ba08c67c5299d46d6cf76661bfd03584",
+      "new_source": "未知",
+      "old_bytes": 7,
+      "old_sha256": "b764cdc0eab7137467211272fa539f1260d1bf2e71bcf6ff3bdc960f5c16aa14",
+      "old_source": "Unknown",
+      "order": 30
+    },
+    {
+      "context": "n-stat-race",
+      "derived_output_span": [
+        7073057,
+        7073063
+      ],
+      "id": "B06-label-race",
+      "input_span": [
+        7072731,
+        7072735
+      ],
+      "inventory_id": "B06",
+      "kind": "text",
+      "new_bytes": 6,
+      "new_runtime_text": "種族",
+      "new_sha256": "20136656da61ccaaf46a4d9ba8bf84ee0b3a38b8521f4fd3a88c403d908c05db",
+      "new_source": "種族",
+      "old_bytes": 4,
+      "old_sha256": "baaddf70fb5d432b8bd948ef91d6f910124a6d138edae4d5f000c4610ddc8eae",
+      "old_source": "Type",
+      "order": 31
+    },
+    {
+      "context": "n-stat-race",
+      "derived_output_span": [
+        7073082,
+        7073088
+      ],
+      "id": "B07-stat-unknown-race",
+      "input_span": [
+        7072754,
+        7072761
+      ],
+      "inventory_id": "B07",
+      "kind": "text",
+      "new_bytes": 6,
+      "new_runtime_text": "未知",
+      "new_sha256": "4d8c1c5b42830791a4ce99f630fb9f02ba08c67c5299d46d6cf76661bfd03584",
+      "new_source": "未知",
+      "old_bytes": 7,
+      "old_sha256": "b764cdc0eab7137467211272fa539f1260d1bf2e71bcf6ff3bdc960f5c16aa14",
+      "old_source": "Unknown",
+      "order": 32
+    },
+    {
+      "context": "n-stat-size",
+      "derived_output_span": [
+        7073104,
+        7073110
+      ],
+      "id": "B06-label-size",
+      "input_span": [
+        7072777,
+        7072781
+      ],
+      "inventory_id": "B06",
+      "kind": "text",
+      "new_bytes": 6,
+      "new_runtime_text": "體型",
+      "new_sha256": "ad2480f2441a7781850aeaede90e515bc79a826f29e727f248045054944e3644",
+      "new_source": "體型",
+      "old_bytes": 4,
+      "old_sha256": "1af851907331c0ed99e7c63b4e55df808bc5fc4c990a1cf80ca8c0f76daf1f3b",
+      "old_source": "Size",
+      "order": 33
+    },
+    {
+      "context": "n-stat-size",
+      "derived_output_span": [
+        7073129,
+        7073135
+      ],
+      "id": "B07-stat-unknown-size",
+      "input_span": [
+        7072800,
+        7072807
+      ],
+      "inventory_id": "B07",
+      "kind": "text",
+      "new_bytes": 6,
+      "new_runtime_text": "未知",
+      "new_sha256": "4d8c1c5b42830791a4ce99f630fb9f02ba08c67c5299d46d6cf76661bfd03584",
+      "new_source": "未知",
+      "old_bytes": 7,
+      "old_sha256": "b764cdc0eab7137467211272fa539f1260d1bf2e71bcf6ff3bdc960f5c16aa14",
+      "old_source": "Unknown",
+      "order": 34
+    },
+    {
+      "context": "n-spawn-tooltip",
+      "derived_output_span": [
+        7073977,
+        7073993
+      ],
+      "id": "B12-spawn-tooltip",
+      "input_span": [
+        7073649,
+        7073663
+      ],
+      "inventory_id": "B12",
+      "kind": "text",
+      "new_bytes": 16,
+      "new_runtime_text": " 筆出現資料",
+      "new_sha256": "5e545c232feee25023d78bcedae944d8226d98450e463e384c4a8b59d517faa6",
+      "new_source": " 筆出現資料",
+      "old_bytes": 14,
+      "old_sha256": "d414334d6270a4edf8b02b208e6a0747b76f9b5c0291535e2ae54cd68251e050",
+      "old_source": " spawn entries",
+      "order": 35
+    },
+    {
+      "context": "n-result-summary",
+      "derived_output_span": [
+        7075202,
+        7075217
+      ],
+      "id": "B02-result-select",
+      "input_span": [
+        7074872,
+        7074887
+      ],
+      "inventory_id": "B02",
+      "kind": "text",
+      "new_bytes": 15,
+      "new_runtime_text": "請選擇結果",
+      "new_sha256": "566e7aab769a22783d8c05a825f50f7158a033cd402abb8e303cb3b4c98679ff",
+      "new_source": "請選擇結果",
+      "old_bytes": 15,
+      "old_sha256": "97caff8aaf35442c8bc1bc38c96d08d686a59a8f4e66631553c25eb0063efb90",
+      "old_source": "Select a result",
+      "order": 36
+    },
+    {
+      "context": "n-result-summary",
+      "derived_output_span": [
+        7075222,
+        7075231
+      ],
+      "id": "B02-result-empty",
+      "input_span": [
+        7074892,
+        7074901
+      ],
+      "inventory_id": "B02",
+      "kind": "text",
+      "new_bytes": 9,
+      "new_runtime_text": "無結果",
+      "new_sha256": "b857ae588bbcda1f9b163ce66349151a6472690b9b75d63302a66e4d045cdb7f",
+      "new_source": "無結果",
+      "old_bytes": 9,
+      "old_sha256": "c6008b5b55ecb54f1981d0bafe236067280deb6bcec190ce7aab6915ea5d5948",
+      "old_source": "No result",
+      "order": 37
+    },
+    {
+      "context": "n-empty-advice",
+      "derived_output_span": [
+        7075525,
+        7075552
+      ],
+      "id": "B04-empty-advice",
+      "input_span": [
+        7075195,
+        7075298
+      ],
+      "inventory_id": "B04",
+      "kind": "text",
+      "new_bytes": 27,
+      "new_runtime_text": "請嘗試其他關鍵字。",
+      "new_sha256": "50efdfd250f04b15ddcbd5a49aaf6373b22c7a191eddafca7a1972df01e9cf68",
+      "new_source": "請嘗試其他關鍵字。",
+      "old_bytes": 103,
+      "old_sha256": "613fe5913b25ad2b0446eab7eec9cf99b93e557003a8fb2599679914ab36ce5b",
+      "old_source": "Empty? An English GRF can replace these tables. Enable Settings → Mods → navigation-english-tables.",
+      "order": 38
+    },
+    {
+      "context": "n-no-results",
+      "derived_output_span": [
+        7076187,
+        7076202
+      ],
+      "id": "B03-no-results",
+      "input_span": [
+        7075933,
+        7075949
+      ],
+      "inventory_id": "B03",
+      "kind": "text",
+      "new_bytes": 15,
+      "new_runtime_text": "找不到結果",
+      "new_sha256": "368c6ba9717ffe130f2d3a1691710343d7ee8c7b15cdcc29a2bb61181c7491e4",
+      "new_source": "找不到結果",
+      "old_bytes": 16,
+      "old_sha256": "7d7e360586090927c7aeee67c8a46d8354694e7aa4b722ff5b421347f798057a",
+      "old_source": "No results found",
+      "order": 39
+    },
+    {
+      "context": "n-map-click",
+      "derived_output_span": [
+        7080697,
+        7080709
+      ],
+      "id": "B13-map-click",
+      "input_span": [
+        7080444,
+        7080453
+      ],
+      "inventory_id": "B13",
+      "kind": "text",
+      "new_bytes": 12,
+      "new_runtime_text": "地圖選點",
+      "new_sha256": "14a1c91a7bf8693f105556602603ba9e05f3770e1e032478e8e896de31c8ca7e",
+      "new_source": "地圖選點",
+      "old_bytes": 9,
+      "old_sha256": "2e1fd65e82f99a5992dbfd43ac8fd187f3f1b13c946a46419e84bdd6513de47a",
+      "old_source": "Map Click",
+      "order": 40
+    },
+    {
+      "context": "c-navi-help",
+      "derived_output_span": [
+        8810070,
+        8810145
+      ],
+      "id": "B15-navi-help",
+      "input_span": [
+        8809814,
+        8809891
+      ],
+      "inventory_id": "B15",
+      "kind": "text",
+      "new_bytes": 75,
+      "new_runtime_text": "以座標或名稱導航。用法：/navi prontera 150/150 或 /navi 波利",
+      "new_sha256": "b0a06c5131eecb2de6863abd9d11b2b2158ffe4ca65537da3a775da7447e2642",
+      "new_source": "以座標或名稱導航。用法：/navi prontera 150/150 或 /navi 波利",
+      "old_bytes": 77,
+      "old_sha256": "0dcfe8d170f6ad05c67314977c7d40e3d44888a7ce040d11af664fd6d7bc73d4",
+      "old_source": "Navigate by coordinates or search by name. Usage: /navi map x/y or /navi name",
+      "order": 41
+    },
+    {
+      "context": "db-element-names",
+      "derived_output_span": [
+        10830473,
+        10830476
+      ],
+      "id": "B08-0-Neutral",
+      "input_span": [
+        10830219,
+        10830226
+      ],
+      "inventory_id": "B08",
+      "kind": "text",
+      "new_bytes": 3,
+      "new_runtime_text": "無",
+      "new_sha256": "da5930e53d54d33e4a4f0b61945d4a0bf40a3512e3613a2788eaff12d6ecef2b",
+      "new_source": "無",
+      "old_bytes": 7,
+      "old_sha256": "1c6ac69f1e5db9c36e9f549d72ef77d23ceab19c557a7eb3a27c7f06f4484b44",
+      "old_source": "Neutral",
+      "order": 42
+    },
+    {
+      "context": "db-element-names",
+      "derived_output_span": [
+        10830480,
+        10830483
+      ],
+      "id": "B08-1-Water",
+      "input_span": [
+        10830230,
+        10830235
+      ],
+      "inventory_id": "B08",
+      "kind": "text",
+      "new_bytes": 3,
+      "new_runtime_text": "水",
+      "new_sha256": "327b54d04f71f2126114d9d61d4c3640ca0fc5b30878ad28416ff634a51a712d",
+      "new_source": "水",
+      "old_bytes": 5,
+      "old_sha256": "7ca7dea906800f87091b819132ecf2aa2b7ea14c9841fa18b9db121d3bbe82dc",
+      "old_source": "Water",
+      "order": 43
+    },
+    {
+      "context": "db-element-names",
+      "derived_output_span": [
+        10830487,
+        10830490
+      ],
+      "id": "B08-2-Earth",
+      "input_span": [
+        10830239,
+        10830244
+      ],
+      "inventory_id": "B08",
+      "kind": "text",
+      "new_bytes": 3,
+      "new_runtime_text": "地",
+      "new_sha256": "bdbd41e490e2e1d08a8ed62adba9528b52eacb3e4cf8819aa983cf1cf9dfacc3",
+      "new_source": "地",
+      "old_bytes": 5,
+      "old_sha256": "b7c9b5ccd3e3ec741ecfa5864b577f5dab1d987bfd3caa4815f1b3f8354a5f16",
+      "old_source": "Earth",
+      "order": 44
+    },
+    {
+      "context": "db-element-names",
+      "derived_output_span": [
+        10830494,
+        10830497
+      ],
+      "id": "B08-3-Fire",
+      "input_span": [
+        10830248,
+        10830252
+      ],
+      "inventory_id": "B08",
+      "kind": "text",
+      "new_bytes": 3,
+      "new_runtime_text": "火",
+      "new_sha256": "d4cfe8c82c9c3045cd06a6c6985b7c95d209797331a366547028aa8281a27e35",
+      "new_source": "火",
+      "old_bytes": 4,
+      "old_sha256": "c141faa80e43a11909f5736d1e767f12e1468aa06dadd446081746934e875fc3",
+      "old_source": "Fire",
+      "order": 45
+    },
+    {
+      "context": "db-element-names",
+      "derived_output_span": [
+        10830501,
+        10830504
+      ],
+      "id": "B08-4-Wind",
+      "input_span": [
+        10830256,
+        10830260
+      ],
+      "inventory_id": "B08",
+      "kind": "text",
+      "new_bytes": 3,
+      "new_runtime_text": "風",
+      "new_sha256": "b4478e3308e03672709a7d472117d9545824fe554e04bfb6c6c2ad0649ef0860",
+      "new_source": "風",
+      "old_bytes": 4,
+      "old_sha256": "d151346fe7eea3c6a0865199579ca6017487dbf981d59cdd1fcadadb03518dc8",
+      "old_source": "Wind",
+      "order": 46
+    },
+    {
+      "context": "db-element-names",
+      "derived_output_span": [
+        10830508,
+        10830511
+      ],
+      "id": "B08-5-Poison",
+      "input_span": [
+        10830264,
+        10830270
+      ],
+      "inventory_id": "B08",
+      "kind": "text",
+      "new_bytes": 3,
+      "new_runtime_text": "毒",
+      "new_sha256": "3a5608f2697821a0126aa9ea52027ca53f762b81bf153bc029ad834045dc9c81",
+      "new_source": "毒",
+      "old_bytes": 6,
+      "old_sha256": "d5a78b996fe640a3f9181d71da872b9dfb63bbad0d282edff0a12e4e32074b6e",
+      "old_source": "Poison",
+      "order": 47
+    },
+    {
+      "context": "db-element-names",
+      "derived_output_span": [
+        10830515,
+        10830518
+      ],
+      "id": "B08-6-Holy",
+      "input_span": [
+        10830274,
+        10830278
+      ],
+      "inventory_id": "B08",
+      "kind": "text",
+      "new_bytes": 3,
+      "new_runtime_text": "聖",
+      "new_sha256": "e27b03c8abfd53486b3c76bb60b25e69dd3bc42848d2a0822897f319a190d720",
+      "new_source": "聖",
+      "old_bytes": 4,
+      "old_sha256": "56eee6a57925be9e0e0724c3cfb6d7d72b1fe8cdd680e79a437552fc6f07b7a9",
+      "old_source": "Holy",
+      "order": 48
+    },
+    {
+      "context": "db-element-names",
+      "derived_output_span": [
+        10830522,
+        10830525
+      ],
+      "id": "B08-7-Shadow",
+      "input_span": [
+        10830282,
+        10830288
+      ],
+      "inventory_id": "B08",
+      "kind": "text",
+      "new_bytes": 3,
+      "new_runtime_text": "暗",
+      "new_sha256": "140ede26426df0505039b3d0dddb8c4a8ef9ac70a3fb1abef4a7c929ed8f08be",
+      "new_source": "暗",
+      "old_bytes": 6,
+      "old_sha256": "4c764cb6248ef9337fc1c8769d4b74fc1d4c1fff6a9e8d00ca6753a560b3e74b",
+      "old_source": "Shadow",
+      "order": 49
+    },
+    {
+      "context": "db-element-names",
+      "derived_output_span": [
+        10830529,
+        10830532
+      ],
+      "id": "B08-8-Ghost",
+      "input_span": [
+        10830292,
+        10830297
+      ],
+      "inventory_id": "B08",
+      "kind": "text",
+      "new_bytes": 3,
+      "new_runtime_text": "念",
+      "new_sha256": "99b5940c6d9474e34f68e96bfe090ffc16f38f4873c9e760fd7bbfa4c2ffb283",
+      "new_source": "念",
+      "old_bytes": 5,
+      "old_sha256": "df1bc4984a055e10b2863eb03abf11701cb63a1e2371dc398889e8291812fb80",
+      "old_source": "Ghost",
+      "order": 50
+    },
+    {
+      "context": "db-element-names",
+      "derived_output_span": [
+        10830536,
+        10830542
+      ],
+      "id": "B08-9-Undead",
+      "input_span": [
+        10830301,
+        10830307
+      ],
+      "inventory_id": "B08",
+      "kind": "text",
+      "new_bytes": 6,
+      "new_runtime_text": "不死",
+      "new_sha256": "81686c6ccf018bd5b2050b2d3e34f4b11f2292e2c95a5de423de5fd4c5f2baed",
+      "new_source": "不死",
+      "old_bytes": 6,
+      "old_sha256": "a5bb6066391197b9b53c348c977a6b1fbe97575905481e8d6b034dfa095c2cba",
+      "old_source": "Undead",
+      "order": 51
+    },
+    {
+      "context": "db-race-names",
+      "derived_output_span": [
+        10830569,
+        10830575
+      ],
+      "id": "B09-0-Formless",
+      "input_span": [
+        10830334,
+        10830342
+      ],
+      "inventory_id": "B09",
+      "kind": "text",
+      "new_bytes": 6,
+      "new_runtime_text": "無形",
+      "new_sha256": "3ea782b5bdaf367721a7107163dc14c7fc3d9e56a98496af4723d9d882060dad",
+      "new_source": "無形",
+      "old_bytes": 8,
+      "old_sha256": "c1923a5e7a7fb52d56b5a86d5613c8c958a637b6621371fb18bd1031437ec353",
+      "old_source": "Formless",
+      "order": 52
+    },
+    {
+      "context": "db-race-names",
+      "derived_output_span": [
+        10830579,
+        10830585
+      ],
+      "id": "B09-1-Undead",
+      "input_span": [
+        10830346,
+        10830352
+      ],
+      "inventory_id": "B09",
+      "kind": "text",
+      "new_bytes": 6,
+      "new_runtime_text": "不死",
+      "new_sha256": "81686c6ccf018bd5b2050b2d3e34f4b11f2292e2c95a5de423de5fd4c5f2baed",
+      "new_source": "不死",
+      "old_bytes": 6,
+      "old_sha256": "a5bb6066391197b9b53c348c977a6b1fbe97575905481e8d6b034dfa095c2cba",
+      "old_source": "Undead",
+      "order": 53
+    },
+    {
+      "context": "db-race-names",
+      "derived_output_span": [
+        10830589,
+        10830595
+      ],
+      "id": "B09-2-Brute",
+      "input_span": [
+        10830356,
+        10830361
+      ],
+      "inventory_id": "B09",
+      "kind": "text",
+      "new_bytes": 6,
+      "new_runtime_text": "動物",
+      "new_sha256": "76ec6b1487e7abe0c51d1c07dca4dba17eb456ba021cc24fba1f4e2a547d37b5",
+      "new_source": "動物",
+      "old_bytes": 5,
+      "old_sha256": "60ae363002bbdc3cd6ecbd2c1708148b65ccf3e5d6513fec9492c93356392193",
+      "old_source": "Brute",
+      "order": 54
+    },
+    {
+      "context": "db-race-names",
+      "derived_output_span": [
+        10830599,
+        10830605
+      ],
+      "id": "B09-3-Plant",
+      "input_span": [
+        10830365,
+        10830370
+      ],
+      "inventory_id": "B09",
+      "kind": "text",
+      "new_bytes": 6,
+      "new_runtime_text": "植物",
+      "new_sha256": "a745bfdf30053f763380e7f6000fd57d877df9a9bc55fb7f4de49bfa7a86e004",
+      "new_source": "植物",
+      "old_bytes": 5,
+      "old_sha256": "0bd287f6ce17c0df72d097db9e24f828fbe5e24987012f8153a21ef6189a3747",
+      "old_source": "Plant",
+      "order": 55
+    },
+    {
+      "context": "db-race-names",
+      "derived_output_span": [
+        10830609,
+        10830615
+      ],
+      "id": "B09-4-Insect",
+      "input_span": [
+        10830374,
+        10830380
+      ],
+      "inventory_id": "B09",
+      "kind": "text",
+      "new_bytes": 6,
+      "new_runtime_text": "昆蟲",
+      "new_sha256": "2fc9801e602aa5aa75982745190733ebc63e26d86d10c41a742edb2df71f73db",
+      "new_source": "昆蟲",
+      "old_bytes": 6,
+      "old_sha256": "262110988e78695e4d286849f8d56c7b66310b8859a9993f93eacbbb1d064792",
+      "old_source": "Insect",
+      "order": 56
+    },
+    {
+      "context": "db-race-names",
+      "derived_output_span": [
+        10830619,
+        10830625
+      ],
+      "id": "B09-5-Fish",
+      "input_span": [
+        10830384,
+        10830388
+      ],
+      "inventory_id": "B09",
+      "kind": "text",
+      "new_bytes": 6,
+      "new_runtime_text": "魚貝",
+      "new_sha256": "4f20c373697882f96c1bd6ce4ed59f8a6c573fe4649e74ae9cc10196c2cd2766",
+      "new_source": "魚貝",
+      "old_bytes": 4,
+      "old_sha256": "3f3f8baad08c9ccc4a3e02a17d042b76a1b75162b22bdf00f7273efd896fd5d0",
+      "old_source": "Fish",
+      "order": 57
+    },
+    {
+      "context": "db-race-names",
+      "derived_output_span": [
+        10830629,
+        10830635
+      ],
+      "id": "B09-6-Demon",
+      "input_span": [
+        10830392,
+        10830397
+      ],
+      "inventory_id": "B09",
+      "kind": "text",
+      "new_bytes": 6,
+      "new_runtime_text": "惡魔",
+      "new_sha256": "2b78066006dcdf1abae7af0e6031fff655d14da303ea02d255e5df43464d10b2",
+      "new_source": "惡魔",
+      "old_bytes": 5,
+      "old_sha256": "83bd77844403b5f4cc44e0a304b4b5b0e7442cf0f07e1f22f6260f6a24778431",
+      "old_source": "Demon",
+      "order": 58
+    },
+    {
+      "context": "db-race-names",
+      "derived_output_span": [
+        10830639,
+        10830645
+      ],
+      "id": "B09-7-Demi-Human",
+      "input_span": [
+        10830401,
+        10830411
+      ],
+      "inventory_id": "B09",
+      "kind": "text",
+      "new_bytes": 6,
+      "new_runtime_text": "人形",
+      "new_sha256": "8f0298f9c8a835e73f6ec8f040fd778b1b681f776df8d351f95d3ba88c854cc6",
+      "new_source": "人形",
+      "old_bytes": 10,
+      "old_sha256": "7b06f1d34f9152b5dd20f3d14688e1b9c4cff1134b3bbedf981263aa9bbc6ae9",
+      "old_source": "Demi-Human",
+      "order": 59
+    },
+    {
+      "context": "db-race-names",
+      "derived_output_span": [
+        10830649,
+        10830655
+      ],
+      "id": "B09-8-Angel",
+      "input_span": [
+        10830415,
+        10830420
+      ],
+      "inventory_id": "B09",
+      "kind": "text",
+      "new_bytes": 6,
+      "new_runtime_text": "天使",
+      "new_sha256": "970d69ad21de1cc8915dc4025b619cbd5a1f55b358b73cfa93e044678b8c7b00",
+      "new_source": "天使",
+      "old_bytes": 5,
+      "old_sha256": "0160733d2828347f1bad79c3b29e34894f331ee512a606ac5dbe67fd8399978d",
+      "old_source": "Angel",
+      "order": 60
+    },
+    {
+      "context": "db-race-names",
+      "derived_output_span": [
+        10830659,
+        10830662
+      ],
+      "id": "B09-9-Dragon",
+      "input_span": [
+        10830424,
+        10830430
+      ],
+      "inventory_id": "B09",
+      "kind": "text",
+      "new_bytes": 3,
+      "new_runtime_text": "龍",
+      "new_sha256": "4834c87e2efaf72685b3c4a4c734985a3cb2629776028dcd390512d49897be06",
+      "new_source": "龍",
+      "old_bytes": 6,
+      "old_sha256": "bbe963c645f060d61857b416b39ec5dcf63f659a960bb2dc164b7faad2897783",
+      "old_source": "Dragon",
+      "order": 61
+    },
+    {
+      "context": "db-race-names",
+      "derived_output_span": [
+        10830666,
+        10830672
+      ],
+      "id": "B09-10-Player",
+      "input_span": [
+        10830434,
+        10830440
+      ],
+      "inventory_id": "B09",
+      "kind": "text",
+      "new_bytes": 6,
+      "new_runtime_text": "玩家",
+      "new_sha256": "991e63fe292063b64ae00e6ad05020fe4347dd3a6f0461406147e74c4168685d",
+      "new_source": "玩家",
+      "old_bytes": 6,
+      "old_sha256": "64aee8c6cbd026d9ea9221661f7632351d9a741198cd01ca017450b56f78a206",
+      "old_source": "Player",
+      "order": 62
+    },
+    {
+      "context": "db-race-names",
+      "derived_output_span": [
+        10830676,
+        10830682
+      ],
+      "id": "B09-11-Boss",
+      "input_span": [
+        10830444,
+        10830448
+      ],
+      "inventory_id": "B09",
+      "kind": "text",
+      "new_bytes": 6,
+      "new_runtime_text": "首領",
+      "new_sha256": "0b8d5c65c346a74b91176dfa8680d58f207cb29dd893394288b886dd7a7f9a3e",
+      "new_source": "首領",
+      "old_bytes": 4,
+      "old_sha256": "6a6ac8386005b00f2af86a300f1ae811527b9d979db505e11ae7c5b85fa679c3",
+      "old_source": "Boss",
+      "order": 63
+    },
+    {
+      "context": "db-size-names",
+      "derived_output_span": [
+        10830709,
+        10830715
+      ],
+      "id": "B10-0-Small",
+      "input_span": [
+        10830475,
+        10830480
+      ],
+      "inventory_id": "B10",
+      "kind": "text",
+      "new_bytes": 6,
+      "new_runtime_text": "小型",
+      "new_sha256": "c8242d4e2db77c716b4db8ee7edf46d1772307e7566d8db641aa6f24021af54a",
+      "new_source": "小型",
+      "old_bytes": 5,
+      "old_sha256": "5263293fc202649bdc8135573ac9cd3b0bcea4355e0d8f0a59f1ddeea8eefc15",
+      "old_source": "Small",
+      "order": 64
+    },
+    {
+      "context": "db-size-names",
+      "derived_output_span": [
+        10830719,
+        10830725
+      ],
+      "id": "B10-1-Medium",
+      "input_span": [
+        10830484,
+        10830490
+      ],
+      "inventory_id": "B10",
+      "kind": "text",
+      "new_bytes": 6,
+      "new_runtime_text": "中型",
+      "new_sha256": "5b3ed24e0472c83e6f7c5ae629aa7056e6eaac4b5aa612318fe82bd0982b405f",
+      "new_source": "中型",
+      "old_bytes": 6,
+      "old_sha256": "8e588cd187741f1cd76f5fab77b7208782a8c21d764ce7d7a4cf3ac4e0968873",
+      "old_source": "Medium",
+      "order": 65
+    },
+    {
+      "context": "db-size-names",
+      "derived_output_span": [
+        10830729,
+        10830735
+      ],
+      "id": "B10-2-Large",
+      "input_span": [
+        10830494,
+        10830499
+      ],
+      "inventory_id": "B10",
+      "kind": "text",
+      "new_bytes": 6,
+      "new_runtime_text": "大型",
+      "new_sha256": "8bc868b54922e1bd42cee2d0c005afdefb1485457a37676ab4726b41efda5289",
+      "new_source": "大型",
+      "old_bytes": 5,
+      "old_sha256": "ab80540d98d274565e355f59f0683df6fb23ff86f735a6f8da60020d3ce05d7b",
+      "old_source": "Large",
+      "order": 66
+    },
+    {
+      "context": "db-frequency",
+      "derived_output_span": [
+        10831701,
+        10831707
+      ],
+      "id": "B11-0-Very Low",
+      "input_span": [
+        10831465,
+        10831473
+      ],
+      "inventory_id": "B11",
+      "kind": "text",
+      "new_bytes": 6,
+      "new_runtime_text": "極少",
+      "new_sha256": "1d55b00a8472311d3248bbe8e82a9dc8daacd407613ff447c39df7be975a7349",
+      "new_source": "極少",
+      "old_bytes": 8,
+      "old_sha256": "b07913e85f962cc57547a22618fb8f9e6d545a3d0dbf4aee0c4af9b121c54a7a",
+      "old_source": "Very Low",
+      "order": 67
+    },
+    {
+      "context": "db-frequency",
+      "derived_output_span": [
+        10831735,
+        10831738
+      ],
+      "id": "B11-1-Low",
+      "input_span": [
+        10831501,
+        10831504
+      ],
+      "inventory_id": "B11",
+      "kind": "text",
+      "new_bytes": 3,
+      "new_runtime_text": "少",
+      "new_sha256": "62f99c9a0c50d790a7ab9b368df966956436e646a0463043d4a74444e3daf7b3",
+      "new_source": "少",
+      "old_bytes": 3,
+      "old_sha256": "f793de205ead5ac302c4a1627829dea41f176b1068b993a32373fc869918374b",
+      "old_source": "Low",
+      "order": 68
+    },
+    {
+      "context": "db-frequency",
+      "derived_output_span": [
+        10831766,
+        10831772
+      ],
+      "id": "B11-2-Average",
+      "input_span": [
+        10831532,
+        10831539
+      ],
+      "inventory_id": "B11",
+      "kind": "text",
+      "new_bytes": 6,
+      "new_runtime_text": "普通",
+      "new_sha256": "de907d10df98b498985b3f8f88402858e8817869a114aacc6919a0cec71fb3d6",
+      "new_source": "普通",
+      "old_bytes": 7,
+      "old_sha256": "b38ae2c5b84529e8027b43a69c8ce9426a3cb081dae97b77bdcd2fdc5a9df742",
+      "old_source": "Average",
+      "order": 69
+    },
+    {
+      "context": "db-frequency",
+      "derived_output_span": [
+        10831800,
+        10831803
+      ],
+      "id": "B11-3-High",
+      "input_span": [
+        10831567,
+        10831571
+      ],
+      "inventory_id": "B11",
+      "kind": "text",
+      "new_bytes": 3,
+      "new_runtime_text": "多",
+      "new_sha256": "1940119f0571646018c3cc89861824710a7d07ca69eb849f2b7272f4e2533591",
+      "new_source": "多",
+      "old_bytes": 4,
+      "old_sha256": "c4ebc6d4a5832cd9415f906ad03661110c705a72381c8b8b145761d02e2dd23a",
+      "old_source": "High",
+      "order": 70
+    },
+    {
+      "context": "db-frequency",
+      "derived_output_span": [
+        10831814,
+        10831820
+      ],
+      "id": "B11-4-Very High",
+      "input_span": [
+        10831582,
+        10831591
+      ],
+      "inventory_id": "B11",
+      "kind": "text",
+      "new_bytes": 6,
+      "new_runtime_text": "極多",
+      "new_sha256": "eaee1fbdc10b90ad8df034cfce609d6f0183f4d340231cba9632350575459b3d",
+      "new_source": "極多",
+      "old_bytes": 9,
+      "old_sha256": "98950fca2b5e3ef4cb0d02a8eed936245620e3b88843d5e310c9127673f84f26",
+      "old_source": "Very High",
+      "order": 71
+    },
+    {
+      "context": "db-element-fallback",
+      "derived_output_span": [
+        10832039,
+        10832045
+      ],
+      "id": "B07-db-unknown-element",
+      "input_span": [
+        10831810,
+        10831817
+      ],
+      "inventory_id": "B07",
+      "kind": "text",
+      "new_bytes": 6,
+      "new_runtime_text": "未知",
+      "new_sha256": "4d8c1c5b42830791a4ce99f630fb9f02ba08c67c5299d46d6cf76661bfd03584",
+      "new_source": "未知",
+      "old_bytes": 7,
+      "old_sha256": "b764cdc0eab7137467211272fa539f1260d1bf2e71bcf6ff3bdc960f5c16aa14",
+      "old_source": "Unknown",
+      "order": 72
+    },
+    {
+      "context": "db-race-fallback",
+      "derived_output_span": [
+        10832131,
+        10832137
+      ],
+      "id": "B07-db-unknown-race",
+      "input_span": [
+        10831903,
+        10831910
+      ],
+      "inventory_id": "B07",
+      "kind": "text",
+      "new_bytes": 6,
+      "new_runtime_text": "未知",
+      "new_sha256": "4d8c1c5b42830791a4ce99f630fb9f02ba08c67c5299d46d6cf76661bfd03584",
+      "new_source": "未知",
+      "old_bytes": 7,
+      "old_sha256": "b764cdc0eab7137467211272fa539f1260d1bf2e71bcf6ff3bdc960f5c16aa14",
+      "old_source": "Unknown",
+      "order": 73
+    },
+    {
+      "context": "db-size-fallback",
+      "derived_output_span": [
+        10832193,
+        10832199
+      ],
+      "id": "B07-db-unknown-size",
+      "input_span": [
+        10831966,
+        10831973
+      ],
+      "inventory_id": "B07",
+      "kind": "text",
+      "new_bytes": 6,
+      "new_runtime_text": "未知",
+      "new_sha256": "4d8c1c5b42830791a4ce99f630fb9f02ba08c67c5299d46d6cf76661bfd03584",
+      "new_source": "未知",
+      "old_bytes": 7,
+      "old_sha256": "b764cdc0eab7137467211272fa539f1260d1bf2e71bcf6ff3bdc960f5c16aa14",
+      "old_source": "Unknown",
+      "order": 74
+    }
+  ],
+  "guard_only_sites": [
+    {
+      "bytes": 3,
+      "classification": "protocol_value_guard",
+      "compiled_text": "ALL",
+      "context": "h-option-all",
+      "expected_runtime_text": "ALL",
+      "id": "A02-value-ALL",
+      "inventory_id": "A02",
+      "sha256": "b5c7aed7cd2a308523e7d2847b7815909e864b2fd9c4ea88b00d35adb2ecdfd7",
+      "span": [
+        7023657,
+        7023660
+      ],
+      "window": "html"
+    },
+    {
+      "bytes": 3,
+      "classification": "protocol_value_guard",
+      "compiled_text": "NPC",
+      "context": "h-option-npc",
+      "expected_runtime_text": "NPC",
+      "id": "A02-value-NPC",
+      "inventory_id": "A02",
+      "sha256": "f2d1dab083102e349b1d317e2e3c92698b867995b105756cceb701f976edb109",
+      "span": [
+        7023691,
+        7023694
+      ],
+      "window": "html"
+    },
+    {
+      "bytes": 3,
+      "classification": "protocol_value_guard",
+      "compiled_text": "MOB",
+      "context": "h-option-mob",
+      "expected_runtime_text": "MOB",
+      "id": "A02-value-MOB",
+      "inventory_id": "A02",
+      "sha256": "2402e052a7c65f3089fe20dab7f6bd7422df06331c2bfb14d61cff3b401e01e0",
+      "span": [
+        7023725,
+        7023728
+      ],
+      "window": "html"
+    },
+    {
+      "bytes": 1,
+      "classification": "punctuation_guard",
+      "compiled_text": "]",
+      "context": "h-caption",
+      "expected_runtime_text": "]",
+      "id": "A03-suffix",
+      "inventory_id": "A03",
+      "sha256": "cfae0d4248f7142f7b17f826cd7a519280e312577690e957830d23dcf35a3fff",
+      "span": [
+        7024172,
+        7024173
+      ],
+      "window": "html"
+    },
+    {
+      "bytes": 1,
+      "classification": "placeholder_guard",
+      "compiled_text": "?",
+      "context": "n-stat-level",
+      "expected_runtime_text": "?",
+      "id": "B07-level-question",
+      "inventory_id": "B07",
+      "sha256": "8a8de823d5ed3e12746a62ef169bcf372be0ca44f0a1236abc35df05d96928e1",
+      "span": [
+        7072662,
+        7072663
+      ],
+      "window": "navigation"
+    }
+  ],
+  "input": {
+    "bytes": 13172839,
+    "sha256": "6ba854cb67b1306cadb905b1b89a7a1eac98cd7e5c912196e6f87df41a5c4c2f",
+    "source_encoding": "UTF-8 compiled-source bytes",
+    "source_path_reference": ".tools/renewal/t05-navigation-pair-1/integrated-root-checks-1/output/Online.js"
+  },
+  "inverse_rules": {
+    "co_located_zero_length_insertions": [
+      {
+        "button": "share",
+        "derived_output_point": 7025090,
+        "inverse_insertion_order": [
+          "A12-share-remove-bg",
+          "A12-share-remove-hover",
+          "A12-share-remove-down"
+        ],
+        "restored_attribute_order": [
+          "bg",
+          "hover",
+          "down"
+        ]
+      },
+      {
+        "button": "find",
+        "derived_output_point": 7025205,
+        "inverse_insertion_order": [
+          "A12-find-remove-bg",
+          "A12-find-remove-hover",
+          "A12-find-remove-down"
+        ],
+        "restored_attribute_order": [
+          "bg",
+          "hover",
+          "down"
+        ]
+      }
+    ],
+    "refuse": "Require exact full localized input pin plus all75 new-source fragments/order before construction; restore from passed bytes plus finite old fragments and require the exact original whole result pin before return. Refuse any mismatch.",
+    "source_order": "Use the fixed ordered75spans/fragments with a stable reconstruction method, preserving co-located bg/hover/down insertion order. Restore the original byte-for-byte. Runtime need not embed or iterate the72external complement records."
+  },
+  "language_note": "Author-proposed Traditional Chinese wording supplied/reviewed by coordinator; not asserted to be an exact official glossary.",
+  "literal_tokens": {
+    "css_literal": {
+      "decoded_bytes": 7388,
+      "decoded_sha256": "ceefa4c3c11cb015c3dbb2a040bfabb7e1572ca8cbd82d3d4d10e120af625ad1",
+      "token": {
+        "bytes": 7455,
+        "sha256": "be8d067847631058092cab4909101d93ddde7830d9afa19d6b589d00046ff265",
+        "span": [
+          7028699,
+          7036154
+        ]
+      }
+    },
+    "html_literal": {
+      "decoded_bytes": 5190,
+      "decoded_sha256": "214e06f420be3d866dfac4d75a32b2588c1d6b8d1975c0eb7e4588ab97a33515",
+      "token": {
+        "bytes": 5655,
+        "sha256": "1a37d894b0344acd5d40c4bc7064c80a6148360eea7a2e4b649596ff338447ff",
+        "span": [
+          7022874,
+          7028529
+        ]
+      }
+    }
+  },
+  "modules_and_windows": {
+    "commands_module": {
+      "bytes": 30704,
+      "end_guard": "//#endregion\n",
+      "kind": "compiled_module",
+      "sha256": "605aedd15f4ef65c61370e99e8fa3ccd52dd0c2b825ad84a0ee158cdab26032f",
+      "source_module": "src/Controls/ProcessCommand.js",
+      "span": [
+        8784538,
+        8815242
+      ],
+      "start_guard": "//#region src/Controls/ProcessCommand.js\n"
+    },
+    "css": {
+      "bytes": 7625,
+      "end_guard": "//#endregion\n",
+      "kind": "compiled_module",
+      "sha256": "c82f045768520e06ce89e429f8af8a7dcb3916a5d0512d2a07c973484935e9d5",
+      "source_module": "src/UI/Components/Navigation/Navigation.css?raw",
+      "span": [
+        7028549,
+        7036174
+      ],
+      "start_guard": "//#region src/UI/Components/Navigation/Navigation.css?raw\n"
+    },
+    "db_module": {
+      "bytes": 206258,
+      "end_guard": "//#endregion\n",
+      "kind": "compiled_module",
+      "sha256": "ea45c210965228a8934f018facc6af3ad45282e0bcfc902962e8c87c68ee1dfb",
+      "source_module": "src/DB/DBManager.js",
+      "span": [
+        10637194,
+        10843452
+      ],
+      "start_guard": "//#region src/DB/DBManager.js\n"
+    },
+    "html": {
+      "bytes": 5826,
+      "end_guard": "//#endregion\n",
+      "kind": "compiled_module",
+      "sha256": "627fd6b6c26b4de456d9f8249937c7ec86534ad33393047b502235e027822793",
+      "source_module": "src/UI/Components/Navigation/Navigation.html?raw",
+      "span": [
+        7022723,
+        7028549
+      ],
+      "start_guard": "//#region src/UI/Components/Navigation/Navigation.html?raw\n"
+    },
+    "navi_command": {
+      "bytes": 1313,
+      "following_guard": "\t\tcommands: {\n",
+      "kind": "compiled_object_member",
+      "parent": "commands_module",
+      "sha256": "3f270cb62a1c1cb290d96124278cd769641a618f23549ddb6c23c0b571174ce0",
+      "span": [
+        8809787,
+        8811100
+      ],
+      "start_guard": "\t\tnavi: {\n"
+    },
+    "navigation": {
+      "bytes": 55381,
+      "end_guard": "//#endregion\n",
+      "kind": "compiled_module",
+      "sha256": "2c323fa7090972b922ede799cab96a09ff82c5844d9c23f6a02cca83d69e303c",
+      "source_module": "src/UI/Components/Navigation/Navigation.js",
+      "span": [
+        7042083,
+        7097464
+      ],
+      "start_guard": "//#region src/UI/Components/Navigation/Navigation.js\n"
+    },
+    "search": {
+      "bytes": 2097,
+      "end_guard": "\t\t\treturn results.slice(0, 500);\n\t\t}\n",
+      "kind": "compiled_method",
+      "parent": "db_module",
+      "sha256": "6f03fa4cdc8c5539809a6d5fd1139bd0555c2bc14b00f6eb811e1f350ce7b898",
+      "span": [
+        10830051,
+        10832148
+      ],
+      "start_guard": "\t\tstatic searchNavigation(query, type) {"
+    }
+  },
+  "not_covered": [
+    "arbitrary loaded names/story/marker/caller values",
+    "other artwork pixels and other UI",
+    "changed filters/coordinates/numeric thresholds/routing/gameplay",
+    "existing loader/alias mod or browser execution profile repinning",
+    "installer/publisher/CLI/runtime/cache/network/SQL/save changes",
+    "native rendering or user acceptance"
+  ],
+  "preparation_head": "6be34a834261747f006708d99bf99904fd043a5a",
+  "profile": "navigation-ui-zh-tw-v1",
+  "protected_repaired_loader": {
+    "bytes": 9700,
+    "sha256": "ba4aa8301e73b177b2a4fe17097372090018f2d131e2bbb2cc98c28d9ff4e306",
+    "span": [
+      10727952,
+      10737652
+    ]
+  },
+  "reference_only_dependencies": [
+    {
+      "bytes": 42497,
+      "file": "tools/renewal/navigation_client_repair.py",
+      "sha256": "4dfa29570e7b6ac64be5bda706626a9261f1aed3decce96d796107cdae548b8d",
+      "use": "Qualified fixed-byte/guards/conservation engineering pattern only. No import, execution, edit or repin."
+    },
+    {
+      "bytes": 16231,
+      "file": "tools/renewal/NAVIGATION_CLIENT_REPAIR.md",
+      "sha256": "e397d59fc5d143b50f1d07a05736d1be1e5678aa221718e17c428dd955677a5e",
+      "use": "Delivery/backup pattern reference only. No delivery or runtime work in this pure source task."
+    },
+    {
+      "bytes": 59483,
+      "file": ".tools/renewal/upstream/scripts/patch-navigation-client.cjs",
+      "sha256": "dd24e5fa0864d1c65977b36e6453a02a7bd48bb58fe92eb25c10bea04155c9f7",
+      "use": "Expanded Navigation source-origin reference only; no production file read, import or execution."
+    },
+    {
+      "bytes": 3152,
+      "file": ".tools/renewal/client-source/src/UI/Elements/UIButton.js",
+      "sha256": "9023df994a907007c08af4765672d4616348afc79ef09edf2edae014a35ba80a",
+      "use": "Future root detached fixture source reference only; not a production transform dependency."
+    }
+  ],
+  "root_golden": {
+    "binds_previous_profile_sha256": "7f3c4d76a3c2a22d5011a36f577a1cfdca38bcd792cd50c96440dac3f6b6ed7c",
+    "complement_pieces_equal": 72,
+    "expected_output": {
+      "bytes": 13173065,
+      "sha256": "67525a4ec4b834ec02c5ff33b4ca55c119f1380fa131ea329aab880359144478"
+    },
+    "fine_edits_equal": 75,
+    "input": {
+      "bytes": 13172839,
+      "sha256": "6ba854cb67b1306cadb905b1b89a7a1eac98cd7e5c912196e6f87df41a5c4c2f"
+    },
+    "loader_bytes_unchanged": 9700,
+    "loader_output_span": [
+      10728206,
+      10737906
+    ],
+    "native_result": "not_checked",
+    "note": "Root receipt binds previous draft profile. All edits, contexts, complements, windows, guards and tokens remain identical in this metadata/contract revision; no new output created.",
+    "receipt_bytes": 742,
+    "receipt_file": ".tools/renewal/t05-009-brief-preparation/root-golden-receipt-1.json",
+    "receipt_sha256": "2ee7f42b5e21a879af9387dbb76e166c5e3118a9223cc3c6af91135e85166b89",
+    "recipe_sha256_as_recorded_by_root": "f988b87b32a0ab15fdffe624064cc0b4df28450f303b56d24f0d232d03b128df",
+    "task_qualified": false,
+    "whole_inverse_exact": true
+  },
+  "root_profile_qualification": {
+    "binds_proposal_sha256": "a2bd14fb90961b47d07123560da3f71e11d33e98755f37d48d7452fcda522500",
+    "final_profile_rebinding_required_before_dispatch": true,
+    "metadata_recipe_fields_identical": true,
+    "receipt_file": ".tools/renewal/t05-009-brief-preparation/root-profile-qualification-2.json",
+    "receipt_sha256": "271cebb6e30453d47b6e3edb6b3f60b04ce2ba3ab83c8a776b10d7eec835c970"
+  },
+  "runtime_contract": {
+    "external_acceptance_retained": "Root/tests independently retain all39contexts,72unchanged pieces,7windows,5guards,2tokens,75edits,golden,inverse and protected loader checks. No acceptance gate removed.",
+    "fixed_apis": [
+      "transform_bundle(source: bytes) -> bytes",
+      "restore_bundle(localized: bytes) -> bytes"
+    ],
+    "fixed_implementation_data": "Only fixed whole input/result identities and ordered75spans/old/new fragments needed by the APIs must be embedded. No caller-supplied profile or override.",
+    "forward_before_return": "Validate complete constructed localized result size/SHA against derived_output.",
+    "forward_preconstruction": [
+      "Exact immutable bytes type and complete original size/SHA",
+      "All75 old_source fragments at input_span, including empty insertion fragments; spans bounded and in fixed nonoverlapping source order"
+    ],
+    "inverse_before_return": "Validate complete reconstructed original result size/SHA against input.",
+    "inverse_preconstruction": [
+      "Exact immutable bytes type and complete localized size/SHA",
+      "All75 new_source fragments at derived_output_span, including empty deletion fragments; spans bounded and in fixed stable order, preserving the declared order of equal-position insertions"
+    ],
+    "not_required_at_runtime": [
+      "Embedding/recomputing the39contexts,72complement hashes,7owner windows,5guard-only sites,HTML/CSS token metadata or their decoded forms",
+      "Per-fragment SHA recomputation or profile JSON parsing",
+      "An external-metadata validation framework"
+    ]
+  },
+  "schema": 1,
+  "source_ledger_pins": [
+    {
+      "bytes": 60694,
+      "file": ".tools/renewal/t06-static-spawn-pair-1/navigation-compiled-literal-ledger-1.json",
+      "sha256": "5154f9cbef4c3ab7274cea6d4ad50432e2f122b282638bdb60be9ec56004fa96"
+    },
+    {
+      "bytes": 10131,
+      "file": ".tools/renewal/t06-static-spawn-pair-1/navigation-compiled-button-contexts-1.json",
+      "sha256": "0d7f488fa72e6e0f5fbecc90ba391468e25c0630fce4b420e777f65c7bf0343f"
+    }
+  ],
+  "source_only_constraints": [
+    "Frozen replacement data for the pure source task. Root independent golden and metadata checks do not establish native rendering, installation or full localization.",
+    "Use original-input spans for forward and recorded localized-output spans for inverse. Validate required whole input pin, all75 corresponding source fragments and their bounded order before construction, then validate the whole result pin before return.",
+    "No network, subprocess, filesystem, runtime, global registration, stock source evaluation or settings/save operations in the production pure API.",
+    "Only the three named source/test/runbook paths are authorized. No caller-supplied configuration, input-pin or profile override.",
+    "No normalization/reformatting/whole-token reserialization/global replacement; replace only exact declared source spans."
+  ],
+  "status": "ADOPTED_FROZEN_SOURCE_CONTRACT",
+  "task": "T05.009",
+  "unchanged_complement": [
+    {
+      "bytes": 7023217,
+      "derived_output_span": [
+        0,
+        7023217
+      ],
+      "input_span": [
+        0,
+        7023217
+      ],
+      "sha256": "6a649e9a4223ec82c1eac84e1bef67458fd9f0680d7f115220aca974583e5052"
+    },
+    {
+      "bytes": 436,
+      "derived_output_span": [
+        7023223,
+        7023659
+      ],
+      "input_span": [
+        7023227,
+        7023663
+      ],
+      "sha256": "f3c51a554c3d4214625c51fadeef1e454bcf93fc7ce0cf578fc4b41391a5c520"
+    },
+    {
+      "bytes": 31,
+      "derived_output_span": [
+        7023665,
+        7023696
+      ],
+      "input_span": [
+        7023666,
+        7023697
+      ],
+      "sha256": "2d7f7c59a3466dca0ace034cbc42b74ccf40800a14ba214b8644c490b22a96c2"
+    },
+    {
+      "bytes": 31,
+      "derived_output_span": [
+        7023702,
+        7023733
+      ],
+      "input_span": [
+        7023700,
+        7023731
+      ],
+      "sha256": "10aaf75f1fbe0f12c981f34b84b9fa39930e8470e6c9325b4578e569c1c342ee"
+    },
+    {
+      "bytes": 387,
+      "derived_output_span": [
+        7023739,
+        7024126
+      ],
+      "input_span": [
+        7023734,
+        7024121
+      ],
+      "sha256": "06680fe6e71ee0191bc55c6eff9fa9cbc047f98c9a8a03a74b17999446f07132"
+    },
+    {
+      "bytes": 198,
+      "derived_output_span": [
+        7024139,
+        7024337
+      ],
+      "input_span": [
+        7024135,
+        7024333
+      ],
+      "sha256": "a815a1cf8faeb016b656ecace9a1593f39789077d9fc400d0e4b9215173f1132"
+    },
+    {
+      "bytes": 494,
+      "derived_output_span": [
+        7024352,
+        7024846
+      ],
+      "input_span": [
+        7024348,
+        7024842
+      ],
+      "sha256": "93767cf994ba3911628499d32a877b057c9d0d509b495fd649d6496edb042f58"
+    },
+    {
+      "bytes": 13,
+      "derived_output_span": [
+        7024852,
+        7024865
+      ],
+      "input_span": [
+        7024845,
+        7024858
+      ],
+      "sha256": "6b64fe3c68b6543ed55046dac2670ec4da28dfe7738f6e1c9f75473ed8265ca7"
+    },
+    {
+      "bytes": 13,
+      "derived_output_span": [
+        7024871,
+        7024884
+      ],
+      "input_span": [
+        7024869,
+        7024882
+      ],
+      "sha256": "6b64fe3c68b6543ed55046dac2670ec4da28dfe7738f6e1c9f75473ed8265ca7"
+    },
+    {
+      "bytes": 197,
+      "derived_output_span": [
+        7024893,
+        7025090
+      ],
+      "input_span": [
+        7024891,
+        7025088
+      ],
+      "sha256": "170446909f51787a8d901715096cb4c27eb8a101639f047bed767f2095803524"
+    },
+    {
+      "bytes": 9,
+      "derived_output_span": [
+        7025090,
+        7025099
+      ],
+      "input_span": [
+        7025240,
+        7025249
+      ],
+      "sha256": "797fa0bb73a0444002963f0bc488a9511e0a415471f7aa9c807e02dae2aba878"
+    },
+    {
+      "bytes": 3,
+      "derived_output_span": [
+        7025126,
+        7025129
+      ],
+      "input_span": [
+        7025277,
+        7025280
+      ],
+      "sha256": "4fca47d3a15047bb7ec1024210917282f508a2c436400d783dc1c3f18046a6a4"
+    },
+    {
+      "bytes": 70,
+      "derived_output_span": [
+        7025135,
+        7025205
+      ],
+      "input_span": [
+        7025280,
+        7025350
+      ],
+      "sha256": "079b7bb2d7172270951f9ecce4e0ba1fa065af8b0500b2a05a1f5c87d5c51484"
+    },
+    {
+      "bytes": 1,
+      "derived_output_span": [
+        7025205,
+        7025206
+      ],
+      "input_span": [
+        7025499,
+        7025500
+      ],
+      "sha256": "62b67e1f685b7fef51102005dddd27774be3fee38c42965c53aab035d0b6b221"
+    },
+    {
+      "bytes": 244,
+      "derived_output_span": [
+        7025212,
+        7025456
+      ],
+      "input_span": [
+        7025500,
+        7025744
+      ],
+      "sha256": "39c9d94bd5d8844c73417cde878a22ac0c1eabce179a1e289dbee3051aa32c91"
+    },
+    {
+      "bytes": 102,
+      "derived_output_span": [
+        7025463,
+        7025565
+      ],
+      "input_span": [
+        7025753,
+        7025855
+      ],
+      "sha256": "846413b82ca82065a5ceb7cc5647869a907651c574141613fa0ad37cedfb228e"
+    },
+    {
+      "bytes": 148,
+      "derived_output_span": [
+        7025575,
+        7025723
+      ],
+      "input_span": [
+        7025863,
+        7026011
+      ],
+      "sha256": "b89c2b894d2f591f81f5aa4d3b3604d5127a538e5e6e1ccabfd0ef452b1a96f5"
+    },
+    {
+      "bytes": 129,
+      "derived_output_span": [
+        7025730,
+        7025859
+      ],
+      "input_span": [
+        7026020,
+        7026149
+      ],
+      "sha256": "97fbc9819a374beaccb472792a3b615a075c70d1c39831b2c70a755776ac705e"
+    },
+    {
+      "bytes": 110,
+      "derived_output_span": [
+        7025868,
+        7025978
+      ],
+      "input_span": [
+        7026155,
+        7026265
+      ],
+      "sha256": "fd7b006b61dffa1ce01a4c7783526767ff45c6f0d7eaec014060ea117dffd7a6"
+    },
+    {
+      "bytes": 300,
+      "derived_output_span": [
+        7025987,
+        7026287
+      ],
+      "input_span": [
+        7026272,
+        7026572
+      ],
+      "sha256": "0334c482f7f60d0aa86822a22280f34f06dbdc763677525bf98516e2e6b42565"
+    },
+    {
+      "bytes": 7358,
+      "derived_output_span": [
+        7026299,
+        7033657
+      ],
+      "input_span": [
+        7026583,
+        7033941
+      ],
+      "sha256": "18948961d8939836e00304e488bb444cbd9084535f307cd0fc1efa6f2b17404e"
+    },
+    {
+      "bytes": 8951,
+      "derived_output_span": [
+        7034326,
+        7043277
+      ],
+      "input_span": [
+        7034008,
+        7042959
+      ],
+      "sha256": "4772545a06575a9d7f0ec71ea141de8d5a7ec0d498dff475188d7a3cf017f610"
+    },
+    {
+      "bytes": 20971,
+      "derived_output_span": [
+        7043299,
+        7064270
+      ],
+      "input_span": [
+        7042975,
+        7063946
+      ],
+      "sha256": "b4c054a41f97ebe773284473f06b93ad2d7a99cf20bbd6b3559ff8a2bd53690c"
+    },
+    {
+      "bytes": 7577,
+      "derived_output_span": [
+        7064285,
+        7071862
+      ],
+      "input_span": [
+        7063961,
+        7071538
+      ],
+      "sha256": "df53e8f819aea50eafb240024ee57b129199b83b5cf75d2a541876ce38415854"
+    },
+    {
+      "bytes": 1087,
+      "derived_output_span": [
+        7071877,
+        7072964
+      ],
+      "input_span": [
+        7071552,
+        7072639
+      ],
+      "sha256": "272091896e08214dbe2cfcca056b25450087733e76b12df855dbb89e8f894fc3"
+    },
+    {
+      "bytes": 37,
+      "derived_output_span": [
+        7072970,
+        7073007
+      ],
+      "input_span": [
+        7072642,
+        7072679
+      ],
+      "sha256": "d1847b941518933628002dc3bc9556cb0bb76063cc07eeb91ba572e1d99c14ed"
+    },
+    {
+      "bytes": 22,
+      "derived_output_span": [
+        7073013,
+        7073035
+      ],
+      "input_span": [
+        7072686,
+        7072708
+      ],
+      "sha256": "93bad4967f273ce28b1d2630e5b8636d3fbefaa8c7ccc28241f88274a87bbbee"
+    },
+    {
+      "bytes": 16,
+      "derived_output_span": [
+        7073041,
+        7073057
+      ],
+      "input_span": [
+        7072715,
+        7072731
+      ],
+      "sha256": "1aa9590a348fdc075d706d9a7d402fe9fc835c62a25c73c44776bfb10e0c5d65"
+    },
+    {
+      "bytes": 19,
+      "derived_output_span": [
+        7073063,
+        7073082
+      ],
+      "input_span": [
+        7072735,
+        7072754
+      ],
+      "sha256": "7bf906005210cbb3cb3516237769ea6f9d642d14703d65b4dff826dafb121718"
+    },
+    {
+      "bytes": 16,
+      "derived_output_span": [
+        7073088,
+        7073104
+      ],
+      "input_span": [
+        7072761,
+        7072777
+      ],
+      "sha256": "1aa9590a348fdc075d706d9a7d402fe9fc835c62a25c73c44776bfb10e0c5d65"
+    },
+    {
+      "bytes": 19,
+      "derived_output_span": [
+        7073110,
+        7073129
+      ],
+      "input_span": [
+        7072781,
+        7072800
+      ],
+      "sha256": "6888b70470a34ec629b099a7d31fbd194840bad36cbf1d45b5b85c9953303ac1"
+    },
+    {
+      "bytes": 842,
+      "derived_output_span": [
+        7073135,
+        7073977
+      ],
+      "input_span": [
+        7072807,
+        7073649
+      ],
+      "sha256": "97aa46a0b151d562f069baf58ec50d1759bc76ce6dfde6da4662596095ac2e60"
+    },
+    {
+      "bytes": 1209,
+      "derived_output_span": [
+        7073993,
+        7075202
+      ],
+      "input_span": [
+        7073663,
+        7074872
+      ],
+      "sha256": "dd46cd6c78535c3692e92069a232a8e97dbafeef02ef688dc69997a00d6853d1"
+    },
+    {
+      "bytes": 5,
+      "derived_output_span": [
+        7075217,
+        7075222
+      ],
+      "input_span": [
+        7074887,
+        7074892
+      ],
+      "sha256": "7c1ab703f76987ec6e3efa1f04221bee198c0eed1d2482fe98ce5b632e39d051"
+    },
+    {
+      "bytes": 294,
+      "derived_output_span": [
+        7075231,
+        7075525
+      ],
+      "input_span": [
+        7074901,
+        7075195
+      ],
+      "sha256": "7920a086cdf48239edcb03db3fc312b53a0c4da05928fa26b988a196e0cb1740"
+    },
+    {
+      "bytes": 635,
+      "derived_output_span": [
+        7075552,
+        7076187
+      ],
+      "input_span": [
+        7075298,
+        7075933
+      ],
+      "sha256": "f29b70927e6f56f726f6fe879abc8d36aa7e97a60184e2e1b2b152304499a948"
+    },
+    {
+      "bytes": 4495,
+      "derived_output_span": [
+        7076202,
+        7080697
+      ],
+      "input_span": [
+        7075949,
+        7080444
+      ],
+      "sha256": "7d2a93654835495e2b557ba82324b4552792618001d1a9f5562ff7bc642157ef"
+    },
+    {
+      "bytes": 1729361,
+      "derived_output_span": [
+        7080709,
+        8810070
+      ],
+      "input_span": [
+        7080453,
+        8809814
+      ],
+      "sha256": "fdd488c7ac6440bad1160036476dba50a166091806cbb52735737fe74f7684e5"
+    },
+    {
+      "bytes": 2020328,
+      "derived_output_span": [
+        8810145,
+        10830473
+      ],
+      "input_span": [
+        8809891,
+        10830219
+      ],
+      "sha256": "8c852eacfccea9f353e8ba4d26a17bdf9a4a8f0c63134b537418d59ee89ff36e"
+    },
+    {
+      "bytes": 4,
+      "derived_output_span": [
+        10830476,
+        10830480
+      ],
+      "input_span": [
+        10830226,
+        10830230
+      ],
+      "sha256": "f240463dada079fc3d64b63fd6c50a01e772da977083807d79b1027d1a31253e"
+    },
+    {
+      "bytes": 4,
+      "derived_output_span": [
+        10830483,
+        10830487
+      ],
+      "input_span": [
+        10830235,
+        10830239
+      ],
+      "sha256": "f240463dada079fc3d64b63fd6c50a01e772da977083807d79b1027d1a31253e"
+    },
+    {
+      "bytes": 4,
+      "derived_output_span": [
+        10830490,
+        10830494
+      ],
+      "input_span": [
+        10830244,
+        10830248
+      ],
+      "sha256": "f240463dada079fc3d64b63fd6c50a01e772da977083807d79b1027d1a31253e"
+    },
+    {
+      "bytes": 4,
+      "derived_output_span": [
+        10830497,
+        10830501
+      ],
+      "input_span": [
+        10830252,
+        10830256
+      ],
+      "sha256": "f240463dada079fc3d64b63fd6c50a01e772da977083807d79b1027d1a31253e"
+    },
+    {
+      "bytes": 4,
+      "derived_output_span": [
+        10830504,
+        10830508
+      ],
+      "input_span": [
+        10830260,
+        10830264
+      ],
+      "sha256": "f240463dada079fc3d64b63fd6c50a01e772da977083807d79b1027d1a31253e"
+    },
+    {
+      "bytes": 4,
+      "derived_output_span": [
+        10830511,
+        10830515
+      ],
+      "input_span": [
+        10830270,
+        10830274
+      ],
+      "sha256": "f240463dada079fc3d64b63fd6c50a01e772da977083807d79b1027d1a31253e"
+    },
+    {
+      "bytes": 4,
+      "derived_output_span": [
+        10830518,
+        10830522
+      ],
+      "input_span": [
+        10830278,
+        10830282
+      ],
+      "sha256": "f240463dada079fc3d64b63fd6c50a01e772da977083807d79b1027d1a31253e"
+    },
+    {
+      "bytes": 4,
+      "derived_output_span": [
+        10830525,
+        10830529
+      ],
+      "input_span": [
+        10830288,
+        10830292
+      ],
+      "sha256": "f240463dada079fc3d64b63fd6c50a01e772da977083807d79b1027d1a31253e"
+    },
+    {
+      "bytes": 4,
+      "derived_output_span": [
+        10830532,
+        10830536
+      ],
+      "input_span": [
+        10830297,
+        10830301
+      ],
+      "sha256": "f240463dada079fc3d64b63fd6c50a01e772da977083807d79b1027d1a31253e"
+    },
+    {
+      "bytes": 27,
+      "derived_output_span": [
+        10830542,
+        10830569
+      ],
+      "input_span": [
+        10830307,
+        10830334
+      ],
+      "sha256": "92518dd140ddb785b4f1633dc3b44b5ca5e70afd354e082348b58e6aaa4602cd"
+    },
+    {
+      "bytes": 4,
+      "derived_output_span": [
+        10830575,
+        10830579
+      ],
+      "input_span": [
+        10830342,
+        10830346
+      ],
+      "sha256": "f240463dada079fc3d64b63fd6c50a01e772da977083807d79b1027d1a31253e"
+    },
+    {
+      "bytes": 4,
+      "derived_output_span": [
+        10830585,
+        10830589
+      ],
+      "input_span": [
+        10830352,
+        10830356
+      ],
+      "sha256": "f240463dada079fc3d64b63fd6c50a01e772da977083807d79b1027d1a31253e"
+    },
+    {
+      "bytes": 4,
+      "derived_output_span": [
+        10830595,
+        10830599
+      ],
+      "input_span": [
+        10830361,
+        10830365
+      ],
+      "sha256": "f240463dada079fc3d64b63fd6c50a01e772da977083807d79b1027d1a31253e"
+    },
+    {
+      "bytes": 4,
+      "derived_output_span": [
+        10830605,
+        10830609
+      ],
+      "input_span": [
+        10830370,
+        10830374
+      ],
+      "sha256": "f240463dada079fc3d64b63fd6c50a01e772da977083807d79b1027d1a31253e"
+    },
+    {
+      "bytes": 4,
+      "derived_output_span": [
+        10830615,
+        10830619
+      ],
+      "input_span": [
+        10830380,
+        10830384
+      ],
+      "sha256": "f240463dada079fc3d64b63fd6c50a01e772da977083807d79b1027d1a31253e"
+    },
+    {
+      "bytes": 4,
+      "derived_output_span": [
+        10830625,
+        10830629
+      ],
+      "input_span": [
+        10830388,
+        10830392
+      ],
+      "sha256": "f240463dada079fc3d64b63fd6c50a01e772da977083807d79b1027d1a31253e"
+    },
+    {
+      "bytes": 4,
+      "derived_output_span": [
+        10830635,
+        10830639
+      ],
+      "input_span": [
+        10830397,
+        10830401
+      ],
+      "sha256": "f240463dada079fc3d64b63fd6c50a01e772da977083807d79b1027d1a31253e"
+    },
+    {
+      "bytes": 4,
+      "derived_output_span": [
+        10830645,
+        10830649
+      ],
+      "input_span": [
+        10830411,
+        10830415
+      ],
+      "sha256": "f240463dada079fc3d64b63fd6c50a01e772da977083807d79b1027d1a31253e"
+    },
+    {
+      "bytes": 4,
+      "derived_output_span": [
+        10830655,
+        10830659
+      ],
+      "input_span": [
+        10830420,
+        10830424
+      ],
+      "sha256": "f240463dada079fc3d64b63fd6c50a01e772da977083807d79b1027d1a31253e"
+    },
+    {
+      "bytes": 4,
+      "derived_output_span": [
+        10830662,
+        10830666
+      ],
+      "input_span": [
+        10830430,
+        10830434
+      ],
+      "sha256": "f240463dada079fc3d64b63fd6c50a01e772da977083807d79b1027d1a31253e"
+    },
+    {
+      "bytes": 4,
+      "derived_output_span": [
+        10830672,
+        10830676
+      ],
+      "input_span": [
+        10830440,
+        10830444
+      ],
+      "sha256": "f240463dada079fc3d64b63fd6c50a01e772da977083807d79b1027d1a31253e"
+    },
+    {
+      "bytes": 27,
+      "derived_output_span": [
+        10830682,
+        10830709
+      ],
+      "input_span": [
+        10830448,
+        10830475
+      ],
+      "sha256": "4d70f6c6012bf794d3476f2e39335fd20e1e8aef3db512aa969569b798d5f2c0"
+    },
+    {
+      "bytes": 4,
+      "derived_output_span": [
+        10830715,
+        10830719
+      ],
+      "input_span": [
+        10830480,
+        10830484
+      ],
+      "sha256": "f240463dada079fc3d64b63fd6c50a01e772da977083807d79b1027d1a31253e"
+    },
+    {
+      "bytes": 4,
+      "derived_output_span": [
+        10830725,
+        10830729
+      ],
+      "input_span": [
+        10830490,
+        10830494
+      ],
+      "sha256": "f240463dada079fc3d64b63fd6c50a01e772da977083807d79b1027d1a31253e"
+    },
+    {
+      "bytes": 966,
+      "derived_output_span": [
+        10830735,
+        10831701
+      ],
+      "input_span": [
+        10830499,
+        10831465
+      ],
+      "sha256": "b2da3cb5e1e9849700841132687fc31ebc0f5694c9aafe11d2729feb47f24e36"
+    },
+    {
+      "bytes": 28,
+      "derived_output_span": [
+        10831707,
+        10831735
+      ],
+      "input_span": [
+        10831473,
+        10831501
+      ],
+      "sha256": "911025f30ad646b24fcbc9f98f14bd861872c1734cbddca3f4887e8620ca8ba3"
+    },
+    {
+      "bytes": 28,
+      "derived_output_span": [
+        10831738,
+        10831766
+      ],
+      "input_span": [
+        10831504,
+        10831532
+      ],
+      "sha256": "abc166c9bcab3099ec24852e7f4288650b22ab855acbfb6f8004a0a3dd335a67"
+    },
+    {
+      "bytes": 28,
+      "derived_output_span": [
+        10831772,
+        10831800
+      ],
+      "input_span": [
+        10831539,
+        10831567
+      ],
+      "sha256": "750d1afc9b227e39097f33263b1819d1ac0a70df912cafc0d4da87dc0a4b4e16"
+    },
+    {
+      "bytes": 11,
+      "derived_output_span": [
+        10831803,
+        10831814
+      ],
+      "input_span": [
+        10831571,
+        10831582
+      ],
+      "sha256": "cf907c8c223667a4204b68c761bd299b25c7938783872a749c7dbf8ffad20ac0"
+    },
+    {
+      "bytes": 219,
+      "derived_output_span": [
+        10831820,
+        10832039
+      ],
+      "input_span": [
+        10831591,
+        10831810
+      ],
+      "sha256": "db2ee2ead17dbf9a01a2b4955813c6e90efbb7e2cfd74d794148f513fe931600"
+    },
+    {
+      "bytes": 86,
+      "derived_output_span": [
+        10832045,
+        10832131
+      ],
+      "input_span": [
+        10831817,
+        10831903
+      ],
+      "sha256": "3291e0e68ae4abc032152e42fa317216c8e7fffb094abd68b9241ced71d892af"
+    },
+    {
+      "bytes": 56,
+      "derived_output_span": [
+        10832137,
+        10832193
+      ],
+      "input_span": [
+        10831910,
+        10831966
+      ],
+      "sha256": "35a8a85c0af81ee69c114d5eb8c66156434d187ace01c81a93a741d7e77e3ef0"
+    },
+    {
+      "bytes": 2340866,
+      "derived_output_span": [
+        10832199,
+        13173065
+      ],
+      "input_span": [
+        10831973,
+        13172839
+      ],
+      "sha256": "5419f338b92d4968692a13b9f2db9732b2bcbfb9e687a8d51d45fceb36cc306b"
+    }
+  ]
+}
