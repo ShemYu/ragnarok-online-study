@@ -1,0 +1,25 @@
+# Static spawn inventory — source preparation
+
+2026-10-18, root. Supplementary preparation for planned T06.002.003.005 while the independent [dictionary-loader pair](2026-10-18-T05.005.md) runs. No provider candidate was read. No parser, native game script, browser, app, VM, SQL or installed state was executed/changed by this preparation. This is neither a frozen implementation brief nor world-coverage acceptance.
+
+Root fully read the private source notes,24 proposed fixture families and pins. Root freshly verified all48 source/reference/artifact pins and both authored notes. Private source-notes.md SHA60bd7415fb318c1e36df6e9248d22d4b42256dd29e4f3ef9357024cf0738dcce; case-design.md SHAf5a0d619fd352981a776f5eb0a67ccc3a5ec6c62eff16b54d9ee821df636227e; pins.json SHAef79f5ee73a39b39c7c6f4231f90f50584b45893b7d1ffa0d25ce9b4b10c21e6; root-pincheck.json SHA7360e894ef546253f67d30ae1eb2dae890003e574e39855be87c6d1194fce439. Hash checks establish identities, not a new full snapshot or prerequisite relationship audit.
+
+Root personally read both complete selected sources: Renewal AntHell7584bytes/166LF lines and Prontera6648bytes/145LF lines. Their canonical selection records bind npc/re/scripts_monsters.conf lines21 and104, in that order, with exact source hashes. These311 physical lines are a proposed two-file pilot boundary, not a spawn total. Prontera94 and97 declare distinct Poring placements; AntHell122 declares a static Maya, while its opaque137–166 script block contains a separate script-created boss149. A script command must not be counted as another static declaration. No complete selected-file count or episode follows from these examples.
+
+## Primary boundaries checked by root
+
+At pinned rAthena0693b8c69911d5ca42269684aa036b67d67f4d3e, root read npc.cpp3674–3724/4380–4493/5226–5248/5345–5585/5824–6010, script.cpp868–902, strlib.hpp66–108/strlib.cpp352–564, mob.cpp309–317/356–363/440–498, map.cpp3006–3041, map.hpp471–490 and mmo.hpp154–164.
+
+- Source-vector order and exact-path deduplication differ from deduplicating declarations by map/monster. A file parse return is ignored by the next-file loop. A malformed suffix therefore needs per-file uncertainty rather than a claimed complete world or an assumption that later files never ran.
+- Native framing uses raw bytes, context-sensitive comments, TAB columns and LF/CRLF termination. w4 includes the remaining line. Script bodies need a bounded lexical skipper for comments, strings and nested braces; they remain opaque. A decoded line regex cannot establish these boundaries or exclude script-created populations.
+- Static display names and monster tokens use23-byte scansets, whereas the earlier YAML projection uses24-byte string resize semantics. The fifth w4 token is an event; the boss flag comes from w2. Actual map assignment, native monster membership and dataset checks occur before registration. A declared monster-history join proves only a source reference candidate.
+- Parsed local size/AI values are assigned after checks of the zeroed structure. An inventory must preserve actual source order instead of substituting intended enum rejection. The source event array is77bytes while its scanset permits77 data bytes plus NUL; a first safe profile must leave that boundary unsupported. The unchecked filepath copy similarly requires a bounded source-path profile. No native probe, runtime occurrence or goal-changing failure is established.
+- Configuration, map cells and script activity can change quantities, delays, positions and dynamic caching. A cached declaration is not proof of a visible monster. Cache dimensions/histograms do not by themselves answer one cell's reachability or actual free-cell selection.
+
+Other helper details remain proposals until their applicable primary ranges and concrete expected fixtures are checked. In particular, no effective battle-config traversal, full native membership, point-cell decoder, source conversion-overflow parity, event-label resolution or live population has been qualified here.
+
+## Next owner
+
+Root chooses a finite declaration/framing profile before any real Claude/Grok implementation pair. A two-file pilot is a useful proposed first check of complete raw provenance, opaque-block boundaries and honest map/declared-monster references. Any later expansion must report every scanned/unscanned selected source and qualified suffix; a pilot cannot close full static coverage. The24 families are unexecuted design, with no fabricated totals or PASS.
+
+Before freeze, root must resolve supported byte/numeric subsets, caps, unsupported continuation, canonical marker/manifest/record relationships and every authored expected trace. Full effective spawns, dynamic/event/instance populations, rendered Chinese names, ordinary solo encounters and the finite content contract remain separate requirements. Root keeps the game tab closed and internet connected. Source rollback is a documentation revert; no save/settings restoration applies. No evidence from this preparation forces a goal change.
