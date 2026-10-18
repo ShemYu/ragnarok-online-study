@@ -13,6 +13,11 @@ python3 -I -m unittest discover -s tools/renewal
 ```
 
 The output directory must not exist yet. Keep it under the ignored `.tools/`.
+Publication creates the destination exclusively; an existing directory, file or
+symlink is refused even if it appears during conversion. Use an output parent
+you control. Staging is cleaned on failure; a copy I/O failure may leave an
+incomplete new destination for inspection. Only use output after exit 0 and
+manifest/hash verification; inspect or remove your failed output before retrying.
 It holds:
 
 ```
@@ -31,6 +36,7 @@ What it checks:
   checked. Only literal table construction runs (`LOADK`, `NEWTABLE`,
   `SETTABLE`, `SETLIST`, `SETGLOBAL`, ...). Calls, jumps, upvalues and other
   instructions are refused. Function bodies are parsed but never run.
+  An actual terminal no-value RETURN must be observed.
 - Lua's last write wins for repeated keys, and assigning `nil` removes a key.
   Every string must be valid UTF-8. Shared or cyclic tables, non-finite numbers
   and badly shaped item entries are refused.

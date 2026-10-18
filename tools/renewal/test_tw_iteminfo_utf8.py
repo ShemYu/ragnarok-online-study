@@ -7,6 +7,7 @@ import struct
 import sys
 import tempfile
 import unittest
+from unittest import mock
 
 sys.path.insert(0, str(Path(__file__).resolve().parent))
 import tw_iteminfo_utf8 as conv  # noqa: E402
@@ -135,6 +136,27 @@ class ConvertTests(unittest.TestCase):
         with self.assertRaisesRegex(conv.ConvertError, "SHA-256"):
             conv.convert_bytes(data)
 
+    def test_requires_executed_terminal_return(self):
+        data = item_chunk([(1, [(b"identifiedDisplayName", "一".encode())])])
+        parsed = conv.read_chunk(data)
+        parsed["code"].pop()
+        with self.assertRaisesRegex(conv.ConvertError, "no terminal"):
+            conv.reconstruct(parsed)
+        # SETLIST consumes a raw extra word; its opcode bits are not a RETURN.
+        parsed = conv.read_chunk(chunk([
+            abc("NEWTABLE", 0), abx("LOADK", 1, 0),
+            abc("SETLIST", 0, 1, 0), abc("RETURN", 0, 1),
+        ], [1.0]))
+        with self.assertRaisesRegex(conv.ConvertError, "no terminal"):
+            conv.reconstruct(parsed)
+
+    def test_signed_zero_survives_readback(self):
+        data = item_chunk([(1, [(b"identifiedDisplayName", "一".encode()), (b"zero", -0.0)])])
+        source, _ = convert(data)
+        value = conv.SourceReader(source).chunk().get(("n", 1)).get(("s", b"zero"))
+        self.assertEqual(conv.normalized(value), ("num", "-0x0.0p+0"))
+        self.assertNotEqual(conv.normalized(value), conv.normalized(0.0))
+
     def test_rejects_malformed_input(self):
         good = item_chunk([(1, [(b"identifiedDisplayName", "一".encode())])])
         cases = {
@@ -222,6 +244,62 @@ class ConvertTests(unittest.TestCase):
             out = Path(tmp) / "out"
             self.assertEqual(conv.main([str(src), str(out)]), 2)
             self.assertFalse(out.exists())
+
+    def test_publish_refuses_concurrent_destination_and_cleans_staging(self):
+        source, meta = convert(item_chunk([(1, [(b"identifiedDisplayName", "一".encode())])]))
+        real_copytree = conv.shutil.copytree
+        for kind in ("empty_dir", "file", "symlink", "dangling_symlink"):
+            with self.subTest(kind), tempfile.TemporaryDirectory() as tmp:
+                root, out = Path(tmp), Path(tmp) / "out"
+                target = root / "target"
+                if kind == "symlink":
+                    target.mkdir()
+                    (target / "marker").write_bytes(b"concurrent target")
+                def race(src, dst, **kwargs):
+                    if kind == "empty_dir":
+                        out.mkdir()
+                    elif kind == "file":
+                        out.write_bytes(b"concurrent owner")
+                    else:
+                        out.symlink_to(target, target_is_directory=True)
+                    identity = out.lstat().st_ino
+                    try:
+                        return real_copytree(src, dst, **kwargs)
+                    finally:
+                        self.assertEqual(out.lstat().st_ino, identity)
+                with mock.patch.object(conv.shutil, "copytree", side_effect=race):
+                    with self.assertRaisesRegex(conv.ConvertError, "could not publish"):
+                        conv.write_output(out, source, meta)
+                if kind == "file":
+                    self.assertEqual(out.read_bytes(), b"concurrent owner")
+                elif kind == "empty_dir":
+                    self.assertEqual(list(out.iterdir()), [])
+                elif kind == "symlink":
+                    self.assertEqual((target / "marker").read_bytes(), b"concurrent target")
+                    self.assertEqual(sorted(p.name for p in target.iterdir()), ["marker"])
+                else:
+                    self.assertFalse(target.exists())
+                self.assertEqual(list(root.glob(".staging-*")), [])
+
+    def test_cleans_staging_after_write_and_copy_failures(self):
+        source, meta = convert(item_chunk([(1, [(b"identifiedDisplayName", "一".encode())])]))
+        with tempfile.TemporaryDirectory() as tmp:
+            root, out = Path(tmp), Path(tmp) / "out"
+            with mock.patch.object(Path, "write_bytes", side_effect=OSError("injected staging failure")):
+                with self.assertRaisesRegex(conv.ConvertError, "injected staging failure"):
+                    conv.write_output(out, source, meta)
+            self.assertEqual(list(root.iterdir()), [])
+            def partial_copy(src, dst, **kwargs):
+                Path(dst).mkdir()
+                (Path(dst) / "partial").write_bytes(b"inspect me")
+                raise OSError("injected copy failure")
+            with mock.patch.object(conv.shutil, "copytree", side_effect=partial_copy):
+                with self.assertRaisesRegex(conv.ConvertError, "incomplete output may remain"):
+                    conv.write_output(out, source, meta)
+            self.assertEqual((out / "partial").read_bytes(), b"inspect me")
+            self.assertEqual(sorted(p.name for p in root.iterdir()), ["out"])
+            with self.assertRaisesRegex(conv.ConvertError, "refusing to overwrite"):
+                conv.write_output(out, source, meta)
 
 
 if __name__ == "__main__":

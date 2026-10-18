@@ -20,14 +20,14 @@ import argparse
 import hashlib
 import json
 import math
-import os
 from pathlib import Path
 import re
+import shutil
 import struct
 import sys
 import tempfile
 
-VERSION = "1.0.0"
+VERSION = "1.0.1"
 PINNED_SHA256 = "0c70abe66e6978c55886b9e4acf8a491028f3c439abc1324cef183577a3e2f19"
 # Consistency checks for the pinned input only (T04.002 diagnosis).
 PINNED_EXPECT = {"entries": 20442, "root_overwrites": 277, "utf8_strings": 440663}
@@ -194,6 +194,7 @@ def reconstruct(proto):
     stats = {"root_overwrites": 0, "writes": 0}
     root_counts = {}
     pc = 0
+    saw_terminal_return = False
 
     def reg(n, i):
         if n >= len(regs):
@@ -269,8 +270,11 @@ def reconstruct(proto):
         elif name == "RETURN":
             if b != 1 or pc != len(code):
                 raise ConvertError(f"pc {i + 1}: only a terminal no-value RETURN is accepted")
+            saw_terminal_return = True
         else:
             raise ConvertError(f"pc {i + 1}: unsupported instruction {name}")
+    if not saw_terminal_return:
+        raise ConvertError("main chunk has no terminal no-value RETURN")
     tbl = globals_.get(b"tbl")
     if tbl is not None and id(tbl) in root_counts:
         stats["root_overwrites"] = sum(n - 1 for n in root_counts[id(tbl)].values())
@@ -511,10 +515,8 @@ class SourceReader:
 def normalized(value):
     if isinstance(value, LuaTable):
         return {k: normalized(v) for k, v in value.items.items()}
-    if isinstance(value, float) and value == int(value):
-        return ("num", int(value))
     if isinstance(value, (int, float)) and not isinstance(value, bool):
-        return ("num", value)
+        return ("num", float(value).hex())  # retain the sign of zero too
     return value
 
 
@@ -555,21 +557,26 @@ def write_output(out_dir, source, metadata):
     parent.mkdir(parents=True, exist_ok=True)
     staging = Path(tempfile.mkdtemp(prefix=".staging-", dir=parent))
     mod_json = (json.dumps(MOD_JSON, ensure_ascii=False, indent=2) + "\n").encode("utf-8")
-    mod_dir = staging / MOD_NAME
-    (mod_dir / "System").mkdir(parents=True)
-    (mod_dir / "System" / "itemInfo.lua").write_bytes(source)
-    (mod_dir / "mod.json").write_bytes(mod_json)
     metadata = dict(metadata, output={
         "layout": f"{MOD_NAME}/System/itemInfo.lua",
         "itemInfo.lua": {"sha256": hashlib.sha256(source).hexdigest(), "bytes": len(source)},
         "mod.json": {"sha256": hashlib.sha256(mod_json).hexdigest(), "bytes": len(mod_json)},
     })
-    (staging / "conversion-manifest.json").write_text(
-        json.dumps(metadata, ensure_ascii=False, indent=2, sort_keys=True) + "\n", encoding="utf-8")
     try:
-        os.rename(staging, out_dir)  # fails if out_dir appeared meanwhile and is non-empty
+        mod_dir = staging / MOD_NAME
+        (mod_dir / "System").mkdir(parents=True)
+        (mod_dir / "System" / "itemInfo.lua").write_bytes(source)
+        (mod_dir / "mod.json").write_bytes(mod_json)
+        (staging / "conversion-manifest.json").write_text(
+            json.dumps(metadata, ensure_ascii=False, indent=2, sort_keys=True) + "\n", encoding="utf-8")
+        # copytree's exclusive destination mkdir refuses even an empty directory
+        # or dangling symlink created after the initial check. Never replace it.
+        shutil.copytree(staging, out_dir, dirs_exist_ok=False)
     except OSError as exc:
-        raise ConvertError(f"could not publish output to {out_dir}: {exc}") from None
+        raise ConvertError(f"could not publish output to {out_dir}: {exc}; "
+                           "incomplete output may remain; inspect it before retrying") from None
+    finally:
+        shutil.rmtree(staging)
     return metadata
 
 
