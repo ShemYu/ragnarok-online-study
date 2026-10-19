@@ -615,17 +615,16 @@ class PublicationTest(unittest.TestCase):
 
     def test_read_back_mismatch_and_foreign_data_preserved(self):
         target = self.root + "/out"
-        real = qi.read_regular
+        real = qi._read_back
 
-        def corrupt(name, limit, where, dir_fd=None):
-            data = real(name, limit, where, dir_fd)
+        def corrupt(dir_fd, name, data, owned):
+            real(dir_fd, name, data, owned)
             if name == "quoted-complete.json":
                 with open(f"{target}/foreign.txt", "wb") as handle:
                     handle.write(b"keep")
-                return data[:-1] + b"X"
-            return data
+                raise qi.InventoryError("injected readback differs")
 
-        with mock.patch.object(qi, "read_regular", corrupt):
+        with mock.patch.object(qi, "_read_back", corrupt):
             with self.assertRaisesRegex(qi.InventoryError, "differs|inspect"):
                 qi.publish(target, DOCS)
         self.assertEqual(os.listdir(target), ["foreign.txt"])
@@ -634,19 +633,204 @@ class PublicationTest(unittest.TestCase):
     def test_replaced_artifact_is_not_removed(self):
         target = self.root + "/out"
         real = qi._write_file
+        guard = []
 
         def swap(fd, name, data, owned):
             real(fd, name, data, owned)
             if name == "quoted-occurrences.jsonl":
+                guard.append(os.open(f"{target}/quoted-sources.jsonl", os.O_RDONLY))
+                old = os.fstat(guard[0])
                 os.unlink(f"{target}/quoted-sources.jsonl")
                 Path(target, "quoted-sources.jsonl").write_bytes(b"foreign")
+                new = os.lstat(f"{target}/quoted-sources.jsonl")
+                self.assertNotEqual((old.st_dev, old.st_ino), (new.st_dev, new.st_ino))
                 raise OSError(5, "I/O error")
 
-        with mock.patch.object(qi, "_write_file", swap):
-            with self.assertRaisesRegex(qi.InventoryError, "inspect"):
-                qi.publish(target, DOCS)
+        try:
+            with mock.patch.object(qi, "_write_file", swap):
+                with self.assertRaisesRegex(qi.InventoryError, "inspect"):
+                    qi.publish(target, DOCS)
+        finally:
+            for fd in guard:
+                os.close(fd)
         self.assertEqual(os.listdir(target), ["quoted-sources.jsonl"])
         self.assertEqual(Path(target, "quoted-sources.jsonl").read_bytes(), b"foreign")
+
+    def test_zero_progress_refuses_and_short_positive_writes_finish(self):
+        target = self.root + "/zero"
+        calls = []
+
+        def zero(fd, data):
+            calls.append(fd)
+            if len(calls) == 1:
+                return 0
+            raise OSError(5, "bounded repeated-zero sentinel")
+
+        with mock.patch.object(qi.os, "write", zero):
+            with self.assertRaisesRegex(qi.InventoryError, "no write progress"):
+                qi.publish(target, DOCS)
+        self.assertEqual(len(calls), 1)
+        self.assertFalse(os.path.lexists(target))
+        real_write = os.write
+        target = self.root + "/short"
+        with mock.patch.object(qi.os, "write", lambda fd, data: real_write(fd, data[:1])):
+            qi.publish(target, DOCS)
+        for name, data in DOCS:
+            self.assertEqual(Path(target, name).read_bytes(), data)
+
+    def test_final_directory_close_failure_is_cleaned_and_main_returns_two(self):
+        target = self.root + "/out"
+        real_close = os.close
+        fired = []
+
+        def close(fd):
+            info = os.fstat(fd)
+            if stat.S_ISDIR(info.st_mode) and not fired:
+                fired.append(fd)
+                real_close(fd)
+                raise OSError(5, "final directory close control")
+            return real_close(fd)
+
+        def run(*args):
+            qi.publish(target, DOCS)
+            return {}
+
+        with mock.patch.object(qi.os, "close", close), mock.patch.object(qi, "run", run):
+            with mock.patch.object(sys, "stderr", __import__("io").StringIO()) as err:
+                code = qi.main(["--snapshot", "/synthetic", "--selection-dir", "/selection",
+                                "--output", target])
+        self.assertEqual(code, 2)
+        self.assertEqual(len(fired), 1)
+        self.assertIn("final directory close control", err.getvalue())
+        self.assertFalse(os.path.lexists(target))
+
+    def test_close_before_real_close_does_not_retry_uncertain_integer(self):
+        target = self.root + "/out"
+        real_close = os.close
+        uncertain, attempts = [], []
+
+        def close(fd):
+            info = os.fstat(fd)
+            if stat.S_ISDIR(info.st_mode):
+                attempts.append(fd)
+                if not uncertain:
+                    uncertain.append((fd, info.st_dev, info.st_ino))
+                    raise OSError(5, "before real close control")
+            return real_close(fd)
+
+        try:
+            with mock.patch.object(qi.os, "close", close):
+                with self.assertRaisesRegex(qi.InventoryError, "before real close"):
+                    qi.publish(target, DOCS)
+            self.assertEqual(attempts.count(uncertain[0][0]), 1)
+            self.assertFalse(os.path.lexists(target))
+        finally:
+            # The fixture knows this injected close did not occur. Production does
+            # not retry an uncertain descriptor; the CLI's process exit releases it.
+            if uncertain:
+                fd, dev, ino = uncertain[0]
+                current = os.fstat(fd)
+                self.assertEqual((current.st_dev, current.st_ino), (dev, ino))
+                real_close(fd)
+
+    def test_each_fsync_and_marker_file_close_failure_removes_owned_marker(self):
+        real_fsync, real_close = os.fsync, os.close
+        for name in [n for n, _ in DOCS] + ["directory", "marker_close"]:
+            with self.subTest(name=name):
+                target = self.root + "/" + name.replace(".", "_")
+                fired = []
+
+                def matching(fd):
+                    info = os.fstat(fd)
+                    if name == "directory":
+                        return stat.S_ISDIR(info.st_mode)
+                    path = Path(target, "quoted-complete.json" if name == "marker_close" else name)
+                    if not path.exists():
+                        return False
+                    current = path.stat()
+                    return (info.st_dev, info.st_ino) == (current.st_dev, current.st_ino)
+
+                def fsync(fd):
+                    if name != "marker_close" and not fired and matching(fd):
+                        fired.append(True)
+                        raise OSError(5, "fsync control")
+                    return real_fsync(fd)
+
+                def close(fd):
+                    if name == "marker_close" and not fired and matching(fd):
+                        fired.append(True)
+                        real_close(fd)
+                        raise OSError(5, "marker close control")
+                    return real_close(fd)
+
+                with mock.patch.object(qi.os, "fsync", fsync), mock.patch.object(qi.os, "close", close):
+                    with self.assertRaises(qi.InventoryError):
+                        qi.publish(target, DOCS)
+                self.assertEqual(fired, [True])
+                self.assertFalse(os.path.lexists(target))
+
+    def test_final_fsync_mode_drift_is_refused(self):
+        real_fsync = os.fsync
+        for name in ("quoted-sources.jsonl", "directory"):
+            with self.subTest(name=name):
+                target = self.root + "/" + name.replace(".", "_")
+
+                def fsync(fd):
+                    if stat.S_ISDIR(os.fstat(fd).st_mode):
+                        path = target if name == "directory" else str(Path(target, name))
+                        os.chmod(path, 0o755 if name == "directory" else 0o644)
+                    return real_fsync(fd)
+
+                with mock.patch.object(qi.os, "fsync", fsync):
+                    with self.assertRaisesRegex(qi.InventoryError, "mode"):
+                        qi.publish(target, DOCS)
+                self.assertFalse(os.path.lexists(target))
+
+    def test_same_inode_corrupted_readback_is_refused(self):
+        target = self.root + "/out"
+        real_write = qi._write_file
+
+        def corrupt(fd, name, data, owned):
+            real_write(fd, name, data, owned)
+            if name == "quoted-complete.json":
+                with open(Path(target, name), "r+b") as handle:
+                    handle.write(b"X")
+
+        with mock.patch.object(qi, "_write_file", corrupt):
+            with self.assertRaisesRegex(qi.InventoryError, "differs"):
+                qi.publish(target, DOCS)
+        self.assertFalse(os.path.lexists(target))
+
+    def test_identical_foreign_replacement_is_refused_and_preserved(self):
+        target = self.root + "/out"
+        real_write = qi._write_file
+        guard = []
+
+        def replace(fd, name, data, owned):
+            real_write(fd, name, data, owned)
+            if name == "quoted-sources.jsonl":
+                path = Path(target, name)
+                guard.append(os.open(path, os.O_RDONLY | os.O_NOFOLLOW))
+                old = os.fstat(guard[0])
+                path.unlink()
+                newfd = os.open(path, os.O_WRONLY | os.O_CREAT | os.O_EXCL, 0o600)
+                try:
+                    with os.fdopen(newfd, "wb", closefd=False) as handle:
+                        handle.write(data)
+                    new = os.fstat(newfd)
+                    self.assertNotEqual((old.st_dev, old.st_ino), (new.st_dev, new.st_ino))
+                finally:
+                    os.close(newfd)
+
+        try:
+            with mock.patch.object(qi, "_write_file", replace):
+                with self.assertRaisesRegex(qi.InventoryError, "identity"):
+                    qi.publish(target, DOCS)
+            self.assertEqual(os.listdir(target), ["quoted-sources.jsonl"])
+            self.assertEqual(Path(target, "quoted-sources.jsonl").read_bytes(), DOCS[0][1])
+        finally:
+            for fd in guard:
+                os.close(fd)
 
 
 def cli(*args, env=None):

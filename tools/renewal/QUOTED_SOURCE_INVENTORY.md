@@ -4,8 +4,8 @@
 `npc_sources.files` entries of the pinned T06.002.001 selection, using the
 verified bytes of the pinned T06.001 snapshot. It records each raw double-quoted
 byte span under one frozen byte policy. Python 3.9+ standard library only. It
-builds, runs, installs and changes nothing, and reads no app, VM, SQL, browser,
-save, cache or network state.
+does not build, install or execute game scripts, and reads no app, VM, SQL,
+browser, save, cache or network state. It writes only its new catalog directory.
 
 This is a **source inventory**, not dialogue extraction. It does not model native
 script framing, compilation, loading, event ownership, reachability, displayed
@@ -113,14 +113,28 @@ the output: 2000000 total occurrences, and 536870912 bytes across the two
 streams.
 
 Each file is created `O_EXCL|O_NOFOLLOW`, written, fsynced, closed and read back
-(size and SHA-256), and the marker is written last. On failure, the tool
+(exact bytes, size, owned identity, owner and exact0600 mode), and the marker
+is written last. A zero-progress write fails immediately; positive short writes
+continue. After directory fsync, the tool rechecks directory identity/0700 mode,
+the exact entry set and all file identities/modes/sizes. These checks do not
+promise protection against arbitrary concurrent modifications after a readback.
+On failure, the tool
 removes, marker first, only the files this run created whose `(dev, ino)` still
 match. It then removes the directory if it is empty. Foreign or replaced data is
-kept and reported.
+kept and reported, including replacements with identical bytes.
+
+Final directory close is inside the failure boundary. A close attempt consumes
+its descriptor slot once; the tool never blindly retries an uncertain integer.
+After a close error it reopens the canonical target and proves its original
+directory identity before cleanup. If that re-admission or cleanup is itself
+unavailable, it reports unresolved output or unconfirmed marker invalidation;
+inspect that path and do not consume it as a successful catalog. A process exit
+releases any descriptor whose injected before-close outcome remained uncertain.
 
 Exit codes: `0` means a published report (stdout is a JSON summary with `state`,
 `counts` and `manifest_sha256`). `2` means admission, cap or publication
-failure (`error:` on stderr), with no usable marker.
+failure (`error:` on stderr). Normal failure cleanup invalidates the owned marker;
+an explicit cleanup-uncertainty diagnostic is a refusal to certify the output.
 
 ## Tests
 
@@ -139,6 +153,10 @@ failure (`error:` on stderr), with no usable marker.
   links; selection directory refusals with descriptor-leak checks; output path
   refusals; and failure injection: write failure, read-back mismatch, foreign
   data and a replaced artifact.
+- Root regressions cover zero-progress and positive short writes, real-close-
+  then-error and before-close uncertainty, every file/directory fsync boundary,
+  marker-file close, late directory/file mode drift, actual corrupted readback,
+  and identical-byte foreign replacements with a held original inode.
 - The actual-data tests run the real CLI on all 839 entries. Every source row
   and every occurrence row is compared with the reference scanner and the
   snapshot bytes. They also cover a deterministic rerun, eleven CLI refusals

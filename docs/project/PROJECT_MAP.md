@@ -114,7 +114,8 @@ The latest save is Izlude197,212with active quest7472.
 Its Chinese title, summary and full details pass save/re-entry checks.
 The page is at character selection. All six Chinese navigation aliases remain ON.
 Both source catalogs match the independent raw-byte check.
-Codex selected Claude for fixes. Neither raw tool is ready yet.
+Codex fixed the selected Claude tool. All36tests pass.
+The raw source catalog is ready for inspection. Story coverage stays open.
 The earlier Chinese NPC, item and story overlays also remain ON.
 Navigation tests changed only last_login and preserved all earned progress.
 Both temporary test pages are gone. The normal game page and saved progress pass.
