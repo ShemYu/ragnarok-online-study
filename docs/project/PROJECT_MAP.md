@@ -65,11 +65,12 @@ P1  PROVE A PLAYABLE CHINESE FOUNDATION
      -> T05 Chinese UI, dialogue, active quest and input pilot   [~] <-- NOW
              |
              +-- T05.009 Navigation UI: ready for you
-             +-- T05.010 Active quest sample: normal play check next
+             +-- T05.010 Active quest sample: waiting for game control
 
 P2  DEFINE WHAT "ALL" COVERS
     T06 World/text inventory                                   [~]
         Early source-only inventory runs alongside P1.
+        Next: compare raw text catalogs across all839selected NPC files.
      -> T07 Episode/content contract, gaps and full estimate     [ ]
              |
 P3  COMPLETE THE AGREED CONTENT AND LANGUAGE
@@ -108,17 +109,19 @@ Task ready for your evaluation                                    [V] <-- DONE
 
 The game now uses the **Chinese Navigation version again**.
 The app process is 96858. Its asset process is 97329. The server reports Ready.
-The game is at character selection. All six Chinese navigation aliases remain ON.
+The last game check shows Izlude24,98 after unexpected movement.
+Codex paused game inputs and asked who controls the page.
+Source inventory preparation continues. All six Chinese navigation aliases remain ON.
 The earlier Chinese NPC, item and story overlays also remain ON.
-The tests changed only last_login. All earned progress remains the same.
+Navigation tests changed only last_login and preserved all earned progress.
 Both temporary test pages are gone. The normal game page and saved progress pass.
-The Active quest tab is empty. The save contains only two completed quests.
+The last controlled Active check was empty. Its save had two completed quests.
 T05.010: both plans are checked. Codex selected a corrected Grok procedure.
-Codex has verified fresh backup M. No story quest has been accepted yet.
+Codex has verified fresh backup M. Codex has not accepted a story quest.
 The current server supplies the Taiwan quest table. Its English table URL is 404.
 Actual active-quest text still needs a normal game check.
 
-The latest save receipt SHA starts with 8e23dac4. The Navigation final receipt starts with 7db72312.
+The latest verified pre-story save receipt SHA starts with99103420. The Navigation final receipt starts with 7db72312.
 See the full results, rollback limits and private resume paths in
 the [delivery record](reviews/2026-10-19-T05.009-delivery.md#final-owned-cleanup-and-ordinary-page-handoff-qualified).
 We must still test actual macOS input method editor (IME) composition and candidate selection.

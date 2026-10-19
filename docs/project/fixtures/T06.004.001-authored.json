@@ -1,0 +1,821 @@
+{
+  "cases": [
+    {
+      "expected": {
+        "gap": null,
+        "known_prefix_end": 0,
+        "occurrences": []
+      },
+      "kwargs": {},
+      "name": "empty",
+      "raw_hex": ""
+    },
+    {
+      "expected": {
+        "gap": null,
+        "known_prefix_end": 9,
+        "occurrences": [
+          {
+            "content_hex": "4869",
+            "content_span": [
+              5,
+              7
+            ],
+            "literal_index": 0,
+            "span": [
+              4,
+              8
+            ]
+          }
+        ]
+      },
+      "kwargs": {},
+      "name": "plain",
+      "raw_hex": "6d657320224869223b"
+    },
+    {
+      "expected": {
+        "gap": null,
+        "known_prefix_end": 10,
+        "occurrences": [
+          {
+            "content_hex": "",
+            "content_span": [
+              1,
+              1
+            ],
+            "literal_index": 0,
+            "span": [
+              0,
+              2
+            ]
+          },
+          {
+            "content_hex": "78",
+            "content_span": [
+              4,
+              5
+            ],
+            "literal_index": 1,
+            "span": [
+              3,
+              6
+            ]
+          },
+          {
+            "content_hex": "78",
+            "content_span": [
+              8,
+              9
+            ],
+            "literal_index": 2,
+            "span": [
+              7,
+              10
+            ]
+          }
+        ]
+      },
+      "kwargs": {},
+      "name": "empty_and_repeated",
+      "raw_hex": "22222022782220227822"
+    },
+    {
+      "expected": {
+        "gap": null,
+        "known_prefix_end": 10,
+        "occurrences": [
+          {
+            "content_hex": "61",
+            "content_span": [
+              8,
+              9
+            ],
+            "literal_index": 0,
+            "span": [
+              7,
+              10
+            ]
+          }
+        ]
+      },
+      "kwargs": {},
+      "name": "line_comment",
+      "raw_hex": "2f2f202278220a226122"
+    },
+    {
+      "expected": {
+        "gap": null,
+        "known_prefix_end": 10,
+        "occurrences": [
+          {
+            "content_hex": "79",
+            "content_span": [
+              8,
+              9
+            ],
+            "literal_index": 0,
+            "span": [
+              7,
+              10
+            ]
+          }
+        ]
+      },
+      "kwargs": {},
+      "name": "block_comment",
+      "raw_hex": "2f2a2278222a2f227922"
+    },
+    {
+      "expected": {
+        "gap": null,
+        "known_prefix_end": 6,
+        "occurrences": [
+          {
+            "content_hex": "2f2f2f2a",
+            "content_span": [
+              1,
+              5
+            ],
+            "literal_index": 0,
+            "span": [
+              0,
+              6
+            ]
+          }
+        ]
+      },
+      "kwargs": {},
+      "name": "comment_markers_inside",
+      "raw_hex": "222f2f2f2a22"
+    },
+    {
+      "expected": {
+        "gap": null,
+        "known_prefix_end": 6,
+        "occurrences": [
+          {
+            "content_hex": "615c2262",
+            "content_span": [
+              1,
+              5
+            ],
+            "literal_index": 0,
+            "span": [
+              0,
+              6
+            ]
+          }
+        ]
+      },
+      "kwargs": {},
+      "name": "escaped_quote",
+      "raw_hex": "22615c226222"
+    },
+    {
+      "expected": {
+        "gap": null,
+        "known_prefix_end": 6,
+        "occurrences": [
+          {
+            "content_hex": "7e5c2278",
+            "content_span": [
+              1,
+              5
+            ],
+            "literal_index": 0,
+            "span": [
+              0,
+              6
+            ]
+          }
+        ]
+      },
+      "kwargs": {},
+      "name": "eligible_7e",
+      "raw_hex": "227e5c227822"
+    },
+    {
+      "expected": {
+        "gap": {
+          "reason": "unterminated_quote",
+          "span": [
+            5,
+            6
+          ]
+        },
+        "known_prefix_end": 5,
+        "occurrences": [
+          {
+            "content_hex": "7f5c",
+            "content_span": [
+              1,
+              3
+            ],
+            "literal_index": 0,
+            "span": [
+              0,
+              4
+            ]
+          }
+        ]
+      },
+      "kwargs": {},
+      "name": "ineligible_7f",
+      "raw_hex": "227f5c227822"
+    },
+    {
+      "expected": {
+        "gap": {
+          "reason": "unterminated_quote",
+          "span": [
+            5,
+            6
+          ]
+        },
+        "known_prefix_end": 5,
+        "occurrences": [
+          {
+            "content_hex": "805c",
+            "content_span": [
+              1,
+              3
+            ],
+            "literal_index": 0,
+            "span": [
+              0,
+              4
+            ]
+          }
+        ]
+      },
+      "kwargs": {},
+      "name": "ineligible_80",
+      "raw_hex": "22805c227822"
+    },
+    {
+      "expected": {
+        "gap": null,
+        "known_prefix_end": 5,
+        "occurrences": [
+          {
+            "content_hex": "610a62",
+            "content_span": [
+              1,
+              4
+            ],
+            "literal_index": 0,
+            "span": [
+              0,
+              5
+            ]
+          }
+        ]
+      },
+      "kwargs": {},
+      "name": "physical_lf_raw",
+      "raw_hex": "22610a6222"
+    },
+    {
+      "expected": {
+        "gap": null,
+        "known_prefix_end": 6,
+        "occurrences": [
+          {
+            "content_hex": "610d0a62",
+            "content_span": [
+              1,
+              5
+            ],
+            "literal_index": 0,
+            "span": [
+              0,
+              6
+            ]
+          }
+        ]
+      },
+      "kwargs": {},
+      "name": "physical_crlf_raw",
+      "raw_hex": "22610d0a6222"
+    },
+    {
+      "expected": {
+        "gap": null,
+        "known_prefix_end": 3,
+        "occurrences": [
+          {
+            "content_hex": "00",
+            "content_span": [
+              1,
+              2
+            ],
+            "literal_index": 0,
+            "span": [
+              0,
+              3
+            ]
+          }
+        ]
+      },
+      "kwargs": {},
+      "name": "nul_inside_raw",
+      "raw_hex": "220022"
+    },
+    {
+      "expected": {
+        "gap": null,
+        "known_prefix_end": 4,
+        "occurrences": [
+          {
+            "content_hex": "78",
+            "content_span": [
+              2,
+              3
+            ],
+            "literal_index": 0,
+            "span": [
+              1,
+              4
+            ]
+          }
+        ]
+      },
+      "kwargs": {},
+      "name": "nul_outside_raw",
+      "raw_hex": "00227822"
+    },
+    {
+      "expected": {
+        "gap": null,
+        "known_prefix_end": 6,
+        "occurrences": [
+          {
+            "content_hex": "78",
+            "content_span": [
+              4,
+              5
+            ],
+            "literal_index": 0,
+            "span": [
+              3,
+              6
+            ]
+          }
+        ]
+      },
+      "kwargs": {},
+      "name": "bom_raw",
+      "raw_hex": "efbbbf227822"
+    },
+    {
+      "expected": {
+        "gap": null,
+        "known_prefix_end": 7,
+        "occurrences": [
+          {
+            "content_hex": "79",
+            "content_span": [
+              5,
+              6
+            ],
+            "literal_index": 0,
+            "span": [
+              4,
+              7
+            ]
+          }
+        ]
+      },
+      "kwargs": {},
+      "name": "apostrophe_is_plain",
+      "raw_hex": "27782720227922"
+    },
+    {
+      "expected": {
+        "gap": {
+          "reason": "unterminated_quote",
+          "span": [
+            2,
+            7
+          ]
+        },
+        "known_prefix_end": 2,
+        "occurrences": []
+      },
+      "kwargs": {},
+      "name": "unterminated_quote",
+      "raw_hex": "7620226f70656e"
+    },
+    {
+      "expected": {
+        "gap": {
+          "reason": "unterminated_quote",
+          "span": [
+            0,
+            3
+          ]
+        },
+        "known_prefix_end": 0,
+        "occurrences": []
+      },
+      "kwargs": {},
+      "name": "trailing_escape",
+      "raw_hex": "22615c"
+    },
+    {
+      "expected": {
+        "gap": null,
+        "known_prefix_end": 8,
+        "occurrences": []
+      },
+      "kwargs": {},
+      "name": "line_comment_eof",
+      "raw_hex": "2f2f2266616b6522"
+    },
+    {
+      "expected": {
+        "gap": {
+          "reason": "unterminated_block_comment",
+          "span": [
+            1,
+            8
+          ]
+        },
+        "known_prefix_end": 1,
+        "occurrences": []
+      },
+      "kwargs": {},
+      "name": "block_comment_eof",
+      "raw_hex": "612f2a2262616422"
+    },
+    {
+      "expected": {
+        "gap": null,
+        "known_prefix_end": 9,
+        "occurrences": []
+      },
+      "kwargs": {},
+      "name": "bare_cr_does_not_end_line_comment",
+      "raw_hex": "2f2f2278220d227922"
+    },
+    {
+      "expected": {
+        "gap": null,
+        "known_prefix_end": 4,
+        "occurrences": [
+          {
+            "content_hex": "5c71",
+            "content_span": [
+              1,
+              3
+            ],
+            "literal_index": 0,
+            "span": [
+              0,
+              4
+            ]
+          }
+        ]
+      },
+      "kwargs": {},
+      "name": "unknown_escape_raw",
+      "raw_hex": "225c7122"
+    },
+    {
+      "expected": {
+        "gap": null,
+        "known_prefix_end": 6,
+        "occurrences": [
+          {
+            "content_hex": "5c783232",
+            "content_span": [
+              1,
+              5
+            ],
+            "literal_index": 0,
+            "span": [
+              0,
+              6
+            ]
+          }
+        ]
+      },
+      "kwargs": {},
+      "name": "hex_escape_raw",
+      "raw_hex": "225c78323222"
+    },
+    {
+      "expected": {
+        "gap": null,
+        "known_prefix_end": 17,
+        "occurrences": [
+          {
+            "content_hex": "4e616d65",
+            "content_span": [
+              5,
+              9
+            ],
+            "literal_index": 0,
+            "span": [
+              4,
+              10
+            ]
+          }
+        ]
+      },
+      "kwargs": {},
+      "name": "quoted_header",
+      "raw_hex": "6e706309224e616d652209736372697074"
+    },
+    {
+      "expected": {
+        "gap": null,
+        "known_prefix_end": 23,
+        "occurrences": [
+          {
+            "content_hex": "6e657874",
+            "content_span": [
+              18,
+              22
+            ],
+            "literal_index": 0,
+            "span": [
+              17,
+              23
+            ]
+          }
+        ]
+      },
+      "kwargs": {},
+      "name": "unquoted_header_comment_policy",
+      "raw_hex": "6e70632f2f6e616d6509224e616d65220a226e65787422"
+    },
+    {
+      "expected": {
+        "gap": {
+          "reason": "byte_limit",
+          "span": [
+            2,
+            5
+          ]
+        },
+        "known_prefix_end": 2,
+        "occurrences": []
+      },
+      "kwargs": {
+        "max_bytes": 2
+      },
+      "name": "byte_limit_outside",
+      "raw_hex": "6162227822"
+    },
+    {
+      "expected": {
+        "gap": {
+          "reason": "byte_limit",
+          "span": [
+            1,
+            6
+          ]
+        },
+        "known_prefix_end": 1,
+        "occurrences": []
+      },
+      "kwargs": {
+        "max_bytes": 4
+      },
+      "name": "byte_limit_quote",
+      "raw_hex": "612278797a22"
+    },
+    {
+      "expected": {
+        "gap": {
+          "reason": "byte_limit",
+          "span": [
+            1,
+            10
+          ]
+        },
+        "known_prefix_end": 1,
+        "occurrences": []
+      },
+      "kwargs": {
+        "max_bytes": 4
+      },
+      "name": "byte_limit_block_comment",
+      "raw_hex": "612f2a78782a2f227a22"
+    },
+    {
+      "expected": {
+        "gap": {
+          "reason": "byte_limit",
+          "span": [
+            1,
+            9
+          ]
+        },
+        "known_prefix_end": 1,
+        "occurrences": []
+      },
+      "kwargs": {
+        "max_bytes": 4
+      },
+      "name": "byte_limit_line_comment",
+      "raw_hex": "612f2f78780a227a22"
+    },
+    {
+      "expected": {
+        "gap": {
+          "reason": "occurrence_limit",
+          "span": [
+            4,
+            7
+          ]
+        },
+        "known_prefix_end": 4,
+        "occurrences": [
+          {
+            "content_hex": "61",
+            "content_span": [
+              1,
+              2
+            ],
+            "literal_index": 0,
+            "span": [
+              0,
+              3
+            ]
+          }
+        ]
+      },
+      "kwargs": {
+        "max_occurrences": 1
+      },
+      "name": "occurrence_limit",
+      "raw_hex": "22612220226222"
+    },
+    {
+      "expected": {
+        "gap": null,
+        "known_prefix_end": 5,
+        "occurrences": []
+      },
+      "kwargs": {
+        "max_occurrences": 0
+      },
+      "name": "zero_occurrences_without_quotes",
+      "raw_hex": "706c61696e"
+    },
+    {
+      "expected": {
+        "gap": null,
+        "known_prefix_end": 12,
+        "occurrences": [
+          {
+            "content_hex": "78",
+            "content_span": [
+              8,
+              9
+            ],
+            "literal_index": 0,
+            "span": [
+              7,
+              10
+            ]
+          }
+        ]
+      },
+      "kwargs": {},
+      "name": "block_comments_do_not_nest",
+      "raw_hex": "2f2a2f2a202a2f2278222a2f"
+    },
+    {
+      "expected": {
+        "gap": null,
+        "known_prefix_end": 5,
+        "occurrences": [
+          {
+            "content_hex": "5c0a78",
+            "content_span": [
+              1,
+              4
+            ],
+            "literal_index": 0,
+            "span": [
+              0,
+              5
+            ]
+          }
+        ]
+      },
+      "kwargs": {},
+      "name": "backslash_lf_raw",
+      "raw_hex": "225c0a7822"
+    },
+    {
+      "expected": {
+        "gap": {
+          "reason": "byte_limit",
+          "span": [
+            3,
+            7
+          ]
+        },
+        "known_prefix_end": 3,
+        "occurrences": [
+          {
+            "content_hex": "61",
+            "content_span": [
+              1,
+              2
+            ],
+            "literal_index": 0,
+            "span": [
+              0,
+              3
+            ]
+          }
+        ]
+      },
+      "kwargs": {
+        "max_bytes": 3
+      },
+      "name": "byte_limit_after_complete_quote",
+      "raw_hex": "2261226d6f7265"
+    },
+    {
+      "expected": {
+        "gap": {
+          "reason": "byte_limit",
+          "span": [
+            0,
+            6
+          ]
+        },
+        "known_prefix_end": 0,
+        "occurrences": []
+      },
+      "kwargs": {
+        "max_bytes": 3
+      },
+      "name": "byte_limit_inside_shielded_pair",
+      "raw_hex": "22615c227822"
+    },
+    {
+      "expected": {
+        "gap": {
+          "reason": "byte_limit",
+          "span": [
+            0,
+            3
+          ]
+        },
+        "known_prefix_end": 0,
+        "occurrences": []
+      },
+      "kwargs": {
+        "max_bytes": 0
+      },
+      "name": "zero_byte_limit",
+      "raw_hex": "226122"
+    },
+    {
+      "expected": {
+        "gap": {
+          "reason": "byte_limit",
+          "span": [
+            1,
+            3
+          ]
+        },
+        "known_prefix_end": 1,
+        "occurrences": []
+      },
+      "kwargs": {
+        "max_bytes": 1
+      },
+      "name": "byte_limit_split_line_comment_opener",
+      "raw_hex": "2f2f78"
+    },
+    {
+      "expected": {
+        "gap": {
+          "reason": "byte_limit",
+          "span": [
+            1,
+            3
+          ]
+        },
+        "known_prefix_end": 1,
+        "occurrences": []
+      },
+      "kwargs": {
+        "max_bytes": 1
+      },
+      "name": "byte_limit_split_block_comment_opener",
+      "raw_hex": "2f2a78"
+    }
+  ],
+  "profile": "raw-quoted-byte-policy-v1",
+  "schema": 1
+}
