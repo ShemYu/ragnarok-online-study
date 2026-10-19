@@ -1,0 +1,63 @@
+{
+  "baseline_source_files": {
+    "tools/renewal/CAROCC_ZH_PILOT.md": {
+      "bytes": 5646,
+      "sha256": "1611840d75b351f66f01b806c829d5da9e6cb11f3ce8b845356dd11ee0115056"
+    },
+    "tools/renewal/carocc_zh_pilot.py": {
+      "bytes": 16510,
+      "sha256": "cfcf0780e4e84ddd5b6562dbea06405507dc4af38680353d3b0b23ec1e87f19d"
+    },
+    "tools/renewal/test_carocc_zh_pilot.py": {
+      "bytes": 13858,
+      "sha256": "e44ae857ebfca50c2c20675be53d4a93ae491c9251b505824b2e9ffa196d0e19"
+    }
+  },
+  "current_installed_pilot": {
+    "bytes": 16532,
+    "sha256": "463a1dca3401a4c445ac44995b56eda2733df34d01ae23e803410e0b71d18f55",
+    "version": "0.1.0"
+  },
+  "expected_outputs": {
+    "generation-manifest.json": {
+      "bytes": 3326,
+      "sha256": "071da5e3608caafad1e9264f3b2c6eb017200d9d9c48d9bb64c8db25bc79d4aa"
+    },
+    "tw-carocc-pilot/mod.json": {
+      "bytes": 419,
+      "sha256": "c9e9b733d23b8826ffb640269fda3959c4a1a14b8da02a1f7d197f4e6874488d"
+    },
+    "tw-carocc-pilot/npc/carocc_zh_pilot.txt": {
+      "bytes": 16526,
+      "sha256": "9eedc4c362ff3bb3746cb69511c0ab40ab8eda31e7b65cd393cf413f00973aa1"
+    }
+  },
+  "limits_first": "Only the novice first-visit opening, its menu, the Hello? reply and one active-7472 revisit NAVI sentence are authored in Chinese; all other source literals remain unchanged and use existing client translation or English fallback.",
+  "limits_remaining": [
+    "Speaker tag [Carocc] and the Latin names Carocc/Izlude are kept as in the source.",
+    "Duplicates on izlude_a..izlude_d (source lines 800-803) are not copied or disabled; they stay English.",
+    "No runtime check: loading, client rendering and dialogue flow are verified by the coordinator."
+  ],
+  "mod_description": "Pilot: Captain Carocc in Izlude greets new Novices in Traditional Chinese (opening, Hello? reply and menu) and translates one active-7472 revisit NAVI sentence. Other text remains subject to existing client translation or English fallback.",
+  "new_literal": {
+    "english": "My friend <NAVI>[Hun]<INFO>izlude,122,207</INFO></NAVI> will be around the academy entrance.",
+    "kind": "mes",
+    "preserved_navi_bytes": "<NAVI>[Hun]<INFO>izlude,122,207</INFO></NAVI>",
+    "source_line": 693,
+    "zh_hant": "我的朋友 <NAVI>[Hun]<INFO>izlude,122,207</INFO></NAVI> 就在學院入口附近。"
+  },
+  "schema": "T05.012-fixed-profile-1",
+  "scope": "Only original8 plus one NAVI-containing mes translation; all function implementations/control/IO semantics stay byte-identical; no installed operation.",
+  "stock": {
+    "block_sha256": "f9d8d5565a228492f7e50172aa360936522e72889b574ac3b404e443b2096e33",
+    "bytes": 508418,
+    "copied_block_lines": [
+      388,
+      798
+    ],
+    "private_path": ".tools/renewal/t05-012-frozen-inputs-1/academy.txt",
+    "sha256": "b2ab5f7de7e1c36e4f58b8447a80d4cb089e8bf45aeade59953c6a70004f27fd"
+  },
+  "task": "T05.012",
+  "version": "0.2.0"
+}

@@ -67,7 +67,8 @@ P1  PROVE A PLAYABLE CHINESE FOUNDATION
              +-- T05.009 Navigation UI: ready for you
              +-- T05.010 Active quest sample: ready for you
              +-- T05.011 Quest window: ready for you
-             +-- Next: mixed story and actual Chinese IME checks
+             +-- T05.012 One mixed story line: source pair next
+             +-- Next: actual Chinese IME checks
 
 P2  DEFINE WHAT "ALL" COVERS
     T06 World/text inventory                                   [~]
@@ -116,7 +117,8 @@ The browser loads the correct file and refuses the opposite file pin.
 Actual Chinese quest tabs, controls and save/re-entry now pass.
 Cold restart, Quest-only rollback and Chinese reapply pass.
 Test files are gone. The normal game page and saved progress pass.
-The game stays running with the Chinese Quest window open.
+The Quest delivery passed. A new story baseline is now verified.
+The normal page is at selection after that dialogue check.
 See the [Quest checks](reviews/2026-10-19-T05.011.md).
 
 ## Completed task: T05.009 Navigation
