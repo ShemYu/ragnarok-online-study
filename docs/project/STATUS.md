@@ -34,6 +34,8 @@ Start with the [ASCII supervision and plan map](PROJECT_MAP.md) for the short ov
 
 Current functionality checkpoint: [T06.003.003.001 independent corpus audit](reviews/2026-10-19-T06.003.003.001.md#independent-corpus-audit-and-bounded-readiness) is **ready_for_user**, resource/header observations only. All1296cached roots are accounted for:1213observed RSW/GAT/GND chains,82RSW HTTP404s and one GND over the16MiB cap. Original acquisition exits1 because its allowlist omitted the native missing-file diagnostic; that failed report is preserved. Root separately qualifies the exact log, every body/root/provenance and all four native input hashes/identity without repeating retrieval. Full parser/geometry/art/installed/render/playability coverage remains open. Next root diagnoses these83gaps, then full parsing. Actual plan pair remains Claude17/20corrected basis versus Grok15/20; both released/acked. Fresh fleet63released/two older user-retained/no reclaimable, inbox empty. T05remaining language/input stays deferred; game/newer progress untouched.
 
+**Active next child:** [T06.003.003.002](reviews/2026-10-19-T06.003.003.002.md) freezes metadata diagnosis for all82RSW404s and one new isolated24MiB-capped GND observation. Same-input actual Claude/Grok plan comparison and root execution are next; no new native run has started. Preserve the original corpus and newer game progress.
+
 ## Progress percentage
 
 As of this checkpoint, exact top-level T00–T13 rows total14: one accepted (T00), three ready_for_user (T01–T03), three in_progress (T04–T06) and seven planned (T07–T13). Thus **4/14 =28.6%, approximately29%, by equally counted top-level checkpoints**. Children are excluded to avoid double counting; their verified work still contributes to the open parents.

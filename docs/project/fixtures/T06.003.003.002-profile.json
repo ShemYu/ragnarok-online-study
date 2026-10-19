@@ -1,0 +1,87 @@
+{
+  "task": "T06.003.003.002",
+  "comparison": "independent read-only diagnosis and targeted-acquisition plans; root-only execution",
+  "gaps": 83,
+  "rsw_http404_gaps": 82,
+  "body_cap_gap": 1,
+  "target_root": "schg_dun01",
+  "target_prior_declared_bytes": 21395470,
+  "target_body_cap": 25165824,
+  "target_aggregate_cap": 33554432,
+  "target_asset_get_cap": 4,
+  "target_acquisition_seconds": 120,
+  "io_timeout_seconds": 5,
+  "inputs": [
+    {
+      "path": ".tools/renewal/t06-map-gap-plans-1/gaps.json",
+      "bytes": 93349,
+      "sha256": "8cadd3aec2dd312854c72a9fd076640b7f11133e67fb381b917117848741ddf1"
+    },
+    {
+      "path": ".tools/renewal/t06-map-core-preparation-1/native-all-cache-map-1/report.json",
+      "bytes": 6148485,
+      "sha256": "b4d60b663ac9cb7245608fa3c6c1d106f3a4e582a592c9fafbb7e2a6bb2959e3"
+    },
+    {
+      "path": ".tools/renewal/t06-map-core-preparation-1/root-corpus-verification-2/root-result.json",
+      "bytes": 2732,
+      "sha256": "41299dab3844df45fc00db0154dd212716f774e7f2676e93415494dbe83ca0c0"
+    },
+    {
+      "path": ".tools/renewal/t06-selection-preparation/client-dependencies/merged-corpus-alignment/result-root-1/report.json",
+      "bytes": 7316,
+      "sha256": "b3c75147add2fd0b08b8cc65aa8ca51e6bb1c76d791a67edc1476acc4899ebd8"
+    },
+    {
+      "path": ".tools/renewal/t06-selection-preparation/client-dependencies/native-map-slice-3/response-002.bin",
+      "bytes": 15076789,
+      "sha256": "772bf1b6ab545fb843c5173d71c3a56a264570b595d80ebb89fc6cb5270e5148"
+    },
+    {
+      "path": ".tools/renewal/t06-archive-candidates/integrated-2/catalog-manifest.json",
+      "bytes": 14774,
+      "sha256": "95d227e8b7b46163260d6488e76d4e2da4b59020a7641bcd3f718ba8d4005b84"
+    },
+    {
+      "path": "tools/renewal/observe_cache_map_cores.py",
+      "bytes": 32153,
+      "sha256": "ef4f70c965cff19308741041a82bc54fa7d70c87b9069a7cacce7839f6bb7a4f"
+    },
+    {
+      "path": ".tools/renewal/remote-source/src/client.rs",
+      "bytes": 15628,
+      "sha256": "59b39104e8328493d5d1ec8ff4826add3a6ece1867034f45a7fddaa974b08c68"
+    },
+    {
+      "path": ".tools/renewal/remote-source/src/config.rs",
+      "bytes": 14558,
+      "sha256": "c8592180a406010f74df395ea65a207a87341ea12a08e45bf65a8cb7f7ecaa22"
+    },
+    {
+      "path": ".tools/renewal/remote-source/src/index.rs",
+      "bytes": 8550,
+      "sha256": "eb471536075be604527b9ddadc9fce58727c2e04ca8fc1f81309bf48cd1c362f"
+    },
+    {
+      "path": ".tools/renewal/remote-source/src/grf.rs",
+      "bytes": 30133,
+      "sha256": "4646514140bc7688bbc91e0bac7d1ee9a83aab5e1e17df20c1eb30668bd5edf5"
+    },
+    {
+      "path": ".tools/renewal/client-source/src/Loaders/Ground.js",
+      "bytes": 20029,
+      "sha256": "8b82cf7321123054cf2bbeff1816931c7f3fc7833ae7af916077691d871f2db0"
+    },
+    {
+      "path": ".tools/renewal/client-source/src/Loaders/World.js",
+      "bytes": 6110,
+      "sha256": "e1f6d5e52fe84c2a31c4f8f13e5be20cb6f93b2675c6f7615ac295be47f5a68e"
+    },
+    {
+      "path": ".tools/renewal/client-source/src/Core/FileManager.js",
+      "bytes": 11279,
+      "sha256": "75c37d192bf21e7b40817a6f2fe27ef536601515c07fe20c7ce8346d50376cd7"
+    }
+  ],
+  "limits": "No installed mutation, full parser/render/playability or full-game completeness claim; keep original all-map report immutable and all82HTTP404 gaps explicit"
+}
