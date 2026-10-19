@@ -95,9 +95,9 @@ We need the content list and gap list before we can give a reliable full cost or
 
 ```text
 Fixed inputs and independent expected output                    [V]
-Claude source: checked; one error-message fix needed              [~]
-Grok source: same attempt still working                          [~]
-Compare both -> select -> fix -> integrate                       [ ]
+Claude and Grok source checks; raw candidates kept                [V]
+Compare both: tied17/20. Select Claude as the correction basis.    [V]
+Fix error messages and test runner -> integrate                  [~]
 Separate browser: four tabs, text fit and original handlers      [V]
 Install -> check actual quest -> save and cold restart           [ ]
 Quest-only rollback -> reapply -> clean test files               [ ]
