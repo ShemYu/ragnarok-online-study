@@ -1,6 +1,6 @@
 # Supervision, plan and current position
 
-Date: **2026-10-19 JST**. Functionality comes first. The first all-map resource scan is checked.
+Date: **2026-10-19 JST**. Functionality comes first. The all-map scan and capped-file follow-up are checked.
 Use this map for a short view of [Status](STATUS.md), [Tasks](TASKS.md) and
 [Phases](PHASES.md). Status gives the current next action.
 Update this map after each important change. Keep the dated evidence.
@@ -105,17 +105,23 @@ Compare actual Claude and Grok plans; correct the procedure       [V]
 Run one isolated reader; keep the game and save untouched         [V]
 Check every saved response, map record and reader cleanup         [V]
 Record 1,213 header chains and 83 resource gaps                    [V]
-Diagnose 82 failed requests and one file above the size limit     [ ] <-- NEXT
-Check full map parsing, art, rendering and play                   [ ]
+Diagnose the 82 failed requests from retained filename data      [V]
+Observe the larger file with a new limit; preserve the first run  [V]
+Check full map parsing, art, rendering and play                   [ ] <-- NEXT
+Find compatible assets for the 82 unresolved requests             [ ]
 ```
 
 The original scan checker refused an extra diagnostic log.
 Codex kept that failure and checked the log and all saved evidence separately.
 The log matches the 82 failed requests. The separate evidence check passes.
+The separate follow-up reads the complete 21.4 MB ground file.
+Codex checks its data, prior context, input files and reader cleanup.
+The combined evidence now has 1,214 header chains and 82 unresolved gaps.
+The first run stays unchanged at 1,213 chains and 83 gaps.
 A header chain does not prove that a map loads or plays correctly.
 The scan took about 5.5 minutes. It kept about 4.85 GiB of response data.
 No purchase or goal change is needed for this check. The full cost is still unknown.
-See the [map scan and limits](reviews/2026-10-19-T06.003.003.001.md#independent-corpus-audit-and-bounded-readiness).
+See the [map scan](reviews/2026-10-19-T06.003.003.001.md#independent-corpus-audit-and-bounded-readiness) and [qualified follow-up](reviews/2026-10-19-T06.003.003.002.md#actual-targeted-observation-and-independent-root-qualification).
 
 ## Completed task: T05.012 one mixed story sentence
 

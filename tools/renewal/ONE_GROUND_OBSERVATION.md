@@ -39,3 +39,11 @@ Root independently audits the actual retained evidence. Neither preflight,
 source controls nor an observed header chain establishes full Ground parsing,
 geometry/art, rendering, walking or complete-game coverage. See the
 [chronological review](../../docs/project/reviews/2026-10-19-T06.003.003.002.md).
+
+The root-reviewed source at2241f46 subsequently passes22synthetic control
+groups and one real isolated observation. The21395470byte ground body is
+complete; independent root checks qualify the exact context, all bodies/
+inputs/original-corpus preservation and owned cleanup. The combined evidence
+is1214header chains/82unresolved RSW gaps. This is bounded observation
+readiness; full parsing/render/play remains open. The retained destination
+now exists and must not be reused.
