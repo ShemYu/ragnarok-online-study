@@ -1,6 +1,6 @@
 # Supervision, plan and current position
 
-Date: **2026-10-19 JST**. Codex verified English rollback and Chinese reapply.
+Date: **2026-10-19 JST**. Codex completed Navigation verification and cleanup.
 Use this map for a short view of [Status](STATUS.md), [Tasks](TASKS.md) and
 [Phases](PHASES.md). Status gives the current next action.
 Update this map after each important change. Keep the dated evidence.
@@ -64,7 +64,7 @@ P1  PROVE A PLAYABLE CHINESE FOUNDATION
      -> T04 Play, save/recovery, resources and offline trial     [~]
      -> T05 Chinese UI, dialogue, active quest and input pilot   [~] <-- NOW
              |
-             +-- T05.009 Navigation UI: verification below
+             +-- T05.009 Navigation UI: ready for you
 
 P2  DEFINE WHAT "ALL" COVERS
     T06 World/text inventory                                   [~]
@@ -88,7 +88,7 @@ T04-T06 are active. The other seven main tasks remain planned.
 We exclude child tasks from this count. The figure does not measure time, translation or playable content.
 We need the content list and gap list before we can give a reliable full cost or delivery date.
 
-## Current task: T05.009 Navigation
+## Latest completed task: T05.009 Navigation
 
 ```text
 Same-base Claude/Grok implementations -> Codex selection        [V]
@@ -100,9 +100,9 @@ Live Chinese search, filters, reset/minimize, command              [V]
 Normal logout/re-entry and saved progress                          [V]
 Same-Chinese full cold restart                                    [V]
 English rollback: native UI/data/save checks                       [V] <-- DONE
-Chinese reapply                                                   [V] <-- DONE
-Remove two temporary entries. Test normal game page and save.     [ ] <-- NEXT
-Task ready for your evaluation                                    [ ]
+Chinese reapply                                                   [V]
+Remove two temporary entries. Test normal game page and save.     [V]
+Task ready for your evaluation                                    [V] <-- DONE
 ```
 
 The game now uses the **Chinese Navigation version again**.
@@ -110,12 +110,12 @@ The app process is 96858. Its asset process is 97329. The server reports Ready.
 The game is at character selection. All six Chinese navigation aliases remain ON.
 The earlier Chinese NPC, item and story overlays also remain ON.
 The tests changed only last_login. All earned progress remains the same.
-Next, Codex will remove the two temporary test pages.
-Codex will then test the normal api.html game page and saved progress.
+Both temporary test pages are gone. The normal game page and saved progress pass.
+Next, Codex will inspect the Active quest text and remaining Chinese UI samples.
 
-The latest save receipt SHA starts with 45a2cadf. The reapply receipt SHA starts with c21fbfa4.
+The latest save receipt SHA starts with b71b67ed. The final receipt SHA starts with 7db72312.
 See the full results, rollback limits and private resume paths in
-the [delivery record](reviews/2026-10-19-T05.009-delivery.md#chinese-reapply-qualified).
+the [delivery record](reviews/2026-10-19-T05.009-delivery.md#final-owned-cleanup-and-ordinary-page-handoff-qualified).
 We must still test actual macOS input method editor (IME) composition and candidate selection.
 Full UI, story, world, solo and offline tests remain open.
 The Mac's internet remains ON, as you instructed.
@@ -136,7 +136,8 @@ The Mac's internet remains ON, as you instructed.
 | 2026-10-19,77615ab | Full same-Chinese cold restart preserves UI/data/save | [Cold proof](reviews/2026-10-19-T05.009-delivery.md#same-chinese-cold-relaunch-qualified) |
 | 2026-10-19,c04be3c | English rollback, reverse integrity refusal, live data and save tests pass; first ASCII map saved | [Rollback proof](reviews/2026-10-19-T05.009-delivery.md#english-bundle-rollback-qualified) |
 | 2026-10-19,301bd0e | User corrected the standard name to ASD-STE100; map language simplified | This map and Git history |
-| Current checkpoint | Chinese reapply, native integrity, live UI and saved progress pass; cleanup remains next | [Reapply proof](reviews/2026-10-19-T05.009-delivery.md#chinese-reapply-qualified) |
+| 2026-10-19,ffd154c | Chinese reapply, native integrity, live UI and saved progress pass | [Reapply proof](reviews/2026-10-19-T05.009-delivery.md#chinese-reapply-qualified) |
+| Current checkpoint | Exact test-page cleanup and normal-page Chinese search/save pass; T05.009 ready for you | [Final proof](reviews/2026-10-19-T05.009-delivery.md#final-owned-cleanup-and-ordinary-page-handoff-qualified) |
 
 Codex also verified several T06 tools for source inventories.
 They cover archive tables, source order, map records, YAML, monsters, spawns and references within their stated limits.
@@ -165,7 +166,7 @@ This map did not start new workers. The private fleet receipt SHA starts with 34
 
 ## Remaining decisions and phase gates
 
-- P1: finish test-page cleanup and normal-page checks. Then finish the active-quest, input and UI samples.
+- P1: finish the active-quest, input and remaining UI samples.
   Record the offline and display limits. You can already try basic play, but the phase remains open.
 - P2: agree on the exact Renewal content version. List the language and gameplay gaps.
   Confirm game behavior separately from source data. Use the gap list to estimate the remaining work.
