@@ -1,6 +1,6 @@
 # Supervision, plan and current position
 
-Date: **2026-10-19 JST**. Functionality comes first. Codex is preparing full-world resource checks.
+Date: **2026-10-19 JST**. Functionality comes first. The first all-map resource scan is checked.
 Use this map for a short view of [Status](STATUS.md), [Tasks](TASKS.md) and
 [Phases](PHASES.md). Status gives the current next action.
 Update this map after each important change. Keep the dated evidence.
@@ -97,7 +97,27 @@ This project ledger includes T11 in the later phase. It does not measure milesto
 We exclude child tasks from this count. The figure does not measure time, translation or playable content.
 We need the content list and gap list before we can give a reliable full cost or delivery date.
 
-## Current task: T05.012 one mixed story sentence
+## Current functionality checkpoint: all cached-map resources
+
+```text
+Freeze all 1,296 cached map names and source inputs               [V]
+Compare actual Claude and Grok plans; correct the procedure       [V]
+Run one isolated reader; keep the game and save untouched         [V]
+Check every saved response, map record and reader cleanup         [V]
+Record 1,213 header chains and 83 resource gaps                    [V]
+Diagnose 82 failed requests and one file above the size limit     [ ] <-- NEXT
+Check full map parsing, art, rendering and play                   [ ]
+```
+
+The original scan checker refused an extra diagnostic log.
+Codex kept that failure and checked the log and all saved evidence separately.
+The log matches the 82 failed requests. The separate evidence check passes.
+A header chain does not prove that a map loads or plays correctly.
+The scan took about 5.5 minutes. It kept about 4.85 GiB of response data.
+No purchase or goal change is needed for this check. The full cost is still unknown.
+See the [map scan and limits](reviews/2026-10-19-T06.003.003.001.md#independent-corpus-audit-and-bounded-readiness).
+
+## Completed task: T05.012 one mixed story sentence
 
 ```text
 Observe all six real dialogue pages and the English line         [V]

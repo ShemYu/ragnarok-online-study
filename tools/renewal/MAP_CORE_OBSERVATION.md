@@ -32,3 +32,12 @@ prior eleven-case results. A valid acquisition with gap rows is not an all-map
 PASS. Header/body availability does not establish geometry, models/textures,
 rendering, installed overrides, full client parsing or playable coverage.
 See the [chronological verification record](../../docs/project/reviews/2026-10-19-T06.003.003.001.md).
+
+The first execution at source9caeafe retained all1296root observations but
+exited1: its strict inventory omitted the native reader's expected
+`logs/missing-files.log`. Preserve that original failure. Root separately
+audited this exact diagnostic and every retained response/root/input, obtaining
+1213observed header chains and83explicit gaps. This qualifies the bounded
+observation corpus, not the original CLI run or map playability. Do not rerun
+over its existing output. Any future acquisition must review a fresh destination
+and diagnostic-log policy first; see the linked audit for exact evidence.
