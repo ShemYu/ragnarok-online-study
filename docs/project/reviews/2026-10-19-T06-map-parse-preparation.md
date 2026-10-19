@@ -63,3 +63,70 @@ results, then commit before advancing to model/texture/compile/render checks.
 Compatible-asset/version investigation for82unresolved world entries remains
 separate open functional work. No map deletion, invented alias, party-only
 classification, goal change or user acceptance follows from this preparation.
+
+## Root constructor and input admission checkpoint
+
+After0d3ff0a, root executed the exact nine unmodified modules with Node's
+experimental VM modules on authored data only. Four positive fixtures cover
+GAT1.2, GND1.7, RSW1.9 and RSW2.7 with one model; their four final-byte
+truncations throw RangeError and four bad signatures throw Error. Two further
+constructor-return cases expose GAT unknown-type NaN and GND invalid-texture
+undefined/NaN. The separate cross-realm and offset-view controls reproduce the
+BinaryReader hazards above. All14fixture outcomes and two buffer controls
+match root's source-derived checks; captured parser logs are empty. This is
+real constructor execution on synthetic inputs, not retained-corpus parsing.
+
+Private evidence, under ignored t06-map-parse-preparation-1/constructor-probe-1/:
+
+| Artifact | Bytes | SHA256 |
+| --- | ---: | --- |
+| probe.mjs |4426|374ee8b3eaa19d0d56464234d6e13969d0d51b7b17306cd70617a2f150b8691e|
+| fixtures.json |35877|ed3ab386bb7bab04f6b56b6a89229464700dd4a3c4979c6e85e8ab7b4af22537|
+| result.json |6795|319dc483ad1d8ddd1c093b0b82b5278da613871dc4368cd8f6b303c3111e071c|
+
+Root reviewed the internal aide's metadata-only generator, then executed its
+exact15045-byte draft4a0b1a6eb30257391521f1d744495e2ab67bf2bcb614e28692e3eeb934500910.
+Its40,213,496-byte draft manifest a04ace8378b488a6b3391f552c0bc854965dd5e6924d103745ec3f9d0df430b8
+repeats source request dictionaries. Root preserves that draft and makes a lean
+canonical input using pinned report references rather than repeated copies.
+The canonical retains every1296root, all3642observed core-edge references,
+every82remaining gap and the sole qualified schg_dun01 GND overlay.
+
+There are2761unique(kind,completeSHA) jobs:937RSW,889GAT and935GND, containing
+5,166,030,083body bytes. Root independently rebuilt and compared every canonical
+root membership/edge/original and selected source, job order/dedup/header/source
+list and backreference directly against the original and target reports.
+Root also freshly opened all2810selected physical body files without following
+symlinks, checked regular-file type/size/full SHA and unchanged file identity:
+5,227,319,159bytes in4.264seconds for the combined body-read and normalization
+operation. All identities remain equal at the independent metadata check.
+Original report validity remains false and unchanged; its separate prior
+qualification is not rewritten. No parser ran on these retained bodies.
+
+Private input/receipts, relative to t06-map-parse-preparation-1/:
+
+| Artifact | Bytes | SHA256 |
+| --- | ---: | --- |
+| combined-parser-input-1.json |3711287|c2dd107007f21c6d12e46f93024137efea3967c9a9cb0614f37e4ecf9bbe09e7|
+| root-body-audit-1.json |980974|f2a704531d35da97cab05b4a744f7300b803a4bcdf1b7057735a1553288d6a8d|
+| root-manifest-admission-1.json |1102|010bd3c96c06e438746f15a2cd1b05576e72aababb412065588835893c1f428f|
+
+The aide also supplied a source-only fixture plan (14198bytes,
+242bb1731daf80b5a9eae53d432c7a5ea575e598727a3376562f1430d72aba47),
+which root read. Its unexecuted recipes remain proposals except the separately
+observed root cases above. Neither internal aide earns Claude/Grok credit.
+
+A separate metadata aide reports zero draft relation errors across all1296roots,
+3888edges,2761jobs,2810physical source records and3642backreferences. Root read
+and pinned its2008-byte receipt manifest-metadata-aide-audit-1.json,
+36ecc8980c67a5a3fe5a786fd47ee95d01d9c13abb0ba8192044b8395fb85516.
+That aide did not read the generator implementation, canonical input or bodies;
+its corroboration does not replace the root checks above.
+
+Next owner root: freeze one bounded constructor-runner implementation task,
+common summary/fixture oracles and resource/cleanup policy; dispatch independent
+actual Claude/Grok implementations from the same committed base in separate
+Orca worktrees. No .003 task is frozen or launched at this checkpoint. The
+qualified input and authored probe save repeated acquisition/preparation work;
+full parsing, compatible assets, dependencies, compile/render and ordinary
+gameplay verification remain required. Parent T06 and the full goal stay open.

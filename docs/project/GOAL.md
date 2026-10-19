@@ -50,6 +50,18 @@ Initial allowances and later observations are distinguished below. Neither is a 
 
 Actual sampled viewport3440×1296/DPR1, visible59.9–60FPS at a60FPS cap; this is not a continuous frame-time or heavy-scene measurement. Simulated population remains disabled. Full engineering effort/API cost was not reliably metered; paired dispatch durations are task-level elapsed observations. Setup required item-table repair and further Chinese/rendering work, so the initial2–4hour assumption is not a delivery promise. T07 re-estimates from the remaining inventory.
 
+Current cost decisions, clarified after the user's cost question on2026-10-19:
+
+- No current step is stopped by a verified financial limit. Continue the existing RO stack; a full engine reconstruction remains deferred because it adds implementation and verification work without establishing broader playable coverage first.
+- Follow the user's functionality-first order and reuse available Taiwan text/resources before bulk translation. Remaining translation is deferred work, not removed from the final goal.
+- Keep independent Claude/Grok comparison on every bounded task. Size tasks around meaningful reviewable deliverables, grouping related small checks within them; do not create a new paired task for each assertion or routine command. Freeze common inputs once and repeat checks when changed source, failures or unresolved concerns justify them.
+- The inspected Mac has headroom in the measured baseline; there is no identified hardware/cloud purchase needed for the current checks. This is not a heavy-scene guarantee. Exact provider billing is not observed, so no invented money total or projected saving is reported. Track observable task duration, rework and local resource use; T07 must still produce a gap-based full estimate.
+
+The82remaining RSW resource gaps are open compatibility/content work. Buying
+more compute is not an established remedy. If investigation shows a critical
+issue that may force a goal change, present the evidence/options to the user
+before changing scope; a long task alone does not authorize reducing coverage.
+
 Internet remains connected at the user's instruction. [Calibrated connected metrics](reviews/2026-10-18-T04.004.md) demonstrate local traffic and a guest-NAT blind spot in host per-process counters; quiet counters cannot establish full offline operation. Earlier guest-only denial/play is limited separate evidence. Do not disconnect the Mac or mark full host/browser offline proof passed.
 
 ## Historical starting state before T01–T05
