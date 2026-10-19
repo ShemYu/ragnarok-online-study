@@ -4,13 +4,16 @@
 The input is the pinned rAthena `academy.txt` packaged with Ragnarok Offline
 v1.6.3 (CP949 file; the Carocc block itself is ASCII). Only its Izlude Captain
 Carocc `script` block (lines 388-798) is copied, under the new internal name
-`Captain Carocc#t05zh`. Exactly eight display literals are translated: the two
-opening `mes` lines, the three `case 1` (Hello?) `mes` lines and the three
-labels of that `select`. Every other byte of the block is kept, including its
-own OnInit/OnTouch, tabs and line endings. A separate hidden controller,
-`T05CaroccZHInit`, disables the stock `Captain Carocc#iz` from OnInit.
+`Captain Carocc#t05zh`. Exactly nine display literals are translated: the two
+opening `mes` lines, the three `case 1` (Hello?) `mes` lines, the three
+labels of that `select` and, since 0.2.0, the one active-7472 revisit `mes`
+sentence on line 693 that carries the <NAVI>[Hun] link; its NAVI markup is kept
+byte for byte inside the translated literal. Every other byte of the block is
+kept, including its own OnInit/OnTouch, tabs and line endings. A separate
+hidden controller, `T05CaroccZHInit`, disables the stock `Captain Carocc#iz`
+from OnInit.
 
-Masking the eight translations and the header name back must reproduce the
+Masking the nine translations and the header name back must reproduce the
 source block byte for byte; this is checked before anything is written.
 Standard library only. The input is only read. Output is never overwritten.
 """
@@ -26,7 +29,7 @@ import stat
 import sys
 import tempfile
 
-VERSION = "0.1.0"
+VERSION = "0.2.0"
 MOD_NAME = "tw-carocc-pilot"
 SCRIPT_PATH = "npc/carocc_zh_pilot.txt"
 MOD_JSON = {
@@ -34,7 +37,9 @@ MOD_JSON = {
     "version": VERSION,
     "author": "local generator (T05.001)",
     "description": "Pilot: Captain Carocc in Izlude greets new Novices in Traditional "
-                   "Chinese (opening, Hello? reply and menu). Other branches stay English.",
+                   "Chinese (opening, Hello? reply and menu) and translates one active-7472 "
+                   "revisit NAVI sentence. Other text remains subject to existing client "
+                   "translation or English fallback.",
     "requires": {"app": ">=1.6.3", "era": "renewal"},
 }
 
@@ -70,6 +75,8 @@ PINNED = Source(
 
 # (source line, kind, English literal, Traditional Chinese). Latin proper names
 # Carocc/Izlude are kept: their official Chinese forms are not established.
+# The ninth entry (active-7472 revisit) keeps its <NAVI>...</NAVI> link bytes,
+# [Hun] name and izlude,122,207 target verbatim; only the prose around it changes.
 TRANSLATIONS = (
     (569, "mes", "Hello?", "你好？"),
     (570, "mes", "Is it your first time on Izlude?", "你是第一次來到 Izlude 嗎？"),
@@ -79,11 +86,14 @@ TRANSLATIONS = (
     (575, "mes", "You look strong and able!", "你看起來既強壯又能幹！"),
     (576, "mes", "I like able people like you!", "我就喜歡像你這樣能幹的人！"),
     (577, "mes", "Always be healthy and strong as you are now.", "希望你永遠都像現在這樣健康又強壯。"),
+    (693, "mes", "My friend <NAVI>[Hun]<INFO>izlude,122,207</INFO></NAVI> will be around the academy entrance.",
+     "我的朋友 <NAVI>[Hun]<INFO>izlude,122,207</INFO></NAVI> 就在學院入口附近。"),
 )
 
 LIMITS = (
-    "Only the novice first-visit opening, its menu and the Hello? reply are Chinese; "
-    "choices 2 and 3, every other level/job/quest branch and the Pharos/Alberta menus stay English.",
+    "Only the novice first-visit opening, its menu, the Hello? reply and one active-7472 revisit "
+    "NAVI sentence are authored in Chinese; all other source literals remain unchanged and use "
+    "existing client translation or English fallback.",
     "Speaker tag [Carocc] and the Latin names Carocc/Izlude are kept as in the source.",
     "Duplicates on izlude_a..izlude_d (source lines 800-803) are not copied or disabled; they stay English.",
     "No runtime check: loading, client rendering and dialogue flow are verified by the coordinator.",

@@ -1,19 +1,48 @@
-# Traditional Chinese Captain Carocc pilot (T05.001)
+# Traditional Chinese Captain Carocc pilot (T05.001, 0.2.0 by T05.012)
 
 `carocc_zh_pilot.py` builds the server-script mod **tw-carocc-pilot** from the
 pinned rAthena `academy.txt` packaged with Ragnarok Offline v1.6.3. Captain
-Carocc in Izlude then greets a new Novice in Traditional Chinese. Python 3
-standard library only. Nothing is installed and no game state is touched.
+Carocc in Izlude then greets a new Novice in Traditional Chinese, and one
+sentence of his active-7472 revisit is Chinese too. Python 3 standard library
+only. Nothing is installed and no game state is touched.
 
 ```sh
+umask 077
 python3 -I tools/renewal/carocc_zh_pilot.py \
-  /path/to/T04-source/academy.txt .tools/renewal/T05.001/candidate
-CAROCC_ACADEMY=/path/to/T04-source/academy.txt \
-  python3 -I -m unittest discover -s tools/renewal
+  /path/to/academy.txt .tools/renewal/<new-private-dir>/candidate
+CAROCC_ACADEMY=/path/to/academy.txt \
+  python3 -I -m unittest discover -s tools/renewal -p test_carocc_zh_pilot.py -v
 ```
 
-Without `CAROCC_ACADEMY` the three real-input tests are reported as skipped;
-the synthetic and publication tests still run. No stock script is committed.
+Without `CAROCC_ACADEMY` the six real-input tests are reported as skipped;
+the synthetic and publication tests still run. A skipped run is not a
+production pass. No stock script is committed.
+
+## Version 0.2.0 (T05.012)
+
+0.1.0 had eight authored translations. In the real active-7472 Carocc revisit
+(six pages, source lines 673–699) the plain `mes` body lines already render
+Chinese through the existing client dictionary, but the line holding the Hun
+navigation link stayed English: the plain-text adapter skips rows that contain
+`<NAVI>` markup. 0.2.0 adds that one sentence, source line **693**, as a ninth
+`mes` translation. The eight 0.1.0 entries, their order and bytes are
+unchanged; so is every function of the generator. The other revisit lines are
+not authored here and still depend on the existing dictionary.
+
+The link markup `<NAVI>[Hun]<INFO>izlude,122,207</INFO></NAVI>` is copied byte
+for byte inside the translated literal; only the prose around it changes. The
+`viewpoint 1,122,207,…` on line 695, the five `next;`, the `close;`, the cutins
+and the `[Carocc]`/`[Lumin]`/ellipsis lines of that branch are unchanged, and
+it still writes no quest, EXP, item, zeny or warp. Hun himself (source
+824–827, which completes 7472) is not part of the copied block.
+
+With the pinned input, the default output is exactly:
+
+| File | Bytes | SHA-256 |
+| --- | --- | --- |
+| `tw-carocc-pilot/npc/carocc_zh_pilot.txt` | 16,526 | `9eedc4c3…00973aa1` |
+| `tw-carocc-pilot/mod.json` | 419 | `c9e9b733…6874488d` |
+| `generation-manifest.json` | 3,326 | `071da5e3…bc79d4aa` |
 
 ## What it produces
 
@@ -39,7 +68,7 @@ The script holds three parts:
    `disablenpc "Captain Carocc#iz";`. The stock academy is not edited or
    unloaded, and the other-map duplicates are left alone.
 
-Exactly eight display literals are translated. Latin names Carocc and Izlude
+Exactly nine display literals are translated. Latin names Carocc and Izlude
 stay, because their official Chinese forms are not established. The speaker tag
 `[Carocc]` stays.
 
@@ -53,6 +82,7 @@ stay, because their official Chinese forms are not established. The speaker tag
 | 575 | mes | You look strong and able! | 你看起來既強壯又能幹！ |
 | 576 | mes | I like able people like you! | 我就喜歡像你這樣能幹的人！ |
 | 577 | mes | Always be healthy and strong as you are now. | 希望你永遠都像現在這樣健康又強壯。 |
+| 693 | mes | My friend `<NAVI>[Hun]<INFO>izlude,122,207</INFO></NAVI>` will be around the academy entrance. | 我的朋友 `<NAVI>[Hun]<INFO>izlude,122,207</INFO></NAVI>` 就在學院入口附近。 |
 
 ## What it checks before writing
 
@@ -66,9 +96,10 @@ stay, because their official Chinese forms are not established. The speaker tag
 - Translations are not escaped. A `"`, `\`, `^` colour code, control or line
   separator, and in `select` labels the `:` option separator, is refused, as is
   a label without Chinese characters.
-- Masking the eight translations and the header name back must reproduce the
-  source block **byte for byte** (tabs, LF endings). Only the header and the
-  six translated lines may differ, and counts of `mes`, `select(`, `next;`,
+- Masking the nine translations and the header name back must reproduce the
+  complete 411-line source block **byte for byte** (tabs, LF endings, NAVI
+  markup). Only the header and the seven translated lines (569, 570, 572,
+  575–577, 693) may differ, and counts of `mes`, `select(`, `next;`,
   `close`, `case`, item/EXP/zeny/warp/quest/viewpoint/navigation/cutin tokens
   must match.
 - The input file is only read. Its bytes are never recoded; only the copied
@@ -98,12 +129,21 @@ directory, restart, and check the load log. Turning the mod off and restarting
 removes the clone and the controller, so the stock English Captain Carocc#iz
 is back. No SQL, quest or save change is involved.
 
+Source rollback is a revert of the T05.012 commit, which restores the 0.1.0
+generator and tests; regenerating then gives the 0.1.0 output. Git does not
+restore an installed mod, saves or the app database. Replacing an installed
+0.1.0 pilot with 0.2.0 (or back) is a later root-only step that needs its own
+tested external-state backup and save/re-entry checks.
+
 ## Limits
 
-- Only the first-visit Novice opening, its menu and the Hello? reply are
-  Chinese. Choices 2 and 3, the 4269/7471/7472 branches, the post-novice
-  Pharos/Alberta menus and all other text stay English.
+- Authored Chinese covers only the first-visit Novice opening, its menu, the
+  Hello? reply and the one active-7472 NAVI sentence (line 693). All other
+  literals are copied unchanged and rely on the existing client translation
+  or fall back to English.
 - Duplicates on `izlude_a`..`izlude_d` stay English and enabled.
 - Not checked here: the map server loading the script, client rendering of the
   UTF-8 text, menu clipping, the quest marker of the clone, or dialogue flow.
-  The coordinator verifies those in the running game.
+  Source generation does not prove that the client renders the Chinese line
+  693 or that its NAVI link still shows and targets izlude 122,207. The
+  coordinator verifies those in the running game.

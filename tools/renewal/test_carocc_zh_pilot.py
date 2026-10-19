@@ -19,6 +19,22 @@ sys.path.insert(0, str(Path(__file__).resolve().parent))
 import carocc_zh_pilot as pilot  # noqa: E402
 
 ACADEMY = os.environ.get("CAROCC_ACADEMY")
+PROFILE = Path(__file__).resolve().parents[2] / "docs/project/fixtures/T05.012-profile.json"
+
+# The 0.1.0 translations, which 0.2.0 must keep byte for byte and in order.
+ORIGINAL_EIGHT = (
+    (569, "mes", "Hello?", "你好？"),
+    (570, "mes", "Is it your first time on Izlude?", "你是第一次來到 Izlude 嗎？"),
+    (572, "select", "Hello?", "你好？"),
+    (572, "select", "Let me get on the ship!", "讓我上船吧！"),
+    (572, "select", "I don't know what to do.", "我不知道該做什麼。"),
+    (575, "mes", "You look strong and able!", "你看起來既強壯又能幹！"),
+    (576, "mes", "I like able people like you!", "我就喜歡像你這樣能幹的人！"),
+    (577, "mes", "Always be healthy and strong as you are now.", "希望你永遠都像現在這樣健康又強壯。"),
+)
+NAVI = b"<NAVI>[Hun]<INFO>izlude,122,207</INFO></NAVI>"
+LINE_693_EN = b"My friend " + NAVI + b" will be around the academy entrance."
+LINE_693_ZH = "我的朋友 ".encode() + NAVI + " 就在學院入口附近。".encode()
 
 SYNTHETIC = (
     b"// synthetic, not stock\n"
@@ -127,14 +143,34 @@ class SyntheticTests(unittest.TestCase):
         with self.assertRaisesRegex(pilot.PilotError, "':'"):
             pilot.script_literal("注意:好", "select")
 
-    def test_pinned_translations_are_valid_and_eight(self):
-        self.assertEqual(len(pilot.TRANSLATIONS), 8)
+    def test_pinned_translations_are_valid_and_nine(self):
+        self.assertEqual(len(pilot.TRANSLATIONS), 9)
+        self.assertEqual(pilot.TRANSLATIONS[:8], ORIGINAL_EIGHT)
         kinds = [k for _, k, _, _ in pilot.TRANSLATIONS]
-        self.assertEqual((kinds.count("mes"), kinds.count("select")), (5, 3))
+        self.assertEqual((kinds.count("mes"), kinds.count("select")), (6, 3))
         for _, kind, english, chinese in pilot.TRANSLATIONS:
             pilot.script_literal(chinese, kind)
             for name in ("Izlude", "Carocc"):
                 self.assertEqual(name in english, name in chinese)
+
+    def test_ninth_translation_keeps_navi_markup(self):
+        line, kind, english, chinese = pilot.TRANSLATIONS[8]
+        self.assertEqual((line, kind), (693, "mes"))
+        self.assertEqual((english.encode(), pilot.script_literal(chinese, kind)),
+                         (LINE_693_EN, LINE_693_ZH))
+        # The link payload occurs exactly once in both, and nothing else is markup.
+        for text in (english.encode(), chinese.encode()):
+            self.assertEqual(text.count(NAVI), 1)
+            rest = text.replace(NAVI, b"")
+            self.assertFalse(any(c in rest for c in b"<>[]^"), rest)
+
+    def test_navi_literal_on_synthetic_mes_line(self):
+        data = SYNTHETIC.replace(b'"Fine.";', b'"Go to ' + NAVI + b' now.";')
+        script, meta = self.generate(data, ((7, "mes", "Go to " + NAVI.decode() + " now.",
+                                             "去 " + NAVI.decode() + " 吧。"),), source_for(data))
+        block, _ = block_of(script)
+        self.assertEqual(block[5], b'\t\tmes "' + "去 ".encode() + NAVI + " 吧。".encode() + b'";\n')
+        self.assertEqual(meta["translations"][0]["line"], 7)
 
 
 class PublishTests(unittest.TestCase):
@@ -237,7 +273,7 @@ class PinnedInputTests(unittest.TestCase):
         block, rest = block_of(self.script)
         self.assertEqual(len(block), 411)
         changed = {388 + i: (a, b) for i, (a, b) in enumerate(zip(src, block)) if a != b}
-        self.assertEqual(sorted(changed), [388, 569, 570, 572, 575, 576, 577])
+        self.assertEqual(sorted(changed), [388, 569, 570, 572, 575, 576, 577, 693])
         self.assertEqual(changed[388][1],
                          b"izlude,198,213,3\tscript\tCaptain Carocc#t05zh\t4_M_REINDEER,5,5,{\n")
         expected = {
@@ -247,6 +283,7 @@ class PinnedInputTests(unittest.TestCase):
             575: '\t\t\t\t\t\tmes "你看起來既強壯又能幹！";\n',
             576: '\t\t\t\t\t\tmes "我就喜歡像你這樣能幹的人！";\n',
             577: '\t\t\t\t\t\tmes "希望你永遠都像現在這樣健康又強壯。";\n',
+            693: '\t\t\t\t\tmes "我的朋友 <NAVI>[Hun]<INFO>izlude,122,207</INFO></NAVI> 就在學院入口附近。";\n',
         }
         for line, text in expected.items():
             self.assertEqual(changed[line][1], text.encode("utf-8"), line)
@@ -261,11 +298,60 @@ class PinnedInputTests(unittest.TestCase):
         self.assertNotIn(b"duplicate(", self.script)
         self.assertEqual(self.script.count(b"\tscript\t"), 2)
 
+    def test_line_693_navi_sentence(self):
+        src = pilot.split_lines(self.data)
+        block, _ = block_of(self.script)
+        self.assertEqual(src[692], b'\t\t\t\t\tmes "' + LINE_693_EN + b'";\n')
+        self.assertEqual(block[693 - 388], b'\t\t\t\t\tmes "' + LINE_693_ZH + b'";\n')
+        # The link payload, its map/coordinates and the matching viewpoint are unchanged.
+        raw = b"".join(src[387:798])
+        for token in (NAVI, b"<NAVI>", b"</NAVI>", b"<INFO>", b"<ITEM>", b"^"):
+            self.assertEqual(b"".join(block).count(token), raw.count(token), token)
+        self.assertEqual(block[695 - 388], src[694])
+        self.assertIn(b"viewpoint 1,122,207,1,0x4d4dff;", block[695 - 388])
+
+    def test_active_7472_branch_only_693_changes(self):
+        src = pilot.split_lines(self.data)[672:699]
+        block, _ = block_of(self.script)
+        out = block[673 - 388:699 - 388 + 1]
+        self.assertEqual(src[0], b"\t\t\t\t} else if (isbegin_quest(7472) == 1) {\n")
+        self.assertEqual(out[-1], b"\t\t\t\t\tclose;\n")
+        self.assertEqual([673 + i for i, (a, b) in enumerate(zip(src, out)) if a != b], [693])
+        branch = b"".join(out)
+        self.assertEqual((branch.count(b"next;"), branch.count(b"close;"), branch.count(b"viewpoint")),
+                         (5, 1, 1))
+        for token in (b"getitem", b"getexp", b"setquest", b"completequest", b"Zeny", b"warp", b"erasequest"):
+            self.assertNotIn(token, branch)
+        for kept in (b'"[Carocc]"', b'"[Lumin]"', b'"........."', b'cutin "nov_lumin01.bmp", 0;', b'cutin "", 255;'):
+            self.assertIn(kept, branch)
+
+    def test_mask_restores_complete_stock_block(self):
+        src = pilot.split_lines(self.data)[387:798]
+        block, _ = block_of(self.script)
+        restored = list(block)
+        restored[0] = restored[0].replace(b"\tCaptain Carocc#t05zh\t", b"\tCaptain Carocc#iz\t")
+        for line, _, english, chinese in pilot.TRANSLATIONS:
+            quoted = b'"' + chinese.encode() + b'"'
+            self.assertEqual(restored[line - 388].count(quoted), 1, line)
+            restored[line - 388] = restored[line - 388].replace(quoted, b'"' + english.encode() + b'"')
+        self.assertEqual(len(restored), 411)
+        self.assertEqual(restored, src)
+        self.assertEqual(hashlib.sha256(b"".join(restored)).hexdigest(), pilot.PINNED.block_sha256)
+        # The original eight Chinese literals are byte-identical to 0.1.0.
+        for line, _, _, chinese in ORIGINAL_EIGHT:
+            self.assertIn(b'"' + chinese.encode() + b'"', block[line - 388])
+
     def test_manifest_and_determinism(self):
         self.assertEqual(self.meta["input"]["sha256"], pilot.PINNED.sha256)
         self.assertEqual(self.meta["excluded_duplicates"]["names"],
                          [f"Captain Carocc#iz_{c}" for c in "abcd"])
-        self.assertEqual(len(self.meta["translations"]), 8)
+        self.assertEqual(len(self.meta["translations"]), 9)
+        self.assertEqual(self.meta["translations"][8],
+                         {"line": 693, "kind": "mes", "en": LINE_693_EN.decode(),
+                          "zh_hant": LINE_693_ZH.decode()})
+        self.assertEqual(self.meta["generator_version"], "0.2.0")
+        profile = json.loads(PROFILE.read_text("utf-8"))
+        self.assertEqual(self.meta["limits"], [profile["limits_first"]] + profile["limits_remaining"])
         again, meta = pilot.generate(self.data)
         self.assertEqual((again, meta), (self.script, self.meta))
 
@@ -279,6 +365,12 @@ class PinnedInputTests(unittest.TestCase):
                 with mock.patch("sys.stderr"):
                     self.assertEqual(pilot.main([ACADEMY, str(out)]), 2)
             self.assertEqual((out / pilot.MOD_NAME / pilot.SCRIPT_PATH).read_bytes(), self.script)
+            files = sorted(p.relative_to(out).as_posix() for p in out.rglob("*") if p.is_file())
+            expected = json.loads(PROFILE.read_text("utf-8"))["expected_outputs"]
+            self.assertEqual(files, sorted(expected))
+            for name, pin in expected.items():
+                data = (out / name).read_bytes()
+                self.assertEqual({"bytes": len(data), "sha256": hashlib.sha256(data).hexdigest()}, pin, name)
         self.assertEqual(hashlib.sha256(Path(ACADEMY).read_bytes()).hexdigest(), before)
         self.assertEqual(before, pilot.PINNED.sha256)
 
