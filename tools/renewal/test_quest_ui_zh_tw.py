@@ -131,6 +131,14 @@ def parse(html):
 class SourceShapeTests(unittest.TestCase):
     """Checks that need no bundle."""
 
+    def test_wrong_type_diagnostics_are_bounded(self):
+        value = type("X" * 10000, (), {})()
+        for fn in (quest.transform_bundle, quest.restore_bundle):
+            with self.subTest(function=fn.__name__):
+                with self.assertRaises(ValueError) as caught:
+                    fn(value)
+                self.assertLess(len(str(caught.exception)), 200)
+
     def test_pins_and_counts_match_task(self):
         self.assertEqual((quest.INPUT_BYTES, quest.INPUT_SHA256), (IN_BYTES, IN_SHA))
         self.assertEqual((quest.OUTPUT_BYTES, quest.OUTPUT_SHA256), (OUT_BYTES, OUT_SHA))
@@ -384,4 +392,13 @@ class ActualInputTests(unittest.TestCase):
 
 
 if __name__ == "__main__":
-    unittest.main()
+    # Adopt the paired Grok candidate's explicit incomplete-run status.
+    program = unittest.main(exit=False)
+    result = program.result
+    if result.failures or result.errors:
+        sys.exit(1)
+    if result.skipped:
+        sys.stderr.write("NOT A FULL PASS: skipped %d (%s)\n" % (
+            len(result.skipped), "; ".join(str(reason) for _, reason in result.skipped)))
+        sys.exit(2)
+    sys.exit(0)

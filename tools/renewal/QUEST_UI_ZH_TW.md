@@ -28,7 +28,8 @@ original = quest.restore_bundle(localized)    # bytes -> bytes
 Each function accepts exactly one `bytes` object (not `str`, `bytearray`,
 `memoryview` or a `bytes` subclass) and either returns the other pinned bundle
 or raises `ValueError` with a short diagnosis naming the failed check or site
-id. Error wording is not a contract. There is no best-effort output.
+id. Diagnostics omit caller-controlled type names so they remain bounded.
+Error wording is not a contract. There is no best-effort output.
 
 Python 3.9 standard library only; the module imports `hashlib` and nothing
 else. It reads no file, environment, network or profile, starts no process,
@@ -88,9 +89,11 @@ T05_011_BUNDLE=<frozen Online.js> python3 -I -B tools/renewal/test_quest_ui_zh_t
 ```
 
 `T05_011_BUNDLE` is only read. Without it (or if the path is not a file) the
-10 actual-input tests are reported as skipped (`missing-input`), never passed;
-an existing file that does not match the input pin fails. The 8 source-shape
-tests always run.
+10 actual-input tests are reported as skipped (`missing-input`) and the runner
+exits 2, never a full pass; this explicit status follows the paired Grok
+candidate. Exit 0 means all tests passed with no skips; failures/errors exit 1.
+An existing file that does not match the input pin fails. The 9 source-shape
+tests always run, including a regression for long invalid type names.
 
 Source-shape tests: pins/count, AST purity (only `hashlib`; no file, process,
 eval or environment names), term table and tab captions authored from the task
@@ -108,8 +111,10 @@ sequence plus exactly four caption spans, four `li` in original id/class order
 with the four captions, both Close buttons once each, no remaining English
 labels, CSS equal to original plus the frozen append; hidden row fallbacks in
 place; refusals of truncated, grown, inside-site, unchanged-piece and
-wrong-direction bytes; and per-site fragment refusals for all 23 sites in both
-directions with the whole pin re-aimed at the mutated bytes.
+wrong-direction bytes; and per-site fragment refusals for the 18 nonempty
+forward fragments and all 23 inverse fragments, with the whole pin re-aimed
+at the mutated bytes. The five empty forward insertions are covered by exact
+positive site/output checks; they supply no nonempty fragment to mutate.
 
 ## Limits
 

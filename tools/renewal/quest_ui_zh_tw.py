@@ -115,7 +115,7 @@ def _splice(data, sites, size, sha256, result_size, result_sha256, what):
     be `result_size`/`result_sha256`.
     """
     if type(data) is not bytes:
-        raise ValueError("%s: expected bytes, got %s" % (what, type(data).__name__))
+        raise ValueError("%s: expected bytes" % what)
     if len(data) != size:
         raise ValueError("%s: expected %d bytes, got %d" % (what, size, len(data)))
     if hashlib.sha256(data).hexdigest() != sha256:

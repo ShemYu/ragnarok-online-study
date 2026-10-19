@@ -5,6 +5,7 @@ Related tools have separate scope and input pins:
 - [Immutable shipped-server snapshot](SERVER_SNAPSHOT.md) — T06.001.
 - [Ordered stock map/NPC configuration selection](SERVER_SELECTION.md) — T06.002.001.
 - [Traditional Chinese Carocc pilot](CAROCC_ZH_PILOT.md) — T05.001.
+- [Modern Quest Chinese chrome transform and exact inverse](QUEST_UI_ZH_TW.md) — T05.011 source tool; installation and native checks are separate.
 
 ## Taiwan item table to UTF-8 source mod (T04.003)
 
