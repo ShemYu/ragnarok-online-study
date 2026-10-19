@@ -104,12 +104,13 @@ Install -> check six pages and the same link target               [V]
 Check save and normal re-entry                                   [V]
 Check full-app cold start                                        [V]
 Test old-pilot rollback                                          [V]
-Reapply the new pilot                                            [ ] <-- NOW
-Commit evidence -> ready for your evaluation                      [ ]
+Reapply the new pilot                                            [V]
+Final checks -> commit -> leave the game running                   [ ] <-- NOW
 ```
 
 The real six-page dialogue and save/re-entry pass.
-Full-app cold start and old-pilot rollback pass. Reapply is next.
+Cold start, old-pilot rollback and Chinese reapply pass.
+Final checks and the game-running handoff are next.
 See the [story repair checks](reviews/2026-10-19-T05.012.md).
 
 ## Latest completed task: T05.011 Quest window
