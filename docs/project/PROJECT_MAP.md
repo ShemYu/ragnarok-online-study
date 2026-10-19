@@ -66,7 +66,8 @@ P1  PROVE A PLAYABLE CHINESE FOUNDATION
              |
              +-- T05.009 Navigation UI: ready for you
              +-- T05.010 Active quest sample: ready for you
-             +-- T05.011 Quest window: source and visual checks
+             +-- T05.011 Quest window: ready for you
+             +-- Next: mixed story and actual Chinese IME checks
 
 P2  DEFINE WHAT "ALL" COVERS
     T06 World/text inventory                                   [~]
@@ -91,7 +92,7 @@ T04-T06 are active. The other seven main tasks remain planned.
 We exclude child tasks from this count. The figure does not measure time, translation or playable content.
 We need the content list and gap list before we can give a reliable full cost or delivery date.
 
-## Current task: T05.011 Quest window
+## Latest completed task: T05.011 Quest window
 
 ```text
 Fixed inputs and independent expected output                    [V]
@@ -104,8 +105,8 @@ Actual quest tabs, controls, save and normal re-entry             [V]
 Same-ON cold restart                                             [V]
 Quest-only rollback                                              [V]
 Chinese Quest reapply                                            [V]
-Remove test files -> check normal game page                      [ ]
-Task ready for your evaluation                                  [ ]
+Remove test files -> check normal game page                      [V]
+Task ready for your evaluation                                  [V] <-- DONE
 ```
 
 The separate browser uses sample data and exact source fragments.
@@ -114,7 +115,8 @@ The first Quest build is installed. Chinese Navigation stays enabled.
 The browser loads the correct file and refuses the opposite file pin.
 Actual Chinese quest tabs, controls and save/re-entry now pass.
 Cold restart, Quest-only rollback and Chinese reapply pass.
-Test-file cleanup and the normal game page come next.
+Test files are gone. The normal game page and saved progress pass.
+The game stays running with the Chinese Quest window open.
 See the [Quest checks](reviews/2026-10-19-T05.011.md).
 
 ## Completed task: T05.009 Navigation
@@ -139,7 +141,7 @@ The app process is15628. Its asset process is15987. The server is Ready.
 You cleared the control question. Codex walked normally to Carocc.
 The latest save is Izlude197,212with active quest7472.
 Its Chinese title, summary and full details pass save/re-entry checks.
-The owned test page is at character selection. All six aliases remain ON.
+The normal game page is running. All six aliases remain ON.
 Both source catalogs match the independent raw-byte check.
 Codex fixed the selected Claude tool. All36tests pass.
 The raw source catalog is ready for inspection. Story coverage stays open.
@@ -162,6 +164,7 @@ Native checks preserve all earned state; latest save starts with5a7ba7cf.
 Cold restart also passes; its latest save starts with4636b754.
 Quest-only rollback passes; the latest save starts with5ff96440.
 Chinese Quest reapply passes; the latest save starts with0c9ad259.
+Normal-page save 6194b3fe also passes; only last_login changes.
 The Navigation final receipt starts with7db72312.
 See the full results, rollback limits and private resume paths in
 the [delivery record](reviews/2026-10-19-T05.009-delivery.md#final-owned-cleanup-and-ordinary-page-handoff-qualified).
