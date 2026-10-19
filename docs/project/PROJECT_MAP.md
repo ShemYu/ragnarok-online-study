@@ -110,7 +110,8 @@ Observe the larger file with a new limit; preserve the first run  [V]
 Compare actual Claude and Grok constructor runners               [V]
 Repair the runner; pass 27 tests and all 26 fixture cases          [V]
 Check all 2,761 core-file jobs and all worker exits                [V]
-Check model and texture coverage                                 [ ] <-- NEXT
+Build the first model and texture request catalog                 [~] <-- NOW
+Check model and texture availability                             [ ]
 Investigate eight files with NaN values and twelve unread tails   [ ]
 Check compilation, rendering, travel and play                     [ ]
 Find compatible assets for the 82 unresolved requests             [ ]

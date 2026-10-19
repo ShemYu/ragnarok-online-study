@@ -1,0 +1,5836 @@
+{
+  "schema": "T06-map-dependency-authored-1",
+  "input": {
+    "rows": [
+      {
+        "id": "authored-0",
+        "kind": "rsw",
+        "complete_sha256": "0000000000000000000000000000000000000000000000000000000000000001",
+        "input_bytes": 1,
+        "header_version_bytes": [
+          1,
+          2
+        ],
+        "outcome": "returned",
+        "constructor_returned": true,
+        "worker_started": true,
+        "cleanup": {
+          "exit_observed": true
+        },
+        "summary": {
+          "model_dependencies": [
+            {
+              "object_index": 0,
+              "filename": "A.rsm",
+              "nodename": "node-0"
+            },
+            {
+              "object_index": 1,
+              "filename": "A.rsm ",
+              "nodename": "node-1"
+            },
+            {
+              "object_index": 2,
+              "filename": "A.rsm",
+              "nodename": "node-2"
+            },
+            {
+              "object_index": 3,
+              "filename": "a.rsm",
+              "nodename": "node-3"
+            }
+          ]
+        }
+      },
+      {
+        "id": "authored-1",
+        "kind": "gnd",
+        "complete_sha256": "0000000000000000000000000000000000000000000000000000000000000002",
+        "input_bytes": 1,
+        "header_version_bytes": [
+          1,
+          2
+        ],
+        "outcome": "returned",
+        "constructor_returned": true,
+        "worker_started": true,
+        "cleanup": {
+          "exit_observed": true
+        },
+        "summary": {
+          "textures": [
+            "tiles\\A B.bmp",
+            "tiles/A B.bmp",
+            "!'()*%#.bmp",
+            "\u00b3\\Q.bmp",
+            "\u00a0x.bmp\u00a0"
+          ],
+          "texture_indexes": [
+            0,
+            0,
+            1,
+            2,
+            3,
+            4
+          ]
+        }
+      },
+      {
+        "id": "authored-2",
+        "kind": "gat",
+        "complete_sha256": "0000000000000000000000000000000000000000000000000000000000000003",
+        "input_bytes": 1,
+        "header_version_bytes": [
+          1,
+          2
+        ],
+        "outcome": "returned",
+        "constructor_returned": true,
+        "worker_started": true,
+        "cleanup": {
+          "exit_observed": true
+        },
+        "summary": {}
+      },
+      {
+        "id": "authored-3",
+        "kind": "rsw",
+        "complete_sha256": "0000000000000000000000000000000000000000000000000000000000000004",
+        "input_bytes": 1,
+        "header_version_bytes": [
+          1,
+          2
+        ],
+        "outcome": "returned",
+        "constructor_returned": true,
+        "worker_started": true,
+        "cleanup": {
+          "exit_observed": true
+        },
+        "summary": {
+          "model_dependencies": []
+        }
+      },
+      {
+        "id": "authored-4",
+        "kind": "gnd",
+        "complete_sha256": "0000000000000000000000000000000000000000000000000000000000000005",
+        "input_bytes": 1,
+        "header_version_bytes": [
+          1,
+          2
+        ],
+        "outcome": "returned",
+        "constructor_returned": true,
+        "worker_started": true,
+        "cleanup": {
+          "exit_observed": true
+        },
+        "summary": {
+          "textures": [],
+          "texture_indexes": []
+        }
+      },
+      {
+        "id": "authored-5",
+        "kind": "rsw",
+        "complete_sha256": "0000000000000000000000000000000000000000000000000000000000000006",
+        "input_bytes": 1,
+        "header_version_bytes": [
+          1,
+          2
+        ],
+        "outcome": "returned",
+        "constructor_returned": true,
+        "worker_started": true,
+        "cleanup": {
+          "exit_observed": true
+        },
+        "summary": {
+          "model_dependencies": [
+            {
+              "object_index": 0,
+              "filename": "",
+              "nodename": "node-0"
+            },
+            {
+              "object_index": 1,
+              "filename": "/./odd//../x.rsm",
+              "nodename": "node-1"
+            },
+            {
+              "object_index": 2,
+              "filename": "__proto__",
+              "nodename": "node-2"
+            },
+            {
+              "object_index": 3,
+              "filename": "constructor",
+              "nodename": "node-3"
+            },
+            {
+              "object_index": 4,
+              "filename": "\u0085x.rsm\u0085",
+              "nodename": "node-4"
+            },
+            {
+              "object_index": 5,
+              "filename": "\ufefftail.rsm\ufeff",
+              "nodename": "node-5"
+            }
+          ]
+        }
+      }
+    ],
+    "roots": [
+      {
+        "ordinal": 0,
+        "configured": {
+          "source": "authored"
+        },
+        "name": "authored-map-0",
+        "extra": {
+          "preserve": [
+            "x",
+            false,
+            3
+          ]
+        },
+        "edges": {
+          "rsw": {
+            "job_id": "authored-0",
+            "parse_status": "authored-provenance",
+            "parse_outcome": "returned"
+          },
+          "gnd": {
+            "job_id": "authored-1",
+            "parse_status": "authored-provenance",
+            "parse_outcome": "returned"
+          },
+          "gat": {
+            "job_id": "authored-2",
+            "parse_status": "authored-provenance",
+            "parse_outcome": "returned"
+          }
+        }
+      },
+      {
+        "ordinal": 1,
+        "configured": null,
+        "name": "authored-map-1",
+        "extra": {
+          "preserve": [
+            "x",
+            false,
+            3
+          ]
+        },
+        "edges": {
+          "rsw": {
+            "job_id": "authored-0",
+            "parse_status": "authored-provenance",
+            "parse_outcome": "returned"
+          },
+          "gnd": {
+            "job_id": "authored-4",
+            "parse_status": "authored-provenance",
+            "parse_outcome": "returned"
+          },
+          "gat": {
+            "job_id": "authored-2",
+            "parse_status": "authored-provenance",
+            "parse_outcome": "returned"
+          }
+        }
+      },
+      {
+        "ordinal": 2,
+        "configured": {
+          "source": "authored"
+        },
+        "name": "authored-map-2",
+        "extra": {
+          "preserve": [
+            "x",
+            false,
+            3
+          ]
+        },
+        "edges": {
+          "rsw": {
+            "job_id": null,
+            "parse_status": "authored-provenance",
+            "parse_outcome": "unavailable_from_observation"
+          },
+          "gnd": {
+            "job_id": null,
+            "parse_status": "authored-provenance",
+            "parse_outcome": "unavailable_from_observation"
+          },
+          "gat": {
+            "job_id": null,
+            "parse_status": "authored-provenance",
+            "parse_outcome": "unavailable_from_observation"
+          }
+        }
+      },
+      {
+        "ordinal": 3,
+        "configured": {
+          "source": "authored"
+        },
+        "name": "authored-map-3",
+        "extra": {
+          "preserve": [
+            "x",
+            false,
+            3
+          ]
+        },
+        "edges": {
+          "rsw": {
+            "job_id": "authored-3",
+            "parse_status": "authored-provenance",
+            "parse_outcome": "returned"
+          },
+          "gnd": {
+            "job_id": "authored-1",
+            "parse_status": "authored-provenance",
+            "parse_outcome": "returned"
+          },
+          "gat": {
+            "job_id": "authored-2",
+            "parse_status": "authored-provenance",
+            "parse_outcome": "returned"
+          }
+        }
+      },
+      {
+        "ordinal": 4,
+        "configured": {
+          "source": "authored"
+        },
+        "name": "authored-map-4",
+        "extra": {
+          "preserve": [
+            "x",
+            false,
+            3
+          ]
+        },
+        "edges": {
+          "rsw": {
+            "job_id": "authored-5",
+            "parse_status": "authored-provenance",
+            "parse_outcome": "returned"
+          },
+          "gnd": {
+            "job_id": "authored-1",
+            "parse_status": "authored-provenance",
+            "parse_outcome": "returned"
+          },
+          "gat": {
+            "job_id": "authored-2",
+            "parse_status": "authored-provenance",
+            "parse_outcome": "returned"
+          }
+        }
+      }
+    ],
+    "remaining_gap_root_ordinals": [
+      2
+    ]
+  },
+  "expected": {
+    "counts": {
+      "roots": 5,
+      "jobs": 6,
+      "job_kinds": {
+        "rsw": 3,
+        "gnd": 2,
+        "gat": 1
+      },
+      "core_chain_roots": 4,
+      "remaining_gap_roots": 1,
+      "root_edge_references": 12,
+      "occurrences": {
+        "model": 10,
+        "ground_texture": 6
+      },
+      "loader_entries": {
+        "model": 9,
+        "ground_texture": 5
+      },
+      "root_expanded_occurrences": {
+        "model": 14,
+        "ground_texture": 18
+      },
+      "root_expanded_loader_entries": {
+        "model": 12,
+        "ground_texture": 15
+      },
+      "distinct_names_by_role": {
+        "model": {
+          "raw": 9,
+          "logical": 9,
+          "filemanager": 8,
+          "http": 8
+        },
+        "ground_texture": {
+          "raw": 5,
+          "logical": 5,
+          "filemanager": 5,
+          "http": 4
+        }
+      },
+      "http_targets": 12
+    },
+    "roots": [
+      {
+        "ordinal": 0,
+        "configured": {
+          "source": "authored"
+        },
+        "name": "authored-map-0",
+        "extra": {
+          "preserve": [
+            "x",
+            false,
+            3
+          ]
+        },
+        "edges": {
+          "rsw": {
+            "job_id": "authored-0",
+            "parse_status": "authored-provenance",
+            "parse_outcome": "returned"
+          },
+          "gnd": {
+            "job_id": "authored-1",
+            "parse_status": "authored-provenance",
+            "parse_outcome": "returned"
+          },
+          "gat": {
+            "job_id": "authored-2",
+            "parse_status": "authored-provenance",
+            "parse_outcome": "returned"
+          }
+        }
+      },
+      {
+        "ordinal": 1,
+        "configured": null,
+        "name": "authored-map-1",
+        "extra": {
+          "preserve": [
+            "x",
+            false,
+            3
+          ]
+        },
+        "edges": {
+          "rsw": {
+            "job_id": "authored-0",
+            "parse_status": "authored-provenance",
+            "parse_outcome": "returned"
+          },
+          "gnd": {
+            "job_id": "authored-4",
+            "parse_status": "authored-provenance",
+            "parse_outcome": "returned"
+          },
+          "gat": {
+            "job_id": "authored-2",
+            "parse_status": "authored-provenance",
+            "parse_outcome": "returned"
+          }
+        }
+      },
+      {
+        "ordinal": 2,
+        "configured": {
+          "source": "authored"
+        },
+        "name": "authored-map-2",
+        "extra": {
+          "preserve": [
+            "x",
+            false,
+            3
+          ]
+        },
+        "edges": {
+          "rsw": {
+            "job_id": null,
+            "parse_status": "authored-provenance",
+            "parse_outcome": "unavailable_from_observation"
+          },
+          "gnd": {
+            "job_id": null,
+            "parse_status": "authored-provenance",
+            "parse_outcome": "unavailable_from_observation"
+          },
+          "gat": {
+            "job_id": null,
+            "parse_status": "authored-provenance",
+            "parse_outcome": "unavailable_from_observation"
+          }
+        }
+      },
+      {
+        "ordinal": 3,
+        "configured": {
+          "source": "authored"
+        },
+        "name": "authored-map-3",
+        "extra": {
+          "preserve": [
+            "x",
+            false,
+            3
+          ]
+        },
+        "edges": {
+          "rsw": {
+            "job_id": "authored-3",
+            "parse_status": "authored-provenance",
+            "parse_outcome": "returned"
+          },
+          "gnd": {
+            "job_id": "authored-1",
+            "parse_status": "authored-provenance",
+            "parse_outcome": "returned"
+          },
+          "gat": {
+            "job_id": "authored-2",
+            "parse_status": "authored-provenance",
+            "parse_outcome": "returned"
+          }
+        }
+      },
+      {
+        "ordinal": 4,
+        "configured": {
+          "source": "authored"
+        },
+        "name": "authored-map-4",
+        "extra": {
+          "preserve": [
+            "x",
+            false,
+            3
+          ]
+        },
+        "edges": {
+          "rsw": {
+            "job_id": "authored-5",
+            "parse_status": "authored-provenance",
+            "parse_outcome": "returned"
+          },
+          "gnd": {
+            "job_id": "authored-1",
+            "parse_status": "authored-provenance",
+            "parse_outcome": "returned"
+          },
+          "gat": {
+            "job_id": "authored-2",
+            "parse_status": "authored-provenance",
+            "parse_outcome": "returned"
+          }
+        }
+      }
+    ],
+    "remaining_gap_root_ordinals": [
+      2
+    ],
+    "jobs": [
+      {
+        "source_row_index": 0,
+        "id": "authored-0",
+        "kind": "rsw",
+        "complete_sha256": "0000000000000000000000000000000000000000000000000000000000000001",
+        "input_bytes": 1,
+        "header_version_bytes": [
+          1,
+          2
+        ],
+        "outcome": "returned",
+        "constructor_returned": true,
+        "root_references": [
+          {
+            "root_ordinal": 0,
+            "edge_kind": "rsw"
+          },
+          {
+            "root_ordinal": 1,
+            "edge_kind": "rsw"
+          }
+        ],
+        "role": "model",
+        "occurrence_summary_pointer": "/summary/model_dependencies",
+        "occurrence_loader_indexes": [
+          0,
+          1,
+          0,
+          2
+        ],
+        "loader_entries": [
+          {
+            "index": 0,
+            "source_name_pointer": "/summary/model_dependencies/0/filename",
+            "raw_name": "A.rsm",
+            "logical_name": "data\\model\\A.rsm",
+            "filemanager_name": "data\\model\\A.rsm",
+            "http_path": "data/model/A.rsm",
+            "target_index": 0
+          },
+          {
+            "index": 1,
+            "source_name_pointer": "/summary/model_dependencies/1/filename",
+            "raw_name": "A.rsm ",
+            "logical_name": "data\\model\\A.rsm ",
+            "filemanager_name": "data\\model\\A.rsm",
+            "http_path": "data/model/A.rsm",
+            "target_index": 0
+          },
+          {
+            "index": 2,
+            "source_name_pointer": "/summary/model_dependencies/3/filename",
+            "raw_name": "a.rsm",
+            "logical_name": "data\\model\\a.rsm",
+            "filemanager_name": "data\\model\\a.rsm",
+            "http_path": "data/model/a.rsm",
+            "target_index": 1
+          }
+        ]
+      },
+      {
+        "source_row_index": 1,
+        "id": "authored-1",
+        "kind": "gnd",
+        "complete_sha256": "0000000000000000000000000000000000000000000000000000000000000002",
+        "input_bytes": 1,
+        "header_version_bytes": [
+          1,
+          2
+        ],
+        "outcome": "returned",
+        "constructor_returned": true,
+        "root_references": [
+          {
+            "root_ordinal": 0,
+            "edge_kind": "gnd"
+          },
+          {
+            "root_ordinal": 3,
+            "edge_kind": "gnd"
+          },
+          {
+            "root_ordinal": 4,
+            "edge_kind": "gnd"
+          }
+        ],
+        "role": "ground_texture",
+        "occurrence_summary_pointer": "/summary/texture_indexes",
+        "occurrence_loader_indexes": [
+          0,
+          0,
+          1,
+          2,
+          3,
+          4
+        ],
+        "loader_entries": [
+          {
+            "index": 0,
+            "source_name_pointer": "/summary/textures/0",
+            "raw_name": "tiles\\A B.bmp",
+            "logical_name": "data\\texture\\tiles\\A B.bmp",
+            "filemanager_name": "data\\texture\\tiles\\A B.bmp",
+            "http_path": "data/texture/tiles/A%20B.bmp",
+            "target_index": 2
+          },
+          {
+            "index": 1,
+            "source_name_pointer": "/summary/textures/1",
+            "raw_name": "tiles/A B.bmp",
+            "logical_name": "data\\texture\\tiles/A B.bmp",
+            "filemanager_name": "data\\texture\\tiles/A B.bmp",
+            "http_path": "data/texture/tiles/A%20B.bmp",
+            "target_index": 2
+          },
+          {
+            "index": 2,
+            "source_name_pointer": "/summary/textures/2",
+            "raw_name": "!'()*%#.bmp",
+            "logical_name": "data\\texture\\!'()*%#.bmp",
+            "filemanager_name": "data\\texture\\!'()*%#.bmp",
+            "http_path": "data/texture/!'()*%25%23.bmp",
+            "target_index": 3
+          },
+          {
+            "index": 3,
+            "source_name_pointer": "/summary/textures/3",
+            "raw_name": "\u00b3\\Q.bmp",
+            "logical_name": "data\\texture\\\u00b3\\Q.bmp",
+            "filemanager_name": "data\\texture\\\u00b3\\Q.bmp",
+            "http_path": "data/texture/%C2%B3/Q.bmp",
+            "target_index": 4
+          },
+          {
+            "index": 4,
+            "source_name_pointer": "/summary/textures/4",
+            "raw_name": "\u00a0x.bmp\u00a0",
+            "logical_name": "data\\texture\\\u00a0x.bmp\u00a0",
+            "filemanager_name": "data\\texture\\\u00a0x.bmp",
+            "http_path": "data/texture/%C2%A0x.bmp",
+            "target_index": 5
+          }
+        ]
+      },
+      {
+        "source_row_index": 2,
+        "id": "authored-2",
+        "kind": "gat",
+        "complete_sha256": "0000000000000000000000000000000000000000000000000000000000000003",
+        "input_bytes": 1,
+        "header_version_bytes": [
+          1,
+          2
+        ],
+        "outcome": "returned",
+        "constructor_returned": true,
+        "root_references": [
+          {
+            "root_ordinal": 0,
+            "edge_kind": "gat"
+          },
+          {
+            "root_ordinal": 1,
+            "edge_kind": "gat"
+          },
+          {
+            "root_ordinal": 3,
+            "edge_kind": "gat"
+          },
+          {
+            "root_ordinal": 4,
+            "edge_kind": "gat"
+          }
+        ],
+        "role": null,
+        "occurrence_summary_pointer": null,
+        "occurrence_loader_indexes": null,
+        "loader_entries": null
+      },
+      {
+        "source_row_index": 3,
+        "id": "authored-3",
+        "kind": "rsw",
+        "complete_sha256": "0000000000000000000000000000000000000000000000000000000000000004",
+        "input_bytes": 1,
+        "header_version_bytes": [
+          1,
+          2
+        ],
+        "outcome": "returned",
+        "constructor_returned": true,
+        "root_references": [
+          {
+            "root_ordinal": 3,
+            "edge_kind": "rsw"
+          }
+        ],
+        "role": "model",
+        "occurrence_summary_pointer": "/summary/model_dependencies",
+        "occurrence_loader_indexes": [],
+        "loader_entries": []
+      },
+      {
+        "source_row_index": 4,
+        "id": "authored-4",
+        "kind": "gnd",
+        "complete_sha256": "0000000000000000000000000000000000000000000000000000000000000005",
+        "input_bytes": 1,
+        "header_version_bytes": [
+          1,
+          2
+        ],
+        "outcome": "returned",
+        "constructor_returned": true,
+        "root_references": [
+          {
+            "root_ordinal": 1,
+            "edge_kind": "gnd"
+          }
+        ],
+        "role": "ground_texture",
+        "occurrence_summary_pointer": "/summary/texture_indexes",
+        "occurrence_loader_indexes": [],
+        "loader_entries": []
+      },
+      {
+        "source_row_index": 5,
+        "id": "authored-5",
+        "kind": "rsw",
+        "complete_sha256": "0000000000000000000000000000000000000000000000000000000000000006",
+        "input_bytes": 1,
+        "header_version_bytes": [
+          1,
+          2
+        ],
+        "outcome": "returned",
+        "constructor_returned": true,
+        "root_references": [
+          {
+            "root_ordinal": 4,
+            "edge_kind": "rsw"
+          }
+        ],
+        "role": "model",
+        "occurrence_summary_pointer": "/summary/model_dependencies",
+        "occurrence_loader_indexes": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5
+        ],
+        "loader_entries": [
+          {
+            "index": 0,
+            "source_name_pointer": "/summary/model_dependencies/0/filename",
+            "raw_name": "",
+            "logical_name": "data\\model\\",
+            "filemanager_name": "data\\model\\",
+            "http_path": "data/model/",
+            "target_index": 6
+          },
+          {
+            "index": 1,
+            "source_name_pointer": "/summary/model_dependencies/1/filename",
+            "raw_name": "/./odd//../x.rsm",
+            "logical_name": "data\\model\\/./odd//../x.rsm",
+            "filemanager_name": "data\\model\\/./odd//../x.rsm",
+            "http_path": "data/model//./odd//../x.rsm",
+            "target_index": 7
+          },
+          {
+            "index": 2,
+            "source_name_pointer": "/summary/model_dependencies/2/filename",
+            "raw_name": "__proto__",
+            "logical_name": "data\\model\\__proto__",
+            "filemanager_name": "data\\model\\__proto__",
+            "http_path": "data/model/__proto__",
+            "target_index": 8
+          },
+          {
+            "index": 3,
+            "source_name_pointer": "/summary/model_dependencies/3/filename",
+            "raw_name": "constructor",
+            "logical_name": "data\\model\\constructor",
+            "filemanager_name": "data\\model\\constructor",
+            "http_path": "data/model/constructor",
+            "target_index": 9
+          },
+          {
+            "index": 4,
+            "source_name_pointer": "/summary/model_dependencies/4/filename",
+            "raw_name": "\u0085x.rsm\u0085",
+            "logical_name": "data\\model\\\u0085x.rsm\u0085",
+            "filemanager_name": "data\\model\\\u0085x.rsm\u0085",
+            "http_path": "data/model/%C2%85x.rsm%C2%85",
+            "target_index": 10
+          },
+          {
+            "index": 5,
+            "source_name_pointer": "/summary/model_dependencies/5/filename",
+            "raw_name": "\ufefftail.rsm\ufeff",
+            "logical_name": "data\\model\\\ufefftail.rsm\ufeff",
+            "filemanager_name": "data\\model\\\ufefftail.rsm",
+            "http_path": "data/model/%EF%BB%BFtail.rsm",
+            "target_index": 11
+          }
+        ]
+      }
+    ],
+    "targets": [
+      {
+        "index": 0,
+        "http_path": "data/model/A.rsm",
+        "referrers": [
+          {
+            "job_index": 0,
+            "loader_index": 0,
+            "role": "model"
+          },
+          {
+            "job_index": 0,
+            "loader_index": 1,
+            "role": "model"
+          }
+        ]
+      },
+      {
+        "index": 1,
+        "http_path": "data/model/a.rsm",
+        "referrers": [
+          {
+            "job_index": 0,
+            "loader_index": 2,
+            "role": "model"
+          }
+        ]
+      },
+      {
+        "index": 2,
+        "http_path": "data/texture/tiles/A%20B.bmp",
+        "referrers": [
+          {
+            "job_index": 1,
+            "loader_index": 0,
+            "role": "ground_texture"
+          },
+          {
+            "job_index": 1,
+            "loader_index": 1,
+            "role": "ground_texture"
+          }
+        ]
+      },
+      {
+        "index": 3,
+        "http_path": "data/texture/!'()*%25%23.bmp",
+        "referrers": [
+          {
+            "job_index": 1,
+            "loader_index": 2,
+            "role": "ground_texture"
+          }
+        ]
+      },
+      {
+        "index": 4,
+        "http_path": "data/texture/%C2%B3/Q.bmp",
+        "referrers": [
+          {
+            "job_index": 1,
+            "loader_index": 3,
+            "role": "ground_texture"
+          }
+        ]
+      },
+      {
+        "index": 5,
+        "http_path": "data/texture/%C2%A0x.bmp",
+        "referrers": [
+          {
+            "job_index": 1,
+            "loader_index": 4,
+            "role": "ground_texture"
+          }
+        ]
+      },
+      {
+        "index": 6,
+        "http_path": "data/model/",
+        "referrers": [
+          {
+            "job_index": 5,
+            "loader_index": 0,
+            "role": "model"
+          }
+        ]
+      },
+      {
+        "index": 7,
+        "http_path": "data/model//./odd//../x.rsm",
+        "referrers": [
+          {
+            "job_index": 5,
+            "loader_index": 1,
+            "role": "model"
+          }
+        ]
+      },
+      {
+        "index": 8,
+        "http_path": "data/model/__proto__",
+        "referrers": [
+          {
+            "job_index": 5,
+            "loader_index": 2,
+            "role": "model"
+          }
+        ]
+      },
+      {
+        "index": 9,
+        "http_path": "data/model/constructor",
+        "referrers": [
+          {
+            "job_index": 5,
+            "loader_index": 3,
+            "role": "model"
+          }
+        ]
+      },
+      {
+        "index": 10,
+        "http_path": "data/model/%C2%85x.rsm%C2%85",
+        "referrers": [
+          {
+            "job_index": 5,
+            "loader_index": 4,
+            "role": "model"
+          }
+        ]
+      },
+      {
+        "index": 11,
+        "http_path": "data/model/%EF%BB%BFtail.rsm",
+        "referrers": [
+          {
+            "job_index": 5,
+            "loader_index": 5,
+            "role": "model"
+          }
+        ]
+      }
+    ]
+  },
+  "refusal_cases": [
+    {
+      "id": "duplicate-job-id",
+      "input": {
+        "rows": [
+          {
+            "id": "authored-0",
+            "kind": "rsw",
+            "complete_sha256": "0000000000000000000000000000000000000000000000000000000000000001",
+            "input_bytes": 1,
+            "header_version_bytes": [
+              1,
+              2
+            ],
+            "outcome": "returned",
+            "constructor_returned": true,
+            "worker_started": true,
+            "cleanup": {
+              "exit_observed": true
+            },
+            "summary": {
+              "model_dependencies": [
+                {
+                  "object_index": 0,
+                  "filename": "A.rsm",
+                  "nodename": "node-0"
+                },
+                {
+                  "object_index": 1,
+                  "filename": "A.rsm ",
+                  "nodename": "node-1"
+                },
+                {
+                  "object_index": 2,
+                  "filename": "A.rsm",
+                  "nodename": "node-2"
+                },
+                {
+                  "object_index": 3,
+                  "filename": "a.rsm",
+                  "nodename": "node-3"
+                }
+              ]
+            }
+          },
+          {
+            "id": "authored-0",
+            "kind": "gnd",
+            "complete_sha256": "0000000000000000000000000000000000000000000000000000000000000002",
+            "input_bytes": 1,
+            "header_version_bytes": [
+              1,
+              2
+            ],
+            "outcome": "returned",
+            "constructor_returned": true,
+            "worker_started": true,
+            "cleanup": {
+              "exit_observed": true
+            },
+            "summary": {
+              "textures": [
+                "tiles\\A B.bmp",
+                "tiles/A B.bmp",
+                "!'()*%#.bmp",
+                "\u00b3\\Q.bmp",
+                "\u00a0x.bmp\u00a0"
+              ],
+              "texture_indexes": [
+                0,
+                0,
+                1,
+                2,
+                3,
+                4
+              ]
+            }
+          },
+          {
+            "id": "authored-2",
+            "kind": "gat",
+            "complete_sha256": "0000000000000000000000000000000000000000000000000000000000000003",
+            "input_bytes": 1,
+            "header_version_bytes": [
+              1,
+              2
+            ],
+            "outcome": "returned",
+            "constructor_returned": true,
+            "worker_started": true,
+            "cleanup": {
+              "exit_observed": true
+            },
+            "summary": {}
+          },
+          {
+            "id": "authored-3",
+            "kind": "rsw",
+            "complete_sha256": "0000000000000000000000000000000000000000000000000000000000000004",
+            "input_bytes": 1,
+            "header_version_bytes": [
+              1,
+              2
+            ],
+            "outcome": "returned",
+            "constructor_returned": true,
+            "worker_started": true,
+            "cleanup": {
+              "exit_observed": true
+            },
+            "summary": {
+              "model_dependencies": []
+            }
+          },
+          {
+            "id": "authored-4",
+            "kind": "gnd",
+            "complete_sha256": "0000000000000000000000000000000000000000000000000000000000000005",
+            "input_bytes": 1,
+            "header_version_bytes": [
+              1,
+              2
+            ],
+            "outcome": "returned",
+            "constructor_returned": true,
+            "worker_started": true,
+            "cleanup": {
+              "exit_observed": true
+            },
+            "summary": {
+              "textures": [],
+              "texture_indexes": []
+            }
+          },
+          {
+            "id": "authored-5",
+            "kind": "rsw",
+            "complete_sha256": "0000000000000000000000000000000000000000000000000000000000000006",
+            "input_bytes": 1,
+            "header_version_bytes": [
+              1,
+              2
+            ],
+            "outcome": "returned",
+            "constructor_returned": true,
+            "worker_started": true,
+            "cleanup": {
+              "exit_observed": true
+            },
+            "summary": {
+              "model_dependencies": [
+                {
+                  "object_index": 0,
+                  "filename": "",
+                  "nodename": "node-0"
+                },
+                {
+                  "object_index": 1,
+                  "filename": "/./odd//../x.rsm",
+                  "nodename": "node-1"
+                },
+                {
+                  "object_index": 2,
+                  "filename": "__proto__",
+                  "nodename": "node-2"
+                },
+                {
+                  "object_index": 3,
+                  "filename": "constructor",
+                  "nodename": "node-3"
+                },
+                {
+                  "object_index": 4,
+                  "filename": "\u0085x.rsm\u0085",
+                  "nodename": "node-4"
+                },
+                {
+                  "object_index": 5,
+                  "filename": "\ufefftail.rsm\ufeff",
+                  "nodename": "node-5"
+                }
+              ]
+            }
+          }
+        ],
+        "roots": [
+          {
+            "ordinal": 0,
+            "configured": {
+              "source": "authored"
+            },
+            "name": "authored-map-0",
+            "extra": {
+              "preserve": [
+                "x",
+                false,
+                3
+              ]
+            },
+            "edges": {
+              "rsw": {
+                "job_id": "authored-0",
+                "parse_status": "authored-provenance",
+                "parse_outcome": "returned"
+              },
+              "gnd": {
+                "job_id": "authored-1",
+                "parse_status": "authored-provenance",
+                "parse_outcome": "returned"
+              },
+              "gat": {
+                "job_id": "authored-2",
+                "parse_status": "authored-provenance",
+                "parse_outcome": "returned"
+              }
+            }
+          },
+          {
+            "ordinal": 1,
+            "configured": null,
+            "name": "authored-map-1",
+            "extra": {
+              "preserve": [
+                "x",
+                false,
+                3
+              ]
+            },
+            "edges": {
+              "rsw": {
+                "job_id": "authored-0",
+                "parse_status": "authored-provenance",
+                "parse_outcome": "returned"
+              },
+              "gnd": {
+                "job_id": "authored-4",
+                "parse_status": "authored-provenance",
+                "parse_outcome": "returned"
+              },
+              "gat": {
+                "job_id": "authored-2",
+                "parse_status": "authored-provenance",
+                "parse_outcome": "returned"
+              }
+            }
+          },
+          {
+            "ordinal": 2,
+            "configured": {
+              "source": "authored"
+            },
+            "name": "authored-map-2",
+            "extra": {
+              "preserve": [
+                "x",
+                false,
+                3
+              ]
+            },
+            "edges": {
+              "rsw": {
+                "job_id": null,
+                "parse_status": "authored-provenance",
+                "parse_outcome": "unavailable_from_observation"
+              },
+              "gnd": {
+                "job_id": null,
+                "parse_status": "authored-provenance",
+                "parse_outcome": "unavailable_from_observation"
+              },
+              "gat": {
+                "job_id": null,
+                "parse_status": "authored-provenance",
+                "parse_outcome": "unavailable_from_observation"
+              }
+            }
+          },
+          {
+            "ordinal": 3,
+            "configured": {
+              "source": "authored"
+            },
+            "name": "authored-map-3",
+            "extra": {
+              "preserve": [
+                "x",
+                false,
+                3
+              ]
+            },
+            "edges": {
+              "rsw": {
+                "job_id": "authored-3",
+                "parse_status": "authored-provenance",
+                "parse_outcome": "returned"
+              },
+              "gnd": {
+                "job_id": "authored-1",
+                "parse_status": "authored-provenance",
+                "parse_outcome": "returned"
+              },
+              "gat": {
+                "job_id": "authored-2",
+                "parse_status": "authored-provenance",
+                "parse_outcome": "returned"
+              }
+            }
+          },
+          {
+            "ordinal": 4,
+            "configured": {
+              "source": "authored"
+            },
+            "name": "authored-map-4",
+            "extra": {
+              "preserve": [
+                "x",
+                false,
+                3
+              ]
+            },
+            "edges": {
+              "rsw": {
+                "job_id": "authored-5",
+                "parse_status": "authored-provenance",
+                "parse_outcome": "returned"
+              },
+              "gnd": {
+                "job_id": "authored-1",
+                "parse_status": "authored-provenance",
+                "parse_outcome": "returned"
+              },
+              "gat": {
+                "job_id": "authored-2",
+                "parse_status": "authored-provenance",
+                "parse_outcome": "returned"
+              }
+            }
+          }
+        ],
+        "remaining_gap_root_ordinals": [
+          2
+        ]
+      },
+      "reason": "invalid_catalog_input"
+    },
+    {
+      "id": "wrong-edge-kind",
+      "input": {
+        "rows": [
+          {
+            "id": "authored-0",
+            "kind": "rsw",
+            "complete_sha256": "0000000000000000000000000000000000000000000000000000000000000001",
+            "input_bytes": 1,
+            "header_version_bytes": [
+              1,
+              2
+            ],
+            "outcome": "returned",
+            "constructor_returned": true,
+            "worker_started": true,
+            "cleanup": {
+              "exit_observed": true
+            },
+            "summary": {
+              "model_dependencies": [
+                {
+                  "object_index": 0,
+                  "filename": "A.rsm",
+                  "nodename": "node-0"
+                },
+                {
+                  "object_index": 1,
+                  "filename": "A.rsm ",
+                  "nodename": "node-1"
+                },
+                {
+                  "object_index": 2,
+                  "filename": "A.rsm",
+                  "nodename": "node-2"
+                },
+                {
+                  "object_index": 3,
+                  "filename": "a.rsm",
+                  "nodename": "node-3"
+                }
+              ]
+            }
+          },
+          {
+            "id": "authored-1",
+            "kind": "gnd",
+            "complete_sha256": "0000000000000000000000000000000000000000000000000000000000000002",
+            "input_bytes": 1,
+            "header_version_bytes": [
+              1,
+              2
+            ],
+            "outcome": "returned",
+            "constructor_returned": true,
+            "worker_started": true,
+            "cleanup": {
+              "exit_observed": true
+            },
+            "summary": {
+              "textures": [
+                "tiles\\A B.bmp",
+                "tiles/A B.bmp",
+                "!'()*%#.bmp",
+                "\u00b3\\Q.bmp",
+                "\u00a0x.bmp\u00a0"
+              ],
+              "texture_indexes": [
+                0,
+                0,
+                1,
+                2,
+                3,
+                4
+              ]
+            }
+          },
+          {
+            "id": "authored-2",
+            "kind": "gat",
+            "complete_sha256": "0000000000000000000000000000000000000000000000000000000000000003",
+            "input_bytes": 1,
+            "header_version_bytes": [
+              1,
+              2
+            ],
+            "outcome": "returned",
+            "constructor_returned": true,
+            "worker_started": true,
+            "cleanup": {
+              "exit_observed": true
+            },
+            "summary": {}
+          },
+          {
+            "id": "authored-3",
+            "kind": "rsw",
+            "complete_sha256": "0000000000000000000000000000000000000000000000000000000000000004",
+            "input_bytes": 1,
+            "header_version_bytes": [
+              1,
+              2
+            ],
+            "outcome": "returned",
+            "constructor_returned": true,
+            "worker_started": true,
+            "cleanup": {
+              "exit_observed": true
+            },
+            "summary": {
+              "model_dependencies": []
+            }
+          },
+          {
+            "id": "authored-4",
+            "kind": "gnd",
+            "complete_sha256": "0000000000000000000000000000000000000000000000000000000000000005",
+            "input_bytes": 1,
+            "header_version_bytes": [
+              1,
+              2
+            ],
+            "outcome": "returned",
+            "constructor_returned": true,
+            "worker_started": true,
+            "cleanup": {
+              "exit_observed": true
+            },
+            "summary": {
+              "textures": [],
+              "texture_indexes": []
+            }
+          },
+          {
+            "id": "authored-5",
+            "kind": "rsw",
+            "complete_sha256": "0000000000000000000000000000000000000000000000000000000000000006",
+            "input_bytes": 1,
+            "header_version_bytes": [
+              1,
+              2
+            ],
+            "outcome": "returned",
+            "constructor_returned": true,
+            "worker_started": true,
+            "cleanup": {
+              "exit_observed": true
+            },
+            "summary": {
+              "model_dependencies": [
+                {
+                  "object_index": 0,
+                  "filename": "",
+                  "nodename": "node-0"
+                },
+                {
+                  "object_index": 1,
+                  "filename": "/./odd//../x.rsm",
+                  "nodename": "node-1"
+                },
+                {
+                  "object_index": 2,
+                  "filename": "__proto__",
+                  "nodename": "node-2"
+                },
+                {
+                  "object_index": 3,
+                  "filename": "constructor",
+                  "nodename": "node-3"
+                },
+                {
+                  "object_index": 4,
+                  "filename": "\u0085x.rsm\u0085",
+                  "nodename": "node-4"
+                },
+                {
+                  "object_index": 5,
+                  "filename": "\ufefftail.rsm\ufeff",
+                  "nodename": "node-5"
+                }
+              ]
+            }
+          }
+        ],
+        "roots": [
+          {
+            "ordinal": 0,
+            "configured": {
+              "source": "authored"
+            },
+            "name": "authored-map-0",
+            "extra": {
+              "preserve": [
+                "x",
+                false,
+                3
+              ]
+            },
+            "edges": {
+              "rsw": {
+                "job_id": "authored-1",
+                "parse_status": "authored-provenance",
+                "parse_outcome": "returned"
+              },
+              "gnd": {
+                "job_id": "authored-1",
+                "parse_status": "authored-provenance",
+                "parse_outcome": "returned"
+              },
+              "gat": {
+                "job_id": "authored-2",
+                "parse_status": "authored-provenance",
+                "parse_outcome": "returned"
+              }
+            }
+          },
+          {
+            "ordinal": 1,
+            "configured": null,
+            "name": "authored-map-1",
+            "extra": {
+              "preserve": [
+                "x",
+                false,
+                3
+              ]
+            },
+            "edges": {
+              "rsw": {
+                "job_id": "authored-0",
+                "parse_status": "authored-provenance",
+                "parse_outcome": "returned"
+              },
+              "gnd": {
+                "job_id": "authored-4",
+                "parse_status": "authored-provenance",
+                "parse_outcome": "returned"
+              },
+              "gat": {
+                "job_id": "authored-2",
+                "parse_status": "authored-provenance",
+                "parse_outcome": "returned"
+              }
+            }
+          },
+          {
+            "ordinal": 2,
+            "configured": {
+              "source": "authored"
+            },
+            "name": "authored-map-2",
+            "extra": {
+              "preserve": [
+                "x",
+                false,
+                3
+              ]
+            },
+            "edges": {
+              "rsw": {
+                "job_id": null,
+                "parse_status": "authored-provenance",
+                "parse_outcome": "unavailable_from_observation"
+              },
+              "gnd": {
+                "job_id": null,
+                "parse_status": "authored-provenance",
+                "parse_outcome": "unavailable_from_observation"
+              },
+              "gat": {
+                "job_id": null,
+                "parse_status": "authored-provenance",
+                "parse_outcome": "unavailable_from_observation"
+              }
+            }
+          },
+          {
+            "ordinal": 3,
+            "configured": {
+              "source": "authored"
+            },
+            "name": "authored-map-3",
+            "extra": {
+              "preserve": [
+                "x",
+                false,
+                3
+              ]
+            },
+            "edges": {
+              "rsw": {
+                "job_id": "authored-3",
+                "parse_status": "authored-provenance",
+                "parse_outcome": "returned"
+              },
+              "gnd": {
+                "job_id": "authored-1",
+                "parse_status": "authored-provenance",
+                "parse_outcome": "returned"
+              },
+              "gat": {
+                "job_id": "authored-2",
+                "parse_status": "authored-provenance",
+                "parse_outcome": "returned"
+              }
+            }
+          },
+          {
+            "ordinal": 4,
+            "configured": {
+              "source": "authored"
+            },
+            "name": "authored-map-4",
+            "extra": {
+              "preserve": [
+                "x",
+                false,
+                3
+              ]
+            },
+            "edges": {
+              "rsw": {
+                "job_id": "authored-5",
+                "parse_status": "authored-provenance",
+                "parse_outcome": "returned"
+              },
+              "gnd": {
+                "job_id": "authored-1",
+                "parse_status": "authored-provenance",
+                "parse_outcome": "returned"
+              },
+              "gat": {
+                "job_id": "authored-2",
+                "parse_status": "authored-provenance",
+                "parse_outcome": "returned"
+              }
+            }
+          }
+        ],
+        "remaining_gap_root_ordinals": [
+          2
+        ]
+      },
+      "reason": "invalid_catalog_input"
+    },
+    {
+      "id": "unobserved-input",
+      "input": {
+        "rows": [
+          {
+            "id": "authored-0",
+            "kind": "rsw",
+            "complete_sha256": "0000000000000000000000000000000000000000000000000000000000000001",
+            "input_bytes": 1,
+            "header_version_bytes": [
+              1,
+              2
+            ],
+            "outcome": "constructor_exception",
+            "constructor_returned": true,
+            "worker_started": true,
+            "cleanup": {
+              "exit_observed": true
+            },
+            "summary": {
+              "model_dependencies": [
+                {
+                  "object_index": 0,
+                  "filename": "A.rsm",
+                  "nodename": "node-0"
+                },
+                {
+                  "object_index": 1,
+                  "filename": "A.rsm ",
+                  "nodename": "node-1"
+                },
+                {
+                  "object_index": 2,
+                  "filename": "A.rsm",
+                  "nodename": "node-2"
+                },
+                {
+                  "object_index": 3,
+                  "filename": "a.rsm",
+                  "nodename": "node-3"
+                }
+              ]
+            }
+          },
+          {
+            "id": "authored-1",
+            "kind": "gnd",
+            "complete_sha256": "0000000000000000000000000000000000000000000000000000000000000002",
+            "input_bytes": 1,
+            "header_version_bytes": [
+              1,
+              2
+            ],
+            "outcome": "returned",
+            "constructor_returned": true,
+            "worker_started": true,
+            "cleanup": {
+              "exit_observed": true
+            },
+            "summary": {
+              "textures": [
+                "tiles\\A B.bmp",
+                "tiles/A B.bmp",
+                "!'()*%#.bmp",
+                "\u00b3\\Q.bmp",
+                "\u00a0x.bmp\u00a0"
+              ],
+              "texture_indexes": [
+                0,
+                0,
+                1,
+                2,
+                3,
+                4
+              ]
+            }
+          },
+          {
+            "id": "authored-2",
+            "kind": "gat",
+            "complete_sha256": "0000000000000000000000000000000000000000000000000000000000000003",
+            "input_bytes": 1,
+            "header_version_bytes": [
+              1,
+              2
+            ],
+            "outcome": "returned",
+            "constructor_returned": true,
+            "worker_started": true,
+            "cleanup": {
+              "exit_observed": true
+            },
+            "summary": {}
+          },
+          {
+            "id": "authored-3",
+            "kind": "rsw",
+            "complete_sha256": "0000000000000000000000000000000000000000000000000000000000000004",
+            "input_bytes": 1,
+            "header_version_bytes": [
+              1,
+              2
+            ],
+            "outcome": "returned",
+            "constructor_returned": true,
+            "worker_started": true,
+            "cleanup": {
+              "exit_observed": true
+            },
+            "summary": {
+              "model_dependencies": []
+            }
+          },
+          {
+            "id": "authored-4",
+            "kind": "gnd",
+            "complete_sha256": "0000000000000000000000000000000000000000000000000000000000000005",
+            "input_bytes": 1,
+            "header_version_bytes": [
+              1,
+              2
+            ],
+            "outcome": "returned",
+            "constructor_returned": true,
+            "worker_started": true,
+            "cleanup": {
+              "exit_observed": true
+            },
+            "summary": {
+              "textures": [],
+              "texture_indexes": []
+            }
+          },
+          {
+            "id": "authored-5",
+            "kind": "rsw",
+            "complete_sha256": "0000000000000000000000000000000000000000000000000000000000000006",
+            "input_bytes": 1,
+            "header_version_bytes": [
+              1,
+              2
+            ],
+            "outcome": "returned",
+            "constructor_returned": true,
+            "worker_started": true,
+            "cleanup": {
+              "exit_observed": true
+            },
+            "summary": {
+              "model_dependencies": [
+                {
+                  "object_index": 0,
+                  "filename": "",
+                  "nodename": "node-0"
+                },
+                {
+                  "object_index": 1,
+                  "filename": "/./odd//../x.rsm",
+                  "nodename": "node-1"
+                },
+                {
+                  "object_index": 2,
+                  "filename": "__proto__",
+                  "nodename": "node-2"
+                },
+                {
+                  "object_index": 3,
+                  "filename": "constructor",
+                  "nodename": "node-3"
+                },
+                {
+                  "object_index": 4,
+                  "filename": "\u0085x.rsm\u0085",
+                  "nodename": "node-4"
+                },
+                {
+                  "object_index": 5,
+                  "filename": "\ufefftail.rsm\ufeff",
+                  "nodename": "node-5"
+                }
+              ]
+            }
+          }
+        ],
+        "roots": [
+          {
+            "ordinal": 0,
+            "configured": {
+              "source": "authored"
+            },
+            "name": "authored-map-0",
+            "extra": {
+              "preserve": [
+                "x",
+                false,
+                3
+              ]
+            },
+            "edges": {
+              "rsw": {
+                "job_id": "authored-0",
+                "parse_status": "authored-provenance",
+                "parse_outcome": "returned"
+              },
+              "gnd": {
+                "job_id": "authored-1",
+                "parse_status": "authored-provenance",
+                "parse_outcome": "returned"
+              },
+              "gat": {
+                "job_id": "authored-2",
+                "parse_status": "authored-provenance",
+                "parse_outcome": "returned"
+              }
+            }
+          },
+          {
+            "ordinal": 1,
+            "configured": null,
+            "name": "authored-map-1",
+            "extra": {
+              "preserve": [
+                "x",
+                false,
+                3
+              ]
+            },
+            "edges": {
+              "rsw": {
+                "job_id": "authored-0",
+                "parse_status": "authored-provenance",
+                "parse_outcome": "returned"
+              },
+              "gnd": {
+                "job_id": "authored-4",
+                "parse_status": "authored-provenance",
+                "parse_outcome": "returned"
+              },
+              "gat": {
+                "job_id": "authored-2",
+                "parse_status": "authored-provenance",
+                "parse_outcome": "returned"
+              }
+            }
+          },
+          {
+            "ordinal": 2,
+            "configured": {
+              "source": "authored"
+            },
+            "name": "authored-map-2",
+            "extra": {
+              "preserve": [
+                "x",
+                false,
+                3
+              ]
+            },
+            "edges": {
+              "rsw": {
+                "job_id": null,
+                "parse_status": "authored-provenance",
+                "parse_outcome": "unavailable_from_observation"
+              },
+              "gnd": {
+                "job_id": null,
+                "parse_status": "authored-provenance",
+                "parse_outcome": "unavailable_from_observation"
+              },
+              "gat": {
+                "job_id": null,
+                "parse_status": "authored-provenance",
+                "parse_outcome": "unavailable_from_observation"
+              }
+            }
+          },
+          {
+            "ordinal": 3,
+            "configured": {
+              "source": "authored"
+            },
+            "name": "authored-map-3",
+            "extra": {
+              "preserve": [
+                "x",
+                false,
+                3
+              ]
+            },
+            "edges": {
+              "rsw": {
+                "job_id": "authored-3",
+                "parse_status": "authored-provenance",
+                "parse_outcome": "returned"
+              },
+              "gnd": {
+                "job_id": "authored-1",
+                "parse_status": "authored-provenance",
+                "parse_outcome": "returned"
+              },
+              "gat": {
+                "job_id": "authored-2",
+                "parse_status": "authored-provenance",
+                "parse_outcome": "returned"
+              }
+            }
+          },
+          {
+            "ordinal": 4,
+            "configured": {
+              "source": "authored"
+            },
+            "name": "authored-map-4",
+            "extra": {
+              "preserve": [
+                "x",
+                false,
+                3
+              ]
+            },
+            "edges": {
+              "rsw": {
+                "job_id": "authored-5",
+                "parse_status": "authored-provenance",
+                "parse_outcome": "returned"
+              },
+              "gnd": {
+                "job_id": "authored-1",
+                "parse_status": "authored-provenance",
+                "parse_outcome": "returned"
+              },
+              "gat": {
+                "job_id": "authored-2",
+                "parse_status": "authored-provenance",
+                "parse_outcome": "returned"
+              }
+            }
+          }
+        ],
+        "remaining_gap_root_ordinals": [
+          2
+        ]
+      },
+      "reason": "invalid_catalog_input"
+    },
+    {
+      "id": "unverified-worker-exit",
+      "input": {
+        "rows": [
+          {
+            "id": "authored-0",
+            "kind": "rsw",
+            "complete_sha256": "0000000000000000000000000000000000000000000000000000000000000001",
+            "input_bytes": 1,
+            "header_version_bytes": [
+              1,
+              2
+            ],
+            "outcome": "returned",
+            "constructor_returned": true,
+            "worker_started": true,
+            "cleanup": {
+              "exit_observed": false
+            },
+            "summary": {
+              "model_dependencies": [
+                {
+                  "object_index": 0,
+                  "filename": "A.rsm",
+                  "nodename": "node-0"
+                },
+                {
+                  "object_index": 1,
+                  "filename": "A.rsm ",
+                  "nodename": "node-1"
+                },
+                {
+                  "object_index": 2,
+                  "filename": "A.rsm",
+                  "nodename": "node-2"
+                },
+                {
+                  "object_index": 3,
+                  "filename": "a.rsm",
+                  "nodename": "node-3"
+                }
+              ]
+            }
+          },
+          {
+            "id": "authored-1",
+            "kind": "gnd",
+            "complete_sha256": "0000000000000000000000000000000000000000000000000000000000000002",
+            "input_bytes": 1,
+            "header_version_bytes": [
+              1,
+              2
+            ],
+            "outcome": "returned",
+            "constructor_returned": true,
+            "worker_started": true,
+            "cleanup": {
+              "exit_observed": true
+            },
+            "summary": {
+              "textures": [
+                "tiles\\A B.bmp",
+                "tiles/A B.bmp",
+                "!'()*%#.bmp",
+                "\u00b3\\Q.bmp",
+                "\u00a0x.bmp\u00a0"
+              ],
+              "texture_indexes": [
+                0,
+                0,
+                1,
+                2,
+                3,
+                4
+              ]
+            }
+          },
+          {
+            "id": "authored-2",
+            "kind": "gat",
+            "complete_sha256": "0000000000000000000000000000000000000000000000000000000000000003",
+            "input_bytes": 1,
+            "header_version_bytes": [
+              1,
+              2
+            ],
+            "outcome": "returned",
+            "constructor_returned": true,
+            "worker_started": true,
+            "cleanup": {
+              "exit_observed": true
+            },
+            "summary": {}
+          },
+          {
+            "id": "authored-3",
+            "kind": "rsw",
+            "complete_sha256": "0000000000000000000000000000000000000000000000000000000000000004",
+            "input_bytes": 1,
+            "header_version_bytes": [
+              1,
+              2
+            ],
+            "outcome": "returned",
+            "constructor_returned": true,
+            "worker_started": true,
+            "cleanup": {
+              "exit_observed": true
+            },
+            "summary": {
+              "model_dependencies": []
+            }
+          },
+          {
+            "id": "authored-4",
+            "kind": "gnd",
+            "complete_sha256": "0000000000000000000000000000000000000000000000000000000000000005",
+            "input_bytes": 1,
+            "header_version_bytes": [
+              1,
+              2
+            ],
+            "outcome": "returned",
+            "constructor_returned": true,
+            "worker_started": true,
+            "cleanup": {
+              "exit_observed": true
+            },
+            "summary": {
+              "textures": [],
+              "texture_indexes": []
+            }
+          },
+          {
+            "id": "authored-5",
+            "kind": "rsw",
+            "complete_sha256": "0000000000000000000000000000000000000000000000000000000000000006",
+            "input_bytes": 1,
+            "header_version_bytes": [
+              1,
+              2
+            ],
+            "outcome": "returned",
+            "constructor_returned": true,
+            "worker_started": true,
+            "cleanup": {
+              "exit_observed": true
+            },
+            "summary": {
+              "model_dependencies": [
+                {
+                  "object_index": 0,
+                  "filename": "",
+                  "nodename": "node-0"
+                },
+                {
+                  "object_index": 1,
+                  "filename": "/./odd//../x.rsm",
+                  "nodename": "node-1"
+                },
+                {
+                  "object_index": 2,
+                  "filename": "__proto__",
+                  "nodename": "node-2"
+                },
+                {
+                  "object_index": 3,
+                  "filename": "constructor",
+                  "nodename": "node-3"
+                },
+                {
+                  "object_index": 4,
+                  "filename": "\u0085x.rsm\u0085",
+                  "nodename": "node-4"
+                },
+                {
+                  "object_index": 5,
+                  "filename": "\ufefftail.rsm\ufeff",
+                  "nodename": "node-5"
+                }
+              ]
+            }
+          }
+        ],
+        "roots": [
+          {
+            "ordinal": 0,
+            "configured": {
+              "source": "authored"
+            },
+            "name": "authored-map-0",
+            "extra": {
+              "preserve": [
+                "x",
+                false,
+                3
+              ]
+            },
+            "edges": {
+              "rsw": {
+                "job_id": "authored-0",
+                "parse_status": "authored-provenance",
+                "parse_outcome": "returned"
+              },
+              "gnd": {
+                "job_id": "authored-1",
+                "parse_status": "authored-provenance",
+                "parse_outcome": "returned"
+              },
+              "gat": {
+                "job_id": "authored-2",
+                "parse_status": "authored-provenance",
+                "parse_outcome": "returned"
+              }
+            }
+          },
+          {
+            "ordinal": 1,
+            "configured": null,
+            "name": "authored-map-1",
+            "extra": {
+              "preserve": [
+                "x",
+                false,
+                3
+              ]
+            },
+            "edges": {
+              "rsw": {
+                "job_id": "authored-0",
+                "parse_status": "authored-provenance",
+                "parse_outcome": "returned"
+              },
+              "gnd": {
+                "job_id": "authored-4",
+                "parse_status": "authored-provenance",
+                "parse_outcome": "returned"
+              },
+              "gat": {
+                "job_id": "authored-2",
+                "parse_status": "authored-provenance",
+                "parse_outcome": "returned"
+              }
+            }
+          },
+          {
+            "ordinal": 2,
+            "configured": {
+              "source": "authored"
+            },
+            "name": "authored-map-2",
+            "extra": {
+              "preserve": [
+                "x",
+                false,
+                3
+              ]
+            },
+            "edges": {
+              "rsw": {
+                "job_id": null,
+                "parse_status": "authored-provenance",
+                "parse_outcome": "unavailable_from_observation"
+              },
+              "gnd": {
+                "job_id": null,
+                "parse_status": "authored-provenance",
+                "parse_outcome": "unavailable_from_observation"
+              },
+              "gat": {
+                "job_id": null,
+                "parse_status": "authored-provenance",
+                "parse_outcome": "unavailable_from_observation"
+              }
+            }
+          },
+          {
+            "ordinal": 3,
+            "configured": {
+              "source": "authored"
+            },
+            "name": "authored-map-3",
+            "extra": {
+              "preserve": [
+                "x",
+                false,
+                3
+              ]
+            },
+            "edges": {
+              "rsw": {
+                "job_id": "authored-3",
+                "parse_status": "authored-provenance",
+                "parse_outcome": "returned"
+              },
+              "gnd": {
+                "job_id": "authored-1",
+                "parse_status": "authored-provenance",
+                "parse_outcome": "returned"
+              },
+              "gat": {
+                "job_id": "authored-2",
+                "parse_status": "authored-provenance",
+                "parse_outcome": "returned"
+              }
+            }
+          },
+          {
+            "ordinal": 4,
+            "configured": {
+              "source": "authored"
+            },
+            "name": "authored-map-4",
+            "extra": {
+              "preserve": [
+                "x",
+                false,
+                3
+              ]
+            },
+            "edges": {
+              "rsw": {
+                "job_id": "authored-5",
+                "parse_status": "authored-provenance",
+                "parse_outcome": "returned"
+              },
+              "gnd": {
+                "job_id": "authored-1",
+                "parse_status": "authored-provenance",
+                "parse_outcome": "returned"
+              },
+              "gat": {
+                "job_id": "authored-2",
+                "parse_status": "authored-provenance",
+                "parse_outcome": "returned"
+              }
+            }
+          }
+        ],
+        "remaining_gap_root_ordinals": [
+          2
+        ]
+      },
+      "reason": "invalid_catalog_input"
+    },
+    {
+      "id": "model-ordinal-is-not-original-record-index",
+      "input": {
+        "rows": [
+          {
+            "id": "authored-0",
+            "kind": "rsw",
+            "complete_sha256": "0000000000000000000000000000000000000000000000000000000000000001",
+            "input_bytes": 1,
+            "header_version_bytes": [
+              1,
+              2
+            ],
+            "outcome": "returned",
+            "constructor_returned": true,
+            "worker_started": true,
+            "cleanup": {
+              "exit_observed": true
+            },
+            "summary": {
+              "model_dependencies": [
+                {
+                  "object_index": 99,
+                  "filename": "A.rsm",
+                  "nodename": "node-0"
+                },
+                {
+                  "object_index": 1,
+                  "filename": "A.rsm ",
+                  "nodename": "node-1"
+                },
+                {
+                  "object_index": 2,
+                  "filename": "A.rsm",
+                  "nodename": "node-2"
+                },
+                {
+                  "object_index": 3,
+                  "filename": "a.rsm",
+                  "nodename": "node-3"
+                }
+              ]
+            }
+          },
+          {
+            "id": "authored-1",
+            "kind": "gnd",
+            "complete_sha256": "0000000000000000000000000000000000000000000000000000000000000002",
+            "input_bytes": 1,
+            "header_version_bytes": [
+              1,
+              2
+            ],
+            "outcome": "returned",
+            "constructor_returned": true,
+            "worker_started": true,
+            "cleanup": {
+              "exit_observed": true
+            },
+            "summary": {
+              "textures": [
+                "tiles\\A B.bmp",
+                "tiles/A B.bmp",
+                "!'()*%#.bmp",
+                "\u00b3\\Q.bmp",
+                "\u00a0x.bmp\u00a0"
+              ],
+              "texture_indexes": [
+                0,
+                0,
+                1,
+                2,
+                3,
+                4
+              ]
+            }
+          },
+          {
+            "id": "authored-2",
+            "kind": "gat",
+            "complete_sha256": "0000000000000000000000000000000000000000000000000000000000000003",
+            "input_bytes": 1,
+            "header_version_bytes": [
+              1,
+              2
+            ],
+            "outcome": "returned",
+            "constructor_returned": true,
+            "worker_started": true,
+            "cleanup": {
+              "exit_observed": true
+            },
+            "summary": {}
+          },
+          {
+            "id": "authored-3",
+            "kind": "rsw",
+            "complete_sha256": "0000000000000000000000000000000000000000000000000000000000000004",
+            "input_bytes": 1,
+            "header_version_bytes": [
+              1,
+              2
+            ],
+            "outcome": "returned",
+            "constructor_returned": true,
+            "worker_started": true,
+            "cleanup": {
+              "exit_observed": true
+            },
+            "summary": {
+              "model_dependencies": []
+            }
+          },
+          {
+            "id": "authored-4",
+            "kind": "gnd",
+            "complete_sha256": "0000000000000000000000000000000000000000000000000000000000000005",
+            "input_bytes": 1,
+            "header_version_bytes": [
+              1,
+              2
+            ],
+            "outcome": "returned",
+            "constructor_returned": true,
+            "worker_started": true,
+            "cleanup": {
+              "exit_observed": true
+            },
+            "summary": {
+              "textures": [],
+              "texture_indexes": []
+            }
+          },
+          {
+            "id": "authored-5",
+            "kind": "rsw",
+            "complete_sha256": "0000000000000000000000000000000000000000000000000000000000000006",
+            "input_bytes": 1,
+            "header_version_bytes": [
+              1,
+              2
+            ],
+            "outcome": "returned",
+            "constructor_returned": true,
+            "worker_started": true,
+            "cleanup": {
+              "exit_observed": true
+            },
+            "summary": {
+              "model_dependencies": [
+                {
+                  "object_index": 0,
+                  "filename": "",
+                  "nodename": "node-0"
+                },
+                {
+                  "object_index": 1,
+                  "filename": "/./odd//../x.rsm",
+                  "nodename": "node-1"
+                },
+                {
+                  "object_index": 2,
+                  "filename": "__proto__",
+                  "nodename": "node-2"
+                },
+                {
+                  "object_index": 3,
+                  "filename": "constructor",
+                  "nodename": "node-3"
+                },
+                {
+                  "object_index": 4,
+                  "filename": "\u0085x.rsm\u0085",
+                  "nodename": "node-4"
+                },
+                {
+                  "object_index": 5,
+                  "filename": "\ufefftail.rsm\ufeff",
+                  "nodename": "node-5"
+                }
+              ]
+            }
+          }
+        ],
+        "roots": [
+          {
+            "ordinal": 0,
+            "configured": {
+              "source": "authored"
+            },
+            "name": "authored-map-0",
+            "extra": {
+              "preserve": [
+                "x",
+                false,
+                3
+              ]
+            },
+            "edges": {
+              "rsw": {
+                "job_id": "authored-0",
+                "parse_status": "authored-provenance",
+                "parse_outcome": "returned"
+              },
+              "gnd": {
+                "job_id": "authored-1",
+                "parse_status": "authored-provenance",
+                "parse_outcome": "returned"
+              },
+              "gat": {
+                "job_id": "authored-2",
+                "parse_status": "authored-provenance",
+                "parse_outcome": "returned"
+              }
+            }
+          },
+          {
+            "ordinal": 1,
+            "configured": null,
+            "name": "authored-map-1",
+            "extra": {
+              "preserve": [
+                "x",
+                false,
+                3
+              ]
+            },
+            "edges": {
+              "rsw": {
+                "job_id": "authored-0",
+                "parse_status": "authored-provenance",
+                "parse_outcome": "returned"
+              },
+              "gnd": {
+                "job_id": "authored-4",
+                "parse_status": "authored-provenance",
+                "parse_outcome": "returned"
+              },
+              "gat": {
+                "job_id": "authored-2",
+                "parse_status": "authored-provenance",
+                "parse_outcome": "returned"
+              }
+            }
+          },
+          {
+            "ordinal": 2,
+            "configured": {
+              "source": "authored"
+            },
+            "name": "authored-map-2",
+            "extra": {
+              "preserve": [
+                "x",
+                false,
+                3
+              ]
+            },
+            "edges": {
+              "rsw": {
+                "job_id": null,
+                "parse_status": "authored-provenance",
+                "parse_outcome": "unavailable_from_observation"
+              },
+              "gnd": {
+                "job_id": null,
+                "parse_status": "authored-provenance",
+                "parse_outcome": "unavailable_from_observation"
+              },
+              "gat": {
+                "job_id": null,
+                "parse_status": "authored-provenance",
+                "parse_outcome": "unavailable_from_observation"
+              }
+            }
+          },
+          {
+            "ordinal": 3,
+            "configured": {
+              "source": "authored"
+            },
+            "name": "authored-map-3",
+            "extra": {
+              "preserve": [
+                "x",
+                false,
+                3
+              ]
+            },
+            "edges": {
+              "rsw": {
+                "job_id": "authored-3",
+                "parse_status": "authored-provenance",
+                "parse_outcome": "returned"
+              },
+              "gnd": {
+                "job_id": "authored-1",
+                "parse_status": "authored-provenance",
+                "parse_outcome": "returned"
+              },
+              "gat": {
+                "job_id": "authored-2",
+                "parse_status": "authored-provenance",
+                "parse_outcome": "returned"
+              }
+            }
+          },
+          {
+            "ordinal": 4,
+            "configured": {
+              "source": "authored"
+            },
+            "name": "authored-map-4",
+            "extra": {
+              "preserve": [
+                "x",
+                false,
+                3
+              ]
+            },
+            "edges": {
+              "rsw": {
+                "job_id": "authored-5",
+                "parse_status": "authored-provenance",
+                "parse_outcome": "returned"
+              },
+              "gnd": {
+                "job_id": "authored-1",
+                "parse_status": "authored-provenance",
+                "parse_outcome": "returned"
+              },
+              "gat": {
+                "job_id": "authored-2",
+                "parse_status": "authored-provenance",
+                "parse_outcome": "returned"
+              }
+            }
+          }
+        ],
+        "remaining_gap_root_ordinals": [
+          2
+        ]
+      },
+      "reason": "invalid_catalog_input"
+    },
+    {
+      "id": "nonstring-model-name",
+      "input": {
+        "rows": [
+          {
+            "id": "authored-0",
+            "kind": "rsw",
+            "complete_sha256": "0000000000000000000000000000000000000000000000000000000000000001",
+            "input_bytes": 1,
+            "header_version_bytes": [
+              1,
+              2
+            ],
+            "outcome": "returned",
+            "constructor_returned": true,
+            "worker_started": true,
+            "cleanup": {
+              "exit_observed": true
+            },
+            "summary": {
+              "model_dependencies": [
+                {
+                  "object_index": 0,
+                  "filename": 4,
+                  "nodename": "node-0"
+                },
+                {
+                  "object_index": 1,
+                  "filename": "A.rsm ",
+                  "nodename": "node-1"
+                },
+                {
+                  "object_index": 2,
+                  "filename": "A.rsm",
+                  "nodename": "node-2"
+                },
+                {
+                  "object_index": 3,
+                  "filename": "a.rsm",
+                  "nodename": "node-3"
+                }
+              ]
+            }
+          },
+          {
+            "id": "authored-1",
+            "kind": "gnd",
+            "complete_sha256": "0000000000000000000000000000000000000000000000000000000000000002",
+            "input_bytes": 1,
+            "header_version_bytes": [
+              1,
+              2
+            ],
+            "outcome": "returned",
+            "constructor_returned": true,
+            "worker_started": true,
+            "cleanup": {
+              "exit_observed": true
+            },
+            "summary": {
+              "textures": [
+                "tiles\\A B.bmp",
+                "tiles/A B.bmp",
+                "!'()*%#.bmp",
+                "\u00b3\\Q.bmp",
+                "\u00a0x.bmp\u00a0"
+              ],
+              "texture_indexes": [
+                0,
+                0,
+                1,
+                2,
+                3,
+                4
+              ]
+            }
+          },
+          {
+            "id": "authored-2",
+            "kind": "gat",
+            "complete_sha256": "0000000000000000000000000000000000000000000000000000000000000003",
+            "input_bytes": 1,
+            "header_version_bytes": [
+              1,
+              2
+            ],
+            "outcome": "returned",
+            "constructor_returned": true,
+            "worker_started": true,
+            "cleanup": {
+              "exit_observed": true
+            },
+            "summary": {}
+          },
+          {
+            "id": "authored-3",
+            "kind": "rsw",
+            "complete_sha256": "0000000000000000000000000000000000000000000000000000000000000004",
+            "input_bytes": 1,
+            "header_version_bytes": [
+              1,
+              2
+            ],
+            "outcome": "returned",
+            "constructor_returned": true,
+            "worker_started": true,
+            "cleanup": {
+              "exit_observed": true
+            },
+            "summary": {
+              "model_dependencies": []
+            }
+          },
+          {
+            "id": "authored-4",
+            "kind": "gnd",
+            "complete_sha256": "0000000000000000000000000000000000000000000000000000000000000005",
+            "input_bytes": 1,
+            "header_version_bytes": [
+              1,
+              2
+            ],
+            "outcome": "returned",
+            "constructor_returned": true,
+            "worker_started": true,
+            "cleanup": {
+              "exit_observed": true
+            },
+            "summary": {
+              "textures": [],
+              "texture_indexes": []
+            }
+          },
+          {
+            "id": "authored-5",
+            "kind": "rsw",
+            "complete_sha256": "0000000000000000000000000000000000000000000000000000000000000006",
+            "input_bytes": 1,
+            "header_version_bytes": [
+              1,
+              2
+            ],
+            "outcome": "returned",
+            "constructor_returned": true,
+            "worker_started": true,
+            "cleanup": {
+              "exit_observed": true
+            },
+            "summary": {
+              "model_dependencies": [
+                {
+                  "object_index": 0,
+                  "filename": "",
+                  "nodename": "node-0"
+                },
+                {
+                  "object_index": 1,
+                  "filename": "/./odd//../x.rsm",
+                  "nodename": "node-1"
+                },
+                {
+                  "object_index": 2,
+                  "filename": "__proto__",
+                  "nodename": "node-2"
+                },
+                {
+                  "object_index": 3,
+                  "filename": "constructor",
+                  "nodename": "node-3"
+                },
+                {
+                  "object_index": 4,
+                  "filename": "\u0085x.rsm\u0085",
+                  "nodename": "node-4"
+                },
+                {
+                  "object_index": 5,
+                  "filename": "\ufefftail.rsm\ufeff",
+                  "nodename": "node-5"
+                }
+              ]
+            }
+          }
+        ],
+        "roots": [
+          {
+            "ordinal": 0,
+            "configured": {
+              "source": "authored"
+            },
+            "name": "authored-map-0",
+            "extra": {
+              "preserve": [
+                "x",
+                false,
+                3
+              ]
+            },
+            "edges": {
+              "rsw": {
+                "job_id": "authored-0",
+                "parse_status": "authored-provenance",
+                "parse_outcome": "returned"
+              },
+              "gnd": {
+                "job_id": "authored-1",
+                "parse_status": "authored-provenance",
+                "parse_outcome": "returned"
+              },
+              "gat": {
+                "job_id": "authored-2",
+                "parse_status": "authored-provenance",
+                "parse_outcome": "returned"
+              }
+            }
+          },
+          {
+            "ordinal": 1,
+            "configured": null,
+            "name": "authored-map-1",
+            "extra": {
+              "preserve": [
+                "x",
+                false,
+                3
+              ]
+            },
+            "edges": {
+              "rsw": {
+                "job_id": "authored-0",
+                "parse_status": "authored-provenance",
+                "parse_outcome": "returned"
+              },
+              "gnd": {
+                "job_id": "authored-4",
+                "parse_status": "authored-provenance",
+                "parse_outcome": "returned"
+              },
+              "gat": {
+                "job_id": "authored-2",
+                "parse_status": "authored-provenance",
+                "parse_outcome": "returned"
+              }
+            }
+          },
+          {
+            "ordinal": 2,
+            "configured": {
+              "source": "authored"
+            },
+            "name": "authored-map-2",
+            "extra": {
+              "preserve": [
+                "x",
+                false,
+                3
+              ]
+            },
+            "edges": {
+              "rsw": {
+                "job_id": null,
+                "parse_status": "authored-provenance",
+                "parse_outcome": "unavailable_from_observation"
+              },
+              "gnd": {
+                "job_id": null,
+                "parse_status": "authored-provenance",
+                "parse_outcome": "unavailable_from_observation"
+              },
+              "gat": {
+                "job_id": null,
+                "parse_status": "authored-provenance",
+                "parse_outcome": "unavailable_from_observation"
+              }
+            }
+          },
+          {
+            "ordinal": 3,
+            "configured": {
+              "source": "authored"
+            },
+            "name": "authored-map-3",
+            "extra": {
+              "preserve": [
+                "x",
+                false,
+                3
+              ]
+            },
+            "edges": {
+              "rsw": {
+                "job_id": "authored-3",
+                "parse_status": "authored-provenance",
+                "parse_outcome": "returned"
+              },
+              "gnd": {
+                "job_id": "authored-1",
+                "parse_status": "authored-provenance",
+                "parse_outcome": "returned"
+              },
+              "gat": {
+                "job_id": "authored-2",
+                "parse_status": "authored-provenance",
+                "parse_outcome": "returned"
+              }
+            }
+          },
+          {
+            "ordinal": 4,
+            "configured": {
+              "source": "authored"
+            },
+            "name": "authored-map-4",
+            "extra": {
+              "preserve": [
+                "x",
+                false,
+                3
+              ]
+            },
+            "edges": {
+              "rsw": {
+                "job_id": "authored-5",
+                "parse_status": "authored-provenance",
+                "parse_outcome": "returned"
+              },
+              "gnd": {
+                "job_id": "authored-1",
+                "parse_status": "authored-provenance",
+                "parse_outcome": "returned"
+              },
+              "gat": {
+                "job_id": "authored-2",
+                "parse_status": "authored-provenance",
+                "parse_outcome": "returned"
+              }
+            }
+          }
+        ],
+        "remaining_gap_root_ordinals": [
+          2
+        ]
+      },
+      "reason": "invalid_catalog_input"
+    },
+    {
+      "id": "gat-type-metadata",
+      "input": {
+        "rows": [
+          {
+            "id": "authored-0",
+            "kind": "rsw",
+            "complete_sha256": "0000000000000000000000000000000000000000000000000000000000000001",
+            "input_bytes": 1,
+            "header_version_bytes": [
+              1,
+              2
+            ],
+            "outcome": "returned",
+            "constructor_returned": true,
+            "worker_started": true,
+            "cleanup": {
+              "exit_observed": true
+            },
+            "summary": {
+              "model_dependencies": [
+                {
+                  "object_index": 0,
+                  "filename": "A.rsm",
+                  "nodename": "node-0"
+                },
+                {
+                  "object_index": 1,
+                  "filename": "A.rsm ",
+                  "nodename": "node-1"
+                },
+                {
+                  "object_index": 2,
+                  "filename": "A.rsm",
+                  "nodename": "node-2"
+                },
+                {
+                  "object_index": 3,
+                  "filename": "a.rsm",
+                  "nodename": "node-3"
+                }
+              ]
+            }
+          },
+          {
+            "id": "authored-1",
+            "kind": "gnd",
+            "complete_sha256": "0000000000000000000000000000000000000000000000000000000000000002",
+            "input_bytes": 1,
+            "header_version_bytes": [
+              1,
+              2
+            ],
+            "outcome": "returned",
+            "constructor_returned": true,
+            "worker_started": true,
+            "cleanup": {
+              "exit_observed": true
+            },
+            "summary": {
+              "textures": [
+                "tiles\\A B.bmp",
+                "tiles/A B.bmp",
+                "!'()*%#.bmp",
+                "\u00b3\\Q.bmp",
+                "\u00a0x.bmp\u00a0"
+              ],
+              "texture_indexes": [
+                0,
+                0,
+                1,
+                2,
+                3,
+                4
+              ]
+            }
+          },
+          {
+            "id": "authored-2",
+            "kind": "gat",
+            "complete_sha256": "0000000000000000000000000000000000000000000000000000000000000003",
+            "input_bytes": true,
+            "header_version_bytes": [
+              1,
+              2
+            ],
+            "outcome": "returned",
+            "constructor_returned": true,
+            "worker_started": true,
+            "cleanup": {
+              "exit_observed": true
+            },
+            "summary": {}
+          },
+          {
+            "id": "authored-3",
+            "kind": "rsw",
+            "complete_sha256": "0000000000000000000000000000000000000000000000000000000000000004",
+            "input_bytes": 1,
+            "header_version_bytes": [
+              1,
+              2
+            ],
+            "outcome": "returned",
+            "constructor_returned": true,
+            "worker_started": true,
+            "cleanup": {
+              "exit_observed": true
+            },
+            "summary": {
+              "model_dependencies": []
+            }
+          },
+          {
+            "id": "authored-4",
+            "kind": "gnd",
+            "complete_sha256": "0000000000000000000000000000000000000000000000000000000000000005",
+            "input_bytes": 1,
+            "header_version_bytes": [
+              1,
+              2
+            ],
+            "outcome": "returned",
+            "constructor_returned": true,
+            "worker_started": true,
+            "cleanup": {
+              "exit_observed": true
+            },
+            "summary": {
+              "textures": [],
+              "texture_indexes": []
+            }
+          },
+          {
+            "id": "authored-5",
+            "kind": "rsw",
+            "complete_sha256": "0000000000000000000000000000000000000000000000000000000000000006",
+            "input_bytes": 1,
+            "header_version_bytes": [
+              1,
+              2
+            ],
+            "outcome": "returned",
+            "constructor_returned": true,
+            "worker_started": true,
+            "cleanup": {
+              "exit_observed": true
+            },
+            "summary": {
+              "model_dependencies": [
+                {
+                  "object_index": 0,
+                  "filename": "",
+                  "nodename": "node-0"
+                },
+                {
+                  "object_index": 1,
+                  "filename": "/./odd//../x.rsm",
+                  "nodename": "node-1"
+                },
+                {
+                  "object_index": 2,
+                  "filename": "__proto__",
+                  "nodename": "node-2"
+                },
+                {
+                  "object_index": 3,
+                  "filename": "constructor",
+                  "nodename": "node-3"
+                },
+                {
+                  "object_index": 4,
+                  "filename": "\u0085x.rsm\u0085",
+                  "nodename": "node-4"
+                },
+                {
+                  "object_index": 5,
+                  "filename": "\ufefftail.rsm\ufeff",
+                  "nodename": "node-5"
+                }
+              ]
+            }
+          }
+        ],
+        "roots": [
+          {
+            "ordinal": 0,
+            "configured": {
+              "source": "authored"
+            },
+            "name": "authored-map-0",
+            "extra": {
+              "preserve": [
+                "x",
+                false,
+                3
+              ]
+            },
+            "edges": {
+              "rsw": {
+                "job_id": "authored-0",
+                "parse_status": "authored-provenance",
+                "parse_outcome": "returned"
+              },
+              "gnd": {
+                "job_id": "authored-1",
+                "parse_status": "authored-provenance",
+                "parse_outcome": "returned"
+              },
+              "gat": {
+                "job_id": "authored-2",
+                "parse_status": "authored-provenance",
+                "parse_outcome": "returned"
+              }
+            }
+          },
+          {
+            "ordinal": 1,
+            "configured": null,
+            "name": "authored-map-1",
+            "extra": {
+              "preserve": [
+                "x",
+                false,
+                3
+              ]
+            },
+            "edges": {
+              "rsw": {
+                "job_id": "authored-0",
+                "parse_status": "authored-provenance",
+                "parse_outcome": "returned"
+              },
+              "gnd": {
+                "job_id": "authored-4",
+                "parse_status": "authored-provenance",
+                "parse_outcome": "returned"
+              },
+              "gat": {
+                "job_id": "authored-2",
+                "parse_status": "authored-provenance",
+                "parse_outcome": "returned"
+              }
+            }
+          },
+          {
+            "ordinal": 2,
+            "configured": {
+              "source": "authored"
+            },
+            "name": "authored-map-2",
+            "extra": {
+              "preserve": [
+                "x",
+                false,
+                3
+              ]
+            },
+            "edges": {
+              "rsw": {
+                "job_id": null,
+                "parse_status": "authored-provenance",
+                "parse_outcome": "unavailable_from_observation"
+              },
+              "gnd": {
+                "job_id": null,
+                "parse_status": "authored-provenance",
+                "parse_outcome": "unavailable_from_observation"
+              },
+              "gat": {
+                "job_id": null,
+                "parse_status": "authored-provenance",
+                "parse_outcome": "unavailable_from_observation"
+              }
+            }
+          },
+          {
+            "ordinal": 3,
+            "configured": {
+              "source": "authored"
+            },
+            "name": "authored-map-3",
+            "extra": {
+              "preserve": [
+                "x",
+                false,
+                3
+              ]
+            },
+            "edges": {
+              "rsw": {
+                "job_id": "authored-3",
+                "parse_status": "authored-provenance",
+                "parse_outcome": "returned"
+              },
+              "gnd": {
+                "job_id": "authored-1",
+                "parse_status": "authored-provenance",
+                "parse_outcome": "returned"
+              },
+              "gat": {
+                "job_id": "authored-2",
+                "parse_status": "authored-provenance",
+                "parse_outcome": "returned"
+              }
+            }
+          },
+          {
+            "ordinal": 4,
+            "configured": {
+              "source": "authored"
+            },
+            "name": "authored-map-4",
+            "extra": {
+              "preserve": [
+                "x",
+                false,
+                3
+              ]
+            },
+            "edges": {
+              "rsw": {
+                "job_id": "authored-5",
+                "parse_status": "authored-provenance",
+                "parse_outcome": "returned"
+              },
+              "gnd": {
+                "job_id": "authored-1",
+                "parse_status": "authored-provenance",
+                "parse_outcome": "returned"
+              },
+              "gat": {
+                "job_id": "authored-2",
+                "parse_status": "authored-provenance",
+                "parse_outcome": "returned"
+              }
+            }
+          }
+        ],
+        "remaining_gap_root_ordinals": [
+          2
+        ]
+      },
+      "reason": "invalid_catalog_input"
+    },
+    {
+      "id": "out-of-range-gnd-slot",
+      "input": {
+        "rows": [
+          {
+            "id": "authored-0",
+            "kind": "rsw",
+            "complete_sha256": "0000000000000000000000000000000000000000000000000000000000000001",
+            "input_bytes": 1,
+            "header_version_bytes": [
+              1,
+              2
+            ],
+            "outcome": "returned",
+            "constructor_returned": true,
+            "worker_started": true,
+            "cleanup": {
+              "exit_observed": true
+            },
+            "summary": {
+              "model_dependencies": [
+                {
+                  "object_index": 0,
+                  "filename": "A.rsm",
+                  "nodename": "node-0"
+                },
+                {
+                  "object_index": 1,
+                  "filename": "A.rsm ",
+                  "nodename": "node-1"
+                },
+                {
+                  "object_index": 2,
+                  "filename": "A.rsm",
+                  "nodename": "node-2"
+                },
+                {
+                  "object_index": 3,
+                  "filename": "a.rsm",
+                  "nodename": "node-3"
+                }
+              ]
+            }
+          },
+          {
+            "id": "authored-1",
+            "kind": "gnd",
+            "complete_sha256": "0000000000000000000000000000000000000000000000000000000000000002",
+            "input_bytes": 1,
+            "header_version_bytes": [
+              1,
+              2
+            ],
+            "outcome": "returned",
+            "constructor_returned": true,
+            "worker_started": true,
+            "cleanup": {
+              "exit_observed": true
+            },
+            "summary": {
+              "textures": [
+                "tiles\\A B.bmp",
+                "tiles/A B.bmp",
+                "!'()*%#.bmp",
+                "\u00b3\\Q.bmp",
+                "\u00a0x.bmp\u00a0"
+              ],
+              "texture_indexes": [
+                0,
+                0,
+                1,
+                2,
+                3,
+                4,
+                5
+              ]
+            }
+          },
+          {
+            "id": "authored-2",
+            "kind": "gat",
+            "complete_sha256": "0000000000000000000000000000000000000000000000000000000000000003",
+            "input_bytes": 1,
+            "header_version_bytes": [
+              1,
+              2
+            ],
+            "outcome": "returned",
+            "constructor_returned": true,
+            "worker_started": true,
+            "cleanup": {
+              "exit_observed": true
+            },
+            "summary": {}
+          },
+          {
+            "id": "authored-3",
+            "kind": "rsw",
+            "complete_sha256": "0000000000000000000000000000000000000000000000000000000000000004",
+            "input_bytes": 1,
+            "header_version_bytes": [
+              1,
+              2
+            ],
+            "outcome": "returned",
+            "constructor_returned": true,
+            "worker_started": true,
+            "cleanup": {
+              "exit_observed": true
+            },
+            "summary": {
+              "model_dependencies": []
+            }
+          },
+          {
+            "id": "authored-4",
+            "kind": "gnd",
+            "complete_sha256": "0000000000000000000000000000000000000000000000000000000000000005",
+            "input_bytes": 1,
+            "header_version_bytes": [
+              1,
+              2
+            ],
+            "outcome": "returned",
+            "constructor_returned": true,
+            "worker_started": true,
+            "cleanup": {
+              "exit_observed": true
+            },
+            "summary": {
+              "textures": [],
+              "texture_indexes": []
+            }
+          },
+          {
+            "id": "authored-5",
+            "kind": "rsw",
+            "complete_sha256": "0000000000000000000000000000000000000000000000000000000000000006",
+            "input_bytes": 1,
+            "header_version_bytes": [
+              1,
+              2
+            ],
+            "outcome": "returned",
+            "constructor_returned": true,
+            "worker_started": true,
+            "cleanup": {
+              "exit_observed": true
+            },
+            "summary": {
+              "model_dependencies": [
+                {
+                  "object_index": 0,
+                  "filename": "",
+                  "nodename": "node-0"
+                },
+                {
+                  "object_index": 1,
+                  "filename": "/./odd//../x.rsm",
+                  "nodename": "node-1"
+                },
+                {
+                  "object_index": 2,
+                  "filename": "__proto__",
+                  "nodename": "node-2"
+                },
+                {
+                  "object_index": 3,
+                  "filename": "constructor",
+                  "nodename": "node-3"
+                },
+                {
+                  "object_index": 4,
+                  "filename": "\u0085x.rsm\u0085",
+                  "nodename": "node-4"
+                },
+                {
+                  "object_index": 5,
+                  "filename": "\ufefftail.rsm\ufeff",
+                  "nodename": "node-5"
+                }
+              ]
+            }
+          }
+        ],
+        "roots": [
+          {
+            "ordinal": 0,
+            "configured": {
+              "source": "authored"
+            },
+            "name": "authored-map-0",
+            "extra": {
+              "preserve": [
+                "x",
+                false,
+                3
+              ]
+            },
+            "edges": {
+              "rsw": {
+                "job_id": "authored-0",
+                "parse_status": "authored-provenance",
+                "parse_outcome": "returned"
+              },
+              "gnd": {
+                "job_id": "authored-1",
+                "parse_status": "authored-provenance",
+                "parse_outcome": "returned"
+              },
+              "gat": {
+                "job_id": "authored-2",
+                "parse_status": "authored-provenance",
+                "parse_outcome": "returned"
+              }
+            }
+          },
+          {
+            "ordinal": 1,
+            "configured": null,
+            "name": "authored-map-1",
+            "extra": {
+              "preserve": [
+                "x",
+                false,
+                3
+              ]
+            },
+            "edges": {
+              "rsw": {
+                "job_id": "authored-0",
+                "parse_status": "authored-provenance",
+                "parse_outcome": "returned"
+              },
+              "gnd": {
+                "job_id": "authored-4",
+                "parse_status": "authored-provenance",
+                "parse_outcome": "returned"
+              },
+              "gat": {
+                "job_id": "authored-2",
+                "parse_status": "authored-provenance",
+                "parse_outcome": "returned"
+              }
+            }
+          },
+          {
+            "ordinal": 2,
+            "configured": {
+              "source": "authored"
+            },
+            "name": "authored-map-2",
+            "extra": {
+              "preserve": [
+                "x",
+                false,
+                3
+              ]
+            },
+            "edges": {
+              "rsw": {
+                "job_id": null,
+                "parse_status": "authored-provenance",
+                "parse_outcome": "unavailable_from_observation"
+              },
+              "gnd": {
+                "job_id": null,
+                "parse_status": "authored-provenance",
+                "parse_outcome": "unavailable_from_observation"
+              },
+              "gat": {
+                "job_id": null,
+                "parse_status": "authored-provenance",
+                "parse_outcome": "unavailable_from_observation"
+              }
+            }
+          },
+          {
+            "ordinal": 3,
+            "configured": {
+              "source": "authored"
+            },
+            "name": "authored-map-3",
+            "extra": {
+              "preserve": [
+                "x",
+                false,
+                3
+              ]
+            },
+            "edges": {
+              "rsw": {
+                "job_id": "authored-3",
+                "parse_status": "authored-provenance",
+                "parse_outcome": "returned"
+              },
+              "gnd": {
+                "job_id": "authored-1",
+                "parse_status": "authored-provenance",
+                "parse_outcome": "returned"
+              },
+              "gat": {
+                "job_id": "authored-2",
+                "parse_status": "authored-provenance",
+                "parse_outcome": "returned"
+              }
+            }
+          },
+          {
+            "ordinal": 4,
+            "configured": {
+              "source": "authored"
+            },
+            "name": "authored-map-4",
+            "extra": {
+              "preserve": [
+                "x",
+                false,
+                3
+              ]
+            },
+            "edges": {
+              "rsw": {
+                "job_id": "authored-5",
+                "parse_status": "authored-provenance",
+                "parse_outcome": "returned"
+              },
+              "gnd": {
+                "job_id": "authored-1",
+                "parse_status": "authored-provenance",
+                "parse_outcome": "returned"
+              },
+              "gat": {
+                "job_id": "authored-2",
+                "parse_status": "authored-provenance",
+                "parse_outcome": "returned"
+              }
+            }
+          }
+        ],
+        "remaining_gap_root_ordinals": [
+          2
+        ]
+      },
+      "reason": "invalid_catalog_input"
+    },
+    {
+      "id": "bool-is-not-gnd-index",
+      "input": {
+        "rows": [
+          {
+            "id": "authored-0",
+            "kind": "rsw",
+            "complete_sha256": "0000000000000000000000000000000000000000000000000000000000000001",
+            "input_bytes": 1,
+            "header_version_bytes": [
+              1,
+              2
+            ],
+            "outcome": "returned",
+            "constructor_returned": true,
+            "worker_started": true,
+            "cleanup": {
+              "exit_observed": true
+            },
+            "summary": {
+              "model_dependencies": [
+                {
+                  "object_index": 0,
+                  "filename": "A.rsm",
+                  "nodename": "node-0"
+                },
+                {
+                  "object_index": 1,
+                  "filename": "A.rsm ",
+                  "nodename": "node-1"
+                },
+                {
+                  "object_index": 2,
+                  "filename": "A.rsm",
+                  "nodename": "node-2"
+                },
+                {
+                  "object_index": 3,
+                  "filename": "a.rsm",
+                  "nodename": "node-3"
+                }
+              ]
+            }
+          },
+          {
+            "id": "authored-1",
+            "kind": "gnd",
+            "complete_sha256": "0000000000000000000000000000000000000000000000000000000000000002",
+            "input_bytes": 1,
+            "header_version_bytes": [
+              1,
+              2
+            ],
+            "outcome": "returned",
+            "constructor_returned": true,
+            "worker_started": true,
+            "cleanup": {
+              "exit_observed": true
+            },
+            "summary": {
+              "textures": [
+                "tiles\\A B.bmp",
+                "tiles/A B.bmp",
+                "!'()*%#.bmp",
+                "\u00b3\\Q.bmp",
+                "\u00a0x.bmp\u00a0"
+              ],
+              "texture_indexes": [
+                0,
+                0,
+                1,
+                2,
+                3,
+                4,
+                true
+              ]
+            }
+          },
+          {
+            "id": "authored-2",
+            "kind": "gat",
+            "complete_sha256": "0000000000000000000000000000000000000000000000000000000000000003",
+            "input_bytes": 1,
+            "header_version_bytes": [
+              1,
+              2
+            ],
+            "outcome": "returned",
+            "constructor_returned": true,
+            "worker_started": true,
+            "cleanup": {
+              "exit_observed": true
+            },
+            "summary": {}
+          },
+          {
+            "id": "authored-3",
+            "kind": "rsw",
+            "complete_sha256": "0000000000000000000000000000000000000000000000000000000000000004",
+            "input_bytes": 1,
+            "header_version_bytes": [
+              1,
+              2
+            ],
+            "outcome": "returned",
+            "constructor_returned": true,
+            "worker_started": true,
+            "cleanup": {
+              "exit_observed": true
+            },
+            "summary": {
+              "model_dependencies": []
+            }
+          },
+          {
+            "id": "authored-4",
+            "kind": "gnd",
+            "complete_sha256": "0000000000000000000000000000000000000000000000000000000000000005",
+            "input_bytes": 1,
+            "header_version_bytes": [
+              1,
+              2
+            ],
+            "outcome": "returned",
+            "constructor_returned": true,
+            "worker_started": true,
+            "cleanup": {
+              "exit_observed": true
+            },
+            "summary": {
+              "textures": [],
+              "texture_indexes": []
+            }
+          },
+          {
+            "id": "authored-5",
+            "kind": "rsw",
+            "complete_sha256": "0000000000000000000000000000000000000000000000000000000000000006",
+            "input_bytes": 1,
+            "header_version_bytes": [
+              1,
+              2
+            ],
+            "outcome": "returned",
+            "constructor_returned": true,
+            "worker_started": true,
+            "cleanup": {
+              "exit_observed": true
+            },
+            "summary": {
+              "model_dependencies": [
+                {
+                  "object_index": 0,
+                  "filename": "",
+                  "nodename": "node-0"
+                },
+                {
+                  "object_index": 1,
+                  "filename": "/./odd//../x.rsm",
+                  "nodename": "node-1"
+                },
+                {
+                  "object_index": 2,
+                  "filename": "__proto__",
+                  "nodename": "node-2"
+                },
+                {
+                  "object_index": 3,
+                  "filename": "constructor",
+                  "nodename": "node-3"
+                },
+                {
+                  "object_index": 4,
+                  "filename": "\u0085x.rsm\u0085",
+                  "nodename": "node-4"
+                },
+                {
+                  "object_index": 5,
+                  "filename": "\ufefftail.rsm\ufeff",
+                  "nodename": "node-5"
+                }
+              ]
+            }
+          }
+        ],
+        "roots": [
+          {
+            "ordinal": 0,
+            "configured": {
+              "source": "authored"
+            },
+            "name": "authored-map-0",
+            "extra": {
+              "preserve": [
+                "x",
+                false,
+                3
+              ]
+            },
+            "edges": {
+              "rsw": {
+                "job_id": "authored-0",
+                "parse_status": "authored-provenance",
+                "parse_outcome": "returned"
+              },
+              "gnd": {
+                "job_id": "authored-1",
+                "parse_status": "authored-provenance",
+                "parse_outcome": "returned"
+              },
+              "gat": {
+                "job_id": "authored-2",
+                "parse_status": "authored-provenance",
+                "parse_outcome": "returned"
+              }
+            }
+          },
+          {
+            "ordinal": 1,
+            "configured": null,
+            "name": "authored-map-1",
+            "extra": {
+              "preserve": [
+                "x",
+                false,
+                3
+              ]
+            },
+            "edges": {
+              "rsw": {
+                "job_id": "authored-0",
+                "parse_status": "authored-provenance",
+                "parse_outcome": "returned"
+              },
+              "gnd": {
+                "job_id": "authored-4",
+                "parse_status": "authored-provenance",
+                "parse_outcome": "returned"
+              },
+              "gat": {
+                "job_id": "authored-2",
+                "parse_status": "authored-provenance",
+                "parse_outcome": "returned"
+              }
+            }
+          },
+          {
+            "ordinal": 2,
+            "configured": {
+              "source": "authored"
+            },
+            "name": "authored-map-2",
+            "extra": {
+              "preserve": [
+                "x",
+                false,
+                3
+              ]
+            },
+            "edges": {
+              "rsw": {
+                "job_id": null,
+                "parse_status": "authored-provenance",
+                "parse_outcome": "unavailable_from_observation"
+              },
+              "gnd": {
+                "job_id": null,
+                "parse_status": "authored-provenance",
+                "parse_outcome": "unavailable_from_observation"
+              },
+              "gat": {
+                "job_id": null,
+                "parse_status": "authored-provenance",
+                "parse_outcome": "unavailable_from_observation"
+              }
+            }
+          },
+          {
+            "ordinal": 3,
+            "configured": {
+              "source": "authored"
+            },
+            "name": "authored-map-3",
+            "extra": {
+              "preserve": [
+                "x",
+                false,
+                3
+              ]
+            },
+            "edges": {
+              "rsw": {
+                "job_id": "authored-3",
+                "parse_status": "authored-provenance",
+                "parse_outcome": "returned"
+              },
+              "gnd": {
+                "job_id": "authored-1",
+                "parse_status": "authored-provenance",
+                "parse_outcome": "returned"
+              },
+              "gat": {
+                "job_id": "authored-2",
+                "parse_status": "authored-provenance",
+                "parse_outcome": "returned"
+              }
+            }
+          },
+          {
+            "ordinal": 4,
+            "configured": {
+              "source": "authored"
+            },
+            "name": "authored-map-4",
+            "extra": {
+              "preserve": [
+                "x",
+                false,
+                3
+              ]
+            },
+            "edges": {
+              "rsw": {
+                "job_id": "authored-5",
+                "parse_status": "authored-provenance",
+                "parse_outcome": "returned"
+              },
+              "gnd": {
+                "job_id": "authored-1",
+                "parse_status": "authored-provenance",
+                "parse_outcome": "returned"
+              },
+              "gat": {
+                "job_id": "authored-2",
+                "parse_status": "authored-provenance",
+                "parse_outcome": "returned"
+              }
+            }
+          }
+        ],
+        "remaining_gap_root_ordinals": [
+          2
+        ]
+      },
+      "reason": "invalid_catalog_input"
+    },
+    {
+      "id": "noncanonical-gnd-first-use-order",
+      "input": {
+        "rows": [
+          {
+            "id": "authored-0",
+            "kind": "rsw",
+            "complete_sha256": "0000000000000000000000000000000000000000000000000000000000000001",
+            "input_bytes": 1,
+            "header_version_bytes": [
+              1,
+              2
+            ],
+            "outcome": "returned",
+            "constructor_returned": true,
+            "worker_started": true,
+            "cleanup": {
+              "exit_observed": true
+            },
+            "summary": {
+              "model_dependencies": [
+                {
+                  "object_index": 0,
+                  "filename": "A.rsm",
+                  "nodename": "node-0"
+                },
+                {
+                  "object_index": 1,
+                  "filename": "A.rsm ",
+                  "nodename": "node-1"
+                },
+                {
+                  "object_index": 2,
+                  "filename": "A.rsm",
+                  "nodename": "node-2"
+                },
+                {
+                  "object_index": 3,
+                  "filename": "a.rsm",
+                  "nodename": "node-3"
+                }
+              ]
+            }
+          },
+          {
+            "id": "authored-1",
+            "kind": "gnd",
+            "complete_sha256": "0000000000000000000000000000000000000000000000000000000000000002",
+            "input_bytes": 1,
+            "header_version_bytes": [
+              1,
+              2
+            ],
+            "outcome": "returned",
+            "constructor_returned": true,
+            "worker_started": true,
+            "cleanup": {
+              "exit_observed": true
+            },
+            "summary": {
+              "textures": [
+                "tiles\\A B.bmp",
+                "tiles/A B.bmp",
+                "!'()*%#.bmp",
+                "\u00b3\\Q.bmp",
+                "\u00a0x.bmp\u00a0"
+              ],
+              "texture_indexes": [
+                1,
+                0,
+                1,
+                2,
+                3,
+                4
+              ]
+            }
+          },
+          {
+            "id": "authored-2",
+            "kind": "gat",
+            "complete_sha256": "0000000000000000000000000000000000000000000000000000000000000003",
+            "input_bytes": 1,
+            "header_version_bytes": [
+              1,
+              2
+            ],
+            "outcome": "returned",
+            "constructor_returned": true,
+            "worker_started": true,
+            "cleanup": {
+              "exit_observed": true
+            },
+            "summary": {}
+          },
+          {
+            "id": "authored-3",
+            "kind": "rsw",
+            "complete_sha256": "0000000000000000000000000000000000000000000000000000000000000004",
+            "input_bytes": 1,
+            "header_version_bytes": [
+              1,
+              2
+            ],
+            "outcome": "returned",
+            "constructor_returned": true,
+            "worker_started": true,
+            "cleanup": {
+              "exit_observed": true
+            },
+            "summary": {
+              "model_dependencies": []
+            }
+          },
+          {
+            "id": "authored-4",
+            "kind": "gnd",
+            "complete_sha256": "0000000000000000000000000000000000000000000000000000000000000005",
+            "input_bytes": 1,
+            "header_version_bytes": [
+              1,
+              2
+            ],
+            "outcome": "returned",
+            "constructor_returned": true,
+            "worker_started": true,
+            "cleanup": {
+              "exit_observed": true
+            },
+            "summary": {
+              "textures": [],
+              "texture_indexes": []
+            }
+          },
+          {
+            "id": "authored-5",
+            "kind": "rsw",
+            "complete_sha256": "0000000000000000000000000000000000000000000000000000000000000006",
+            "input_bytes": 1,
+            "header_version_bytes": [
+              1,
+              2
+            ],
+            "outcome": "returned",
+            "constructor_returned": true,
+            "worker_started": true,
+            "cleanup": {
+              "exit_observed": true
+            },
+            "summary": {
+              "model_dependencies": [
+                {
+                  "object_index": 0,
+                  "filename": "",
+                  "nodename": "node-0"
+                },
+                {
+                  "object_index": 1,
+                  "filename": "/./odd//../x.rsm",
+                  "nodename": "node-1"
+                },
+                {
+                  "object_index": 2,
+                  "filename": "__proto__",
+                  "nodename": "node-2"
+                },
+                {
+                  "object_index": 3,
+                  "filename": "constructor",
+                  "nodename": "node-3"
+                },
+                {
+                  "object_index": 4,
+                  "filename": "\u0085x.rsm\u0085",
+                  "nodename": "node-4"
+                },
+                {
+                  "object_index": 5,
+                  "filename": "\ufefftail.rsm\ufeff",
+                  "nodename": "node-5"
+                }
+              ]
+            }
+          }
+        ],
+        "roots": [
+          {
+            "ordinal": 0,
+            "configured": {
+              "source": "authored"
+            },
+            "name": "authored-map-0",
+            "extra": {
+              "preserve": [
+                "x",
+                false,
+                3
+              ]
+            },
+            "edges": {
+              "rsw": {
+                "job_id": "authored-0",
+                "parse_status": "authored-provenance",
+                "parse_outcome": "returned"
+              },
+              "gnd": {
+                "job_id": "authored-1",
+                "parse_status": "authored-provenance",
+                "parse_outcome": "returned"
+              },
+              "gat": {
+                "job_id": "authored-2",
+                "parse_status": "authored-provenance",
+                "parse_outcome": "returned"
+              }
+            }
+          },
+          {
+            "ordinal": 1,
+            "configured": null,
+            "name": "authored-map-1",
+            "extra": {
+              "preserve": [
+                "x",
+                false,
+                3
+              ]
+            },
+            "edges": {
+              "rsw": {
+                "job_id": "authored-0",
+                "parse_status": "authored-provenance",
+                "parse_outcome": "returned"
+              },
+              "gnd": {
+                "job_id": "authored-4",
+                "parse_status": "authored-provenance",
+                "parse_outcome": "returned"
+              },
+              "gat": {
+                "job_id": "authored-2",
+                "parse_status": "authored-provenance",
+                "parse_outcome": "returned"
+              }
+            }
+          },
+          {
+            "ordinal": 2,
+            "configured": {
+              "source": "authored"
+            },
+            "name": "authored-map-2",
+            "extra": {
+              "preserve": [
+                "x",
+                false,
+                3
+              ]
+            },
+            "edges": {
+              "rsw": {
+                "job_id": null,
+                "parse_status": "authored-provenance",
+                "parse_outcome": "unavailable_from_observation"
+              },
+              "gnd": {
+                "job_id": null,
+                "parse_status": "authored-provenance",
+                "parse_outcome": "unavailable_from_observation"
+              },
+              "gat": {
+                "job_id": null,
+                "parse_status": "authored-provenance",
+                "parse_outcome": "unavailable_from_observation"
+              }
+            }
+          },
+          {
+            "ordinal": 3,
+            "configured": {
+              "source": "authored"
+            },
+            "name": "authored-map-3",
+            "extra": {
+              "preserve": [
+                "x",
+                false,
+                3
+              ]
+            },
+            "edges": {
+              "rsw": {
+                "job_id": "authored-3",
+                "parse_status": "authored-provenance",
+                "parse_outcome": "returned"
+              },
+              "gnd": {
+                "job_id": "authored-1",
+                "parse_status": "authored-provenance",
+                "parse_outcome": "returned"
+              },
+              "gat": {
+                "job_id": "authored-2",
+                "parse_status": "authored-provenance",
+                "parse_outcome": "returned"
+              }
+            }
+          },
+          {
+            "ordinal": 4,
+            "configured": {
+              "source": "authored"
+            },
+            "name": "authored-map-4",
+            "extra": {
+              "preserve": [
+                "x",
+                false,
+                3
+              ]
+            },
+            "edges": {
+              "rsw": {
+                "job_id": "authored-5",
+                "parse_status": "authored-provenance",
+                "parse_outcome": "returned"
+              },
+              "gnd": {
+                "job_id": "authored-1",
+                "parse_status": "authored-provenance",
+                "parse_outcome": "returned"
+              },
+              "gat": {
+                "job_id": "authored-2",
+                "parse_status": "authored-provenance",
+                "parse_outcome": "returned"
+              }
+            }
+          }
+        ],
+        "remaining_gap_root_ordinals": [
+          2
+        ]
+      },
+      "reason": "invalid_catalog_input"
+    },
+    {
+      "id": "unreferenced-gnd-entry",
+      "input": {
+        "rows": [
+          {
+            "id": "authored-0",
+            "kind": "rsw",
+            "complete_sha256": "0000000000000000000000000000000000000000000000000000000000000001",
+            "input_bytes": 1,
+            "header_version_bytes": [
+              1,
+              2
+            ],
+            "outcome": "returned",
+            "constructor_returned": true,
+            "worker_started": true,
+            "cleanup": {
+              "exit_observed": true
+            },
+            "summary": {
+              "model_dependencies": [
+                {
+                  "object_index": 0,
+                  "filename": "A.rsm",
+                  "nodename": "node-0"
+                },
+                {
+                  "object_index": 1,
+                  "filename": "A.rsm ",
+                  "nodename": "node-1"
+                },
+                {
+                  "object_index": 2,
+                  "filename": "A.rsm",
+                  "nodename": "node-2"
+                },
+                {
+                  "object_index": 3,
+                  "filename": "a.rsm",
+                  "nodename": "node-3"
+                }
+              ]
+            }
+          },
+          {
+            "id": "authored-1",
+            "kind": "gnd",
+            "complete_sha256": "0000000000000000000000000000000000000000000000000000000000000002",
+            "input_bytes": 1,
+            "header_version_bytes": [
+              1,
+              2
+            ],
+            "outcome": "returned",
+            "constructor_returned": true,
+            "worker_started": true,
+            "cleanup": {
+              "exit_observed": true
+            },
+            "summary": {
+              "textures": [
+                "tiles\\A B.bmp",
+                "tiles/A B.bmp",
+                "!'()*%#.bmp",
+                "\u00b3\\Q.bmp",
+                "\u00a0x.bmp\u00a0",
+                "unused.bmp"
+              ],
+              "texture_indexes": [
+                0,
+                0,
+                1,
+                2,
+                3,
+                4
+              ]
+            }
+          },
+          {
+            "id": "authored-2",
+            "kind": "gat",
+            "complete_sha256": "0000000000000000000000000000000000000000000000000000000000000003",
+            "input_bytes": 1,
+            "header_version_bytes": [
+              1,
+              2
+            ],
+            "outcome": "returned",
+            "constructor_returned": true,
+            "worker_started": true,
+            "cleanup": {
+              "exit_observed": true
+            },
+            "summary": {}
+          },
+          {
+            "id": "authored-3",
+            "kind": "rsw",
+            "complete_sha256": "0000000000000000000000000000000000000000000000000000000000000004",
+            "input_bytes": 1,
+            "header_version_bytes": [
+              1,
+              2
+            ],
+            "outcome": "returned",
+            "constructor_returned": true,
+            "worker_started": true,
+            "cleanup": {
+              "exit_observed": true
+            },
+            "summary": {
+              "model_dependencies": []
+            }
+          },
+          {
+            "id": "authored-4",
+            "kind": "gnd",
+            "complete_sha256": "0000000000000000000000000000000000000000000000000000000000000005",
+            "input_bytes": 1,
+            "header_version_bytes": [
+              1,
+              2
+            ],
+            "outcome": "returned",
+            "constructor_returned": true,
+            "worker_started": true,
+            "cleanup": {
+              "exit_observed": true
+            },
+            "summary": {
+              "textures": [],
+              "texture_indexes": []
+            }
+          },
+          {
+            "id": "authored-5",
+            "kind": "rsw",
+            "complete_sha256": "0000000000000000000000000000000000000000000000000000000000000006",
+            "input_bytes": 1,
+            "header_version_bytes": [
+              1,
+              2
+            ],
+            "outcome": "returned",
+            "constructor_returned": true,
+            "worker_started": true,
+            "cleanup": {
+              "exit_observed": true
+            },
+            "summary": {
+              "model_dependencies": [
+                {
+                  "object_index": 0,
+                  "filename": "",
+                  "nodename": "node-0"
+                },
+                {
+                  "object_index": 1,
+                  "filename": "/./odd//../x.rsm",
+                  "nodename": "node-1"
+                },
+                {
+                  "object_index": 2,
+                  "filename": "__proto__",
+                  "nodename": "node-2"
+                },
+                {
+                  "object_index": 3,
+                  "filename": "constructor",
+                  "nodename": "node-3"
+                },
+                {
+                  "object_index": 4,
+                  "filename": "\u0085x.rsm\u0085",
+                  "nodename": "node-4"
+                },
+                {
+                  "object_index": 5,
+                  "filename": "\ufefftail.rsm\ufeff",
+                  "nodename": "node-5"
+                }
+              ]
+            }
+          }
+        ],
+        "roots": [
+          {
+            "ordinal": 0,
+            "configured": {
+              "source": "authored"
+            },
+            "name": "authored-map-0",
+            "extra": {
+              "preserve": [
+                "x",
+                false,
+                3
+              ]
+            },
+            "edges": {
+              "rsw": {
+                "job_id": "authored-0",
+                "parse_status": "authored-provenance",
+                "parse_outcome": "returned"
+              },
+              "gnd": {
+                "job_id": "authored-1",
+                "parse_status": "authored-provenance",
+                "parse_outcome": "returned"
+              },
+              "gat": {
+                "job_id": "authored-2",
+                "parse_status": "authored-provenance",
+                "parse_outcome": "returned"
+              }
+            }
+          },
+          {
+            "ordinal": 1,
+            "configured": null,
+            "name": "authored-map-1",
+            "extra": {
+              "preserve": [
+                "x",
+                false,
+                3
+              ]
+            },
+            "edges": {
+              "rsw": {
+                "job_id": "authored-0",
+                "parse_status": "authored-provenance",
+                "parse_outcome": "returned"
+              },
+              "gnd": {
+                "job_id": "authored-4",
+                "parse_status": "authored-provenance",
+                "parse_outcome": "returned"
+              },
+              "gat": {
+                "job_id": "authored-2",
+                "parse_status": "authored-provenance",
+                "parse_outcome": "returned"
+              }
+            }
+          },
+          {
+            "ordinal": 2,
+            "configured": {
+              "source": "authored"
+            },
+            "name": "authored-map-2",
+            "extra": {
+              "preserve": [
+                "x",
+                false,
+                3
+              ]
+            },
+            "edges": {
+              "rsw": {
+                "job_id": null,
+                "parse_status": "authored-provenance",
+                "parse_outcome": "unavailable_from_observation"
+              },
+              "gnd": {
+                "job_id": null,
+                "parse_status": "authored-provenance",
+                "parse_outcome": "unavailable_from_observation"
+              },
+              "gat": {
+                "job_id": null,
+                "parse_status": "authored-provenance",
+                "parse_outcome": "unavailable_from_observation"
+              }
+            }
+          },
+          {
+            "ordinal": 3,
+            "configured": {
+              "source": "authored"
+            },
+            "name": "authored-map-3",
+            "extra": {
+              "preserve": [
+                "x",
+                false,
+                3
+              ]
+            },
+            "edges": {
+              "rsw": {
+                "job_id": "authored-3",
+                "parse_status": "authored-provenance",
+                "parse_outcome": "returned"
+              },
+              "gnd": {
+                "job_id": "authored-1",
+                "parse_status": "authored-provenance",
+                "parse_outcome": "returned"
+              },
+              "gat": {
+                "job_id": "authored-2",
+                "parse_status": "authored-provenance",
+                "parse_outcome": "returned"
+              }
+            }
+          },
+          {
+            "ordinal": 4,
+            "configured": {
+              "source": "authored"
+            },
+            "name": "authored-map-4",
+            "extra": {
+              "preserve": [
+                "x",
+                false,
+                3
+              ]
+            },
+            "edges": {
+              "rsw": {
+                "job_id": "authored-5",
+                "parse_status": "authored-provenance",
+                "parse_outcome": "returned"
+              },
+              "gnd": {
+                "job_id": "authored-1",
+                "parse_status": "authored-provenance",
+                "parse_outcome": "returned"
+              },
+              "gat": {
+                "job_id": "authored-2",
+                "parse_status": "authored-provenance",
+                "parse_outcome": "returned"
+              }
+            }
+          }
+        ],
+        "remaining_gap_root_ordinals": [
+          2
+        ]
+      },
+      "reason": "invalid_catalog_input"
+    },
+    {
+      "id": "duplicate-gnd-table-name",
+      "input": {
+        "rows": [
+          {
+            "id": "authored-0",
+            "kind": "rsw",
+            "complete_sha256": "0000000000000000000000000000000000000000000000000000000000000001",
+            "input_bytes": 1,
+            "header_version_bytes": [
+              1,
+              2
+            ],
+            "outcome": "returned",
+            "constructor_returned": true,
+            "worker_started": true,
+            "cleanup": {
+              "exit_observed": true
+            },
+            "summary": {
+              "model_dependencies": [
+                {
+                  "object_index": 0,
+                  "filename": "A.rsm",
+                  "nodename": "node-0"
+                },
+                {
+                  "object_index": 1,
+                  "filename": "A.rsm ",
+                  "nodename": "node-1"
+                },
+                {
+                  "object_index": 2,
+                  "filename": "A.rsm",
+                  "nodename": "node-2"
+                },
+                {
+                  "object_index": 3,
+                  "filename": "a.rsm",
+                  "nodename": "node-3"
+                }
+              ]
+            }
+          },
+          {
+            "id": "authored-1",
+            "kind": "gnd",
+            "complete_sha256": "0000000000000000000000000000000000000000000000000000000000000002",
+            "input_bytes": 1,
+            "header_version_bytes": [
+              1,
+              2
+            ],
+            "outcome": "returned",
+            "constructor_returned": true,
+            "worker_started": true,
+            "cleanup": {
+              "exit_observed": true
+            },
+            "summary": {
+              "textures": [
+                "tiles\\A B.bmp",
+                "tiles\\A B.bmp",
+                "!'()*%#.bmp",
+                "\u00b3\\Q.bmp",
+                "\u00a0x.bmp\u00a0"
+              ],
+              "texture_indexes": [
+                0,
+                0,
+                1,
+                2,
+                3,
+                4
+              ]
+            }
+          },
+          {
+            "id": "authored-2",
+            "kind": "gat",
+            "complete_sha256": "0000000000000000000000000000000000000000000000000000000000000003",
+            "input_bytes": 1,
+            "header_version_bytes": [
+              1,
+              2
+            ],
+            "outcome": "returned",
+            "constructor_returned": true,
+            "worker_started": true,
+            "cleanup": {
+              "exit_observed": true
+            },
+            "summary": {}
+          },
+          {
+            "id": "authored-3",
+            "kind": "rsw",
+            "complete_sha256": "0000000000000000000000000000000000000000000000000000000000000004",
+            "input_bytes": 1,
+            "header_version_bytes": [
+              1,
+              2
+            ],
+            "outcome": "returned",
+            "constructor_returned": true,
+            "worker_started": true,
+            "cleanup": {
+              "exit_observed": true
+            },
+            "summary": {
+              "model_dependencies": []
+            }
+          },
+          {
+            "id": "authored-4",
+            "kind": "gnd",
+            "complete_sha256": "0000000000000000000000000000000000000000000000000000000000000005",
+            "input_bytes": 1,
+            "header_version_bytes": [
+              1,
+              2
+            ],
+            "outcome": "returned",
+            "constructor_returned": true,
+            "worker_started": true,
+            "cleanup": {
+              "exit_observed": true
+            },
+            "summary": {
+              "textures": [],
+              "texture_indexes": []
+            }
+          },
+          {
+            "id": "authored-5",
+            "kind": "rsw",
+            "complete_sha256": "0000000000000000000000000000000000000000000000000000000000000006",
+            "input_bytes": 1,
+            "header_version_bytes": [
+              1,
+              2
+            ],
+            "outcome": "returned",
+            "constructor_returned": true,
+            "worker_started": true,
+            "cleanup": {
+              "exit_observed": true
+            },
+            "summary": {
+              "model_dependencies": [
+                {
+                  "object_index": 0,
+                  "filename": "",
+                  "nodename": "node-0"
+                },
+                {
+                  "object_index": 1,
+                  "filename": "/./odd//../x.rsm",
+                  "nodename": "node-1"
+                },
+                {
+                  "object_index": 2,
+                  "filename": "__proto__",
+                  "nodename": "node-2"
+                },
+                {
+                  "object_index": 3,
+                  "filename": "constructor",
+                  "nodename": "node-3"
+                },
+                {
+                  "object_index": 4,
+                  "filename": "\u0085x.rsm\u0085",
+                  "nodename": "node-4"
+                },
+                {
+                  "object_index": 5,
+                  "filename": "\ufefftail.rsm\ufeff",
+                  "nodename": "node-5"
+                }
+              ]
+            }
+          }
+        ],
+        "roots": [
+          {
+            "ordinal": 0,
+            "configured": {
+              "source": "authored"
+            },
+            "name": "authored-map-0",
+            "extra": {
+              "preserve": [
+                "x",
+                false,
+                3
+              ]
+            },
+            "edges": {
+              "rsw": {
+                "job_id": "authored-0",
+                "parse_status": "authored-provenance",
+                "parse_outcome": "returned"
+              },
+              "gnd": {
+                "job_id": "authored-1",
+                "parse_status": "authored-provenance",
+                "parse_outcome": "returned"
+              },
+              "gat": {
+                "job_id": "authored-2",
+                "parse_status": "authored-provenance",
+                "parse_outcome": "returned"
+              }
+            }
+          },
+          {
+            "ordinal": 1,
+            "configured": null,
+            "name": "authored-map-1",
+            "extra": {
+              "preserve": [
+                "x",
+                false,
+                3
+              ]
+            },
+            "edges": {
+              "rsw": {
+                "job_id": "authored-0",
+                "parse_status": "authored-provenance",
+                "parse_outcome": "returned"
+              },
+              "gnd": {
+                "job_id": "authored-4",
+                "parse_status": "authored-provenance",
+                "parse_outcome": "returned"
+              },
+              "gat": {
+                "job_id": "authored-2",
+                "parse_status": "authored-provenance",
+                "parse_outcome": "returned"
+              }
+            }
+          },
+          {
+            "ordinal": 2,
+            "configured": {
+              "source": "authored"
+            },
+            "name": "authored-map-2",
+            "extra": {
+              "preserve": [
+                "x",
+                false,
+                3
+              ]
+            },
+            "edges": {
+              "rsw": {
+                "job_id": null,
+                "parse_status": "authored-provenance",
+                "parse_outcome": "unavailable_from_observation"
+              },
+              "gnd": {
+                "job_id": null,
+                "parse_status": "authored-provenance",
+                "parse_outcome": "unavailable_from_observation"
+              },
+              "gat": {
+                "job_id": null,
+                "parse_status": "authored-provenance",
+                "parse_outcome": "unavailable_from_observation"
+              }
+            }
+          },
+          {
+            "ordinal": 3,
+            "configured": {
+              "source": "authored"
+            },
+            "name": "authored-map-3",
+            "extra": {
+              "preserve": [
+                "x",
+                false,
+                3
+              ]
+            },
+            "edges": {
+              "rsw": {
+                "job_id": "authored-3",
+                "parse_status": "authored-provenance",
+                "parse_outcome": "returned"
+              },
+              "gnd": {
+                "job_id": "authored-1",
+                "parse_status": "authored-provenance",
+                "parse_outcome": "returned"
+              },
+              "gat": {
+                "job_id": "authored-2",
+                "parse_status": "authored-provenance",
+                "parse_outcome": "returned"
+              }
+            }
+          },
+          {
+            "ordinal": 4,
+            "configured": {
+              "source": "authored"
+            },
+            "name": "authored-map-4",
+            "extra": {
+              "preserve": [
+                "x",
+                false,
+                3
+              ]
+            },
+            "edges": {
+              "rsw": {
+                "job_id": "authored-5",
+                "parse_status": "authored-provenance",
+                "parse_outcome": "returned"
+              },
+              "gnd": {
+                "job_id": "authored-1",
+                "parse_status": "authored-provenance",
+                "parse_outcome": "returned"
+              },
+              "gat": {
+                "job_id": "authored-2",
+                "parse_status": "authored-provenance",
+                "parse_outcome": "returned"
+              }
+            }
+          }
+        ],
+        "remaining_gap_root_ordinals": [
+          2
+        ]
+      },
+      "reason": "invalid_catalog_input"
+    },
+    {
+      "id": "lost-gap-ordinal",
+      "input": {
+        "rows": [
+          {
+            "id": "authored-0",
+            "kind": "rsw",
+            "complete_sha256": "0000000000000000000000000000000000000000000000000000000000000001",
+            "input_bytes": 1,
+            "header_version_bytes": [
+              1,
+              2
+            ],
+            "outcome": "returned",
+            "constructor_returned": true,
+            "worker_started": true,
+            "cleanup": {
+              "exit_observed": true
+            },
+            "summary": {
+              "model_dependencies": [
+                {
+                  "object_index": 0,
+                  "filename": "A.rsm",
+                  "nodename": "node-0"
+                },
+                {
+                  "object_index": 1,
+                  "filename": "A.rsm ",
+                  "nodename": "node-1"
+                },
+                {
+                  "object_index": 2,
+                  "filename": "A.rsm",
+                  "nodename": "node-2"
+                },
+                {
+                  "object_index": 3,
+                  "filename": "a.rsm",
+                  "nodename": "node-3"
+                }
+              ]
+            }
+          },
+          {
+            "id": "authored-1",
+            "kind": "gnd",
+            "complete_sha256": "0000000000000000000000000000000000000000000000000000000000000002",
+            "input_bytes": 1,
+            "header_version_bytes": [
+              1,
+              2
+            ],
+            "outcome": "returned",
+            "constructor_returned": true,
+            "worker_started": true,
+            "cleanup": {
+              "exit_observed": true
+            },
+            "summary": {
+              "textures": [
+                "tiles\\A B.bmp",
+                "tiles/A B.bmp",
+                "!'()*%#.bmp",
+                "\u00b3\\Q.bmp",
+                "\u00a0x.bmp\u00a0"
+              ],
+              "texture_indexes": [
+                0,
+                0,
+                1,
+                2,
+                3,
+                4
+              ]
+            }
+          },
+          {
+            "id": "authored-2",
+            "kind": "gat",
+            "complete_sha256": "0000000000000000000000000000000000000000000000000000000000000003",
+            "input_bytes": 1,
+            "header_version_bytes": [
+              1,
+              2
+            ],
+            "outcome": "returned",
+            "constructor_returned": true,
+            "worker_started": true,
+            "cleanup": {
+              "exit_observed": true
+            },
+            "summary": {}
+          },
+          {
+            "id": "authored-3",
+            "kind": "rsw",
+            "complete_sha256": "0000000000000000000000000000000000000000000000000000000000000004",
+            "input_bytes": 1,
+            "header_version_bytes": [
+              1,
+              2
+            ],
+            "outcome": "returned",
+            "constructor_returned": true,
+            "worker_started": true,
+            "cleanup": {
+              "exit_observed": true
+            },
+            "summary": {
+              "model_dependencies": []
+            }
+          },
+          {
+            "id": "authored-4",
+            "kind": "gnd",
+            "complete_sha256": "0000000000000000000000000000000000000000000000000000000000000005",
+            "input_bytes": 1,
+            "header_version_bytes": [
+              1,
+              2
+            ],
+            "outcome": "returned",
+            "constructor_returned": true,
+            "worker_started": true,
+            "cleanup": {
+              "exit_observed": true
+            },
+            "summary": {
+              "textures": [],
+              "texture_indexes": []
+            }
+          },
+          {
+            "id": "authored-5",
+            "kind": "rsw",
+            "complete_sha256": "0000000000000000000000000000000000000000000000000000000000000006",
+            "input_bytes": 1,
+            "header_version_bytes": [
+              1,
+              2
+            ],
+            "outcome": "returned",
+            "constructor_returned": true,
+            "worker_started": true,
+            "cleanup": {
+              "exit_observed": true
+            },
+            "summary": {
+              "model_dependencies": [
+                {
+                  "object_index": 0,
+                  "filename": "",
+                  "nodename": "node-0"
+                },
+                {
+                  "object_index": 1,
+                  "filename": "/./odd//../x.rsm",
+                  "nodename": "node-1"
+                },
+                {
+                  "object_index": 2,
+                  "filename": "__proto__",
+                  "nodename": "node-2"
+                },
+                {
+                  "object_index": 3,
+                  "filename": "constructor",
+                  "nodename": "node-3"
+                },
+                {
+                  "object_index": 4,
+                  "filename": "\u0085x.rsm\u0085",
+                  "nodename": "node-4"
+                },
+                {
+                  "object_index": 5,
+                  "filename": "\ufefftail.rsm\ufeff",
+                  "nodename": "node-5"
+                }
+              ]
+            }
+          }
+        ],
+        "roots": [
+          {
+            "ordinal": 0,
+            "configured": {
+              "source": "authored"
+            },
+            "name": "authored-map-0",
+            "extra": {
+              "preserve": [
+                "x",
+                false,
+                3
+              ]
+            },
+            "edges": {
+              "rsw": {
+                "job_id": "authored-0",
+                "parse_status": "authored-provenance",
+                "parse_outcome": "returned"
+              },
+              "gnd": {
+                "job_id": "authored-1",
+                "parse_status": "authored-provenance",
+                "parse_outcome": "returned"
+              },
+              "gat": {
+                "job_id": "authored-2",
+                "parse_status": "authored-provenance",
+                "parse_outcome": "returned"
+              }
+            }
+          },
+          {
+            "ordinal": 1,
+            "configured": null,
+            "name": "authored-map-1",
+            "extra": {
+              "preserve": [
+                "x",
+                false,
+                3
+              ]
+            },
+            "edges": {
+              "rsw": {
+                "job_id": "authored-0",
+                "parse_status": "authored-provenance",
+                "parse_outcome": "returned"
+              },
+              "gnd": {
+                "job_id": "authored-4",
+                "parse_status": "authored-provenance",
+                "parse_outcome": "returned"
+              },
+              "gat": {
+                "job_id": "authored-2",
+                "parse_status": "authored-provenance",
+                "parse_outcome": "returned"
+              }
+            }
+          },
+          {
+            "ordinal": 2,
+            "configured": {
+              "source": "authored"
+            },
+            "name": "authored-map-2",
+            "extra": {
+              "preserve": [
+                "x",
+                false,
+                3
+              ]
+            },
+            "edges": {
+              "rsw": {
+                "job_id": null,
+                "parse_status": "authored-provenance",
+                "parse_outcome": "unavailable_from_observation"
+              },
+              "gnd": {
+                "job_id": null,
+                "parse_status": "authored-provenance",
+                "parse_outcome": "unavailable_from_observation"
+              },
+              "gat": {
+                "job_id": null,
+                "parse_status": "authored-provenance",
+                "parse_outcome": "unavailable_from_observation"
+              }
+            }
+          },
+          {
+            "ordinal": 3,
+            "configured": {
+              "source": "authored"
+            },
+            "name": "authored-map-3",
+            "extra": {
+              "preserve": [
+                "x",
+                false,
+                3
+              ]
+            },
+            "edges": {
+              "rsw": {
+                "job_id": "authored-3",
+                "parse_status": "authored-provenance",
+                "parse_outcome": "returned"
+              },
+              "gnd": {
+                "job_id": "authored-1",
+                "parse_status": "authored-provenance",
+                "parse_outcome": "returned"
+              },
+              "gat": {
+                "job_id": "authored-2",
+                "parse_status": "authored-provenance",
+                "parse_outcome": "returned"
+              }
+            }
+          },
+          {
+            "ordinal": 4,
+            "configured": {
+              "source": "authored"
+            },
+            "name": "authored-map-4",
+            "extra": {
+              "preserve": [
+                "x",
+                false,
+                3
+              ]
+            },
+            "edges": {
+              "rsw": {
+                "job_id": "authored-5",
+                "parse_status": "authored-provenance",
+                "parse_outcome": "returned"
+              },
+              "gnd": {
+                "job_id": "authored-1",
+                "parse_status": "authored-provenance",
+                "parse_outcome": "returned"
+              },
+              "gat": {
+                "job_id": "authored-2",
+                "parse_status": "authored-provenance",
+                "parse_outcome": "returned"
+              }
+            }
+          }
+        ],
+        "remaining_gap_root_ordinals": []
+      },
+      "reason": "invalid_catalog_input"
+    },
+    {
+      "id": "unsupported-uri-surrogate",
+      "input": {
+        "rows": [
+          {
+            "id": "authored-0",
+            "kind": "rsw",
+            "complete_sha256": "0000000000000000000000000000000000000000000000000000000000000001",
+            "input_bytes": 1,
+            "header_version_bytes": [
+              1,
+              2
+            ],
+            "outcome": "returned",
+            "constructor_returned": true,
+            "worker_started": true,
+            "cleanup": {
+              "exit_observed": true
+            },
+            "summary": {
+              "model_dependencies": [
+                {
+                  "object_index": 0,
+                  "filename": "\ud800.rsm",
+                  "nodename": "node-0"
+                },
+                {
+                  "object_index": 1,
+                  "filename": "A.rsm ",
+                  "nodename": "node-1"
+                },
+                {
+                  "object_index": 2,
+                  "filename": "A.rsm",
+                  "nodename": "node-2"
+                },
+                {
+                  "object_index": 3,
+                  "filename": "a.rsm",
+                  "nodename": "node-3"
+                }
+              ]
+            }
+          },
+          {
+            "id": "authored-1",
+            "kind": "gnd",
+            "complete_sha256": "0000000000000000000000000000000000000000000000000000000000000002",
+            "input_bytes": 1,
+            "header_version_bytes": [
+              1,
+              2
+            ],
+            "outcome": "returned",
+            "constructor_returned": true,
+            "worker_started": true,
+            "cleanup": {
+              "exit_observed": true
+            },
+            "summary": {
+              "textures": [
+                "tiles\\A B.bmp",
+                "tiles/A B.bmp",
+                "!'()*%#.bmp",
+                "\u00b3\\Q.bmp",
+                "\u00a0x.bmp\u00a0"
+              ],
+              "texture_indexes": [
+                0,
+                0,
+                1,
+                2,
+                3,
+                4
+              ]
+            }
+          },
+          {
+            "id": "authored-2",
+            "kind": "gat",
+            "complete_sha256": "0000000000000000000000000000000000000000000000000000000000000003",
+            "input_bytes": 1,
+            "header_version_bytes": [
+              1,
+              2
+            ],
+            "outcome": "returned",
+            "constructor_returned": true,
+            "worker_started": true,
+            "cleanup": {
+              "exit_observed": true
+            },
+            "summary": {}
+          },
+          {
+            "id": "authored-3",
+            "kind": "rsw",
+            "complete_sha256": "0000000000000000000000000000000000000000000000000000000000000004",
+            "input_bytes": 1,
+            "header_version_bytes": [
+              1,
+              2
+            ],
+            "outcome": "returned",
+            "constructor_returned": true,
+            "worker_started": true,
+            "cleanup": {
+              "exit_observed": true
+            },
+            "summary": {
+              "model_dependencies": []
+            }
+          },
+          {
+            "id": "authored-4",
+            "kind": "gnd",
+            "complete_sha256": "0000000000000000000000000000000000000000000000000000000000000005",
+            "input_bytes": 1,
+            "header_version_bytes": [
+              1,
+              2
+            ],
+            "outcome": "returned",
+            "constructor_returned": true,
+            "worker_started": true,
+            "cleanup": {
+              "exit_observed": true
+            },
+            "summary": {
+              "textures": [],
+              "texture_indexes": []
+            }
+          },
+          {
+            "id": "authored-5",
+            "kind": "rsw",
+            "complete_sha256": "0000000000000000000000000000000000000000000000000000000000000006",
+            "input_bytes": 1,
+            "header_version_bytes": [
+              1,
+              2
+            ],
+            "outcome": "returned",
+            "constructor_returned": true,
+            "worker_started": true,
+            "cleanup": {
+              "exit_observed": true
+            },
+            "summary": {
+              "model_dependencies": [
+                {
+                  "object_index": 0,
+                  "filename": "",
+                  "nodename": "node-0"
+                },
+                {
+                  "object_index": 1,
+                  "filename": "/./odd//../x.rsm",
+                  "nodename": "node-1"
+                },
+                {
+                  "object_index": 2,
+                  "filename": "__proto__",
+                  "nodename": "node-2"
+                },
+                {
+                  "object_index": 3,
+                  "filename": "constructor",
+                  "nodename": "node-3"
+                },
+                {
+                  "object_index": 4,
+                  "filename": "\u0085x.rsm\u0085",
+                  "nodename": "node-4"
+                },
+                {
+                  "object_index": 5,
+                  "filename": "\ufefftail.rsm\ufeff",
+                  "nodename": "node-5"
+                }
+              ]
+            }
+          }
+        ],
+        "roots": [
+          {
+            "ordinal": 0,
+            "configured": {
+              "source": "authored"
+            },
+            "name": "authored-map-0",
+            "extra": {
+              "preserve": [
+                "x",
+                false,
+                3
+              ]
+            },
+            "edges": {
+              "rsw": {
+                "job_id": "authored-0",
+                "parse_status": "authored-provenance",
+                "parse_outcome": "returned"
+              },
+              "gnd": {
+                "job_id": "authored-1",
+                "parse_status": "authored-provenance",
+                "parse_outcome": "returned"
+              },
+              "gat": {
+                "job_id": "authored-2",
+                "parse_status": "authored-provenance",
+                "parse_outcome": "returned"
+              }
+            }
+          },
+          {
+            "ordinal": 1,
+            "configured": null,
+            "name": "authored-map-1",
+            "extra": {
+              "preserve": [
+                "x",
+                false,
+                3
+              ]
+            },
+            "edges": {
+              "rsw": {
+                "job_id": "authored-0",
+                "parse_status": "authored-provenance",
+                "parse_outcome": "returned"
+              },
+              "gnd": {
+                "job_id": "authored-4",
+                "parse_status": "authored-provenance",
+                "parse_outcome": "returned"
+              },
+              "gat": {
+                "job_id": "authored-2",
+                "parse_status": "authored-provenance",
+                "parse_outcome": "returned"
+              }
+            }
+          },
+          {
+            "ordinal": 2,
+            "configured": {
+              "source": "authored"
+            },
+            "name": "authored-map-2",
+            "extra": {
+              "preserve": [
+                "x",
+                false,
+                3
+              ]
+            },
+            "edges": {
+              "rsw": {
+                "job_id": null,
+                "parse_status": "authored-provenance",
+                "parse_outcome": "unavailable_from_observation"
+              },
+              "gnd": {
+                "job_id": null,
+                "parse_status": "authored-provenance",
+                "parse_outcome": "unavailable_from_observation"
+              },
+              "gat": {
+                "job_id": null,
+                "parse_status": "authored-provenance",
+                "parse_outcome": "unavailable_from_observation"
+              }
+            }
+          },
+          {
+            "ordinal": 3,
+            "configured": {
+              "source": "authored"
+            },
+            "name": "authored-map-3",
+            "extra": {
+              "preserve": [
+                "x",
+                false,
+                3
+              ]
+            },
+            "edges": {
+              "rsw": {
+                "job_id": "authored-3",
+                "parse_status": "authored-provenance",
+                "parse_outcome": "returned"
+              },
+              "gnd": {
+                "job_id": "authored-1",
+                "parse_status": "authored-provenance",
+                "parse_outcome": "returned"
+              },
+              "gat": {
+                "job_id": "authored-2",
+                "parse_status": "authored-provenance",
+                "parse_outcome": "returned"
+              }
+            }
+          },
+          {
+            "ordinal": 4,
+            "configured": {
+              "source": "authored"
+            },
+            "name": "authored-map-4",
+            "extra": {
+              "preserve": [
+                "x",
+                false,
+                3
+              ]
+            },
+            "edges": {
+              "rsw": {
+                "job_id": "authored-5",
+                "parse_status": "authored-provenance",
+                "parse_outcome": "returned"
+              },
+              "gnd": {
+                "job_id": "authored-1",
+                "parse_status": "authored-provenance",
+                "parse_outcome": "returned"
+              },
+              "gat": {
+                "job_id": "authored-2",
+                "parse_status": "authored-provenance",
+                "parse_outcome": "returned"
+              }
+            }
+          }
+        ],
+        "remaining_gap_root_ordinals": [
+          2
+        ]
+      },
+      "reason": "uri_encoding_unsupported"
+    }
+  ]
+}

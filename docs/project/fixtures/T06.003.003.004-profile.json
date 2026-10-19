@@ -1,0 +1,106 @@
+{
+  "schema": "T06-map-dependency-profile-1",
+  "task": "T06.003.003.004",
+  "basis_revision": "230bca4869a4491411d9ab58646b7e78ca67776e",
+  "inputs": {
+    "report.json": {
+      "path": ".tools/renewal/t06-root-verification-1/root-corrected-corpus-1/output/report.json",
+      "bytes": 2196943,
+      "sha256": "09d6372f10150a13deb6d20ce7fd8163048af3c53ac493aa6d4c8fb616a7b201"
+    },
+    "jobs.jsonl": {
+      "path": ".tools/renewal/t06-root-verification-1/root-corrected-corpus-1/output/jobs.jsonl",
+      "bytes": 71401354,
+      "sha256": "ca8e28de0b72e92fb083a7a8c2f7eca05540a3b24804161d5673466bf3a55c5c"
+    }
+  },
+  "authored": {
+    "path": "docs/project/fixtures/T06.003.003.004-authored.json",
+    "bytes": 165420,
+    "sha256": "3848febb48ca112029024d9885498236037e94d436cf372d6a38d0d8e20cf24f"
+  },
+  "constructor_profile": {
+    "path": "docs/project/fixtures/T06.003.003.003-profile.json",
+    "bytes": 3074,
+    "sha256": "b6635a65db373f5240112734e1f51311851101603323fe1d5300dfaa1c74cf5c"
+  },
+  "summary": {
+    "path": "tools/renewal/map_constructor_summary.mjs",
+    "bytes": 5052,
+    "sha256": "33cdb4ce770b32cdbe061f4f2415e8b5808e3f02d0e7f870250f11f486b3ddf1"
+  },
+  "rule_sources": {
+    "src/Loaders/MapLoader.js": {
+      "bytes": 14466,
+      "sha256": "c71b01f300f62bbc6e7432444e2521d713473dc47c9c6e25a54a832d5c92a705"
+    },
+    "src/Core/FileManager.js": {
+      "bytes": 11279,
+      "sha256": "75c37d192bf21e7b40817a6f2fe27ef536601515c07fe20c7ce8346d50376cd7"
+    },
+    "src/Loaders/Ground.js": {
+      "bytes": 20029,
+      "sha256": "8b82cf7321123054cf2bbeff1816931c7f3fc7833ae7af916077691d871f2db0"
+    }
+  },
+  "expected_counts": {
+    "roots": 1296,
+    "jobs": 2761,
+    "job_kinds": {
+      "rsw": 937,
+      "gnd": 935,
+      "gat": 889
+    },
+    "core_chain_roots": 1214,
+    "remaining_gap_roots": 82,
+    "root_edge_references": 3642,
+    "occurrences": {
+      "model": 726296,
+      "ground_texture": 14577
+    },
+    "loader_entries": {
+      "model": 48980,
+      "ground_texture": 14577
+    },
+    "root_expanded_occurrences": {
+      "model": 871959,
+      "ground_texture": 18449
+    },
+    "root_expanded_loader_entries": {
+      "model": 60150,
+      "ground_texture": 18449
+    },
+    "distinct_names_by_role": {
+      "model": {
+        "raw": 8194,
+        "logical": 8194,
+        "filemanager": 8194,
+        "http": 8194
+      },
+      "ground_texture": {
+        "raw": 2940,
+        "logical": 2940,
+        "filemanager": 2940,
+        "http": 2940
+      }
+    },
+    "http_targets": 11134
+  },
+  "policy": {
+    "max_jobs_bytes": 134217728,
+    "max_job_row_bytes": 4194304,
+    "max_report_bytes": 8388608,
+    "max_fixture_bytes": 1048576,
+    "max_catalog_bytes": 134217728,
+    "max_stdout_bytes": 4096,
+    "max_exception_chars": 512,
+    "root_guard_timeout_ms": 120000,
+    "root_guard_rss_bytes": 2147483648
+  },
+  "limitations": [
+    "First-level declared RSW models and GND ground textures only.",
+    "Constructed relative HTTP strings; no GET, asset availability, browser URL resolution or archive winner observed.",
+    "No RSM/RSM2 body parsing, embedded/mesh-used/animated textures, sounds/effects, hooks, water or dynamic asset closure.",
+    "All1296 roots and82missing RSW roots remain explicit. Numeric anomalies/tails and full art/render/travel/content/language acceptance remain open."
+  ]
+}
