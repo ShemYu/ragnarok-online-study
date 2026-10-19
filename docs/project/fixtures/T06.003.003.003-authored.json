@@ -1,0 +1,1738 @@
+{
+  "schema": "T06-map-constructor-authored-1",
+  "limits": "Authored finite bytes only; constructor return is not format completeness or rendered play.",
+  "cases": [
+    {
+      "id": "gat-valid",
+      "kind": "gat",
+      "hex": "47524154010201000000010000000000a04000002041000070410000a04103000000",
+      "expected": {
+        "outcome": "returned",
+        "summary": {
+          "version": 1.2,
+          "width": 1,
+          "height": 1,
+          "cells_length": 5,
+          "first_cell": [
+            1,
+            2,
+            3,
+            4,
+            14
+          ],
+          "last_cell": [
+            1,
+            2,
+            3,
+            4,
+            14
+          ],
+          "transformed_flag_histogram": {
+            "14": 1
+          },
+          "numeric_fields": {
+            "finite": 5,
+            "nan": 0,
+            "positive_infinity": 0,
+            "negative_infinity": 0,
+            "undefined": 0,
+            "null": 0,
+            "min": 1,
+            "max": 14,
+            "exceptional_locations": []
+          }
+        }
+      }
+    },
+    {
+      "id": "gat-valid-truncated",
+      "kind": "gat",
+      "hex": "47524154010201000000010000000000a04000002041000070410000a041030000",
+      "expected": {
+        "outcome": "constructor_exception",
+        "exception_name": "RangeError"
+      }
+    },
+    {
+      "id": "gat-valid-badheader",
+      "kind": "gat",
+      "hex": "4e4f5045010201000000010000000000a04000002041000070410000a04103000000",
+      "expected": {
+        "outcome": "constructor_exception",
+        "exception_name": "Error"
+      }
+    },
+    {
+      "id": "gnd-valid",
+      "kind": "gnd",
+      "hex": "4752474e0107010000000100000000002041010000001000000074696e792e626d70000000000000000001000000010000000100000001000000010203040100000000000000000000000000803f0000803f000000000000803f000000000000803f00000000ff8040200000a04000002041000070410000a04100000000ffffffffffffffff",
+      "expected": {
+        "outcome": "returned",
+        "summary": {
+          "version": 1.7,
+          "width": 1,
+          "height": 1,
+          "zoom": 10,
+          "textures": [
+            "tiny.bmp"
+          ],
+          "texture_indexes": [
+            0
+          ],
+          "lightmap": {
+            "count": 1,
+            "per_cell": 1,
+            "byte_length": 4,
+            "first_bytes": [
+              1,
+              2,
+              3,
+              4
+            ]
+          },
+          "tile_count": 1,
+          "surface_count": 1,
+          "samples": {
+            "tiles": {
+              "first": {
+                "u1": 0.001953125,
+                "u2": 0.001953125,
+                "u3": 0.501953125,
+                "u4": 0.501953125,
+                "v1": 0.001953125,
+                "v2": 0.501953125,
+                "v3": 0.001953125,
+                "v4": 0.501953125,
+                "texture": 0,
+                "light": 0,
+                "color": [
+                  255,
+                  128,
+                  64,
+                  32
+                ]
+              },
+              "last": {
+                "u1": 0.001953125,
+                "u2": 0.001953125,
+                "u3": 0.501953125,
+                "u4": 0.501953125,
+                "v1": 0.001953125,
+                "v2": 0.501953125,
+                "v3": 0.001953125,
+                "v4": 0.501953125,
+                "texture": 0,
+                "light": 0,
+                "color": [
+                  255,
+                  128,
+                  64,
+                  32
+                ]
+              }
+            },
+            "surfaces": {
+              "first": {
+                "height": [
+                  1,
+                  2,
+                  3,
+                  4
+                ],
+                "tile_up": 0,
+                "tile_front": -1,
+                "tile_right": -1
+              },
+              "last": {
+                "height": [
+                  1,
+                  2,
+                  3,
+                  4
+                ],
+                "tile_up": 0,
+                "tile_front": -1,
+                "tile_right": -1
+              }
+            }
+          },
+          "water": {
+            "special": "undefined"
+          },
+          "cursor": {
+            "offset": 134,
+            "length": 134,
+            "trailing_bytes": 0
+          },
+          "numeric_fields": {
+            "finite": 28,
+            "nan": 0,
+            "positive_infinity": 0,
+            "negative_infinity": 0,
+            "undefined": 1,
+            "null": 0,
+            "min": -1,
+            "max": 255,
+            "exceptional_locations": [
+              {
+                "location": "water",
+                "category": "undefined"
+              }
+            ]
+          }
+        }
+      }
+    },
+    {
+      "id": "gnd-valid-truncated",
+      "kind": "gnd",
+      "hex": "4752474e0107010000000100000000002041010000001000000074696e792e626d70000000000000000001000000010000000100000001000000010203040100000000000000000000000000803f0000803f000000000000803f000000000000803f00000000ff8040200000a04000002041000070410000a04100000000ffffffffffffff",
+      "expected": {
+        "outcome": "constructor_exception",
+        "exception_name": "RangeError"
+      }
+    },
+    {
+      "id": "gnd-valid-badheader",
+      "kind": "gnd",
+      "hex": "4e4f50450107010000000100000000002041010000001000000074696e792e626d70000000000000000001000000010000000100000001000000010203040100000000000000000000000000803f0000803f000000000000803f000000000000803f00000000ff8040200000a04000002041000070410000a04100000000ffffffffffffffff",
+      "expected": {
+        "outcome": "constructor_exception",
+        "exception_name": "Error"
+      }
+    },
+    {
+      "id": "rsw19-valid",
+      "kind": "rsw",
+      "hex": "47525357010974696e792e696e69000000000000000000000000000000000000000000000000000000000000000074696e792e676e64000000000000000000000000000000000000000000000000000000000000000074696e792e676174000000000000000000000000000000000000000000000000000000000000000074696e792e73726300000000000000000000000000000000000000000000000000000000000000000000a04002000000000020410000404000008040060000002d0000002e0000000000803f0000003f0000803ecdcccc3dcdcc4c3e9a99993e0000403fceffffff32000000d8ffffff2800000000000000",
+      "expected": {
+        "outcome": "returned",
+        "summary": {
+          "files": {
+            "buildnumber": null,
+            "ini": "tiny.ini",
+            "gnd": "tiny.gnd",
+            "gat": "tiny.gat",
+            "src": "tiny.src"
+          },
+          "water": {
+            "level": 1,
+            "type": 2,
+            "waveHeight": 2,
+            "waveSpeed": 3,
+            "wavePitch": 4,
+            "animSpeed": 6
+          },
+          "light": {
+            "longitude": 45,
+            "latitude": 46,
+            "diffuse": [
+              1,
+              0.5,
+              0.25
+            ],
+            "ambient": [
+              0.10000000149011612,
+              0.20000000298023224,
+              0.30000001192092896
+            ],
+            "opacity": 0.75,
+            "direction": [
+              0,
+              0,
+              0
+            ]
+          },
+          "ground": {
+            "top": -50,
+            "bottom": 50,
+            "left": -40,
+            "right": 40
+          },
+          "object_counts": {
+            "models": 0,
+            "lights": 0,
+            "sounds": 0,
+            "effects": 0
+          },
+          "model_dependencies": [],
+          "sound_dependencies": [],
+          "samples": {
+            "models": {
+              "first": null,
+              "last": null
+            },
+            "lights": {
+              "first": null,
+              "last": null
+            },
+            "sounds": {
+              "first": null,
+              "last": null
+            },
+            "effects": {
+              "first": null,
+              "last": null
+            }
+          },
+          "numeric_fields": {
+            "finite": 22,
+            "nan": 0,
+            "positive_infinity": 0,
+            "negative_infinity": 0,
+            "undefined": 0,
+            "null": 0,
+            "min": -50,
+            "max": 50,
+            "exceptional_locations": []
+          }
+        }
+      }
+    },
+    {
+      "id": "rsw19-valid-truncated",
+      "kind": "rsw",
+      "hex": "47525357010974696e792e696e69000000000000000000000000000000000000000000000000000000000000000074696e792e676e64000000000000000000000000000000000000000000000000000000000000000074696e792e676174000000000000000000000000000000000000000000000000000000000000000074696e792e73726300000000000000000000000000000000000000000000000000000000000000000000a04002000000000020410000404000008040060000002d0000002e0000000000803f0000003f0000803ecdcccc3dcdcc4c3e9a99993e0000403fceffffff32000000d8ffffff28000000000000",
+      "expected": {
+        "outcome": "constructor_exception",
+        "exception_name": "RangeError"
+      }
+    },
+    {
+      "id": "rsw19-valid-badheader",
+      "kind": "rsw",
+      "hex": "4e4f5045010974696e792e696e69000000000000000000000000000000000000000000000000000000000000000074696e792e676e64000000000000000000000000000000000000000000000000000000000000000074696e792e676174000000000000000000000000000000000000000000000000000000000000000074696e792e73726300000000000000000000000000000000000000000000000000000000000000000000a04002000000000020410000404000008040060000002d0000002e0000000000803f0000003f0000803ecdcccc3dcdcc4c3e9a99993e0000403fceffffff32000000d8ffffff2800000000000000",
+      "expected": {
+        "outcome": "constructor_exception",
+        "exception_name": "Error"
+      }
+    },
+    {
+      "id": "rsw27-model",
+      "kind": "rsw",
+      "hex": "475253570207ba0000000074696e792e696e69000000000000000000000000000000000000000000000000000000000000000074696e792e676e64000000000000000000000000000000000000000000000000000000000000000074696e792e676174000000000000000000000000000000000000000000000000000000000000000074696e792e73726300000000000000000000000000000000000000000000000000000000000000002d0000002e0000000000803f0000003f0000803ecdcccc3dcdcc4c3e9a99993e0000403fceffffff32000000d8ffffff280000000100000063000000010000000100000074696e79206d6f64656c000000000000000000000000000000000000000000000000000000000000020000000000c03f00000000077b00000074696e792e72736d000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000626f6479000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000a0400000204100007041000000000000b442000034430000a0400000a0400000a040",
+      "expected": {
+        "outcome": "returned",
+        "summary": {
+          "files": {
+            "buildnumber": 186,
+            "ini": "tiny.ini",
+            "gnd": "tiny.gnd",
+            "gat": "tiny.gat",
+            "src": "tiny.src"
+          },
+          "water": {
+            "level": 0,
+            "type": 0,
+            "waveHeight": 0,
+            "waveSpeed": 0,
+            "wavePitch": 0,
+            "animSpeed": 0
+          },
+          "light": {
+            "longitude": 45,
+            "latitude": 46,
+            "diffuse": [
+              1,
+              0.5,
+              0.25
+            ],
+            "ambient": [
+              0.10000000149011612,
+              0.20000000298023224,
+              0.30000001192092896
+            ],
+            "opacity": 0.75,
+            "direction": [
+              0,
+              0,
+              0
+            ]
+          },
+          "ground": {
+            "top": -50,
+            "bottom": 50,
+            "left": -40,
+            "right": 40
+          },
+          "object_counts": {
+            "models": 1,
+            "lights": 0,
+            "sounds": 0,
+            "effects": 0
+          },
+          "model_dependencies": [
+            {
+              "object_index": 0,
+              "filename": "tiny.rsm",
+              "nodename": "body"
+            }
+          ],
+          "sound_dependencies": [],
+          "samples": {
+            "models": {
+              "first": {
+                "name": "tiny model",
+                "animType": 2,
+                "animSpeed": 1.5,
+                "blockType": 0,
+                "UnknownByte": 7,
+                "UnknownByte2": 123,
+                "filename": "tiny.rsm",
+                "nodename": "body",
+                "position": [
+                  1,
+                  2,
+                  3
+                ],
+                "rotation": [
+                  0,
+                  90,
+                  180
+                ],
+                "scale": [
+                  1,
+                  1,
+                  1
+                ]
+              },
+              "last": {
+                "name": "tiny model",
+                "animType": 2,
+                "animSpeed": 1.5,
+                "blockType": 0,
+                "UnknownByte": 7,
+                "UnknownByte2": 123,
+                "filename": "tiny.rsm",
+                "nodename": "body",
+                "position": [
+                  1,
+                  2,
+                  3
+                ],
+                "rotation": [
+                  0,
+                  90,
+                  180
+                ],
+                "scale": [
+                  1,
+                  1,
+                  1
+                ]
+              }
+            },
+            "lights": {
+              "first": null,
+              "last": null
+            },
+            "sounds": {
+              "first": null,
+              "last": null
+            },
+            "effects": {
+              "first": null,
+              "last": null
+            }
+          },
+          "numeric_fields": {
+            "finite": 36,
+            "nan": 0,
+            "positive_infinity": 0,
+            "negative_infinity": 0,
+            "undefined": 0,
+            "null": 0,
+            "min": -50,
+            "max": 180,
+            "exceptional_locations": []
+          }
+        }
+      }
+    },
+    {
+      "id": "rsw27-model-truncated",
+      "kind": "rsw",
+      "hex": "475253570207ba0000000074696e792e696e69000000000000000000000000000000000000000000000000000000000000000074696e792e676e64000000000000000000000000000000000000000000000000000000000000000074696e792e676174000000000000000000000000000000000000000000000000000000000000000074696e792e73726300000000000000000000000000000000000000000000000000000000000000002d0000002e0000000000803f0000003f0000803ecdcccc3dcdcc4c3e9a99993e0000403fceffffff32000000d8ffffff280000000100000063000000010000000100000074696e79206d6f64656c000000000000000000000000000000000000000000000000000000000000020000000000c03f00000000077b00000074696e792e72736d000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000626f6479000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000a0400000204100007041000000000000b442000034430000a0400000a0400000a0",
+      "expected": {
+        "outcome": "constructor_exception",
+        "exception_name": "RangeError"
+      }
+    },
+    {
+      "id": "rsw27-model-badheader",
+      "kind": "rsw",
+      "hex": "4e4f50450207ba0000000074696e792e696e69000000000000000000000000000000000000000000000000000000000000000074696e792e676e64000000000000000000000000000000000000000000000000000000000000000074696e792e676174000000000000000000000000000000000000000000000000000000000000000074696e792e73726300000000000000000000000000000000000000000000000000000000000000002d0000002e0000000000803f0000003f0000803ecdcccc3dcdcc4c3e9a99993e0000403fceffffff32000000d8ffffff280000000100000063000000010000000100000074696e79206d6f64656c000000000000000000000000000000000000000000000000000000000000020000000000c03f00000000077b00000074696e792e72736d000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000626f6479000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000a0400000204100007041000000000000b442000034430000a0400000a0400000a040",
+      "expected": {
+        "outcome": "constructor_exception",
+        "exception_name": "Error"
+      }
+    },
+    {
+      "id": "gat-unknown-type",
+      "kind": "gat",
+      "hex": "47524154010201000000010000000000a04000002041000070410000a04107000000",
+      "expected": {
+        "outcome": "returned",
+        "summary": {
+          "version": 1.2,
+          "width": 1,
+          "height": 1,
+          "cells_length": 5,
+          "first_cell": [
+            1,
+            2,
+            3,
+            4,
+            {
+              "special": "NaN"
+            }
+          ],
+          "last_cell": [
+            1,
+            2,
+            3,
+            4,
+            {
+              "special": "NaN"
+            }
+          ],
+          "transformed_flag_histogram": {
+            "NaN": 1
+          },
+          "numeric_fields": {
+            "finite": 4,
+            "nan": 1,
+            "positive_infinity": 0,
+            "negative_infinity": 0,
+            "undefined": 0,
+            "null": 0,
+            "min": 1,
+            "max": 4,
+            "exceptional_locations": [
+              {
+                "location": "cells[4]",
+                "category": "nan"
+              }
+            ]
+          }
+        }
+      }
+    },
+    {
+      "id": "gnd-out-of-range-texture",
+      "kind": "gnd",
+      "hex": "4752474e0107010000000100000000002041010000001000000074696e792e626d70000000000000000001000000010000000100000001000000010203040100000000000000000000000000803f0000803f000000000000803f000000000000803f01000000ff8040200000a04000002041000070410000a04100000000ffffffffffffffff",
+      "expected": {
+        "outcome": "returned",
+        "summary": {
+          "version": 1.7,
+          "width": 1,
+          "height": 1,
+          "zoom": 10,
+          "textures": [
+            "tiny.bmp"
+          ],
+          "texture_indexes": [
+            0
+          ],
+          "lightmap": {
+            "count": 1,
+            "per_cell": 1,
+            "byte_length": 4,
+            "first_bytes": [
+              1,
+              2,
+              3,
+              4
+            ]
+          },
+          "tile_count": 1,
+          "surface_count": 1,
+          "samples": {
+            "tiles": {
+              "first": {
+                "u1": {
+                  "special": "NaN"
+                },
+                "u2": {
+                  "special": "NaN"
+                },
+                "u3": {
+                  "special": "NaN"
+                },
+                "u4": {
+                  "special": "NaN"
+                },
+                "v1": {
+                  "special": "NaN"
+                },
+                "v2": {
+                  "special": "NaN"
+                },
+                "v3": {
+                  "special": "NaN"
+                },
+                "v4": {
+                  "special": "NaN"
+                },
+                "texture": {
+                  "special": "undefined"
+                },
+                "light": 0,
+                "color": [
+                  255,
+                  128,
+                  64,
+                  32
+                ]
+              },
+              "last": {
+                "u1": {
+                  "special": "NaN"
+                },
+                "u2": {
+                  "special": "NaN"
+                },
+                "u3": {
+                  "special": "NaN"
+                },
+                "u4": {
+                  "special": "NaN"
+                },
+                "v1": {
+                  "special": "NaN"
+                },
+                "v2": {
+                  "special": "NaN"
+                },
+                "v3": {
+                  "special": "NaN"
+                },
+                "v4": {
+                  "special": "NaN"
+                },
+                "texture": {
+                  "special": "undefined"
+                },
+                "light": 0,
+                "color": [
+                  255,
+                  128,
+                  64,
+                  32
+                ]
+              }
+            },
+            "surfaces": {
+              "first": {
+                "height": [
+                  1,
+                  2,
+                  3,
+                  4
+                ],
+                "tile_up": 0,
+                "tile_front": -1,
+                "tile_right": -1
+              },
+              "last": {
+                "height": [
+                  1,
+                  2,
+                  3,
+                  4
+                ],
+                "tile_up": 0,
+                "tile_front": -1,
+                "tile_right": -1
+              }
+            }
+          },
+          "water": {
+            "special": "undefined"
+          },
+          "cursor": {
+            "offset": 134,
+            "length": 134,
+            "trailing_bytes": 0
+          },
+          "numeric_fields": {
+            "finite": 19,
+            "nan": 8,
+            "positive_infinity": 0,
+            "negative_infinity": 0,
+            "undefined": 2,
+            "null": 0,
+            "min": -1,
+            "max": 255,
+            "exceptional_locations": [
+              {
+                "location": "tiles[0].u1",
+                "category": "nan"
+              },
+              {
+                "location": "tiles[0].u2",
+                "category": "nan"
+              },
+              {
+                "location": "tiles[0].u3",
+                "category": "nan"
+              },
+              {
+                "location": "tiles[0].u4",
+                "category": "nan"
+              },
+              {
+                "location": "tiles[0].v1",
+                "category": "nan"
+              },
+              {
+                "location": "tiles[0].v2",
+                "category": "nan"
+              },
+              {
+                "location": "tiles[0].v3",
+                "category": "nan"
+              },
+              {
+                "location": "tiles[0].v4",
+                "category": "nan"
+              },
+              {
+                "location": "tiles[0].texture",
+                "category": "undefined"
+              },
+              {
+                "location": "water",
+                "category": "undefined"
+              }
+            ]
+          }
+        }
+      }
+    },
+    {
+      "id": "gat-valid-trailing",
+      "kind": "gat",
+      "hex": "47524154010201000000010000000000a04000002041000070410000a041030000005441494c",
+      "expected": {
+        "outcome": "returned",
+        "summary": {
+          "version": 1.2,
+          "width": 1,
+          "height": 1,
+          "cells_length": 5,
+          "first_cell": [
+            1,
+            2,
+            3,
+            4,
+            14
+          ],
+          "last_cell": [
+            1,
+            2,
+            3,
+            4,
+            14
+          ],
+          "transformed_flag_histogram": {
+            "14": 1
+          },
+          "numeric_fields": {
+            "finite": 5,
+            "nan": 0,
+            "positive_infinity": 0,
+            "negative_infinity": 0,
+            "undefined": 0,
+            "null": 0,
+            "min": 1,
+            "max": 14,
+            "exceptional_locations": []
+          }
+        }
+      }
+    },
+    {
+      "id": "gnd-valid-trailing",
+      "kind": "gnd",
+      "hex": "4752474e0107010000000100000000002041010000001000000074696e792e626d70000000000000000001000000010000000100000001000000010203040100000000000000000000000000803f0000803f000000000000803f000000000000803f00000000ff8040200000a04000002041000070410000a04100000000ffffffffffffffff5441494c",
+      "expected": {
+        "outcome": "returned",
+        "summary": {
+          "version": 1.7,
+          "width": 1,
+          "height": 1,
+          "zoom": 10,
+          "textures": [
+            "tiny.bmp"
+          ],
+          "texture_indexes": [
+            0
+          ],
+          "lightmap": {
+            "count": 1,
+            "per_cell": 1,
+            "byte_length": 4,
+            "first_bytes": [
+              1,
+              2,
+              3,
+              4
+            ]
+          },
+          "tile_count": 1,
+          "surface_count": 1,
+          "samples": {
+            "tiles": {
+              "first": {
+                "u1": 0.001953125,
+                "u2": 0.001953125,
+                "u3": 0.501953125,
+                "u4": 0.501953125,
+                "v1": 0.001953125,
+                "v2": 0.501953125,
+                "v3": 0.001953125,
+                "v4": 0.501953125,
+                "texture": 0,
+                "light": 0,
+                "color": [
+                  255,
+                  128,
+                  64,
+                  32
+                ]
+              },
+              "last": {
+                "u1": 0.001953125,
+                "u2": 0.001953125,
+                "u3": 0.501953125,
+                "u4": 0.501953125,
+                "v1": 0.001953125,
+                "v2": 0.501953125,
+                "v3": 0.001953125,
+                "v4": 0.501953125,
+                "texture": 0,
+                "light": 0,
+                "color": [
+                  255,
+                  128,
+                  64,
+                  32
+                ]
+              }
+            },
+            "surfaces": {
+              "first": {
+                "height": [
+                  1,
+                  2,
+                  3,
+                  4
+                ],
+                "tile_up": 0,
+                "tile_front": -1,
+                "tile_right": -1
+              },
+              "last": {
+                "height": [
+                  1,
+                  2,
+                  3,
+                  4
+                ],
+                "tile_up": 0,
+                "tile_front": -1,
+                "tile_right": -1
+              }
+            }
+          },
+          "water": {
+            "special": "undefined"
+          },
+          "cursor": {
+            "offset": 134,
+            "length": 138,
+            "trailing_bytes": 4
+          },
+          "numeric_fields": {
+            "finite": 28,
+            "nan": 0,
+            "positive_infinity": 0,
+            "negative_infinity": 0,
+            "undefined": 1,
+            "null": 0,
+            "min": -1,
+            "max": 255,
+            "exceptional_locations": [
+              {
+                "location": "water",
+                "category": "undefined"
+              }
+            ]
+          }
+        }
+      }
+    },
+    {
+      "id": "rsw19-valid-trailing",
+      "kind": "rsw",
+      "hex": "47525357010974696e792e696e69000000000000000000000000000000000000000000000000000000000000000074696e792e676e64000000000000000000000000000000000000000000000000000000000000000074696e792e676174000000000000000000000000000000000000000000000000000000000000000074696e792e73726300000000000000000000000000000000000000000000000000000000000000000000a04002000000000020410000404000008040060000002d0000002e0000000000803f0000003f0000803ecdcccc3dcdcc4c3e9a99993e0000403fceffffff32000000d8ffffff28000000000000005441494c",
+      "expected": {
+        "outcome": "returned",
+        "summary": {
+          "files": {
+            "buildnumber": null,
+            "ini": "tiny.ini",
+            "gnd": "tiny.gnd",
+            "gat": "tiny.gat",
+            "src": "tiny.src"
+          },
+          "water": {
+            "level": 1,
+            "type": 2,
+            "waveHeight": 2,
+            "waveSpeed": 3,
+            "wavePitch": 4,
+            "animSpeed": 6
+          },
+          "light": {
+            "longitude": 45,
+            "latitude": 46,
+            "diffuse": [
+              1,
+              0.5,
+              0.25
+            ],
+            "ambient": [
+              0.10000000149011612,
+              0.20000000298023224,
+              0.30000001192092896
+            ],
+            "opacity": 0.75,
+            "direction": [
+              0,
+              0,
+              0
+            ]
+          },
+          "ground": {
+            "top": -50,
+            "bottom": 50,
+            "left": -40,
+            "right": 40
+          },
+          "object_counts": {
+            "models": 0,
+            "lights": 0,
+            "sounds": 0,
+            "effects": 0
+          },
+          "model_dependencies": [],
+          "sound_dependencies": [],
+          "samples": {
+            "models": {
+              "first": null,
+              "last": null
+            },
+            "lights": {
+              "first": null,
+              "last": null
+            },
+            "sounds": {
+              "first": null,
+              "last": null
+            },
+            "effects": {
+              "first": null,
+              "last": null
+            }
+          },
+          "numeric_fields": {
+            "finite": 22,
+            "nan": 0,
+            "positive_infinity": 0,
+            "negative_infinity": 0,
+            "undefined": 0,
+            "null": 0,
+            "min": -50,
+            "max": 50,
+            "exceptional_locations": []
+          }
+        }
+      }
+    },
+    {
+      "id": "gat-unlisted-version",
+      "kind": "gat",
+      "hex": "47524154090901000000010000000000a04000002041000070410000a04103000000",
+      "expected": {
+        "outcome": "returned",
+        "summary": {
+          "version": 9.9,
+          "width": 1,
+          "height": 1,
+          "cells_length": 5,
+          "first_cell": [
+            1,
+            2,
+            3,
+            4,
+            14
+          ],
+          "last_cell": [
+            1,
+            2,
+            3,
+            4,
+            14
+          ],
+          "transformed_flag_histogram": {
+            "14": 1
+          },
+          "numeric_fields": {
+            "finite": 5,
+            "nan": 0,
+            "positive_infinity": 0,
+            "negative_infinity": 0,
+            "undefined": 0,
+            "null": 0,
+            "min": 1,
+            "max": 14,
+            "exceptional_locations": []
+          }
+        }
+      }
+    },
+    {
+      "id": "gat-unsigned-ffffffff",
+      "kind": "gat",
+      "hex": "47524154010201000000010000000000a04000002041000070410000a041ffffffff",
+      "expected": {
+        "outcome": "returned",
+        "summary": {
+          "version": 1.2,
+          "width": 1,
+          "height": 1,
+          "cells_length": 5,
+          "first_cell": [
+            1,
+            2,
+            3,
+            4,
+            {
+              "special": "NaN"
+            }
+          ],
+          "last_cell": [
+            1,
+            2,
+            3,
+            4,
+            {
+              "special": "NaN"
+            }
+          ],
+          "transformed_flag_histogram": {
+            "NaN": 1
+          },
+          "numeric_fields": {
+            "finite": 4,
+            "nan": 1,
+            "positive_infinity": 0,
+            "negative_infinity": 0,
+            "undefined": 0,
+            "null": 0,
+            "min": 1,
+            "max": 4,
+            "exceptional_locations": [
+              {
+                "location": "cells[4]",
+                "category": "nan"
+              }
+            ]
+          }
+        }
+      }
+    },
+    {
+      "id": "gnd18-water",
+      "kind": "gnd",
+      "hex": "4752474e0108010000000100000000002041010000001000000074696e792e626d70000000000000000001000000010000000100000001000000010203040100000000000000000000000000803f0000803f000000000000803f000000000000803f00000000ff8040200000a04000002041000070410000a04100000000ffffffffffffffff00002041020000000000a0400000404000008040060000000100000002000000",
+      "expected": {
+        "outcome": "returned",
+        "summary": {
+          "version": 1.8,
+          "width": 1,
+          "height": 1,
+          "zoom": 10,
+          "textures": [
+            "tiny.bmp"
+          ],
+          "texture_indexes": [
+            0
+          ],
+          "lightmap": {
+            "count": 1,
+            "per_cell": 1,
+            "byte_length": 4,
+            "first_bytes": [
+              1,
+              2,
+              3,
+              4
+            ]
+          },
+          "tile_count": 1,
+          "surface_count": 1,
+          "samples": {
+            "tiles": {
+              "first": {
+                "u1": 0.001953125,
+                "u2": 0.001953125,
+                "u3": 0.501953125,
+                "u4": 0.501953125,
+                "v1": 0.001953125,
+                "v2": 0.501953125,
+                "v3": 0.001953125,
+                "v4": 0.501953125,
+                "texture": 0,
+                "light": 0,
+                "color": [
+                  255,
+                  128,
+                  64,
+                  32
+                ]
+              },
+              "last": {
+                "u1": 0.001953125,
+                "u2": 0.001953125,
+                "u3": 0.501953125,
+                "u4": 0.501953125,
+                "v1": 0.001953125,
+                "v2": 0.501953125,
+                "v3": 0.001953125,
+                "v4": 0.501953125,
+                "texture": 0,
+                "light": 0,
+                "color": [
+                  255,
+                  128,
+                  64,
+                  32
+                ]
+              }
+            },
+            "surfaces": {
+              "first": {
+                "height": [
+                  1,
+                  2,
+                  3,
+                  4
+                ],
+                "tile_up": 0,
+                "tile_front": -1,
+                "tile_right": -1
+              },
+              "last": {
+                "height": [
+                  1,
+                  2,
+                  3,
+                  4
+                ],
+                "tile_up": 0,
+                "tile_front": -1,
+                "tile_right": -1
+              }
+            }
+          },
+          "water": {
+            "level": 2,
+            "type": 2,
+            "waveHeight": 1,
+            "waveSpeed": 3,
+            "wavePitch": 4,
+            "animSpeed": 6,
+            "splitWidth": 1,
+            "splitHeight": 2
+          },
+          "cursor": {
+            "offset": 166,
+            "length": 166,
+            "trailing_bytes": 0
+          },
+          "numeric_fields": {
+            "finite": 36,
+            "nan": 0,
+            "positive_infinity": 0,
+            "negative_infinity": 0,
+            "undefined": 0,
+            "null": 0,
+            "min": -1,
+            "max": 255,
+            "exceptional_locations": []
+          }
+        }
+      }
+    },
+    {
+      "id": "gnd19-water-zones",
+      "kind": "gnd",
+      "hex": "4752474e0109010000000100000000002041010000001000000074696e792e626d70000000000000000001000000010000000100000001000000010203040100000000000000000000000000803f0000803f000000000000803f000000000000803f00000000ff8040200000a04000002041000070410000a04100000000ffffffffffffffff00002041020000000000a04000004040000080400600000001000000020000000000a0410300000000002041000080400000a040070000000000f04104000000000070410000a0400000c04008000000",
+      "expected": {
+        "outcome": "returned",
+        "summary": {
+          "version": 1.9,
+          "width": 1,
+          "height": 1,
+          "zoom": 10,
+          "textures": [
+            "tiny.bmp"
+          ],
+          "texture_indexes": [
+            0
+          ],
+          "lightmap": {
+            "count": 1,
+            "per_cell": 1,
+            "byte_length": 4,
+            "first_bytes": [
+              1,
+              2,
+              3,
+              4
+            ]
+          },
+          "tile_count": 1,
+          "surface_count": 1,
+          "samples": {
+            "tiles": {
+              "first": {
+                "u1": 0.001953125,
+                "u2": 0.001953125,
+                "u3": 0.501953125,
+                "u4": 0.501953125,
+                "v1": 0.001953125,
+                "v2": 0.501953125,
+                "v3": 0.001953125,
+                "v4": 0.501953125,
+                "texture": 0,
+                "light": 0,
+                "color": [
+                  255,
+                  128,
+                  64,
+                  32
+                ]
+              },
+              "last": {
+                "u1": 0.001953125,
+                "u2": 0.001953125,
+                "u3": 0.501953125,
+                "u4": 0.501953125,
+                "v1": 0.001953125,
+                "v2": 0.501953125,
+                "v3": 0.001953125,
+                "v4": 0.501953125,
+                "texture": 0,
+                "light": 0,
+                "color": [
+                  255,
+                  128,
+                  64,
+                  32
+                ]
+              }
+            },
+            "surfaces": {
+              "first": {
+                "height": [
+                  1,
+                  2,
+                  3,
+                  4
+                ],
+                "tile_up": 0,
+                "tile_front": -1,
+                "tile_right": -1
+              },
+              "last": {
+                "height": [
+                  1,
+                  2,
+                  3,
+                  4
+                ],
+                "tile_up": 0,
+                "tile_front": -1,
+                "tile_right": -1
+              }
+            }
+          },
+          "water": {
+            "level": 2,
+            "type": 2,
+            "waveHeight": 1,
+            "waveSpeed": 3,
+            "wavePitch": 4,
+            "animSpeed": 6,
+            "splitWidth": 1,
+            "splitHeight": 2,
+            "Zones": [
+              {
+                "level": 20,
+                "type": 3,
+                "waveHeight": 10,
+                "waveSpeed": 4,
+                "wavePitch": 5,
+                "animSpeed": 7
+              },
+              {
+                "level": 30,
+                "type": 4,
+                "waveHeight": 15,
+                "waveSpeed": 5,
+                "wavePitch": 6,
+                "animSpeed": 8
+              }
+            ]
+          },
+          "cursor": {
+            "offset": 214,
+            "length": 214,
+            "trailing_bytes": 0
+          },
+          "numeric_fields": {
+            "finite": 48,
+            "nan": 0,
+            "positive_infinity": 0,
+            "negative_infinity": 0,
+            "undefined": 0,
+            "null": 0,
+            "min": -1,
+            "max": 255,
+            "exceptional_locations": []
+          }
+        }
+      }
+    },
+    {
+      "id": "gnd19-water-zones-truncated",
+      "kind": "gnd",
+      "hex": "4752474e0109010000000100000000002041010000001000000074696e792e626d70000000000000000001000000010000000100000001000000010203040100000000000000000000000000803f0000803f000000000000803f000000000000803f00000000ff8040200000a04000002041000070410000a04100000000ffffffffffffffff00002041020000000000a04000004040000080400600000001000000020000000000a0410300000000002041000080400000a040070000000000f04104000000000070410000a0400000c040080000",
+      "expected": {
+        "outcome": "constructor_exception",
+        "exception_name": "RangeError"
+      }
+    },
+    {
+      "id": "rsw25-build",
+      "kind": "rsw",
+      "hex": "475253570205bb0000000074696e792e696e69000000000000000000000000000000000000000000000000000000000000000074696e792e676e64000000000000000000000000000000000000000000000000000000000000000074696e792e676174000000000000000000000000000000000000000000000000000000000000000074696e792e73726300000000000000000000000000000000000000000000000000000000000000000000a04002000000000020410000404000008040060000002d0000002e0000000000803f0000003f0000803ecdcccc3dcdcc4c3e9a99993e0000403fceffffff32000000d8ffffff2800000000000000",
+      "expected": {
+        "outcome": "returned",
+        "summary": {
+          "files": {
+            "buildnumber": 187,
+            "ini": "tiny.ini",
+            "gnd": "tiny.gnd",
+            "gat": "tiny.gat",
+            "src": "tiny.src"
+          },
+          "water": {
+            "level": 1,
+            "type": 2,
+            "waveHeight": 2,
+            "waveSpeed": 3,
+            "wavePitch": 4,
+            "animSpeed": 6
+          },
+          "light": {
+            "longitude": 45,
+            "latitude": 46,
+            "diffuse": [
+              1,
+              0.5,
+              0.25
+            ],
+            "ambient": [
+              0.10000000149011612,
+              0.20000000298023224,
+              0.30000001192092896
+            ],
+            "opacity": 0.75,
+            "direction": [
+              0,
+              0,
+              0
+            ]
+          },
+          "ground": {
+            "top": -50,
+            "bottom": 50,
+            "left": -40,
+            "right": 40
+          },
+          "object_counts": {
+            "models": 0,
+            "lights": 0,
+            "sounds": 0,
+            "effects": 0
+          },
+          "model_dependencies": [],
+          "sound_dependencies": [],
+          "samples": {
+            "models": {
+              "first": null,
+              "last": null
+            },
+            "lights": {
+              "first": null,
+              "last": null
+            },
+            "sounds": {
+              "first": null,
+              "last": null
+            },
+            "effects": {
+              "first": null,
+              "last": null
+            }
+          },
+          "numeric_fields": {
+            "finite": 22,
+            "nan": 0,
+            "positive_infinity": 0,
+            "negative_infinity": 0,
+            "undefined": 0,
+            "null": 0,
+            "min": -50,
+            "max": 50,
+            "exceptional_locations": []
+          }
+        }
+      }
+    },
+    {
+      "id": "rsw26-water-omitted",
+      "kind": "rsw",
+      "hex": "475253570206ba0000000074696e792e696e69000000000000000000000000000000000000000000000000000000000000000074696e792e676e64000000000000000000000000000000000000000000000000000000000000000074696e792e676174000000000000000000000000000000000000000000000000000000000000000074696e792e73726300000000000000000000000000000000000000000000000000000000000000002d0000002e0000000000803f0000003f0000803ecdcccc3dcdcc4c3e9a99993e0000403fceffffff32000000d8ffffff2800000000000000",
+      "expected": {
+        "outcome": "returned",
+        "summary": {
+          "files": {
+            "buildnumber": 186,
+            "ini": "tiny.ini",
+            "gnd": "tiny.gnd",
+            "gat": "tiny.gat",
+            "src": "tiny.src"
+          },
+          "water": {
+            "level": 0,
+            "type": 0,
+            "waveHeight": 0,
+            "waveSpeed": 0,
+            "wavePitch": 0,
+            "animSpeed": 0
+          },
+          "light": {
+            "longitude": 45,
+            "latitude": 46,
+            "diffuse": [
+              1,
+              0.5,
+              0.25
+            ],
+            "ambient": [
+              0.10000000149011612,
+              0.20000000298023224,
+              0.30000001192092896
+            ],
+            "opacity": 0.75,
+            "direction": [
+              0,
+              0,
+              0
+            ]
+          },
+          "ground": {
+            "top": -50,
+            "bottom": 50,
+            "left": -40,
+            "right": 40
+          },
+          "object_counts": {
+            "models": 0,
+            "lights": 0,
+            "sounds": 0,
+            "effects": 0
+          },
+          "model_dependencies": [],
+          "sound_dependencies": [],
+          "samples": {
+            "models": {
+              "first": null,
+              "last": null
+            },
+            "lights": {
+              "first": null,
+              "last": null
+            },
+            "sounds": {
+              "first": null,
+              "last": null
+            },
+            "effects": {
+              "first": null,
+              "last": null
+            }
+          },
+          "numeric_fields": {
+            "finite": 22,
+            "nan": 0,
+            "positive_infinity": 0,
+            "negative_infinity": 0,
+            "undefined": 0,
+            "null": 0,
+            "min": -50,
+            "max": 50,
+            "exceptional_locations": []
+          }
+        }
+      }
+    },
+    {
+      "id": "rsw19-unknown-object-tag",
+      "kind": "rsw",
+      "hex": "47525357010974696e792e696e69000000000000000000000000000000000000000000000000000000000000000074696e792e676e64000000000000000000000000000000000000000000000000000000000000000074696e792e676174000000000000000000000000000000000000000000000000000000000000000074696e792e73726300000000000000000000000000000000000000000000000000000000000000000000a04002000000000020410000404000008040060000002d0000002e0000000000803f0000003f0000803ecdcccc3dcdcc4c3e9a99993e0000403fceffffff32000000d8ffffff280000000100000063000000",
+      "expected": {
+        "outcome": "returned",
+        "summary": {
+          "files": {
+            "buildnumber": null,
+            "ini": "tiny.ini",
+            "gnd": "tiny.gnd",
+            "gat": "tiny.gat",
+            "src": "tiny.src"
+          },
+          "water": {
+            "level": 1,
+            "type": 2,
+            "waveHeight": 2,
+            "waveSpeed": 3,
+            "wavePitch": 4,
+            "animSpeed": 6
+          },
+          "light": {
+            "longitude": 45,
+            "latitude": 46,
+            "diffuse": [
+              1,
+              0.5,
+              0.25
+            ],
+            "ambient": [
+              0.10000000149011612,
+              0.20000000298023224,
+              0.30000001192092896
+            ],
+            "opacity": 0.75,
+            "direction": [
+              0,
+              0,
+              0
+            ]
+          },
+          "ground": {
+            "top": -50,
+            "bottom": 50,
+            "left": -40,
+            "right": 40
+          },
+          "object_counts": {
+            "models": 0,
+            "lights": 0,
+            "sounds": 0,
+            "effects": 0
+          },
+          "model_dependencies": [],
+          "sound_dependencies": [],
+          "samples": {
+            "models": {
+              "first": null,
+              "last": null
+            },
+            "lights": {
+              "first": null,
+              "last": null
+            },
+            "sounds": {
+              "first": null,
+              "last": null
+            },
+            "effects": {
+              "first": null,
+              "last": null
+            }
+          },
+          "numeric_fields": {
+            "finite": 22,
+            "nan": 0,
+            "positive_infinity": 0,
+            "negative_infinity": 0,
+            "undefined": 0,
+            "null": 0,
+            "min": -50,
+            "max": 50,
+            "exceptional_locations": []
+          }
+        }
+      }
+    },
+    {
+      "id": "rsw27-raw-binary-filename",
+      "kind": "rsw",
+      "hex": "475253570207ba0000000074696e792e696e69000000000000000000000000000000000000000000000000000000000000000074696e792e676e64000000000000000000000000000000000000000000000000000000000000000074696e792e676174000000000000000000000000000000000000000000000000000000000000000074696e792e73726300000000000000000000000000000000000000000000000000000000000000002d0000002e0000000000803f0000003f0000803ecdcccc3dcdcc4c3e9a99993e0000403fceffffff32000000d8ffffff280000000100000063000000010000000100000074696e79206d6f64656c000000000000000000000000000000000000000000000000000000000000020000000000c03f00000000077b00000080696e792e72736d000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000626f6479000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000a0400000204100007041000000000000b442000034430000a0400000a0400000a040",
+      "expected": {
+        "outcome": "returned",
+        "summary": {
+          "files": {
+            "buildnumber": 186,
+            "ini": "tiny.ini",
+            "gnd": "tiny.gnd",
+            "gat": "tiny.gat",
+            "src": "tiny.src"
+          },
+          "water": {
+            "level": 0,
+            "type": 0,
+            "waveHeight": 0,
+            "waveSpeed": 0,
+            "wavePitch": 0,
+            "animSpeed": 0
+          },
+          "light": {
+            "longitude": 45,
+            "latitude": 46,
+            "diffuse": [
+              1,
+              0.5,
+              0.25
+            ],
+            "ambient": [
+              0.10000000149011612,
+              0.20000000298023224,
+              0.30000001192092896
+            ],
+            "opacity": 0.75,
+            "direction": [
+              0,
+              0,
+              0
+            ]
+          },
+          "ground": {
+            "top": -50,
+            "bottom": 50,
+            "left": -40,
+            "right": 40
+          },
+          "object_counts": {
+            "models": 1,
+            "lights": 0,
+            "sounds": 0,
+            "effects": 0
+          },
+          "model_dependencies": [
+            {
+              "object_index": 0,
+              "filename": "iny.rsm",
+              "nodename": "body"
+            }
+          ],
+          "sound_dependencies": [],
+          "samples": {
+            "models": {
+              "first": {
+                "name": "tiny model",
+                "animType": 2,
+                "animSpeed": 1.5,
+                "blockType": 0,
+                "UnknownByte": 7,
+                "UnknownByte2": 123,
+                "filename": "iny.rsm",
+                "nodename": "body",
+                "position": [
+                  1,
+                  2,
+                  3
+                ],
+                "rotation": [
+                  0,
+                  90,
+                  180
+                ],
+                "scale": [
+                  1,
+                  1,
+                  1
+                ]
+              },
+              "last": {
+                "name": "tiny model",
+                "animType": 2,
+                "animSpeed": 1.5,
+                "blockType": 0,
+                "UnknownByte": 7,
+                "UnknownByte2": 123,
+                "filename": "iny.rsm",
+                "nodename": "body",
+                "position": [
+                  1,
+                  2,
+                  3
+                ],
+                "rotation": [
+                  0,
+                  90,
+                  180
+                ],
+                "scale": [
+                  1,
+                  1,
+                  1
+                ]
+              }
+            },
+            "lights": {
+              "first": null,
+              "last": null
+            },
+            "sounds": {
+              "first": null,
+              "last": null
+            },
+            "effects": {
+              "first": null,
+              "last": null
+            }
+          },
+          "numeric_fields": {
+            "finite": 36,
+            "nan": 0,
+            "positive_infinity": 0,
+            "negative_infinity": 0,
+            "undefined": 0,
+            "null": 0,
+            "min": -50,
+            "max": 180,
+            "exceptional_locations": []
+          }
+        }
+      }
+    }
+  ]
+}
