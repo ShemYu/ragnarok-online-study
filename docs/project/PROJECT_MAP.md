@@ -111,9 +111,10 @@ The game is at character selection. All six Chinese navigation aliases remain ON
 The earlier Chinese NPC, item and story overlays also remain ON.
 The tests changed only last_login. All earned progress remains the same.
 Both temporary test pages are gone. The normal game page and saved progress pass.
-Next, Codex will inspect the Active quest text and remaining Chinese UI samples.
+The Active quest tab is empty. The save contains only two completed quests.
+Next, Codex will plan a normal story sample and identify its text resource.
 
-The latest save receipt SHA starts with b71b67ed. The final receipt SHA starts with 7db72312.
+The latest save receipt SHA starts with 8e910da4. The Navigation final receipt starts with 7db72312.
 See the full results, rollback limits and private resume paths in
 the [delivery record](reviews/2026-10-19-T05.009-delivery.md#final-owned-cleanup-and-ordinary-page-handoff-qualified).
 We must still test actual macOS input method editor (IME) composition and candidate selection.
@@ -137,7 +138,8 @@ The Mac's internet remains ON, as you instructed.
 | 2026-10-19,c04be3c | English rollback, reverse integrity refusal, live data and save tests pass; first ASCII map saved | [Rollback proof](reviews/2026-10-19-T05.009-delivery.md#english-bundle-rollback-qualified) |
 | 2026-10-19,301bd0e | User corrected the standard name to ASD-STE100; map language simplified | This map and Git history |
 | 2026-10-19,ffd154c | Chinese reapply, native integrity, live UI and saved progress pass | [Reapply proof](reviews/2026-10-19-T05.009-delivery.md#chinese-reapply-qualified) |
-| Current checkpoint | Exact test-page cleanup and normal-page Chinese search/save pass; T05.009 ready for you | [Final proof](reviews/2026-10-19-T05.009-delivery.md#final-owned-cleanup-and-ordinary-page-handoff-qualified) |
+| 2026-10-19,e747286 | Exact test-page cleanup and normal-page Chinese search/save pass; T05.009 ready for you | [Final proof](reviews/2026-10-19-T05.009-delivery.md#final-owned-cleanup-and-ordinary-page-handoff-qualified) |
+| Current checkpoint | Ordinary Active tab is empty; earned progress unchanged; normal story sample still needed | [Quest finding](reviews/2026-10-19-T05-active-quest-preparation.md#ordinary-active-tab-precondition-inspection) |
 
 Codex also verified several T06 tools for source inventories.
 They cover archive tables, source order, map records, YAML, monsters, spawns and references within their stated limits.
