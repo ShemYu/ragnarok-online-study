@@ -1,0 +1,29 @@
+{
+  "task": "T06.003.003.001",
+  "comparison": "independent read-only plans; root-only acquisition",
+  "roots": 1296,
+  "configured_roots": 1265,
+  "cache_only_roots": 31,
+  "renderer_prefix_changes": 0,
+  "root_order": "cache file order then entry ordinal",
+  "alias_steps_per_edge": 1,
+  "deduplication": "exact encoded HTTP target; preserve every edge",
+  "body_cap": 16777216,
+  "aggregate_cap": 8589934592,
+  "asset_request_cap": 3889,
+  "acquisition_seconds": 1200,
+  "io_timeout_seconds": 5,
+  "native_binary_sha256": "ee6b328ec73a591b23b514379e1b34e876b5d860d0e1aa4d9aa15dd7173eb1c1",
+  "source_pins": {
+    "src/Renderer/MapRenderer.js": "072bbb1a65eccd1ef88e582fc3be78026c862066a23a9bc42b8e643a4973705d",
+    "src/Loaders/MapLoader.js": "c71b01f300f62bbc6e7432444e2521d713473dc47c9c6e25a54a832d5c92a705",
+    "src/Loaders/World.js": "e1f6d5e52fe84c2a31c4f8f13e5be20cb6f93b2675c6f7615ac295be47f5a68e",
+    "src/Utils/BinaryReader.js": "bcf694b7034e36146eed1d5a2d7d5cf93d8a52aeafa74e62f0beed4c1ecc9215",
+    "src/Core/FileManager.js": "75c37d192bf21e7b40817a6f2fe27ef536601515c07fe20c7ce8346d50376cd7"
+  },
+  "limits": "Observed isolated core chains only; no archive owner, full geometry, render, installed runtime, playability or full-game coverage claim",
+  "server_source_pins": {
+    "src/common/mapindex.cpp": "8880bee464c148248ddeb9efe32c8a12cc16589a24c7e3a457a4d93f592f6dce",
+    "src/map/clif.cpp": "3c2ac43cc44dbeaf509f8ca8b5042ef6e5d04ad911ce3317ab76a491c1855afc"
+  }
+}

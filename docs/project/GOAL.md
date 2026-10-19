@@ -12,6 +12,8 @@ The user selected Renewal rather than classic/pre-renewal. T06/T07 must identify
 
 Traditional Chinese means menus, item/skill/monster names and descriptions, quest log, NPC dialogue, story text and system messages. Launcher/settings localization is tracked separately so it cannot be mistaken for game localization. Font rendering, text encoding and macOS input must work as well as translations.
 
+**Current execution order: functionality first.** The user clarified on2026-10-19 that translation may be a large job and asked to prioritize gameplay. Next verify full-world maps, monsters, combat, jobs, items, quest progression and persistence, then resolve remaining localization/input work. Existing Taiwan client tables/dictionaries and installed Chinese overlays stay in use; assess reusable resources before translating gaps. This changes work order, not the final Traditional Chinese requirement. Remaining T05 language checks do not block functional inventory/repairs. See the [priority record](reviews/2026-10-19-functionality-first.md).
+
 **Party-only content is deferred to the next phase.** This means activities that actually require multiple players, including any adaptations needed to play them alone. T06 must still list their maps, monsters, story links and prerequisites, clearly marking the deferred activity rather than hiding missing content. Party-only completion and T11 adaptations do not block first-milestone acceptance. A party identity check alone does not establish a multi-player requirement; verify the real gate. No particular companion, entry bypass, reward or balance change is selected by this deferral. See the [decision record](reviews/2026-10-19-scope-clarification.md).
 
 ## Proposed foundation

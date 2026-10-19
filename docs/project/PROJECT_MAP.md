@@ -1,6 +1,6 @@
 # Supervision, plan and current position
 
-Date: **2026-10-19 JST**. Codex verified one mixed story sentence. Actual Chinese input checks are next.
+Date: **2026-10-19 JST**. Functionality comes first. Codex is preparing full-world resource checks.
 Use this map for a short view of [Status](STATUS.md), [Tasks](TASKS.md) and
 [Phases](PHASES.md). Status gives the current next action.
 Update this map after each important change. Keep the dated evidence.
@@ -63,24 +63,24 @@ P1  PROVE A PLAYABLE CHINESE FOUNDATION
      -> T02 Acquire/extract assets                              [V]
      -> T03 Install and launch the local stack                  [V]
      -> T04 Play, save/recovery, resources and offline trial     [~]
-     -> T05 Chinese UI, dialogue, active quest and input pilot   [~] <-- NOW
+     -> T05 Chinese pilot; remaining language/input deferred   [~]
              |
              +-- T05.009 Navigation UI: ready for you
              +-- T05.010 Active quest sample: ready for you
              +-- T05.011 Quest window: ready for you
              +-- T05.012 One mixed story line: ready for you
-             +-- Next: actual Chinese IME checks
+             +-- Remaining language/input checks: later
 
 P2  VERIFY FULL-GAME COVERAGE
-    T06 World/text inventory                                   [~]
+    T06 World/text inventory; functional checks first           [~] <-- NOW
         Early source-only inventory runs alongside P1.
         Raw text catalog: ready. Native story coverage stays open.
      -> T07 Actual version, full content list, gaps and estimate     [ ]
              |
 P3  COMPLETE THE AGREED CONTENT AND LANGUAGE
-             +-- T08 Client/launcher localization               [ ]
-             +-- T09 NPC/story/system localization              [ ]
-             +-- T10 Missing/broken gameplay content             [ ]
+             +-- T10 Gameplay gaps: first                       [ ]
+             +-- T08 Client/launcher localization: later         [ ]
+             +-- T09 NPC/story localization: later               [ ]
              |
 P4  QUALIFY AND HAND OVER
     T12 Required-content, persistence, recovery, performance     [ ]
@@ -116,7 +116,8 @@ Task ready for your evaluation                                  [V] <-- DONE
 The real six-page dialogue and save/re-entry pass.
 Cold start, old-pilot rollback and Chinese reapply pass.
 Final checks pass. The normal game is left running.
-Next: actual Chinese IME capability checks.
+Next: whole-world resource and functional checks.
+Remaining Chinese input checks are deferred.
 See the [story repair checks](reviews/2026-10-19-T05.012.md).
 
 ## Completed task: T05.011 Quest window
@@ -166,13 +167,13 @@ Task ready for your evaluation                                    [V] <-- DONE
 
 Chinese Navigation, Quest and prior overlays are ON. Pilot0.2 is ON.
 The current app process is58655. Its asset process is67357. The server is Ready.
-The game is running at Izlude197,212with Chinese Quest open and active7472.
-The latest verified logged-out save starts withff3ec892. It precedes the live handoff.
-All earned fields survive the story repair, restart, rollback and reapply.
+Read-only resumed UI shows newer progress at Izlude136,181, Chinese Quest and active7472.
+The earlier verified logged-out save starts withff3ec892. It predates newer resumed progress.
+At T05.012, all earned fields survived repair, restart, rollback and reapply.
 Only the normal login time changes between qualified story checks.
 No database check is claimed while the game is live.
-All six aliases, protected files and three clean runtime manifests pass.
-Fresh full backup O includes the earned progress and old pilot. Older backups remain intact.
+Their full alias/protected/runtime checks passed at that checkpoint; no fresh full check is claimed here.
+Backup O contains earlier progress and the old pilot. Preserve newer progress; do not restore O over it.
 
 Earlier Navigation, quest-grant and Quest-window checkpoints remain historical evidence.
 Their process IDs and save hashes are not the current runtime or latest save.
@@ -241,11 +242,11 @@ Both scored18/20. The normal quest sample now passes. Full-language work remains
 
 ## Remaining decisions and phase gates
 
-- P1: the active-quest sample passes. Finish input and remaining UI samples.
+- P1: the active-quest sample passes. Defer input and remaining UI samples until after functional work.
   Record the offline and display limits. You can already try basic play, but the phase remains open.
 - P2: verify the actual Renewal version and full-game coverage. List the language and gameplay gaps.
   Confirm game behavior separately from source data. Use the gap list to estimate the remaining work.
-- P3: repair the first-milestone language and gameplay gaps.
+- P3: repair functional gameplay gaps first, then remaining language/input gaps.
 - Later phase: address party-only activities and define their solo adaptations.
 - P4: test every required content entry. Rehearse setup and recovery. Then give you the game for final evaluation.
   A task changes from ready_for_user to accepted only after you explicitly accept it.

@@ -2,6 +2,8 @@
 
 The current goal is the **full Modern / Renewal RO game** for personal play on this Mac, including maps, monsters, story, Traditional Chinese game UI/text and persistent progress. Party-only activities and their solo adaptations are a later phase. The proposed foundation is an existing RO emulator/client stack; its exact version, complete content coverage and full Chinese support still need verification. The content inventory must expose gaps without reducing the goal to a small sample.
 
+**Current priority: gameplay functionality first.** Verify maps, monsters, combat, jobs, items, quests and persistence before remaining translation/input work. Existing Chinese support stays enabled; full Traditional Chinese remains in the final goal.
+
 **Start at [current status](docs/project/STATUS.md).** Stateless agents should read [AGENTS.md](AGENTS.md), then the assigned task and evidence. The user has authorized executing the strategy after the documentation checkpoint. Runtime and content claims require the task-specific evidence recorded there.
 
 | Planning document | Purpose |

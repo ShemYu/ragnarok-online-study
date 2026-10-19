@@ -6,8 +6,8 @@ The user now prioritizes playing the full Modern/Renewal game locally on a Mac, 
 
 1. **P0:** document goal, feasibility, task ownership, paired model comparison, root verification and Git/state recovery.
 2. **P1:** establish a version-pinned local runtime, compatible assets, basic gameplay/persistence/recovery, measured resources and a Chinese pilot.
-3. **P2:** inventory full-game content/localization, identify actual version/coverage and gaps, and produce a gap-based estimate without narrowing the goal to shipped content.
-4. **P3:** fix first-milestone ordinary gameplay/localization gaps; keep party-only entries and dependencies explicit.
+3. **P2:** prioritize functional content inventory, identify actual version/coverage and gameplay gaps, and produce a gap-based estimate without narrowing the full-game goal.
+4. **P3:** verify/repair ordinary gameplay first, then remaining localization/input gaps using existing resources where possible; keep party-only entries and dependencies explicit.
 5. **P4:** qualify required coverage, rehearse setup/restore, and hand over a root-verified build for user acceptance.
 6. **Later phase (T11):** address deferred party-only activities and define any solo adaptations. This does not block first-milestone delivery.
 

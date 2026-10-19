@@ -53,3 +53,11 @@ MapEngine38006/SHAf3ead6ab…85cc. No full preference/environment dump or
 private credentials are recorded. Next owner root: resolve the native test
 surface and freeze same-input Claude/Grok verification plans; neither
 internal preparation aid earns provider credit or a passed IME gate.
+
+## Functionality-first deferral
+
+The user now prioritizes functionality. Root records a bounded scratch probe,
+its limits and complete owned cleanup in the
+[priority decision](2026-10-19-functionality-first.md#deferred-input-preparation-and-cleanup).
+Native binding is intermittent; no real composition is qualified. Remaining
+T05.013 work is deferred, not passed. Root proceeds with content/functionality.
