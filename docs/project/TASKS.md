@@ -1,14 +1,17 @@
 # Task board
 
-Task owner: coordinator unless dispatched. Date: 2026-10-18. The user has authorized executing the strategy and finishing all steps after the documentation checkpoint. Task states below distinguish completed evidence from future work. See [Workflow](WORKFLOW.md) for state transitions, paired comparisons and Git control; [Status](STATUS.md) is the resume point.
+Task owner: coordinator unless dispatched. Updated: 2026-10-19. The user has authorized executing the strategy and finishing all steps after the documentation checkpoint. Task states below distinguish completed evidence from future work. See [Workflow](WORKFLOW.md) for state transitions, paired comparisons and Git control; [Status](STATUS.md) is the resume point.
 
 ## Dependency map
 
-`T00 → T01 → T02 → T03 → T04 → T05 → T06 → T07 → {T08, T09, T10, T11} → T12 → T13`
+`T00 → T01 → T02 → T03 → T04 → T05 → T06 → T07 → {T08, T09, T10} → T12 → T13`
 
-T05 may begin a read-only compatibility assessment alongside T02; its actual in-game pilot needs T03/T04. T02 verifies acquisition/extraction only; later tasks establish runtime compatibility. T05 may create bounded encoding/compatibility diagnosis or fix children before T07; it must not wait for the later bulk localization tasks to resolve a foundation blocker. T08–T11 can run in parallel only with disjoint source and isolated runtime state. Split newly discovered gaps into numbered children before implementation. A dependency arrow is a gate, not a claim that every future task has a known workload.
+Later phase: `T13 → T11` for party-only activities and their solo adaptations,
+per the [user's scope clarification](reviews/2026-10-19-scope-clarification.md).
 
-If an inventory shows no work is needed in one of T08–T11, both models assess that finding and the coordinator supplies a verified no-change report. Do not invent modifications or leave an empty task blocking qualification.
+T05 may begin a read-only compatibility assessment alongside T02; its actual in-game pilot needs T03/T04. T02 verifies acquisition/extraction only; later tasks establish runtime compatibility. T05 may create bounded encoding/compatibility diagnosis or fix children before T07; it must not wait for the later bulk localization tasks to resolve a foundation blocker. T08–T10 can run in parallel only with disjoint source and isolated runtime state. T06/T07 inventory deferred party-only entries and dependencies now; T11 implementation is later. Split newly discovered gaps into numbered children before implementation. A dependency arrow is a gate, not a claim that every future task has a known workload.
+
+If an inventory shows no work is needed in one of T08–T10, both models assess that finding and the coordinator supplies a verified no-change report. Do not invent modifications or leave an empty task blocking qualification. Deferred T11 is not a completed/no-change finding and does not block first-milestone qualification.
 
 | Task | Phase | Deliverable | Depends on | Status | Paired comparison / evidence |
 | --- | --- | --- | --- | --- | --- |
@@ -60,12 +63,12 @@ If an inventory shows no work is needed in one of T08–T11, both models assess 
 | T06.004 | P2 | Localization units and story-chain inventory | T06.002, T06.003 | `in_progress` | Early source-only childT06.004.001 freezes all839selected-file raw quoted occurrences. Native framing/display, encoding, client/dictionary joins and quest/event/dynamic story graphs remain open; no story coverage claim |
 | T06.004.001 | P2 source inventory | Raw quoted occurrences across all839selected NPC source entries | Qualified T06.001 snapshot/T06.002.001 selection | `ready_for_user` | [Frozen task](tasks/T06.004.001.md), [fixture](fixtures/T06.004.001-authored.json), [root qualification](reviews/2026-10-19-T06.004.001.md#root-corrected-integration-qualified). Claude16/20 selected versus Grok13/20; both raw candidates preserved/released. Unchanged8602320 plus separate root publication correction. Integrated36tests/zero skips, four independent common controls, fresh CLI and all839source/402809occurrence bytes/full typed metadata pass. Corrected manifestd40b0848… . Raw byte-policy source inventory only; native framing/display/story graphs/encoding/Chinese/full content and user acceptance remain open. |
 | T06.005 | P2 | Reconciled content/gap report | T06.002–T06.004 | `planned` | Root audits both candidate methods/results; T07 user scope/estimate follows |
-| T07 | P2 | Exact episode/content contract and full-work estimate | T06 | `planned` | [Root content-target preparation](reviews/2026-10-18-T07-contract-preparation.md) checks selected story transitions/deviations and finite target choices; no episode/contract/full estimate selected. Paired coverage assessment and explicit user scope acceptance still required |
+| T07 | P2 | Full-game version/coverage contract and gap-based estimate | T06 | `planned` | [Source preparation](reviews/2026-10-18-T07-contract-preparation.md), [2026-10-19 user decision](reviews/2026-10-19-scope-clarification.md). Full Modern/Renewal intent confirmed; identify actual edition/manifest and all gaps without narrowing to shipped content. Party-only activities/solo adaptations deferred to next phase. Actual coverage/paired assessment/full estimate still required |
 | T08 | P3 | Client/launcher localization gaps resolved | T07 | `planned` | Separate candidate branches and fixture outputs; one task per gap batch |
 | T09 | P3 | Server NPC/story/system localization gaps resolved | T07 | `planned` | Separate candidate branches; preserve quest logic and IDs |
 | T10 | P3 | Missing/broken in-scope gameplay content resolved | T07 | `planned` | Reproducer and child task per defect; compare isolated implementations |
-| T11 | P3 | Approved solo progression changes | T07, solo decision | `planned` | Paired approaches; external state isolated; decision still open |
-| T12 | P4 | Coverage qualification and recovery/performance report | T08–T11 | `planned` | Independent regression plans/fixtures; root verifies final integrated build |
+| T11 | Later phase after P4 | Party-only activities and approved solo adaptations | T07 coverage; first-milestone T13 | `planned` | [User deferral](reviews/2026-10-19-scope-clarification.md): does not block first milestone. Inventory actual multi-player gates and story dependencies now; define adaptations and paired/root/end-user checks in the later phase. No companion/bypass/balance method selected |
+| T12 | P4 | First-milestone coverage qualification and recovery/performance report | T08–T10; T07 explicit party-only deferral | `planned` | Independent regression plans/fixtures; root verifies integrated build and accounts for every required/deferred entry. T11 is later-phase work |
 | T13 | P4 | Reproducible user handoff and acceptance | T12 | `planned` | Paired runbook reviews; root rehearses; user evaluates experience |
 
 ## Task acceptance contracts
@@ -116,9 +119,9 @@ If an inventory shows no work is needed in one of T08–T11, both models assess 
 
 ### T07 — content contract and estimate
 
-- **Output:** supported Renewal episode/edition evidence, frozen required-content manifest, localization/solo expectations, gap tasks and effort estimate derived from measured pilot throughput and gap count. Keep Taiwan terminology and client/server revision distinctions explicit.
+- **Output:** actual Renewal version/edition evidence, full-game required-content manifest, first-milestone/deferred-party classification, localization expectations, gap tasks and effort estimate from measured throughput and gap count. Keep Taiwan terminology and client/server revisions explicit. The user confirmed full-game intent; no shipped subset is automatically accepted as all content.
 - **Coordinator verification:** audit the proposed boundary against T06; verify every exclusion is visible; record assumptions/ranges and unestimated work. Client date or rAthena commit alone is not episode completeness.
-- **User evaluation:** explicitly accept the intended world/story and any scope changes. No silent reduction of “all.”
+- **User evaluation:** inspect actual coverage/gaps and the concrete version recommendation. The full-game goal is already confirmed; any proposed reduction still needs an explicit user decision.
 
 ### T08 — client/launcher localization
 
@@ -138,15 +141,15 @@ If an inventory shows no work is needed in one of T08–T11, both models assess 
 - **Coordinator verification:** reproduce the old failure, test both candidate fixes in isolated state, test dependencies and integrated regression, and update each content manifest entry using actual evidence.
 - **User evaluation:** play the corrected area or quest using a short scenario; verify the intended behaviour and report remaining friction.
 
-### T11 — solo progression
+### T11 — party-only activities and solo adaptations (later phase)
 
-- **Output:** after the user's decision, document necessary changes/companions, original behaviour, intended solo behaviour and affected quests/instances. If official rules must remain, incompatible solo requirements are unresolved scope, not a pass.
+- **Output:** after first-milestone delivery, define a bounded plan for the deferred party-only activities: actual multi-player gates, original behaviour, proposed adaptations/companions, affected story/instances and verification. The user authorized deferral, not a specific gameplay change. T06/T07 list these entries and dependencies now; T11 does not block T12/T13.
 - **Coordinator verification:** test with one real player account; check entry requirements, companion behaviour, mechanics, rewards and save state. An admin warp or forced quest completion is not normal solo progression.
 - **User evaluation:** complete the affected progression naturally and judge difficulty/pacing and documented deviations.
 
 ### T12 — full qualification
 
-- **Output:** final required-content matrix, root verification evidence, measured resources, regression report, recoverable backup and reproducible setup/upgrade/rollback procedure.
+- **Output:** final first-milestone required-content matrix with an explicit later-phase party-only ledger, root verification evidence, measured resources, regression report, recoverable backup and reproducible setup/upgrade/rollback procedure.
 - **Coordinator verification:** account for every required entry; test required quest-chain progression, missing-asset and dependency failures, offline play, restart, backup/restore and applicable update regression. Mark unsupported/skipped entries open. Do not infer completeness from representative scenes.
 - **User evaluation:** follow a compact tour plus agreed story/endgame scenarios; inspect coverage evidence and a restore demonstration.
 

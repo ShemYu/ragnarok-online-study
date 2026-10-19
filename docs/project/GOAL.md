@@ -4,15 +4,15 @@ Last reviewed: 2026-10-19. Owner: coordinating Codex agent. Current work: active
 
 ## User decisions
 
-The first milestone is a personally playable, Mac-local **Modern / Renewal Ragnarok Online** build, including maps, monsters, story/quests, Traditional Chinese game UI and text, and persistent solo progress. The user requested durable documentation for stateless agents, supervised phases, task-level Claude/Grok comparisons, coordinator verification before user evaluation, and Git rollback controls.
+The first milestone targets the **full Modern / Renewal Ragnarok Online game** for personal play on this Mac: maps, monsters, story/quests, Traditional Chinese game UI/text and persistent progress. On2026-10-19 the user clarified that “all content” means the full game, rather than a single-map game, and deferred party-only content to the next phase. The user also requires durable documentation for stateless agents, supervised phases, task-level Claude/Grok comparisons, coordinator verification before user evaluation, and Git rollback controls.
 
 After documentation checkpoint `35ad527`, the user instructed “follow the strategy I told you, finished all these steps” and activated the thread goal. This authorizes local execution of the task board; the earlier documentation-only boundary applied to T00. It is not evidence that the game or later acceptance gates are complete.
 
-The user selected Renewal rather than classic/pre-renewal. “All” must be evaluated against a named episode/content manifest; it does not currently identify an episode or prove parity with the latest Taiwan or Korean service. Do not silently reduce the requested story or world to a sample.
+The user selected Renewal rather than classic/pre-renewal. T06/T07 must identify the actual version/edition, build a complete content manifest and expose missing content against the full-game goal. A version/manifest is a verification boundary, not permission to declare only the easiest shipped subset complete. The current evidence does not establish parity with the latest Taiwan or Korean service. Root will provide a concrete coverage recommendation; no new user answer is needed to continue the inventory.
 
 Traditional Chinese means menus, item/skill/monster names and descriptions, quest log, NPC dialogue, story text and system messages. Launcher/settings localization is tracked separately so it cannot be mistaken for game localization. Font rendering, text encoding and macOS input must work as well as translations.
 
-Open decision: whether companions and documented changes may remove party-only progression gates. A question has been sent to the user. Preserve this as undecided until answered; documentation can proceed, gameplay changes cannot rely on presumed approval.
+**Party-only content is deferred to the next phase.** This means activities that actually require multiple players, including any adaptations needed to play them alone. T06 must still list their maps, monsters, story links and prerequisites, clearly marking the deferred activity rather than hiding missing content. Party-only completion and T11 adaptations do not block first-milestone acceptance. A party identity check alone does not establish a multi-player requirement; verify the real gate. No particular companion, entry bypass, reward or balance change is selected by this deferral. See the [decision record](reviews/2026-10-19-scope-clarification.md).
 
 ## Proposed foundation
 
@@ -27,9 +27,9 @@ Godot and the asset factory are deferred research for this milestone. Reusing a 
 | Mac hardware | M1 Max,64GB RAM; [30-minute measured session](RESOURCES.md) | Ample headroom in the measured baseline; heavy content, GPU timing and thermal behaviour unmeasured |
 | Packaged local runtime | Exact signed/notarized1.6.3 installed; ordinary combat, loot, portals, save/re-entry, full relaunch and A/B recovery verified | Viable for the tested browser baseline; native window and full host/browser offline behavior remain open |
 | Renewal content | Publisher documents Renewal mode and tested kRO client assets | Exact episode, quest/instance completion and Taiwan equivalence unknown |
-| Traditional Chinese | Taiwan assets acquired; Chinese item/skill rendering and direct Unicode chat verified; [T05 pilot](reviews/2026-10-18-T05.md) | Narrow Carocc Chinese opening/menu/Hello, save/re-entry and off/on rollback now verified. Full game UI/story, active quest text and real macOS IME remain open |
+| Traditional Chinese | Taiwan assets acquired; Chinese item/skill rendering and direct Unicode chat verified; [T05 pilot](reviews/2026-10-18-T05.md) | Narrow Carocc opening/revisit, Navigation/Quest chrome and active7472text samples now verified with save/re-entry/restart/rollback checks. Full game UI/story and real macOS IME remain open |
 | Full world/story | Existing emulator content provides a head start | Asset/database presence is not proof of working AI, quests, instance logic or solo completion |
-| Progress and recovery | Ordinary earned EXP, inventory/equipment/quests survive re-entry/relaunch; actual A→B→A→B recovery verified | Newest full L is archive/live-state qualified before Navigation localization, including all selected saved fields and protected/runtime preservation. This is not a new restore rehearsal. Git alone cannot recover external state; preserve all archives |
+| Progress and recovery | Ordinary earned EXP, inventory/equipment/quests survive re-entry/relaunch; actual A→B→A→B recovery verified | Newest full O is archive/live-state qualified before the Carocc0.2 update; subsequent dialogue/restart/rollback/reapply checks preserve earned fields. This is not a new restore rehearsal. Git alone cannot recover external state; preserve all archives |
 
 Conclusion: **conditionally feasible as an integration/localization project**. Full latest-official-content parity and complete Chinese story coverage have no defensible schedule yet. Missing emulator features or translations can turn them into substantial implementation work. Do not promise a complete world on the setup estimate.
 

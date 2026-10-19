@@ -13,9 +13,10 @@ This is a simple overview, not a formal standard-conformity review.
 ## Goal and supervision
 
 Goal: play Modern/Renewal Ragnarok Online (RO) alone on this Mac.
-The goal includes all maps, monsters and story in the agreed content version.
+The goal is the full Modern/Renewal game, with its maps, monsters and story.
 The game must save progress and use Traditional Chinese text and user interface (UI).
-We must still agree on the exact episode and rules for content that requires a party.
+Party-only activities and their solo adaptations belong to the next phase.
+We must verify the actual game version, content coverage and gaps.
 We use an existing RO-compatible client and server. A new game engine remains a later research option.
 
 ```text
@@ -70,26 +71,29 @@ P1  PROVE A PLAYABLE CHINESE FOUNDATION
              +-- T05.012 One mixed story line: ready for you
              +-- Next: actual Chinese IME checks
 
-P2  DEFINE WHAT "ALL" COVERS
+P2  VERIFY FULL-GAME COVERAGE
     T06 World/text inventory                                   [~]
         Early source-only inventory runs alongside P1.
         Raw text catalog: ready. Native story coverage stays open.
-     -> T07 Episode/content contract, gaps and full estimate     [ ]
+     -> T07 Actual version, full content list, gaps and estimate     [ ]
              |
 P3  COMPLETE THE AGREED CONTENT AND LANGUAGE
              +-- T08 Client/launcher localization               [ ]
              +-- T09 NPC/story/system localization              [ ]
              +-- T10 Missing/broken gameplay content             [ ]
-             +-- T11 Approved solo-progression changes           [ ]
              |
 P4  QUALIFY AND HAND OVER
     T12 Required-content, persistence, recovery, performance     [ ]
      -> T13 Reproducible play guide and your acceptance          [ ]
+
+LATER PHASE: PARTY-ONLY CONTENT
+    T11 Party activities and solo adaptations                    [ ] deferred
 ```
 
 Four of the 14 main tasks are accepted or ready for you: T00 and T01-T03.
 This gives **4/14 = 28.6%, approximately 29%**, when we count main tasks equally.
 T04-T06 are active. The other seven main tasks remain planned.
+This project ledger includes T11 in the later phase. It does not measure milestone content.
 We exclude child tasks from this count. The figure does not measure time, translation or playable content.
 We need the content list and gap list before we can give a reliable full cost or delivery date.
 
@@ -239,11 +243,13 @@ Both scored18/20. The normal quest sample now passes. Full-language work remains
 
 - P1: the active-quest sample passes. Finish input and remaining UI samples.
   Record the offline and display limits. You can already try basic play, but the phase remains open.
-- P2: agree on the exact Renewal content version. List the language and gameplay gaps.
+- P2: verify the actual Renewal version and full-game coverage. List the language and gameplay gaps.
   Confirm game behavior separately from source data. Use the gap list to estimate the remaining work.
-- P3: repair each agreed gap. Apply only the solo-rule changes that you approve.
+- P3: repair the first-milestone language and gameplay gaps.
+- Later phase: address party-only activities and define their solo adaptations.
 - P4: test every required content entry. Rehearse setup and recovery. Then give you the game for final evaluation.
   A task changes from ready_for_user to accepted only after you explicitly accept it.
 
-The episode target and rules for party-only content remain open decisions.
-This map does not choose them for you.
+You confirmed the full-game goal and deferred party-only content.
+The inventory will show the actual version, coverage and gaps.
+See the [scope decision](reviews/2026-10-19-scope-clarification.md).

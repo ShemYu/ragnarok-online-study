@@ -2,13 +2,14 @@
 
 ## Active milestone — Modern / Renewal solo RO
 
-The user now prioritizes playing a complete, episode-scoped Renewal world/story locally on a Mac, with Traditional Chinese and persistent solo progress. An existing emulator/client stack is the proposed foundation. Exact episode coverage, Taiwan text compatibility and full story completion remain unverified. The documentation checkpoint is complete and the user has authorized executing all steps.
+The user now prioritizes playing the full Modern/Renewal game locally on a Mac, with maps, monsters, story, Traditional Chinese and persistent personal progress. Party-only activities and their solo adaptations are deferred to the next phase. An existing emulator/client stack is the proposed foundation. Exact episode coverage, Taiwan text compatibility and full story completion remain unverified. The documentation checkpoint is complete and the user has authorized executing all steps.
 
 1. **P0:** document goal, feasibility, task ownership, paired model comparison, root verification and Git/state recovery.
 2. **P1:** establish a version-pinned local runtime, compatible assets, basic gameplay/persistence/recovery, measured resources and a Chinese pilot.
-3. **P2:** inventory content/localization, pin the exact episode and define the full required-content contract and gap-based estimate.
-4. **P3:** fix the scoped gameplay/localization gaps and implement only the agreed solo progression changes.
+3. **P2:** inventory full-game content/localization, identify actual version/coverage and gaps, and produce a gap-based estimate without narrowing the goal to shipped content.
+4. **P3:** fix first-milestone ordinary gameplay/localization gaps; keep party-only entries and dependencies explicit.
 5. **P4:** qualify required coverage, rehearse setup/restore, and hand over a root-verified build for user acceptance.
+6. **Later phase (T11):** address deferred party-only activities and define any solo adaptations. This does not block first-milestone delivery.
 
 Read [current status](docs/project/STATUS.md), [phase gates](docs/project/PHASES.md), [task contracts](docs/project/TASKS.md), [feasibility](docs/project/GOAL.md) and [Git/model workflow](docs/project/WORKFLOW.md). A worker result must be independently verified by the coordinator before user evaluation. Existing source QA does not establish this runtime's playability.
 

@@ -10,7 +10,8 @@
 
 ## Current scope
 
-- The first milestone is a Mac-local, solo **Modern / Renewal RO** installation with the agreed episode's maps, monsters and story, Traditional Chinese game UI and text, and persistent progress.
+- The first milestone targets the **full Modern / Renewal RO game** on this Mac: maps, monsters, story, Traditional Chinese game UI/text and persistent personal play. The user clarified on2026-10-19 that this is not a single-map game. Party-only activities and their solo adaptations belong to a later phase.
+- T06/T07 must identify actual version/content coverage and gaps without reducing that full-game intent. Inventory party-only entries explicitly as later-phase work; do not require T11 for first-milestone acceptance or infer approval for companions/rule changes.
 - The exact episode and completeness are **not verified**. The candidate is Ragnarok Offline v1.6.3, not a confirmed foundation.
 - Execution is now **active**: after the documentation checkpoint, the user instructed the coordinator to follow the strategy and finish all steps. Local acquisition, installation, implementation and verification required by the task board are authorized. Keep publication/default-branch merges separate and preserve per-task isolation and rollback. The earlier documentation-only restriction applied to T00, not this execution pass.
 - Earlier Godot and Character Lab code and reports are historical research. They do not prove the new milestone works. Preserve them.
