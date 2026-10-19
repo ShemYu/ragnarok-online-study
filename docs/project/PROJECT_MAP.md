@@ -99,14 +99,17 @@ Claude and Grok source checks; raw candidates kept                [V]
 Compare both: tied17/20. Select Claude as the correction basis.    [V]
 Fix error messages and test runner -> integrate                  [V]
 Separate browser: four tabs, text fit and original handlers      [V]
-Install -> check actual quest -> save and cold restart           [ ]
+Install and browser integrity positive/refusal checks            [V]
+Check actual quest -> save and cold restart                      [~]
 Quest-only rollback -> reapply -> clean test files               [ ]
 Task ready for your evaluation                                  [ ]
 ```
 
 The separate browser uses sample data and exact source fragments.
 It does not change your game or prove that the installed window works.
-The game still uses the earlier Chinese Navigation version.
+The first Quest build is installed. Chinese Navigation stays enabled.
+The browser loads the correct file and refuses the opposite file pin.
+Actual quest-window checks come next.
 See the [Quest checks](reviews/2026-10-19-T05.011.md).
 
 ## Completed task: T05.009 Navigation
@@ -127,11 +130,11 @@ Task ready for your evaluation                                    [V] <-- DONE
 ```
 
 The game now uses the **Chinese Navigation version again**.
-The app process is 96858. Its asset process is 97329. The server reports Ready.
+The app process is182. Its asset process is502. The server reports Ready.
 You cleared the control question. Codex walked normally to Carocc.
 The latest save is Izlude197,212with active quest7472.
 Its Chinese title, summary and full details pass save/re-entry checks.
-The page is at character selection. All six Chinese navigation aliases remain ON.
+The owned test page is at login. All six Chinese navigation aliases remain ON.
 Both source catalogs match the independent raw-byte check.
 Codex fixed the selected Claude tool. All36tests pass.
 The raw source catalog is ready for inspection. Story coverage stays open.
@@ -143,11 +146,13 @@ T05.010: both plans are checked. Codex selected a corrected Grok procedure.
 Codex started7472through normal play. Fresh full backup N includes it.
 Its archive, saved rows and unchanged game runtime pass.
 The current server supplies the Taiwan quest table. Its English table URL is 404.
-Actual7472text is verified. English quest headers and mixed story text remain.
+Earlier7472text checks pass. The new Quest window still needs actual game checks.
+Mixed story text remains open.
 
 The quest-sample save SHA starts with772e9530. Backup/relogin save c29c4307
 has the same tables. The latest artwork-check save starts with13635cb9;
 only the login time changes. All earned progress stays the same.
+The first installed-build savef7a2abc1has the same six complete tables.
 The Navigation final receipt starts with7db72312.
 See the full results, rollback limits and private resume paths in
 the [delivery record](reviews/2026-10-19-T05.009-delivery.md#final-owned-cleanup-and-ordinary-page-handoff-qualified).
