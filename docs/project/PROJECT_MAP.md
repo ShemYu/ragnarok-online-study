@@ -1,6 +1,6 @@
 # Supervision, plan and current position
 
-Date: **2026-10-19 JST**. Codex is checking the Quest window translation.
+Date: **2026-10-19 JST**. Codex is checking one mixed story sentence.
 Use this map for a short view of [Status](STATUS.md), [Tasks](TASKS.md) and
 [Phases](PHASES.md). Status gives the current next action.
 Update this map after each important change. Keep the dated evidence.
@@ -67,7 +67,7 @@ P1  PROVE A PLAYABLE CHINESE FOUNDATION
              +-- T05.009 Navigation UI: ready for you
              +-- T05.010 Active quest sample: ready for you
              +-- T05.011 Quest window: ready for you
-             +-- T05.012 One mixed story line: source pair running
+             +-- T05.012 One mixed story line: source pair checked
              +-- Next: actual Chinese IME checks
 
 P2  DEFINE WHAT "ALL" COVERS
@@ -211,6 +211,7 @@ These tools do not prove that all maps, monsters or story chains work in the gam
 | T03 installation plans | 14/20 | 17/20 | Grok supplied the stronger plan; root executed the install |
 | T04.005 fog diagnosis/design | 14/20 | 17/20 | Grok's diagnosis scored higher; permanent repair remains open |
 | T05.009 actual fixed-source transform | 19/20 | 18/20 | Both exact outputs/common178checks pass; Claude selected for stronger tests/simpler implementation |
+| T05.012 one mixed story sentence | 18/20 | 18/20 | Both exact source results pass; Claude selected in tie; installation checks are next |
 | T06 declared-reference actual implementation | 16/20 | 13/20 | Claude selected; root still corrected and independently verified the integration |
 
 Grok scored higher on several source analysis and plan tasks.
