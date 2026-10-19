@@ -65,7 +65,7 @@ P1  PROVE A PLAYABLE CHINESE FOUNDATION
      -> T05 Chinese UI, dialogue, active quest and input pilot   [~] <-- NOW
              |
              +-- T05.009 Navigation UI: ready for you
-             +-- T05.010 Active quest sample: compare plans next
+             +-- T05.010 Active quest sample: plans in progress
 
 P2  DEFINE WHAT "ALL" COVERS
     T06 World/text inventory                                   [~]
@@ -113,7 +113,7 @@ The earlier Chinese NPC, item and story overlays also remain ON.
 The tests changed only last_login. All earned progress remains the same.
 Both temporary test pages are gone. The normal game page and saved progress pass.
 The Active quest tab is empty. The save contains only two completed quests.
-T05.010 defines the next comparison: plans for a normal story sample and its text.
+Claude and Grok are preparing T05.010 plans for a normal story sample and its text.
 The current server supplies the Taiwan quest table. Its English table URL is 404.
 Actual active-quest text still needs a normal game check.
 
@@ -143,7 +143,8 @@ The Mac's internet remains ON, as you instructed.
 | 2026-10-19,ffd154c | Chinese reapply, native integrity, live UI and saved progress pass | [Reapply proof](reviews/2026-10-19-T05.009-delivery.md#chinese-reapply-qualified) |
 | 2026-10-19,e747286 | Exact test-page cleanup and normal-page Chinese search/save pass; T05.009 ready for you | [Final proof](reviews/2026-10-19-T05.009-delivery.md#final-owned-cleanup-and-ordinary-page-handoff-qualified) |
 | 2026-10-19,4f815df | Ordinary Active tab is empty; earned progress unchanged; normal story sample still needed | [Quest finding](reviews/2026-10-19-T05-active-quest-preparation.md#ordinary-active-tab-precondition-inspection) |
-| Current checkpoint | T05.010 plan comparison defined; current Taiwan quest table and literal7472 source verified | [Next task](reviews/2026-10-19-T05.010.md) |
+| 2026-10-19,d9ece6c | T05.010 plan comparison defined; current Taiwan quest table and literal7472 source verified | [Next task](reviews/2026-10-19-T05.010.md) |
+| Current checkpoint | Actual Claude/Grok plan workers started; Codex checks both before story actions | [Live pair](reviews/2026-10-19-T05.010.md#actual-independent-pair-launched) |
 
 Codex also verified several T06 tools for source inventories.
 They cover archive tables, source order, map records, YAML, monsters, spawns and references within their stated limits.
@@ -168,7 +169,9 @@ At 2026-10-19T00:06:24Z, Orca listed 55 worker records: 53 released and two olde
 It listed 54 successful records and one earlier failed attempt. The failed attempt is released.
 We could not verify whether the two retained worker contexts were still active.
 Both Navigation workers are complete and released. Codex controls the current serial game tests.
-This map did not start new workers. The private fleet receipt SHA starts with 3410ccca.
+That earlier fleet receipt SHA starts with 3410ccca.
+The newer T05.010 wave adds two actual plan workers. The startup fleet has 57 records.
+Both new workers were live at that snapshot. Results and personal source checks remain pending.
 
 ## Remaining decisions and phase gates
 
