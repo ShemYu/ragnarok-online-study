@@ -1,6 +1,6 @@
 # Supervision, plan and current position
 
-Date: **2026-10-19 JST**. Codex verified the English Navigation rollback.
+Date: **2026-10-19 JST**. Codex verified English rollback and Chinese reapply.
 Use this map for a short view of [Status](STATUS.md), [Tasks](TASKS.md) and
 [Phases](PHASES.md). Status gives the current next action.
 Update this map after each important change. Keep the dated evidence.
@@ -100,23 +100,22 @@ Live Chinese search, filters, reset/minimize, command              [V]
 Normal logout/re-entry and saved progress                          [V]
 Same-Chinese full cold restart                                    [V]
 English rollback: native UI/data/save checks                       [V] <-- DONE
-Chinese reapply                                                   [ ] <-- NEXT
-Remove two temporary entries. Test normal game page and save.     [ ]
+Chinese reapply                                                   [V] <-- DONE
+Remove two temporary entries. Test normal game page and save.     [ ] <-- NEXT
 Task ready for your evaluation                                    [ ]
 ```
 
-The game now uses the **English Navigation rollback control**.
-The app process is 86629. Its asset process is 86948. The server reports Ready.
+The game now uses the **Chinese Navigation version again**.
+The app process is 96858. Its asset process is 97329. The server reports Ready.
 The game is at character selection. All six Chinese navigation aliases remain ON.
 The earlier Chinese NPC, item and story overlays also remain ON.
 The tests changed only last_login. All earned progress remains the same.
-Next, Codex will apply the Chinese version again and remove the two temporary test pages.
+Next, Codex will remove the two temporary test pages.
 Codex will then test the normal api.html game page and saved progress.
-The Traditional Chinese goal remains the same.
 
-The latest save receipt SHA starts with 1b5639f0. The rollback receipt SHA starts with 9805763c.
+The latest save receipt SHA starts with 45a2cadf. The reapply receipt SHA starts with c21fbfa4.
 See the full results, rollback limits and private resume paths in
-the [delivery record](reviews/2026-10-19-T05.009-delivery.md#english-bundle-rollback-qualified).
+the [delivery record](reviews/2026-10-19-T05.009-delivery.md#chinese-reapply-qualified).
 We must still test actual macOS input method editor (IME) composition and candidate selection.
 Full UI, story, world, solo and offline tests remain open.
 The Mac's internet remains ON, as you instructed.
@@ -136,7 +135,8 @@ The Mac's internet remains ON, as you instructed.
 | 2026-10-19,3bde669 | Live Chinese UI and normal logout/re-entry preserve earned state | [Live proof](reviews/2026-10-19-T05.009-delivery.md#live-chinese-ui-normal-logout-and-re-entry-qualified) |
 | 2026-10-19,77615ab | Full same-Chinese cold restart preserves UI/data/save | [Cold proof](reviews/2026-10-19-T05.009-delivery.md#same-chinese-cold-relaunch-qualified) |
 | 2026-10-19,c04be3c | English rollback, reverse integrity refusal, live data and save tests pass; first ASCII map saved | [Rollback proof](reviews/2026-10-19-T05.009-delivery.md#english-bundle-rollback-qualified) |
-| Current documentation change | User corrected the standard name to ASD-STE100; map language simplified; game state unchanged | This map and Git history |
+| 2026-10-19,301bd0e | User corrected the standard name to ASD-STE100; map language simplified | This map and Git history |
+| Current checkpoint | Chinese reapply, native integrity, live UI and saved progress pass; cleanup remains next | [Reapply proof](reviews/2026-10-19-T05.009-delivery.md#chinese-reapply-qualified) |
 
 Codex also verified several T06 tools for source inventories.
 They cover archive tables, source order, map records, YAML, monsters, spawns and references within their stated limits.
@@ -165,7 +165,7 @@ This map did not start new workers. The private fleet receipt SHA starts with 34
 
 ## Remaining decisions and phase gates
 
-- P1: finish Chinese reapply and cleanup. Then finish the active-quest, input and UI samples.
+- P1: finish test-page cleanup and normal-page checks. Then finish the active-quest, input and UI samples.
   Record the offline and display limits. You can already try basic play, but the phase remains open.
 - P2: agree on the exact Renewal content version. List the language and gameplay gaps.
   Confirm game behavior separately from source data. Use the gap list to estimate the remaining work.
