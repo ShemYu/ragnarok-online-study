@@ -103,12 +103,13 @@ Preserve newest save, full backup and old pilot                   [V]
 Install -> check six pages and the same link target               [V]
 Check save and normal re-entry                                   [V]
 Check full-app cold start                                        [V]
-Test old-pilot rollback -> reapply the new pilot                   [ ] <-- NOW
+Test old-pilot rollback                                          [V]
+Reapply the new pilot                                            [ ] <-- NOW
 Commit evidence -> ready for your evaluation                      [ ]
 ```
 
 The real six-page dialogue and save/re-entry pass.
-Full-app cold start passes. Rollback and reapply checks remain open.
+Full-app cold start and old-pilot rollback pass. Reapply is next.
 See the [story repair checks](reviews/2026-10-19-T05.012.md).
 
 ## Latest completed task: T05.011 Quest window
