@@ -7,10 +7,13 @@ import crypto from 'node:crypto';
 import fs from 'node:fs';
 import path from 'node:path';
 import test from 'node:test';
-import { fileURLToPath } from 'node:url';
-import { corpusRoots, effectivePolicy, manifestJobs, readJobBody, readPinnedFile, Refusal, safeJoin } from './probe_map_constructors.mjs';
+import { fileURLToPath, pathToFileURL } from 'node:url';
+import { EventEmitter } from 'node:events';
+import vm from 'node:vm';
+import { main, writeAll, boundedRow, corpusRoots, effectivePolicy, manifestJobs, readJobBody, readPinnedFile, Refusal, safeJoin } from './probe_map_constructors.mjs';
 import { createRealm, MODULE_KEYS, resolveSpecifier } from './map_constructor_worker.mjs';
 
+process.umask(0o077);
 const HERE = path.dirname(fileURLToPath(import.meta.url));
 const REPO = path.resolve(HERE, '..', '..');
 const INPUT_ROOT = process.env.T06_INPUT_ROOT ||
@@ -178,13 +181,21 @@ test('RSS refusal terminates and observes exit; lowered JSON cap yields summary_
   assert.equal(got[0].outcome, 'resource_refusal'); assert.equal(got[0].reason, 'rss_limit');
   assert.equal(got[0].cleanup.exit_observed, true);
   r = cli(['--max-job-json-bytes', '10']);
-  assert.equal(r.code, 1);
-  got = rows(r.output);
+  assert.equal(r.code, 2); assert.equal(r.summary.reason, 'output_budget');
+  assert.equal(fs.existsSync(r.output), false, 'impossible accounting cap refuses before output');
+  r = cli(['--max-job-json-bytes', '1595']);
+  assert.equal(r.code, 1); got = rows(r.output);
+  const lines = fs.readFileSync(path.join(r.output, 'jobs.jsonl')).toString('utf8').trimEnd().split('\n');
+  assert.equal(lines.length, 26); assert.ok(lines.every(x => Buffer.byteLength(x) <= 1595));
+  assert.ok(got.some(x => x.outcome === 'summary_limit'));
   authored.cases.forEach((c, i) => {
     const x = got[i];
-    assert.equal(x.outcome, c.expected.outcome === 'returned' ? 'summary_limit' : 'constructor_exception', c.id);
-    assert.ok(!('summary' in x));
-    if (x.outcome === 'summary_limit') { assert.equal(x.constructor_returned, true); assert.ok(x.summary_json_bytes > 10); }
+    assert.equal(x.id, c.id); assert.equal(x.cleanup.exit_observed, true);
+    if (x.outcome === 'returned') assert.deepEqual(x.summary, c.expected.summary);
+    else {
+      assert.ok(!('summary' in x));
+      assert.equal(x.outcome, c.expected.outcome === 'returned' ? 'summary_limit' : 'constructor_exception');
+    }
   });
 });
 
@@ -258,4 +269,322 @@ test('corpus helpers: body pins, traversal/symlink/special refusal and edge pars
   assert.equal(mapped[0].edges.gat.parse_outcome, 'constructor_exception');
   assert.deepEqual(mapped[0].extra, { keep: 1 });
   assert.ok(!('parse_outcome' in roots[0].edges.rsw), 'input roots are not mutated');
+});
+
+// Root regressions for independently reproduced raw-runner failures.
+test('opened input growth is refused before allocation/read and closes the fd', () => {
+  const file = path.join(TMP, 'growth-at-open.bin'), initial = Buffer.from('0123456789abcdef');
+  const tail = Buffer.from('x'.repeat(48)), cap = 32;
+  fs.writeFileSync(file, initial, { mode: 0o600, flag: 'wx' });
+  const options = { label: 'authored growth', maxBytes: cap, expectBytes: initial.length,
+    expectSha: crypto.createHash('sha256').update(initial).digest('hex') };
+  assert.equal(readPinnedFile(file, options).bytes, initial.length);
+  const real = { open: fs.openSync, close: fs.closeSync, read: fs.readSync,
+    append: fs.appendFileSync, alloc: Buffer.alloc };
+  let armed = true, injection = 0, fd = null, closed = false, overCap = 0, reads = 0, caught;
+  fs.openSync = function (p, ...args) {
+    if (typeof p === 'string' && path.resolve(p) === file && armed) {
+      armed = false; injection++; real.append(file, tail); // Before delegating; same inode.
+      fd = real.open(p, ...args); return fd;
+    }
+    return real.open(p, ...args);
+  };
+  fs.closeSync = function (n) { const r = real.close(n); if (n === fd) closed = true; return r; };
+  fs.readSync = function (n, ...args) { if (n === fd) reads++; return real.read(n, ...args); };
+  Buffer.alloc = function (n, ...args) { if (n > cap) overCap++; return real.alloc(n, ...args); };
+  try { readPinnedFile(file, options); } catch (e) { caught = e; }
+  finally {
+    fs.openSync = real.open; fs.closeSync = real.close; fs.readSync = real.read; Buffer.alloc = real.alloc;
+    if (fd !== null && !closed) real.close(fd); // Harness action, never candidate credit.
+  }
+  assert.ok(caught instanceof Refusal); assert.equal(injection, 1); assert.notEqual(fd, null);
+  assert.equal(overCap, 0); assert.equal(reads, 0); assert.equal(closed, true);
+});
+
+test('output ancestor link is refused without writing through it', () => {
+  const realDir = path.join(TMP, 'ancestor-real'), alias = path.join(TMP, 'ancestor-alias');
+  fs.mkdirSync(realDir, { mode: 0o700 });
+  const sentinel = path.join(realDir, 'sentinel'); fs.writeFileSync(sentinel, 'preserve', { mode: 0o600, flag: 'wx' });
+  const before = fs.statSync(sentinel).mode;
+  fs.symlinkSync(realDir, alias);
+  const r = cli(['--max-jobs', '0'], { output: path.join(alias, 'new', 'output') });
+  assert.notEqual(r.code, 0); assert.equal(r.summary.status, 'refused');
+  assert.equal(r.summary.output_created, false);
+  assert.deepEqual(fs.readdirSync(realDir), ['sentinel']);
+  assert.equal(fs.readFileSync(sentinel, 'utf8'), 'preserve');
+  assert.equal(fs.statSync(sentinel).mode, before); assert.equal(fs.readlinkSync(alias), realDir);
+});
+
+test('writeAll retries positive short writes and refuses zero progress immediately', () => {
+  const file = path.join(TMP, 'write-all.bin'), fd = fs.openSync(file, 'wx+', 0o600);
+  const realWrite = fs.writeSync, payload = Buffer.from('許 authored\n', 'utf8');
+  let calls = 0;
+  try {
+    fs.writeSync = function (n, buffer, offset, length, position) {
+      if (n !== fd) return realWrite(n, buffer, offset, length, position);
+      calls++; return realWrite(n, buffer, offset, Math.min(3, length), position);
+    };
+    writeAll(fd, payload); assert.ok(calls > 1);
+    assert.deepEqual(fs.readFileSync(file), payload);
+    fs.ftruncateSync(fd, 0); calls = 0;
+    fs.writeSync = function (n, ...args) {
+      if (n !== fd) return realWrite(n, ...args);
+      if (++calls > 1) throw Error('safety guard: retried after zero progress');
+      return 0; // A broken loop fails on attempt two rather than hanging this test process.
+    };
+    assert.throws(() => writeAll(fd, payload), Refusal);
+    assert.equal(calls, 1); assert.equal(fs.statSync(file).size, 0);
+  } finally { fs.writeSync = realWrite; fs.closeSync(fd); }
+});
+
+test('boundedRow limits the full envelope without mutating or truncating the summary', () => {
+  const row = { id: 'authored-cap', kind: 'gnd', complete_sha256: '0'.repeat(64), input_bytes: 1,
+    header_version_bytes: [1, 7], outcome: 'returned', constructor_returned: true, elapsed_ms: 0,
+    worker_started: true, cleanup: { exit_observed: true }, _log: '',
+    _summary_json: JSON.stringify({ declared_textures: ['許'.repeat(1000)] }) };
+  const before = JSON.stringify(row), cap = 700;
+  const got = boundedRow(row, { ...profile.policy, max_job_json_bytes: cap }, 0);
+  assert.ok(Buffer.byteLength(got.line, 'utf8') <= cap);
+  assert.deepEqual(JSON.parse(got.line), got.row); assert.equal(got.row.outcome, 'summary_limit');
+  assert.equal(got.row.constructor_returned, true); assert.ok(!('summary' in got.row));
+  assert.equal(got.logBytes, 0); assert.equal(JSON.stringify(row), before);
+});
+
+for (const fault of ['jobs:fchmod', 'jobs:fsync', 'jobs:write', 'report:fchmod', 'report:fsync', 'report:write']) {
+  test(`main releases owned fds/sampler after one ${fault} EIO`, async () => {
+    const output = freshOut(), [kind, operation] = fault.split(':');
+    const targets = new Map([[path.join(output, 'jobs.jsonl'), 'jobs'], [path.join(output, 'report.json'), 'report']]);
+    const real = { open: fs.openSync, close: fs.closeSync, stat: fs.fstatSync, chmod: fs.fchmodSync,
+      sync: fs.fsyncSync, write: fs.writeSync, interval: globalThis.setInterval, clear: globalThis.clearInterval };
+    const fds = new Map(), timers = new Set();
+    let injected = 0, timersCreated = 0, code, error, stdout = '', before, foreign = 0;
+    const identity = n => { const s = real.stat(n, { bigint: true }); return { dev: s.dev, ino: s.ino }; };
+    const same = (n, own) => { try { const s = identity(n); return s.dev === own.dev && s.ino === own.ino; } catch { return false; } };
+    const inject = (op, n) => {
+      const own = fds.get(n);
+      if (!injected && op === operation && own?.kind === kind && same(n, own)) {
+        injected++; const e = Error(`authored ${fault} EIO`); e.code = 'EIO'; throw e;
+      }
+    };
+    fs.openSync = function (p, ...args) {
+      const n = real.open(p, ...args), k = typeof p === 'string' ? targets.get(path.resolve(p)) : null;
+      if (k) fds.set(n, { ...identity(n), kind: k });
+      return n;
+    };
+    fs.closeSync = function (n) {
+      const own = fds.get(n); if (own && !same(n, own)) foreign++;
+      const r = real.close(n); fds.delete(n); return r;
+    };
+    fs.fchmodSync = function (n, ...args) { inject('fchmod', n); return real.chmod(n, ...args); };
+    fs.fsyncSync = function (n, ...args) { inject('fsync', n); return real.sync(n, ...args); };
+    fs.writeSync = function (n, ...args) { inject('write', n); return real.write(n, ...args); };
+    globalThis.setInterval = function (fn, ms, ...args) {
+      const h = real.interval(fn, ms, ...args); timers.add(h); timersCreated++; return h;
+    };
+    globalThis.clearInterval = function (h) { const r = real.clear(h); timers.delete(h); return r; };
+    try {
+      // Only transient jobs-write needs one real authored worker; all other faults need none.
+      code = await main(['--input-root', INPUT_ROOT, '--client-source', CLIENT, '--profile', PROFILE,
+        '--fixtures', FIXTURES, '--output', output, '--max-jobs', fault === 'jobs:write' ? '1' : '0'],
+      { stdout: { write: s => { stdout += String(s); } } });
+    } catch (e) { error = e; }
+    finally {
+      // Freeze observations before harness cleanup. Never credit the operations below to main.
+      before = { open: [...fds].filter(([n, own]) => same(n, own)).length, tracked: fds.size, timers: timers.size };
+      try {
+        for (const h of timers) real.clear(h);
+        for (const [n, own] of fds) if (same(n, own)) real.close(n);
+      } finally {
+        fs.openSync = real.open; fs.closeSync = real.close; fs.fchmodSync = real.chmod;
+        fs.fsyncSync = real.sync; fs.writeSync = real.write;
+        globalThis.setInterval = real.interval; globalThis.clearInterval = real.clear;
+      }
+    }
+    assert.equal(injected, 1); assert.equal(foreign, 0);
+    assert.deepEqual(before, { open: 0, tracked: 0, timers: 0 });
+    if (fault !== 'jobs:fchmod') assert.ok(timersCreated > 0, 'sampler observation was exercised');
+    assert.ok(!stdout.split('\n').filter(Boolean).some(s => JSON.parse(s).status === 'complete'));
+    if (fault === 'jobs:write') {
+      assert.equal(error, undefined); assert.equal(code, 1);
+      const got = rows(output), rep = report(output), bytes = fs.readFileSync(path.join(output, 'jobs.jsonl'));
+      assert.equal(got.length, authored.cases.length); assert.equal(got[0].outcome, 'environment_failure');
+      assert.equal(got[0].reason, 'output_io_error'); assert.ok(!('summary' in got[0]));
+      assert.equal(got[0].worker_started, true); assert.equal(got[0].cleanup.exit_observed, true);
+      assert.ok(got.slice(1).every(x => x.outcome === 'unattempted'));
+      assert.equal(rep.cleanup.halted, 'output_io_error'); assert.equal(rep.cleanup.verified, true);
+      assert.equal(rep.jobs_file.records, got.length); assert.equal(rep.jobs_file.bytes, bytes.length);
+      assert.equal(rep.jobs_file.sha256, crypto.createHash('sha256').update(bytes).digest('hex'));
+    } else {
+      // --max-jobs 0 alone is nonzero: actual EIO rejection proves this fault was not a false pass.
+      assert.equal(error?.code, 'EIO'); assert.equal(code, undefined);
+    }
+  });
+}
+
+// Exact parent with only Worker replaced; these exits test event ordering only.
+// Actual Worker cleanup remains covered by the independent fixture/timeout tests.
+test('worker failures stay latched after late results, errors, RSS and nonzero exits', async () => {
+  let current;
+  const workerURL = pathToFileURL(path.join(HERE, 'map_constructor_worker.mjs'));
+  const parentURL = pathToFileURL(SCRIPT);
+  const message = { type: 'result', outcome: 'returned', constructor_returned: true,
+    summary_json: '{}', summary_json_bytes: 2, log: { text: '', dropped: 0 } };
+  class FakeWorker extends EventEmitter {
+    constructor(url, options) {
+      super(); assert.equal(String(url), workerURL.href);
+      const deadline = options.workerData.deadline_epoch_ms;
+      this.case = current; this.exited = false;
+      this.stdout = { resume() {} }; this.stderr = new EventEmitter();
+      queueMicrotask(() => {
+        this.emit('message', { type: 'phase', phase: 'constructor' });
+        if (this.case.id === 'timeout') return;
+        if (this.case.id === 'overdue-message') {
+          const guard = performance.now() + 50;
+          while (Date.now() < deadline && performance.now() < guard) { /* finite authored event-loop delay */ }
+          assert.ok(Date.now() >= deadline);
+        }
+        this.emit('message', message);
+        if (this.case.id === 'overdue-message') this.exit(0);
+        else if (this.case.id === 'error') { this.emit('error', Error('authored worker failure')); this.exit(1); }
+        else if (this.case.id === 'rss') { this.case.rss.active(); this.exit(0); }
+        else this.exit(1);
+      });
+    }
+    exit(code) { if (!this.exited) { this.exited = true; this.emit('exit', code); } }
+    terminate() {
+      this.case.terminations++;
+      queueMicrotask(() => {
+        if (this.exited) return;
+        if (this.case.id === 'timeout') this.emit('message', message);
+        this.exit(1);
+      });
+      return Promise.resolve(1);
+    }
+  }
+  const context = vm.createContext({ process, Buffer, performance, setTimeout, clearTimeout,
+    setInterval, clearInterval, queueMicrotask, console });
+  const module = new vm.SourceTextModule(fs.readFileSync(SCRIPT, 'utf8'), {
+    context, identifier: parentURL.href, initializeImportMeta(meta) { meta.url = parentURL.href; }
+  });
+  const allowed = new Set(['node:crypto', 'node:fs', 'node:path', 'node:vm', 'node:perf_hooks', 'node:url', 'node:worker_threads']);
+  await module.link(async spec => {
+    assert.ok(spec === './map_constructor_worker.mjs' || allowed.has(spec));
+    const ns = await import(spec === './map_constructor_worker.mjs' ? workerURL.href : spec);
+    return new vm.SyntheticModule(Object.keys(ns), function () {
+      for (const k of Object.keys(ns)) this.setExport(k, spec === 'node:worker_threads' && k === 'Worker' ? FakeWorker : ns[k]);
+    }, { context, identifier: spec });
+  });
+  await module.evaluate({ timeout: 1000 });
+  for (const [id, expected] of [['timeout', 'timeout'], ['overdue-message', 'timeout'], ['error', 'worker_error'], ['rss', 'resource_refusal'], ['exit', 'worker_error']]) {
+    current = { id, terminations: 0, rss: { active: null, sample() {} } };
+    const job = { id, kind: 'gat', complete_sha256: '0'.repeat(64), input_bytes: 2, header_version_bytes: [0, 1] };
+    const row = await module.namespace.runWorkerJob(job, Buffer.from([0, 1]), {
+      policy: { ...profile.policy, job_timeout_ms: ['timeout', 'overdue-message'].includes(id) ? 2 : 1000 },
+      sources: {}, summaryText: 'not executed', runDeadline: Date.now() + 5000, rss: current.rss
+    });
+    assert.equal(row.outcome, expected, id); assert.equal(row._summary_json, null, id);
+    assert.equal(row.cleanup.exit_observed, true, 'mock exit observed');
+    assert.equal(current.rss.active, null);
+    assert.equal(row.constructor_returned, ['timeout', 'overdue-message'].includes(id) ? null : true);
+  }
+});
+
+for (const filename of ['jobs.jsonl', 'report.json']) {
+  test(`main completes a positive short ${filename} write without corrupting output`, async () => {
+    const output = freshOut(), target = path.join(output, filename);
+    const realOpen = fs.openSync, realClose = fs.closeSync, realWrite = fs.writeSync;
+    let owned = null, injection = 0, code;
+    fs.openSync = function (p, ...args) {
+      const fd = realOpen(p, ...args);
+      if (typeof p === 'string' && path.resolve(p) === target) owned = fd;
+      return fd;
+    };
+    fs.closeSync = function (fd) { const r = realClose(fd); if (fd === owned) owned = null; return r; };
+    fs.writeSync = function (fd, buffer, offset, length, position) {
+      if (fd === owned && !injection) {
+        injection++;
+        return realWrite(fd, buffer, offset, Math.max(1, Math.floor(length / 2)), position);
+      }
+      return realWrite(fd, buffer, offset, length, position);
+    };
+    try {
+      code = await main(['--input-root', INPUT_ROOT, '--client-source', CLIENT, '--profile', PROFILE,
+        '--fixtures', FIXTURES, '--output', output], { stdout: { write() {} } });
+      assert.equal(owned, null, 'candidate closed target before harness cleanup');
+    } finally {
+      fs.openSync = realOpen; fs.closeSync = realClose; fs.writeSync = realWrite;
+      if (owned !== null) realClose(owned);
+    }
+    assert.equal(injection, 1); assert.equal(code, 0);
+    const got = rows(output), rep = report(output), bytes = fs.readFileSync(path.join(output, 'jobs.jsonl'));
+    assert.equal(got.length, 26); assert.equal(rep.authored_comparison.matched, 26);
+    assert.equal(rep.jobs_file.bytes, bytes.length);
+    assert.equal(rep.jobs_file.sha256, crypto.createHash('sha256').update(bytes).digest('hex'));
+  });
+}
+
+test('persistent zero-progress jobs writes fail promptly and release owned resources', async () => {
+  const output = freshOut(), target = path.join(output, 'jobs.jsonl');
+  const real = { open: fs.openSync, close: fs.closeSync, write: fs.writeSync,
+    interval: globalThis.setInterval, clear: globalThis.clearInterval };
+  let owned = null, calls = 0, error, observed;
+  const timers = new Set();
+  fs.openSync = function (p, ...args) {
+    const fd = real.open(p, ...args);
+    if (typeof p === 'string' && path.resolve(p) === target) owned = fd;
+    return fd;
+  };
+  fs.closeSync = function (fd) { const r = real.close(fd); if (fd === owned) owned = null; return r; };
+  fs.writeSync = function (fd, ...args) {
+    if (fd !== owned) return real.write(fd, ...args);
+    if (++calls > 3) throw Error('authored safety guard: write loop did not stop');
+    return 0;
+  };
+  globalThis.setInterval = function (fn, ms, ...args) { const h = real.interval(fn, ms, ...args); timers.add(h); return h; };
+  globalThis.clearInterval = function (h) { timers.delete(h); return real.clear(h); };
+  try {
+    await main(['--input-root', INPUT_ROOT, '--client-source', CLIENT, '--profile', PROFILE,
+      '--fixtures', FIXTURES, '--output', output, '--max-jobs', '0'], { stdout: { write() {} } });
+  } catch (e) { error = e; }
+  finally {
+    observed = { fd: owned, timers: timers.size };
+    fs.openSync = real.open; fs.closeSync = real.close; fs.writeSync = real.write;
+    globalThis.setInterval = real.interval; globalThis.clearInterval = real.clear;
+    for (const h of timers) real.clear(h);
+    if (owned !== null) real.close(owned);
+  }
+  assert.equal(error?.reason, 'output_io_error'); assert.equal(calls, 2);
+  assert.deepEqual(observed, { fd: null, timers: 0 });
+  assert.equal(fs.existsSync(path.join(output, 'report.json')), false);
+});
+
+test('whole-run deadline remains enforced after final report publication', async () => {
+  // Actual authored workers; only the final parent clock observation is advanced.
+  // This is a policy-order control, separate from the real 1ms timeout tests.
+  const output = freshOut(), target = path.join(output, 'report.json');
+  const realOpen = fs.openSync, realClose = fs.closeSync, realWrite = fs.writeSync, realNow = Date.now;
+  let owned = null, injected = 0, stdout = '', code;
+  fs.openSync = function (p, ...args) {
+    const fd = realOpen(p, ...args);
+    if (typeof p === 'string' && path.resolve(p) === target) owned = fd;
+    return fd;
+  };
+  fs.closeSync = function (fd) { const r = realClose(fd); if (fd === owned) owned = null; return r; };
+  fs.writeSync = function (fd, ...args) {
+    const n = realWrite(fd, ...args);
+    if (fd === owned && !injected) { injected++; Date.now = () => realNow() + profile.policy.run_timeout_ms + 100; }
+    return n;
+  };
+  try {
+    code = await main(['--input-root', INPUT_ROOT, '--client-source', CLIENT, '--profile', PROFILE,
+      '--fixtures', FIXTURES, '--output', output], { stdout: { write: s => { stdout += s; } } });
+    assert.equal(owned, null);
+  } finally {
+    fs.openSync = realOpen; fs.closeSync = realClose; fs.writeSync = realWrite; Date.now = realNow;
+    if (owned !== null) realClose(owned);
+  }
+  assert.equal(injected, 1); assert.equal(code, 1);
+  const summary = JSON.parse(stdout.trim());
+  assert.equal(summary.status, 'incomplete'); assert.equal(summary.halted, 'run_deadline_after_publication');
+  assert.equal(report(output).authored_comparison.matched, 26);
 });

@@ -90,11 +90,12 @@ export function readPinnedFile(abs, { label, maxBytes, expectBytes, expectSha })
   if (!before.isFile()) throw new Refusal('special_file_refused', label);
   if (before.size > BigInt(maxBytes)) throw new Refusal('size_limit', `${label} exceeds ${maxBytes} bytes`);
   if (expectBytes !== undefined && before.size !== BigInt(expectBytes)) throw new Refusal('pin_mismatch', `${label} size`);
-  const fd = fs.openSync(abs, fs.constants.O_RDONLY | (fs.constants.O_NOFOLLOW || 0));
+  const fd = fs.openSync(abs, fs.constants.O_RDONLY | fs.constants.O_NONBLOCK | (fs.constants.O_NOFOLLOW || 0));
   let buf, opened, after;
   try {
     opened = fs.fstatSync(fd, { bigint: true });
-    if (!opened.isFile() || opened.ino !== before.ino || opened.dev !== before.dev) throw new Refusal('identity_changed', label);
+    if (!opened.isFile() || !sameIdentity(identityOf(opened), identityOf(before))) throw new Refusal('identity_changed', label);
+    if (opened.size > BigInt(maxBytes) || (expectBytes !== undefined && opened.size !== BigInt(expectBytes))) throw new Refusal('size_limit', label);
     const size = Number(opened.size);
     buf = Buffer.alloc(size);
     let off = 0;
@@ -258,18 +259,34 @@ export function runWorkerJob(job, bytes, ctx) {
       return;
     }
     worker.stdout.resume();
-    worker.stderr.on('data', (d) => { if (st.stderr.length < policy.max_job_log_bytes) st.stderr += String(d).slice(0, policy.max_job_log_bytes); });
+    worker.stderr.on('data', (d) => {
+      const remaining = policy.max_job_log_bytes - Buffer.byteLength(st.stderr);
+      if (remaining > 0) st.stderr += Buffer.from(d).subarray(0, remaining).toString('utf8').replace(/�$/, '');
+    });
     worker.on('message', (m) => {
       if (!m || typeof m !== 'object') return;
       if (m.type === 'phase') st.phase = m.phase;
-      else if (m.type === 'result' && !st.result) {
+      else if (m.type === 'result' && !st.result && !st.refusal && !st.error) {
+        // A queued message cannot beat an overdue wall timer after event-loop delay.
+        if (Date.now() >= jobDeadline) {
+          st.refusal = { outcome: 'timeout', reason: jobDeadline === runDeadline ? 'run_deadline' : 'job_timeout' };
+          terminate(); return;
+        }
         st.result = m;
         st.timers.push(setTimeout(terminate, EXIT_GRACE_MS));
       }
     });
-    worker.on('error', (error) => { st.error = error; });
-    worker.on('exit', (code) => { st.exited = true; st.exitCode = code; finish(true); });
-    rss.active = () => { if (!st.result && !st.refusal) { st.refusal = { outcome: 'resource_refusal', reason: 'rss_limit' }; terminate(); } };
+    worker.on('error', (error) => {
+      st.error = error;
+      st.refusal ||= { outcome: error.code === 'ERR_WORKER_OUT_OF_MEMORY' ? 'resource_refusal' : 'worker_error', reason: 'worker_error' };
+      terminate();
+    });
+    worker.on('exit', (code) => {
+      st.exited = true; st.exitCode = code;
+      if (code !== 0 && !st.terminated) st.refusal ||= { outcome: 'worker_error', reason: 'unexpected_worker_exit' };
+      finish(true);
+    });
+    rss.active = () => { if (!st.refusal) { st.refusal = { outcome: 'resource_refusal', reason: 'rss_limit' }; terminate(); } };
     rss.sample();
     const wall = Math.max(0, jobDeadline - Date.now());
     st.timers.push(setTimeout(() => {
@@ -289,21 +306,22 @@ function buildRow(job, st, exitObserved, elapsed, deadlineIsRun) {
   const row = { ...baseRow(job) };
   const r = st.result;
   let outcome, returned;
-  if (r) { outcome = r.outcome; returned = r.constructor_returned; }
-  else if (st.refusal) outcome = st.refusal.outcome;
+  if (st.refusal) outcome = st.refusal.outcome;
+  else if (r) outcome = r.outcome;
   else if (st.error && st.error.code === 'ERR_WORKER_OUT_OF_MEMORY') outcome = 'resource_refusal';
   else outcome = 'worker_error';
+  if (r) returned = r.constructor_returned;
   if (!OUTCOMES.includes(outcome)) outcome = 'worker_error';
   if (returned === undefined) returned = st.phase === 'summary' ? true : st.phase === 'constructor' ? null : false;
   Object.assign(row, { outcome, constructor_returned: returned, elapsed_ms: Math.round(elapsed * 1000) / 1000, worker_started: true,
     phase_reached: st.phase,
     cleanup: { exit_observed: exitObserved, exit_code: st.exitCode, terminated_by_parent: st.terminated } });
   if (!exitObserved) row.cleanup.uncertainty = 'worker exit was not observed within the cleanup wait';
-  if (!r && st.refusal) row.reason = st.refusal.reason;
-  if (!r && !st.refusal && st.error) row.exception = { phase: 'worker', name: String(st.error.name).slice(0, 64),
+  if (st.refusal) row.reason = st.refusal.reason;
+  if (st.error) row.exception = { phase: 'worker', name: String(st.error.name).slice(0, 64),
     message: String(st.error.message).slice(0, 512), code: typeof st.error.code === 'string' ? st.error.code : null };
   if (r) {
-    if (r.exception) row.exception = r.exception;
+    if (r.exception && !st.refusal && !st.error) row.exception = r.exception;
     if (r.constructor_ms !== undefined) row.constructor_ms = Math.round(r.constructor_ms * 1000) / 1000;
     if (r.summary_json_bytes !== undefined) row.summary_json_bytes = r.summary_json_bytes;
     if (r.limit) row.limit = r.limit;
@@ -344,43 +362,99 @@ export function corpusRoots(manifest, outcomeById) {
   });
 }
 
+// Checked writes use explicit positions. A zero-progress write cannot spin.
+export function writeAll(fd, buffer, position = 0) {
+  let off = 0;
+  while (off < buffer.length) {
+    const n = fs.writeSync(fd, buffer, off, buffer.length - off, position + off);
+    if (!Number.isInteger(n) || n < 1 || n > buffer.length - off) throw new Refusal('output_io_error', 'write made no valid progress');
+    off += n;
+  }
+}
+
 class Output {
   constructor(dir, policy) {
     this.dir = dir; this.policy = policy;
     this.jobsPath = path.join(dir, 'jobs.jsonl');
     this.fd = fs.openSync(this.jobsPath, 'wx', 0o600);
-    fs.fchmodSync(this.fd, 0o600);
+    try { fs.fchmodSync(this.fd, 0o600); } catch (error) { fs.closeSync(this.fd); this.fd = null; throw error; }
     this.hash = crypto.createHash('sha256'); this.bytes = 0; this.records = 0; this.logBytes = 0;
   }
   write(line) {
     const buf = Buffer.from(line + '\n', 'utf8');
-    let off = 0;
-    while (off < buf.length) off += fs.writeSync(this.fd, buf, off, buf.length - off);
+    try { writeAll(this.fd, buf, this.bytes); }
+    catch (error) { fs.ftruncateSync(this.fd, this.bytes); throw error; }
     this.hash.update(buf); this.bytes += buf.length; this.records++;
   }
-  close() { fs.fsyncSync(this.fd); fs.closeSync(this.fd); }
+  close() {
+    if (this.fd === null) return;
+    const fd = this.fd; this.fd = null;
+    try { fs.fsyncSync(fd); } finally { fs.closeSync(fd); }
+  }
 }
 
-function serializeRow(row, out, includeLog) {
+// Require room for the full mandatory failure envelope before creating output.
+function minimumRowBytes(job) {
+  return Buffer.byteLength(JSON.stringify({ ...baseRow(job), outcome: 'constructor_exception',
+    constructor_returned: null, elapsed_ms: Number.MAX_SAFE_INTEGER, worker_started: false,
+    cleanup: { exit_observed: null }, reason: 'x'.repeat(64),
+    exception: { phase: 'x'.repeat(64), name: 'x'.repeat(64), message: '' } }));
+}
+
+// Serialize once per choice: logs are charged only when that exact row is written.
+export function boundedRow(row, policy, logBudget, omitResult = false) {
   const { _log, _log_dropped, _summary_json, ...clean } = row;
-  if (includeLog && _log) {
-    const limit = Math.min(out.policy.max_job_log_bytes, out.policy.max_total_log_bytes - out.logBytes);
-    const buf = Buffer.from(_log, 'utf8');
-    if (limit <= 0) clean.log_omitted = true;
-    else {
-      const text = buf.subarray(0, limit).toString('utf8').replace(/�$/, '');
-      clean.log = text; clean.log_truncated = buf.length > limit || _log_dropped > 0;
-      out.logBytes += Buffer.byteLength(text, 'utf8');
-    }
-  } else if (_log) clean.log_omitted = true;
+  if (_summary_json && !omitResult) clean.summary = JSON.parse(_summary_json);
+  if (_log && !omitResult) {
+    const limit = Math.min(policy.max_job_log_bytes, logBudget);
+    const b = Buffer.from(_log, 'utf8');
+    if (limit > 0) {
+      clean.log = b.subarray(0, limit).toString('utf8').replace(/�$/, '');
+      clean.log_truncated = b.length > limit || _log_dropped > 0;
+    } else clean.log_omitted = true;
+  }
+  if (omitResult && clean.outcome === 'returned') {
+    clean.outcome = 'summary_limit'; clean.limit = 'max_jobs_jsonl_bytes';
+  }
   let line = JSON.stringify(clean);
-  if (_summary_json) line = line.slice(0, -1) + ',"summary":' + _summary_json + '}';
-  return line;
+  if (Buffer.byteLength(line) > policy.max_job_json_bytes) {
+    delete clean.summary; delete clean.log; delete clean.log_truncated;
+    if (clean.outcome === 'returned') clean.outcome = 'summary_limit';
+    clean.limit = 'max_job_json_bytes';
+    line = JSON.stringify(clean);
+  }
+  if (Buffer.byteLength(line) > policy.max_job_json_bytes) {
+    const compact = { ...baseRow(clean), outcome: clean.outcome,
+      constructor_returned: clean.constructor_returned, elapsed_ms: clean.elapsed_ms,
+      worker_started: clean.worker_started, cleanup: { exit_observed: clean.cleanup.exit_observed } };
+    if (clean.reason) compact.reason = String(clean.reason).slice(0, 64);
+    if (clean.exception) compact.exception = { phase: String(clean.exception.phase).slice(0, 64),
+      name: String(clean.exception.name).slice(0, 64), message: String(clean.exception.message).slice(0, policy.max_exception_message_chars) };
+    line = JSON.stringify(compact);
+    while (Buffer.byteLength(line) > policy.max_job_json_bytes && compact.exception?.message.length) {
+      compact.exception.message = compact.exception.message.slice(0, -1); line = JSON.stringify(compact);
+    }
+    if (Buffer.byteLength(line) > policy.max_job_json_bytes) throw new Refusal('output_budget', 'mandatory row does not fit');
+    return { row: compact, line, logBytes: 0 };
+  }
+  return { row: clean, line, logBytes: clean.log ? Buffer.byteLength(clean.log) : 0 };
 }
 
 function writeExclusive(file, text) {
   const fd = fs.openSync(file, 'wx', 0o600);
-  try { fs.fchmodSync(fd, 0o600); fs.writeSync(fd, text); fs.fsyncSync(fd); } finally { fs.closeSync(fd); }
+  try { fs.fchmodSync(fd, 0o600); writeAll(fd, Buffer.from(text)); fs.fsyncSync(fd); } finally { fs.closeSync(fd); }
+}
+
+// Check every existing output ancestor before recursive creation, and again after.
+export function assertOutputAncestors(output) {
+  for (let p = path.dirname(output); ; p = path.dirname(p)) {
+    try {
+      const st = fs.lstatSync(p);
+      if (st.isSymbolicLink()) throw new Refusal('symlink_refused', 'output ancestor');
+      if (!st.isDirectory()) throw new Refusal('path_refused', 'output ancestor is not a directory');
+    } catch (error) { if (error.code !== 'ENOENT') throw error; }
+    if (p === path.dirname(p)) break;
+  }
 }
 
 export async function main(argv, { stdout = process.stdout } = {}) {
@@ -404,6 +478,9 @@ function prepare(opts) {
   const output = path.resolve(opts.output);
   assertNoLinks(inputRoot, 'input-root'); assertNoLinks(clientSource, 'client-source');
   if (!fs.statSync(inputRoot).isDirectory() || !fs.statSync(clientSource).isDirectory()) throw new Refusal('special_file_refused', 'roots must be directories');
+  assertOutputAncestors(output);
+  const privateRoot = path.join(REPO_ROOT, '.tools', 'renewal');
+  if (!output.startsWith(privateRoot + path.sep)) throw new Refusal('path_refused', 'output must be below this checkout .tools/renewal');
   if (fs.existsSync(output) || isLink(output)) throw new Refusal('output_exists', 'output path already exists');
   if (output === clientSource || output.startsWith(clientSource + path.sep)) throw new Refusal('path_refused', 'output inside client-source');
   const profileFile = readPinnedFile(path.resolve(opts.profile), { label: 'profile', maxBytes: PROFILE_MAX_BYTES, expectSha: PROFILE_SHA256 });
@@ -437,6 +514,7 @@ function prepare(opts) {
   }
   pins.push({ role: mode === 'fixtures' ? 'fixtures' : 'manifest', path: inputAbs, bytes: inputFile.bytes, sha256: inputFile.sha256, identity: inputFile.identity });
   const policy = effectivePolicy(p, opts.overrides, jobs.length);
+  if (jobs.some((job) => minimumRowBytes(job) > policy.max_job_json_bytes)) throw new Refusal('output_budget', 'job cap cannot hold mandatory accounting');
   // Reserve accounting room for every job before any execution.
   const reserve = jobs.map((j) => Buffer.byteLength(JSON.stringify(unattemptedRow(j, 'output_limit'))) + 1 + ROW_SLACK_BYTES);
   const suffix = new Array(jobs.length + 1).fill(0);
@@ -456,7 +534,9 @@ function recheckIdentity(pins) {
 
 async function run(P, say) {
   const { policy, jobs, mode } = P;
+  assertOutputAncestors(P.output);
   fs.mkdirSync(path.dirname(P.output), { recursive: true, mode: 0o700 });
+  assertOutputAncestors(P.output);
   try { fs.mkdirSync(P.output, { mode: 0o700 }); } catch (e) {
     say({ status: 'refused', reason: 'output_exists', detail: String(e.code), output_created: false });
     return 2;
@@ -480,50 +560,62 @@ async function run(P, say) {
   const authored = { matched: 0, mismatched: [] };
   let halt = null; let incomplete = false;
   const ctx = { policy, sources: P.sources, summaryText: P.summaryText, runDeadline, rss };
-  for (let i = 0; i < jobs.length; i++) {
-    const job = jobs[i];
-    let row;
-    if (halt) row = unattemptedRow(job, halt);
-    else if (i >= policy.max_jobs) row = unattemptedRow(job, 'max_jobs');
-    else if (Date.now() >= runDeadline) { halt = 'run_deadline'; row = unattemptedRow(job, halt); }
-    else {
-      let bytes = null;
-      if (mode === 'fixtures') bytes = job.fixture_bytes;
+  try {
+    for (let i = 0; i < jobs.length; i++) {
+      if (rss.over) halt ||= 'rss_limit';
+      const job = jobs[i];
+      let row;
+      if (halt) row = unattemptedRow(job, halt);
+      else if (i >= policy.max_jobs) row = unattemptedRow(job, 'max_jobs');
+      else if (Date.now() >= runDeadline) { halt = 'run_deadline'; row = unattemptedRow(job, halt); }
       else {
-        try { bytes = readJobBody(P.inputRoot, job, policy).buffer; } catch (error) {
-          if (!(error instanceof Refusal)) throw error;
-          row = { ...baseRow(job), outcome: 'input_refused', reason: error.reason, constructor_returned: false, elapsed_ms: 0,
-            worker_started: false, cleanup: { exit_observed: null }, exception: { phase: 'input', name: 'Refusal', message: error.message.slice(0, policy.max_exception_message_chars) } };
+        let bytes = null;
+        if (mode === 'fixtures') bytes = job.fixture_bytes;
+        else {
+          try { bytes = readJobBody(P.inputRoot, job, policy).buffer; } catch (error) {
+            row = { ...baseRow(job), outcome: 'input_refused', reason: error.reason || 'input_io_error', constructor_returned: false, elapsed_ms: 0,
+              worker_started: false, cleanup: { exit_observed: null }, exception: exceptionInfo(error, 'input', policy) };
+          }
+        }
+        if (!row) {
+          row = await runWorkerJob(job, bytes, ctx);
+          if (row.worker_started) {
+            cleanup.workers_started++;
+            if (row.cleanup.exit_observed === true) cleanup.exits_observed++;
+            else { cleanup.unverified.push(job.id); halt = 'cleanup_unverified'; }
+          }
+          if (row.outcome === 'timeout' && row.reason === 'run_deadline') halt = halt || 'run_deadline';
         }
       }
-      if (!row) {
-        row = await runWorkerJob(job, bytes, ctx);
-        if (row.worker_started) {
-          cleanup.workers_started++;
-          if (row.cleanup.exit_observed === true) cleanup.exits_observed++;
-          else { cleanup.unverified.push(job.id); halt = 'cleanup_unverified'; }
-        }
-        if (row.outcome === 'timeout' && row.reason === 'run_deadline') halt = halt || 'run_deadline';
+      let selected = boundedRow(row, policy, policy.max_total_log_bytes - out.logBytes);
+      if (out.bytes + Buffer.byteLength(selected.line) + 1 + P.suffix[i + 1] > policy.max_jobs_jsonl_bytes) {
+        selected = boundedRow(row, policy, 0, true);
+        halt ||= 'output_limit';
       }
+      try { out.write(selected.line); }
+      catch (error) {
+        // One bounded accounting retry after Output rolls back the partial record.
+        // A persistent storage fault propagates nonzero after finally closes resources.
+        halt ||= 'output_io_error'; incomplete = true;
+        selected = boundedRow({ ...row, outcome: 'environment_failure', _summary_json: null, _log: '',
+          reason: 'output_io_error', exception: exceptionInfo(error, 'publication', policy) }, policy, 0);
+        out.write(selected.line);
+      }
+      row = selected.row; out.logBytes += selected.logBytes;
+      if (mode === 'fixtures' && row.outcome !== 'unattempted') {
+        if (compareAuthored(job, row)) authored.matched++; else authored.mismatched.push(job.id);
+      }
+      counts[row.outcome]++;
+      outcomeById.set(job.id, row.outcome);
+      if (!['returned', 'constructor_exception'].includes(row.outcome)) incomplete = true;
     }
-    let line = serializeRow(row, out, true);
-    if (out.bytes + Buffer.byteLength(line) + 1 + P.suffix[i + 1] > policy.max_jobs_jsonl_bytes) {
-      // No room for the full row: keep explicit accounting without the summary/log.
-      row = { ...row, outcome: row.outcome === 'returned' ? 'summary_limit' : row.outcome, limit: 'max_jobs_jsonl_bytes', _summary_json: null, _log: '' };
-      line = serializeRow(row, out, false);
-      halt = halt || 'output_limit';
-    }
-    if (mode === 'fixtures' && row.outcome !== 'unattempted') {
-      const parsed = row._summary_json ? JSON.parse(row._summary_json) : undefined;
-      if (compareAuthored(job, { ...row, summary: parsed })) authored.matched++; else authored.mismatched.push(job.id);
-    }
-    out.write(line);
-    counts[row.outcome]++;
-    outcomeById.set(job.id, row.outcome);
-    if (!['returned', 'constructor_exception'].includes(row.outcome)) incomplete = true;
+  } finally {
+    clearInterval(sampler);
+    out.close();
   }
-  clearInterval(sampler);
-  out.close();
+  rss.sample();
+  if (rss.over) incomplete = true;
+  if (Date.now() >= runDeadline) { halt ||= 'run_deadline'; incomplete = true; }
   cleanup.halted = halt;
   const identityUnchanged = recheckIdentity([...P.pins, ...P.sourcePins]);
   const report = {
@@ -560,7 +652,9 @@ async function run(P, say) {
     report.roots = []; report.report_limit = { limit: 'max_report_json_bytes', roots_omitted: omitted, complete: false };
     text = JSON.stringify(report);
   }
+  if (Buffer.byteLength(text) > policy.max_report_json_bytes) throw new Refusal('output_budget', 'report does not fit');
   writeExclusive(path.join(P.output, 'report.json'), text);
+  if (Date.now() >= runDeadline) halt ||= 'run_deadline_after_publication';
   const exitCode = halt || incomplete || !report.cleanup.verified ? 1 : 0;
   say({ status: exitCode === 0 ? 'complete' : 'incomplete', mode, exit_code: exitCode, expected_jobs: jobs.length,
     job_outcomes: Object.fromEntries(Object.entries(counts).filter(([, v]) => v)), halted: halt,
