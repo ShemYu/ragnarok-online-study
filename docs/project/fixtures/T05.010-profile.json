@@ -1,0 +1,120 @@
+{
+  "comparison_type": "independent read-only source/verification-plan comparison, not implementation benchmark",
+  "inputs": [
+    {
+      "bytes": 226989,
+      "path": ".tools/renewal/client-source/src/DB/DBManager.js",
+      "sha256": "b28c99179638fd19268455c13c54a42736fab074227b81cdc1211cf2b84c3943"
+    },
+    {
+      "bytes": 10753,
+      "path": ".tools/renewal/client-source/src/Core/Client.js",
+      "sha256": "7cc29740c0e4916b14806fa49cdf878e5d2f2912bdcd3e466fecec1432589829"
+    },
+    {
+      "bytes": 11279,
+      "path": ".tools/renewal/client-source/src/Core/FileManager.js",
+      "sha256": "75c37d192bf21e7b40817a6f2fe27ef536601515c07fe20c7ce8346d50376cd7"
+    },
+    {
+      "bytes": 9996,
+      "path": ".tools/renewal/client-source/src/Core/FileSystem.js",
+      "sha256": "09a5720a7280fc38950e206f25abbdf07d9fd7f3f70026502ff5d5de6c9d793b"
+    },
+    {
+      "bytes": 4070,
+      "path": ".tools/renewal/client-source/src/Core/ThreadEventHandler.js",
+      "sha256": "a9fa85d9db8d1057ebd512005d7efb16145d7a70b6f672369344fc6ad14f491a"
+    },
+    {
+      "bytes": 1397,
+      "path": ".tools/renewal/client-source/src/Core/Configs.js",
+      "sha256": "18e7fd1c99a4b75d72255f7ecd05863752140bf29d6d0880b31d91b7da249bc1"
+    },
+    {
+      "bytes": 6298,
+      "path": ".tools/renewal/client-source/src/Utils/CodepageManager.js",
+      "sha256": "35fc6861784c27ce417697f8c4f2e999a7703bb89741b2ddb3ea0afc44c7733e"
+    },
+    {
+      "bytes": 7087,
+      "path": ".tools/renewal/client-source/src/Engine/MapEngine/Quest.js",
+      "sha256": "7e36872214df1944c2cd3e50d40e77c7bfe51700cc48cbbf685a17d6a0e89d8a"
+    },
+    {
+      "bytes": 1030,
+      "path": ".tools/renewal/client-source/src/UI/Components/Quest/Quest.js",
+      "sha256": "03161c0780593e97ea891bd183b395c264ccaab93d14c0980025ef526f1bb7f1"
+    },
+    {
+      "bytes": 23969,
+      "path": ".tools/renewal/client-source/src/UI/Components/Quest/QuestCommon.js",
+      "sha256": "6af03c2f4d63a558ff2a51f7bdf1ed754ae4f1db0bf31883f8979c3e03ce8e85"
+    },
+    {
+      "bytes": 14210,
+      "path": ".tools/renewal/client-source/src/UI/Components/Quest/QuestHelperCommon.js",
+      "sha256": "828bfd9b5ef30295ce873efb533eb69227b06bf8b4f14e6050d95fe8194bf4b3"
+    },
+    {
+      "bytes": 1069,
+      "path": ".tools/renewal/client-source/src/UI/Components/Quest/Quest/Quest.html",
+      "sha256": "e9066f899e80aa7bcab35ee4dd422a2c727b976133b295c4db137109c3188884"
+    },
+    {
+      "bytes": 508418,
+      "path": ".tools/renewal/rathena-source/npc/re/jobs/novice/academy.txt",
+      "sha256": "b2ab5f7de7e1c36e4f58b8447a80d4cb089e8bf45aeade59953c6a70004f27fd"
+    },
+    {
+      "bytes": 15437,
+      "path": ".tools/renewal/rathena-source/npc/re/warps/cities/izlude.txt",
+      "sha256": "61b4a35aea0f974121f161e4810032e1d3d1b5b2ce951b12a3a8c7af23343505"
+    },
+    {
+      "bytes": 310918,
+      "path": ".tools/renewal/rathena-source/db/re/quest_db.yml",
+      "sha256": "1bf77dc3801b68e4c751598227e2af749aad375d3f27cea27048af35624d9103"
+    },
+    {
+      "bytes": 16954,
+      "path": ".tools/renewal/remote-source/src/routes.rs",
+      "sha256": "ee365ab832bb5ac645e5d0205e8fb5018e88aac464be5f2a96546006cbe4dbd8"
+    },
+    {
+      "bytes": 15628,
+      "path": ".tools/renewal/remote-source/src/client.rs",
+      "sha256": "59b39104e8328493d5d1ec8ff4826add3a6ece1867034f45a7fddaa974b08c68"
+    },
+    {
+      "bytes": 102728,
+      "path": ".tools/renewal/upstream/stack/src/assets.rs",
+      "sha256": "6cfa790e5eadf4af600c8d9ebd612c8bf462b9b7a330fdbaa8b5f98a2ccb7ee3"
+    },
+    {
+      "bytes": 42585,
+      "path": ".tools/renewal/upstream/stack/src/assets/client_tables.rs",
+      "sha256": "f134f2d227d4890988ff97aaeda86e83ec336f43aed24e8dc1fb7a6b2bca1d36"
+    },
+    {
+      "bytes": 24939,
+      "path": "tools/renewal/tw_iteminfo_utf8.py",
+      "sha256": "6155b81377c20a9b028e64ec82548ca5f611563734b156dded8fd4937e70343d"
+    },
+    {
+      "bytes": 1047827,
+      "path": ".tools/renewal/t05-active-quest-source-1/base-http-body.bin",
+      "sha256": "7bd4ceb413765fa30187b69242a36ce406fed8cda7842680836f8a36a8677f14"
+    },
+    {
+      "bytes": 2397,
+      "path": ".tools/renewal/t05-active-quest-source-1/shared-source-projection-1.json",
+      "sha256": "5f6b420a07ac131ee890084df2572718a3e9262ebf180372abd12b229a611cfd"
+    }
+  ],
+  "live_actions_allowed_for_workers": false,
+  "root_HTTP_limits": "current exact server bytes only; browser cache/registration winner remains unobserved",
+  "root_save_baseline_sha256": "8e910da48dd4b2b428feb7a12f3512bd6e499c5cf9469b5e42a07c0e9c927f46",
+  "schema": "T05.010-readonly-plan-profile-1",
+  "task": "T05.010"
+}

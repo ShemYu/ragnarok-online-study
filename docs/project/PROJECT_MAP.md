@@ -65,6 +65,7 @@ P1  PROVE A PLAYABLE CHINESE FOUNDATION
      -> T05 Chinese UI, dialogue, active quest and input pilot   [~] <-- NOW
              |
              +-- T05.009 Navigation UI: ready for you
+             +-- T05.010 Active quest sample: compare plans next
 
 P2  DEFINE WHAT "ALL" COVERS
     T06 World/text inventory                                   [~]
@@ -112,7 +113,9 @@ The earlier Chinese NPC, item and story overlays also remain ON.
 The tests changed only last_login. All earned progress remains the same.
 Both temporary test pages are gone. The normal game page and saved progress pass.
 The Active quest tab is empty. The save contains only two completed quests.
-Next, Codex will plan a normal story sample and identify its text resource.
+T05.010 defines the next comparison: plans for a normal story sample and its text.
+The current server supplies the Taiwan quest table. Its English table URL is 404.
+Actual active-quest text still needs a normal game check.
 
 The latest save receipt SHA starts with 8e910da4. The Navigation final receipt starts with 7db72312.
 See the full results, rollback limits and private resume paths in
@@ -139,7 +142,8 @@ The Mac's internet remains ON, as you instructed.
 | 2026-10-19,301bd0e | User corrected the standard name to ASD-STE100; map language simplified | This map and Git history |
 | 2026-10-19,ffd154c | Chinese reapply, native integrity, live UI and saved progress pass | [Reapply proof](reviews/2026-10-19-T05.009-delivery.md#chinese-reapply-qualified) |
 | 2026-10-19,e747286 | Exact test-page cleanup and normal-page Chinese search/save pass; T05.009 ready for you | [Final proof](reviews/2026-10-19-T05.009-delivery.md#final-owned-cleanup-and-ordinary-page-handoff-qualified) |
-| Current checkpoint | Ordinary Active tab is empty; earned progress unchanged; normal story sample still needed | [Quest finding](reviews/2026-10-19-T05-active-quest-preparation.md#ordinary-active-tab-precondition-inspection) |
+| 2026-10-19,4f815df | Ordinary Active tab is empty; earned progress unchanged; normal story sample still needed | [Quest finding](reviews/2026-10-19-T05-active-quest-preparation.md#ordinary-active-tab-precondition-inspection) |
+| Current checkpoint | T05.010 plan comparison defined; current Taiwan quest table and literal7472 source verified | [Next task](reviews/2026-10-19-T05.010.md) |
 
 Codex also verified several T06 tools for source inventories.
 They cover archive tables, source order, map records, YAML, monsters, spawns and references within their stated limits.
