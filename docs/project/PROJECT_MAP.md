@@ -1,6 +1,6 @@
 # Supervision, plan and current position
 
-Date: **2026-10-19 JST**. Functionality comes first. The map scan, capped-file follow-up and core-file constructor checks are complete.
+Date: **2026-10-19 JST**. Functionality comes first. The map scan, core-file checks and first model/ground-texture request catalog are complete.
 Use this map for a short view of [Status](STATUS.md), [Tasks](TASKS.md) and
 [Phases](PHASES.md). Status gives the current next action.
 Update this map after each important change. Keep the dated evidence.
@@ -110,8 +110,8 @@ Observe the larger file with a new limit; preserve the first run  [V]
 Compare actual Claude and Grok constructor runners               [V]
 Repair the runner; pass 27 tests and all 26 fixture cases          [V]
 Check all 2,761 core-file jobs and all worker exits                [V]
-Build the first model and texture request catalog                 [~] <-- NOW
-Check model and texture availability                             [ ]
+Build the first model and ground-texture request catalog          [V]
+Check model and texture availability                             [ ] <-- NEXT
 Investigate eight files with NaN values and twelve unread tails   [ ]
 Check compilation, rendering, travel and play                     [ ]
 Find compatible assets for the 82 unresolved requests             [ ]
@@ -131,7 +131,8 @@ Both providers have submitted the next catalog tool. Their workers are released.
 Codex passes 12 tests for each and checks both complete catalogs against the reference.
 All 1,296 roots, 2,761 jobs and 11,134 request paths match.
 Grok passes the file-checking case that fails in Claude's tool.
-Codex selects Grok for this task. Integration and final checks come next.
+Codex integrates Grok and passes the final tests and complete data checks.
+The request catalog is ready for you. Asset availability checks come next.
 Six world files and two collision files have NaN values. Check them further.
 Twelve ground files have unread tails. Their meaning is not yet known.
 Older ground files omit water as the client code specifies.
