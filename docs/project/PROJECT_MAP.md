@@ -65,7 +65,7 @@ P1  PROVE A PLAYABLE CHINESE FOUNDATION
      -> T05 Chinese UI, dialogue, active quest and input pilot   [~] <-- NOW
              |
              +-- T05.009 Navigation UI: ready for you
-             +-- T05.010 Active quest sample: normal game check next
+             +-- T05.010 Active quest sample: check menu confirmation
 
 P2  DEFINE WHAT "ALL" COVERS
     T06 World/text inventory                                   [~]
@@ -109,9 +109,11 @@ Task ready for your evaluation                                    [V] <-- DONE
 
 The game now uses the **Chinese Navigation version again**.
 The app process is 96858. Its asset process is 97329. The server reports Ready.
-You cleared the control question. Codex saved the current Izlude24,98state.
+You cleared the control question. Codex walked normally to Carocc.
+The latest save is Izlude197,212. No active quest is verified yet.
 The page is at character selection. All six Chinese navigation aliases remain ON.
-Both source inventory workers are running in separate branches.
+Claude submitted the source catalog. Grok is still working.
+Codex checks both before selection.
 The earlier Chinese NPC, item and story overlays also remain ON.
 Navigation tests changed only last_login and preserved all earned progress.
 Both temporary test pages are gone. The normal game page and saved progress pass.
@@ -121,7 +123,7 @@ Codex has verified fresh backup M. Codex has not accepted a story quest.
 The current server supplies the Taiwan quest table. Its English table URL is 404.
 Actual active-quest text still needs a normal game check.
 
-The latest verified save receipt SHA starts with53c51d09. The Navigation final receipt starts with 7db72312.
+The latest verified save receipt SHA starts with74af726a. The Navigation final receipt starts with 7db72312.
 See the full results, rollback limits and private resume paths in
 the [delivery record](reviews/2026-10-19-T05.009-delivery.md#final-owned-cleanup-and-ordinary-page-handoff-qualified).
 We must still test actual macOS input method editor (IME) composition and candidate selection.
