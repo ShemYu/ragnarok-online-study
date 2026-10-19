@@ -93,6 +93,22 @@ T04-T06 are active. The other seven main tasks remain planned.
 We exclude child tasks from this count. The figure does not measure time, translation or playable content.
 We need the content list and gap list before we can give a reliable full cost or delivery date.
 
+## Current task: T05.012 one mixed story sentence
+
+```text
+Observe all six real dialogue pages and the English line         [V]
+Compare Claude and Grok; preserve both raw candidates             [V]
+Integrate selected source; check exact output and unchanged logic [V]
+Preserve newest save, full backup and old pilot                   [V]
+Install -> check six pages and the same link target               [ ] <-- NOW
+Check save, re-entry and cold start                               [ ]
+Test old-pilot rollback -> reapply the new pilot                   [ ]
+Commit evidence -> ready for your evaluation                      [ ]
+```
+
+The source repair passes. Actual installed behavior is still open.
+See the [story repair checks](reviews/2026-10-19-T05.012.md).
+
 ## Latest completed task: T05.011 Quest window
 
 ```text
