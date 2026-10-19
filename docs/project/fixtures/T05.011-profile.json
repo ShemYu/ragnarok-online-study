@@ -1,0 +1,1162 @@
+{
+  "task": "T05.011",
+  "profile": "quest-ui-zh-tw-v1",
+  "status": "FROZEN_FOR_INDEPENDENT_IMPLEMENTATION",
+  "input": {
+    "file": ".tools/renewal/t05-011-frozen-inputs-1/Online.js",
+    "bytes": 13173065,
+    "sha256": "67525a4ec4b834ec02c5ff33b4ca55c119f1380fa131ea329aab880359144478"
+  },
+  "sources": [
+    {
+      "file": ".tools/renewal/client-source/src/UI/Components/Quest/Quest/Quest.html",
+      "bytes": 1069,
+      "sha256": "e9066f899e80aa7bcab35ee4dd422a2c727b976133b295c4db137109c3188884"
+    },
+    {
+      "file": ".tools/renewal/client-source/src/UI/Components/Quest/Quest/QuestHelper.html",
+      "bytes": 2206,
+      "sha256": "166ea11e57890f57bab1cbc1cd4a3efa7595b9c88f4f3e785b4ac58cae338442"
+    },
+    {
+      "file": ".tools/renewal/client-source/src/UI/Components/Quest/Quest/Quest.css",
+      "bytes": 3790,
+      "sha256": "ca6d5069f1396d0225a391361ed45bcdc5fb2f09e1f7828e45fafc56473597e2"
+    },
+    {
+      "file": ".tools/renewal/client-source/src/UI/Components/Quest/QuestCommon.js",
+      "bytes": 23969,
+      "sha256": "6af03c2f4d63a558ff2a51f7bdf1ed754ae4f1db0bf31883f8979c3e03ce8e85"
+    },
+    {
+      "file": ".tools/renewal/client-source/src/UI/Components/Quest/QuestHelperCommon.js",
+      "bytes": 14210,
+      "sha256": "828bfd9b5ef30295ce873efb533eb69227b06bf8b4f14e6050d95fe8194bf4b3"
+    },
+    {
+      "file": ".tools/renewal/client-source/src/UI/Components/Quest/Quest/Quest.js",
+      "bytes": 572,
+      "sha256": "dd65927ee63bb33c99816746e36469175bf34986c648274c530236c1f3304932"
+    },
+    {
+      "file": ".tools/renewal/client-source/src/UI/Components/Quest/Quest/QuestHelper.js",
+      "bytes": 502,
+      "sha256": "df7ccb748290f7a5efc453e1f7011635ae18132ab0e0e6e810de3574dec7a9a2"
+    }
+  ],
+  "windows": {
+    "html": {
+      "span": [
+        7980253,
+        7981588
+      ],
+      "bytes": 1335,
+      "sha256": "9fdab68319ee36d1b1e6d5265eb8085282569ddf1bb05ecced00a9a42973ef4c",
+      "start_guard": "//#region src/UI/Components/Quest/Quest/Quest.html?raw\n",
+      "end_guard": "//#endregion\n"
+    },
+    "helper_html": {
+      "span": [
+        7968855,
+        7971445
+      ],
+      "bytes": 2590,
+      "sha256": "f2665f5118fcb1346c5a054b1828fb3dab4fd5e473de7d75617505641c3b4ee7",
+      "start_guard": "//#region src/UI/Components/Quest/Quest/QuestHelper.html?raw\n",
+      "end_guard": "//#endregion\n"
+    },
+    "css": {
+      "span": [
+        7981588,
+        7985943
+      ],
+      "bytes": 4355,
+      "sha256": "a62b60f33e387412441580fc496416e20eb52e5c565458ad40f8f174e16e1d6e",
+      "start_guard": "//#region src/UI/Components/Quest/Quest/Quest.css?raw\n",
+      "end_guard": "//#endregion\n"
+    },
+    "common": {
+      "span": [
+        7935779,
+        7956870
+      ],
+      "bytes": 21091,
+      "sha256": "5130701caedab4246d8bf4437765fbf6fc06fa7d6fcbaf3f4033ed2122357dbf",
+      "start_guard": "//#region src/UI/Components/Quest/QuestCommon.js\n",
+      "end_guard": "//#endregion\n"
+    },
+    "helper_common": {
+      "span": [
+        7956870,
+        7968855
+      ],
+      "bytes": 11985,
+      "sha256": "1e444be9c3786cf2d46ca29d1fe8b2c5a84b2028bd962c0e1715414badf9e7d7",
+      "start_guard": "//#region src/UI/Components/Quest/QuestHelperCommon.js\n",
+      "end_guard": "//#endregion\n"
+    },
+    "renew_cooldown": {
+      "span": [
+        7945729,
+        7946487
+      ],
+      "bytes": 758,
+      "sha256": "629b137776d88e42a2d86d9281a1cd0162b22eb189c173842ab9a7bbdd0c94a6",
+      "start_guard": "\t\t\tif (quest.end_time > 0 && quest.end_time > epoch_seconds) {\n\t\t\t\tul_id = \"#cooldown-quest-list\";\n",
+      "following_guard": "\t\t\t} else if (quest.active == 1) {\n"
+    },
+    "renew_active": {
+      "span": [
+        7946487,
+        7947275
+      ],
+      "bytes": 788,
+      "sha256": "19f383c37d64c1d7abb631428b9d16625e9b5a02a97423a96dc457802841a030",
+      "start_guard": "\t\t\t} else if (quest.active == 1) {\n\t\t\t\tul_id = \"#active-quest-list\";\n",
+      "following_guard": "\t\t\t} else {\n\t\t\t\tul_id = \"#inactive-quest-list\";\n"
+    },
+    "renew_inactive": {
+      "span": [
+        7947275,
+        7948013
+      ],
+      "bytes": 738,
+      "sha256": "100fbaf54dc8a9f63b6ea585306571ad25e94c50668ac79b2de5098933c07103",
+      "start_guard": "\t\t\t} else {\n\t\t\t\tul_id = \"#inactive-quest-list\";\n",
+      "following_guard": "\t\t\t}\n\t\t\tconst ul = root.querySelector(ul_id);\n"
+    }
+  },
+  "tokens": {
+    "html": {
+      "span": [
+        7980385,
+        7981568
+      ],
+      "bytes": 1183,
+      "sha256": "0e0c1fc2f312587a47a41508e0801b514cac0620f7e45aae9179f852f1a2ece6",
+      "raw_tab_bytes": 66,
+      "decoded_bytes": 1069,
+      "decoded_sha256": "e9066f899e80aa7bcab35ee4dd422a2c727b976133b295c4db137109c3188884",
+      "data_decode": "JSON strict=False only after rejecting raw controls except TAB"
+    },
+    "helper_html": {
+      "span": [
+        7969011,
+        7971425
+      ],
+      "bytes": 2414,
+      "sha256": "851c96af2252db3669f17d5d385f5d6786622fe8a349a58425cd5f193022fb9a",
+      "raw_tab_bytes": 270,
+      "decoded_bytes": 2206,
+      "decoded_sha256": "166ea11e57890f57bab1cbc1cd4a3efa7595b9c88f4f3e785b4ac58cae338442",
+      "data_decode": "JSON strict=False only after rejecting raw controls except TAB"
+    },
+    "css": {
+      "span": [
+        7981719,
+        7985923
+      ],
+      "bytes": 4204,
+      "sha256": "0e2ccfabbd57211de9c5a05b2540f4a6b22345b0157c654500c6aadab207aa4c",
+      "raw_tab_bytes": 105,
+      "decoded_bytes": 3790,
+      "decoded_sha256": "ca6d5069f1396d0225a391361ed45bcdc5fb2f09e1f7828e45fafc56473597e2",
+      "data_decode": "JSON strict=False only after rejecting raw controls except TAB"
+    }
+  },
+  "edits": [
+    {
+      "id": "T01-mission",
+      "kind": "generated_template",
+      "scope": "common",
+      "guard": "const chat_quest_text = `Mission [${DB.getQuestInfo(questID).Title}], you killed [${mob_name}]. (${_questList[questID].hunt_list[huntID].huntCount}/${_questList[questID].hunt_list[huntID].maxCount})`;",
+      "guard_span": [
+        7943414,
+        7943614
+      ],
+      "guard_count": 1,
+      "input_span": [
+        7943438,
+        7943613
+      ],
+      "old_source": "`Mission [${DB.getQuestInfo(questID).Title}], you killed [${mob_name}]. (${_questList[questID].hunt_list[huntID].huntCount}/${_questList[questID].hunt_list[huntID].maxCount})`",
+      "new_source": "`任務 [${DB.getQuestInfo(questID).Title}]：已擊倒 [${mob_name}]。(${_questList[questID].hunt_list[huntID].huntCount}/${_questList[questID].hunt_list[huntID].maxCount})`",
+      "old_bytes": 175,
+      "new_bytes": 175,
+      "old_sha256": "b179ad7b422e8f4fc029f0732b9a5f53aa303c4b78b8f94a333e8ee7f5347d6f",
+      "new_sha256": "8674465f77474fb390a439f1e54e3fffc272fbb7bf50db78607697bf8da8ca82",
+      "interpolations_unchanged": [
+        "${DB.getQuestInfo(questID).Title}",
+        "${mob_name}",
+        "${_questList[questID].hunt_list[huntID].huntCount}",
+        "${_questList[questID].hunt_list[huntID].maxCount}"
+      ],
+      "order": 0,
+      "output_span": [
+        7943438,
+        7943613
+      ]
+    },
+    {
+      "id": "T02-completed",
+      "kind": "generated_template",
+      "scope": "common",
+      "guard": "self_msg = `${mob_name} [Completed]`;",
+      "guard_span": [
+        7943736,
+        7943773
+      ],
+      "guard_count": 1,
+      "input_span": [
+        7943747,
+        7943772
+      ],
+      "old_source": "`${mob_name} [Completed]`",
+      "new_source": "`${mob_name} [已完成]`",
+      "old_bytes": 25,
+      "new_bytes": 25,
+      "old_sha256": "22b399697c100f8c22778c929be48d591870d3e8665e56229bdc606f042ef4ca",
+      "new_sha256": "aed26fdaf36531278e44d151d95cd392bf1821ffbc2ccffec6c1440e0b47bb74",
+      "interpolations_unchanged": [
+        "${mob_name}"
+      ],
+      "order": 1,
+      "output_span": [
+        7943747,
+        7943772
+      ]
+    },
+    {
+      "id": "R-cooldown-icon",
+      "kind": "hidden_row_caption",
+      "scope": "renew_cooldown",
+      "guard": "<span class=\\\"quest-item-icon-image-text\\\">Quest</span>",
+      "guard_span": [
+        7945918,
+        7945973
+      ],
+      "guard_count": 1,
+      "input_span": [
+        7945961,
+        7945966
+      ],
+      "old_source": "Quest",
+      "new_source": "任務",
+      "old_bytes": 5,
+      "new_bytes": 6,
+      "old_sha256": "233259128db1f0c07dcf68f001d34b46cb58f436bb4565bf9f6441b87d8b86d8",
+      "new_sha256": "c72c7750015b06ecafa073d3224cdbe39aec1635163598dda56ab4d17e1c1a09",
+      "order": 2,
+      "output_span": [
+        7945961,
+        7945967
+      ]
+    },
+    {
+      "id": "R-cooldown-toggle",
+      "kind": "hidden_row_caption",
+      "scope": "renew_cooldown",
+      "guard": "<span class=\\\"quest-item-toggle-image-text\\\">Toggle</span>",
+      "guard_span": [
+        7946409,
+        7946467
+      ],
+      "guard_count": 1,
+      "input_span": [
+        7946454,
+        7946460
+      ],
+      "old_source": "Toggle",
+      "new_source": "切換",
+      "old_bytes": 6,
+      "new_bytes": 6,
+      "old_sha256": "3d03a1dea561d0dbeadf0694dd44a3398e3e0bfecbb88bcf7d4a6d9e8b91e409",
+      "new_sha256": "873b0afae9ba3a260831261aeaa594ebdd1a05003525dae7c867fc1187b2213b",
+      "order": 3,
+      "output_span": [
+        7946455,
+        7946461
+      ]
+    },
+    {
+      "id": "R-active-icon",
+      "kind": "hidden_row_caption",
+      "scope": "renew_active",
+      "guard": "<span class=\\\"quest-item-icon-image-text\\\">Quest</span>",
+      "guard_span": [
+        7946646,
+        7946701
+      ],
+      "guard_count": 1,
+      "input_span": [
+        7946689,
+        7946694
+      ],
+      "old_source": "Quest",
+      "new_source": "任務",
+      "old_bytes": 5,
+      "new_bytes": 6,
+      "old_sha256": "233259128db1f0c07dcf68f001d34b46cb58f436bb4565bf9f6441b87d8b86d8",
+      "new_sha256": "c72c7750015b06ecafa073d3224cdbe39aec1635163598dda56ab4d17e1c1a09",
+      "order": 4,
+      "output_span": [
+        7946690,
+        7946696
+      ]
+    },
+    {
+      "id": "R-active-toggle",
+      "kind": "hidden_row_caption",
+      "scope": "renew_active",
+      "guard": "<span class=\\\"quest-item-toggle-image-text\\\">Toggle</span>",
+      "guard_span": [
+        7947194,
+        7947252
+      ],
+      "guard_count": 1,
+      "input_span": [
+        7947239,
+        7947245
+      ],
+      "old_source": "Toggle",
+      "new_source": "切換",
+      "old_bytes": 6,
+      "new_bytes": 6,
+      "old_sha256": "3d03a1dea561d0dbeadf0694dd44a3398e3e0bfecbb88bcf7d4a6d9e8b91e409",
+      "new_sha256": "873b0afae9ba3a260831261aeaa594ebdd1a05003525dae7c867fc1187b2213b",
+      "order": 5,
+      "output_span": [
+        7947241,
+        7947247
+      ]
+    },
+    {
+      "id": "R-inactive-icon",
+      "kind": "hidden_row_caption",
+      "scope": "renew_inactive",
+      "guard": "<span class=\\\"quest-item-icon-image-text\\\">Quest</span>",
+      "guard_span": [
+        7947413,
+        7947468
+      ],
+      "guard_count": 1,
+      "input_span": [
+        7947456,
+        7947461
+      ],
+      "old_source": "Quest",
+      "new_source": "任務",
+      "old_bytes": 5,
+      "new_bytes": 6,
+      "old_sha256": "233259128db1f0c07dcf68f001d34b46cb58f436bb4565bf9f6441b87d8b86d8",
+      "new_sha256": "c72c7750015b06ecafa073d3224cdbe39aec1635163598dda56ab4d17e1c1a09",
+      "order": 6,
+      "output_span": [
+        7947458,
+        7947464
+      ]
+    },
+    {
+      "id": "R-inactive-toggle",
+      "kind": "hidden_row_caption",
+      "scope": "renew_inactive",
+      "guard": "<span class=\\\"quest-item-toggle-image-text\\\">Toggle</span>",
+      "guard_span": [
+        7947932,
+        7947990
+      ],
+      "guard_count": 1,
+      "input_span": [
+        7947977,
+        7947983
+      ],
+      "old_source": "Toggle",
+      "new_source": "切換",
+      "old_bytes": 6,
+      "new_bytes": 6,
+      "old_sha256": "3d03a1dea561d0dbeadf0694dd44a3398e3e0bfecbb88bcf7d4a6d9e8b91e409",
+      "new_sha256": "873b0afae9ba3a260831261aeaa594ebdd1a05003525dae7c867fc1187b2213b",
+      "order": 7,
+      "output_span": [
+        7947980,
+        7947986
+      ]
+    },
+    {
+      "id": "T03-deadline",
+      "kind": "generated_template",
+      "scope": "helper_common",
+      "guard": "deadlineEl.textContent = `Deadline [${d.toLocaleString()}]`;",
+      "guard_span": [
+        7964560,
+        7964620
+      ],
+      "guard_count": 1,
+      "input_span": [
+        7964585,
+        7964619
+      ],
+      "old_source": "`Deadline [${d.toLocaleString()}]`",
+      "new_source": "`截止時間 [${d.toLocaleString()}]`",
+      "old_bytes": 34,
+      "new_bytes": 38,
+      "old_sha256": "cc3720c2a11935054182d40516c41d420ce8a011795e1e4ef7f0125d7d2f2fa5",
+      "new_sha256": "f922b2ab47b4dc9c1f23a3fdbec96a9f5c06937e479d05d57050071b77a01315",
+      "interpolations_unchanged": [
+        "${d.toLocaleString()}"
+      ],
+      "order": 8,
+      "output_span": [
+        7964588,
+        7964626
+      ]
+    },
+    {
+      "id": "H02",
+      "kind": "fixed_html_label",
+      "scope": "helper_html",
+      "guard": "<div class=\\\"quest-info-top-panel-title\\\">Quest Information</div>",
+      "guard_span": [
+        7969112,
+        7969177
+      ],
+      "guard_count": 1,
+      "input_span": [
+        7969154,
+        7969171
+      ],
+      "old_source": "Quest Information",
+      "new_source": "任務資訊",
+      "old_bytes": 17,
+      "new_bytes": 12,
+      "old_sha256": "605ca9f82e939a8937fe05fd1d26794a0dee66501a255ecd607c7e71f4f744ef",
+      "new_sha256": "05a5e8fbe83993719f31bd893c1701565f11bd88ee1d5a3bb585973795b5c916",
+      "order": 9,
+      "output_span": [
+        7969161,
+        7969173
+      ]
+    },
+    {
+      "id": "H04",
+      "kind": "fixed_html_label",
+      "scope": "helper_html",
+      "guard": "<span class=\\\"quest-ui-title-span\\\">Description</span>",
+      "guard_span": [
+        7969514,
+        7969568
+      ],
+      "guard_count": 1,
+      "input_span": [
+        7969550,
+        7969561
+      ],
+      "old_source": "Description",
+      "new_source": "任務說明",
+      "old_bytes": 11,
+      "new_bytes": 12,
+      "old_sha256": "526e0087cc3f254d9f86f6c7d8e23d954c4dfda2b312efc29194ae8a860106ba",
+      "new_sha256": "c62cd609362ba7b1849d6be2b322d352ac89d1a4631f2a1ec26203bdb970e9c8",
+      "order": 10,
+      "output_span": [
+        7969552,
+        7969564
+      ]
+    },
+    {
+      "id": "H05",
+      "kind": "fixed_html_label",
+      "scope": "helper_html",
+      "guard": "<span class=\\\"quest-ui-title-span\\\">Monster</span>",
+      "guard_span": [
+        7969877,
+        7969927
+      ],
+      "guard_count": 1,
+      "input_span": [
+        7969913,
+        7969920
+      ],
+      "old_source": "Monster",
+      "new_source": "目標魔物",
+      "old_bytes": 7,
+      "new_bytes": 12,
+      "old_sha256": "3a241d59687b801ed1a519fd9acf1bad288e1cc9993b2d03a7974623483fa00a",
+      "new_sha256": "a889a200cf8f7044730d6c1ed3d96c031f40aaa20b567b60afccb243b4aa9299",
+      "order": 11,
+      "output_span": [
+        7969916,
+        7969928
+      ]
+    },
+    {
+      "id": "H06",
+      "kind": "fixed_html_label",
+      "scope": "helper_html",
+      "guard": "<span class=\\\"quest-ui-title-span\\\">Reward</span>",
+      "guard_span": [
+        7970270,
+        7970319
+      ],
+      "guard_count": 1,
+      "input_span": [
+        7970306,
+        7970312
+      ],
+      "old_source": "Reward",
+      "new_source": "任務獎勵",
+      "old_bytes": 6,
+      "new_bytes": 12,
+      "old_sha256": "55ac8cbae095aacceaf1e9d9efdf022f597a39780820ed9bc24e2f3e5271c351",
+      "new_sha256": "fb09b25b7e5aac3340286648baa1464874871024b6582b77c94ed70e4e8ed72a",
+      "order": 12,
+      "output_span": [
+        7970314,
+        7970326
+      ]
+    },
+    {
+      "id": "H07",
+      "kind": "fixed_html_label",
+      "scope": "helper_html",
+      "guard": "<span>EXP</span",
+      "guard_span": [
+        7970532,
+        7970547
+      ],
+      "guard_count": 1,
+      "input_span": [
+        7970538,
+        7970541
+      ],
+      "old_source": "EXP",
+      "new_source": "基本經驗值",
+      "old_bytes": 3,
+      "new_bytes": 15,
+      "old_sha256": "06a1ad637e7f4fbad56e29164490368f0526f429ee39a31dd1180c3722af1e4e",
+      "new_sha256": "f94239aedce71ce2bcffad896708ff87f0a935d448c4673e039cafa2ebd7117d",
+      "order": 13,
+      "output_span": [
+        7970552,
+        7970567
+      ]
+    },
+    {
+      "id": "H08",
+      "kind": "fixed_html_label",
+      "scope": "helper_html",
+      "guard": "<span>JEXP</span",
+      "guard_span": [
+        7970671,
+        7970687
+      ],
+      "guard_count": 1,
+      "input_span": [
+        7970677,
+        7970681
+      ],
+      "old_source": "JEXP",
+      "new_source": "職業經驗值",
+      "old_bytes": 4,
+      "new_bytes": 15,
+      "old_sha256": "11756d7b4275f3589c89afd04c8e74de2b4e43a0652ec525240108f45029a75b",
+      "new_sha256": "28c327240292b1db5fd95c976c2c11c8b423dac5bc0096abc02a275660e8f1d7",
+      "order": 14,
+      "output_span": [
+        7970703,
+        7970718
+      ]
+    },
+    {
+      "id": "H09",
+      "kind": "fixed_html_label",
+      "scope": "helper_html",
+      "guard": "<span>Item</span",
+      "guard_span": [
+        7970810,
+        7970826
+      ],
+      "guard_count": 1,
+      "input_span": [
+        7970816,
+        7970820
+      ],
+      "old_source": "Item",
+      "new_source": "物品",
+      "old_bytes": 4,
+      "new_bytes": 6,
+      "old_sha256": "652bcc3a478428893cc505ae19f847b49be52f861bedc64bb192ceed409fa733",
+      "new_sha256": "7c89d6ebe1f9c88d2311dfd23e5757aa5d3c1eee1090c7ad3806788cbb1ccf91",
+      "order": 15,
+      "output_span": [
+        7970853,
+        7970859
+      ]
+    },
+    {
+      "id": "H01",
+      "kind": "fixed_html_label",
+      "scope": "html",
+      "guard": "<span class=\\\"quest-top-panel-text\\\">Quest Information</span>",
+      "guard_span": [
+        7980470,
+        7980531
+      ],
+      "guard_count": 1,
+      "input_span": [
+        7980507,
+        7980524
+      ],
+      "old_source": "Quest Information",
+      "new_source": "任務資訊",
+      "old_bytes": 17,
+      "new_bytes": 12,
+      "old_sha256": "605ca9f82e939a8937fe05fd1d26794a0dee66501a255ecd607c7e71f4f744ef",
+      "new_sha256": "05a5e8fbe83993719f31bd893c1701565f11bd88ee1d5a3bb585973795b5c916",
+      "order": 16,
+      "output_span": [
+        7980546,
+        7980558
+      ]
+    },
+    {
+      "id": "I-active",
+      "kind": "tab_child_insertion",
+      "scope": "html",
+      "guard": "<li id=\\\"active\\\" class=\\\"quest-menu-item\\\"></li>",
+      "guard_span": [
+        7980615,
+        7980664
+      ],
+      "guard_count": 1,
+      "input_span": [
+        7980659,
+        7980659
+      ],
+      "old_source": "",
+      "new_source": "<span class=\\\"quest-menu-caption\\\">進行中</span>",
+      "old_bytes": 0,
+      "new_bytes": 51,
+      "old_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "new_sha256": "0b872e936f646ce6f8bd1dc93c00008a7053c249a21c5822beb56378b5af032f",
+      "order": 17,
+      "output_span": [
+        7980693,
+        7980744
+      ]
+    },
+    {
+      "id": "I-feature",
+      "kind": "tab_child_insertion",
+      "scope": "html",
+      "guard": "<li id=\\\"feature\\\" class=\\\"quest-menu-item\\\"></li>",
+      "guard_span": [
+        7980672,
+        7980722
+      ],
+      "guard_count": 1,
+      "input_span": [
+        7980717,
+        7980717
+      ],
+      "old_source": "",
+      "new_source": "<span class=\\\"quest-menu-caption\\\">推薦</span>",
+      "old_bytes": 0,
+      "new_bytes": 48,
+      "old_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "new_sha256": "3944f6ce43c3b3454e852f9e516025005f1a7e5b875f080b7a03fd17c6be04fd",
+      "order": 18,
+      "output_span": [
+        7980802,
+        7980850
+      ]
+    },
+    {
+      "id": "I-inactive",
+      "kind": "tab_child_insertion",
+      "scope": "html",
+      "guard": "<li id=\\\"inactive\\\" class=\\\"quest-menu-item\\\"></li>",
+      "guard_span": [
+        7980730,
+        7980781
+      ],
+      "guard_count": 1,
+      "input_span": [
+        7980776,
+        7980776
+      ],
+      "old_source": "",
+      "new_source": "<span class=\\\"quest-menu-caption\\\">暫停中</span>",
+      "old_bytes": 0,
+      "new_bytes": 51,
+      "old_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "new_sha256": "4876140a0ac2f5829233eb09281e9ccc3a9450e52f8bc6a137a599aa2206f188",
+      "order": 19,
+      "output_span": [
+        7980909,
+        7980960
+      ]
+    },
+    {
+      "id": "I-cooldown",
+      "kind": "tab_child_insertion",
+      "scope": "html",
+      "guard": "<li id=\\\"cooldown\\\" class=\\\"quest-menu-item\\\"></li>",
+      "guard_span": [
+        7980789,
+        7980840
+      ],
+      "guard_count": 1,
+      "input_span": [
+        7980835,
+        7980835
+      ],
+      "old_source": "",
+      "new_source": "<span class=\\\"quest-menu-caption\\\">冷卻中</span>",
+      "old_bytes": 0,
+      "new_bytes": 51,
+      "old_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "new_sha256": "a8903b48de5aa83de88e80eeb4f4bbac8178468bc2d9b47e04ca9ebfe9853813",
+      "order": 20,
+      "output_span": [
+        7981019,
+        7981070
+      ]
+    },
+    {
+      "id": "H03",
+      "kind": "fixed_html_label",
+      "scope": "html",
+      "guard": "<span>Show Quest</span>",
+      "guard_span": [
+        7981340,
+        7981363
+      ],
+      "guard_count": 1,
+      "input_span": [
+        7981346,
+        7981356
+      ],
+      "old_source": "Show Quest",
+      "new_source": "顯示任務",
+      "old_bytes": 10,
+      "new_bytes": 12,
+      "old_sha256": "7e23b6ca78e88bc16877023c63a9973eef83b1e3ae5b6df57ec1dab16058378f",
+      "new_sha256": "d7274580cf3add8b1fa02547f16d776631e8c9e190696be7feffed5805cec420",
+      "order": 21,
+      "output_span": [
+        7981581,
+        7981593
+      ]
+    },
+    {
+      "id": "C01-caption-css",
+      "kind": "css_append",
+      "scope": "css",
+      "guard": "ooldown-quest-list {\\r\\n\tdisplay: none;\\r\\n}\\r\\n\"",
+      "guard_span": [
+        7985874,
+        7985923
+      ],
+      "guard_count": 1,
+      "input_span": [
+        7985922,
+        7985922
+      ],
+      "old_source": "",
+      "new_source": "\\r\\n#Quest .quest-menu-caption { width:30px; height:100px; box-sizing:border-box; display:flex; align-items:center; justify-content:center; writing-mode:vertical-rl; text-orientation:upright; font-family:Arial,'Microsoft JhengHei','PingFang TC',sans-serif; font-size:13px; line-height:18px; letter-spacing:1px; pointer-events:none; user-select:none; background:#e3e7ec; border:1px solid #b3bac4; color:#333; }\\r\\n#Quest:has(#active-quest-list[style*=\\\"display: block\\\"]) #active .quest-menu-caption,\\r\\n#Quest:has(#feature-quest-list[style*=\\\"display: block\\\"]) #feature .quest-menu-caption,\\r\\n#Quest:has(#inactive-quest-list[style*=\\\"display: block\\\"]) #inactive .quest-menu-caption,\\r\\n#Quest:has(#cooldown-quest-list[style*=\\\"display: block\\\"]) #cooldown .quest-menu-caption { background:#fff; color:#004c88; font-weight:bold; border-color:#7699bd; }\\r\\n",
+      "old_bytes": 0,
+      "new_bytes": 858,
+      "old_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "new_sha256": "addc120055e9bd9ff8736140ab9621d37b6107cf5d5bb5a68748dac4b8edc8b2",
+      "decoded_appended_css": "\r\n#Quest .quest-menu-caption { width:30px; height:100px; box-sizing:border-box; display:flex; align-items:center; justify-content:center; writing-mode:vertical-rl; text-orientation:upright; font-family:Arial,'Microsoft JhengHei','PingFang TC',sans-serif; font-size:13px; line-height:18px; letter-spacing:1px; pointer-events:none; user-select:none; background:#e3e7ec; border:1px solid #b3bac4; color:#333; }\r\n#Quest:has(#active-quest-list[style*=\"display: block\"]) #active .quest-menu-caption,\r\n#Quest:has(#feature-quest-list[style*=\"display: block\"]) #feature .quest-menu-caption,\r\n#Quest:has(#inactive-quest-list[style*=\"display: block\"]) #inactive .quest-menu-caption,\r\n#Quest:has(#cooldown-quest-list[style*=\"display: block\"]) #cooldown .quest-menu-caption { background:#fff; color:#004c88; font-weight:bold; border-color:#7699bd; }\r\n",
+      "order": 22,
+      "output_span": [
+        7986159,
+        7987017
+      ]
+    }
+  ],
+  "unchanged_complement": [
+    {
+      "input_span": [
+        0,
+        7943438
+      ],
+      "output_span": [
+        0,
+        7943438
+      ],
+      "bytes": 7943438,
+      "sha256": "dc3a3e5adeb19a35e054e04efb0570c3d3414b27f48b83ace9999526ecd4cc82"
+    },
+    {
+      "input_span": [
+        7943613,
+        7943747
+      ],
+      "output_span": [
+        7943613,
+        7943747
+      ],
+      "bytes": 134,
+      "sha256": "5b704e5412df8ef62facc10560ff6e243cc19e22cdf9e724fd07c6f20a8a22eb"
+    },
+    {
+      "input_span": [
+        7943772,
+        7945961
+      ],
+      "output_span": [
+        7943772,
+        7945961
+      ],
+      "bytes": 2189,
+      "sha256": "4589673085bcb5be61da2caba362bd9e1d344b9f532674850f335d0dcbe11299"
+    },
+    {
+      "input_span": [
+        7945966,
+        7946454
+      ],
+      "output_span": [
+        7945967,
+        7946455
+      ],
+      "bytes": 488,
+      "sha256": "0234c583fdbcb4456e51ff0b3e4286e9a38ae3efd40429ac9265b187a4d9ee82"
+    },
+    {
+      "input_span": [
+        7946460,
+        7946689
+      ],
+      "output_span": [
+        7946461,
+        7946690
+      ],
+      "bytes": 229,
+      "sha256": "887b12a55d391f85c00f8b125fc82aa73d6e3636b1a24c72019471fa0830db21"
+    },
+    {
+      "input_span": [
+        7946694,
+        7947239
+      ],
+      "output_span": [
+        7946696,
+        7947241
+      ],
+      "bytes": 545,
+      "sha256": "d6d8ddf7eca639ef54ebd31c79cc88a1885e701cfcaebbdda0eaca15a7209970"
+    },
+    {
+      "input_span": [
+        7947245,
+        7947456
+      ],
+      "output_span": [
+        7947247,
+        7947458
+      ],
+      "bytes": 211,
+      "sha256": "02e83b4ebfb48ec2328c39ca5725b802707d9dfafa2a4843b2ed679becdbcff7"
+    },
+    {
+      "input_span": [
+        7947461,
+        7947977
+      ],
+      "output_span": [
+        7947464,
+        7947980
+      ],
+      "bytes": 516,
+      "sha256": "0af7029cd9dcf3bd4624068817fb692a451b92cf1d56d0091338a4f3c2df52b1"
+    },
+    {
+      "input_span": [
+        7947983,
+        7964585
+      ],
+      "output_span": [
+        7947986,
+        7964588
+      ],
+      "bytes": 16602,
+      "sha256": "615d6206d8575602edc124d0e9bcdd49c8ad147bd09504f8cdb8a782b9582eaf"
+    },
+    {
+      "input_span": [
+        7964619,
+        7969154
+      ],
+      "output_span": [
+        7964626,
+        7969161
+      ],
+      "bytes": 4535,
+      "sha256": "9fcd0158e826c3261933539d23cafc9ffd2fc277583ae8acc2f639b13d86e6a3"
+    },
+    {
+      "input_span": [
+        7969171,
+        7969550
+      ],
+      "output_span": [
+        7969173,
+        7969552
+      ],
+      "bytes": 379,
+      "sha256": "61ec7c5dae0e40cc01f7fe4fb1223d6fc7fe5add1c0f7578b4edfb55fbf4c5a6"
+    },
+    {
+      "input_span": [
+        7969561,
+        7969913
+      ],
+      "output_span": [
+        7969564,
+        7969916
+      ],
+      "bytes": 352,
+      "sha256": "6ff771f2e2a367ab7238dd6b404877d9724da0cecad48b5624545c6073d26633"
+    },
+    {
+      "input_span": [
+        7969920,
+        7970306
+      ],
+      "output_span": [
+        7969928,
+        7970314
+      ],
+      "bytes": 386,
+      "sha256": "363d5efa56a92919b33f5836ca72bde83ce6e5d6aefb6615ef5b133b2e748146"
+    },
+    {
+      "input_span": [
+        7970312,
+        7970538
+      ],
+      "output_span": [
+        7970326,
+        7970552
+      ],
+      "bytes": 226,
+      "sha256": "c037ca634637f8d11f741042ddb8723e16486a513baa300c02a888ce50ec9ddd"
+    },
+    {
+      "input_span": [
+        7970541,
+        7970677
+      ],
+      "output_span": [
+        7970567,
+        7970703
+      ],
+      "bytes": 136,
+      "sha256": "4593a6f3f4a7c9b56f532d0b285f443bc67d0490f2c3e97a16219506eaa58fbb"
+    },
+    {
+      "input_span": [
+        7970681,
+        7970816
+      ],
+      "output_span": [
+        7970718,
+        7970853
+      ],
+      "bytes": 135,
+      "sha256": "e461f95441ec77d2ee85084d16f32335ae18d79dd8bf183ac9356c276e67766a"
+    },
+    {
+      "input_span": [
+        7970820,
+        7980507
+      ],
+      "output_span": [
+        7970859,
+        7980546
+      ],
+      "bytes": 9687,
+      "sha256": "77ec55f896289a4e00709e2d3494268877c5915914afae3ebd503de57e1c376a"
+    },
+    {
+      "input_span": [
+        7980524,
+        7980659
+      ],
+      "output_span": [
+        7980558,
+        7980693
+      ],
+      "bytes": 135,
+      "sha256": "f9b460cb2cbbed0c9de27b87acde969cf550a3ff0123e7cb60593d5cb5feeece"
+    },
+    {
+      "input_span": [
+        7980659,
+        7980717
+      ],
+      "output_span": [
+        7980744,
+        7980802
+      ],
+      "bytes": 58,
+      "sha256": "1ca71734e0aef66dcbc51815c04eca3cab3cf20e4aacd16e13a2f496ed681450"
+    },
+    {
+      "input_span": [
+        7980717,
+        7980776
+      ],
+      "output_span": [
+        7980850,
+        7980909
+      ],
+      "bytes": 59,
+      "sha256": "9c634e5b9d2ae875e4388b32df269a3abb16c9731d2e9a51c5ec2304e99fed20"
+    },
+    {
+      "input_span": [
+        7980776,
+        7980835
+      ],
+      "output_span": [
+        7980960,
+        7981019
+      ],
+      "bytes": 59,
+      "sha256": "b0bbcec7d91727ffe6811ac6bc23da4eb9a3e783eb5bc7f7763ed793654236f1"
+    },
+    {
+      "input_span": [
+        7980835,
+        7981346
+      ],
+      "output_span": [
+        7981070,
+        7981581
+      ],
+      "bytes": 511,
+      "sha256": "3d58051caf60d469c1155857f6507249e49ab8a0c1f91f2daea334a306ef514f"
+    },
+    {
+      "input_span": [
+        7981356,
+        7985922
+      ],
+      "output_span": [
+        7981593,
+        7986159
+      ],
+      "bytes": 4566,
+      "sha256": "0aeee9dfc8c7236a7b2c7d328f61bbcc7a6b21fd2bd20735cff4dc697e3fa1c5"
+    },
+    {
+      "input_span": [
+        7985922,
+        13173065
+      ],
+      "output_span": [
+        7987017,
+        13174160
+      ],
+      "bytes": 5187143,
+      "sha256": "60602f302db51cb29f3455e86d53df7b41f7bcc2da70af5c3bc45a5a500d40c4"
+    }
+  ],
+  "guard_only": [
+    {
+      "purpose": "close control unchanged",
+      "scope": "html",
+      "span": [
+        7981421,
+        7981517
+      ],
+      "bytes": 96,
+      "sha256": "8d1c1e53db04f72f980b611a36c54805b1ab015952e1498cd9a686c888801402",
+      "source": "<ui-button class=\\\"close-quest-container-btn\\\" bg=\\\"basic_interface/btn_close.bmp\\\"></ui-button>"
+    },
+    {
+      "purpose": "close control unchanged",
+      "scope": "helper_html",
+      "span": [
+        7971282,
+        7971374
+      ],
+      "bytes": 92,
+      "sha256": "7dbacc6c311027924e56689281ba4b0a102ed1051a645f38cf3cb0756ede8580",
+      "source": "<ui-button class=\\\"quest-info-bottom-btn\\\" bg=\\\"basic_interface/btn_close.bmp\\\"></ui-button>"
+    },
+    {
+      "purpose": "original bitmap state selection unchanged",
+      "scope": "common",
+      "span": [
+        7952459,
+        7952490
+      ],
+      "bytes": 31,
+      "sha256": "f84ae322bf20d1083e107863d19d8fe7061925cb5c454ba96eff7517724327a6",
+      "source": "background_image = \"bg_quest1\";"
+    },
+    {
+      "purpose": "original bitmap state selection unchanged",
+      "scope": "common",
+      "span": [
+        7952039,
+        7952070
+      ],
+      "bytes": 31,
+      "sha256": "0ee0c56968a74e0ed13c4e58980ad92af1b6c6890028462dff19604674351d0f",
+      "source": "background_image = \"bg_quest2\";"
+    },
+    {
+      "purpose": "original bitmap state selection unchanged",
+      "scope": "common",
+      "span": [
+        7952181,
+        7952212
+      ],
+      "bytes": 31,
+      "sha256": "990a9e4ae0492e1b099ecfbb01b7160d7c5b17abb3dfe009ae96013d75d125c8",
+      "source": "background_image = \"bg_quest3\";"
+    },
+    {
+      "purpose": "original bitmap state selection unchanged",
+      "scope": "common",
+      "span": [
+        7952324,
+        7952355
+      ],
+      "bytes": 31,
+      "sha256": "481901a569d110109211f291c7ca84282b5f2ff1f48353a071c2fa62e1f4b45b",
+      "source": "background_image = \"bg_quest4\";"
+    }
+  ],
+  "inverse": {
+    "original_pin": "67525a4ec4b834ec02c5ff33b4ca55c119f1380fa131ea329aab880359144478",
+    "stable_order": "ordered fragments; tab/CSS insertions invert to deletions",
+    "old_new_spans": "input_span and output_span per edit",
+    "virtual_original_hash_verified": true,
+    "actual_roundtrip": "ROOT_VERIFIED_COMPLETE_BYTE_EQUALITY"
+  },
+  "limits": [
+    "No runtime/native fit or complete bitmap coverage claim",
+    "Original4state bitmap requests/handlers,close controls,liids/classes/order/listdestinations and all non23bytes remain unchanged",
+    "Mission actual compiled DB.getQuestInfo(questID).Title interpolation retained; quest_info local is not introduced",
+    "Profile is source data; actual providers implement the three frozen owned paths without executing stock JavaScript"
+  ],
+  "output": {
+    "bytes": 13174160,
+    "sha256": "9c148d9e43384a2498f9074efd1603b4eda1ff36dac53998985cfdf5eaf6fadf",
+    "method": "root independently constructed complete golden; exact actual inverse and syntax-only checks passed before provider launch"
+  },
+  "root_qualification": {
+    "golden_receipt_sha256": "111ccc5837c30694b286811c58f6a7f049be835076d42c74c929fb153eb43fc8",
+    "profile_verification_sha256": "2eaf77947550668c013980d05d5f84d311c2ffde70f44be5f1d237f10287b7dc",
+    "native_fit_or_behavior": "not_checked",
+    "shared_templates": "T01/T02 also affect QuestV1 hunt notifications; no claim all legacy text unchanged"
+  }
+}
