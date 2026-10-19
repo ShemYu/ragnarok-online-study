@@ -1,6 +1,6 @@
 # Supervision, plan and current position
 
-Date: **2026-10-19 JST**. Codex completed Navigation verification and cleanup.
+Date: **2026-10-19 JST**. Codex is checking the Quest window translation.
 Use this map for a short view of [Status](STATUS.md), [Tasks](TASKS.md) and
 [Phases](PHASES.md). Status gives the current next action.
 Update this map after each important change. Keep the dated evidence.
@@ -66,11 +66,12 @@ P1  PROVE A PLAYABLE CHINESE FOUNDATION
              |
              +-- T05.009 Navigation UI: ready for you
              +-- T05.010 Active quest sample: ready for you
+             +-- T05.011 Quest window: source and visual checks
 
 P2  DEFINE WHAT "ALL" COVERS
     T06 World/text inventory                                   [~]
         Early source-only inventory runs alongside P1.
-        Claude + Grok: raw text catalogs across all839selected NPC files.
+        Raw text catalog: ready. Native story coverage stays open.
      -> T07 Episode/content contract, gaps and full estimate     [ ]
              |
 P3  COMPLETE THE AGREED CONTENT AND LANGUAGE
@@ -90,7 +91,25 @@ T04-T06 are active. The other seven main tasks remain planned.
 We exclude child tasks from this count. The figure does not measure time, translation or playable content.
 We need the content list and gap list before we can give a reliable full cost or delivery date.
 
-## Latest completed task: T05.009 Navigation
+## Current task: T05.011 Quest window
+
+```text
+Fixed inputs and independent expected output                    [V]
+Claude source: checked; one error-message fix needed              [~]
+Grok source: same attempt still working                          [~]
+Compare both -> select -> fix -> integrate                       [ ]
+Separate browser: four tabs, text fit and original handlers      [V]
+Install -> check actual quest -> save and cold restart           [ ]
+Quest-only rollback -> reapply -> clean test files               [ ]
+Task ready for your evaluation                                  [ ]
+```
+
+The separate browser uses sample data and exact source fragments.
+It does not change your game or prove that the installed window works.
+The game still uses the earlier Chinese Navigation version.
+See the [Quest checks](reviews/2026-10-19-T05.011.md).
+
+## Completed task: T05.009 Navigation
 
 ```text
 Same-base Claude/Grok implementations -> Codex selection        [V]
@@ -126,7 +145,10 @@ Its archive, saved rows and unchanged game runtime pass.
 The current server supplies the Taiwan quest table. Its English table URL is 404.
 Actual7472text is verified. English quest headers and mixed story text remain.
 
-The quest-sample save SHA starts with772e9530. Latest backup/relogin save c29c4307 has the same tables. The Navigation final receipt starts with 7db72312.
+The quest-sample save SHA starts with772e9530. Backup/relogin save c29c4307
+has the same tables. The latest artwork-check save starts with13635cb9;
+only the login time changes. All earned progress stays the same.
+The Navigation final receipt starts with7db72312.
 See the full results, rollback limits and private resume paths in
 the [delivery record](reviews/2026-10-19-T05.009-delivery.md#final-owned-cleanup-and-ordinary-page-handoff-qualified).
 We must still test actual macOS input method editor (IME) composition and candidate selection.
