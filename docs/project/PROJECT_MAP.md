@@ -126,7 +126,12 @@ The combined evidence now has 1,214 header chains and 82 unresolved gaps.
 The first run stays unchanged at 1,213 chains and 83 gaps.
 The corrected runner now observes all 2,761 unique core-file jobs.
 All constructors return. Their summaries match both raw candidates.
-The final run takes about 2 minutes 47 seconds and samples about 526 MB of RAM.
+The final constructor run takes about 2 minutes 47 seconds and samples about 526 MB of RAM.
+Claude has submitted the next catalog tool. Grok is still working.
+Codex passes its 12 tests and checks the complete catalog against the reference.
+All 1,296 roots, 2,761 jobs and 11,134 request paths match.
+A file-checking error needs repair before tool acceptance.
+The paired review and integration are not complete.
 Six world files and two collision files have NaN values. Check them further.
 Twelve ground files have unread tails. Their meaning is not yet known.
 Older ground files omit water as the client code specifies.
