@@ -67,7 +67,7 @@ P1  PROVE A PLAYABLE CHINESE FOUNDATION
              +-- T05.009 Navigation UI: ready for you
              +-- T05.010 Active quest sample: ready for you
              +-- T05.011 Quest window: ready for you
-             +-- T05.012 One mixed story line: source pair next
+             +-- T05.012 One mixed story line: source pair running
              +-- Next: actual Chinese IME checks
 
 P2  DEFINE WHAT "ALL" COVERS
