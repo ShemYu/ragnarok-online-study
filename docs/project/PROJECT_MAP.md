@@ -1,6 +1,6 @@
 # Supervision, plan and current position
 
-Date: **2026-10-19 JST**. Functionality comes first. The all-map scan and capped-file follow-up are checked.
+Date: **2026-10-19 JST**. Functionality comes first. The map scan, capped-file follow-up and core-file constructor checks are complete.
 Use this map for a short view of [Status](STATUS.md), [Tasks](TASKS.md) and
 [Phases](PHASES.md). Status gives the current next action.
 Update this map after each important change. Keep the dated evidence.
@@ -107,7 +107,12 @@ Check every saved response, map record and reader cleanup         [V]
 Record 1,213 header chains and 83 resource gaps                    [V]
 Diagnose the 82 failed requests from retained filename data      [V]
 Observe the larger file with a new limit; preserve the first run  [V]
-Check full map parsing, art, rendering and play                   [ ] <-- NEXT
+Compare actual Claude and Grok constructor runners               [V]
+Repair the runner; pass 27 tests and all 26 fixture cases          [V]
+Check all 2,761 core-file jobs and all worker exits                [V]
+Check model and texture coverage                                 [ ] <-- NEXT
+Investigate eight files with NaN values and twelve unread tails   [ ]
+Check compilation, rendering, travel and play                     [ ]
 Find compatible assets for the 82 unresolved requests             [ ]
 ```
 
@@ -118,10 +123,16 @@ The separate follow-up reads the complete 21.4 MB ground file.
 Codex checks its data, prior context, input files and reader cleanup.
 The combined evidence now has 1,214 header chains and 82 unresolved gaps.
 The first run stays unchanged at 1,213 chains and 83 gaps.
-A header chain does not prove that a map loads or plays correctly.
+The corrected runner now observes all 2,761 unique core-file jobs.
+All constructors return. Their summaries match both raw candidates.
+The final run takes about 2 minutes 47 seconds and samples about 526 MB of RAM.
+Six world files and two collision files have NaN values. Check them further.
+Twelve ground files have unread tails. Their meaning is not yet known.
+Older ground files omit water as the client code specifies.
+These results do not prove that a map renders or plays correctly.
 The scan took about 5.5 minutes. It kept about 4.85 GiB of response data.
 No purchase or goal change is needed for this check. The full cost is still unknown.
-See the [map scan](reviews/2026-10-19-T06.003.003.001.md#independent-corpus-audit-and-bounded-readiness) and [qualified follow-up](reviews/2026-10-19-T06.003.003.002.md#actual-targeted-observation-and-independent-root-qualification).
+See the [map scan](reviews/2026-10-19-T06.003.003.001.md#independent-corpus-audit-and-bounded-readiness), [qualified follow-up](reviews/2026-10-19-T06.003.003.002.md#actual-targeted-observation-and-independent-root-qualification) and [final constructor checks](reviews/2026-10-19-T06.003.003.003.md#final-integrated-qualification-and-bounded-readiness).
 
 ## Completed task: T05.012 one mixed story sentence
 
