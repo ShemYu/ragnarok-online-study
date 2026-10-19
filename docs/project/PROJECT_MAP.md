@@ -1,56 +1,58 @@
 # Supervision, plan and current position
 
-Snapshot: **2026-10-19 JST**, after the personally verified English Navigation
-rollback. This is a short index of [Status](STATUS.md), [Tasks](TASKS.md),
-[Phases](PHASES.md) and their linked evidence. It is not a new completion claim.
-Update this map when the current gate changes; preserve dated evidence below.
+Date: **2026-10-19 JST**. Codex verified the English Navigation rollback.
+Use this map for a short view of [Status](STATUS.md), [Tasks](TASKS.md) and
+[Phases](PHASES.md). Status gives the current next action.
+Update this map after each important change. Keep the dated evidence.
 
-Format: plain ASCII diagrams. The requested **AES-STD100** definition/example
-has not been supplied or identified in project records. Its interpretation is
-pending the user's reply; no compliance with that named standard is claimed.
+Language: short English sentences and consistent terms, using
+[ASD-STE100 writing principles](https://www.asd-ste100.org/STE_faq.html).
+The user requested this style for the progress map only.
+This is a simple overview, not a formal standard-conformity review.
 
 ## Goal and supervision
 
-Goal: personally playable Mac-local Modern/Renewal RO, with maps, monsters,
-story/quests, Traditional Chinese UI/text and persistent solo progress. The
-finite episode/content denominator and party-only solo policy remain open.
-The current approach integrates an existing RO-compatible stack; a new-engine
-rewrite remains deferred research.
+Goal: play Modern/Renewal Ragnarok Online (RO) alone on this Mac.
+The goal includes all maps, monsters and story in the agreed content version.
+The game must save progress and use Traditional Chinese text and user interface (UI).
+We must still agree on the exact episode and rules for content that requires a party.
+We use an existing RO-compatible client and server. A new game engine remains a later research option.
 
 ```text
-YOU: goal, scope decisions, final experience evaluation
+YOU: define the goal and scope. Evaluate the result.
  |
  v
-CODEX: supervisor / sole owner of shared game and database actions
+CODEX: supervise all work. Control the shared game and database.
  |
- +-- Freeze one task: same inputs, base commit, scope and checks
+ +-- Define one task: same inputs, base commit, scope and tests
  |       |
- |       +--> CLAUDE: independent candidate, isolated branch/worktree
- |       +--> GROK:   independent candidate, isolated branch/worktree
- |                    (plan-only where shared state prevents isolation)
+ |       +--> CLAUDE: separate candidate, branch and worktree
+ |       +--> GROK:   separate candidate, branch and worktree
+ |                    (compare plans if shared state prevents separate tests)
  |
- +-- Read both -> personally verify -> compare and select
+ +-- Read both -> personally verify both -> compare and select
  |                                  |
- |                    failure ------+--> fix/retest, retain evidence
+ |                    failure ------+--> repair, test again, keep evidence
  |
- +-- Integrate -> verify again -> document -> Git checkpoint
+ +-- Integrate -> test again -> document -> Git commit
  |
- +-- User evaluation -> accepted OR a new issue task
+ +-- Your evaluation -> accept the result OR record a new issue
 
-Critical goal-changing issue -> notify you -> decision before scope change
+Critical issue that can change the goal -> tell you -> wait for your decision
 ```
 
-The actual Claude/Grok comparison is distinct from internal verification
-helpers. Codex remains responsible for verification; a worker's PASS is not
-user acceptance. Work stays on the coordination/task branches, with no push or
-default-branch merge. Git recovers source; private app/save backups recover
-external state. Never restore an old save over newer earned progress.
+Codex compares actual Claude and Grok results.
+Internal assistants help with preparation and verification. They do not replace the Claude/Grok comparison.
+Codex must verify each result before your evaluation. A worker cannot accept a task for you.
+We use task branches and the coordination branch. We do not push or merge into the default branch.
+Git can recover source files. Separate backups can recover the installed game and saved progress.
+Do not replace newer progress with an older save.
 
 ## Full plan and where we are
 
 ```text
-Legend: [A] user accepted   [V] root verified / ready for user
-        [~] active/partial [ ] planned; not yet qualified
+Legend: [A] you accepted   [V] Codex verified. Ready for you.
+        [~] active        [ ] planned. Tests not complete.
 
 P0  DEFINE THE PROJECT
     T00 Goal, documentation, supervision and Git controls        [A]
@@ -80,16 +82,16 @@ P4  QUALIFY AND HAND OVER
      -> T13 Reproducible play guide and your acceptance          [ ]
 ```
 
-Top-level checkpoint accounting: **4/14 = 28.6%, approximately29%** are accepted
-or ready_for_user: T00 plus T01-T03. T04-T06 are active; seven later parents are
-planned. Child tasks are excluded to avoid double counting. This is **not** an
-engineering-effort, translation, story or playable-world percentage. No full
-delivery date or cost is established while the denominator/gaps remain open.
+Four of the 14 main tasks are accepted or ready for you: T00 and T01-T03.
+This gives **4/14 = 28.6%, approximately 29%**, when we count main tasks equally.
+T04-T06 are active. The other seven main tasks remain planned.
+We exclude child tasks from this count. The figure does not measure time, translation or playable content.
+We need the content list and gap list before we can give a reliable full cost or delivery date.
 
 ## Current task: T05.009 Navigation
 
 ```text
-Same-base Claude/Grok implementations -> root selection          [V]
+Same-base Claude/Grok implementations -> Codex selection        [V]
 Integrated source and exact inverse                              [V]
 Detached real-browser controls                                   [V]
 Fresh full backup and newest-save preservation                    [V]
@@ -99,22 +101,25 @@ Normal logout/re-entry and saved progress                          [V]
 Same-Chinese full cold restart                                    [V]
 English rollback: native UI/data/save checks                       [V] <-- DONE
 Chinese reapply                                                   [ ] <-- NEXT
-Remove two temporary entries; normal game-page/save checks         [ ]
+Remove two temporary entries. Test normal game page and save.     [ ]
 Task ready for your evaluation                                    [ ]
 ```
 
-Current runtime is deliberately the **English Navigation rollback control**,
-app86629/asset86948, Ready and logged out at character selection. Chinese
-navigation data and existing NPC/item/story overlays remain ON. Earned progress
-is unchanged; test logins changed only last_login. Next root action is Chinese
-reapply, then cleanup and the ordinary api.html handoff. This temporary English
-stage is not a change to the Traditional Chinese goal.
+The game now uses the **English Navigation rollback control**.
+The app process is 86629. Its asset process is 86948. The server reports Ready.
+The game is at character selection. All six Chinese navigation aliases remain ON.
+The earlier Chinese NPC, item and story overlays also remain ON.
+The tests changed only last_login. All earned progress remains the same.
+Next, Codex will apply the Chinese version again and remove the two temporary test pages.
+Codex will then test the normal api.html game page and saved progress.
+The Traditional Chinese goal remains the same.
 
-Latest newest-save receipt SHA begins1b5639f0; root rollback qualification begins
-9805763c. Full details, rollback limits and exact private resume paths are in
+The latest save receipt SHA starts with 1b5639f0. The rollback receipt SHA starts with 9805763c.
+See the full results, rollback limits and private resume paths in
 the [delivery record](reviews/2026-10-19-T05.009-delivery.md#english-bundle-rollback-qualified).
-Native keyboard/IME, full UI/story/world/solo and full host/browser offline
-qualification remain open. The Mac's internet remains ON by user instruction.
+We must still test actual macOS input method editor (IME) composition and candidate selection.
+Full UI, story, world, solo and offline tests remain open.
+The Mac's internet remains ON, as you instructed.
 
 ## Verification history
 
@@ -130,14 +135,14 @@ qualification remain open. The Mac's internet remains ON by user instruction.
 | 2026-10-19,4af13c2 | Chinese installed; correct native integrity loads, opposite pin refuses | [Installed proof](reviews/2026-10-19-T05.009-delivery.md#chinese-installed-and-native-execution-qualified) |
 | 2026-10-19,3bde669 | Live Chinese UI and normal logout/re-entry preserve earned state | [Live proof](reviews/2026-10-19-T05.009-delivery.md#live-chinese-ui-normal-logout-and-re-entry-qualified) |
 | 2026-10-19,77615ab | Full same-Chinese cold restart preserves UI/data/save | [Cold proof](reviews/2026-10-19-T05.009-delivery.md#same-chinese-cold-relaunch-qualified) |
-| This documentation checkpoint | English rollback/native reverse refusal/live data/save pass; Chinese reapply pending | [Rollback proof](reviews/2026-10-19-T05.009-delivery.md#english-bundle-rollback-qualified) |
+| 2026-10-19,c04be3c | English rollback, reverse integrity refusal, live data and save tests pass; first ASCII map saved | [Rollback proof](reviews/2026-10-19-T05.009-delivery.md#english-bundle-rollback-qualified) |
+| Current documentation change | User corrected the standard name to ASD-STE100; map language simplified; game state unchanged | This map and Git history |
 
-Independent T06 source-inventory children are also verified, including archive
-tables, ordered source selection, map-index/cache reconciliation, YAML and
-bounded monster/spawn/reference catalogs. These are inventories/tools, not
-proof that all corresponding maps, monsters or story chains are playable.
+Codex also verified several T06 tools for source inventories.
+They cover archive tables, source order, map records, YAML, monsters, spawns and references within their stated limits.
+These tools do not prove that all maps, monsters or story chains work in the game.
 
-## Claude/Grok profile: observed results, not a blanket ranking
+## Claude and Grok: observed task results
 
 | Task and comparison type | Claude | Grok | What this supports |
 | --- | ---: | ---: | --- |
@@ -147,32 +152,26 @@ proof that all corresponding maps, monsters or story chains are playable.
 | T05.009 actual fixed-source transform | 19/20 | 18/20 | Both exact outputs/common178checks pass; Claude selected for stronger tests/simpler implementation |
 | T06 declared-reference actual implementation | 16/20 | 13/20 | Claude selected; root still corrected and independently verified the integration |
 
-Grok has useful evidence on source analysis/planning and work with exact
-mechanical contracts. Claude has supplied stronger implementations/tests in
-several recent tasks. These few heterogeneous comparisons do not establish a
-general model winner, speed or cost advantage. Exact underlying model versions,
-API tokens and billing were not observed.
+Grok scored higher on several source analysis and plan tasks.
+Claude supplied stronger implementations and tests in several recent tasks.
+The tasks differ. These results do not establish a general winner or a speed or cost advantage.
+We did not observe exact model versions, API tokens or billing.
 
-Fresh Orca read at2026-10-19T00:06:24Z lists55recorded worker rows:53released,
-two older user-retained;54succeeded and one historical failed/released attempt.
-The two retained contexts' current liveness is unverifiable, so no stopped/live
-claim is inferred for them. The current Navigation pair is settled/released;
-Codex owns the present serial game verification. No new comparison wave is
-launched by this overview. Private fleet receipt SHA begins3410ccca.
+At 2026-10-19T00:06:24Z, Orca listed 55 worker records: 53 released and two older user-retained records.
+It listed 54 successful records and one earlier failed attempt. The failed attempt is released.
+We could not verify whether the two retained worker contexts were still active.
+Both Navigation workers are complete and released. Codex controls the current serial game tests.
+This map did not start new workers. The private fleet receipt SHA starts with 3410ccca.
 
 ## Remaining decisions and phase gates
 
-- P1: finish current reapply/cleanup plus the remaining active-quest/input/UI
-  samples and documented offline/rendering boundaries. You can already try
-  provisional ordinary play; this does not close P1 or the full milestone.
-- P2: identify the finite Renewal episode/content list and enumerate actual
-  language/gameplay gaps. Data presence is separate from effective runtime and
-  normal solo completion. This supplies the defensible remaining estimate.
-- P3: repair/localize per gap and apply only approved solo-rule changes.
-- P4: verify every required coverage entry, rehearse recovery/unassisted setup
-  and give you the final experience evaluation. Only your explicit evaluation
-  changes ready_for_user to accepted.
+- P1: finish Chinese reapply and cleanup. Then finish the active-quest, input and UI samples.
+  Record the offline and display limits. You can already try basic play, but the phase remains open.
+- P2: agree on the exact Renewal content version. List the language and gameplay gaps.
+  Confirm game behavior separately from source data. Use the gap list to estimate the remaining work.
+- P3: repair each agreed gap. Apply only the solo-rule changes that you approve.
+- P4: test every required content entry. Rehearse setup and recovery. Then give you the game for final evaluation.
+  A task changes from ready_for_user to accepted only after you explicitly accept it.
 
-AES-STD100 formatting remains pending its definition. The episode/content target
-and companion/rule policy remain the earlier open scope questions; none is
-silently assumed by this map.
+The episode target and rules for party-only content remain open decisions.
+This map does not choose them for you.
