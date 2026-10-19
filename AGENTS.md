@@ -3,6 +3,7 @@
 ## Read first
 
 1. [Current status](docs/project/STATUS.md): active task, evidence, blockers and next action.
+   Use the [ASCII project map](docs/project/PROJECT_MAP.md) for the short supervision/history overview; Status remains authoritative for the live next action.
 2. [Goal and feasibility](docs/project/GOAL.md): current user decisions and unresolved scope.
 3. Your assigned row in [Tasks](docs/project/TASKS.md), its phase in [Phases](docs/project/PHASES.md), and [Workflow](docs/project/WORKFLOW.md).
 4. Confirm `git status --short`, branch and HEAD before working. Stop and report an unexpected branch or another worker's edits; do not overwrite them.
