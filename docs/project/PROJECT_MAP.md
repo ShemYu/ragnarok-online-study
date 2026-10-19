@@ -103,7 +103,8 @@ Install and browser integrity positive/refusal checks            [V]
 Actual quest tabs, controls, save and normal re-entry             [V]
 Same-ON cold restart                                             [V]
 Quest-only rollback                                              [V]
-Chinese Quest reapply -> clean test files                         [ ]
+Chinese Quest reapply                                            [V]
+Remove test files -> check normal game page                      [ ]
 Task ready for your evaluation                                  [ ]
 ```
 
@@ -112,7 +113,8 @@ It does not change your game or prove that the installed window works.
 The first Quest build is installed. Chinese Navigation stays enabled.
 The browser loads the correct file and refuses the opposite file pin.
 Actual Chinese quest tabs, controls and save/re-entry now pass.
-Cold restart and Quest-only rollback pass. Chinese reapply comes next.
+Cold restart, Quest-only rollback and Chinese reapply pass.
+Test-file cleanup and the normal game page come next.
 See the [Quest checks](reviews/2026-10-19-T05.011.md).
 
 ## Completed task: T05.009 Navigation
@@ -132,8 +134,8 @@ Remove two temporary entries. Test normal game page and save.     [V]
 Task ready for your evaluation                                    [V] <-- DONE
 ```
 
-Chinese Navigation stays ON. Quest UI is temporarily OFF for rollback.
-The app process is13316. Its asset process is13690. The server is Ready.
+Chinese Navigation and Quest UI are ON again.
+The app process is15628. Its asset process is15987. The server is Ready.
 You cleared the control question. Codex walked normally to Carocc.
 The latest save is Izlude197,212with active quest7472.
 Its Chinese title, summary and full details pass save/re-entry checks.
@@ -159,6 +161,7 @@ The first installed-build savef7a2abc1has the same six complete tables.
 Native checks preserve all earned state; latest save starts with5a7ba7cf.
 Cold restart also passes; its latest save starts with4636b754.
 Quest-only rollback passes; the latest save starts with5ff96440.
+Chinese Quest reapply passes; the latest save starts with0c9ad259.
 The Navigation final receipt starts with7db72312.
 See the full results, rollback limits and private resume paths in
 the [delivery record](reviews/2026-10-19-T05.009-delivery.md#final-owned-cleanup-and-ordinary-page-handoff-qualified).
