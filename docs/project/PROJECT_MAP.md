@@ -65,7 +65,7 @@ P1  PROVE A PLAYABLE CHINESE FOUNDATION
      -> T05 Chinese UI, dialogue, active quest and input pilot   [~] <-- NOW
              |
              +-- T05.009 Navigation UI: ready for you
-             +-- T05.010 Active quest sample: plans in progress
+             +-- T05.010 Active quest sample: normal play check next
 
 P2  DEFINE WHAT "ALL" COVERS
     T06 World/text inventory                                   [~]
@@ -113,7 +113,7 @@ The earlier Chinese NPC, item and story overlays also remain ON.
 The tests changed only last_login. All earned progress remains the same.
 Both temporary test pages are gone. The normal game page and saved progress pass.
 The Active quest tab is empty. The save contains only two completed quests.
-T05.010: Claude has submitted a plan. Grok is still working at the last check.
+T05.010: both plans are checked. Codex selected a corrected Grok procedure.
 Codex has verified fresh backup M. No story quest has been accepted yet.
 The current server supplies the Taiwan quest table. Its English table URL is 404.
 Actual active-quest text still needs a normal game check.
@@ -146,7 +146,8 @@ The Mac's internet remains ON, as you instructed.
 | 2026-10-19,4f815df | Ordinary Active tab is empty; earned progress unchanged; normal story sample still needed | [Quest finding](reviews/2026-10-19-T05-active-quest-preparation.md#ordinary-active-tab-precondition-inspection) |
 | 2026-10-19,d9ece6c | T05.010 plan comparison defined; current Taiwan quest table and literal7472 source verified | [Next task](reviews/2026-10-19-T05.010.md) |
 | 2026-10-19,21b967f | Actual Claude/Grok plan workers started from the same frozen inputs | [Pair](reviews/2026-10-19-T05.010.md#actual-independent-pair-launched) |
-| Current checkpoint | Fresh full M backup verified; Claude plan preserved/released; Grok still under review | [Backup and pair](reviews/2026-10-19-T05.010.md#independent-fresh-full-m-backup-qualified) |
+| 2026-10-19,26470e3 | Fresh full M backup verified and newest saved tables unchanged | [Backup](reviews/2026-10-19-T05.010.md#independent-fresh-full-m-backup-qualified) |
+| Current checkpoint | Both plans checked18/20; corrected Grok procedure selected; normal story check next | [Comparison](reviews/2026-10-19-T05.010.md#both-plans-settled-and-source-comparison-complete) |
 
 Codex also verified several T06 tools for source inventories.
 They cover archive tables, source order, map records, YAML, monsters, spawns and references within their stated limits.
@@ -174,7 +175,8 @@ Both Navigation workers are complete and released. Codex controls the current se
 That earlier fleet receipt SHA starts with 3410ccca.
 The newer T05.010 wave adds two actual plan workers. The startup fleet has 57 records.
 Both workers were live at startup. Claude has since finished and been released.
-Grok was live at the last direct check. The final plan comparison remains pending.
+Both plan workers are now complete and released. No reclaimable worker remains.
+Both scored18/20. The corrected procedure needs a normal game check.
 
 ## Remaining decisions and phase gates
 
