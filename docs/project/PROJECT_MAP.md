@@ -1,6 +1,6 @@
 # Supervision, plan and current position
 
-Date: **2026-10-19 JST**. Codex is checking one mixed story sentence.
+Date: **2026-10-19 JST**. Codex verified one mixed story sentence. Actual Chinese input checks are next.
 Use this map for a short view of [Status](STATUS.md), [Tasks](TASKS.md) and
 [Phases](PHASES.md). Status gives the current next action.
 Update this map after each important change. Keep the dated evidence.
@@ -67,7 +67,7 @@ P1  PROVE A PLAYABLE CHINESE FOUNDATION
              +-- T05.009 Navigation UI: ready for you
              +-- T05.010 Active quest sample: ready for you
              +-- T05.011 Quest window: ready for you
-             +-- T05.012 One mixed story line: source pair checked
+             +-- T05.012 One mixed story line: ready for you
              +-- Next: actual Chinese IME checks
 
 P2  DEFINE WHAT "ALL" COVERS
@@ -105,15 +105,17 @@ Check save and normal re-entry                                   [V]
 Check full-app cold start                                        [V]
 Test old-pilot rollback                                          [V]
 Reapply the new pilot                                            [V]
-Final checks -> commit -> leave the game running                   [ ] <-- NOW
+Final checks and game-running handoff                            [V]
+Task ready for your evaluation                                  [V] <-- DONE
 ```
 
 The real six-page dialogue and save/re-entry pass.
 Cold start, old-pilot rollback and Chinese reapply pass.
-Final checks and the game-running handoff are next.
+Final checks pass. The normal game is left running.
+Next: actual Chinese IME capability checks.
 See the [story repair checks](reviews/2026-10-19-T05.012.md).
 
-## Latest completed task: T05.011 Quest window
+## Completed task: T05.011 Quest window
 
 ```text
 Fixed inputs and independent expected output                    [V]
@@ -137,8 +139,8 @@ The browser loads the correct file and refuses the opposite file pin.
 Actual Chinese quest tabs, controls and save/re-entry now pass.
 Cold restart, Quest-only rollback and Chinese reapply pass.
 Test files are gone. The normal game page and saved progress pass.
-The Quest delivery passed. A new story baseline is now verified.
-The normal page is at selection after that dialogue check.
+The Quest delivery passed. The later story repair also passes.
+The normal page is now running after the T05.012 handoff.
 See the [Quest checks](reviews/2026-10-19-T05.011.md).
 
 ## Completed task: T05.009 Navigation
@@ -158,38 +160,22 @@ Remove two temporary entries. Test normal game page and save.     [V]
 Task ready for your evaluation                                    [V] <-- DONE
 ```
 
-Chinese Navigation and Quest UI are ON again.
-The app process is15628. Its asset process is15987. The server is Ready.
-You cleared the control question. Codex walked normally to Carocc.
-The latest save is Izlude197,212with active quest7472.
-Its Chinese title, summary and full details pass save/re-entry checks.
-The normal game page is running. All six aliases remain ON.
-Both source catalogs match the independent raw-byte check.
-Codex fixed the selected Claude tool. All36tests pass.
-The raw source catalog is ready for inspection. Story coverage stays open.
-The earlier Chinese NPC, item and story overlays also remain ON.
-Navigation tests changed only last_login and preserved all earned progress.
-Both temporary test pages are gone. The normal game page and saved progress pass.
-The Active tab now has7472. Two earlier quests remain completed.
-T05.010: both plans are checked. Codex selected a corrected Grok procedure.
-Codex started7472through normal play. Fresh full backup N includes it.
-Its archive, saved rows and unchanged game runtime pass.
-The current server supplies the Taiwan quest table. Its English table URL is 404.
-The new Quest window passes actual tabs, controls and normal save/re-entry.
-Mixed story text remains open.
+Chinese Navigation, Quest and prior overlays are ON. Pilot0.2 is ON.
+The current app process is58655. Its asset process is67357. The server is Ready.
+The game is running at Izlude197,212with Chinese Quest open and active7472.
+The latest verified logged-out save starts withff3ec892. It precedes the live handoff.
+All earned fields survive the story repair, restart, rollback and reapply.
+Only the normal login time changes between qualified story checks.
+No database check is claimed while the game is live.
+All six aliases, protected files and three clean runtime manifests pass.
+Fresh full backup O includes the earned progress and old pilot. Older backups remain intact.
 
-The quest-sample save SHA starts with772e9530. Backup/relogin save c29c4307
-has the same tables. The latest artwork-check save starts with13635cb9;
-only the login time changes. All earned progress stays the same.
-The first installed-build savef7a2abc1has the same six complete tables.
-Native checks preserve all earned state; latest save starts with5a7ba7cf.
-Cold restart also passes; its latest save starts with4636b754.
-Quest-only rollback passes; the latest save starts with5ff96440.
-Chinese Quest reapply passes; the latest save starts with0c9ad259.
-Normal-page save 6194b3fe also passes; only last_login changes.
-The Navigation final receipt starts with7db72312.
-See the full results, rollback limits and private resume paths in
-the [delivery record](reviews/2026-10-19-T05.009-delivery.md#final-owned-cleanup-and-ordinary-page-handoff-qualified).
+Earlier Navigation, quest-grant and Quest-window checkpoints remain historical evidence.
+Their process IDs and save hashes are not the current runtime or latest save.
+See the [Navigation delivery](reviews/2026-10-19-T05.009-delivery.md#final-owned-cleanup-and-ordinary-page-handoff-qualified),
+[active quest](reviews/2026-10-19-T05.010.md#ordinary-active7472sample-and-persistence-qualified),
+[Quest window](reviews/2026-10-19-T05.011.md#final-cleanup-and-ordinary-page-qualified) and
+[current story handoff](reviews/2026-10-19-T05.012.md#final-handoff-and-readiness).
 We must still test actual macOS input method editor (IME) composition and candidate selection.
 Full UI, story, world, solo and offline tests remain open.
 The Mac's internet remains ON, as you instructed.
@@ -217,7 +203,7 @@ The Mac's internet remains ON, as you instructed.
 | 2026-10-19,21b967f | Actual Claude/Grok plan workers started from the same frozen inputs | [Pair](reviews/2026-10-19-T05.010.md#actual-independent-pair-launched) |
 | 2026-10-19,26470e3 | Fresh full M backup verified and newest saved tables unchanged | [Backup](reviews/2026-10-19-T05.010.md#independent-fresh-full-m-backup-qualified) |
 | 2026-10-19,9915079 | Both plans checked18/20; corrected Grok procedure selected | [Comparison](reviews/2026-10-19-T05.010.md#both-plans-settled-and-source-comparison-complete) |
-| Current checkpoint | Normal7472Chinese Active/full text/save/re-entry verified; ready for you | [Quest proof](reviews/2026-10-19-T05.010.md#ordinary-active7472sample-and-persistence-qualified) |
+| T05.010 checkpoint | Normal7472Chinese Active/full text/save/re-entry verified; ready for you | [Quest proof](reviews/2026-10-19-T05.010.md#ordinary-active7472sample-and-persistence-qualified) |
 
 Codex also verified several T06 tools for source inventories.
 They cover archive tables, source order, map records, YAML, monsters, spawns and references within their stated limits.
@@ -231,7 +217,7 @@ These tools do not prove that all maps, monsters or story chains work in the gam
 | T03 installation plans | 14/20 | 17/20 | Grok supplied the stronger plan; root executed the install |
 | T04.005 fog diagnosis/design | 14/20 | 17/20 | Grok's diagnosis scored higher; permanent repair remains open |
 | T05.009 actual fixed-source transform | 19/20 | 18/20 | Both exact outputs/common178checks pass; Claude selected for stronger tests/simpler implementation |
-| T05.012 one mixed story sentence | 18/20 | 18/20 | Both exact source results pass; Claude selected in tie; installation checks are next |
+| T05.012 one mixed story sentence | 18/20 | 18/20 | Both exact source results pass; Claude selected in tie; native/save/cold/rollback/reapply and handoff pass |
 | T06 declared-reference actual implementation | 16/20 | 13/20 | Claude selected; root still corrected and independently verified the integration |
 
 Grok scored higher on several source analysis and plan tasks.

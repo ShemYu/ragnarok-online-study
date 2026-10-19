@@ -4,7 +4,7 @@
 pinned rAthena `academy.txt` packaged with Ragnarok Offline v1.6.3. Captain
 Carocc in Izlude then greets a new Novice in Traditional Chinese, and one
 sentence of his active-7472 revisit is Chinese too. Python 3 standard library
-only. Nothing is installed and no game state is touched.
+only. The generator does not install files or change game state.
 
 ```sh
 umask 077
@@ -147,16 +147,19 @@ with the same name. A same-name update uses supported **Remove → Add**:
    and repeat the same checks; then reapply0.2.0. Disabling the whole pilot
    also removes its original eight translations, so it is not this rollback.
 
-This procedure is still a delivery plan until root records actual completion.
-Source conservation does not itself prove unchanged saved state or successful
-loading. Do not restore an older save to undo a text-only update, edit stock
-scripts, or copy files directly into the map container.
+Root completed this bounded 0.2.0 delivery, including actual dialogue, save/
+re-entry, full-app restart and old-pilot rollback/reapply; see the
+[qualified delivery record](../../docs/project/reviews/2026-10-19-T05.012.md#final-handoff-and-readiness).
+Source conservation alone does not prove unchanged saved state or successful
+loading. Future updates need fresh admission checks. Do not restore an older
+save to undo a text-only update, edit stock scripts, or copy files directly
+into the map container.
 
-Source rollback is a revert of the T05.012 commit, which restores the 0.1.0
+Source rollback is a revert of integration commit `125fdba`, which restores the 0.1.0
 generator and tests; regenerating then gives the 0.1.0 output. Git does not
-restore an installed mod, saves or the app database. Replacing an installed
-0.1.0 pilot with 0.2.0 (or back) is a later root-only step that needs its own
-tested external-state backup and save/re-entry checks.
+restore an installed mod, saves or the app database. Future installed pilot
+updates remain root-only steps with fresh external-state backup admission
+and save/re-entry checks. Resolve any later source conflicts before a revert.
 
 ## Limits
 
