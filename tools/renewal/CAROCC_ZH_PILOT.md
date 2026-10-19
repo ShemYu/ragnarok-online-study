@@ -124,10 +124,33 @@ Only use output after exit 0 and after checking the manifest hashes.
 
 ## Installing and removing (root only)
 
-Not done by this tool. Copy `tw-carocc-pilot/` into the supported mods
-directory, restart, and check the load log. Turning the mod off and restarting
-removes the clone and the controller, so the stock English Captain Carocc#iz
-is back. No SQL, quest or save change is involved.
+Not done by this tool. The app's folder installer refuses an existing mod
+with the same name. A same-name update uses supported **Remove → Add**:
+
+1. Qualify the fresh generated output and independently preserve the old
+   `tw-carocc-pilot` folder, including its script and `mod.json`. Normally
+   logout/save, verify the newest earned state and a fresh full backup, then
+   use General → Stop.
+2. Settings → Mods → Installed: remove only `tw-carocc-pilot`. Removal moves
+   its folder to Trash and forgets its choices; keep the independent old copy.
+   Add the qualified output's inner folder named exactly `tw-carocc-pilot`.
+   Headless Settings accepts its unquoted absolute host path in the browser
+   file prompt. Choosing it installs and enables the mod.
+3. Confirm the intended version and all four existing mods remain enabled.
+   Use the qualified Apply & restart server → General Stop → General Start
+   sequence, which rebuilds registration and relinks/stages assets. Verify the
+   installed/generated script, container bind view, registration, readiness
+   and actual six-page dialogue/link. Preserve the Quest/Navigation bundle,
+   aliases, other overlays and newest earned progress throughout.
+4. Verify normal save/re-entry, a cold start and bounded rollback/reapply.
+   To roll only this change back, Remove/Add the preserved **0.1.0** folder
+   and repeat the same checks; then reapply0.2.0. Disabling the whole pilot
+   also removes its original eight translations, so it is not this rollback.
+
+This procedure is still a delivery plan until root records actual completion.
+Source conservation does not itself prove unchanged saved state or successful
+loading. Do not restore an older save to undo a text-only update, edit stock
+scripts, or copy files directly into the map container.
 
 Source rollback is a revert of the T05.012 commit, which restores the 0.1.0
 generator and tests; regenerating then gives the 0.1.0 output. Git does not
