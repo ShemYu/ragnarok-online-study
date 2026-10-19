@@ -65,7 +65,7 @@ P1  PROVE A PLAYABLE CHINESE FOUNDATION
      -> T05 Chinese UI, dialogue, active quest and input pilot   [~] <-- NOW
              |
              +-- T05.009 Navigation UI: ready for you
-             +-- T05.010 Active quest sample: check menu confirmation
+             +-- T05.010 Active quest sample: ready for you
 
 P2  DEFINE WHAT "ALL" COVERS
     T06 World/text inventory                                   [~]
@@ -110,20 +110,22 @@ Task ready for your evaluation                                    [V] <-- DONE
 The game now uses the **Chinese Navigation version again**.
 The app process is 96858. Its asset process is 97329. The server reports Ready.
 You cleared the control question. Codex walked normally to Carocc.
-The latest save is Izlude197,212. No active quest is verified yet.
+The latest save is Izlude197,212with active quest7472.
+Its Chinese title, summary and full details pass save/re-entry checks.
 The page is at character selection. All six Chinese navigation aliases remain ON.
 Claude submitted the source catalog. Grok is still working.
 Codex checks both before selection.
 The earlier Chinese NPC, item and story overlays also remain ON.
 Navigation tests changed only last_login and preserved all earned progress.
 Both temporary test pages are gone. The normal game page and saved progress pass.
-The last controlled Active check was empty. Its save had two completed quests.
+The Active tab now has7472. Two earlier quests remain completed.
 T05.010: both plans are checked. Codex selected a corrected Grok procedure.
-Codex has verified fresh backup M. Codex has not accepted a story quest.
+Codex started7472through normal play. Full backup M predates this new quest.
+A fresh full backup is required before the next installation change.
 The current server supplies the Taiwan quest table. Its English table URL is 404.
-Actual active-quest text still needs a normal game check.
+Actual7472text is verified. English quest headers and mixed story text remain.
 
-The latest verified save receipt SHA starts with74af726a. The Navigation final receipt starts with 7db72312.
+The latest verified save receipt SHA starts with772e9530. The Navigation final receipt starts with 7db72312.
 See the full results, rollback limits and private resume paths in
 the [delivery record](reviews/2026-10-19-T05.009-delivery.md#final-owned-cleanup-and-ordinary-page-handoff-qualified).
 We must still test actual macOS input method editor (IME) composition and candidate selection.
@@ -152,7 +154,8 @@ The Mac's internet remains ON, as you instructed.
 | 2026-10-19,d9ece6c | T05.010 plan comparison defined; current Taiwan quest table and literal7472 source verified | [Next task](reviews/2026-10-19-T05.010.md) |
 | 2026-10-19,21b967f | Actual Claude/Grok plan workers started from the same frozen inputs | [Pair](reviews/2026-10-19-T05.010.md#actual-independent-pair-launched) |
 | 2026-10-19,26470e3 | Fresh full M backup verified and newest saved tables unchanged | [Backup](reviews/2026-10-19-T05.010.md#independent-fresh-full-m-backup-qualified) |
-| Current checkpoint | Both plans checked18/20; corrected Grok procedure selected; normal story check next | [Comparison](reviews/2026-10-19-T05.010.md#both-plans-settled-and-source-comparison-complete) |
+| 2026-10-19,9915079 | Both plans checked18/20; corrected Grok procedure selected | [Comparison](reviews/2026-10-19-T05.010.md#both-plans-settled-and-source-comparison-complete) |
+| Current checkpoint | Normal7472Chinese Active/full text/save/re-entry verified; ready for you | [Quest proof](reviews/2026-10-19-T05.010.md#ordinary-active7472sample-and-persistence-qualified) |
 
 Codex also verified several T06 tools for source inventories.
 They cover archive tables, source order, map records, YAML, monsters, spawns and references within their stated limits.
@@ -181,11 +184,11 @@ That earlier fleet receipt SHA starts with 3410ccca.
 The newer T05.010 wave adds two actual plan workers. The startup fleet has 57 records.
 Both workers were live at startup. Claude has since finished and been released.
 Both plan workers are now complete and released. No reclaimable worker remains.
-Both scored18/20. The corrected procedure needs a normal game check.
+Both scored18/20. The normal quest sample now passes. Full-language work remains.
 
 ## Remaining decisions and phase gates
 
-- P1: finish the active-quest, input and remaining UI samples.
+- P1: the active-quest sample passes. Finish input and remaining UI samples.
   Record the offline and display limits. You can already try basic play, but the phase remains open.
 - P2: agree on the exact Renewal content version. List the language and gameplay gaps.
   Confirm game behavior separately from source data. Use the gap list to estimate the remaining work.
