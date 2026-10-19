@@ -121,12 +121,12 @@ Navigation tests changed only last_login and preserved all earned progress.
 Both temporary test pages are gone. The normal game page and saved progress pass.
 The Active tab now has7472. Two earlier quests remain completed.
 T05.010: both plans are checked. Codex selected a corrected Grok procedure.
-Codex started7472through normal play. Full backup M predates this new quest.
-A fresh full backup is required before the next installation change.
+Codex started7472through normal play. Fresh full backup N includes it.
+Its archive, saved rows and unchanged game runtime pass.
 The current server supplies the Taiwan quest table. Its English table URL is 404.
 Actual7472text is verified. English quest headers and mixed story text remain.
 
-The latest verified save receipt SHA starts with772e9530. The Navigation final receipt starts with 7db72312.
+The quest-sample save SHA starts with772e9530. Latest backup/relogin save c29c4307 has the same tables. The Navigation final receipt starts with 7db72312.
 See the full results, rollback limits and private resume paths in
 the [delivery record](reviews/2026-10-19-T05.009-delivery.md#final-owned-cleanup-and-ordinary-page-handoff-qualified).
 We must still test actual macOS input method editor (IME) composition and candidate selection.
