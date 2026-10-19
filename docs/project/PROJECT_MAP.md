@@ -100,13 +100,15 @@ Observe all six real dialogue pages and the English line         [V]
 Compare Claude and Grok; preserve both raw candidates             [V]
 Integrate selected source; check exact output and unchanged logic [V]
 Preserve newest save, full backup and old pilot                   [V]
-Install -> check six pages and the same link target               [ ] <-- NOW
-Check save, re-entry and cold start                               [ ]
+Install -> check six pages and the same link target               [V]
+Check save and normal re-entry                                   [V]
+Check full-app cold start                                        [ ] <-- NOW
 Test old-pilot rollback -> reapply the new pilot                   [ ]
 Commit evidence -> ready for your evaluation                      [ ]
 ```
 
-The source repair passes. Actual installed behavior is still open.
+The real six-page dialogue and save/re-entry pass.
+Cold start and rollback checks remain open.
 See the [story repair checks](reviews/2026-10-19-T05.012.md).
 
 ## Latest completed task: T05.011 Quest window
