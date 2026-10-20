@@ -102,6 +102,30 @@ test('complete literal payload equals expected and caller input is unchanged', (
   assert.equal(input.roots[0].name, 'authored_a');
 });
 
+test('opaque own __proto__ metadata survives copying without prototype changes', () => {
+  const input = structuredClone(AUTHORED.input);
+  const opaque = JSON.parse('{"__proto__":{"retained":7},"constructor":{"marker":"data"},"nested":[{"__proto__":null}]}');
+  input.roots[0].opaque = opaque;
+  input.model_targets[0].opaque = structuredClone(opaque);
+  input.model_rows[2].exception.opaque = structuredClone(opaque);
+  const before = JSON.stringify(input);
+  const out = buildCatalog(deepFreeze(input));
+  const retained = [out.roots[0].opaque, out.model_targets[0].opaque, out.jobs[2].exception.opaque];
+  for (const value of retained) {
+    assert.deepEqual(value, opaque);
+    assert.ok(Object.hasOwn(value, '__proto__'));
+    assert.equal(Object.getPrototypeOf(value), Object.prototype);
+    assert.equal(Object.getPrototypeOf(value.nested[0]), Object.prototype);
+    assert.ok(Object.hasOwn(value.nested[0], '__proto__'));
+    assert.equal(JSON.stringify(value), JSON.stringify(opaque));
+    assert.notEqual(value, opaque);
+    assert.notEqual(value.__proto__, opaque.__proto__);
+  }
+  out.roots[0].opaque.__proto__.retained = 9;
+  assert.equal(input.roots[0].opaque.__proto__.retained, 7);
+  assert.equal(JSON.stringify(input), before);
+});
+
 test('all ten path-stage cases', () => {
   assert.equal(AUTHORED.stage_cases.length, 10);
   for (const c of AUTHORED.stage_cases) {

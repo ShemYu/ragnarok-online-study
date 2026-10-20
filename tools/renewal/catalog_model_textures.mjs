@@ -122,7 +122,10 @@ function clone(v) {
   if (v === null || typeof v !== 'object') return v;
   if (Array.isArray(v)) return v.map(clone);
   const out = {};
-  for (const key of Object.keys(v)) out[key] = clone(v[key]);
+  for (const key of Object.keys(v)) {
+    // JSON keys such as __proto__ are data, including on nested metadata.
+    Object.defineProperty(out, key, { value: clone(v[key]), enumerable: true, writable: true, configurable: true });
+  }
   return out;
 }
 

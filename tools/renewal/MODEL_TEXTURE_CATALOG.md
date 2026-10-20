@@ -1,10 +1,12 @@
 # T06.003.003.007 nested model-texture declaration catalog
 
-Provider candidate (Claude) for the [frozen brief](../../docs/project/tasks/T06.003.003.007.md).
+Selected Claude implementation for the [frozen brief](../../docs/project/tasks/T06.003.003.007.md),
+integrated unchanged as5c0eb08, followed by a separately attributed root copy correction.
 It links every declared Model texture table entry to its original model, RSW
 parents and placements using only qualified .004/.006 metadata. It does not read
 asset bodies, fetch, run constructors, compile or render. A declaration does not
-show that a texture is available or renders. Root has not certified this candidate.
+show that a texture is available or renders. Current verification and source
+checkpoints are in the [root review](../../docs/project/reviews/2026-10-20-T06.003.003.007.md).
 
 ## Files
 
@@ -12,7 +14,8 @@ show that a texture is available or renders. Root has not certified this candida
   `Refusal`, `admitCorpus`, and the CLI `main(argv, { stdout })`. Uses only Node
   builtins. Importing it runs no CLI and does no file I/O. Only the direct entry
   sets `process.exitCode`.
-- `test_catalog_model_textures.mjs`: 16 `node:test` tests.
+- `test_catalog_model_textures.mjs`: 17 `node:test` tests, including the root
+  regression for opaque own `__proto__` metadata.
 - This runbook.
 
 ## Commands
@@ -79,6 +82,9 @@ generic JSON line of at most 4096 bytes, with no names, paths or stacks.
   refused. Explicit marker objects are data. Whole-input caps for
   declarations, nodes, slots, parent links and placements refuse; nothing is
   truncated.
+- Copying: opaque own keys, including nested `__proto__`, remain ordinary data
+  properties. Output objects keep their ordinary prototypes and do not alias
+  caller data. The root regression fails on the unchanged raw candidate.
 - Publication: the serialized size is checked before any output exists. The CLI
   creates one exclusive fresh directory directly below this checkout's
   `.tools/renewal` (0700), containing only `catalog.json` (0600, `O_EXCL`). It
@@ -86,7 +92,12 @@ generic JSON line of at most 4096 bytes, with no names, paths or stacks.
   directory. Zero progress, a write error or a close error is never reported as
   complete.
 
-## Actual results (2026-10-20, base e89e894)
+## Historical raw provider results (2026-10-20, base e89e894)
+
+The following records the raw provider handoff. Root separately reproduces
+the complete outputs, finds defects, compares both candidates and validates
+the corrected integration in the linked review. Do not treat this table alone
+as current qualification or owned-descriptor proof.
 
 | Check | Result |
 | --- | --- |
@@ -127,12 +138,12 @@ file-system calls from its own frames, and the same counter observes the calls
 - Numeric fields are type-checked and copied; they are not recomputed.
 - Corpus RSS is about 1.1 GB because all four inputs are parsed in one process.
   This was sampled once with `time`, not contained.
-- This candidate has not been compared with root's private reference, which
-  providers may not access.
+- Providers did not access root's private reference. Root's independent full
+  typed comparisons and actual fault observations are recorded in the review.
 
 ## Rollback
 
-Revert the candidate commit: `git revert <candidate-sha>`. The commit adds only
-these three new files. Outputs exist only under this checkout's
-`.tools/renewal/claude-a1-*`, untracked; delete them to clean up. No input,
-installed game, save or setting is changed.
+Revert the separate root correction before reverting unchanged integration
+5c0eb08 and dependent changes; the linked review records their exact commits.
+Git does not restore ignored outputs or installed state. Keep private failed
+outputs as evidence. No input, installed game, save or setting is changed.
