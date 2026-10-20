@@ -1,6 +1,6 @@
 # Supervision, plan and current position
 
-Date: **2026-10-19 JST**. Functionality comes first. The map scan, core-file checks and first model/ground-texture request catalog are complete.
+Date: **2026-10-20 JST**. Functionality comes first. The map scan, core-file checks and first model/ground-texture request catalog are complete.
 Use this map for a short view of [Status](STATUS.md), [Tasks](TASKS.md) and
 [Phases](PHASES.md). Status gives the current next action.
 Update this map after each important change. Keep the dated evidence.
@@ -133,6 +133,10 @@ All 1,296 roots, 2,761 jobs and 11,134 request paths match.
 Grok passes the file-checking case that fails in Claude's tool.
 Codex integrates Grok and passes the final tests and complete data checks.
 The request catalog is ready for you. Asset availability checks come next.
+Codex checks the size metadata before the next scan.
+10,704 asset paths have size candidates. Their declarations total about 290 MB.
+Another 430 paths need the actual scan. We will check all 11,134 paths.
+No asset request has started in this new scan.
 Six world files and two collision files have NaN values. Check them further.
 Twelve ground files have unread tails. Their meaning is not yet known.
 Older ground files omit water as the client code specifies.
