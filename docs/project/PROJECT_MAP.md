@@ -1,6 +1,6 @@
 # Supervision, plan and current position
 
-Date: **2026-10-20 JST**. Functionality comes first. The installed-tool and client preparation checks pass. The separate test world is running and identified. The client repairs now pass file checks. Ordinary entry, saving and full restart pass in the test world. The ordinary tutorial combat, collection, hand-in, reward and fresh-client re-entry now pass. Next: [Izlude/Eden progression](tasks/T06.006.003.md). The [five-map comparison](reviews/2026-10-20-T07.003.md#root-comparison-and-bounded-readiness) is checked; modern-content gaps remain open.
+Date: **2026-10-20 JST**. Functionality comes first. The installed-tool and client preparation checks pass. The separate test world is running and identified. The client repairs now pass file checks. Ordinary entry, saving and full restart pass in the test world. The ordinary tutorial combat, collection, hand-in, reward and fresh-client re-entry now pass. Next: [Izlude/Eden progression](tasks/T06.006.003.md). The [five-map comparison](reviews/2026-10-20-T07.003.md#root-comparison-and-bounded-readiness) is checked; modern-content gaps remain open. [Newer-release/story-risk checks](reviews/2026-10-20-astra-modern-content-advisory.md) run independently of play.
 Use this map for a short view of [Status](STATUS.md), [Tasks](TASKS.md) and
 [Phases](PHASES.md). Status gives the current next action.
 Update this map after each important change. Keep the dated evidence.
