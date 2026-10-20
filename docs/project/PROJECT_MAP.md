@@ -113,8 +113,8 @@ Check all 2,761 core-file jobs and all worker exits                [V]
 Build the first model and ground-texture request catalog          [V]
 Compare both actual asset-scanner implementations                [V]
 Repair selected scanner; repeat the required checks              [V]
-Prepare and verify a guard for both owned process groups         [~] <-- NOW
-Check all 11,134 model and texture request paths                  [ ]
+Prepare and verify a guard for both owned process groups         [V]
+Check all 11,134 model and texture request paths                  [~] <-- NOW
 Investigate eight files with NaN values and twelve unread tails   [ ]
 Check compilation, rendering, travel and play                     [ ]
 Find compatible assets for the 82 unresolved requests             [ ]
@@ -143,7 +143,10 @@ Claude scores 15/20. Grok scores 13/20. Both need repairs.
 Codex integrates Claude, then adds a separate correction.
 All 42 tests, 48 shared checks and 11 production controls now pass.
 The 11 new regression methods expose failures in the original source.
-The real scan waits for a verified guard for both owned process groups.
+The guard passes six tests with owned Python processes and identity checks.
+Time, memory, output, crash and forced cleanup cases behave as expected.
+All test processes exit. A separate unrelated test process stays untouched.
+Next, run the real scan with the verified guard and check all saved evidence.
 See the [scanner comparison](reviews/2026-10-20-T06.003.003.005.md#paired-decision-and-next-correction-gate).
 Codex checks the size metadata before the next scan.
 10,704 asset paths have size candidates. Their declarations total about 290 MB.
