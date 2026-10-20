@@ -1056,3 +1056,244 @@ serial('root whole-run deadline includes admission before any worker starts', as
   assert.equal(rep.counts.job_outcomes.unattempted, 13);
   assert.ok(rows(output).every((row) => row.outcome === 'unattempted' && row.reason === 'run_deadline'));
 });
+
+// Logging controls use authored stream events/console calls. Fake result
+// packets here are not additional constructor or retained-corpus evidence.
+async function rootLogStreamRow(chunks, { captureCap = 4096, consoleText = '', droppedEntries = 0 } = {}) {
+  const entry = authored.cases[0];
+  let terminations = 0;
+  const workerFactory = () => {
+    const worker = new EventEmitter();
+    worker.stdout = new EventEmitter(); worker.stderr = new EventEmitter();
+    worker.stdout.resume = worker.stderr.resume = () => {};
+    worker.terminate = () => {
+      terminations++;
+      setImmediate(() => worker.emit('exit', 1));
+      return Promise.resolve(1);
+    };
+    setImmediate(() => {
+      for (const [channel, bytes] of chunks) worker[channel].emit('data', Buffer.from(bytes));
+      // Exercise stream-end flushing as well as the subsequent settlement.
+      worker.stdout.emit('end'); worker.stderr.emit('end');
+      worker.emit('message', { type: 'phase', phase: 'constructor' });
+      worker.emit('message', { ...rootPacket(entry), log: { text: consoleText, dropped: droppedEntries } });
+      worker.emit('exit', 0);
+    });
+    return worker;
+  };
+  const row = await runWorkerJob({ id: entry.id, job_id: entry.id, kind: 'model',
+    complete_sha256: entry.complete_sha256, input_bytes: entry.input_bytes,
+    header_version_bytes: entry.header_version_bytes }, Buffer.from([0, 1]), {
+    policy: { ...profile.policy, max_job_log_bytes: captureCap }, sources: {}, summaryText: '',
+    runDeadline: performance.now() + 5000, rss: { active: null, over: 0, sample() {} }, workerFactory
+  });
+  assert.equal(row.outcome, 'returned');
+  assert.equal(row.cleanup.exit_observed, true);
+  assert.equal(terminations, 0);
+  return row;
+}
+
+function rootLoggingInput(text, extra = {}) {
+  return {
+    ...unattemptedRow({ id: 'authored-log', job_id: 'authored-log', kind: 'model', input_bytes: 2,
+      complete_sha256: '0'.repeat(64), header_version_bytes: '4752' }, 'authored'),
+    outcome: 'returned', constructor_returned: true, worker_started: true,
+    cleanup: { exit_observed: true, exit_code: 0, terminated_by_parent: false },
+    _summary_json: '{}', _log: text, _log_dropped_entries: 0, _stdio_dropped_utf8_bytes: 0, ...extra
+  };
+}
+
+function rootAssertLog(formatted, { text, entries = 0, stdio = 0, formatter = 0, truncated = false, omitted } = {}) {
+  const row = formatted.row;
+  assert.equal(row.log || '', text);
+  assert.equal(formatted.logBytes, Buffer.byteLength(text));
+  assert.equal('log_dropped' in row, false, 'no ambiguous entry-plus-byte unit');
+  for (const [key, count] of [['log_dropped_entries', entries], ['stdio_dropped_utf8_bytes', stdio]]) {
+    if (count) assert.equal(row[key], count, key);
+    else assert.equal(key in row, false, `${key} is positive-only`);
+  }
+  assert.equal(row.log_dropped_utf8_bytes || 0, formatter);
+  assert.equal(Boolean(row.log_truncated), truncated);
+  if (omitted !== undefined) assert.equal(Boolean(row.log_omitted), omitted);
+  assert.equal('_log' in row, false);
+  assert.equal('_log_dropped_entries' in row, false);
+  assert.equal('_stdio_dropped_utf8_bytes' in row, false);
+}
+
+serial('root logs decode split UTF8 independently per channel and retain genuine U+FFFD', async () => {
+  const emoji = Buffer.from([0xf0, 0x9f, 0x98, 0x80]);
+  const han = Buffer.from([0xe8, 0xa8, 0xb1]);
+  for (const split of [1, 2, 3]) {
+    const row = await rootLogStreamRow([
+      ['stdout', emoji.subarray(0, split)], ['stderr', han.subarray(0, 2)],
+      ['stdout', emoji.subarray(split)], ['stderr', han.subarray(2)],
+      ['stdout', Buffer.from([0xef, 0xbf, 0xbd])]
+    ]);
+    assert.equal(row._log, '😀許�');
+    rootAssertLog(boundedRow(row, profile.policy, 4096), { text: '😀許�', omitted: false });
+  }
+  const unfinished = await rootLogStreamRow([['stdout', Buffer.from([0xf0, 0x9f])]]);
+  assert.equal(unfinished._log, '�', 'decoder end plus settlement flushes an unfinished sequence once');
+  rootAssertLog(boundedRow(unfinished, profile.policy, 4096), { text: '�', omitted: false });
+});
+
+serial('root capture byte boundaries keep a valid prefix then stop retaining after truncation', async () => {
+  const cases = [
+    ['AAAAAAAA', '許', 'AAAAAAAA', 4], ['AAAAAAA', '許', 'AAAAAAA', 4],
+    ['AAAAAA', '許', 'AAAAAA', 4], ['AAAAA', '許', 'AAAAA許', 1],
+    ['AAAAAAAA', '😀', 'AAAAAAAA', 5], ['AAAAAAA', '😀', 'AAAAAAA', 5],
+    ['AAAAAA', '😀', 'AAAAAA', 5], ['AAAAA', '😀', 'AAAAA', 5],
+    ['AAAA', '😀', 'AAAA😀', 1]
+  ];
+  for (const [prefix, character, expected, lost] of cases) {
+    const row = await rootLogStreamRow([
+      ['stdout', Buffer.from(prefix)], ['stdout', Buffer.from(character)], ['stderr', Buffer.from('B')]
+    ], { captureCap: 8 });
+    assert.equal(row._log, expected);
+    assert.equal(row._stdio_dropped_utf8_bytes, lost);
+    rootAssertLog(boundedRow(row, { ...profile.policy, max_job_log_bytes: 8 }, 8),
+      { text: expected, stdio: lost, truncated: true, omitted: false });
+  }
+  const onlyDrops = rootLoggingInput('', { _log_dropped_entries: 2, _stdio_dropped_utf8_bytes: 10 });
+  rootAssertLog(boundedRow(onlyDrops, profile.policy, 4096), { text: '', entries: 2, stdio: 10, truncated: true });
+});
+
+serial('root log accounting keeps console entries separate from dropped stdio bytes', async () => {
+  const row = await rootLogStreamRow([
+    ['stdout', Buffer.from('A'.repeat(4096))], ['stderr', Buffer.from('B'.repeat(10))]
+  ], { droppedEntries: 2 });
+  assert.equal(row._log_dropped_entries, 2);
+  assert.equal(row._stdio_dropped_utf8_bytes, 10);
+  rootAssertLog(boundedRow(row, profile.policy, 4096),
+    { text: 'A'.repeat(4096), entries: 2, stdio: 10, truncated: true, omitted: false });
+});
+
+serial('root formatter loss remains exact through zero budget, omission and compact rows', () => {
+  // Literal UTF8 lengths: "log: 許"=8, newline=1, emoji=4, U+FFFD=3; total16.
+  const input = rootLoggingInput('log: 許\n😀�', { _log_dropped_entries: 2, _stdio_dropped_utf8_bytes: 4 });
+  const before = JSON.stringify(input);
+  for (const [budget, text, formatter, omitted] of [
+    [16, 'log: 許\n😀�', 0, false], [13, 'log: 許\n😀', 3, false],
+    [12, 'log: 許\n', 7, false], [0, '', 16, true]
+  ]) {
+    rootAssertLog(boundedRow(input, profile.policy, budget),
+      { text, formatter, entries: 2, stdio: 4, truncated: true, omitted });
+    assert.equal(JSON.stringify(input), before);
+  }
+  const omitted = boundedRow(input, profile.policy, 16, true);
+  rootAssertLog(omitted, { text: '', entries: 2, stdio: 4, formatter: 16, truncated: true, omitted: true });
+  assert.equal(omitted.row.outcome, 'summary_limit');
+  for (const compact of [false, true]) {
+    const crowded = { ...input, _summary_json: JSON.stringify({ authored: 'x'.repeat(4000) }),
+      ...(compact ? { authored_extra_diagnostic: 'x'.repeat(4000) } : {}) };
+    const snapshot = JSON.stringify(crowded);
+    const got = boundedRow(crowded, { ...profile.policy, max_job_json_bytes: 1000 }, 16);
+    assert.ok(Buffer.byteLength(got.line) <= 1000);
+    rootAssertLog(got, { text: '', entries: 2, stdio: 4, formatter: 16, truncated: true, omitted: true });
+    assert.equal('summary' in got.row, false);
+    assert.equal('authored_extra_diagnostic' in got.row, false);
+    assert.equal(JSON.stringify(crowded), snapshot);
+    assert.deepEqual(boundedRow(crowded, { ...profile.policy, max_job_json_bytes: 1000 }, 16), got);
+  }
+  assert.equal(JSON.stringify(input), before);
+});
+
+serial('root recovered jobs EIO reports omitted log bytes without crediting durable log text', async () => {
+  const output = freshOut();
+  const real = { open: fs.openSync, close: fs.closeSync, write: fs.writeSync };
+  const state = { started: 0, terminated: 0, injected: 0 };
+  const factory = rootFakeWorkerFactory(state);
+  let jobsFd = null; let jobsIdentity = null; let leaked = false;
+  fs.openSync = (target, ...args) => {
+    const fd = real.open(target, ...args);
+    if (typeof target === 'string' && path.resolve(target) === path.join(output, 'jobs.jsonl')) {
+      jobsFd = fd; jobsIdentity = fs.fstatSync(fd, { bigint: true });
+    }
+    return fd;
+  };
+  fs.closeSync = (fd) => {
+    const result = real.close(fd);
+    if (fd === jobsFd) jobsFd = null;
+    return result;
+  };
+  fs.writeSync = (fd, ...args) => {
+    if (fd === jobsFd && state.injected === 0) { state.injected++; throw rootEio(); }
+    return real.write(fd, ...args);
+  };
+  hooks.createWorker = (...args) => {
+    const first = state.started === 0;
+    const worker = factory(...args);
+    const emit = worker.emit.bind(worker);
+    worker.emit = (event, packet, ...rest) => {
+      if (first && event === 'message' && packet?.type === 'result') {
+        worker.stdout.emit('data', Buffer.from('ABC'));
+        return emit(event, { ...packet, log: { text: 'log: 許😀', dropped: 2 } }, ...rest);
+      }
+      return emit(event, packet, ...rest);
+    };
+    return worker;
+  };
+  let code;
+  try { code = await main(rootFixtureArgs(output), { stdout: { write() {} } }); }
+  finally {
+    fs.openSync = real.open; fs.closeSync = real.close; fs.writeSync = real.write; hooks.createWorker = null;
+    if (jobsFd !== null) {
+      const current = fs.fstatSync(jobsFd, { bigint: true });
+      if (current.dev === jobsIdentity.dev && current.ino === jobsIdentity.ino) {
+        leaked = true; real.close(jobsFd); // observe first, clean only the fixture's owned fd
+      }
+    }
+  }
+  assert.equal(code, 1);
+  assert.equal(state.injected, 1);
+  assert.equal(state.started, 1);
+  assert.equal(state.terminated, 0);
+  assert.equal(leaked, false);
+  const rep = reportOf(output);
+  rootAssertKnownJobsFile(output, rep);
+  const first = rows(output)[0];
+  assert.equal(first.outcome, 'environment_failure');
+  rootAssertLog({ row: first, logBytes: 0 },
+    { text: '', entries: 2, formatter: 16, truncated: true, omitted: true });
+  assert.equal(rep.logs.bytes, 0);
+});
+
+serial('root realm console budgets astral UTF8 as4bytes with its declared newline reserve', async () => {
+  const sources = {};
+  for (const key of MODULE_KEYS) {
+    const pin = profile.sources[key];
+    sources[key] = readPinnedFile(path.join(CLIENT, key),
+      { label: key, maxBytes: pin.bytes, expectBytes: pin.bytes, expectSha: pin.sha256 }).buffer.toString('utf8');
+  }
+  const realm = await createRealm(sources, { maxLogBytes: 4096 });
+  const machine = await import('node:vm');
+  assert.equal(realm.logs().text, '');
+  machine.runInContext("console.log('A'.repeat(4086) + '😀')", realm.context);
+  const expected = 'log: ' + 'A'.repeat(4086) + '😀'; //4095bytes plus the reserved newline fits
+  assert.equal(Buffer.byteLength(expected), 4095);
+  assert.equal(realm.logs().text, expected);
+  assert.equal(realm.logs().dropped, 0);
+  machine.runInContext("console.log('B')", realm.context);
+  assert.equal(realm.logs().text, expected);
+  assert.equal(realm.logs().dropped, 1);
+});
+
+serial('root600-byte CLI cap refuses mandatory log-loss accounting before output or workers', async () => {
+  const output = freshOut();
+  let started = 0;
+  const stdout = [];
+  hooks.createWorker = () => { started++; throw new Error('authored preflight must not launch a worker'); };
+  let code;
+  try {
+    code = await main(rootFixtureArgs(output, '--max-job-json-bytes', '600'),
+      { stdout: { write(chunk) { stdout.push(Buffer.from(chunk)); } } });
+  } finally { hooks.createWorker = null; }
+  assert.equal(code, 2);
+  assert.equal(started, 0);
+  assert.equal(fs.existsSync(output), false);
+  const text = Buffer.concat(stdout).toString('utf8');
+  assert.ok(Buffer.byteLength(text) <= 4096);
+  const receipt = JSON.parse(text);
+  assert.equal(receipt.reason, 'output_budget');
+  assert.equal(receipt.output_created, false);
+});

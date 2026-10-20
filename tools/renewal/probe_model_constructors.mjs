@@ -7,6 +7,7 @@ import fs from 'node:fs';
 import path from 'node:path';
 import vm from 'node:vm';
 import { performance } from 'node:perf_hooks';
+import { StringDecoder } from 'node:string_decoder';
 import { fileURLToPath, pathToFileURL } from 'node:url';
 import { Worker } from 'node:worker_threads';
 import { MODULE_KEYS, ROLE, RULE_KEYS } from './model_constructor_worker.mjs';
@@ -444,8 +445,19 @@ export function unattemptedRow(job, reason) {
 // Keep execution facts even when a physical output row cannot be published.
 // Large summaries/logs stay in JSONL; their omission here is explicit.
 function accountingRow(row) {
-  const { summary, _summary_json, log, _log, ...facts } = row;
+  const { summary, _summary_json, log, _log, _log_dropped_entries, _stdio_dropped_utf8_bytes, ...facts } = row;
+  if (_log_dropped_entries) facts.log_dropped_entries = _log_dropped_entries;
+  if (_stdio_dropped_utf8_bytes) facts.stdio_dropped_utf8_bytes = _stdio_dropped_utf8_bytes;
+  if (_log_dropped_entries || _stdio_dropped_utf8_bytes) facts.log_truncated = true;
   return { ...facts, summary_payload_in_jsonl_only: true };
+}
+
+// Input is decoded text. Never split a code point or discard a literal U+FFFD.
+function utf8Prefix(text, maxBytes) {
+  const bytes = Buffer.from(text, 'utf8');
+  let end = Math.min(bytes.length, Math.max(0, Math.floor(maxBytes)));
+  if (end < bytes.length) while (end > 0 && (bytes[end] & 0xC0) === 0x80) end--;
+  return { text: bytes.subarray(0, end).toString('utf8'), bytes: end, dropped: bytes.length - end };
 }
 
 function exceptionInfo(error, phase, policy) {
@@ -477,10 +489,29 @@ export function runWorkerJob(job, bytes, ctx) {
     let worker;
     const st = {
       phase: 'starting', result: null, prior: null, refusal: null, error: null, exitCode: null,
-      exited: false, terminated: false, stderr: '', stderrDropped: 0, settled: false, timers: []
+      exited: false, terminated: false, stderr: '', stderrBytes: 0, stderrDropped: 0, stderrCapped: false, settled: false, timers: []
+    };
+    const appendDecoded = (text) => {
+      if (!text || st.settled) return;
+      if (st.stderrCapped) { st.stderrDropped += Buffer.byteLength(text); return; }
+      const piece = utf8Prefix(text, policy.max_job_log_bytes - st.stderrBytes);
+      st.stderr += piece.text;
+      st.stderrBytes += piece.bytes;
+      st.stderrDropped += piece.dropped;
+      if (piece.dropped) st.stderrCapped = true;
+    };
+    // Each channel owns its decoder; bytes from different streams cannot form
+    // one character. Settlement flushes pending bytes once without a new wait.
+    const decoders = [new StringDecoder('utf8'), new StringDecoder('utf8')];
+    const ended = [false, false];
+    const flush = (index) => {
+      if (ended[index]) return;
+      ended[index] = true;
+      appendDecoded(decoders[index].end());
     };
     const finish = (exitObserved) => {
       if (st.settled) return;
+      flush(0); flush(1);
       st.settled = true;
       for (const timer of st.timers) clearTimeout(timer);
       rss.active = null;
@@ -527,16 +558,12 @@ export function runWorkerJob(job, bytes, ctx) {
       });
       return;
     }
-    const take = (chunk) => {
-      const text = Buffer.from(chunk).toString('utf8');
-      const room = policy.max_job_log_bytes - Buffer.byteLength(st.stderr);
-      if (room <= 0) { st.stderrDropped += Buffer.byteLength(chunk); return; }
-      const piece = Buffer.from(text).subarray(0, room).toString('utf8');
-      st.stderr += piece;
-      if (Buffer.byteLength(text) > room) st.stderrDropped += Buffer.byteLength(text) - room;
-    };
-    worker.stdout.on('data', take);
-    worker.stderr.on('data', take);
+    [worker.stdout, worker.stderr].forEach((stream, index) => {
+      stream.on('data', (chunk) => {
+        if (!ended[index] && !st.settled) appendDecoded(decoders[index].write(Buffer.from(chunk)));
+      });
+      stream.on('end', () => flush(index));
+    });
     worker.stdout.resume();
     worker.stderr.resume();
     worker.on('message', (message) => {
@@ -647,7 +674,8 @@ function buildRow(job, st, exitObserved, elapsed) {
   }
   const logText = [result && result.log && result.log.text, st.stderr].filter(Boolean).join('\n');
   row._log = logText;
-  row._log_dropped = (result && result.log ? result.log.dropped : 0) + st.stderrDropped;
+  row._log_dropped_entries = result && result.log ? result.log.dropped : 0;
+  row._stdio_dropped_utf8_bytes = st.stderrDropped;
   row._summary_json = row.outcome === 'returned' && result ? result.summary_json : null;
   return row;
 }
@@ -701,28 +729,36 @@ class Output {
 }
 
 export function boundedRow(row, policy, logBudget, omitResult = false) {
-  const { _log, _log_dropped, _summary_json, ...clean } = row;
+  const { _log, _log_dropped_entries = 0, _stdio_dropped_utf8_bytes = 0, _summary_json, ...clean } = row;
+  const capturedBytes = Buffer.byteLength(_log || '');
+  const logFacts = () => {
+    const dropped = capturedBytes - Buffer.byteLength(clean.log || '');
+    if (_log_dropped_entries) clean.log_dropped_entries = _log_dropped_entries;
+    if (_stdio_dropped_utf8_bytes) clean.stdio_dropped_utf8_bytes = _stdio_dropped_utf8_bytes;
+    if (dropped) clean.log_dropped_utf8_bytes = dropped;
+    if (capturedBytes || _log_dropped_entries || _stdio_dropped_utf8_bytes) {
+      clean.log_truncated = !!(dropped || _log_dropped_entries || _stdio_dropped_utf8_bytes);
+      if (capturedBytes && !clean.log) clean.log_omitted = true;
+    }
+  };
   if (_summary_json && !omitResult) clean.summary = JSON.parse(_summary_json);
   if (_log && !omitResult) {
     const limit = Math.min(policy.max_job_log_bytes, Math.max(0, logBudget));
-    const bytes = Buffer.from(_log, 'utf8');
-    if (limit > 0) {
-      clean.log = bytes.subarray(0, limit).toString('utf8').replace(/\uFFFD$/, '');
-      clean.log_truncated = bytes.length > limit;
-      clean.log_dropped = _log_dropped || 0;
-    } else clean.log_omitted = true;
-  } else if (_log_dropped) clean.log_dropped = _log_dropped;
+    const piece = utf8Prefix(_log, limit);
+    if (piece.bytes) clean.log = piece.text;
+  }
   if (omitResult && (clean.outcome === 'returned' || clean.summary)) {
     delete clean.summary;
     delete clean.log;
     if (clean.outcome === 'returned') clean.outcome = 'summary_limit';
     clean.limit = 'max_jobs_jsonl_bytes';
   }
+  logFacts();
   let line = JSON.stringify(clean);
   if (Buffer.byteLength(line) > policy.max_job_json_bytes) {
     delete clean.summary;
     delete clean.log;
-    delete clean.log_truncated;
+    logFacts();
     if (clean.outcome === 'returned') clean.outcome = 'summary_limit';
     clean.limit = clean.limit || 'max_job_json_bytes';
     line = JSON.stringify(clean);
@@ -740,6 +776,9 @@ export function boundedRow(row, policy, logBudget, omitResult = false) {
         terminated_by_parent: clean.cleanup.terminated_by_parent ?? false
       }
     };
+    for (const key of ['log_truncated', 'log_omitted', 'log_dropped_entries', 'stdio_dropped_utf8_bytes', 'log_dropped_utf8_bytes']) {
+      if (Object.hasOwn(clean, key)) compact[key] = clean[key];
+    }
     if (clean.reason) compact.reason = String(clean.reason).slice(0, 64);
     if (clean.exception) compact.exception = {
       phase: String(clean.exception.phase).slice(0, 64),
@@ -959,7 +998,17 @@ function prepare(opts) {
   }
   pins.push({ role: mode, path: inputAbs, bytes: inputFile.bytes, sha256: inputFile.sha256, identity: inputFile.identity });
   const policy = effectivePolicy(policySource, opts.overrides, jobs.length);
-  if (jobs.some((job) => Buffer.byteLength(JSON.stringify(unattemptedRow(job, 'output_limit'))) + 1 > policy.max_job_json_bytes)) {
+  // Reserve a compact failure envelope including all required log-loss facts.
+  // Exception text may shrink to empty, but its phase/name and loss units stay.
+  const mandatoryBytes = (job) => Buffer.byteLength(JSON.stringify({
+    ...baseRow(job), outcome: 'constructor_exception', constructor_returned: false,
+    elapsed_ms: Number.MAX_SAFE_INTEGER, worker_started: false,
+    cleanup: { exit_observed: false, exit_code: -2147483648, terminated_by_parent: false },
+    reason: '\u0800'.repeat(64), exception: { phase: '\u0800'.repeat(64), name: '\u0800'.repeat(64), message: '' },
+    log_truncated: true, log_omitted: true, log_dropped_entries: Number.MAX_SAFE_INTEGER,
+    stdio_dropped_utf8_bytes: Number.MAX_SAFE_INTEGER, log_dropped_utf8_bytes: policy.max_job_log_bytes * 2 + 1
+  })) + 1;
+  if (jobs.some((job) => mandatoryBytes(job) > policy.max_job_json_bytes)) {
     throw new Refusal('output_budget', 'job cap cannot hold mandatory accounting');
   }
   const reserve = jobs.map((job) => Buffer.byteLength(JSON.stringify(unattemptedRow(job, 'output_limit'))) + 1 + ROW_SLACK_BYTES);
@@ -1101,7 +1150,6 @@ async function run(P, sayLine, started) {
           ...row,
           outcome: 'environment_failure',
           _summary_json: null,
-          _log: '',
           reason: error.reason || 'output_io_error',
           ...(['returned', 'constructor_exception'].includes(row.outcome) ? {
             prior_result: { outcome: row.outcome, constructor_returned: row.constructor_returned }

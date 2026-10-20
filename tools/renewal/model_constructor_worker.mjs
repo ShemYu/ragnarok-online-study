@@ -52,7 +52,7 @@ export function resolveSpecifier(specifier, referrer) {
 function boundedConsoleSource(maxBytes) {
   return `(() => { const max = ${Number(maxBytes) | 0}; let used = 0; const lines = []; let dropped = 0;
     const put = (level, args) => { let s; try { s = level + ': ' + args.map(a => String(a)).join(' '); } catch { s = level + ': <unprintable>'; }
-      let bytes = 0; for (let i = 0; i < s.length; i++) { const c = s.charCodeAt(i); bytes += c < 0x80 ? 1 : c < 0x800 ? 2 : 3; }
+      let bytes = 0; for (const char of s) { const c = char.codePointAt(0); bytes += c < 0x80 ? 1 : c < 0x800 ? 2 : c < 0x10000 ? 3 : 4; }
       if (used + bytes + 1 > max) { dropped++; return; } used += bytes + 1; lines.push(s); };
     globalThis.console = { log: (...a) => put('log', a), info: (...a) => put('info', a), warn: (...a) => put('warn', a),
       error: (...a) => put('error', a), debug: (...a) => put('debug', a) };

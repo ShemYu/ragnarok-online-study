@@ -84,6 +84,21 @@ then integrated unchanged as c4b2258; these subsequent fixes are root work.
   facts independently of durable JSONL rows. Accounting omits summary/log
   payloads; full successful summaries remain in JSONL. Outcome totals cover
   accounting, while `counts.records` counts written rows.
+- Stdout and stderr use separate streaming UTF8 decoders, flushed once at end
+  or settlement. Capture retains a valid UTF8 prefix and keeps draining after
+  its cap. Counters measure decoded UTF8 text; malformed/incomplete source
+  bytes can become U+FFFD. This does not prove lossless raw-stream capture or
+  original ordering across the two channels.
+- Logs keep distinct loss units: `log_dropped_entries` counts whole console
+  calls refused inside the realm; `stdio_dropped_utf8_bytes` counts decoded
+  text lost at parent capture; `log_dropped_utf8_bytes` counts captured combined
+  text omitted from the final JSONL row. `log_truncated` covers any known loss;
+  `log_omitted` marks nonempty captured text absent from the row. These facts
+  survive summary omission, row compaction and publication-failure envelopes.
+  Actual durable log bytes alone consume the aggregate65536byte budget.
+  Console entry admission counts code-point UTF8 lengths and conservatively
+  reserves one newline per accepted entry. A row budget too small for required
+  compact loss facts is refused before workers start.
 - A partial row is retried only after confirmed truncation to its prior size.
   Uncertain rollback stops JSONL writes, sets `storage.jobs_tail_uncertain`,
   and leaves whole-file bytes/SHA null with a separately labeled
@@ -91,11 +106,12 @@ then integrated unchanged as c4b2258; these subsequent fixes are root work.
   temporary names receive bounded cleanup without retrying an ambiguous close.
   Every final/deadline/failure publication attempt observes the report cap.
 
-Root verification at this source checkpoint:29tests/zero failures/zero skips,
-including ten added regression tests; a separate fresh production fixture CLI
-exits0 with13matches. Real fixture execution and explicitly labeled synthetic
-lifecycle/storage controls are distinguished in the tests. Integrated retained
-corpus/root comparison is still required before task readiness. Constructor
+Root verification at this logging source checkpoint:36tests/zero failures/zero
+skips, including seventeen added root regression groups; a separate fresh
+production fixture CLI exits0 with13matches. Real fixture execution and
+explicitly labeled synthetic lifecycle/storage/log controls are distinguished
+in the tests. The prior c326cae full corpus passes its independent audit; a new
+current-source corpus/root comparison is required before task readiness. Constructor
 exceptions, nine raw numeric-marker models, earlier core/ground gaps and
 render/play/full-game verification remain open.
 
