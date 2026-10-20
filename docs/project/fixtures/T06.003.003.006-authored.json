@@ -1,0 +1,6732 @@
+{
+  "schema": "T06-model-constructor-authored-1",
+  "task": "T06.003.003.006",
+  "cases": [
+    {
+      "id": "model14_duplicate_global_triangle",
+      "kind": "model",
+      "body_hex": "4752534d01040000000002000000ff0000000000000000000000000000000003000000612e626d700000000000000000000000000000000000000000000000000000000000000000000000612e626d700000000000000000000000000000000000000000000000000000000000000000000000622e7467610000000000000000000000000000000000000000000000000000000000000000000000726f6f7400000000000000000000000000000000000000000000000000000000000000000000000001000000726f6f7400000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000030000000200000000000000020000000000803f0000000000000000000000000000803f0000000000000000000000000000803f000020410000a0410000f04100000000000000000000000000000000000000000000803f000000000000803f0000803f0000803f03000000000080bf000000c0000040c0000080400000000000000040000000000000a0400000803f03000000ffffffff0000000000000000ffffffff0000803f00000000ffffffff000000000000803f01000000000001000200000001000200000000000000000001000000000000000000000000000000",
+      "input_bytes": 503,
+      "complete_sha256": "5fd9d154b3a38bce4c53725cf5fcae353d53cd792ab4c22b534c1c4c28794576",
+      "header_version_bytes": "4752534d0104",
+      "authored_fields": [
+        {
+          "name": "magic",
+          "offset": 0,
+          "bytes": 4,
+          "hex": "4752534d",
+          "source": "Model752-756",
+          "complete": true
+        },
+        {
+          "name": "version",
+          "offset": 4,
+          "bytes": 2,
+          "hex": "0104",
+          "source": "Model759;BinaryReader66-71",
+          "complete": true
+        },
+        {
+          "name": "animLen",
+          "offset": 6,
+          "bytes": 4,
+          "hex": "00000000",
+          "source": "Model760",
+          "complete": true
+        },
+        {
+          "name": "shadeType",
+          "offset": 10,
+          "bytes": 4,
+          "hex": "02000000",
+          "source": "Model761",
+          "complete": true
+        },
+        {
+          "name": "alpha",
+          "offset": 14,
+          "bytes": 1,
+          "hex": "ff",
+          "source": "Model764",
+          "complete": true
+        },
+        {
+          "name": "reserved",
+          "offset": 15,
+          "bytes": 16,
+          "hex": "00000000000000000000000000000000",
+          "source": "Model787",
+          "complete": true
+        },
+        {
+          "name": "additionalTextures.count",
+          "offset": 31,
+          "bytes": 4,
+          "hex": "03000000",
+          "source": "Model788-790",
+          "complete": true
+        },
+        {
+          "name": "additionalTextures[0]",
+          "offset": 35,
+          "bytes": 40,
+          "hex": "612e626d700000000000000000000000000000000000000000000000000000000000000000000000",
+          "source": "Model790",
+          "complete": true
+        },
+        {
+          "name": "additionalTextures[1]",
+          "offset": 75,
+          "bytes": 40,
+          "hex": "612e626d700000000000000000000000000000000000000000000000000000000000000000000000",
+          "source": "Model790",
+          "complete": true
+        },
+        {
+          "name": "additionalTextures[2]",
+          "offset": 115,
+          "bytes": 40,
+          "hex": "622e7467610000000000000000000000000000000000000000000000000000000000000000000000",
+          "source": "Model790",
+          "complete": true
+        },
+        {
+          "name": "mainNodeName",
+          "offset": 155,
+          "bytes": 40,
+          "hex": "726f6f74000000000000000000000000000000000000000000000000000000000000000000000000",
+          "source": "Model792-793",
+          "complete": true
+        },
+        {
+          "name": "nodes.count",
+          "offset": 195,
+          "bytes": 4,
+          "hex": "01000000",
+          "source": "Model796-799",
+          "complete": true
+        },
+        {
+          "name": "node.name",
+          "offset": 199,
+          "bytes": 40,
+          "hex": "726f6f74000000000000000000000000000000000000000000000000000000000000000000000000",
+          "source": "Model53",
+          "complete": true
+        },
+        {
+          "name": "node.parentname",
+          "offset": 239,
+          "bytes": 40,
+          "hex": "00000000000000000000000000000000000000000000000000000000000000000000000000000000",
+          "source": "Model54",
+          "complete": true
+        },
+        {
+          "name": "node.textures.count",
+          "offset": 279,
+          "bytes": 4,
+          "hex": "03000000",
+          "source": "Model58-62",
+          "complete": true
+        },
+        {
+          "name": "node.textures[0]",
+          "offset": 283,
+          "bytes": 4,
+          "hex": "02000000",
+          "source": "Model62",
+          "complete": true
+        },
+        {
+          "name": "node.textures[1]",
+          "offset": 287,
+          "bytes": 4,
+          "hex": "00000000",
+          "source": "Model62",
+          "complete": true
+        },
+        {
+          "name": "node.textures[2]",
+          "offset": 291,
+          "bytes": 4,
+          "hex": "02000000",
+          "source": "Model62",
+          "complete": true
+        },
+        {
+          "name": "node.mat3",
+          "offset": 295,
+          "bytes": 36,
+          "hex": "0000803f0000000000000000000000000000803f0000000000000000000000000000803f",
+          "source": "Model66-76",
+          "complete": true
+        },
+        {
+          "name": "node.offset",
+          "offset": 331,
+          "bytes": 12,
+          "hex": "000020410000a0410000f041",
+          "source": "Model77;272-276",
+          "complete": true
+        },
+        {
+          "name": "node.pos",
+          "offset": 343,
+          "bytes": 12,
+          "hex": "000000000000000000000000",
+          "source": "Model87",
+          "complete": true
+        },
+        {
+          "name": "node.rotangle",
+          "offset": 355,
+          "bytes": 4,
+          "hex": "00000000",
+          "source": "Model88",
+          "complete": true
+        },
+        {
+          "name": "node.rotaxis",
+          "offset": 359,
+          "bytes": 12,
+          "hex": "000000000000803f00000000",
+          "source": "Model89",
+          "complete": true
+        },
+        {
+          "name": "node.scale",
+          "offset": 371,
+          "bytes": 12,
+          "hex": "0000803f0000803f0000803f",
+          "source": "Model90",
+          "complete": true
+        },
+        {
+          "name": "node.vertex_count",
+          "offset": 383,
+          "bytes": 4,
+          "hex": "03000000",
+          "source": "Model95-100",
+          "complete": true
+        },
+        {
+          "name": "node.vertex[0]",
+          "offset": 387,
+          "bytes": 12,
+          "hex": "000080bf000000c0000040c0",
+          "source": "Model98-100",
+          "complete": true
+        },
+        {
+          "name": "node.vertex[1]",
+          "offset": 399,
+          "bytes": 12,
+          "hex": "000080400000000000000040",
+          "source": "Model98-100",
+          "complete": true
+        },
+        {
+          "name": "node.vertex[2]",
+          "offset": 411,
+          "bytes": 12,
+          "hex": "000000000000a0400000803f",
+          "source": "Model98-100",
+          "complete": true
+        },
+        {
+          "name": "node.tvertex_count",
+          "offset": 423,
+          "bytes": 4,
+          "hex": "03000000",
+          "source": "Model103-115",
+          "complete": true
+        },
+        {
+          "name": "node.tvertex[0].rgba",
+          "offset": 427,
+          "bytes": 4,
+          "hex": "ffffffff",
+          "source": "Model107-112",
+          "complete": true
+        },
+        {
+          "name": "node.tvertex[0].uv",
+          "offset": 431,
+          "bytes": 8,
+          "hex": "0000000000000000",
+          "source": "Model113-114",
+          "complete": true
+        },
+        {
+          "name": "node.tvertex[1].rgba",
+          "offset": 439,
+          "bytes": 4,
+          "hex": "ffffffff",
+          "source": "Model107-112",
+          "complete": true
+        },
+        {
+          "name": "node.tvertex[1].uv",
+          "offset": 443,
+          "bytes": 8,
+          "hex": "0000803f00000000",
+          "source": "Model113-114",
+          "complete": true
+        },
+        {
+          "name": "node.tvertex[2].rgba",
+          "offset": 451,
+          "bytes": 4,
+          "hex": "ffffffff",
+          "source": "Model107-112",
+          "complete": true
+        },
+        {
+          "name": "node.tvertex[2].uv",
+          "offset": 455,
+          "bytes": 8,
+          "hex": "000000000000803f",
+          "source": "Model113-114",
+          "complete": true
+        },
+        {
+          "name": "node.face_count",
+          "offset": 463,
+          "bytes": 4,
+          "hex": "01000000",
+          "source": "Model118-119",
+          "complete": true
+        },
+        {
+          "name": "node.face[0].vertidx",
+          "offset": 467,
+          "bytes": 6,
+          "hex": "000001000200",
+          "source": "Model127",
+          "complete": true
+        },
+        {
+          "name": "node.face[0].tvertidx",
+          "offset": 473,
+          "bytes": 6,
+          "hex": "000001000200",
+          "source": "Model128",
+          "complete": true
+        },
+        {
+          "name": "node.face[0].texid",
+          "offset": 479,
+          "bytes": 2,
+          "hex": "0000",
+          "source": "Model129",
+          "complete": true
+        },
+        {
+          "name": "node.face[0].padding",
+          "offset": 481,
+          "bytes": 2,
+          "hex": "0000",
+          "source": "Model130",
+          "complete": true
+        },
+        {
+          "name": "node.face[0].twoSide",
+          "offset": 483,
+          "bytes": 4,
+          "hex": "00000000",
+          "source": "Model131",
+          "complete": true
+        },
+        {
+          "name": "node.face[0].smoothGroup",
+          "offset": 487,
+          "bytes": 4,
+          "hex": "01000000",
+          "source": "Model134-136",
+          "complete": true
+        },
+        {
+          "name": "node.rotKeyframes.count",
+          "offset": 491,
+          "bytes": 4,
+          "hex": "00000000",
+          "source": "Model163-171",
+          "complete": true
+        },
+        {
+          "name": "posKeyframes.count",
+          "offset": 495,
+          "bytes": 4,
+          "hex": "00000000",
+          "source": "Model814-816",
+          "complete": true
+        },
+        {
+          "name": "volumebox.count",
+          "offset": 499,
+          "bytes": 4,
+          "hex": "00000000",
+          "source": "Model834-844",
+          "complete": true
+        }
+      ],
+      "input_facts": {
+        "bytes": 503
+      },
+      "expected_outcome": "returned",
+      "expected_summary": {
+        "version": 1.4,
+        "animLen": 0,
+        "shadeType": 2,
+        "alpha": 1,
+        "frameRatePerSecond": {
+          "special": "undefined"
+        },
+        "textures": [
+          "a.bmp",
+          "a.bmp",
+          "b.tga"
+        ],
+        "main_node_index": 0,
+        "instances": 0,
+        "global_position_keys": 0,
+        "volume_boxes": 0,
+        "box": {
+          "min": [
+            -1,
+            -2,
+            -3
+          ],
+          "max": [
+            4,
+            5,
+            2
+          ],
+          "offset": [
+            1.5,
+            1.5,
+            -0.5
+          ],
+          "range": [
+            2.5,
+            3.5,
+            2.5
+          ],
+          "center": [
+            1.5,
+            1.5,
+            -0.5
+          ]
+        },
+        "nodes": [
+          {
+            "node_index": 0,
+            "name": "root",
+            "parentname": "",
+            "is_only": true,
+            "textures": [
+              2,
+              0,
+              2
+            ],
+            "texture_references": [
+              {
+                "slot_index": 0,
+                "table_index": 2,
+                "state": "resolved"
+              },
+              {
+                "slot_index": 1,
+                "table_index": 0,
+                "state": "resolved"
+              },
+              {
+                "slot_index": 2,
+                "table_index": 2,
+                "state": "resolved"
+              }
+            ],
+            "transform": {
+              "mat3": [
+                1,
+                0,
+                0,
+                0,
+                1,
+                0,
+                0,
+                0,
+                1
+              ],
+              "offset": [
+                10,
+                20,
+                30
+              ],
+              "pos": [
+                0,
+                0,
+                0
+              ],
+              "rotangle": 0,
+              "rotaxis": [
+                0,
+                1,
+                0
+              ],
+              "scale": [
+                1,
+                1,
+                1
+              ],
+              "flip": [
+                1,
+                1,
+                1
+              ],
+              "matrix": [
+                1,
+                0,
+                0,
+                0,
+                0,
+                1,
+                0,
+                0,
+                0,
+                0,
+                1,
+                0,
+                0,
+                0,
+                0,
+                1
+              ]
+            },
+            "box": {
+              "min": [
+                -1,
+                -2,
+                -3
+              ],
+              "max": [
+                4,
+                5,
+                2
+              ],
+              "offset": [
+                1.5,
+                1.5,
+                -0.5
+              ],
+              "range": [
+                2.5,
+                3.5,
+                2.5
+              ],
+              "center": [
+                1.5,
+                1.5,
+                -0.5
+              ]
+            },
+            "vertex_count": 3,
+            "tvertex_components": 18,
+            "face_count": 1,
+            "keyframe_counts": {
+              "rotation": 0,
+              "position": {
+                "special": "undefined"
+              },
+              "scale": {
+                "special": "undefined"
+              },
+              "texture_groups": {
+                "special": "undefined"
+              }
+            },
+            "numeric_fields": {
+              "finite": 96,
+              "nan": 0,
+              "positive_infinity": 0,
+              "negative_infinity": 0,
+              "undefined": 3,
+              "null": 0,
+              "min": -3,
+              "max": 30,
+              "exceptional_locations": [
+                {
+                  "location": "posKeyframes",
+                  "category": "undefined"
+                },
+                {
+                  "location": "scaleKeyFrames",
+                  "category": "undefined"
+                },
+                {
+                  "location": "textureKeyFrameGroup",
+                  "category": "undefined"
+                }
+              ],
+              "exceptional_locations_omitted": 0
+            }
+          }
+        ],
+        "texture_declarations": [
+          {
+            "texture_index": 0,
+            "constructor_pointer": "/textures/0",
+            "raw_name": "a.bmp",
+            "logical_name": "data\\texture\\a.bmp",
+            "filemanager_name": "data\\texture\\a.bmp",
+            "http_path": "data/texture/a.bmp"
+          },
+          {
+            "texture_index": 1,
+            "constructor_pointer": "/textures/1",
+            "raw_name": "a.bmp",
+            "logical_name": "data\\texture\\a.bmp",
+            "filemanager_name": "data\\texture\\a.bmp",
+            "http_path": "data/texture/a.bmp"
+          },
+          {
+            "texture_index": 2,
+            "constructor_pointer": "/textures/2",
+            "raw_name": "b.tga",
+            "logical_name": "data\\texture\\b.tga",
+            "filemanager_name": "data\\texture\\b.tga",
+            "http_path": "data/texture/b.tga"
+          }
+        ],
+        "animation_by_node_keys": false,
+        "numeric_fields": {
+          "finite": 19,
+          "nan": 0,
+          "positive_infinity": 0,
+          "negative_infinity": 0,
+          "undefined": 1,
+          "null": 0,
+          "min": -3,
+          "max": 5,
+          "exceptional_locations": [
+            {
+              "location": "frameRatePerSecond",
+              "category": "undefined"
+            }
+          ],
+          "exceptional_locations_omitted": 0
+        },
+        "cursor": {
+          "state": "not_observable_from_unchanged_constructor",
+          "remaining_bytes": null
+        }
+      }
+    },
+    {
+      "id": "model15_global_position_unusual_names_fallback",
+      "kind": "model",
+      "body_hex": "4752534d01051400000002000000ff0000000000000000000000000000000005000000b35c6e616d652e626d700000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000020612e626d7020000000000000000000000000000000000000000000000000000000000000000000612e626d700069676e6f726564000000000000000000000000000000000000000000000000000000ff2e626d7000000000000000000000000000000000000000000000000000000000000000000000006d697373696e6700000000000000000000000000000000000000000000000000000000000000000001000000726f6f74000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000500000000000000010000000200000003000000040000000000803f0000000000000000000000000000803f0000000000000000000000000000803f000020410000a0410000f04100000000000000000000000000000000000000000000803f000000000000803f0000803f0000803f03000000000080bf000000c0000040c0000080400000000000000040000000000000a0400000803f03000000ffffffff0000000000000000ffffffff0000803f00000000ffffffff000000000000803f010000000000010002000000010002000000000000000000010000000000000001000000070000000000c03f000000c0000050400000003f00000000",
+      "input_bytes": 611,
+      "complete_sha256": "c14e067ce05bb47e5bbadf0daccbf8a6af0d3ac76a366ca451bad843cb7de865",
+      "header_version_bytes": "4752534d0105",
+      "authored_fields": [
+        {
+          "name": "magic",
+          "offset": 0,
+          "bytes": 4,
+          "hex": "4752534d",
+          "source": "Model752-756",
+          "complete": true
+        },
+        {
+          "name": "version",
+          "offset": 4,
+          "bytes": 2,
+          "hex": "0105",
+          "source": "Model759;BinaryReader66-71",
+          "complete": true
+        },
+        {
+          "name": "animLen",
+          "offset": 6,
+          "bytes": 4,
+          "hex": "14000000",
+          "source": "Model760",
+          "complete": true
+        },
+        {
+          "name": "shadeType",
+          "offset": 10,
+          "bytes": 4,
+          "hex": "02000000",
+          "source": "Model761",
+          "complete": true
+        },
+        {
+          "name": "alpha",
+          "offset": 14,
+          "bytes": 1,
+          "hex": "ff",
+          "source": "Model764",
+          "complete": true
+        },
+        {
+          "name": "reserved",
+          "offset": 15,
+          "bytes": 16,
+          "hex": "00000000000000000000000000000000",
+          "source": "Model787",
+          "complete": true
+        },
+        {
+          "name": "additionalTextures.count",
+          "offset": 31,
+          "bytes": 4,
+          "hex": "05000000",
+          "source": "Model788-790",
+          "complete": true
+        },
+        {
+          "name": "additionalTextures[0]",
+          "offset": 35,
+          "bytes": 40,
+          "hex": "b35c6e616d652e626d70000000000000000000000000000000000000000000000000000000000000",
+          "source": "Model790",
+          "complete": true
+        },
+        {
+          "name": "additionalTextures[1]",
+          "offset": 75,
+          "bytes": 40,
+          "hex": "00000000000000000000000000000000000000000000000000000000000000000000000000000000",
+          "source": "Model790",
+          "complete": true
+        },
+        {
+          "name": "additionalTextures[2]",
+          "offset": 115,
+          "bytes": 40,
+          "hex": "20612e626d7020000000000000000000000000000000000000000000000000000000000000000000",
+          "source": "Model790",
+          "complete": true
+        },
+        {
+          "name": "additionalTextures[3]",
+          "offset": 155,
+          "bytes": 40,
+          "hex": "612e626d700069676e6f726564000000000000000000000000000000000000000000000000000000",
+          "source": "Model790",
+          "complete": true
+        },
+        {
+          "name": "additionalTextures[4]",
+          "offset": 195,
+          "bytes": 40,
+          "hex": "ff2e626d700000000000000000000000000000000000000000000000000000000000000000000000",
+          "source": "Model790",
+          "complete": true
+        },
+        {
+          "name": "mainNodeName",
+          "offset": 235,
+          "bytes": 40,
+          "hex": "6d697373696e67000000000000000000000000000000000000000000000000000000000000000000",
+          "source": "Model792-793",
+          "complete": true
+        },
+        {
+          "name": "nodes.count",
+          "offset": 275,
+          "bytes": 4,
+          "hex": "01000000",
+          "source": "Model796-799",
+          "complete": true
+        },
+        {
+          "name": "node.name",
+          "offset": 279,
+          "bytes": 40,
+          "hex": "726f6f74000000000000000000000000000000000000000000000000000000000000000000000000",
+          "source": "Model53",
+          "complete": true
+        },
+        {
+          "name": "node.parentname",
+          "offset": 319,
+          "bytes": 40,
+          "hex": "00000000000000000000000000000000000000000000000000000000000000000000000000000000",
+          "source": "Model54",
+          "complete": true
+        },
+        {
+          "name": "node.textures.count",
+          "offset": 359,
+          "bytes": 4,
+          "hex": "05000000",
+          "source": "Model58-62",
+          "complete": true
+        },
+        {
+          "name": "node.textures[0]",
+          "offset": 363,
+          "bytes": 4,
+          "hex": "00000000",
+          "source": "Model62",
+          "complete": true
+        },
+        {
+          "name": "node.textures[1]",
+          "offset": 367,
+          "bytes": 4,
+          "hex": "01000000",
+          "source": "Model62",
+          "complete": true
+        },
+        {
+          "name": "node.textures[2]",
+          "offset": 371,
+          "bytes": 4,
+          "hex": "02000000",
+          "source": "Model62",
+          "complete": true
+        },
+        {
+          "name": "node.textures[3]",
+          "offset": 375,
+          "bytes": 4,
+          "hex": "03000000",
+          "source": "Model62",
+          "complete": true
+        },
+        {
+          "name": "node.textures[4]",
+          "offset": 379,
+          "bytes": 4,
+          "hex": "04000000",
+          "source": "Model62",
+          "complete": true
+        },
+        {
+          "name": "node.mat3",
+          "offset": 383,
+          "bytes": 36,
+          "hex": "0000803f0000000000000000000000000000803f0000000000000000000000000000803f",
+          "source": "Model66-76",
+          "complete": true
+        },
+        {
+          "name": "node.offset",
+          "offset": 419,
+          "bytes": 12,
+          "hex": "000020410000a0410000f041",
+          "source": "Model77;272-276",
+          "complete": true
+        },
+        {
+          "name": "node.pos",
+          "offset": 431,
+          "bytes": 12,
+          "hex": "000000000000000000000000",
+          "source": "Model87",
+          "complete": true
+        },
+        {
+          "name": "node.rotangle",
+          "offset": 443,
+          "bytes": 4,
+          "hex": "00000000",
+          "source": "Model88",
+          "complete": true
+        },
+        {
+          "name": "node.rotaxis",
+          "offset": 447,
+          "bytes": 12,
+          "hex": "000000000000803f00000000",
+          "source": "Model89",
+          "complete": true
+        },
+        {
+          "name": "node.scale",
+          "offset": 459,
+          "bytes": 12,
+          "hex": "0000803f0000803f0000803f",
+          "source": "Model90",
+          "complete": true
+        },
+        {
+          "name": "node.vertex_count",
+          "offset": 471,
+          "bytes": 4,
+          "hex": "03000000",
+          "source": "Model95-100",
+          "complete": true
+        },
+        {
+          "name": "node.vertex[0]",
+          "offset": 475,
+          "bytes": 12,
+          "hex": "000080bf000000c0000040c0",
+          "source": "Model98-100",
+          "complete": true
+        },
+        {
+          "name": "node.vertex[1]",
+          "offset": 487,
+          "bytes": 12,
+          "hex": "000080400000000000000040",
+          "source": "Model98-100",
+          "complete": true
+        },
+        {
+          "name": "node.vertex[2]",
+          "offset": 499,
+          "bytes": 12,
+          "hex": "000000000000a0400000803f",
+          "source": "Model98-100",
+          "complete": true
+        },
+        {
+          "name": "node.tvertex_count",
+          "offset": 511,
+          "bytes": 4,
+          "hex": "03000000",
+          "source": "Model103-115",
+          "complete": true
+        },
+        {
+          "name": "node.tvertex[0].rgba",
+          "offset": 515,
+          "bytes": 4,
+          "hex": "ffffffff",
+          "source": "Model107-112",
+          "complete": true
+        },
+        {
+          "name": "node.tvertex[0].uv",
+          "offset": 519,
+          "bytes": 8,
+          "hex": "0000000000000000",
+          "source": "Model113-114",
+          "complete": true
+        },
+        {
+          "name": "node.tvertex[1].rgba",
+          "offset": 527,
+          "bytes": 4,
+          "hex": "ffffffff",
+          "source": "Model107-112",
+          "complete": true
+        },
+        {
+          "name": "node.tvertex[1].uv",
+          "offset": 531,
+          "bytes": 8,
+          "hex": "0000803f00000000",
+          "source": "Model113-114",
+          "complete": true
+        },
+        {
+          "name": "node.tvertex[2].rgba",
+          "offset": 539,
+          "bytes": 4,
+          "hex": "ffffffff",
+          "source": "Model107-112",
+          "complete": true
+        },
+        {
+          "name": "node.tvertex[2].uv",
+          "offset": 543,
+          "bytes": 8,
+          "hex": "000000000000803f",
+          "source": "Model113-114",
+          "complete": true
+        },
+        {
+          "name": "node.face_count",
+          "offset": 551,
+          "bytes": 4,
+          "hex": "01000000",
+          "source": "Model118-119",
+          "complete": true
+        },
+        {
+          "name": "node.face[0].vertidx",
+          "offset": 555,
+          "bytes": 6,
+          "hex": "000001000200",
+          "source": "Model127",
+          "complete": true
+        },
+        {
+          "name": "node.face[0].tvertidx",
+          "offset": 561,
+          "bytes": 6,
+          "hex": "000001000200",
+          "source": "Model128",
+          "complete": true
+        },
+        {
+          "name": "node.face[0].texid",
+          "offset": 567,
+          "bytes": 2,
+          "hex": "0000",
+          "source": "Model129",
+          "complete": true
+        },
+        {
+          "name": "node.face[0].padding",
+          "offset": 569,
+          "bytes": 2,
+          "hex": "0000",
+          "source": "Model130",
+          "complete": true
+        },
+        {
+          "name": "node.face[0].twoSide",
+          "offset": 571,
+          "bytes": 4,
+          "hex": "00000000",
+          "source": "Model131",
+          "complete": true
+        },
+        {
+          "name": "node.face[0].smoothGroup",
+          "offset": 575,
+          "bytes": 4,
+          "hex": "01000000",
+          "source": "Model134-136",
+          "complete": true
+        },
+        {
+          "name": "node.rotKeyframes.count",
+          "offset": 579,
+          "bytes": 4,
+          "hex": "00000000",
+          "source": "Model163-171",
+          "complete": true
+        },
+        {
+          "name": "posKeyframes.count",
+          "offset": 583,
+          "bytes": 4,
+          "hex": "01000000",
+          "source": "Model814-816",
+          "complete": true
+        },
+        {
+          "name": "posKeyframes[0]",
+          "offset": 587,
+          "bytes": 20,
+          "hex": "070000000000c03f000000c0000050400000003f",
+          "source": "Model818-825",
+          "complete": true
+        },
+        {
+          "name": "volumebox.count",
+          "offset": 607,
+          "bytes": 4,
+          "hex": "00000000",
+          "source": "Model834-844",
+          "complete": true
+        }
+      ],
+      "input_facts": {
+        "bytes": 611,
+        "main_name_fallback": "missing does not match root"
+      },
+      "expected_outcome": "returned",
+      "expected_summary": {
+        "version": 1.5,
+        "animLen": 20,
+        "shadeType": 2,
+        "alpha": 1,
+        "frameRatePerSecond": {
+          "special": "undefined"
+        },
+        "textures": [
+          "\u00b3\\name.bmp",
+          "",
+          " a.bmp ",
+          "a.bmp",
+          "\u00ff.bmp"
+        ],
+        "main_node_index": 0,
+        "instances": 0,
+        "global_position_keys": 1,
+        "volume_boxes": 0,
+        "box": {
+          "min": [
+            -1,
+            -2,
+            -3
+          ],
+          "max": [
+            4,
+            5,
+            2
+          ],
+          "offset": [
+            1.5,
+            1.5,
+            -0.5
+          ],
+          "range": [
+            2.5,
+            3.5,
+            2.5
+          ],
+          "center": [
+            1.5,
+            1.5,
+            -0.5
+          ]
+        },
+        "nodes": [
+          {
+            "node_index": 0,
+            "name": "root",
+            "parentname": "",
+            "is_only": true,
+            "textures": [
+              0,
+              1,
+              2,
+              3,
+              4
+            ],
+            "texture_references": [
+              {
+                "slot_index": 0,
+                "table_index": 0,
+                "state": "resolved"
+              },
+              {
+                "slot_index": 1,
+                "table_index": 1,
+                "state": "resolved"
+              },
+              {
+                "slot_index": 2,
+                "table_index": 2,
+                "state": "resolved"
+              },
+              {
+                "slot_index": 3,
+                "table_index": 3,
+                "state": "resolved"
+              },
+              {
+                "slot_index": 4,
+                "table_index": 4,
+                "state": "resolved"
+              }
+            ],
+            "transform": {
+              "mat3": [
+                1,
+                0,
+                0,
+                0,
+                1,
+                0,
+                0,
+                0,
+                1
+              ],
+              "offset": [
+                10,
+                20,
+                30
+              ],
+              "pos": [
+                0,
+                0,
+                0
+              ],
+              "rotangle": 0,
+              "rotaxis": [
+                0,
+                1,
+                0
+              ],
+              "scale": [
+                1,
+                1,
+                1
+              ],
+              "flip": [
+                1,
+                1,
+                1
+              ],
+              "matrix": [
+                1,
+                0,
+                0,
+                0,
+                0,
+                1,
+                0,
+                0,
+                0,
+                0,
+                1,
+                0,
+                0,
+                0,
+                0,
+                1
+              ]
+            },
+            "box": {
+              "min": [
+                -1,
+                -2,
+                -3
+              ],
+              "max": [
+                4,
+                5,
+                2
+              ],
+              "offset": [
+                1.5,
+                1.5,
+                -0.5
+              ],
+              "range": [
+                2.5,
+                3.5,
+                2.5
+              ],
+              "center": [
+                1.5,
+                1.5,
+                -0.5
+              ]
+            },
+            "vertex_count": 3,
+            "tvertex_components": 18,
+            "face_count": 1,
+            "keyframe_counts": {
+              "rotation": 0,
+              "position": {
+                "special": "undefined"
+              },
+              "scale": {
+                "special": "undefined"
+              },
+              "texture_groups": {
+                "special": "undefined"
+              }
+            },
+            "numeric_fields": {
+              "finite": 98,
+              "nan": 0,
+              "positive_infinity": 0,
+              "negative_infinity": 0,
+              "undefined": 3,
+              "null": 0,
+              "min": -3,
+              "max": 30,
+              "exceptional_locations": [
+                {
+                  "location": "posKeyframes",
+                  "category": "undefined"
+                },
+                {
+                  "location": "scaleKeyFrames",
+                  "category": "undefined"
+                },
+                {
+                  "location": "textureKeyFrameGroup",
+                  "category": "undefined"
+                }
+              ],
+              "exceptional_locations_omitted": 0
+            }
+          }
+        ],
+        "texture_declarations": [
+          {
+            "texture_index": 0,
+            "constructor_pointer": "/textures/0",
+            "raw_name": "\u00b3\\name.bmp",
+            "logical_name": "data\\texture\\\u00b3\\name.bmp",
+            "filemanager_name": "data\\texture\\\u00b3\\name.bmp",
+            "http_path": "data/texture/%C2%B3/name.bmp"
+          },
+          {
+            "texture_index": 1,
+            "constructor_pointer": "/textures/1",
+            "raw_name": "",
+            "logical_name": "data\\texture\\",
+            "filemanager_name": "data\\texture\\",
+            "http_path": "data/texture/"
+          },
+          {
+            "texture_index": 2,
+            "constructor_pointer": "/textures/2",
+            "raw_name": " a.bmp ",
+            "logical_name": "data\\texture\\ a.bmp ",
+            "filemanager_name": "data\\texture\\ a.bmp",
+            "http_path": "data/texture/%20a.bmp"
+          },
+          {
+            "texture_index": 3,
+            "constructor_pointer": "/textures/3",
+            "raw_name": "a.bmp",
+            "logical_name": "data\\texture\\a.bmp",
+            "filemanager_name": "data\\texture\\a.bmp",
+            "http_path": "data/texture/a.bmp"
+          },
+          {
+            "texture_index": 4,
+            "constructor_pointer": "/textures/4",
+            "raw_name": "\u00ff.bmp",
+            "logical_name": "data\\texture\\\u00ff.bmp",
+            "filemanager_name": "data\\texture\\\u00ff.bmp",
+            "http_path": "data/texture/%C3%BF.bmp"
+          }
+        ],
+        "animation_by_node_keys": false,
+        "numeric_fields": {
+          "finite": 24,
+          "nan": 0,
+          "positive_infinity": 0,
+          "negative_infinity": 0,
+          "undefined": 1,
+          "null": 0,
+          "min": -3,
+          "max": 20,
+          "exceptional_locations": [
+            {
+              "location": "frameRatePerSecond",
+              "category": "undefined"
+            }
+          ],
+          "exceptional_locations_omitted": 0
+        },
+        "cursor": {
+          "state": "not_observable_from_unchanged_constructor",
+          "remaining_bytes": null
+        }
+      }
+    },
+    {
+      "id": "model22_duplicate_global_numeric_slots",
+      "kind": "model",
+      "body_hex": "4752534d02020000000002000000ff0000f0410300000005000000612e626d7005000000612e626d7005000000622e746761010000000a0000006c6f63616c2d6f6e6c790100000004000000726f6f7400000000030000000200000000000000020000000000803f0000000000000000000000000000803f0000000000000000000000000000803f000020410000a0410000f04103000000000080bf000000c0000040c0000080400000000000000040000000000000a0400000803f03000000ffffffff0000000000000000ffffffff0000803f00000000ffffffff000000000000803f010000002400000000000100020000000100020000000000000000000100000011000000170000005441494c000000000000000001000000050000000000003f000080bf000000400b00000000000000",
+      "input_bytes": 308,
+      "complete_sha256": "ff3b4bff6cc3c957a1f73dfc7434488b8dc30d066dc64df5e2b279e9caaccb0c",
+      "header_version_bytes": "4752534d0202",
+      "authored_fields": [
+        {
+          "name": "magic",
+          "offset": 0,
+          "bytes": 4,
+          "hex": "4752534d",
+          "source": "Model752-756",
+          "complete": true
+        },
+        {
+          "name": "version",
+          "offset": 4,
+          "bytes": 2,
+          "hex": "0202",
+          "source": "Model759;BinaryReader66-71",
+          "complete": true
+        },
+        {
+          "name": "animLen",
+          "offset": 6,
+          "bytes": 4,
+          "hex": "00000000",
+          "source": "Model760",
+          "complete": true
+        },
+        {
+          "name": "shadeType",
+          "offset": 10,
+          "bytes": 4,
+          "hex": "02000000",
+          "source": "Model761",
+          "complete": true
+        },
+        {
+          "name": "alpha",
+          "offset": 14,
+          "bytes": 1,
+          "hex": "ff",
+          "source": "Model764",
+          "complete": true
+        },
+        {
+          "name": "frameRatePerSecond",
+          "offset": 15,
+          "bytes": 4,
+          "hex": "0000f041",
+          "source": "Model775",
+          "complete": true
+        },
+        {
+          "name": "additionalTextures.count",
+          "offset": 19,
+          "bytes": 4,
+          "hex": "03000000",
+          "source": "Model776-779",
+          "complete": true
+        },
+        {
+          "name": "additionalTextures[0].length",
+          "offset": 23,
+          "bytes": 4,
+          "hex": "05000000",
+          "source": "Model778",
+          "complete": true
+        },
+        {
+          "name": "additionalTextures[0].bytes",
+          "offset": 27,
+          "bytes": 5,
+          "hex": "612e626d70",
+          "source": "Model778",
+          "complete": true
+        },
+        {
+          "name": "additionalTextures[1].length",
+          "offset": 32,
+          "bytes": 4,
+          "hex": "05000000",
+          "source": "Model778",
+          "complete": true
+        },
+        {
+          "name": "additionalTextures[1].bytes",
+          "offset": 36,
+          "bytes": 5,
+          "hex": "612e626d70",
+          "source": "Model778",
+          "complete": true
+        },
+        {
+          "name": "additionalTextures[2].length",
+          "offset": 41,
+          "bytes": 4,
+          "hex": "05000000",
+          "source": "Model778",
+          "complete": true
+        },
+        {
+          "name": "additionalTextures[2].bytes",
+          "offset": 45,
+          "bytes": 5,
+          "hex": "622e746761",
+          "source": "Model778",
+          "complete": true
+        },
+        {
+          "name": "local_textures.count",
+          "offset": 50,
+          "bytes": 4,
+          "hex": "01000000",
+          "source": "Model781-785",
+          "complete": true
+        },
+        {
+          "name": "local_textures[0].length",
+          "offset": 54,
+          "bytes": 4,
+          "hex": "0a000000",
+          "source": "Model784",
+          "complete": true
+        },
+        {
+          "name": "local_textures[0].bytes",
+          "offset": 58,
+          "bytes": 10,
+          "hex": "6c6f63616c2d6f6e6c79",
+          "source": "Model784",
+          "complete": true
+        },
+        {
+          "name": "nodes.count",
+          "offset": 68,
+          "bytes": 4,
+          "hex": "01000000",
+          "source": "Model796-799",
+          "complete": true
+        },
+        {
+          "name": "node.name.length",
+          "offset": 72,
+          "bytes": 4,
+          "hex": "04000000",
+          "source": "Model49-50",
+          "complete": true
+        },
+        {
+          "name": "node.name.bytes",
+          "offset": 76,
+          "bytes": 4,
+          "hex": "726f6f74",
+          "source": "Model49-50",
+          "complete": true
+        },
+        {
+          "name": "node.parentname.length",
+          "offset": 80,
+          "bytes": 4,
+          "hex": "00000000",
+          "source": "Model49-51",
+          "complete": true
+        },
+        {
+          "name": "node.parentname.bytes",
+          "offset": 84,
+          "bytes": 0,
+          "hex": "",
+          "source": "Model49-51",
+          "complete": true
+        },
+        {
+          "name": "node.textures.count",
+          "offset": 84,
+          "bytes": 4,
+          "hex": "03000000",
+          "source": "Model58-62",
+          "complete": true
+        },
+        {
+          "name": "node.textures[0]",
+          "offset": 88,
+          "bytes": 4,
+          "hex": "02000000",
+          "source": "Model62",
+          "complete": true
+        },
+        {
+          "name": "node.textures[1]",
+          "offset": 92,
+          "bytes": 4,
+          "hex": "00000000",
+          "source": "Model62",
+          "complete": true
+        },
+        {
+          "name": "node.textures[2]",
+          "offset": 96,
+          "bytes": 4,
+          "hex": "02000000",
+          "source": "Model62",
+          "complete": true
+        },
+        {
+          "name": "node.mat3",
+          "offset": 100,
+          "bytes": 36,
+          "hex": "0000803f0000000000000000000000000000803f0000000000000000000000000000803f",
+          "source": "Model66-76",
+          "complete": true
+        },
+        {
+          "name": "node.offset",
+          "offset": 136,
+          "bytes": 12,
+          "hex": "000020410000a0410000f041",
+          "source": "Model77;272-276",
+          "complete": true
+        },
+        {
+          "name": "node.vertex_count",
+          "offset": 148,
+          "bytes": 4,
+          "hex": "03000000",
+          "source": "Model95-100",
+          "complete": true
+        },
+        {
+          "name": "node.vertex[0]",
+          "offset": 152,
+          "bytes": 12,
+          "hex": "000080bf000000c0000040c0",
+          "source": "Model98-100",
+          "complete": true
+        },
+        {
+          "name": "node.vertex[1]",
+          "offset": 164,
+          "bytes": 12,
+          "hex": "000080400000000000000040",
+          "source": "Model98-100",
+          "complete": true
+        },
+        {
+          "name": "node.vertex[2]",
+          "offset": 176,
+          "bytes": 12,
+          "hex": "000000000000a0400000803f",
+          "source": "Model98-100",
+          "complete": true
+        },
+        {
+          "name": "node.tvertex_count",
+          "offset": 188,
+          "bytes": 4,
+          "hex": "03000000",
+          "source": "Model103-115",
+          "complete": true
+        },
+        {
+          "name": "node.tvertex[0].rgba",
+          "offset": 192,
+          "bytes": 4,
+          "hex": "ffffffff",
+          "source": "Model107-112",
+          "complete": true
+        },
+        {
+          "name": "node.tvertex[0].uv",
+          "offset": 196,
+          "bytes": 8,
+          "hex": "0000000000000000",
+          "source": "Model113-114",
+          "complete": true
+        },
+        {
+          "name": "node.tvertex[1].rgba",
+          "offset": 204,
+          "bytes": 4,
+          "hex": "ffffffff",
+          "source": "Model107-112",
+          "complete": true
+        },
+        {
+          "name": "node.tvertex[1].uv",
+          "offset": 208,
+          "bytes": 8,
+          "hex": "0000803f00000000",
+          "source": "Model113-114",
+          "complete": true
+        },
+        {
+          "name": "node.tvertex[2].rgba",
+          "offset": 216,
+          "bytes": 4,
+          "hex": "ffffffff",
+          "source": "Model107-112",
+          "complete": true
+        },
+        {
+          "name": "node.tvertex[2].uv",
+          "offset": 220,
+          "bytes": 8,
+          "hex": "000000000000803f",
+          "source": "Model113-114",
+          "complete": true
+        },
+        {
+          "name": "node.face_count",
+          "offset": 228,
+          "bytes": 4,
+          "hex": "01000000",
+          "source": "Model118-119",
+          "complete": true
+        },
+        {
+          "name": "node.face[0].length",
+          "offset": 232,
+          "bytes": 4,
+          "hex": "24000000",
+          "source": "Model123-125",
+          "complete": true
+        },
+        {
+          "name": "node.face[0].vertidx",
+          "offset": 236,
+          "bytes": 6,
+          "hex": "000001000200",
+          "source": "Model127",
+          "complete": true
+        },
+        {
+          "name": "node.face[0].tvertidx",
+          "offset": 242,
+          "bytes": 6,
+          "hex": "000001000200",
+          "source": "Model128",
+          "complete": true
+        },
+        {
+          "name": "node.face[0].texid",
+          "offset": 248,
+          "bytes": 2,
+          "hex": "0000",
+          "source": "Model129",
+          "complete": true
+        },
+        {
+          "name": "node.face[0].padding",
+          "offset": 250,
+          "bytes": 2,
+          "hex": "0000",
+          "source": "Model130",
+          "complete": true
+        },
+        {
+          "name": "node.face[0].twoSide",
+          "offset": 252,
+          "bytes": 4,
+          "hex": "00000000",
+          "source": "Model131",
+          "complete": true
+        },
+        {
+          "name": "node.face[0].smoothGroup",
+          "offset": 256,
+          "bytes": 4,
+          "hex": "01000000",
+          "source": "Model134-136",
+          "complete": true
+        },
+        {
+          "name": "node.face[0].smoothGroup_1",
+          "offset": 260,
+          "bytes": 4,
+          "hex": "11000000",
+          "source": "Model136-138",
+          "complete": true
+        },
+        {
+          "name": "node.face[0].smoothGroup_2",
+          "offset": 264,
+          "bytes": 4,
+          "hex": "17000000",
+          "source": "Model139-141",
+          "complete": true
+        },
+        {
+          "name": "node.face[0].skipped_extension",
+          "offset": 268,
+          "bytes": 4,
+          "hex": "5441494c",
+          "source": "Model142-144",
+          "complete": true
+        },
+        {
+          "name": "node.scaleKeyFrames.count",
+          "offset": 272,
+          "bytes": 4,
+          "hex": "00000000",
+          "source": "Model149-151",
+          "complete": true
+        },
+        {
+          "name": "node.rotKeyframes.count",
+          "offset": 276,
+          "bytes": 4,
+          "hex": "00000000",
+          "source": "Model163-171",
+          "complete": true
+        },
+        {
+          "name": "node.posKeyframes.count",
+          "offset": 280,
+          "bytes": 4,
+          "hex": "01000000",
+          "source": "Model174-176",
+          "complete": true
+        },
+        {
+          "name": "node.posKeyframes[0]",
+          "offset": 284,
+          "bytes": 20,
+          "hex": "050000000000003f000080bf000000400b000000",
+          "source": "Model178-185",
+          "complete": true
+        },
+        {
+          "name": "volumebox.count",
+          "offset": 304,
+          "bytes": 4,
+          "hex": "00000000",
+          "source": "Model834-844",
+          "complete": true
+        }
+      ],
+      "input_facts": {
+        "bytes": 308,
+        "discarded_local_strings": [
+          "local-only"
+        ]
+      },
+      "expected_outcome": "returned",
+      "expected_summary": {
+        "version": 2.2,
+        "animLen": 0,
+        "shadeType": 2,
+        "alpha": 1,
+        "frameRatePerSecond": 30,
+        "textures": [
+          "a.bmp",
+          "a.bmp",
+          "b.tga"
+        ],
+        "main_node_index": 0,
+        "instances": 0,
+        "global_position_keys": 0,
+        "volume_boxes": 0,
+        "box": {
+          "min": [
+            -1,
+            -2,
+            -3
+          ],
+          "max": [
+            4,
+            5,
+            2
+          ],
+          "offset": [
+            1.5,
+            1.5,
+            -0.5
+          ],
+          "range": [
+            2.5,
+            3.5,
+            2.5
+          ],
+          "center": [
+            1.5,
+            1.5,
+            -0.5
+          ]
+        },
+        "nodes": [
+          {
+            "node_index": 0,
+            "name": "root",
+            "parentname": "",
+            "is_only": true,
+            "textures": [
+              2,
+              0,
+              2
+            ],
+            "texture_references": [
+              {
+                "slot_index": 0,
+                "table_index": 2,
+                "state": "resolved"
+              },
+              {
+                "slot_index": 1,
+                "table_index": 0,
+                "state": "resolved"
+              },
+              {
+                "slot_index": 2,
+                "table_index": 2,
+                "state": "resolved"
+              }
+            ],
+            "transform": {
+              "mat3": [
+                1,
+                0,
+                0,
+                0,
+                1,
+                0,
+                0,
+                0,
+                1
+              ],
+              "offset": [
+                10,
+                20,
+                30
+              ],
+              "pos": [
+                0,
+                0,
+                0
+              ],
+              "rotangle": 0,
+              "rotaxis": [
+                0,
+                0,
+                0
+              ],
+              "scale": [
+                1,
+                1,
+                1
+              ],
+              "flip": [
+                1,
+                -1,
+                1
+              ],
+              "matrix": [
+                1,
+                0,
+                0,
+                0,
+                0,
+                1,
+                0,
+                0,
+                0,
+                0,
+                1,
+                0,
+                0,
+                0,
+                0,
+                1
+              ]
+            },
+            "box": {
+              "min": [
+                -1,
+                -2,
+                -3
+              ],
+              "max": [
+                4,
+                5,
+                2
+              ],
+              "offset": [
+                1.5,
+                1.5,
+                -0.5
+              ],
+              "range": [
+                2.5,
+                3.5,
+                2.5
+              ],
+              "center": [
+                1.5,
+                1.5,
+                -0.5
+              ]
+            },
+            "vertex_count": 3,
+            "tvertex_components": 18,
+            "face_count": 1,
+            "keyframe_counts": {
+              "rotation": 0,
+              "position": 1,
+              "scale": 0,
+              "texture_groups": {
+                "special": "undefined"
+              }
+            },
+            "numeric_fields": {
+              "finite": 103,
+              "nan": 0,
+              "positive_infinity": 0,
+              "negative_infinity": 0,
+              "undefined": 1,
+              "null": 0,
+              "min": -3,
+              "max": 30,
+              "exceptional_locations": [
+                {
+                  "location": "textureKeyFrameGroup",
+                  "category": "undefined"
+                }
+              ],
+              "exceptional_locations_omitted": 0
+            }
+          }
+        ],
+        "texture_declarations": [
+          {
+            "texture_index": 0,
+            "constructor_pointer": "/textures/0",
+            "raw_name": "a.bmp",
+            "logical_name": "data\\texture\\a.bmp",
+            "filemanager_name": "data\\texture\\a.bmp",
+            "http_path": "data/texture/a.bmp"
+          },
+          {
+            "texture_index": 1,
+            "constructor_pointer": "/textures/1",
+            "raw_name": "a.bmp",
+            "logical_name": "data\\texture\\a.bmp",
+            "filemanager_name": "data\\texture\\a.bmp",
+            "http_path": "data/texture/a.bmp"
+          },
+          {
+            "texture_index": 2,
+            "constructor_pointer": "/textures/2",
+            "raw_name": "b.tga",
+            "logical_name": "data\\texture\\b.tga",
+            "filemanager_name": "data\\texture\\b.tga",
+            "http_path": "data/texture/b.tga"
+          }
+        ],
+        "animation_by_node_keys": true,
+        "numeric_fields": {
+          "finite": 20,
+          "nan": 0,
+          "positive_infinity": 0,
+          "negative_infinity": 0,
+          "undefined": 0,
+          "null": 0,
+          "min": -3,
+          "max": 30,
+          "exceptional_locations": [],
+          "exceptional_locations_omitted": 0
+        },
+        "cursor": {
+          "state": "not_observable_from_unchanged_constructor",
+          "remaining_bytes": null
+        }
+      }
+    },
+    {
+      "id": "model23_repeated_node_strings",
+      "kind": "model",
+      "body_hex": "4752535802030000000002000000ff0000f041010000000a0000006c6f63616c2d6f6e6c790100000004000000726f6f74000000000300000005000000622e74676105000000612e626d7005000000622e7467610000803f0000000000000000000000000000803f0000000000000000000000000000803f000020410000a0410000f04103000000000080bf000000c0000040c0000080400000000000000040000000000000a0400000803f03000000ffffffff0000000000000000ffffffff0000803f00000000ffffffff000000000000803f01000000180000000000010002000000010002000000000000000000010000000000000000000000000000000000000000000000",
+      "input_bytes": 264,
+      "complete_sha256": "399fe14ec395d047cc01143bf7c58c8cede700b680a356c247e4a3e6acec4218",
+      "header_version_bytes": "475253580203",
+      "authored_fields": [
+        {
+          "name": "magic",
+          "offset": 0,
+          "bytes": 4,
+          "hex": "47525358",
+          "source": "Model752-756",
+          "complete": true
+        },
+        {
+          "name": "version",
+          "offset": 4,
+          "bytes": 2,
+          "hex": "0203",
+          "source": "Model759;BinaryReader66-71",
+          "complete": true
+        },
+        {
+          "name": "animLen",
+          "offset": 6,
+          "bytes": 4,
+          "hex": "00000000",
+          "source": "Model760",
+          "complete": true
+        },
+        {
+          "name": "shadeType",
+          "offset": 10,
+          "bytes": 4,
+          "hex": "02000000",
+          "source": "Model761",
+          "complete": true
+        },
+        {
+          "name": "alpha",
+          "offset": 14,
+          "bytes": 1,
+          "hex": "ff",
+          "source": "Model764",
+          "complete": true
+        },
+        {
+          "name": "frameRatePerSecond",
+          "offset": 15,
+          "bytes": 4,
+          "hex": "0000f041",
+          "source": "Model768",
+          "complete": true
+        },
+        {
+          "name": "local_textures.count",
+          "offset": 19,
+          "bytes": 4,
+          "hex": "01000000",
+          "source": "Model769-773",
+          "complete": true
+        },
+        {
+          "name": "local_textures[0].length",
+          "offset": 23,
+          "bytes": 4,
+          "hex": "0a000000",
+          "source": "Model772",
+          "complete": true
+        },
+        {
+          "name": "local_textures[0].bytes",
+          "offset": 27,
+          "bytes": 10,
+          "hex": "6c6f63616c2d6f6e6c79",
+          "source": "Model772",
+          "complete": true
+        },
+        {
+          "name": "nodes.count",
+          "offset": 37,
+          "bytes": 4,
+          "hex": "01000000",
+          "source": "Model796-799",
+          "complete": true
+        },
+        {
+          "name": "node.name.length",
+          "offset": 41,
+          "bytes": 4,
+          "hex": "04000000",
+          "source": "Model49-50",
+          "complete": true
+        },
+        {
+          "name": "node.name.bytes",
+          "offset": 45,
+          "bytes": 4,
+          "hex": "726f6f74",
+          "source": "Model49-50",
+          "complete": true
+        },
+        {
+          "name": "node.parentname.length",
+          "offset": 49,
+          "bytes": 4,
+          "hex": "00000000",
+          "source": "Model49-51",
+          "complete": true
+        },
+        {
+          "name": "node.parentname.bytes",
+          "offset": 53,
+          "bytes": 0,
+          "hex": "",
+          "source": "Model49-51",
+          "complete": true
+        },
+        {
+          "name": "node.textures.count",
+          "offset": 53,
+          "bytes": 4,
+          "hex": "03000000",
+          "source": "Model58-62",
+          "complete": true
+        },
+        {
+          "name": "node.textures[0].length",
+          "offset": 57,
+          "bytes": 4,
+          "hex": "05000000",
+          "source": "Model62",
+          "complete": true
+        },
+        {
+          "name": "node.textures[0].bytes",
+          "offset": 61,
+          "bytes": 5,
+          "hex": "622e746761",
+          "source": "Model62",
+          "complete": true
+        },
+        {
+          "name": "node.textures[1].length",
+          "offset": 66,
+          "bytes": 4,
+          "hex": "05000000",
+          "source": "Model62",
+          "complete": true
+        },
+        {
+          "name": "node.textures[1].bytes",
+          "offset": 70,
+          "bytes": 5,
+          "hex": "612e626d70",
+          "source": "Model62",
+          "complete": true
+        },
+        {
+          "name": "node.textures[2].length",
+          "offset": 75,
+          "bytes": 4,
+          "hex": "05000000",
+          "source": "Model62",
+          "complete": true
+        },
+        {
+          "name": "node.textures[2].bytes",
+          "offset": 79,
+          "bytes": 5,
+          "hex": "622e746761",
+          "source": "Model62",
+          "complete": true
+        },
+        {
+          "name": "node.mat3",
+          "offset": 84,
+          "bytes": 36,
+          "hex": "0000803f0000000000000000000000000000803f0000000000000000000000000000803f",
+          "source": "Model66-76",
+          "complete": true
+        },
+        {
+          "name": "node.offset",
+          "offset": 120,
+          "bytes": 12,
+          "hex": "000020410000a0410000f041",
+          "source": "Model77;272-276",
+          "complete": true
+        },
+        {
+          "name": "node.vertex_count",
+          "offset": 132,
+          "bytes": 4,
+          "hex": "03000000",
+          "source": "Model95-100",
+          "complete": true
+        },
+        {
+          "name": "node.vertex[0]",
+          "offset": 136,
+          "bytes": 12,
+          "hex": "000080bf000000c0000040c0",
+          "source": "Model98-100",
+          "complete": true
+        },
+        {
+          "name": "node.vertex[1]",
+          "offset": 148,
+          "bytes": 12,
+          "hex": "000080400000000000000040",
+          "source": "Model98-100",
+          "complete": true
+        },
+        {
+          "name": "node.vertex[2]",
+          "offset": 160,
+          "bytes": 12,
+          "hex": "000000000000a0400000803f",
+          "source": "Model98-100",
+          "complete": true
+        },
+        {
+          "name": "node.tvertex_count",
+          "offset": 172,
+          "bytes": 4,
+          "hex": "03000000",
+          "source": "Model103-115",
+          "complete": true
+        },
+        {
+          "name": "node.tvertex[0].rgba",
+          "offset": 176,
+          "bytes": 4,
+          "hex": "ffffffff",
+          "source": "Model107-112",
+          "complete": true
+        },
+        {
+          "name": "node.tvertex[0].uv",
+          "offset": 180,
+          "bytes": 8,
+          "hex": "0000000000000000",
+          "source": "Model113-114",
+          "complete": true
+        },
+        {
+          "name": "node.tvertex[1].rgba",
+          "offset": 188,
+          "bytes": 4,
+          "hex": "ffffffff",
+          "source": "Model107-112",
+          "complete": true
+        },
+        {
+          "name": "node.tvertex[1].uv",
+          "offset": 192,
+          "bytes": 8,
+          "hex": "0000803f00000000",
+          "source": "Model113-114",
+          "complete": true
+        },
+        {
+          "name": "node.tvertex[2].rgba",
+          "offset": 200,
+          "bytes": 4,
+          "hex": "ffffffff",
+          "source": "Model107-112",
+          "complete": true
+        },
+        {
+          "name": "node.tvertex[2].uv",
+          "offset": 204,
+          "bytes": 8,
+          "hex": "000000000000803f",
+          "source": "Model113-114",
+          "complete": true
+        },
+        {
+          "name": "node.face_count",
+          "offset": 212,
+          "bytes": 4,
+          "hex": "01000000",
+          "source": "Model118-119",
+          "complete": true
+        },
+        {
+          "name": "node.face[0].length",
+          "offset": 216,
+          "bytes": 4,
+          "hex": "18000000",
+          "source": "Model123-125",
+          "complete": true
+        },
+        {
+          "name": "node.face[0].vertidx",
+          "offset": 220,
+          "bytes": 6,
+          "hex": "000001000200",
+          "source": "Model127",
+          "complete": true
+        },
+        {
+          "name": "node.face[0].tvertidx",
+          "offset": 226,
+          "bytes": 6,
+          "hex": "000001000200",
+          "source": "Model128",
+          "complete": true
+        },
+        {
+          "name": "node.face[0].texid",
+          "offset": 232,
+          "bytes": 2,
+          "hex": "0000",
+          "source": "Model129",
+          "complete": true
+        },
+        {
+          "name": "node.face[0].padding",
+          "offset": 234,
+          "bytes": 2,
+          "hex": "0000",
+          "source": "Model130",
+          "complete": true
+        },
+        {
+          "name": "node.face[0].twoSide",
+          "offset": 236,
+          "bytes": 4,
+          "hex": "00000000",
+          "source": "Model131",
+          "complete": true
+        },
+        {
+          "name": "node.face[0].smoothGroup",
+          "offset": 240,
+          "bytes": 4,
+          "hex": "01000000",
+          "source": "Model134-136",
+          "complete": true
+        },
+        {
+          "name": "node.scaleKeyFrames.count",
+          "offset": 244,
+          "bytes": 4,
+          "hex": "00000000",
+          "source": "Model149-151",
+          "complete": true
+        },
+        {
+          "name": "node.rotKeyframes.count",
+          "offset": 248,
+          "bytes": 4,
+          "hex": "00000000",
+          "source": "Model163-171",
+          "complete": true
+        },
+        {
+          "name": "node.posKeyframes.count",
+          "offset": 252,
+          "bytes": 4,
+          "hex": "00000000",
+          "source": "Model174-176",
+          "complete": true
+        },
+        {
+          "name": "node.textureKeyFrameGroup.count",
+          "offset": 256,
+          "bytes": 4,
+          "hex": "00000000",
+          "source": "Model190-225",
+          "complete": true
+        },
+        {
+          "name": "volumebox.count",
+          "offset": 260,
+          "bytes": 4,
+          "hex": "00000000",
+          "source": "Model834-844",
+          "complete": true
+        }
+      ],
+      "input_facts": {
+        "bytes": 264,
+        "discarded_local_strings": [
+          "local-only"
+        ]
+      },
+      "expected_outcome": "returned",
+      "expected_summary": {
+        "version": 2.3,
+        "animLen": 0,
+        "shadeType": 2,
+        "alpha": 1,
+        "frameRatePerSecond": 30,
+        "textures": [
+          "b.tga",
+          "a.bmp"
+        ],
+        "main_node_index": 0,
+        "instances": 0,
+        "global_position_keys": 0,
+        "volume_boxes": 0,
+        "box": {
+          "min": [
+            -1,
+            -2,
+            -3
+          ],
+          "max": [
+            4,
+            5,
+            2
+          ],
+          "offset": [
+            1.5,
+            1.5,
+            -0.5
+          ],
+          "range": [
+            2.5,
+            3.5,
+            2.5
+          ],
+          "center": [
+            1.5,
+            1.5,
+            -0.5
+          ]
+        },
+        "nodes": [
+          {
+            "node_index": 0,
+            "name": "root",
+            "parentname": "",
+            "is_only": true,
+            "textures": [
+              0,
+              1,
+              0
+            ],
+            "texture_references": [
+              {
+                "slot_index": 0,
+                "table_index": 0,
+                "state": "resolved"
+              },
+              {
+                "slot_index": 1,
+                "table_index": 1,
+                "state": "resolved"
+              },
+              {
+                "slot_index": 2,
+                "table_index": 0,
+                "state": "resolved"
+              }
+            ],
+            "transform": {
+              "mat3": [
+                1,
+                0,
+                0,
+                0,
+                1,
+                0,
+                0,
+                0,
+                1
+              ],
+              "offset": [
+                10,
+                20,
+                30
+              ],
+              "pos": [
+                0,
+                0,
+                0
+              ],
+              "rotangle": 0,
+              "rotaxis": [
+                0,
+                0,
+                0
+              ],
+              "scale": [
+                1,
+                1,
+                1
+              ],
+              "flip": [
+                1,
+                -1,
+                1
+              ],
+              "matrix": [
+                1,
+                0,
+                0,
+                0,
+                0,
+                1,
+                0,
+                0,
+                0,
+                0,
+                1,
+                0,
+                0,
+                0,
+                0,
+                1
+              ]
+            },
+            "box": {
+              "min": [
+                -1,
+                -2,
+                -3
+              ],
+              "max": [
+                4,
+                5,
+                2
+              ],
+              "offset": [
+                1.5,
+                1.5,
+                -0.5
+              ],
+              "range": [
+                2.5,
+                3.5,
+                2.5
+              ],
+              "center": [
+                1.5,
+                1.5,
+                -0.5
+              ]
+            },
+            "vertex_count": 3,
+            "tvertex_components": 18,
+            "face_count": 1,
+            "keyframe_counts": {
+              "rotation": 0,
+              "position": 0,
+              "scale": 0,
+              "texture_groups": 0
+            },
+            "numeric_fields": {
+              "finite": 96,
+              "nan": 0,
+              "positive_infinity": 0,
+              "negative_infinity": 0,
+              "undefined": 0,
+              "null": 0,
+              "min": -3,
+              "max": 30,
+              "exceptional_locations": [],
+              "exceptional_locations_omitted": 0
+            }
+          }
+        ],
+        "texture_declarations": [
+          {
+            "texture_index": 0,
+            "constructor_pointer": "/textures/0",
+            "raw_name": "b.tga",
+            "logical_name": "data\\texture\\b.tga",
+            "filemanager_name": "data\\texture\\b.tga",
+            "http_path": "data/texture/b.tga"
+          },
+          {
+            "texture_index": 1,
+            "constructor_pointer": "/textures/1",
+            "raw_name": "a.bmp",
+            "logical_name": "data\\texture\\a.bmp",
+            "filemanager_name": "data\\texture\\a.bmp",
+            "http_path": "data/texture/a.bmp"
+          }
+        ],
+        "animation_by_node_keys": false,
+        "numeric_fields": {
+          "finite": 20,
+          "nan": 0,
+          "positive_infinity": 0,
+          "negative_infinity": 0,
+          "undefined": 0,
+          "null": 0,
+          "min": -3,
+          "max": 30,
+          "exceptional_locations": [],
+          "exceptional_locations_omitted": 0
+        },
+        "cursor": {
+          "state": "not_observable_from_unchanged_constructor",
+          "remaining_bytes": null
+        }
+      }
+    },
+    {
+      "id": "model23_duplicate_empty_nonascii_space_strings",
+      "kind": "model",
+      "body_hex": "4752534d02030000000002000000ff0000f041010000000a0000006c6f63616c2d6f6e6c790100000004000000726f6f74000000000700000000000000000000000a000000b35c6e616d652e626d700700000020612e626d70200a000000b35c6e616d652e626d700d000000612e626d700069676e6f72656405000000612e626d700000803f0000000000000000000000000000803f0000000000000000000000000000803f000020410000a0410000f04103000000000080bf000000c0000040c0000080400000000000000040000000000000a0400000803f03000000ffffffff0000000000000000ffffffff0000803f00000000ffffffff000000000000803f01000000180000000000010002000000010002000000000000000000010000000000000000000000000000000000000000000000",
+      "input_bytes": 310,
+      "complete_sha256": "5f699d38c9ab73b4ade89d3863b8033cd4ba968fae4e3e8edb4333f2d5926d84",
+      "header_version_bytes": "4752534d0203",
+      "authored_fields": [
+        {
+          "name": "magic",
+          "offset": 0,
+          "bytes": 4,
+          "hex": "4752534d",
+          "source": "Model752-756",
+          "complete": true
+        },
+        {
+          "name": "version",
+          "offset": 4,
+          "bytes": 2,
+          "hex": "0203",
+          "source": "Model759;BinaryReader66-71",
+          "complete": true
+        },
+        {
+          "name": "animLen",
+          "offset": 6,
+          "bytes": 4,
+          "hex": "00000000",
+          "source": "Model760",
+          "complete": true
+        },
+        {
+          "name": "shadeType",
+          "offset": 10,
+          "bytes": 4,
+          "hex": "02000000",
+          "source": "Model761",
+          "complete": true
+        },
+        {
+          "name": "alpha",
+          "offset": 14,
+          "bytes": 1,
+          "hex": "ff",
+          "source": "Model764",
+          "complete": true
+        },
+        {
+          "name": "frameRatePerSecond",
+          "offset": 15,
+          "bytes": 4,
+          "hex": "0000f041",
+          "source": "Model768",
+          "complete": true
+        },
+        {
+          "name": "local_textures.count",
+          "offset": 19,
+          "bytes": 4,
+          "hex": "01000000",
+          "source": "Model769-773",
+          "complete": true
+        },
+        {
+          "name": "local_textures[0].length",
+          "offset": 23,
+          "bytes": 4,
+          "hex": "0a000000",
+          "source": "Model772",
+          "complete": true
+        },
+        {
+          "name": "local_textures[0].bytes",
+          "offset": 27,
+          "bytes": 10,
+          "hex": "6c6f63616c2d6f6e6c79",
+          "source": "Model772",
+          "complete": true
+        },
+        {
+          "name": "nodes.count",
+          "offset": 37,
+          "bytes": 4,
+          "hex": "01000000",
+          "source": "Model796-799",
+          "complete": true
+        },
+        {
+          "name": "node.name.length",
+          "offset": 41,
+          "bytes": 4,
+          "hex": "04000000",
+          "source": "Model49-50",
+          "complete": true
+        },
+        {
+          "name": "node.name.bytes",
+          "offset": 45,
+          "bytes": 4,
+          "hex": "726f6f74",
+          "source": "Model49-50",
+          "complete": true
+        },
+        {
+          "name": "node.parentname.length",
+          "offset": 49,
+          "bytes": 4,
+          "hex": "00000000",
+          "source": "Model49-51",
+          "complete": true
+        },
+        {
+          "name": "node.parentname.bytes",
+          "offset": 53,
+          "bytes": 0,
+          "hex": "",
+          "source": "Model49-51",
+          "complete": true
+        },
+        {
+          "name": "node.textures.count",
+          "offset": 53,
+          "bytes": 4,
+          "hex": "07000000",
+          "source": "Model58-62",
+          "complete": true
+        },
+        {
+          "name": "node.textures[0].length",
+          "offset": 57,
+          "bytes": 4,
+          "hex": "00000000",
+          "source": "Model62",
+          "complete": true
+        },
+        {
+          "name": "node.textures[0].bytes",
+          "offset": 61,
+          "bytes": 0,
+          "hex": "",
+          "source": "Model62",
+          "complete": true
+        },
+        {
+          "name": "node.textures[1].length",
+          "offset": 61,
+          "bytes": 4,
+          "hex": "00000000",
+          "source": "Model62",
+          "complete": true
+        },
+        {
+          "name": "node.textures[1].bytes",
+          "offset": 65,
+          "bytes": 0,
+          "hex": "",
+          "source": "Model62",
+          "complete": true
+        },
+        {
+          "name": "node.textures[2].length",
+          "offset": 65,
+          "bytes": 4,
+          "hex": "0a000000",
+          "source": "Model62",
+          "complete": true
+        },
+        {
+          "name": "node.textures[2].bytes",
+          "offset": 69,
+          "bytes": 10,
+          "hex": "b35c6e616d652e626d70",
+          "source": "Model62",
+          "complete": true
+        },
+        {
+          "name": "node.textures[3].length",
+          "offset": 79,
+          "bytes": 4,
+          "hex": "07000000",
+          "source": "Model62",
+          "complete": true
+        },
+        {
+          "name": "node.textures[3].bytes",
+          "offset": 83,
+          "bytes": 7,
+          "hex": "20612e626d7020",
+          "source": "Model62",
+          "complete": true
+        },
+        {
+          "name": "node.textures[4].length",
+          "offset": 90,
+          "bytes": 4,
+          "hex": "0a000000",
+          "source": "Model62",
+          "complete": true
+        },
+        {
+          "name": "node.textures[4].bytes",
+          "offset": 94,
+          "bytes": 10,
+          "hex": "b35c6e616d652e626d70",
+          "source": "Model62",
+          "complete": true
+        },
+        {
+          "name": "node.textures[5].length",
+          "offset": 104,
+          "bytes": 4,
+          "hex": "0d000000",
+          "source": "Model62",
+          "complete": true
+        },
+        {
+          "name": "node.textures[5].bytes",
+          "offset": 108,
+          "bytes": 13,
+          "hex": "612e626d700069676e6f726564",
+          "source": "Model62",
+          "complete": true
+        },
+        {
+          "name": "node.textures[6].length",
+          "offset": 121,
+          "bytes": 4,
+          "hex": "05000000",
+          "source": "Model62",
+          "complete": true
+        },
+        {
+          "name": "node.textures[6].bytes",
+          "offset": 125,
+          "bytes": 5,
+          "hex": "612e626d70",
+          "source": "Model62",
+          "complete": true
+        },
+        {
+          "name": "node.mat3",
+          "offset": 130,
+          "bytes": 36,
+          "hex": "0000803f0000000000000000000000000000803f0000000000000000000000000000803f",
+          "source": "Model66-76",
+          "complete": true
+        },
+        {
+          "name": "node.offset",
+          "offset": 166,
+          "bytes": 12,
+          "hex": "000020410000a0410000f041",
+          "source": "Model77;272-276",
+          "complete": true
+        },
+        {
+          "name": "node.vertex_count",
+          "offset": 178,
+          "bytes": 4,
+          "hex": "03000000",
+          "source": "Model95-100",
+          "complete": true
+        },
+        {
+          "name": "node.vertex[0]",
+          "offset": 182,
+          "bytes": 12,
+          "hex": "000080bf000000c0000040c0",
+          "source": "Model98-100",
+          "complete": true
+        },
+        {
+          "name": "node.vertex[1]",
+          "offset": 194,
+          "bytes": 12,
+          "hex": "000080400000000000000040",
+          "source": "Model98-100",
+          "complete": true
+        },
+        {
+          "name": "node.vertex[2]",
+          "offset": 206,
+          "bytes": 12,
+          "hex": "000000000000a0400000803f",
+          "source": "Model98-100",
+          "complete": true
+        },
+        {
+          "name": "node.tvertex_count",
+          "offset": 218,
+          "bytes": 4,
+          "hex": "03000000",
+          "source": "Model103-115",
+          "complete": true
+        },
+        {
+          "name": "node.tvertex[0].rgba",
+          "offset": 222,
+          "bytes": 4,
+          "hex": "ffffffff",
+          "source": "Model107-112",
+          "complete": true
+        },
+        {
+          "name": "node.tvertex[0].uv",
+          "offset": 226,
+          "bytes": 8,
+          "hex": "0000000000000000",
+          "source": "Model113-114",
+          "complete": true
+        },
+        {
+          "name": "node.tvertex[1].rgba",
+          "offset": 234,
+          "bytes": 4,
+          "hex": "ffffffff",
+          "source": "Model107-112",
+          "complete": true
+        },
+        {
+          "name": "node.tvertex[1].uv",
+          "offset": 238,
+          "bytes": 8,
+          "hex": "0000803f00000000",
+          "source": "Model113-114",
+          "complete": true
+        },
+        {
+          "name": "node.tvertex[2].rgba",
+          "offset": 246,
+          "bytes": 4,
+          "hex": "ffffffff",
+          "source": "Model107-112",
+          "complete": true
+        },
+        {
+          "name": "node.tvertex[2].uv",
+          "offset": 250,
+          "bytes": 8,
+          "hex": "000000000000803f",
+          "source": "Model113-114",
+          "complete": true
+        },
+        {
+          "name": "node.face_count",
+          "offset": 258,
+          "bytes": 4,
+          "hex": "01000000",
+          "source": "Model118-119",
+          "complete": true
+        },
+        {
+          "name": "node.face[0].length",
+          "offset": 262,
+          "bytes": 4,
+          "hex": "18000000",
+          "source": "Model123-125",
+          "complete": true
+        },
+        {
+          "name": "node.face[0].vertidx",
+          "offset": 266,
+          "bytes": 6,
+          "hex": "000001000200",
+          "source": "Model127",
+          "complete": true
+        },
+        {
+          "name": "node.face[0].tvertidx",
+          "offset": 272,
+          "bytes": 6,
+          "hex": "000001000200",
+          "source": "Model128",
+          "complete": true
+        },
+        {
+          "name": "node.face[0].texid",
+          "offset": 278,
+          "bytes": 2,
+          "hex": "0000",
+          "source": "Model129",
+          "complete": true
+        },
+        {
+          "name": "node.face[0].padding",
+          "offset": 280,
+          "bytes": 2,
+          "hex": "0000",
+          "source": "Model130",
+          "complete": true
+        },
+        {
+          "name": "node.face[0].twoSide",
+          "offset": 282,
+          "bytes": 4,
+          "hex": "00000000",
+          "source": "Model131",
+          "complete": true
+        },
+        {
+          "name": "node.face[0].smoothGroup",
+          "offset": 286,
+          "bytes": 4,
+          "hex": "01000000",
+          "source": "Model134-136",
+          "complete": true
+        },
+        {
+          "name": "node.scaleKeyFrames.count",
+          "offset": 290,
+          "bytes": 4,
+          "hex": "00000000",
+          "source": "Model149-151",
+          "complete": true
+        },
+        {
+          "name": "node.rotKeyframes.count",
+          "offset": 294,
+          "bytes": 4,
+          "hex": "00000000",
+          "source": "Model163-171",
+          "complete": true
+        },
+        {
+          "name": "node.posKeyframes.count",
+          "offset": 298,
+          "bytes": 4,
+          "hex": "00000000",
+          "source": "Model174-176",
+          "complete": true
+        },
+        {
+          "name": "node.textureKeyFrameGroup.count",
+          "offset": 302,
+          "bytes": 4,
+          "hex": "00000000",
+          "source": "Model190-225",
+          "complete": true
+        },
+        {
+          "name": "volumebox.count",
+          "offset": 306,
+          "bytes": 4,
+          "hex": "00000000",
+          "source": "Model834-844",
+          "complete": true
+        }
+      ],
+      "input_facts": {
+        "bytes": 310,
+        "discarded_local_strings": [
+          "local-only"
+        ]
+      },
+      "expected_outcome": "returned",
+      "expected_summary": {
+        "version": 2.3,
+        "animLen": 0,
+        "shadeType": 2,
+        "alpha": 1,
+        "frameRatePerSecond": 30,
+        "textures": [
+          "",
+          "\u00b3\\name.bmp",
+          " a.bmp ",
+          "a.bmp"
+        ],
+        "main_node_index": 0,
+        "instances": 0,
+        "global_position_keys": 0,
+        "volume_boxes": 0,
+        "box": {
+          "min": [
+            -1,
+            -2,
+            -3
+          ],
+          "max": [
+            4,
+            5,
+            2
+          ],
+          "offset": [
+            1.5,
+            1.5,
+            -0.5
+          ],
+          "range": [
+            2.5,
+            3.5,
+            2.5
+          ],
+          "center": [
+            1.5,
+            1.5,
+            -0.5
+          ]
+        },
+        "nodes": [
+          {
+            "node_index": 0,
+            "name": "root",
+            "parentname": "",
+            "is_only": true,
+            "textures": [
+              0,
+              0,
+              1,
+              2,
+              1,
+              3,
+              3
+            ],
+            "texture_references": [
+              {
+                "slot_index": 0,
+                "table_index": 0,
+                "state": "resolved"
+              },
+              {
+                "slot_index": 1,
+                "table_index": 0,
+                "state": "resolved"
+              },
+              {
+                "slot_index": 2,
+                "table_index": 1,
+                "state": "resolved"
+              },
+              {
+                "slot_index": 3,
+                "table_index": 2,
+                "state": "resolved"
+              },
+              {
+                "slot_index": 4,
+                "table_index": 1,
+                "state": "resolved"
+              },
+              {
+                "slot_index": 5,
+                "table_index": 3,
+                "state": "resolved"
+              },
+              {
+                "slot_index": 6,
+                "table_index": 3,
+                "state": "resolved"
+              }
+            ],
+            "transform": {
+              "mat3": [
+                1,
+                0,
+                0,
+                0,
+                1,
+                0,
+                0,
+                0,
+                1
+              ],
+              "offset": [
+                10,
+                20,
+                30
+              ],
+              "pos": [
+                0,
+                0,
+                0
+              ],
+              "rotangle": 0,
+              "rotaxis": [
+                0,
+                0,
+                0
+              ],
+              "scale": [
+                1,
+                1,
+                1
+              ],
+              "flip": [
+                1,
+                -1,
+                1
+              ],
+              "matrix": [
+                1,
+                0,
+                0,
+                0,
+                0,
+                1,
+                0,
+                0,
+                0,
+                0,
+                1,
+                0,
+                0,
+                0,
+                0,
+                1
+              ]
+            },
+            "box": {
+              "min": [
+                -1,
+                -2,
+                -3
+              ],
+              "max": [
+                4,
+                5,
+                2
+              ],
+              "offset": [
+                1.5,
+                1.5,
+                -0.5
+              ],
+              "range": [
+                2.5,
+                3.5,
+                2.5
+              ],
+              "center": [
+                1.5,
+                1.5,
+                -0.5
+              ]
+            },
+            "vertex_count": 3,
+            "tvertex_components": 18,
+            "face_count": 1,
+            "keyframe_counts": {
+              "rotation": 0,
+              "position": 0,
+              "scale": 0,
+              "texture_groups": 0
+            },
+            "numeric_fields": {
+              "finite": 100,
+              "nan": 0,
+              "positive_infinity": 0,
+              "negative_infinity": 0,
+              "undefined": 0,
+              "null": 0,
+              "min": -3,
+              "max": 30,
+              "exceptional_locations": [],
+              "exceptional_locations_omitted": 0
+            }
+          }
+        ],
+        "texture_declarations": [
+          {
+            "texture_index": 0,
+            "constructor_pointer": "/textures/0",
+            "raw_name": "",
+            "logical_name": "data\\texture\\",
+            "filemanager_name": "data\\texture\\",
+            "http_path": "data/texture/"
+          },
+          {
+            "texture_index": 1,
+            "constructor_pointer": "/textures/1",
+            "raw_name": "\u00b3\\name.bmp",
+            "logical_name": "data\\texture\\\u00b3\\name.bmp",
+            "filemanager_name": "data\\texture\\\u00b3\\name.bmp",
+            "http_path": "data/texture/%C2%B3/name.bmp"
+          },
+          {
+            "texture_index": 2,
+            "constructor_pointer": "/textures/2",
+            "raw_name": " a.bmp ",
+            "logical_name": "data\\texture\\ a.bmp ",
+            "filemanager_name": "data\\texture\\ a.bmp",
+            "http_path": "data/texture/%20a.bmp"
+          },
+          {
+            "texture_index": 3,
+            "constructor_pointer": "/textures/3",
+            "raw_name": "a.bmp",
+            "logical_name": "data\\texture\\a.bmp",
+            "filemanager_name": "data\\texture\\a.bmp",
+            "http_path": "data/texture/a.bmp"
+          }
+        ],
+        "animation_by_node_keys": false,
+        "numeric_fields": {
+          "finite": 20,
+          "nan": 0,
+          "positive_infinity": 0,
+          "negative_infinity": 0,
+          "undefined": 0,
+          "null": 0,
+          "min": -3,
+          "max": 30,
+          "exceptional_locations": [],
+          "exceptional_locations_omitted": 0
+        },
+        "cursor": {
+          "state": "not_observable_from_unchanged_constructor",
+          "remaining_bytes": null
+        }
+      }
+    },
+    {
+      "id": "model16_node_scale_key",
+      "kind": "model",
+      "body_hex": "4752534d01060000000002000000ff0000000000000000000000000000000003000000612e626d700000000000000000000000000000000000000000000000000000000000000000000000612e626d700000000000000000000000000000000000000000000000000000000000000000000000622e7467610000000000000000000000000000000000000000000000000000000000000000000000726f6f7400000000000000000000000000000000000000000000000000000000000000000000000001000000726f6f7400000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000030000000200000000000000020000000000803f0000000000000000000000000000803f0000000000000000000000000000803f000020410000a0410000f04100000000000000000000000000000000000000000000803f000000000000803f0000803f0000803f03000000000080bf000000c0000040c0000080400000000000000040000000000000a0400000803f03000000ffffffff0000000000000000ffffffff0000803f00000000ffffffff000000000000803f0100000000000100020000000100020000000000000000000100000001000000090000000000803f00000040000040400000803e0000000000000000",
+      "input_bytes": 523,
+      "complete_sha256": "7b77ce44b2a561370ee6c45bf41aef2e1b1eda78dee30d9ed1a31e9ac1d07aa2",
+      "header_version_bytes": "4752534d0106",
+      "authored_fields": [
+        {
+          "name": "magic",
+          "offset": 0,
+          "bytes": 4,
+          "hex": "4752534d",
+          "source": "Model752-756",
+          "complete": true
+        },
+        {
+          "name": "version",
+          "offset": 4,
+          "bytes": 2,
+          "hex": "0106",
+          "source": "Model759;BinaryReader66-71",
+          "complete": true
+        },
+        {
+          "name": "animLen",
+          "offset": 6,
+          "bytes": 4,
+          "hex": "00000000",
+          "source": "Model760",
+          "complete": true
+        },
+        {
+          "name": "shadeType",
+          "offset": 10,
+          "bytes": 4,
+          "hex": "02000000",
+          "source": "Model761",
+          "complete": true
+        },
+        {
+          "name": "alpha",
+          "offset": 14,
+          "bytes": 1,
+          "hex": "ff",
+          "source": "Model764",
+          "complete": true
+        },
+        {
+          "name": "reserved",
+          "offset": 15,
+          "bytes": 16,
+          "hex": "00000000000000000000000000000000",
+          "source": "Model787",
+          "complete": true
+        },
+        {
+          "name": "additionalTextures.count",
+          "offset": 31,
+          "bytes": 4,
+          "hex": "03000000",
+          "source": "Model788-790",
+          "complete": true
+        },
+        {
+          "name": "additionalTextures[0]",
+          "offset": 35,
+          "bytes": 40,
+          "hex": "612e626d700000000000000000000000000000000000000000000000000000000000000000000000",
+          "source": "Model790",
+          "complete": true
+        },
+        {
+          "name": "additionalTextures[1]",
+          "offset": 75,
+          "bytes": 40,
+          "hex": "612e626d700000000000000000000000000000000000000000000000000000000000000000000000",
+          "source": "Model790",
+          "complete": true
+        },
+        {
+          "name": "additionalTextures[2]",
+          "offset": 115,
+          "bytes": 40,
+          "hex": "622e7467610000000000000000000000000000000000000000000000000000000000000000000000",
+          "source": "Model790",
+          "complete": true
+        },
+        {
+          "name": "mainNodeName",
+          "offset": 155,
+          "bytes": 40,
+          "hex": "726f6f74000000000000000000000000000000000000000000000000000000000000000000000000",
+          "source": "Model792-793",
+          "complete": true
+        },
+        {
+          "name": "nodes.count",
+          "offset": 195,
+          "bytes": 4,
+          "hex": "01000000",
+          "source": "Model796-799",
+          "complete": true
+        },
+        {
+          "name": "node.name",
+          "offset": 199,
+          "bytes": 40,
+          "hex": "726f6f74000000000000000000000000000000000000000000000000000000000000000000000000",
+          "source": "Model53",
+          "complete": true
+        },
+        {
+          "name": "node.parentname",
+          "offset": 239,
+          "bytes": 40,
+          "hex": "00000000000000000000000000000000000000000000000000000000000000000000000000000000",
+          "source": "Model54",
+          "complete": true
+        },
+        {
+          "name": "node.textures.count",
+          "offset": 279,
+          "bytes": 4,
+          "hex": "03000000",
+          "source": "Model58-62",
+          "complete": true
+        },
+        {
+          "name": "node.textures[0]",
+          "offset": 283,
+          "bytes": 4,
+          "hex": "02000000",
+          "source": "Model62",
+          "complete": true
+        },
+        {
+          "name": "node.textures[1]",
+          "offset": 287,
+          "bytes": 4,
+          "hex": "00000000",
+          "source": "Model62",
+          "complete": true
+        },
+        {
+          "name": "node.textures[2]",
+          "offset": 291,
+          "bytes": 4,
+          "hex": "02000000",
+          "source": "Model62",
+          "complete": true
+        },
+        {
+          "name": "node.mat3",
+          "offset": 295,
+          "bytes": 36,
+          "hex": "0000803f0000000000000000000000000000803f0000000000000000000000000000803f",
+          "source": "Model66-76",
+          "complete": true
+        },
+        {
+          "name": "node.offset",
+          "offset": 331,
+          "bytes": 12,
+          "hex": "000020410000a0410000f041",
+          "source": "Model77;272-276",
+          "complete": true
+        },
+        {
+          "name": "node.pos",
+          "offset": 343,
+          "bytes": 12,
+          "hex": "000000000000000000000000",
+          "source": "Model87",
+          "complete": true
+        },
+        {
+          "name": "node.rotangle",
+          "offset": 355,
+          "bytes": 4,
+          "hex": "00000000",
+          "source": "Model88",
+          "complete": true
+        },
+        {
+          "name": "node.rotaxis",
+          "offset": 359,
+          "bytes": 12,
+          "hex": "000000000000803f00000000",
+          "source": "Model89",
+          "complete": true
+        },
+        {
+          "name": "node.scale",
+          "offset": 371,
+          "bytes": 12,
+          "hex": "0000803f0000803f0000803f",
+          "source": "Model90",
+          "complete": true
+        },
+        {
+          "name": "node.vertex_count",
+          "offset": 383,
+          "bytes": 4,
+          "hex": "03000000",
+          "source": "Model95-100",
+          "complete": true
+        },
+        {
+          "name": "node.vertex[0]",
+          "offset": 387,
+          "bytes": 12,
+          "hex": "000080bf000000c0000040c0",
+          "source": "Model98-100",
+          "complete": true
+        },
+        {
+          "name": "node.vertex[1]",
+          "offset": 399,
+          "bytes": 12,
+          "hex": "000080400000000000000040",
+          "source": "Model98-100",
+          "complete": true
+        },
+        {
+          "name": "node.vertex[2]",
+          "offset": 411,
+          "bytes": 12,
+          "hex": "000000000000a0400000803f",
+          "source": "Model98-100",
+          "complete": true
+        },
+        {
+          "name": "node.tvertex_count",
+          "offset": 423,
+          "bytes": 4,
+          "hex": "03000000",
+          "source": "Model103-115",
+          "complete": true
+        },
+        {
+          "name": "node.tvertex[0].rgba",
+          "offset": 427,
+          "bytes": 4,
+          "hex": "ffffffff",
+          "source": "Model107-112",
+          "complete": true
+        },
+        {
+          "name": "node.tvertex[0].uv",
+          "offset": 431,
+          "bytes": 8,
+          "hex": "0000000000000000",
+          "source": "Model113-114",
+          "complete": true
+        },
+        {
+          "name": "node.tvertex[1].rgba",
+          "offset": 439,
+          "bytes": 4,
+          "hex": "ffffffff",
+          "source": "Model107-112",
+          "complete": true
+        },
+        {
+          "name": "node.tvertex[1].uv",
+          "offset": 443,
+          "bytes": 8,
+          "hex": "0000803f00000000",
+          "source": "Model113-114",
+          "complete": true
+        },
+        {
+          "name": "node.tvertex[2].rgba",
+          "offset": 451,
+          "bytes": 4,
+          "hex": "ffffffff",
+          "source": "Model107-112",
+          "complete": true
+        },
+        {
+          "name": "node.tvertex[2].uv",
+          "offset": 455,
+          "bytes": 8,
+          "hex": "000000000000803f",
+          "source": "Model113-114",
+          "complete": true
+        },
+        {
+          "name": "node.face_count",
+          "offset": 463,
+          "bytes": 4,
+          "hex": "01000000",
+          "source": "Model118-119",
+          "complete": true
+        },
+        {
+          "name": "node.face[0].vertidx",
+          "offset": 467,
+          "bytes": 6,
+          "hex": "000001000200",
+          "source": "Model127",
+          "complete": true
+        },
+        {
+          "name": "node.face[0].tvertidx",
+          "offset": 473,
+          "bytes": 6,
+          "hex": "000001000200",
+          "source": "Model128",
+          "complete": true
+        },
+        {
+          "name": "node.face[0].texid",
+          "offset": 479,
+          "bytes": 2,
+          "hex": "0000",
+          "source": "Model129",
+          "complete": true
+        },
+        {
+          "name": "node.face[0].padding",
+          "offset": 481,
+          "bytes": 2,
+          "hex": "0000",
+          "source": "Model130",
+          "complete": true
+        },
+        {
+          "name": "node.face[0].twoSide",
+          "offset": 483,
+          "bytes": 4,
+          "hex": "00000000",
+          "source": "Model131",
+          "complete": true
+        },
+        {
+          "name": "node.face[0].smoothGroup",
+          "offset": 487,
+          "bytes": 4,
+          "hex": "01000000",
+          "source": "Model134-136",
+          "complete": true
+        },
+        {
+          "name": "node.scaleKeyFrames.count",
+          "offset": 491,
+          "bytes": 4,
+          "hex": "01000000",
+          "source": "Model149-151",
+          "complete": true
+        },
+        {
+          "name": "node.scaleKeyFrames[0]",
+          "offset": 495,
+          "bytes": 20,
+          "hex": "090000000000803f00000040000040400000803e",
+          "source": "Model153-158",
+          "complete": true
+        },
+        {
+          "name": "node.rotKeyframes.count",
+          "offset": 515,
+          "bytes": 4,
+          "hex": "00000000",
+          "source": "Model163-171",
+          "complete": true
+        },
+        {
+          "name": "volumebox.count",
+          "offset": 519,
+          "bytes": 4,
+          "hex": "00000000",
+          "source": "Model834-844",
+          "complete": true
+        }
+      ],
+      "input_facts": {
+        "bytes": 523
+      },
+      "expected_outcome": "returned",
+      "expected_summary": {
+        "version": 1.6,
+        "animLen": 0,
+        "shadeType": 2,
+        "alpha": 1,
+        "frameRatePerSecond": {
+          "special": "undefined"
+        },
+        "textures": [
+          "a.bmp",
+          "a.bmp",
+          "b.tga"
+        ],
+        "main_node_index": 0,
+        "instances": 0,
+        "global_position_keys": 0,
+        "volume_boxes": 0,
+        "box": {
+          "min": [
+            -1,
+            -2,
+            -3
+          ],
+          "max": [
+            4,
+            5,
+            2
+          ],
+          "offset": [
+            1.5,
+            1.5,
+            -0.5
+          ],
+          "range": [
+            2.5,
+            3.5,
+            2.5
+          ],
+          "center": [
+            1.5,
+            1.5,
+            -0.5
+          ]
+        },
+        "nodes": [
+          {
+            "node_index": 0,
+            "name": "root",
+            "parentname": "",
+            "is_only": true,
+            "textures": [
+              2,
+              0,
+              2
+            ],
+            "texture_references": [
+              {
+                "slot_index": 0,
+                "table_index": 2,
+                "state": "resolved"
+              },
+              {
+                "slot_index": 1,
+                "table_index": 0,
+                "state": "resolved"
+              },
+              {
+                "slot_index": 2,
+                "table_index": 2,
+                "state": "resolved"
+              }
+            ],
+            "transform": {
+              "mat3": [
+                1,
+                0,
+                0,
+                0,
+                1,
+                0,
+                0,
+                0,
+                1
+              ],
+              "offset": [
+                10,
+                20,
+                30
+              ],
+              "pos": [
+                0,
+                0,
+                0
+              ],
+              "rotangle": 0,
+              "rotaxis": [
+                0,
+                1,
+                0
+              ],
+              "scale": [
+                1,
+                1,
+                1
+              ],
+              "flip": [
+                1,
+                1,
+                1
+              ],
+              "matrix": [
+                1,
+                0,
+                0,
+                0,
+                0,
+                1,
+                0,
+                0,
+                0,
+                0,
+                1,
+                0,
+                0,
+                0,
+                0,
+                1
+              ]
+            },
+            "box": {
+              "min": [
+                -1,
+                -2,
+                -3
+              ],
+              "max": [
+                4,
+                5,
+                2
+              ],
+              "offset": [
+                1.5,
+                1.5,
+                -0.5
+              ],
+              "range": [
+                2.5,
+                3.5,
+                2.5
+              ],
+              "center": [
+                1.5,
+                1.5,
+                -0.5
+              ]
+            },
+            "vertex_count": 3,
+            "tvertex_components": 18,
+            "face_count": 1,
+            "keyframe_counts": {
+              "rotation": 0,
+              "position": {
+                "special": "undefined"
+              },
+              "scale": 1,
+              "texture_groups": {
+                "special": "undefined"
+              }
+            },
+            "numeric_fields": {
+              "finite": 101,
+              "nan": 0,
+              "positive_infinity": 0,
+              "negative_infinity": 0,
+              "undefined": 2,
+              "null": 0,
+              "min": -3,
+              "max": 30,
+              "exceptional_locations": [
+                {
+                  "location": "posKeyframes",
+                  "category": "undefined"
+                },
+                {
+                  "location": "textureKeyFrameGroup",
+                  "category": "undefined"
+                }
+              ],
+              "exceptional_locations_omitted": 0
+            }
+          }
+        ],
+        "texture_declarations": [
+          {
+            "texture_index": 0,
+            "constructor_pointer": "/textures/0",
+            "raw_name": "a.bmp",
+            "logical_name": "data\\texture\\a.bmp",
+            "filemanager_name": "data\\texture\\a.bmp",
+            "http_path": "data/texture/a.bmp"
+          },
+          {
+            "texture_index": 1,
+            "constructor_pointer": "/textures/1",
+            "raw_name": "a.bmp",
+            "logical_name": "data\\texture\\a.bmp",
+            "filemanager_name": "data\\texture\\a.bmp",
+            "http_path": "data/texture/a.bmp"
+          },
+          {
+            "texture_index": 2,
+            "constructor_pointer": "/textures/2",
+            "raw_name": "b.tga",
+            "logical_name": "data\\texture\\b.tga",
+            "filemanager_name": "data\\texture\\b.tga",
+            "http_path": "data/texture/b.tga"
+          }
+        ],
+        "animation_by_node_keys": true,
+        "numeric_fields": {
+          "finite": 19,
+          "nan": 0,
+          "positive_infinity": 0,
+          "negative_infinity": 0,
+          "undefined": 1,
+          "null": 0,
+          "min": -3,
+          "max": 5,
+          "exceptional_locations": [
+            {
+              "location": "frameRatePerSecond",
+              "category": "undefined"
+            }
+          ],
+          "exceptional_locations_omitted": 0
+        },
+        "cursor": {
+          "state": "not_observable_from_unchanged_constructor",
+          "remaining_bytes": null
+        }
+      }
+    },
+    {
+      "id": "wrong_magic",
+      "kind": "model",
+      "body_hex": "4e4f504501040000000002000000ff0000000000000000000000000000000003000000612e626d700000000000000000000000000000000000000000000000000000000000000000000000612e626d700000000000000000000000000000000000000000000000000000000000000000000000622e7467610000000000000000000000000000000000000000000000000000000000000000000000726f6f7400000000000000000000000000000000000000000000000000000000000000000000000001000000726f6f7400000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000030000000200000000000000020000000000803f0000000000000000000000000000803f0000000000000000000000000000803f000020410000a0410000f04100000000000000000000000000000000000000000000803f000000000000803f0000803f0000803f03000000000080bf000000c0000040c0000080400000000000000040000000000000a0400000803f03000000ffffffff0000000000000000ffffffff0000803f00000000ffffffff000000000000803f01000000000001000200000001000200000000000000000001000000000000000000000000000000",
+      "input_bytes": 503,
+      "complete_sha256": "164758041aa1143af2e453501b0e208fdbc90d884a5b38a9983b7d55c3ddde09",
+      "header_version_bytes": "4e4f50450104",
+      "authored_fields": [
+        {
+          "name": "magic",
+          "offset": 0,
+          "bytes": 4,
+          "hex": "4e4f5045",
+          "source": "Model752-756",
+          "complete": true
+        },
+        {
+          "name": "version",
+          "offset": 4,
+          "bytes": 2,
+          "hex": "0104",
+          "source": "Model759;BinaryReader66-71",
+          "complete": true
+        },
+        {
+          "name": "animLen",
+          "offset": 6,
+          "bytes": 4,
+          "hex": "00000000",
+          "source": "Model760",
+          "complete": true
+        },
+        {
+          "name": "shadeType",
+          "offset": 10,
+          "bytes": 4,
+          "hex": "02000000",
+          "source": "Model761",
+          "complete": true
+        },
+        {
+          "name": "alpha",
+          "offset": 14,
+          "bytes": 1,
+          "hex": "ff",
+          "source": "Model764",
+          "complete": true
+        },
+        {
+          "name": "reserved",
+          "offset": 15,
+          "bytes": 16,
+          "hex": "00000000000000000000000000000000",
+          "source": "Model787",
+          "complete": true
+        },
+        {
+          "name": "additionalTextures.count",
+          "offset": 31,
+          "bytes": 4,
+          "hex": "03000000",
+          "source": "Model788-790",
+          "complete": true
+        },
+        {
+          "name": "additionalTextures[0]",
+          "offset": 35,
+          "bytes": 40,
+          "hex": "612e626d700000000000000000000000000000000000000000000000000000000000000000000000",
+          "source": "Model790",
+          "complete": true
+        },
+        {
+          "name": "additionalTextures[1]",
+          "offset": 75,
+          "bytes": 40,
+          "hex": "612e626d700000000000000000000000000000000000000000000000000000000000000000000000",
+          "source": "Model790",
+          "complete": true
+        },
+        {
+          "name": "additionalTextures[2]",
+          "offset": 115,
+          "bytes": 40,
+          "hex": "622e7467610000000000000000000000000000000000000000000000000000000000000000000000",
+          "source": "Model790",
+          "complete": true
+        },
+        {
+          "name": "mainNodeName",
+          "offset": 155,
+          "bytes": 40,
+          "hex": "726f6f74000000000000000000000000000000000000000000000000000000000000000000000000",
+          "source": "Model792-793",
+          "complete": true
+        },
+        {
+          "name": "nodes.count",
+          "offset": 195,
+          "bytes": 4,
+          "hex": "01000000",
+          "source": "Model796-799",
+          "complete": true
+        },
+        {
+          "name": "node.name",
+          "offset": 199,
+          "bytes": 40,
+          "hex": "726f6f74000000000000000000000000000000000000000000000000000000000000000000000000",
+          "source": "Model53",
+          "complete": true
+        },
+        {
+          "name": "node.parentname",
+          "offset": 239,
+          "bytes": 40,
+          "hex": "00000000000000000000000000000000000000000000000000000000000000000000000000000000",
+          "source": "Model54",
+          "complete": true
+        },
+        {
+          "name": "node.textures.count",
+          "offset": 279,
+          "bytes": 4,
+          "hex": "03000000",
+          "source": "Model58-62",
+          "complete": true
+        },
+        {
+          "name": "node.textures[0]",
+          "offset": 283,
+          "bytes": 4,
+          "hex": "02000000",
+          "source": "Model62",
+          "complete": true
+        },
+        {
+          "name": "node.textures[1]",
+          "offset": 287,
+          "bytes": 4,
+          "hex": "00000000",
+          "source": "Model62",
+          "complete": true
+        },
+        {
+          "name": "node.textures[2]",
+          "offset": 291,
+          "bytes": 4,
+          "hex": "02000000",
+          "source": "Model62",
+          "complete": true
+        },
+        {
+          "name": "node.mat3",
+          "offset": 295,
+          "bytes": 36,
+          "hex": "0000803f0000000000000000000000000000803f0000000000000000000000000000803f",
+          "source": "Model66-76",
+          "complete": true
+        },
+        {
+          "name": "node.offset",
+          "offset": 331,
+          "bytes": 12,
+          "hex": "000020410000a0410000f041",
+          "source": "Model77;272-276",
+          "complete": true
+        },
+        {
+          "name": "node.pos",
+          "offset": 343,
+          "bytes": 12,
+          "hex": "000000000000000000000000",
+          "source": "Model87",
+          "complete": true
+        },
+        {
+          "name": "node.rotangle",
+          "offset": 355,
+          "bytes": 4,
+          "hex": "00000000",
+          "source": "Model88",
+          "complete": true
+        },
+        {
+          "name": "node.rotaxis",
+          "offset": 359,
+          "bytes": 12,
+          "hex": "000000000000803f00000000",
+          "source": "Model89",
+          "complete": true
+        },
+        {
+          "name": "node.scale",
+          "offset": 371,
+          "bytes": 12,
+          "hex": "0000803f0000803f0000803f",
+          "source": "Model90",
+          "complete": true
+        },
+        {
+          "name": "node.vertex_count",
+          "offset": 383,
+          "bytes": 4,
+          "hex": "03000000",
+          "source": "Model95-100",
+          "complete": true
+        },
+        {
+          "name": "node.vertex[0]",
+          "offset": 387,
+          "bytes": 12,
+          "hex": "000080bf000000c0000040c0",
+          "source": "Model98-100",
+          "complete": true
+        },
+        {
+          "name": "node.vertex[1]",
+          "offset": 399,
+          "bytes": 12,
+          "hex": "000080400000000000000040",
+          "source": "Model98-100",
+          "complete": true
+        },
+        {
+          "name": "node.vertex[2]",
+          "offset": 411,
+          "bytes": 12,
+          "hex": "000000000000a0400000803f",
+          "source": "Model98-100",
+          "complete": true
+        },
+        {
+          "name": "node.tvertex_count",
+          "offset": 423,
+          "bytes": 4,
+          "hex": "03000000",
+          "source": "Model103-115",
+          "complete": true
+        },
+        {
+          "name": "node.tvertex[0].rgba",
+          "offset": 427,
+          "bytes": 4,
+          "hex": "ffffffff",
+          "source": "Model107-112",
+          "complete": true
+        },
+        {
+          "name": "node.tvertex[0].uv",
+          "offset": 431,
+          "bytes": 8,
+          "hex": "0000000000000000",
+          "source": "Model113-114",
+          "complete": true
+        },
+        {
+          "name": "node.tvertex[1].rgba",
+          "offset": 439,
+          "bytes": 4,
+          "hex": "ffffffff",
+          "source": "Model107-112",
+          "complete": true
+        },
+        {
+          "name": "node.tvertex[1].uv",
+          "offset": 443,
+          "bytes": 8,
+          "hex": "0000803f00000000",
+          "source": "Model113-114",
+          "complete": true
+        },
+        {
+          "name": "node.tvertex[2].rgba",
+          "offset": 451,
+          "bytes": 4,
+          "hex": "ffffffff",
+          "source": "Model107-112",
+          "complete": true
+        },
+        {
+          "name": "node.tvertex[2].uv",
+          "offset": 455,
+          "bytes": 8,
+          "hex": "000000000000803f",
+          "source": "Model113-114",
+          "complete": true
+        },
+        {
+          "name": "node.face_count",
+          "offset": 463,
+          "bytes": 4,
+          "hex": "01000000",
+          "source": "Model118-119",
+          "complete": true
+        },
+        {
+          "name": "node.face[0].vertidx",
+          "offset": 467,
+          "bytes": 6,
+          "hex": "000001000200",
+          "source": "Model127",
+          "complete": true
+        },
+        {
+          "name": "node.face[0].tvertidx",
+          "offset": 473,
+          "bytes": 6,
+          "hex": "000001000200",
+          "source": "Model128",
+          "complete": true
+        },
+        {
+          "name": "node.face[0].texid",
+          "offset": 479,
+          "bytes": 2,
+          "hex": "0000",
+          "source": "Model129",
+          "complete": true
+        },
+        {
+          "name": "node.face[0].padding",
+          "offset": 481,
+          "bytes": 2,
+          "hex": "0000",
+          "source": "Model130",
+          "complete": true
+        },
+        {
+          "name": "node.face[0].twoSide",
+          "offset": 483,
+          "bytes": 4,
+          "hex": "00000000",
+          "source": "Model131",
+          "complete": true
+        },
+        {
+          "name": "node.face[0].smoothGroup",
+          "offset": 487,
+          "bytes": 4,
+          "hex": "01000000",
+          "source": "Model134-136",
+          "complete": true
+        },
+        {
+          "name": "node.rotKeyframes.count",
+          "offset": 491,
+          "bytes": 4,
+          "hex": "00000000",
+          "source": "Model163-171",
+          "complete": true
+        },
+        {
+          "name": "posKeyframes.count",
+          "offset": 495,
+          "bytes": 4,
+          "hex": "00000000",
+          "source": "Model814-816",
+          "complete": true
+        },
+        {
+          "name": "volumebox.count",
+          "offset": 499,
+          "bytes": 4,
+          "hex": "00000000",
+          "source": "Model834-844",
+          "complete": true
+        }
+      ],
+      "input_facts": {
+        "bytes": 503
+      },
+      "expected_outcome": "constructor_exception",
+      "expected_exception_name": "Error"
+    },
+    {
+      "id": "truncated_header_version",
+      "kind": "model",
+      "body_hex": "4752534d01",
+      "input_bytes": 5,
+      "complete_sha256": "c1a1fca359c6581448dfb7b28c3262cb562f52a28aed2caedd8382c8a1eb2b15",
+      "header_version_bytes": "4752534d01",
+      "authored_fields": [
+        {
+          "name": "magic",
+          "offset": 0,
+          "bytes": 4,
+          "hex": "4752534d",
+          "source": "Model752-756",
+          "complete": true
+        },
+        {
+          "name": "version",
+          "offset": 4,
+          "bytes": 1,
+          "hex": "01",
+          "source": "Model759;BinaryReader66-71",
+          "complete": false,
+          "authored_full_bytes": 2
+        }
+      ],
+      "input_facts": {
+        "bytes": 5,
+        "authored_prefix": true
+      },
+      "expected_outcome": "constructor_exception",
+      "expected_exception_name": "RangeError"
+    },
+    {
+      "id": "truncated_modern_vertex",
+      "kind": "model",
+      "body_hex": "4752535802030000000002000000ff0000f041010000000a0000006c6f63616c2d6f6e6c790100000004000000726f6f74000000000300000005000000622e74676105000000612e626d7005000000622e7467610000803f0000000000000000000000000000803f0000000000000000000000000000803f000020410000a0410000f04103000000000080bf000000c00000",
+      "input_bytes": 146,
+      "complete_sha256": "f5129df2a80d5fd449d0d04ca0356d959fd57215b37507ec5313cbc4ba198a63",
+      "header_version_bytes": "475253580203",
+      "authored_fields": [
+        {
+          "name": "magic",
+          "offset": 0,
+          "bytes": 4,
+          "hex": "47525358",
+          "source": "Model752-756",
+          "complete": true
+        },
+        {
+          "name": "version",
+          "offset": 4,
+          "bytes": 2,
+          "hex": "0203",
+          "source": "Model759;BinaryReader66-71",
+          "complete": true
+        },
+        {
+          "name": "animLen",
+          "offset": 6,
+          "bytes": 4,
+          "hex": "00000000",
+          "source": "Model760",
+          "complete": true
+        },
+        {
+          "name": "shadeType",
+          "offset": 10,
+          "bytes": 4,
+          "hex": "02000000",
+          "source": "Model761",
+          "complete": true
+        },
+        {
+          "name": "alpha",
+          "offset": 14,
+          "bytes": 1,
+          "hex": "ff",
+          "source": "Model764",
+          "complete": true
+        },
+        {
+          "name": "frameRatePerSecond",
+          "offset": 15,
+          "bytes": 4,
+          "hex": "0000f041",
+          "source": "Model768",
+          "complete": true
+        },
+        {
+          "name": "local_textures.count",
+          "offset": 19,
+          "bytes": 4,
+          "hex": "01000000",
+          "source": "Model769-773",
+          "complete": true
+        },
+        {
+          "name": "local_textures[0].length",
+          "offset": 23,
+          "bytes": 4,
+          "hex": "0a000000",
+          "source": "Model772",
+          "complete": true
+        },
+        {
+          "name": "local_textures[0].bytes",
+          "offset": 27,
+          "bytes": 10,
+          "hex": "6c6f63616c2d6f6e6c79",
+          "source": "Model772",
+          "complete": true
+        },
+        {
+          "name": "nodes.count",
+          "offset": 37,
+          "bytes": 4,
+          "hex": "01000000",
+          "source": "Model796-799",
+          "complete": true
+        },
+        {
+          "name": "node.name.length",
+          "offset": 41,
+          "bytes": 4,
+          "hex": "04000000",
+          "source": "Model49-50",
+          "complete": true
+        },
+        {
+          "name": "node.name.bytes",
+          "offset": 45,
+          "bytes": 4,
+          "hex": "726f6f74",
+          "source": "Model49-50",
+          "complete": true
+        },
+        {
+          "name": "node.parentname.length",
+          "offset": 49,
+          "bytes": 4,
+          "hex": "00000000",
+          "source": "Model49-51",
+          "complete": true
+        },
+        {
+          "name": "node.parentname.bytes",
+          "offset": 53,
+          "bytes": 0,
+          "hex": "",
+          "source": "Model49-51",
+          "complete": true
+        },
+        {
+          "name": "node.textures.count",
+          "offset": 53,
+          "bytes": 4,
+          "hex": "03000000",
+          "source": "Model58-62",
+          "complete": true
+        },
+        {
+          "name": "node.textures[0].length",
+          "offset": 57,
+          "bytes": 4,
+          "hex": "05000000",
+          "source": "Model62",
+          "complete": true
+        },
+        {
+          "name": "node.textures[0].bytes",
+          "offset": 61,
+          "bytes": 5,
+          "hex": "622e746761",
+          "source": "Model62",
+          "complete": true
+        },
+        {
+          "name": "node.textures[1].length",
+          "offset": 66,
+          "bytes": 4,
+          "hex": "05000000",
+          "source": "Model62",
+          "complete": true
+        },
+        {
+          "name": "node.textures[1].bytes",
+          "offset": 70,
+          "bytes": 5,
+          "hex": "612e626d70",
+          "source": "Model62",
+          "complete": true
+        },
+        {
+          "name": "node.textures[2].length",
+          "offset": 75,
+          "bytes": 4,
+          "hex": "05000000",
+          "source": "Model62",
+          "complete": true
+        },
+        {
+          "name": "node.textures[2].bytes",
+          "offset": 79,
+          "bytes": 5,
+          "hex": "622e746761",
+          "source": "Model62",
+          "complete": true
+        },
+        {
+          "name": "node.mat3",
+          "offset": 84,
+          "bytes": 36,
+          "hex": "0000803f0000000000000000000000000000803f0000000000000000000000000000803f",
+          "source": "Model66-76",
+          "complete": true
+        },
+        {
+          "name": "node.offset",
+          "offset": 120,
+          "bytes": 12,
+          "hex": "000020410000a0410000f041",
+          "source": "Model77;272-276",
+          "complete": true
+        },
+        {
+          "name": "node.vertex_count",
+          "offset": 132,
+          "bytes": 4,
+          "hex": "03000000",
+          "source": "Model95-100",
+          "complete": true
+        },
+        {
+          "name": "node.vertex[0]",
+          "offset": 136,
+          "bytes": 10,
+          "hex": "000080bf000000c00000",
+          "source": "Model98-100",
+          "complete": false,
+          "authored_full_bytes": 12
+        }
+      ],
+      "input_facts": {
+        "bytes": 146,
+        "authored_prefix": true
+      },
+      "expected_outcome": "constructor_exception",
+      "expected_exception_name": "RangeError"
+    },
+    {
+      "id": "zero_nodes_legacy",
+      "kind": "model",
+      "body_hex": "4752534d01040000000002000000ff0000000000000000000000000000000003000000612e626d700000000000000000000000000000000000000000000000000000000000000000000000612e626d700000000000000000000000000000000000000000000000000000000000000000000000622e7467610000000000000000000000000000000000000000000000000000000000000000000000726f6f74000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000",
+      "input_bytes": 207,
+      "complete_sha256": "61feb415828b6b70c7e9b4f001a131eb82c1c3a21628ebb80ecf52ce6e797a12",
+      "header_version_bytes": "4752534d0104",
+      "authored_fields": [
+        {
+          "name": "magic",
+          "offset": 0,
+          "bytes": 4,
+          "hex": "4752534d",
+          "source": "Model752-756",
+          "complete": true
+        },
+        {
+          "name": "version",
+          "offset": 4,
+          "bytes": 2,
+          "hex": "0104",
+          "source": "Model759;BinaryReader66-71",
+          "complete": true
+        },
+        {
+          "name": "animLen",
+          "offset": 6,
+          "bytes": 4,
+          "hex": "00000000",
+          "source": "Model760",
+          "complete": true
+        },
+        {
+          "name": "shadeType",
+          "offset": 10,
+          "bytes": 4,
+          "hex": "02000000",
+          "source": "Model761",
+          "complete": true
+        },
+        {
+          "name": "alpha",
+          "offset": 14,
+          "bytes": 1,
+          "hex": "ff",
+          "source": "Model764",
+          "complete": true
+        },
+        {
+          "name": "reserved",
+          "offset": 15,
+          "bytes": 16,
+          "hex": "00000000000000000000000000000000",
+          "source": "Model787",
+          "complete": true
+        },
+        {
+          "name": "additionalTextures.count",
+          "offset": 31,
+          "bytes": 4,
+          "hex": "03000000",
+          "source": "Model788-790",
+          "complete": true
+        },
+        {
+          "name": "additionalTextures[0]",
+          "offset": 35,
+          "bytes": 40,
+          "hex": "612e626d700000000000000000000000000000000000000000000000000000000000000000000000",
+          "source": "Model790",
+          "complete": true
+        },
+        {
+          "name": "additionalTextures[1]",
+          "offset": 75,
+          "bytes": 40,
+          "hex": "612e626d700000000000000000000000000000000000000000000000000000000000000000000000",
+          "source": "Model790",
+          "complete": true
+        },
+        {
+          "name": "additionalTextures[2]",
+          "offset": 115,
+          "bytes": 40,
+          "hex": "622e7467610000000000000000000000000000000000000000000000000000000000000000000000",
+          "source": "Model790",
+          "complete": true
+        },
+        {
+          "name": "mainNodeName",
+          "offset": 155,
+          "bytes": 40,
+          "hex": "726f6f74000000000000000000000000000000000000000000000000000000000000000000000000",
+          "source": "Model792-793",
+          "complete": true
+        },
+        {
+          "name": "nodes.count",
+          "offset": 195,
+          "bytes": 4,
+          "hex": "00000000",
+          "source": "Model796-799",
+          "complete": true
+        },
+        {
+          "name": "posKeyframes.count",
+          "offset": 199,
+          "bytes": 4,
+          "hex": "00000000",
+          "source": "Model814-816",
+          "complete": true
+        },
+        {
+          "name": "volumebox.count",
+          "offset": 203,
+          "bytes": 4,
+          "hex": "00000000",
+          "source": "Model834-844",
+          "complete": true
+        }
+      ],
+      "input_facts": {
+        "bytes": 207
+      },
+      "expected_outcome": "constructor_exception",
+      "expected_exception_name": "TypeError"
+    },
+    {
+      "id": "legacy_nan_vertex",
+      "kind": "model",
+      "body_hex": "4752534d01040000000002000000ff0000000000000000000000000000000003000000612e626d700000000000000000000000000000000000000000000000000000000000000000000000612e626d700000000000000000000000000000000000000000000000000000000000000000000000622e7467610000000000000000000000000000000000000000000000000000000000000000000000726f6f7400000000000000000000000000000000000000000000000000000000000000000000000001000000726f6f7400000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000030000000200000000000000020000000000803f0000000000000000000000000000803f0000000000000000000000000000803f000020410000a0410000f04100000000000000000000000000000000000000000000803f000000000000803f0000803f0000803f030000000000c07f000000c0000040c0000080400000000000000040000000000000a0400000803f03000000ffffffff0000000000000000ffffffff0000803f00000000ffffffff000000000000803f01000000000001000200000001000200000000000000000001000000000000000000000000000000",
+      "input_bytes": 503,
+      "complete_sha256": "82623d7f0986195b4ae8e1d0132d660be61f792eab2da6393d6f5765fbfb97c5",
+      "header_version_bytes": "4752534d0104",
+      "authored_fields": [
+        {
+          "name": "magic",
+          "offset": 0,
+          "bytes": 4,
+          "hex": "4752534d",
+          "source": "Model752-756",
+          "complete": true
+        },
+        {
+          "name": "version",
+          "offset": 4,
+          "bytes": 2,
+          "hex": "0104",
+          "source": "Model759;BinaryReader66-71",
+          "complete": true
+        },
+        {
+          "name": "animLen",
+          "offset": 6,
+          "bytes": 4,
+          "hex": "00000000",
+          "source": "Model760",
+          "complete": true
+        },
+        {
+          "name": "shadeType",
+          "offset": 10,
+          "bytes": 4,
+          "hex": "02000000",
+          "source": "Model761",
+          "complete": true
+        },
+        {
+          "name": "alpha",
+          "offset": 14,
+          "bytes": 1,
+          "hex": "ff",
+          "source": "Model764",
+          "complete": true
+        },
+        {
+          "name": "reserved",
+          "offset": 15,
+          "bytes": 16,
+          "hex": "00000000000000000000000000000000",
+          "source": "Model787",
+          "complete": true
+        },
+        {
+          "name": "additionalTextures.count",
+          "offset": 31,
+          "bytes": 4,
+          "hex": "03000000",
+          "source": "Model788-790",
+          "complete": true
+        },
+        {
+          "name": "additionalTextures[0]",
+          "offset": 35,
+          "bytes": 40,
+          "hex": "612e626d700000000000000000000000000000000000000000000000000000000000000000000000",
+          "source": "Model790",
+          "complete": true
+        },
+        {
+          "name": "additionalTextures[1]",
+          "offset": 75,
+          "bytes": 40,
+          "hex": "612e626d700000000000000000000000000000000000000000000000000000000000000000000000",
+          "source": "Model790",
+          "complete": true
+        },
+        {
+          "name": "additionalTextures[2]",
+          "offset": 115,
+          "bytes": 40,
+          "hex": "622e7467610000000000000000000000000000000000000000000000000000000000000000000000",
+          "source": "Model790",
+          "complete": true
+        },
+        {
+          "name": "mainNodeName",
+          "offset": 155,
+          "bytes": 40,
+          "hex": "726f6f74000000000000000000000000000000000000000000000000000000000000000000000000",
+          "source": "Model792-793",
+          "complete": true
+        },
+        {
+          "name": "nodes.count",
+          "offset": 195,
+          "bytes": 4,
+          "hex": "01000000",
+          "source": "Model796-799",
+          "complete": true
+        },
+        {
+          "name": "node.name",
+          "offset": 199,
+          "bytes": 40,
+          "hex": "726f6f74000000000000000000000000000000000000000000000000000000000000000000000000",
+          "source": "Model53",
+          "complete": true
+        },
+        {
+          "name": "node.parentname",
+          "offset": 239,
+          "bytes": 40,
+          "hex": "00000000000000000000000000000000000000000000000000000000000000000000000000000000",
+          "source": "Model54",
+          "complete": true
+        },
+        {
+          "name": "node.textures.count",
+          "offset": 279,
+          "bytes": 4,
+          "hex": "03000000",
+          "source": "Model58-62",
+          "complete": true
+        },
+        {
+          "name": "node.textures[0]",
+          "offset": 283,
+          "bytes": 4,
+          "hex": "02000000",
+          "source": "Model62",
+          "complete": true
+        },
+        {
+          "name": "node.textures[1]",
+          "offset": 287,
+          "bytes": 4,
+          "hex": "00000000",
+          "source": "Model62",
+          "complete": true
+        },
+        {
+          "name": "node.textures[2]",
+          "offset": 291,
+          "bytes": 4,
+          "hex": "02000000",
+          "source": "Model62",
+          "complete": true
+        },
+        {
+          "name": "node.mat3",
+          "offset": 295,
+          "bytes": 36,
+          "hex": "0000803f0000000000000000000000000000803f0000000000000000000000000000803f",
+          "source": "Model66-76",
+          "complete": true
+        },
+        {
+          "name": "node.offset",
+          "offset": 331,
+          "bytes": 12,
+          "hex": "000020410000a0410000f041",
+          "source": "Model77;272-276",
+          "complete": true
+        },
+        {
+          "name": "node.pos",
+          "offset": 343,
+          "bytes": 12,
+          "hex": "000000000000000000000000",
+          "source": "Model87",
+          "complete": true
+        },
+        {
+          "name": "node.rotangle",
+          "offset": 355,
+          "bytes": 4,
+          "hex": "00000000",
+          "source": "Model88",
+          "complete": true
+        },
+        {
+          "name": "node.rotaxis",
+          "offset": 359,
+          "bytes": 12,
+          "hex": "000000000000803f00000000",
+          "source": "Model89",
+          "complete": true
+        },
+        {
+          "name": "node.scale",
+          "offset": 371,
+          "bytes": 12,
+          "hex": "0000803f0000803f0000803f",
+          "source": "Model90",
+          "complete": true
+        },
+        {
+          "name": "node.vertex_count",
+          "offset": 383,
+          "bytes": 4,
+          "hex": "03000000",
+          "source": "Model95-100",
+          "complete": true
+        },
+        {
+          "name": "node.vertex[0]",
+          "offset": 387,
+          "bytes": 12,
+          "hex": "0000c07f000000c0000040c0",
+          "source": "Model99;BinaryReader138-142",
+          "complete": true
+        },
+        {
+          "name": "node.vertex[1]",
+          "offset": 399,
+          "bytes": 12,
+          "hex": "000080400000000000000040",
+          "source": "Model98-100",
+          "complete": true
+        },
+        {
+          "name": "node.vertex[2]",
+          "offset": 411,
+          "bytes": 12,
+          "hex": "000000000000a0400000803f",
+          "source": "Model98-100",
+          "complete": true
+        },
+        {
+          "name": "node.tvertex_count",
+          "offset": 423,
+          "bytes": 4,
+          "hex": "03000000",
+          "source": "Model103-115",
+          "complete": true
+        },
+        {
+          "name": "node.tvertex[0].rgba",
+          "offset": 427,
+          "bytes": 4,
+          "hex": "ffffffff",
+          "source": "Model107-112",
+          "complete": true
+        },
+        {
+          "name": "node.tvertex[0].uv",
+          "offset": 431,
+          "bytes": 8,
+          "hex": "0000000000000000",
+          "source": "Model113-114",
+          "complete": true
+        },
+        {
+          "name": "node.tvertex[1].rgba",
+          "offset": 439,
+          "bytes": 4,
+          "hex": "ffffffff",
+          "source": "Model107-112",
+          "complete": true
+        },
+        {
+          "name": "node.tvertex[1].uv",
+          "offset": 443,
+          "bytes": 8,
+          "hex": "0000803f00000000",
+          "source": "Model113-114",
+          "complete": true
+        },
+        {
+          "name": "node.tvertex[2].rgba",
+          "offset": 451,
+          "bytes": 4,
+          "hex": "ffffffff",
+          "source": "Model107-112",
+          "complete": true
+        },
+        {
+          "name": "node.tvertex[2].uv",
+          "offset": 455,
+          "bytes": 8,
+          "hex": "000000000000803f",
+          "source": "Model113-114",
+          "complete": true
+        },
+        {
+          "name": "node.face_count",
+          "offset": 463,
+          "bytes": 4,
+          "hex": "01000000",
+          "source": "Model118-119",
+          "complete": true
+        },
+        {
+          "name": "node.face[0].vertidx",
+          "offset": 467,
+          "bytes": 6,
+          "hex": "000001000200",
+          "source": "Model127",
+          "complete": true
+        },
+        {
+          "name": "node.face[0].tvertidx",
+          "offset": 473,
+          "bytes": 6,
+          "hex": "000001000200",
+          "source": "Model128",
+          "complete": true
+        },
+        {
+          "name": "node.face[0].texid",
+          "offset": 479,
+          "bytes": 2,
+          "hex": "0000",
+          "source": "Model129",
+          "complete": true
+        },
+        {
+          "name": "node.face[0].padding",
+          "offset": 481,
+          "bytes": 2,
+          "hex": "0000",
+          "source": "Model130",
+          "complete": true
+        },
+        {
+          "name": "node.face[0].twoSide",
+          "offset": 483,
+          "bytes": 4,
+          "hex": "00000000",
+          "source": "Model131",
+          "complete": true
+        },
+        {
+          "name": "node.face[0].smoothGroup",
+          "offset": 487,
+          "bytes": 4,
+          "hex": "01000000",
+          "source": "Model134-136",
+          "complete": true
+        },
+        {
+          "name": "node.rotKeyframes.count",
+          "offset": 491,
+          "bytes": 4,
+          "hex": "00000000",
+          "source": "Model163-171",
+          "complete": true
+        },
+        {
+          "name": "posKeyframes.count",
+          "offset": 495,
+          "bytes": 4,
+          "hex": "00000000",
+          "source": "Model814-816",
+          "complete": true
+        },
+        {
+          "name": "volumebox.count",
+          "offset": 499,
+          "bytes": 4,
+          "hex": "00000000",
+          "source": "Model834-844",
+          "complete": true
+        }
+      ],
+      "input_facts": {
+        "bytes": 503
+      },
+      "expected_outcome": "returned",
+      "expected_summary": {
+        "version": 1.4,
+        "animLen": 0,
+        "shadeType": 2,
+        "alpha": 1,
+        "frameRatePerSecond": {
+          "special": "undefined"
+        },
+        "textures": [
+          "a.bmp",
+          "a.bmp",
+          "b.tga"
+        ],
+        "main_node_index": 0,
+        "instances": 0,
+        "global_position_keys": 0,
+        "volume_boxes": 0,
+        "box": {
+          "min": [
+            {
+              "special": "NaN"
+            },
+            {
+              "special": "NaN"
+            },
+            {
+              "special": "NaN"
+            }
+          ],
+          "max": [
+            {
+              "special": "NaN"
+            },
+            {
+              "special": "NaN"
+            },
+            {
+              "special": "NaN"
+            }
+          ],
+          "offset": [
+            {
+              "special": "NaN"
+            },
+            {
+              "special": "NaN"
+            },
+            {
+              "special": "NaN"
+            }
+          ],
+          "range": [
+            {
+              "special": "NaN"
+            },
+            {
+              "special": "NaN"
+            },
+            {
+              "special": "NaN"
+            }
+          ],
+          "center": [
+            {
+              "special": "NaN"
+            },
+            {
+              "special": "NaN"
+            },
+            {
+              "special": "NaN"
+            }
+          ]
+        },
+        "nodes": [
+          {
+            "node_index": 0,
+            "name": "root",
+            "parentname": "",
+            "is_only": true,
+            "textures": [
+              2,
+              0,
+              2
+            ],
+            "texture_references": [
+              {
+                "slot_index": 0,
+                "table_index": 2,
+                "state": "resolved"
+              },
+              {
+                "slot_index": 1,
+                "table_index": 0,
+                "state": "resolved"
+              },
+              {
+                "slot_index": 2,
+                "table_index": 2,
+                "state": "resolved"
+              }
+            ],
+            "transform": {
+              "mat3": [
+                1,
+                0,
+                0,
+                0,
+                1,
+                0,
+                0,
+                0,
+                1
+              ],
+              "offset": [
+                10,
+                20,
+                30
+              ],
+              "pos": [
+                0,
+                0,
+                0
+              ],
+              "rotangle": 0,
+              "rotaxis": [
+                0,
+                1,
+                0
+              ],
+              "scale": [
+                1,
+                1,
+                1
+              ],
+              "flip": [
+                1,
+                1,
+                1
+              ],
+              "matrix": [
+                1,
+                0,
+                0,
+                0,
+                0,
+                1,
+                0,
+                0,
+                0,
+                0,
+                1,
+                0,
+                0,
+                0,
+                0,
+                1
+              ]
+            },
+            "box": {
+              "min": [
+                {
+                  "special": "NaN"
+                },
+                {
+                  "special": "NaN"
+                },
+                {
+                  "special": "NaN"
+                }
+              ],
+              "max": [
+                {
+                  "special": "NaN"
+                },
+                {
+                  "special": "NaN"
+                },
+                {
+                  "special": "NaN"
+                }
+              ],
+              "offset": [
+                {
+                  "special": "NaN"
+                },
+                {
+                  "special": "NaN"
+                },
+                {
+                  "special": "NaN"
+                }
+              ],
+              "range": [
+                {
+                  "special": "NaN"
+                },
+                {
+                  "special": "NaN"
+                },
+                {
+                  "special": "NaN"
+                }
+              ],
+              "center": [
+                {
+                  "special": "NaN"
+                },
+                {
+                  "special": "NaN"
+                },
+                {
+                  "special": "NaN"
+                }
+              ]
+            },
+            "vertex_count": 3,
+            "tvertex_components": 18,
+            "face_count": 1,
+            "keyframe_counts": {
+              "rotation": 0,
+              "position": {
+                "special": "undefined"
+              },
+              "scale": {
+                "special": "undefined"
+              },
+              "texture_groups": {
+                "special": "undefined"
+              }
+            },
+            "numeric_fields": {
+              "finite": 80,
+              "nan": 16,
+              "positive_infinity": 0,
+              "negative_infinity": 0,
+              "undefined": 3,
+              "null": 0,
+              "min": -3,
+              "max": 30,
+              "exceptional_locations": [
+                {
+                  "location": "box.min[0]",
+                  "category": "nan"
+                },
+                {
+                  "location": "box.min[1]",
+                  "category": "nan"
+                },
+                {
+                  "location": "box.min[2]",
+                  "category": "nan"
+                },
+                {
+                  "location": "box.max[0]",
+                  "category": "nan"
+                },
+                {
+                  "location": "box.max[1]",
+                  "category": "nan"
+                },
+                {
+                  "location": "box.max[2]",
+                  "category": "nan"
+                },
+                {
+                  "location": "box.offset[0]",
+                  "category": "nan"
+                },
+                {
+                  "location": "box.offset[1]",
+                  "category": "nan"
+                },
+                {
+                  "location": "box.offset[2]",
+                  "category": "nan"
+                },
+                {
+                  "location": "box.range[0]",
+                  "category": "nan"
+                },
+                {
+                  "location": "box.range[1]",
+                  "category": "nan"
+                },
+                {
+                  "location": "box.range[2]",
+                  "category": "nan"
+                },
+                {
+                  "location": "box.center[0]",
+                  "category": "nan"
+                },
+                {
+                  "location": "box.center[1]",
+                  "category": "nan"
+                },
+                {
+                  "location": "box.center[2]",
+                  "category": "nan"
+                },
+                {
+                  "location": "vertices[0][0]",
+                  "category": "nan"
+                }
+              ],
+              "exceptional_locations_omitted": 3
+            }
+          }
+        ],
+        "texture_declarations": [
+          {
+            "texture_index": 0,
+            "constructor_pointer": "/textures/0",
+            "raw_name": "a.bmp",
+            "logical_name": "data\\texture\\a.bmp",
+            "filemanager_name": "data\\texture\\a.bmp",
+            "http_path": "data/texture/a.bmp"
+          },
+          {
+            "texture_index": 1,
+            "constructor_pointer": "/textures/1",
+            "raw_name": "a.bmp",
+            "logical_name": "data\\texture\\a.bmp",
+            "filemanager_name": "data\\texture\\a.bmp",
+            "http_path": "data/texture/a.bmp"
+          },
+          {
+            "texture_index": 2,
+            "constructor_pointer": "/textures/2",
+            "raw_name": "b.tga",
+            "logical_name": "data\\texture\\b.tga",
+            "filemanager_name": "data\\texture\\b.tga",
+            "http_path": "data/texture/b.tga"
+          }
+        ],
+        "animation_by_node_keys": false,
+        "numeric_fields": {
+          "finite": 4,
+          "nan": 15,
+          "positive_infinity": 0,
+          "negative_infinity": 0,
+          "undefined": 1,
+          "null": 0,
+          "min": 0,
+          "max": 2,
+          "exceptional_locations": [
+            {
+              "location": "frameRatePerSecond",
+              "category": "undefined"
+            },
+            {
+              "location": "box.min[0]",
+              "category": "nan"
+            },
+            {
+              "location": "box.min[1]",
+              "category": "nan"
+            },
+            {
+              "location": "box.min[2]",
+              "category": "nan"
+            },
+            {
+              "location": "box.max[0]",
+              "category": "nan"
+            },
+            {
+              "location": "box.max[1]",
+              "category": "nan"
+            },
+            {
+              "location": "box.max[2]",
+              "category": "nan"
+            },
+            {
+              "location": "box.offset[0]",
+              "category": "nan"
+            },
+            {
+              "location": "box.offset[1]",
+              "category": "nan"
+            },
+            {
+              "location": "box.offset[2]",
+              "category": "nan"
+            },
+            {
+              "location": "box.range[0]",
+              "category": "nan"
+            },
+            {
+              "location": "box.range[1]",
+              "category": "nan"
+            },
+            {
+              "location": "box.range[2]",
+              "category": "nan"
+            },
+            {
+              "location": "box.center[0]",
+              "category": "nan"
+            },
+            {
+              "location": "box.center[1]",
+              "category": "nan"
+            },
+            {
+              "location": "box.center[2]",
+              "category": "nan"
+            }
+          ],
+          "exceptional_locations_omitted": 0
+        },
+        "cursor": {
+          "state": "not_observable_from_unchanged_constructor",
+          "remaining_bytes": null
+        }
+      }
+    },
+    {
+      "id": "legacy_trailing_four_bytes",
+      "kind": "model",
+      "body_hex": "4752534d01040000000002000000ff0000000000000000000000000000000003000000612e626d700000000000000000000000000000000000000000000000000000000000000000000000612e626d700000000000000000000000000000000000000000000000000000000000000000000000622e7467610000000000000000000000000000000000000000000000000000000000000000000000726f6f7400000000000000000000000000000000000000000000000000000000000000000000000001000000726f6f7400000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000030000000200000000000000020000000000803f0000000000000000000000000000803f0000000000000000000000000000803f000020410000a0410000f04100000000000000000000000000000000000000000000803f000000000000803f0000803f0000803f03000000000080bf000000c0000040c0000080400000000000000040000000000000a0400000803f03000000ffffffff0000000000000000ffffffff0000803f00000000ffffffff000000000000803f0100000000000100020000000100020000000000000000000100000000000000000000000000000011223344",
+      "input_bytes": 507,
+      "complete_sha256": "a6b63e63fe8bf1d5bb803d44f8b952cef3a9b352c32da3281fd836b089441231",
+      "header_version_bytes": "4752534d0104",
+      "authored_fields": [
+        {
+          "name": "magic",
+          "offset": 0,
+          "bytes": 4,
+          "hex": "4752534d",
+          "source": "Model752-756",
+          "complete": true
+        },
+        {
+          "name": "version",
+          "offset": 4,
+          "bytes": 2,
+          "hex": "0104",
+          "source": "Model759;BinaryReader66-71",
+          "complete": true
+        },
+        {
+          "name": "animLen",
+          "offset": 6,
+          "bytes": 4,
+          "hex": "00000000",
+          "source": "Model760",
+          "complete": true
+        },
+        {
+          "name": "shadeType",
+          "offset": 10,
+          "bytes": 4,
+          "hex": "02000000",
+          "source": "Model761",
+          "complete": true
+        },
+        {
+          "name": "alpha",
+          "offset": 14,
+          "bytes": 1,
+          "hex": "ff",
+          "source": "Model764",
+          "complete": true
+        },
+        {
+          "name": "reserved",
+          "offset": 15,
+          "bytes": 16,
+          "hex": "00000000000000000000000000000000",
+          "source": "Model787",
+          "complete": true
+        },
+        {
+          "name": "additionalTextures.count",
+          "offset": 31,
+          "bytes": 4,
+          "hex": "03000000",
+          "source": "Model788-790",
+          "complete": true
+        },
+        {
+          "name": "additionalTextures[0]",
+          "offset": 35,
+          "bytes": 40,
+          "hex": "612e626d700000000000000000000000000000000000000000000000000000000000000000000000",
+          "source": "Model790",
+          "complete": true
+        },
+        {
+          "name": "additionalTextures[1]",
+          "offset": 75,
+          "bytes": 40,
+          "hex": "612e626d700000000000000000000000000000000000000000000000000000000000000000000000",
+          "source": "Model790",
+          "complete": true
+        },
+        {
+          "name": "additionalTextures[2]",
+          "offset": 115,
+          "bytes": 40,
+          "hex": "622e7467610000000000000000000000000000000000000000000000000000000000000000000000",
+          "source": "Model790",
+          "complete": true
+        },
+        {
+          "name": "mainNodeName",
+          "offset": 155,
+          "bytes": 40,
+          "hex": "726f6f74000000000000000000000000000000000000000000000000000000000000000000000000",
+          "source": "Model792-793",
+          "complete": true
+        },
+        {
+          "name": "nodes.count",
+          "offset": 195,
+          "bytes": 4,
+          "hex": "01000000",
+          "source": "Model796-799",
+          "complete": true
+        },
+        {
+          "name": "node.name",
+          "offset": 199,
+          "bytes": 40,
+          "hex": "726f6f74000000000000000000000000000000000000000000000000000000000000000000000000",
+          "source": "Model53",
+          "complete": true
+        },
+        {
+          "name": "node.parentname",
+          "offset": 239,
+          "bytes": 40,
+          "hex": "00000000000000000000000000000000000000000000000000000000000000000000000000000000",
+          "source": "Model54",
+          "complete": true
+        },
+        {
+          "name": "node.textures.count",
+          "offset": 279,
+          "bytes": 4,
+          "hex": "03000000",
+          "source": "Model58-62",
+          "complete": true
+        },
+        {
+          "name": "node.textures[0]",
+          "offset": 283,
+          "bytes": 4,
+          "hex": "02000000",
+          "source": "Model62",
+          "complete": true
+        },
+        {
+          "name": "node.textures[1]",
+          "offset": 287,
+          "bytes": 4,
+          "hex": "00000000",
+          "source": "Model62",
+          "complete": true
+        },
+        {
+          "name": "node.textures[2]",
+          "offset": 291,
+          "bytes": 4,
+          "hex": "02000000",
+          "source": "Model62",
+          "complete": true
+        },
+        {
+          "name": "node.mat3",
+          "offset": 295,
+          "bytes": 36,
+          "hex": "0000803f0000000000000000000000000000803f0000000000000000000000000000803f",
+          "source": "Model66-76",
+          "complete": true
+        },
+        {
+          "name": "node.offset",
+          "offset": 331,
+          "bytes": 12,
+          "hex": "000020410000a0410000f041",
+          "source": "Model77;272-276",
+          "complete": true
+        },
+        {
+          "name": "node.pos",
+          "offset": 343,
+          "bytes": 12,
+          "hex": "000000000000000000000000",
+          "source": "Model87",
+          "complete": true
+        },
+        {
+          "name": "node.rotangle",
+          "offset": 355,
+          "bytes": 4,
+          "hex": "00000000",
+          "source": "Model88",
+          "complete": true
+        },
+        {
+          "name": "node.rotaxis",
+          "offset": 359,
+          "bytes": 12,
+          "hex": "000000000000803f00000000",
+          "source": "Model89",
+          "complete": true
+        },
+        {
+          "name": "node.scale",
+          "offset": 371,
+          "bytes": 12,
+          "hex": "0000803f0000803f0000803f",
+          "source": "Model90",
+          "complete": true
+        },
+        {
+          "name": "node.vertex_count",
+          "offset": 383,
+          "bytes": 4,
+          "hex": "03000000",
+          "source": "Model95-100",
+          "complete": true
+        },
+        {
+          "name": "node.vertex[0]",
+          "offset": 387,
+          "bytes": 12,
+          "hex": "000080bf000000c0000040c0",
+          "source": "Model98-100",
+          "complete": true
+        },
+        {
+          "name": "node.vertex[1]",
+          "offset": 399,
+          "bytes": 12,
+          "hex": "000080400000000000000040",
+          "source": "Model98-100",
+          "complete": true
+        },
+        {
+          "name": "node.vertex[2]",
+          "offset": 411,
+          "bytes": 12,
+          "hex": "000000000000a0400000803f",
+          "source": "Model98-100",
+          "complete": true
+        },
+        {
+          "name": "node.tvertex_count",
+          "offset": 423,
+          "bytes": 4,
+          "hex": "03000000",
+          "source": "Model103-115",
+          "complete": true
+        },
+        {
+          "name": "node.tvertex[0].rgba",
+          "offset": 427,
+          "bytes": 4,
+          "hex": "ffffffff",
+          "source": "Model107-112",
+          "complete": true
+        },
+        {
+          "name": "node.tvertex[0].uv",
+          "offset": 431,
+          "bytes": 8,
+          "hex": "0000000000000000",
+          "source": "Model113-114",
+          "complete": true
+        },
+        {
+          "name": "node.tvertex[1].rgba",
+          "offset": 439,
+          "bytes": 4,
+          "hex": "ffffffff",
+          "source": "Model107-112",
+          "complete": true
+        },
+        {
+          "name": "node.tvertex[1].uv",
+          "offset": 443,
+          "bytes": 8,
+          "hex": "0000803f00000000",
+          "source": "Model113-114",
+          "complete": true
+        },
+        {
+          "name": "node.tvertex[2].rgba",
+          "offset": 451,
+          "bytes": 4,
+          "hex": "ffffffff",
+          "source": "Model107-112",
+          "complete": true
+        },
+        {
+          "name": "node.tvertex[2].uv",
+          "offset": 455,
+          "bytes": 8,
+          "hex": "000000000000803f",
+          "source": "Model113-114",
+          "complete": true
+        },
+        {
+          "name": "node.face_count",
+          "offset": 463,
+          "bytes": 4,
+          "hex": "01000000",
+          "source": "Model118-119",
+          "complete": true
+        },
+        {
+          "name": "node.face[0].vertidx",
+          "offset": 467,
+          "bytes": 6,
+          "hex": "000001000200",
+          "source": "Model127",
+          "complete": true
+        },
+        {
+          "name": "node.face[0].tvertidx",
+          "offset": 473,
+          "bytes": 6,
+          "hex": "000001000200",
+          "source": "Model128",
+          "complete": true
+        },
+        {
+          "name": "node.face[0].texid",
+          "offset": 479,
+          "bytes": 2,
+          "hex": "0000",
+          "source": "Model129",
+          "complete": true
+        },
+        {
+          "name": "node.face[0].padding",
+          "offset": 481,
+          "bytes": 2,
+          "hex": "0000",
+          "source": "Model130",
+          "complete": true
+        },
+        {
+          "name": "node.face[0].twoSide",
+          "offset": 483,
+          "bytes": 4,
+          "hex": "00000000",
+          "source": "Model131",
+          "complete": true
+        },
+        {
+          "name": "node.face[0].smoothGroup",
+          "offset": 487,
+          "bytes": 4,
+          "hex": "01000000",
+          "source": "Model134-136",
+          "complete": true
+        },
+        {
+          "name": "node.rotKeyframes.count",
+          "offset": 491,
+          "bytes": 4,
+          "hex": "00000000",
+          "source": "Model163-171",
+          "complete": true
+        },
+        {
+          "name": "posKeyframes.count",
+          "offset": 495,
+          "bytes": 4,
+          "hex": "00000000",
+          "source": "Model814-816",
+          "complete": true
+        },
+        {
+          "name": "volumebox.count",
+          "offset": 499,
+          "bytes": 4,
+          "hex": "00000000",
+          "source": "Model834-844",
+          "complete": true
+        },
+        {
+          "name": "authored_trailing",
+          "offset": 503,
+          "bytes": 4,
+          "hex": "11223344",
+          "source": "after Model834-844; no exact-EOF assertion",
+          "complete": true
+        }
+      ],
+      "input_facts": {
+        "bytes": 507,
+        "authored_trailing_bytes": 4
+      },
+      "expected_outcome": "returned",
+      "expected_summary": {
+        "version": 1.4,
+        "animLen": 0,
+        "shadeType": 2,
+        "alpha": 1,
+        "frameRatePerSecond": {
+          "special": "undefined"
+        },
+        "textures": [
+          "a.bmp",
+          "a.bmp",
+          "b.tga"
+        ],
+        "main_node_index": 0,
+        "instances": 0,
+        "global_position_keys": 0,
+        "volume_boxes": 0,
+        "box": {
+          "min": [
+            -1,
+            -2,
+            -3
+          ],
+          "max": [
+            4,
+            5,
+            2
+          ],
+          "offset": [
+            1.5,
+            1.5,
+            -0.5
+          ],
+          "range": [
+            2.5,
+            3.5,
+            2.5
+          ],
+          "center": [
+            1.5,
+            1.5,
+            -0.5
+          ]
+        },
+        "nodes": [
+          {
+            "node_index": 0,
+            "name": "root",
+            "parentname": "",
+            "is_only": true,
+            "textures": [
+              2,
+              0,
+              2
+            ],
+            "texture_references": [
+              {
+                "slot_index": 0,
+                "table_index": 2,
+                "state": "resolved"
+              },
+              {
+                "slot_index": 1,
+                "table_index": 0,
+                "state": "resolved"
+              },
+              {
+                "slot_index": 2,
+                "table_index": 2,
+                "state": "resolved"
+              }
+            ],
+            "transform": {
+              "mat3": [
+                1,
+                0,
+                0,
+                0,
+                1,
+                0,
+                0,
+                0,
+                1
+              ],
+              "offset": [
+                10,
+                20,
+                30
+              ],
+              "pos": [
+                0,
+                0,
+                0
+              ],
+              "rotangle": 0,
+              "rotaxis": [
+                0,
+                1,
+                0
+              ],
+              "scale": [
+                1,
+                1,
+                1
+              ],
+              "flip": [
+                1,
+                1,
+                1
+              ],
+              "matrix": [
+                1,
+                0,
+                0,
+                0,
+                0,
+                1,
+                0,
+                0,
+                0,
+                0,
+                1,
+                0,
+                0,
+                0,
+                0,
+                1
+              ]
+            },
+            "box": {
+              "min": [
+                -1,
+                -2,
+                -3
+              ],
+              "max": [
+                4,
+                5,
+                2
+              ],
+              "offset": [
+                1.5,
+                1.5,
+                -0.5
+              ],
+              "range": [
+                2.5,
+                3.5,
+                2.5
+              ],
+              "center": [
+                1.5,
+                1.5,
+                -0.5
+              ]
+            },
+            "vertex_count": 3,
+            "tvertex_components": 18,
+            "face_count": 1,
+            "keyframe_counts": {
+              "rotation": 0,
+              "position": {
+                "special": "undefined"
+              },
+              "scale": {
+                "special": "undefined"
+              },
+              "texture_groups": {
+                "special": "undefined"
+              }
+            },
+            "numeric_fields": {
+              "finite": 96,
+              "nan": 0,
+              "positive_infinity": 0,
+              "negative_infinity": 0,
+              "undefined": 3,
+              "null": 0,
+              "min": -3,
+              "max": 30,
+              "exceptional_locations": [
+                {
+                  "location": "posKeyframes",
+                  "category": "undefined"
+                },
+                {
+                  "location": "scaleKeyFrames",
+                  "category": "undefined"
+                },
+                {
+                  "location": "textureKeyFrameGroup",
+                  "category": "undefined"
+                }
+              ],
+              "exceptional_locations_omitted": 0
+            }
+          }
+        ],
+        "texture_declarations": [
+          {
+            "texture_index": 0,
+            "constructor_pointer": "/textures/0",
+            "raw_name": "a.bmp",
+            "logical_name": "data\\texture\\a.bmp",
+            "filemanager_name": "data\\texture\\a.bmp",
+            "http_path": "data/texture/a.bmp"
+          },
+          {
+            "texture_index": 1,
+            "constructor_pointer": "/textures/1",
+            "raw_name": "a.bmp",
+            "logical_name": "data\\texture\\a.bmp",
+            "filemanager_name": "data\\texture\\a.bmp",
+            "http_path": "data/texture/a.bmp"
+          },
+          {
+            "texture_index": 2,
+            "constructor_pointer": "/textures/2",
+            "raw_name": "b.tga",
+            "logical_name": "data\\texture\\b.tga",
+            "filemanager_name": "data\\texture\\b.tga",
+            "http_path": "data/texture/b.tga"
+          }
+        ],
+        "animation_by_node_keys": false,
+        "numeric_fields": {
+          "finite": 19,
+          "nan": 0,
+          "positive_infinity": 0,
+          "negative_infinity": 0,
+          "undefined": 1,
+          "null": 0,
+          "min": -3,
+          "max": 5,
+          "exceptional_locations": [
+            {
+              "location": "frameRatePerSecond",
+              "category": "undefined"
+            }
+          ],
+          "exceptional_locations_omitted": 0
+        },
+        "cursor": {
+          "state": "not_observable_from_unchanged_constructor",
+          "remaining_bytes": null
+        }
+      }
+    },
+    {
+      "id": "model14_negative_texture_slot",
+      "kind": "model",
+      "body_hex": "4752534d01040000000002000000ff0000000000000000000000000000000003000000612e626d700000000000000000000000000000000000000000000000000000000000000000000000612e626d700000000000000000000000000000000000000000000000000000000000000000000000622e7467610000000000000000000000000000000000000000000000000000000000000000000000726f6f7400000000000000000000000000000000000000000000000000000000000000000000000001000000726f6f740000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000003000000ffffffff00000000020000000000803f0000000000000000000000000000803f0000000000000000000000000000803f000020410000a0410000f04100000000000000000000000000000000000000000000803f000000000000803f0000803f0000803f03000000000080bf000000c0000040c0000080400000000000000040000000000000a0400000803f03000000ffffffff0000000000000000ffffffff0000803f00000000ffffffff000000000000803f01000000000001000200000001000200000000000000000001000000000000000000000000000000",
+      "input_bytes": 503,
+      "complete_sha256": "91634027cd8fe489fde7ea7f2e8706845d9b40ce21eedd830acf825204b02c22",
+      "header_version_bytes": "4752534d0104",
+      "authored_fields": [
+        {
+          "name": "magic",
+          "offset": 0,
+          "bytes": 4,
+          "hex": "4752534d",
+          "source": "Model752-756",
+          "complete": true
+        },
+        {
+          "name": "version",
+          "offset": 4,
+          "bytes": 2,
+          "hex": "0104",
+          "source": "Model759;BinaryReader66-71",
+          "complete": true
+        },
+        {
+          "name": "animLen",
+          "offset": 6,
+          "bytes": 4,
+          "hex": "00000000",
+          "source": "Model760",
+          "complete": true
+        },
+        {
+          "name": "shadeType",
+          "offset": 10,
+          "bytes": 4,
+          "hex": "02000000",
+          "source": "Model761",
+          "complete": true
+        },
+        {
+          "name": "alpha",
+          "offset": 14,
+          "bytes": 1,
+          "hex": "ff",
+          "source": "Model764",
+          "complete": true
+        },
+        {
+          "name": "reserved",
+          "offset": 15,
+          "bytes": 16,
+          "hex": "00000000000000000000000000000000",
+          "source": "Model787",
+          "complete": true
+        },
+        {
+          "name": "additionalTextures.count",
+          "offset": 31,
+          "bytes": 4,
+          "hex": "03000000",
+          "source": "Model788-790",
+          "complete": true
+        },
+        {
+          "name": "additionalTextures[0]",
+          "offset": 35,
+          "bytes": 40,
+          "hex": "612e626d700000000000000000000000000000000000000000000000000000000000000000000000",
+          "source": "Model790",
+          "complete": true
+        },
+        {
+          "name": "additionalTextures[1]",
+          "offset": 75,
+          "bytes": 40,
+          "hex": "612e626d700000000000000000000000000000000000000000000000000000000000000000000000",
+          "source": "Model790",
+          "complete": true
+        },
+        {
+          "name": "additionalTextures[2]",
+          "offset": 115,
+          "bytes": 40,
+          "hex": "622e7467610000000000000000000000000000000000000000000000000000000000000000000000",
+          "source": "Model790",
+          "complete": true
+        },
+        {
+          "name": "mainNodeName",
+          "offset": 155,
+          "bytes": 40,
+          "hex": "726f6f74000000000000000000000000000000000000000000000000000000000000000000000000",
+          "source": "Model792-793",
+          "complete": true
+        },
+        {
+          "name": "nodes.count",
+          "offset": 195,
+          "bytes": 4,
+          "hex": "01000000",
+          "source": "Model796-799",
+          "complete": true
+        },
+        {
+          "name": "node.name",
+          "offset": 199,
+          "bytes": 40,
+          "hex": "726f6f74000000000000000000000000000000000000000000000000000000000000000000000000",
+          "source": "Model53",
+          "complete": true
+        },
+        {
+          "name": "node.parentname",
+          "offset": 239,
+          "bytes": 40,
+          "hex": "00000000000000000000000000000000000000000000000000000000000000000000000000000000",
+          "source": "Model54",
+          "complete": true
+        },
+        {
+          "name": "node.textures.count",
+          "offset": 279,
+          "bytes": 4,
+          "hex": "03000000",
+          "source": "Model58-62",
+          "complete": true
+        },
+        {
+          "name": "node.textures[0]",
+          "offset": 283,
+          "bytes": 4,
+          "hex": "ffffffff",
+          "source": "Model62",
+          "complete": true
+        },
+        {
+          "name": "node.textures[1]",
+          "offset": 287,
+          "bytes": 4,
+          "hex": "00000000",
+          "source": "Model62",
+          "complete": true
+        },
+        {
+          "name": "node.textures[2]",
+          "offset": 291,
+          "bytes": 4,
+          "hex": "02000000",
+          "source": "Model62",
+          "complete": true
+        },
+        {
+          "name": "node.mat3",
+          "offset": 295,
+          "bytes": 36,
+          "hex": "0000803f0000000000000000000000000000803f0000000000000000000000000000803f",
+          "source": "Model66-76",
+          "complete": true
+        },
+        {
+          "name": "node.offset",
+          "offset": 331,
+          "bytes": 12,
+          "hex": "000020410000a0410000f041",
+          "source": "Model77;272-276",
+          "complete": true
+        },
+        {
+          "name": "node.pos",
+          "offset": 343,
+          "bytes": 12,
+          "hex": "000000000000000000000000",
+          "source": "Model87",
+          "complete": true
+        },
+        {
+          "name": "node.rotangle",
+          "offset": 355,
+          "bytes": 4,
+          "hex": "00000000",
+          "source": "Model88",
+          "complete": true
+        },
+        {
+          "name": "node.rotaxis",
+          "offset": 359,
+          "bytes": 12,
+          "hex": "000000000000803f00000000",
+          "source": "Model89",
+          "complete": true
+        },
+        {
+          "name": "node.scale",
+          "offset": 371,
+          "bytes": 12,
+          "hex": "0000803f0000803f0000803f",
+          "source": "Model90",
+          "complete": true
+        },
+        {
+          "name": "node.vertex_count",
+          "offset": 383,
+          "bytes": 4,
+          "hex": "03000000",
+          "source": "Model95-100",
+          "complete": true
+        },
+        {
+          "name": "node.vertex[0]",
+          "offset": 387,
+          "bytes": 12,
+          "hex": "000080bf000000c0000040c0",
+          "source": "Model98-100",
+          "complete": true
+        },
+        {
+          "name": "node.vertex[1]",
+          "offset": 399,
+          "bytes": 12,
+          "hex": "000080400000000000000040",
+          "source": "Model98-100",
+          "complete": true
+        },
+        {
+          "name": "node.vertex[2]",
+          "offset": 411,
+          "bytes": 12,
+          "hex": "000000000000a0400000803f",
+          "source": "Model98-100",
+          "complete": true
+        },
+        {
+          "name": "node.tvertex_count",
+          "offset": 423,
+          "bytes": 4,
+          "hex": "03000000",
+          "source": "Model103-115",
+          "complete": true
+        },
+        {
+          "name": "node.tvertex[0].rgba",
+          "offset": 427,
+          "bytes": 4,
+          "hex": "ffffffff",
+          "source": "Model107-112",
+          "complete": true
+        },
+        {
+          "name": "node.tvertex[0].uv",
+          "offset": 431,
+          "bytes": 8,
+          "hex": "0000000000000000",
+          "source": "Model113-114",
+          "complete": true
+        },
+        {
+          "name": "node.tvertex[1].rgba",
+          "offset": 439,
+          "bytes": 4,
+          "hex": "ffffffff",
+          "source": "Model107-112",
+          "complete": true
+        },
+        {
+          "name": "node.tvertex[1].uv",
+          "offset": 443,
+          "bytes": 8,
+          "hex": "0000803f00000000",
+          "source": "Model113-114",
+          "complete": true
+        },
+        {
+          "name": "node.tvertex[2].rgba",
+          "offset": 451,
+          "bytes": 4,
+          "hex": "ffffffff",
+          "source": "Model107-112",
+          "complete": true
+        },
+        {
+          "name": "node.tvertex[2].uv",
+          "offset": 455,
+          "bytes": 8,
+          "hex": "000000000000803f",
+          "source": "Model113-114",
+          "complete": true
+        },
+        {
+          "name": "node.face_count",
+          "offset": 463,
+          "bytes": 4,
+          "hex": "01000000",
+          "source": "Model118-119",
+          "complete": true
+        },
+        {
+          "name": "node.face[0].vertidx",
+          "offset": 467,
+          "bytes": 6,
+          "hex": "000001000200",
+          "source": "Model127",
+          "complete": true
+        },
+        {
+          "name": "node.face[0].tvertidx",
+          "offset": 473,
+          "bytes": 6,
+          "hex": "000001000200",
+          "source": "Model128",
+          "complete": true
+        },
+        {
+          "name": "node.face[0].texid",
+          "offset": 479,
+          "bytes": 2,
+          "hex": "0000",
+          "source": "Model129",
+          "complete": true
+        },
+        {
+          "name": "node.face[0].padding",
+          "offset": 481,
+          "bytes": 2,
+          "hex": "0000",
+          "source": "Model130",
+          "complete": true
+        },
+        {
+          "name": "node.face[0].twoSide",
+          "offset": 483,
+          "bytes": 4,
+          "hex": "00000000",
+          "source": "Model131",
+          "complete": true
+        },
+        {
+          "name": "node.face[0].smoothGroup",
+          "offset": 487,
+          "bytes": 4,
+          "hex": "01000000",
+          "source": "Model134-136",
+          "complete": true
+        },
+        {
+          "name": "node.rotKeyframes.count",
+          "offset": 491,
+          "bytes": 4,
+          "hex": "00000000",
+          "source": "Model163-171",
+          "complete": true
+        },
+        {
+          "name": "posKeyframes.count",
+          "offset": 495,
+          "bytes": 4,
+          "hex": "00000000",
+          "source": "Model814-816",
+          "complete": true
+        },
+        {
+          "name": "volumebox.count",
+          "offset": 499,
+          "bytes": 4,
+          "hex": "00000000",
+          "source": "Model834-844",
+          "complete": true
+        }
+      ],
+      "input_facts": {
+        "bytes": 503,
+        "invalid_slot_is_observed_not_repaired": true
+      },
+      "expected_outcome": "returned",
+      "expected_summary": {
+        "version": 1.4,
+        "animLen": 0,
+        "shadeType": 2,
+        "alpha": 1,
+        "frameRatePerSecond": {
+          "special": "undefined"
+        },
+        "textures": [
+          "a.bmp",
+          "a.bmp",
+          "b.tga"
+        ],
+        "main_node_index": 0,
+        "instances": 0,
+        "global_position_keys": 0,
+        "volume_boxes": 0,
+        "box": {
+          "min": [
+            -1,
+            -2,
+            -3
+          ],
+          "max": [
+            4,
+            5,
+            2
+          ],
+          "offset": [
+            1.5,
+            1.5,
+            -0.5
+          ],
+          "range": [
+            2.5,
+            3.5,
+            2.5
+          ],
+          "center": [
+            1.5,
+            1.5,
+            -0.5
+          ]
+        },
+        "nodes": [
+          {
+            "node_index": 0,
+            "name": "root",
+            "parentname": "",
+            "is_only": true,
+            "textures": [
+              -1,
+              0,
+              2
+            ],
+            "texture_references": [
+              {
+                "slot_index": 0,
+                "table_index": null,
+                "state": "unresolved"
+              },
+              {
+                "slot_index": 1,
+                "table_index": 0,
+                "state": "resolved"
+              },
+              {
+                "slot_index": 2,
+                "table_index": 2,
+                "state": "resolved"
+              }
+            ],
+            "transform": {
+              "mat3": [
+                1,
+                0,
+                0,
+                0,
+                1,
+                0,
+                0,
+                0,
+                1
+              ],
+              "offset": [
+                10,
+                20,
+                30
+              ],
+              "pos": [
+                0,
+                0,
+                0
+              ],
+              "rotangle": 0,
+              "rotaxis": [
+                0,
+                1,
+                0
+              ],
+              "scale": [
+                1,
+                1,
+                1
+              ],
+              "flip": [
+                1,
+                1,
+                1
+              ],
+              "matrix": [
+                1,
+                0,
+                0,
+                0,
+                0,
+                1,
+                0,
+                0,
+                0,
+                0,
+                1,
+                0,
+                0,
+                0,
+                0,
+                1
+              ]
+            },
+            "box": {
+              "min": [
+                -1,
+                -2,
+                -3
+              ],
+              "max": [
+                4,
+                5,
+                2
+              ],
+              "offset": [
+                1.5,
+                1.5,
+                -0.5
+              ],
+              "range": [
+                2.5,
+                3.5,
+                2.5
+              ],
+              "center": [
+                1.5,
+                1.5,
+                -0.5
+              ]
+            },
+            "vertex_count": 3,
+            "tvertex_components": 18,
+            "face_count": 1,
+            "keyframe_counts": {
+              "rotation": 0,
+              "position": {
+                "special": "undefined"
+              },
+              "scale": {
+                "special": "undefined"
+              },
+              "texture_groups": {
+                "special": "undefined"
+              }
+            },
+            "numeric_fields": {
+              "finite": 96,
+              "nan": 0,
+              "positive_infinity": 0,
+              "negative_infinity": 0,
+              "undefined": 3,
+              "null": 0,
+              "min": -3,
+              "max": 30,
+              "exceptional_locations": [
+                {
+                  "location": "posKeyframes",
+                  "category": "undefined"
+                },
+                {
+                  "location": "scaleKeyFrames",
+                  "category": "undefined"
+                },
+                {
+                  "location": "textureKeyFrameGroup",
+                  "category": "undefined"
+                }
+              ],
+              "exceptional_locations_omitted": 0
+            }
+          }
+        ],
+        "texture_declarations": [
+          {
+            "texture_index": 0,
+            "constructor_pointer": "/textures/0",
+            "raw_name": "a.bmp",
+            "logical_name": "data\\texture\\a.bmp",
+            "filemanager_name": "data\\texture\\a.bmp",
+            "http_path": "data/texture/a.bmp"
+          },
+          {
+            "texture_index": 1,
+            "constructor_pointer": "/textures/1",
+            "raw_name": "a.bmp",
+            "logical_name": "data\\texture\\a.bmp",
+            "filemanager_name": "data\\texture\\a.bmp",
+            "http_path": "data/texture/a.bmp"
+          },
+          {
+            "texture_index": 2,
+            "constructor_pointer": "/textures/2",
+            "raw_name": "b.tga",
+            "logical_name": "data\\texture\\b.tga",
+            "filemanager_name": "data\\texture\\b.tga",
+            "http_path": "data/texture/b.tga"
+          }
+        ],
+        "animation_by_node_keys": false,
+        "numeric_fields": {
+          "finite": 19,
+          "nan": 0,
+          "positive_infinity": 0,
+          "negative_infinity": 0,
+          "undefined": 1,
+          "null": 0,
+          "min": -3,
+          "max": 5,
+          "exceptional_locations": [
+            {
+              "location": "frameRatePerSecond",
+              "category": "undefined"
+            }
+          ],
+          "exceptional_locations_omitted": 0
+        },
+        "cursor": {
+          "state": "not_observable_from_unchanged_constructor",
+          "remaining_bytes": null
+        }
+      }
+    }
+  ]
+}

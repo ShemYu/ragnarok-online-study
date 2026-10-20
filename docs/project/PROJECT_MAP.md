@@ -115,7 +115,10 @@ Compare both actual asset-scanner implementations                [V]
 Repair selected scanner; repeat the required checks              [V]
 Prepare and verify a guard for both owned process groups         [V]
 Check all 11,134 model and texture request paths                  [V]
-Check actual model loading and nested texture references         [~] <-- NOW
+Admit all 8,194 model targets as 8,166 distinct body jobs          [V]
+Pass 13 authored cases and the shared model summary              [V]
+Compare both actual model-constructor runners                    [~] <-- NOW
+Check all actual model jobs and nested texture declarations      [ ]
 Investigate eight files with NaN values and twelve unread tails   [ ]
 Check compilation, rendering, travel and play                     [ ]
 Find compatible assets for the 82 unresolved requests             [ ]
@@ -153,7 +156,10 @@ Both missing textures belong to one ground file. All 8,194 model headers match.
 The scan takes about 24 seconds and samples about 873 MB of RAM.
 No guard acts. The reader exits cleanly. Inputs stay unchanged.
 The scan does not write to the running game or save.
-Next, check actual model loading and nested textures, then rendering and travel.
+Codex rehashes all 8,194 model bodies twice and checks the 28 duplicate pairs.
+The shared model summary passes all 13 authored cases.
+Next, compare actual Claude and Grok runners, then check all 8,166 model jobs.
+Nested texture retrieval, rendering and travel still follow.
 See the [scanner comparison](reviews/2026-10-20-T06.003.003.005.md#paired-decision-and-next-correction-gate).
 Before the scan, Codex checks the size metadata.
 10,704 asset paths have size candidates. Their declarations total about 290 MB.

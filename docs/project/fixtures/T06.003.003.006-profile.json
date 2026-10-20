@@ -1,0 +1,135 @@
+{
+  "schema": "T06-model-constructor-profile-1",
+  "task": "T06.003.003.006",
+  "client_source_revision": "775f8847a8b09749d03c82fcb554e155401d1e02",
+  "client_source_relative": ".tools/renewal/client-source",
+  "sources": {
+    "src/Loaders/Model.js": {
+      "bytes": 30922,
+      "sha256": "d4643fc9a1a95747b41ee55537fe3159c2927e9840630291cce9d55bea20fe57"
+    },
+    "src/Utils/BinaryReader.js": {
+      "bytes": 8233,
+      "sha256": "bcf694b7034e36146eed1d5a2d7d5cf93d8a52aeafa74e62f0beed4c1ecc9215"
+    },
+    "src/Utils/Struct.js": {
+      "bytes": 1732,
+      "sha256": "03dedc9bf39943ff027c80d9a81ebfc2a15549c08ec3a1d7e725fb93e3ecf0b7"
+    },
+    "src/Utils/CodepageManager.js": {
+      "bytes": 6298,
+      "sha256": "35fc6861784c27ce417697f8c4f2e999a7703bb89741b2ddb3ea0afc44c7733e"
+    },
+    "src/Utils/gl-matrix.js": {
+      "bytes": 9153,
+      "sha256": "46725df08241575dd60a98dbea9a035af0dc69d89c2538c2938018cfa091ea29"
+    },
+    "src/Vendors/gl-matrix.js": {
+      "bytes": 110302,
+      "sha256": "bdf9ed62160fc270e995aa1a3c97eb8dac69fbd02d3141ed766a8306d2ce8f59"
+    },
+    "src/Vendors/iconv-lite.js": {
+      "bytes": 644664,
+      "sha256": "a7663d70d99a455b964c223eb26db6c048bfd7977d6583e8e9fd7a79e17a0303"
+    }
+  },
+  "rule_sources": {
+    "src/Loaders/MapLoader.js": {
+      "bytes": 14466,
+      "sha256": "c71b01f300f62bbc6e7432444e2521d713473dc47c9c6e25a54a832d5c92a705"
+    },
+    "src/Core/FileManager.js": {
+      "bytes": 11279,
+      "sha256": "75c37d192bf21e7b40817a6f2fe27ef536601515c07fe20c7ce8346d50376cd7"
+    },
+    "src/Renderer/Map/AnimatedModels.js": {
+      "bytes": 23493,
+      "sha256": "b993b685426e01cb40d5fe357e06dac5e5cddb10808a10095d30e4069bc7818f"
+    }
+  },
+  "summary": {
+    "path": "tools/renewal/model_constructor_summary.mjs",
+    "bytes": 6452,
+    "sha256": "ec51b8b2b4930db840503601911c1e0e5f6e6b4db641fa7ae1f85fdf6de13d5c"
+  },
+  "authored": {
+    "path": "docs/project/fixtures/T06.003.003.006-authored.json",
+    "bytes": 181031,
+    "sha256": "f64315a2dbde9f84fbc0cd1138b7e62f9ba2097e6570bfb195a88b01e9876fa3"
+  },
+  "manifest": {
+    "path": ".tools/renewal/t06-map-dependency-preparation-1/root-model006-input-preparation-1/input.json",
+    "bytes": 16968757,
+    "sha256": "cb7e49e0a0180636be580bf7f45e7e542bf886d6241ea26fd1bb11f18e5b5e94"
+  },
+  "availability": {
+    "report": {
+      "path": ".tools/renewal/t06-map-dependencies-actual-1/report.json",
+      "bytes": 7859059,
+      "sha256": "a1ebcf61fbe50a7dc94906a0e7ec5af1706e628763c9db8f504d2f879433b876"
+    },
+    "catalog": {
+      "path": ".tools/renewal/t06-map-dependencies-actual-1/catalog-input.json",
+      "bytes": 32959912,
+      "sha256": "3c6b9707d2b9f8093d9e7ce21b7e320791d2b9d5ca4d3d6728e3f915356f64a3"
+    },
+    "root_audit": {
+      "path": ".tools/renewal/t06-map-dependency-preparation-1/root005-actual-audit-2/receipt.json",
+      "bytes": 2100,
+      "sha256": "5b110931d22dfbd842e72b652a9422fd44138bb0f3708bbbff1f3308bd692bcd"
+    }
+  },
+  "counts": {
+    "model_targets": 8194,
+    "constructor_jobs": 8166,
+    "model_referrers": 48980,
+    "roots": 1296,
+    "remaining_core_gap_roots": 82,
+    "all_catalog_referrers": 63557,
+    "target_body_bytes": 104902752,
+    "distinct_job_bytes": 104666264
+  },
+  "header_prefix_counts": {
+    "4752534d0104": 6101,
+    "4752534d0105": 372,
+    "4752534d0203": 1371,
+    "4752534d0202": 350
+  },
+  "policy": {
+    "max_body_bytes": 25165824,
+    "max_manifest_bytes": 67108864,
+    "max_fixture_bytes": 1048576,
+    "max_availability_report_bytes": 16777216,
+    "max_catalog_bytes": 67108864,
+    "worker_heap_mib": 512,
+    "rss_limit_bytes": 2147483648,
+    "rss_sample_ms": 50,
+    "job_timeout_ms": 20000,
+    "module_timeout_ms": 5000,
+    "constructor_timeout_ms": 10000,
+    "run_timeout_ms": 900000,
+    "max_job_json_bytes": 4194304,
+    "max_jobs_jsonl_bytes": 536870912,
+    "max_report_json_bytes": 67108864,
+    "max_job_log_bytes": 4096,
+    "max_total_log_bytes": 65536,
+    "max_exception_message_chars": 512,
+    "max_stdout_bytes": 4096,
+    "max_active_workers": 1,
+    "result_exit_grace_ms": 2000,
+    "cleanup_wait_ms": 10000
+  },
+  "summary_limits": {
+    "nodes": 65536,
+    "textures": 65536,
+    "node_slots": 262144,
+    "string_code_units": 1048576,
+    "numeric_visits": 4194304
+  },
+  "limitations": [
+    "Unchanged constructors and declared nested paths only; no instancing, compile, native, HTTP, image decode, rendering or playability.",
+    "No constructor cursor/EOF exposure, version allowlist, byte-string text decoding or case normalization.",
+    "Numeric markers retain undefined and nonfinite values; absent versus present undefined and negative-zero signs are not distinguished.",
+    "Worker heap and sampled RSS are not hard OS memory containment; two ground textures and82core resource gaps remain open."
+  ]
+}
