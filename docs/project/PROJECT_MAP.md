@@ -158,8 +158,9 @@ No guard acts. The reader exits cleanly. Inputs stay unchanged.
 The scan does not write to the running game or save.
 Codex rehashes all 8,194 model bodies twice and checks the 28 duplicate pairs.
 The shared model summary passes all 13 authored cases.
-Actual Claude and Grok runner work is live on the same frozen inputs.
-Codex will read and verify both, then check all 8,166 model jobs.
+Both runners use the same frozen inputs. Claude has submitted its runner.
+Its normal fixtures pass, but Codex finds a false pass in a fault test.
+Grok continues its own runner. Codex will verify both, then check all 8,166 jobs.
 Nested texture retrieval, rendering and travel still follow.
 See the [scanner comparison](reviews/2026-10-20-T06.003.003.005.md#paired-decision-and-next-correction-gate).
 Before the scan, Codex checks the size metadata.
