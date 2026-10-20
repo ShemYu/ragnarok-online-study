@@ -908,6 +908,64 @@ def assert_new_provenance(test, raw, report):
 
 
 class ProductionObserver(unittest.TestCase):
+    def test_root_final_io_failures_retain_complete_observations(self):
+        for fault in ('native_close', 'native_read', 'missing_log_close'):
+            with self.subTest(fault=fault):
+                h = Harness()
+                observer = h.observer()
+                target = (os.path.join(h.output, 'logs', 'missing-files.log')
+                          if fault == 'missing_log_close' else h.natives[0]['path'])
+                fired = []
+                real_close, real_read = os.close, os.read
+
+                def eligible(fd):
+                    return h.world.calls['terminate'] > 0 and fd_path(fd) == target and not fired
+
+                def close(fd):
+                    inject = fault != 'native_read' and eligible(fd)
+                    real_close(fd)
+                    if inject:
+                        fired.append(True)
+                        raise OSError('root close fault after actual release')
+
+                def read(fd, size):
+                    if fault == 'native_read' and eligible(fd):
+                        fired.append(True)
+                        raise OSError('root postcheck read fault')
+                    return real_read(fd, size)
+
+                before = open_fds()
+                with mock.patch.object(os, 'close', close), mock.patch.object(os, 'read', read):
+                    self.assertEqual(observer.run(), 1)
+                self.assertEqual(fired, [True])
+                h.owned_resources_closed(self, before)
+                _, report = h.report()
+                self.assertEqual(sum(r['attempted'] for r in report['targets']), 4)
+                self.assertEqual(report['targets'], observer.report['targets'])
+                self.assertTrue(report['cleanup']['clean'])
+                self.assertFalse(report['acquisition_and_cleanup_valid'])
+                if fault == 'missing_log_close':
+                    self.assertFalse(report['missing_log']['valid'])
+                else:
+                    self.assertFalse(report['postchecks_valid'])
+
+    def test_root_metadata_close_completion_obeys_deadline(self):
+        h = Harness()
+        now, fired = [0.0], []
+        real_close = os.close
+
+        def close(fd):
+            inject = fd_path(fd) == h.source_path
+            real_close(fd)
+            if inject:
+                fired.append(True)
+                now[0] = 121.0
+
+        with mock.patch.object(os, 'close', close):
+            with self.assertRaises(M.Refusal):
+                M.read_admitted(h.source_path, deadline=120.0, clock=lambda: now[0])
+        self.assertEqual(fired, [True])
+
     def run_observer(self, harness, write_fn=None, policy=None):
         fds = open_fds()
         observer = harness.observer(write_fn=write_fn, policy=policy)

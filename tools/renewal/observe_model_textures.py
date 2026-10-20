@@ -430,6 +430,7 @@ def read_admitted(path, expected_bytes=None, expected_sha=None, keep=True, limit
                   clock=None):
     """Stable single-link regular-file read; returns (data|prefix|None, receipt)."""
     clock = time.monotonic if clock is None else clock
+    require(deadline is None or clock() < deadline, 'metadata_deadline')
     check_ancestors(path)
     try:
         first = os.lstat(path)
@@ -462,8 +463,13 @@ def read_admitted(path, expected_bytes=None, expected_sha=None, keep=True, limit
             left -= len(chunk)
         require(os.read(fd, 1) == b'', 'admit_grew')
         after = os.fstat(fd)
+    except OSError:
+        raise Refusal('admit_read') from None
     finally:
-        os.close(fd)
+        try:
+            os.close(fd)
+        except OSError:
+            raise Refusal('admit_close') from None
     try:
         last = os.lstat(path)
     except OSError:
@@ -472,9 +478,9 @@ def read_admitted(path, expected_bytes=None, expected_sha=None, keep=True, limit
     hexdigest = digest.hexdigest()
     require(expected_sha is None or hexdigest == expected_sha, 'admit_sha')
     receipt = {'bytes': size, 'sha256': hexdigest, 'identity': identity(first)}
-    if keep:
-        return b''.join(chunks), receipt
-    return (head if prefix else None), receipt
+    data = b''.join(chunks) if keep else (head if prefix else None)
+    require(deadline is None or clock() < deadline, 'metadata_deadline')
+    return data, receipt
 
 
 def strict_json(data):
@@ -649,6 +655,7 @@ def load_metadata(input_root, profile_path, clock=None):
             'engine_pin': dict(pins[ENGINE_REL]), 'authored': authored}
     meta['recheck'] = recheck_list(meta)
     verify_recheck(meta['recheck'], deadline=deadline, clock=clock)  # Rehash after plan construction.
+    require(clock() < deadline, 'metadata_deadline')
     return meta
 
 
@@ -846,6 +853,15 @@ def _observer_class(engine):
                 raise Fatal('acquisition_deadline')
             if not record['valid']:
                 raise Fatal('health_failure')
+
+        def audit_missing_log(self):
+            try:
+                super().audit_missing_log()
+            except OSError:
+                # The unchanged engine reader can raise on a read/close error.
+                # Retain the completed target tail and cleanup in a failed report.
+                self.report['missing_log']['valid'] = False
+                self.report['missing_log']['error'] = 'log_read_or_close'
 
         def audit_tree(self):
             super().audit_tree()

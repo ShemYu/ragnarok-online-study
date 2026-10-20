@@ -13,7 +13,7 @@ behaviour. **Root has not qualified this candidate.**
   and functions only. Exports `Refusal`, `build_plan`, `wire_target`,
   `write_all`, `transfer`, `inspect_texture_header`, `load_metadata`,
   `make_observer` and `main`. Only the direct entry calls `sys.exit(main())`.
-- `test_observe_model_textures.py`: 42 unittest tests (authored controls,
+- `test_observe_model_textures.py`: 44 unittest tests (authored controls,
   admission, full canonical metadata preflight, and production observer runs
   with fakes).
 - This runbook.
@@ -120,7 +120,7 @@ is one generic JSON line of at most 4096 bytes, with no names, paths or stacks.
 
 | Check | Result |
 | --- | --- |
-| Unit tests | 42 run, 42 OK, about 4.4 s (`python3 -I -B`, macOS stdlib Python 3.9) |
+| Unit tests | Raw candidate:42 OK. Root-corrected integration:44 OK/4.898 test seconds,6.022207 externally guarded seconds; sampled1239842816 bytes owned RSS (100ms target samples, not OS containment). |
 | Authored controls | 34/34 header literals, 9/9 argument refusals, exact 4-target toy plan, 17/17 mutations refuse, 16/16 wire, 11/11 transport and 3/3 write vectors. Compared as typed full results. |
 | Canonical preflight | exit 0, ≈1.9 s, ≈680 MB max RSS. 8119 targets (7902 bmp / 216 tga / 1 unknown), 16142 referrers, 1296 roots, 8166 jobs, 82 gap roots, 2 prior gaps, 20 source pins, 2435800-byte plan, 8119 unique once-decoded paths |
 | No native access | Preflight runs under a guard on lstat/stat/open (native paths and their directories), mkdir/statvfs/Popen/socket/HTTPConnection. No guard was hit and no output was created. |
