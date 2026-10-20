@@ -1,6 +1,6 @@
 # Supervision, plan and current position
 
-Date: **2026-10-20 JST**. Functionality comes first. Two parallel plan reviews and the installed-tool check are complete. Next: prepare the client in separate test state. Image loading and play remain to check.
+Date: **2026-10-20 JST**. Functionality comes first. The installed-tool and client preparation checks pass. Next: launch and identify the separate test world. Image loading and play remain to check.
 Use this map for a short view of [Status](STATUS.md), [Tasks](TASKS.md) and
 [Phases](PHASES.md). Status gives the current next action.
 Update this map after each important change. Keep the dated evidence.
@@ -137,8 +137,9 @@ Verify every stored body, input and clean reader exit               [V]
 Build the preliminary version/content gap matrix in parallel       [V]
 Compare separate-world plans in parallel                           [V]
 Check installed tools and create guarded test state                [V]
-Prepare the qualified client and overlays in test state            [~] <-- NOW
-Prove test-world identity; check ordinary play and persistence      [ ]
+Prepare the qualified client and overlays in test state            [V]
+Launch once and prove test-world identity                          [~] <-- NOW
+Check ordinary play and persistence                               [ ]
 Check an ordinary multi-stage quest and effective runtime loads    [ ]
 Diagnose one model exception and nine numeric-marker models      [ ]
 Investigate eight core NaN files and twelve unread tails          [ ]
