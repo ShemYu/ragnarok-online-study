@@ -1,6 +1,6 @@
 # Supervision, plan and current position
 
-Date: **2026-10-20 JST**. Functionality comes first. The installed-tool and client preparation checks pass. The separate test world is running and identified. The client repairs now pass file checks. Ordinary entry and fresh-login saving pass. Next: test a full restart. Image loading and play remain to check.
+Date: **2026-10-20 JST**. Functionality comes first. The installed-tool and client preparation checks pass. The separate test world is running and identified. The client repairs now pass file checks. Ordinary entry, saving and full restart pass in the test world. Next: test the multi-stage quest and content coverage. Image loading and play remain to check.
 Use this map for a short view of [Status](STATUS.md), [Tasks](TASKS.md) and
 [Phases](PHASES.md). Status gives the current next action.
 Update this map after each important change. Keep the dated evidence.
@@ -142,8 +142,8 @@ Launch once and prove test-world identity                          [V]
 Replay and verify client repairs in that world                     [V]
 Compare dated official version proposals in parallel               [V]
 Check ordinary entry and fresh-login persistence                  [V]
-Check a full owned stop/start and restored quest                    [~] <-- NOW
-Check an ordinary multi-stage quest and effective runtime loads    [ ]
+Check a full owned stop/start and restored quest                    [V]
+Check an ordinary multi-stage quest and effective runtime loads    [ ] <-- NEXT
 Diagnose one model exception and nine numeric-marker models      [ ]
 Investigate eight core NaN files and twelve unread tails          [ ]
 Check compilation, rendering, travel and play                     [ ]
@@ -156,7 +156,8 @@ All 216 TGA headers pass the recorded checks. Images still need load/render test
 Separate test state now passes the identity check.
 All 13 served client files match. Five distinct startup errors remain open.
 The test novice enters, earns a quest and restores it after a fresh login.
-A clean startup and full restart are not yet proved.
+A full test-app and VM restart restores the same quest and position.
+A clean startup and full content are not yet proved.
 Do not operate on the original database merely to start this separate test.
 Official baseline research can run beside the test-world checks.
 Shared game and database changes run in sequence.
