@@ -132,6 +132,8 @@ Select Claude; integrate, fix copying and repeat final checks       [V]
 Prepare availability inputs and common controls                    [V]
 Compare new Claude/Grok texture observers                          [~] <-- NOW
 Check availability of 8,119 declared nested texture paths          [ ]
+Check an ordinary multi-stage quest and effective runtime loads    [ ]
+Build the preliminary version/content gap matrix in parallel       [ ]
 Diagnose one model exception and nine numeric-marker models      [ ]
 Investigate eight core NaN files and twelve unread tails          [ ]
 Check compilation, rendering, travel and play                     [ ]
