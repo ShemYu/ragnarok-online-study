@@ -1,6 +1,6 @@
 # Supervision, plan and current position
 
-Date: **2026-10-20 JST**. Functionality comes first. The nested texture scan is complete. One texture request is missing. Image loading and play remain to check.
+Date: **2026-10-20 JST**. Functionality comes first. The nested texture scan and first content review are complete. Separate test-world plans run in parallel. Image loading and play remain to check.
 Use this map for a short view of [Status](STATUS.md), [Tasks](TASKS.md) and
 [Phases](PHASES.md). Status gives the current next action.
 Update this map after each important change. Keep the dated evidence.
