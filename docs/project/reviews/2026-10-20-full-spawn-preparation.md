@@ -22,7 +22,7 @@ or a replay of the selection generator/config language.
 | Files above old262144byte cap |17|
 | LF-only physical lines, including final non-LF lines |723206|
 | Largest per-file line count |18844|
-| Files above old8192line cap |17|
+| Files individually above old total8192line budget |17|
 | Largest physical line, including terminator |581bytes|
 | Final non-LF files |5|
 | CRLF pairs / bare CR bytes |2061 /2|
@@ -30,7 +30,9 @@ or a replay of the selection generator/config language.
 | Empty files / NUL bytes / leading UTF8 BOM files |0 /0 /0|
 
 The current pilot's file/line/whole-output limits cannot simply be reused for
-the whole selection. A later frozen profile needs measured limits, suffix
+the whole selection. The8192raw-line cap is global across the pilot inputs;
+17files individually exceed that entire budget. A later frozen profile needs
+measured limits, suffix
 capacity for every remaining nonempty source, and explicit unsupported/dynamic
 gaps. Bare CR and unsupported headers must not be silently normalized or skipped.
 The existing scanner core is list-oriented, while admission and the reference
