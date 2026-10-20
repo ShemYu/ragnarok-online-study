@@ -128,8 +128,9 @@ Prepare and launch the actual Claude/Grok catalog pair            [V]
 Build both independent catalogs; preserve and release workers      [V]
 Root verifies both catalogs, boundary cases and real I/O            [V]
 Compare both full catalogs, failures and repeat outputs            [V]
-Select Claude; integrate, fix copying and repeat final checks       [~] <-- NOW
-Check availability of 8,119 declared nested texture paths         [ ]
+Select Claude; integrate, fix copying and repeat final checks       [V]
+Prepare availability inputs and common controls                    [~] <-- NOW
+Check availability of 8,119 declared nested texture paths          [ ]
 Diagnose one model exception and nine numeric-marker models      [ ]
 Investigate eight core NaN files and twelve unread tails          [ ]
 Check compilation, rendering, travel and play                     [ ]
@@ -187,9 +188,12 @@ Codex builds a full reference before either implementation starts.
 Its counts match a separate recount. The reference is about 96 MB.
 Both providers submit from the same Git checkpoint in separate branches.
 Their raw commits and transcripts are preserved; both workers are released.
-Claude passes the full data comparison but needs a metadata-copy correction.
-Grok has submitted; Codex now checks its complete result and failure controls.
-Codex will compare both results before selecting an implementation.
+Both full catalogs match every reference value and each other byte-for-byte.
+Claude scores16/20. Grok scores12/20. Both raw versions need corrections.
+Codex selects Claude, integrates it unchanged, then fixes metadata copying.
+The new regression first fails on raw source, then passes with the correction.
+All17tests, shared/boundary/I/O controls and final full-catalog audits pass.
+The catalog is ready. Texture availability is the next step.
 See the [current paired task](reviews/2026-10-20-T06.003.003.007.md).
 Nested texture retrieval, rendering and travel still follow.
 Separate [model-error preparation](reviews/2026-10-20-model-exception-preparation.md)
