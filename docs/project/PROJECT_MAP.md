@@ -119,8 +119,9 @@ Admit all 8,194 model targets as 8,166 distinct body jobs          [V]
 Pass 13 authored cases and the shared model summary              [V]
 Compare both raw model runners and all 8,166 job results          [V]
 Select Grok repair basis; both raw candidates need fixes          [V]
-Repair runner timing, file checks and failure accounting          [~] <-- NOW
-Repeat integrated checks and the complete model corpus           [ ]
+Repair runner timing, file checks and failure accounting          [V]
+Repeat integrated checks and the complete model corpus           [V]
+Fix log text and loss reporting; repeat current-source checks     [~] <-- NOW
 Check availability of 8,119 declared nested texture paths         [ ]
 Diagnose one model exception and nine numeric-marker models      [ ]
 Investigate eight core NaN files and twelve unread tails          [ ]
@@ -165,7 +166,13 @@ The shared model summary passes all 13 authored cases.
 Both runners use the same frozen inputs. Claude has submitted its runner.
 Its normal fixtures pass, but Codex finds a false pass in a fault test.
 Grok has also submitted. Both worker sessions are closed and results kept.
-Codex will verify both runners, then check all 8,166 jobs.
+Codex compares both complete runs. All 8,165 returned summaries match.
+The same model throws an error in both. That error stays in the gap list.
+Codex repairs timing, file checks and failure reporting in a separate commit.
+All 29 tests, 13 fixture cases and 8,166 corrected jobs pass their checks.
+The full run takes about 4 minutes and samples about 419 MB of RAM.
+A separate test finds damaged log text and unclear dropped-log counts.
+Codex must fix that issue and repeat the checks before accepting the tool.
 Nested texture retrieval, rendering and travel still follow.
 See the [scanner comparison](reviews/2026-10-20-T06.003.003.005.md#paired-decision-and-next-correction-gate).
 Before the scan, Codex checks the size metadata.
