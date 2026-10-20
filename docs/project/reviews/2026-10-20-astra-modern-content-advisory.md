@@ -35,9 +35,11 @@ No package bytes or native signature were checked.
 ## Material story risk, not an engine-impossibility conclusion
 
 Root reads the final merged [world-sync generator](https://raw.githubusercontent.com/Flux159/rathena/d91cdd4ad81050a19e10cef9513b6e0973eed104/tools/world_sync/generate.py).
-LF500–503emits greeting/close placeholders, separately from service bodies;
-LF561–563writes those only when requested. LF557–560separately writes optional
-entrances. This code does not create missing quest prerequisites, transitions,
+Correction after full raw-source admission: the initial rendered-view line
+labels500–503/561–563/557–560were incorrectly labelled LF lines. Actual raw
+LF530–535emits service bodies or greeting placeholders; LF599–601writes
+placeholders only when requested, and LF595–598writes optional entrances.
+This code does not create missing quest prerequisites, transitions,
 handoffs or rewards. [Final NPC output](https://raw.githubusercontent.com/Flux159/rathena/d91cdd4ad81050a19e10cef9513b6e0973eed104/npc/re/world_sync/npcs.txt)
 contains services, not a demonstrated later-story implementation. The original
 [PR54 description](https://github.com/Flux159/rathena/pull/54) and early counts
@@ -58,8 +60,11 @@ mu_fild01resource evidence. These run beside ordinary Eden progression.
 The [official Chapter1guide](https://ro.gnjoy.com.tw/Notice/Notice_View?id=219060)
 is dated Aug24; root's parsed view exposes the title but not the actual body.
 The [Aug25 deployment notice](https://ro.gnjoy.com.tw/Notice/Notice_View?id=219078)
-names a live mu_fild01defect. The next task must inspect actual guide content;
-a title, NPC position or placeholder cannot become a story contract.
+names a live mu_fild01defect. Later [T07.005 root verification](2026-10-20-T07.005.md)
+retrieves and visually checks actual guide content and the finite source gap.
+Subsequent [external candidate preparation](2026-10-20-chapter1-external-source-preparation.md)
+finds stateful code at the same starter coordinates. Neither a position nor a
+placeholder alone establishes the story contract or runtime compatibility.
 
 Root also fresh-rehashes five existing corpus metadata inputs for T07.005;
 private t07-005-root-admission-1/receipt.json1146bytes,
