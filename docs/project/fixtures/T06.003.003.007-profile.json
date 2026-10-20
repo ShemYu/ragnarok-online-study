@@ -1,0 +1,114 @@
+{
+  "schema": "T06-model-texture-catalog-profile-1",
+  "task": "T06.003.003.007",
+  "source_revision": "775f8847a8b09749d03c82fcb554e155401d1e02",
+  "client_source_root": ".tools/renewal/client-source",
+  "constructor_profile": {
+    "path": "docs/project/fixtures/T06.003.003.006-profile.json",
+    "bytes": 4855,
+    "sha256": "9ad903297104cd6f9a03d74196d5db7a4091ee07da4d2b73b4b4f61027b2140d"
+  },
+  "summary": {
+    "path": "tools/renewal/model_constructor_summary.mjs",
+    "bytes": 6452,
+    "sha256": "ec51b8b2b4930db840503601911c1e0e5f6e6b4db641fa7ae1f85fdf6de13d5c"
+  },
+  "rule_sources": {
+    "src/Loaders/Model.js": {
+      "bytes": 30922,
+      "sha256": "d4643fc9a1a95747b41ee55537fe3159c2927e9840630291cce9d55bea20fe57"
+    },
+    "src/Loaders/MapLoader.js": {
+      "bytes": 14466,
+      "sha256": "c71b01f300f62bbc6e7432444e2521d713473dc47c9c6e25a54a832d5c92a705"
+    },
+    "src/Core/FileManager.js": {
+      "bytes": 11279,
+      "sha256": "75c37d192bf21e7b40817a6f2fe27ef536601515c07fe20c7ce8346d50376cd7"
+    },
+    "src/Renderer/Map/AnimatedModels.js": {
+      "bytes": 23493,
+      "sha256": "b993b685426e01cb40d5fe357e06dac5e5cddb10808a10095d30e4069bc7818f"
+    }
+  },
+  "authored": {
+    "path": "docs/project/fixtures/T06.003.003.007-authored.json",
+    "bytes": 57455,
+    "sha256": "890e9a4a181191e3058256a68e291289d7ac530f8b8c56a7780015b1b5d658b9"
+  },
+  "inputs": {
+    "report": {
+      "path": ".tools/renewal/root006-corrected-full-corpus-2/report.json",
+      "bytes": 14968557,
+      "sha256": "93928d7ad8553d29c530d5a65f5b8e343de149059756aec255975340b6a10af0"
+    },
+    "jobs": {
+      "path": ".tools/renewal/root006-corrected-full-corpus-2/jobs.jsonl",
+      "bytes": 37752563,
+      "sha256": "0d7a7b4f0ea71d28222d27c334b847e011bd19bf5c2de72ee6842985ca5fc9d3"
+    },
+    "manifest": {
+      "path": ".tools/renewal/t06-map-dependency-preparation-1/root-model006-input-preparation-1/input.json",
+      "bytes": 16968757,
+      "sha256": "cb7e49e0a0180636be580bf7f45e7e542bf886d6241ea26fd1bb11f18e5b5e94"
+    },
+    "catalog": {
+      "path": ".tools/renewal/t06-map-dependencies-actual-1/catalog-input.json",
+      "bytes": 32959912,
+      "sha256": "3c6b9707d2b9f8093d9e7ce21b7e320791d2b9d5ca4d3d6728e3f915356f64a3"
+    }
+  },
+  "expected_counts": {
+    "roots": 1296,
+    "constructor_jobs": 8166,
+    "model_targets": 8194,
+    "returned_jobs": 8165,
+    "returned_empty_jobs": 0,
+    "returned_nonempty_jobs": 8165,
+    "constructor_exception_jobs": 1,
+    "global_declarations": 16142,
+    "target_expanded_declarations": 16181,
+    "nested_targets": 8119,
+    "model_parent_links": 48980,
+    "model_placement_occurrences": 726296,
+    "root_expanded_model_placements": 871959,
+    "resolved_node_slots": 21475,
+    "unresolved_node_slots": 0,
+    "animation_jobs": {
+      "true": 602,
+      "false": 7563,
+      "unknown": 1
+    },
+    "remaining_core_gap_roots": 82,
+    "prior_first_level_gaps": 2
+  },
+  "policy": {
+    "max_report_bytes": 67108864,
+    "max_jobs_jsonl_bytes": 67108864,
+    "max_row_json_bytes": 4194304,
+    "max_manifest_bytes": 67108864,
+    "max_source_catalog_bytes": 67108864,
+    "max_fixture_bytes": 1048576,
+    "max_catalog_bytes": 134217728,
+    "max_stdout_bytes": 4096,
+    "max_roots": 4096,
+    "max_jobs": 16384,
+    "max_model_targets": 16384,
+    "max_parent_links": 262144,
+    "max_placement_occurrences": 2097152,
+    "max_declarations": 65536,
+    "max_nodes": 65536,
+    "max_node_slots": 262144,
+    "max_string_code_units": 1048576,
+    "max_json_depth": 64,
+    "run_timeout_ms": 120000
+  },
+  "limitations": [
+    "All tables are conservative declarations. No actual fetch/compile/render result is predicted.",
+    "Static unlinked global slots stay inventoried; zero-face linked slots are not filtered.",
+    "Animated true is a node-key fact; hook/placement/cache/GL predicates remain unobserved.",
+    "Original loader names remain distinct even when trimmed HTTP paths or body jobs coincide.",
+    "Node numeric markers and diagnostics are preserved, not repaired or a format-validity verdict.",
+    "All carried core and ground gaps stay explicit; declarations cover returned tables, while exceptions retain unknown tables."
+  ]
+}

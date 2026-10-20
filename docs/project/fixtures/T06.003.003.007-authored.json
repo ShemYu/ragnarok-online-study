@@ -1,0 +1,2020 @@
+{
+  "schema": "T06-model-texture-catalog-authored-1",
+  "task": "T06.003.003.007",
+  "scope": "Literal authored core input/complete expected output, ten exact path-stage cases and twenty malformed-input cases. All names, IDs, hashes and roots are synthetic; this is not a constructor run or production admission envelope.",
+  "input": {
+    "roots": [
+      {
+        "ordinal": 0,
+        "name": "authored_a",
+        "edges": {
+          "rsw": {
+            "job_id": "rsw-0"
+          },
+          "gnd": {
+            "job_id": "gnd-0"
+          },
+          "gat": {
+            "job_id": "gat-0"
+          }
+        }
+      },
+      {
+        "ordinal": 1,
+        "name": "authored_b",
+        "edges": {
+          "rsw": {
+            "job_id": "rsw-0"
+          },
+          "gnd": {
+            "job_id": "gnd-0"
+          },
+          "gat": {
+            "job_id": "gat-0"
+          }
+        }
+      },
+      {
+        "ordinal": 2,
+        "name": "authored_c",
+        "edges": {
+          "rsw": {
+            "job_id": "rsw-1"
+          },
+          "gnd": {
+            "job_id": "gnd-1"
+          },
+          "gat": {
+            "job_id": "gat-1"
+          }
+        }
+      },
+      {
+        "ordinal": 3,
+        "name": "authored_rsw_gap",
+        "edges": {
+          "rsw": {
+            "job_id": null
+          },
+          "gnd": {
+            "job_id": null
+          },
+          "gat": {
+            "job_id": null
+          }
+        }
+      }
+    ],
+    "remaining_gap_root_ordinals": [
+      3
+    ],
+    "prior_first_level_gaps": [
+      {
+        "target_index": 2,
+        "kind": "bmp",
+        "http_path": "data/texture/authored-missing-a.bmp",
+        "http_status": 404
+      },
+      {
+        "target_index": 6,
+        "kind": "bmp",
+        "http_path": "data/texture/authored-missing-b.bmp",
+        "http_status": 404
+      }
+    ],
+    "first_level_model_jobs": [
+      {
+        "source_job_index": 0,
+        "id": "rsw-0",
+        "kind": "rsw",
+        "role": "model",
+        "root_references": [
+          {
+            "root_ordinal": 0,
+            "edge_kind": "rsw"
+          },
+          {
+            "root_ordinal": 1,
+            "edge_kind": "rsw"
+          }
+        ],
+        "occurrence_loader_indexes": [
+          0,
+          0,
+          1,
+          2
+        ],
+        "loader_entries": [
+          {
+            "index": 0,
+            "source_name_pointer": "/summary/model_dependencies/0/filename",
+            "raw_name": "oak.rsm ",
+            "logical_name": "data\\model\\oak.rsm ",
+            "filemanager_name": "data\\model\\oak.rsm",
+            "http_path": "data/model/oak.rsm",
+            "target_index": 0
+          },
+          {
+            "index": 1,
+            "source_name_pointer": "/summary/model_dependencies/2/filename",
+            "raw_name": "wind.rsm",
+            "logical_name": "data\\model\\wind.rsm",
+            "filemanager_name": "data\\model\\wind.rsm",
+            "http_path": "data/model/wind.rsm",
+            "target_index": 1
+          },
+          {
+            "index": 2,
+            "source_name_pointer": "/summary/model_dependencies/3/filename",
+            "raw_name": "oak.rsm",
+            "logical_name": "data\\model\\oak.rsm",
+            "filemanager_name": "data\\model\\oak.rsm",
+            "http_path": "data/model/oak.rsm",
+            "target_index": 0
+          }
+        ]
+      },
+      {
+        "source_job_index": 2,
+        "id": "rsw-1",
+        "kind": "rsw",
+        "role": "model",
+        "root_references": [
+          {
+            "root_ordinal": 2,
+            "edge_kind": "rsw"
+          }
+        ],
+        "occurrence_loader_indexes": [
+          0,
+          1,
+          2
+        ],
+        "loader_entries": [
+          {
+            "index": 0,
+            "source_name_pointer": "/summary/model_dependencies/0/filename",
+            "raw_name": "other/oak.rsm",
+            "logical_name": "data\\model\\other/oak.rsm",
+            "filemanager_name": "data\\model\\other/oak.rsm",
+            "http_path": "data/model/other/oak.rsm",
+            "target_index": 3
+          },
+          {
+            "index": 1,
+            "source_name_pointer": "/summary/model_dependencies/1/filename",
+            "raw_name": "broken.rsm",
+            "logical_name": "data\\model\\broken.rsm",
+            "filemanager_name": "data\\model\\broken.rsm",
+            "http_path": "data/model/broken.rsm",
+            "target_index": 4
+          },
+          {
+            "index": 2,
+            "source_name_pointer": "/summary/model_dependencies/2/filename",
+            "raw_name": "empty.rsm",
+            "logical_name": "data\\model\\empty.rsm",
+            "filemanager_name": "data\\model\\empty.rsm",
+            "http_path": "data/model/empty.rsm",
+            "target_index": 5
+          }
+        ]
+      }
+    ],
+    "model_targets": [
+      {
+        "model_ordinal": 0,
+        "target_index": 0,
+        "job_id": "model-000000",
+        "http_path": "data/model/oak.rsm",
+        "referrers": [
+          {
+            "job_index": 0,
+            "loader_index": 0,
+            "role": "model"
+          },
+          {
+            "job_index": 0,
+            "loader_index": 2,
+            "role": "model"
+          }
+        ],
+        "body": {
+          "bytes": 100,
+          "sha256": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"
+        }
+      },
+      {
+        "model_ordinal": 1,
+        "target_index": 1,
+        "job_id": "model-000001",
+        "http_path": "data/model/wind.rsm",
+        "referrers": [
+          {
+            "job_index": 0,
+            "loader_index": 1,
+            "role": "model"
+          }
+        ],
+        "body": {
+          "bytes": 101,
+          "sha256": "bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb"
+        }
+      },
+      {
+        "model_ordinal": 2,
+        "target_index": 3,
+        "job_id": "model-000000",
+        "http_path": "data/model/other/oak.rsm",
+        "referrers": [
+          {
+            "job_index": 2,
+            "loader_index": 0,
+            "role": "model"
+          }
+        ],
+        "body": {
+          "bytes": 100,
+          "sha256": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"
+        }
+      },
+      {
+        "model_ordinal": 3,
+        "target_index": 4,
+        "job_id": "model-000002",
+        "http_path": "data/model/broken.rsm",
+        "referrers": [
+          {
+            "job_index": 2,
+            "loader_index": 1,
+            "role": "model"
+          }
+        ],
+        "body": {
+          "bytes": 102,
+          "sha256": "cccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccc"
+        }
+      },
+      {
+        "model_ordinal": 4,
+        "target_index": 5,
+        "job_id": "model-000003",
+        "http_path": "data/model/empty.rsm",
+        "referrers": [
+          {
+            "job_index": 2,
+            "loader_index": 2,
+            "role": "model"
+          }
+        ],
+        "body": {
+          "bytes": 103,
+          "sha256": "dddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddd"
+        }
+      }
+    ],
+    "model_rows": [
+      {
+        "id": "model-000000",
+        "job_id": "model-000000",
+        "kind": "model",
+        "input_bytes": 100,
+        "complete_sha256": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+        "header_version_bytes": "4752534d0104",
+        "outcome": "returned",
+        "constructor_returned": true,
+        "worker_started": true,
+        "cleanup": {
+          "exit_observed": true,
+          "exit_code": 0,
+          "terminated_by_parent": false
+        },
+        "summary": {
+          "textures": [
+            " bark.bmp ",
+            " bark.bmp",
+            " bark.bmp ",
+            "unused.tga",
+            "Bark.bmp"
+          ],
+          "animation_by_node_keys": false,
+          "global_position_keys": 1,
+          "numeric_fields": {
+            "finite": 1,
+            "nan": 1,
+            "positive_infinity": 0,
+            "negative_infinity": 0,
+            "undefined": 0,
+            "null": 0,
+            "min": 1.4,
+            "max": 1.4,
+            "exceptional_locations": [
+              {
+                "location": "box.center[0]",
+                "category": "nan"
+              }
+            ],
+            "exceptional_locations_omitted": 0
+          },
+          "nodes": [
+            {
+              "node_index": 0,
+              "textures": [
+                0,
+                2,
+                true,
+                null,
+                {
+                  "special": "undefined"
+                },
+                -1,
+                1.25,
+                {
+                  "special": "NaN"
+                },
+                99
+              ],
+              "texture_references": [
+                {
+                  "slot_index": 0,
+                  "table_index": 0,
+                  "state": "resolved"
+                },
+                {
+                  "slot_index": 1,
+                  "table_index": 2,
+                  "state": "resolved"
+                },
+                {
+                  "slot_index": 2,
+                  "table_index": null,
+                  "state": "unresolved"
+                },
+                {
+                  "slot_index": 3,
+                  "table_index": null,
+                  "state": "unresolved"
+                },
+                {
+                  "slot_index": 4,
+                  "table_index": null,
+                  "state": "unresolved"
+                },
+                {
+                  "slot_index": 5,
+                  "table_index": null,
+                  "state": "unresolved"
+                },
+                {
+                  "slot_index": 6,
+                  "table_index": null,
+                  "state": "unresolved"
+                },
+                {
+                  "slot_index": 7,
+                  "table_index": null,
+                  "state": "unresolved"
+                },
+                {
+                  "slot_index": 8,
+                  "table_index": null,
+                  "state": "unresolved"
+                }
+              ],
+              "face_count": 1,
+              "keyframe_counts": {
+                "rotation": 0,
+                "position": {
+                  "special": "undefined"
+                },
+                "scale": {
+                  "special": "undefined"
+                },
+                "texture_groups": 1
+              },
+              "numeric_fields": {
+                "finite": 5,
+                "nan": 1,
+                "positive_infinity": 0,
+                "negative_infinity": 0,
+                "undefined": 1,
+                "null": 1,
+                "min": -1,
+                "max": 99,
+                "exceptional_locations": [
+                  {
+                    "location": "textures[3]",
+                    "category": "null"
+                  },
+                  {
+                    "location": "textures[4]",
+                    "category": "undefined"
+                  },
+                  {
+                    "location": "textures[7]",
+                    "category": "nan"
+                  }
+                ],
+                "exceptional_locations_omitted": 0
+              }
+            },
+            {
+              "node_index": 1,
+              "textures": [
+                1
+              ],
+              "texture_references": [
+                {
+                  "slot_index": 0,
+                  "table_index": 1,
+                  "state": "resolved"
+                }
+              ],
+              "face_count": 0,
+              "keyframe_counts": {
+                "rotation": 0,
+                "position": 0,
+                "scale": 0,
+                "texture_groups": 0
+              },
+              "numeric_fields": {
+                "finite": 1,
+                "nan": 0,
+                "positive_infinity": 0,
+                "negative_infinity": 0,
+                "undefined": 0,
+                "null": 0,
+                "min": 1,
+                "max": 1,
+                "exceptional_locations": [],
+                "exceptional_locations_omitted": 0
+              }
+            }
+          ],
+          "texture_declarations": [
+            {
+              "texture_index": 0,
+              "constructor_pointer": "/textures/0",
+              "raw_name": " bark.bmp ",
+              "logical_name": "data\\texture\\ bark.bmp ",
+              "filemanager_name": "data\\texture\\ bark.bmp",
+              "http_path": "data/texture/%20bark.bmp"
+            },
+            {
+              "texture_index": 1,
+              "constructor_pointer": "/textures/1",
+              "raw_name": " bark.bmp",
+              "logical_name": "data\\texture\\ bark.bmp",
+              "filemanager_name": "data\\texture\\ bark.bmp",
+              "http_path": "data/texture/%20bark.bmp"
+            },
+            {
+              "texture_index": 2,
+              "constructor_pointer": "/textures/2",
+              "raw_name": " bark.bmp ",
+              "logical_name": "data\\texture\\ bark.bmp ",
+              "filemanager_name": "data\\texture\\ bark.bmp",
+              "http_path": "data/texture/%20bark.bmp"
+            },
+            {
+              "texture_index": 3,
+              "constructor_pointer": "/textures/3",
+              "raw_name": "unused.tga",
+              "logical_name": "data\\texture\\unused.tga",
+              "filemanager_name": "data\\texture\\unused.tga",
+              "http_path": "data/texture/unused.tga"
+            },
+            {
+              "texture_index": 4,
+              "constructor_pointer": "/textures/4",
+              "raw_name": "Bark.bmp",
+              "logical_name": "data\\texture\\Bark.bmp",
+              "filemanager_name": "data\\texture\\Bark.bmp",
+              "http_path": "data/texture/Bark.bmp"
+            }
+          ]
+        }
+      },
+      {
+        "id": "model-000001",
+        "job_id": "model-000001",
+        "kind": "model",
+        "input_bytes": 101,
+        "complete_sha256": "bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb",
+        "header_version_bytes": "4752534d0105",
+        "outcome": "returned",
+        "constructor_returned": true,
+        "worker_started": true,
+        "cleanup": {
+          "exit_observed": true,
+          "exit_code": 0,
+          "terminated_by_parent": false
+        },
+        "summary": {
+          "textures": [
+            "unused.tga",
+            "animated.png"
+          ],
+          "animation_by_node_keys": true,
+          "global_position_keys": 0,
+          "numeric_fields": {
+            "finite": 1,
+            "nan": 0,
+            "positive_infinity": 0,
+            "negative_infinity": 0,
+            "undefined": 0,
+            "null": 0,
+            "min": 1.5,
+            "max": 1.5,
+            "exceptional_locations": [],
+            "exceptional_locations_omitted": 0
+          },
+          "nodes": [
+            {
+              "node_index": 0,
+              "textures": [
+                1
+              ],
+              "texture_references": [
+                {
+                  "slot_index": 0,
+                  "table_index": 1,
+                  "state": "resolved"
+                }
+              ],
+              "face_count": 0,
+              "keyframe_counts": {
+                "rotation": 1,
+                "position": 0,
+                "scale": 0,
+                "texture_groups": 0
+              },
+              "numeric_fields": {
+                "finite": 1,
+                "nan": 0,
+                "positive_infinity": 0,
+                "negative_infinity": 0,
+                "undefined": 0,
+                "null": 0,
+                "min": 1,
+                "max": 1,
+                "exceptional_locations": [],
+                "exceptional_locations_omitted": 0
+              }
+            }
+          ],
+          "texture_declarations": [
+            {
+              "texture_index": 0,
+              "constructor_pointer": "/textures/0",
+              "raw_name": "unused.tga",
+              "logical_name": "data\\texture\\unused.tga",
+              "filemanager_name": "data\\texture\\unused.tga",
+              "http_path": "data/texture/unused.tga"
+            },
+            {
+              "texture_index": 1,
+              "constructor_pointer": "/textures/1",
+              "raw_name": "animated.png",
+              "logical_name": "data\\texture\\animated.png",
+              "filemanager_name": "data\\texture\\animated.png",
+              "http_path": "data/texture/animated.png"
+            }
+          ]
+        }
+      },
+      {
+        "id": "model-000002",
+        "job_id": "model-000002",
+        "kind": "model",
+        "input_bytes": 102,
+        "complete_sha256": "cccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccc",
+        "header_version_bytes": "4752534d0202",
+        "outcome": "constructor_exception",
+        "constructor_returned": false,
+        "worker_started": true,
+        "cleanup": {
+          "exit_observed": true,
+          "exit_code": 0,
+          "terminated_by_parent": false
+        },
+        "exception": {
+          "phase": "constructor",
+          "name": "RangeError",
+          "message": "authored exception; not an actual constructor run",
+          "message_truncated": false,
+          "code": null
+        }
+      },
+      {
+        "id": "model-000003",
+        "job_id": "model-000003",
+        "kind": "model",
+        "input_bytes": 103,
+        "complete_sha256": "dddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddd",
+        "header_version_bytes": "4752534d0203",
+        "outcome": "returned",
+        "constructor_returned": true,
+        "worker_started": true,
+        "cleanup": {
+          "exit_observed": true,
+          "exit_code": 0,
+          "terminated_by_parent": false
+        },
+        "summary": {
+          "textures": [],
+          "animation_by_node_keys": false,
+          "global_position_keys": 0,
+          "numeric_fields": {
+            "finite": 1,
+            "nan": 0,
+            "positive_infinity": 0,
+            "negative_infinity": 0,
+            "undefined": 0,
+            "null": 0,
+            "min": 2.3,
+            "max": 2.3,
+            "exceptional_locations": [],
+            "exceptional_locations_omitted": 0
+          },
+          "nodes": [],
+          "texture_declarations": []
+        }
+      }
+    ]
+  },
+  "expected": {
+    "counts": {
+      "roots": 4,
+      "constructor_jobs": 4,
+      "model_targets": 5,
+      "returned_jobs": 3,
+      "constructor_exception_jobs": 1,
+      "global_declarations": 7,
+      "target_expanded_declarations": 12,
+      "nested_targets": 4,
+      "model_parent_links": 6,
+      "model_placement_occurrences": 7,
+      "root_expanded_model_placements": 11,
+      "resolved_node_slots": 4,
+      "unresolved_node_slots": 7,
+      "animation_jobs": {
+        "true": 1,
+        "false": 2,
+        "unknown": 1
+      },
+      "remaining_core_gap_roots": 1,
+      "prior_first_level_gaps": 2,
+      "returned_empty_jobs": 1,
+      "returned_nonempty_jobs": 2
+    },
+    "roots": [
+      {
+        "ordinal": 0,
+        "name": "authored_a",
+        "edges": {
+          "rsw": {
+            "job_id": "rsw-0"
+          },
+          "gnd": {
+            "job_id": "gnd-0"
+          },
+          "gat": {
+            "job_id": "gat-0"
+          }
+        }
+      },
+      {
+        "ordinal": 1,
+        "name": "authored_b",
+        "edges": {
+          "rsw": {
+            "job_id": "rsw-0"
+          },
+          "gnd": {
+            "job_id": "gnd-0"
+          },
+          "gat": {
+            "job_id": "gat-0"
+          }
+        }
+      },
+      {
+        "ordinal": 2,
+        "name": "authored_c",
+        "edges": {
+          "rsw": {
+            "job_id": "rsw-1"
+          },
+          "gnd": {
+            "job_id": "gnd-1"
+          },
+          "gat": {
+            "job_id": "gat-1"
+          }
+        }
+      },
+      {
+        "ordinal": 3,
+        "name": "authored_rsw_gap",
+        "edges": {
+          "rsw": {
+            "job_id": null
+          },
+          "gnd": {
+            "job_id": null
+          },
+          "gat": {
+            "job_id": null
+          }
+        }
+      }
+    ],
+    "remaining_gap_root_ordinals": [
+      3
+    ],
+    "prior_first_level_gaps": [
+      {
+        "target_index": 2,
+        "kind": "bmp",
+        "http_path": "data/texture/authored-missing-a.bmp",
+        "http_status": 404
+      },
+      {
+        "target_index": 6,
+        "kind": "bmp",
+        "http_path": "data/texture/authored-missing-b.bmp",
+        "http_status": 404
+      }
+    ],
+    "model_targets": [
+      {
+        "model_ordinal": 0,
+        "target_index": 0,
+        "job_id": "model-000000",
+        "http_path": "data/model/oak.rsm",
+        "referrers": [
+          {
+            "job_index": 0,
+            "loader_index": 0,
+            "role": "model"
+          },
+          {
+            "job_index": 0,
+            "loader_index": 2,
+            "role": "model"
+          }
+        ],
+        "body": {
+          "bytes": 100,
+          "sha256": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"
+        }
+      },
+      {
+        "model_ordinal": 1,
+        "target_index": 1,
+        "job_id": "model-000001",
+        "http_path": "data/model/wind.rsm",
+        "referrers": [
+          {
+            "job_index": 0,
+            "loader_index": 1,
+            "role": "model"
+          }
+        ],
+        "body": {
+          "bytes": 101,
+          "sha256": "bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb"
+        }
+      },
+      {
+        "model_ordinal": 2,
+        "target_index": 3,
+        "job_id": "model-000000",
+        "http_path": "data/model/other/oak.rsm",
+        "referrers": [
+          {
+            "job_index": 2,
+            "loader_index": 0,
+            "role": "model"
+          }
+        ],
+        "body": {
+          "bytes": 100,
+          "sha256": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"
+        }
+      },
+      {
+        "model_ordinal": 3,
+        "target_index": 4,
+        "job_id": "model-000002",
+        "http_path": "data/model/broken.rsm",
+        "referrers": [
+          {
+            "job_index": 2,
+            "loader_index": 1,
+            "role": "model"
+          }
+        ],
+        "body": {
+          "bytes": 102,
+          "sha256": "cccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccc"
+        }
+      },
+      {
+        "model_ordinal": 4,
+        "target_index": 5,
+        "job_id": "model-000003",
+        "http_path": "data/model/empty.rsm",
+        "referrers": [
+          {
+            "job_index": 2,
+            "loader_index": 2,
+            "role": "model"
+          }
+        ],
+        "body": {
+          "bytes": 103,
+          "sha256": "dddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddd"
+        }
+      }
+    ],
+    "model_parent_links": [
+      {
+        "model_ordinal": 0,
+        "catalog_target_index": 0,
+        "referrer": {
+          "job_index": 0,
+          "loader_index": 0,
+          "role": "model"
+        },
+        "source_job_id": "rsw-0",
+        "loader_entry": {
+          "index": 0,
+          "source_name_pointer": "/summary/model_dependencies/0/filename",
+          "raw_name": "oak.rsm ",
+          "logical_name": "data\\model\\oak.rsm ",
+          "filemanager_name": "data\\model\\oak.rsm",
+          "http_path": "data/model/oak.rsm",
+          "target_index": 0
+        },
+        "root_references": [
+          {
+            "root_ordinal": 0,
+            "edge_kind": "rsw"
+          },
+          {
+            "root_ordinal": 1,
+            "edge_kind": "rsw"
+          }
+        ],
+        "placement_indexes": [
+          0,
+          1
+        ],
+        "placement_pointers": [
+          "/summary/model_dependencies/0",
+          "/summary/model_dependencies/1"
+        ]
+      },
+      {
+        "model_ordinal": 0,
+        "catalog_target_index": 0,
+        "referrer": {
+          "job_index": 0,
+          "loader_index": 2,
+          "role": "model"
+        },
+        "source_job_id": "rsw-0",
+        "loader_entry": {
+          "index": 2,
+          "source_name_pointer": "/summary/model_dependencies/3/filename",
+          "raw_name": "oak.rsm",
+          "logical_name": "data\\model\\oak.rsm",
+          "filemanager_name": "data\\model\\oak.rsm",
+          "http_path": "data/model/oak.rsm",
+          "target_index": 0
+        },
+        "root_references": [
+          {
+            "root_ordinal": 0,
+            "edge_kind": "rsw"
+          },
+          {
+            "root_ordinal": 1,
+            "edge_kind": "rsw"
+          }
+        ],
+        "placement_indexes": [
+          3
+        ],
+        "placement_pointers": [
+          "/summary/model_dependencies/3"
+        ]
+      },
+      {
+        "model_ordinal": 1,
+        "catalog_target_index": 1,
+        "referrer": {
+          "job_index": 0,
+          "loader_index": 1,
+          "role": "model"
+        },
+        "source_job_id": "rsw-0",
+        "loader_entry": {
+          "index": 1,
+          "source_name_pointer": "/summary/model_dependencies/2/filename",
+          "raw_name": "wind.rsm",
+          "logical_name": "data\\model\\wind.rsm",
+          "filemanager_name": "data\\model\\wind.rsm",
+          "http_path": "data/model/wind.rsm",
+          "target_index": 1
+        },
+        "root_references": [
+          {
+            "root_ordinal": 0,
+            "edge_kind": "rsw"
+          },
+          {
+            "root_ordinal": 1,
+            "edge_kind": "rsw"
+          }
+        ],
+        "placement_indexes": [
+          2
+        ],
+        "placement_pointers": [
+          "/summary/model_dependencies/2"
+        ]
+      },
+      {
+        "model_ordinal": 2,
+        "catalog_target_index": 3,
+        "referrer": {
+          "job_index": 2,
+          "loader_index": 0,
+          "role": "model"
+        },
+        "source_job_id": "rsw-1",
+        "loader_entry": {
+          "index": 0,
+          "source_name_pointer": "/summary/model_dependencies/0/filename",
+          "raw_name": "other/oak.rsm",
+          "logical_name": "data\\model\\other/oak.rsm",
+          "filemanager_name": "data\\model\\other/oak.rsm",
+          "http_path": "data/model/other/oak.rsm",
+          "target_index": 3
+        },
+        "root_references": [
+          {
+            "root_ordinal": 2,
+            "edge_kind": "rsw"
+          }
+        ],
+        "placement_indexes": [
+          0
+        ],
+        "placement_pointers": [
+          "/summary/model_dependencies/0"
+        ]
+      },
+      {
+        "model_ordinal": 3,
+        "catalog_target_index": 4,
+        "referrer": {
+          "job_index": 2,
+          "loader_index": 1,
+          "role": "model"
+        },
+        "source_job_id": "rsw-1",
+        "loader_entry": {
+          "index": 1,
+          "source_name_pointer": "/summary/model_dependencies/1/filename",
+          "raw_name": "broken.rsm",
+          "logical_name": "data\\model\\broken.rsm",
+          "filemanager_name": "data\\model\\broken.rsm",
+          "http_path": "data/model/broken.rsm",
+          "target_index": 4
+        },
+        "root_references": [
+          {
+            "root_ordinal": 2,
+            "edge_kind": "rsw"
+          }
+        ],
+        "placement_indexes": [
+          1
+        ],
+        "placement_pointers": [
+          "/summary/model_dependencies/1"
+        ]
+      },
+      {
+        "model_ordinal": 4,
+        "catalog_target_index": 5,
+        "referrer": {
+          "job_index": 2,
+          "loader_index": 2,
+          "role": "model"
+        },
+        "source_job_id": "rsw-1",
+        "loader_entry": {
+          "index": 2,
+          "source_name_pointer": "/summary/model_dependencies/2/filename",
+          "raw_name": "empty.rsm",
+          "logical_name": "data\\model\\empty.rsm",
+          "filemanager_name": "data\\model\\empty.rsm",
+          "http_path": "data/model/empty.rsm",
+          "target_index": 5
+        },
+        "root_references": [
+          {
+            "root_ordinal": 2,
+            "edge_kind": "rsw"
+          }
+        ],
+        "placement_indexes": [
+          2
+        ],
+        "placement_pointers": [
+          "/summary/model_dependencies/2"
+        ]
+      }
+    ],
+    "jobs": [
+      {
+        "source_row_index": 0,
+        "id": "model-000000",
+        "job_id": "model-000000",
+        "kind": "model",
+        "input_bytes": 100,
+        "complete_sha256": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+        "header_version_bytes": "4752534d0104",
+        "outcome": "returned",
+        "constructor_returned": true,
+        "worker_started": true,
+        "cleanup": {
+          "exit_observed": true,
+          "exit_code": 0,
+          "terminated_by_parent": false
+        },
+        "target_model_ordinals": [
+          0,
+          2
+        ],
+        "exception": null,
+        "animation_by_node_keys": false,
+        "numeric_fields": {
+          "finite": 1,
+          "nan": 1,
+          "positive_infinity": 0,
+          "negative_infinity": 0,
+          "undefined": 0,
+          "null": 0,
+          "min": 1.4,
+          "max": 1.4,
+          "exceptional_locations": [
+            {
+              "location": "box.center[0]",
+              "category": "nan"
+            }
+          ],
+          "exceptional_locations_omitted": 0
+        },
+        "nodes": [
+          {
+            "node_index": 0,
+            "textures": [
+              0,
+              2,
+              true,
+              null,
+              {
+                "special": "undefined"
+              },
+              -1,
+              1.25,
+              {
+                "special": "NaN"
+              },
+              99
+            ],
+            "texture_references": [
+              {
+                "slot_index": 0,
+                "table_index": 0,
+                "state": "resolved"
+              },
+              {
+                "slot_index": 1,
+                "table_index": 2,
+                "state": "resolved"
+              },
+              {
+                "slot_index": 2,
+                "table_index": null,
+                "state": "unresolved"
+              },
+              {
+                "slot_index": 3,
+                "table_index": null,
+                "state": "unresolved"
+              },
+              {
+                "slot_index": 4,
+                "table_index": null,
+                "state": "unresolved"
+              },
+              {
+                "slot_index": 5,
+                "table_index": null,
+                "state": "unresolved"
+              },
+              {
+                "slot_index": 6,
+                "table_index": null,
+                "state": "unresolved"
+              },
+              {
+                "slot_index": 7,
+                "table_index": null,
+                "state": "unresolved"
+              },
+              {
+                "slot_index": 8,
+                "table_index": null,
+                "state": "unresolved"
+              }
+            ],
+            "face_count": 1,
+            "keyframe_counts": {
+              "rotation": 0,
+              "position": {
+                "special": "undefined"
+              },
+              "scale": {
+                "special": "undefined"
+              },
+              "texture_groups": 1
+            },
+            "numeric_fields": {
+              "finite": 5,
+              "nan": 1,
+              "positive_infinity": 0,
+              "negative_infinity": 0,
+              "undefined": 1,
+              "null": 1,
+              "min": -1,
+              "max": 99,
+              "exceptional_locations": [
+                {
+                  "location": "textures[3]",
+                  "category": "null"
+                },
+                {
+                  "location": "textures[4]",
+                  "category": "undefined"
+                },
+                {
+                  "location": "textures[7]",
+                  "category": "nan"
+                }
+              ],
+              "exceptional_locations_omitted": 0
+            }
+          },
+          {
+            "node_index": 1,
+            "textures": [
+              1
+            ],
+            "texture_references": [
+              {
+                "slot_index": 0,
+                "table_index": 1,
+                "state": "resolved"
+              }
+            ],
+            "face_count": 0,
+            "keyframe_counts": {
+              "rotation": 0,
+              "position": 0,
+              "scale": 0,
+              "texture_groups": 0
+            },
+            "numeric_fields": {
+              "finite": 1,
+              "nan": 0,
+              "positive_infinity": 0,
+              "negative_infinity": 0,
+              "undefined": 0,
+              "null": 0,
+              "min": 1,
+              "max": 1,
+              "exceptional_locations": [],
+              "exceptional_locations_omitted": 0
+            }
+          }
+        ],
+        "declarations": [
+          {
+            "texture_index": 0,
+            "constructor_pointer": "/textures/0",
+            "raw_name": " bark.bmp ",
+            "logical_name": "data\\texture\\ bark.bmp ",
+            "filemanager_name": "data\\texture\\ bark.bmp",
+            "http_path": "data/texture/%20bark.bmp",
+            "nested_target_index": 0,
+            "node_links": [
+              {
+                "node_index": 0,
+                "slot_index": 0
+              }
+            ]
+          },
+          {
+            "texture_index": 1,
+            "constructor_pointer": "/textures/1",
+            "raw_name": " bark.bmp",
+            "logical_name": "data\\texture\\ bark.bmp",
+            "filemanager_name": "data\\texture\\ bark.bmp",
+            "http_path": "data/texture/%20bark.bmp",
+            "nested_target_index": 0,
+            "node_links": [
+              {
+                "node_index": 1,
+                "slot_index": 0
+              }
+            ]
+          },
+          {
+            "texture_index": 2,
+            "constructor_pointer": "/textures/2",
+            "raw_name": " bark.bmp ",
+            "logical_name": "data\\texture\\ bark.bmp ",
+            "filemanager_name": "data\\texture\\ bark.bmp",
+            "http_path": "data/texture/%20bark.bmp",
+            "nested_target_index": 0,
+            "node_links": [
+              {
+                "node_index": 0,
+                "slot_index": 1
+              }
+            ]
+          },
+          {
+            "texture_index": 3,
+            "constructor_pointer": "/textures/3",
+            "raw_name": "unused.tga",
+            "logical_name": "data\\texture\\unused.tga",
+            "filemanager_name": "data\\texture\\unused.tga",
+            "http_path": "data/texture/unused.tga",
+            "nested_target_index": 1,
+            "node_links": []
+          },
+          {
+            "texture_index": 4,
+            "constructor_pointer": "/textures/4",
+            "raw_name": "Bark.bmp",
+            "logical_name": "data\\texture\\Bark.bmp",
+            "filemanager_name": "data\\texture\\Bark.bmp",
+            "http_path": "data/texture/Bark.bmp",
+            "nested_target_index": 2,
+            "node_links": []
+          }
+        ]
+      },
+      {
+        "source_row_index": 1,
+        "id": "model-000001",
+        "job_id": "model-000001",
+        "kind": "model",
+        "input_bytes": 101,
+        "complete_sha256": "bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb",
+        "header_version_bytes": "4752534d0105",
+        "outcome": "returned",
+        "constructor_returned": true,
+        "worker_started": true,
+        "cleanup": {
+          "exit_observed": true,
+          "exit_code": 0,
+          "terminated_by_parent": false
+        },
+        "target_model_ordinals": [
+          1
+        ],
+        "exception": null,
+        "animation_by_node_keys": true,
+        "numeric_fields": {
+          "finite": 1,
+          "nan": 0,
+          "positive_infinity": 0,
+          "negative_infinity": 0,
+          "undefined": 0,
+          "null": 0,
+          "min": 1.5,
+          "max": 1.5,
+          "exceptional_locations": [],
+          "exceptional_locations_omitted": 0
+        },
+        "nodes": [
+          {
+            "node_index": 0,
+            "textures": [
+              1
+            ],
+            "texture_references": [
+              {
+                "slot_index": 0,
+                "table_index": 1,
+                "state": "resolved"
+              }
+            ],
+            "face_count": 0,
+            "keyframe_counts": {
+              "rotation": 1,
+              "position": 0,
+              "scale": 0,
+              "texture_groups": 0
+            },
+            "numeric_fields": {
+              "finite": 1,
+              "nan": 0,
+              "positive_infinity": 0,
+              "negative_infinity": 0,
+              "undefined": 0,
+              "null": 0,
+              "min": 1,
+              "max": 1,
+              "exceptional_locations": [],
+              "exceptional_locations_omitted": 0
+            }
+          }
+        ],
+        "declarations": [
+          {
+            "texture_index": 0,
+            "constructor_pointer": "/textures/0",
+            "raw_name": "unused.tga",
+            "logical_name": "data\\texture\\unused.tga",
+            "filemanager_name": "data\\texture\\unused.tga",
+            "http_path": "data/texture/unused.tga",
+            "nested_target_index": 1,
+            "node_links": []
+          },
+          {
+            "texture_index": 1,
+            "constructor_pointer": "/textures/1",
+            "raw_name": "animated.png",
+            "logical_name": "data\\texture\\animated.png",
+            "filemanager_name": "data\\texture\\animated.png",
+            "http_path": "data/texture/animated.png",
+            "nested_target_index": 3,
+            "node_links": [
+              {
+                "node_index": 0,
+                "slot_index": 0
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "source_row_index": 2,
+        "id": "model-000002",
+        "job_id": "model-000002",
+        "kind": "model",
+        "input_bytes": 102,
+        "complete_sha256": "cccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccc",
+        "header_version_bytes": "4752534d0202",
+        "outcome": "constructor_exception",
+        "constructor_returned": false,
+        "worker_started": true,
+        "cleanup": {
+          "exit_observed": true,
+          "exit_code": 0,
+          "terminated_by_parent": false
+        },
+        "target_model_ordinals": [
+          3
+        ],
+        "exception": {
+          "phase": "constructor",
+          "name": "RangeError",
+          "message": "authored exception; not an actual constructor run",
+          "message_truncated": false,
+          "code": null
+        },
+        "animation_by_node_keys": null,
+        "numeric_fields": null,
+        "nodes": null,
+        "declarations": null
+      },
+      {
+        "source_row_index": 3,
+        "id": "model-000003",
+        "job_id": "model-000003",
+        "kind": "model",
+        "input_bytes": 103,
+        "complete_sha256": "dddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddd",
+        "header_version_bytes": "4752534d0203",
+        "outcome": "returned",
+        "constructor_returned": true,
+        "worker_started": true,
+        "cleanup": {
+          "exit_observed": true,
+          "exit_code": 0,
+          "terminated_by_parent": false
+        },
+        "target_model_ordinals": [
+          4
+        ],
+        "exception": null,
+        "animation_by_node_keys": false,
+        "numeric_fields": {
+          "finite": 1,
+          "nan": 0,
+          "positive_infinity": 0,
+          "negative_infinity": 0,
+          "undefined": 0,
+          "null": 0,
+          "min": 2.3,
+          "max": 2.3,
+          "exceptional_locations": [],
+          "exceptional_locations_omitted": 0
+        },
+        "nodes": [],
+        "declarations": []
+      }
+    ],
+    "nested_targets": [
+      {
+        "index": 0,
+        "http_path": "data/texture/%20bark.bmp",
+        "referrers": [
+          {
+            "job_index": 0,
+            "texture_index": 0
+          },
+          {
+            "job_index": 0,
+            "texture_index": 1
+          },
+          {
+            "job_index": 0,
+            "texture_index": 2
+          }
+        ]
+      },
+      {
+        "index": 1,
+        "http_path": "data/texture/unused.tga",
+        "referrers": [
+          {
+            "job_index": 0,
+            "texture_index": 3
+          },
+          {
+            "job_index": 1,
+            "texture_index": 0
+          }
+        ]
+      },
+      {
+        "index": 2,
+        "http_path": "data/texture/Bark.bmp",
+        "referrers": [
+          {
+            "job_index": 0,
+            "texture_index": 4
+          }
+        ]
+      },
+      {
+        "index": 3,
+        "http_path": "data/texture/animated.png",
+        "referrers": [
+          {
+            "job_index": 1,
+            "texture_index": 1
+          }
+        ]
+      }
+    ],
+    "limits": [
+      "All tables are conservative declarations. No actual fetch/compile/render result is predicted.",
+      "Static unlinked global slots stay inventoried; zero-face linked slots are not filtered.",
+      "Animated true is a node-key fact; hook/placement/cache/GL predicates remain unobserved.",
+      "Original loader names remain distinct even when trimmed HTTP paths or body jobs coincide.",
+      "Node numeric markers and diagnostics are preserved, not repaired or a format-validity verdict.",
+      "All carried core and ground gaps stay explicit; declarations cover returned tables, while exceptions retain unknown tables."
+    ]
+  },
+  "stage_input": {
+    "roots": [
+      {
+        "ordinal": 0,
+        "name": "authored_stage",
+        "edges": {
+          "rsw": {
+            "job_id": "rsw-stage"
+          },
+          "gnd": {
+            "job_id": null
+          },
+          "gat": {
+            "job_id": null
+          }
+        }
+      }
+    ],
+    "remaining_gap_root_ordinals": [],
+    "prior_first_level_gaps": [],
+    "first_level_model_jobs": [
+      {
+        "source_job_index": 7,
+        "id": "rsw-stage",
+        "kind": "rsw",
+        "role": "model",
+        "root_references": [
+          {
+            "root_ordinal": 0,
+            "edge_kind": "rsw"
+          }
+        ],
+        "occurrence_loader_indexes": [
+          0
+        ],
+        "loader_entries": [
+          {
+            "index": 0,
+            "source_name_pointer": "/summary/model_dependencies/0/filename",
+            "raw_name": "stage.rsm",
+            "logical_name": "data\\model\\stage.rsm",
+            "filemanager_name": "data\\model\\stage.rsm",
+            "http_path": "data/model/stage.rsm",
+            "target_index": 0
+          }
+        ]
+      }
+    ],
+    "model_targets": [
+      {
+        "model_ordinal": 0,
+        "target_index": 0,
+        "job_id": "model-000003",
+        "http_path": "data/model/stage.rsm",
+        "referrers": [
+          {
+            "job_index": 7,
+            "loader_index": 0,
+            "role": "model"
+          }
+        ],
+        "body": {
+          "bytes": 103,
+          "sha256": "dddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddd"
+        }
+      }
+    ],
+    "model_rows": [
+      {
+        "id": "model-000003",
+        "job_id": "model-000003",
+        "kind": "model",
+        "input_bytes": 103,
+        "complete_sha256": "dddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddd",
+        "header_version_bytes": "4752534d0203",
+        "outcome": "returned",
+        "constructor_returned": true,
+        "worker_started": true,
+        "cleanup": {
+          "exit_observed": true,
+          "exit_code": 0,
+          "terminated_by_parent": false
+        },
+        "summary": {
+          "textures": [],
+          "animation_by_node_keys": false,
+          "global_position_keys": 0,
+          "numeric_fields": {
+            "finite": 1,
+            "nan": 0,
+            "positive_infinity": 0,
+            "negative_infinity": 0,
+            "undefined": 0,
+            "null": 0,
+            "min": 2.3,
+            "max": 2.3,
+            "exceptional_locations": [],
+            "exceptional_locations_omitted": 0
+          },
+          "nodes": [],
+          "texture_declarations": []
+        }
+      }
+    ]
+  },
+  "stage_contract": "For each stage case, copy stage_input; replace model_rows[0].summary.textures with [raw_name] and texture_declarations with [expected]. Require the one unchanged declaration plus nested_target_index=0/node_links=[] and exactly one nested target/referrer. No encoding is computed in the expected values.",
+  "stage_cases": [
+    {
+      "id": "S01-trailing-FEFF-is-trimmed",
+      "raw_name": "trim.bmp\ufeff",
+      "expected": {
+        "texture_index": 0,
+        "constructor_pointer": "/textures/0",
+        "raw_name": "trim.bmp\ufeff",
+        "logical_name": "data\\texture\\trim.bmp\ufeff",
+        "filemanager_name": "data\\texture\\trim.bmp",
+        "http_path": "data/texture/trim.bmp"
+      }
+    },
+    {
+      "id": "S02-trailing-0085-is-retained",
+      "raw_name": "keep.bmp\u0085",
+      "expected": {
+        "texture_index": 0,
+        "constructor_pointer": "/textures/0",
+        "raw_name": "keep.bmp\u0085",
+        "logical_name": "data\\texture\\keep.bmp\u0085",
+        "filemanager_name": "data\\texture\\keep.bmp\u0085",
+        "http_path": "data/texture/keep.bmp%C2%85"
+      }
+    },
+    {
+      "id": "S03-Chinese-UTF8-URI-stage",
+      "raw_name": "\u8a31.bmp",
+      "expected": {
+        "texture_index": 0,
+        "constructor_pointer": "/textures/0",
+        "raw_name": "\u8a31.bmp",
+        "logical_name": "data\\texture\\\u8a31.bmp",
+        "filemanager_name": "data\\texture\\\u8a31.bmp",
+        "http_path": "data/texture/%E8%A8%B1.bmp"
+      }
+    },
+    {
+      "id": "S04-percent-is-not-predecoded",
+      "raw_name": "x%20.bmp",
+      "expected": {
+        "texture_index": 0,
+        "constructor_pointer": "/textures/0",
+        "raw_name": "x%20.bmp",
+        "logical_name": "data\\texture\\x%20.bmp",
+        "filemanager_name": "data\\texture\\x%20.bmp",
+        "http_path": "data/texture/x%2520.bmp"
+      }
+    },
+    {
+      "id": "S05-mixed-repeated-trailing-separators",
+      "raw_name": "a//b\\c.bmp/",
+      "expected": {
+        "texture_index": 0,
+        "constructor_pointer": "/textures/0",
+        "raw_name": "a//b\\c.bmp/",
+        "logical_name": "data\\texture\\a//b\\c.bmp/",
+        "filemanager_name": "data\\texture\\a//b\\c.bmp/",
+        "http_path": "data/texture/a//b/c.bmp/"
+      }
+    },
+    {
+      "id": "S06-leading-empty-segments",
+      "raw_name": "//a///",
+      "expected": {
+        "texture_index": 0,
+        "constructor_pointer": "/textures/0",
+        "raw_name": "//a///",
+        "logical_name": "data\\texture\\//a///",
+        "filemanager_name": "data\\texture\\//a///",
+        "http_path": "data/texture///a///"
+      }
+    },
+    {
+      "id": "S07-dot-segments-unusual-case-extension",
+      "raw_name": "../a/./thing.WEIRD",
+      "expected": {
+        "texture_index": 0,
+        "constructor_pointer": "/textures/0",
+        "raw_name": "../a/./thing.WEIRD",
+        "logical_name": "data\\texture\\../a/./thing.WEIRD",
+        "filemanager_name": "data\\texture\\../a/./thing.WEIRD",
+        "http_path": "data/texture/../a/./thing.WEIRD"
+      }
+    },
+    {
+      "id": "S08-encodeURIComponent-unescaped-punctuation",
+      "raw_name": "!'()*.bmp",
+      "expected": {
+        "texture_index": 0,
+        "constructor_pointer": "/textures/0",
+        "raw_name": "!'()*.bmp",
+        "logical_name": "data\\texture\\!'()*.bmp",
+        "filemanager_name": "data\\texture\\!'()*.bmp",
+        "http_path": "data/texture/!'()*.bmp"
+      }
+    },
+    {
+      "id": "S09-empty-raw-name",
+      "raw_name": "",
+      "expected": {
+        "texture_index": 0,
+        "constructor_pointer": "/textures/0",
+        "raw_name": "",
+        "logical_name": "data\\texture\\",
+        "filemanager_name": "data\\texture\\",
+        "http_path": "data/texture/"
+      }
+    },
+    {
+      "id": "S10-prefix-separated-whitespace-remains-internal",
+      "raw_name": " \ufefflead.bmp ",
+      "expected": {
+        "texture_index": 0,
+        "constructor_pointer": "/textures/0",
+        "raw_name": " \ufefflead.bmp ",
+        "logical_name": "data\\texture\\ \ufefflead.bmp ",
+        "filemanager_name": "data\\texture\\ \ufefflead.bmp",
+        "http_path": "data/texture/%20%EF%BB%BFlead.bmp"
+      }
+    }
+  ],
+  "refusal_contract": "Start each refusal from a fresh deep copy of input. JSON Pointer set replaces an existing value; delete removes a member/array element. Every case must throw a Refusal. Only R20 prescribes reason=uri_encoding_unsupported: compute exact raw-name encoding before comparing supplied HTTP stages. Do not preempt that case with a generic scalar-string validator.",
+  "refusal_cases": [
+    {
+      "id": "R01-missing-job",
+      "mutations": [
+        {
+          "op": "delete",
+          "path": "/model_rows/3"
+        }
+      ],
+      "expected": "refuse",
+      "purpose": "The empty-table target still requires its constructor job; no silent omission."
+    },
+    {
+      "id": "R02-duplicate-job-identity",
+      "mutations": [
+        {
+          "op": "set",
+          "path": "/model_rows/1/id",
+          "value": "model-000000"
+        },
+        {
+          "op": "set",
+          "path": "/model_rows/1/job_id",
+          "value": "model-000000"
+        }
+      ],
+      "expected": "refuse",
+      "purpose": "Duplicate physical job IDs cannot overwrite an earlier table."
+    },
+    {
+      "id": "R03-positive-exit-required",
+      "mutations": [
+        {
+          "op": "set",
+          "path": "/model_rows/0/cleanup/exit_code",
+          "value": 1
+        }
+      ],
+      "expected": "refuse",
+      "purpose": "A returned result is not an admitted clean worker observation after exit1."
+    },
+    {
+      "id": "R04-returned-constructor-fact-contradiction",
+      "mutations": [
+        {
+          "op": "set",
+          "path": "/model_rows/0/constructor_returned",
+          "value": false
+        }
+      ],
+      "expected": "refuse",
+      "purpose": "returned outcome cannot be reinterpreted as constructor false."
+    },
+    {
+      "id": "R05-duplicate-model-ordinal",
+      "mutations": [
+        {
+          "op": "set",
+          "path": "/model_targets/2/model_ordinal",
+          "value": 0
+        }
+      ],
+      "expected": "refuse",
+      "purpose": "Distinct target records retain unique dense model ordinals."
+    },
+    {
+      "id": "R06-orphan-target-job",
+      "mutations": [
+        {
+          "op": "set",
+          "path": "/model_targets/2/job_id",
+          "value": "model-absent"
+        }
+      ],
+      "expected": "refuse",
+      "purpose": "Every target must link to exactly one existing constructor observation."
+    },
+    {
+      "id": "R07-target-body-SHA-disagrees-with-shared-job",
+      "mutations": [
+        {
+          "op": "set",
+          "path": "/model_targets/2/body/sha256",
+          "value": "0000000000000000000000000000000000000000000000000000000000000000"
+        }
+      ],
+      "expected": "refuse",
+      "purpose": "A second filename cannot borrow a table from different body bytes."
+    },
+    {
+      "id": "R08-unknown-parent-source-job",
+      "mutations": [
+        {
+          "op": "set",
+          "path": "/model_targets/0/referrers/0/job_index",
+          "value": 99
+        }
+      ],
+      "expected": "refuse",
+      "purpose": "No fallback from an absent source job index to array position0."
+    },
+    {
+      "id": "R09-duplicate-parent-reference",
+      "mutations": [
+        {
+          "op": "set",
+          "path": "/model_targets/0/referrers/1",
+          "value": {
+            "job_index": 0,
+            "loader_index": 0,
+            "role": "model"
+          }
+        }
+      ],
+      "expected": "refuse",
+      "purpose": "Do not duplicate one parent while losing the distinct untrimmed loader entry."
+    },
+    {
+      "id": "R10-source-job-wrong-role",
+      "mutations": [
+        {
+          "op": "set",
+          "path": "/first_level_model_jobs/0/role",
+          "value": "ground_texture"
+        }
+      ],
+      "expected": "refuse",
+      "purpose": "Model placement links cannot be taken from ground-texture metadata."
+    },
+    {
+      "id": "R11-source-entry-index-mismatch",
+      "mutations": [
+        {
+          "op": "set",
+          "path": "/first_level_model_jobs/0/loader_entries/0/index",
+          "value": 1
+        }
+      ],
+      "expected": "refuse",
+      "purpose": "Declared loader index must agree with its position and referrers."
+    },
+    {
+      "id": "R12-source-pointer-not-first-occurrence",
+      "mutations": [
+        {
+          "op": "set",
+          "path": "/first_level_model_jobs/0/loader_entries/0/source_name_pointer",
+          "value": "/summary/model_dependencies/1/filename"
+        }
+      ],
+      "expected": "refuse",
+      "purpose": "Even a repeated placement does not change the source entry's exact first-occurrence pointer."
+    },
+    {
+      "id": "R13-source-entry-HTTP-stage-mismatch",
+      "mutations": [
+        {
+          "op": "set",
+          "path": "/first_level_model_jobs/0/loader_entries/0/http_path",
+          "value": "data/model/wrong.rsm"
+        }
+      ],
+      "expected": "refuse",
+      "purpose": "Original loader stages must bind to the exact target, not a nearby name."
+    },
+    {
+      "id": "R14-bool-slot-must-not-resolve-as-zero",
+      "mutations": [
+        {
+          "op": "set",
+          "path": "/model_rows/0/summary/nodes/0/texture_references/2",
+          "value": {
+            "slot_index": 2,
+            "table_index": 0,
+            "state": "resolved"
+          }
+        }
+      ],
+      "expected": "refuse",
+      "purpose": "The raw slot true is valid preserved data but its claim to integer table0 is inconsistent."
+    },
+    {
+      "id": "R15-null-slot-must-not-resolve-as-zero",
+      "mutations": [
+        {
+          "op": "set",
+          "path": "/model_rows/0/summary/nodes/0/texture_references/3",
+          "value": {
+            "slot_index": 3,
+            "table_index": 0,
+            "state": "resolved"
+          }
+        }
+      ],
+      "expected": "refuse",
+      "purpose": "The raw null slot remains unresolved; no Number(null) coercion."
+    },
+    {
+      "id": "R16-animation-contradicts-node-rotation",
+      "mutations": [
+        {
+          "op": "set",
+          "path": "/model_rows/1/summary/animation_by_node_keys",
+          "value": false
+        }
+      ],
+      "expected": "refuse",
+      "purpose": "A node with rotation count1 contradicts false node-key animation; this does not evaluate hooks or compile."
+    },
+    {
+      "id": "R17-missing-carried-RSW-gap",
+      "mutations": [
+        {
+          "op": "delete",
+          "path": "/remaining_gap_root_ordinals/0"
+        }
+      ],
+      "expected": "refuse",
+      "purpose": "Root3 still has rsw.job_id null and cannot disappear from the carried gap list."
+    },
+    {
+      "id": "R18-model-ordinal-bool-is-not-integer-zero",
+      "mutations": [
+        {
+          "op": "set",
+          "path": "/model_targets/0/model_ordinal",
+          "value": false
+        }
+      ],
+      "expected": "refuse",
+      "purpose": "JSON bool-vs-number identity is strict outside preserved raw slot values."
+    },
+    {
+      "id": "R19-parent-referrer-wrong-role",
+      "mutations": [
+        {
+          "op": "set",
+          "path": "/model_targets/0/referrers/0/role",
+          "value": "ground_texture"
+        }
+      ],
+      "expected": "refuse",
+      "purpose": "A model-target referrer must retain its exact model role."
+    },
+    {
+      "id": "R20-lone-surrogate-URI-unsupported",
+      "mutations": [
+        {
+          "op": "set",
+          "path": "/model_rows/0/summary/textures/0",
+          "value": "\ud800"
+        },
+        {
+          "op": "set",
+          "path": "/model_rows/0/summary/texture_declarations/0/raw_name",
+          "value": "\ud800"
+        },
+        {
+          "op": "set",
+          "path": "/model_rows/0/summary/texture_declarations/0/logical_name",
+          "value": "data\\texture\\\ud800"
+        },
+        {
+          "op": "set",
+          "path": "/model_rows/0/summary/texture_declarations/0/filemanager_name",
+          "value": "data\\texture\\\ud800"
+        },
+        {
+          "op": "set",
+          "path": "/model_rows/0/summary/texture_declarations/0/http_path",
+          "value": "data/texture/UNENCODABLE"
+        }
+      ],
+      "expected": "refuse",
+      "expected_reason": "uri_encoding_unsupported",
+      "purpose": "No correct HTTP stage exists for this raw scalar; the supplied HTTP string is an unreachable placeholder."
+    }
+  ]
+}

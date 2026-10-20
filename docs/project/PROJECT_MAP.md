@@ -123,7 +123,9 @@ Repair runner timing, file checks and failure accounting          [V]
 Repeat integrated checks and the complete model corpus           [V]
 Fix log text and loss reporting; pass 36 tests and 13 fixtures     [V]
 Repeat the final-source full corpus and independent audit         [V]
-Freeze the nested-texture catalog and common checks               [~] <-- NOW
+Freeze the nested-texture catalog and common checks               [V]
+Prepare and launch the actual Claude/Grok catalog pair            [~] <-- NOW
+Compare both full catalogs, failures and repeat outputs           [ ]
 Check availability of 8,119 declared nested texture paths         [ ]
 Diagnose one model exception and nine numeric-marker models      [ ]
 Investigate eight core NaN files and twelve unread tails          [ ]
@@ -177,7 +179,10 @@ A separate test finds damaged log text and unclear dropped-log counts.
 Codex fixes the issue. All 36 tests and 13 fresh fixture cases pass.
 The final full run and both independent comparisons pass.
 All model targets and map links stay accounted for. The known error stays open.
-The next step is the texture catalog and its common checks.
+The texture catalog contract and shared literal checks are prepared.
+Codex builds a full reference before either implementation starts.
+Its counts match a separate recount. The reference is about 96 MB.
+Both providers will receive the same inputs; their implementations come next.
 Nested texture retrieval, rendering and travel still follow.
 See the [scanner comparison](reviews/2026-10-20-T06.003.003.005.md#paired-decision-and-next-correction-gate).
 Before the scan, Codex checks the size metadata.
