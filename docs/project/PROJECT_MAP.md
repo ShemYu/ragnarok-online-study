@@ -160,7 +160,8 @@ Codex rehashes all 8,194 model bodies twice and checks the 28 duplicate pairs.
 The shared model summary passes all 13 authored cases.
 Both runners use the same frozen inputs. Claude has submitted its runner.
 Its normal fixtures pass, but Codex finds a false pass in a fault test.
-Grok continues its own runner. Codex will verify both, then check all 8,166 jobs.
+Grok has also submitted. Both worker sessions are closed and results kept.
+Codex will verify both runners, then check all 8,166 jobs.
 Nested texture retrieval, rendering and travel still follow.
 See the [scanner comparison](reviews/2026-10-20-T06.003.003.005.md#paired-decision-and-next-correction-gate).
 Before the scan, Codex checks the size metadata.
