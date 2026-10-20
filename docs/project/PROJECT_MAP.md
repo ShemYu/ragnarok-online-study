@@ -117,9 +117,13 @@ Prepare and verify a guard for both owned process groups         [V]
 Check all 11,134 model and texture request paths                  [V]
 Admit all 8,194 model targets as 8,166 distinct body jobs          [V]
 Pass 13 authored cases and the shared model summary              [V]
-Compare both actual model-constructor runners                    [~] <-- NOW
-Check all actual model jobs and nested texture declarations      [~]
-Investigate eight files with NaN values and twelve unread tails   [ ]
+Compare both raw model runners and all 8,166 job results          [V]
+Select Grok repair basis; both raw candidates need fixes          [V]
+Repair runner timing, file checks and failure accounting          [~] <-- NOW
+Repeat integrated checks and the complete model corpus           [ ]
+Check availability of 8,119 declared nested texture paths         [ ]
+Diagnose one model exception and nine numeric-marker models      [ ]
+Investigate eight core NaN files and twelve unread tails          [ ]
 Check compilation, rendering, travel and play                     [ ]
 Find compatible assets for the 82 unresolved requests             [ ]
 ```
