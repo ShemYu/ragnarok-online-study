@@ -118,7 +118,7 @@ Check all 11,134 model and texture request paths                  [V]
 Admit all 8,194 model targets as 8,166 distinct body jobs          [V]
 Pass 13 authored cases and the shared model summary              [V]
 Compare both actual model-constructor runners                    [~] <-- NOW
-Check all actual model jobs and nested texture declarations      [ ]
+Check all actual model jobs and nested texture declarations      [~]
 Investigate eight files with NaN values and twelve unread tails   [ ]
 Check compilation, rendering, travel and play                     [ ]
 Find compatible assets for the 82 unresolved requests             [ ]
