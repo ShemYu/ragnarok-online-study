@@ -1,6 +1,6 @@
 # Supervision, plan and current position
 
-Date: **2026-10-20 JST**. Functionality comes first. The installed-tool and client preparation checks pass. The separate test world is running and identified. The client repairs now pass file checks. Ordinary entry, saving and full restart pass in the test world. Next: test the multi-stage quest and content coverage. Image loading and play remain to check.
+Date: **2026-10-20 JST**. Functionality comes first. The installed-tool and client preparation checks pass. The separate test world is running and identified. The client repairs now pass file checks. Ordinary entry, saving and full restart pass in the test world. Next: [ordinary Eden quest execution](tasks/T06.006.003.md) and the parallel [five-map presence comparison](tasks/T07.003.md). Image loading and play remain to check.
 Use this map for a short view of [Status](STATUS.md), [Tasks](TASKS.md) and
 [Phases](PHASES.md). Status gives the current next action.
 Update this map after each important change. Keep the dated evidence.
