@@ -1,0 +1,656 @@
+// Runner controls for T06.003.003.006. Fixture execution only.
+//   T06_INPUT_ROOT=/canonical/repository node --experimental-vm-modules --test tools/renewal/test_probe_model_constructors.mjs
+import assert from 'node:assert/strict';
+import { spawnSync } from 'node:child_process';
+import crypto from 'node:crypto';
+import { EventEmitter } from 'node:events';
+import fs from 'node:fs';
+import path from 'node:path';
+import test from 'node:test';
+import { fileURLToPath, pathToFileURL } from 'node:url';
+import {
+  PROFILE_SHA256, Refusal, admitModelCorpus, boundedRow, compareAuthored,
+  effectivePolicy, expandTargetOutcomes, fixtureJobs, hooks, identityOf, main, parseArgs, readPinnedFile,
+  runWorkerJob, safeJoin, selectModelTargets, unattemptedRow, writeAll
+} from './probe_model_constructors.mjs';
+import { ENTRY_SOURCE, MODULE_KEYS, RULE_KEYS, createRealm, outcomeForSummaryThrow, resolveSpecifier } from './model_constructor_worker.mjs';
+import { SummaryLimitError, summarizeModel } from './model_constructor_summary.mjs';
+
+process.umask(0o077);
+const HERE = path.dirname(fileURLToPath(import.meta.url));
+const REPO = path.resolve(HERE, '..', '..');
+const INPUT_ROOT = process.env.T06_INPUT_ROOT || path.resolve(REPO, '..', 'reverse-the-Ragnarok-Online-to-play-by-myself');
+const CLIENT = path.join(INPUT_ROOT, '.tools', 'renewal', 'client-source');
+const PROFILE = path.join(REPO, 'docs/project/fixtures/T06.003.003.006-profile.json');
+const FIXTURES = path.join(REPO, 'docs/project/fixtures/T06.003.003.006-authored.json');
+const SCRIPT = path.join(HERE, 'probe_model_constructors.mjs');
+const profile = JSON.parse(fs.readFileSync(PROFILE, 'utf8'));
+const authored = JSON.parse(fs.readFileSync(FIXTURES, 'utf8'));
+const PRIVATE = path.join(REPO, '.tools', 'renewal', 't06-model-constructor-candidate-1');
+fs.mkdirSync(PRIVATE, { recursive: true, mode: 0o700 });
+fs.chmodSync(PRIVATE, 0o700);
+const TMP = fs.mkdtempSync(path.join(fs.realpathSync(PRIVATE), 'test-tmp-'));
+fs.chmodSync(TMP, 0o700);
+test.after(() => fs.rmSync(TMP, { recursive: true, force: true }));
+let seq = 0;
+let chain = Promise.resolve();
+const serial = (name, fn) => test(name, () => {
+  const run = chain.then(() => fn());
+  chain = run.then(() => {}, () => {});
+  return run;
+});
+const freshOut = () => path.join(TMP, `out-${++seq}`);
+const cli = (extra, { prof = PROFILE, client = CLIENT, output = freshOut(), mode = ['--fixtures', FIXTURES] } = {}) => {
+  const r = spawnSync(process.execPath, ['--experimental-vm-modules', '--no-warnings', SCRIPT, '--input-root', INPUT_ROOT,
+    '--client-source', client, '--profile', prof, ...mode, '--output', output, ...extra], { encoding: 'utf8', timeout: 180000 });
+  assert.equal(r.error, undefined, r.error && r.error.message);
+  const lines = r.stdout.trim().split('\n').filter(Boolean);
+  assert.equal(lines.length, 1, `stdout lines ${lines.length}: ${r.stdout.slice(0, 300)} stderr ${r.stderr.slice(0, 300)}`);
+  assert.ok(Buffer.byteLength(r.stdout) <= 4096);
+  assert.equal(r.stdout.includes('/Users'), false);
+  return { code: r.status, summary: JSON.parse(lines[0]), output, stderr: r.stderr };
+};
+const rows = (out) => fs.readFileSync(path.join(out, 'jobs.jsonl'), 'utf8').trim().split('\n').map((line) => JSON.parse(line));
+const reportOf = (out) => JSON.parse(fs.readFileSync(path.join(out, 'report.json'), 'utf8'));
+
+serial('importing the parent does not run the CLI or start a worker', () => {
+  const href = pathToFileURL(SCRIPT).href;
+  const r = spawnSync(process.execPath, ['--experimental-vm-modules', '--input-type=module', '-e', `await import(${JSON.stringify(href)})`], { encoding: 'utf8', timeout: 15000 });
+  assert.equal(r.status, 0);
+  assert.equal(r.stdout, '');
+});
+
+serial('fresh fixture CLI matches all 13 outcomes, summaries and exception names', () => {
+  const r = cli([]);
+  assert.equal(r.code, 0, JSON.stringify(r.summary));
+  assert.equal(r.summary.status, 'complete');
+  assert.equal(r.summary.authored_matched, 13);
+  const got = rows(r.output);
+  assert.equal(got.length, 13);
+  let returned = 0;
+  let exceptions = 0;
+  authored.cases.forEach((entry, index) => {
+    const row = got[index];
+    assert.equal(row.id, entry.id);
+    assert.equal(row.job_id, entry.id);
+    assert.equal(row.kind, 'model');
+    assert.equal(row.complete_sha256, entry.complete_sha256);
+    assert.equal(row.input_bytes, entry.input_bytes);
+    assert.equal(row.header_version_bytes, entry.header_version_bytes);
+    assert.equal(row.outcome, entry.expected_outcome, entry.id);
+    assert.equal(row.worker_started, true);
+    assert.equal(row.cleanup.exit_observed, true);
+    assert.equal(row.cleanup.exit_code, 0);
+    assert.equal(row.cleanup.terminated_by_parent, false);
+    assert.deepEqual(row.seek_globals, [1, 2, 3]);
+    assert.equal(row.loaded_module_keys.length, 7);
+    assert.deepEqual(row.dynamic_import_refusals, []);
+    if (entry.expected_outcome === 'returned') {
+      returned++;
+      assert.equal(row.constructor_returned, true);
+      assert.deepStrictEqual(row.summary, entry.expected_summary, entry.id);
+    } else {
+      exceptions++;
+      assert.equal(row.constructor_returned, false);
+      assert.equal(row.exception.phase, 'constructor');
+      assert.equal(row.exception.name, entry.expected_exception_name, entry.id);
+      assert.equal('summary' in row, false);
+    }
+  });
+  assert.deepEqual([returned, exceptions], [9, 4]);
+  const rep = reportOf(r.output);
+  assert.equal(rep.schema, 'T06-model-constructor-report-1');
+  assert.equal(rep.qualified, true);
+  assert.equal(rep.mode, 'fixtures');
+  assert.deepEqual(rep.roots, []);
+  assert.deepEqual(rep.targets, []);
+  assert.deepEqual(rep.remaining_gap_root_ordinals, []);
+  assert.deepEqual(rep.prior_first_level_gaps, []);
+  assert.equal(rep.profile_sha256, PROFILE_SHA256);
+  assert.equal(rep.summary_sha256, profile.summary.sha256);
+  assert.equal(rep.preserved_counts.model_targets, 8194);
+  assert.equal(rep.preserved_counts.constructor_jobs, 8166);
+  assert.equal(rep.preserved_counts.model_referrers, 48980);
+  assert.equal(rep.preserved_counts.roots, 1296);
+  assert.equal(rep.preserved_counts.remaining_core_gap_roots, 82);
+  assert.equal(rep.preserved_counts.all_catalog_referrers, 63557);
+  assert.equal(rep.header_prefix_counts_are_observations, true);
+  assert.equal(rep.client_source.sources.length, 7);
+  assert.equal(rep.client_source.rule_sources.length, 3);
+  assert.equal(rep.own_sources.length, 2);
+  assert.equal(rep.authored_comparison.matched, 13);
+  assert.equal(rep.cleanup.verified, true);
+  assert.equal(rep.counts.job_outcomes.returned, 9);
+  assert.equal(rep.counts.job_outcomes.constructor_exception, 4);
+  assert.equal(rep.counts.expected_targets, 0);
+  const jobsBuf = fs.readFileSync(path.join(r.output, 'jobs.jsonl'));
+  assert.equal(rep.jobs_file.bytes, jobsBuf.length);
+  assert.equal(rep.jobs_file.sha256, crypto.createHash('sha256').update(jobsBuf).digest('hex'));
+  assert.equal(rep.jobs_file.records, 13);
+  assert.equal(fs.statSync(r.output).mode & 0o777, 0o700);
+  assert.deepEqual(fs.readdirSync(r.output).sort(), ['jobs.jsonl', 'report.json']);
+  for (const name of fs.readdirSync(r.output)) assert.equal(fs.statSync(path.join(r.output, name)).mode & 0o777, 0o600, name);
+  assert.ok(rep.rss_sampling.samples >= 1 && rep.rss_sampling.peak_rss_bytes > 0);
+  for (const forbidden of ['playable', 'format_valid', 'rendered']) assert.equal(forbidden in rep, false);
+});
+
+serial('existing output, profile pin, symlink and special file refuse before output', () => {
+  const out = freshOut();
+  fs.mkdirSync(out, { mode: 0o700 });
+  fs.writeFileSync(path.join(out, 'keep'), 'sentinel', { mode: 0o600 });
+  let r = cli([], { output: out });
+  assert.equal(r.code, 2);
+  assert.equal(r.summary.reason, 'output_exists');
+  assert.equal(fs.readFileSync(path.join(out, 'keep'), 'utf8'), 'sentinel');
+  const changed = path.join(TMP, 'profile-changed.json');
+  fs.writeFileSync(changed, `${fs.readFileSync(PROFILE, 'utf8')} `, { mode: 0o600 });
+  r = cli([], { prof: changed });
+  assert.equal(r.code, 2);
+  assert.equal(r.summary.reason, 'pin_mismatch');
+  assert.equal(fs.existsSync(r.output), false);
+  const link = path.join(TMP, 'profile-link.json');
+  fs.symlinkSync(PROFILE, link);
+  r = cli([], { prof: link });
+  assert.equal(r.code, 2);
+  assert.equal(r.summary.reason, 'symlink_refused');
+  const fifo = path.join(TMP, 'profile.fifo');
+  spawnSync('mkfifo', [fifo]);
+  r = cli([], { prof: fifo });
+  assert.equal(r.code, 2);
+  assert.equal(r.summary.reason, 'special_file_refused');
+  assert.equal(r.summary.output_created, false);
+});
+
+serial('symlinked client module and output ancestor are refused', () => {
+  const fake = path.join(TMP, 'client-links');
+  for (const key of [...MODULE_KEYS, ...RULE_KEYS]) {
+    fs.mkdirSync(path.dirname(path.join(fake, key)), { recursive: true });
+    fs.symlinkSync(path.join(CLIENT, key), path.join(fake, key));
+  }
+  let r = cli([], { client: fake });
+  assert.equal(r.code, 2);
+  assert.equal(r.summary.reason, 'symlink_refused');
+  assert.equal(fs.existsSync(r.output), false);
+  const realDir = path.join(TMP, 'ancestor-real');
+  const alias = path.join(TMP, 'ancestor-alias');
+  fs.mkdirSync(realDir, { mode: 0o700 });
+  fs.writeFileSync(path.join(realDir, 'sentinel'), 'preserve', { mode: 0o600 });
+  fs.symlinkSync(realDir, alias);
+  r = cli(['--max-jobs', '0'], { output: path.join(alias, 'new', 'output') });
+  assert.equal(r.code, 2);
+  assert.equal(r.summary.output_created, false);
+  assert.equal(fs.readFileSync(path.join(realDir, 'sentinel'), 'utf8'), 'preserve');
+});
+
+serial('mode, duplicate flags and lower-only caps refuse increases', () => {
+  let r = cli(['--job-timeout-ms', String(profile.policy.job_timeout_ms + 1)]);
+  assert.equal(r.code, 2);
+  assert.equal(r.summary.reason, 'policy_increase');
+  r = cli(['--max-jobs', '14']);
+  assert.equal(r.code, 2);
+  assert.equal(r.summary.reason, 'policy_increase');
+  r = cli(['--rss-limit-bytes', '0']);
+  assert.equal(r.code, 2);
+  assert.equal(r.summary.reason, 'policy_invalid');
+  r = cli(['--fixtures', FIXTURES], { mode: ['--manifest', FIXTURES] });
+  assert.equal(r.code, 2);
+  assert.equal(r.summary.reason, 'usage');
+  r = cli([], { mode: [] });
+  assert.equal(r.code, 2);
+  assert.equal(r.summary.reason, 'usage');
+  r = cli(['--nope', '1']);
+  assert.equal(r.code, 2);
+  assert.equal(r.summary.reason, 'usage');
+  r = cli([], { mode: ['--manifest', path.join(TMP, 'not-the-manifest.json')] });
+  assert.equal(r.code, 2);
+  assert.equal(r.summary.reason, 'path_refused');
+  assert.equal(fs.existsSync(r.output), false);
+  assert.throws(() => parseArgs(['--profile', 'a', '--profile', 'b']), Refusal);
+  assert.equal(effectivePolicy(profile.policy, { job_timeout_ms: 5 }, 13).job_timeout_ms, 5);
+  assert.equal(effectivePolicy(profile.policy, { max_jobs: 0 }, 13).max_jobs, 0);
+  assert.equal(profile.policy.result_exit_grace_ms, 2000);
+  assert.equal(profile.policy.cleanup_wait_ms, 10000);
+  assert.equal(profile.policy.max_active_workers, 1);
+});
+
+serial('fixture mode does not open retained bodies, the manifest, or the catalog', async () => {
+  const output = freshOut();
+  const opened = [];
+  const real = fs.openSync;
+  fs.openSync = (target, ...args) => {
+    if (typeof target === 'string') opened.push(target);
+    return real(target, ...args);
+  };
+  try {
+    const code = await main(['--input-root', INPUT_ROOT, '--client-source', CLIENT, '--profile', PROFILE,
+      '--fixtures', FIXTURES, '--output', output, '--max-jobs', '0'], { stdout: { write() {} } });
+    assert.equal(code, 1);
+  } finally { fs.openSync = real; }
+  const joined = opened.join('\n');
+  for (const forbidden of ['root-model006-input-preparation-1', 'catalog-input.json', 't06-map-dependencies-actual-1/report.json', '/000001']) {
+    assert.equal(joined.includes(forbidden), false, forbidden);
+  }
+  const got = rows(output);
+  assert.equal(got.length, 13);
+  assert.ok(got.every((row) => row.outcome === 'unattempted' && row.reason === 'max_jobs' && row.worker_started === false && row.cleanup.exit_observed === null && row.constructor_returned === null));
+  assert.deepEqual(got.map((row) => row.id), authored.cases.map((entry) => entry.id));
+});
+
+serial('--max-jobs keeps the unattempted suffix and a real timeout observes exit', () => {
+  let r = cli(['--max-jobs', '2']);
+  assert.equal(r.code, 1);
+  let got = rows(r.output);
+  assert.equal(got.length, 13);
+  assert.ok(got.slice(0, 2).every((row) => row.worker_started && row.cleanup.exit_observed === true && row.cleanup.exit_code === 0));
+  for (const row of got.slice(2)) {
+    assert.equal(row.outcome, 'unattempted');
+    assert.equal(row.reason, 'max_jobs');
+    assert.equal(row.worker_started, false);
+    assert.equal(row.cleanup.exit_observed, null);
+  }
+  r = cli(['--job-timeout-ms', '1', '--max-jobs', '1']);
+  assert.equal(r.code, 1);
+  got = rows(r.output);
+  assert.equal(got[0].outcome, 'timeout');
+  assert.equal(got[0].cleanup.terminated_by_parent, true);
+  assert.equal(got[0].cleanup.exit_observed, true);
+  assert.equal('summary' in got[0], false);
+  assert.equal(got[0].constructor_returned, null);
+  assert.ok(got.slice(1).every((row) => row.outcome === 'unattempted'));
+  assert.equal(reportOf(r.output).cleanup.verified, true);
+});
+
+serial('run deadline and RSS refusal keep explicit suffixes', () => {
+  let r = cli(['--run-timeout-ms', '1']);
+  assert.equal(r.code, 1);
+  let got = rows(r.output);
+  assert.equal(got.length, 13);
+  assert.ok(got.every((row) => row.outcome === 'timeout' || row.outcome === 'unattempted'));
+  const rest = got[0].outcome === 'unattempted' ? got : got.slice(1);
+  assert.ok(rest.every((row) => row.outcome === 'unattempted' && row.reason === 'run_deadline'));
+  r = cli(['--rss-limit-bytes', '1', '--max-jobs', '1']);
+  assert.equal(r.code, 1);
+  got = rows(r.output);
+  assert.equal(got[0].outcome, 'resource_refusal');
+  assert.equal(got[0].reason, 'rss_limit');
+  assert.equal(got[0].cleanup.exit_observed, true);
+  assert.ok(got.slice(1).every((row) => row.outcome === 'unattempted' && row.reason === 'rss_limit'));
+});
+
+serial('job JSON caps refuse an impossible budget and suppress complete summaries', () => {
+  let r = cli(['--max-job-json-bytes', '32']);
+  assert.equal(r.code, 2);
+  assert.equal(r.summary.reason, 'output_budget');
+  assert.equal(fs.existsSync(r.output), false);
+  r = cli(['--max-job-json-bytes', '2500']);
+  assert.equal(r.code, 1);
+  const got = rows(r.output);
+  const lines = fs.readFileSync(path.join(r.output, 'jobs.jsonl'), 'utf8').trim().split('\n');
+  assert.equal(lines.length, 13);
+  assert.ok(lines.every((line) => Buffer.byteLength(line) <= 2500));
+  assert.ok(got.some((row) => row.outcome === 'summary_limit'));
+  for (const row of got) assert.equal('summary' in row, false);
+  authored.cases.forEach((entry, index) => {
+    const row = got[index];
+    assert.equal(row.id, entry.id);
+    if (entry.expected_outcome === 'constructor_exception') assert.equal(row.exception.name, entry.expected_exception_name);
+  });
+});
+
+serial('source drift after a clean observation is not qualified', async () => {
+  const output = freshOut();
+  const worker = path.join(HERE, 'model_constructor_worker.mjs');
+  const before = fs.readFileSync(worker);
+  hooks.beforeIdentityRecheck = () => fs.writeFileSync(worker, before);
+  try {
+    const code = await main(['--input-root', INPUT_ROOT, '--client-source', CLIENT, '--profile', PROFILE,
+      '--fixtures', FIXTURES, '--output', output, '--max-jobs', '1'], { stdout: { write() {} } });
+    assert.equal(code, 1);
+    assert.equal(reportOf(output).pinned_inputs_identity_unchanged_after_run, false);
+    assert.equal(reportOf(output).qualified, false);
+    assert.equal(rows(output)[0].cleanup.exit_observed, true);
+  } finally {
+    hooks.beforeIdentityRecheck = null;
+    fs.writeFileSync(worker, before);
+  }
+});
+
+serial('same-realm copy matches; cross-realm and offset-view are adapter hazards', async () => {
+  const sources = {};
+  for (const key of MODULE_KEYS) {
+    const pin = profile.sources[key];
+    sources[key] = readPinnedFile(path.join(CLIENT, key), { label: key, maxBytes: pin.bytes, expectBytes: pin.bytes, expectSha: pin.sha256 }).buffer.toString('utf8');
+  }
+  const realm = await createRealm(sources);
+  assert.equal(realm.loaded.length, 7);
+  assert.deepEqual([...realm.seekGlobals], [1, 2, 3]);
+  const machine = await import('node:vm');
+  assert.equal(machine.runInContext('typeof process + typeof require + typeof Buffer + typeof fetch + typeof document', realm.context),
+    'undefinedundefinedundefinedundefinedundefined');
+  const entry = authored.cases[0];
+  const bytes = Buffer.from(entry.body_hex, 'hex');
+  assert.throws(() => realm.construct(new Uint8Array(bytes).buffer, 2000), (error) => /Undefined buffer type/.test(error.message) && error.name === 'Error');
+  const view = realm.offsetView(bytes, 7, 0x41);
+  assert.throws(() => realm.construct(view, 2000), (error) => error.name === 'Error' && /header/.test(error.message));
+  const value = realm.construct(realm.exactBuffer(bytes), 2000);
+  assert.deepStrictEqual(JSON.parse(JSON.stringify(summarizeModel(value))), entry.expected_summary);
+  assert.throws(() => summarizeModel({ nodes: new Array(65537), textures: [] }), SummaryLimitError);
+  assert.equal(outcomeForSummaryThrow(new SummaryLimitError()), 'summary_limit');
+  assert.equal(outcomeForSummaryThrow(new TypeError('model array expected')), 'summary_error');
+});
+
+serial('closed linker accepts only the seven-module Model entry', () => {
+  assert.equal(ENTRY_SOURCE.includes('Model'), true);
+  assert.equal(ENTRY_SOURCE.includes('World'), false);
+  assert.equal(resolveSpecifier('Loaders/Model.js', ENTRY_SOURCE), 'src/Loaders/Model.js');
+  assert.equal(resolveSpecifier('Utils/BinaryReader.js', 'src/Loaders/Model.js'), 'src/Utils/BinaryReader.js');
+  assert.equal(resolveSpecifier('./Struct.js', 'src/Utils/BinaryReader.js'), 'src/Utils/Struct.js');
+  for (const bad of ['Loaders/World.js', 'node:fs', 'fs', '../../etc/passwd', 'Utils/../../x.js', 'https://x/y.js']) {
+    assert.throws(() => resolveSpecifier(bad, 'src/Loaders/Model.js'), bad);
+  }
+  assert.deepEqual(RULE_KEYS, ['src/Loaders/MapLoader.js', 'src/Core/FileManager.js', 'src/Renderer/Map/AnimatedModels.js']);
+});
+
+serial('identity strings keep nanoseconds and corpus admission is exact', () => {
+  assert.equal(identityOf({ dev: 1n, ino: 2n, size: 3n, mtimeNs: 9007199254740993n, ctimeNs: 9007199254740993n }).mtime_ns, '9007199254740993');
+  const body = Buffer.from('4752534d0104aa', 'hex');
+  const digest = crypto.createHash('sha256').update(body).digest('hex');
+  const identity = { dev: '7', ino: '9', size: String(body.length), mtime_ns: '9007199254740993', ctime_ns: '9007199254740993' };
+  const referrer = (n) => ({ job_index: n, loader_index: 0, role: 'model' });
+  const catalogTarget = (index, http, referrers) => ({ index, http_path: http, referrers });
+  const reportTarget = (index, http, file) => ({
+    target_index: index, attempted: true, request_index: index + 1, http_status: 200, wire_target: `/${http}`,
+    stored: { file, bytes: body.length, complete: true, error: null, sha256: digest },
+    signature: { kind: index === 1 ? 'bmp' : 'model', state: 'match', prefix_hex: index === 1 ? '424d' : '4752534d0104' }
+  });
+  reportTarget(1, 'data/texture/x.bmp', '000002').signature.kind = 'bmp';
+  const bmp = reportTarget(1, 'data/texture/x.bmp', '000002');
+  bmp.signature = { kind: 'bmp', state: 'match', prefix_hex: '424d' };
+  bmp.stored.sha256 = 'b'.repeat(64);
+  const report = {
+    schema: 'T06-map-dependency-observation-1', task: 'T06.003.003.005', all_targets_attempted: true,
+    records_complete: true, acquisition_and_cleanup_valid: true,
+    catalog_refs: { targets: 3, gap_root_ordinals: [4] },
+    targets: [reportTarget(0, 'data/model/a.rsm', '000001'), bmp, reportTarget(2, 'data/model/b.rsm', '000003')]
+  };
+  const catalog = {
+    schema: 'T06-map-dependency-catalog-1',
+    roots: [{ ordinal: 0, name: 'keep', edges: { rsw: { parse_status: 'not_run' } } }],
+    remaining_gap_root_ordinals: [4],
+    targets: [catalogTarget(0, 'data/model/a.rsm', [referrer(1)]), catalogTarget(1, 'data/texture/x.bmp', [referrer(2)]), catalogTarget(2, 'data/model/b.rsm', [referrer(3)])]
+  };
+  const audit = {
+    schema: 'root005-independent-actual-audit-1', availability_audit_qualified: true, target_records: 3, all_roots: 1,
+    referrers: 3, remaining_core_gap_roots: 1, first_level_gaps: [{ target_index: 9, kind: 'bmp' }],
+    coverage: { signature: { 'model:match': 2 } }
+  };
+  const counts = {
+    model_targets: 2, constructor_jobs: 1, model_referrers: 2, roots: 1, remaining_core_gap_roots: 1,
+    all_catalog_referrers: 3, target_body_bytes: body.length * 2, distinct_job_bytes: body.length
+  };
+  const synthetic = {
+    counts,
+    header_prefix_counts: { '4752534d0104': 2 },
+    availability: { report: { path: '.tools/renewal/corpus/report.json' } }
+  };
+  const selected = selectModelTargets(report, catalog, audit, synthetic);
+  assert.equal(selected.length, 2);
+  assert.equal(selected[0].model_ordinal, 0);
+  assert.equal(selected[1].target_index, 2);
+  assert.notEqual(selected[1].model_ordinal, selected[1].target_index);
+  assert.deepEqual(selected[0].referrers, [referrer(1)]);
+  const manifestTarget = (ordinal, index, file) => ({
+    model_ordinal: ordinal, target_index: index, request_index: index + 1,
+    report_pointer: `/targets/${index}`, catalog_pointer: `/targets/${index}`,
+    http_path: selected[ordinal].http_path, referrers: selected[ordinal].referrers,
+    body: { path: `.tools/renewal/corpus/${file}`, bytes: body.length, sha256: digest, identity },
+    job_id: 'model-000000'
+  });
+  const manifest = {
+    schema: 'T06-model-constructor-input-1', task: 'T06.003.003.006', counts, header_prefix_counts: { '4752534d0104': 2 },
+    roots: catalog.roots, remaining_gap_root_ordinals: [4], prior_first_level_gaps: audit.first_level_gaps,
+    targets: [manifestTarget(0, 0, '000001'), manifestTarget(1, 2, '000003')],
+    jobs: [{
+      job_id: 'model-000000', representative_model_ordinal: 0, body_path: '.tools/renewal/corpus/000001',
+      input_bytes: body.length, complete_sha256: digest, header_version_bytes: '4752534d0104', target_model_ordinals: [0, 1]
+    }]
+  };
+  let reads = 0;
+  const readBody = (target) => {
+    reads++;
+    assert.equal(reads < 3 || target.body.path.endsWith('000003') || target.body.path.endsWith('000001'), true);
+    return { buffer: Buffer.from(body), identity };
+  };
+  const jobs = admitModelCorpus({ manifest, report, catalog, audit, profile: synthetic, readBody });
+  assert.equal(jobs.length, 1);
+  assert.deepEqual(jobs[0].target_model_ordinals, [0, 1]);
+  assert.ok(reads >= 3);
+  const bad = structuredClone(manifest);
+  bad.targets[1].body.identity = { ...identity, mtime_ns: '9007199254740992' };
+  assert.throws(() => admitModelCorpus({ manifest: bad, report, catalog, audit, profile: synthetic, readBody }), (error) => error.reason === 'admission_discrepancy');
+  const dropped = structuredClone(manifest);
+  dropped.targets = dropped.targets.slice(0, 1);
+  assert.throws(() => admitModelCorpus({ manifest: dropped, report, catalog, audit, profile: synthetic, readBody }), Refusal);
+  const expanded = expandTargetOutcomes(manifest.targets, new Map([['model-000000', 'returned']]));
+  assert.equal(expanded.counts.returned, 2);
+  assert.equal(expanded.targets[0].constructor_outcome, 'returned');
+  assert.equal(expanded.targets[0].referrers[0].role, 'model');
+  assert.equal(manifest.targets[0].constructor_outcome, undefined);
+});
+
+serial('representative drift is input_refused and traversal never opens a body', () => {
+  const root = path.join(TMP, 'bodies');
+  fs.mkdirSync(root, { mode: 0o700 });
+  const body = Buffer.from('4752534d0104zz');
+  const file = path.join(root, '000001');
+  fs.writeFileSync(file, body, { mode: 0o600 });
+  fs.chmodSync(file, 0o600);
+  const digest = crypto.createHash('sha256').update(body).digest('hex');
+  const st = fs.lstatSync(file, { bigint: true });
+  const job = { body_path: '000001', input_bytes: body.length, complete_sha256: digest, body: { path: '000001', bytes: body.length, sha256: digest, identity: identityOf(st) } };
+  const read = readPinnedFile(file, { label: 'body', maxBytes: profile.policy.max_body_bytes, expectBytes: body.length, expectSha: digest, expectIdentity: identityOf(st), requireMode: 0o600, requireNlink: 1 });
+  assert.equal(read.sha256, digest);
+  fs.writeFileSync(file, Buffer.from('drifted-body!!'), { mode: 0o600 });
+  assert.throws(() => readPinnedFile(file, { label: 'body', maxBytes: 1000, expectBytes: body.length, expectSha: digest, requireMode: 0o600 }), (error) => error instanceof Refusal);
+  assert.throws(() => safeJoin(root, '../x', 'body'), Refusal);
+  assert.throws(() => safeJoin(root, 'a/../../etc/passwd', 'body'), Refusal);
+  fs.symlinkSync(file, path.join(root, 'link.bin'));
+  assert.throws(() => readPinnedFile(path.join(root, 'link.bin'), { label: 'body', maxBytes: 1000 }), (error) => error.reason === 'symlink_refused');
+  const wide = path.join(root, 'wide');
+  fs.writeFileSync(wide, body, { mode: 0o600 });
+  fs.chmodSync(wide, 0o644);
+  assert.throws(() => readPinnedFile(wide, { label: 'body', maxBytes: 1000, requireMode: 0o600 }), (error) => error.reason === 'mode_refused');
+  void job;
+});
+
+serial('worker lifecycle keeps a result from repairing nonzero, missing, or late exits', async () => {
+  const message = {
+    type: 'result', outcome: 'returned', constructor_returned: true, summary_json: '{"ok":1}', summary_json_bytes: 8,
+    log: { text: '', dropped: 0 }, loaded_module_keys: MODULE_KEYS, seek_globals: [1, 2, 3], dynamic_imports: []
+  };
+  const policy = { ...profile.policy, job_timeout_ms: 1000, result_exit_grace_ms: 30, cleanup_wait_ms: 200 };
+  const cases = [
+    ['nonzero', 'worker_error'],
+    ['never-exit', 'worker_error'],
+    ['error', 'worker_error'],
+    ['late', 'timeout'],
+    ['clean', 'returned']
+  ];
+  let current = null;
+  const rss = { active: null, over: 0, sample() {} };
+  hooks.createWorker = () => {
+    const worker = new EventEmitter();
+    worker.stdout = new EventEmitter();
+    worker.stderr = new EventEmitter();
+    worker.stdout.resume = () => {};
+    worker.stderr.resume = () => {};
+    worker.terminate = () => { worker.terminated = true; setImmediate(() => worker.emit('exit', 1)); return Promise.resolve(1); };
+    setImmediate(() => {
+      worker.emit('message', { type: 'phase', phase: 'constructor' });
+      if (current === 'late') return;
+      worker.emit('message', message);
+      if (current === 'nonzero') worker.emit('exit', 1);
+      else if (current === 'error') worker.emit('error', Object.assign(new Error('authored worker failure'), { code: 'ERR_TEST' }));
+      else if (current === 'clean') worker.emit('exit', 0);
+    });
+    return worker;
+  };
+  try {
+    for (const [id, expected] of cases) {
+      current = id;
+      const job = { id, job_id: id, kind: 'model', complete_sha256: 'a'.repeat(64), input_bytes: 2, header_version_bytes: '00' };
+      const row = await runWorkerJob(job, Buffer.from([0, 1]), {
+        policy: { ...policy, job_timeout_ms: id === 'late' ? 20 : 1000 },
+        sources: {}, summaryText: 'export function summarizeModel(){ return {}; }\n',
+        runDeadline: performance.now() + 5000, rss
+      });
+      assert.equal(row.outcome, expected, id);
+      assert.equal(row.cleanup.exit_observed, true, id);
+      assert.equal(row._summary_json, id === 'clean' ? '{"ok":1}' : null, id);
+      if (id === 'nonzero' || id === 'never-exit') {
+        assert.equal(row.prior_result.outcome, 'returned');
+        assert.equal(row.constructor_returned, true);
+        assert.equal('summary' in row, false);
+      }
+      if (id === 'late') assert.equal(row.constructor_returned, null);
+      if (id === 'clean') {
+        assert.equal(row.cleanup.exit_code, 0);
+        assert.equal(row.cleanup.terminated_by_parent, false);
+      }
+    }
+  } finally { hooks.createWorker = null; }
+});
+
+serial('short writes complete and zero-progress publication fails closed', async () => {
+  const output = freshOut();
+  const realWrite = fs.writeSync;
+  let shorts = 0;
+  fs.writeSync = (fd, buffer, offset, length, position) => {
+    if (!shorts && length > 8) {
+      shorts++;
+      return realWrite(fd, buffer, offset, Math.max(1, Math.floor(length / 2)), position);
+    }
+    return realWrite(fd, buffer, offset, length, position);
+  };
+  try {
+    const code = await main(['--input-root', INPUT_ROOT, '--client-source', CLIENT, '--profile', PROFILE,
+      '--fixtures', FIXTURES, '--output', output, '--max-jobs', '0'], { stdout: { write() {} } });
+    assert.equal(shorts, 1);
+    assert.equal(code, 1);
+    assert.equal(rows(output).length, 13);
+    assert.equal(reportOf(output).jobs_file.records, 13);
+    assert.equal(fs.readdirSync(output).some((name) => name.includes('.tmp')), false);
+  } finally { fs.writeSync = realWrite; }
+
+  const blocked = freshOut();
+  let calls = 0;
+  let owned = null;
+  const realOpen = fs.openSync;
+  const realClose = fs.closeSync;
+  fs.openSync = (target, ...args) => {
+    const fd = realOpen(target, ...args);
+    if (typeof target === 'string' && target.endsWith('jobs.jsonl')) owned = fd;
+    return fd;
+  };
+  fs.closeSync = (fd) => { const result = realClose(fd); if (fd === owned) owned = null; return result; };
+  fs.writeSync = (fd, ...args) => {
+    if (fd === owned) {
+      if (++calls > 6) throw new Error('write loop did not stop');
+      return 0;
+    }
+    return realWrite(fd, ...args);
+  };
+  let code;
+  try {
+    code = await main(['--input-root', INPUT_ROOT, '--client-source', CLIENT, '--profile', PROFILE,
+      '--fixtures', FIXTURES, '--output', blocked, '--max-jobs', '0'], { stdout: { write() {} } });
+  } finally {
+    fs.openSync = realOpen;
+    fs.closeSync = realClose;
+    fs.writeSync = realWrite;
+    if (owned !== null) try { realClose(owned); } catch { /* test cleanup only */ }
+  }
+  assert.equal(code, 1);
+  assert.ok(calls >= 2 && calls <= 6);
+  assert.equal(owned, null);
+});
+
+serial('opened growth is refused before the payload read and the fd is closed', () => {
+  const file = path.join(TMP, 'growth.bin');
+  const initial = Buffer.from('0123456789abcdef');
+  fs.writeFileSync(file, initial, { mode: 0o600 });
+  const options = { label: 'growth', maxBytes: 32, expectBytes: initial.length, expectSha: crypto.createHash('sha256').update(initial).digest('hex') };
+  assert.equal(readPinnedFile(file, options).bytes, initial.length);
+  const real = { open: fs.openSync, close: fs.closeSync, read: fs.readSync, append: fs.appendFileSync, alloc: Buffer.alloc };
+  let armed = true;
+  let fd = null;
+  let closed = false;
+  let reads = 0;
+  let caught;
+  fs.openSync = (target, ...args) => {
+    if (armed && path.resolve(String(target)) === file) {
+      armed = false;
+      real.append(file, Buffer.from('x'.repeat(40)));
+      fd = real.open(target, ...args);
+      return fd;
+    }
+    return real.open(target, ...args);
+  };
+  fs.closeSync = (n) => { const result = real.close(n); if (n === fd) closed = true; return result; };
+  fs.readSync = (n, ...args) => { if (n === fd) reads++; return real.read(n, ...args); };
+  Buffer.alloc = (n, ...args) => real.alloc(n, ...args);
+  try { readPinnedFile(file, options); } catch (error) { caught = error; }
+  finally {
+    fs.openSync = real.open; fs.closeSync = real.close; fs.readSync = real.read; Buffer.alloc = real.alloc;
+    if (fd !== null && !closed) real.close(fd);
+  }
+  assert.ok(caught instanceof Refusal);
+  assert.equal(closed, true);
+  assert.equal(reads, 0);
+});
+
+serial('boundedRow does not keep a partial summary when the envelope is too small', () => {
+  const row = {
+    ...unattemptedRow({ id: 'cap', job_id: 'cap', kind: 'model', input_bytes: 1, complete_sha256: '0'.repeat(64), header_version_bytes: '00' }, 'none'),
+    outcome: 'returned', constructor_returned: true, worker_started: true, cleanup: { exit_observed: true, exit_code: 0, terminated_by_parent: false },
+    _log: '', _summary_json: JSON.stringify({ textures: ['許'.repeat(400)] })
+  };
+  const before = JSON.stringify(row);
+  const got = boundedRow(row, { ...profile.policy, max_job_json_bytes: 700 }, 0);
+  assert.ok(Buffer.byteLength(got.line) <= 700);
+  assert.equal(got.row.outcome, 'summary_limit');
+  assert.equal('summary' in got.row, false);
+  assert.equal(JSON.stringify(row), before);
+  const jobs = fixtureJobs(authored, profile.policy);
+  assert.equal(jobs.length, 13);
+  assert.equal(compareAuthored(jobs[0], { outcome: 'returned', summary: authored.cases[0].expected_summary }), true);
+});
+
+serial('writeAll retries a positive short write and stops on zero progress', () => {
+  const file = path.join(TMP, 'write-all.bin');
+  const fd = fs.openSync(file, 'wx', 0o600);
+  const real = fs.writeSync;
+  const payload = Buffer.from('許 model\n', 'utf8');
+  let calls = 0;
+  try {
+    fs.writeSync = (n, buffer, offset, length, position) => {
+      if (n !== fd) return real(n, buffer, offset, length, position);
+      calls++;
+      return real(n, buffer, offset, Math.min(3, length), position);
+    };
+    writeAll(fd, payload);
+    assert.ok(calls > 1);
+    assert.equal(fs.readFileSync(file).equals(payload), true);
+  } finally { fs.writeSync = real; fs.closeSync(fd); }
+  const zero = fs.openSync(path.join(TMP, 'zero.bin'), 'wx', 0o600);
+  let zeros = 0;
+  try {
+    fs.writeSync = (n, ...args) => {
+      if (n !== zero) return real(n, ...args);
+      if (++zeros > 1) throw new Error('retried after zero');
+      return 0;
+    };
+    assert.throws(() => writeAll(zero, payload), Refusal);
+    assert.equal(zeros, 1);
+  } finally { fs.writeSync = real; fs.closeSync(zero); }
+});
