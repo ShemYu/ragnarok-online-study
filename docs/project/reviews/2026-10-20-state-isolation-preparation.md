@@ -55,10 +55,10 @@ runtime qualification. Root confirms its critical source premises directly.
 
 Two corrections strengthen the next task. First, distinct engine/volume names
 are insufficient: inspect actual backing disks and every writable bind mount,
-including generated asset/config destinations. Second, electron/main.js239
-explicitly leaves Nebula alive after app quit. App/server relaunch can prove
-that boundary's persistence; a VM cold-restart claim requires stopping and
-restarting only the positively identified fresh engine, then rechecking state.
+including generated asset/config destinations. The initial restart advice
+relied on the electron/main.js239comment. That premise is superseded by the
+actual shutdown-code trace below; a cold claim still needs observed engine
+exit/recreation and persistence in the positively identified fresh world.
 
 An original-world backup/restore and recovery into a second new world are not
 prerequisites when the proved isolation excludes original-world writes and
@@ -80,3 +80,21 @@ Private note .tools/renewal/t06-006-isolation-preparation-1/DRAFT.md,
 root-source-pin-review.json records all17 committed/full source matches.
 Full Modern/Renewal, eventual Traditional Chinese and later party-only scope
 remain unchanged. No current game, save, network or preferences changed.
+
+## Shutdown source correction
+
+At the later T06.006.001 review checkpoint, a narrow Astra source audit finds
+that main.js239is stale commentary. Root personally reads the actual bodies:
+main.js3792–3814/3819–3833 invoke supervisor down; quit/signal handlers at
+4190–4241 select these teardowns. cmds.rs2139–2174 stops services/database,
+requests nebula down and waits for engine exit. Thus source supports normal
+app shutdown stopping the VM; it does not support assuming the engine always
+survives. The immutable original advice/worker inputs remain preserved with
+this explicit correction. No actual installed shutdown was exercised here.
+
+Record engine identity/exit and a newly started identity to classify the real
+trial. Do not add a redundant second engine stop merely because of the old
+comment. On any ambiguous migration/ownership result, resolve identity before
+lifecycle actions: a migration can replace the textual fresh path with a legacy
+home, so that path alone no longer authorizes a stop. This is a bounded test
+plan correction, not evidence requiring a goal change.

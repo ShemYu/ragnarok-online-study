@@ -1,6 +1,6 @@
 # Supervision, plan and current position
 
-Date: **2026-10-20 JST**. Functionality comes first. The nested texture scan and first content review are complete. Separate test-world plans run in parallel. Image loading and play remain to check.
+Date: **2026-10-20 JST**. Functionality comes first. The nested texture scan and two parallel plan reviews are complete. Next: check the installed tools for a separate test world. Image loading and play remain to check.
 Use this map for a short view of [Status](STATUS.md), [Tasks](TASKS.md) and
 [Phases](PHASES.md). Status gives the current next action.
 Update this map after each important change. Keep the dated evidence.
@@ -134,8 +134,11 @@ Compare new Claude/Grok texture observers                          [V]
 Repair final failures; pass 44 tests and 91 shared cases            [V]
 Check all 8,119 paths: 8,118 available; one missing                  [V]
 Verify every stored body, input and clean reader exit               [V]
+Build the preliminary version/content gap matrix in parallel       [V]
+Compare separate-world plans in parallel                           [V]
+Check installed tools and create guarded test state                [~] <-- NOW
+Prove test-world identity; check ordinary play and persistence      [ ]
 Check an ordinary multi-stage quest and effective runtime loads    [ ]
-Build the preliminary version/content gap matrix in parallel       [~] <-- NOW
 Diagnose one model exception and nine numeric-marker models      [ ]
 Investigate eight core NaN files and twelve unread tails          [ ]
 Check compilation, rendering, travel and play                     [ ]
@@ -145,8 +148,9 @@ Find compatible assets for the 82 unresolved requests             [ ]
 The texture scan takes 31.4 seconds and samples about 1.16 GB of owned RAM.
 One unknown-extension request is missing. Its effect on the game is untested.
 All 216 TGA headers pass the recorded checks. Images still need load/render tests.
-The ordinary quest needs separate test state and a fresh backup first.
-Independent source review can run while Codex verifies the scanner.
+The ordinary quest needs proved separate test state first.
+Do not operate on the original database merely to start this separate test.
+Official baseline research can run beside the test-world checks.
 Shared game and database changes run in sequence.
 Codex removed 35 inactive child worktrees after full backup verification.
 There are 22 children left. Their review, retained or uncertain state needs them.
