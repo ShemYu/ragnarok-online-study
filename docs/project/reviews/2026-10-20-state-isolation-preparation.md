@@ -42,10 +42,38 @@ or live-save access follows from these source observations.
 
 Next: compare actual Claude/Grok plans on identical inputs, then root proves
 the new engine/volume/ports/client handshake before any test login. Preserve
-the newest player state and keep the existing game running. Test persistence
-and any restore only in owned separate test state. Astra is reviewing the
-minimum necessary preservation/isolation proof to avoid redundant recovery
-work; its advisory does not establish runtime success or replace the pair.
+the newest player state by excluding its paths, writable mounts and lifecycle
+from the trial. Test persistence and any restore only in owned separate state.
+
+## Astra minimum-proof review
+
+Root reads the complete9931-byte advisory and adopts its staged order:
+packaged fresh home/profile, positive storage/complete routing identity,
+ordinary group0 smoke with owned lifecycle, then multi-stage quest plus
+effective-load evidence. This is internal strategy, not provider credit or
+runtime qualification. Root confirms its critical source premises directly.
+
+Two corrections strengthen the next task. First, distinct engine/volume names
+are insufficient: inspect actual backing disks and every writable bind mount,
+including generated asset/config destinations. Second, electron/main.js239
+explicitly leaves Nebula alive after app quit. App/server relaunch can prove
+that boundary's persistence; a VM cold-restart claim requires stopping and
+restarting only the positively identified fresh engine, then rechecking state.
+
+An original-world backup/restore and recovery into a second new world are not
+prerequisites when the proved isolation excludes original-world writes and
+lifecycle actions. Do not operate on the player's database just to admit a
+disposable test. Record no fresh original-save recovery claim; O remains
+historical. If execution needs a shared writable change or player-engine
+operation, stop that action and first establish current consistent preservation
+and the appropriate recovery plan. Ambiguous identity blocks login; a backup
+does not compensate for uncertain routing. New recovery mechanisms and actual
+recovery acceptance claims still need their own tests.
+
+Private .tools/renewal/t06-006-astra-isolation-review-1/REVIEW.md,
+9931bytes/SHA4c8506775e240afce208c2ea60e353feb77a9d92cdbf0d3453b51ffe85bb13d3.
+Independent official-baseline research and static quest selection can continue
+in parallel; game/database operations remain root-owned and serial.
 
 Private note .tools/renewal/t06-006-isolation-preparation-1/DRAFT.md,
 14348bytes/SHA3f6b8ac15b776c8dec1fa745f59542a8ae42fb4c5b1f37b9c0435a9f29f6ed3a.
