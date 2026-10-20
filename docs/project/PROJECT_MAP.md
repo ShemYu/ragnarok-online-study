@@ -122,7 +122,8 @@ Select Grok repair basis; both raw candidates need fixes          [V]
 Repair runner timing, file checks and failure accounting          [V]
 Repeat integrated checks and the complete model corpus           [V]
 Fix log text and loss reporting; pass 36 tests and 13 fixtures     [V]
-Repeat the final-source full corpus and independent audit         [~] <-- NOW
+Repeat the final-source full corpus and independent audit         [V]
+Freeze the nested-texture catalog and common checks               [~] <-- NOW
 Check availability of 8,119 declared nested texture paths         [ ]
 Diagnose one model exception and nine numeric-marker models      [ ]
 Investigate eight core NaN files and twelve unread tails          [ ]
@@ -174,7 +175,9 @@ All 29 tests, 13 fixture cases and 8,166 corrected jobs pass their checks.
 The full run takes about 4 minutes and samples about 419 MB of RAM.
 A separate test finds damaged log text and unclear dropped-log counts.
 Codex fixes the issue. All 36 tests and 13 fresh fixture cases pass.
-The final source needs one new full run and audit before acceptance.
+The final full run and both independent comparisons pass.
+All model targets and map links stay accounted for. The known error stays open.
+The next step is the texture catalog and its common checks.
 Nested texture retrieval, rendering and travel still follow.
 See the [scanner comparison](reviews/2026-10-20-T06.003.003.005.md#paired-decision-and-next-correction-gate).
 Before the scan, Codex checks the size metadata.
