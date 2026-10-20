@@ -55,3 +55,35 @@ peaks and is not OS containment. Root reads the complete guard and typed result;
 source rollback is this documentation checkpoint's revert. No external state
 restore applies. Model/nested-texture/geometry/render/travel and full systems/
 story/language/version/offline acceptance remain open.
+
+
+## Original recorded wire targets now joined
+
+Root next admits the already qualified combined core-parser metadata3711287B/
+SHAc2dd107007f21c6d12e46f93024137efea3967c9a9cb0614f37e4ecf9bbe09e7
+and its pinned original acquisition report6148485B/
+SHAb4d60b663ac9cb7245608fa3c6c1d106f3a4e582a592c9fafbb7e2a6bb2959e3.
+The original report's CLI inventory failure remains historical; its request
+records were independently qualified, not promoted from its own success flag.
+
+Root authors/reads/runs a four-metadata-file join. Every82root's cache/config/
+renderer/name/packet provenance matches original/combined/current metadata;
+each original_source request index selects its exact original recorded request.
+All82logical names and encoded HTTP targets match the ASCII renderer-name data
+path stage. Each recorded response is complete404/14bytes with the known error
+pin, as previously observed. This resolves the earlier lack of exposed wire
+strings in the initial nine-file comparison; the immutable initial result stays
+unchanged. It does not prove universal resolver/key semantics or a current
+request result. No new HTTP call or retained body read occurs.
+
+Private root082_original_wire_binding_1.py5851bytes/SHA
+912e0547b5a6951490b3aed744ee765b3d6bd4c0820a80260b3729a565418fc2;
+root082-original-wire-binding-1/receipt.json84201bytes/SHA
+a297a47302b6ff4c32cfe97fd451998bd6496f7a90004d9af87901388575046b;
+root082-original-wire-binding-guard-1/receipt.json1750bytes/SHA
+1a5650068166f7a66b996f9bb564a2f5b44c1ac433e2dee799e1536a2f55b60d.
+All four metadata files are fully hashed/identity-checked before/after, and the
+fresh private output is read back. Root inspects all82binding checks and complete
+guard evidence. Guard exit0/0.559456seconds/197050368bytes sampled owned RSS,
+no action/signals/owned residue. Compatible asset coverage/repair and actual
+rendering/reachability remain open; no map or goal is reduced.
