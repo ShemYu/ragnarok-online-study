@@ -125,7 +125,8 @@ Fix log text and loss reporting; pass 36 tests and 13 fixtures     [V]
 Repeat the final-source full corpus and independent audit         [V]
 Freeze the nested-texture catalog and common checks               [V]
 Prepare and launch the actual Claude/Grok catalog pair            [V]
-Build both independent catalogs; root prepares verification       [~] <-- NOW
+Build both independent catalogs; preserve and release workers      [V]
+Root verifies both catalogs, boundary cases and real I/O            [~] <-- NOW
 Compare both full catalogs, failures and repeat outputs           [ ]
 Check availability of 8,119 declared nested texture paths         [ ]
 Diagnose one model exception and nine numeric-marker models      [ ]
@@ -183,10 +184,16 @@ All model targets and map links stay accounted for. The known error stays open.
 The texture catalog contract and shared literal checks are prepared.
 Codex builds a full reference before either implementation starts.
 Its counts match a separate recount. The reference is about 96 MB.
-Both providers now build from the same Git checkpoint in separate branches.
-Codex will check both complete results before selecting an implementation.
+Both providers submit from the same Git checkpoint in separate branches.
+Their raw commits and transcripts are preserved; both workers are released.
+Claude passes the full data comparison but needs a metadata-copy correction.
+Grok has submitted; Codex now checks its complete result and failure controls.
+Codex will compare both results before selecting an implementation.
 See the [current paired task](reviews/2026-10-20-T06.003.003.007.md).
 Nested texture retrieval, rendering and travel still follow.
+Separate [model-error preparation](reviews/2026-10-20-model-exception-preparation.md)
+verifies a reachable node-call loop in the one retained failing model.
+No repair or new constructor/rendering result is claimed.
 See the [scanner comparison](reviews/2026-10-20-T06.003.003.005.md#paired-decision-and-next-correction-gate).
 Before the scan, Codex checks the size metadata.
 10,704 asset paths have size candidates. Their declarations total about 290 MB.
