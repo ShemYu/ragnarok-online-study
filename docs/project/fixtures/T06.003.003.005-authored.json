@@ -1,0 +1,903 @@
+{
+  "schema": "T06-map-dependency-observation-authored-1",
+  "status": "FROZEN_ROOT_REVIEWED",
+  "provenance": "Tiny authored literals, prepared by an internal aide and independently reviewed by root before the actual Claude/Grok pair; no runtime or provider credit.",
+  "case_counts": {
+    "wire": 16,
+    "transport": 11,
+    "write_controls": 3,
+    "signature": 10
+  },
+  "api_contract": {
+    "wire_target": {
+      "arguments": [
+        "http_path"
+      ],
+      "returns": "slash followed by unchanged ASCII encoded path",
+      "refuses": [
+        "empty",
+        "non-ASCII",
+        "ASCII C0 or DEL control",
+        "literal space",
+        "literal ? or #",
+        "leading slash",
+        "repeated slash",
+        "dot or dotdot segment",
+        "malformed percent escape"
+      ],
+      "refusal": "ValueError with generic message and no raw path echo",
+      "preserves": [
+        "case",
+        "valid percent-escape spelling and hex case",
+        "!'()*"
+      ]
+    },
+    "transfer": {
+      "arguments": [
+        "response",
+        "fd"
+      ],
+      "keyword_arguments": [
+        "body_cap",
+        "aggregate_left",
+        "deadline",
+        "clock=None",
+        "write_fn=None"
+      ],
+      "result_keys": [
+        "outcome",
+        "bytes",
+        "response_complete",
+        "complete_sha256",
+        "partial_sha256",
+        "late"
+      ],
+      "outcomes": [
+        "complete",
+        "declared_over_cap",
+        "cap_unresolved_eof",
+        "aggregate_cap",
+        "deadline",
+        "transport_error"
+      ],
+      "late": "final clock() >= deadline for every returned outcome",
+      "empty_framing": "response.length == 0 is handled before the read-deadline gate",
+      "complete_hash": "SHA256 of fully stored chunks on complete outcome; partial hash null",
+      "noncomplete_hash": "complete hash null; partial hash SHA256 of fully stored chunks, including empty",
+      "storage_error": "propagate OSError, no transfer result, caller retains and must close fd; do not retry after zero write"
+    },
+    "inspect_signature": {
+      "arguments": [
+        "kind",
+        "prefix"
+      ],
+      "kinds": [
+        "model",
+        "bmp",
+        "jpeg"
+      ],
+      "minimum_lengths": {
+        "model": 6,
+        "bmp": 2,
+        "jpeg": 2
+      },
+      "result_keys": [
+        "state",
+        "prefix_hex"
+      ],
+      "short": "available prefix length below minimum",
+      "match": {
+        "model": [
+          "4752534d",
+          "47525358"
+        ],
+        "bmp": [
+          "424d"
+        ],
+        "jpeg": [
+          "ffd8"
+        ]
+      },
+      "prefix_hex": "hex of first minimum bytes, or all bytes if shorter; extra bytes ignored"
+    }
+  },
+  "fixture_adapter_rules": {
+    "response_length": "Nonnegative remaining framed byte count or null. read1(max_bytes) returns at most max_bytes, splitting a data step as needed; it decrements framed length by returned byte count. EOF leaves any positive framing remainder unchanged.",
+    "response_steps": "A data step advances only when fully served; clock_when_fully_served then updates the fake clock. eof returns empty bytes; raises throws the named authored exception. No real HTTP object is created.",
+    "clock": "Returns initial_value until a data-step update; no prescribed number of clock() calls. Equality at deadline counts late.",
+    "storage": "Runner supplies an initially empty caller-owned temporary fd and compares physical stored bytes before caller cleanup. write_plan short writes must actually store the reported bytes.",
+    "write_fn": "write_fn(fd, bytes-like-buffer) -> int excluding bool in 1..remaining; zero/invalid/overlarge counts raise OSError without retry.",
+    "read_effects": "No fixed read call count is imposed except an explicitly forbidden read/EOF lookahead. Assert no read request after the named exhausted cap and retain the scripted unread payload.",
+    "wire_errors": "ValueError class and generic-no-echo policy are fixed; exact message text is not prescribed."
+  },
+  "wire_cases": [
+    {
+      "id": "W01",
+      "http_path": "data/model/A.rsm",
+      "expected": {
+        "returns": "/data/model/A.rsm"
+      }
+    },
+    {
+      "id": "W02",
+      "http_path": "data/model/MiX%20A%2bB%2520!'()*.RSM",
+      "expected": {
+        "returns": "/data/model/MiX%20A%2bB%2520!'()*.RSM"
+      }
+    },
+    {
+      "id": "W03",
+      "scenario": "empty",
+      "http_path": "",
+      "expected": {
+        "raises": "ValueError",
+        "message_policy": "generic_no_raw_path_echo",
+        "exact_message_not_frozen": true
+      }
+    },
+    {
+      "id": "W04",
+      "scenario": "non_ascii",
+      "http_path": "data/model/\u8a31.rsm",
+      "expected": {
+        "raises": "ValueError",
+        "message_policy": "generic_no_raw_path_echo",
+        "exact_message_not_frozen": true
+      }
+    },
+    {
+      "id": "W05",
+      "scenario": "c0_control",
+      "http_path": "data/model/a\u001f.rsm",
+      "expected": {
+        "raises": "ValueError",
+        "message_policy": "generic_no_raw_path_echo",
+        "exact_message_not_frozen": true
+      }
+    },
+    {
+      "id": "W06",
+      "scenario": "del_control",
+      "http_path": "data/model/a\u007f.rsm",
+      "expected": {
+        "raises": "ValueError",
+        "message_policy": "generic_no_raw_path_echo",
+        "exact_message_not_frozen": true
+      }
+    },
+    {
+      "id": "W07",
+      "scenario": "literal_space",
+      "http_path": "data/model/a b.rsm",
+      "expected": {
+        "raises": "ValueError",
+        "message_policy": "generic_no_raw_path_echo",
+        "exact_message_not_frozen": true
+      }
+    },
+    {
+      "id": "W08",
+      "scenario": "literal_question",
+      "http_path": "data/model/a?b.rsm",
+      "expected": {
+        "raises": "ValueError",
+        "message_policy": "generic_no_raw_path_echo",
+        "exact_message_not_frozen": true
+      }
+    },
+    {
+      "id": "W09",
+      "scenario": "literal_fragment",
+      "http_path": "data/model/a#b.rsm",
+      "expected": {
+        "raises": "ValueError",
+        "message_policy": "generic_no_raw_path_echo",
+        "exact_message_not_frozen": true
+      }
+    },
+    {
+      "id": "W10",
+      "scenario": "leading_slash",
+      "http_path": "/data/model/a.rsm",
+      "expected": {
+        "raises": "ValueError",
+        "message_policy": "generic_no_raw_path_echo",
+        "exact_message_not_frozen": true
+      }
+    },
+    {
+      "id": "W11",
+      "scenario": "repeated_slash",
+      "http_path": "data//model/a.rsm",
+      "expected": {
+        "raises": "ValueError",
+        "message_policy": "generic_no_raw_path_echo",
+        "exact_message_not_frozen": true
+      }
+    },
+    {
+      "id": "W12",
+      "scenario": "dot_segment",
+      "http_path": "data/./model/a.rsm",
+      "expected": {
+        "raises": "ValueError",
+        "message_policy": "generic_no_raw_path_echo",
+        "exact_message_not_frozen": true
+      }
+    },
+    {
+      "id": "W13",
+      "scenario": "dotdot_segment",
+      "http_path": "data/model/../a.rsm",
+      "expected": {
+        "raises": "ValueError",
+        "message_policy": "generic_no_raw_path_echo",
+        "exact_message_not_frozen": true
+      }
+    },
+    {
+      "id": "W14",
+      "scenario": "nonhex_escape",
+      "http_path": "data/model/a%2G.rsm",
+      "expected": {
+        "raises": "ValueError",
+        "message_policy": "generic_no_raw_path_echo",
+        "exact_message_not_frozen": true
+      }
+    },
+    {
+      "id": "W15",
+      "scenario": "one_hex_escape",
+      "http_path": "data/model/a%2",
+      "expected": {
+        "raises": "ValueError",
+        "message_policy": "generic_no_raw_path_echo",
+        "exact_message_not_frozen": true
+      }
+    },
+    {
+      "id": "W16",
+      "scenario": "bare_percent",
+      "http_path": "data/model/a%",
+      "expected": {
+        "raises": "ValueError",
+        "message_policy": "generic_no_raw_path_echo",
+        "exact_message_not_frozen": true
+      }
+    }
+  ],
+  "transport_cases": [
+    {
+      "id": "T01",
+      "scenario": "framed_exact_body_cap",
+      "response": {
+        "initial_length": 4,
+        "steps": [
+          {
+            "data_hex": "41424344"
+          },
+          {
+            "eof": true
+          }
+        ]
+      },
+      "arguments": {
+        "body_cap": 4,
+        "aggregate_left": 16,
+        "deadline": 10
+      },
+      "clock": {
+        "initial_value": 0,
+        "updates": "only response step clock_when_fully_served"
+      },
+      "writer": "fully_store_every_requested_buffer",
+      "expected": {
+        "outcome": "complete",
+        "bytes": 4,
+        "response_complete": true,
+        "complete_sha256": "e12e115acf4552b2568b55e93cbd39394c4ef81c82447fafc997882a02d23677",
+        "partial_sha256": null,
+        "late": false
+      },
+      "expected_stored_hex": "41424344",
+      "expected_effects": {
+        "do_not_read_eof_after_framing_reaches_zero": true
+      }
+    },
+    {
+      "id": "T02",
+      "scenario": "unframed_eof_below_cap",
+      "response": {
+        "initial_length": null,
+        "steps": [
+          {
+            "data_hex": "6162"
+          },
+          {
+            "data_hex": "63"
+          },
+          {
+            "eof": true
+          }
+        ]
+      },
+      "arguments": {
+        "body_cap": 8,
+        "aggregate_left": 16,
+        "deadline": 10
+      },
+      "clock": {
+        "initial_value": 0,
+        "updates": "only response step clock_when_fully_served"
+      },
+      "writer": "fully_store_every_requested_buffer",
+      "expected": {
+        "outcome": "complete",
+        "bytes": 3,
+        "response_complete": true,
+        "complete_sha256": "ba7816bf8f01cfea414140de5dae2223b00361a396177a9cb410ff61f20015ad",
+        "partial_sha256": null,
+        "late": false
+      },
+      "expected_stored_hex": "616263"
+    },
+    {
+      "id": "T03",
+      "scenario": "unframed_exact_cap_without_eof_lookahead",
+      "response": {
+        "initial_length": null,
+        "steps": [
+          {
+            "data_hex": "41424344"
+          },
+          {
+            "eof": true
+          }
+        ]
+      },
+      "arguments": {
+        "body_cap": 4,
+        "aggregate_left": 16,
+        "deadline": 10
+      },
+      "clock": {
+        "initial_value": 0,
+        "updates": "only response step clock_when_fully_served"
+      },
+      "writer": "fully_store_every_requested_buffer",
+      "expected": {
+        "outcome": "cap_unresolved_eof",
+        "bytes": 4,
+        "response_complete": false,
+        "complete_sha256": null,
+        "partial_sha256": "e12e115acf4552b2568b55e93cbd39394c4ef81c82447fafc997882a02d23677",
+        "late": false
+      },
+      "expected_stored_hex": "41424344",
+      "expected_effects": {
+        "do_not_read_eof_after_body_cap": true
+      }
+    },
+    {
+      "id": "T04",
+      "scenario": "declared_length_over_body_cap",
+      "response": {
+        "initial_length": 5,
+        "steps": [
+          {
+            "data_hex": "4142434445"
+          },
+          {
+            "eof": true
+          }
+        ]
+      },
+      "arguments": {
+        "body_cap": 4,
+        "aggregate_left": 16,
+        "deadline": 10
+      },
+      "clock": {
+        "initial_value": 0,
+        "updates": "only response step clock_when_fully_served"
+      },
+      "writer": "fully_store_every_requested_buffer",
+      "expected": {
+        "outcome": "declared_over_cap",
+        "bytes": 0,
+        "response_complete": false,
+        "complete_sha256": null,
+        "partial_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "late": false
+      },
+      "expected_stored_hex": "",
+      "expected_effects": {
+        "read1_must_not_be_called": true
+      }
+    },
+    {
+      "id": "T05",
+      "scenario": "unframed_cap_plus_one_retains_only_local_cap",
+      "response": {
+        "initial_length": null,
+        "steps": [
+          {
+            "data_hex": "4142434445"
+          },
+          {
+            "eof": true
+          }
+        ]
+      },
+      "arguments": {
+        "body_cap": 4,
+        "aggregate_left": 16,
+        "deadline": 10
+      },
+      "clock": {
+        "initial_value": 0,
+        "updates": "only response step clock_when_fully_served"
+      },
+      "writer": "fully_store_every_requested_buffer",
+      "expected": {
+        "outcome": "cap_unresolved_eof",
+        "bytes": 4,
+        "response_complete": false,
+        "complete_sha256": null,
+        "partial_sha256": "e12e115acf4552b2568b55e93cbd39394c4ef81c82447fafc997882a02d23677",
+        "late": false
+      },
+      "expected_stored_hex": "41424344",
+      "expected_effects": {
+        "unread_data_hex": "45",
+        "do_not_read_after_body_cap": true
+      }
+    },
+    {
+      "id": "T06",
+      "scenario": "framed_truncated_eof_after_partial",
+      "response": {
+        "initial_length": 5,
+        "steps": [
+          {
+            "data_hex": "6162"
+          },
+          {
+            "eof": true
+          }
+        ]
+      },
+      "arguments": {
+        "body_cap": 8,
+        "aggregate_left": 16,
+        "deadline": 10
+      },
+      "clock": {
+        "initial_value": 0,
+        "updates": "only response step clock_when_fully_served"
+      },
+      "writer": "fully_store_every_requested_buffer",
+      "expected": {
+        "outcome": "transport_error",
+        "bytes": 2,
+        "response_complete": false,
+        "complete_sha256": null,
+        "partial_sha256": "fb8e20fc2e4c3f248c60c39bd652f3c1347298bb977b8b4d5903b85055620603",
+        "late": false
+      },
+      "expected_stored_hex": "6162"
+    },
+    {
+      "id": "T07",
+      "scenario": "aggregate_limit_after_three_bytes",
+      "response": {
+        "initial_length": 8,
+        "steps": [
+          {
+            "data_hex": "4142434445464748"
+          },
+          {
+            "eof": true
+          }
+        ]
+      },
+      "arguments": {
+        "body_cap": 8,
+        "aggregate_left": 3,
+        "deadline": 10
+      },
+      "clock": {
+        "initial_value": 0,
+        "updates": "only response step clock_when_fully_served"
+      },
+      "writer": "fully_store_every_requested_buffer",
+      "expected": {
+        "outcome": "aggregate_cap",
+        "bytes": 3,
+        "response_complete": false,
+        "complete_sha256": null,
+        "partial_sha256": "b5d4045c3f466fa91fe2cc6abe79232a1a57cdf104f7a26e716e0a1e2789df78",
+        "late": false
+      },
+      "expected_stored_hex": "414243",
+      "expected_effects": {
+        "unread_data_hex": "4445464748",
+        "do_not_read_after_aggregate_cap": true
+      }
+    },
+    {
+      "id": "T08",
+      "scenario": "deadline_before_read_nonempty",
+      "response": {
+        "initial_length": 4,
+        "steps": [
+          {
+            "data_hex": "41424344"
+          },
+          {
+            "eof": true
+          }
+        ]
+      },
+      "arguments": {
+        "body_cap": 8,
+        "aggregate_left": 16,
+        "deadline": 10
+      },
+      "clock": {
+        "initial_value": 10,
+        "updates": "only response step clock_when_fully_served"
+      },
+      "writer": "fully_store_every_requested_buffer",
+      "expected": {
+        "outcome": "deadline",
+        "bytes": 0,
+        "response_complete": false,
+        "complete_sha256": null,
+        "partial_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "late": true
+      },
+      "expected_stored_hex": "",
+      "expected_effects": {
+        "read1_must_not_be_called": true
+      }
+    },
+    {
+      "id": "T09",
+      "scenario": "final_framed_read_reaches_deadline",
+      "response": {
+        "initial_length": 4,
+        "steps": [
+          {
+            "data_hex": "41424344",
+            "clock_when_fully_served": 10
+          },
+          {
+            "eof": true
+          }
+        ]
+      },
+      "arguments": {
+        "body_cap": 4,
+        "aggregate_left": 16,
+        "deadline": 10
+      },
+      "clock": {
+        "initial_value": 0,
+        "updates": "only response step clock_when_fully_served"
+      },
+      "writer": "fully_store_every_requested_buffer",
+      "expected": {
+        "outcome": "complete",
+        "bytes": 4,
+        "response_complete": true,
+        "complete_sha256": "e12e115acf4552b2568b55e93cbd39394c4ef81c82447fafc997882a02d23677",
+        "partial_sha256": null,
+        "late": true
+      },
+      "expected_stored_hex": "41424344",
+      "expected_effects": {
+        "do_not_read_eof_after_framing_reaches_zero": true
+      }
+    },
+    {
+      "id": "T10",
+      "scenario": "read_exception_after_partial",
+      "response": {
+        "initial_length": null,
+        "steps": [
+          {
+            "data_hex": "4142"
+          },
+          {
+            "raises": "OSError",
+            "message": "authored read fault"
+          }
+        ]
+      },
+      "arguments": {
+        "body_cap": 8,
+        "aggregate_left": 16,
+        "deadline": 10
+      },
+      "clock": {
+        "initial_value": 0,
+        "updates": "only response step clock_when_fully_served"
+      },
+      "writer": "fully_store_every_requested_buffer",
+      "expected": {
+        "outcome": "transport_error",
+        "bytes": 2,
+        "response_complete": false,
+        "complete_sha256": null,
+        "partial_sha256": "38164fbd17603d73f696b8b4d72664d735bb6a7c88577687fd2ae33fd6964153",
+        "late": false
+      },
+      "expected_stored_hex": "4142"
+    },
+    {
+      "id": "T11",
+      "scenario": "known_empty_frame_before_deadline_gate",
+      "response": {
+        "initial_length": 0,
+        "steps": [
+          {
+            "raises": "AssertionError",
+            "message": "read1 forbidden for known empty frame"
+          }
+        ]
+      },
+      "arguments": {
+        "body_cap": 8,
+        "aggregate_left": 16,
+        "deadline": 10
+      },
+      "clock": {
+        "initial_value": 10,
+        "updates": "only response step clock_when_fully_served"
+      },
+      "writer": "fully_store_every_requested_buffer",
+      "expected": {
+        "outcome": "complete",
+        "bytes": 0,
+        "response_complete": true,
+        "complete_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "partial_sha256": null,
+        "late": true
+      },
+      "expected_stored_hex": "",
+      "expected_effects": {
+        "read1_must_not_be_called": true
+      }
+    }
+  ],
+  "write_controls": [
+    {
+      "id": "Q01",
+      "scenario": "positive_short_write_then_remaining",
+      "response": {
+        "initial_length": 3,
+        "steps": [
+          {
+            "data_hex": "616263"
+          },
+          {
+            "eof": true
+          }
+        ]
+      },
+      "arguments": {
+        "body_cap": 8,
+        "aggregate_left": 16,
+        "deadline": 10
+      },
+      "clock": {
+        "initial_value": 0
+      },
+      "write_plan": [
+        {
+          "actually_store_at_most": 1
+        },
+        {
+          "actually_store": "all_remaining"
+        }
+      ],
+      "expected": {
+        "outcome": "complete",
+        "bytes": 3,
+        "response_complete": true,
+        "complete_sha256": "ba7816bf8f01cfea414140de5dae2223b00361a396177a9cb410ff61f20015ad",
+        "partial_sha256": null,
+        "late": false
+      },
+      "expected_stored_hex": "616263",
+      "expected_effects": {
+        "caller_fd_stays_open": true,
+        "positive_short_injection_observed_if_multi_byte_buffer_requested": true
+      },
+      "applicability": "Inject a genuinely positive short write when the candidate requests more than one byte. A valid byte-at-a-time implementation may have no such callback opportunity; retain exact result/storage checks and report that short-write path as not exercised, not as observed fault evidence."
+    },
+    {
+      "id": "Q02",
+      "scenario": "zero_write_raises_without_retry",
+      "response": {
+        "initial_length": 3,
+        "steps": [
+          {
+            "data_hex": "616263"
+          },
+          {
+            "eof": true
+          }
+        ]
+      },
+      "arguments": {
+        "body_cap": 8,
+        "aggregate_left": 16,
+        "deadline": 10
+      },
+      "clock": {
+        "initial_value": 0
+      },
+      "write_plan": [
+        {
+          "return_zero_without_storing": true
+        },
+        {
+          "safety_sentinel_if_called": "AssertionError: retried after zero"
+        }
+      ],
+      "expected_exception": {
+        "type": "OSError",
+        "no_transfer_result": true
+      },
+      "expected_stored_hex": "",
+      "expected_effects": {
+        "zero_injection_observed": true,
+        "write_calls": 1,
+        "caller_fd_stays_open": true
+      }
+    },
+    {
+      "id": "Q03",
+      "scenario": "positive_storage_then_write_error_propagates",
+      "response": {
+        "initial_length": 3,
+        "steps": [
+          {
+            "data_hex": "616263"
+          },
+          {
+            "eof": true
+          }
+        ]
+      },
+      "arguments": {
+        "body_cap": 8,
+        "aggregate_left": 16,
+        "deadline": 10
+      },
+      "clock": {
+        "initial_value": 0
+      },
+      "write_plan": [
+        {
+          "actually_store_at_most": 1
+        },
+        {
+          "raises": "OSError",
+          "message": "authored write fault"
+        }
+      ],
+      "expected_exception": {
+        "type": "OSError",
+        "no_transfer_result": true
+      },
+      "expected_stored_hex": "61",
+      "expected_effects": {
+        "error_injection_observed": true,
+        "caller_fd_stays_open": true,
+        "first_positive_write_observed": true
+      },
+      "note": "If the first write request exceeds one byte this is a mid-chunk error; if not, it is a completed one-byte chunk followed by error. No result/hash/count is fabricated on either exception path."
+    }
+  ],
+  "signature_cases": [
+    {
+      "id": "S01",
+      "kind": "model",
+      "prefix_hex": "4752534d02",
+      "expected": {
+        "state": "short",
+        "prefix_hex": "4752534d02"
+      }
+    },
+    {
+      "id": "S02",
+      "kind": "model",
+      "prefix_hex": "4752534d0201",
+      "expected": {
+        "state": "match",
+        "prefix_hex": "4752534d0201"
+      }
+    },
+    {
+      "id": "S03",
+      "kind": "model",
+      "prefix_hex": "47525358ff8055",
+      "expected": {
+        "state": "match",
+        "prefix_hex": "47525358ff80"
+      }
+    },
+    {
+      "id": "S04",
+      "kind": "model",
+      "prefix_hex": "424144210201",
+      "expected": {
+        "state": "mismatch",
+        "prefix_hex": "424144210201"
+      }
+    },
+    {
+      "id": "S05",
+      "kind": "bmp",
+      "prefix_hex": "42",
+      "expected": {
+        "state": "short",
+        "prefix_hex": "42"
+      }
+    },
+    {
+      "id": "S06",
+      "kind": "bmp",
+      "prefix_hex": "424d00617574686f726564",
+      "expected": {
+        "state": "match",
+        "prefix_hex": "424d"
+      }
+    },
+    {
+      "id": "S07",
+      "kind": "bmp",
+      "prefix_hex": "4241",
+      "expected": {
+        "state": "mismatch",
+        "prefix_hex": "4241"
+      }
+    },
+    {
+      "id": "S08",
+      "kind": "jpeg",
+      "prefix_hex": "ff",
+      "expected": {
+        "state": "short",
+        "prefix_hex": "ff"
+      }
+    },
+    {
+      "id": "S09",
+      "kind": "jpeg",
+      "prefix_hex": "ffd8ff",
+      "expected": {
+        "state": "match",
+        "prefix_hex": "ffd8"
+      }
+    },
+    {
+      "id": "S10",
+      "kind": "jpeg",
+      "prefix_hex": "ffd9",
+      "expected": {
+        "state": "mismatch",
+        "prefix_hex": "ffd9"
+      }
+    }
+  ],
+  "additional_policy": {
+    "wire": "Only ASCII URI segment characters A-Z a-z 0-9 -._~ ! $ & apostrophe ( ) * + , ; = : @ and valid percent escapes, separated by single slash. Reject literal backslash, leading/trailing/repeated slash and literal dot/dotdot segments. Preserve valid escapes without decoding or re-encoding.",
+    "precedence": "framed remaining length zero; declared length over body cap; deadline; aggregate exhausted; body cap exhausted; bounded read. Final late flag applies independently.",
+    "arguments": "ValueError for invalid shape/types/negative limits or nonfinite deadline; unknown signature kind/nonbytes prefix. Limits and response.length exclude bool.",
+    "write": "Invalid progress raises OSError. EINTR may retry; no retry after zero. Returned transfer hashes cover fully stored chunks only. The caller records any uncertain partial chunk after a storage exception."
+  }
+}

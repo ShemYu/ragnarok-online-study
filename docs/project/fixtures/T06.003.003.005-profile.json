@@ -1,0 +1,280 @@
+{
+  "schema": "T06-map-dependency-observation-profile-1",
+  "task": "T06.003.003.005",
+  "basis_revision": "303c0e92d2bccde55e045a083197475ed2457838",
+  "catalog": {
+    "path": ".tools/renewal/t06-root-verification-1/root-integrated-corpus-2/output/catalog.json",
+    "bytes": 32959912,
+    "sha256": "3c6b9707d2b9f8093d9e7ce21b7e320791d2b9d5ca4d3d6728e3f915356f64a3"
+  },
+  "authored": {
+    "path": "docs/project/fixtures/T06.003.003.005-authored.json",
+    "bytes": 24634,
+    "sha256": "8c06aceab400e87416cb4486991daf20d93f1d19b8a644dd10318ab45343f989"
+  },
+  "source_pins": [
+    {
+      "path": "tools/renewal/observe_cache_map_cores.py",
+      "bytes": 32153,
+      "sha256": "ef4f70c965cff19308741041a82bc54fa7d70c87b9069a7cacce7839f6bb7a4f"
+    },
+    {
+      "path": "tools/renewal/observe_one_ground.py",
+      "bytes": 17183,
+      "sha256": "aa9a4cbea1abd0cd5535f4513df210c19341e180e3ad836615cdbd7dbf1c35e0"
+    },
+    {
+      "path": "tools/renewal/catalog_map_dependencies.mjs",
+      "bytes": 31720,
+      "sha256": "12f5a315950a4f34ce8fd6aa7e2d0f4e075121f9ccbddeaae49b233b5f70897f"
+    },
+    {
+      "path": "docs/project/fixtures/T06.003.003.004-profile.json",
+      "bytes": 3379,
+      "sha256": "304e9da6ad4369ba96f30f71229de56581aedf6ee0789cc3d6261beb7e219df4"
+    },
+    {
+      "path": ".tools/renewal/client-source/src/Loaders/MapLoader.js",
+      "bytes": 14466,
+      "sha256": "c71b01f300f62bbc6e7432444e2521d713473dc47c9c6e25a54a832d5c92a705"
+    },
+    {
+      "path": ".tools/renewal/client-source/src/Core/FileManager.js",
+      "bytes": 11279,
+      "sha256": "75c37d192bf21e7b40817a6f2fe27ef536601515c07fe20c7ce8346d50376cd7"
+    },
+    {
+      "path": ".tools/renewal/client-source/src/Loaders/Model.js",
+      "bytes": 30922,
+      "sha256": "d4643fc9a1a95747b41ee55537fe3159c2927e9840630291cce9d55bea20fe57"
+    },
+    {
+      "path": ".tools/renewal/remote-source/src/client.rs",
+      "bytes": 15628,
+      "sha256": "59b39104e8328493d5d1ec8ff4826add3a6ece1867034f45a7fddaa974b08c68"
+    },
+    {
+      "path": ".tools/renewal/remote-source/src/config.rs",
+      "bytes": 14558,
+      "sha256": "c8592180a406010f74df395ea65a207a87341ea12a08e45bf65a8cb7f7ecaa22"
+    },
+    {
+      "path": ".tools/renewal/remote-source/src/routes.rs",
+      "bytes": 16954,
+      "sha256": "ee365ab832bb5ac645e5d0205e8fb5018e88aac464be5f2a96546006cbe4dbd8"
+    },
+    {
+      "path": ".tools/renewal/remote-source/src/http.rs",
+      "bytes": 13105,
+      "sha256": "5ef6817695afe65cb6337c95e329ef726c6729120f0e5e55aa81ad6d40cf72ad"
+    },
+    {
+      "path": ".tools/renewal/remote-source/src/cache.rs",
+      "bytes": 8464,
+      "sha256": "94e977d875110b55ba570bbaac1d07a99c5ffcc7715c70d7ea0e7e5b802d1c09"
+    },
+    {
+      "path": ".tools/renewal/remote-source/src/util.rs",
+      "bytes": 9690,
+      "sha256": "f6e39562b6164abac0864a6ff78f6daee11223c3ccd21bb557a559768ce1cccc"
+    },
+    {
+      "path": ".tools/renewal/remote-source/src/index.rs",
+      "bytes": 8550,
+      "sha256": "eb471536075be604527b9ddadc9fce58727c2e04ca8fc1f81309bf48cd1c362f"
+    },
+    {
+      "path": ".tools/renewal/remote-source/src/grf.rs",
+      "bytes": 30133,
+      "sha256": "4646514140bc7688bbc91e0bac7d1ee9a83aab5e1e17df20c1eb30668bd5edf5"
+    },
+    {
+      "path": ".tools/renewal/remote-source/src/encoding.rs",
+      "bytes": 6009,
+      "sha256": "0014c18c2ab7211b68b8dff84c66b5bbd0aa3bb68593bca2bd5e46b28973c9ad"
+    }
+  ],
+  "expected_counts": {
+    "roots": 1296,
+    "jobs": 2761,
+    "job_kinds": {
+      "rsw": 937,
+      "gnd": 935,
+      "gat": 889
+    },
+    "core_chain_roots": 1214,
+    "remaining_gap_roots": 82,
+    "root_edge_references": 3642,
+    "occurrences": {
+      "model": 726296,
+      "ground_texture": 14577
+    },
+    "loader_entries": {
+      "model": 48980,
+      "ground_texture": 14577
+    },
+    "root_expanded_occurrences": {
+      "model": 871959,
+      "ground_texture": 18449
+    },
+    "root_expanded_loader_entries": {
+      "model": 60150,
+      "ground_texture": 18449
+    },
+    "distinct_names_by_role": {
+      "model": {
+        "raw": 8194,
+        "logical": 8194,
+        "filemanager": 8194,
+        "http": 8194
+      },
+      "ground_texture": {
+        "raw": 2940,
+        "logical": 2940,
+        "filemanager": 2940,
+        "http": 2940
+      }
+    },
+    "http_targets": 11134
+  },
+  "remaining_gap_root_ordinals": [
+    627,
+    628,
+    989,
+    991,
+    992,
+    999,
+    1000,
+    1001,
+    1002,
+    1008,
+    1009,
+    1010,
+    1011,
+    1012,
+    1013,
+    1014,
+    1015,
+    1016,
+    1017,
+    1018,
+    1019,
+    1020,
+    1021,
+    1022,
+    1023,
+    1024,
+    1042,
+    1051,
+    1151,
+    1156,
+    1160,
+    1161,
+    1214,
+    1215,
+    1216,
+    1239,
+    1240,
+    1241,
+    1242,
+    1247,
+    1249,
+    1250,
+    1251,
+    1252,
+    1253,
+    1254,
+    1255,
+    1256,
+    1257,
+    1258,
+    1259,
+    1260,
+    1261,
+    1262,
+    1263,
+    1264,
+    1265,
+    1266,
+    1267,
+    1268,
+    1269,
+    1270,
+    1273,
+    1274,
+    1275,
+    1276,
+    1277,
+    1278,
+    1279,
+    1280,
+    1281,
+    1282,
+    1283,
+    1284,
+    1285,
+    1286,
+    1287,
+    1288,
+    1289,
+    1290,
+    1291,
+    1292
+  ],
+  "native": [
+    {
+      "name": "binary",
+      "base": "home",
+      "path": "Library/Application Support/Ragnarok Offline/runtime/bin/robrowser-remoteclient",
+      "bytes": 2079536,
+      "sha256": "ee6b328ec73a591b23b514379e1b34e876b5d860d0e1aa4d9aa15dd7173eb1c1"
+    },
+    {
+      "name": "event.grf",
+      "base": "input_root",
+      "path": ".tools/renewal/assets/tw-20260409/app/event.grf",
+      "bytes": 5833135,
+      "sha256": "7fff4e0eececd10df9a9c4f83b70d78dc4dbb99c5ece64b117df7db8a2f85575"
+    },
+    {
+      "name": "data0.grf",
+      "base": "input_root",
+      "path": ".tools/renewal/assets/tw-20260409/app/data0.grf",
+      "bytes": 2123919641,
+      "sha256": "913402ace1d3c67818b4f070650a07eb157a6d62df9e394d596d59b4c7e6678a"
+    },
+    {
+      "name": "data.grf",
+      "base": "input_root",
+      "path": ".tools/renewal/assets/tw-20260409/app/data.grf",
+      "bytes": 2043560050,
+      "sha256": "1c7d68f70714937abbd3741a6b3aea34a7ed9da63428941d5df453efacd1c0ad"
+    }
+  ],
+  "policy": {
+    "body_bytes": 25165824,
+    "aggregate_bytes_including_health": 8589934592,
+    "health_bytes": 65536,
+    "asset_attempts": 11134,
+    "health_attempts": 1,
+    "startup_seconds": 25,
+    "acquisition_seconds": 1200,
+    "io_seconds": 5,
+    "cache_mb": 64,
+    "cache_files": 32,
+    "missing_log_bytes": 16777216,
+    "report_bytes": 67108864,
+    "catalog_bytes": 134217728,
+    "stdout_bytes": 4096,
+    "disk_reserve_bytes": 4294967296,
+    "root_guard_seconds": 1800,
+    "root_observed_rss_bytes": 2147483648
+  },
+  "limitations": [
+    "First-level declared model and ground-texture availability and prefixes only.",
+    "No RSM parsing, nested textures, water, decode, compile, render or playable/full-content proof.",
+    "Native cache cap is not native inflation containment; root RSS sampling is not a hard OS memory limit.",
+    "Native stdout/stderr discarded; extraction/startup diagnostics not retained.",
+    "All1296 roots and82core-map gaps retained; unresolved metadata names still requested."
+  ]
+}

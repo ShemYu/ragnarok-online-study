@@ -132,7 +132,8 @@ Codex passes 12 tests for each and checks both complete catalogs against the ref
 All 1,296 roots, 2,761 jobs and 11,134 request paths match.
 Grok passes the file-checking case that fails in Claude's tool.
 Codex integrates Grok and passes the final tests and complete data checks.
-The request catalog is ready for you. Asset availability checks come next.
+The request catalog is ready for you. The asset-scan brief and shared tests are set.
+Claude and Grok will build the scanner. I will check both before the real scan.
 Codex checks the size metadata before the next scan.
 10,704 asset paths have size candidates. Their declarations total about 290 MB.
 Another 430 paths need the actual scan. We will check all 11,134 paths.
