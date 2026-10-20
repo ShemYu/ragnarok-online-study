@@ -212,7 +212,7 @@ class AuthoredControls(unittest.TestCase):
         bad = AuthoredResponse({'initial_length': True, 'steps': []}, Clock())
         store = TinyFile('badlen')
         try:
-            self.assertEqual(omd.transfer(bad, store.fd, body_cap=4, aggregate_left=4, deadline=1, clock=Clock())['outcome'], 'transport_error')
+            self.assertRaises(ValueError, omd.transfer, bad, store.fd, body_cap=4, aggregate_left=4, deadline=1, clock=Clock())
         finally:
             store.close()
 
@@ -515,7 +515,7 @@ class Lifecycle(unittest.TestCase):
         ops.routes[('connect', 1)] = 'fail'
         ops.routes.update(self.model_route(plans[1], fault='read'))
         ops.routes.update(self.model_route(plans[2], fault='truncate'))
-        ops.routes.update(self.model_route(plans[3], fault='close'))
+        ops.routes.update(self.model_route(plans[3]))
         obs = self.observer(ops, plans=plans)
         self.assertEqual(obs.run(), 0)
         rep = self.report()
@@ -877,6 +877,370 @@ class Cli(unittest.TestCase):
         self.assertRaises(omd.Refusal, omd.strict_json, b'{"a":1,"a":2}')
         self.assertRaises(omd.Refusal, omd.strict_json, b'{"a":NaN}')
         self.assertEqual(omd.http_from_name('data\\model\\¾.rsm'), 'data/model/%C2%BE.rsm')
+
+
+# Coordinator regressions for independently reproduced failure paths.
+class Root005Regressions(unittest.TestCase):
+    setUp = Lifecycle.setUp
+    tearDown = Lifecycle.tearDown
+    plans = Lifecycle.plans
+    observer = Lifecycle.observer
+    report = Lifecycle.report
+    model_route = Lifecycle.model_route
+
+    @classmethod
+    def setUpClass(cls):
+        cls.meta = real_meta()
+        cls.driver = omd.own_sha()
+
+    @staticmethod
+    def _owned_fd_state(fd, expected):
+        try:
+            st = os.fstat(fd)
+        except OSError as exc:
+            if exc.errno == errno.EBADF:
+                return 'closed'
+            raise
+        return 'owned_open' if (st.st_dev, st.st_ino) == expected else 'foreign'
+
+    def test_root_initial_framing_invalid_before_read_or_write(self):
+        for index, value in enumerate((True, -1, 1.0, '1', [], {})):
+            with self.subTest(index=index):
+                response = FakeHTTPResponse(200, {}, b'abc')
+                response.length = value
+                response.read1 = mock.Mock(side_effect=AssertionError('unexpected read'))
+                writer = mock.Mock(side_effect=AssertionError('unexpected write'))
+                store = TinyFile('root-invalid-framing-%d' % index)
+                try:
+                    with self.assertRaises(ValueError):
+                        omd.transfer(response, store.fd, body_cap=4, aggregate_left=4,
+                                     deadline=1, clock=Clock(), write_fn=writer)
+                    response.read1.assert_not_called()
+                    writer.assert_not_called()
+                    self.assertEqual(store.stored(), b'')
+                finally:
+                    store.close()
+
+    def test_root_complete_wire_physical_partial_write_is_counted(self):
+        plans = self.plans(2)
+        body = b'GRSM\x01\x05tiny'
+        ops = FakeOps(self.output, self.model_route(plans[0], body=body))
+        fired = []
+
+        def writer(fd, buffer):
+            if ops.requests and ops.requests[-1] == plans[0]['wire'] and not fired:
+                # The fixture proves the whole framed response was delivered
+                # before the storage fault, rather than assuming that premise.
+                response = ops.connections[-1].response
+                self.assertEqual((response._pos, response.length), (len(body), 0))
+                self.assertEqual(os.write(fd, bytes(buffer[:1])), 1)
+                fired.append(True)
+                raise OSError(errno.EIO, 'authored partial physical write')
+            return os.write(fd, buffer)
+
+        obs = self.observer(ops, plans=plans, write_fn=writer)
+        self.assertEqual(obs.run(), 1)
+        rep, row = self.report(), obs.report['targets'][0]
+        self.assertEqual(fired, [True])
+        self.assertEqual(row['wire_bytes'], len(body))
+        self.assertTrue(row['wire_complete'])
+        self.assertEqual(row['stored']['bytes'], 1)
+        self.assertEqual(row['stored']['sha256'], hashlib.sha256(body[:1]).hexdigest())
+        self.assertFalse(row['stored']['complete'])
+        self.assertIsNotNone(row['stored']['error'])
+        self.assertEqual(rep['totals']['wire_bytes'], len(HEALTH_BODY) + len(body))
+        self.assertEqual(rep['totals']['stored_bytes'], len(HEALTH_BODY) + 1)
+        self.assertFalse(rep['targets'][1]['attempted'])
+        self.assertFalse(rep['acquisition_and_cleanup_valid'])
+
+    def test_root_before_release_http_close_errors_are_not_qualification(self):
+        observations = []
+        for kind in ('response', 'connection'):
+            with self.subTest(resource=kind):
+                if os.path.exists(self.output):
+                    shutil.rmtree(self.output)
+                plan = self.plans(1)[0]
+                ops = FakeOps(self.output, self.model_route(plan))
+                resource_path = self.root / ('http-close-' + kind)
+                fd = os.open(resource_path, os.O_RDWR | os.O_CREAT | os.O_EXCL | os.O_NOFOLLOW, 0o600)
+                st = os.fstat(fd)
+                identity = (st.st_dev, st.st_ino)
+                real_close, real_connect = os.close, ops.connect
+                state = {'faults': 0, 'selected_calls': 0, 'other_calls': 0}
+
+                def connect(port, timeout):
+                    con = real_connect(port, timeout)
+                    get_response, con_close = con.getresponse, con.close
+
+                    def get():
+                        response = get_response()
+                        if con.url != plan['wire']:
+                            return response
+                        response_close = response.close
+
+                        def selected_close():
+                            state['selected_calls'] += 1
+                            if state['selected_calls'] == 1:
+                                state['faults'] += 1
+                                raise OSError(errno.EIO, 'authored before-release close')
+                            if self._owned_fd_state(fd, identity) == 'owned_open':
+                                real_close(fd)
+                            (response_close if kind == 'response' else con_close)()
+
+                        def other_close():
+                            state['other_calls'] += 1
+                            (con_close if kind == 'response' else response_close)()
+
+                        if kind == 'response':
+                            response.close, con.close = selected_close, other_close
+                        else:
+                            response.close, con.close = other_close, selected_close
+                        return response
+                    con.getresponse = get
+                    return con
+
+                ops.connect = connect
+                obs = self.observer(ops, n=1)
+                try:
+                    code = obs.run()
+                    # Record production behavior before the fixture releases
+                    # an uncertain resource. Later cleanup cannot rewrite it.
+                    state['fd_before_fixture_cleanup'] = self._owned_fd_state(fd, identity)
+                    state['child_terminated'] = ops.proc.terminated
+                    state['child_exit'] = ops.proc.poll()
+                    observations.append(dict(resource=kind, **state))
+                finally:
+                    current = self._owned_fd_state(fd, identity)
+                    if current == 'owned_open':
+                        real_close(fd)
+                    # A foreign descriptor is never ours to close.
+                    if current != 'foreign':
+                        resource_path.unlink()
+                self.assertNotEqual(state['fd_before_fixture_cleanup'], 'foreign', state)
+                self.assertEqual(state['faults'], 1, state)
+                self.assertGreaterEqual(state['other_calls'], 1, state)
+                self.assertEqual(code, 1, state)
+                self.assertFalse(obs.report['acquisition_and_cleanup_valid'], state)
+                self.assertTrue(obs.report['errors'] or obs.report['halt_reason'], state)
+                self.assertTrue(state['child_terminated'], state)
+                self.assertEqual(state['child_exit'], 0, state)
+                # Transfer/storage facts survive a lifecycle-close fault.
+                self.assertTrue(obs.report['targets'][0]['wire_complete'])
+                self.assertTrue(obs.report['targets'][0]['stored']['complete'])
+        self.root_close_observations = observations
+
+    def test_root_listener_observation_exception_still_reaps_owned_fake_child(self):
+        ops = FakeOps(self.output)
+        obs = self.observer(ops, n=1)
+        original_shutdown, original_listener = obs.shutdown, ops.owned_listener
+        state = {'shutdown': False, 'faults': 0}
+
+        def listener(pid, port):
+            if state['shutdown'] and not state['faults']:
+                state['faults'] += 1
+                raise OSError(errno.EIO, 'authored listener observation')
+            return original_listener(pid, port)
+
+        def shutdown():
+            state['shutdown'] = True
+            try:
+                return original_shutdown()
+            finally:
+                state['shutdown'] = False
+        obs.shutdown, ops.owned_listener = shutdown, listener
+        try:
+            code = obs.run()
+            observed = {'terminated': ops.proc.terminated, 'exit': ops.proc.poll()}
+        finally:
+            # Fake only; this cleanup must not turn a missing production
+            # termination into a passing observation above.
+            if ops.proc is not None and ops.proc.poll() is None:
+                ops.proc.terminate()
+                ops.proc.wait(timeout=8)
+        self.assertEqual(state['faults'], 1)
+        self.assertEqual(code, 1)
+        self.assertFalse(obs.report['cleanup']['clean'])
+        self.assertFalse(obs.report['acquisition_and_cleanup_valid'])
+        self.assertTrue(observed['terminated'], observed)
+        self.assertEqual(observed['exit'], 0, observed)
+
+    def test_root_truncated_404_log_uses_status_axis(self):
+        plans = self.plans(2)
+        body = b'Not Found'
+        ops = FakeOps(self.output, {plans[0]['wire']: (
+            404, {'Content-Length': str(len(body)), 'Content-Type': 'text/plain'}, body, {'fault': 'truncate'})})
+        ops.routes.update(self.model_route(plans[1]))
+        obs = self.observer(ops, plans=plans)
+        self.assertEqual(obs.run(), 0)
+        rep = self.report()
+        row = rep['targets'][0]
+        self.assertEqual(row['http_status'], 404)
+        self.assertEqual(row['stop_reason'], 'transport_error')
+        self.assertFalse(row['wire_complete'])
+        self.assertEqual(row['wire_bytes'], len(body) // 2)
+        self.assertEqual(rep['missing_log']['expected_404'], 1)
+        self.assertEqual(rep['missing_log']['entries'], 1)
+        self.assertTrue(rep['missing_log']['valid'])
+        self.assertEqual(rep['coverage_counts']['http_404'], 1)
+        self.assertEqual(rep['coverage_counts']['transport'], 1)
+        self.assertTrue(rep['targets'][1]['stored']['complete'])
+        self.assertTrue(rep['acquisition_and_cleanup_valid'])
+
+    def test_root_late_startup_listener_query_cannot_admit_health(self):
+        ops = FakeOps(self.output)
+        original = ops.owned_listener
+        fired = []
+
+        def listener(pid, port):
+            if ops.proc is not None and not ops.requests and not fired:
+                fired.append(True)
+                ops.clock.value += omd.POLICY['startup_seconds'] + 1
+                return True
+            return original(pid, port)
+        ops.owned_listener = listener
+        obs = self.observer(ops, n=1)
+        self.assertEqual(obs.run(), 1)
+        self.assertEqual(fired, [True])
+        self.assertEqual(ops.requests, [])
+        self.assertEqual(obs.report['halt_reason'], 'startup_timeout')
+        self.assertFalse(obs.report['acquisition_and_cleanup_valid'])
+        self.assertTrue(ops.proc.terminated)
+        self.assertEqual(ops.proc.poll(), 0)
+
+    def test_root_exact_private_driver_identity_drift_rejects(self):
+        private_driver = self.root / 'exact-driver-copy.py'
+        data = Path(omd.__file__).read_bytes()
+        private_driver.write_bytes(data)
+        os.chmod(private_driver, 0o600)
+        ops = FakeOps(self.output)
+        fired = []
+
+        def change_identity(url):
+            if url == '/api/health':
+                os.utime(private_driver, ns=(1, 1))
+                fired.append(True)
+        ops.after_request = change_identity
+        # __file__ is used solely by own_sha(); the copied bytes are data,
+        # never imported or executed. All mutations stay in this fixture root.
+        with mock.patch.object(omd, '__file__', str(private_driver)):
+            before = omd.own_sha()
+            obs = omd.Observer(dict(self.meta, plans=self.plans(1)), self.output, before,
+                               ops=ops, natives=self.natives, container=self.container)
+            code = obs.run()
+            after = omd.own_sha()
+        self.assertEqual(fired, [True])
+        self.assertEqual((before['bytes'], before['sha256']), (after['bytes'], after['sha256']))
+        self.assertNotEqual(before['identity'], after['identity'])
+        self.assertEqual(code, 1)
+        self.assertFalse(obs.report['postchecks_valid'])
+        self.assertFalse(obs.report['acquisition_and_cleanup_valid'])
+
+    def test_root_postscan_listener_query_crossing_deadline_rejects(self):
+        ops = FakeOps(self.output, self.model_route(self.plans(1)[0]))
+        obs = self.observer(ops, n=1)
+        original_scan, original_listener = obs.scan, ops.owned_listener
+        state = {'scan_returned': False, 'faults': 0}
+
+        def scan():
+            result = original_scan()
+            state['scan_returned'] = True
+            return result
+
+        def listener(pid, port):
+            if state['scan_returned'] and not state['faults']:
+                state['faults'] += 1
+                ops.clock.value = obs.deadline + 1
+            return original_listener(pid, port)
+        obs.scan, ops.owned_listener = scan, listener
+        self.assertEqual(obs.run(), 1)
+        self.assertEqual(state['faults'], 1)
+        self.assertTrue(obs.report['all_targets_attempted'])
+        self.assertTrue(obs.report['targets'][0]['wire_complete'])
+        self.assertTrue(obs.report['targets'][0]['stored']['complete'])
+        self.assertEqual(obs.report['halt_reason'], 'acquisition_deadline')
+        self.assertFalse(obs.report['acquisition_and_cleanup_valid'])
+
+    def test_root_unknown_stored_bytes_does_not_publish_numeric_total(self):
+        ops = FakeOps(self.output, self.model_route(self.plans(1)[0]))
+        obs = self.observer(ops, n=1)
+        original = omd.read_admitted
+        fired = []
+
+        def read(path, *args, **kwargs):
+            rel = obs.report['targets'][0]['stored']['file']
+            if rel is not None and os.fspath(path) == os.path.join(self.output, rel) and kwargs.get('keep'):
+                fired.append(True)
+                raise omd.Refusal('authored stored verification unavailable')
+            return original(path, *args, **kwargs)
+        with mock.patch.object(omd, 'read_admitted', read):
+            self.assertEqual(obs.run(), 1)
+        rep = self.report()
+        self.assertTrue(fired)
+        self.assertTrue(rep['targets'][0]['wire_complete'])
+        self.assertIsNone(rep['targets'][0]['stored']['bytes'])
+        self.assertIsNone(rep['targets'][0]['stored']['sha256'])
+        self.assertFalse(rep['targets'][0]['stored']['complete'])
+        self.assertIsNone(rep['totals']['stored_bytes'])
+        self.assertEqual(rep['totals']['wire_bytes'], len(HEALTH_BODY) + 10)
+        self.assertFalse(rep['acquisition_and_cleanup_valid'])
+
+    def test_root_one_shot_final_publication_failure_stays_unqualified(self):
+        ops = FakeOps(self.output)
+        obs = self.observer(ops, n=1)
+        original, hits = os.replace, []
+
+        def replace(src, dst):
+            hits.append(dst)
+            if len(hits) == 3:  # Prefill and launch are the first two checkpoints.
+                raise OSError(errno.EIO, 'authored final publication')
+            return original(src, dst)
+        with mock.patch.object(os, 'replace', replace):
+            self.assertEqual(obs.run(), 1)
+        self.assertGreaterEqual(len(hits), 3)
+        self.assertFalse(obs.report['acquisition_and_cleanup_valid'])
+        self.assertEqual(obs.report['halt_reason'], 'publication_failure')
+        # This one-shot fault permits the root correction's bounded recovery;
+        # unlike the persistent-failure control, require its failure receipt.
+        rep = self.report()
+        self.assertFalse(rep['acquisition_and_cleanup_valid'])
+        self.assertEqual(rep['halt_reason'], 'publication_failure')
+        self.assertFalse(Path(self.output, '.report-next').exists())
+
+    def test_root_incomplete_read_partial_received_bytes_count_without_storage(self):
+        plans = self.plans(2)
+        body = b'GRSM\x01\x05tiny'
+        partial = body[:2]
+        ops = FakeOps(self.output, self.model_route(plans[0], body=body))
+        ops.routes.update(self.model_route(plans[1]))
+        original = ops.respond
+        fired = []
+
+        def respond(url):
+            response = original(url)
+            if url == plans[0]['wire']:
+                def read1(n):
+                    self.assertGreaterEqual(n, len(partial))
+                    response._pos = len(partial)
+                    response.length = len(body) - len(partial)
+                    fired.append(True)
+                    raise http.client.IncompleteRead(partial, len(body) - len(partial))
+                response.read1 = read1
+            return response
+        ops.respond = respond
+        obs = self.observer(ops, plans=plans)
+        self.assertEqual(obs.run(), 0)
+        rep, row = self.report(), obs.report['targets'][0]
+        self.assertEqual(fired, [True])
+        self.assertEqual(row['stop_reason'], 'transport_error')
+        self.assertEqual(row['wire_bytes'], len(partial))
+        self.assertFalse(row['wire_complete'])
+        self.assertEqual(row['stored']['bytes'], 0)
+        self.assertEqual(row['stored']['sha256'], EMPTY_SHA)
+        self.assertFalse(row['stored']['complete'])
+        self.assertEqual(rep['totals']['wire_bytes'], len(HEALTH_BODY) + len(partial) + 10)
+        self.assertEqual(rep['totals']['stored_bytes'], len(HEALTH_BODY) + 10)
+        self.assertTrue(rep['targets'][1]['stored']['complete'])
+        self.assertTrue(rep['acquisition_and_cleanup_valid'])
 
 
 if __name__ == '__main__':

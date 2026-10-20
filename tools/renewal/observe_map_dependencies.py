@@ -139,6 +139,9 @@ def transfer(response, fd, *, body_cap, aggregate_left, deadline, clock=None, wr
     clock = time.monotonic if clock is None else clock
     if not callable(clock) or (write_fn is not None and not callable(write_fn)):
         raise ValueError('invalid transfer arguments')
+    initial_length = response.length
+    if initial_length is not None and (not is_int(initial_length) or initial_length < 0):
+        raise ValueError('invalid transfer arguments')
     digest, count, outcome = hashlib.sha256(), 0, None
     while outcome is None:
         length = response.length
@@ -518,6 +521,7 @@ class _Metered:
 
     def __init__(self, response, refresh):
         self._response, self._refresh, self.wire = response, refresh, 0
+        self.complete = response.length == 0
 
     @property
     def length(self):
@@ -525,9 +529,15 @@ class _Metered:
 
     def read1(self, n):
         self._refresh()
-        chunk = self._response.read1(n)
+        try:
+            chunk = self._response.read1(n)
+        except http.client.IncompleteRead as exc:
+            self.wire += len(exc.partial)
+            self.complete = False
+            raise
         if isinstance(chunk, (bytes, bytearray)):
             self.wire += len(chunk)
+            self.complete = self.length == 0 or (not chunk and self.length is None)
         return chunk
 
 
@@ -550,6 +560,7 @@ class Observer:
         self.proc, self.port, self.epoch, self.deadline = None, None, None, None
         self.halt, self.errors, self.created, self.request_index = None, [], False, 0
         self.wire_total, self.stored_total, self.asset_attempts, self.health_attempts = 0, 0, 0, 0
+        self.stored_unknown = False
         self.body_files, self.native_before = [], {}
         self.output_created = False
         plans = meta['plans']
@@ -626,7 +637,8 @@ class Observer:
 
     def totals(self):
         return {'asset_attempts': self.asset_attempts, 'health_attempts': self.health_attempts,
-                'wire_bytes': self.wire_total, 'stored_bytes': self.stored_total, 'elapsed_seconds': self.elapsed()}
+                'wire_bytes': self.wire_total, 'stored_bytes': None if self.stored_unknown else self.stored_total,
+                'elapsed_seconds': self.elapsed()}
 
     # -- admission and setup
     def admit_output(self):
@@ -694,10 +706,13 @@ class Observer:
         while True:
             if self.proc.poll() is not None:
                 raise Fatal('reader_exited_at_startup')
-            if self.ops.owned_listener(self.proc.pid, self.port):
-                break
             if self.ops.clock() >= ready_by:
                 raise Fatal('startup_timeout')
+            owned = self.ops.owned_listener(self.proc.pid, self.port)
+            if self.ops.clock() >= ready_by:
+                raise Fatal('startup_timeout')
+            if owned:
+                break
             self.ops.sleep(0.2)
         self.report['launch']['listener_proof'] = {'owned_listener': True, 'host': '127.0.0.1', 'port': self.port}
 
@@ -779,6 +794,7 @@ class Observer:
         finally:
             if metered is not None:
                 record['wire_bytes'] = metered.wire
+                record['wire_complete'] = metered.complete
                 self.wire_total += metered.wire
             close_failed = False
             for closer in (response, con):
@@ -786,7 +802,7 @@ class Observer:
                     try:
                         closer.close()
                     except Exception:
-                        pass
+                        self.fail('resource_close_failure', 'http_close_error')
             if fd is not None:
                 try:
                     os.close(fd)
@@ -803,11 +819,12 @@ class Observer:
         stored = record['stored']
         try:
             data, receipt = read_admitted(self.path(stored['file']), keep=True, limit=self.policy['body_bytes'])
-        except (Refusal, Absent):
+            st = os.lstat(self.path(stored['file']))
+        except (Refusal, Absent, OSError):
             stored.update(bytes=None, sha256=None, complete=False, error=stored['error'] or 'verify_failed')
+            self.stored_unknown = True
             self.fail('storage_failure', 'stored_verify_failed')
             return
-        st = os.lstat(self.path(stored['file']))
         stored.update(bytes=receipt['bytes'], sha256=receipt['sha256'])
         good = (result is not None and stored['error'] is None and st.st_nlink == 1 and stat.S_IMODE(st.st_mode) == 0o600
                 and receipt['bytes'] == result['bytes'] == written
@@ -816,8 +833,7 @@ class Observer:
         if result is not None and not good and stored['error'] is None:
             stored['error'] = 'stored_mismatch'
             self.fail('storage_failure', 'stored_mismatch')
-        if good:
-            self.stored_total += receipt['bytes']
+        self.stored_total += receipt['bytes']
         record['_prefix'] = data[:6]
 
     def classify(self, record, result, kind):
@@ -925,7 +941,10 @@ class Observer:
             return
         try:
             if self.proc.poll() is None:
-                cleanup['listener_before_shutdown'] = self.ops.owned_listener(self.proc.pid, self.port)
+                try:
+                    cleanup['listener_before_shutdown'] = self.ops.owned_listener(self.proc.pid, self.port)
+                except Exception as exc:
+                    cleanup['error'] = 'listener_' + type(exc).__name__
                 self.proc.terminate()  # Only the owned Popen child; never by name/port.
                 cleanup['terminated'] = True
                 try:
@@ -947,7 +966,7 @@ class Observer:
 
     def audit_missing_log(self):
         expected = [unquote(self.meta['plans'][r['target_index']]['http_path'], encoding='utf-8', errors='strict')
-                    for r in self.report['targets'] if r['stop_reason'] == 'http_404']
+                    for r in self.report['targets'] if r['http_status'] == 404]
         audit = {'present': False, 'bytes': None, 'sha256': None, 'entries': None, 'expected_404': len(expected), 'valid': False, 'error': None}
         self.report['missing_log'] = audit
         path = self.path('logs/missing-files.log')
@@ -1043,7 +1062,7 @@ class Observer:
             self.report['sources_after'] = receipts
             ok = ok and receipts == self.report['sources_before']
             driver = own_sha()
-            ok = ok and driver['sha256'] == self.driver['sha256'] and driver['bytes'] == self.driver['bytes']
+            ok = ok and driver == self.driver
         except (Refusal, Absent):
             self.report['sources_after'] = None
             ok = False
@@ -1097,6 +1116,8 @@ class Observer:
             self.scan()
             if not self.halt and not (self.proc.poll() is None and self.ops.owned_listener(self.proc.pid, self.port)):
                 self.fail('reader_lost')
+            if self.deadline is not None and self.ops.clock() >= self.deadline:
+                self.fail('acquisition_deadline')
         except Fatal as fatal:
             self.fail(fatal.reason)
         except (Refusal, Absent) as exc:
@@ -1134,7 +1155,13 @@ class Observer:
         try:
             self.checkpoint()
         except Fatal:
-            self.halt = self.halt or 'publication_failure'
+            self.fail('publication_failure')
+            self.report['acquisition_and_cleanup_valid'] = False
+            self.report['halt_reason'] = self.halt
+            try:
+                self.checkpoint()  # One bounded attempt to retain the failed final state.
+            except Fatal:
+                pass
             return 1
         return 0 if self.report['acquisition_and_cleanup_valid'] else 1
 

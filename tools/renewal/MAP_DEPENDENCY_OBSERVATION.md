@@ -1,6 +1,6 @@
 # First-level map dependency observation (T06.003.003.005)
 
-Candidate driver for the [frozen brief](../../docs/project/tasks/T06.003.003.005.md). It observes the
+Root-operated driver for the [frozen brief](../../docs/project/tasks/T06.003.003.005.md). It observes the
 exact literal HTTP availability and fixed magic prefix of every first-level model / ground-texture
 target in the qualified .004 catalog (11134 targets, 63557 referrers, all 1296 roots and 82 gap
 roots retained). This is availability evidence only: no RSM parsing, nested textures, decode, render,
@@ -59,8 +59,28 @@ header, declared/unframed cap, framed truncation, read/transport error, I/O time
 setup failure (attempt consumed, no wire claim). Fatal halts retain the untouched suffix with the halt
 reason: acquisition deadline (including a late final read, which stays `complete`), aggregate cap
 (health bytes included), reader loss, storage/publication failure, health failure, native drift or
-internal failure. Exit 0 requires all targets attempted, valid health, postchecks, log, tree and a
+internal failure or uncertain HTTP-resource close. Exit 0 requires all targets attempted, valid health, postchecks, log, tree and a
 proven clean exit 0 with no forced kill, listener or group residue.
+
+## Coordinator corrections
+
+The selected Claude submission is preserved unchanged as integration `258585d`.
+The separately attributed root correction rejects invalid initial framing before
+I/O; retains complete-wire evidence across storage failure; counts confirmed
+health and partial-file storage; and reports an unknown stored-byte total as
+null. HTTP close uncertainty disqualifies acquisition. An observation error
+still permits termination of the owned child, without claiming clean shutdown.
+Startup and final acquisition proofs check the clock after listener queries.
+The missing-file audit uses observed404status independently of body transfer.
+Driver postchecks compare the full identity receipt, as for the other inputs.
+Partial bytes from an HTTP IncompleteRead remain in received-byte accounting.
+
+Failed final publication always exits1 and clears in-memory qualification. One
+bounded recovery publication attempts to retain that failure; a persistent
+publication failure cannot guarantee a rewritten on-disk receipt. Root requires
+both positive exit status and independently audited evidence before acceptance.
+The11new regression methods reject the original source and pass the corrected
+source; see the [root review](../../docs/project/reviews/2026-10-20-T06.003.003.005.md).
 
 ## Limitations
 
