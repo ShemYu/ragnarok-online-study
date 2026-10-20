@@ -126,8 +126,9 @@ Repeat the final-source full corpus and independent audit         [V]
 Freeze the nested-texture catalog and common checks               [V]
 Prepare and launch the actual Claude/Grok catalog pair            [V]
 Build both independent catalogs; preserve and release workers      [V]
-Root verifies both catalogs, boundary cases and real I/O            [~] <-- NOW
-Compare both full catalogs, failures and repeat outputs           [ ]
+Root verifies both catalogs, boundary cases and real I/O            [V]
+Compare both full catalogs, failures and repeat outputs            [V]
+Select Claude; integrate, fix copying and repeat final checks       [~] <-- NOW
 Check availability of 8,119 declared nested texture paths         [ ]
 Diagnose one model exception and nine numeric-marker models      [ ]
 Investigate eight core NaN files and twelve unread tails          [ ]
