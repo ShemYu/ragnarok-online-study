@@ -1,6 +1,6 @@
 # Supervision, plan and current position
 
-Date: **2026-10-20 JST**. Functionality comes first. The map scan, core-file checks and first model/ground-texture request catalog are complete.
+Date: **2026-10-20 JST**. Functionality comes first. The nested texture scan is complete. One texture request is missing. Image loading and play remain to check.
 Use this map for a short view of [Status](STATUS.md), [Tasks](TASKS.md) and
 [Phases](PHASES.md). Status gives the current next action.
 Update this map after each important change. Keep the dated evidence.
@@ -130,15 +130,27 @@ Root verifies both catalogs, boundary cases and real I/O            [V]
 Compare both full catalogs, failures and repeat outputs            [V]
 Select Claude; integrate, fix copying and repeat final checks       [V]
 Prepare availability inputs and common controls                    [V]
-Compare new Claude/Grok texture observers                          [~] <-- NOW
-Check availability of 8,119 declared nested texture paths          [ ]
+Compare new Claude/Grok texture observers                          [V]
+Repair final failures; pass 44 tests and 91 shared cases            [V]
+Check all 8,119 paths: 8,118 available; one missing                  [V]
+Verify every stored body, input and clean reader exit               [V]
 Check an ordinary multi-stage quest and effective runtime loads    [ ]
-Build the preliminary version/content gap matrix in parallel       [ ]
+Build the preliminary version/content gap matrix in parallel       [~] <-- NOW
 Diagnose one model exception and nine numeric-marker models      [ ]
 Investigate eight core NaN files and twelve unread tails          [ ]
 Check compilation, rendering, travel and play                     [ ]
 Find compatible assets for the 82 unresolved requests             [ ]
 ```
+
+The texture scan takes 31.4 seconds and samples about 1.16 GB of owned RAM.
+One unknown-extension request is missing. Its effect on the game is untested.
+All 216 TGA headers pass the recorded checks. Images still need load/render tests.
+The ordinary quest needs separate test state and a fresh backup first.
+Independent source review can run while Codex verifies the scanner.
+Shared game and database changes run in sequence.
+Codex removed 35 inactive child worktrees after full backup verification.
+There are 22 children left. Their review, retained or uncertain state needs them.
+All removed commits and private evidence remain recoverable.
 
 The original scan checker refused an extra diagnostic log.
 Codex kept that failure and checked the log and all saved evidence separately.

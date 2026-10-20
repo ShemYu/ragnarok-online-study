@@ -130,8 +130,14 @@ is one generic JSON line of at most 4096 bytes, with no names, paths or stacks.
 
 ## Limits
 
-- No real execute scan has been run. Workers must not access native code, GRFs
-  or HTTP. All execute evidence comes from fakes.
+- Root completed one actual scan after separately committed correction e5df4ce:
+  all8119targets attempted,8118complete nonempty non-HTML200s/one404;
+ 7902BMP prefix matches/216TGA headers with all predicates true. Independent
+  audit rehashes all8120bodies/1104346322bytes, full metadata/native pins,
+  provenance/log/tree and clean exit. Guard31.404127seconds, sampled1156923392
+  bytes combined owned RSS/no action/empty groups. See the project
+  [qualification](../../docs/project/reviews/2026-10-20-T06.003.003.008.md#actual-scan-and-independent-availability-audit-qualified).
+  Workers used only metadata/tiny fakes; the actual scan was root-owned.
 - The `cap_unresolved_eof`, timeout and redirect paths use the inherited engine
   code. They are not exercised here with production fakes, only by the authored
   transfer vectors.
