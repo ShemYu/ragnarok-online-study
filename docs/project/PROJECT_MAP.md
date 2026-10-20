@@ -129,7 +129,8 @@ Build both independent catalogs; preserve and release workers      [V]
 Root verifies both catalogs, boundary cases and real I/O            [V]
 Compare both full catalogs, failures and repeat outputs            [V]
 Select Claude; integrate, fix copying and repeat final checks       [V]
-Prepare availability inputs and common controls                    [~] <-- NOW
+Prepare availability inputs and common controls                    [V]
+Compare new Claude/Grok texture observers                          [ ] <-- NEXT
 Check availability of 8,119 declared nested texture paths          [ ]
 Diagnose one model exception and nine numeric-marker models      [ ]
 Investigate eight core NaN files and twelve unread tails          [ ]

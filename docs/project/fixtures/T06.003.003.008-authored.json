@@ -1,0 +1,3729 @@
+{
+  "schema": "T06-nested-texture-observation-authored-1",
+  "status": "FROZEN_ROOT_REVIEWED",
+  "provenance": "Root-reviewed synthetic literals; inherited wire/transfer/write vectors remain unchanged from qualified .005. Header vectors independently checked against pinned source scalar fields. No asset bytes or provider implementation used.",
+  "api_contract": {
+    "wire_target": {
+      "arguments": [
+        "http_path"
+      ],
+      "returns": "slash followed by unchanged ASCII encoded path",
+      "refuses": [
+        "empty",
+        "non-ASCII",
+        "ASCII C0 or DEL control",
+        "literal space",
+        "literal ? or #",
+        "leading slash",
+        "repeated slash",
+        "dot or dotdot segment",
+        "malformed percent escape"
+      ],
+      "refusal": "ValueError with generic message and no raw path echo",
+      "preserves": [
+        "case",
+        "valid percent-escape spelling and hex case",
+        "!'()*"
+      ]
+    },
+    "transfer": {
+      "arguments": [
+        "response",
+        "fd"
+      ],
+      "keyword_arguments": [
+        "body_cap",
+        "aggregate_left",
+        "deadline",
+        "clock=None",
+        "write_fn=None"
+      ],
+      "result_keys": [
+        "outcome",
+        "bytes",
+        "response_complete",
+        "complete_sha256",
+        "partial_sha256",
+        "late"
+      ],
+      "outcomes": [
+        "complete",
+        "declared_over_cap",
+        "cap_unresolved_eof",
+        "aggregate_cap",
+        "deadline",
+        "transport_error"
+      ],
+      "late": "final clock() >= deadline for every returned outcome",
+      "empty_framing": "response.length == 0 is handled before the read-deadline gate",
+      "complete_hash": "SHA256 of fully stored chunks on complete outcome; partial hash null",
+      "noncomplete_hash": "complete hash null; partial hash SHA256 of fully stored chunks, including empty",
+      "storage_error": "propagate OSError, no transfer result, caller retains and must close fd; do not retry after zero write"
+    },
+    "inspect_texture_header": {
+      "arguments": [
+        "kind",
+        "prefix"
+      ],
+      "exact_types": [
+        "str",
+        "bytes"
+      ],
+      "kinds": [
+        "bmp",
+        "tga",
+        "unknown"
+      ],
+      "result_keys": [
+        "kind",
+        "state",
+        "prefix_hex",
+        "tga"
+      ],
+      "retained_prefix_bytes": {
+        "bmp": 2,
+        "tga": 18,
+        "unknown": 18
+      },
+      "tga_fields": [
+        "id_length",
+        "color_map_type",
+        "image_type",
+        "color_map_index",
+        "color_map_length",
+        "color_map_depth",
+        "offset_x",
+        "offset_y",
+        "width",
+        "height",
+        "pixel_depth",
+        "flags"
+      ],
+      "no_payload_decode_or_dimension_allocation": true
+    },
+    "build_plan": {
+      "arguments": [
+        "catalog",
+        "expected_counts"
+      ],
+      "result": "ordered array of exact index/catalog_pointer/http_path/wire/kind/referrers objects",
+      "refusal": "exported Refusal with generic reason; no required diagnostic priority"
+    }
+  },
+  "case_counts": {
+    "wire": 16,
+    "transport": 11,
+    "write_controls": 3,
+    "header": 34,
+    "header_argument_refusals": 9,
+    "plan_mutations": 17
+  },
+  "fixture_adapter_rules": {
+    "response_length": "Nonnegative remaining framed byte count or null. read1(max_bytes) returns at most max_bytes, splitting a data step as needed; it decrements framed length by returned byte count. EOF leaves any positive framing remainder unchanged.",
+    "response_steps": "A data step advances only when fully served; clock_when_fully_served then updates the fake clock. eof returns empty bytes; raises throws the named authored exception. No real HTTP object is created.",
+    "clock": "Returns initial_value until a data-step update; no prescribed number of clock() calls. Equality at deadline counts late.",
+    "storage": "Runner supplies an initially empty caller-owned temporary fd and compares physical stored bytes before caller cleanup. write_plan short writes must actually store the reported bytes.",
+    "write_fn": "write_fn(fd, bytes-like-buffer) -> int excluding bool in 1..remaining; zero/invalid/overlarge counts raise OSError without retry.",
+    "read_effects": "No fixed read call count is imposed except an explicitly forbidden read/EOF lookahead. Assert no read request after the named exhausted cap and retain the scripted unread payload.",
+    "wire_errors": "ValueError class and generic-no-echo policy are fixed; exact message text is not prescribed."
+  },
+  "additional_policy": {
+    "wire": "Only ASCII URI segment characters A-Z a-z 0-9 -._~ ! $ & apostrophe ( ) * + , ; = : @ and valid percent escapes, separated by single slash. Reject literal backslash, leading/trailing/repeated slash and literal dot/dotdot segments. Preserve valid escapes without decoding or re-encoding.",
+    "precedence": "framed remaining length zero; declared length over body cap; deadline; aggregate exhausted; body cap exhausted; bounded read. Final late flag applies independently.",
+    "arguments": "ValueError for invalid shape/types/negative limits or nonfinite deadline; header kind must be exact str bmp/tga/unknown and prefix exact bytes. Limits and response.length exclude bool.",
+    "write": "Invalid progress raises OSError. EINTR may retry; no retry after zero. Returned transfer hashes cover fully stored chunks only. The caller records any uncertain partial chunk after a storage exception."
+  },
+  "wire_cases": [
+    {
+      "id": "W01",
+      "http_path": "data/model/A.rsm",
+      "expected": {
+        "returns": "/data/model/A.rsm"
+      }
+    },
+    {
+      "id": "W02",
+      "http_path": "data/model/MiX%20A%2bB%2520!'()*.RSM",
+      "expected": {
+        "returns": "/data/model/MiX%20A%2bB%2520!'()*.RSM"
+      }
+    },
+    {
+      "id": "W03",
+      "scenario": "empty",
+      "http_path": "",
+      "expected": {
+        "raises": "ValueError",
+        "message_policy": "generic_no_raw_path_echo",
+        "exact_message_not_frozen": true
+      }
+    },
+    {
+      "id": "W04",
+      "scenario": "non_ascii",
+      "http_path": "data/model/\u8a31.rsm",
+      "expected": {
+        "raises": "ValueError",
+        "message_policy": "generic_no_raw_path_echo",
+        "exact_message_not_frozen": true
+      }
+    },
+    {
+      "id": "W05",
+      "scenario": "c0_control",
+      "http_path": "data/model/a\u001f.rsm",
+      "expected": {
+        "raises": "ValueError",
+        "message_policy": "generic_no_raw_path_echo",
+        "exact_message_not_frozen": true
+      }
+    },
+    {
+      "id": "W06",
+      "scenario": "del_control",
+      "http_path": "data/model/a\u007f.rsm",
+      "expected": {
+        "raises": "ValueError",
+        "message_policy": "generic_no_raw_path_echo",
+        "exact_message_not_frozen": true
+      }
+    },
+    {
+      "id": "W07",
+      "scenario": "literal_space",
+      "http_path": "data/model/a b.rsm",
+      "expected": {
+        "raises": "ValueError",
+        "message_policy": "generic_no_raw_path_echo",
+        "exact_message_not_frozen": true
+      }
+    },
+    {
+      "id": "W08",
+      "scenario": "literal_question",
+      "http_path": "data/model/a?b.rsm",
+      "expected": {
+        "raises": "ValueError",
+        "message_policy": "generic_no_raw_path_echo",
+        "exact_message_not_frozen": true
+      }
+    },
+    {
+      "id": "W09",
+      "scenario": "literal_fragment",
+      "http_path": "data/model/a#b.rsm",
+      "expected": {
+        "raises": "ValueError",
+        "message_policy": "generic_no_raw_path_echo",
+        "exact_message_not_frozen": true
+      }
+    },
+    {
+      "id": "W10",
+      "scenario": "leading_slash",
+      "http_path": "/data/model/a.rsm",
+      "expected": {
+        "raises": "ValueError",
+        "message_policy": "generic_no_raw_path_echo",
+        "exact_message_not_frozen": true
+      }
+    },
+    {
+      "id": "W11",
+      "scenario": "repeated_slash",
+      "http_path": "data//model/a.rsm",
+      "expected": {
+        "raises": "ValueError",
+        "message_policy": "generic_no_raw_path_echo",
+        "exact_message_not_frozen": true
+      }
+    },
+    {
+      "id": "W12",
+      "scenario": "dot_segment",
+      "http_path": "data/./model/a.rsm",
+      "expected": {
+        "raises": "ValueError",
+        "message_policy": "generic_no_raw_path_echo",
+        "exact_message_not_frozen": true
+      }
+    },
+    {
+      "id": "W13",
+      "scenario": "dotdot_segment",
+      "http_path": "data/model/../a.rsm",
+      "expected": {
+        "raises": "ValueError",
+        "message_policy": "generic_no_raw_path_echo",
+        "exact_message_not_frozen": true
+      }
+    },
+    {
+      "id": "W14",
+      "scenario": "nonhex_escape",
+      "http_path": "data/model/a%2G.rsm",
+      "expected": {
+        "raises": "ValueError",
+        "message_policy": "generic_no_raw_path_echo",
+        "exact_message_not_frozen": true
+      }
+    },
+    {
+      "id": "W15",
+      "scenario": "one_hex_escape",
+      "http_path": "data/model/a%2",
+      "expected": {
+        "raises": "ValueError",
+        "message_policy": "generic_no_raw_path_echo",
+        "exact_message_not_frozen": true
+      }
+    },
+    {
+      "id": "W16",
+      "scenario": "bare_percent",
+      "http_path": "data/model/a%",
+      "expected": {
+        "raises": "ValueError",
+        "message_policy": "generic_no_raw_path_echo",
+        "exact_message_not_frozen": true
+      }
+    }
+  ],
+  "transport_cases": [
+    {
+      "id": "T01",
+      "scenario": "framed_exact_body_cap",
+      "response": {
+        "initial_length": 4,
+        "steps": [
+          {
+            "data_hex": "41424344"
+          },
+          {
+            "eof": true
+          }
+        ]
+      },
+      "arguments": {
+        "body_cap": 4,
+        "aggregate_left": 16,
+        "deadline": 10
+      },
+      "clock": {
+        "initial_value": 0,
+        "updates": "only response step clock_when_fully_served"
+      },
+      "writer": "fully_store_every_requested_buffer",
+      "expected": {
+        "outcome": "complete",
+        "bytes": 4,
+        "response_complete": true,
+        "complete_sha256": "e12e115acf4552b2568b55e93cbd39394c4ef81c82447fafc997882a02d23677",
+        "partial_sha256": null,
+        "late": false
+      },
+      "expected_stored_hex": "41424344",
+      "expected_effects": {
+        "do_not_read_eof_after_framing_reaches_zero": true
+      }
+    },
+    {
+      "id": "T02",
+      "scenario": "unframed_eof_below_cap",
+      "response": {
+        "initial_length": null,
+        "steps": [
+          {
+            "data_hex": "6162"
+          },
+          {
+            "data_hex": "63"
+          },
+          {
+            "eof": true
+          }
+        ]
+      },
+      "arguments": {
+        "body_cap": 8,
+        "aggregate_left": 16,
+        "deadline": 10
+      },
+      "clock": {
+        "initial_value": 0,
+        "updates": "only response step clock_when_fully_served"
+      },
+      "writer": "fully_store_every_requested_buffer",
+      "expected": {
+        "outcome": "complete",
+        "bytes": 3,
+        "response_complete": true,
+        "complete_sha256": "ba7816bf8f01cfea414140de5dae2223b00361a396177a9cb410ff61f20015ad",
+        "partial_sha256": null,
+        "late": false
+      },
+      "expected_stored_hex": "616263"
+    },
+    {
+      "id": "T03",
+      "scenario": "unframed_exact_cap_without_eof_lookahead",
+      "response": {
+        "initial_length": null,
+        "steps": [
+          {
+            "data_hex": "41424344"
+          },
+          {
+            "eof": true
+          }
+        ]
+      },
+      "arguments": {
+        "body_cap": 4,
+        "aggregate_left": 16,
+        "deadline": 10
+      },
+      "clock": {
+        "initial_value": 0,
+        "updates": "only response step clock_when_fully_served"
+      },
+      "writer": "fully_store_every_requested_buffer",
+      "expected": {
+        "outcome": "cap_unresolved_eof",
+        "bytes": 4,
+        "response_complete": false,
+        "complete_sha256": null,
+        "partial_sha256": "e12e115acf4552b2568b55e93cbd39394c4ef81c82447fafc997882a02d23677",
+        "late": false
+      },
+      "expected_stored_hex": "41424344",
+      "expected_effects": {
+        "do_not_read_eof_after_body_cap": true
+      }
+    },
+    {
+      "id": "T04",
+      "scenario": "declared_length_over_body_cap",
+      "response": {
+        "initial_length": 5,
+        "steps": [
+          {
+            "data_hex": "4142434445"
+          },
+          {
+            "eof": true
+          }
+        ]
+      },
+      "arguments": {
+        "body_cap": 4,
+        "aggregate_left": 16,
+        "deadline": 10
+      },
+      "clock": {
+        "initial_value": 0,
+        "updates": "only response step clock_when_fully_served"
+      },
+      "writer": "fully_store_every_requested_buffer",
+      "expected": {
+        "outcome": "declared_over_cap",
+        "bytes": 0,
+        "response_complete": false,
+        "complete_sha256": null,
+        "partial_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "late": false
+      },
+      "expected_stored_hex": "",
+      "expected_effects": {
+        "read1_must_not_be_called": true
+      }
+    },
+    {
+      "id": "T05",
+      "scenario": "unframed_cap_plus_one_retains_only_local_cap",
+      "response": {
+        "initial_length": null,
+        "steps": [
+          {
+            "data_hex": "4142434445"
+          },
+          {
+            "eof": true
+          }
+        ]
+      },
+      "arguments": {
+        "body_cap": 4,
+        "aggregate_left": 16,
+        "deadline": 10
+      },
+      "clock": {
+        "initial_value": 0,
+        "updates": "only response step clock_when_fully_served"
+      },
+      "writer": "fully_store_every_requested_buffer",
+      "expected": {
+        "outcome": "cap_unresolved_eof",
+        "bytes": 4,
+        "response_complete": false,
+        "complete_sha256": null,
+        "partial_sha256": "e12e115acf4552b2568b55e93cbd39394c4ef81c82447fafc997882a02d23677",
+        "late": false
+      },
+      "expected_stored_hex": "41424344",
+      "expected_effects": {
+        "unread_data_hex": "45",
+        "do_not_read_after_body_cap": true
+      }
+    },
+    {
+      "id": "T06",
+      "scenario": "framed_truncated_eof_after_partial",
+      "response": {
+        "initial_length": 5,
+        "steps": [
+          {
+            "data_hex": "6162"
+          },
+          {
+            "eof": true
+          }
+        ]
+      },
+      "arguments": {
+        "body_cap": 8,
+        "aggregate_left": 16,
+        "deadline": 10
+      },
+      "clock": {
+        "initial_value": 0,
+        "updates": "only response step clock_when_fully_served"
+      },
+      "writer": "fully_store_every_requested_buffer",
+      "expected": {
+        "outcome": "transport_error",
+        "bytes": 2,
+        "response_complete": false,
+        "complete_sha256": null,
+        "partial_sha256": "fb8e20fc2e4c3f248c60c39bd652f3c1347298bb977b8b4d5903b85055620603",
+        "late": false
+      },
+      "expected_stored_hex": "6162"
+    },
+    {
+      "id": "T07",
+      "scenario": "aggregate_limit_after_three_bytes",
+      "response": {
+        "initial_length": 8,
+        "steps": [
+          {
+            "data_hex": "4142434445464748"
+          },
+          {
+            "eof": true
+          }
+        ]
+      },
+      "arguments": {
+        "body_cap": 8,
+        "aggregate_left": 3,
+        "deadline": 10
+      },
+      "clock": {
+        "initial_value": 0,
+        "updates": "only response step clock_when_fully_served"
+      },
+      "writer": "fully_store_every_requested_buffer",
+      "expected": {
+        "outcome": "aggregate_cap",
+        "bytes": 3,
+        "response_complete": false,
+        "complete_sha256": null,
+        "partial_sha256": "b5d4045c3f466fa91fe2cc6abe79232a1a57cdf104f7a26e716e0a1e2789df78",
+        "late": false
+      },
+      "expected_stored_hex": "414243",
+      "expected_effects": {
+        "unread_data_hex": "4445464748",
+        "do_not_read_after_aggregate_cap": true
+      }
+    },
+    {
+      "id": "T08",
+      "scenario": "deadline_before_read_nonempty",
+      "response": {
+        "initial_length": 4,
+        "steps": [
+          {
+            "data_hex": "41424344"
+          },
+          {
+            "eof": true
+          }
+        ]
+      },
+      "arguments": {
+        "body_cap": 8,
+        "aggregate_left": 16,
+        "deadline": 10
+      },
+      "clock": {
+        "initial_value": 10,
+        "updates": "only response step clock_when_fully_served"
+      },
+      "writer": "fully_store_every_requested_buffer",
+      "expected": {
+        "outcome": "deadline",
+        "bytes": 0,
+        "response_complete": false,
+        "complete_sha256": null,
+        "partial_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "late": true
+      },
+      "expected_stored_hex": "",
+      "expected_effects": {
+        "read1_must_not_be_called": true
+      }
+    },
+    {
+      "id": "T09",
+      "scenario": "final_framed_read_reaches_deadline",
+      "response": {
+        "initial_length": 4,
+        "steps": [
+          {
+            "data_hex": "41424344",
+            "clock_when_fully_served": 10
+          },
+          {
+            "eof": true
+          }
+        ]
+      },
+      "arguments": {
+        "body_cap": 4,
+        "aggregate_left": 16,
+        "deadline": 10
+      },
+      "clock": {
+        "initial_value": 0,
+        "updates": "only response step clock_when_fully_served"
+      },
+      "writer": "fully_store_every_requested_buffer",
+      "expected": {
+        "outcome": "complete",
+        "bytes": 4,
+        "response_complete": true,
+        "complete_sha256": "e12e115acf4552b2568b55e93cbd39394c4ef81c82447fafc997882a02d23677",
+        "partial_sha256": null,
+        "late": true
+      },
+      "expected_stored_hex": "41424344",
+      "expected_effects": {
+        "do_not_read_eof_after_framing_reaches_zero": true
+      }
+    },
+    {
+      "id": "T10",
+      "scenario": "read_exception_after_partial",
+      "response": {
+        "initial_length": null,
+        "steps": [
+          {
+            "data_hex": "4142"
+          },
+          {
+            "raises": "OSError",
+            "message": "authored read fault"
+          }
+        ]
+      },
+      "arguments": {
+        "body_cap": 8,
+        "aggregate_left": 16,
+        "deadline": 10
+      },
+      "clock": {
+        "initial_value": 0,
+        "updates": "only response step clock_when_fully_served"
+      },
+      "writer": "fully_store_every_requested_buffer",
+      "expected": {
+        "outcome": "transport_error",
+        "bytes": 2,
+        "response_complete": false,
+        "complete_sha256": null,
+        "partial_sha256": "38164fbd17603d73f696b8b4d72664d735bb6a7c88577687fd2ae33fd6964153",
+        "late": false
+      },
+      "expected_stored_hex": "4142"
+    },
+    {
+      "id": "T11",
+      "scenario": "known_empty_frame_before_deadline_gate",
+      "response": {
+        "initial_length": 0,
+        "steps": [
+          {
+            "raises": "AssertionError",
+            "message": "read1 forbidden for known empty frame"
+          }
+        ]
+      },
+      "arguments": {
+        "body_cap": 8,
+        "aggregate_left": 16,
+        "deadline": 10
+      },
+      "clock": {
+        "initial_value": 10,
+        "updates": "only response step clock_when_fully_served"
+      },
+      "writer": "fully_store_every_requested_buffer",
+      "expected": {
+        "outcome": "complete",
+        "bytes": 0,
+        "response_complete": true,
+        "complete_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "partial_sha256": null,
+        "late": true
+      },
+      "expected_stored_hex": "",
+      "expected_effects": {
+        "read1_must_not_be_called": true
+      }
+    }
+  ],
+  "write_controls": [
+    {
+      "id": "Q01",
+      "scenario": "positive_short_write_then_remaining",
+      "response": {
+        "initial_length": 3,
+        "steps": [
+          {
+            "data_hex": "616263"
+          },
+          {
+            "eof": true
+          }
+        ]
+      },
+      "arguments": {
+        "body_cap": 8,
+        "aggregate_left": 16,
+        "deadline": 10
+      },
+      "clock": {
+        "initial_value": 0
+      },
+      "write_plan": [
+        {
+          "actually_store_at_most": 1
+        },
+        {
+          "actually_store": "all_remaining"
+        }
+      ],
+      "expected": {
+        "outcome": "complete",
+        "bytes": 3,
+        "response_complete": true,
+        "complete_sha256": "ba7816bf8f01cfea414140de5dae2223b00361a396177a9cb410ff61f20015ad",
+        "partial_sha256": null,
+        "late": false
+      },
+      "expected_stored_hex": "616263",
+      "expected_effects": {
+        "caller_fd_stays_open": true,
+        "positive_short_injection_observed_if_multi_byte_buffer_requested": true
+      },
+      "applicability": "Inject a genuinely positive short write when the candidate requests more than one byte. A valid byte-at-a-time implementation may have no such callback opportunity; retain exact result/storage checks and report that short-write path as not exercised, not as observed fault evidence."
+    },
+    {
+      "id": "Q02",
+      "scenario": "zero_write_raises_without_retry",
+      "response": {
+        "initial_length": 3,
+        "steps": [
+          {
+            "data_hex": "616263"
+          },
+          {
+            "eof": true
+          }
+        ]
+      },
+      "arguments": {
+        "body_cap": 8,
+        "aggregate_left": 16,
+        "deadline": 10
+      },
+      "clock": {
+        "initial_value": 0
+      },
+      "write_plan": [
+        {
+          "return_zero_without_storing": true
+        },
+        {
+          "safety_sentinel_if_called": "AssertionError: retried after zero"
+        }
+      ],
+      "expected_exception": {
+        "type": "OSError",
+        "no_transfer_result": true
+      },
+      "expected_stored_hex": "",
+      "expected_effects": {
+        "zero_injection_observed": true,
+        "write_calls": 1,
+        "caller_fd_stays_open": true
+      }
+    },
+    {
+      "id": "Q03",
+      "scenario": "positive_storage_then_write_error_propagates",
+      "response": {
+        "initial_length": 3,
+        "steps": [
+          {
+            "data_hex": "616263"
+          },
+          {
+            "eof": true
+          }
+        ]
+      },
+      "arguments": {
+        "body_cap": 8,
+        "aggregate_left": 16,
+        "deadline": 10
+      },
+      "clock": {
+        "initial_value": 0
+      },
+      "write_plan": [
+        {
+          "actually_store_at_most": 1
+        },
+        {
+          "raises": "OSError",
+          "message": "authored write fault"
+        }
+      ],
+      "expected_exception": {
+        "type": "OSError",
+        "no_transfer_result": true
+      },
+      "expected_stored_hex": "61",
+      "expected_effects": {
+        "error_injection_observed": true,
+        "caller_fd_stays_open": true,
+        "first_positive_write_observed": true
+      },
+      "note": "If the first write request exceeds one byte this is a mid-chunk error; if not, it is a completed one-byte chunk followed by error. No result/hash/count is fabricated on either exception path."
+    }
+  ],
+  "header_cases": [
+    {
+      "id": "bmp_empty",
+      "kind": "bmp",
+      "prefix_bytes": [],
+      "expected": {
+        "kind": "bmp",
+        "state": "short",
+        "prefix_hex": "",
+        "tga": null
+      },
+      "purpose": "No prefix is shorter than the two-byte BMP rule."
+    },
+    {
+      "id": "bmp_one_byte",
+      "kind": "bmp",
+      "prefix_bytes": [
+        66
+      ],
+      "expected": {
+        "kind": "bmp",
+        "state": "short",
+        "prefix_hex": "42",
+        "tga": null
+      },
+      "purpose": "One B byte is not a complete minimal prefix."
+    },
+    {
+      "id": "bmp_minimal_match",
+      "kind": "bmp",
+      "prefix_bytes": [
+        66,
+        77
+      ],
+      "expected": {
+        "kind": "bmp",
+        "state": "match",
+        "prefix_hex": "424d",
+        "tga": null
+      },
+      "purpose": "BM is only a two-byte match, even with no BMP payload."
+    },
+    {
+      "id": "bmp_mismatch",
+      "kind": "bmp",
+      "prefix_bytes": [
+        66,
+        78
+      ],
+      "expected": {
+        "kind": "bmp",
+        "state": "mismatch",
+        "prefix_hex": "424e",
+        "tga": null
+      },
+      "purpose": "A complete non-BM prefix mismatches."
+    },
+    {
+      "id": "bmp_tail_ignored",
+      "kind": "bmp",
+      "prefix_bytes": [
+        66,
+        77,
+        0,
+        255,
+        1,
+        254,
+        2,
+        253,
+        3,
+        252,
+        4,
+        251,
+        5,
+        250,
+        6,
+        249,
+        7,
+        248,
+        8,
+        247
+      ],
+      "expected": {
+        "kind": "bmp",
+        "state": "match",
+        "prefix_hex": "424d",
+        "tga": null
+      },
+      "purpose": "The BMP result retains two bytes only."
+    },
+    {
+      "id": "tga_empty",
+      "kind": "tga",
+      "prefix_bytes": [],
+      "expected": {
+        "kind": "tga",
+        "state": "short",
+        "prefix_hex": "",
+        "tga": null
+      },
+      "purpose": "No partial header or invented fields."
+    },
+    {
+      "id": "tga_one_byte",
+      "kind": "tga",
+      "prefix_bytes": [
+        255
+      ],
+      "expected": {
+        "kind": "tga",
+        "state": "short",
+        "prefix_hex": "ff",
+        "tga": null
+      },
+      "purpose": "Truncated prefixes stay short regardless of byte values."
+    },
+    {
+      "id": "tga_seventeen_bytes",
+      "kind": "tga",
+      "prefix_bytes": [
+        0,
+        0,
+        2,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        1,
+        0,
+        1,
+        0,
+        24
+      ],
+      "expected": {
+        "kind": "tga",
+        "state": "short",
+        "prefix_hex": "0000020000000000000000000100010018",
+        "tga": null
+      },
+      "purpose": "A missing flags byte does not produce partial predicates."
+    },
+    {
+      "id": "tga_rgb_header_only",
+      "kind": "tga",
+      "prefix_bytes": [
+        0,
+        0,
+        2,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        1,
+        0,
+        1,
+        0,
+        24,
+        0
+      ],
+      "expected": {
+        "kind": "tga",
+        "state": "observed",
+        "prefix_hex": "000002000000000000000000010001001800",
+        "tga": {
+          "header": {
+            "id_length": 0,
+            "color_map_type": 0,
+            "image_type": 2,
+            "color_map_index": 0,
+            "color_map_length": 0,
+            "color_map_depth": 0,
+            "offset_x": 0,
+            "offset_y": 0,
+            "width": 1,
+            "height": 1,
+            "pixel_depth": 24,
+            "flags": 0
+          },
+          "derived": {
+            "has_encoding": false,
+            "has_color_map": false,
+            "is_grey_color": false
+          },
+          "checks": {
+            "image_type_nonzero": true,
+            "color_map_consistent": true,
+            "dimensions_positive": true,
+            "pixel_depth_supported": true
+          },
+          "checks_all": true
+        }
+      },
+      "purpose": "No fixed magic and no payload: true predicates are not decode success."
+    },
+    {
+      "id": "tga_tail_ignored",
+      "kind": "tga",
+      "prefix_bytes": [
+        0,
+        0,
+        2,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        1,
+        0,
+        1,
+        0,
+        24,
+        0,
+        255,
+        127,
+        66,
+        77
+      ],
+      "expected": {
+        "kind": "tga",
+        "state": "observed",
+        "prefix_hex": "000002000000000000000000010001001800",
+        "tga": {
+          "header": {
+            "id_length": 0,
+            "color_map_type": 0,
+            "image_type": 2,
+            "color_map_index": 0,
+            "color_map_length": 0,
+            "color_map_depth": 0,
+            "offset_x": 0,
+            "offset_y": 0,
+            "width": 1,
+            "height": 1,
+            "pixel_depth": 24,
+            "flags": 0
+          },
+          "derived": {
+            "has_encoding": false,
+            "has_color_map": false,
+            "is_grey_color": false
+          },
+          "checks": {
+            "image_type_nonzero": true,
+            "color_map_consistent": true,
+            "dimensions_positive": true,
+            "pixel_depth_supported": true
+          },
+          "checks_all": true
+        }
+      },
+      "purpose": "Beyond18 bytes never affects the observation."
+    },
+    {
+      "id": "tga_no_data_type",
+      "kind": "tga",
+      "prefix_bytes": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        1,
+        0,
+        1,
+        0,
+        24,
+        0
+      ],
+      "expected": {
+        "kind": "tga",
+        "state": "observed",
+        "prefix_hex": "000000000000000000000000010001001800",
+        "tga": {
+          "header": {
+            "id_length": 0,
+            "color_map_type": 0,
+            "image_type": 0,
+            "color_map_index": 0,
+            "color_map_length": 0,
+            "color_map_depth": 0,
+            "offset_x": 0,
+            "offset_y": 0,
+            "width": 1,
+            "height": 1,
+            "pixel_depth": 24,
+            "flags": 0
+          },
+          "derived": {
+            "has_encoding": false,
+            "has_color_map": false,
+            "is_grey_color": false
+          },
+          "checks": {
+            "image_type_nonzero": false,
+            "color_map_consistent": true,
+            "dimensions_positive": true,
+            "pixel_depth_supported": true
+          },
+          "checks_all": false
+        }
+      },
+      "purpose": "Source rejects type0; state still means header observed."
+    },
+    {
+      "id": "tga_indexed_zero_palette_length",
+      "kind": "tga",
+      "prefix_bytes": [
+        0,
+        1,
+        1,
+        0,
+        0,
+        0,
+        0,
+        24,
+        0,
+        0,
+        0,
+        0,
+        1,
+        0,
+        1,
+        0,
+        8,
+        0
+      ],
+      "expected": {
+        "kind": "tga",
+        "state": "observed",
+        "prefix_hex": "000101000000001800000000010001000800",
+        "tga": {
+          "header": {
+            "id_length": 0,
+            "color_map_type": 1,
+            "image_type": 1,
+            "color_map_index": 0,
+            "color_map_length": 0,
+            "color_map_depth": 24,
+            "offset_x": 0,
+            "offset_y": 0,
+            "width": 1,
+            "height": 1,
+            "pixel_depth": 8,
+            "flags": 0
+          },
+          "derived": {
+            "has_encoding": false,
+            "has_color_map": true,
+            "is_grey_color": false
+          },
+          "checks": {
+            "image_type_nonzero": true,
+            "color_map_consistent": true,
+            "dimensions_positive": true,
+            "pixel_depth_supported": true
+          },
+          "checks_all": true
+        }
+      },
+      "purpose": "The source checks an upper palette bound but no positive minimum."
+    },
+    {
+      "id": "tga_indexed_palette_256",
+      "kind": "tga",
+      "prefix_bytes": [
+        0,
+        1,
+        1,
+        0,
+        0,
+        0,
+        1,
+        24,
+        0,
+        0,
+        0,
+        0,
+        1,
+        0,
+        1,
+        0,
+        8,
+        0
+      ],
+      "expected": {
+        "kind": "tga",
+        "state": "observed",
+        "prefix_hex": "000101000000011800000000010001000800",
+        "tga": {
+          "header": {
+            "id_length": 0,
+            "color_map_type": 1,
+            "image_type": 1,
+            "color_map_index": 0,
+            "color_map_length": 256,
+            "color_map_depth": 24,
+            "offset_x": 0,
+            "offset_y": 0,
+            "width": 1,
+            "height": 1,
+            "pixel_depth": 8,
+            "flags": 0
+          },
+          "derived": {
+            "has_encoding": false,
+            "has_color_map": true,
+            "is_grey_color": false
+          },
+          "checks": {
+            "image_type_nonzero": true,
+            "color_map_consistent": true,
+            "dimensions_positive": true,
+            "pixel_depth_supported": true
+          },
+          "checks_all": true
+        }
+      },
+      "purpose": "The literal LE16 upper bound256 is admitted by the source predicate."
+    },
+    {
+      "id": "tga_indexed_palette_257",
+      "kind": "tga",
+      "prefix_bytes": [
+        0,
+        1,
+        1,
+        0,
+        0,
+        1,
+        1,
+        24,
+        0,
+        0,
+        0,
+        0,
+        1,
+        0,
+        1,
+        0,
+        8,
+        0
+      ],
+      "expected": {
+        "kind": "tga",
+        "state": "observed",
+        "prefix_hex": "000101000001011800000000010001000800",
+        "tga": {
+          "header": {
+            "id_length": 0,
+            "color_map_type": 1,
+            "image_type": 1,
+            "color_map_index": 0,
+            "color_map_length": 257,
+            "color_map_depth": 24,
+            "offset_x": 0,
+            "offset_y": 0,
+            "width": 1,
+            "height": 1,
+            "pixel_depth": 8,
+            "flags": 0
+          },
+          "derived": {
+            "has_encoding": false,
+            "has_color_map": true,
+            "is_grey_color": false
+          },
+          "checks": {
+            "image_type_nonzero": true,
+            "color_map_consistent": false,
+            "dimensions_positive": true,
+            "pixel_depth_supported": true
+          },
+          "checks_all": false
+        }
+      },
+      "purpose": "A palette length above256 fails only its predicate."
+    },
+    {
+      "id": "tga_indexed_wrong_palette_depth",
+      "kind": "tga",
+      "prefix_bytes": [
+        0,
+        1,
+        1,
+        0,
+        0,
+        1,
+        0,
+        32,
+        0,
+        0,
+        0,
+        0,
+        1,
+        0,
+        1,
+        0,
+        8,
+        0
+      ],
+      "expected": {
+        "kind": "tga",
+        "state": "observed",
+        "prefix_hex": "000101000001002000000000010001000800",
+        "tga": {
+          "header": {
+            "id_length": 0,
+            "color_map_type": 1,
+            "image_type": 1,
+            "color_map_index": 0,
+            "color_map_length": 1,
+            "color_map_depth": 32,
+            "offset_x": 0,
+            "offset_y": 0,
+            "width": 1,
+            "height": 1,
+            "pixel_depth": 8,
+            "flags": 0
+          },
+          "derived": {
+            "has_encoding": false,
+            "has_color_map": true,
+            "is_grey_color": false
+          },
+          "checks": {
+            "image_type_nonzero": true,
+            "color_map_consistent": false,
+            "dimensions_positive": true,
+            "pixel_depth_supported": true
+          },
+          "checks_all": false
+        }
+      },
+      "purpose": "Indexed palette depth must equal24, independent of pixel depth."
+    },
+    {
+      "id": "tga_indexed_wrong_palette_type",
+      "kind": "tga",
+      "prefix_bytes": [
+        0,
+        0,
+        1,
+        0,
+        0,
+        1,
+        0,
+        24,
+        0,
+        0,
+        0,
+        0,
+        1,
+        0,
+        1,
+        0,
+        8,
+        0
+      ],
+      "expected": {
+        "kind": "tga",
+        "state": "observed",
+        "prefix_hex": "000001000001001800000000010001000800",
+        "tga": {
+          "header": {
+            "id_length": 0,
+            "color_map_type": 0,
+            "image_type": 1,
+            "color_map_index": 0,
+            "color_map_length": 1,
+            "color_map_depth": 24,
+            "offset_x": 0,
+            "offset_y": 0,
+            "width": 1,
+            "height": 1,
+            "pixel_depth": 8,
+            "flags": 0
+          },
+          "derived": {
+            "has_encoding": false,
+            "has_color_map": true,
+            "is_grey_color": false
+          },
+          "checks": {
+            "image_type_nonzero": true,
+            "color_map_consistent": false,
+            "dimensions_positive": true,
+            "pixel_depth_supported": true
+          },
+          "checks_all": false
+        }
+      },
+      "purpose": "Indexed imageType needs palette type1."
+    },
+    {
+      "id": "tga_rle_indexed",
+      "kind": "tga",
+      "prefix_bytes": [
+        0,
+        1,
+        9,
+        0,
+        0,
+        1,
+        0,
+        24,
+        0,
+        0,
+        0,
+        0,
+        1,
+        0,
+        1,
+        0,
+        8,
+        0
+      ],
+      "expected": {
+        "kind": "tga",
+        "state": "observed",
+        "prefix_hex": "000109000001001800000000010001000800",
+        "tga": {
+          "header": {
+            "id_length": 0,
+            "color_map_type": 1,
+            "image_type": 9,
+            "color_map_index": 0,
+            "color_map_length": 1,
+            "color_map_depth": 24,
+            "offset_x": 0,
+            "offset_y": 0,
+            "width": 1,
+            "height": 1,
+            "pixel_depth": 8,
+            "flags": 0
+          },
+          "derived": {
+            "has_encoding": true,
+            "has_color_map": true,
+            "is_grey_color": false
+          },
+          "checks": {
+            "image_type_nonzero": true,
+            "color_map_consistent": true,
+            "dimensions_positive": true,
+            "pixel_depth_supported": true
+          },
+          "checks_all": true
+        }
+      },
+      "purpose": "Type9 derives encoding and palette without decoding RLE."
+    },
+    {
+      "id": "tga_nonindexed_palette_forbidden",
+      "kind": "tga",
+      "prefix_bytes": [
+        0,
+        1,
+        2,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        1,
+        0,
+        1,
+        0,
+        24,
+        0
+      ],
+      "expected": {
+        "kind": "tga",
+        "state": "observed",
+        "prefix_hex": "000102000000000000000000010001001800",
+        "tga": {
+          "header": {
+            "id_length": 0,
+            "color_map_type": 1,
+            "image_type": 2,
+            "color_map_index": 0,
+            "color_map_length": 0,
+            "color_map_depth": 0,
+            "offset_x": 0,
+            "offset_y": 0,
+            "width": 1,
+            "height": 1,
+            "pixel_depth": 24,
+            "flags": 0
+          },
+          "derived": {
+            "has_encoding": false,
+            "has_color_map": false,
+            "is_grey_color": false
+          },
+          "checks": {
+            "image_type_nonzero": true,
+            "color_map_consistent": false,
+            "dimensions_positive": true,
+            "pixel_depth_supported": true
+          },
+          "checks_all": false
+        }
+      },
+      "purpose": "Nonindexed imageType requires zero palette type."
+    },
+    {
+      "id": "tga_zero_width",
+      "kind": "tga",
+      "prefix_bytes": [
+        0,
+        0,
+        2,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        1,
+        0,
+        24,
+        0
+      ],
+      "expected": {
+        "kind": "tga",
+        "state": "observed",
+        "prefix_hex": "000002000000000000000000000001001800",
+        "tga": {
+          "header": {
+            "id_length": 0,
+            "color_map_type": 0,
+            "image_type": 2,
+            "color_map_index": 0,
+            "color_map_length": 0,
+            "color_map_depth": 0,
+            "offset_x": 0,
+            "offset_y": 0,
+            "width": 0,
+            "height": 1,
+            "pixel_depth": 24,
+            "flags": 0
+          },
+          "derived": {
+            "has_encoding": false,
+            "has_color_map": false,
+            "is_grey_color": false
+          },
+          "checks": {
+            "image_type_nonzero": true,
+            "color_map_consistent": true,
+            "dimensions_positive": false,
+            "pixel_depth_supported": true
+          },
+          "checks_all": false
+        }
+      },
+      "purpose": "Zero width fails the dimensions predicate."
+    },
+    {
+      "id": "tga_zero_height",
+      "kind": "tga",
+      "prefix_bytes": [
+        0,
+        0,
+        2,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        1,
+        0,
+        0,
+        0,
+        24,
+        0
+      ],
+      "expected": {
+        "kind": "tga",
+        "state": "observed",
+        "prefix_hex": "000002000000000000000000010000001800",
+        "tga": {
+          "header": {
+            "id_length": 0,
+            "color_map_type": 0,
+            "image_type": 2,
+            "color_map_index": 0,
+            "color_map_length": 0,
+            "color_map_depth": 0,
+            "offset_x": 0,
+            "offset_y": 0,
+            "width": 1,
+            "height": 0,
+            "pixel_depth": 24,
+            "flags": 0
+          },
+          "derived": {
+            "has_encoding": false,
+            "has_color_map": false,
+            "is_grey_color": false
+          },
+          "checks": {
+            "image_type_nonzero": true,
+            "color_map_consistent": true,
+            "dimensions_positive": false,
+            "pixel_depth_supported": true
+          },
+          "checks_all": false
+        }
+      },
+      "purpose": "Zero height separately fails the dimensions predicate."
+    },
+    {
+      "id": "tga_zero_pixel_depth",
+      "kind": "tga",
+      "prefix_bytes": [
+        0,
+        0,
+        2,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        1,
+        0,
+        1,
+        0,
+        0,
+        0
+      ],
+      "expected": {
+        "kind": "tga",
+        "state": "observed",
+        "prefix_hex": "000002000000000000000000010001000000",
+        "tga": {
+          "header": {
+            "id_length": 0,
+            "color_map_type": 0,
+            "image_type": 2,
+            "color_map_index": 0,
+            "color_map_length": 0,
+            "color_map_depth": 0,
+            "offset_x": 0,
+            "offset_y": 0,
+            "width": 1,
+            "height": 1,
+            "pixel_depth": 0,
+            "flags": 0
+          },
+          "derived": {
+            "has_encoding": false,
+            "has_color_map": false,
+            "is_grey_color": false
+          },
+          "checks": {
+            "image_type_nonzero": true,
+            "color_map_consistent": true,
+            "dimensions_positive": true,
+            "pixel_depth_supported": false
+          },
+          "checks_all": false
+        }
+      },
+      "purpose": "Pixel depth zero is not one of the four accepted values."
+    },
+    {
+      "id": "tga_fifteen_bit_depth",
+      "kind": "tga",
+      "prefix_bytes": [
+        0,
+        0,
+        2,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        1,
+        0,
+        1,
+        0,
+        15,
+        0
+      ],
+      "expected": {
+        "kind": "tga",
+        "state": "observed",
+        "prefix_hex": "000002000000000000000000010001000f00",
+        "tga": {
+          "header": {
+            "id_length": 0,
+            "color_map_type": 0,
+            "image_type": 2,
+            "color_map_index": 0,
+            "color_map_length": 0,
+            "color_map_depth": 0,
+            "offset_x": 0,
+            "offset_y": 0,
+            "width": 1,
+            "height": 1,
+            "pixel_depth": 15,
+            "flags": 0
+          },
+          "derived": {
+            "has_encoding": false,
+            "has_color_map": false,
+            "is_grey_color": false
+          },
+          "checks": {
+            "image_type_nonzero": true,
+            "color_map_consistent": true,
+            "dimensions_positive": true,
+            "pixel_depth_supported": false
+          },
+          "checks_all": false
+        }
+      },
+      "purpose": "Do not broaden the source's16-bit predicate to15bits."
+    },
+    {
+      "id": "tga_raw_grey",
+      "kind": "tga",
+      "prefix_bytes": [
+        0,
+        0,
+        3,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        1,
+        0,
+        1,
+        0,
+        8,
+        0
+      ],
+      "expected": {
+        "kind": "tga",
+        "state": "observed",
+        "prefix_hex": "000003000000000000000000010001000800",
+        "tga": {
+          "header": {
+            "id_length": 0,
+            "color_map_type": 0,
+            "image_type": 3,
+            "color_map_index": 0,
+            "color_map_length": 0,
+            "color_map_depth": 0,
+            "offset_x": 0,
+            "offset_y": 0,
+            "width": 1,
+            "height": 1,
+            "pixel_depth": 8,
+            "flags": 0
+          },
+          "derived": {
+            "has_encoding": false,
+            "has_color_map": false,
+            "is_grey_color": true
+          },
+          "checks": {
+            "image_type_nonzero": true,
+            "color_map_consistent": true,
+            "dimensions_positive": true,
+            "pixel_depth_supported": true
+          },
+          "checks_all": true
+        }
+      },
+      "purpose": "Type3 is grey without encoding or a palette."
+    },
+    {
+      "id": "tga_rle_grey_sixteen_bit",
+      "kind": "tga",
+      "prefix_bytes": [
+        0,
+        0,
+        11,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        1,
+        0,
+        1,
+        0,
+        16,
+        0
+      ],
+      "expected": {
+        "kind": "tga",
+        "state": "observed",
+        "prefix_hex": "00000b000000000000000000010001001000",
+        "tga": {
+          "header": {
+            "id_length": 0,
+            "color_map_type": 0,
+            "image_type": 11,
+            "color_map_index": 0,
+            "color_map_length": 0,
+            "color_map_depth": 0,
+            "offset_x": 0,
+            "offset_y": 0,
+            "width": 1,
+            "height": 1,
+            "pixel_depth": 16,
+            "flags": 0
+          },
+          "derived": {
+            "has_encoding": true,
+            "has_color_map": false,
+            "is_grey_color": true
+          },
+          "checks": {
+            "image_type_nonzero": true,
+            "color_map_consistent": true,
+            "dimensions_positive": true,
+            "pixel_depth_supported": true
+          },
+          "checks_all": true
+        }
+      },
+      "purpose": "Type11 derives both encoding and grey;16bit is accepted."
+    },
+    {
+      "id": "tga_rle_rgb_thirtytwo_bit",
+      "kind": "tga",
+      "prefix_bytes": [
+        0,
+        0,
+        10,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        1,
+        0,
+        1,
+        0,
+        32,
+        0
+      ],
+      "expected": {
+        "kind": "tga",
+        "state": "observed",
+        "prefix_hex": "00000a000000000000000000010001002000",
+        "tga": {
+          "header": {
+            "id_length": 0,
+            "color_map_type": 0,
+            "image_type": 10,
+            "color_map_index": 0,
+            "color_map_length": 0,
+            "color_map_depth": 0,
+            "offset_x": 0,
+            "offset_y": 0,
+            "width": 1,
+            "height": 1,
+            "pixel_depth": 32,
+            "flags": 0
+          },
+          "derived": {
+            "has_encoding": true,
+            "has_color_map": false,
+            "is_grey_color": false
+          },
+          "checks": {
+            "image_type_nonzero": true,
+            "color_map_consistent": true,
+            "dimensions_positive": true,
+            "pixel_depth_supported": true
+          },
+          "checks_all": true
+        }
+      },
+      "purpose": "Type10 derives encoding only;32bit is accepted."
+    },
+    {
+      "id": "tga_unknown_image_type_unchecked",
+      "kind": "tga",
+      "prefix_bytes": [
+        0,
+        0,
+        255,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        1,
+        0,
+        1,
+        0,
+        24,
+        0
+      ],
+      "expected": {
+        "kind": "tga",
+        "state": "observed",
+        "prefix_hex": "0000ff000000000000000000010001001800",
+        "tga": {
+          "header": {
+            "id_length": 0,
+            "color_map_type": 0,
+            "image_type": 255,
+            "color_map_index": 0,
+            "color_map_length": 0,
+            "color_map_depth": 0,
+            "offset_x": 0,
+            "offset_y": 0,
+            "width": 1,
+            "height": 1,
+            "pixel_depth": 24,
+            "flags": 0
+          },
+          "derived": {
+            "has_encoding": false,
+            "has_color_map": false,
+            "is_grey_color": false
+          },
+          "checks": {
+            "image_type_nonzero": true,
+            "color_map_consistent": true,
+            "dimensions_positive": true,
+            "pixel_depth_supported": true
+          },
+          "checks_all": true
+        }
+      },
+      "purpose": "Exact source checks do not positively allowlist imageType; no format-valid verdict."
+    },
+    {
+      "id": "tga_unchecked_metadata_extremes",
+      "kind": "tga",
+      "prefix_bytes": [
+        255,
+        0,
+        2,
+        255,
+        255,
+        255,
+        255,
+        255,
+        255,
+        255,
+        255,
+        255,
+        1,
+        0,
+        1,
+        0,
+        24,
+        255
+      ],
+      "expected": {
+        "kind": "tga",
+        "state": "observed",
+        "prefix_hex": "ff0002ffffffffffffffffff0100010018ff",
+        "tga": {
+          "header": {
+            "id_length": 255,
+            "color_map_type": 0,
+            "image_type": 2,
+            "color_map_index": 65535,
+            "color_map_length": 65535,
+            "color_map_depth": 255,
+            "offset_x": 65535,
+            "offset_y": 65535,
+            "width": 1,
+            "height": 1,
+            "pixel_depth": 24,
+            "flags": 255
+          },
+          "derived": {
+            "has_encoding": false,
+            "has_color_map": false,
+            "is_grey_color": false
+          },
+          "checks": {
+            "image_type_nonzero": true,
+            "color_map_consistent": true,
+            "dimensions_positive": true,
+            "pixel_depth_supported": true
+          },
+          "checks_all": true
+        }
+      },
+      "purpose": "ID/indices/offsets/flags and unused nonindexed palette metadata have no checkHeader restrictions."
+    },
+    {
+      "id": "tga_maximum_dimensions_no_allocation",
+      "kind": "tga",
+      "prefix_bytes": [
+        0,
+        0,
+        10,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        255,
+        255,
+        255,
+        255,
+        32,
+        0
+      ],
+      "expected": {
+        "kind": "tga",
+        "state": "observed",
+        "prefix_hex": "00000a000000000000000000ffffffff2000",
+        "tga": {
+          "header": {
+            "id_length": 0,
+            "color_map_type": 0,
+            "image_type": 10,
+            "color_map_index": 0,
+            "color_map_length": 0,
+            "color_map_depth": 0,
+            "offset_x": 0,
+            "offset_y": 0,
+            "width": 65535,
+            "height": 65535,
+            "pixel_depth": 32,
+            "flags": 0
+          },
+          "derived": {
+            "has_encoding": true,
+            "has_color_map": false,
+            "is_grey_color": false
+          },
+          "checks": {
+            "image_type_nonzero": true,
+            "color_map_consistent": true,
+            "dimensions_positive": true,
+            "pixel_depth_supported": true
+          },
+          "checks_all": true
+        }
+      },
+      "purpose": "Positive65535x65535 fields stay scalar observations; no product, RLE or image buffer."
+    },
+    {
+      "id": "tga_bm_bytes_are_fields_not_magic",
+      "kind": "tga",
+      "prefix_bytes": [
+        66,
+        77,
+        2,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        1,
+        0,
+        1,
+        0,
+        24,
+        0
+      ],
+      "expected": {
+        "kind": "tga",
+        "state": "observed",
+        "prefix_hex": "424d02000000000000000000010001001800",
+        "tga": {
+          "header": {
+            "id_length": 66,
+            "color_map_type": 77,
+            "image_type": 2,
+            "color_map_index": 0,
+            "color_map_length": 0,
+            "color_map_depth": 0,
+            "offset_x": 0,
+            "offset_y": 0,
+            "width": 1,
+            "height": 1,
+            "pixel_depth": 24,
+            "flags": 0
+          },
+          "derived": {
+            "has_encoding": false,
+            "has_color_map": false,
+            "is_grey_color": false
+          },
+          "checks": {
+            "image_type_nonzero": true,
+            "color_map_consistent": false,
+            "dimensions_positive": true,
+            "pixel_depth_supported": true
+          },
+          "checks_all": false
+        }
+      },
+      "purpose": "Do not sniff BM and change the declared TGA inspection kind."
+    },
+    {
+      "id": "tga_multiple_failed_predicates",
+      "kind": "tga",
+      "prefix_bytes": [
+        0,
+        1,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        15,
+        0
+      ],
+      "expected": {
+        "kind": "tga",
+        "state": "observed",
+        "prefix_hex": "000100000000000000000000000000000f00",
+        "tga": {
+          "header": {
+            "id_length": 0,
+            "color_map_type": 1,
+            "image_type": 0,
+            "color_map_index": 0,
+            "color_map_length": 0,
+            "color_map_depth": 0,
+            "offset_x": 0,
+            "offset_y": 0,
+            "width": 0,
+            "height": 0,
+            "pixel_depth": 15,
+            "flags": 0
+          },
+          "derived": {
+            "has_encoding": false,
+            "has_color_map": false,
+            "is_grey_color": false
+          },
+          "checks": {
+            "image_type_nonzero": false,
+            "color_map_consistent": false,
+            "dimensions_positive": false,
+            "pixel_depth_supported": false
+          },
+          "checks_all": false
+        }
+      },
+      "purpose": "Suggested projection records all checks although the actual client throws at the first."
+    },
+    {
+      "id": "tga_little_endian_fields",
+      "kind": "tga",
+      "prefix_bytes": [
+        5,
+        1,
+        1,
+        52,
+        18,
+        0,
+        1,
+        24,
+        120,
+        86,
+        188,
+        154,
+        2,
+        1,
+        4,
+        3,
+        8,
+        165
+      ],
+      "expected": {
+        "kind": "tga",
+        "state": "observed",
+        "prefix_hex": "05010134120001187856bc9a0201040308a5",
+        "tga": {
+          "header": {
+            "id_length": 5,
+            "color_map_type": 1,
+            "image_type": 1,
+            "color_map_index": 4660,
+            "color_map_length": 256,
+            "color_map_depth": 24,
+            "offset_x": 22136,
+            "offset_y": 39612,
+            "width": 258,
+            "height": 772,
+            "pixel_depth": 8,
+            "flags": 165
+          },
+          "derived": {
+            "has_encoding": false,
+            "has_color_map": true,
+            "is_grey_color": false
+          },
+          "checks": {
+            "image_type_nonzero": true,
+            "color_map_consistent": true,
+            "dimensions_positive": true,
+            "pixel_depth_supported": true
+          },
+          "checks_all": true
+        }
+      },
+      "purpose": "Distinct nonzero high/low bytes bind all LE16 field offsets."
+    },
+    {
+      "id": "unknown_empty",
+      "kind": "unknown",
+      "prefix_bytes": [],
+      "expected": {
+        "kind": "unknown",
+        "state": "unclassified",
+        "prefix_hex": "",
+        "tga": null
+      },
+      "purpose": "Unknown content has no format-specific minimum."
+    },
+    {
+      "id": "unknown_bm_not_sniffed",
+      "kind": "unknown",
+      "prefix_bytes": [
+        66,
+        77
+      ],
+      "expected": {
+        "kind": "unknown",
+        "state": "unclassified",
+        "prefix_hex": "424d",
+        "tga": null
+      },
+      "purpose": "Unknown-extension content is not relabelled BMP by its prefix."
+    },
+    {
+      "id": "unknown_tga_looking_tail_ignored",
+      "kind": "unknown",
+      "prefix_bytes": [
+        0,
+        0,
+        2,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        1,
+        0,
+        1,
+        0,
+        24,
+        0,
+        66,
+        77
+      ],
+      "expected": {
+        "kind": "unknown",
+        "state": "unclassified",
+        "prefix_hex": "000002000000000000000000010001001800",
+        "tga": null
+      },
+      "purpose": "Unknown raw buffer retains<=18bytes; no speculative TGA parsing or decode."
+    }
+  ],
+  "header_argument_refusals": [
+    {
+      "id": "unknown_kind_name",
+      "kind_descriptor": {
+        "type": "str",
+        "value": "bik"
+      },
+      "prefix_descriptor": {
+        "type": "bytes",
+        "hex": "424d"
+      },
+      "expected_exception": "ValueError",
+      "message_policy": "generic_no_input_echo"
+    },
+    {
+      "id": "uppercase_kind",
+      "kind_descriptor": {
+        "type": "str",
+        "value": "BMP"
+      },
+      "prefix_descriptor": {
+        "type": "bytes",
+        "hex": "424d"
+      },
+      "expected_exception": "ValueError",
+      "message_policy": "generic_no_input_echo"
+    },
+    {
+      "id": "boolean_kind",
+      "kind_descriptor": {
+        "type": "bool",
+        "value": true
+      },
+      "prefix_descriptor": {
+        "type": "bytes",
+        "hex": "424d"
+      },
+      "expected_exception": "ValueError",
+      "message_policy": "generic_no_input_echo"
+    },
+    {
+      "id": "null_prefix",
+      "kind_descriptor": {
+        "type": "str",
+        "value": "bmp"
+      },
+      "prefix_descriptor": {
+        "type": "NoneType"
+      },
+      "expected_exception": "ValueError",
+      "message_policy": "generic_no_input_echo"
+    },
+    {
+      "id": "string_prefix",
+      "kind_descriptor": {
+        "type": "str",
+        "value": "bmp"
+      },
+      "prefix_descriptor": {
+        "type": "str",
+        "value": "BM"
+      },
+      "expected_exception": "ValueError",
+      "message_policy": "generic_no_input_echo"
+    },
+    {
+      "id": "mutable_bytearray_prefix",
+      "kind_descriptor": {
+        "type": "str",
+        "value": "bmp"
+      },
+      "prefix_descriptor": {
+        "type": "bytearray",
+        "hex": "424d"
+      },
+      "expected_exception": "ValueError",
+      "message_policy": "generic_no_input_echo"
+    },
+    {
+      "id": "memoryview_prefix",
+      "kind_descriptor": {
+        "type": "str",
+        "value": "bmp"
+      },
+      "prefix_descriptor": {
+        "type": "memoryview_of_bytes",
+        "hex": "424d"
+      },
+      "expected_exception": "ValueError",
+      "message_policy": "generic_no_input_echo"
+    },
+    {
+      "id": "bytes_subclass_prefix",
+      "kind_descriptor": {
+        "type": "str",
+        "value": "bmp"
+      },
+      "prefix_descriptor": {
+        "type": "bytes_subclass",
+        "hex": "424d"
+      },
+      "expected_exception": "ValueError",
+      "message_policy": "generic_no_input_echo"
+    },
+    {
+      "id": "string_subclass_kind",
+      "kind_descriptor": {
+        "type": "str_subclass",
+        "value": "bmp"
+      },
+      "prefix_descriptor": {
+        "type": "bytes",
+        "hex": "424d"
+      },
+      "expected_exception": "ValueError",
+      "message_policy": "generic_no_input_echo"
+    }
+  ],
+  "toy_catalog": {
+    "counts": {
+      "roots": 4,
+      "constructor_jobs": 4,
+      "model_targets": 5,
+      "returned_jobs": 3,
+      "constructor_exception_jobs": 1,
+      "global_declarations": 7,
+      "target_expanded_declarations": 12,
+      "nested_targets": 4,
+      "model_parent_links": 6,
+      "model_placement_occurrences": 7,
+      "root_expanded_model_placements": 11,
+      "resolved_node_slots": 4,
+      "unresolved_node_slots": 7,
+      "animation_jobs": {
+        "true": 1,
+        "false": 2,
+        "unknown": 1
+      },
+      "remaining_core_gap_roots": 1,
+      "prior_first_level_gaps": 2,
+      "returned_empty_jobs": 1,
+      "returned_nonempty_jobs": 2
+    },
+    "roots": [
+      {
+        "ordinal": 0,
+        "name": "authored_a",
+        "edges": {
+          "rsw": {
+            "job_id": "rsw-0"
+          },
+          "gnd": {
+            "job_id": "gnd-0"
+          },
+          "gat": {
+            "job_id": "gat-0"
+          }
+        }
+      },
+      {
+        "ordinal": 1,
+        "name": "authored_b",
+        "edges": {
+          "rsw": {
+            "job_id": "rsw-0"
+          },
+          "gnd": {
+            "job_id": "gnd-0"
+          },
+          "gat": {
+            "job_id": "gat-0"
+          }
+        }
+      },
+      {
+        "ordinal": 2,
+        "name": "authored_c",
+        "edges": {
+          "rsw": {
+            "job_id": "rsw-1"
+          },
+          "gnd": {
+            "job_id": "gnd-1"
+          },
+          "gat": {
+            "job_id": "gat-1"
+          }
+        }
+      },
+      {
+        "ordinal": 3,
+        "name": "authored_rsw_gap",
+        "edges": {
+          "rsw": {
+            "job_id": null
+          },
+          "gnd": {
+            "job_id": null
+          },
+          "gat": {
+            "job_id": null
+          }
+        }
+      }
+    ],
+    "remaining_gap_root_ordinals": [
+      3
+    ],
+    "prior_first_level_gaps": [
+      {
+        "target_index": 2,
+        "kind": "bmp",
+        "http_path": "data/texture/authored-missing-a.bmp",
+        "http_status": 404
+      },
+      {
+        "target_index": 6,
+        "kind": "bmp",
+        "http_path": "data/texture/authored-missing-b.bmp",
+        "http_status": 404
+      }
+    ],
+    "model_targets": [
+      {
+        "model_ordinal": 0,
+        "target_index": 0,
+        "job_id": "model-000000",
+        "http_path": "data/model/oak.rsm",
+        "referrers": [
+          {
+            "job_index": 0,
+            "loader_index": 0,
+            "role": "model"
+          },
+          {
+            "job_index": 0,
+            "loader_index": 2,
+            "role": "model"
+          }
+        ],
+        "body": {
+          "bytes": 100,
+          "sha256": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"
+        }
+      },
+      {
+        "model_ordinal": 1,
+        "target_index": 1,
+        "job_id": "model-000001",
+        "http_path": "data/model/wind.rsm",
+        "referrers": [
+          {
+            "job_index": 0,
+            "loader_index": 1,
+            "role": "model"
+          }
+        ],
+        "body": {
+          "bytes": 101,
+          "sha256": "bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb"
+        }
+      },
+      {
+        "model_ordinal": 2,
+        "target_index": 3,
+        "job_id": "model-000000",
+        "http_path": "data/model/other/oak.rsm",
+        "referrers": [
+          {
+            "job_index": 2,
+            "loader_index": 0,
+            "role": "model"
+          }
+        ],
+        "body": {
+          "bytes": 100,
+          "sha256": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"
+        }
+      },
+      {
+        "model_ordinal": 3,
+        "target_index": 4,
+        "job_id": "model-000002",
+        "http_path": "data/model/broken.rsm",
+        "referrers": [
+          {
+            "job_index": 2,
+            "loader_index": 1,
+            "role": "model"
+          }
+        ],
+        "body": {
+          "bytes": 102,
+          "sha256": "cccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccc"
+        }
+      },
+      {
+        "model_ordinal": 4,
+        "target_index": 5,
+        "job_id": "model-000003",
+        "http_path": "data/model/empty.rsm",
+        "referrers": [
+          {
+            "job_index": 2,
+            "loader_index": 2,
+            "role": "model"
+          }
+        ],
+        "body": {
+          "bytes": 103,
+          "sha256": "dddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddd"
+        }
+      }
+    ],
+    "model_parent_links": [
+      {
+        "model_ordinal": 0,
+        "catalog_target_index": 0,
+        "referrer": {
+          "job_index": 0,
+          "loader_index": 0,
+          "role": "model"
+        },
+        "source_job_id": "rsw-0",
+        "loader_entry": {
+          "index": 0,
+          "source_name_pointer": "/summary/model_dependencies/0/filename",
+          "raw_name": "oak.rsm ",
+          "logical_name": "data\\model\\oak.rsm ",
+          "filemanager_name": "data\\model\\oak.rsm",
+          "http_path": "data/model/oak.rsm",
+          "target_index": 0
+        },
+        "root_references": [
+          {
+            "root_ordinal": 0,
+            "edge_kind": "rsw"
+          },
+          {
+            "root_ordinal": 1,
+            "edge_kind": "rsw"
+          }
+        ],
+        "placement_indexes": [
+          0,
+          1
+        ],
+        "placement_pointers": [
+          "/summary/model_dependencies/0",
+          "/summary/model_dependencies/1"
+        ]
+      },
+      {
+        "model_ordinal": 0,
+        "catalog_target_index": 0,
+        "referrer": {
+          "job_index": 0,
+          "loader_index": 2,
+          "role": "model"
+        },
+        "source_job_id": "rsw-0",
+        "loader_entry": {
+          "index": 2,
+          "source_name_pointer": "/summary/model_dependencies/3/filename",
+          "raw_name": "oak.rsm",
+          "logical_name": "data\\model\\oak.rsm",
+          "filemanager_name": "data\\model\\oak.rsm",
+          "http_path": "data/model/oak.rsm",
+          "target_index": 0
+        },
+        "root_references": [
+          {
+            "root_ordinal": 0,
+            "edge_kind": "rsw"
+          },
+          {
+            "root_ordinal": 1,
+            "edge_kind": "rsw"
+          }
+        ],
+        "placement_indexes": [
+          3
+        ],
+        "placement_pointers": [
+          "/summary/model_dependencies/3"
+        ]
+      },
+      {
+        "model_ordinal": 1,
+        "catalog_target_index": 1,
+        "referrer": {
+          "job_index": 0,
+          "loader_index": 1,
+          "role": "model"
+        },
+        "source_job_id": "rsw-0",
+        "loader_entry": {
+          "index": 1,
+          "source_name_pointer": "/summary/model_dependencies/2/filename",
+          "raw_name": "wind.rsm",
+          "logical_name": "data\\model\\wind.rsm",
+          "filemanager_name": "data\\model\\wind.rsm",
+          "http_path": "data/model/wind.rsm",
+          "target_index": 1
+        },
+        "root_references": [
+          {
+            "root_ordinal": 0,
+            "edge_kind": "rsw"
+          },
+          {
+            "root_ordinal": 1,
+            "edge_kind": "rsw"
+          }
+        ],
+        "placement_indexes": [
+          2
+        ],
+        "placement_pointers": [
+          "/summary/model_dependencies/2"
+        ]
+      },
+      {
+        "model_ordinal": 2,
+        "catalog_target_index": 3,
+        "referrer": {
+          "job_index": 2,
+          "loader_index": 0,
+          "role": "model"
+        },
+        "source_job_id": "rsw-1",
+        "loader_entry": {
+          "index": 0,
+          "source_name_pointer": "/summary/model_dependencies/0/filename",
+          "raw_name": "other/oak.rsm",
+          "logical_name": "data\\model\\other/oak.rsm",
+          "filemanager_name": "data\\model\\other/oak.rsm",
+          "http_path": "data/model/other/oak.rsm",
+          "target_index": 3
+        },
+        "root_references": [
+          {
+            "root_ordinal": 2,
+            "edge_kind": "rsw"
+          }
+        ],
+        "placement_indexes": [
+          0
+        ],
+        "placement_pointers": [
+          "/summary/model_dependencies/0"
+        ]
+      },
+      {
+        "model_ordinal": 3,
+        "catalog_target_index": 4,
+        "referrer": {
+          "job_index": 2,
+          "loader_index": 1,
+          "role": "model"
+        },
+        "source_job_id": "rsw-1",
+        "loader_entry": {
+          "index": 1,
+          "source_name_pointer": "/summary/model_dependencies/1/filename",
+          "raw_name": "broken.rsm",
+          "logical_name": "data\\model\\broken.rsm",
+          "filemanager_name": "data\\model\\broken.rsm",
+          "http_path": "data/model/broken.rsm",
+          "target_index": 4
+        },
+        "root_references": [
+          {
+            "root_ordinal": 2,
+            "edge_kind": "rsw"
+          }
+        ],
+        "placement_indexes": [
+          1
+        ],
+        "placement_pointers": [
+          "/summary/model_dependencies/1"
+        ]
+      },
+      {
+        "model_ordinal": 4,
+        "catalog_target_index": 5,
+        "referrer": {
+          "job_index": 2,
+          "loader_index": 2,
+          "role": "model"
+        },
+        "source_job_id": "rsw-1",
+        "loader_entry": {
+          "index": 2,
+          "source_name_pointer": "/summary/model_dependencies/2/filename",
+          "raw_name": "empty.rsm",
+          "logical_name": "data\\model\\empty.rsm",
+          "filemanager_name": "data\\model\\empty.rsm",
+          "http_path": "data/model/empty.rsm",
+          "target_index": 5
+        },
+        "root_references": [
+          {
+            "root_ordinal": 2,
+            "edge_kind": "rsw"
+          }
+        ],
+        "placement_indexes": [
+          2
+        ],
+        "placement_pointers": [
+          "/summary/model_dependencies/2"
+        ]
+      }
+    ],
+    "jobs": [
+      {
+        "source_row_index": 0,
+        "id": "model-000000",
+        "job_id": "model-000000",
+        "kind": "model",
+        "input_bytes": 100,
+        "complete_sha256": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+        "header_version_bytes": "4752534d0104",
+        "outcome": "returned",
+        "constructor_returned": true,
+        "worker_started": true,
+        "cleanup": {
+          "exit_observed": true,
+          "exit_code": 0,
+          "terminated_by_parent": false
+        },
+        "target_model_ordinals": [
+          0,
+          2
+        ],
+        "exception": null,
+        "animation_by_node_keys": false,
+        "numeric_fields": {
+          "finite": 1,
+          "nan": 1,
+          "positive_infinity": 0,
+          "negative_infinity": 0,
+          "undefined": 0,
+          "null": 0,
+          "min": 1.4,
+          "max": 1.4,
+          "exceptional_locations": [
+            {
+              "location": "box.center[0]",
+              "category": "nan"
+            }
+          ],
+          "exceptional_locations_omitted": 0
+        },
+        "nodes": [
+          {
+            "node_index": 0,
+            "textures": [
+              0,
+              2,
+              true,
+              null,
+              {
+                "special": "undefined"
+              },
+              -1,
+              1.25,
+              {
+                "special": "NaN"
+              },
+              99
+            ],
+            "texture_references": [
+              {
+                "slot_index": 0,
+                "table_index": 0,
+                "state": "resolved"
+              },
+              {
+                "slot_index": 1,
+                "table_index": 2,
+                "state": "resolved"
+              },
+              {
+                "slot_index": 2,
+                "table_index": null,
+                "state": "unresolved"
+              },
+              {
+                "slot_index": 3,
+                "table_index": null,
+                "state": "unresolved"
+              },
+              {
+                "slot_index": 4,
+                "table_index": null,
+                "state": "unresolved"
+              },
+              {
+                "slot_index": 5,
+                "table_index": null,
+                "state": "unresolved"
+              },
+              {
+                "slot_index": 6,
+                "table_index": null,
+                "state": "unresolved"
+              },
+              {
+                "slot_index": 7,
+                "table_index": null,
+                "state": "unresolved"
+              },
+              {
+                "slot_index": 8,
+                "table_index": null,
+                "state": "unresolved"
+              }
+            ],
+            "face_count": 1,
+            "keyframe_counts": {
+              "rotation": 0,
+              "position": {
+                "special": "undefined"
+              },
+              "scale": {
+                "special": "undefined"
+              },
+              "texture_groups": 1
+            },
+            "numeric_fields": {
+              "finite": 5,
+              "nan": 1,
+              "positive_infinity": 0,
+              "negative_infinity": 0,
+              "undefined": 1,
+              "null": 1,
+              "min": -1,
+              "max": 99,
+              "exceptional_locations": [
+                {
+                  "location": "textures[3]",
+                  "category": "null"
+                },
+                {
+                  "location": "textures[4]",
+                  "category": "undefined"
+                },
+                {
+                  "location": "textures[7]",
+                  "category": "nan"
+                }
+              ],
+              "exceptional_locations_omitted": 0
+            }
+          },
+          {
+            "node_index": 1,
+            "textures": [
+              1
+            ],
+            "texture_references": [
+              {
+                "slot_index": 0,
+                "table_index": 1,
+                "state": "resolved"
+              }
+            ],
+            "face_count": 0,
+            "keyframe_counts": {
+              "rotation": 0,
+              "position": 0,
+              "scale": 0,
+              "texture_groups": 0
+            },
+            "numeric_fields": {
+              "finite": 1,
+              "nan": 0,
+              "positive_infinity": 0,
+              "negative_infinity": 0,
+              "undefined": 0,
+              "null": 0,
+              "min": 1,
+              "max": 1,
+              "exceptional_locations": [],
+              "exceptional_locations_omitted": 0
+            }
+          }
+        ],
+        "declarations": [
+          {
+            "texture_index": 0,
+            "constructor_pointer": "/textures/0",
+            "raw_name": " bark.bmp ",
+            "logical_name": "data\\texture\\ bark.bmp ",
+            "filemanager_name": "data\\texture\\ bark.bmp",
+            "http_path": "data/texture/%20bark.bmp",
+            "nested_target_index": 0,
+            "node_links": [
+              {
+                "node_index": 0,
+                "slot_index": 0
+              }
+            ]
+          },
+          {
+            "texture_index": 1,
+            "constructor_pointer": "/textures/1",
+            "raw_name": " bark.bmp",
+            "logical_name": "data\\texture\\ bark.bmp",
+            "filemanager_name": "data\\texture\\ bark.bmp",
+            "http_path": "data/texture/%20bark.bmp",
+            "nested_target_index": 0,
+            "node_links": [
+              {
+                "node_index": 1,
+                "slot_index": 0
+              }
+            ]
+          },
+          {
+            "texture_index": 2,
+            "constructor_pointer": "/textures/2",
+            "raw_name": " bark.bmp ",
+            "logical_name": "data\\texture\\ bark.bmp ",
+            "filemanager_name": "data\\texture\\ bark.bmp",
+            "http_path": "data/texture/%20bark.bmp",
+            "nested_target_index": 0,
+            "node_links": [
+              {
+                "node_index": 0,
+                "slot_index": 1
+              }
+            ]
+          },
+          {
+            "texture_index": 3,
+            "constructor_pointer": "/textures/3",
+            "raw_name": "unused.tga",
+            "logical_name": "data\\texture\\unused.tga",
+            "filemanager_name": "data\\texture\\unused.tga",
+            "http_path": "data/texture/unused.tga",
+            "nested_target_index": 1,
+            "node_links": []
+          },
+          {
+            "texture_index": 4,
+            "constructor_pointer": "/textures/4",
+            "raw_name": "Bark.bmp",
+            "logical_name": "data\\texture\\Bark.bmp",
+            "filemanager_name": "data\\texture\\Bark.bmp",
+            "http_path": "data/texture/Bark.bmp",
+            "nested_target_index": 2,
+            "node_links": []
+          }
+        ]
+      },
+      {
+        "source_row_index": 1,
+        "id": "model-000001",
+        "job_id": "model-000001",
+        "kind": "model",
+        "input_bytes": 101,
+        "complete_sha256": "bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb",
+        "header_version_bytes": "4752534d0105",
+        "outcome": "returned",
+        "constructor_returned": true,
+        "worker_started": true,
+        "cleanup": {
+          "exit_observed": true,
+          "exit_code": 0,
+          "terminated_by_parent": false
+        },
+        "target_model_ordinals": [
+          1
+        ],
+        "exception": null,
+        "animation_by_node_keys": true,
+        "numeric_fields": {
+          "finite": 1,
+          "nan": 0,
+          "positive_infinity": 0,
+          "negative_infinity": 0,
+          "undefined": 0,
+          "null": 0,
+          "min": 1.5,
+          "max": 1.5,
+          "exceptional_locations": [],
+          "exceptional_locations_omitted": 0
+        },
+        "nodes": [
+          {
+            "node_index": 0,
+            "textures": [
+              1
+            ],
+            "texture_references": [
+              {
+                "slot_index": 0,
+                "table_index": 1,
+                "state": "resolved"
+              }
+            ],
+            "face_count": 0,
+            "keyframe_counts": {
+              "rotation": 1,
+              "position": 0,
+              "scale": 0,
+              "texture_groups": 0
+            },
+            "numeric_fields": {
+              "finite": 1,
+              "nan": 0,
+              "positive_infinity": 0,
+              "negative_infinity": 0,
+              "undefined": 0,
+              "null": 0,
+              "min": 1,
+              "max": 1,
+              "exceptional_locations": [],
+              "exceptional_locations_omitted": 0
+            }
+          }
+        ],
+        "declarations": [
+          {
+            "texture_index": 0,
+            "constructor_pointer": "/textures/0",
+            "raw_name": "unused.tga",
+            "logical_name": "data\\texture\\unused.tga",
+            "filemanager_name": "data\\texture\\unused.tga",
+            "http_path": "data/texture/unused.tga",
+            "nested_target_index": 1,
+            "node_links": []
+          },
+          {
+            "texture_index": 1,
+            "constructor_pointer": "/textures/1",
+            "raw_name": "animated.png",
+            "logical_name": "data\\texture\\animated.png",
+            "filemanager_name": "data\\texture\\animated.png",
+            "http_path": "data/texture/animated.png",
+            "nested_target_index": 3,
+            "node_links": [
+              {
+                "node_index": 0,
+                "slot_index": 0
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "source_row_index": 2,
+        "id": "model-000002",
+        "job_id": "model-000002",
+        "kind": "model",
+        "input_bytes": 102,
+        "complete_sha256": "cccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccc",
+        "header_version_bytes": "4752534d0202",
+        "outcome": "constructor_exception",
+        "constructor_returned": false,
+        "worker_started": true,
+        "cleanup": {
+          "exit_observed": true,
+          "exit_code": 0,
+          "terminated_by_parent": false
+        },
+        "target_model_ordinals": [
+          3
+        ],
+        "exception": {
+          "phase": "constructor",
+          "name": "RangeError",
+          "message": "authored exception; not an actual constructor run",
+          "message_truncated": false,
+          "code": null
+        },
+        "animation_by_node_keys": null,
+        "numeric_fields": null,
+        "nodes": null,
+        "declarations": null
+      },
+      {
+        "source_row_index": 3,
+        "id": "model-000003",
+        "job_id": "model-000003",
+        "kind": "model",
+        "input_bytes": 103,
+        "complete_sha256": "dddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddd",
+        "header_version_bytes": "4752534d0203",
+        "outcome": "returned",
+        "constructor_returned": true,
+        "worker_started": true,
+        "cleanup": {
+          "exit_observed": true,
+          "exit_code": 0,
+          "terminated_by_parent": false
+        },
+        "target_model_ordinals": [
+          4
+        ],
+        "exception": null,
+        "animation_by_node_keys": false,
+        "numeric_fields": {
+          "finite": 1,
+          "nan": 0,
+          "positive_infinity": 0,
+          "negative_infinity": 0,
+          "undefined": 0,
+          "null": 0,
+          "min": 2.3,
+          "max": 2.3,
+          "exceptional_locations": [],
+          "exceptional_locations_omitted": 0
+        },
+        "nodes": [],
+        "declarations": []
+      }
+    ],
+    "nested_targets": [
+      {
+        "index": 0,
+        "http_path": "data/texture/%20bark.bmp",
+        "referrers": [
+          {
+            "job_index": 0,
+            "texture_index": 0
+          },
+          {
+            "job_index": 0,
+            "texture_index": 1
+          },
+          {
+            "job_index": 0,
+            "texture_index": 2
+          }
+        ]
+      },
+      {
+        "index": 1,
+        "http_path": "data/texture/unused.tga",
+        "referrers": [
+          {
+            "job_index": 0,
+            "texture_index": 3
+          },
+          {
+            "job_index": 1,
+            "texture_index": 0
+          }
+        ]
+      },
+      {
+        "index": 2,
+        "http_path": "data/texture/Bark.bmp",
+        "referrers": [
+          {
+            "job_index": 0,
+            "texture_index": 4
+          }
+        ]
+      },
+      {
+        "index": 3,
+        "http_path": "data/texture/animated.png",
+        "referrers": [
+          {
+            "job_index": 1,
+            "texture_index": 1
+          }
+        ]
+      }
+    ],
+    "limits": [
+      "All tables are conservative declarations. No actual fetch/compile/render result is predicted.",
+      "Static unlinked global slots stay inventoried; zero-face linked slots are not filtered.",
+      "Animated true is a node-key fact; hook/placement/cache/GL predicates remain unobserved.",
+      "Original loader names remain distinct even when trimmed HTTP paths or body jobs coincide.",
+      "Node numeric markers and diagnostics are preserved, not repaired or a format-validity verdict.",
+      "All carried core and ground gaps stay explicit; declarations cover returned tables, while exceptions retain unknown tables."
+    ]
+  },
+  "toy_expected_plan": [
+    {
+      "index": 0,
+      "catalog_pointer": "/nested_targets/0",
+      "http_path": "data/texture/%20bark.bmp",
+      "wire": "/data/texture/%20bark.bmp",
+      "kind": "bmp",
+      "referrers": [
+        {
+          "job_index": 0,
+          "texture_index": 0
+        },
+        {
+          "job_index": 0,
+          "texture_index": 1
+        },
+        {
+          "job_index": 0,
+          "texture_index": 2
+        }
+      ]
+    },
+    {
+      "index": 1,
+      "catalog_pointer": "/nested_targets/1",
+      "http_path": "data/texture/unused.tga",
+      "wire": "/data/texture/unused.tga",
+      "kind": "tga",
+      "referrers": [
+        {
+          "job_index": 0,
+          "texture_index": 3
+        },
+        {
+          "job_index": 1,
+          "texture_index": 0
+        }
+      ]
+    },
+    {
+      "index": 2,
+      "catalog_pointer": "/nested_targets/2",
+      "http_path": "data/texture/Bark.bmp",
+      "wire": "/data/texture/Bark.bmp",
+      "kind": "bmp",
+      "referrers": [
+        {
+          "job_index": 0,
+          "texture_index": 4
+        }
+      ]
+    },
+    {
+      "index": 3,
+      "catalog_pointer": "/nested_targets/3",
+      "http_path": "data/texture/animated.png",
+      "wire": "/data/texture/animated.png",
+      "kind": "unknown",
+      "referrers": [
+        {
+          "job_index": 1,
+          "texture_index": 1
+        }
+      ]
+    }
+  ],
+  "plan_refusal_mutations": [
+    {
+      "id": "M01-target-index-bool",
+      "mutations": [
+        {
+          "op": "set",
+          "path": "/nested_targets/0/index",
+          "value": false
+        }
+      ],
+      "expected_exception": "Refusal"
+    },
+    {
+      "id": "M02-duplicate-target-index",
+      "mutations": [
+        {
+          "op": "set",
+          "path": "/nested_targets/1/index",
+          "value": 0
+        }
+      ],
+      "expected_exception": "Refusal"
+    },
+    {
+      "id": "M03-duplicate-http-path",
+      "mutations": [
+        {
+          "op": "set",
+          "path": "/nested_targets/1/http_path",
+          "value": "data/texture/%20bark.bmp"
+        }
+      ],
+      "expected_exception": "Refusal"
+    },
+    {
+      "id": "M04-empty-referrers",
+      "mutations": [
+        {
+          "op": "set",
+          "path": "/nested_targets/0/referrers",
+          "value": []
+        }
+      ],
+      "expected_exception": "Refusal"
+    },
+    {
+      "id": "M05-duplicate-referrer",
+      "mutations": [
+        {
+          "op": "set",
+          "path": "/nested_targets/0/referrers",
+          "value": [
+            {
+              "job_index": 0,
+              "texture_index": 0
+            },
+            {
+              "job_index": 0,
+              "texture_index": 1
+            },
+            {
+              "job_index": 0,
+              "texture_index": 2
+            },
+            {
+              "job_index": 0,
+              "texture_index": 0
+            }
+          ]
+        }
+      ],
+      "expected_exception": "Refusal"
+    },
+    {
+      "id": "M06-unknown-job",
+      "mutations": [
+        {
+          "op": "set",
+          "path": "/nested_targets/0/referrers/0/job_index",
+          "value": 99
+        }
+      ],
+      "expected_exception": "Refusal"
+    },
+    {
+      "id": "M07-job-index-bool",
+      "mutations": [
+        {
+          "op": "set",
+          "path": "/nested_targets/0/referrers/0/job_index",
+          "value": false
+        }
+      ],
+      "expected_exception": "Refusal"
+    },
+    {
+      "id": "M08-texture-index-bool",
+      "mutations": [
+        {
+          "op": "set",
+          "path": "/nested_targets/0/referrers/0/texture_index",
+          "value": false
+        }
+      ],
+      "expected_exception": "Refusal"
+    },
+    {
+      "id": "M09-unknown-texture",
+      "mutations": [
+        {
+          "op": "set",
+          "path": "/nested_targets/0/referrers/0/texture_index",
+          "value": 999
+        }
+      ],
+      "expected_exception": "Refusal"
+    },
+    {
+      "id": "M10-declaration-wrong-target",
+      "mutations": [
+        {
+          "op": "set",
+          "path": "/jobs/0/declarations/0/nested_target_index",
+          "value": 1
+        }
+      ],
+      "expected_exception": "Refusal"
+    },
+    {
+      "id": "M11-declaration-wrong-http",
+      "mutations": [
+        {
+          "op": "set",
+          "path": "/jobs/0/declarations/0/http_path",
+          "value": "data/texture/wrong.bmp"
+        }
+      ],
+      "expected_exception": "Refusal"
+    },
+    {
+      "id": "M12-declaration-index-bool",
+      "mutations": [
+        {
+          "op": "set",
+          "path": "/jobs/0/declarations/0/texture_index",
+          "value": false
+        }
+      ],
+      "expected_exception": "Refusal"
+    },
+    {
+      "id": "M13-missing-declaration",
+      "mutations": [
+        {
+          "op": "set",
+          "path": "/jobs/0/declarations",
+          "value": [
+            {
+              "texture_index": 0,
+              "constructor_pointer": "/textures/0",
+              "raw_name": " bark.bmp ",
+              "logical_name": "data\\texture\\ bark.bmp ",
+              "filemanager_name": "data\\texture\\ bark.bmp",
+              "http_path": "data/texture/%20bark.bmp",
+              "nested_target_index": 0,
+              "node_links": [
+                {
+                  "node_index": 0,
+                  "slot_index": 0
+                }
+              ]
+            },
+            {
+              "texture_index": 1,
+              "constructor_pointer": "/textures/1",
+              "raw_name": " bark.bmp",
+              "logical_name": "data\\texture\\ bark.bmp",
+              "filemanager_name": "data\\texture\\ bark.bmp",
+              "http_path": "data/texture/%20bark.bmp",
+              "nested_target_index": 0,
+              "node_links": [
+                {
+                  "node_index": 1,
+                  "slot_index": 0
+                }
+              ]
+            },
+            {
+              "texture_index": 2,
+              "constructor_pointer": "/textures/2",
+              "raw_name": " bark.bmp ",
+              "logical_name": "data\\texture\\ bark.bmp ",
+              "filemanager_name": "data\\texture\\ bark.bmp",
+              "http_path": "data/texture/%20bark.bmp",
+              "nested_target_index": 0,
+              "node_links": [
+                {
+                  "node_index": 0,
+                  "slot_index": 1
+                }
+              ]
+            },
+            {
+              "texture_index": 3,
+              "constructor_pointer": "/textures/3",
+              "raw_name": "unused.tga",
+              "logical_name": "data\\texture\\unused.tga",
+              "filemanager_name": "data\\texture\\unused.tga",
+              "http_path": "data/texture/unused.tga",
+              "nested_target_index": 1,
+              "node_links": []
+            }
+          ]
+        }
+      ],
+      "expected_exception": "Refusal"
+    },
+    {
+      "id": "M14-missing-target",
+      "mutations": [
+        {
+          "op": "set",
+          "path": "/nested_targets",
+          "value": [
+            {
+              "index": 0,
+              "http_path": "data/texture/%20bark.bmp",
+              "referrers": [
+                {
+                  "job_index": 0,
+                  "texture_index": 0
+                },
+                {
+                  "job_index": 0,
+                  "texture_index": 1
+                },
+                {
+                  "job_index": 0,
+                  "texture_index": 2
+                }
+              ]
+            },
+            {
+              "index": 1,
+              "http_path": "data/texture/unused.tga",
+              "referrers": [
+                {
+                  "job_index": 0,
+                  "texture_index": 3
+                },
+                {
+                  "job_index": 1,
+                  "texture_index": 0
+                }
+              ]
+            },
+            {
+              "index": 2,
+              "http_path": "data/texture/Bark.bmp",
+              "referrers": [
+                {
+                  "job_index": 0,
+                  "texture_index": 4
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "expected_exception": "Refusal"
+    },
+    {
+      "id": "M15-counts-bool",
+      "mutations": [
+        {
+          "op": "set",
+          "path": "/counts/returned_empty_jobs",
+          "value": true
+        }
+      ],
+      "expected_exception": "Refusal"
+    },
+    {
+      "id": "M16-exception-empty-table",
+      "mutations": [
+        {
+          "op": "set",
+          "path": "/jobs/2/declarations",
+          "value": []
+        }
+      ],
+      "expected_exception": "Refusal"
+    },
+    {
+      "id": "M17-referrer-kind-disagrees",
+      "mutations": [
+        {
+          "op": "set",
+          "path": "/jobs/0/declarations/1/filemanager_name",
+          "value": "data\\texture\\different.tga"
+        }
+      ],
+      "expected_exception": "Refusal"
+    }
+  ]
+}
