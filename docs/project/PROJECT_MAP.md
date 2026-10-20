@@ -114,7 +114,8 @@ Build the first model and ground-texture request catalog          [V]
 Compare both actual asset-scanner implementations                [V]
 Repair selected scanner; repeat the required checks              [V]
 Prepare and verify a guard for both owned process groups         [V]
-Check all 11,134 model and texture request paths                  [~] <-- NOW
+Check all 11,134 model and texture request paths                  [V]
+Check actual model loading and nested texture references         [~] <-- NOW
 Investigate eight files with NaN values and twelve unread tails   [ ]
 Check compilation, rendering, travel and play                     [ ]
 Find compatible assets for the 82 unresolved requests             [ ]
@@ -146,12 +147,18 @@ The 11 new regression methods expose failures in the original source.
 The guard passes six tests with owned Python processes and identity checks.
 Time, memory, output, crash and forced cleanup cases behave as expected.
 All test processes exit. A separate unrelated test process stays untouched.
-Next, run the real scan with the verified guard and check all saved evidence.
+The real scan is complete. Codex checks every saved body and reference.
+11,132 requests return data with the expected file headers. Two textures return 404.
+Both missing textures belong to one ground file. All 8,194 model headers match.
+The scan takes about 24 seconds and samples about 873 MB of RAM.
+No guard acts. The reader exits cleanly. Inputs stay unchanged.
+The scan does not write to the running game or save.
+Next, check actual model loading and nested textures, then rendering and travel.
 See the [scanner comparison](reviews/2026-10-20-T06.003.003.005.md#paired-decision-and-next-correction-gate).
-Codex checks the size metadata before the next scan.
+Before the scan, Codex checks the size metadata.
 10,704 asset paths have size candidates. Their declarations total about 290 MB.
-Another 430 paths need the actual scan. We will check all 11,134 paths.
-No asset request has started in this new scan.
+The scan includes all 430 paths that had no size candidate.
+That earlier metadata uncertainty does not mean 430 files are missing.
 Six world files and two collision files have NaN values. Check them further.
 Twelve ground files have unread tails. Their meaning is not yet known.
 Older ground files omit water as the client code specifies.
