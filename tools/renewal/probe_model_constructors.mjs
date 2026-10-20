@@ -441,6 +441,13 @@ export function unattemptedRow(job, reason) {
   };
 }
 
+// Keep execution facts even when a physical output row cannot be published.
+// Large summaries/logs stay in JSONL; their omission here is explicit.
+function accountingRow(row) {
+  const { summary, _summary_json, log, _log, ...facts } = row;
+  return { ...facts, summary_payload_in_jsonl_only: true };
+}
+
 function exceptionInfo(error, phase, policy) {
   const message = String(error && error.message || error);
   return {
@@ -462,9 +469,9 @@ export function runWorkerJob(job, bytes, ctx) {
   const { policy, sources, summaryText, runDeadline, rss } = ctx;
   return new Promise((resolve) => {
     const t0 = performance.now();
-    const budgetMs = Math.max(0, Math.min(policy.job_timeout_ms, runDeadline - performance.now()));
-    const jobDeadline = performance.now() + budgetMs;
-    const deadlineReason = jobDeadline >= runDeadline - 0.001 && budgetMs < policy.job_timeout_ms ? 'run_deadline' : 'job_timeout';
+    const jobDeadline = Math.min(t0 + policy.job_timeout_ms, runDeadline);
+    const budgetMs = Math.max(0, jobDeadline - performance.now());
+    const deadlineReason = jobDeadline === runDeadline ? 'run_deadline' : 'job_timeout';
     const copy = Buffer.from(bytes);
     const ab = copy.buffer.slice(copy.byteOffset, copy.byteOffset + copy.byteLength);
     let worker;
@@ -557,6 +564,11 @@ export function runWorkerJob(job, bytes, ctx) {
     worker.on('exit', (code) => {
       st.exited = true;
       st.exitCode = code;
+      // An exit event can arrive before an overdue timer gets its turn.
+      if (!st.refusal && performance.now() >= jobDeadline) {
+        if (st.result) st.prior = { outcome: st.result.outcome, constructor_returned: st.result.constructor_returned };
+        st.refusal = { outcome: 'timeout', reason: performance.now() >= runDeadline ? 'run_deadline' : deadlineReason };
+      }
       if (!st.refusal && st.result && (code !== 0 || st.terminated)) {
         st.prior = { outcome: st.result.outcome, constructor_returned: st.result.constructor_returned };
         st.refusal = { outcome: 'worker_error', reason: st.terminated ? 'terminated_after_result' : 'nonzero_exit_after_result' };
@@ -660,11 +672,19 @@ class Output {
     this.bytes = 0;
     this.records = 0;
     this.logBytes = 0;
+    this.tailUncertain = false;
+    this.closeVerified = false;
   }
   write(line) {
     const buf = Buffer.from(`${line}\n`, 'utf8');
     try { writeAll(this.fd, buf, this.bytes); } catch (error) {
-      try { fs.ftruncateSync(this.fd, this.bytes); } catch { /* keep the original error */ }
+      try {
+        fs.ftruncateSync(this.fd, this.bytes);
+        if (fs.fstatSync(this.fd).size !== this.bytes) throw new Error('rollback size mismatch');
+      } catch {
+        this.tailUncertain = true;
+        throw new Refusal('output_rollback_unverified', 'partial JSONL tail cannot be trusted');
+      }
       throw error;
     }
     this.hash.update(buf);
@@ -676,6 +696,7 @@ class Output {
     const fd = this.fd;
     this.fd = null;
     try { fs.fsyncSync(fd); } finally { fs.closeSync(fd); }
+    this.closeVerified = true;
   }
 }
 
@@ -783,7 +804,11 @@ function publishAtomic(dir, name, text) {
     try { fs.unlinkSync(tmp); } catch { /* already failing */ }
     throw error;
   }
-  fs.closeSync(fd);
+  try { fs.closeSync(fd); } catch (error) {
+    // Do not retry an ambiguous close; unlink only our exclusive temporary name.
+    try { fs.unlinkSync(tmp); } catch { /* qualification already fails */ }
+    throw error;
+  }
   try { fs.renameSync(tmp, finalPath); } catch (error) {
     try { fs.unlinkSync(tmp); } catch { /* already failing */ }
     throw error;
@@ -802,10 +827,17 @@ function say(stdout, obj, limit = 4096) {
   stdout.write(buf);
 }
 
-function recheckIdentity(pins) {
-  return pins.every((pin) => {
-    try { return sameIdentity(pin.identity, identityOf(fs.lstatSync(pin.abs || pin.path, { bigint: true }))); } catch { return false; }
-  });
+function recheckPins(pins) {
+  const result = { method: 'full_read_hash_and_identity', expected: pins.length, checked: 0, failed: [], ok: false };
+  for (const pin of pins) {
+    try {
+      readPinnedFile(pin.abs || pin.path, { label: pin.role || 'pinned input', maxBytes: Math.max(pin.bytes, 1),
+        expectBytes: pin.bytes, expectSha: pin.sha256, expectIdentity: pin.identity });
+      result.checked++;
+    } catch (error) { result.failed.push({ role: pin.role || 'pinned input', reason: error.reason || 'input_io_error' }); }
+  }
+  result.ok = result.checked === result.expected;
+  return result;
 }
 
 export function expandTargetOutcomes(targets, outcomeByJobId) {
@@ -955,7 +987,7 @@ function corpusPostcheck(P) {
   return { checked, ok: true };
 }
 
-async function run(P, sayLine) {
+async function run(P, sayLine, started) {
   assertOutputAncestors(P.output);
   mkdirPrivate(path.dirname(P.output), P.privateRoot);
   assertOutputAncestors(P.output);
@@ -967,7 +999,6 @@ async function run(P, sayLine) {
   let out = null;
   let sampler = null;
   const { policy, jobs, mode } = P;
-  const started = performance.now();
   const runDeadline = started + policy.run_timeout_ms;
   const rss = { samples: 0, peak: 0, over: 0, active: null };
   rss.sample = () => {
@@ -981,6 +1012,7 @@ async function run(P, sayLine) {
   };
   const counts = Object.fromEntries(OUTCOMES.map((outcome) => [outcome, 0]));
   const outcomeById = new Map();
+  const accounting = jobs.map((job) => accountingRow(unattemptedRow(job, 'not_started')));
   const cleanup = { workers_started: 0, exits_observed: 0, unverified: [], halted: null };
   const authored = { matched: 0, mismatched: [] };
   let halt = null;
@@ -996,7 +1028,14 @@ async function run(P, sayLine) {
       job_ids: jobs.map((job) => job.job_id),
       target_ids: mode === 'corpus' ? P.manifest.targets.map((target) => target.model_ordinal) : []
     };
-    publishAtomic(P.output, 'report.checkpoint.json', JSON.stringify(plan));
+    try { publishAtomic(P.output, 'report.checkpoint.json', JSON.stringify(plan)); }
+    catch {
+      // Preserve all IDs in the final accounting, but never start a worker
+      // when its initial checkpoint was not published.
+      publicationFailed = true;
+      incomplete = true;
+      halt = 'checkpoint_publication_failure';
+    }
     out = new Output(P.output, policy);
     sampler = setInterval(rss.sample, policy.rss_sample_ms);
     if (typeof sampler.unref === 'function') sampler.unref();
@@ -1049,6 +1088,7 @@ async function run(P, sayLine) {
           else if (row.outcome === 'worker_error' && row.reason === 'lifecycle') halt ||= 'lifecycle';
         }
       }
+      accounting[i] = accountingRow(row);
       let selected = boundedRow(row, policy, policy.max_total_log_bytes - out.logBytes);
       if (out.bytes + Buffer.byteLength(selected.line) + 1 + P.suffix[i + 1] > policy.max_jobs_jsonl_bytes) {
         selected = boundedRow(row, policy, 0, true);
@@ -1057,15 +1097,21 @@ async function run(P, sayLine) {
       try { out.write(selected.line); } catch (error) {
         halt ||= 'output_io_error';
         incomplete = true;
+        const failedRow = {
+          ...row,
+          outcome: 'environment_failure',
+          _summary_json: null,
+          _log: '',
+          reason: error.reason || 'output_io_error',
+          ...(['returned', 'constructor_exception'].includes(row.outcome) ? {
+            prior_result: { outcome: row.outcome, constructor_returned: row.constructor_returned }
+          } : {}),
+          exception: exceptionInfo(error, 'publication', policy)
+        };
+        accounting[i] = accountingRow(failedRow);
+        if (out.tailUncertain) { publicationFailed = true; break; }
         try {
-          selected = boundedRow({
-            ...row,
-            outcome: 'environment_failure',
-            _summary_json: null,
-            _log: '',
-            reason: 'output_io_error',
-            exception: exceptionInfo(error, 'publication', policy)
-          }, policy, 0);
+          selected = boundedRow(failedRow, policy, 0);
           out.write(selected.line);
         } catch (second) {
           publicationFailed = true;
@@ -1074,24 +1120,15 @@ async function run(P, sayLine) {
         }
       }
       row = selected.row;
+      accounting[i] = accountingRow(row);
       out.logBytes += selected.logBytes;
       if (mode === 'fixtures' && row.outcome !== 'unattempted' && row.worker_started) {
         if (compareAuthored(job, row)) authored.matched++;
         else authored.mismatched.push(job.id);
       }
       if (!OUTCOMES.includes(row.outcome)) row.outcome = 'worker_error';
-      counts[row.outcome]++;
-      outcomeById.set(job.job_id, row.outcome);
       if (row.outcome !== 'returned' && row.outcome !== 'constructor_exception') incomplete = true;
       if (authored.mismatched.length) incomplete = true;
-    }
-    while (out && out.records < jobs.length) {
-      const job = jobs[out.records];
-      const suffix = unattemptedRow(job, halt || 'unattempted');
-      out.write(JSON.stringify(suffix));
-      counts[suffix.outcome]++;
-      outcomeById.set(job.job_id, suffix.outcome);
-      incomplete = true;
     }
   } catch (error) {
     publicationFailed = true;
@@ -1107,9 +1144,17 @@ async function run(P, sayLine) {
       }
     }
   }
+  // Publication can stop physical rows. Account every untouched suffix in the
+  // final report without inventing worker starts or discarding an observed job.
+  for (let i = 0; i < accounting.length; i++) {
+    const row = accounting[i];
+    if (row.outcome === 'unattempted' && row.reason === 'not_started') row.reason = halt || 'not_reached';
+    counts[row.outcome]++;
+    outcomeById.set(row.job_id, row.outcome);
+  }
   rss.sample();
   if (rss.over) { halt ||= 'rss_limit'; incomplete = true; }
-  let postcheck = { checked: 0, ok: true };
+  let postcheck = mode === 'fixtures' ? { checked: 0, ok: true } : { checked: 0, ok: false, reason: 'not_run_after_publication_failure' };
   if (!publicationFailed && mode === 'corpus') {
     try { postcheck = corpusPostcheck(P); } catch (error) {
       postcheck = { checked: postcheck.checked, ok: false, reason: error.reason || 'identity_changed' };
@@ -1118,7 +1163,8 @@ async function run(P, sayLine) {
     }
   }
   if (hooks.beforeIdentityRecheck) hooks.beforeIdentityRecheck(P.pins);
-  const identityUnchanged = recheckIdentity([...P.pins, ...P.sourcePins, ...P.rulePins, ...P.ownPins]);
+  const pinPostcheck = recheckPins([...P.pins, ...P.sourcePins, ...P.rulePins, ...P.ownPins]);
+  const identityUnchanged = pinPostcheck.ok;
   if (!identityUnchanged) { incomplete = true; halt ||= 'source_drift'; }
   if (performance.now() >= runDeadline) { halt ||= 'run_deadline'; incomplete = true; }
   cleanup.halted = halt;
@@ -1126,11 +1172,15 @@ async function run(P, sayLine) {
     cleanup.workers_started === cleanup.exits_observed && identityUnchanged && postcheck.ok && performance.now() < runDeadline;
   let linked = { counts: Object.fromEntries(OUTCOMES.map((outcome) => [outcome, 0])), targets: [] };
   if (mode === 'corpus') linked = expandTargetOutcomes(P.manifest.targets, outcomeById);
+  const jobsDigest = out ? out.hash.digest('hex') : null;
   const report = {
     schema: 'T06-model-constructor-report-1',
     task: 'T06.003.003.006',
     qualified,
     mode,
+    expected_job_ids: jobs.map((job) => job.job_id),
+    expected_target_ids: mode === 'corpus' ? P.manifest.targets.map((target) => target.model_ordinal) : [],
+    job_accounting: accounting,
     input: { path: P.inputAbs, bytes: P.inputFile.bytes, sha256: P.inputFile.sha256, identity: P.inputFile.identity },
     profile_sha256: P.profileSha,
     summary_sha256: P.summary.sha256,
@@ -1139,10 +1189,12 @@ async function run(P, sayLine) {
       root: P.clientSource,
       profile_revision: P.profile.client_source_revision,
       revision_checked: false,
-      sources: P.sourcePins.map(({ path: sourcePath, bytes, sha256: digest, verified }) => ({ path: sourcePath, bytes, sha256: digest, verified })),
-      rule_sources: P.rulePins.map(({ path: sourcePath, bytes, sha256: digest, verified }) => ({ path: sourcePath, bytes, sha256: digest, verified }))
+      sources: P.sourcePins.map(({ path: sourcePath, bytes, sha256: digest, verified, identity }) => ({ path: sourcePath, bytes, sha256: digest, verified, identity })),
+      rule_sources: P.rulePins.map(({ path: sourcePath, bytes, sha256: digest, verified, identity }) => ({ path: sourcePath, bytes, sha256: digest, verified, identity }))
     },
     own_sources: P.ownPins.map(({ path: sourcePath, bytes, sha256: digest, identity }) => ({ path: sourcePath, bytes, sha256: digest, identity })),
+    pinned_inputs: P.pins.map(({ role, path: inputPath, bytes, sha256: digest, identity }) => ({ role, path: inputPath, bytes, sha256: digest, identity })),
+    source_postchecks: pinPostcheck,
     pinned_inputs_identity_unchanged_after_run: identityUnchanged,
     preserved_counts: P.profile.counts,
     header_prefix_counts: P.profile.header_prefix_counts,
@@ -1167,7 +1219,12 @@ async function run(P, sayLine) {
     cleanup: { ...cleanup, verified: cleanup.unverified.length === 0 && cleanup.workers_started === cleanup.exits_observed },
     postchecks: postcheck,
     elapsed_ms: Math.round(performance.now() - started),
-    jobs_file: out ? { path: 'jobs.jsonl', bytes: out.bytes, sha256: out.hash.digest('hex'), records: out.records } : null,
+    jobs_file: out ? { path: 'jobs.jsonl', bytes: out.tailUncertain ? null : out.bytes,
+      sha256: out.tailUncertain ? null : jobsDigest, records: out.records,
+      complete: out.records === jobs.length && !out.tailUncertain && out.closeVerified,
+      ...(out.tailUncertain ? { confirmed_prefix: { bytes: out.bytes, sha256: jobsDigest, records: out.records } } : {}) } : null,
+    storage: { publication_failed: publicationFailed, jobs_tail_uncertain: out ? out.tailUncertain : false,
+      jobs_close_verified: out ? out.closeVerified : null },
     logs: { bytes: out ? out.logBytes : 0, limit_bytes: policy.max_total_log_bytes },
     roots: [],
     targets: [],
@@ -1193,21 +1250,38 @@ async function run(P, sayLine) {
     incomplete = true;
   }
   let exitCode = qualified && report.qualified !== false ? 0 : 1;
+  const publishFinal = () => {
+    const boundedText = JSON.stringify(report);
+    if (Buffer.byteLength(boundedText) > policy.max_report_json_bytes) throw new Refusal('output_budget', 'report does not fit');
+    publishAtomic(P.output, 'report.json', boundedText);
+  };
   try {
-    if (Buffer.byteLength(text) > policy.max_report_json_bytes) throw new Refusal('output_budget', 'report does not fit');
-    publishAtomic(P.output, 'report.json', text);
+    publishFinal();
     if (performance.now() >= runDeadline) {
       exitCode = 1;
       halt = halt || 'run_deadline_after_publication';
       report.qualified = false;
       report.deadline_after_publication = true;
       report.cleanup.halted = halt;
-      publishAtomic(P.output, 'report.json', JSON.stringify(report));
+      publishFinal();
     }
-    fs.unlinkSync(path.join(P.output, 'report.checkpoint.json'));
+    try { fs.unlinkSync(path.join(P.output, 'report.checkpoint.json')); }
+    catch (error) { if (error.code !== 'ENOENT') throw error; }
+    if (exitCode === 0 && performance.now() >= runDeadline) {
+      exitCode = 1;
+      report.qualified = false;
+      report.deadline_after_publication = true;
+      report.cleanup.halted = halt = 'run_deadline_after_publication';
+      publishFinal();
+    }
   } catch (error) {
     exitCode = 1;
     publicationFailed = true;
+    report.qualified = false;
+    report.storage.publication_failed = true;
+    // A one-shot publication failure may recover; persistent failure still
+    // returns nonzero and preserves its checkpoint without promising a rewrite.
+    try { publishFinal(); } catch { /* already failed */ }
     sayLine({ status: 'incomplete', reason: error.reason || 'publication_failure', mode, output_created: true });
     return exitCode;
   }
@@ -1227,6 +1301,7 @@ async function run(P, sayLine) {
 }
 
 export async function main(argv, { stdout = process.stdout } = {}) {
+  const started = performance.now();
   const sayLine = (obj) => say(stdout, obj, 4096);
   let prepared;
   try {
@@ -1236,7 +1311,7 @@ export async function main(argv, { stdout = process.stdout } = {}) {
     sayLine({ status: 'refused', reason: error.reason, output_created: false });
     return 2;
   }
-  return run(prepared, sayLine);
+  return run(prepared, sayLine, started);
 }
 
 const invokedDirectly = process.argv[1] && path.resolve(process.argv[1]) === fileURLToPath(import.meta.url);

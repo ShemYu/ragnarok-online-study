@@ -654,3 +654,405 @@ serial('writeAll retries a positive short write and stops on zero progress', () 
     assert.equal(zeros, 1);
   } finally { fs.writeSync = real; fs.closeSync(zero); }
 });
+
+// Root regressions after unchanged Grok integration. The I/O controls below
+// use literal authored worker messages, not client/constructor observations.
+const rootFixtureArgs = (output, ...extra) => ['--input-root', INPUT_ROOT, '--client-source', CLIENT,
+  '--profile', PROFILE, '--fixtures', FIXTURES, '--output', output, ...extra];
+const rootExpectedIds = () => authored.cases.map((entry) => entry.id);
+const rootEio = () => Object.assign(new Error('authored root I/O fault'), { code: 'EIO' });
+const rootPacket = (entry) => ({
+  type: 'result', outcome: entry.expected_outcome,
+  constructor_returned: entry.expected_outcome === 'returned', constructor_ms: 0,
+  ...(entry.expected_outcome === 'returned'
+    ? { summary_json: JSON.stringify(entry.expected_summary), summary_json_bytes: Buffer.byteLength(JSON.stringify(entry.expected_summary)) }
+    : { exception: { phase: 'constructor', name: entry.expected_exception_name, message: 'authored exception' } }),
+  log: { text: '', dropped: 0 }, loaded_module_keys: [...MODULE_KEYS], seek_globals: [1, 2, 3], dynamic_imports: []
+});
+const rootFakeWorkerFactory = (state) => () => {
+  const entry = authored.cases[state.started++];
+  assert.ok(entry, 'no extra authored worker');
+  const worker = new EventEmitter();
+  worker.stdout = new EventEmitter(); worker.stderr = new EventEmitter();
+  worker.stdout.resume = worker.stderr.resume = () => {};
+  worker.terminate = () => {
+    state.terminated++;
+    setImmediate(() => worker.emit('exit', 1));
+    return Promise.resolve(1);
+  };
+  setImmediate(() => {
+    worker.emit('message', { type: 'phase', phase: 'constructor' });
+    worker.emit('message', rootPacket(entry));
+    worker.emit('exit', 0);
+  });
+  return worker;
+};
+
+serial('root lower healthy job budgets retain every literal fixture result', () => {
+  for (const cap of [1000, 10000]) {
+    const r = cli(['--job-timeout-ms', String(cap)]);
+    assert.equal(r.code, 0, `cap ${cap}: ${JSON.stringify(r.summary)}`);
+    const got = rows(r.output);
+    assert.deepEqual(got.map((row) => row.id), rootExpectedIds());
+    authored.cases.forEach((entry, index) => {
+      const row = got[index];
+      assert.equal(row.outcome, entry.expected_outcome, `${cap}/${entry.id}`);
+      assert.equal(row.constructor_returned, entry.expected_outcome === 'returned');
+      assert.deepEqual(row.cleanup, { exit_observed: true, exit_code: 0, terminated_by_parent: false });
+      if (entry.expected_outcome === 'returned') assert.deepStrictEqual(row.summary, entry.expected_summary);
+      else {
+        assert.equal(row.exception.phase, 'constructor');
+        assert.equal(row.exception.name, entry.expected_exception_name);
+        assert.equal('summary' in row, false);
+      }
+    });
+    const rep = reportOf(r.output);
+    assert.equal(rep.qualified, true);
+    assert.equal(rep.authored_comparison.matched, 13);
+    assert.equal(rep.effective_policy.job_timeout_ms, cap);
+    assert.deepEqual([rep.counts.job_outcomes.returned, rep.counts.job_outcomes.constructor_exception], [9, 4]);
+  }
+});
+
+serial('root timely result followed by stalled late exit0 is timeout with prior result', async () => {
+  for (const outcome of ['returned', 'constructor_exception']) {
+    const entry = authored.cases.find((item) => item.expected_outcome === outcome);
+    const packet = rootPacket(entry);
+    const state = { terminations: 0, messageAt: null, exitAt: null };
+    const policy = { ...profile.policy, job_timeout_ms: 100, cleanup_wait_ms: 200 };
+    const workerFactory = () => {
+      const worker = new EventEmitter();
+      worker.stdout = new EventEmitter(); worker.stderr = new EventEmitter();
+      worker.stdout.resume = worker.stderr.resume = () => {};
+      worker.terminate = () => {
+        state.terminations++;
+        setImmediate(() => worker.emit('exit', 1));
+        return Promise.resolve(1);
+      };
+      setImmediate(() => {
+        state.messageAt = performance.now();
+        worker.emit('message', { type: 'phase', phase: 'constructor' });
+        worker.emit('message', packet);
+        // Deliberately block this same callback: the overdue timer cannot run
+        // before exit0, so exit settlement itself must check the deadline.
+        const until = performance.now() + policy.job_timeout_ms + 25;
+        while (performance.now() < until) { /* finite authored event-loop stall */ }
+        state.exitAt = performance.now();
+        worker.emit('exit', 0);
+      });
+      return worker;
+    };
+    const row = await runWorkerJob({ id: entry.id, job_id: entry.id, kind: 'model',
+      complete_sha256: entry.complete_sha256, input_bytes: entry.input_bytes,
+      header_version_bytes: entry.header_version_bytes }, Buffer.from([0, 1]), {
+      policy, sources: {}, summaryText: '', runDeadline: performance.now() + 5000,
+      rss: { active: null, over: 0, sample() {} }, workerFactory
+    });
+    assert.ok(state.exitAt - state.messageAt >= policy.job_timeout_ms);
+    assert.equal(row.outcome, 'timeout', outcome);
+    assert.deepEqual(row.prior_result, { outcome, constructor_returned: outcome === 'returned' });
+    assert.equal(row.constructor_returned, outcome === 'returned');
+    assert.deepEqual(row.cleanup, { exit_observed: true, exit_code: 0, terminated_by_parent: false });
+    assert.equal(state.terminations, 0);
+    assert.equal(row._summary_json, null);
+  }
+});
+
+serial('root final pin checks fully reread every fixture/source/rule/own file', async () => {
+  const output = freshOut();
+  const paths = [PROFILE, FIXTURES, path.join(REPO, profile.summary.path),
+    ...MODULE_KEYS.map((key) => path.join(CLIENT, key)), ...RULE_KEYS.map((key) => path.join(CLIENT, key)),
+    SCRIPT, path.join(HERE, 'model_constructor_worker.mjs')];
+  const expected = new Map(paths.map((file) => [path.resolve(file), fs.readFileSync(file)]));
+  const active = new Map(); const observed = [];
+  const real = { open: fs.openSync, read: fs.readSync, close: fs.closeSync };
+  let finalPhase = false;
+  fs.openSync = (target, ...args) => {
+    const fd = real.open(target, ...args);
+    const file = typeof target === 'string' ? path.resolve(target) : null;
+    if (expected.has(file)) active.set(fd, { file, finalPhase, chunks: [], bytes: 0, ordered: true, eof: false });
+    return fd;
+  };
+  fs.readSync = (fd, buffer, offset, length, position) => {
+    const n = real.read(fd, buffer, offset, length, position);
+    const read = active.get(fd);
+    if (read) {
+      if (n > 0) {
+        read.ordered &&= position === read.bytes;
+        read.chunks.push(Buffer.from(buffer.subarray(offset, offset + n)));
+        read.bytes += n;
+      } else read.eof = true;
+    }
+    return n;
+  };
+  fs.closeSync = (fd) => {
+    const result = real.close(fd);
+    if (active.has(fd)) { observed.push(active.get(fd)); active.delete(fd); }
+    return result;
+  };
+  hooks.beforeIdentityRecheck = () => { finalPhase = true; };
+  let code;
+  try { code = await main(rootFixtureArgs(output, '--max-jobs', '0'), { stdout: { write() {} } }); }
+  finally {
+    fs.openSync = real.open; fs.readSync = real.read; fs.closeSync = real.close;
+    hooks.beforeIdentityRecheck = null;
+  }
+  assert.equal(code, 1);
+  assert.equal(active.size, 0);
+  assert.equal(expected.size, 15);
+  for (const [file, body] of expected) {
+    for (const phase of [false, true]) {
+      const reads = observed.filter((item) => item.file === file && item.finalPhase === phase);
+      assert.ok(reads.length >= 1, `${path.basename(file)}: ${phase ? 'final' : 'admission'} full read`);
+      assert.ok(reads.some((item) => item.eof && item.ordered && item.bytes === body.length &&
+        crypto.createHash('sha256').update(Buffer.concat(item.chunks)).digest('hex') === crypto.createHash('sha256').update(body).digest('hex')),
+      `${path.basename(file)}: complete unchanged bytes`);
+    }
+  }
+  const rep = reportOf(output);
+  for (const group of [rep.client_source.sources, rep.client_source.rule_sources]) {
+    for (const pin of group) assert.deepEqual(pin.identity, identityOf(fs.lstatSync(path.join(CLIENT, pin.path), { bigint: true })));
+  }
+});
+
+// Faults affect only fresh output descriptors owned by this test. Hooks are
+// restored before assertions/readback; any observed leak is recorded first,
+// then only the exact still-owned fixture descriptor is closed for cleanup.
+async function rootPublicationFault(mode) {
+  const output = freshOut();
+  const state = { started: 0, terminated: 0, injected: 0, partialBytes: 0,
+    rollbackCalls: 0, rollbackFailed: false, writesAfterFailedRollback: 0, leaked: [] };
+  const real = { open: fs.openSync, write: fs.writeSync, truncate: fs.ftruncateSync,
+    close: fs.closeSync, rename: fs.renameSync };
+  const owned = new Map();
+  let jobsPhase = 0;
+  const isJobs = (fd) => owned.get(fd)?.name === 'jobs.jsonl';
+  const sameOwned = (fd, item) => {
+    try {
+      const now = fs.fstatSync(fd, { bigint: true });
+      return now.dev === item.dev && now.ino === item.ino;
+    } catch { return false; }
+  };
+  fs.openSync = (target, ...args) => {
+    const fd = real.open(target, ...args);
+    if (typeof target === 'string' && path.resolve(target).startsWith(output + path.sep)) {
+      const stat = fs.fstatSync(fd, { bigint: true });
+      owned.set(fd, { name: path.basename(target), dev: stat.dev, ino: stat.ino });
+    }
+    return fd;
+  };
+  fs.writeSync = (fd, buffer, offset, length, position) => {
+    const name = owned.get(fd)?.name || '';
+    if (mode === 'initial-checkpoint' && !state.injected && name.startsWith('.report.checkpoint.json.')) {
+      state.injected++; throw rootEio();
+    }
+    if ((mode === 'partial-write' || mode === 'rollback-failure') && isJobs(fd)) {
+      if (state.rollbackFailed) state.writesAfterFailedRollback++;
+      if (jobsPhase === 0) {
+        jobsPhase = 1;
+        const n = real.write(fd, buffer, offset, Math.max(1, Math.floor(length / 2)), position);
+        state.partialBytes += n;
+        return n;
+      }
+      if (jobsPhase === 1) { jobsPhase = 2; state.injected++; throw rootEio(); }
+    }
+    return real.write(fd, buffer, offset, length, position);
+  };
+  fs.ftruncateSync = (fd, ...args) => {
+    if (isJobs(fd)) {
+      state.rollbackCalls++;
+      if (mode === 'rollback-failure' && !state.rollbackFailed) {
+        state.rollbackFailed = true;
+        throw rootEio();
+      }
+    }
+    return real.truncate(fd, ...args);
+  };
+  fs.closeSync = (fd) => {
+    const name = owned.get(fd)?.name || '';
+    const result = real.close(fd);
+    owned.delete(fd);
+    if (mode === 'final-close' && !state.injected && name.startsWith('.report.json.')) {
+      state.injected++; throw rootEio(); // real release precedes the reported error
+    }
+    return result;
+  };
+  fs.renameSync = (from, to) => {
+    if (mode === 'final-rename' && !state.injected && path.resolve(String(to)) === path.join(output, 'report.json')) {
+      state.injected++; throw rootEio();
+    }
+    return real.rename(from, to);
+  };
+  hooks.createWorker = rootFakeWorkerFactory(state);
+  let code;
+  try { code = await main(rootFixtureArgs(output), { stdout: { write() {} } }); }
+  finally {
+    fs.openSync = real.open; fs.writeSync = real.write; fs.ftruncateSync = real.truncate;
+    fs.closeSync = real.close; fs.renameSync = real.rename; hooks.createWorker = null;
+    for (const [fd, item] of owned) {
+      if (sameOwned(fd, item)) {
+        state.leaked.push(item.name);
+        real.close(fd); // fixture cleanup after leak observation, never an unknown fd
+      }
+    }
+  }
+  return { output, code, state };
+}
+
+function rootAssertRetainedAccounting(result) {
+  const { output, code, state } = result;
+  assert.equal(code, 1);
+  assert.equal(state.injected, 1, 'the intended production fault was reached once');
+  assert.deepEqual(state.leaked, [], 'no output fd leaked before fixture cleanup');
+  assert.equal(state.terminated, 0);
+  const reportFile = path.join(output, 'report.json');
+  const checkpointFile = path.join(output, 'report.checkpoint.json');
+  assert.ok(fs.existsSync(reportFile) || fs.existsSync(checkpointFile), 'accounting survives publication failure');
+  const rep = JSON.parse(fs.readFileSync(fs.existsSync(reportFile) ? reportFile : checkpointFile, 'utf8'));
+  assert.equal(rep.qualified, false);
+  assert.deepEqual(rep.expected_job_ids || rep.job_ids, rootExpectedIds());
+  if (rep.job_accounting) {
+    assert.deepEqual(rep.job_accounting.map((row) => row.job_id), rootExpectedIds());
+    rep.job_accounting.forEach((row, index) => {
+      const entry = authored.cases[index];
+      assert.equal(row.id, entry.id);
+      assert.equal(row.kind, 'model');
+      assert.equal(row.input_bytes, entry.input_bytes);
+      assert.equal(row.complete_sha256, entry.complete_sha256);
+      assert.equal(row.header_version_bytes, entry.header_version_bytes);
+      assert.equal('summary' in row, false);
+      assert.equal('log' in row, false);
+    });
+  }
+  if (rep.counts) {
+    assert.equal(rep.counts.expected_jobs, 13);
+    assert.equal(Object.values(rep.counts.job_outcomes).reduce((sum, n) => sum + n, 0), 13);
+    assert.equal(rep.counts.attempted, 13 - rep.counts.job_outcomes.unattempted);
+    assert.equal(rep.cleanup.workers_started, state.started);
+    assert.equal(rep.cleanup.exits_observed, state.started);
+    assert.deepEqual(rep.cleanup.unverified, []);
+  }
+  return rep;
+}
+
+function rootAssertKnownJobsFile(output, rep) {
+  const body = fs.readFileSync(path.join(output, 'jobs.jsonl'));
+  assert.equal(body.at(-1), 10);
+  const got = rows(output);
+  assert.deepEqual(got.map((row) => row.job_id), rootExpectedIds());
+  assert.equal(rep.counts.records, 13);
+  assert.equal(rep.jobs_file.records, 13);
+  assert.equal(rep.jobs_file.bytes, body.length);
+  assert.equal(rep.jobs_file.sha256, crypto.createHash('sha256').update(body).digest('hex'));
+}
+
+serial('root initial checkpoint EIO starts no workers and retains all13 unattempted IDs', async () => {
+  const result = await rootPublicationFault('initial-checkpoint');
+  const rep = rootAssertRetainedAccounting(result);
+  assert.equal(result.state.started, 0);
+  assert.equal(rep.counts.attempted, 0);
+  assert.equal(rep.counts.job_outcomes.unattempted, 13);
+  assert.equal(rep.job_accounting.length, 13);
+  assert.ok(rep.job_accounting.every((row) => row.outcome === 'unattempted' && row.worker_started === false && row.cleanup.exit_observed === null));
+  rootAssertKnownJobsFile(result.output, rep);
+});
+
+serial('root jobs partial-EIO rollback preserves known bytes and every suffix ID', async () => {
+  const result = await rootPublicationFault('partial-write');
+  const rep = rootAssertRetainedAccounting(result);
+  assert.ok(result.state.partialBytes > 0);
+  assert.ok(result.state.rollbackCalls >= 1);
+  assert.equal(result.state.rollbackFailed, false);
+  assert.equal(result.state.started, 1);
+  assert.equal(rep.counts.attempted, 1);
+  assert.equal(rep.storage.jobs_tail_uncertain, false);
+  rootAssertKnownJobsFile(result.output, rep);
+});
+
+serial('root failed jobs rollback stops writes and reports an uncertain tail without losing IDs', async () => {
+  const result = await rootPublicationFault('rollback-failure');
+  const rep = rootAssertRetainedAccounting(result);
+  assert.ok(result.state.partialBytes > 0);
+  assert.equal(result.state.rollbackFailed, true);
+  assert.equal(result.state.writesAfterFailedRollback, 0);
+  assert.equal(result.state.started, 1);
+  assert.equal(rep.storage.jobs_tail_uncertain, true);
+  assert.equal(rep.jobs_file.bytes, null);
+  assert.equal(rep.jobs_file.sha256, null);
+  assert.deepEqual(rep.jobs_file.confirmed_prefix, {
+    bytes: 0, sha256: crypto.createHash('sha256').update(Buffer.alloc(0)).digest('hex'), records: 0
+  });
+  assert.equal(rep.job_accounting.length, 13);
+  assert.equal(rep.counts.records, 0);
+  const physical = fs.readFileSync(path.join(result.output, 'jobs.jsonl'));
+  assert.equal(physical.length, result.state.partialBytes);
+});
+
+for (const mode of ['final-close', 'final-rename']) {
+  serial(`root ${mode} publication failure refuses qualification and retains all IDs`, async () => {
+    const result = await rootPublicationFault(mode);
+    const rep = rootAssertRetainedAccounting(result);
+    assert.equal(result.state.started, 13);
+    const got = rows(result.output);
+    assert.deepEqual(got.map((row) => row.job_id), rootExpectedIds());
+    authored.cases.forEach((entry, index) => {
+      assert.equal(got[index].outcome, entry.expected_outcome);
+      if (entry.expected_outcome === 'returned') assert.deepStrictEqual(got[index].summary, entry.expected_summary);
+      else assert.equal(got[index].exception.name, entry.expected_exception_name);
+    });
+    if (rep.jobs_file) rootAssertKnownJobsFile(result.output, rep);
+  });
+}
+
+serial('root oversized final report cannot bypass the cap through failure retry', async () => {
+  const output = freshOut();
+  const real = JSON.stringify;
+  const oversized = ' '.repeat(profile.policy.max_report_json_bytes + 1);
+  const state = { started: 0, terminated: 0, replacements: 0 };
+  JSON.stringify = (value, ...args) => {
+    if (value?.schema === 'T06-model-constructor-report-1' && !value.checkpoint) {
+      state.replacements++;
+      return oversized; // finite serializer fault; never allowed onto disk
+    }
+    return real(value, ...args);
+  };
+  hooks.createWorker = rootFakeWorkerFactory(state);
+  let code;
+  try { code = await main(rootFixtureArgs(output), { stdout: { write() {} } }); }
+  finally { JSON.stringify = real; hooks.createWorker = null; }
+  assert.equal(code, 1);
+  assert.ok(state.replacements >= 3, 'initial, compacted and retry paths reached');
+  assert.equal(state.started, 13);
+  assert.equal(state.terminated, 0);
+  assert.deepEqual(fs.readdirSync(output).sort(), ['jobs.jsonl', 'report.checkpoint.json']);
+  const checkpoint = JSON.parse(fs.readFileSync(path.join(output, 'report.checkpoint.json'), 'utf8'));
+  assert.equal(checkpoint.qualified, false);
+  assert.deepEqual(checkpoint.job_ids, rootExpectedIds());
+  assert.deepEqual(rows(output).map((row) => row.job_id), rootExpectedIds());
+});
+
+serial('root whole-run deadline includes admission before any worker starts', async () => {
+  const output = freshOut();
+  const realOpen = fs.openSync;
+  const state = { started: 0, terminated: 0, delays: 0 };
+  fs.openSync = (target, ...args) => {
+    if (typeof target === 'string' && path.resolve(target) === PROFILE && state.delays === 0) {
+      state.delays++;
+      Atomics.wait(new Int32Array(new SharedArrayBuffer(4)), 0, 0, 125);
+    }
+    return realOpen(target, ...args);
+  };
+  hooks.createWorker = rootFakeWorkerFactory(state);
+  let code;
+  try { code = await main(rootFixtureArgs(output, '--run-timeout-ms', '100'), { stdout: { write() {} } }); }
+  finally { fs.openSync = realOpen; hooks.createWorker = null; }
+  assert.equal(state.delays, 1);
+  assert.equal(state.started, 0);
+  assert.equal(code, 1);
+  const rep = reportOf(output);
+  assert.equal(rep.qualified, false);
+  assert.ok(rep.elapsed_ms >= 125);
+  assert.equal(rep.counts.attempted, 0);
+  assert.equal(rep.counts.job_outcomes.unattempted, 13);
+  assert.ok(rows(output).every((row) => row.outcome === 'unattempted' && row.reason === 'run_deadline'));
+});

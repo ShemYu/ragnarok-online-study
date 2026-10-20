@@ -145,11 +145,17 @@ export function outcomeForSummaryThrow(error) {
 
 function isTimeout(error) { return error && error.code === 'ERR_SCRIPT_EXECUTION_TIMEOUT'; }
 
+function vmBudget(cap, remaining) {
+  const value = Math.floor(Math.min(cap, remaining));
+  if (value < 1) throw Object.assign(new Error('job budget exhausted before VM invocation'), { code: 'ERR_SCRIPT_EXECUTION_TIMEOUT' });
+  return value;
+}
+
 async function runJob(data) {
   const post = (message) => parentPort.postMessage(message);
   const policy = data.policy;
   const started = performance.now();
-  const remaining = () => Math.max(1, data.budget_ms - (performance.now() - started));
+  const remaining = () => data.budget_ms - (performance.now() - started);
   const maxChars = policy.max_exception_message_chars;
   let realm;
   post({ type: 'phase', phase: 'module' });
@@ -157,7 +163,7 @@ async function runJob(data) {
     const summaryModule = await import(`data:text/javascript;base64,${Buffer.from(data.summary_text, 'utf8').toString('base64')}`);
     if (typeof summaryModule.summarizeModel !== 'function') throw new Error('summary export missing');
     realm = await createRealm(data.sources, {
-      moduleTimeoutMs: Math.min(policy.module_timeout_ms, remaining()),
+      moduleTimeoutMs: vmBudget(policy.module_timeout_ms, remaining()),
       maxLogBytes: policy.max_job_log_bytes
     });
     if (!Array.isArray(realm.seekGlobals) || realm.seekGlobals.length !== 3) throw new Error('SEEK globals missing');
@@ -174,11 +180,20 @@ async function runJob(data) {
   const bytes = new Uint8Array(data.body);
   const buffer = realm.exactBuffer(bytes);
   if (buffer.byteLength !== bytes.length) throw new Error('exact buffer length mismatch');
+  let constructorBudget;
+  try { constructorBudget = vmBudget(policy.constructor_timeout_ms, remaining()); }
+  catch (error) {
+    post({ type: 'result', outcome: 'timeout', constructor_returned: null,
+      exception: boundedException(error, 'constructor_budget', maxChars),
+      log: realm.logs(), dynamic_imports: realm.dynamicImports,
+      loaded_module_keys: realm.loaded, seek_globals: realm.seekGlobals });
+    return;
+  }
   let value;
   post({ type: 'phase', phase: 'constructor' });
   const t0 = performance.now();
   try {
-    value = realm.construct(buffer, Math.min(policy.constructor_timeout_ms, remaining()));
+    value = realm.construct(buffer, constructorBudget);
   } catch (error) {
     post({
       type: 'result',

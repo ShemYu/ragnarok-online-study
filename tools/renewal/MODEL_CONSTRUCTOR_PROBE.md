@@ -63,10 +63,46 @@ The same test file also checked existing output, profile pin, symlink, fifo, out
 
 Cross-realm `ArrayBuffer` throws `BinaryReader() - Undefined buffer type`. A same-realm `Uint8Array` with a byte offset is read from the underlying buffer start and throws `Error` on the header. An exact same-realm copy matches the authored summary. Those are adapter hazards, not evidence of bad retained content.
 
+## Root corrections after the raw comparison
+
+Root independently ran both raw 8166-job corpora: all8165 returned summaries
+matched and both observed the same constructor exception. See the
+[comparison and repair selection](../../docs/project/reviews/2026-10-20-T06.003.003.006.md#root-score-and-repair-basis-selection).
+The raw implementations scored14/20each. Grok was selected as a repair basis,
+then integrated unchanged as c4b2258; these subsequent fixes are root work.
+
+- VM timeout options use positive integer remaining budgets. An exhausted
+  budget before invocation is a timeout, not an invented constructor exception.
+- Parent settlement rechecks the monotonic deadline on exit, including exit0
+  after a timely result. The earlier result remains visible as `prior_result`.
+  The whole-run budget starts before input admission.
+- Final checks fully reread/hash/identity-check every admitted input, module,
+  rule and own source. `source_postchecks` records expected/checked/failures;
+  source/rule identities and protected input receipts remain in the report.
+- Failed initial checkpoints start no workers. `expected_job_ids`,
+  `expected_target_ids` and `job_accounting` preserve all IDs and execution
+  facts independently of durable JSONL rows. Accounting omits summary/log
+  payloads; full successful summaries remain in JSONL. Outcome totals cover
+  accounting, while `counts.records` counts written rows.
+- A partial row is retried only after confirmed truncation to its prior size.
+  Uncertain rollback stops JSONL writes, sets `storage.jobs_tail_uncertain`,
+  and leaves whole-file bytes/SHA null with a separately labeled
+  `confirmed_prefix`. Close failures prevent qualification. Exclusive report
+  temporary names receive bounded cleanup without retrying an ambiguous close.
+  Every final/deadline/failure publication attempt observes the report cap.
+
+Root verification at this source checkpoint:29tests/zero failures/zero skips,
+including ten added regression tests; a separate fresh production fixture CLI
+exits0 with13matches. Real fixture execution and explicitly labeled synthetic
+lifecycle/storage controls are distinguished in the tests. Integrated retained
+corpus/root comparison is still required before task readiness. Constructor
+exceptions, nine raw numeric-marker models, earlier core/ground gaps and
+render/play/full-game verification remain open.
+
 ## Limitations
 
 - This candidate did not execute corpus mode and did not read retained model bodies. Root admits and runs the 8166 jobs.
-- Worker-heap exhaustion and the VM's own module/constructor timers are implemented. The lower-only CLI does not expose separate caps for them, so those paths were not forced.
+- Worker-heap exhaustion and the VM's own module/constructor timers are implemented. The lower-only CLI does not expose separate caps for them, so these specific paths were not forced. Healthy lower1000/10000ms jobs, real parent timeout, delayed exit and admission-budget exhaustion are separately checked.
 - RSS is sampled. The heap limit does not contain typed arrays or native allocations.
 - The client-source git revision is copied from the profile and is not checked against a git object. The seven content SHAs and three rule-source SHAs are verified.
 - Cursor/tail remains `not_observable_from_unchanged_constructor`. Declared texture names are not GET counts.
