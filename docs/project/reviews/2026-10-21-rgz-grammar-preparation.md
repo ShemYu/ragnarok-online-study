@@ -53,3 +53,35 @@ Astra provides concrete algorithm/I/O findings and primary grammar leads;
 Opus5.5fallback remains available if later hard questions remain unresolved.
 No new consultation is needed merely to repeat these resolved source findings.
 No original app/save/SQL/network/preferences state changes or goal change.
+
+## Synthetic streaming reference qualified
+
+Root now fully reads the separate streaming reference and43-case qualifier,
+and personally executes both original and corrected versions. Original27247B/
+SHA256`324b913efb2f3154bd85719d00b155fa24403e4c5099f31498d06bbc28058fa8`
+fails exactly three controls: requested read caps1/3 and a late successful EOF.
+Its nonzero exit/failed guard remains recorded as a reproduced defect.
+
+A separate27558-byte correction/SHA256
+`1f6f3a1c4559c59d244ede4be3f6f65fa2482c2fedb8a85d11aa06ed41ef73a4`
+passes the caller's read cap into header/trailer/trailing-prefix reads and
+checks the deadline after final EOF. The unchanged43 test bodies and literal
+goldens now all pass. Root verifies the two-line source-pin adaptation only;
+qualifier14867bytes/SHA256
+`fa43108906a8350f3339e4e6d52653b5820550fa74e4a2132ba413eeecfb36d2`.
+Controls include framing/method/flags, truncation/extra member, CRC/ISIZE,
+inner opcodes/end/EOF, bounded work/read/output, short writes and sink failures.
+The corrected guard records0.296716seconds/26853376B sampled peak/exit0/no
+action or signals/empty group. All44 metadata and protected source full hashes/
+identities stay unchanged. Corrected root receipt49341bytes/SHA256
+`237466bb1ac736fb85a85e0b9d51e9b49f5d414d1558bd530269e1736f7b785e`;
+original49563bytes/SHA256
+`06077f8d1ed84275a9454ffdd75909d63f2f82aea9043f2128c8e44f3220ec96`.
+
+This qualifies the pure streaming/parser and explicit sink seams only. It
+does not qualify the draft's physical `Publication` or main/fixed-run lifecycle;
+root identifies an open/fstat failure-close concern there. Do not invoke that
+route. Next use a separately reviewed root publication harness around only the
+qualified pure parser for the exact1467-byte experiment. No actual RGZ opens/
+decodes occur at this checkpoint; all29 remain unresolved. No production
+contract, archive application, extraction or map/functionality PASS follows.

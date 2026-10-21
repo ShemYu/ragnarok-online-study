@@ -48,6 +48,11 @@ CURRENT WORK: October assets and missing maps
  |    Full output audit and input/process cleanup checks pass.
  |    Next: model constructors and nested textures, then render/play.
  |
+[~] Model constructor preparation.
+ |    All 273 full model files and map links pass input checks.
+ |    Harness failure checks pass. No model run yet.
+ |    Next: 13 known fixtures, then all 273 model results.
+ |
  +-- [V] Other 28 GPF patch tables: corrected tool verified.
  |        Root reference: all 5,742 raw records checked.
  |        Claude: 5,742 records and 17 consumer checks pass.
@@ -56,7 +61,8 @@ CURRENT WORK: October assets and missing maps
  |        Claude selected: 16/20, versus Grok 11/20.
  |        Repair passes 32 enabled tests and both new failure checks.
  |        Corrected run, consumer checks and full record audit pass.
- +-- [~] RGZ format: primary-source preparation; no decode yet.
+ +-- [~] RGZ format: 43 synthetic parser checks pass.
+ |        No actual file decode yet. All 29 remain open.
  |
 [ ] Render -> normal play and save -> full content checks.
 ```
