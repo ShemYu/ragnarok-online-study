@@ -48,20 +48,24 @@ CURRENT WORK: October assets and missing maps
  |    Full output audit and input/process cleanup checks pass.
  |    Next: model constructors and nested textures, then render/play.
  |
-[~] Model constructor preparation.
+[V] Model constructor tool: verified on the project branch.
  |    All 273 full model files and map links pass input checks.
  |    Harness failure checks and all 13 known fixtures pass.
  |    All 273 direct loader results pass. Full output checks pass.
  |    Claude: root source review and 48 tests pass.
  |    Fresh run: all 273 results match the full reference.
- |    134 of 135 extra checks pass; timeout equality needs a fix.
- |    EOF checks find early completion. Repair comes after comparison.
+ |    Extra checks find timeout and stream-end repair needs.
  |    Grok: 273 results match; all 135 extra checks pass.
- |    Both EOF gates fail. Grok also crossed the output boundary.
+ |    Both raw EOF gates fail. Grok also crossed the output boundary.
  |    Claude selected for repair: 17/20 versus Grok 13/20.
  |    Both raw workers released. Astra repair is submitted and released.
- |    Root: 56 tests, three stream-end checks and 135 shared checks pass.
- |    Full fresh output checks come next.
+ |    Repair integrated. Root repeats 56 tests and all 135 shared checks.
+ |    Three real stream-end checks and full fresh output checks pass.
+ |    All 273 results and both 13-case fixture sets match.
+ |
+[~] Nested model textures: next paired task.
+ |    Independent reference: 397 declarations, 178 distinct paths.
+ |    Availability and image decode remain open.
  |
  +-- [V] Other 28 GPF patch tables: corrected tool verified.
  |        Root reference: all 5,742 raw records checked.
