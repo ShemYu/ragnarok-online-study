@@ -44,7 +44,7 @@ CURRENT WORK: October assets and missing maps
  |    Original workers released. Astra/high repairs in a new branch.
  |    Next: root checks -> actual 311-path scan.
  |
- +-- [~] Other 28 GPF patch tables: Claude submitted; Grok works.
+ +-- [~] Other 28 GPF patch tables: both workers submitted and released.
  |        Root reference: all 5,742 raw records checked.
  |        Next: root checks both tools and their full outputs.
  +-- [~] RGZ format: primary-source preparation; no decode yet.
