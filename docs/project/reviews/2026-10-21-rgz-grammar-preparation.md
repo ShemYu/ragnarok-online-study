@@ -85,3 +85,35 @@ route. Next use a separately reviewed root publication harness around only the
 qualified pure parser for the exact1467-byte experiment. No actual RGZ opens/
 decodes occur at this checkpoint; all29 remain unresolved. No production
 contract, archive application, extraction or map/functionality PASS follows.
+
+## Separate root publication harness qualified
+
+Root fully reads and syntax-checks a separate15074-byte runner/SHA256
+`715f06baa7b0dfa0d6478e0bce66bc06b1c3b513e694f4e76b7c5c48bd4e1dc7`
+and9412-byte controls/SHA256
+`f6464ca304923694b3bad9985400e139c83d5ee8dc7921202969855f9d4dbc2e`.
+The runner compiles only the exact pinned parser prefix, explicitly excluding
+unqualified Publication/Sink/fixed_run/main. The selected fixed body remains
+unopened. It binds all six source pins, the29-entry minimum-size selection and
+the selected ledger identity; only metadata/record raw-name hex/body hashes
+can be written to two fixed private output names. No extracted paths are used.
+Qualification requires the exact runner's captured zero exit plus full root
+artifact/input audit; a report alone never proves final completion.
+
+Root personally runs all12 authored wrapper control groups under its separate
+outer guard. Positive three-byte short writes and complete output readback
+pass. Zero-progress, physical two-byte fragment thenEIO, before-closeEIO,
+real-close-thenEIO, wrong-hash constructor cleanup, same-content foreign inode,
+directory replacement and four typed/hash ledger refusals pass. Fault activation,
+immediate owned inode/EBADF close evidence and preserved foreign objects are
+checked; no live owned FD or harness cleanup intervention remains. All56
+protected metadata/source inputs retain their full hashes and identities.
+Guard0.172801seconds/exit0/empty stderr/no action or signals/empty owned group.
+Its1916928B sampled peak can miss the short process's real peak and is not a
+hardware requirement or OS containment claim. No actual RGZ body is opened.
+
+Next root may run only this separately qualified fixed wrapper on the admitted
+1467-byte input, then independently audit all emitted records, gzip/inner axes,
+CRC/ISIZE/end/EOF, source/input preservation, outputs and positive process exit.
+All29 remain unresolved until that actual observation; no production tool,
+installation, application, filename codec, renderer/game or goal change.
