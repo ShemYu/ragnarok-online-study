@@ -65,7 +65,32 @@ extract/test and independent full4976-file/115-directory manifest now pass; its
 SHA is2706c3a8463be72d20e621028b6d3cc2c9c15988a8fce419733c1fe243251edd.
 The [full archive pins](reviews/2026-10-21-T07.007.md#complete-inner-extraction-and-independent-manifest-qualified)
 record changed data.grf and two hashes matching the recorded April pins. No loose
-DATA.INI exists; lookup precedence/header/table/map contents remain open.
+DATA.INI exists; lookup precedence remains open. Later header/name preparation
+and the new fixed-profile paired inventory are recorded in T07.007.
 The tooling list above is the historical T02record; later tools and
 failed-reader recovery are in T07.007. April assets/pins and running worlds
 remain in place. This new acquisition is not a playable-content qualification.
+
+
+## Official patch source preparation — additive files only
+
+[T07.007patch preparation](reviews/2026-10-21-T07.007.md#missing-map-name-witnesses-found-in-the-official-august-patch)
+finds exact official CDN metadata routes through manifest-pinned installer
+configuration literals. The full patch3.txt index is162117bytes/SHA
+`ec7a274f282ba7b5f1b15cddbca32c06a8a1be88c5df546f84e6a05bf5eeb69b`.
+Two exact August25GPFs are separately acquired/fully hashed, never installed:
+
+| Patch index | Bytes | Local full SHA256 |
+| --- | ---: | --- |
+|9298|306097616|70725f6624f947c3096066cc66a07fcd2440adf94137b79561ed2d67843f9f0e|
+|9303|86992|03764f614453d2b453a5ab5b552f6af9f66599a3642943566f72cbae6a501d07|
+
+Both are legacy0x102GRF-family containers. Root independently traverses all5708
+records and compares every complete field/record byte with the unchanged qualified
+core. All12GAT/GND/RSWname entries for mu_fild01/ygg_edge/ygg_fruit/ygg_roots exist
+in9298; that patch also supplies22previous RSW-gap name counterparts. These are
+name/table witnesses, not payload/dependency/render/ordinary-play qualification.
+The selected two files do not represent all59noncomment index rows after the
+installer's static9296value. Patcher-marker meaning, full update/lookup order,
+remaining patch contents and new reader/runtime admission remain open. Base and
+patch provenance stay separate; neither existing world or its assets change.

@@ -46,3 +46,38 @@ Later inventory checkpoint on2026-10-18: the current checkout's ignored .tools/r
 ## Practical limit and next action
 
 This Mac has ample headroom for the measured baseline. A different machine's minimum RAM/CPU requirement is not established by this one run. Keep the current VM setting for the Chinese pilot; the bounded item-art repair/pickup/relaunch/rollback is now verified in [T04.003](reviews/2026-10-18-T04.003.md). Repeat performance checks on the eventual integrated Chinese/content build in T12. Raw measurements/screenshots remain ignored; this redacted method, fingerprints and results are version controlled.
+
+
+## Later functionality-first acquisition observations — 2026-10-21
+
+These are isolated engineering-tool observations from [T07.007](reviews/2026-10-21-T07.007.md),
+not new game minimum specifications or a full-milestone estimate. Complete source/
+input/output pins and failure evidence are in that review. Downloads are capped
+at16MiB/s by policy; their elapsed times do not measure the connection's maximum.
+
+| Bounded operation | Observed elapsed | Sampled owned RSS peak | Result / limit |
+| --- | ---: | ---: | --- |
+| October installer transfer + local hash,4153946520bytes | 249.650152375s | not measured by this transfer receipt | Complete; publisher digest uninspected |
+| Fresh outer native extraction | 30.064440791s | 10567680bytes | Four files; full independent sizes/CRC/SHA reconcile |
+| Inner extract/test | 21.211300833s | 20283392bytes |4976files; independent full manifest/hash follows |
+| Independent three-GRF record reference | 5.865303s | 86163456bytes |156800new records parsed;92108unchanged legacy references rebound |
+| Two official GPF transfers + rehash,306184608bytes | 18.969805333s | 44777472bytes | Complete separate local files; not installed |
+| Independent5708patch-name record preparation | 1.597509958s | 31342592bytes | All12target terrain-name witnesses; payload/runtime untested |
+
+RSS is combined owned-process-group sampling at roughly0.5seconds, not unique
+physical memory or an OS containment limit. Every listed guarded command exits0
+with no guard action; observations do not include provider/other-app resource use.
+These stages are not additive end-to-end delivery times and some independent work
+runs in parallel. Exact Claude/Grok API tokens and billing remain unobserved.
+
+Current root checkout's ignored `.tools/renewal` allocation is48165232KiB
+(approximately45.93GiB), freshly measured after the new package/patch/reference
+work. This supersedes its older15.01GiBengineering-tree observation only. It
+includes preserved downloads, both extraction layers, source/builds, catalogs,
+references, failure evidence and retained response bodies; excludes sibling
+worker checkouts and separately located installed apps/worlds. It is not the
+end-user installation size. Do not add nested component rows to this total.
+
+No new hardware/cloud purchase is identified by these bounded stages. Full
+content, heavier scenes, retained final assets, patch closure and T12performance
+still need verification before a full build/time/cost estimate can be defended.
