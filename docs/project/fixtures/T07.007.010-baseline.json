@@ -1,0 +1,181 @@
+{
+  "schema": "T07-nested-texture-observation-baseline-1",
+  "task": "T07.007.010",
+  "source_commit": "e2ecbf6b67974143cfa6fff906a3dafb0a05da50",
+  "profile": {
+    "path": "docs/project/fixtures/T07.007.010-profile.json",
+    "bytes": 10533,
+    "sha256": "ebbed64ccdba8628f3eb5d2562649e1d6926a85281b09f5bf3e7ec65cb58cb8f"
+  },
+  "source_pins": [
+    {
+      "path": "tools/renewal/observe_model_textures.py",
+      "bytes": 57456,
+      "sha256": "a77c8efca823b058f0bc84da67f1058428f82ec392c1d42818cf81ca116140e5"
+    },
+    {
+      "path": "tools/renewal/test_observe_model_textures.py",
+      "bytes": 60221,
+      "sha256": "a7f5f6daaf198667a9dad7bb15704b07f6e69ba9c5ebee19c01b631fb9942829"
+    },
+    {
+      "path": "tools/renewal/MODEL_TEXTURE_OBSERVATION.md",
+      "bytes": 9856,
+      "sha256": "fe971c8692aae2cb49f1f2c47655046818fa18c84c232240cb9e0b2fda18579d"
+    },
+    {
+      "path": "tools/renewal/observe_map_dependencies.py",
+      "bytes": 112136,
+      "sha256": "0e691c1e93b726cf2819f473745864469d7c2c49aebe89c0b4115f2bd7722750"
+    },
+    {
+      "path": "docs/project/fixtures/T06.003.003.008-profile.json",
+      "bytes": 7377,
+      "sha256": "2ee28e4e4de7d8088d589c5cba663f247b3eb8dcde6348079e19a21be236ce7d"
+    },
+    {
+      "path": "docs/project/fixtures/T06.003.003.008-authored.json",
+      "bytes": 93233,
+      "sha256": "f73199757a34481e25107bce006251f1ebf7928ee4e6c752c677c047a8d1bdb3"
+    },
+    {
+      "path": "tools/renewal/test_observe_map_dependencies.py",
+      "bytes": 131582,
+      "sha256": "e4ce441a78cda18fc67e0fbe027b5f37b55569e88c8f5ee9ae009dc9e57bbc09"
+    }
+  ],
+  "new_runbook_absent": true,
+  "meaning": "Existing driver/test pins are pre-change provenance. Changed engine and producer historical roles never accept current hashes.",
+  "legacy_snapshot": {
+    "root": ".tools/renewal/t07-007-nested-historical-materialization-preparation-1/snapshot-1",
+    "role": "Qualified ordinary baseline inputs only; no candidate or native run",
+    "files": [
+      {
+        "path": "docs/project/fixtures/T06.003.003.008-profile.json",
+        "bytes": 7377,
+        "sha256": "2ee28e4e4de7d8088d589c5cba663f247b3eb8dcde6348079e19a21be236ce7d"
+      },
+      {
+        "path": "docs/project/fixtures/T06.003.003.008-authored.json",
+        "bytes": 93233,
+        "sha256": "f73199757a34481e25107bce006251f1ebf7928ee4e6c752c677c047a8d1bdb3"
+      },
+      {
+        "path": ".tools/renewal/root007-integrated-corpus-a/catalog.json",
+        "bytes": 90271141,
+        "sha256": "ea2c942315275e67cbd5b89618b1fa8bd80fc380c0c2f59a06b11b48911dc10a"
+      },
+      {
+        "path": "tools/renewal/observe_map_dependencies.py",
+        "bytes": 60530,
+        "sha256": "565a42c380e69b1c498907cf48ec2c609984b6899d16263d55a92e4e353a3a35"
+      },
+      {
+        "path": "tools/renewal/catalog_model_textures.mjs",
+        "bytes": 41735,
+        "sha256": "8d5ac1f514b40275e27aa81c29f49eff37c58d71b6287fb51977319be39d7958"
+      },
+      {
+        "path": "docs/project/fixtures/T06.003.003.007-profile.json",
+        "bytes": 4231,
+        "sha256": "432354b127890ca3b37432c61949f88a41439c6cdeb3cfbe21d27adc621b0c68"
+      },
+      {
+        "path": "docs/project/fixtures/T06.003.003.006-profile.json",
+        "bytes": 4855,
+        "sha256": "9ad903297104cd6f9a03d74196d5db7a4091ee07da4d2b73b4b4f61027b2140d"
+      },
+      {
+        "path": "tools/renewal/model_constructor_summary.mjs",
+        "bytes": 6452,
+        "sha256": "ec51b8b2b4930db840503601911c1e0e5f6e6b4db641fa7ae1f85fdf6de13d5c"
+      },
+      {
+        "path": ".tools/renewal/client-source/src/Loaders/Model.js",
+        "bytes": 30922,
+        "sha256": "d4643fc9a1a95747b41ee55537fe3159c2927e9840630291cce9d55bea20fe57"
+      },
+      {
+        "path": ".tools/renewal/client-source/src/Loaders/MapLoader.js",
+        "bytes": 14466,
+        "sha256": "c71b01f300f62bbc6e7432444e2521d713473dc47c9c6e25a54a832d5c92a705"
+      },
+      {
+        "path": ".tools/renewal/client-source/src/Core/FileManager.js",
+        "bytes": 11279,
+        "sha256": "75c37d192bf21e7b40817a6f2fe27ef536601515c07fe20c7ce8346d50376cd7"
+      },
+      {
+        "path": ".tools/renewal/client-source/src/Renderer/Map/AnimatedModels.js",
+        "bytes": 23493,
+        "sha256": "b993b685426e01cb40d5fe357e06dac5e5cddb10808a10095d30e4069bc7818f"
+      },
+      {
+        "path": ".tools/renewal/client-source/src/Utils/Texture.js",
+        "bytes": 4636,
+        "sha256": "059d1294f0c5bfaca178add3ba8d0dcb7466f84f05334e35a50bf8c7f77eedb5"
+      },
+      {
+        "path": ".tools/renewal/client-source/src/Loaders/Targa.js",
+        "bytes": 10440,
+        "sha256": "ef539c34fe643d45987f66b47e7b960352e32774e339842f6ed4446b36da5938"
+      },
+      {
+        "path": ".tools/renewal/remote-source/src/client.rs",
+        "bytes": 15628,
+        "sha256": "59b39104e8328493d5d1ec8ff4826add3a6ece1867034f45a7fddaa974b08c68"
+      },
+      {
+        "path": ".tools/renewal/remote-source/src/config.rs",
+        "bytes": 14558,
+        "sha256": "c8592180a406010f74df395ea65a207a87341ea12a08e45bf65a8cb7f7ecaa22"
+      },
+      {
+        "path": ".tools/renewal/remote-source/src/routes.rs",
+        "bytes": 16954,
+        "sha256": "ee365ab832bb5ac645e5d0205e8fb5018e88aac464be5f2a96546006cbe4dbd8"
+      },
+      {
+        "path": ".tools/renewal/remote-source/src/http.rs",
+        "bytes": 13105,
+        "sha256": "5ef6817695afe65cb6337c95e329ef726c6729120f0e5e55aa81ad6d40cf72ad"
+      },
+      {
+        "path": ".tools/renewal/remote-source/src/cache.rs",
+        "bytes": 8464,
+        "sha256": "94e977d875110b55ba570bbaac1d07a99c5ffcc7715c70d7ea0e7e5b802d1c09"
+      },
+      {
+        "path": ".tools/renewal/remote-source/src/util.rs",
+        "bytes": 9690,
+        "sha256": "f6e39562b6164abac0864a6ff78f6daee11223c3ccd21bb557a559768ce1cccc"
+      },
+      {
+        "path": ".tools/renewal/remote-source/src/index.rs",
+        "bytes": 8550,
+        "sha256": "eb471536075be604527b9ddadc9fce58727c2e04ca8fc1f81309bf48cd1c362f"
+      },
+      {
+        "path": ".tools/renewal/remote-source/src/grf.rs",
+        "bytes": 30133,
+        "sha256": "4646514140bc7688bbc91e0bac7d1ee9a83aab5e1e17df20c1eb30668bd5edf5"
+      },
+      {
+        "path": ".tools/renewal/remote-source/src/encoding.rs",
+        "bytes": 6009,
+        "sha256": "0014c18c2ab7211b68b8dff84c66b5bbd0aa3bb68593bca2bd5e46b28973c9ad"
+      },
+      {
+        "path": "tools/renewal/observe_model_textures.py",
+        "bytes": 57456,
+        "sha256": "a77c8efca823b058f0bc84da67f1058428f82ec392c1d42818cf81ca116140e5"
+      },
+      {
+        "path": "tools/renewal/test_observe_model_textures.py",
+        "bytes": 60221,
+        "sha256": "a7f5f6daaf198667a9dad7bb15704b07f6e69ba9c5ebee19c01b631fb9942829"
+      }
+    ],
+    "candidate_rule": "Copy only these25admitted files into a fresh child-owned ordinary snapshot, then replace only its baseline observer with the exact candidate driver BEFORE recording final snapshot pins. Keep original60221-byte44-test source. Both CHECKOUT and CANONICAL_ROOT use that candidate snapshot; never mutate the root baseline. Run new focused classes separately with current canonical metadata."
+  }
+}

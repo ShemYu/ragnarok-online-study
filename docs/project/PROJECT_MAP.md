@@ -75,6 +75,11 @@ CURRENT WORK: October assets and missing maps
  |    Root repeats 26 tests, 26 shared checks and four full output audits.
  |    Next: check all 178 texture paths. Image decode remains open.
  |
+[~] Texture availability: exact task and inputs frozen.
+ |    171 BMP and 7 TGA paths; full plan and source checks pass.
+ |    Historical compatibility copy and its preflight pass.
+ |    Next: independent Claude/Grok code, root checks, then actual scan.
+ |
  +-- [V] Other 28 GPF patch tables: corrected tool verified.
  |        Root reference: all 5,742 raw records checked.
  |        Claude: 5,742 records and 17 consumer checks pass.
