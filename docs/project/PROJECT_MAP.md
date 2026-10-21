@@ -40,7 +40,8 @@ CURRENT WORK: October assets and missing maps
  |    26 tests and all 20 shared checks pass. Both workers released.
  |
 [~] Asset availability: root checks Claude; Grok still works.
- |    Claude's 69 tests pass. Six extra checks need fixes.
+ |    Claude's 69 tests pass. Extra checks find repair needs.
+ |    Metadata, file admission and diagnostic stops need fixes.
  |    Next: compare -> repair -> check -> actual 311-path scan.
  |
  +-- [~] Other 28 GPF patch tables: Claude submitted; Grok works.
