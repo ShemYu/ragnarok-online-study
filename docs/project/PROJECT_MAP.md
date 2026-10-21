@@ -69,7 +69,8 @@ CURRENT WORK: October assets and missing maps
  |    All four full outputs match the independent reference.
  |    Claude: all 26 shared checks pass.
  |    Grok submitted: root 25 tests and repeated CLI pass.
- |    Grok full output/failure checks, then compare and integrate.
+ |    Grok full outputs and all 26 shared checks pass too.
+ |    Extra source-review checks, then compare and integrate.
  |    Availability and image decode remain open.
  |
  +-- [V] Other 28 GPF patch tables: corrected tool verified.
