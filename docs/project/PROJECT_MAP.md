@@ -63,7 +63,7 @@ CURRENT WORK: October assets and missing maps
  |    Three real stream-end checks and full fresh output checks pass.
  |    All 273 results and both 13-case fixture sets match.
  |
-[~] Nested model textures: Claude and Grok work in separate branches.
+[V] Nested model textures: both candidates compared and released.
  |    Independent reference: 397 declarations, 178 distinct paths.
  |    Claude submitted: root 26 tests and fresh repeated CLI pass.
  |    All four full outputs match the independent reference.
@@ -71,8 +71,9 @@ CURRENT WORK: October assets and missing maps
  |    Grok submitted: root 25 tests and repeated CLI pass.
  |    Grok full outputs and all 26 shared checks pass too.
  |    Extra checks: Claude refuses all five; Grok has validation gaps.
- |    Claude selected: 19/20 versus 14/20. Integrate and recheck next.
- |    Availability and image decode remain open.
+ |    Claude selected: 19/20 versus 14/20. Integrated and verified.
+ |    Root repeats 26 tests, 26 shared checks and four full output audits.
+ |    Next: check all 178 texture paths. Image decode remains open.
  |
  +-- [V] Other 28 GPF patch tables: corrected tool verified.
  |        Root reference: all 5,742 raw records checked.
