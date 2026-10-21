@@ -60,8 +60,8 @@ CURRENT WORK: October assets and missing maps
  |    Both EOF gates fail. Grok also crossed the output boundary.
  |    Claude selected for repair: 17/20 versus Grok 13/20.
  |    Both raw workers released. Astra repair is submitted and released.
- |    Root: 56 tests and all three stream-end checks pass.
- |    Shared controls and full fresh output checks come next.
+ |    Root: 56 tests, three stream-end checks and 135 shared checks pass.
+ |    Full fresh output checks come next.
  |
  +-- [V] Other 28 GPF patch tables: corrected tool verified.
  |        Root reference: all 5,742 raw records checked.
