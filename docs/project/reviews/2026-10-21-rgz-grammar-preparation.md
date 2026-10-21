@@ -202,3 +202,26 @@ incomplete profiles stay exact open outcomes; a complete observation is not
 format success or patch applicability. No asset extraction/install/apply,
 native/render/game or82world-gap closure follows. The separate actual
 Astra/high Model repair can run concurrently without shared runtime writes.
+
+
+## Remaining28 actual bounded observation completed; scalar audit pending
+
+After the qualified-harness checkpoint b92db67, root personally runs the exact
+fixed v2 wrapper on all28 remaining bodies. All28complete this strict gzip/inner
+profile:271records,283166311decoded bytes,283156034inline-file body bytes hashed.
+All28late full body checks and nine source checks pass after reports close.
+All85independently protected source/metadata/body receipts remain equal.
+Captured process0; guard1.349322s/28606464B sampled peak, no action/signals/owned
+group residue. This is streamed hashing, with no extraction/apply.
+
+Batch report100125B/SHA256
+`6ac78beb09be926a7d565e48c172d316aeb8db2bae7940a1211bad1893865b2d`;
+terminal receipt7168B/SHA256
+`0057667a2b674a771e95829081f279c7c8972a3b7cc869dfefa55887f4924ab4`.
+These are checked runner observations, not yet independently qualified full
+raw-record artifacts. Root has read the separately authored streaming scalar
+auditor, which remains disabled until authored controls qualify. Its raw
+DEFLATE codec shares zlib; CRC32 and inner-field walk are separate. Full271
+record/offset/name/body-hash/CRC/trailer/member/EOF comparisons and every output
+file remain the next gate. No map resource reconciliation, patch installation,
+new playable coverage or82functional-gap closure follows from this run.
