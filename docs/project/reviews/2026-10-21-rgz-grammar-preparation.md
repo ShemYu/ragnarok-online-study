@@ -160,3 +160,45 @@ headers are1f8b0800(method8/flags0). No body opens occur in this census. Header
 compatibility does not prove DEFLATE, CRC/ISIZE, inner grammar, EOF or content.
 The broader serial wrapper and its explicit whole-run/output/final-rehash
 headroom remain source preparation until root review and qualified controls.
+
+
+## Remaining28 bounded wrapper qualified before actual observation
+
+Root full-reads the original batch runner/qualifier and separate proposed-v2
+changes. Internal source review finds two defects in the unexecuted draft:
+root report publication still uses an expired scan budget despite reserved
+finalization time; report-close failure can mask the original write failure.
+Separate v2 switches root to the fixed final deadline in the real transition,
+and independently retains document put/close errors. Originals stay preserved.
+No extra close retry, deletion, extraction or source-policy expansion.
+
+Reviewed runner22349B/SHA256
+`db47925c5f47625a7b073e718e0d1a930f661427a35f506481bbc2a27a9033a5`;
+qualifier14752B/SHA256
+`9791fc1e9a6ad32c226f9bdbb0fdd7eb4840bf9b42b78adfe999e470193f290a`.
+Root personally executes all10authored groups under the unchanged external
+guard. Baseline two-file exact d/f/e/body hashes/full private output readback,
+unsupported/unknown-inner/valid continuation, record cap/unattempted suffix,
+real7-byte partial write then EIO, failures before and after real close, real
+7-byte report-write failure plus secondary close error, preadmission drift,
+unattempted suffix drift and expired-root-scan/live-final report publication
+all satisfy their literal criteria. Exact fault activation and owned FD closure
+before harness cleanup pass; zero cleanup interventions. All57protected
+source/metadata receipts stay equal. Guard0.242491s/21184512B sampled peak,
+process0/no action/signals/owned residue. No acquired RGZ body is opened here.
+
+The fixed remaining28ledger entries total100061839compressed bytes; maximum
+18003576. All28full inputs must admit before parsing; final and after-report
+hashes include unattempted suffixes. Serial per-file180s/512MiBdecoded/500000
+records/10million parser operations, scan1500s/final absolute1740s/outer1800s
+and2GiB sampled RSS remain explicit. Record/report reservations248MiB/8MiB
+cap physical runner output at256MiB, including failed prefixes. Parser is the
+previously qualified pure prefix; original Publication/main are not called.
+
+Next root executes exactly this frozen remaining28 observation in a fresh
+private namespace, then independently audits every complete raw record/field,
+input/output hash, private tree and terminal/process evidence. Unsupported or
+incomplete profiles stay exact open outcomes; a complete observation is not
+format success or patch applicability. No asset extraction/install/apply,
+native/render/game or82world-gap closure follows. The separate actual
+Astra/high Model repair can run concurrently without shared runtime writes.
