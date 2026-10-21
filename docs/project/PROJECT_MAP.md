@@ -42,13 +42,14 @@ CURRENT WORK: October assets and missing maps
 [~] Asset availability: both tools checked; Claude selected.
  |    Both test suites pass. Extra checks find repair needs.
  |    Astra/high repair: root 85 tests and 48 shared checks pass.
- |    All 25 failure checks pass. Next: integrate and verify the scan.
+ |    Repair integrated. All 25 failure checks pass again.
+ |    Next: final scan harness and full output audit.
  |
  +-- [~] Other 28 GPF patch tables: both workers submitted and released.
  |        Root reference: all 5,742 raw records checked.
  |        Claude: 5,742 records and 17 consumer checks pass.
  |        Fresh root run and full record audit pass.
- |        Next: remaining checks on both tools.
+ |        Both raw tools need consumer fixes. Root checks continue.
  +-- [~] RGZ format: primary-source preparation; no decode yet.
  |
 [ ] Render -> normal play and save -> full content checks.
