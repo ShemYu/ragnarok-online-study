@@ -1,0 +1,49 @@
+{
+  "schema": "T07-model-texture-baseline-1",
+  "task": "T07.007.009",
+  "source_commit": "d254ee9dca4632faba47ce5e50b290442209ea52",
+  "profile": {
+    "path": "docs/project/fixtures/T07.007.009-profile.json",
+    "bytes": 4711,
+    "sha256": "c8e0a1aa853afa34088c4abca193addc5e8e66db0621fd950733b9d3339a7787"
+  },
+  "source_pins": [
+    {
+      "path": "tools/renewal/catalog_model_textures.mjs",
+      "bytes": 41735,
+      "sha256": "8d5ac1f514b40275e27aa81c29f49eff37c58d71b6287fb51977319be39d7958"
+    },
+    {
+      "path": "tools/renewal/test_catalog_model_textures.mjs",
+      "bytes": 24298,
+      "sha256": "c627b55f1da598ef98e1520e8a8682be671d8bc4874eeeb01c6e7c974e093977"
+    },
+    {
+      "path": "tools/renewal/MODEL_TEXTURE_CATALOG.md",
+      "bytes": 9123,
+      "sha256": "8d7be52aa4386e6b519c42d3e35cf234268fd7d4d9468f586f9cbaae5d3a584c"
+    },
+    {
+      "path": "docs/project/tasks/T06.003.003.007.md",
+      "bytes": 15190,
+      "sha256": "393ed6efe237b4be619abd2bd60054ade92635d2c434e64a524e24c5f083d920"
+    },
+    {
+      "path": "docs/project/fixtures/T06.003.003.007-profile.json",
+      "bytes": 4231,
+      "sha256": "432354b127890ca3b37432c61949f88a41439c6cdeb3cfbe21d27adc621b0c68"
+    },
+    {
+      "path": "docs/project/fixtures/T06.003.003.007-authored.json",
+      "bytes": 57455,
+      "sha256": "890e9a4a181191e3058256a68e291289d7ac530f8b8c56a7780015b1b5d658b9"
+    },
+    {
+      "path": "docs/project/fixtures/T07.007.008-profile.json",
+      "bytes": 4168,
+      "sha256": "cc53e3455c1117c5fc29431c342f925d4d58d5334bbe5d0c29f67d8489050dea"
+    }
+  ],
+  "new_runbook_absent": true,
+  "meaning": "Existing source descriptors are pre-change provenance, not future edited-source self hashes."
+}
