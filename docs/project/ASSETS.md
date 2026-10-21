@@ -60,8 +60,12 @@ separately acquires the official October2Taiwan installer,4153946520bytes/SHA
 3d4202eb52b885b94b4e84b40ae5669b97d0c3649a8302f2246d0d1af0e1dc71.
 Root qualifies the official native26.04RAR reader and complete checksum test,
 then extracts/reconciles four outer files totaling4761139292bytes. The
-inner6.4.2Unicode format and complete4976-file listing now qualify; actual inner
-extraction, application-file manifest and new GRF/map contents remain unchecked.
+inner6.4.2Unicode format and complete4976-file listing qualify. Actual inner
+extract/test and independent full4976-file/115-directory manifest now pass; its
+SHA is2706c3a8463be72d20e621028b6d3cc2c9c15988a8fce419733c1fe243251edd.
+The [full archive pins](reviews/2026-10-21-T07.007.md#complete-inner-extraction-and-independent-manifest-qualified)
+record changed data.grf and two hashes matching the recorded April pins. No loose
+DATA.INI exists; lookup precedence/header/table/map contents remain open.
 The tooling list above is the historical T02record; later tools and
 failed-reader recovery are in T07.007. April assets/pins and running worlds
 remain in place. This new acquisition is not a playable-content qualification.
