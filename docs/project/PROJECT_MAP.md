@@ -29,6 +29,7 @@ CURRENT WORK: October assets and missing maps
  +-- Independent 12-body reference: decoded and checked.
  |    Decoder tool qualification is still active.
  |    Claude: bodies pass; repairs needed. Grok: implementing.
+ +-- Terrain loader checks: 12 inputs frozen; implementations next.
  |
 [ ] Verify payloads -> dependencies -> render -> normal play and save.
 ```

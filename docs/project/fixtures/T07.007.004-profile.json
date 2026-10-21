@@ -1,0 +1,108 @@
+{
+  "schema": "T06-map-constructor-profile-1",
+  "task": "T07.007.004",
+  "client_source_revision": "775f8847a8b09749d03c82fcb554e155401d1e02",
+  "client_source_relative": ".tools/renewal/client-source",
+  "sources": {
+    "src/Loaders/World.js": {
+      "bytes": 6110,
+      "sha256": "e1f6d5e52fe84c2a31c4f8f13e5be20cb6f93b2675c6f7615ac295be47f5a68e"
+    },
+    "src/Loaders/Ground.js": {
+      "bytes": 20029,
+      "sha256": "8b82cf7321123054cf2bbeff1816931c7f3fc7833ae7af916077691d871f2db0"
+    },
+    "src/Loaders/Altitude.js": {
+      "bytes": 3131,
+      "sha256": "e27f5b746bb8fa77aadb59633dfbc0339f922bc4df69615a066288a6cf160b95"
+    },
+    "src/Utils/BinaryReader.js": {
+      "bytes": 8233,
+      "sha256": "bcf694b7034e36146eed1d5a2d7d5cf93d8a52aeafa74e62f0beed4c1ecc9215"
+    },
+    "src/Utils/Struct.js": {
+      "bytes": 1732,
+      "sha256": "03dedc9bf39943ff027c80d9a81ebfc2a15549c08ec3a1d7e725fb93e3ecf0b7"
+    },
+    "src/Utils/CodepageManager.js": {
+      "bytes": 6298,
+      "sha256": "35fc6861784c27ce417697f8c4f2e999a7703bb89741b2ddb3ea0afc44c7733e"
+    },
+    "src/Utils/gl-matrix.js": {
+      "bytes": 9153,
+      "sha256": "46725df08241575dd60a98dbea9a035af0dc69d89c2538c2938018cfa091ea29"
+    },
+    "src/Vendors/gl-matrix.js": {
+      "bytes": 110302,
+      "sha256": "bdf9ed62160fc270e995aa1a3c97eb8dac69fbd02d3141ed766a8306d2ce8f59"
+    },
+    "src/Vendors/iconv-lite.js": {
+      "bytes": 644664,
+      "sha256": "a7663d70d99a455b964c223eb26db6c048bfd7977d6583e8e9fd7a79e17a0303"
+    }
+  },
+  "summary": {
+    "path": "tools/renewal/map_constructor_summary.mjs",
+    "bytes": 5052,
+    "sha256": "33cdb4ce770b32cdbe061f4f2415e8b5808e3f02d0e7f870250f11f486b3ddf1"
+  },
+  "authored": {
+    "path": "docs/project/fixtures/T06.003.003.003-authored.json",
+    "bytes": 51578,
+    "sha256": "fa5711ba3834bc8826f68b40da0d59ed9e3d765b5d0b254ffa8ab487e21ce65f"
+  },
+  "manifest": {
+    "path": ".tools/renewal/t07-007-004-constructor-input-1/input-manifest.json",
+    "bytes": 10338,
+    "sha256": "37f038082891a626ab1251fd3bd697d73a867f9dca90ba89288f5b18e6be2161"
+  },
+  "counts": {
+    "roots": 4,
+    "observed": 4,
+    "unavailable_roots": 0,
+    "jobs": 12,
+    "edge_references": 12
+  },
+  "policy": {
+    "max_body_bytes": 25165824,
+    "max_manifest_bytes": 4194304,
+    "max_fixture_bytes": 131072,
+    "worker_heap_mib": 512,
+    "rss_limit_bytes": 2147483648,
+    "rss_sample_ms": 50,
+    "job_timeout_ms": 20000,
+    "module_timeout_ms": 5000,
+    "constructor_timeout_ms": 10000,
+    "run_timeout_ms": 120000,
+    "max_job_json_bytes": 4194304,
+    "max_jobs_jsonl_bytes": 134217728,
+    "max_report_json_bytes": 8388608,
+    "max_job_log_bytes": 4096,
+    "max_total_log_bytes": 65536,
+    "max_exception_message_chars": 512,
+    "max_active_workers": 1
+  },
+  "limits": "Four-target subset; constructors and complete common summaries only. No archive/native/HTTP/compile/render/game/save/settings/build. Returned constructors are observations, not full format validity or playable coverage. Preserve all outcomes and original world-gap ledger. RSS is sampled, not a hard memory sandbox.",
+  "worker": {
+    "path": "tools/renewal/map_constructor_worker.mjs",
+    "bytes": 9132,
+    "sha256": "1a7bdf5693364800b23c2ba2a4eb052c0521527b89732e857d55ea406e0ec395"
+  },
+  "baseline_tools": {
+    "parent": {
+      "path": "tools/renewal/probe_map_constructors.mjs",
+      "bytes": 36633,
+      "sha256": "5c916d7678fb2480e1f80e89a867dca22b7d298da9b393e5d87fa3b9f02c0350"
+    },
+    "tests": {
+      "path": "tools/renewal/test_probe_map_constructors.mjs",
+      "bytes": 34427,
+      "sha256": "4046889be4c5563200afaaaa632a30b4ebd12bf1a77e34af3aceaea80a342c3b"
+    }
+  },
+  "root_reference_metadata": {
+    "path": ".tools/renewal/t07-007-003-root-actual-reference-1/reference.json",
+    "bytes": 16583,
+    "sha256": "e9ecc558a4af5b2f6f2239bf3c9f232cb301ec31222427ce75792bc4dba3328b"
+  }
+}
