@@ -39,12 +39,14 @@ CURRENT WORK: October assets and missing maps
 [V] Map model and texture request list: tools compared and repaired.
  |    26 tests and all 20 shared checks pass. Both workers released.
  |
-[~] Asset availability: both tools checked; Claude selected.
+[V] First-level asset availability: repaired scanner verified.
  |    Both test suites pass. Extra checks find repair needs.
  |    Astra/high repair: root 85 tests and 48 shared checks pass.
  |    Repair integrated. All 25 failure checks pass again.
  |    Four real owned-process tests and 30 full-auditor checks pass.
- |    Next: run the isolated 311-request scan and audit its output.
+ |    All 311 requests return 200 and match model or BMP signatures.
+ |    Full output audit and input/process cleanup checks pass.
+ |    Next: model constructors and nested textures, then render/play.
  |
  +-- [~] Other 28 GPF patch tables: both workers submitted and released.
  |        Root reference: all 5,742 raw records checked.
