@@ -33,7 +33,10 @@ CURRENT WORK: October assets and missing maps
  +-- Exact native reader: verified for these 12 bodies.
  |    Archive/order/loose controls and cleanup pass.
  |
-[~] Map models and textures: prepare the exact dependency catalog.
+[V] Freeze map dependency inputs and the independent expected result.
+ |    311 first-level request paths. No asset availability claim.
+ |
+[~] Map models and textures: compare Claude and Grok catalog tools.
  |
 [ ] Render -> normal play and save -> full content checks.
 ```

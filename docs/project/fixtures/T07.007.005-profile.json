@@ -1,0 +1,127 @@
+{
+  "schema": "T06-map-dependency-profile-1",
+  "task": "T07.007.005",
+  "basis_revision": "68ec8ac9fbddac3dff273460498df36a9bcfc60a",
+  "inputs": {
+    "report.json": {
+      "path": ".tools/renewal/t07-007-004-integrated-root-qualification-1/output-1/report.json",
+      "bytes": 8112,
+      "sha256": "8ed966871049c55a1f556556814ec8fcdaa1d28b094013257aedebcdd5d69116"
+    },
+    "jobs.jsonl": {
+      "path": ".tools/renewal/t07-007-004-integrated-root-qualification-1/output-1/jobs.jsonl",
+      "bytes": 405225,
+      "sha256": "28dc69cfd7025f02b35e3071eb8a6a84bfd37c6e1a4a32011c155e468a525e94"
+    }
+  },
+  "authored": {
+    "path": "docs/project/fixtures/T06.003.003.004-authored.json",
+    "bytes": 165420,
+    "sha256": "3848febb48ca112029024d9885498236037e94d436cf372d6a38d0d8e20cf24f"
+  },
+  "constructor_profile": {
+    "path": "docs/project/fixtures/T07.007.004-profile.json",
+    "bytes": 3924,
+    "sha256": "f4ed366d2da83eec2aed5a25178ce826d15b43bb7a8b6c583e023c616b47e56e"
+  },
+  "summary": {
+    "path": "tools/renewal/map_constructor_summary.mjs",
+    "bytes": 5052,
+    "sha256": "33cdb4ce770b32cdbe061f4f2415e8b5808e3f02d0e7f870250f11f486b3ddf1"
+  },
+  "rule_sources": {
+    "src/Loaders/MapLoader.js": {
+      "bytes": 14466,
+      "sha256": "c71b01f300f62bbc6e7432444e2521d713473dc47c9c6e25a54a832d5c92a705"
+    },
+    "src/Core/FileManager.js": {
+      "bytes": 11279,
+      "sha256": "75c37d192bf21e7b40817a6f2fe27ef536601515c07fe20c7ce8346d50376cd7"
+    },
+    "src/Loaders/Ground.js": {
+      "bytes": 20029,
+      "sha256": "8b82cf7321123054cf2bbeff1816931c7f3fc7833ae7af916077691d871f2db0"
+    }
+  },
+  "expected_counts": {
+    "roots": 4,
+    "jobs": 12,
+    "job_kinds": {
+      "rsw": 4,
+      "gnd": 4,
+      "gat": 4
+    },
+    "core_chain_roots": 4,
+    "remaining_gap_roots": 0,
+    "root_edge_references": 12,
+    "occurrences": {
+      "model": 4922,
+      "ground_texture": 40
+    },
+    "loader_entries": {
+      "model": 297,
+      "ground_texture": 40
+    },
+    "root_expanded_occurrences": {
+      "model": 4922,
+      "ground_texture": 40
+    },
+    "root_expanded_loader_entries": {
+      "model": 297,
+      "ground_texture": 40
+    },
+    "distinct_names_by_role": {
+      "model": {
+        "raw": 273,
+        "logical": 273,
+        "filemanager": 273,
+        "http": 273
+      },
+      "ground_texture": {
+        "raw": 38,
+        "logical": 38,
+        "filemanager": 38,
+        "http": 38
+      }
+    },
+    "http_targets": 311
+  },
+  "policy": {
+    "max_jobs_bytes": 134217728,
+    "max_job_row_bytes": 4194304,
+    "max_report_bytes": 8388608,
+    "max_fixture_bytes": 1048576,
+    "max_catalog_bytes": 134217728,
+    "max_stdout_bytes": 4096,
+    "max_exception_chars": 512,
+    "root_guard_timeout_ms": 120000,
+    "root_guard_rss_bytes": 2147483648,
+    "max_manifest_bytes": 4194304
+  },
+  "limitations": [
+    "Four-target subset only: mu_fild01,ygg_edge,ygg_fruit,ygg_roots. Original gap-root ordinals remain null/unknown; the1296-root/82gap world ledger is unchanged.",
+    "First-level declared RSW models and GND ground textures only; GAT dependency fields stay null. Empty lists remain explicit.",
+    "Constructed relative HTTP strings only; no GET, asset availability, browser URL resolution, archive winner, compiled-source parity or playable map is observed.",
+    "No RSM/RSM2 body parsing, embedded/mesh-used/animated textures, sounds/effects, hooks, water or dynamic asset closure.",
+    "Existing constructor numeric anomalies and tails are preserved provenance; this metadata catalog does not repair or establish their gameplay meaning.",
+    "The complete metadata bridge binds the personally qualified integrated constructor output; this catalog does not execute its producer/worker/loaders or independently prove constructor runtime cleanup.",
+    "Dependencies, compile/render/travel/save/story, regional parity and full-game/Traditional Chinese acceptance remain open."
+  ],
+  "constructor_task": "T07.007.004",
+  "constructor_manifest": {
+    "path": ".tools/renewal/t07-007-004-constructor-input-1/input-manifest.json",
+    "bytes": 10338,
+    "sha256": "37f038082891a626ab1251fd3bd697d73a867f9dca90ba89288f5b18e6be2161"
+  },
+  "constructor_worker": {
+    "path": "tools/renewal/map_constructor_worker.mjs",
+    "bytes": 9132,
+    "sha256": "1a7bdf5693364800b23c2ba2a4eb052c0521527b89732e857d55ea406e0ec395"
+  },
+  "constructor_producer": {
+    "commit": "68ec8ac9fbddac3dff273460498df36a9bcfc60a",
+    "path": "tools/renewal/probe_map_constructors.mjs",
+    "bytes": 44087,
+    "sha256": "ec581316ad7220956613322f598310b91d2e1d455a0949edb7539c230fc8c961"
+  }
+}
