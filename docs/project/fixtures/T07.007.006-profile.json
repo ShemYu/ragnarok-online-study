@@ -1,0 +1,248 @@
+{
+  "schema": "T06-map-dependency-observation-profile-1",
+  "task": "T07.007.006",
+  "basis_revision": "80b7005b11a0889bdee60fd0ef2c29a9381c309e",
+  "catalog": {
+    "path": ".tools/renewal/t07-007-005-integrated-root-qualification-1/output-1/catalog.json",
+    "bytes": 169411,
+    "sha256": "0a6d44ec22de3c54f5195c32d6fd253ef5f51a74feb212181181ab5d9570c362"
+  },
+  "authored": {
+    "path": "docs/project/fixtures/T06.003.003.005-authored.json",
+    "bytes": 24634,
+    "sha256": "8c06aceab400e87416cb4486991daf20d93f1d19b8a644dd10318ab45343f989"
+  },
+  "source_pins": [
+    {
+      "path": "tools/renewal/observe_cache_map_cores.py",
+      "bytes": 32153,
+      "sha256": "ef4f70c965cff19308741041a82bc54fa7d70c87b9069a7cacce7839f6bb7a4f"
+    },
+    {
+      "path": "tools/renewal/observe_one_ground.py",
+      "bytes": 17183,
+      "sha256": "aa9a4cbea1abd0cd5535f4513df210c19341e180e3ad836615cdbd7dbf1c35e0"
+    },
+    {
+      "path": "tools/renewal/catalog_map_dependencies.mjs",
+      "bytes": 48337,
+      "sha256": "546ab2931c116e87f15348eb05610d7cab336a59898c07d7d2bf5a410372ea89"
+    },
+    {
+      "path": "docs/project/fixtures/T07.007.005-profile.json",
+      "bytes": 4649,
+      "sha256": "c0dccf5d0f74eecbcf772c560820dc3e0b4e5b26986243255085701136117034"
+    },
+    {
+      "path": ".tools/renewal/client-source/src/Loaders/MapLoader.js",
+      "bytes": 14466,
+      "sha256": "c71b01f300f62bbc6e7432444e2521d713473dc47c9c6e25a54a832d5c92a705"
+    },
+    {
+      "path": ".tools/renewal/client-source/src/Core/FileManager.js",
+      "bytes": 11279,
+      "sha256": "75c37d192bf21e7b40817a6f2fe27ef536601515c07fe20c7ce8346d50376cd7"
+    },
+    {
+      "path": ".tools/renewal/client-source/src/Loaders/Model.js",
+      "bytes": 30922,
+      "sha256": "d4643fc9a1a95747b41ee55537fe3159c2927e9840630291cce9d55bea20fe57"
+    },
+    {
+      "path": ".tools/renewal/remote-source/src/client.rs",
+      "bytes": 15628,
+      "sha256": "59b39104e8328493d5d1ec8ff4826add3a6ece1867034f45a7fddaa974b08c68"
+    },
+    {
+      "path": ".tools/renewal/remote-source/src/config.rs",
+      "bytes": 14558,
+      "sha256": "c8592180a406010f74df395ea65a207a87341ea12a08e45bf65a8cb7f7ecaa22"
+    },
+    {
+      "path": ".tools/renewal/remote-source/src/routes.rs",
+      "bytes": 16954,
+      "sha256": "ee365ab832bb5ac645e5d0205e8fb5018e88aac464be5f2a96546006cbe4dbd8"
+    },
+    {
+      "path": ".tools/renewal/remote-source/src/http.rs",
+      "bytes": 13105,
+      "sha256": "5ef6817695afe65cb6337c95e329ef726c6729120f0e5e55aa81ad6d40cf72ad"
+    },
+    {
+      "path": ".tools/renewal/remote-source/src/cache.rs",
+      "bytes": 8464,
+      "sha256": "94e977d875110b55ba570bbaac1d07a99c5ffcc7715c70d7ea0e7e5b802d1c09"
+    },
+    {
+      "path": ".tools/renewal/remote-source/src/util.rs",
+      "bytes": 9690,
+      "sha256": "f6e39562b6164abac0864a6ff78f6daee11223c3ccd21bb557a559768ce1cccc"
+    },
+    {
+      "path": ".tools/renewal/remote-source/src/index.rs",
+      "bytes": 8550,
+      "sha256": "eb471536075be604527b9ddadc9fce58727c2e04ca8fc1f81309bf48cd1c362f"
+    },
+    {
+      "path": ".tools/renewal/remote-source/src/grf.rs",
+      "bytes": 30133,
+      "sha256": "4646514140bc7688bbc91e0bac7d1ee9a83aab5e1e17df20c1eb30668bd5edf5"
+    },
+    {
+      "path": ".tools/renewal/remote-source/src/encoding.rs",
+      "bytes": 6009,
+      "sha256": "0014c18c2ab7211b68b8dff84c66b5bbd0aa3bb68593bca2bd5e46b28973c9ad"
+    },
+    {
+      "path": ".tools/renewal/client-source/src/Loaders/Ground.js",
+      "bytes": 20029,
+      "sha256": "8b82cf7321123054cf2bbeff1816931c7f3fc7833ae7af916077691d871f2db0"
+    },
+    {
+      "path": "docs/project/fixtures/T07.007.004-profile.json",
+      "bytes": 3924,
+      "sha256": "f4ed366d2da83eec2aed5a25178ce826d15b43bb7a8b6c583e023c616b47e56e"
+    },
+    {
+      "path": ".tools/renewal/t07-007-004-constructor-input-1/input-manifest.json",
+      "bytes": 10338,
+      "sha256": "37f038082891a626ab1251fd3bd697d73a867f9dca90ba89288f5b18e6be2161"
+    },
+    {
+      "path": "tools/renewal/map_constructor_worker.mjs",
+      "bytes": 9132,
+      "sha256": "1a7bdf5693364800b23c2ba2a4eb052c0521527b89732e857d55ea406e0ec395"
+    },
+    {
+      "path": "tools/renewal/probe_map_constructors.mjs",
+      "bytes": 44087,
+      "sha256": "ec581316ad7220956613322f598310b91d2e1d455a0949edb7539c230fc8c961"
+    },
+    {
+      "path": "tools/renewal/map_constructor_summary.mjs",
+      "bytes": 5052,
+      "sha256": "33cdb4ce770b32cdbe061f4f2415e8b5808e3f02d0e7f870250f11f486b3ddf1"
+    }
+  ],
+  "expected_counts": {
+    "roots": 4,
+    "jobs": 12,
+    "job_kinds": {
+      "rsw": 4,
+      "gnd": 4,
+      "gat": 4
+    },
+    "core_chain_roots": 4,
+    "remaining_gap_roots": 0,
+    "root_edge_references": 12,
+    "occurrences": {
+      "model": 4922,
+      "ground_texture": 40
+    },
+    "loader_entries": {
+      "model": 297,
+      "ground_texture": 40
+    },
+    "root_expanded_occurrences": {
+      "model": 4922,
+      "ground_texture": 40
+    },
+    "root_expanded_loader_entries": {
+      "model": 297,
+      "ground_texture": 40
+    },
+    "distinct_names_by_role": {
+      "model": {
+        "raw": 273,
+        "logical": 273,
+        "filemanager": 273,
+        "http": 273
+      },
+      "ground_texture": {
+        "raw": 38,
+        "logical": 38,
+        "filemanager": 38,
+        "http": 38
+      }
+    },
+    "http_targets": 311
+  },
+  "remaining_gap_root_ordinals": [],
+  "native": [
+    {
+      "name": "binary",
+      "base": "input_root",
+      "path": ".tools/renewal/t07-007-native-artifact-admission-1/reader",
+      "bytes": 2079536,
+      "sha256": "ee6b328ec73a591b23b514379e1b34e876b5d860d0e1aa4d9aa15dd7173eb1c1"
+    },
+    {
+      "name": "2026-08-25_live_client_4340_4349_1787295394.gpf",
+      "base": "input_root",
+      "path": ".tools/renewal/t07-007-patch-acquisition-root-1/2026-08-25_live_client_4340_4349_1787295394.gpf",
+      "bytes": 306097616,
+      "sha256": "70725f6624f947c3096066cc66a07fcd2440adf94137b79561ed2d67843f9f0e"
+    },
+    {
+      "name": "2026-08-25_live_client_4353_4353_1787535130.gpf",
+      "base": "input_root",
+      "path": ".tools/renewal/t07-007-patch-acquisition-root-1/2026-08-25_live_client_4353_4353_1787535130.gpf",
+      "bytes": 86992,
+      "sha256": "03764f614453d2b453a5ab5b552f6af9f66599a3642943566f72cbae6a501d07"
+    },
+    {
+      "name": "event.grf",
+      "base": "input_root",
+      "path": ".tools/renewal/t07-007-execution-1/inner/app/event.grf",
+      "bytes": 5833135,
+      "sha256": "7fff4e0eececd10df9a9c4f83b70d78dc4dbb99c5ece64b117df7db8a2f85575"
+    },
+    {
+      "name": "data0.grf",
+      "base": "input_root",
+      "path": ".tools/renewal/t07-007-execution-1/inner/app/data0.grf",
+      "bytes": 2123919641,
+      "sha256": "913402ace1d3c67818b4f070650a07eb157a6d62df9e394d596d59b4c7e6678a"
+    },
+    {
+      "name": "data.grf",
+      "base": "input_root",
+      "path": ".tools/renewal/t07-007-execution-1/inner/app/data.grf",
+      "bytes": 2172616301,
+      "sha256": "0565853edc5ad4b70e8ad705f5bc88c1af5624ee1b7a252fa81030d2ea813cc6"
+    }
+  ],
+  "policy": {
+    "body_bytes": 25165824,
+    "aggregate_bytes_including_health": 8589934592,
+    "health_bytes": 65536,
+    "asset_attempts": 311,
+    "health_attempts": 1,
+    "startup_seconds": 25,
+    "acquisition_seconds": 1200,
+    "io_seconds": 5,
+    "cache_mb": 0,
+    "cache_files": 0,
+    "missing_log_bytes": 16777216,
+    "report_bytes": 67108864,
+    "catalog_bytes": 134217728,
+    "stdout_bytes": 4096,
+    "disk_reserve_bytes": 4294967296,
+    "root_guard_seconds": 1800,
+    "root_observed_rss_bytes": 2147483648,
+    "cache_attempts": 2,
+    "cache_bytes": 65536,
+    "diagnostic_bytes": 16777216
+  },
+  "limitations": [
+    "Four-target first-level dependency subset only: mu_fild01,ygg_edge,ygg_fruit,ygg_roots. Empty subset gap ordinals do not close the1296-root/82-gap world ledger; original world ordinals remain null/unknown.",
+    "Five-archive order is experimental and does not establish publisher patch priority or regional parity. Exact observed reader artifact is qualified separately; compiled-source parity is not proved.",
+    "Availability, retained-byte hashes and fixed magic prefixes only. No RSM/RSM2 parsing, image decoding, nested texture closure, render, travel, save, story or full-game/Traditional Chinese acceptance.",
+    "The existing scanner owns normal reader lifecycle. The unchanged root005 external guard samples combined driver/native RSS and time;2GiB/1800s is not OS memory containment and does not bound native inflation.",
+    "New acquisition policy uses25s startup,1200s acquisition and5s maximum I/O,8s TERM plus8s owned KILL fallback if required. This is not native run-3 supervision120s/1GiB/6s; forced or unknown cleanup disqualifies.",
+    "Health and both cache responses, error and partial responses share the8GiB inclusive wire budget. Per-asset24MiB and metadata64KiB caps are ceilings, not predicted asset sizes or scan duration.",
+    "Native stdout/stderr are retained privately with a16MiB combined cap; overflow, lost diagnostics or uncertain writes/close disqualify. Output remains outside the fresh served root except INI and the expected missing-file log.",
+    "Metadata-only preflight and provider fake I/O do not touch native inputs or prove availability. Root alone performs actual execution and independently audits all311ordered records/337referrers/full stored bodies/inputs/cleanup.",
+    "Observed totalFiles counts alias keys rather than physical archive rows; uniqueFiles,totalFiles,mojibakeKeys remain observations. A served-root audit does not prove absence of writes everywhere on the host."
+  ]
+}
