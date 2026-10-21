@@ -67,7 +67,9 @@ CURRENT WORK: October assets and missing maps
  |    Independent reference: 397 declarations, 178 distinct paths.
  |    Claude submitted: root 26 tests and fresh repeated CLI pass.
  |    All four full outputs match the independent reference.
- |    Failure checks next. Grok is still working.
+ |    Claude: all 26 shared checks pass.
+ |    Grok submitted: root 25 tests and repeated CLI pass.
+ |    Grok full output/failure checks, then compare and integrate.
  |    Availability and image decode remain open.
  |
  +-- [V] Other 28 GPF patch tables: corrected tool verified.

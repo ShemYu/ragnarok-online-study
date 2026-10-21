@@ -53,3 +53,32 @@ paired task, not availability, actual texture requests, image pixels or render.
 The existing production pure core remains unexecuted in this reference lane.
 Next freeze the integrated selected .008production report/jobs and source
 bindings; preserve actual five-field cleanup before any explicit core projection.
+
+## Independent availability-plan reference qualified
+
+Root reviews a separate4991B helper1a42e101… and3009B guard wrapper8bce9675…
+and runs the fixed complete metadata reference once. It independently derives
+all178ordered six-key request-plan rows from the qualified full core, joins
+every397declaration/referrer pair exactly once and preserves original job/
+texture indices and HTTP paths. FileManager final-basename ASCII extension
+classification yields171BMP/7TGA/zero unknown. Three small literal groups check
+encoded wire/kind, malformed percent and sparse integer-versus-bool referrers.
+No production observer is imported or run.
+
+Compact ASCII plan46000B/SHA256
+`f370447a3a5abc6a420dc18336a189131c233a94c0de40882226e08aa5ea9651`
+has no trailing LF, matching the declared plan serialization. All full source/
+core/plan hash and identity rereads, receipt reread and FD identities pass.
+Guard0.161233s/two samples/3751936B sampled peak/process0/no action/signals/
+owned residue; samples can miss the short process peak. Five outer protected
+source/helper receipts remain exact. Private644B receipt426ce9ce… and7059B root
+receiptfd371ce3… are retained in .tools/renewal/t07-007-nested-availability-preparation-1/.
+
+This qualifies an independent metadata expectation only. Public next task/profile,
+selected integrated .009 producer/catalog pins, actual181healthy HTTP responses
+(health, two cache probes and178textures), headers/image decode/render remain
+future gates. The unexecuted source-only adapter draft reuses the qualified
+current reader lifecycle; it does not authorize changed engine pins or claim
+the old profile now matches the newer engine. Historical source roles need
+ordinary faithful copies for old regressions. No new RGZ production task is
+frozen and no game/archive/save/preferences are changed.
