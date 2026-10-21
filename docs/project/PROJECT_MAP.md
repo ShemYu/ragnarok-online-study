@@ -1,6 +1,11 @@
 # Supervision, plan and current position
 
-Date: **2026-10-21 JST**. Functionality comes first. Normal tutorial/city reward and save checks pass. The trial character reaches [Eden through normal Officer dialogue](reviews/2026-10-20-T06.006.003.md#normal-eden-arrival-verified-next-save-check-interrupted); its save check waits for browser reconnection. [Chapter1source review](reviews/2026-10-20-T07.006.md#corrected-comparison-and-bounded-readiness) is ready: Claude14/20, Grok12/20. Root corrects the helper diagnosis. Neither proposal is installed. [October acquisition](reviews/2026-10-21-T07.007.md): both plans reviewed;4.15GBpackage downloaded and hashed. The native reader and fresh outer extraction pass. All four files match their sizes and checksums. All 4,976 files in this package pass extraction and hash checks. All three archive headers pass. They declare 248,908 records. [Both inventory tools are submitted and preserved](reviews/2026-10-21-T07.007.001.md). They use separate branches. Claude's raw records match. Root finds publication and validation defects to fix. Root has prepared the record reference. The base package lacks the four target map names. Root finds all 12 terrain-name entries in an official August patch. Next: verify both tools, then check patch payloads and dependencies. Both patch and reader plans are compared; root corrects the procedure. All candidate patch files are collected; the independent body reader is next. Full story/maps/Chinese and safe migration remain open.
+Date: **2026-10-21 JST**. Functionality comes first. Normal tutorial/city reward and save checks pass. The trial character reaches [Eden through normal Officer dialogue](reviews/2026-10-20-T06.006.003.md#normal-eden-arrival-verified-next-save-check-interrupted). Its save check waits for browser reconnection.
+
+[Chapter1 source review](reviews/2026-10-20-T07.006.md#corrected-comparison-and-bounded-readiness) is ready: Claude14/20, Grok12/20. Root corrects the helper diagnosis. Neither proposal is installed. [October acquisition](reviews/2026-10-21-T07.007.md) passes extraction and hash checks for all 4,976 files. All three archive headers pass. The [corrected inventory tool](reviews/2026-10-21-T07.007.001.md#root-corrected-integration-qualified) is qualified at9153d27. All 248,908 records and April parity checks pass.
+
+All 59 candidate patch files are acquired, including 57 new files. No patch is installed. The base package lacks the four target map names. An official August patch has all 12 terrain-name entries. Root has [independently decoded and checked those 12 bodies](reviews/2026-10-21-T07.007.003.md#root-independent-twelve-body-reference-qualified). This private reference is not qualification of a decoder tool or playable maps. Claude has submitted; its evidence is preserved and its resource is released. Root passes its 38 tests and checks all 12 complete bodies and artifacts. Fault and consumer checks remain. Grok is implementing at the last observation. Root next checks Claude's fault behavior, then compares both submissions. Dependencies, native loading, rendering, normal play, full story/maps/Chinese and safe migration remain open.
+
 Use this map for a short view of [Status](STATUS.md), [Tasks](TASKS.md) and
 [Phases](PHASES.md). Status gives the current next action.
 Update this map after each important change. Keep the dated evidence.
@@ -11,17 +16,19 @@ CURRENT WORK: October assets and missing maps
 [V] Download and extract the base package. Verify all 4,976 files.
  |
 [V] Find the official patch list. Check all 59 file sizes.
- |    2 files acquired. 57 files remain. No patch is installed.
+ |    All 59 acquired, including 57 new files. No patch is installed.
  |
 [V] Find all 12 terrain-name entries for the four target maps.
- |    Names and table fields pass. Payloads and play are not checked.
+ |    Names and table fields pass. Normal play is not checked.
  |
  +-- Inventory tool: corrected and verified.
  |                  Full records and April checks pass.
  |
  +-- Patch and reader plan: compared and corrected.
  +-- Collect all candidate patches: done.
- +-- Decode and verify target bodies: next.
+ +-- Independent 12-body reference: decoded and checked.
+ |    Decoder tool qualification is still active.
+ |    Claude: bodies pass; fault checks next. Grok: implementing.
  |
 [ ] Verify payloads -> dependencies -> render -> normal play and save.
 ```
