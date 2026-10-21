@@ -245,3 +245,33 @@ False to True; original disabled source is preserved. This permits the fixed
 actual28scalar audit only. It adds no parser, codec, input/output path, policy
 or acceptance override. Complete actual input/output/source comparisons and
 observed file closes/process cleanup remain required before qualification.
+
+
+## All remaining28 full scalar artifacts qualified
+
+Root runs the separately enabled24030-byte auditor/SHA256
+`813202964b50c0a3b2409983ab27c5ecdc736383003f937f2c70ef5350bf3e77`
+after the authored qualification checkpoint. All271complete typed raw records
+agree byte-for-byte: opcodes, offsets, counted raw names/NUL facts, size fields,
+inline body spans/SHA256 and canonical JSONL bytes. Independent scalar grammar
+and table CRC32 agree with every gzip trailer/ISIZE/member/strict inner end and
+compressed/inflated EOF. Raw DEFLATE explicitly shares zlib; no independent
+DEFLATE implementation or universal RGZ support is claimed.
+
+Every ordered per-file state, original full ledger descriptor, plan, batch
+report, terminal receipt and all59private output files match. Physical JSONL
+171793B and reports213250B stay within the frozen reservations/caps. All97
+input/source/output files receive final full hash/identity rereads and observed
+reader closes. All148outer protected input/source/output receipts stay equal;
+captured auditor process0, guard32.937869s/21561344B sampled peak/no action/
+signals/owned residue. Root separately links the qualified actual observer exit
+and authored controls; the auditor's pending-guard labels are not treated as
+self-sufficient process proof. No injected file/FD-failure campaign is claimed
+for this read-only auditor.
+
+Together with separately qualified9302/four records, all29acquired RGZs now
+have bounded reference grammar observations and full independent artifact
+checks:275raw records total. This closes the reference-format uncertainty for
+these exact inputs. A production facade, raw-name/resource reconciliation,
+extraction/apply, installed coverage, render/game and82functional gaps remain
+open. Existing source/GPF readiness and user scope do not change.

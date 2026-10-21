@@ -59,7 +59,9 @@ CURRENT WORK: October assets and missing maps
  |    Grok: 273 results match; all 135 extra checks pass.
  |    Both EOF gates fail. Grok also crossed the output boundary.
  |    Claude selected for repair: 17/20 versus Grok 13/20.
- |    Both workers released. Astra repair comes next.
+ |    Both raw workers released. Astra repair is submitted and released.
+ |    Root: 56 tests and all three stream-end checks pass.
+ |    Shared controls and full fresh output checks come next.
  |
  +-- [V] Other 28 GPF patch tables: corrected tool verified.
  |        Root reference: all 5,742 raw records checked.
@@ -69,9 +71,10 @@ CURRENT WORK: October assets and missing maps
  |        Claude selected: 16/20, versus Grok 11/20.
  |        Repair passes 32 enabled tests and both new failure checks.
  |        Corrected run, consumer checks and full record audit pass.
- +-- [~] RGZ format: 43 synthetic parser checks pass.
- |        Smallest file: all 4 records and checksums pass.
- |        No file applied. The other 28 files remain open.
+ +-- [V] RGZ reference: all 29 files and 275 raw records checked.
+ |        Grammar, body hashes, checksums and full output checks pass.
+ |        Production inventory and resource matching come next.
+ |        No file applied. Render and play remain open.
  |
 [ ] Render -> normal play and save -> full content checks.
 ```
