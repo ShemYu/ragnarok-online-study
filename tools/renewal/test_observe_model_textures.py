@@ -1704,6 +1704,78 @@ class T07Admission(unittest.TestCase):
         self.assertEqual(ctx.exception.args[0], 'admit_size')
 
 
+    def test_root_reference_integer_and_provenance_regressions(self):
+        """ROOT proposal: six reproduced accepts after a genuine full catalog read."""
+        self.check('catalog', lambda c: None, None)  # Identical unmutated path succeeds first.
+
+        def source_row(c):
+            ref = c['root_model_references'][0]
+            self.assertIs(type(ref['catalog_source_row_index']), int)
+            ref['catalog_source_row_index'] += 1
+
+        def floating(field):
+            def mutate(c):
+                ref = c['root_model_references'][0]
+                self.assertIs(type(ref[field]), int)
+                ref[field] = float(ref[field])
+            return mutate
+
+        def boolean_loader(c):
+            ref = next((r for r in c['root_model_references']
+                        if type(r['loader_index']) is int and r['loader_index'] in (0, 1)), None)
+            self.assertIsNotNone(ref, 'frozen real catalog must exercise an equal-value loader bool')
+            original = ref['loader_index']
+            ref['loader_index'] = bool(original)
+            self.assertIs(type(ref['loader_index']), bool)
+            self.assertEqual(ref['loader_index'], original)  # Type-only, not a changed relationship value.
+
+        cases = [
+            ('source_row_changed', source_row),
+            ('summary_pointer_changed', lambda c: c['root_model_references'][0].__setitem__(
+                'occurrence_summary_pointer', '/summary/not-model-dependencies')),
+            ('target_index_float', floating('target_index')),
+            ('catalog_job_index_float', floating('catalog_job_index')),
+            ('loader_index_float', floating('loader_index')),
+            ('loader_index_bool_equal_value', boolean_loader)]
+        for name, mutate in cases:
+            with self.subTest(name=name):
+                self.check('catalog', mutate, 'catalog_root_references')
+
+
+    def test_root_reference_numeric_counterpart_types(self):
+        """ROOT proposal: preserve integer types on both sides of five real joins."""
+        self.check('catalog', lambda c: None, None)
+
+        def cast_counterpart(objects, field, to_bool):
+            def mutate(c):
+                candidates = objects(c)
+                obj = (next((o for o in candidates if type(o[field]) is int and o[field] in (0, 1)), None)
+                       if to_bool else candidates[0])
+                self.assertIsNotNone(obj, 'equal-value bool requires an actual frozen0/1 counterpart')
+                original = obj[field]
+                self.assertIs(type(original), int)
+                replacement = bool(original) if to_bool else float(original)
+                self.assertEqual(replacement, original)  # Every control changes type only.
+                self.assertIsNot(type(replacement), type(original))
+                obj[field] = replacement
+            return mutate
+
+        models = lambda c: c['model_targets']
+        links = lambda c: c['model_parent_links']
+        referrers = lambda c: [link['referrer'] for link in c['model_parent_links']]
+        cases = [
+            ('model_target_index_float', models, 'target_index', False),
+            ('link_model_ordinal_float', links, 'model_ordinal', False),
+            ('link_catalog_target_index_float', links, 'catalog_target_index', False),
+            ('referrer_job_index_float', referrers, 'job_index', False),
+            ('referrer_loader_index_float', referrers, 'loader_index', False),
+            ('link_model_ordinal_bool_equal_value', links, 'model_ordinal', True),
+            ('referrer_loader_index_bool_equal_value', referrers, 'loader_index', True)]
+        for name, objects, field, to_bool in cases:
+            with self.subTest(name=name):
+                self.check('catalog', cast_counterpart(objects, field, to_bool), 'catalog_root_references')
+
+
 # ---------------------------------------------------------------- T07 tiny fake-I/O production controls
 
 class T07Sock:

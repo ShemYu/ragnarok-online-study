@@ -1,13 +1,14 @@
 # T07.007.010 nested-texture availability route
 
-Claude candidate for the [frozen task](../../docs/project/tasks/T07.007.010.md),
+Selected Claude implementation for the [frozen task](../../docs/project/tasks/T07.007.010.md),
 [profile](../../docs/project/fixtures/T07.007.010-profile.json) and
 [baseline](../../docs/project/fixtures/T07.007.010-baseline.json). It adds one
 second profile route to `observe_model_textures.py`. The route plans the 178
 conditional nested texture paths (397 declaration referrers) of the qualified
 .009 four-root catalog. Root alone later observes their byte availability and
 BMP/TGA headers once through the current engine's owned loopback reader.
-**Root has not qualified this candidate.** No availability or header success
+Current qualification is recorded in the [root review](../../docs/project/reviews/2026-10-21-T07.007.010.md).
+No availability or header success
 count is predicted. No image decode, instance, compile, render, travel, save,
 story or playability result is claimed.
 
@@ -17,6 +18,32 @@ The legacy T06.003.003.008 route is unchanged. That covers `load_metadata`,
 `write_all`, `transfer` and `inspect_texture_header` APIs. The old runbook
 [MODEL_TEXTURE_OBSERVATION.md](MODEL_TEXTURE_OBSERVATION.md) still describes
 that route.
+
+## Root metadata correction
+
+The raw Claude79b5cd1 source is preserved separately and integrated unchanged
+as07bd2db. Root's separate correction requires strict nonnegative integer
+reference IDs, joins catalog_source_row_index to the original catalog_job_index,
+requires `/summary/model_dependencies`, and compares both sides of five numeric
+provenance joins with typed equality. Original sparse source indexes are not
+renumbered or bounded by the273 constructor jobs. Pure APIs, request plans,
+headers, engine bindings, lifecycle and report schema are unchanged.
+
+Corrected driver:102905bytes/SHA256
+`4cec68764d266a7f8b0c58b078fc23f2d1ba52d36719d1a0e537a5d2d450dcaf`;
+tests:126636bytes/SHA256
+`6e4651367142de2000d9833854e16d9f8b66840fcf318cb332c6bdae3fe05424`.
+Two new admission methods add13 negative subcases and two genuine positives;
+all earlier test method bytes remain intact. They cover the six reproduced raw
+accepts and seven related numeric-counterpart cases. Boolean type-only controls
+use actual0/1 values; unavailable equality contexts are not fabricated.
+
+The provider results below describe the unchanged raw submission. They do not
+qualify this correction. The root review records integrated compatibility,
+current-route/shared checks and actual scan outcomes separately. Before an
+actual scan, use the exact corrected driver hash above, a fresh private output,
+and the required external guard. Source rollback uses separate git reverts of
+the root correction and unchanged integration; neither restores game saves.
 
 ## Commands
 

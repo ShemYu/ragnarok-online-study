@@ -1277,18 +1277,22 @@ def validate_catalog_t07(catalog, profile, pins, prior, constructor_profile):
         require(isinstance(ref, dict) and tuple(ref) == T07_REFERENCE_KEYS and isinstance(link, dict)
                 and is_int(ref['model_ordinal']) and 0 <= ref['model_ordinal'] < len(models)
                 and is_int(ref['root_ordinal']) and 0 <= ref['root_ordinal'] < len(roots)
+                and all(is_int(ref[k]) and ref[k] >= 0 for k in
+                        ('target_index', 'catalog_job_index', 'catalog_source_row_index', 'loader_index'))
+                and ref['catalog_source_row_index'] == ref['catalog_job_index']
+                and ref['occurrence_summary_pointer'] == '/summary/model_dependencies'
                 and isinstance(ref['edge_kind'], str) and ref['edge_kind'] in roots[ref['root_ordinal']]['edges']
                 and isinstance(ref['occurrence_indexes'], list)
                 and all(is_int(x) and x >= 0 for x in ref['occurrence_indexes']), 'catalog_root_references')
         model = models[ref['model_ordinal']]
         referrer = link.get('referrer')
-        require(isinstance(model, dict) and model.get('target_index') == ref['target_index']
+        require(isinstance(model, dict) and typed_equal(model.get('target_index'), ref['target_index'])
                 and roots[ref['root_ordinal']]['edges'][ref['edge_kind']]['job_id'] == ref['catalog_job_id']
-                and link.get('model_ordinal') == ref['model_ordinal']
-                and link.get('catalog_target_index') == ref['target_index']
+                and typed_equal(link.get('model_ordinal'), ref['model_ordinal'])
+                and typed_equal(link.get('catalog_target_index'), ref['target_index'])
                 and link.get('source_job_id') == ref['catalog_job_id']
-                and isinstance(referrer, dict) and referrer.get('job_index') == ref['catalog_job_index']
-                and referrer.get('loader_index') == ref['loader_index'] and referrer.get('role') == ref['role']
+                and isinstance(referrer, dict) and typed_equal(referrer.get('job_index'), ref['catalog_job_index'])
+                and typed_equal(referrer.get('loader_index'), ref['loader_index']) and referrer.get('role') == ref['role']
                 and _ordered(link.get('root_references')) == _ordered([{'root_ordinal': ref['root_ordinal'],
                                                                          'edge_kind': ref['edge_kind']}])
                 and _ordered(link.get('placement_indexes')) == _ordered(ref['occurrence_indexes']),

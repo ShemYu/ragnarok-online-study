@@ -2,7 +2,7 @@
 
 Updated: 2026-10-22 JST. Coordinator: Codex. Active scope: **execute the documented strategy through the full milestone**.
 
-**Goal API is active.** [Raw comparison](reviews/2026-10-21-T07.007.010.md#raw-comparison-and-selected-repair-basis) is complete: Claude17/20 selected as repair basis versus Grok15/20. Both are preserved/released and pass root historical44/shared20/full normal plan; new suites30/13pass. Six Claude versus eight Grok metadata admits disqualify both unchanged. The bounded Claude correction and13 regression subcases are source-reviewed. Next: integrate unchanged selected source, apply the separate repair and reverify, then the real178-path/181-response scan and full-body audit. Auditor pure76/full artifact39remain qualified; no actual texture availability result or full-milestone completion yet.
+**Goal API is active.** [Raw comparison](reviews/2026-10-21-T07.007.010.md#raw-comparison-and-selected-repair-basis) selects Claude17/20 versus Grok15/20; both preserved/released, both unqualified unchanged. Unchanged selected source integrates as07bd2db; the [separate root metadata correction](reviews/2026-10-21-T07.007.010.md#root-metadata-correction-applied-integrated-checks-next) and13 regression subcases are applied with exact proposal pins. Integrated execution checks are next:32 focused/admission, historical44, shared20 and artifact-auditor binding, then the real178-path/181-response scan. Prior raw/auditor results remain bounded historical evidence; no integrated or actual availability PASS yet. Full milestone remains open.
 
 ## Where we are
 
