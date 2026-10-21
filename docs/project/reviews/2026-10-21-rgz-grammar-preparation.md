@@ -117,3 +117,38 @@ Next root may run only this separately qualified fixed wrapper on the admitted
 CRC/ISIZE/end/EOF, source/input preservation, outputs and positive process exit.
 All29 remain unresolved until that actual observation; no production tool,
 installation, application, filename codec, renderer/game or goal change.
+
+## Smallest actual RGZ fully audited
+
+After committed harness checkpoint762264b, root personally invokes only the
+exact fixed pure-prefix wrapper. Index9302/1467bytes retains its admitted full
+SHA and ledger identity. It completes with four records: two directory entries,
+one4687-byte file body and one strict end record. All names stay raw hex and
+body bytes are hashed/discarded; no operation is applied or file extracted.
+The gzip member inflates to4753bytes, CRC32=301909838/ISIZE=4753, exact DEFLATE/
+compressed/inflated EOF and strict end pass. All57protected inputs remain
+full-hash/identity equal; positive runner exit0, empty stderr, no guard action,
+signals or owned process residue. Guard0.170394seconds; its short-run RSS sample
+is not a hardware sizing result.
+
+Root's separate scalar auditor imports neither parser nor runner. It bounds
+inflation to64KiB for this fixed tiny input, independently walks all four full
+typed record dictionaries and offsets/body hashes, and computes CRC32 with an
+explicit bit loop. Zlib inflation remains shared codec machinery. Every gzip/
+inner field, source/ledger/input/output binding, file size/hash/identity, final
+62rereads and captured exact-runner zero exit agree. No second-codec claim.
+Auditor7828bytes/SHA256
+`7474b546e7b189f55da1944294f677ae7790db08cec6ae71738781dfa12f3f3d`;
+root658-byte receipt/SHA256
+`98bd9c50315aa3658b24a0b8337a3a6c0cec818e01f316a1ce2c802f1235e8e1`.
+Private four-record output1997bytes/SHA256
+`18ed981b35ab4b1c1a226817bdef23a035c55a69e899c07ac1280bfc87b9aa44`;
+report4887bytes/SHA256
+`c79e7e257b2a416487bb41fcfa4da8acbf1841f623dfa623e5f929bc6300efe3`.
+
+One exact RGZ now has a qualified bounded grammar/integrity observation;
+**28other RGZ remain unresolved**. The observed file is not a terrain/map
+coverage result. Next root may freeze an explicit broader grammar experiment
+with per-file unsupported/failure outcomes and independent checks before any
+production pair. No universal RGZ support, publisher patch application, filename
+codec/priority, installation, game content or full-goal completion follows.

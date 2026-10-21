@@ -64,7 +64,8 @@ CURRENT WORK: October assets and missing maps
  |        Repair passes 32 enabled tests and both new failure checks.
  |        Corrected run, consumer checks and full record audit pass.
  +-- [~] RGZ format: 43 synthetic parser checks pass.
- |        No actual file decode yet. All 29 remain open.
+ |        Smallest file: all 4 records and checksums pass.
+ |        No file applied. The other 28 files remain open.
  |
 [ ] Render -> normal play and save -> full content checks.
 ```
