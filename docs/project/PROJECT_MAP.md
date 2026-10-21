@@ -78,7 +78,9 @@ CURRENT WORK: October assets and missing maps
 [~] Texture availability: exact task and inputs frozen.
  |    171 BMP and 7 TGA paths; full plan and source checks pass.
  |    Historical compatibility copy and its preflight pass.
- |    Next: independent Claude/Grok code, root checks, then actual scan.
+ |    Claude and Grok are implementing in separate branches.
+ |    Auditor, failure checks and compatibility setup prepare in parallel.
+ |    Next: root checks and integration, then actual scan.
  |
  +-- [V] Other 28 GPF patch tables: corrected tool verified.
  |        Root reference: all 5,742 raw records checked.
