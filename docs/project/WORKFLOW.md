@@ -35,6 +35,12 @@ Score each dimension 0–4, with a brief evidence-based reason; total /20. A sev
 
 Elapsed time and rework are reported alongside the score, not inferred from transcript size. If exact API cost/tokens or model version are unavailable, write `not observed`. Do not compare unrecorded costs or claim statistical superiority from one pair.
 
+The user additionally authorizes Opus5.5with higher thinking effort when Astra
+does not resolve a hard issue or produce useful progress (2026-10-21). Use that
+as a bounded escalation, verify available provider/model/effort controls first,
+and record the actual consultation/result separately from the frozen Claude/
+Grok benchmark. The coordinator still personally verifies proposed changes.
+
 ## Critical issues and goal changes
 
 The user requires prompt notification if a critical issue may force a goal change. Once supported by evidence, report the failed requirement, the verified facts, available options, the coordinator's recommendation and each option's effect on the agreed goal. Ask for the user's decision before changing scope; elapsed time or silence is not acceptance. Continue independent work that preserves the goal while waiting. Ordinary implementation defects that can be fixed within scope stay in the task board and do not require a fresh approval request.
