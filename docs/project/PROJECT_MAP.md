@@ -80,8 +80,8 @@ CURRENT WORK: October assets and missing maps
  |    Historical compatibility copy and its preflight pass.
  |    Claude: root historical 44 tests pass. Grok is working.
  |    New-route checks remain open; two source checks need tightening.
- |    Draft auditor bug reproduced; Astra review gives a bounded fix.
- |    Auditor and compatibility fixes prepare in parallel.
+ |    Auditor bug fixed: root 76 focused checks pass.
+ |    Complete output checks and shared failure checks prepare in parallel.
  |    Next: verify both candidates and the auditor, then actual scan.
  |
  +-- [V] Other 28 GPF patch tables: corrected tool verified.
