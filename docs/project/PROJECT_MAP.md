@@ -77,7 +77,8 @@ CURRENT WORK: October assets and missing maps
  |        Corrected run, consumer checks and full record audit pass.
  +-- [V] RGZ reference: all 29 files and 275 raw records checked.
  |        Grammar, body hashes, checksums and full output checks pass.
- |        Production inventory and resource matching come next.
+ |        Metadata: no terrain suffix and no direct texture-path match.
+ |        Duplicate production facade deferred; texture work continues.
  |        No file applied. Render and play remain open.
  |
 [ ] Render -> normal play and save -> full content checks.

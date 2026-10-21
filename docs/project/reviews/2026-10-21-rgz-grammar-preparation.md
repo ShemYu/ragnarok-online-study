@@ -275,3 +275,35 @@ checks:275raw records total. This closes the reference-format uncertainty for
 these exact inputs. A production facade, raw-name/resource reconciliation,
 extraction/apply, installed coverage, render/game and82functional gaps remain
 open. Existing source/GPF readiness and user scope do not change.
+
+## Bounded resource finding and production-facade deferral
+
+Root independently rechecks all29qualified canonical JSONL files/275full typed
+records and their framing/name/span facts. The204file records classify by ASCII
+suffix as121BMP,74LUB,7MP3,1DAT and1EXE; no counted RSW/GND/GAT suffix appears.
+All121BMP raw names are ASCII. An explicit comparison maps backslash to slash
+and applies URI segment escaping, with no prefix addition, trim, lookup case
+folding or percent decoding. It finds zero exact matches against the current
+178conditional model-texture paths. Five literal comparison controls pass.
+
+This only compares qualified metadata. Existing independent raw-body/CRC
+qualification supplies the record truth; no archive/body is reread here, no
+client lookup is executed and no installed-resource or missing-content claim
+follows. All33inner/35outer protected receipts and observed FD identities stay
+equal. Guard0.177678s/process0/no action/signals/owned residue; two RSS samples
+observe3751936B and can miss the short process peak.
+
+Private finding31913B/SHA256
+`df2d5e9ed2a53a95e19f128f5fdc2c6fcc6563cea2a65669cfde2f4f8216fd28`;
+root receipt36589B/SHA256
+`1a1829aec294eca3ca1a733d0867c7d27fd6441b12074d1b7da4197b4956ad53`
+are retained in .tools/renewal/t07-007-rgz-resource-finding-preparation-1/.
+Root reviewed the separately pinned11161B finding helper31369c77… and6470B
+guard wrapper7c08ffa6… before that run.
+
+Decision: defer a duplicate production RGZ facade; no public .010task/profile
+is frozen or dispatched. Preserve its private unexecuted drafts and qualified
+reference for later patch application/resource work. Prioritize the active .009
+model-to-texture route and isolated ordinary save check. This is independently
+verified preparation, not an actual provider implementation task or new game
+PASS. Full patch reconciliation,82functional gaps and full-game intent stay open.
