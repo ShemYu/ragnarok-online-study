@@ -225,3 +225,23 @@ DEFLATE codec shares zlib; CRC32 and inner-field walk are separate. Full271
 record/offset/name/body-hash/CRC/trailer/member/EOF comparisons and every output
 file remain the next gate. No map resource reconciliation, patch installation,
 new playable coverage or82functional-gap closure follows from this run.
+
+
+Root full-reads the independent24031-byte scalar auditor/SHA256
+`601c36bcae1c7f3cc0b5de57239c5d20f9503dcb96aab93860f563515f46da43`.
+Its separate9174-byte authored-memory qualifier/SHA256
+`d9d926bfff3da55beb883953843964e88c5dd77ad02b0f9c769efd5a6621e71b`
+passes one full literal d/f/e/gzip positive and15targeted negatives. Literal
+abc hash/offsets/all fields and three known CRC vectors qualify independent
+bitwise versus table CRC32; baseline trailer is e08b66c315000000. Wrong record
+hash/name/offset, truncations/opcode/end/trailing/member/CRC/ISIZE/header faults
+raise their exact expected AuditFailure or ManualReview classes. No unexpected
+exception credits, actual RGZ reads or FD/batch-artifact fault coverage.
+Guard0.155810s/process0/no action/signals/owned residue; sampled peak3735552B
+can miss the short process peak. All five protected source receipts stay equal.
+
+Root now enables a separate exact copy solely by changing ROOT_ENABLED from
+False to True; original disabled source is preserved. This permits the fixed
+actual28scalar audit only. It adds no parser, codec, input/output path, policy
+or acceptance override. Complete actual input/output/source comparisons and
+observed file closes/process cleanup remain required before qualification.
