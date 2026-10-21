@@ -69,7 +69,7 @@ Earlier [model preparation](reviews/2026-10-20-model-constructor-preparation.md)
 
 ## Progress percentage
 
-As of this checkpoint, exact top-level T00–T13 rows total14: one accepted (T00), three ready_for_user (T01–T03), three in_progress (T04–T06) and seven planned (T07–T13). Thus **4/14 =28.6%, approximately29%, by equally counted top-level checkpoints**. Children are excluded to avoid double counting; their verified work still contributes to the open parents.
+As of this checkpoint, exact top-level T00–T13 rows total14: one accepted (T00), three ready_for_user (T01–T03), four in_progress (T04–T07) and six planned (T08–T13). Thus **4/14 =28.6%, approximately29%, by equally counted top-level checkpoints**. Children are excluded to avoid double counting; their verified work still contributes to the open parents.
 
 This project-ledger percentage includes T11, now deferred to the next phase. It is not a percentage of first-milestone content, engineering effort, playable world or translation. The parent tasks differ greatly in size; actual version/content coverage and the gap inventory remain unverified. Do not extrapolate a remaining delivery time or claim29% of all maps/story is verified. Basic provisional play/save/recovery and a narrow Chinese exchange are already available; full UI/story/solo/content qualification remains unfinished. [Tasks](TASKS.md) defines the gates; T06/T07 must establish a defensible content denominator and remaining estimate.
 

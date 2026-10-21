@@ -104,10 +104,10 @@ P1  PROVE A PLAYABLE CHINESE FOUNDATION
              +-- Remaining language/input checks: later
 
 P2  VERIFY FULL-GAME COVERAGE
-    T06 World/text inventory; functional checks first           [~] <-- NOW
+    T06 World/text inventory; functional checks first           [~]
         Early source-only inventory runs alongside P1.
         Raw text catalog: ready. Native story coverage stays open.
-     -> T07 Actual version, full content list, gaps and estimate     [ ]
+     -> T07 Actual version, full content list, gaps and estimate     [~] <-- NOW
              |
 P3  COMPLETE THE AGREED CONTENT AND LANGUAGE
              +-- T10 Gameplay gaps: first                       [ ]
@@ -124,7 +124,7 @@ LATER PHASE: PARTY-ONLY CONTENT
 
 Four of the 14 main tasks are accepted or ready for you: T00 and T01-T03.
 This gives **4/14 = 28.6%, approximately 29%**, when we count main tasks equally.
-T04-T06 are active. The other seven main tasks remain planned.
+T04-T07 are active. The other six main tasks remain planned.
 This project ledger includes T11 in the later phase. It does not measure milestone content.
 We exclude child tasks from this count. The figure does not measure time, translation or playable content.
 We need the content list and gap list before we can give a reliable full cost or delivery date.
