@@ -152,3 +152,11 @@ coverage result. Next root may freeze an explicit broader grammar experiment
 with per-file unsupported/failure outcomes and independent checks before any
 production pair. No universal RGZ support, publisher patch application, filename
 codec/priority, installation, game content or full-goal completion follows.
+
+For the next bounded experiment, root freshly rehashes the exact94572-byte
+admission ledger and independently recomputes the remaining28metadata census:
+100061839compressed bytes total, largest18003576bytes. All28saved four-byte
+headers are1f8b0800(method8/flags0). No body opens occur in this census. Header
+compatibility does not prove DEFLATE, CRC/ISIZE, inner grammar, EOF or content.
+The broader serial wrapper and its explicit whole-run/output/final-rehash
+headroom remain source preparation until root review and qualified controls.
