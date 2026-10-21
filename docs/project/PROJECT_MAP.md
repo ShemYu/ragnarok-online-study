@@ -39,8 +39,8 @@ CURRENT WORK: October assets and missing maps
 [V] Map model and texture request list: tools compared and repaired.
  |    26 tests and all 20 shared checks pass. Both workers released.
  |
-[~] Asset availability: frozen brief for all 311 request paths.
- |    Next: Claude/Grok tools -> root checks -> actual asset scan.
+[~] Asset availability: Claude and Grok tools are in progress.
+ |    All 311 paths. Next: root checks -> actual asset scan.
  |
 [ ] Render -> normal play and save -> full content checks.
 ```
