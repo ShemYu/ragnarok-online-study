@@ -1529,6 +1529,65 @@ class T07Admission(unittest.TestCase):
         self.assertTrue(old_specs[0]['path'].startswith(fake_home + '/'))
 
 
+    def test_repair_single_link_metadata(self):
+        root = private_dir(PRIVATE / ('links-%d' % os.getpid()))
+        path, alias = root / 'profile', root / 'alias'
+        try:
+            data = NEW_PROFILE.read_bytes()
+            path.write_bytes(data)
+            path.chmod(0o600)
+            omd.read_admitted(str(path), len(data), omd.sha(data))
+            os.link(path, alias)  # Only our private copy, never the canonical inode.
+            self.assertEqual(path.stat().st_nlink, 2)
+            with mock.patch.object(omd.os, 'open', side_effect=AssertionError('must refuse before open')):
+                self.assertRaises(omd.Refusal, omd.read_admitted, str(path), len(data), omd.sha(data))
+        finally:
+            shutil.rmtree(root)
+
+    def test_repair_full_native_descriptors_and_typed_policy(self):
+        original = json.loads(NEW_PROFILE.read_bytes())
+        activations = 0
+        for index in range(6):
+            for field in ('name', 'base', 'path', 'bytes', 'sha256'):
+                broken = omd.copy.deepcopy(original)
+                entry = broken['native'][index]
+                entry[field] = float(entry[field]) if field == 'bytes' else entry[field] + '-wrong'
+                with self.subTest(index=index, field=field):
+                    self.assertRaises(omd.Refusal, omd.check_profile, broken, omd.T07_ROUTE)
+                activations += 1
+        for policy_key, value in original['policy'].items():
+            broken = omd.copy.deepcopy(original)
+            broken['policy'][policy_key] = float(value)
+            self.assertRaises(omd.Refusal, omd.check_profile, broken, omd.T07_ROUTE)
+        broken = omd.copy.deepcopy(original)
+        broken['policy']['health_attempts'] = True
+        self.assertRaises(omd.Refusal, omd.check_profile, broken, omd.T07_ROUTE)
+        self.assertEqual(activations, 30)
+
+    def test_repair_typed_counts_headers_and_indexes(self):
+        meta = new_meta()
+        prior, cp, manifest = self.admitted_inputs()
+        mutations = [
+            lambda c: c['counts'].__setitem__('roots', 4.0),
+            lambda c: c['counts'].__setitem__('http_targets', 311.0),
+            lambda c: c['counts']['job_kinds'].__setitem__('gat', 4.0),
+            lambda c: c['targets'][0].__setitem__('index', False),
+            lambda c: c['jobs'][0].__setitem__('source_row_index', False),
+            lambda c: c['jobs'][0]['header_version_bytes'].__setitem__(0, float(c['jobs'][0]['header_version_bytes'][0])),
+            lambda c: next(j for j in c['jobs'] if j['loader_entries'])['loader_entries'][0].__setitem__('index', False),
+            lambda c: c['jobs'][0]['root_references'][0].__setitem__('root_ordinal', False),
+            lambda c: c['targets'][0]['referrers'][0].__setitem__('job_index', False),
+            lambda c: c['targets'][0]['referrers'][0].__setitem__('loader_index', False)]
+        for i, mutate in enumerate(mutations):
+            catalog = omd.copy.deepcopy(meta['catalog'])
+            mutate(catalog)
+            with self.subTest(i=i):
+                self.assertRaises(omd.Refusal, omd.validate_catalog_t07, catalog, meta['profile'], prior, cp, manifest)
+        broken = omd.copy.deepcopy(manifest)
+        broken['counts']['roots'] = 4.0
+        self.assertRaises(omd.Refusal, omd.validate_catalog_t07, meta['catalog'], meta['profile'], prior, cp, broken)
+
+
 class PipedProc(FakeProc):
     """Fake owned child whose stdout/stderr are real tiny pipes."""
 
@@ -1600,13 +1659,11 @@ class PipedOps(FakeOps):
             self.getpgid_hook()
         return pid
 
-    def start_thread(self, target, name):
-        self.thread_names.append(name)
+    def start_diagnostic_thread(self, thread):
+        self.thread_names.append(thread.name)
         if self.thread_fail_at == len(self.thread_names):
             raise RuntimeError('authored thread start failure')
-        thread = threading.Thread(target=target, name='fixture-' + name, daemon=True)
         thread.start()
-        return thread
 
     def respond(self, url):
         if url == '/api/cache-stats':
@@ -2190,6 +2247,393 @@ class T07Lifecycle(unittest.TestCase):
         rep = self.report()
         self.assertTrue(rep['cleanup']['forced_kill'] and ops.proc.killed)
         self.assertFalse(rep['cleanup']['clean'] or rep['acquisition_and_cleanup_valid'])
+
+
+    def test_repair_prompt_http_phase_stops(self):
+        plans = self.meta['plans'][:2]
+        for phase in ('connect', 'request', 'response', 'header', 'read', 'write'):
+            with self.subTest(phase=phase):
+                ops = self.ops(plans)
+                obs = self.observer(ops, plans)
+                original_connect = ops.connect
+                events, fired = [], []
+
+                def trip():
+                    fired.append(phase)
+                    obs.diag.error('authored_' + phase)
+
+                def connect(port, timeout):
+                    con = original_connect(port, timeout)
+                    if len(ops.connections) != 3:  # Health/cache remain ordinary.
+                        return con
+                    events.append('connect')
+                    if phase == 'connect':
+                        trip()
+                    request, getresponse = con.request, con.getresponse
+
+                    def req(*args, **kwargs):
+                        events.append('request')
+                        request(*args, **kwargs)
+                        if phase == 'request':
+                            trip()
+
+                    def response():
+                        events.append('response')
+                        resp = getresponse()
+                        if phase == 'response':
+                            trip()
+                        header, read = resp.getheader, resp.read1
+
+                        def hdr(*args):
+                            events.append('header')
+                            value = header(*args)
+                            if phase == 'header' and not fired:
+                                trip()
+                            return value
+
+                        def body(n):
+                            events.append('read')
+                            value = read(min(n, 3))
+                            if phase == 'read':
+                                trip()
+                            return value
+                        resp.getheader, resp.read1 = hdr, body
+                        return resp
+                    con.request, con.getresponse = req, response
+                    return con
+
+                def write(fd, data):
+                    if len(ops.connections) == 3:
+                        events.append('write')
+                        wrote = os.write(fd, data[:1])
+                        if phase == 'write':
+                            trip()
+                        return wrote
+                    return os.write(fd, data)
+                ops.connect, obs.write_fn = connect, write
+                self.assertEqual(obs.run(), 1)
+                rep = self.report()
+                row = rep['targets'][0]
+                self.assertEqual(fired, [phase])
+                self.assertEqual(rep['halt_reason'], 'diagnostic_failure')
+                self.assertEqual(events[-1], phase)
+                self.assertFalse(rep['targets'][1]['attempted'])
+                self.assertEqual(row['wire_bytes'], 3 if phase in ('read', 'write') else 0)
+                self.assertEqual(row['stored']['bytes'], 1 if phase == 'write' else 0 if phase == 'read' else None)
+                self.assert_cleaned(ops, rep)
+
+    def test_repair_first_storage_then_later_close_failure(self):
+        plans = self.meta['plans'][:2]
+        ops = self.ops(plans)
+        spec = ops.routes[plans[0]['wire']]
+        ops.routes[plans[0]['wire']] = (*spec, {'fault': 'close'})
+        fired = []
+
+        def write(fd, data):
+            if len(ops.requests) == 3:
+                fired.append(True)
+                raise OSError(errno.EIO, 'authored storage first')
+            return os.write(fd, data)
+        self.assertEqual(self.observer(ops, plans, write_fn=write).run(), 1)
+        rep = self.report()
+        self.assertEqual(fired, [True])
+        self.assertEqual(rep['halt_reason'], 'storage_failure')
+        self.assertIn('later_resource_close_failure', rep['errors'])
+        self.assertIn('http_close_error', rep['errors'])
+        self.assertFalse(rep['targets'][1]['attempted'])
+        self.assert_cleaned(ops, rep)
+
+    def test_repair_independent_cleanup_observation_failures(self):
+        plans = self.meta['plans'][:1]
+        ops = self.ops(plans)
+        obs = self.observer(ops, plans)
+        original = obs.shutdown
+        calls = []
+
+        def fail(name):
+            calls.append(name)
+            raise OSError(errno.EIO, 'authored observation')
+
+        def shutdown():
+            ops.owned_listener = lambda *a: fail('listener_before')
+            ops.port_listeners = lambda *a: fail('listener_after')
+            ops.group_members = lambda *a: fail('group_after')
+            return original()
+        obs.shutdown = shutdown
+        self.assertEqual(obs.run(), 1)
+        rep = self.report()
+        self.assertEqual(calls, ['listener_before', 'listener_after', 'group_after'])
+        self.assertEqual(len(rep['cleanup']['errors']), 3)
+        self.assertTrue(ops.proc.terminated)
+        self.assertEqual(rep['cleanup']['exit_code'], 0)
+        self.assert_cleaned(ops, rep)
+
+    def test_repair_startup_huge_decimal_retains_five_records(self):
+        plans = self.meta['plans'][:1]
+        ops = self.ops(plans)
+        ops.startup[1] = ops.startup[1].replace(b'5577 files', b'9' * 5000 + b' files')
+        # Keep authored pipe input below its finite capacity before starting readers.
+        ops.chunk = 8192
+        self.assertEqual(self.observer(ops, plans).run(), 1)
+        rep = self.report()
+        self.assertEqual(len(rep['startup_archive_counts']), 5)
+        self.assertIsNone(rep['startup_archive_counts'][0]['observed_count'])
+        self.assertFalse(rep['startup_archive_counts'][0]['valid'])
+        self.assertEqual(ops.requests, [])
+        self.assert_cleaned(ops, rep)
+
+    def test_repair_thread_start_then_raise_keeps_ownership(self):
+        plans = self.meta['plans'][:1]
+        ops = self.ops(plans)
+        fired = []
+
+        def started_then_raised(thread):
+            thread.start()
+            fired.append(True)
+            raise RuntimeError('authored after start')
+        ops.start_diagnostic_thread = started_then_raised
+        obs = self.observer(ops, plans)
+        self.assertEqual(obs.run(), 1)
+        self.assertEqual(fired, [True])
+        self.assertIn('stdout', obs.diag.threads)
+        self.assertFalse(obs.diag.threads['stdout'].is_alive())
+        self.assertFalse(obs.diag.out or obs.diag.sources)
+        self.assertEqual(ops.requests, [])
+        self.assert_cleaned(ops, self.report())
+
+
+    def test_repair_later_startup_write_failure_still_zero_gets(self):
+        plans = self.meta['plans'][:1]
+        ops = self.ops(plans)
+        calls = []
+
+        def write(fd, data):
+            calls.append(len(data))
+            if len(calls) == 1:
+                prefix = bytes(data).index(b'listening on ')
+                return os.write(fd, data[:prefix])
+            raise OSError(errno.EIO, 'after all five confirmed lines')
+        obs = self.observer(ops, plans, diag_write_fn=write)
+        self.assertEqual(obs.run(), 1)
+        rep = self.report()
+        self.assertEqual(len(calls), 2)
+        self.assertTrue(all(r['valid'] for r in rep['startup_archive_counts']))
+        self.assertEqual(rep['halt_reason'], 'diagnostic_failure')
+        self.assertEqual(ops.requests, [])
+        self.assert_cleaned(ops, rep)
+
+    def test_repair_output_setup_failure_keeps_descriptor_ownership(self):
+        plans = self.meta['plans'][:1]
+        ops = self.ops(plans)
+        obs = self.observer(ops, plans)
+        original, fired = os.fchmod, []
+
+        def chmod(fd, mode):
+            if obs.diag is not None and fd in obs.diag.out.values():
+                fired.append(True)
+                raise OSError(errno.EIO, 'authored diagnostic setup')
+            return original(fd, mode)
+        with mock.patch.object(omd.os, 'fchmod', side_effect=chmod):
+            self.assertEqual(obs.run(), 1)
+        self.assertEqual(fired, [True])
+        self.assertIsNone(ops.proc)
+        self.assertFalse(obs.diag.out or obs.diag.sources)
+        self.assertFalse(self.report()['acquisition_and_cleanup_valid'])
+
+
+class RepairDiagnostics(unittest.TestCase):
+    """Finite physical diagnostics controls; fixture cleanup follows ownership inspection."""
+
+    def setUp(self):
+        self.root = private_dir(PRIVATE / ('repair-drain-%d-%s' % (os.getpid(), self._testMethodName)))
+        self.fds_before, self.threads_before = open_fds(), set(threading.enumerate())
+        self.diag = omd.Diagnostics(str(self.root), 10, [])
+        self.diag.open_outputs()
+
+    def tearDown(self):
+        self.diag.finish(0.2)
+        self.assertFalse(self.diag.out or self.diag.sources)
+        self.assertEqual(open_fds() - self.fds_before, set())
+        self.assertEqual(set(threading.enumerate()) - self.threads_before, set())
+        shutil.rmtree(self.root)
+
+    def pipes(self):
+        writers = []
+        for stream in self.diag.STREAMS:
+            read, write = os.pipe()
+            self.diag.sources[stream] = os.fdopen(read, 'rb', buffering=0)
+            writers.append(write)
+        return writers
+
+    def wait_for(self, predicate):
+        end = time.monotonic() + 2
+        while not predicate():
+            self.assertLess(time.monotonic(), end)
+            time.sleep(0.002)
+
+    def test_reserved_partial_prefix_and_physical_hash(self):
+        d, calls = self.diag, []
+
+        def write(fd, data):
+            calls.append((fd, len(data)))
+            if fd == d.out['stdout']:
+                if len(calls) == 1:
+                    return os.write(fd, data[:2])
+                raise OSError(errno.EIO, 'after prefix')
+            return os.write(fd, data)
+        d.write_fn = write
+        d._accept('stdout', b'abcde')
+        d._accept('stderr', b'0123456789')
+        d.finish(0.2)
+        self.assertEqual(len(calls), 3)
+        self.assertEqual(d.reserved_total, 10)
+        self.assertEqual(d.stored, {'stdout': 2, 'stderr': 5})
+        self.assertEqual(d.seen, {'stdout': 5, 'stderr': 10})
+        self.assertTrue(d.overflow)
+        self.assertEqual(d.receipts['stdout']['sha256'], omd.sha(b'ab'))
+        self.assertEqual(d.receipts['stderr']['sha256'], omd.sha(b'01234'))
+        self.assertEqual(sum(r['bytes'] for r in d.receipts.values()), 7)
+
+    def test_delayed_writer_lock_access_and_no_live_fd_close(self):
+        d = self.diag
+        entered, release = threading.Event(), threading.Event()
+        fd = d.out['stdout']
+        fired = []
+
+        def write(target, data):
+            if target == fd:
+                entered.set()
+                if not release.wait(2):
+                    raise OSError('finite fixture fallback')
+                fired.append(True)
+            return os.write(target, data)
+        d.write_fn = write
+        worker = threading.Thread(target=lambda: d._accept('stdout', b'abcde'), daemon=True)
+        d.threads['stdout'] = worker
+        worker.start()
+        try:
+            self.assertTrue(entered.wait(1))
+            before = time.monotonic()
+            self.assertFalse(d.failed())
+            self.assertEqual(d.record()['reserved_bytes'], 5)
+            self.assertLess(time.monotonic() - before, 0.15)
+            d._accept('stderr', b'0123456789')
+            d.finish(0.1)
+            self.assertFalse(d.finished)
+            self.assertEqual(d.out['stdout'], fd)
+            os.fstat(fd)  # Live writer still owns this exact FD.
+            self.assertEqual(d.stored['stderr'], 5)
+        finally:
+            release.set()
+            worker.join(2)
+        self.assertFalse(worker.is_alive())
+        self.assertEqual(fired, [True])
+        d.finish(0.2)
+        self.assertEqual(d.stored['stdout'], 5)
+        self.assertEqual(sum(r['bytes'] for r in d.receipts.values()), 10)
+        self.assertIn('stdout_drainer_incomplete', d.errors)
+        self.assertFalse(d.record()['valid'])
+
+    def test_held_open_pipes_cancel_with_one_allowance(self):
+        d = self.diag
+        writers = self.pipes()
+        d.start(omd.SystemOps().start_diagnostic_thread)
+        try:
+            before = time.monotonic()
+            d.finish(0.2)
+            self.assertLess(time.monotonic() - before, 0.5)
+            self.assertTrue(all(d.done.values()))
+            self.assertFalse(any(d.eof.values()))
+            self.assertTrue(all(not t.is_alive() for t in d.threads.values()))
+            self.assertFalse(d.sources or d.out)
+            self.assertFalse(d.record()['valid'])
+        finally:
+            for fd in writers:
+                os.close(fd)
+
+    def test_finite_write_interrupts_and_postwrite_deadline(self):
+        d, calls = self.diag, []
+
+        def interrupted(fd, data):
+            calls.append(True)
+            raise InterruptedError()
+        d.write_fn = interrupted
+        d._accept('stdout', b'abc')
+        self.assertEqual(len(calls), d.INTERRUPT_LIMIT)
+        self.assertEqual(d.stored['stdout'], 0)
+        clock = Clock(0)
+        d.clock, d.deadline = clock, 1
+
+        def late(fd, data):
+            n = os.write(fd, data[:2])
+            clock.value = 2
+            return n
+        d.write_fn = late
+        d._accept('stderr', b'abcdefg')
+        self.assertEqual(d.stored['stderr'], 2)
+        self.assertEqual(d.reserved_total, 10)
+        d.finish(0.2)
+        self.assertEqual(d.receipts['stderr']['sha256'], omd.sha(b'ab'))
+        self.assertIn('stdout_write_error', d.errors)
+        self.assertIn('stderr_write_error', d.errors)
+
+    def test_finite_read_interrupts_and_nonblocking_setup_failure(self):
+        d = self.diag
+        writers = self.pipes()
+        stdout_fd, stderr_fd = (d.sources[s].fileno() for s in d.STREAMS)
+        real_read, real_setblocking = os.read, os.set_blocking
+        calls, setup = [], []
+
+        def read(fd, size):
+            if fd == stdout_fd:
+                calls.append(True)
+                raise InterruptedError()
+            return real_read(fd, size)
+
+        def nonblocking(fd, value):
+            if fd == stderr_fd:
+                setup.append(True)
+                raise OSError('authored setup failure')
+            return real_setblocking(fd, value)
+        try:
+            with mock.patch.object(omd.os, 'read', side_effect=read), mock.patch.object(omd.os, 'set_blocking', side_effect=nonblocking):
+                d.start(omd.SystemOps().start_diagnostic_thread)
+                self.wait_for(lambda: all(d.done.values()))
+            d.finish(0.2)
+            self.assertEqual(len(calls), d.INTERRUPT_LIMIT)
+            self.assertEqual(setup, [True])
+            self.assertFalse(d.sources or d.out)
+            self.assertFalse(d.record()['valid'])
+        finally:
+            for fd in writers:
+                os.close(fd)
+
+    def test_bounded_lock_timeout_and_close_once(self):
+        d = self.diag
+        d.lock.acquire()
+        try:
+            before = time.monotonic()
+            self.assertTrue(d.failed())
+            self.assertFalse(d.record()['valid'])
+            self.assertLess(time.monotonic() - before, 0.3)
+        finally:
+            d.lock.release()
+        original, closed = os.close, []
+        owned = set(d.out.values())
+        pending = set(owned)
+
+        def close(fd):
+            original(fd)
+            if fd in pending:
+                pending.remove(fd)
+                closed.append(fd)
+                raise OSError('authored close uncertainty')
+        with mock.patch.object(omd.os, 'close', side_effect=close):
+            d.finish(0.2)
+        d.finish(0.2)
+        self.assertEqual(sorted(closed), sorted(owned))
+        self.assertFalse(d.out)
+        self.assertIn('state_lock_timeout', d.errors)
 
 
 if __name__ == '__main__':

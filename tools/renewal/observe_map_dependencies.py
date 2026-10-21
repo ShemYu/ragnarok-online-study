@@ -16,6 +16,7 @@ assets. The profile selects its route only by exact trusted bytes/SHA-256.
 """
 import argparse
 import copy
+from contextlib import contextmanager
 import datetime
 import hashlib
 import http.client
@@ -103,7 +104,52 @@ T07_POLICY = dict(POLICY, asset_attempts=311, cache_mb=0, cache_files=0, cache_a
                   diagnostic_bytes=16777216)
 T07_NATIVE_NAMES = ['binary', '2026-08-25_live_client_4340_4349_1787295394.gpf',
                     '2026-08-25_live_client_4353_4353_1787535130.gpf', 'event.grf', 'data0.grf', 'data.grf']
-# Artifact-observed startup literal (TWO leading spaces); ordered (version, count) per DATA.INI entry.
+# Full trusted second-route native descriptors; these paths are strings during preflight.
+T07_NATIVE_TABLE = [
+    {
+        "name": "binary",
+        "base": "input_root",
+        "path": ".tools/renewal/t07-007-native-artifact-admission-1/reader",
+        "bytes": 2079536,
+        "sha256": "ee6b328ec73a591b23b514379e1b34e876b5d860d0e1aa4d9aa15dd7173eb1c1"
+    },
+    {
+        "name": "2026-08-25_live_client_4340_4349_1787295394.gpf",
+        "base": "input_root",
+        "path": ".tools/renewal/t07-007-patch-acquisition-root-1/2026-08-25_live_client_4340_4349_1787295394.gpf",
+        "bytes": 306097616,
+        "sha256": "70725f6624f947c3096066cc66a07fcd2440adf94137b79561ed2d67843f9f0e"
+    },
+    {
+        "name": "2026-08-25_live_client_4353_4353_1787535130.gpf",
+        "base": "input_root",
+        "path": ".tools/renewal/t07-007-patch-acquisition-root-1/2026-08-25_live_client_4353_4353_1787535130.gpf",
+        "bytes": 86992,
+        "sha256": "03764f614453d2b453a5ab5b552f6af9f66599a3642943566f72cbae6a501d07"
+    },
+    {
+        "name": "event.grf",
+        "base": "input_root",
+        "path": ".tools/renewal/t07-007-execution-1/inner/app/event.grf",
+        "bytes": 5833135,
+        "sha256": "7fff4e0eececd10df9a9c4f83b70d78dc4dbb99c5ece64b117df7db8a2f85575"
+    },
+    {
+        "name": "data0.grf",
+        "base": "input_root",
+        "path": ".tools/renewal/t07-007-execution-1/inner/app/data0.grf",
+        "bytes": 2123919641,
+        "sha256": "913402ace1d3c67818b4f070650a07eb157a6d62df9e394d596d59b4c7e6678a"
+    },
+    {
+        "name": "data.grf",
+        "base": "input_root",
+        "path": ".tools/renewal/t07-007-execution-1/inner/app/data.grf",
+        "bytes": 2172616301,
+        "sha256": "0565853edc5ad4b70e8ad705f5bc88c1af5624ee1b7a252fa81030d2ea813cc6"
+    }
+]
+# Artifact-observed startup literal (TWO leading spaces), in DATA.INI order.
 T07_VALID_GRF = (('0x102', 5577), ('0x102', 3), ('0x102', 37), ('0x102', 89769), ('0x300', 155575))
 VALID_GRF_MARK = b'Valid GRF'
 VALID_GRF_LINE = re.compile(rb'\A  Valid GRF: (.+) \(version (0x[0-9a-fA-F]+), ([0-9]+) files\)\n\Z')
@@ -142,6 +188,21 @@ def require(ok, code):
 
 def is_int(value):
     return isinstance(value, int) and not isinstance(value, bool)
+
+
+def typed_equal(a, b):
+    """JSON structural equality without bool/int/float coercion."""
+    if type(a) is not type(b):
+        return False
+    if isinstance(a, dict):
+        return a.keys() == b.keys() and all(typed_equal(a[k], b[k]) for k in a)
+    if isinstance(a, list):
+        return len(a) == len(b) and all(typed_equal(x, y) for x, y in zip(a, b))
+    return a == b
+
+
+def integer_tree(value):
+    return all(integer_tree(v) for v in value.values()) if isinstance(value, dict) else is_int(value)
 
 
 def sha(data):
@@ -231,6 +292,8 @@ def transfer(response, fd, *, body_cap, aggregate_left, deadline, clock=None, wr
                 want = min(want, length)
             try:
                 chunk = response.read1(want)
+            except Fatal:
+                raise
             except Exception:
                 outcome = 'transport_error'
                 break
@@ -295,9 +358,9 @@ def read_admitted(path, expected_bytes=None, expected_sha=None, keep=True, limit
         raise Absent()
     except OSError:
         raise Refusal('admit_stat')
-    require(stat.S_ISREG(first.st_mode), 'admit_regular')
+    require(stat.S_ISREG(first.st_mode) and first.st_nlink == 1, 'admit_regular')
     size = first.st_size
-    require(expected_bytes is None or size == expected_bytes, 'admit_size')
+    require(expected_bytes is None or (is_int(expected_bytes) and size == expected_bytes), 'admit_size')
     require(limit is None or size <= limit, 'admit_limit')
     try:
         fd = os.open(path, os.O_RDONLY | os.O_NOFOLLOW | os.O_NONBLOCK)
@@ -305,7 +368,7 @@ def read_admitted(path, expected_bytes=None, expected_sha=None, keep=True, limit
         raise Refusal('admit_open')
     try:
         opened = os.fstat(fd)
-        require(identity(opened) == identity(first) and stat.S_ISREG(opened.st_mode), 'admit_drift')
+        require(identity(opened) == identity(first) and stat.S_ISREG(opened.st_mode) and opened.st_nlink == 1, 'admit_drift')
         digest, chunks, left = hashlib.sha256(), [], size
         while left:
             chunk = os.read(fd, min(HASH_CHUNK, left))
@@ -322,7 +385,7 @@ def read_admitted(path, expected_bytes=None, expected_sha=None, keep=True, limit
         last = os.lstat(path)
     except OSError:
         raise Refusal('admit_drift')
-    require(identity(after) == identity(first) == identity(last), 'admit_drift')
+    require(identity(after) == identity(first) == identity(last) and after.st_nlink == last.st_nlink == 1, 'admit_drift')
     hexdigest = digest.hexdigest()
     require(expected_sha is None or hexdigest == expected_sha, 'admit_sha')
     receipt = {'bytes': size, 'sha256': hexdigest, 'identity': identity(first)}
@@ -364,11 +427,12 @@ def target_kind(name):
 
 def validate_catalog(catalog, profile, prior_pin):
     counts = profile['expected_counts']
+    require(isinstance(counts, dict) and integer_tree(counts), 'catalog_counts')
     require(isinstance(catalog, dict), 'catalog_shape')
     require(catalog.get('schema') == 'T06-map-dependency-catalog-1' and catalog.get('task') == 'T06.003.003.004'
             and catalog.get('mode') == 'corpus', 'catalog_identity')
     require(catalog.get('profile_sha256') == prior_pin['sha256'], 'catalog_profile_binding')
-    require(catalog.get('counts') == counts, 'catalog_counts')
+    require(typed_equal(catalog.get('counts'), counts), 'catalog_counts')
     pins = {p['path']: p for p in profile['source_pins']}
     for rel, pin in catalog.get('rule_sources', {}).items():
         mine = pins.get('.tools/renewal/client-source/' + rel)
@@ -381,18 +445,21 @@ def validate_catalog(catalog, profile, prior_pin):
 def _validate_graph(catalog, profile, legacy_gaps):
     """Shared root/job/loader/target/referrer validation for both routes."""
     counts = profile['expected_counts']
+    require(isinstance(counts, dict) and integer_tree(counts), 'catalog_counts')
     roots, jobs, targets = catalog.get('roots'), catalog.get('jobs'), catalog.get('targets')
     require(isinstance(roots, list) and isinstance(jobs, list) and isinstance(targets, list), 'catalog_shape')
     gaps = profile['remaining_gap_root_ordinals']
-    require(catalog.get('remaining_gap_root_ordinals') == gaps and len(gaps) == counts['remaining_gap_roots'], 'catalog_gaps')
-    require(len(roots) == counts['roots'] and [r.get('ordinal') for r in roots] == list(range(len(roots))), 'catalog_roots')
+    require(isinstance(gaps, list) and all(is_int(g) for g in gaps)
+            and typed_equal(catalog.get('remaining_gap_root_ordinals'), gaps)
+            and len(gaps) == counts['remaining_gap_roots'], 'catalog_gaps')
+    require(len(roots) == counts['roots'] and typed_equal([r.get('ordinal') for r in roots], list(range(len(roots)))), 'catalog_roots')
     gap_set = set(gaps)
     if legacy_gaps:
         require(all((r.get('combined_observation') == 'gap') == (r['ordinal'] in gap_set) for r in roots), 'catalog_root_gaps')
     require(len(jobs) == counts['jobs'], 'catalog_jobs')
     job_ids = {}
     for index, job in enumerate(jobs):
-        require(isinstance(job, dict) and job.get('source_row_index') == index and job.get('id') not in job_ids, 'catalog_job')
+        require(isinstance(job, dict) and typed_equal(job.get('source_row_index'), index) and job.get('id') not in job_ids, 'catalog_job')
         require(job.get('kind') in JOB_ROLES and job.get('role') == JOB_ROLES[job['kind']], 'catalog_job_role')
         job_ids[job['id']] = index
     kinds = {k: sum(j['kind'] == k for j in jobs) for k in ('rsw', 'gnd', 'gat')}
@@ -407,11 +474,12 @@ def _validate_graph(catalog, profile, legacy_gaps):
     job_refs = set()
     for index, job in enumerate(jobs):
         for ref in job.get('root_references', []):
+            require(is_int(ref.get('root_ordinal')), 'catalog_root_reference')
             key = (index, ref.get('root_ordinal'), ref.get('edge_kind'))
             require(key not in job_refs, 'catalog_root_reference')
             job_refs.add(key)
     require(edge_refs == job_refs and len(job_refs) == counts['root_edge_references'], 'catalog_root_references')
-    require(len(targets) == counts['http_targets'] and [t.get('index') for t in targets] == list(range(len(targets))), 'catalog_targets')
+    require(len(targets) == counts['http_targets'] and typed_equal([t.get('index') for t in targets], list(range(len(targets)))), 'catalog_targets')
     seen_http = set()
     for t in targets:
         require(isinstance(t.get('http_path'), str) and t['http_path'] not in seen_http and isinstance(t.get('referrers'), list), 'catalog_target')
@@ -437,7 +505,7 @@ def _validate_graph(catalog, profile, legacy_gaps):
         entries[role] += len(loaders)
         exp_entries[role] += len(loaders) * refs
         for position, entry in enumerate(loaders):
-            require(entry.get('index') == position, 'catalog_loader_index')
+            require(typed_equal(entry.get('index'), position), 'catalog_loader_index')
             t = entry.get('target_index')
             require(is_int(t) and 0 <= t < len(targets) and targets[t]['http_path'] == entry.get('http_path'), 'catalog_loader_target')
             for field in ('raw', 'logical', 'filemanager', 'http'):
@@ -454,6 +522,7 @@ def _validate_graph(catalog, profile, legacy_gaps):
         require(t['referrers'], 'catalog_referrers')
         first, roles = None, set()
         for ref in t['referrers']:
+            require(is_int(ref.get('job_index')) and is_int(ref.get('loader_index')), 'catalog_referrer')
             key = (t['index'], ref.get('job_index'), ref.get('loader_index'), ref.get('role'))
             require(key not in backward and key in forward, 'catalog_referrer')
             backward.add(key)
@@ -493,6 +562,7 @@ def validate_catalog_t07(catalog, profile, prior, constructor_profile, manifest)
     an exact source pin. Body/reference paths are compared as strings only.
     """
     counts = profile['expected_counts']
+    require(isinstance(counts, dict) and integer_tree(counts), 'catalog_counts')
     pins = {p['path']: p for p in profile['source_pins']}
     require(all(path in pins for path in T07_SOURCE_PATHS), 'profile_sources')
     for value in (catalog, prior, constructor_profile, manifest):
@@ -516,16 +586,16 @@ def validate_catalog_t07(catalog, profile, prior, constructor_profile, manifest)
     rules = prior.get('rule_sources')
     require(isinstance(rules, dict) and len(rules) == 3 and _ordered(catalog['rule_sources']) == _ordered(rules), 'catalog_rule_source')
     require(catalog['limitations'] == prior.get('limitations'), 'catalog_limitations')
-    require(catalog['counts'] == counts and prior.get('expected_counts') == counts, 'catalog_counts')
+    require(typed_equal(catalog['counts'], counts) and typed_equal(prior.get('expected_counts'), counts), 'catalog_counts')
     # The .005 sub-pins must name exactly the admitted descriptor sources.
     for rel, rule in rules.items():
         source = pins.get('.tools/renewal/client-source/' + rel)
-        require(source is not None and _pin(source) == rule, 'catalog_rule_source')
+        require(source is not None and typed_equal(_pin(source), rule), 'catalog_rule_source')
     for key, path in (('constructor_profile', T07_CONSTRUCTOR_PROFILE_PATH), ('constructor_manifest', T07_MANIFEST_PATH),
                       ('constructor_worker', T07_WORKER_PATH), ('constructor_producer', T07_CONSTRUCTOR_PRODUCER_PATH),
                       ('summary', T07_SUMMARY_PATH)):
         entry = prior.get(key)
-        require(isinstance(entry, dict) and entry.get('path') == path and _pin(entry) == _pin(pins[path]), 'prior_source_binding')
+        require(isinstance(entry, dict) and entry.get('path') == path and typed_equal(_pin(entry), _pin(pins[path])), 'prior_source_binding')
     # .004 constructor profile and manifest bindings.
     cp, cpc = constructor_profile, constructor_profile.get('counts')
     require(cp.get('schema') == 'T06-map-constructor-profile-1' and cp.get('task') == 'T07.007.004', 'constructor_profile_identity')
@@ -534,7 +604,7 @@ def validate_catalog_t07(catalog, profile, prior, constructor_profile, manifest)
             and _ordered(cp.get('summary')) == _ordered(prior['summary']), 'constructor_profile_binding')
     require(manifest.get('schema') == 'T06-map-constructor-input-1' and manifest.get('task') == catalog['constructor_task'],
             'manifest_identity')
-    require(isinstance(cpc, dict) and manifest.get('counts') == cpc and cpc.get('roots') == counts['roots']
+    require(isinstance(cpc, dict) and integer_tree(cpc) and typed_equal(manifest.get('counts'), cpc) and cpc.get('roots') == counts['roots']
             and cpc.get('jobs') == counts['jobs'] and cpc.get('edge_references') == counts['root_edge_references'],
             'manifest_counts')
     require(manifest.get('remaining_gap_root_ordinals') == profile['remaining_gap_root_ordinals'] == [], 'manifest_gaps')
@@ -546,8 +616,10 @@ def validate_catalog_t07(catalog, profile, prior, constructor_profile, manifest)
         require(isinstance(job, dict) and isinstance(mjob, dict) and isinstance(mjob.get('header'), dict), 'catalog_job_manifest')
         require(job.get('id') == mjob.get('job_id') and job.get('kind') == mjob.get('kind')
                 and job.get('complete_sha256') == mjob.get('complete_sha256')
-                and is_int(job.get('input_bytes')) and job['input_bytes'] == mjob.get('bytes')
-                and job.get('header_version_bytes') == mjob['header'].get('version_bytes'), 'catalog_job_manifest')
+                and is_int(job.get('input_bytes')) and typed_equal(job['input_bytes'], mjob.get('bytes'))
+                and typed_equal(job.get('header_version_bytes'), mjob['header'].get('version_bytes'))
+                and isinstance(job.get('header_version_bytes'), list)
+                and all(is_int(v) and 0 <= v <= 255 for v in job['header_version_bytes']), 'catalog_job_manifest')
         require(job.get('outcome') == 'returned' and job.get('constructor_returned') is True, 'catalog_job_outcome')
     # Expected roots: the manifest roots plus each linked job's returned outcome.
     by_id = {job['id']: job for job in jobs}
@@ -581,8 +653,10 @@ def check_profile(profile, route):
     """Exact descriptor checks once the trusted bytes/SHA selected the route."""
     require(isinstance(profile, dict), 'profile_identity')
     require(profile.get('schema') == PROFILE_SCHEMA and profile.get('task') == route['task'], 'profile_identity')
-    require(profile.get('policy') == route['policy'], 'profile_policy')
+    require(typed_equal(profile.get('policy'), route['policy']), 'profile_policy')
     native = profile.get('native')
+    if route['split_root']:
+        require(typed_equal(native, T07_NATIVE_TABLE), 'profile_native')
     require(isinstance(native, list) and all(isinstance(n, dict) for n in native), 'profile_native')
     require([n.get('name') for n in native] == route['native_names'], 'profile_native')
     require(all(n.get('base') in route['native_bases'] for n in native), 'profile_native')
@@ -590,10 +664,10 @@ def check_profile(profile, route):
     require(isinstance(sources, list) and all(isinstance(p, dict) for p in sources), 'profile_sources')
     require(tuple(p.get('path') for p in sources) == route['source_paths'], 'profile_sources')
     pins = {p['path']: p for p in sources}
-    require(_pin(pins[PRODUCER_PATH]) == route['producer_pin'], 'profile_producer')
+    require(typed_equal(_pin(pins[PRODUCER_PATH]), route['producer_pin']), 'profile_producer')
     if 'prior_pin' in route:
-        require(_pin(pins[route['prior_profile_path']]) == route['prior_pin'], 'profile_prior_binding')
-    require(profile.get('catalog') == route['catalog_pin'], 'profile_catalog')
+        require(typed_equal(_pin(pins[route['prior_profile_path']]), route['prior_pin']), 'profile_prior_binding')
+    require(typed_equal(profile.get('catalog'), route['catalog_pin']), 'profile_catalog')
 
 
 def load_metadata(input_root, profile_path):
@@ -691,6 +765,10 @@ class SystemOps:
         thread.start()
         return thread
 
+    def start_diagnostic_thread(self, thread):
+        """New-route hook; Diagnostics already owns this unstarted worker."""
+        thread.start()
+
     def getpgid(self, pid):
         return os.getpgid(pid)
 
@@ -737,22 +815,30 @@ class _Metered:
     def __init__(self, response, refresh):
         self._response, self._refresh, self.wire = response, refresh, 0
         self.complete = response.length == 0
+        self.check = lambda: None
 
     @property
     def length(self):
         return self._response.length
 
     def read1(self, n):
+        self.check()
         self._refresh()
+        self.check()
         try:
             chunk = self._response.read1(n)
         except http.client.IncompleteRead as exc:
             self.wire += len(exc.partial)
             self.complete = False
+            self.check()
+            raise
+        except Exception:
+            self.check()
             raise
         if isinstance(chunk, (bytes, bytearray)):
             self.wire += len(chunk)
             self.complete = self.length == 0 or (not chunk and self.length is None)
+        self.check()  # Received bytes are charged even if this raises Fatal.
         return chunk
 
 
@@ -766,9 +852,13 @@ class Diagnostics:
     STREAMS = ('stdout', 'stderr')
     FILES = {'stdout': 'native-stdout.log', 'stderr': 'native-stderr.log'}
 
+    POLL_SECONDS = 0.02
+    INTERRUPT_LIMIT = 16
+
     def __init__(self, directory, cap, expected, write_fn=None):
         self.directory, self.cap, self.expected, self.write_fn = directory, cap, list(expected), write_fn
         self.lock = threading.Lock()
+        self.stop = threading.Event()
         self.out, self.sources, self.threads, self.receipts, self.created = {}, {}, {}, {}, []
         self.seen = dict.fromkeys(self.STREAMS, 0)
         self.stored = dict.fromkeys(self.STREAMS, 0)
@@ -777,69 +867,138 @@ class Diagnostics:
         self.overlong = dict.fromkeys(self.STREAMS, False)
         self.storing = dict.fromkeys(self.STREAMS, True)
         self.done = dict.fromkeys(self.STREAMS, False)
+        self.eof = dict.fromkeys(self.STREAMS, False)
         self.lines, self.errors, self.overflow = [], [], False
+        self.reserved_total, self.inflight = 0, 0
+        self.clock, self.deadline, self.finish_deadline = time.monotonic, math.inf, math.inf
         self.started = self.finished = False
+
+    def error(self, code):
+        # Bounded fallback also works when a lock acquisition itself timed out.
+        if code not in self.errors and len(self.errors) < 32:
+            self.errors.append(code)
+
+    @contextmanager
+    def _locked(self):
+        allowance = min(0.05, max(0, self.deadline - self.clock()),
+                        max(0, self.finish_deadline - time.monotonic()))
+        if not self.lock.acquire(timeout=allowance):
+            self.error('state_lock_timeout')
+            raise Fatal('diagnostic_failure')
+        try:
+            yield
+        finally:
+            self.lock.release()
 
     def open_outputs(self):
         for stream in self.STREAMS:
             fd = os.open(os.path.join(self.directory, self.FILES[stream]),
                          os.O_WRONLY | os.O_CREAT | os.O_EXCL | os.O_NOFOLLOW, 0o600)
-            self.out[stream] = fd
+            self.out[stream] = fd  # Ownership before fallible setup.
             self.created.append(self.FILES[stream])
             os.fchmod(fd, 0o600)
 
     def adopt(self, proc):
-        self.sources = {s: getattr(proc, s, None) for s in self.STREAMS}
+        for stream in self.STREAMS:
+            self.sources[stream] = getattr(proc, stream, None)
 
     def start(self, start_thread):
+        """Create/register workers locally before invoking the fallible starter."""
         for stream in self.STREAMS:
             if self.sources.get(stream) is None:
                 raise Fatal('diagnostic_failure')
             try:
-                self.threads[stream] = start_thread(lambda s=stream: self._drain(s), 'diagnostics-' + stream)
+                thread = threading.Thread(target=lambda s=stream: self._drain(s),
+                                          name='diagnostics-' + stream, daemon=True)
+                self.threads[stream] = thread
+                start_thread(thread)
             except Exception:
-                with self.lock:
-                    self.errors.append(stream + '_thread_start')
+                self.error(stream + '_thread_start')
                 raise Fatal('diagnostic_failure')
         self.started = True
 
     def _drain(self, stream):
+        normal_eof = False
         try:
             fd = self.sources[stream].fileno()
-            while True:
+            os.set_blocking(fd, False)
+            interrupts = 0
+            while not self.stop.is_set():
+                if self.clock() >= self.deadline or time.monotonic() >= self.finish_deadline:
+                    self.error(stream + '_read_deadline')
+                    break
                 try:
                     chunk = os.read(fd, READ_MAX)
                 except InterruptedError:
+                    interrupts += 1
+                    if interrupts >= self.INTERRUPT_LIMIT:
+                        raise OSError('interrupted read limit')
                     continue
+                except BlockingIOError:
+                    interrupts = 0
+                    self.stop.wait(self.POLL_SECONDS)
+                    continue
+                interrupts = 0
                 if not chunk:
+                    normal_eof = True
                     break
                 self._accept(stream, chunk)
         except Exception:
-            with self.lock:
-                self.errors.append(stream + '_read_error')
+            self.error(stream + '_read_error')
         finally:
-            with self.lock:
-                self._eof(stream)
-                self.done[stream] = True
+            try:
+                with self._locked():
+                    self._eof(stream)
+                    self.eof[stream] = normal_eof
+                    if not normal_eof:
+                        self.error(stream + '_cancelled_or_failed')
+            except Fatal:
+                pass
+            self.done[stream] = True
 
     def _accept(self, stream, chunk):
-        with self.lock:
+        with self._locked():
             self.seen[stream] += len(chunk)
-            room = max(0, self.cap - sum(self.stored.values()))
+            room = max(0, self.cap - self.reserved_total)
             keep = chunk[:room]
+            self.reserved_total += len(keep)  # Never refund uncertain capacity.
             if len(keep) < len(chunk):
                 self.overflow = True
             if not keep or not self.storing[stream]:
                 return
-            try:
-                write_all(self.out[stream], keep, self.write_fn)
-            except (OSError, ValueError):
-                self.storing[stream] = False  # Keep draining so the child never blocks.
-                self.errors.append(stream + '_write_error')
-                return
-            self.stored[stream] += len(keep)
-            self.digest[stream].update(keep)
-            self._frame(stream, keep)
+            self.inflight += 1
+        offset, interrupts = 0, 0
+        try:
+            while offset < len(keep):
+                # Overflow does NOT cancel this already reserved prefix.
+                if (self.stop.is_set() or self.clock() >= self.deadline
+                        or time.monotonic() >= self.finish_deadline):
+                    raise OSError('diagnostic write cancelled')
+                try:
+                    wrote = (self.write_fn or os.write)(self.out[stream], memoryview(keep)[offset:])
+                except InterruptedError:
+                    interrupts += 1
+                    if interrupts >= self.INTERRUPT_LIMIT:
+                        raise OSError('interrupted write limit')
+                    continue
+                if not is_int(wrote) or not 0 < wrote <= len(keep) - offset:
+                    raise OSError('invalid diagnostic progress')
+                interrupts = 0
+                with self._locked():
+                    piece = keep[offset:offset + wrote]
+                    self.stored[stream] += wrote
+                    self.digest[stream].update(piece)
+                    self._frame(stream, piece)
+                offset += wrote
+                if self.clock() >= self.deadline or time.monotonic() >= self.finish_deadline:
+                    raise OSError('diagnostic write deadline')
+        except Exception:
+            self.storing[stream] = False
+            self.error(stream + '_write_error')
+        finally:
+            # No callback/syscall under the state lock, including in cleanup.
+            with self._locked():
+                self.inflight -= 1
 
     def _frame(self, stream, data):
         """LF framing that survives pipe chunk boundaries; bounded per line."""
@@ -873,18 +1032,25 @@ class Diagnostics:
         self.pending[stream], self.overlong[stream] = b'', False
 
     def failed(self):
-        with self.lock:
-            return bool(self.errors or self.overflow)
+        try:
+            with self._locked():
+                return bool(self.errors or self.overflow or not self._prefix_ok(self.lines))
+        except Fatal:
+            return True
+
+    def snapshot_lines(self):
+        with self._locked():
+            return list(self.lines)
 
     def startup_state(self):
-        """True once all expected lines are present; Fatal on any mismatch."""
-        with self.lock:
-            lines, failed = list(self.lines), bool(self.errors or self.overflow)
+        """Only confirmed written lines, with no reserved write still in flight."""
+        with self._locked():
+            lines, failed, inflight = list(self.lines), bool(self.errors or self.overflow), self.inflight
         if failed:
             raise Fatal('diagnostic_failure')
         if not self._prefix_ok(lines):
             raise Fatal('startup_diagnostics')
-        return len(lines) == len(self.expected)
+        return not inflight and len(lines) == len(self.expected)
 
     def _prefix_ok(self, lines):
         if len({stream for stream, _ in lines}) > 1 or len(lines) > len(self.expected):
@@ -892,55 +1058,68 @@ class Diagnostics:
         return all(line == self.expected[i] for i, (_, line) in enumerate(lines))
 
     def lines_exact(self):
-        with self.lock:
-            lines = list(self.lines)
+        lines = self.snapshot_lines()
         return self._prefix_ok(lines) and len(lines) == len(self.expected)
 
     def finish(self, join_seconds=DRAIN_JOIN_SECONDS):
-        """Bounded join, close every owned descriptor, then post-verify retained files."""
-        for stream, thread in self.threads.items():
-            thread.join(join_seconds)
-            if thread.is_alive():
-                with self.lock:
-                    self.errors.append(stream + '_drainer_incomplete')
+        """One total allowance; never close an FD beneath a live writer."""
+        end = time.monotonic() + max(0, join_seconds)
+        self.finish_deadline = end
+        cancel_by = end - min(1, max(0, join_seconds) / 2)
+        self.deadline = math.inf  # Cleanup draining has its own absolute allowance.
+        for thread in self.threads.values():
+            if thread.ident is not None:
+                thread.join(max(0, cancel_by - time.monotonic()))
+        self.stop.set()
+        for thread in self.threads.values():
+            if thread.ident is not None:
+                thread.join(max(0, end - time.monotonic()))
+        all_stopped = True
         for stream in self.STREAMS:
-            source = self.sources.get(stream)
+            thread = self.threads.get(stream)
+            if thread is not None and thread.is_alive():
+                self.error(stream + '_drainer_incomplete')
+                all_stopped = False
+                continue  # Preserve both FDs; the outer guard bounds kernel-stalled I/O.
+            source = self.sources.pop(stream, None)
             if source is not None:
                 try:
                     source.close()
                 except Exception:
-                    with self.lock:
-                        self.errors.append(stream + '_source_close')
-        for stream in list(self.out):
+                    self.error(stream + '_source_close')
+            fd = self.out.pop(stream, None)  # Never retain a stale numeric FD after close.
+            if fd is None:
+                continue
             try:
-                os.close(self.out.pop(stream))
+                os.close(fd)
             except OSError:
-                with self.lock:
-                    self.errors.append(stream + '_output_close')
+                self.error(stream + '_output_close')
             path = os.path.join(self.directory, self.FILES[stream])
             try:
                 _, receipt = read_admitted(path, limit=self.cap)
                 self.receipts[stream] = receipt
                 if receipt['bytes'] != self.stored[stream] or receipt['sha256'] != self.digest[stream].hexdigest():
-                    with self.lock:
-                        self.errors.append(stream + '_stored_mismatch')
+                    self.error(stream + '_stored_mismatch')
             except (Refusal, Absent, OSError):
-                with self.lock:
-                    self.errors.append(stream + '_verify_failed')
-        self.finished = True
+                self.error(stream + '_verify_failed')
+        self.finished = all_stopped
 
     def record(self):
-        with self.lock:
-            complete = self.started and all(self.done.values())
-            exact = self._prefix_ok(self.lines) and len(self.lines) == len(self.expected)
-            files = {s: dict(file=self.FILES[s], bytes=self.receipts[s]['bytes'], sha256=self.receipts[s]['sha256'])
-                     if s in self.receipts else {'file': self.FILES[s], 'bytes': None, 'sha256': None} for s in self.STREAMS}
-            return {'files': files, 'seen_bytes': dict(self.seen), 'stored_bytes': dict(self.stored),
-                    'cap_bytes': self.cap, 'overflow': self.overflow, 'errors': list(self.errors),
-                    'drainers_started': self.started, 'drainers_complete': complete, 'finished': self.finished,
-                    'valid_grf_lines': len(self.lines), 'valid_grf_exact': exact,
-                    'valid': bool(complete and self.finished and exact and not self.errors and not self.overflow
-                                  and len(self.receipts) == len(self.STREAMS))}
+        try:
+            with self._locked():
+                complete = self.started and all(self.done.values())
+                exact = self._prefix_ok(self.lines) and len(self.lines) == len(self.expected)
+                files = {s: dict(file=self.FILES[s], bytes=self.receipts[s]['bytes'], sha256=self.receipts[s]['sha256'])
+                         if s in self.receipts else {'file': self.FILES[s], 'bytes': None, 'sha256': None} for s in self.STREAMS}
+                return {'files': files, 'seen_bytes': dict(self.seen), 'stored_bytes': dict(self.stored),
+                        'reserved_bytes': self.reserved_total, 'eof': dict(self.eof),
+                        'cap_bytes': self.cap, 'overflow': self.overflow, 'errors': list(self.errors),
+                        'drainers_started': self.started, 'drainers_complete': complete, 'finished': self.finished,
+                        'valid_grf_lines': len(self.lines), 'valid_grf_exact': exact,
+                        'valid': bool(complete and all(self.eof.values()) and self.finished and exact
+                                      and not self.errors and not self.overflow and len(self.receipts) == len(self.STREAMS))}
+        except Fatal:
+            return {'valid': False, 'finished': False, 'drainers_complete': False, 'errors': list(self.errors)}
 
 
 def unattempted(plan, reason):
@@ -1012,8 +1191,10 @@ class Observer:
     def fail(self, reason, detail=None):
         if self.halt is None:
             self.halt = reason
-        if detail:
-            self.errors.append(detail)
+        elif reason != self.halt and len(self.errors) < 64:
+            self.errors.append('later_' + reason)
+        if detail and len(self.errors) < 64:
+            self.errors.append(detail[:128])
 
     # -- private file writes
     def path(self, rel):
@@ -1125,9 +1306,12 @@ class Observer:
         by_name = {s['name']: s for s in self.natives}
         lines, single = [], True
         if self.diag is not None:
-            with self.diag.lock:
-                lines = [line for _, line in self.diag.lines]
-                single = len({stream for stream, _ in self.diag.lines}) <= 1
+            try:
+                snapshot = self.diag.snapshot_lines()
+                lines = [line for _, line in snapshot]
+                single = len({stream for stream, _ in snapshot}) <= 1
+            except Fatal:
+                single = False
         out = []
         for i, (name, (version, count)) in enumerate(zip(self.route['native_names'][1:], T07_VALID_GRF)):
             path = by_name[name]['path']
@@ -1136,7 +1320,7 @@ class Observer:
                    'observed_path_matches': False, 'observed_version': None, 'observed_count': None, 'valid': False}
             if observed:
                 row.update(observed_path_matches=observed.group(1) == path.encode('utf-8'),
-                           observed_version=observed.group(2).decode('ascii'), observed_count=int(observed.group(3)))
+                           observed_version=observed.group(2).decode('ascii'), observed_count=int(observed.group(3)) if len(observed.group(3)) <= 10 else None)
             row['valid'] = bool(single and i < len(lines) and lines[i] == self.expected_startup_lines()[i])
             out.append(row)
         return out
@@ -1169,7 +1353,8 @@ class Observer:
         self.report['launch']['pgid'] = pgid
         if pgid != self.proc.pid:
             raise Fatal('launch_identity')
-        self.diag.start(self.ops.start_thread)
+        self.diag.clock, self.diag.deadline = self.ops.clock, ready_by
+        self.diag.start(self.ops.start_diagnostic_thread)
         self._startup_check(ready_by)
         self.checkpoint()  # PID/PGID/port recorded before any request.
         self._startup_check(ready_by)
@@ -1237,40 +1422,55 @@ class Observer:
         written = [0]
 
         def counted_write(target_fd, buffer):
+            self.diag_check()
             wrote = (self.write_fn or os.write)(target_fd, buffer)
             if is_int(wrote) and 0 < wrote <= len(buffer):
                 written[0] += wrote
+            self.diag_check()
             return wrote
         metered = None
         try:
             try:
+                self.diag_check()
                 con = self.ops.connect(self.port, self.remaining_io())
+                self.diag_check()
             except Fatal:
                 raise
             except Exception:
+                self.diag_check()
                 record['stop_reason'] = 'connection_setup_error'
                 return None
             try:
+                self.diag_check()
                 con.request('GET', wire, headers={'Accept-Encoding': 'identity'})
+                self.diag_check()
                 if getattr(con, 'sock', None) is not None:
                     con.sock.settimeout(self.remaining_io())
+                self.diag_check()
                 response = con.getresponse()
+                record['http_status'] = response.status
+                self.diag_check()
             except Fatal:
                 raise
             except socket.timeout:
+                self.diag_check()
                 record['stop_reason'] = 'timeout'
                 return None
             except Exception:
+                self.diag_check()
                 record['stop_reason'] = 'transport_error'
                 return None
-            record['http_status'] = response.status
             self.diag_check()
-            headers, malformed = {}, False
+            headers, malformed = dict.fromkeys(key for key, _ in HEADER_NAMES), False
+            record['headers'] = headers
             for key, header in HEADER_NAMES:
+                self.diag_check()
                 value = response.getheader(header)
                 if value is not None and (not isinstance(value, str) or len(value.encode('utf-8', 'surrogateescape')) > HEADER_MAX):
                     value, malformed = None, True
                 headers[key] = value
+                self.diag_check()
+            self.diag_check()
             record['headers'] = headers
             if malformed:
                 record['stop_reason'] = 'malformed_header'
@@ -1284,6 +1484,8 @@ class Observer:
             record['stored']['file'] = name
             os.fchmod(fd, 0o600)
             metered = _Metered(response, lambda: con.sock.settimeout(self.remaining_io()) if getattr(con, 'sock', None) is not None else None)
+            metered.check = self.diag_check
+            self.diag_check()
             aggregate_left = max(0, self.policy['aggregate_bytes_including_health'] - self.wire_total)
             try:
                 result = transfer(metered, fd, body_cap=cap, aggregate_left=aggregate_left, deadline=self.deadline,
@@ -1298,15 +1500,23 @@ class Observer:
             self.diag_check()
             return result
         except Fatal as fatal:
-            if fatal.reason == 'acquisition_deadline' and record.get('stop_reason') in (None, 'not_started'):
-                record['stop_reason'] = 'deadline'
+            self.fail(fatal.reason)  # First operation failure precedes all finally closers.
+            if record.get('stop_reason') in (None, 'not_started'):
+                record['stop_reason'] = 'deadline' if fatal.reason == 'acquisition_deadline' else fatal.reason
+            raise
+        except OSError:
+            self.fail('storage_failure', 'request_storage_error')
+            record['stored']['error'] = 'storage_error'
+            record['stop_reason'] = 'storage_error'
+            raise Fatal('storage_failure')
+        except Exception as exc:
+            self.fail('internal_failure', 'request_' + type(exc).__name__)
             raise
         finally:
             if metered is not None:
                 record['wire_bytes'] = metered.wire
                 record['wire_complete'] = metered.complete
                 self.wire_total += metered.wire
-            close_failed = False
             for closer in (response, con):
                 if closer is not None:
                     try:
@@ -1317,13 +1527,13 @@ class Observer:
                 try:
                     os.close(fd)
                 except OSError:
-                    close_failed = True
-                    record['stored']['error'] = 'storage_close_error'
+                    record['stored']['error'] = record['stored']['error'] or 'storage_close_error'
+                    self.fail('storage_failure', 'storage_close_error')
             record['finished_elapsed_seconds'] = self.elapsed()
             if fd is not None:
                 self.verify_stored(record, result, written[0])
-            if close_failed:
-                self.fail('storage_failure', 'storage_close_error')
+            if self.diag is not None and self.diag.failed():
+                self.fail('diagnostic_failure', 'request_final_diagnostics')
 
     def diag_check(self):
         if self.diag is not None and self.diag.failed():
@@ -1416,6 +1626,7 @@ class Observer:
                 raise Fatal('acquisition_deadline')
         if result['late']:
             raise Fatal('acquisition_deadline')
+        self.diag_check()
         if not record['valid']:
             raise Fatal('health_failure')
 
@@ -1466,6 +1677,7 @@ class Observer:
         if result['late'] or self.ops.clock() >= self.deadline:  # After the final metadata observation.
             record['valid'] = False
             raise Fatal('acquisition_deadline')
+        self.diag_check()
         if not record['valid']:
             raise Fatal('cache_failure')
 
@@ -1507,37 +1719,65 @@ class Observer:
     # -- shutdown and audits
     def shutdown(self):
         cleanup = {'listener_before_shutdown': None, 'terminated': False, 'forced_kill': False, 'exit_code': None,
-                   'listener_absent': None, 'group_members_after': None, 'error': None, 'clean': False}
+                   'listener_absent': None, 'group_members_after': None, 'error': None, 'errors': [], 'clean': False}
         self.report['cleanup'] = cleanup
+
+        def fault(phase, exc):
+            code = phase + '_' + type(exc).__name__
+            if cleanup['error'] is None:
+                cleanup['error'] = ('listener_' if phase == 'listener_before' else '') + type(exc).__name__
+            if len(cleanup['errors']) < 16:
+                cleanup['errors'].append(code)
+            self.fail('cleanup_failure', code)
+
         if self.proc is None:
             cleanup.update(listener_absent=True, group_members_after=[], clean=True)
             if self.port is not None:
-                cleanup['listener_absent'] = not self.ops.port_listeners(self.port)
-            return
-        try:
-            if self.proc.poll() is None:
                 try:
-                    cleanup['listener_before_shutdown'] = self.ops.owned_listener(self.proc.pid, self.port)
+                    cleanup['listener_absent'] = not self.ops.port_listeners(self.port)
                 except Exception as exc:
-                    cleanup['error'] = 'listener_' + type(exc).__name__
-                self.proc.terminate()  # Only the owned Popen child; never by name/port.
+                    fault('listener_after', exc)
+                cleanup['clean'] = cleanup['error'] is None and cleanup['listener_absent'] is True
+            return
+        running = True  # Unknown poll cannot revoke ownership of the Popen child.
+        try:
+            running = self.proc.poll() is None
+        except Exception as exc:
+            fault('poll', exc)
+        try:
+            cleanup['listener_before_shutdown'] = self.ops.owned_listener(self.proc.pid, self.port)
+        except Exception as exc:
+            fault('listener_before', exc)
+        if running:
+            try:
+                self.proc.terminate()  # Exact owned child only, never a group/name/port.
                 cleanup['terminated'] = True
-                try:
-                    self.proc.wait(timeout=8)
-                except subprocess.TimeoutExpired:
-                    cleanup['forced_kill'] = True
-                    self.proc.kill()
-                    self.proc.wait(timeout=8)
-            else:
-                cleanup['listener_before_shutdown'] = False
-            cleanup['exit_code'] = self.proc.poll()
+            except Exception as exc:
+                fault('terminate', exc)
+        try:
+            cleanup['exit_code'] = self.proc.wait(timeout=8)
+        except subprocess.TimeoutExpired:
+            cleanup['forced_kill'] = True
+            try:
+                self.proc.kill()
+            except Exception as exc:
+                fault('kill', exc)
+            try:
+                cleanup['exit_code'] = self.proc.wait(timeout=8)
+            except Exception as exc:
+                fault('forced_wait', exc)
+        except Exception as exc:
+            fault('wait', exc)
+        try:
             cleanup['listener_absent'] = not self.ops.port_listeners(self.port)
-            pgid = self.report['launch']['pgid']
-            if self.split and pgid is None:
-                raise Refusal('pgid_unknown')  # Never list or signal an unknown group.
+        except Exception as exc:
+            fault('listener_after', exc)
+        pgid = (self.report['launch'] or {}).get('pgid')
+        try:
+            require(is_int(pgid) and pgid == self.proc.pid, 'pgid_unknown')
             cleanup['group_members_after'] = self.ops.group_members(pgid)
         except Exception as exc:
-            cleanup['error'] = type(exc).__name__
+            fault('group_after', exc)
         cleanup['clean'] = bool(cleanup['error'] is None and not cleanup['forced_kill'] and cleanup['exit_code'] == 0
                                 and cleanup['listener_before_shutdown'] is True
                                 and cleanup['listener_absent'] is True and cleanup['group_members_after'] == [])
@@ -1720,8 +1960,7 @@ class Observer:
         try:
             self.diag.finish()
         except Exception as exc:
-            with self.diag.lock:
-                self.diag.errors.append('finish_' + type(exc).__name__)
+            self.diag.error('finish_' + type(exc).__name__)
         self.report['diagnostics'] = self.diag.record()
         self.report['startup_archive_counts'] = self.startup_archive_counts()
         if not self.report['diagnostics']['valid']:
@@ -1794,14 +2033,18 @@ class Observer:
             self.launch()
             self.epoch = self.ops.clock()
             self.deadline = self.epoch + self.policy['acquisition_seconds']
+            if self.diag is not None:
+                self.diag.deadline = self.deadline
             self.health()
             if self.split:
                 self.cache_stats('cache_before')  # Before the first asset.
             self.scan()
             if self.split and not self.halt:
                 self.cache_stats('cache_after')  # After the final asset.
+            self.diag_check()
             if not self.halt and not (self.proc.poll() is None and self.ops.owned_listener(self.proc.pid, self.port)):
                 self.fail('reader_lost')
+            self.diag_check()
             if self.deadline is not None and self.ops.clock() >= self.deadline:
                 self.fail('acquisition_deadline')
         except Fatal as fatal:

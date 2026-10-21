@@ -105,12 +105,12 @@ python3 tools/renewal/observe_map_dependencies.py --preflight \
 Both test variables default to the canonical checkout layout and never bypass CLI pins. Old preflight
 against the canonical root refuses (`admit_size`, integrated .005 producer drift) — expected evidence.
 
-**Metadata admission.** `check_profile` requires the exact task/policy, the six ordered native names
+**Metadata admission.** `check_profile` requires the exact task/policy, the six complete ordered native descriptors (name/base/path/bytes/full SHA)
 (reader under `input_root`, then DATA.INI 0..4: the two 2026-08-25 GPFs, event, data0, data — an
 experimental order, not publisher priority), `input_root` bases only (HOME is never looked up), the exact 22
 ordered source paths (old 16 with only the prior profile path replaced, plus Ground.js and the .004
 profile/manifest/worker/producer/summary), producer 48337 bytes `546ab293…ea89`, prior .005 profile 4649
-bytes `c0dccf5d…7034` and the catalog pin. All 22 sources keep stable regular/no-symlink full byte/SHA
+bytes `c0dccf5d…7034` and the catalog pin. All 22 sources keep stable regular/single-link/no-symlink full byte/SHA
 admission; the .005 profile, .004 profile and manifest are parsed as data, never executed.
 `validate_catalog_t07` checks the exact catalog key set, schema/task `T07.007.005`/mode, `profile_sha256`,
 ordered `input_pins` (report.json/jobs.jsonl/constructor_manifest), constructor task/worker/producer,
@@ -133,8 +133,9 @@ no `GRF_FILENAME_ENCODING`. The 25 s startup clock starts immediately before `Po
 `getpgid`, drainer start, the launch checkpoint and every listener/diagnostic observation. Pipes are adopted
 right after `Popen`; drainer threads retain at most 16 MiB combined, preserve LF framing across chunks and
 require exactly five ordered `  Valid GRF: PATH (version V, N files)` lines (two leading spaces; one stream)
-matching the frozen tuples. Diagnostic failure is checked before connect, after headers and after each
-transfer, and again after cleanup, so a late failure sets `diagnostic_failure`. Requests are health,
+matching the frozen tuples. Diagnostic failure is checked before and after connect, GET, response headers, each streamed read and
+each confirmed positive physical body write, plus final observations and cleanup. Received/stored prefixes
+are charged before the post-operation guard; a diagnostic `Fatal` propagates through `transfer`. Requests are health,
 cache-stats, the 311 assets, cache-stats (≤314, cap enforced). Health requires `version` `1.0.5`; each cache
 observation requires integer `index.grfCount=5`, `cache.size=0`, `cache.maxSize=0` (bool/float/string/null
 refused) and records the other fields as observations. A clock check follows each final metadata parse.
@@ -160,7 +161,11 @@ before fixture deletion. Tiny stand-in native files and pipes live only under ig
 
 ## Limitations
 
-- Candidate only; no live native run was performed by the worker. Root executes the selected driver.
+- Candidate only; no live native run was performed by the worker. Root independently verifies the corrected driver and exact guarded invocation before execution.
+- Python threads cannot cancel an arbitrary kernel-stalled regular-file syscall. Diagnostic writes assume
+  ordinary private local storage returns; finite pauses/errors/EINTR are tested. A worker exceeding the
+  shared join allowance remains incomplete, with its FDs retained and qualification false. The unchanged
+  external guard remains necessary; neither the join nor guard establishes universal OS containment.
 - T07 route: metadata preflight and fake I/O never touch the six native inputs or prove availability; the
   five-archive order, startup literal and cache fields are artifact observations, not source parity.
 - Listener ownership is checked with `lsof` at readiness, after transport faults and before shutdown,
@@ -170,3 +175,74 @@ before fixture deletion. Tiny stand-in native files and pipes live only under ig
 - Signature state is recorded only for complete stored 200 responses; it is a magic check, not parsing.
 
 Rollback: `git revert` of the candidate commit. Private outputs live only under `.tools/renewal`.
+
+
+## T07.007.006 repair candidate — 2026-10-21
+
+Implementation-only repair on base `c884d8b9d15d658dce980901c1ee82d22a552879`, after unchanged selected
+Claude integration `895a18f662e8fb0f0d6d9b288da80fd6cd759bb7`. This is separate from the completed
+Claude/Grok comparison and is not coordinator verification or user acceptance. Dispatch
+`task_abc9af01b76e` / `ctx_82057a34eab8` owns only this runbook, the driver and its tests. The source
+uses the admitted root clarification (9560 bytes, SHA256
+`02827bd87723f59a3f06aa87ce52c326250c7b5a57ef2f8096b677fcf28f96b6`); final-only staging is not used.
+
+The two diagnostic workers reserve a prefix from one monotonic combined budget under a short lock,
+then write outside it. Every positive physical write updates stored bytes, hash and startup framing;
+unused reservation is never refunded after a fault. Startup readiness also requires no reserved write
+in flight. The existing overflow assertion remains seen65/stored10. Reads are nonblocking with20ms
+stop-aware polls; read/write EINTR is limited to16 consecutive interruptions. Lock acquisition has a
+50ms ceiling bounded by the remaining phase/drain allowance, with a nonblocking error fallback.
+One8s join allowance covers both workers, reserving its final1s for stop/join. EOF and cancellation are
+reported separately. Output/source handles are removed from ownership only after the corresponding
+worker is proved stopped; a later finish cannot close a stale numeric FD.
+
+`Diagnostics.start` now creates/registers each unstarted `Thread` before the new narrow
+`SystemOps.start_diagnostic_thread(thread)` hook. This hook replaces the former asynchronous factory
+only on the T07 route. Existing `SystemOps.start_thread(target,name)` and all shared helper signatures,
+including legacy `write_all`, remain unchanged. Root stand-ins injecting a diagnostic start failure
+must use the new hook; a start-then-raise failure is explicitly tested. No generic runner is introduced.
+
+Metadata rejects hardlinks at initial, opened and final admission, compares all six native descriptors
+against fixed source values, and uses typed counts/policy/header/index relationships. The two exact
+profile descriptors and all frozen input/source pins remain unchanged. Decimal startup counts longer
+than10digits are retained as malformed observations with null counts, without an unbounded integer
+conversion; all five association records still publish on failure. Operation failures are recorded
+before response/connection/file closers; later cleanup/publication/diagnostic faults remain separate,
+bounded generic codes. Listener/group observation failures do not suppress exact-child TERM/wait or
+other independent cleanup observations. No group or foreign-PID signaling is added.
+
+Verification commands use the two input roots shown above, `PYTHONDONTWRITEBYTECODE=1`, and no HOME
+in the final subprocess environment. Private stdout/stderr and the machine-readable receipt are under
+`.tools/renewal/t07-007-006-repair-verification-1` in this child (0700/0600). The final receipt records
+exact argv, exit codes, elapsed time, output/source hashes and the OS child high-water mark; that is
+not sampled combined driver/native RSS. The worker does not run root private controls/oracles or the
+external scan guard and does not claim their results.
+
+The85test methods comprise all69original selected methods plus16repair methods, with no skips.
+AST comparison confirms every original test body is unchanged; only T07 fake thread-start plumbing
+moves to the registered-worker hook. New finite controls cover30native-field mutations, typed policy/
+counts/header/index refusals, a physical hardlink, partial reserved cap/hash evidence, six synchronized
+HTTP phase stops, storage-before-close ordering, three independent cleanup-observation faults,
+5000-digit startup count failure, start-then-raise and output-fchmod ownership, delayed-writer lock
+access, held-open pipe cancellation,16-read/16-write EINTR exhaustion, post-write deadline, bounded
+lock timeout and close-once behavior. The delayed-writer test has a2s fallback and finally release;
+it observes the live FD retained before release, joins the worker, and checks ownership before deleting
+its fixture. The original first-write zero/error and later-startup-write failure controls require zero GETs.
+
+Final worker results: **85/85 tests, zero skips**, unittest14.135s / subprocess wall14.568904s.
+Legacy metadata preflight exits0 in1.105906s; new311-target metadata preflight exits0 in0.211481s;
+canonical legacy drift refuses exit2/`admit_size` in0.201203s. All44admitted metadata files retain
+identical complete before/after identity/size/SHA receipts. The verification process observes an OS
+child high-water mark of807862272bytes (not a native/combined sample). The final driver is112136bytes,
+SHA256`0e691c1e93b726cf2819f473745864469d7c2c49aebe89c0b4115f2bd7722750`; tests131582bytes,
+SHA256`e4ce441a78cda18fc67e0fbe027b5f37b55569e88c8f5ee9ae009dc9e57bbc09`.
+Private `receipt.json` SHA256`dd9b0d5dd1606f33ee7c2e3433f1becb32b2672d7978025f7559b6248fee3221`.
+All earlier failing runs concerned the implementation/fixture corrections described above; these are
+final candidate results, without any claim of root control, guard or native-scan qualification.
+
+The root coordinator is the next owner: read this candidate, personally rerun the common retained and
+private controls (including the new start hook), qualify exact guarded invocation and full output, then
+consider the actual311-target scan. No native/archive/body input, actual HTTP/service, app/world/save,
+OS settings, build/install, sibling .007 work, publication or default-branch merge was performed.
+The full Modern/Renewal goal,82world gaps and all downstream render/play/story acceptance remain open.
+Rollback is a separate source revert; this repair changed no original game state.
