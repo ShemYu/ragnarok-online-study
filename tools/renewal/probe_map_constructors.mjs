@@ -1,8 +1,11 @@
 #!/usr/bin/env node
-// T06.003.003.003 real client core-map constructor runner (parent/CLI).
+// Real client core-map constructor runner (parent/CLI).
+// Admits the original T06.003.003.003 profile and one exact T07.007.004 profile.
 // Runs the unmodified pinned World/Ground/Altitude constructors, one isolated
 // worker per job, and records bounded common summaries. Constructor return is
 // an observation only: not format validity, rendering or playable coverage.
+// Profile baseline_tools hashes are provenance for the pre-change parent. This
+// process does not report those hashes as its own program identity.
 import crypto from 'node:crypto';
 import fs from 'node:fs';
 import path from 'node:path';
@@ -14,6 +17,61 @@ import { MODULE_KEYS } from './map_constructor_worker.mjs';
 
 export const PROFILE_SHA256 = 'b6635a65db373f5240112734e1f51311851101603323fe1d5300dfaa1c74cf5c';
 export const PROFILE_MAX_BYTES = 65536;
+
+const SOURCE_PINS = Object.freeze({
+  'src/Loaders/World.js': Object.freeze({ bytes: 6110, sha256: 'e1f6d5e52fe84c2a31c4f8f13e5be20cb6f93b2675c6f7615ac295be47f5a68e' }),
+  'src/Loaders/Ground.js': Object.freeze({ bytes: 20029, sha256: '8b82cf7321123054cf2bbeff1816931c7f3fc7833ae7af916077691d871f2db0' }),
+  'src/Loaders/Altitude.js': Object.freeze({ bytes: 3131, sha256: 'e27f5b746bb8fa77aadb59633dfbc0339f922bc4df69615a066288a6cf160b95' }),
+  'src/Utils/BinaryReader.js': Object.freeze({ bytes: 8233, sha256: 'bcf694b7034e36146eed1d5a2d7d5cf93d8a52aeafa74e62f0beed4c1ecc9215' }),
+  'src/Utils/Struct.js': Object.freeze({ bytes: 1732, sha256: '03dedc9bf39943ff027c80d9a81ebfc2a15549c08ec3a1d7e725fb93e3ecf0b7' }),
+  'src/Utils/CodepageManager.js': Object.freeze({ bytes: 6298, sha256: '35fc6861784c27ce417697f8c4f2e999a7703bb89741b2ddb3ea0afc44c7733e' }),
+  'src/Utils/gl-matrix.js': Object.freeze({ bytes: 9153, sha256: '46725df08241575dd60a98dbea9a035af0dc69d89c2538c2938018cfa091ea29' }),
+  'src/Vendors/gl-matrix.js': Object.freeze({ bytes: 110302, sha256: 'bdf9ed62160fc270e995aa1a3c97eb8dac69fbd02d3141ed766a8306d2ce8f59' }),
+  'src/Vendors/iconv-lite.js': Object.freeze({ bytes: 644664, sha256: 'a7663d70d99a455b964c223eb26db6c048bfd7977d6583e8e9fd7a79e17a0303' })
+});
+const SUMMARY_PIN = Object.freeze({
+  path: 'tools/renewal/map_constructor_summary.mjs', bytes: 5052,
+  sha256: '33cdb4ce770b32cdbe061f4f2415e8b5808e3f02d0e7f870250f11f486b3ddf1'
+});
+const AUTHORED_PIN = Object.freeze({
+  path: 'docs/project/fixtures/T06.003.003.003-authored.json', bytes: 51578,
+  sha256: 'fa5711ba3834bc8826f68b40da0d59ed9e3d765b5d0b254ffa8ab487e21ce65f'
+});
+const WORKER_PIN = Object.freeze({
+  path: 'tools/renewal/map_constructor_worker.mjs', bytes: 9132,
+  sha256: '1a7bdf5693364800b23c2ba2a4eb052c0521527b89732e857d55ea406e0ec395'
+});
+const COUNT_KEYS = ['roots', 'observed', 'unavailable_roots', 'jobs', 'edge_references'];
+const T07_ROOT_NAMES = ['mu_fild01', 'ygg_edge', 'ygg_fruit', 'ygg_roots'];
+const T07_KIND_ORDER = ['gat', 'gnd', 'rsw'];
+
+// Exact pair. Each entry binds one profile hash to its task, manifest, counts
+// and the immutable summary/source pins. Only the new entry binds the worker.
+export const PROFILE_ALLOWLIST = Object.freeze([
+  Object.freeze({
+    sha256: PROFILE_SHA256, bytes: 3074, schema: 'T06-map-constructor-profile-1', task: 'T06.003.003.003',
+    manifest: Object.freeze({
+      path: '.tools/renewal/t06-map-parse-preparation-1/combined-parser-input-1.json', bytes: 3711287,
+      sha256: 'c2dd107007f21c6d12e46f93024137efea3967c9a9cb0614f37e4ecf9bbe09e7'
+    }),
+    counts: Object.freeze({ roots: 1296, observed: 1214, unavailable_roots: 82, jobs: 2761, edge_references: 3642 }),
+    summary: SUMMARY_PIN, authored: AUTHORED_PIN, sources: SOURCE_PINS, worker: null
+  }),
+  Object.freeze({
+    sha256: 'f4ed366d2da83eec2aed5a25178ce826d15b43bb7a8b6c583e023c616b47e56e', bytes: 3924,
+    schema: 'T06-map-constructor-profile-1', task: 'T07.007.004',
+    manifest: Object.freeze({
+      path: '.tools/renewal/t07-007-004-constructor-input-1/input-manifest.json', bytes: 10338,
+      sha256: '37f038082891a626ab1251fd3bd697d73a867f9dca90ba89288f5b18e6be2161'
+    }),
+    counts: Object.freeze({ roots: 4, observed: 4, unavailable_roots: 0, jobs: 12, edge_references: 12 }),
+    summary: SUMMARY_PIN, authored: AUTHORED_PIN, sources: SOURCE_PINS, worker: WORKER_PIN
+  })
+]);
+
+export function profileEntryFor(digest) {
+  return PROFILE_ALLOWLIST.find((entry) => entry.sha256 === digest) || null;
+}
 export const KINDS = ['rsw', 'gnd', 'gat'];
 export const OUTCOMES = ['returned', 'constructor_exception', 'summary_error', 'summary_limit', 'input_refused',
   'environment_failure', 'timeout', 'resource_refusal', 'worker_error', 'unattempted'];
@@ -132,19 +190,32 @@ function readJson(buffer, label) {
   try { return JSON.parse(buffer.toString('utf8')); } catch { throw new Refusal('invalid_json', label); }
 }
 
-export function validateProfile(profile) {
+function sameBoundPin(actual, expected) {
+  return !!actual && actual.path === expected.path && actual.bytes === expected.bytes && actual.sha256 === expected.sha256;
+}
+
+// `entry` is the allowlist row for the profile bytes. Omitted, the schema/task
+// pair selects that row. A profile matches only its own admitted row.
+export function validateProfile(profile, entry) {
   const fail = (d) => { throw new Refusal('profile_invalid', d); };
-  if (!profile || profile.schema !== 'T06-map-constructor-profile-1' || profile.task !== 'T06.003.003.003') fail('schema');
+  const admitted = entry || PROFILE_ALLOWLIST.find((item) => item.schema === profile?.schema && item.task === profile?.task);
+  if (!admitted || profile?.schema !== admitted.schema || profile?.task !== admitted.task) fail('schema');
   const keys = Object.keys(profile.sources || {});
   if (keys.length !== MODULE_KEYS.length || !MODULE_KEYS.every((k) => keys.includes(k))) fail('sources');
-  for (const k of keys) {
+  for (const k of MODULE_KEYS) {
     const s = profile.sources[k];
-    if (!Number.isSafeInteger(s.bytes) || !isHex64(s.sha256)) fail(`source ${k}`);
+    const bound = admitted.sources[k];
+    if (!s || !Number.isSafeInteger(s.bytes) || !isHex64(s.sha256) || !bound || s.bytes !== bound.bytes || s.sha256 !== bound.sha256) {
+      fail(`source ${k}`);
+    }
   }
   for (const k of ['summary', 'authored', 'manifest']) {
     const s = profile[k];
-    if (!s || typeof s.path !== 'string' || !Number.isSafeInteger(s.bytes) || !isHex64(s.sha256)) fail(k);
+    if (!s || typeof s.path !== 'string' || !Number.isSafeInteger(s.bytes) || !isHex64(s.sha256) || !sameBoundPin(s, admitted[k])) fail(k);
   }
+  const counts = profile.counts || {};
+  for (const k of COUNT_KEYS) if (counts[k] !== admitted.counts[k]) fail(`counts ${k}`);
+  if (admitted.worker && !sameBoundPin(profile.worker, admitted.worker)) fail('worker');
   const p = profile.policy || {};
   for (const k of ['max_body_bytes', 'max_manifest_bytes', 'max_fixture_bytes', 'worker_heap_mib', 'rss_limit_bytes', 'rss_sample_ms',
     'job_timeout_ms', 'module_timeout_ms', 'constructor_timeout_ms', 'run_timeout_ms', 'max_job_json_bytes', 'max_jobs_jsonl_bytes',
@@ -203,6 +274,25 @@ export function manifestJobs(doc, profile) {
     }
   }
   if (refs !== c.edge_references) fail('edge reference count differs from profile');
+  if (profile.task === 'T07.007.004') {
+    if (doc.task !== 'T07.007.004') fail('task');
+    const declared = doc.counts || {};
+    for (const k of COUNT_KEYS) if (declared[k] !== c[k]) fail(`manifest count ${k}`);
+    if (!Array.isArray(doc.remaining_gap_root_ordinals) || doc.remaining_gap_root_ordinals.length !== 0) fail('gap list');
+    doc.roots.forEach((r, i) => {
+      if (r.ordinal !== i || r.name !== T07_ROOT_NAMES[i] || r.ordinal_scope !== 'four-target-subset-only') fail(`root ${i} identity`);
+      if (r.original_gap_root_ordinal !== null) fail(`root ${i} gap ordinal`);
+      T07_KIND_ORDER.forEach((kind, offset) => {
+        const id = `target-${String(i * 3 + offset).padStart(3, '0')}:${kind}`;
+        if (r.edges[kind].job_id !== id) fail(`root ${i} ${kind} linkage`);
+      });
+    });
+    jobs.forEach((job, i) => {
+      const kind = T07_KIND_ORDER[i % 3];
+      const id = `target-${String(i).padStart(3, '0')}:${kind}`;
+      if (job.id !== id || job.kind !== kind) fail(`job ${i} id/kind`);
+    });
+  }
   return jobs;
 }
 
@@ -222,11 +312,30 @@ export function unattemptedRow(job, reason) {
     worker_started: false, cleanup: { exit_observed: null } };
 }
 
+function assertPinnedIdentity(pin, label) {
+  let st;
+  try { st = fs.lstatSync(pin.path, { bigint: true }); }
+  catch (error) { throw new Refusal('missing_input', `${label} (${error.code})`); }
+  if (st.isSymbolicLink()) throw new Refusal('symlink_refused', label);
+  if (!st.isFile()) throw new Refusal('special_file_refused', label);
+  if (!sameIdentity(pin.identity, identityOf(st))) throw new Refusal('identity_changed', label);
+}
+
 // Run one job in a fresh worker; resolves only after exit is observed or cleanup is declared unverified.
 export function runWorkerJob(job, bytes, ctx) {
-  const { policy, sources, summaryText, runDeadline, rss } = ctx;
+  const { policy, sources, summaryText, runDeadline, rss, workerPin } = ctx;
   return new Promise((resolve) => {
     const t0 = performance.now();
+    if (workerPin) {
+      try { assertPinnedIdentity(workerPin, 'worker'); }
+      catch (error) {
+        resolve({ ...baseRow(job), outcome: 'environment_failure', reason: error.reason || 'worker_pin',
+          constructor_returned: false, elapsed_ms: Math.round((performance.now() - t0) * 1000) / 1000,
+          worker_started: false, cleanup: { exit_observed: null },
+          exception: exceptionInfo(error, 'worker_pin', policy) });
+        return;
+      }
+    }
     const jobDeadline = Math.min(Date.now() + policy.job_timeout_ms, runDeadline);
     const ab = bytes.buffer.slice(bytes.byteOffset, bytes.byteOffset + bytes.byteLength);
     let worker;
@@ -483,8 +592,10 @@ function prepare(opts) {
   if (!output.startsWith(privateRoot + path.sep)) throw new Refusal('path_refused', 'output must be below this checkout .tools/renewal');
   if (fs.existsSync(output) || isLink(output)) throw new Refusal('output_exists', 'output path already exists');
   if (output === clientSource || output.startsWith(clientSource + path.sep)) throw new Refusal('path_refused', 'output inside client-source');
-  const profileFile = readPinnedFile(path.resolve(opts.profile), { label: 'profile', maxBytes: PROFILE_MAX_BYTES, expectSha: PROFILE_SHA256 });
-  const profile = validateProfile(readJson(profileFile.buffer, 'profile'));
+  const profileFile = readPinnedFile(path.resolve(opts.profile), { label: 'profile', maxBytes: PROFILE_MAX_BYTES });
+  const entry = profileEntryFor(profileFile.sha256);
+  if (!entry || profileFile.bytes !== entry.bytes) throw new Refusal('pin_mismatch', 'profile sha256');
+  const profile = validateProfile(readJson(profileFile.buffer, 'profile'), entry);
   const pins = [{ role: 'profile', path: path.resolve(opts.profile), bytes: profileFile.bytes, sha256: profileFile.sha256, identity: profileFile.identity }];
   const summaryAbs = safeJoin(REPO_ROOT, profile.summary.path, 'summary');
   const summary = readPinnedFile(summaryAbs, { label: 'summary', maxBytes: profile.summary.bytes, expectBytes: profile.summary.bytes, expectSha: profile.summary.sha256 });
@@ -496,6 +607,15 @@ function prepare(opts) {
     const f = readPinnedFile(abs, { label: `source ${key}`, maxBytes: pin.bytes, expectBytes: pin.bytes, expectSha: pin.sha256 });
     sources[key] = f.buffer.toString('utf8');
     sourcePins.push({ path: key, bytes: f.bytes, sha256: f.sha256, verified: true, identity: f.identity, abs });
+  }
+  let workerFile = null; let workerPin = null;
+  if (entry.worker) {
+    const workerAbs = safeJoin(REPO_ROOT, entry.worker.path, 'worker');
+    workerFile = readPinnedFile(workerAbs, {
+      label: 'worker', maxBytes: entry.worker.bytes, expectBytes: entry.worker.bytes, expectSha: entry.worker.sha256
+    });
+    workerPin = { role: 'worker', path: workerAbs, abs: workerAbs, bytes: workerFile.bytes, sha256: workerFile.sha256, identity: workerFile.identity };
+    pins.push(workerPin);
   }
   const p = profile.policy;
   let mode, inputFile, inputAbs, jobs, manifest = null;
@@ -520,8 +640,8 @@ function prepare(opts) {
   const suffix = new Array(jobs.length + 1).fill(0);
   for (let i = jobs.length - 1; i >= 0; i--) suffix[i] = suffix[i + 1] + reserve[i];
   if (suffix[0] > policy.max_jobs_jsonl_bytes) throw new Refusal('output_budget', 'jobs.jsonl cannot account for every job');
-  return { opts, inputRoot, clientSource, output, profile, profileSha: profileFile.sha256, summary, sources, sourcePins, pins, mode,
-    inputAbs, inputFile, jobs, manifest, policy, suffix, summaryText: summary.buffer.toString('utf8') };
+  return { opts, inputRoot, clientSource, output, profile, entry, profileSha: profileFile.sha256, summary, sources, sourcePins, pins, mode,
+    inputAbs, inputFile, jobs, manifest, policy, suffix, summaryText: summary.buffer.toString('utf8'), workerFile, workerPin };
 }
 
 function isLink(p) { try { return fs.lstatSync(p).isSymbolicLink(); } catch { return false; } }
@@ -559,7 +679,7 @@ async function run(P, say) {
   const cleanup = { workers_started: 0, exits_observed: 0, unverified: [], halted: null };
   const authored = { matched: 0, mismatched: [] };
   let halt = null; let incomplete = false;
-  const ctx = { policy, sources: P.sources, summaryText: P.summaryText, runDeadline, rss };
+  const ctx = { policy, sources: P.sources, summaryText: P.summaryText, runDeadline, rss, workerPin: P.workerPin };
   try {
     for (let i = 0; i < jobs.length; i++) {
       if (rss.over) halt ||= 'rss_limit';
@@ -585,6 +705,7 @@ async function run(P, say) {
             else { cleanup.unverified.push(job.id); halt = 'cleanup_unverified'; }
           }
           if (row.outcome === 'timeout' && row.reason === 'run_deadline') halt = halt || 'run_deadline';
+          if (row.exception && row.exception.phase === 'worker_pin') halt = halt || 'worker_pin';
         }
       }
       let selected = boundedRow(row, policy, policy.max_total_log_bytes - out.logBytes);
@@ -619,9 +740,12 @@ async function run(P, say) {
   cleanup.halted = halt;
   const identityUnchanged = recheckIdentity([...P.pins, ...P.sourcePins]);
   const report = {
-    schema: 'T06-map-constructor-report-1', task: 'T06.003.003.003', mode,
+    schema: 'T06-map-constructor-report-1', task: P.profile.task, mode,
     input: { path: P.inputAbs, bytes: P.inputFile.bytes, sha256: P.inputFile.sha256 },
     profile_sha256: P.profileSha, summary_sha256: P.summary.sha256,
+    ...(P.workerFile ? { worker: {
+      path: P.entry.worker.path, bytes: P.workerFile.bytes, sha256: P.workerFile.sha256, verified: true
+    } } : {}),
     client_source: { root: P.clientSource, profile_revision: P.profile.client_source_revision, revision_checked: false,
       sources: P.sourcePins.map(({ path: p, bytes, sha256: s, verified }) => ({ path: p, bytes, sha256: s, verified })) },
     pinned_inputs_identity_unchanged_after_run: identityUnchanged,

@@ -10,7 +10,7 @@ import test from 'node:test';
 import { fileURLToPath, pathToFileURL } from 'node:url';
 import { EventEmitter } from 'node:events';
 import vm from 'node:vm';
-import { main, writeAll, boundedRow, corpusRoots, effectivePolicy, manifestJobs, readJobBody, readPinnedFile, Refusal, safeJoin } from './probe_map_constructors.mjs';
+import { main, writeAll, boundedRow, corpusRoots, effectivePolicy, manifestJobs, profileEntryFor, PROFILE_ALLOWLIST, readJobBody, readPinnedFile, Refusal, runWorkerJob, safeJoin, validateProfile } from './probe_map_constructors.mjs';
 import { createRealm, MODULE_KEYS, resolveSpecifier } from './map_constructor_worker.mjs';
 
 process.umask(0o077);
@@ -20,9 +20,12 @@ const INPUT_ROOT = process.env.T06_INPUT_ROOT ||
   path.resolve(REPO, '..', 'reverse-the-Ragnarok-Online-to-play-by-myself');
 const CLIENT = path.join(INPUT_ROOT, '.tools', 'renewal', 'client-source');
 const PROFILE = path.join(REPO, 'docs/project/fixtures/T06.003.003.003-profile.json');
+const NEW_PROFILE = path.join(REPO, 'docs/project/fixtures/T07.007.004-profile.json');
 const FIXTURES = path.join(REPO, 'docs/project/fixtures/T06.003.003.003-authored.json');
+const NEW_MANIFEST = path.join(INPUT_ROOT, '.tools/renewal/t07-007-004-constructor-input-1/input-manifest.json');
 const SCRIPT = path.join(HERE, 'probe_map_constructors.mjs');
 const profile = JSON.parse(fs.readFileSync(PROFILE, 'utf8'));
+const newProfile = JSON.parse(fs.readFileSync(NEW_PROFILE, 'utf8'));
 const authored = JSON.parse(fs.readFileSync(FIXTURES, 'utf8'));
 // Private temp state stays below this checkout's ignored .tools/renewal (0700).
 const PRIVATE = path.join(REPO, '.tools', 'renewal', 't06-constructor-candidate-1');
@@ -76,6 +79,8 @@ test('fresh fixture CLI: all 26 outcomes and full common-summary dictionaries ma
   assert.deepEqual([returned, exceptions], [17, 9]);
   const rep = report(r.output);
   assert.equal(rep.schema, 'T06-map-constructor-report-1');
+  assert.equal(rep.task, 'T06.003.003.003');
+  assert.equal(Object.hasOwn(rep, 'worker'), false);
   assert.equal(rep.mode, 'fixtures');
   assert.deepEqual(rep.roots, []);
   assert.equal(rep.profile_sha256, 'b6635a65db373f5240112734e1f51311851101603323fe1d5300dfaa1c74cf5c');
@@ -587,4 +592,243 @@ test('whole-run deadline remains enforced after final report publication', async
   const summary = JSON.parse(stdout.trim());
   assert.equal(summary.status, 'incomplete'); assert.equal(summary.halted, 'run_deadline_after_publication');
   assert.equal(report(output).authored_comparison.matched, 26);
+  assert.equal(report(output).task, 'T06.003.003.003');
+});
+
+const fileSha = (p) => crypto.createHash('sha256').update(fs.readFileSync(p)).digest('hex');
+
+test('T07.007.004 profile allowlist admits only its exact pair', () => {
+  assert.equal(PROFILE_ALLOWLIST.length, 2);
+  assert.equal(PROFILE_ALLOWLIST[0].task, 'T06.003.003.003');
+  assert.equal(PROFILE_ALLOWLIST[0].worker, null);
+  assert.equal(PROFILE_ALLOWLIST[1].task, 'T07.007.004');
+  assert.equal(fileSha(PROFILE), PROFILE_ALLOWLIST[0].sha256);
+  assert.equal(fs.statSync(PROFILE).size, PROFILE_ALLOWLIST[0].bytes);
+  assert.equal(fileSha(NEW_PROFILE), PROFILE_ALLOWLIST[1].sha256);
+  assert.equal(fs.statSync(NEW_PROFILE).size, PROFILE_ALLOWLIST[1].bytes);
+  assert.equal(profileEntryFor(PROFILE_ALLOWLIST[1].sha256).manifest.sha256, newProfile.manifest.sha256);
+  assert.equal(profileEntryFor('ab'.repeat(32)), null);
+  assert.deepEqual(newProfile.counts, { roots: 4, observed: 4, unavailable_roots: 0, jobs: 12, edge_references: 12 });
+  assert.equal(Object.keys(newProfile.sources).length, 9);
+  validateProfile(profile, PROFILE_ALLOWLIST[0]);
+  validateProfile(newProfile, PROFILE_ALLOWLIST[1]);
+  assert.throws(() => validateProfile(newProfile, PROFILE_ALLOWLIST[0]), Refusal);
+  assert.throws(() => validateProfile(profile, PROFILE_ALLOWLIST[1]), Refusal);
+  const swapped = structuredClone(newProfile); swapped.task = 'T06.003.003.003';
+  assert.throws(() => validateProfile(swapped), Refusal);
+  const unknown = structuredClone(newProfile); unknown.task = 'T07.007.005';
+  assert.throws(() => validateProfile(unknown), Refusal);
+  const badWorker = structuredClone(newProfile); badWorker.worker = { ...badWorker.worker, sha256: '0'.repeat(64) };
+  assert.throws(() => validateProfile(badWorker), (e) => e instanceof Refusal && e.reason === 'profile_invalid');
+  const badCount = structuredClone(newProfile); badCount.counts = { ...badCount.counts, jobs: 11 };
+  assert.throws(() => validateProfile(badCount), Refusal);
+  const badManifest = structuredClone(newProfile); badManifest.manifest = { ...badManifest.manifest, bytes: 1 };
+  assert.throws(() => validateProfile(badManifest), Refusal);
+  const changed = path.join(TMP, 'new-profile-changed.json');
+  fs.writeFileSync(changed, fs.readFileSync(NEW_PROFILE)); fs.appendFileSync(changed, '\n');
+  const r = cli([], { profile: changed });
+  assert.equal(r.code, 2); assert.equal(r.summary.reason, 'pin_mismatch'); assert.ok(!fs.existsSync(r.output));
+});
+
+test('T07.007.004 manifest task, counts, ids, kinds, roots and synthetic body refusal', () => {
+  const manifest = JSON.parse(fs.readFileSync(NEW_MANIFEST, 'utf8'));
+  const jobs = manifestJobs(manifest, newProfile);
+  assert.equal(jobs.length, 12);
+  assert.deepEqual(jobs.map((j) => [j.id, j.kind]), [
+    ['target-000:gat', 'gat'], ['target-001:gnd', 'gnd'], ['target-002:rsw', 'rsw'],
+    ['target-003:gat', 'gat'], ['target-004:gnd', 'gnd'], ['target-005:rsw', 'rsw'],
+    ['target-006:gat', 'gat'], ['target-007:gnd', 'gnd'], ['target-008:rsw', 'rsw'],
+    ['target-009:gat', 'gat'], ['target-010:gnd', 'gnd'], ['target-011:rsw', 'rsw']
+  ]);
+  assert.deepEqual(manifest.roots.map((r) => [r.ordinal, r.name, r.original_gap_root_ordinal]), [
+    [0, 'mu_fild01', null], [1, 'ygg_edge', null], [2, 'ygg_fruit', null], [3, 'ygg_roots', null]
+  ]);
+  const wrongTask = structuredClone(manifest); wrongTask.task = 'T06.003.003.003';
+  assert.throws(() => manifestJobs(wrongTask, newProfile), Refusal);
+  const inferred = structuredClone(manifest); inferred.roots[3].original_gap_root_ordinal = 81;
+  assert.throws(() => manifestJobs(inferred, newProfile), Refusal);
+  const relinked = structuredClone(manifest); relinked.roots[1].edges.gat.job_id = 'target-000:gat';
+  assert.throws(() => manifestJobs(relinked, newProfile), Refusal);
+  const renamed = structuredClone(manifest); renamed.roots[0].name = 'prt_fild08';
+  assert.throws(() => manifestJobs(renamed, newProfile), Refusal);
+  const rekind = structuredClone(manifest); rekind.jobs[2].kind = 'gat';
+  assert.throws(() => manifestJobs(rekind, newProfile), Refusal);
+  const root = path.join(TMP, 't07-synthetic'); fs.mkdirSync(path.join(root, 'b'), { recursive: true });
+  const body = Buffer.from('GRAT synthetic');
+  fs.writeFileSync(path.join(root, 'b', 'ok.bin'), body);
+  fs.symlinkSync(path.join(root, 'b', 'ok.bin'), path.join(root, 'b', 'link.bin'));
+  const sha = fileSha(path.join(root, 'b', 'ok.bin'));
+  const pol = newProfile.policy;
+  const job = (p, extra = {}) => ({ body_path: p, input_bytes: body.length, complete_sha256: sha, ...extra });
+  assert.equal(readJobBody(root, job('b/ok.bin'), pol).sha256, sha);
+  const reason = (j) => { try { readJobBody(root, j, pol); return 'accepted'; } catch (e) { return e.reason; } };
+  assert.equal(reason(job('../escape.bin')), 'path_refused');
+  assert.equal(reason(job('b/./ok.bin')), 'path_refused');
+  assert.equal(reason(job('b/link.bin')), 'symlink_refused');
+  assert.equal(reason(job('b/ok.bin', { input_bytes: body.length + 1 })), 'pin_mismatch');
+  assert.equal(reason(job('b/ok.bin', { complete_sha256: '0'.repeat(64) })), 'pin_mismatch');
+  assert.equal(reason(job('b/missing.bin', { input_bytes: pol.max_body_bytes + 1 })), 'size_limit');
+});
+
+test('old and new profiles refuse each other\'s manifest and do not open it', async () => {
+  const oldManifest = path.join(INPUT_ROOT, profile.manifest.path);
+  const realOpen = fs.openSync;
+  const opened = [];
+  fs.openSync = function (p, ...args) {
+    if (typeof p === 'string') opened.push(path.resolve(p));
+    return realOpen(p, ...args);
+  };
+  const runOnce = async (argv) => {
+    opened.length = 0;
+    let stdout = '';
+    const code = await main(argv, { stdout: { write: (s) => { stdout += s; } } });
+    return { code, summary: JSON.parse(stdout.trim()), opened: [...opened] };
+  };
+  try {
+    const outputA = freshOut();
+    const swappedNew = await runOnce(['--input-root', INPUT_ROOT, '--client-source', CLIENT, '--profile', PROFILE,
+      '--manifest', NEW_MANIFEST, '--output', outputA]);
+    assert.equal(swappedNew.code, 2);
+    assert.equal(swappedNew.summary.reason, 'path_refused');
+    assert.equal(swappedNew.summary.output_created, false);
+    assert.ok(!fs.existsSync(outputA));
+    assert.ok(!swappedNew.opened.includes(path.resolve(NEW_MANIFEST)));
+    assert.ok(!swappedNew.opened.some((p) => p.includes(`${path.sep}t07-007-003-root-actual-reference-1${path.sep}`)));
+    const outputB = freshOut();
+    const swappedOld = await runOnce(['--input-root', INPUT_ROOT, '--client-source', CLIENT, '--profile', NEW_PROFILE,
+      '--manifest', oldManifest, '--output', outputB]);
+    assert.equal(swappedOld.code, 2);
+    assert.equal(swappedOld.summary.reason, 'path_refused');
+    assert.equal(swappedOld.summary.output_created, false);
+    assert.ok(!fs.existsSync(outputB));
+    assert.ok(!swappedOld.opened.includes(path.resolve(oldManifest)));
+    assert.ok(swappedOld.opened.some((p) => p.endsWith(`${path.sep}map_constructor_worker.mjs`)));
+    assert.ok(!swappedOld.opened.some((p) => p.endsWith('.body')));
+  } finally { fs.openSync = realOpen; }
+});
+
+test('T07.007.004 --max-jobs 0 accounts for 12 unattempted rows and opens no body', async () => {
+  const output = freshOut();
+  const bodyDir = `${path.sep}t07-007-003-root-actual-reference-1${path.sep}`;
+  const realOpen = fs.openSync;
+  const opened = [];
+  fs.openSync = function (p, ...args) {
+    if (typeof p === 'string') opened.push(path.resolve(p));
+    return realOpen(p, ...args);
+  };
+  let code, stdout = '';
+  try {
+    code = await main(['--input-root', INPUT_ROOT, '--client-source', CLIENT, '--profile', NEW_PROFILE,
+      '--manifest', NEW_MANIFEST, '--output', output, '--max-jobs', '0'],
+    { stdout: { write: (s) => { stdout += s; } } });
+  } finally { fs.openSync = realOpen; }
+  assert.equal(opened.filter((p) => p.includes(bodyDir)).length, 0);
+  assert.ok(opened.some((p) => p === path.resolve(NEW_MANIFEST)));
+  assert.equal(code, 1);
+  const summary = JSON.parse(stdout.trim());
+  assert.equal(summary.status, 'incomplete');
+  assert.equal(summary.expected_jobs, 12);
+  assert.equal(summary.job_outcomes.unattempted, 12);
+  const got = rows(output);
+  assert.equal(got.length, 12);
+  assert.deepEqual(got.map((x) => x.id), [
+    'target-000:gat', 'target-001:gnd', 'target-002:rsw', 'target-003:gat', 'target-004:gnd', 'target-005:rsw',
+    'target-006:gat', 'target-007:gnd', 'target-008:rsw', 'target-009:gat', 'target-010:gnd', 'target-011:rsw'
+  ]);
+  for (const x of got) {
+    assert.equal(x.outcome, 'unattempted'); assert.equal(x.reason, 'max_jobs');
+    assert.equal(x.worker_started, false); assert.equal(x.constructor_returned, null);
+    assert.equal(x.cleanup.exit_observed, null);
+  }
+  const rep = report(output);
+  assert.equal(rep.schema, 'T06-map-constructor-report-1');
+  assert.equal(rep.task, 'T07.007.004');
+  assert.equal(rep.mode, 'corpus');
+  assert.equal(rep.profile_sha256, PROFILE_ALLOWLIST[1].sha256);
+  assert.equal(rep.summary_sha256, newProfile.summary.sha256);
+  assert.equal(rep.worker.path, 'tools/renewal/map_constructor_worker.mjs');
+  assert.equal(rep.worker.bytes, 9132);
+  assert.equal(rep.worker.sha256, PROFILE_ALLOWLIST[1].worker.sha256);
+  assert.equal(rep.worker.verified, true);
+  assert.equal(rep.client_source.sources.length, 9);
+  assert.ok(rep.client_source.sources.every((s) => s.verified && !s.path.includes('worker')));
+  assert.equal(rep.counts.expected_jobs, 12);
+  assert.equal(rep.counts.job_outcomes.unattempted, 12);
+  assert.equal(rep.cleanup.workers_started, 0);
+  assert.equal(rep.cleanup.verified, true);
+  assert.deepEqual(rep.input_manifest.counts, newProfile.counts);
+  assert.deepEqual(rep.input_manifest.remaining_gap_root_ordinals, []);
+  assert.equal(rep.roots.length, 4);
+  assert.deepEqual(rep.roots.map((r) => r.name), ['mu_fild01', 'ygg_edge', 'ygg_fruit', 'ygg_roots']);
+  for (const r of rep.roots) {
+    assert.equal(r.original_gap_root_ordinal, null);
+    assert.equal(r.ordinal_scope, 'four-target-subset-only');
+    for (const kind of ['gat', 'gnd', 'rsw']) {
+      assert.equal(r.edges[kind].parse_outcome, 'unattempted');
+      assert.equal(r.edges[kind].parse_status, 'not_run');
+    }
+  }
+});
+
+test('new profile keeps lower-only bounds, existing output, one authored row and timeout cleanup', () => {
+  let r = cli(['--run-timeout-ms', '120001'], { profile: NEW_PROFILE });
+  assert.equal(r.code, 2); assert.equal(r.summary.reason, 'policy_increase'); assert.ok(!fs.existsSync(r.output));
+  r = cli(['--run-timeout-ms', '900000'], { profile: NEW_PROFILE });
+  assert.equal(r.code, 2); assert.equal(r.summary.reason, 'policy_increase');
+  assert.throws(() => effectivePolicy(newProfile.policy, { run_timeout_ms: 120001 }, 12), Refusal);
+  assert.equal(effectivePolicy(newProfile.policy, { run_timeout_ms: 120000 }, 12).run_timeout_ms, 120000);
+  assert.equal(effectivePolicy(profile.policy, { run_timeout_ms: 120001 }, 26).run_timeout_ms, 120001);
+  r = cli(['--max-jobs', '13'], { profile: NEW_PROFILE, mode: ['--manifest', NEW_MANIFEST] });
+  assert.equal(r.code, 2); assert.equal(r.summary.reason, 'policy_increase'); assert.ok(!fs.existsSync(r.output));
+  const out = freshOut();
+  fs.mkdirSync(out); fs.writeFileSync(path.join(out, 'keep'), 'sentinel');
+  r = cli([], { profile: NEW_PROFILE, output: out });
+  assert.equal(r.code, 2); assert.equal(r.summary.reason, 'output_exists');
+  assert.equal(fs.readFileSync(path.join(out, 'keep'), 'utf8'), 'sentinel');
+  r = cli(['--max-jobs', '1'], { profile: NEW_PROFILE });
+  assert.equal(r.code, 1);
+  const got = rows(r.output);
+  assert.equal(got.length, 26);
+  const c = authored.cases[0];
+  assert.equal(got[0].id, c.id);
+  assert.equal(got[0].outcome, c.expected.outcome);
+  assert.equal(got[0].worker_started, true);
+  assert.equal(got[0].cleanup.exit_observed, true);
+  if (c.expected.outcome === 'returned') assert.deepStrictEqual(got[0].summary, c.expected.summary);
+  else assert.equal(got[0].exception.name, c.expected.exception_name);
+  assert.ok(got.slice(1).every((x) => x.outcome === 'unattempted' && x.reason === 'max_jobs' && x.worker_started === false));
+  const rep = report(r.output);
+  assert.equal(rep.task, 'T07.007.004');
+  assert.equal(rep.schema, 'T06-map-constructor-report-1');
+  assert.equal(rep.mode, 'fixtures');
+  assert.equal(rep.worker.verified, true);
+  assert.equal(rep.worker.sha256, newProfile.worker.sha256);
+  assert.equal(rep.client_source.sources.length, 9);
+  assert.ok(!rep.client_source.sources.some((s) => s.path.includes('map_constructor_worker')));
+  assert.equal(rep.authored_comparison.matched, 1);
+  r = cli(['--job-timeout-ms', '1', '--max-jobs', '1'], { profile: NEW_PROFILE });
+  assert.equal(r.code, 1);
+  const timed = rows(r.output)[0];
+  assert.equal(timed.outcome, 'timeout');
+  assert.equal(timed.reason, 'job_timeout');
+  assert.equal(timed.cleanup.terminated_by_parent, true);
+  assert.equal(timed.cleanup.exit_observed, true);
+  assert.equal(report(r.output).cleanup.verified, true);
+  assert.equal(report(r.output).cleanup.workers_started, 1);
+  assert.equal(report(r.output).task, 'T07.007.004');
+});
+
+test('worker pin mismatch refuses before Worker construction and halts later jobs', async () => {
+  const job = { id: 'pin', kind: 'gat', complete_sha256: '0'.repeat(64), input_bytes: 1, header_version_bytes: [1, 3] };
+  const workerAbs = path.join(HERE, 'map_constructor_worker.mjs');
+  const row = await runWorkerJob(job, Buffer.from([0]), {
+    policy: { ...profile.policy, job_timeout_ms: 200 }, sources: {}, summaryText: 'not executed',
+    runDeadline: Date.now() + 1000, rss: { active: null, sample() {} },
+    workerPin: { path: workerAbs, identity: { dev: '0', ino: '0', size: '0', mtime_ns: '0', ctime_ns: '0' } }
+  });
+  assert.equal(row.outcome, 'environment_failure');
+  assert.equal(row.reason, 'identity_changed');
+  assert.equal(row.worker_started, false);
+  assert.equal(row.cleanup.exit_observed, null);
+  assert.equal(row.exception.phase, 'worker_pin');
 });
