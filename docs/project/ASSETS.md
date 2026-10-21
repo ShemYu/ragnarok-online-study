@@ -51,3 +51,16 @@ The stock Homebrew innoextract formula reported 1.9. Instead, the coordinator bu
 T03's later [installation record](INSTALLATION.md) identifies the pinned app, actual bundled reader/runtime and verified browser startup. Next T04 supplies gameplay/persistence/offline/recovery evidence; T05 supplies the Chinese pilot. No client date or file count defines an episode. See the [acquisition review](reviews/2026-10-18-T02.md) and current [Status](STATUS.md).
 
 Git rollback restores documentation/source records only. The T02 acquisition step changed no app or save data; T03's later installation is recorded separately. Downloads/extraction/build files remain local; preserve them while the app references them. Homebrew package state is separate from Git and must be considered separately if undoing setup.
+
+
+## Later October client acquisition
+
+[T07.007](reviews/2026-10-21-T07.007.md#fresh-outer-extraction-and-four-file-reconciliation-qualified)
+separately acquires the official October2Taiwan installer,4153946520bytes/SHA
+3d4202eb52b885b94b4e84b40ae5669b97d0c3649a8302f2246d0d1af0e1dc71.
+Root qualifies the official native26.04RAR reader and complete checksum test,
+then extracts/reconciles four outer files totaling4761139292bytes. Inner format,
+application-file manifest and new GRF/map contents remain unchecked at this
+stage. The tooling list above is the historical T02record; later tools and
+failed-reader recovery are in T07.007. April assets/pins and running worlds
+remain in place. This new acquisition is not a playable-content qualification.
