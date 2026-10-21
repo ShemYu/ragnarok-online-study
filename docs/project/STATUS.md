@@ -2,7 +2,7 @@
 
 Updated: 2026-10-22 JST. Coordinator: Codex. Active scope: **execute the documented strategy through the full milestone**.
 
-**Execution resumed by the user; goal API is active.** [Resume checkpoint](reviews/2026-10-21-T07.007.010.md#explicit-resume-and-parallel-verification). Claude historical44and auditor pure76remain verified; new-route/whole-artifact/shared controls and actual scan remain pending. Actual Grok retry ctx_79f45cdc901bcontinues the preserved WIP40e1c92on its existing branch; original frozen task/inputs unchanged. Two source-only preparation lanes run in parallel; root is reviewing the focused verification driver. [Prior pause](reviews/2026-10-21-T07.007.010.md#user-pause-and-preserved-resume-state) remains historical.
+**Execution resumed by the user; goal API is active.** [Resume checkpoint](reviews/2026-10-21-T07.007.010.md#explicit-resume-and-parallel-verification). Claude historical44and auditor pure76remain verified. [Root Claude focused30](reviews/2026-10-21-T07.007.010.md#claude-focused30-pass-and-admission-findings-retained) now passes; six independent metadata controls unexpectedly accept and two harness setups need correction. Raw candidate is not qualified; whole-artifact/shared controls and actual scan remain pending. Actual Grok retry ctx_79f45cdc901bcontinues the preserved WIP40e1c92on its existing branch; original frozen task/inputs unchanged. Two source-only preparation lanes run in parallel; root is reviewing the focused verification driver. [Prior pause](reviews/2026-10-21-T07.007.010.md#user-pause-and-preserved-resume-state) remains historical.
 
 ## Where we are
 

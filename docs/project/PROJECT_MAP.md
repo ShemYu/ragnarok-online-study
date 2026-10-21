@@ -80,7 +80,8 @@ CURRENT WORK: October assets and missing maps
  |    Historical compatibility copy and its preflight pass.
  |    Claude: root historical 44 tests pass. Grok retry is working.
  |    User resumed. Independent preparation runs in parallel.
- |    New-route checks remain open; two source checks need tightening.
+ |    Claude focused 30 pass; six metadata checks need correction.
+ |    Two other check setups need repair. No native scan yet.
  |    Auditor bug fixed: root 76 focused checks pass.
  |    Complete output and shared failure-check drafts are preserved.
  |    Next: verify both candidates and the auditor, then actual scan.
