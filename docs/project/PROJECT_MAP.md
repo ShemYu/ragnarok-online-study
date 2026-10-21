@@ -81,10 +81,11 @@ CURRENT WORK: October assets and missing maps
  |    Claude: root historical 44 tests pass. Grok retry is working.
  |    User resumed. Independent preparation runs in parallel.
  |    Claude focused 30 pass; six metadata checks need correction.
- |    Two other check setups need repair. No native scan yet.
+ |    Admission checks complete: two value-changing booleans refused.
+ |    All 20 shared scanner cases pass. No native scan yet.
  |    Auditor bug fixed: root 76 focused checks pass.
- |    Complete output and shared failure-check drafts are preserved.
- |    Next: verify both candidates and the auditor, then actual scan.
+ |    Full output auditor: 2 positives and 37 failure checks pass.
+ |    Next: compare Grok, repair and integrate, then actual scan.
  |
  +-- [V] Other 28 GPF patch tables: corrected tool verified.
  |        Root reference: all 5,742 raw records checked.
