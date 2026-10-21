@@ -1,0 +1,3021 @@
+{
+  "already_inventoried_indices": [
+    9298,
+    9303
+  ],
+  "basis_revision": "f48417916dc3bbab3345d9e2e960d3535816b272",
+  "core": {
+    "bytes": 54783,
+    "path": "tools/renewal/archive_catalog.py",
+    "sha256": "f785ced6006741de0bc8dbab4354d6ee5ab15fb750ddd95111fc16a2cdf15cda"
+  },
+  "draft": false,
+  "enumeration_basis": "Receipt-row enumeration of selected indices; physical records in table order only",
+  "enumeration_order": [
+    9305,
+    9310,
+    9311,
+    9312,
+    9316,
+    9319,
+    9320,
+    9323,
+    9324,
+    9326,
+    9332,
+    9337,
+    9340,
+    9345,
+    9349,
+    9354,
+    9357,
+    9360,
+    9363,
+    9367,
+    9369,
+    9378,
+    9381,
+    9384,
+    9385,
+    9386,
+    9389,
+    9391
+  ],
+  "exclusions": [
+    "RGZ inner grammar/member validity/deletion/rename/application semantics",
+    "asset payload extraction/decryption/decompression or archive installation",
+    "client lookup winner, publisher application priority or duplicate suppression",
+    "filename codec, Unicode/case/path normalization",
+    "map payload availability, render, ordinary play, 82-gap closure or full-game coverage"
+  ],
+  "freeze_status": "frozen_common_contract",
+  "helper_policy": "May execute only separately verified exact bytes; no October production contract/global mutation; manifest identifies whether executed. No helper execution is required.",
+  "input_manifest": {
+    "bytes": 51345,
+    "ledger_requirement": "Typed equality with all 59 profile ledger rows; source_evidence equality with profile; no host identities, absolute paths, raw member names or oracle outputs",
+    "path": ".tools/renewal/t07-007-007-frozen-input-1/input-manifest.json",
+    "required_fields": [
+      "schema",
+      "task",
+      "enumeration_basis",
+      "lookup_priority",
+      "priority_status",
+      "source_evidence",
+      "ledger"
+    ],
+    "schema": "ro-patch-acquisition-ledger/1",
+    "sha256": "f8cadabafd1e7351499882146f4674d9cf2564c279e3ce1e7306b296c408b0a8"
+  },
+  "ledger": [
+    {
+      "acquisition_status": "verified_reused",
+      "bytes": 306097616,
+      "disposition": "already_inventoried_not_read",
+      "family": "grf_signature",
+      "file": "2026-08-25_live_client_4340_4349_1787295394.gpf",
+      "header": {
+        "count_word": 20380171,
+        "header46_sha256": "81fae52437b44388f9a682bc126865ae55850568b62b011a80edce6f05fe4759",
+        "offset_word": 305616920,
+        "record_count": 5702,
+        "subtract_word": 20374462,
+        "table_bytes": 480650,
+        "table_start": 305616966,
+        "version": 258
+      },
+      "index": 9298,
+      "lf": 4004,
+      "path": ".tools/renewal/t07-007-patch-acquisition-root-1/2026-08-25_live_client_4340_4349_1787295394.gpf",
+      "sha256": "70725f6624f947c3096066cc66a07fcd2440adf94137b79561ed2d67843f9f0e",
+      "source_ordinal": 0,
+      "url": "https://twcdn.gnjoy.com.tw/ragnarok/patchfile/2026-08-25_live_client_4340_4349_1787295394.gpf"
+    },
+    {
+      "acquisition_status": "verified_new",
+      "bytes": 18003576,
+      "disposition": "unresolved_rgz_not_read",
+      "family": "gzip_prefix",
+      "file": "2026-08-25_live_client_4340_4349_1787295394.rgz",
+      "index": 9299,
+      "lf": 4005,
+      "observed_gzip_prefix": {
+        "compression_method": 8,
+        "flags": 0,
+        "hex": "1f8b08",
+        "inner_grammar": "unresolved"
+      },
+      "path": ".tools/renewal/t07-007-patch-suffix-acquisition-1/01_9299_2026-08-25_live_client_4340_4349_1787295394.rgz.body",
+      "sha256": "b877e101347404949e618acd7df482e1b75a44b4a8026ec11ec95415c6516b62",
+      "source_ordinal": 1,
+      "url": "https://twcdn.gnjoy.com.tw/ragnarok/patchfile/2026-08-25_live_client_4340_4349_1787295394.rgz"
+    },
+    {
+      "acquisition_status": "verified_new",
+      "bytes": 1467,
+      "disposition": "unresolved_rgz_not_read",
+      "family": "gzip_prefix",
+      "file": "2026-08-25_live_client_4351_4352_1787527015.rgz",
+      "index": 9302,
+      "lf": 4008,
+      "observed_gzip_prefix": {
+        "compression_method": 8,
+        "flags": 0,
+        "hex": "1f8b08",
+        "inner_grammar": "unresolved"
+      },
+      "path": ".tools/renewal/t07-007-patch-suffix-acquisition-1/02_9302_2026-08-25_live_client_4351_4352_1787527015.rgz.body",
+      "sha256": "78c68f16d1f9cf6d3f8349f9617f37cef7650000d1d0de2568c234dd228ac0b8",
+      "source_ordinal": 2,
+      "url": "https://twcdn.gnjoy.com.tw/ragnarok/patchfile/2026-08-25_live_client_4351_4352_1787527015.rgz"
+    },
+    {
+      "acquisition_status": "verified_reused",
+      "bytes": 86992,
+      "disposition": "already_inventoried_not_read",
+      "family": "grf_signature",
+      "file": "2026-08-25_live_client_4353_4353_1787535130.gpf",
+      "header": {
+        "count_word": 5786,
+        "header46_sha256": "f1043cd267570cb54ecfbe590b4dd2933287c9648090f3e44238532c549f9b62",
+        "offset_word": 86528,
+        "record_count": 6,
+        "subtract_word": 5773,
+        "table_bytes": 418,
+        "table_start": 86574,
+        "version": 258
+      },
+      "index": 9303,
+      "lf": 4009,
+      "path": ".tools/renewal/t07-007-patch-acquisition-root-1/2026-08-25_live_client_4353_4353_1787535130.gpf",
+      "sha256": "03764f614453d2b453a5ab5b552f6af9f66599a3642943566f72cbae6a501d07",
+      "source_ordinal": 3,
+      "url": "https://twcdn.gnjoy.com.tw/ragnarok/patchfile/2026-08-25_live_client_4353_4353_1787535130.gpf"
+    },
+    {
+      "acquisition_status": "verified_new",
+      "bytes": 95051,
+      "disposition": "selected_for_inventory",
+      "family": "grf_signature",
+      "file": "2026-08-25_live_client_4355_4355_1787535551.gpf",
+      "header": {
+        "count_word": 6313,
+        "header46_sha256": "a0addf3a272dc01179645da5108ca35b749b985e616a6961659919b78b448256",
+        "offset_word": 94464,
+        "record_count": 7,
+        "subtract_word": 6299,
+        "table_bytes": 541,
+        "table_start": 94510,
+        "version": 258
+      },
+      "index": 9305,
+      "lf": 4011,
+      "path": ".tools/renewal/t07-007-patch-suffix-acquisition-1/04_9305_2026-08-25_live_client_4355_4355_1787535551.gpf.body",
+      "sha256": "134fa1d6798f0b7712f5f4b44350be197a6716956888eed01f9f5b2f3ef5e53a",
+      "source_ordinal": 4,
+      "url": "https://twcdn.gnjoy.com.tw/ragnarok/patchfile/2026-08-25_live_client_4355_4355_1787535551.gpf"
+    },
+    {
+      "acquisition_status": "verified_new",
+      "bytes": 3333718,
+      "disposition": "unresolved_rgz_not_read",
+      "family": "gzip_prefix",
+      "file": "2026-08-25_live_client_4359_4360_1787612742.rgz",
+      "index": 9306,
+      "lf": 4012,
+      "observed_gzip_prefix": {
+        "compression_method": 8,
+        "flags": 0,
+        "hex": "1f8b08",
+        "inner_grammar": "unresolved"
+      },
+      "path": ".tools/renewal/t07-007-patch-suffix-acquisition-1/05_9306_2026-08-25_live_client_4359_4360_1787612742.rgz.body",
+      "sha256": "a63992ca597efed0a4d8e5eccac60a0027fcaf2b8dcc90d250355b32f9c61530",
+      "source_ordinal": 5,
+      "url": "https://twcdn.gnjoy.com.tw/ragnarok/patchfile/2026-08-25_live_client_4359_4360_1787612742.rgz"
+    },
+    {
+      "acquisition_status": "verified_new",
+      "bytes": 2673183,
+      "disposition": "unresolved_rgz_not_read",
+      "family": "gzip_prefix",
+      "file": "2026-08-25_live_client_4362_4363_1787622796.rgz",
+      "index": 9308,
+      "lf": 4014,
+      "observed_gzip_prefix": {
+        "compression_method": 8,
+        "flags": 0,
+        "hex": "1f8b08",
+        "inner_grammar": "unresolved"
+      },
+      "path": ".tools/renewal/t07-007-patch-suffix-acquisition-1/06_9308_2026-08-25_live_client_4362_4363_1787622796.rgz.body",
+      "sha256": "9a4f2f5b81b4725ec00fad426a45205ce0eb72d5edd00392163ec8db57b5b475",
+      "source_ordinal": 6,
+      "url": "https://twcdn.gnjoy.com.tw/ragnarok/patchfile/2026-08-25_live_client_4362_4363_1787622796.rgz"
+    },
+    {
+      "acquisition_status": "verified_new",
+      "bytes": 88138,
+      "disposition": "selected_for_inventory",
+      "family": "grf_signature",
+      "file": "2026-08-25_live_client_4365_4366_1787637699.gpf",
+      "header": {
+        "count_word": 5869,
+        "header46_sha256": "5eb00f005c8bb299951017fb5ab22c9c8b9b5bc3f0fa55ed966b4f78d7515393",
+        "offset_word": 87824,
+        "record_count": 4,
+        "subtract_word": 5858,
+        "table_bytes": 268,
+        "table_start": 87870,
+        "version": 258
+      },
+      "index": 9310,
+      "lf": 4016,
+      "path": ".tools/renewal/t07-007-patch-suffix-acquisition-1/07_9310_2026-08-25_live_client_4365_4366_1787637699.gpf.body",
+      "sha256": "dcb8174be13635b448983d97d0bbd1824ffc2e10b03f254fa11c6edfdf35db99",
+      "source_ordinal": 7,
+      "url": "https://twcdn.gnjoy.com.tw/ragnarok/patchfile/2026-08-25_live_client_4365_4366_1787637699.gpf"
+    },
+    {
+      "acquisition_status": "verified_new",
+      "bytes": 308028,
+      "disposition": "selected_for_inventory",
+      "family": "grf_signature",
+      "file": "2026-08-25_live_client_4367_4367_1787651523.gpf",
+      "header": {
+        "count_word": 20536,
+        "header46_sha256": "d7ef7621035d77bcf4d8e78071a56814cd8c291b77333f4a234893cd19f88722",
+        "offset_word": 307896,
+        "record_count": 2,
+        "subtract_word": 20527,
+        "table_bytes": 86,
+        "table_start": 307942,
+        "version": 258
+      },
+      "index": 9311,
+      "lf": 4017,
+      "path": ".tools/renewal/t07-007-patch-suffix-acquisition-1/08_9311_2026-08-25_live_client_4367_4367_1787651523.gpf.body",
+      "sha256": "f7a00c68aeb7b7b8e1286ff4ebeca3cca65f6b12054602ee3bb4ee0433835d4d",
+      "source_ordinal": 8,
+      "url": "https://twcdn.gnjoy.com.tw/ragnarok/patchfile/2026-08-25_live_client_4367_4367_1787651523.gpf"
+    },
+    {
+      "acquisition_status": "verified_new",
+      "bytes": 355528,
+      "disposition": "selected_for_inventory",
+      "family": "grf_signature",
+      "file": "2026-09-02_live_client_4368_4370_1787899470.gpf",
+      "header": {
+        "count_word": 23691,
+        "header46_sha256": "414e116a1407e905ce3029f5f88c0d763fcb8a163677e9e0b91188ab602d6769",
+        "offset_word": 355096,
+        "record_count": 6,
+        "subtract_word": 23678,
+        "table_bytes": 386,
+        "table_start": 355142,
+        "version": 258
+      },
+      "index": 9312,
+      "lf": 4018,
+      "path": ".tools/renewal/t07-007-patch-suffix-acquisition-1/09_9312_2026-09-02_live_client_4368_4370_1787899470.gpf.body",
+      "sha256": "efa0d3859c774311006b5b1935b8f7bd5500310d5361d71f970312dcf650af69",
+      "source_ordinal": 9,
+      "url": "https://twcdn.gnjoy.com.tw/ragnarok/patchfile/2026-09-02_live_client_4368_4370_1787899470.gpf"
+    },
+    {
+      "acquisition_status": "verified_new",
+      "bytes": 2672629,
+      "disposition": "unresolved_rgz_not_read",
+      "family": "gzip_prefix",
+      "file": "2026-09-02_live_client_4368_4370_1787899470.rgz",
+      "index": 9313,
+      "lf": 4019,
+      "observed_gzip_prefix": {
+        "compression_method": 8,
+        "flags": 0,
+        "hex": "1f8b08",
+        "inner_grammar": "unresolved"
+      },
+      "path": ".tools/renewal/t07-007-patch-suffix-acquisition-1/10_9313_2026-09-02_live_client_4368_4370_1787899470.rgz.body",
+      "sha256": "eb1b2607cd589d0b94cecc5e1f4b9276c850bf99d00a12ecd41f1f224d2b77ac",
+      "source_ordinal": 10,
+      "url": "https://twcdn.gnjoy.com.tw/ragnarok/patchfile/2026-09-02_live_client_4368_4370_1787899470.rgz"
+    },
+    {
+      "acquisition_status": "verified_new",
+      "bytes": 1234090,
+      "disposition": "selected_for_inventory",
+      "family": "grf_signature",
+      "file": "2026-09-02_live_client_4372_4373_1788133981.gpf",
+      "header": {
+        "count_word": 82265,
+        "header46_sha256": "d9314063eaf02579b8739c0f2ae8ea9ba88da245fb7fa91103ae6d282731d8da",
+        "offset_word": 1233760,
+        "record_count": 4,
+        "subtract_word": 82254,
+        "table_bytes": 284,
+        "table_start": 1233806,
+        "version": 258
+      },
+      "index": 9316,
+      "lf": 4022,
+      "path": ".tools/renewal/t07-007-patch-suffix-acquisition-1/11_9316_2026-09-02_live_client_4372_4373_1788133981.gpf.body",
+      "sha256": "65af381fd58cd1ab29c8bad57eed03aea48db3762e739801e84f84dee3881e4b",
+      "source_ordinal": 11,
+      "url": "https://twcdn.gnjoy.com.tw/ragnarok/patchfile/2026-09-02_live_client_4372_4373_1788133981.gpf"
+    },
+    {
+      "acquisition_status": "verified_new",
+      "bytes": 2410,
+      "disposition": "unresolved_rgz_not_read",
+      "family": "gzip_prefix",
+      "file": "2026-09-02_live_client_4374_4375_1788151380.rgz",
+      "index": 9317,
+      "lf": 4023,
+      "observed_gzip_prefix": {
+        "compression_method": 8,
+        "flags": 0,
+        "hex": "1f8b08",
+        "inner_grammar": "unresolved"
+      },
+      "path": ".tools/renewal/t07-007-patch-suffix-acquisition-1/12_9317_2026-09-02_live_client_4374_4375_1788151380.rgz.body",
+      "sha256": "7d97d63ef64c0190b0c31a87548e09c8196fc20475a6adee4ad9a9b65acfbd5a",
+      "source_ordinal": 12,
+      "url": "https://twcdn.gnjoy.com.tw/ragnarok/patchfile/2026-09-02_live_client_4374_4375_1788151380.rgz"
+    },
+    {
+      "acquisition_status": "verified_new",
+      "bytes": 6410,
+      "disposition": "selected_for_inventory",
+      "family": "grf_signature",
+      "file": "2026-09-02_live_client_4377_4378_1788219560.gpf",
+      "header": {
+        "count_word": 423,
+        "header46_sha256": "1dcc76d066115ae679d61efe6d0e42a370dd914ad476eab600de3705aeabf839",
+        "offset_word": 6128,
+        "record_count": 4,
+        "subtract_word": 412,
+        "table_bytes": 236,
+        "table_start": 6174,
+        "version": 258
+      },
+      "index": 9319,
+      "lf": 4025,
+      "path": ".tools/renewal/t07-007-patch-suffix-acquisition-1/13_9319_2026-09-02_live_client_4377_4378_1788219560.gpf.body",
+      "sha256": "81ad9aa567cf504f201aabbc633c6f8e5e7bbe11f9aad27aada571bc29bf783a",
+      "source_ordinal": 13,
+      "url": "https://twcdn.gnjoy.com.tw/ragnarok/patchfile/2026-09-02_live_client_4377_4378_1788219560.gpf"
+    },
+    {
+      "acquisition_status": "verified_new",
+      "bytes": 5809533,
+      "disposition": "selected_for_inventory",
+      "family": "grf_signature",
+      "file": "2026-09-08_live_client_4379_4380_1788411377.gpf",
+      "header": {
+        "count_word": 383638,
+        "header46_sha256": "9e1d2905113446eb60af0e4ff875f071cf4c5b832b06abeffd0e4d65c3dd56be",
+        "offset_word": 5743080,
+        "record_count": 757,
+        "subtract_word": 382874,
+        "table_bytes": 66407,
+        "table_start": 5743126,
+        "version": 258
+      },
+      "index": 9320,
+      "lf": 4026,
+      "path": ".tools/renewal/t07-007-patch-suffix-acquisition-1/14_9320_2026-09-08_live_client_4379_4380_1788411377.gpf.body",
+      "sha256": "bbdf0873154d6c3e36535c24d8a494ecef634a422d301cf16aa2bb72cbd58cab",
+      "source_ordinal": 14,
+      "url": "https://twcdn.gnjoy.com.tw/ragnarok/patchfile/2026-09-08_live_client_4379_4380_1788411377.gpf"
+    },
+    {
+      "acquisition_status": "verified_new",
+      "bytes": 2674976,
+      "disposition": "unresolved_rgz_not_read",
+      "family": "gzip_prefix",
+      "file": "2026-09-08_live_client_4379_4380_1788411377.rgz",
+      "index": 9321,
+      "lf": 4027,
+      "observed_gzip_prefix": {
+        "compression_method": 8,
+        "flags": 0,
+        "hex": "1f8b08",
+        "inner_grammar": "unresolved"
+      },
+      "path": ".tools/renewal/t07-007-patch-suffix-acquisition-1/15_9321_2026-09-08_live_client_4379_4380_1788411377.rgz.body",
+      "sha256": "ebf4417b3acf5d42215ced57bc7e2beae90473a6d02dc1b5332f338c096a8f69",
+      "source_ordinal": 15,
+      "url": "https://twcdn.gnjoy.com.tw/ragnarok/patchfile/2026-09-08_live_client_4379_4380_1788411377.rgz"
+    },
+    {
+      "acquisition_status": "verified_new",
+      "bytes": 2037,
+      "disposition": "selected_for_inventory",
+      "family": "grf_signature",
+      "file": "2026-09-08_live_client_live_4379_4380_1788411419.gpf",
+      "header": {
+        "count_word": 127,
+        "header46_sha256": "d176f91114965ab27b27270c8c2b5c5c186a9ba33e430416bd8011000c3cc221",
+        "offset_word": 1656,
+        "record_count": 5,
+        "subtract_word": 115,
+        "table_bytes": 335,
+        "table_start": 1702,
+        "version": 258
+      },
+      "index": 9323,
+      "lf": 4029,
+      "path": ".tools/renewal/t07-007-patch-suffix-acquisition-1/16_9323_2026-09-08_live_client_live_4379_4380_1788411419.gpf.body",
+      "sha256": "7823fe92a04b5443e4629c4be8bf50b8f23ec2141c9172a6a7fd3058892ce039",
+      "source_ordinal": 16,
+      "url": "https://twcdn.gnjoy.com.tw/ragnarok/patchfile/2026-09-08_live_client_live_4379_4380_1788411419.gpf"
+    },
+    {
+      "acquisition_status": "verified_new",
+      "bytes": 67567,
+      "disposition": "selected_for_inventory",
+      "family": "grf_signature",
+      "file": "2026-09-08_live_client_4382_4383_1788415603.gpf",
+      "header": {
+        "count_word": 4502,
+        "header46_sha256": "6865c472e7ecaf677c80488261868293d485859632589d4ed21df2f74466d0ef",
+        "offset_word": 67336,
+        "record_count": 3,
+        "subtract_word": 4492,
+        "table_bytes": 185,
+        "table_start": 67382,
+        "version": 258
+      },
+      "index": 9324,
+      "lf": 4030,
+      "path": ".tools/renewal/t07-007-patch-suffix-acquisition-1/17_9324_2026-09-08_live_client_4382_4383_1788415603.gpf.body",
+      "sha256": "8e4b87c385cd85a5d4934c7c782809188bfebc3717b1224f23f9e6e212da74fe",
+      "source_ordinal": 17,
+      "url": "https://twcdn.gnjoy.com.tw/ragnarok/patchfile/2026-09-08_live_client_4382_4383_1788415603.gpf"
+    },
+    {
+      "acquisition_status": "verified_new",
+      "bytes": 17692,
+      "disposition": "selected_for_inventory",
+      "family": "grf_signature",
+      "file": "2026-09-08_live_client_4385_4387_1788419778.gpf",
+      "header": {
+        "count_word": 1153,
+        "header46_sha256": "a6bdac9599f85fee4436ed77897fc65a695c23e55ec9a325c5c902ac26ee9079",
+        "offset_word": 16992,
+        "record_count": 10,
+        "subtract_word": 1136,
+        "table_bytes": 654,
+        "table_start": 17038,
+        "version": 258
+      },
+      "index": 9326,
+      "lf": 4032,
+      "path": ".tools/renewal/t07-007-patch-suffix-acquisition-1/18_9326_2026-09-08_live_client_4385_4387_1788419778.gpf.body",
+      "sha256": "e7c736bf43e660a433be18fb997419030a336c7928e8ecdae3e7ac7fb51028cc",
+      "source_ordinal": 18,
+      "url": "https://twcdn.gnjoy.com.tw/ragnarok/patchfile/2026-09-08_live_client_4385_4387_1788419778.gpf"
+    },
+    {
+      "acquisition_status": "verified_new",
+      "bytes": 2674574,
+      "disposition": "unresolved_rgz_not_read",
+      "family": "gzip_prefix",
+      "file": "2026-09-08_live_client_4385_4387_1788419778.rgz",
+      "index": 9327,
+      "lf": 4033,
+      "observed_gzip_prefix": {
+        "compression_method": 8,
+        "flags": 0,
+        "hex": "1f8b08",
+        "inner_grammar": "unresolved"
+      },
+      "path": ".tools/renewal/t07-007-patch-suffix-acquisition-1/19_9327_2026-09-08_live_client_4385_4387_1788419778.rgz.body",
+      "sha256": "d6c53713e01dd24edcd57b95b2510684acb259622e7ba8e38784658db707ad68",
+      "source_ordinal": 19,
+      "url": "https://twcdn.gnjoy.com.tw/ragnarok/patchfile/2026-09-08_live_client_4385_4387_1788419778.rgz"
+    },
+    {
+      "acquisition_status": "verified_new",
+      "bytes": 2674419,
+      "disposition": "unresolved_rgz_not_read",
+      "family": "gzip_prefix",
+      "file": "2026-09-08_live_client_4389_4391_1788748420.rgz",
+      "index": 9329,
+      "lf": 4035,
+      "observed_gzip_prefix": {
+        "compression_method": 8,
+        "flags": 0,
+        "hex": "1f8b08",
+        "inner_grammar": "unresolved"
+      },
+      "path": ".tools/renewal/t07-007-patch-suffix-acquisition-1/20_9329_2026-09-08_live_client_4389_4391_1788748420.rgz.body",
+      "sha256": "6cc1d183c2bd5fb6fc59f09b9e03f3678490ebae7a105e08ddf4b715875e0f29",
+      "source_ordinal": 20,
+      "url": "https://twcdn.gnjoy.com.tw/ragnarok/patchfile/2026-09-08_live_client_4389_4391_1788748420.rgz"
+    },
+    {
+      "acquisition_status": "verified_new",
+      "bytes": 1750289,
+      "disposition": "selected_for_inventory",
+      "family": "grf_signature",
+      "file": "2026-09-15_live_client_4393_4395_1789102750.gpf",
+      "header": {
+        "count_word": 116624,
+        "header46_sha256": "6263c86ea47b615299794fc304a3cb0ed750a7f7c179167b6bfa417d122109e3",
+        "offset_word": 1748992,
+        "record_count": 17,
+        "subtract_word": 116600,
+        "table_bytes": 1251,
+        "table_start": 1749038,
+        "version": 258
+      },
+      "index": 9332,
+      "lf": 4038,
+      "path": ".tools/renewal/t07-007-patch-suffix-acquisition-1/21_9332_2026-09-15_live_client_4393_4395_1789102750.gpf.body",
+      "sha256": "a41490bfc1011f5412195c7b7c7cd6b2a4aae10e7083df9cd1b71a2a95689aec",
+      "source_ordinal": 21,
+      "url": "https://twcdn.gnjoy.com.tw/ragnarok/patchfile/2026-09-15_live_client_4393_4395_1789102750.gpf"
+    },
+    {
+      "acquisition_status": "verified_new",
+      "bytes": 2945903,
+      "disposition": "unresolved_rgz_not_read",
+      "family": "gzip_prefix",
+      "file": "2026-09-15_live_client_4393_4395_1789102750.rgz",
+      "index": 9333,
+      "lf": 4039,
+      "observed_gzip_prefix": {
+        "compression_method": 8,
+        "flags": 0,
+        "hex": "1f8b08",
+        "inner_grammar": "unresolved"
+      },
+      "path": ".tools/renewal/t07-007-patch-suffix-acquisition-1/22_9333_2026-09-15_live_client_4393_4395_1789102750.rgz.body",
+      "sha256": "e01dfcddf50b09cfe019e706011d48258f975e4ea92009246e8dabcca7a1f047",
+      "source_ordinal": 22,
+      "url": "https://twcdn.gnjoy.com.tw/ragnarok/patchfile/2026-09-15_live_client_4393_4395_1789102750.rgz"
+    },
+    {
+      "acquisition_status": "verified_new",
+      "bytes": 23576,
+      "disposition": "selected_for_inventory",
+      "family": "grf_signature",
+      "file": "2026-09-15_live_client_4398_4399_1789372404.gpf",
+      "header": {
+        "count_word": 1556,
+        "header46_sha256": "d7a731f8699b1254f300ebc95adf55068bab30623369844c9beac8204b4a8388",
+        "offset_word": 23072,
+        "record_count": 6,
+        "subtract_word": 1543,
+        "table_bytes": 458,
+        "table_start": 23118,
+        "version": 258
+      },
+      "index": 9337,
+      "lf": 4043,
+      "path": ".tools/renewal/t07-007-patch-suffix-acquisition-1/23_9337_2026-09-15_live_client_4398_4399_1789372404.gpf.body",
+      "sha256": "1895918a028888d57a4b2f1abe31bff321a8d8198addf73a5d90f1adf4eef873",
+      "source_ordinal": 23,
+      "url": "https://twcdn.gnjoy.com.tw/ragnarok/patchfile/2026-09-15_live_client_4398_4399_1789372404.gpf"
+    },
+    {
+      "acquisition_status": "verified_new",
+      "bytes": 3333633,
+      "disposition": "unresolved_rgz_not_read",
+      "family": "gzip_prefix",
+      "file": "2026-09-15_live_client_4398_4399_1789372404.rgz",
+      "index": 9338,
+      "lf": 4044,
+      "observed_gzip_prefix": {
+        "compression_method": 8,
+        "flags": 0,
+        "hex": "1f8b08",
+        "inner_grammar": "unresolved"
+      },
+      "path": ".tools/renewal/t07-007-patch-suffix-acquisition-1/24_9338_2026-09-15_live_client_4398_4399_1789372404.rgz.body",
+      "sha256": "70bfdf3561df80a6132f746c79aa98834d43e85cbe41a7927c7363c5e659f508",
+      "source_ordinal": 24,
+      "url": "https://twcdn.gnjoy.com.tw/ragnarok/patchfile/2026-09-15_live_client_4398_4399_1789372404.rgz"
+    },
+    {
+      "acquisition_status": "verified_new",
+      "bytes": 6044944,
+      "disposition": "selected_for_inventory",
+      "family": "grf_signature",
+      "file": "2026-09-22_live_client_4401_4402_1789706431.gpf",
+      "header": {
+        "count_word": 399611,
+        "header46_sha256": "1a20df645c5b3b65279bbf2b3e5203132c746a1ac0f28181e6755da527c06e9f",
+        "offset_word": 5982520,
+        "record_count": 766,
+        "subtract_word": 398838,
+        "table_bytes": 62378,
+        "table_start": 5982566,
+        "version": 258
+      },
+      "index": 9340,
+      "lf": 4046,
+      "path": ".tools/renewal/t07-007-patch-suffix-acquisition-1/25_9340_2026-09-22_live_client_4401_4402_1789706431.gpf.body",
+      "sha256": "31ff5debdf6b025b7cfe42b810c67672e94faf8db6bef038cfa74e607df2bb8e",
+      "source_ordinal": 25,
+      "url": "https://twcdn.gnjoy.com.tw/ragnarok/patchfile/2026-09-22_live_client_4401_4402_1789706431.gpf"
+    },
+    {
+      "acquisition_status": "verified_new",
+      "bytes": 3366973,
+      "disposition": "unresolved_rgz_not_read",
+      "family": "gzip_prefix",
+      "file": "2026-09-22_live_client_4401_4402_1789706431.rgz",
+      "index": 9341,
+      "lf": 4047,
+      "observed_gzip_prefix": {
+        "compression_method": 8,
+        "flags": 0,
+        "hex": "1f8b08",
+        "inner_grammar": "unresolved"
+      },
+      "path": ".tools/renewal/t07-007-patch-suffix-acquisition-1/26_9341_2026-09-22_live_client_4401_4402_1789706431.rgz.body",
+      "sha256": "d1c66b4129dc8a52af056014b2bad525ab77294771cc7a2d1c16821d8572f931",
+      "source_ordinal": 26,
+      "url": "https://twcdn.gnjoy.com.tw/ragnarok/patchfile/2026-09-22_live_client_4401_4402_1789706431.rgz"
+    },
+    {
+      "acquisition_status": "verified_new",
+      "bytes": 660296,
+      "disposition": "unresolved_rgz_not_read",
+      "family": "gzip_prefix",
+      "file": "2026-09-22_live_client_4406_4406_1789952252.rgz",
+      "index": 9343,
+      "lf": 4049,
+      "observed_gzip_prefix": {
+        "compression_method": 8,
+        "flags": 0,
+        "hex": "1f8b08",
+        "inner_grammar": "unresolved"
+      },
+      "path": ".tools/renewal/t07-007-patch-suffix-acquisition-1/27_9343_2026-09-22_live_client_4406_4406_1789952252.rgz.body",
+      "sha256": "61b20f1de3c91259fcfab09dcf0971192b7bc83ada6f3422a09c67316a780480",
+      "source_ordinal": 27,
+      "url": "https://twcdn.gnjoy.com.tw/ragnarok/patchfile/2026-09-22_live_client_4406_4406_1789952252.rgz"
+    },
+    {
+      "acquisition_status": "verified_new",
+      "bytes": 102981,
+      "disposition": "selected_for_inventory",
+      "family": "grf_signature",
+      "file": "2026-09-22_live_client_4408_4410_1789953486.gpf",
+      "header": {
+        "count_word": 6857,
+        "header46_sha256": "a343d7938f540795baaf437ba2fd2d4bb4bee12baa30d7d78e73a78208cad014",
+        "offset_word": 102600,
+        "record_count": 5,
+        "subtract_word": 6845,
+        "table_bytes": 335,
+        "table_start": 102646,
+        "version": 258
+      },
+      "index": 9345,
+      "lf": 4051,
+      "path": ".tools/renewal/t07-007-patch-suffix-acquisition-1/28_9345_2026-09-22_live_client_4408_4410_1789953486.gpf.body",
+      "sha256": "7f1a1c76050ced3b5c2ae956a7d14302226170b334c57e9e67d26a2cfd822663",
+      "source_ordinal": 28,
+      "url": "https://twcdn.gnjoy.com.tw/ragnarok/patchfile/2026-09-22_live_client_4408_4410_1789953486.gpf"
+    },
+    {
+      "acquisition_status": "verified_new",
+      "bytes": 3336927,
+      "disposition": "unresolved_rgz_not_read",
+      "family": "gzip_prefix",
+      "file": "2026-09-22_live_client_4412_4412_1789972792.rgz",
+      "index": 9347,
+      "lf": 4053,
+      "observed_gzip_prefix": {
+        "compression_method": 8,
+        "flags": 0,
+        "hex": "1f8b08",
+        "inner_grammar": "unresolved"
+      },
+      "path": ".tools/renewal/t07-007-patch-suffix-acquisition-1/29_9347_2026-09-22_live_client_4412_4412_1789972792.rgz.body",
+      "sha256": "9432a7cefd5f1018edd6de0bf4c17bdf6254f7b61721b19044cfe8af069c822e",
+      "source_ordinal": 29,
+      "url": "https://twcdn.gnjoy.com.tw/ragnarok/patchfile/2026-09-22_live_client_4412_4412_1789972792.rgz"
+    },
+    {
+      "acquisition_status": "verified_new",
+      "bytes": 3248515,
+      "disposition": "selected_for_inventory",
+      "family": "grf_signature",
+      "file": "2026-09-30_live_client_4414_4419_1790667080.gpf",
+      "header": {
+        "count_word": 214889,
+        "header46_sha256": "51100a572ffe590b5715371ddac2628728a36c9517b315998267dbb09fd70eea",
+        "offset_word": 3217320,
+        "record_count": 391,
+        "subtract_word": 214491,
+        "table_bytes": 31149,
+        "table_start": 3217366,
+        "version": 258
+      },
+      "index": 9349,
+      "lf": 4055,
+      "path": ".tools/renewal/t07-007-patch-suffix-acquisition-1/30_9349_2026-09-30_live_client_4414_4419_1790667080.gpf.body",
+      "sha256": "13af61e07fb1e4d82194acec47ebed7981181828e170a8368006cd86716dd4b8",
+      "source_ordinal": 30,
+      "url": "https://twcdn.gnjoy.com.tw/ragnarok/patchfile/2026-09-30_live_client_4414_4419_1790667080.gpf"
+    },
+    {
+      "acquisition_status": "verified_new",
+      "bytes": 3339468,
+      "disposition": "unresolved_rgz_not_read",
+      "family": "gzip_prefix",
+      "file": "2026-09-30_live_client_4414_4419_1790667080.rgz",
+      "index": 9350,
+      "lf": 4056,
+      "observed_gzip_prefix": {
+        "compression_method": 8,
+        "flags": 0,
+        "hex": "1f8b08",
+        "inner_grammar": "unresolved"
+      },
+      "path": ".tools/renewal/t07-007-patch-suffix-acquisition-1/31_9350_2026-09-30_live_client_4414_4419_1790667080.rgz.body",
+      "sha256": "e3ba43914434cbbe27bb929664ab2fae578b9a64d3db056852a06596edb9ad5a",
+      "source_ordinal": 31,
+      "url": "https://twcdn.gnjoy.com.tw/ragnarok/patchfile/2026-09-30_live_client_4414_4419_1790667080.rgz"
+    },
+    {
+      "acquisition_status": "verified_new",
+      "bytes": 2678907,
+      "disposition": "unresolved_rgz_not_read",
+      "family": "gzip_prefix",
+      "file": "2026-09-30_live_client_4421_4422_1790727167.rgz",
+      "index": 9352,
+      "lf": 4058,
+      "observed_gzip_prefix": {
+        "compression_method": 8,
+        "flags": 0,
+        "hex": "1f8b08",
+        "inner_grammar": "unresolved"
+      },
+      "path": ".tools/renewal/t07-007-patch-suffix-acquisition-1/32_9352_2026-09-30_live_client_4421_4422_1790727167.rgz.body",
+      "sha256": "a0f675fc6e56fc421c84c92be8364af5bacf0a2e5a379d1c29a2b0ea18c908b5",
+      "source_ordinal": 32,
+      "url": "https://twcdn.gnjoy.com.tw/ragnarok/patchfile/2026-09-30_live_client_4421_4422_1790727167.rgz"
+    },
+    {
+      "acquisition_status": "verified_new",
+      "bytes": 81297,
+      "disposition": "selected_for_inventory",
+      "family": "grf_signature",
+      "file": "2026-09-30_live_client_4427_4428_1790748604.gpf",
+      "header": {
+        "count_word": 5421,
+        "header46_sha256": "683c0357d58309a1e5dea5e51f912e6065e5c030e226962f0c269779fa23c6be",
+        "offset_word": 81200,
+        "record_count": 1,
+        "subtract_word": 5413,
+        "table_bytes": 51,
+        "table_start": 81246,
+        "version": 258
+      },
+      "index": 9354,
+      "lf": 4060,
+      "path": ".tools/renewal/t07-007-patch-suffix-acquisition-1/33_9354_2026-09-30_live_client_4427_4428_1790748604.gpf.body",
+      "sha256": "0b14b9a40aa2e76a7f3e29d8aaf531b0189038ac154d952d4c9c9b24638df203",
+      "source_ordinal": 33,
+      "url": "https://twcdn.gnjoy.com.tw/ragnarok/patchfile/2026-09-30_live_client_4427_4428_1790748604.gpf"
+    },
+    {
+      "acquisition_status": "verified_new",
+      "bytes": 2678640,
+      "disposition": "unresolved_rgz_not_read",
+      "family": "gzip_prefix",
+      "file": "2026-09-30_live_client_4427_4428_1790748604.rgz",
+      "index": 9355,
+      "lf": 4061,
+      "observed_gzip_prefix": {
+        "compression_method": 8,
+        "flags": 0,
+        "hex": "1f8b08",
+        "inner_grammar": "unresolved"
+      },
+      "path": ".tools/renewal/t07-007-patch-suffix-acquisition-1/34_9355_2026-09-30_live_client_4427_4428_1790748604.rgz.body",
+      "sha256": "475a76ef5c2e0e5a6fd95c9cc1f2ab303a68bfceba0d2d212f9ef87b763b1720",
+      "source_ordinal": 34,
+      "url": "https://twcdn.gnjoy.com.tw/ragnarok/patchfile/2026-09-30_live_client_4427_4428_1790748604.rgz"
+    },
+    {
+      "acquisition_status": "verified_new",
+      "bytes": 11089668,
+      "disposition": "selected_for_inventory",
+      "family": "grf_signature",
+      "file": "2026-10-06_live_client_4430_4432_1790924605.gpf",
+      "header": {
+        "count_word": 735760,
+        "header46_sha256": "bc9886c756e412dcdf6e3567fcd826500a9996162a8f1d5fd9efd0c2522d40be",
+        "offset_word": 11024584,
+        "record_count": 778,
+        "subtract_word": 734975,
+        "table_bytes": 65038,
+        "table_start": 11024630,
+        "version": 258
+      },
+      "index": 9357,
+      "lf": 4063,
+      "path": ".tools/renewal/t07-007-patch-suffix-acquisition-1/35_9357_2026-10-06_live_client_4430_4432_1790924605.gpf.body",
+      "sha256": "c8a2b0f21601504935ddeff8be46ae59802e2c1f33b97be5985e51f841c1150c",
+      "source_ordinal": 35,
+      "url": "https://twcdn.gnjoy.com.tw/ragnarok/patchfile/2026-10-06_live_client_4430_4432_1790924605.gpf"
+    },
+    {
+      "acquisition_status": "verified_new",
+      "bytes": 4468167,
+      "disposition": "unresolved_rgz_not_read",
+      "family": "gzip_prefix",
+      "file": "2026-10-06_live_client_4430_4432_1790924605.rgz",
+      "index": 9358,
+      "lf": 4064,
+      "observed_gzip_prefix": {
+        "compression_method": 8,
+        "flags": 0,
+        "hex": "1f8b08",
+        "inner_grammar": "unresolved"
+      },
+      "path": ".tools/renewal/t07-007-patch-suffix-acquisition-1/36_9358_2026-10-06_live_client_4430_4432_1790924605.rgz.body",
+      "sha256": "ffa14994b842be873a6a3e638454e319b373e530e52899e7617fdafbe1181d87",
+      "source_ordinal": 36,
+      "url": "https://twcdn.gnjoy.com.tw/ragnarok/patchfile/2026-10-06_live_client_4430_4432_1790924605.rgz"
+    },
+    {
+      "acquisition_status": "verified_new",
+      "bytes": 417471,
+      "disposition": "selected_for_inventory",
+      "family": "grf_signature",
+      "file": "2026-10-06_live_client_4436_4437_1791242855.gpf",
+      "header": {
+        "count_word": 27807,
+        "header46_sha256": "88e522d91b11bb2b610943e666dc0d1dda89225b8c3d95fadae4a54587f20642",
+        "offset_word": 416776,
+        "record_count": 11,
+        "subtract_word": 27789,
+        "table_bytes": 649,
+        "table_start": 416822,
+        "version": 258
+      },
+      "index": 9360,
+      "lf": 4066,
+      "path": ".tools/renewal/t07-007-patch-suffix-acquisition-1/37_9360_2026-10-06_live_client_4436_4437_1791242855.gpf.body",
+      "sha256": "4d1dad21a6ba497ef0ff6e37f455481f15c2eea077276742996a7c978cdf3a50",
+      "source_ordinal": 37,
+      "url": "https://twcdn.gnjoy.com.tw/ragnarok/patchfile/2026-10-06_live_client_4436_4437_1791242855.gpf"
+    },
+    {
+      "acquisition_status": "verified_new",
+      "bytes": 3345267,
+      "disposition": "unresolved_rgz_not_read",
+      "family": "gzip_prefix",
+      "file": "2026-10-06_live_client_4438_4439_1791246316.rgz",
+      "index": 9361,
+      "lf": 4067,
+      "observed_gzip_prefix": {
+        "compression_method": 8,
+        "flags": 0,
+        "hex": "1f8b08",
+        "inner_grammar": "unresolved"
+      },
+      "path": ".tools/renewal/t07-007-patch-suffix-acquisition-1/38_9361_2026-10-06_live_client_4438_4439_1791246316.rgz.body",
+      "sha256": "17350cea7931347736476b3ff8213753bc2b955dc76b0f882b0cdc4625eaa6c1",
+      "source_ordinal": 38,
+      "url": "https://twcdn.gnjoy.com.tw/ragnarok/patchfile/2026-10-06_live_client_4438_4439_1791246316.rgz"
+    },
+    {
+      "acquisition_status": "verified_new",
+      "bytes": 9616231,
+      "disposition": "selected_for_inventory",
+      "family": "grf_signature",
+      "file": "2026-10-13_live_client_4441_4445_1791446674.gpf",
+      "header": {
+        "count_word": 636917,
+        "header46_sha256": "8858774fe77a05000607aeb189918e595073f5b1ee7b7194cfa9843c0812aaad",
+        "offset_word": 9539752,
+        "record_count": 923,
+        "subtract_word": 635987,
+        "table_bytes": 76433,
+        "table_start": 9539798,
+        "version": 258
+      },
+      "index": 9363,
+      "lf": 4069,
+      "path": ".tools/renewal/t07-007-patch-suffix-acquisition-1/39_9363_2026-10-13_live_client_4441_4445_1791446674.gpf.body",
+      "sha256": "460c4381d2b43b26845cb1657c032b730ac9c5bae943cb61d345ab8da9f7d051",
+      "source_ordinal": 39,
+      "url": "https://twcdn.gnjoy.com.tw/ragnarok/patchfile/2026-10-13_live_client_4441_4445_1791446674.gpf"
+    },
+    {
+      "acquisition_status": "verified_new",
+      "bytes": 3389384,
+      "disposition": "unresolved_rgz_not_read",
+      "family": "gzip_prefix",
+      "file": "2026-10-13_live_client_4441_4445_1791446674.rgz",
+      "index": 9364,
+      "lf": 4070,
+      "observed_gzip_prefix": {
+        "compression_method": 8,
+        "flags": 0,
+        "hex": "1f8b08",
+        "inner_grammar": "unresolved"
+      },
+      "path": ".tools/renewal/t07-007-patch-suffix-acquisition-1/40_9364_2026-10-13_live_client_4441_4445_1791446674.rgz.body",
+      "sha256": "fe16dc44760abfbe77fd70dfc7987dbf2f4e13faba5492469dd634ed0c84d0e1",
+      "source_ordinal": 40,
+      "url": "https://twcdn.gnjoy.com.tw/ragnarok/patchfile/2026-10-13_live_client_4441_4445_1791446674.rgz"
+    },
+    {
+      "acquisition_status": "verified_new",
+      "bytes": 9835280,
+      "disposition": "unresolved_rgz_not_read",
+      "family": "gzip_prefix",
+      "file": "2026-10-13_Ragexe_1791446674.rgz",
+      "index": 9365,
+      "lf": 4071,
+      "observed_gzip_prefix": {
+        "compression_method": 8,
+        "flags": 0,
+        "hex": "1f8b08",
+        "inner_grammar": "unresolved"
+      },
+      "path": ".tools/renewal/t07-007-patch-suffix-acquisition-1/41_9365_2026-10-13_Ragexe_1791446674.rgz.body",
+      "sha256": "2405ac4ea4ef6591c09702c0e62bb53f78f59d49ba33e000302835d35aefef5e",
+      "source_ordinal": 41,
+      "url": "https://twcdn.gnjoy.com.tw/ragnarok/patchfile/2026-10-13_Ragexe_1791446674.rgz"
+    },
+    {
+      "acquisition_status": "verified_new",
+      "bytes": 236376,
+      "disposition": "selected_for_inventory",
+      "family": "grf_signature",
+      "file": "2026-10-13_live_client_4450_4450_1791763766.gpf",
+      "header": {
+        "count_word": 15744,
+        "header46_sha256": "bb3a04628c4f60c0f89f92b09480e6e55fb40c3f4231f0ee65f3e2d606d2539f",
+        "offset_word": 235896,
+        "record_count": 6,
+        "subtract_word": 15731,
+        "table_bytes": 434,
+        "table_start": 235942,
+        "version": 258
+      },
+      "index": 9367,
+      "lf": 4073,
+      "path": ".tools/renewal/t07-007-patch-suffix-acquisition-1/42_9367_2026-10-13_live_client_4450_4450_1791763766.gpf.body",
+      "sha256": "15c648e74061f3ccb5b6dc3ec547771b159d31a2e230f48d911b4bc8d259ff7b",
+      "source_ordinal": 42,
+      "url": "https://twcdn.gnjoy.com.tw/ragnarok/patchfile/2026-10-13_live_client_4450_4450_1791763766.gpf"
+    },
+    {
+      "acquisition_status": "verified_new",
+      "bytes": 211586,
+      "disposition": "selected_for_inventory",
+      "family": "grf_signature",
+      "file": "2026-10-13_live_client_4452_4456_1791779718.gpf",
+      "header": {
+        "count_word": 14100,
+        "header46_sha256": "0f7a6a9b4bd48973e2efb139392e1cd00fb8e73025a96483f7262f336c1a02d5",
+        "offset_word": 211280,
+        "record_count": 4,
+        "subtract_word": 14089,
+        "table_bytes": 260,
+        "table_start": 211326,
+        "version": 258
+      },
+      "index": 9369,
+      "lf": 4075,
+      "path": ".tools/renewal/t07-007-patch-suffix-acquisition-1/43_9369_2026-10-13_live_client_4452_4456_1791779718.gpf.body",
+      "sha256": "f7e44b69b45469f3d3d926194ffd226601bacafc867a1b65bc6ec469bd5dd3c4",
+      "source_ordinal": 43,
+      "url": "https://twcdn.gnjoy.com.tw/ragnarok/patchfile/2026-10-13_live_client_4452_4456_1791779718.gpf"
+    },
+    {
+      "acquisition_status": "verified_new",
+      "bytes": 3355958,
+      "disposition": "unresolved_rgz_not_read",
+      "family": "gzip_prefix",
+      "file": "2026-10-13_live_client_4452_4456_1791779718.rgz",
+      "index": 9370,
+      "lf": 4076,
+      "observed_gzip_prefix": {
+        "compression_method": 8,
+        "flags": 0,
+        "hex": "1f8b08",
+        "inner_grammar": "unresolved"
+      },
+      "path": ".tools/renewal/t07-007-patch-suffix-acquisition-1/44_9370_2026-10-13_live_client_4452_4456_1791779718.rgz.body",
+      "sha256": "8825a85cc972f986c2962c07e0eb8af2acd9927812a8be723f3dfd676e8db9e2",
+      "source_ordinal": 44,
+      "url": "https://twcdn.gnjoy.com.tw/ragnarok/patchfile/2026-10-13_live_client_4452_4456_1791779718.rgz"
+    },
+    {
+      "acquisition_status": "verified_new",
+      "bytes": 2688852,
+      "disposition": "unresolved_rgz_not_read",
+      "family": "gzip_prefix",
+      "file": "2026-10-13_live_client_4461_4462_1791847526.rgz",
+      "index": 9372,
+      "lf": 4078,
+      "observed_gzip_prefix": {
+        "compression_method": 8,
+        "flags": 0,
+        "hex": "1f8b08",
+        "inner_grammar": "unresolved"
+      },
+      "path": ".tools/renewal/t07-007-patch-suffix-acquisition-1/45_9372_2026-10-13_live_client_4461_4462_1791847526.rgz.body",
+      "sha256": "7ca3d4606a8fb152b81f203ee7a6babad4b992d665a75f5678d1b6e6ed8009de",
+      "source_ordinal": 45,
+      "url": "https://twcdn.gnjoy.com.tw/ragnarok/patchfile/2026-10-13_live_client_4461_4462_1791847526.rgz"
+    },
+    {
+      "acquisition_status": "verified_new",
+      "bytes": 3351791,
+      "disposition": "unresolved_rgz_not_read",
+      "family": "gzip_prefix",
+      "file": "2026-10-13_live_client_4466_4467_1791861521.rgz",
+      "index": 9374,
+      "lf": 4080,
+      "observed_gzip_prefix": {
+        "compression_method": 8,
+        "flags": 0,
+        "hex": "1f8b08",
+        "inner_grammar": "unresolved"
+      },
+      "path": ".tools/renewal/t07-007-patch-suffix-acquisition-1/46_9374_2026-10-13_live_client_4466_4467_1791861521.rgz.body",
+      "sha256": "25cf09bc47a42c0af3e75b946f3801963877fcbc06638179b0df41d4ec48bdb2",
+      "source_ordinal": 46,
+      "url": "https://twcdn.gnjoy.com.tw/ragnarok/patchfile/2026-10-13_live_client_4466_4467_1791861521.rgz"
+    },
+    {
+      "acquisition_status": "verified_new",
+      "bytes": 2687758,
+      "disposition": "unresolved_rgz_not_read",
+      "family": "gzip_prefix",
+      "file": "2026-10-13_live_client_4469_4470_1791866885.rgz",
+      "index": 9376,
+      "lf": 4082,
+      "observed_gzip_prefix": {
+        "compression_method": 8,
+        "flags": 0,
+        "hex": "1f8b08",
+        "inner_grammar": "unresolved"
+      },
+      "path": ".tools/renewal/t07-007-patch-suffix-acquisition-1/47_9376_2026-10-13_live_client_4469_4470_1791866885.rgz.body",
+      "sha256": "83edd719dcdef051437290fae1c0001830b5a8b74d84e9bae03c0698cd534902",
+      "source_ordinal": 47,
+      "url": "https://twcdn.gnjoy.com.tw/ragnarok/patchfile/2026-10-13_live_client_4469_4470_1791866885.rgz"
+    },
+    {
+      "acquisition_status": "verified_new",
+      "bytes": 13997225,
+      "disposition": "selected_for_inventory",
+      "family": "grf_signature",
+      "file": "2026-10-20_live_client_4477_4479_1792391783.gpf",
+      "header": {
+        "count_word": 924041,
+        "header46_sha256": "6a3232c187ebe7c6f6d0278a9412e4447e05ba5ca4472ebeb55eda1e6396fe04",
+        "offset_word": 13830312,
+        "record_count": 2009,
+        "subtract_word": 922025,
+        "table_bytes": 166867,
+        "table_start": 13830358,
+        "version": 258
+      },
+      "index": 9378,
+      "lf": 4084,
+      "path": ".tools/renewal/t07-007-patch-suffix-acquisition-1/48_9378_2026-10-20_live_client_4477_4479_1792391783.gpf.body",
+      "sha256": "3a3cf483088f25d701ddb9db94635ea9848cc47a2b626f6ea1d286ce866a5396",
+      "source_ordinal": 48,
+      "url": "https://twcdn.gnjoy.com.tw/ragnarok/patchfile/2026-10-20_live_client_4477_4479_1792391783.gpf"
+    },
+    {
+      "acquisition_status": "verified_new",
+      "bytes": 4376217,
+      "disposition": "unresolved_rgz_not_read",
+      "family": "gzip_prefix",
+      "file": "2026-10-20_live_client_4477_4479_1792391783.rgz",
+      "index": 9379,
+      "lf": 4085,
+      "observed_gzip_prefix": {
+        "compression_method": 8,
+        "flags": 0,
+        "hex": "1f8b08",
+        "inner_grammar": "unresolved"
+      },
+      "path": ".tools/renewal/t07-007-patch-suffix-acquisition-1/49_9379_2026-10-20_live_client_4477_4479_1792391783.rgz.body",
+      "sha256": "a0a32224cdea7bab238bb782b55a097901affc1ac0829165cf4a514a94ba0988",
+      "source_ordinal": 49,
+      "url": "https://twcdn.gnjoy.com.tw/ragnarok/patchfile/2026-10-20_live_client_4477_4479_1792391783.rgz"
+    },
+    {
+      "acquisition_status": "verified_new",
+      "bytes": 207657,
+      "disposition": "selected_for_inventory",
+      "family": "grf_signature",
+      "file": "2026-10-20_live_client_4481_4489_1792452494.gpf",
+      "header": {
+        "count_word": 13823,
+        "header46_sha256": "959082db7d0aca120eeda6f4ac31e8e46ca2105617e8b90b8c1a8bb13ea2ecc1",
+        "offset_word": 207064,
+        "record_count": 9,
+        "subtract_word": 13807,
+        "table_bytes": 547,
+        "table_start": 207110,
+        "version": 258
+      },
+      "index": 9381,
+      "lf": 4087,
+      "path": ".tools/renewal/t07-007-patch-suffix-acquisition-1/50_9381_2026-10-20_live_client_4481_4489_1792452494.gpf.body",
+      "sha256": "16cef9de05ef990c74aa3f80cbc2899a5934e98f6fc0845759a553ae0b1b9f21",
+      "source_ordinal": 50,
+      "url": "https://twcdn.gnjoy.com.tw/ragnarok/patchfile/2026-10-20_live_client_4481_4489_1792452494.gpf"
+    },
+    {
+      "acquisition_status": "verified_new",
+      "bytes": 2728705,
+      "disposition": "unresolved_rgz_not_read",
+      "family": "gzip_prefix",
+      "file": "2026-10-20_live_client_4481_4489_1792452494.rgz",
+      "index": 9382,
+      "lf": 4088,
+      "observed_gzip_prefix": {
+        "compression_method": 8,
+        "flags": 0,
+        "hex": "1f8b08",
+        "inner_grammar": "unresolved"
+      },
+      "path": ".tools/renewal/t07-007-patch-suffix-acquisition-1/51_9382_2026-10-20_live_client_4481_4489_1792452494.rgz.body",
+      "sha256": "9741d58e19963ed4b5bce93f57edb0f9449f5c051b3d95247a7c2cb5faad95fc",
+      "source_ordinal": 51,
+      "url": "https://twcdn.gnjoy.com.tw/ragnarok/patchfile/2026-10-20_live_client_4481_4489_1792452494.rgz"
+    },
+    {
+      "acquisition_status": "verified_new",
+      "bytes": 1250930,
+      "disposition": "selected_for_inventory",
+      "family": "grf_signature",
+      "file": "2026-10-20_live_client_4491_4493_1792464907.gpf",
+      "header": {
+        "count_word": 83388,
+        "header46_sha256": "2055060c4c63ceb7779dfaaa42e3989e155f2c48a5b7d75c527df41c57885f1c",
+        "offset_word": 1250600,
+        "record_count": 4,
+        "subtract_word": 83377,
+        "table_bytes": 284,
+        "table_start": 1250646,
+        "version": 258
+      },
+      "index": 9384,
+      "lf": 4090,
+      "path": ".tools/renewal/t07-007-patch-suffix-acquisition-1/52_9384_2026-10-20_live_client_4491_4493_1792464907.gpf.body",
+      "sha256": "a687868a6d7e159becdef73022a58659dcc8300f6bad856a4ee2bc628aab707e",
+      "source_ordinal": 52,
+      "url": "https://twcdn.gnjoy.com.tw/ragnarok/patchfile/2026-10-20_live_client_4491_4493_1792464907.gpf"
+    },
+    {
+      "acquisition_status": "verified_new",
+      "bytes": 1250914,
+      "disposition": "selected_for_inventory",
+      "family": "grf_signature",
+      "file": "2026-10-20_live_client_4495_4497_1792471406.gpf",
+      "header": {
+        "count_word": 83387,
+        "header46_sha256": "425e627edb1265eb19bbe73c08dd16cdf01a8445fb49baa803f2e3b83a749e23",
+        "offset_word": 1250584,
+        "record_count": 4,
+        "subtract_word": 83376,
+        "table_bytes": 284,
+        "table_start": 1250630,
+        "version": 258
+      },
+      "index": 9385,
+      "lf": 4091,
+      "path": ".tools/renewal/t07-007-patch-suffix-acquisition-1/53_9385_2026-10-20_live_client_4495_4497_1792471406.gpf.body",
+      "sha256": "1575b23c4c202d8eebc29141a09759706d8f2b86de7f4450979d28f1f102bc14",
+      "source_ordinal": 53,
+      "url": "https://twcdn.gnjoy.com.tw/ragnarok/patchfile/2026-10-20_live_client_4495_4497_1792471406.gpf"
+    },
+    {
+      "acquisition_status": "verified_new",
+      "bytes": 82153,
+      "disposition": "selected_for_inventory",
+      "family": "grf_signature",
+      "file": "2026-10-20_live_client_4499_4501_1792475929.gpf",
+      "header": {
+        "count_word": 5478,
+        "header46_sha256": "d2c745fca5e69d1b50e4bc6f3460aad88ff975983da953a687ecfd9c75d634ae",
+        "offset_word": 82056,
+        "record_count": 1,
+        "subtract_word": 5470,
+        "table_bytes": 51,
+        "table_start": 82102,
+        "version": 258
+      },
+      "index": 9386,
+      "lf": 4092,
+      "path": ".tools/renewal/t07-007-patch-suffix-acquisition-1/54_9386_2026-10-20_live_client_4499_4501_1792475929.gpf.body",
+      "sha256": "381a2bc84b932164f80ec0492118f259961340c498b27daed2e91df3cffe2ba8",
+      "source_ordinal": 54,
+      "url": "https://twcdn.gnjoy.com.tw/ragnarok/patchfile/2026-10-20_live_client_4499_4501_1792475929.gpf"
+    },
+    {
+      "acquisition_status": "verified_new",
+      "bytes": 2691540,
+      "disposition": "unresolved_rgz_not_read",
+      "family": "gzip_prefix",
+      "file": "2026-10-20_live_client_4499_4501_1792475929.rgz",
+      "index": 9387,
+      "lf": 4093,
+      "observed_gzip_prefix": {
+        "compression_method": 8,
+        "flags": 0,
+        "hex": "1f8b08",
+        "inner_grammar": "unresolved"
+      },
+      "path": ".tools/renewal/t07-007-patch-suffix-acquisition-1/55_9387_2026-10-20_live_client_4499_4501_1792475929.rgz.body",
+      "sha256": "3dbdfedc36ce1d1facb4a6e9c73acdacc2fcb119cb62a3f7e78ad853dfd0b4de",
+      "source_ordinal": 55,
+      "url": "https://twcdn.gnjoy.com.tw/ragnarok/patchfile/2026-10-20_live_client_4499_4501_1792475929.rgz"
+    },
+    {
+      "acquisition_status": "verified_new",
+      "bytes": 82145,
+      "disposition": "selected_for_inventory",
+      "family": "grf_signature",
+      "file": "2026-10-20_live_client_4503_4505_1792477244.gpf",
+      "header": {
+        "count_word": 5477,
+        "header46_sha256": "d6cb617c356e772f6ae47397b6628db41ab445e7cb0ef041e18b21c1e547c297",
+        "offset_word": 82048,
+        "record_count": 1,
+        "subtract_word": 5469,
+        "table_bytes": 51,
+        "table_start": 82094,
+        "version": 258
+      },
+      "index": 9389,
+      "lf": 4095,
+      "path": ".tools/renewal/t07-007-patch-suffix-acquisition-1/56_9389_2026-10-20_live_client_4503_4505_1792477244.gpf.body",
+      "sha256": "a8518490a0a43e1e2c58023f669971fa7ffbd830a7c104abb2f901d37387d5d3",
+      "source_ordinal": 56,
+      "url": "https://twcdn.gnjoy.com.tw/ragnarok/patchfile/2026-10-20_live_client_4503_4505_1792477244.gpf"
+    },
+    {
+      "acquisition_status": "verified_new",
+      "bytes": 92688,
+      "disposition": "unresolved_rgz_not_read",
+      "family": "gzip_prefix",
+      "file": "2026-10-20_Raghash_1792477244.rgz",
+      "index": 9390,
+      "lf": 4096,
+      "observed_gzip_prefix": {
+        "compression_method": 8,
+        "flags": 0,
+        "hex": "1f8b08",
+        "inner_grammar": "unresolved"
+      },
+      "path": ".tools/renewal/t07-007-patch-suffix-acquisition-1/57_9390_2026-10-20_Raghash_1792477244.rgz.body",
+      "sha256": "3d987e2505d36a155f7d24752b02190fd160bc0f7ca37e3b8c817ffa15923462",
+      "source_ordinal": 57,
+      "url": "https://twcdn.gnjoy.com.tw/ragnarok/patchfile/2026-10-20_Raghash_1792477244.rgz"
+    },
+    {
+      "acquisition_status": "verified_new",
+      "bytes": 1251042,
+      "disposition": "selected_for_inventory",
+      "family": "grf_signature",
+      "file": "2026-10-20_live_client_4507_4509_1792493396.gpf",
+      "header": {
+        "count_word": 83395,
+        "header46_sha256": "48feb186ef88a276ebc0418a315b005affc1b0e28384e6ec2dba6d303aeaf5d5",
+        "offset_word": 1250712,
+        "record_count": 4,
+        "subtract_word": 83384,
+        "table_bytes": 284,
+        "table_start": 1250758,
+        "version": 258
+      },
+      "index": 9391,
+      "lf": 4097,
+      "path": ".tools/renewal/t07-007-patch-suffix-acquisition-1/58_9391_2026-10-20_live_client_4507_4509_1792493396.gpf.body",
+      "sha256": "9ae705781fc6bcfc47e26f5588daaa973335b2ce3a8d9e17bcd56a985a31de53",
+      "source_ordinal": 58,
+      "url": "https://twcdn.gnjoy.com.tw/ragnarok/patchfile/2026-10-20_live_client_4507_4509_1792493396.gpf"
+    }
+  ],
+  "lookup_priority": null,
+  "optional_executed_helper": {
+    "bytes": 68972,
+    "path": "tools/renewal/archive_inventory_october.py",
+    "sha256": "92cd980e847c6eaeeb37ed8c2d29162e48911ef9155f9042639f042daeaec9f8"
+  },
+  "output": {
+    "completion": "inventory-complete.json",
+    "failure": "inventory-failed.json",
+    "manifest": "inventory-manifest.json",
+    "record_schema": "unchanged core.render_record dictionary and canonical ASCII JSONL; archive is original GPF name, not downloaded storage basename",
+    "records": [
+      "9305.records.jsonl",
+      "9310.records.jsonl",
+      "9311.records.jsonl",
+      "9312.records.jsonl",
+      "9316.records.jsonl",
+      "9319.records.jsonl",
+      "9320.records.jsonl",
+      "9323.records.jsonl",
+      "9324.records.jsonl",
+      "9326.records.jsonl",
+      "9332.records.jsonl",
+      "9337.records.jsonl",
+      "9340.records.jsonl",
+      "9345.records.jsonl",
+      "9349.records.jsonl",
+      "9354.records.jsonl",
+      "9357.records.jsonl",
+      "9360.records.jsonl",
+      "9363.records.jsonl",
+      "9367.records.jsonl",
+      "9369.records.jsonl",
+      "9378.records.jsonl",
+      "9381.records.jsonl",
+      "9384.records.jsonl",
+      "9385.records.jsonl",
+      "9386.records.jsonl",
+      "9389.records.jsonl",
+      "9391.records.jsonl"
+    ],
+    "schema": "ro-patch-raw-inventory/1",
+    "source_join": "manifest archive index/source LF/storage path/original name/full SHA -> fixed numeric records filename",
+    "success_file_count": 30,
+    "tail_policy": "Core may report tails; this exact production profile requires observed zero tails. A nonzero tail is profile mismatch, not universal format invalidity."
+  },
+  "priority_status": "not_established",
+  "publisher_digest_status": "not_inspected",
+  "schema": "ro-patch-raw-inventory-profile/1",
+  "selected_expected": [
+    {
+      "counts": {
+        "diagnostic_body_ranges_outside_archive": 0,
+        "duplicate_raw_names": 0,
+        "effective_flags": {
+          "encrypt_header": 0,
+          "encrypt_mixed": 3,
+          "file": 3
+        },
+        "effective_kind": {
+          "0": 4,
+          "3": 3
+        },
+        "empty_names": 0,
+        "kind0_promotions": 0,
+        "length_bias_underflows": {
+          "aligned": 0,
+          "any": 0,
+          "compressed": 0
+        },
+        "metadata_eligible": 3,
+        "metadata_filter": {
+          "eligible": 3,
+          "file_bit_absent": 4
+        },
+        "names_with_high_bytes": 6,
+        "names_without_nul": 0,
+        "original_kind": {
+          "0": 4,
+          "1": 3
+        },
+        "raw_records": 7,
+        "unique_raw_names": 7
+      },
+      "header": {
+        "declared_version": 258,
+        "effective_version": 258,
+        "header46_sha256": "a0addf3a272dc01179645da5108ca35b749b985e616a6961659919b78b448256",
+        "layout": "legacy",
+        "raw_count_word": 6313,
+        "record_count": 7,
+        "signature": "Master of Magic",
+        "subtract_word": 6299,
+        "table_bytes": 541,
+        "table_end": 95051,
+        "table_form": "clear legacy table to EOF",
+        "table_start": 94510
+      },
+      "index": 9305,
+      "table": {
+        "consumed_bytes": 541,
+        "stored_sha256": "95cc4af9ca906f54bab388ed6b6a23b7e09f2fd38d7dad7e092f023aac47be48",
+        "trailing_bytes": 0,
+        "trailing_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      }
+    },
+    {
+      "counts": {
+        "diagnostic_body_ranges_outside_archive": 0,
+        "duplicate_raw_names": 0,
+        "effective_flags": {
+          "encrypt_header": 0,
+          "encrypt_mixed": 1,
+          "file": 1
+        },
+        "effective_kind": {
+          "0": 3,
+          "3": 1
+        },
+        "empty_names": 0,
+        "kind0_promotions": 0,
+        "length_bias_underflows": {
+          "aligned": 0,
+          "any": 0,
+          "compressed": 0
+        },
+        "metadata_eligible": 1,
+        "metadata_filter": {
+          "eligible": 1,
+          "file_bit_absent": 3
+        },
+        "names_with_high_bytes": 0,
+        "names_without_nul": 0,
+        "original_kind": {
+          "0": 3,
+          "1": 1
+        },
+        "raw_records": 4,
+        "unique_raw_names": 4
+      },
+      "header": {
+        "declared_version": 258,
+        "effective_version": 258,
+        "header46_sha256": "5eb00f005c8bb299951017fb5ab22c9c8b9b5bc3f0fa55ed966b4f78d7515393",
+        "layout": "legacy",
+        "raw_count_word": 5869,
+        "record_count": 4,
+        "signature": "Master of Magic",
+        "subtract_word": 5858,
+        "table_bytes": 268,
+        "table_end": 88138,
+        "table_form": "clear legacy table to EOF",
+        "table_start": 87870
+      },
+      "index": 9310,
+      "table": {
+        "consumed_bytes": 268,
+        "stored_sha256": "261c128ee513d7022c9183ca2177c18ccac4d74993fdace9bcee30840976959f",
+        "trailing_bytes": 0,
+        "trailing_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      }
+    },
+    {
+      "counts": {
+        "diagnostic_body_ranges_outside_archive": 0,
+        "duplicate_raw_names": 0,
+        "effective_flags": {
+          "encrypt_header": 1,
+          "encrypt_mixed": 1,
+          "file": 2
+        },
+        "effective_kind": {
+          "3": 1,
+          "5": 1
+        },
+        "empty_names": 0,
+        "kind0_promotions": 0,
+        "length_bias_underflows": {
+          "aligned": 0,
+          "any": 0,
+          "compressed": 0
+        },
+        "metadata_eligible": 2,
+        "metadata_filter": {
+          "eligible": 2
+        },
+        "names_with_high_bytes": 0,
+        "names_without_nul": 0,
+        "original_kind": {
+          "1": 2
+        },
+        "raw_records": 2,
+        "unique_raw_names": 2
+      },
+      "header": {
+        "declared_version": 258,
+        "effective_version": 258,
+        "header46_sha256": "d7ef7621035d77bcf4d8e78071a56814cd8c291b77333f4a234893cd19f88722",
+        "layout": "legacy",
+        "raw_count_word": 20536,
+        "record_count": 2,
+        "signature": "Master of Magic",
+        "subtract_word": 20527,
+        "table_bytes": 86,
+        "table_end": 308028,
+        "table_form": "clear legacy table to EOF",
+        "table_start": 307942
+      },
+      "index": 9311,
+      "table": {
+        "consumed_bytes": 86,
+        "stored_sha256": "7cb7b6fbf8f057f1f0eac38d7fe25c7db35b5c1cb05c52fdec023dd735db9c07",
+        "trailing_bytes": 0,
+        "trailing_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      }
+    },
+    {
+      "counts": {
+        "diagnostic_body_ranges_outside_archive": 0,
+        "duplicate_raw_names": 0,
+        "effective_flags": {
+          "encrypt_header": 0,
+          "encrypt_mixed": 3,
+          "file": 3
+        },
+        "effective_kind": {
+          "0": 3,
+          "3": 3
+        },
+        "empty_names": 0,
+        "kind0_promotions": 0,
+        "length_bias_underflows": {
+          "aligned": 0,
+          "any": 0,
+          "compressed": 0
+        },
+        "metadata_eligible": 3,
+        "metadata_filter": {
+          "eligible": 3,
+          "file_bit_absent": 3
+        },
+        "names_with_high_bytes": 0,
+        "names_without_nul": 0,
+        "original_kind": {
+          "0": 3,
+          "1": 3
+        },
+        "raw_records": 6,
+        "unique_raw_names": 6
+      },
+      "header": {
+        "declared_version": 258,
+        "effective_version": 258,
+        "header46_sha256": "414e116a1407e905ce3029f5f88c0d763fcb8a163677e9e0b91188ab602d6769",
+        "layout": "legacy",
+        "raw_count_word": 23691,
+        "record_count": 6,
+        "signature": "Master of Magic",
+        "subtract_word": 23678,
+        "table_bytes": 386,
+        "table_end": 355528,
+        "table_form": "clear legacy table to EOF",
+        "table_start": 355142
+      },
+      "index": 9312,
+      "table": {
+        "consumed_bytes": 386,
+        "stored_sha256": "07dcdd4f9cdfa84f00950691f47a6c34d0a60aed579e3c0f43fd501d45aa4e02",
+        "trailing_bytes": 0,
+        "trailing_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      }
+    },
+    {
+      "counts": {
+        "diagnostic_body_ranges_outside_archive": 0,
+        "duplicate_raw_names": 0,
+        "effective_flags": {
+          "encrypt_header": 0,
+          "encrypt_mixed": 1,
+          "file": 1
+        },
+        "effective_kind": {
+          "0": 3,
+          "3": 1
+        },
+        "empty_names": 0,
+        "kind0_promotions": 0,
+        "length_bias_underflows": {
+          "aligned": 0,
+          "any": 0,
+          "compressed": 0
+        },
+        "metadata_eligible": 1,
+        "metadata_filter": {
+          "eligible": 1,
+          "file_bit_absent": 3
+        },
+        "names_with_high_bytes": 0,
+        "names_without_nul": 0,
+        "original_kind": {
+          "0": 3,
+          "1": 1
+        },
+        "raw_records": 4,
+        "unique_raw_names": 4
+      },
+      "header": {
+        "declared_version": 258,
+        "effective_version": 258,
+        "header46_sha256": "d9314063eaf02579b8739c0f2ae8ea9ba88da245fb7fa91103ae6d282731d8da",
+        "layout": "legacy",
+        "raw_count_word": 82265,
+        "record_count": 4,
+        "signature": "Master of Magic",
+        "subtract_word": 82254,
+        "table_bytes": 284,
+        "table_end": 1234090,
+        "table_form": "clear legacy table to EOF",
+        "table_start": 1233806
+      },
+      "index": 9316,
+      "table": {
+        "consumed_bytes": 284,
+        "stored_sha256": "5d700b9fc63888b732a041c872e789b08ecfa39ebda173a713d0b8bc7560f3c5",
+        "trailing_bytes": 0,
+        "trailing_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      }
+    },
+    {
+      "counts": {
+        "diagnostic_body_ranges_outside_archive": 0,
+        "duplicate_raw_names": 0,
+        "effective_flags": {
+          "encrypt_header": 0,
+          "encrypt_mixed": 1,
+          "file": 1
+        },
+        "effective_kind": {
+          "0": 3,
+          "3": 1
+        },
+        "empty_names": 0,
+        "kind0_promotions": 0,
+        "length_bias_underflows": {
+          "aligned": 0,
+          "any": 0,
+          "compressed": 0
+        },
+        "metadata_eligible": 1,
+        "metadata_filter": {
+          "eligible": 1,
+          "file_bit_absent": 3
+        },
+        "names_with_high_bytes": 3,
+        "names_without_nul": 0,
+        "original_kind": {
+          "0": 3,
+          "1": 1
+        },
+        "raw_records": 4,
+        "unique_raw_names": 4
+      },
+      "header": {
+        "declared_version": 258,
+        "effective_version": 258,
+        "header46_sha256": "1dcc76d066115ae679d61efe6d0e42a370dd914ad476eab600de3705aeabf839",
+        "layout": "legacy",
+        "raw_count_word": 423,
+        "record_count": 4,
+        "signature": "Master of Magic",
+        "subtract_word": 412,
+        "table_bytes": 236,
+        "table_end": 6410,
+        "table_form": "clear legacy table to EOF",
+        "table_start": 6174
+      },
+      "index": 9319,
+      "table": {
+        "consumed_bytes": 236,
+        "stored_sha256": "230a87b1be7700b7b5640bde888d909cbcc76bfa2498e1a517ed4f98aef3c18e",
+        "trailing_bytes": 0,
+        "trailing_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      }
+    },
+    {
+      "counts": {
+        "diagnostic_body_ranges_outside_archive": 0,
+        "duplicate_raw_names": 0,
+        "effective_flags": {
+          "encrypt_header": 361,
+          "encrypt_mixed": 377,
+          "file": 738
+        },
+        "effective_kind": {
+          "0": 19,
+          "3": 377,
+          "5": 361
+        },
+        "empty_names": 0,
+        "kind0_promotions": 0,
+        "length_bias_underflows": {
+          "aligned": 0,
+          "any": 0,
+          "compressed": 0
+        },
+        "metadata_eligible": 738,
+        "metadata_filter": {
+          "eligible": 738,
+          "file_bit_absent": 19
+        },
+        "names_with_high_bytes": 743,
+        "names_without_nul": 0,
+        "original_kind": {
+          "0": 19,
+          "1": 738
+        },
+        "raw_records": 757,
+        "unique_raw_names": 757
+      },
+      "header": {
+        "declared_version": 258,
+        "effective_version": 258,
+        "header46_sha256": "9e1d2905113446eb60af0e4ff875f071cf4c5b832b06abeffd0e4d65c3dd56be",
+        "layout": "legacy",
+        "raw_count_word": 383638,
+        "record_count": 757,
+        "signature": "Master of Magic",
+        "subtract_word": 382874,
+        "table_bytes": 66407,
+        "table_end": 5809533,
+        "table_form": "clear legacy table to EOF",
+        "table_start": 5743126
+      },
+      "index": 9320,
+      "table": {
+        "consumed_bytes": 66407,
+        "stored_sha256": "5a2f4865e9305c9d29b149ac52849a44ec48ac54ea75153a9e805888bed3ad5a",
+        "trailing_bytes": 0,
+        "trailing_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      }
+    },
+    {
+      "counts": {
+        "diagnostic_body_ranges_outside_archive": 3,
+        "duplicate_raw_names": 0,
+        "effective_flags": {
+          "encrypt_header": 0,
+          "encrypt_mixed": 2,
+          "file": 2
+        },
+        "effective_kind": {
+          "0": 3,
+          "3": 2
+        },
+        "empty_names": 0,
+        "kind0_promotions": 0,
+        "length_bias_underflows": {
+          "aligned": 0,
+          "any": 0,
+          "compressed": 0
+        },
+        "metadata_eligible": 2,
+        "metadata_filter": {
+          "eligible": 2,
+          "file_bit_absent": 3
+        },
+        "names_with_high_bytes": 0,
+        "names_without_nul": 0,
+        "original_kind": {
+          "0": 3,
+          "1": 2
+        },
+        "raw_records": 5,
+        "unique_raw_names": 5
+      },
+      "header": {
+        "declared_version": 258,
+        "effective_version": 258,
+        "header46_sha256": "d176f91114965ab27b27270c8c2b5c5c186a9ba33e430416bd8011000c3cc221",
+        "layout": "legacy",
+        "raw_count_word": 127,
+        "record_count": 5,
+        "signature": "Master of Magic",
+        "subtract_word": 115,
+        "table_bytes": 335,
+        "table_end": 2037,
+        "table_form": "clear legacy table to EOF",
+        "table_start": 1702
+      },
+      "index": 9323,
+      "table": {
+        "consumed_bytes": 335,
+        "stored_sha256": "3eb4a2fdbf11c5398a0402e5b68b9eb9e7dc6bbda201083782ea0937f9479f71",
+        "trailing_bytes": 0,
+        "trailing_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      }
+    },
+    {
+      "counts": {
+        "diagnostic_body_ranges_outside_archive": 0,
+        "duplicate_raw_names": 0,
+        "effective_flags": {
+          "encrypt_header": 0,
+          "encrypt_mixed": 1,
+          "file": 1
+        },
+        "effective_kind": {
+          "0": 2,
+          "3": 1
+        },
+        "empty_names": 0,
+        "kind0_promotions": 0,
+        "length_bias_underflows": {
+          "aligned": 0,
+          "any": 0,
+          "compressed": 0
+        },
+        "metadata_eligible": 1,
+        "metadata_filter": {
+          "eligible": 1,
+          "file_bit_absent": 2
+        },
+        "names_with_high_bytes": 0,
+        "names_without_nul": 0,
+        "original_kind": {
+          "0": 2,
+          "1": 1
+        },
+        "raw_records": 3,
+        "unique_raw_names": 3
+      },
+      "header": {
+        "declared_version": 258,
+        "effective_version": 258,
+        "header46_sha256": "6865c472e7ecaf677c80488261868293d485859632589d4ed21df2f74466d0ef",
+        "layout": "legacy",
+        "raw_count_word": 4502,
+        "record_count": 3,
+        "signature": "Master of Magic",
+        "subtract_word": 4492,
+        "table_bytes": 185,
+        "table_end": 67567,
+        "table_form": "clear legacy table to EOF",
+        "table_start": 67382
+      },
+      "index": 9324,
+      "table": {
+        "consumed_bytes": 185,
+        "stored_sha256": "3cf47ce268a43f4aa1494d09a7e62921785ac9561c87b66dd0d4997516988093",
+        "trailing_bytes": 0,
+        "trailing_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      }
+    },
+    {
+      "counts": {
+        "diagnostic_body_ranges_outside_archive": 0,
+        "duplicate_raw_names": 0,
+        "effective_flags": {
+          "encrypt_header": 1,
+          "encrypt_mixed": 3,
+          "file": 4
+        },
+        "effective_kind": {
+          "0": 6,
+          "3": 3,
+          "5": 1
+        },
+        "empty_names": 0,
+        "kind0_promotions": 0,
+        "length_bias_underflows": {
+          "aligned": 0,
+          "any": 0,
+          "compressed": 0
+        },
+        "metadata_eligible": 4,
+        "metadata_filter": {
+          "eligible": 4,
+          "file_bit_absent": 6
+        },
+        "names_with_high_bytes": 8,
+        "names_without_nul": 0,
+        "original_kind": {
+          "0": 6,
+          "1": 4
+        },
+        "raw_records": 10,
+        "unique_raw_names": 10
+      },
+      "header": {
+        "declared_version": 258,
+        "effective_version": 258,
+        "header46_sha256": "a6bdac9599f85fee4436ed77897fc65a695c23e55ec9a325c5c902ac26ee9079",
+        "layout": "legacy",
+        "raw_count_word": 1153,
+        "record_count": 10,
+        "signature": "Master of Magic",
+        "subtract_word": 1136,
+        "table_bytes": 654,
+        "table_end": 17692,
+        "table_form": "clear legacy table to EOF",
+        "table_start": 17038
+      },
+      "index": 9326,
+      "table": {
+        "consumed_bytes": 654,
+        "stored_sha256": "c2862df264b7e6f9d9eab8e8e787bcb5b549995df695d498e0ad4a910df96c12",
+        "trailing_bytes": 0,
+        "trailing_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      }
+    },
+    {
+      "counts": {
+        "diagnostic_body_ranges_outside_archive": 0,
+        "duplicate_raw_names": 0,
+        "effective_flags": {
+          "encrypt_header": 0,
+          "encrypt_mixed": 8,
+          "file": 8
+        },
+        "effective_kind": {
+          "0": 9,
+          "3": 8
+        },
+        "empty_names": 0,
+        "kind0_promotions": 0,
+        "length_bias_underflows": {
+          "aligned": 0,
+          "any": 0,
+          "compressed": 0
+        },
+        "metadata_eligible": 8,
+        "metadata_filter": {
+          "eligible": 8,
+          "file_bit_absent": 9
+        },
+        "names_with_high_bytes": 3,
+        "names_without_nul": 0,
+        "original_kind": {
+          "0": 9,
+          "1": 8
+        },
+        "raw_records": 17,
+        "unique_raw_names": 17
+      },
+      "header": {
+        "declared_version": 258,
+        "effective_version": 258,
+        "header46_sha256": "6263c86ea47b615299794fc304a3cb0ed750a7f7c179167b6bfa417d122109e3",
+        "layout": "legacy",
+        "raw_count_word": 116624,
+        "record_count": 17,
+        "signature": "Master of Magic",
+        "subtract_word": 116600,
+        "table_bytes": 1251,
+        "table_end": 1750289,
+        "table_form": "clear legacy table to EOF",
+        "table_start": 1749038
+      },
+      "index": 9332,
+      "table": {
+        "consumed_bytes": 1251,
+        "stored_sha256": "ab137be05595c140fec931b4ec6bbbb8874674b00c0a60035735ed369b467fcb",
+        "trailing_bytes": 0,
+        "trailing_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      }
+    },
+    {
+      "counts": {
+        "diagnostic_body_ranges_outside_archive": 0,
+        "duplicate_raw_names": 0,
+        "effective_flags": {
+          "encrypt_header": 0,
+          "encrypt_mixed": 2,
+          "file": 2
+        },
+        "effective_kind": {
+          "0": 4,
+          "3": 2
+        },
+        "empty_names": 0,
+        "kind0_promotions": 0,
+        "length_bias_underflows": {
+          "aligned": 0,
+          "any": 0,
+          "compressed": 0
+        },
+        "metadata_eligible": 2,
+        "metadata_filter": {
+          "eligible": 2,
+          "file_bit_absent": 4
+        },
+        "names_with_high_bytes": 0,
+        "names_without_nul": 0,
+        "original_kind": {
+          "0": 4,
+          "1": 2
+        },
+        "raw_records": 6,
+        "unique_raw_names": 6
+      },
+      "header": {
+        "declared_version": 258,
+        "effective_version": 258,
+        "header46_sha256": "d7a731f8699b1254f300ebc95adf55068bab30623369844c9beac8204b4a8388",
+        "layout": "legacy",
+        "raw_count_word": 1556,
+        "record_count": 6,
+        "signature": "Master of Magic",
+        "subtract_word": 1543,
+        "table_bytes": 458,
+        "table_end": 23576,
+        "table_form": "clear legacy table to EOF",
+        "table_start": 23118
+      },
+      "index": 9337,
+      "table": {
+        "consumed_bytes": 458,
+        "stored_sha256": "b63c42d4f97dcc89232ccde13ae8ee63ccf1236d0623cf22472e59cfba197c39",
+        "trailing_bytes": 0,
+        "trailing_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      }
+    },
+    {
+      "counts": {
+        "diagnostic_body_ranges_outside_archive": 0,
+        "duplicate_raw_names": 0,
+        "effective_flags": {
+          "encrypt_header": 364,
+          "encrypt_mixed": 383,
+          "file": 747
+        },
+        "effective_kind": {
+          "0": 19,
+          "3": 383,
+          "5": 364
+        },
+        "empty_names": 0,
+        "kind0_promotions": 0,
+        "length_bias_underflows": {
+          "aligned": 0,
+          "any": 0,
+          "compressed": 0
+        },
+        "metadata_eligible": 747,
+        "metadata_filter": {
+          "eligible": 747,
+          "file_bit_absent": 19
+        },
+        "names_with_high_bytes": 751,
+        "names_without_nul": 0,
+        "original_kind": {
+          "0": 19,
+          "1": 747
+        },
+        "raw_records": 766,
+        "unique_raw_names": 766
+      },
+      "header": {
+        "declared_version": 258,
+        "effective_version": 258,
+        "header46_sha256": "1a20df645c5b3b65279bbf2b3e5203132c746a1ac0f28181e6755da527c06e9f",
+        "layout": "legacy",
+        "raw_count_word": 399611,
+        "record_count": 766,
+        "signature": "Master of Magic",
+        "subtract_word": 398838,
+        "table_bytes": 62378,
+        "table_end": 6044944,
+        "table_form": "clear legacy table to EOF",
+        "table_start": 5982566
+      },
+      "index": 9340,
+      "table": {
+        "consumed_bytes": 62378,
+        "stored_sha256": "ae66db61fad0b5193eb6d35941c5025303ca1e634e8bde02d2718cb039ad415d",
+        "trailing_bytes": 0,
+        "trailing_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      }
+    },
+    {
+      "counts": {
+        "diagnostic_body_ranges_outside_archive": 0,
+        "duplicate_raw_names": 0,
+        "effective_flags": {
+          "encrypt_header": 0,
+          "encrypt_mixed": 2,
+          "file": 2
+        },
+        "effective_kind": {
+          "0": 3,
+          "3": 2
+        },
+        "empty_names": 0,
+        "kind0_promotions": 0,
+        "length_bias_underflows": {
+          "aligned": 0,
+          "any": 0,
+          "compressed": 0
+        },
+        "metadata_eligible": 2,
+        "metadata_filter": {
+          "eligible": 2,
+          "file_bit_absent": 3
+        },
+        "names_with_high_bytes": 0,
+        "names_without_nul": 0,
+        "original_kind": {
+          "0": 3,
+          "1": 2
+        },
+        "raw_records": 5,
+        "unique_raw_names": 5
+      },
+      "header": {
+        "declared_version": 258,
+        "effective_version": 258,
+        "header46_sha256": "a343d7938f540795baaf437ba2fd2d4bb4bee12baa30d7d78e73a78208cad014",
+        "layout": "legacy",
+        "raw_count_word": 6857,
+        "record_count": 5,
+        "signature": "Master of Magic",
+        "subtract_word": 6845,
+        "table_bytes": 335,
+        "table_end": 102981,
+        "table_form": "clear legacy table to EOF",
+        "table_start": 102646
+      },
+      "index": 9345,
+      "table": {
+        "consumed_bytes": 335,
+        "stored_sha256": "6d1b9c7e76334d64f2b7765a86d45e4a804997fa95c2d013fb0bec2cdd2ff8b3",
+        "trailing_bytes": 0,
+        "trailing_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      }
+    },
+    {
+      "counts": {
+        "diagnostic_body_ranges_outside_archive": 0,
+        "duplicate_raw_names": 0,
+        "effective_flags": {
+          "encrypt_header": 356,
+          "encrypt_mixed": 21,
+          "file": 377
+        },
+        "effective_kind": {
+          "0": 14,
+          "3": 21,
+          "5": 356
+        },
+        "empty_names": 0,
+        "kind0_promotions": 0,
+        "length_bias_underflows": {
+          "aligned": 0,
+          "any": 0,
+          "compressed": 0
+        },
+        "metadata_eligible": 377,
+        "metadata_filter": {
+          "eligible": 377,
+          "file_bit_absent": 14
+        },
+        "names_with_high_bytes": 382,
+        "names_without_nul": 0,
+        "original_kind": {
+          "0": 14,
+          "1": 377
+        },
+        "raw_records": 391,
+        "unique_raw_names": 391
+      },
+      "header": {
+        "declared_version": 258,
+        "effective_version": 258,
+        "header46_sha256": "51100a572ffe590b5715371ddac2628728a36c9517b315998267dbb09fd70eea",
+        "layout": "legacy",
+        "raw_count_word": 214889,
+        "record_count": 391,
+        "signature": "Master of Magic",
+        "subtract_word": 214491,
+        "table_bytes": 31149,
+        "table_end": 3248515,
+        "table_form": "clear legacy table to EOF",
+        "table_start": 3217366
+      },
+      "index": 9349,
+      "table": {
+        "consumed_bytes": 31149,
+        "stored_sha256": "16d193f4689705967b983111fa411312b3b5f68dba36449277c9dd100a28cf4f",
+        "trailing_bytes": 0,
+        "trailing_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      }
+    },
+    {
+      "counts": {
+        "diagnostic_body_ranges_outside_archive": 0,
+        "duplicate_raw_names": 0,
+        "effective_flags": {
+          "encrypt_header": 0,
+          "encrypt_mixed": 1,
+          "file": 1
+        },
+        "effective_kind": {
+          "3": 1
+        },
+        "empty_names": 0,
+        "kind0_promotions": 0,
+        "length_bias_underflows": {
+          "aligned": 0,
+          "any": 0,
+          "compressed": 0
+        },
+        "metadata_eligible": 1,
+        "metadata_filter": {
+          "eligible": 1
+        },
+        "names_with_high_bytes": 0,
+        "names_without_nul": 0,
+        "original_kind": {
+          "1": 1
+        },
+        "raw_records": 1,
+        "unique_raw_names": 1
+      },
+      "header": {
+        "declared_version": 258,
+        "effective_version": 258,
+        "header46_sha256": "683c0357d58309a1e5dea5e51f912e6065e5c030e226962f0c269779fa23c6be",
+        "layout": "legacy",
+        "raw_count_word": 5421,
+        "record_count": 1,
+        "signature": "Master of Magic",
+        "subtract_word": 5413,
+        "table_bytes": 51,
+        "table_end": 81297,
+        "table_form": "clear legacy table to EOF",
+        "table_start": 81246
+      },
+      "index": 9354,
+      "table": {
+        "consumed_bytes": 51,
+        "stored_sha256": "99e6094871b03e5a4896cbb8ea2dc78f00043fe4bb51211010173e7240208d14",
+        "trailing_bytes": 0,
+        "trailing_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      }
+    },
+    {
+      "counts": {
+        "diagnostic_body_ranges_outside_archive": 0,
+        "duplicate_raw_names": 0,
+        "effective_flags": {
+          "encrypt_header": 364,
+          "encrypt_mixed": 383,
+          "file": 747
+        },
+        "effective_kind": {
+          "0": 31,
+          "3": 383,
+          "5": 364
+        },
+        "empty_names": 0,
+        "kind0_promotions": 0,
+        "length_bias_underflows": {
+          "aligned": 0,
+          "any": 0,
+          "compressed": 0
+        },
+        "metadata_eligible": 747,
+        "metadata_filter": {
+          "eligible": 747,
+          "file_bit_absent": 31
+        },
+        "names_with_high_bytes": 761,
+        "names_without_nul": 0,
+        "original_kind": {
+          "0": 31,
+          "1": 747
+        },
+        "raw_records": 778,
+        "unique_raw_names": 778
+      },
+      "header": {
+        "declared_version": 258,
+        "effective_version": 258,
+        "header46_sha256": "bc9886c756e412dcdf6e3567fcd826500a9996162a8f1d5fd9efd0c2522d40be",
+        "layout": "legacy",
+        "raw_count_word": 735760,
+        "record_count": 778,
+        "signature": "Master of Magic",
+        "subtract_word": 734975,
+        "table_bytes": 65038,
+        "table_end": 11089668,
+        "table_form": "clear legacy table to EOF",
+        "table_start": 11024630
+      },
+      "index": 9357,
+      "table": {
+        "consumed_bytes": 65038,
+        "stored_sha256": "e9c291ccea104c2044c8dad707527055d03f6789b9b9f8cca9aa1612899f1c29",
+        "trailing_bytes": 0,
+        "trailing_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      }
+    },
+    {
+      "counts": {
+        "diagnostic_body_ranges_outside_archive": 0,
+        "duplicate_raw_names": 0,
+        "effective_flags": {
+          "encrypt_header": 2,
+          "encrypt_mixed": 3,
+          "file": 5
+        },
+        "effective_kind": {
+          "0": 6,
+          "3": 3,
+          "5": 2
+        },
+        "empty_names": 0,
+        "kind0_promotions": 0,
+        "length_bias_underflows": {
+          "aligned": 0,
+          "any": 0,
+          "compressed": 0
+        },
+        "metadata_eligible": 5,
+        "metadata_filter": {
+          "eligible": 5,
+          "file_bit_absent": 6
+        },
+        "names_with_high_bytes": 3,
+        "names_without_nul": 0,
+        "original_kind": {
+          "0": 6,
+          "1": 5
+        },
+        "raw_records": 11,
+        "unique_raw_names": 11
+      },
+      "header": {
+        "declared_version": 258,
+        "effective_version": 258,
+        "header46_sha256": "88e522d91b11bb2b610943e666dc0d1dda89225b8c3d95fadae4a54587f20642",
+        "layout": "legacy",
+        "raw_count_word": 27807,
+        "record_count": 11,
+        "signature": "Master of Magic",
+        "subtract_word": 27789,
+        "table_bytes": 649,
+        "table_end": 417471,
+        "table_form": "clear legacy table to EOF",
+        "table_start": 416822
+      },
+      "index": 9360,
+      "table": {
+        "consumed_bytes": 649,
+        "stored_sha256": "e519d157daf187ccf74cd0cfdc4c4ba2e2db4ebeceac83b453fcfc4e180dfc4c",
+        "trailing_bytes": 0,
+        "trailing_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      }
+    },
+    {
+      "counts": {
+        "diagnostic_body_ranges_outside_archive": 0,
+        "duplicate_raw_names": 0,
+        "effective_flags": {
+          "encrypt_header": 393,
+          "encrypt_mixed": 502,
+          "file": 895
+        },
+        "effective_kind": {
+          "0": 28,
+          "3": 502,
+          "5": 393
+        },
+        "empty_names": 0,
+        "kind0_promotions": 0,
+        "length_bias_underflows": {
+          "aligned": 0,
+          "any": 0,
+          "compressed": 0
+        },
+        "metadata_eligible": 895,
+        "metadata_filter": {
+          "eligible": 895,
+          "file_bit_absent": 28
+        },
+        "names_with_high_bytes": 901,
+        "names_without_nul": 0,
+        "original_kind": {
+          "0": 28,
+          "1": 895
+        },
+        "raw_records": 923,
+        "unique_raw_names": 923
+      },
+      "header": {
+        "declared_version": 258,
+        "effective_version": 258,
+        "header46_sha256": "8858774fe77a05000607aeb189918e595073f5b1ee7b7194cfa9843c0812aaad",
+        "layout": "legacy",
+        "raw_count_word": 636917,
+        "record_count": 923,
+        "signature": "Master of Magic",
+        "subtract_word": 635987,
+        "table_bytes": 76433,
+        "table_end": 9616231,
+        "table_form": "clear legacy table to EOF",
+        "table_start": 9539798
+      },
+      "index": 9363,
+      "table": {
+        "consumed_bytes": 76433,
+        "stored_sha256": "e669ffbc2d5797f306d90ec19a363209c9a21c1f724ed225132121b304f23b00",
+        "trailing_bytes": 0,
+        "trailing_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      }
+    },
+    {
+      "counts": {
+        "diagnostic_body_ranges_outside_archive": 0,
+        "duplicate_raw_names": 0,
+        "effective_flags": {
+          "encrypt_header": 0,
+          "encrypt_mixed": 2,
+          "file": 2
+        },
+        "effective_kind": {
+          "0": 4,
+          "3": 2
+        },
+        "empty_names": 0,
+        "kind0_promotions": 0,
+        "length_bias_underflows": {
+          "aligned": 0,
+          "any": 0,
+          "compressed": 0
+        },
+        "metadata_eligible": 2,
+        "metadata_filter": {
+          "eligible": 2,
+          "file_bit_absent": 4
+        },
+        "names_with_high_bytes": 0,
+        "names_without_nul": 0,
+        "original_kind": {
+          "0": 4,
+          "1": 2
+        },
+        "raw_records": 6,
+        "unique_raw_names": 6
+      },
+      "header": {
+        "declared_version": 258,
+        "effective_version": 258,
+        "header46_sha256": "bb3a04628c4f60c0f89f92b09480e6e55fb40c3f4231f0ee65f3e2d606d2539f",
+        "layout": "legacy",
+        "raw_count_word": 15744,
+        "record_count": 6,
+        "signature": "Master of Magic",
+        "subtract_word": 15731,
+        "table_bytes": 434,
+        "table_end": 236376,
+        "table_form": "clear legacy table to EOF",
+        "table_start": 235942
+      },
+      "index": 9367,
+      "table": {
+        "consumed_bytes": 434,
+        "stored_sha256": "298f5458842a61211dc39e3435686677f762bc174b910ef660c8d5bb656d1dc0",
+        "trailing_bytes": 0,
+        "trailing_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      }
+    },
+    {
+      "counts": {
+        "diagnostic_body_ranges_outside_archive": 0,
+        "duplicate_raw_names": 0,
+        "effective_flags": {
+          "encrypt_header": 0,
+          "encrypt_mixed": 1,
+          "file": 1
+        },
+        "effective_kind": {
+          "0": 3,
+          "3": 1
+        },
+        "empty_names": 0,
+        "kind0_promotions": 0,
+        "length_bias_underflows": {
+          "aligned": 0,
+          "any": 0,
+          "compressed": 0
+        },
+        "metadata_eligible": 1,
+        "metadata_filter": {
+          "eligible": 1,
+          "file_bit_absent": 3
+        },
+        "names_with_high_bytes": 0,
+        "names_without_nul": 0,
+        "original_kind": {
+          "0": 3,
+          "1": 1
+        },
+        "raw_records": 4,
+        "unique_raw_names": 4
+      },
+      "header": {
+        "declared_version": 258,
+        "effective_version": 258,
+        "header46_sha256": "0f7a6a9b4bd48973e2efb139392e1cd00fb8e73025a96483f7262f336c1a02d5",
+        "layout": "legacy",
+        "raw_count_word": 14100,
+        "record_count": 4,
+        "signature": "Master of Magic",
+        "subtract_word": 14089,
+        "table_bytes": 260,
+        "table_end": 211586,
+        "table_form": "clear legacy table to EOF",
+        "table_start": 211326
+      },
+      "index": 9369,
+      "table": {
+        "consumed_bytes": 260,
+        "stored_sha256": "2a098ad6e63e100819416e1ac058e67ee553159fc61854ab371248b9b4706819",
+        "trailing_bytes": 0,
+        "trailing_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      }
+    },
+    {
+      "counts": {
+        "diagnostic_body_ranges_outside_archive": 0,
+        "duplicate_raw_names": 0,
+        "effective_flags": {
+          "encrypt_header": 1830,
+          "encrypt_mixed": 126,
+          "file": 1956
+        },
+        "effective_kind": {
+          "0": 53,
+          "3": 126,
+          "5": 1830
+        },
+        "empty_names": 0,
+        "kind0_promotions": 0,
+        "length_bias_underflows": {
+          "aligned": 0,
+          "any": 0,
+          "compressed": 0
+        },
+        "metadata_eligible": 1956,
+        "metadata_filter": {
+          "eligible": 1956,
+          "file_bit_absent": 53
+        },
+        "names_with_high_bytes": 1950,
+        "names_without_nul": 0,
+        "original_kind": {
+          "0": 53,
+          "1": 1956
+        },
+        "raw_records": 2009,
+        "unique_raw_names": 2009
+      },
+      "header": {
+        "declared_version": 258,
+        "effective_version": 258,
+        "header46_sha256": "6a3232c187ebe7c6f6d0278a9412e4447e05ba5ca4472ebeb55eda1e6396fe04",
+        "layout": "legacy",
+        "raw_count_word": 924041,
+        "record_count": 2009,
+        "signature": "Master of Magic",
+        "subtract_word": 922025,
+        "table_bytes": 166867,
+        "table_end": 13997225,
+        "table_form": "clear legacy table to EOF",
+        "table_start": 13830358
+      },
+      "index": 9378,
+      "table": {
+        "consumed_bytes": 166867,
+        "stored_sha256": "ed7e9f114987f5845771dfc42bd3017e8fdc2ed2856735efacd86ff2d2af116f",
+        "trailing_bytes": 0,
+        "trailing_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      }
+    },
+    {
+      "counts": {
+        "diagnostic_body_ranges_outside_archive": 0,
+        "duplicate_raw_names": 0,
+        "effective_flags": {
+          "encrypt_header": 0,
+          "encrypt_mixed": 6,
+          "file": 6
+        },
+        "effective_kind": {
+          "0": 3,
+          "3": 6
+        },
+        "empty_names": 0,
+        "kind0_promotions": 0,
+        "length_bias_underflows": {
+          "aligned": 0,
+          "any": 0,
+          "compressed": 0
+        },
+        "metadata_eligible": 6,
+        "metadata_filter": {
+          "eligible": 6,
+          "file_bit_absent": 3
+        },
+        "names_with_high_bytes": 0,
+        "names_without_nul": 0,
+        "original_kind": {
+          "0": 3,
+          "1": 6
+        },
+        "raw_records": 9,
+        "unique_raw_names": 9
+      },
+      "header": {
+        "declared_version": 258,
+        "effective_version": 258,
+        "header46_sha256": "959082db7d0aca120eeda6f4ac31e8e46ca2105617e8b90b8c1a8bb13ea2ecc1",
+        "layout": "legacy",
+        "raw_count_word": 13823,
+        "record_count": 9,
+        "signature": "Master of Magic",
+        "subtract_word": 13807,
+        "table_bytes": 547,
+        "table_end": 207657,
+        "table_form": "clear legacy table to EOF",
+        "table_start": 207110
+      },
+      "index": 9381,
+      "table": {
+        "consumed_bytes": 547,
+        "stored_sha256": "159525645a8619613d763b55f46b3d54fe13ccb29f1b6623f4791d7833a1ed9a",
+        "trailing_bytes": 0,
+        "trailing_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      }
+    },
+    {
+      "counts": {
+        "diagnostic_body_ranges_outside_archive": 0,
+        "duplicate_raw_names": 0,
+        "effective_flags": {
+          "encrypt_header": 0,
+          "encrypt_mixed": 1,
+          "file": 1
+        },
+        "effective_kind": {
+          "0": 3,
+          "3": 1
+        },
+        "empty_names": 0,
+        "kind0_promotions": 0,
+        "length_bias_underflows": {
+          "aligned": 0,
+          "any": 0,
+          "compressed": 0
+        },
+        "metadata_eligible": 1,
+        "metadata_filter": {
+          "eligible": 1,
+          "file_bit_absent": 3
+        },
+        "names_with_high_bytes": 0,
+        "names_without_nul": 0,
+        "original_kind": {
+          "0": 3,
+          "1": 1
+        },
+        "raw_records": 4,
+        "unique_raw_names": 4
+      },
+      "header": {
+        "declared_version": 258,
+        "effective_version": 258,
+        "header46_sha256": "2055060c4c63ceb7779dfaaa42e3989e155f2c48a5b7d75c527df41c57885f1c",
+        "layout": "legacy",
+        "raw_count_word": 83388,
+        "record_count": 4,
+        "signature": "Master of Magic",
+        "subtract_word": 83377,
+        "table_bytes": 284,
+        "table_end": 1250930,
+        "table_form": "clear legacy table to EOF",
+        "table_start": 1250646
+      },
+      "index": 9384,
+      "table": {
+        "consumed_bytes": 284,
+        "stored_sha256": "bebfa57adb40ec58f8db7e4cc160d38914ddccb9691c8843979f05e75949d8bc",
+        "trailing_bytes": 0,
+        "trailing_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      }
+    },
+    {
+      "counts": {
+        "diagnostic_body_ranges_outside_archive": 0,
+        "duplicate_raw_names": 0,
+        "effective_flags": {
+          "encrypt_header": 0,
+          "encrypt_mixed": 1,
+          "file": 1
+        },
+        "effective_kind": {
+          "0": 3,
+          "3": 1
+        },
+        "empty_names": 0,
+        "kind0_promotions": 0,
+        "length_bias_underflows": {
+          "aligned": 0,
+          "any": 0,
+          "compressed": 0
+        },
+        "metadata_eligible": 1,
+        "metadata_filter": {
+          "eligible": 1,
+          "file_bit_absent": 3
+        },
+        "names_with_high_bytes": 0,
+        "names_without_nul": 0,
+        "original_kind": {
+          "0": 3,
+          "1": 1
+        },
+        "raw_records": 4,
+        "unique_raw_names": 4
+      },
+      "header": {
+        "declared_version": 258,
+        "effective_version": 258,
+        "header46_sha256": "425e627edb1265eb19bbe73c08dd16cdf01a8445fb49baa803f2e3b83a749e23",
+        "layout": "legacy",
+        "raw_count_word": 83387,
+        "record_count": 4,
+        "signature": "Master of Magic",
+        "subtract_word": 83376,
+        "table_bytes": 284,
+        "table_end": 1250914,
+        "table_form": "clear legacy table to EOF",
+        "table_start": 1250630
+      },
+      "index": 9385,
+      "table": {
+        "consumed_bytes": 284,
+        "stored_sha256": "75b9a6d6f0bfff4626b4163dc30b9e52c746c6d240eea8050da6aa2030e65178",
+        "trailing_bytes": 0,
+        "trailing_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      }
+    },
+    {
+      "counts": {
+        "diagnostic_body_ranges_outside_archive": 0,
+        "duplicate_raw_names": 0,
+        "effective_flags": {
+          "encrypt_header": 0,
+          "encrypt_mixed": 1,
+          "file": 1
+        },
+        "effective_kind": {
+          "3": 1
+        },
+        "empty_names": 0,
+        "kind0_promotions": 0,
+        "length_bias_underflows": {
+          "aligned": 0,
+          "any": 0,
+          "compressed": 0
+        },
+        "metadata_eligible": 1,
+        "metadata_filter": {
+          "eligible": 1
+        },
+        "names_with_high_bytes": 0,
+        "names_without_nul": 0,
+        "original_kind": {
+          "1": 1
+        },
+        "raw_records": 1,
+        "unique_raw_names": 1
+      },
+      "header": {
+        "declared_version": 258,
+        "effective_version": 258,
+        "header46_sha256": "d2c745fca5e69d1b50e4bc6f3460aad88ff975983da953a687ecfd9c75d634ae",
+        "layout": "legacy",
+        "raw_count_word": 5478,
+        "record_count": 1,
+        "signature": "Master of Magic",
+        "subtract_word": 5470,
+        "table_bytes": 51,
+        "table_end": 82153,
+        "table_form": "clear legacy table to EOF",
+        "table_start": 82102
+      },
+      "index": 9386,
+      "table": {
+        "consumed_bytes": 51,
+        "stored_sha256": "df2320b19a8d018d3de018cf59f1fa4c84a5c029d1fecf83b5f987b023817db0",
+        "trailing_bytes": 0,
+        "trailing_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      }
+    },
+    {
+      "counts": {
+        "diagnostic_body_ranges_outside_archive": 0,
+        "duplicate_raw_names": 0,
+        "effective_flags": {
+          "encrypt_header": 0,
+          "encrypt_mixed": 1,
+          "file": 1
+        },
+        "effective_kind": {
+          "3": 1
+        },
+        "empty_names": 0,
+        "kind0_promotions": 0,
+        "length_bias_underflows": {
+          "aligned": 0,
+          "any": 0,
+          "compressed": 0
+        },
+        "metadata_eligible": 1,
+        "metadata_filter": {
+          "eligible": 1
+        },
+        "names_with_high_bytes": 0,
+        "names_without_nul": 0,
+        "original_kind": {
+          "1": 1
+        },
+        "raw_records": 1,
+        "unique_raw_names": 1
+      },
+      "header": {
+        "declared_version": 258,
+        "effective_version": 258,
+        "header46_sha256": "d6cb617c356e772f6ae47397b6628db41ab445e7cb0ef041e18b21c1e547c297",
+        "layout": "legacy",
+        "raw_count_word": 5477,
+        "record_count": 1,
+        "signature": "Master of Magic",
+        "subtract_word": 5469,
+        "table_bytes": 51,
+        "table_end": 82145,
+        "table_form": "clear legacy table to EOF",
+        "table_start": 82094
+      },
+      "index": 9389,
+      "table": {
+        "consumed_bytes": 51,
+        "stored_sha256": "7c047cf2f93cbdfef9c1024d6e5e7ad7777c84805c98c27b759b31b6e8025c0d",
+        "trailing_bytes": 0,
+        "trailing_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      }
+    },
+    {
+      "counts": {
+        "diagnostic_body_ranges_outside_archive": 0,
+        "duplicate_raw_names": 0,
+        "effective_flags": {
+          "encrypt_header": 0,
+          "encrypt_mixed": 1,
+          "file": 1
+        },
+        "effective_kind": {
+          "0": 3,
+          "3": 1
+        },
+        "empty_names": 0,
+        "kind0_promotions": 0,
+        "length_bias_underflows": {
+          "aligned": 0,
+          "any": 0,
+          "compressed": 0
+        },
+        "metadata_eligible": 1,
+        "metadata_filter": {
+          "eligible": 1,
+          "file_bit_absent": 3
+        },
+        "names_with_high_bytes": 0,
+        "names_without_nul": 0,
+        "original_kind": {
+          "0": 3,
+          "1": 1
+        },
+        "raw_records": 4,
+        "unique_raw_names": 4
+      },
+      "header": {
+        "declared_version": 258,
+        "effective_version": 258,
+        "header46_sha256": "48feb186ef88a276ebc0418a315b005affc1b0e28384e6ec2dba6d303aeaf5d5",
+        "layout": "legacy",
+        "raw_count_word": 83395,
+        "record_count": 4,
+        "signature": "Master of Magic",
+        "subtract_word": 83384,
+        "table_bytes": 284,
+        "table_end": 1251042,
+        "table_form": "clear legacy table to EOF",
+        "table_start": 1250758
+      },
+      "index": 9391,
+      "table": {
+        "consumed_bytes": 284,
+        "stored_sha256": "ece24aa5b30d95b2dd0cdbd5be5605e6795bec8cec0fe163f61baf7d5f554385",
+        "trailing_bytes": 0,
+        "trailing_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      }
+    }
+  ],
+  "source_evidence": {
+    "acquisition_summary": {
+      "bytes": 72031,
+      "path": ".tools/renewal/t07-007-patch-suffix-acquisition-1/acquisition-summary.json",
+      "sha256": "2399e73ff785a07c2dc9fdfa3593c8be135bb4655ef21a3067434cddaa800e4b"
+    },
+    "bounded_header_observations": {
+      "bytes": 103558,
+      "path": ".tools/renewal/t07-007-007-patch-inventory-preparation-1/header-observations.json",
+      "sha256": "b3fdf22fa31addb367f178caade94f661ef15ddfca01aa0a554d6b8a7312a54b"
+    },
+    "root_full_hash_header_admission": {
+      "bytes": 94572,
+      "path": ".tools/renewal/t07-007-007-root-admission-1/admission.json",
+      "sha256": "7b0855a88f2b0c038db7591c070c05ba4ce508623e0955c64baf355988cee9d1"
+    }
+  },
+  "source_evidence_access": "Provenance pins only; worker input is normalized manifest. Original private receipts/admission/header observations and root oracle are not worker-readable.",
+  "source_rules": {
+    "core_line_rules": {
+      "header": "337-387",
+      "legacy_records": "527-590",
+      "same_descriptor_archive_read": "804-867",
+      "table_catalog": "654-699",
+      "table_plan": "389-418"
+    },
+    "files": {
+      "src/des.rs": "8f0189340eab708993a493ff7300d08e0151a3c8c539a046656f3e350e01856f",
+      "src/encoding.rs": "0014c18c2ab7211b68b8dff84c66b5bbd0aa3bb68593bca2bd5e46b28973c9ad",
+      "src/grf.rs": "4646514140bc7688bbc91e0bac7d1ee9a83aab5e1e17df20c1eb30668bd5edf5"
+    },
+    "meaning": "Existing pinned source semantics; no new native binary/source parity claim",
+    "repository": "RemoteClient",
+    "revision": "66ba94e2b84c4092e4b9cc9d0dcc805313438f53"
+  },
+  "task": "T07.007.007",
+  "totals": {
+    "already_inventoried_gpf_objects": 2,
+    "gpf_objects": 30,
+    "ledger_bytes": 465176988,
+    "ledger_objects": 59,
+    "selected_archive_bytes": 58929074,
+    "selected_cross_archive_shared_raw_names": 46,
+    "selected_distinct_raw_names": 5544,
+    "selected_gpf_objects": 28,
+    "selected_raw_records": 5742,
+    "selected_table_bytes": 476186,
+    "selected_unused_tail_bytes": 0,
+    "unresolved_rgz_objects": 29
+  },
+  "unresolved_rgz_indices": [
+    9299,
+    9302,
+    9306,
+    9308,
+    9313,
+    9317,
+    9321,
+    9327,
+    9329,
+    9333,
+    9338,
+    9341,
+    9343,
+    9347,
+    9350,
+    9352,
+    9355,
+    9358,
+    9361,
+    9364,
+    9365,
+    9370,
+    9372,
+    9374,
+    9376,
+    9379,
+    9382,
+    9387,
+    9390
+  ],
+  "work_limits": {
+    "max_entries_per_archive": 500000,
+    "max_json_line_bytes": 4194304,
+    "max_output_bytes_total": 2147483648,
+    "max_record_file_bytes": 1073741824,
+    "max_records_total": 1500000,
+    "max_table_bytes_per_archive": 536870912,
+    "outer_combined_diagnostics_bytes": 16777216,
+    "outer_sampled_combined_rss_bytes": 2147483648,
+    "outer_timeout_seconds": 1200,
+    "read_chunk_bytes": 8388608
+  }
+}
