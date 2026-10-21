@@ -78,7 +78,8 @@ CURRENT WORK: October assets and missing maps
 [~] Texture availability: exact task and inputs frozen.
  |    171 BMP and 7 TGA paths; full plan and source checks pass.
  |    Historical compatibility copy and its preflight pass.
- |    Claude submitted and released; root checks start. Grok is working.
+ |    Claude: root historical 44 tests pass. Grok is working.
+ |    New-route checks remain open; two source checks need tightening.
  |    Draft auditor bug reproduced; Astra review gives a bounded fix.
  |    Auditor and compatibility fixes prepare in parallel.
  |    Next: verify both candidates and the auditor, then actual scan.
