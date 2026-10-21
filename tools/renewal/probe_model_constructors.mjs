@@ -1,5 +1,6 @@
 #!/usr/bin/env node
 // T06.003.003.006 unchanged Model constructor runner (parent/CLI).
+// T07.007.008 adds one exact second profile route for the four-root supplement.
 // Observes new Model(buffer) and the frozen summarizeModel projection.
 // A constructor return is not rendering, nested fetch, or playable coverage.
 import crypto from 'node:crypto';
@@ -14,6 +15,13 @@ import { MODULE_KEYS, ROLE, RULE_KEYS } from './model_constructor_worker.mjs';
 
 export const PROFILE_SHA256 = '9ad903297104cd6f9a03d74196d5db7a4091ee07da4d2b73b4b4f61027b2140d';
 export const PROFILE_BYTES = 4855;
+export const SUPPLEMENT_PROFILE_SHA256 = 'cc53e3455c1117c5fc29431c342f925d4d58d5334bbe5d0c29f67d8489050dea';
+export const SUPPLEMENT_PROFILE_BYTES = 4168;
+// An exact profile pin selects its own task, manifest and availability contract.
+export const ROUTES = Object.freeze({
+  [PROFILE_SHA256]: Object.freeze({ name: 'world', task: 'T06.003.003.006', profileBytes: PROFILE_BYTES }),
+  [SUPPLEMENT_PROFILE_SHA256]: Object.freeze({ name: 'supplement', task: 'T07.007.008', profileBytes: SUPPLEMENT_PROFILE_BYTES })
+});
 const HERE = path.dirname(fileURLToPath(import.meta.url));
 const REPO_ROOT = path.resolve(HERE, '..', '..');
 const WORKER_URL = pathToFileURL(path.join(HERE, 'model_constructor_worker.mjs'));
@@ -32,7 +40,9 @@ export const OUTCOMES = ['returned', 'constructor_exception', 'summary_error', '
 export const hooks = {
   createWorker: null,
   beforeIdentityRecheck: null,
-  beforeRepresentativeReread: null
+  beforeRepresentativeReread: null,
+  // (role, parsed) after a complete pinned read/hash; returns the value to admit.
+  afterPinnedJson: null
 };
 
 export class Refusal extends Error {
@@ -163,9 +173,9 @@ function assertDecimalIdentity(id, label) {
   }
 }
 
-export function validateProfile(profile) {
+export function validateProfile(profile, route = ROUTES[PROFILE_SHA256]) {
   const fail = (detail) => { throw new Refusal('profile_invalid', detail); };
-  if (!profile || profile.schema !== 'T06-model-constructor-profile-1' || profile.task !== 'T06.003.003.006') fail('schema');
+  if (!profile || profile.schema !== 'T06-model-constructor-profile-1' || profile.task !== route.task) fail('schema');
   const keys = Object.keys(profile.sources || {});
   if (keys.length !== MODULE_KEYS.length || MODULE_KEYS.some((key) => !keys.includes(key))) fail('sources');
   for (const key of MODULE_KEYS) {
@@ -199,6 +209,7 @@ export function validateProfile(profile) {
     const source = profile.availability && profile.availability[avail];
     if (!source || typeof source.path !== 'string' || !Number.isSafeInteger(source.bytes) || !isHex64(source.sha256)) fail(`availability ${avail}`);
   }
+  if (route.name === 'supplement') return validateSupplementProfile(profile);
   return profile;
 }
 
@@ -417,6 +428,371 @@ export function admitModelCorpus({ manifest, report, catalog, audit, profile, re
     }
   }
   return jobs.map((job) => ({ ...job, kind: 'model' }));
+}
+
+// T07.007.008 supplementary route. The four availability inputs keep their
+// own historical schemas; only the new manifest/body descriptors use decimal
+// string identities. Literals below are the frozen root-reviewed contract.
+const CANONICAL_ROOT = '/Users/shem/orca/workspaces/game-reverse-engineering/reverse-the-Ragnarok-Online-to-play-by-myself';
+export const EXECUTION_BINDING_EXPECTED = Object.freeze({
+  HOME_present: false,
+  argv: ['/usr/bin/python3', '-I', '-B', `${CANONICAL_ROOT}/tools/renewal/observe_map_dependencies.py`, '--execute',
+    '--input-root', CANONICAL_ROOT, '--profile', `${CANONICAL_ROOT}/docs/project/fixtures/T07.007.006-profile.json`,
+    '--output', `${CANONICAL_ROOT}/.tools/renewal/t07-007-006-integrated-actual-1/output`,
+    '--root-reviewed-sha256', '0e691c1e93b726cf2819f473745864469d7c2c49aebe89c0b4115f2bd7722750'],
+  child_environment: { PATH: '/usr/bin:/bin:/usr/sbin:/sbin' },
+  cwd: CANONICAL_ROOT,
+  driver_file: `${CANONICAL_ROOT}/tools/renewal/observe_map_dependencies.py`,
+  driver_pin: [112136, '0e691c1e93b726cf2819f473745864469d7c2c49aebe89c0b4115f2bd7722750'],
+  evidence: `${CANONICAL_ROOT}/.tools/renewal/t07-007-006-integrated-actual-1/guard`,
+  guard_defaults: { capture_bytes: 1048576, expect_native: true, grace_seconds: 8, rss_limit: 2147483648, work_seconds: 1800 },
+  guard_file: `${CANONICAL_ROOT}/.tools/renewal/t06-map-dependency-preparation-1/root005_actual_scan_guard_1.py`,
+  guard_pin: [14021, 'c74f86a2f7f41aa5d468fe10c21cc4a837eea4b5684c4d12fef74d26f3a97a00'],
+  metadata_count: 44,
+  native_count: 6,
+  nominal_sample_seconds: 0.1,
+  output: `${CANONICAL_ROOT}/.tools/renewal/t07-007-006-integrated-actual-1/output`,
+  root_hashing_outside_guard_seconds: true,
+  server: `${CANONICAL_ROOT}/.tools/renewal/t07-007-006-integrated-actual-1/output/server`
+});
+export const ARTIFACT_AUDIT_EXPECTED = Object.freeze({
+  fresh_live_process_observation: null,
+  fresh_native_rehash: null,
+  full_game_acceptance: null,
+  guard_receipt_sha256: 'd340cf85e923e8a446b780e8b37c64c09dcde935b59097306494f8f3176ecadd',
+  observations: { attempted: 311, http_404: 0, matching_prefix_200: 311, signature_mismatch_or_short: 0, transport_gap: 0 },
+  referrers: 337,
+  report_sha256: 'd0fca27243f75e8745c8206895cccfb75cc78db9b0a5ee3399a2f6570472a2cc',
+  request_records: 314,
+  reviewed_argv_binding: null,
+  status: 'complete_observation_artifacts_consistent',
+  stored_bytes: 7575826,
+  targets: 311,
+  task: 'T07.007.006',
+  wire_bytes: 7575826
+});
+export const SUPPLEMENT_EXPECTED = Object.freeze({
+  report_targets: 311,
+  request_records: 314,
+  request_wire_bytes: 7575826,
+  target_body_bytes: 7575328,
+  carried_bmp_targets: 38,
+  ground_referrers: 40,
+  placement_occurrences: 4922,
+  world_ledger: { roots: 1296, remaining_core_gap_roots: 82 }
+});
+const IDENTITY_KEYS = ['dev', 'ino', 'size', 'mtime_ns', 'ctime_ns'];
+const MANIFEST_KEYS = ['schema', 'task', 'availability', 'counts', 'header_prefix_counts', 'roots', 'remaining_gap_root_ordinals',
+  'prior_first_level_gaps', 'targets', 'jobs', 'root_model_references', 'carried_ground_targets', 'world_gap_ledger_reference', 'limitations'];
+const AVAILABILITY_KEYS = ['report', 'catalog', 'root_audit', 'execution'];
+const isObject = (value) => !!value && typeof value === 'object' && !Array.isArray(value);
+const sameKeys = (value, keys) => isObject(value) && Object.keys(value).length === keys.length && keys.every((key) => Object.hasOwn(value, key));
+const safeCount = (value) => Number.isSafeInteger(value) && value >= 0;
+
+export function assertExactDecimalIdentity(id, label, bytes) {
+  if (!sameKeys(id, IDENTITY_KEYS)) throw new Refusal('identity_precision', `${label} keys`);
+  for (const key of IDENTITY_KEYS) {
+    if (typeof id[key] !== 'string' || !/^(?:0|[1-9][0-9]{0,39})$/.test(id[key])) throw new Refusal('identity_precision', `${label} ${key}`);
+  }
+  if (bytes !== undefined && id.size !== String(bytes)) throw new Refusal('identity_precision', `${label} size`);
+}
+
+function assertPinShape(pin, label, keys = ['path', 'bytes', 'sha256']) {
+  if (!sameKeys(pin, keys) || typeof pin.path !== 'string' || !safeCount(pin.bytes) || !isHex64(pin.sha256)) {
+    throw new Refusal('profile_invalid', label);
+  }
+}
+
+// Historical receipt tuples are JSON integers. Their nanosecond members exceed
+// the safe range, so they are typed integers but never stringified or rewritten.
+function historicalIdentityList(value) {
+  return Array.isArray(value) && value.length === 5 && value.every((item) => typeof item === 'number' && Number.isInteger(item) && item >= 0) &&
+    value.slice(0, 3).every((item) => Number.isSafeInteger(item));
+}
+
+function validateSupplementProfile(profile) {
+  const fail = (detail) => { throw new Refusal('profile_invalid', detail); };
+  if (!sameKeys(profile.availability, AVAILABILITY_KEYS)) fail('availability keys');
+  for (const key of AVAILABILITY_KEYS) assertPinShape(profile.availability[key], `availability ${key}`);
+  assertPinShape(profile.worker, 'worker');
+  if (profile.worker.path !== 'tools/renewal/model_constructor_worker.mjs') fail('worker path');
+  for (const key of Object.keys(profile.counts)) if (!safeCount(profile.counts[key])) fail(`counts ${key}`);
+  const headers = profile.header_prefix_counts;
+  if (!isObject(headers) || Object.values(headers).some((value) => !Number.isSafeInteger(value) || value < 1) ||
+      Object.keys(headers).some((key) => !/^(?:[0-9a-f]{2}){1,6}$/.test(key))) fail('header_prefix_counts');
+  if (Object.values(headers).reduce((sum, value) => sum + value, 0) !== profile.counts.model_targets) fail('header total');
+  const limits = profile.summary_limits;
+  if (!isObject(limits) || Object.values(limits).some((value) => !Number.isSafeInteger(value) || value < 1)) fail('summary_limits');
+  if (!Array.isArray(profile.limitations) || !profile.limitations.every((item) => typeof item === 'string')) fail('limitations');
+  return profile;
+}
+
+function validateAvailabilityReport(report, catalogPin) {
+  const fail = (detail) => { throw new Refusal('admission_discrepancy', `report ${detail}`); };
+  if (!isObject(report) || report.schema !== 'T06-map-dependency-observation-1' || report.task !== 'T07.007.006') fail('schema');
+  if (report.acquisition_and_cleanup_valid !== true || report.all_targets_attempted !== true || report.records_complete !== true) fail('qualification');
+  if (!deepEqual(report.catalog_pin, { bytes: catalogPin.bytes, sha256: catalogPin.sha256 })) fail('catalog pin');
+  if (!Array.isArray(report.targets) || report.targets.length !== SUPPLEMENT_EXPECTED.report_targets) fail('target count');
+  const meta = [['health', 0], ['cache_before', 1], ['cache_after', report.targets.length + 2]];
+  let wire = 0;
+  let stored = 0;
+  let bodies = 0;
+  let records = 0;
+  for (const [key, requestIndex] of meta) {
+    const record = report[key];
+    if (!isObject(record) || record.request_index !== requestIndex || !safeCount(record.wire_bytes) || !isObject(record.stored) ||
+        !safeCount(record.stored.bytes)) fail(`${key} record`);
+    wire += record.wire_bytes;
+    stored += record.stored.bytes;
+    records++;
+  }
+  report.targets.forEach((record, index) => {
+    const signature = record && record.signature;
+    if (!isObject(record) || record.target_index !== index || record.request_index !== index + 2) fail(`target ${index} index`);
+    if (record.attempted !== true || record.http_status !== 200 || record.wire_complete !== true) fail(`target ${index} transfer`);
+    if (!isObject(record.stored) || record.stored.complete !== true || record.stored.error !== null || !safeCount(record.stored.bytes) ||
+        !isHex64(record.stored.sha256) || typeof record.stored.file !== 'string' || !/^[0-9]{6}$/.test(record.stored.file)) fail(`target ${index} stored`);
+    if (!isObject(signature) || signature.state !== 'match' || (signature.kind !== 'model' && signature.kind !== 'bmp') ||
+        typeof signature.prefix_hex !== 'string' || !/^(?:[0-9a-f]{2})+$/.test(signature.prefix_hex)) fail(`target ${index} signature`);
+    if (!safeCount(record.wire_bytes) || record.wire_bytes !== record.stored.bytes) fail(`target ${index} bytes`);
+    wire += record.wire_bytes;
+    stored += record.stored.bytes;
+    bodies += record.stored.bytes;
+    records++;
+  });
+  if (records !== SUPPLEMENT_EXPECTED.request_records) fail('request records');
+  if (!isObject(report.totals) || report.totals.wire_bytes !== wire || report.totals.stored_bytes !== stored ||
+      wire !== SUPPLEMENT_EXPECTED.request_wire_bytes || stored !== SUPPLEMENT_EXPECTED.request_wire_bytes) fail('request totals');
+  if (bodies !== SUPPLEMENT_EXPECTED.target_body_bytes) fail('target body total');
+  return { wire_bytes: wire, stored_bytes: stored, target_body_bytes: bodies, request_records: records };
+}
+
+// Every catalog referrer must join to exactly one loader entry of its job.
+function validateSupplementCatalog(catalog, report, counts) {
+  const fail = (detail) => { throw new Refusal('admission_discrepancy', `catalog ${detail}`); };
+  if (!isObject(catalog) || catalog.schema !== 'T06-map-dependency-catalog-1' || catalog.task !== 'T07.007.005') fail('schema');
+  if (!Array.isArray(catalog.roots) || catalog.roots.length !== counts.roots) fail('roots');
+  if (!Array.isArray(catalog.remaining_gap_root_ordinals) || catalog.remaining_gap_root_ordinals.length !== counts.remaining_core_gap_roots) fail('gaps');
+  if (!Array.isArray(catalog.jobs) || !Array.isArray(catalog.targets) || catalog.targets.length !== report.targets.length) fail('shape');
+  catalog.roots.forEach((root, index) => { if (!isObject(root) || root.ordinal !== index || !isObject(root.edges)) fail(`root ${index}`); });
+  const refs = report.catalog_refs;
+  if (!isObject(refs) || refs.file !== 'catalog-input.json' || refs.targets !== catalog.targets.length || refs.roots !== catalog.roots.length ||
+      !deepEqual(refs.gap_root_ordinals, catalog.remaining_gap_root_ordinals)) fail('report catalog_refs');
+  let loaderEntries = 0;
+  catalog.jobs.forEach((job, index) => {
+    if (!isObject(job) || job.source_row_index !== index || typeof job.id !== 'string') fail(`job ${index}`);
+    if (!Array.isArray(job.root_references) || job.root_references.length !== 1) fail(`job ${index} root reference`);
+    const { root_ordinal: rootOrdinal, edge_kind: edge } = job.root_references[0];
+    const root = catalog.roots[rootOrdinal];
+    if (!Number.isSafeInteger(rootOrdinal) || !root || !isObject(root.edges[edge]) || root.edges[edge].job_id !== job.id) fail(`job ${index} root edge`);
+    if (job.loader_entries === null) return;
+    if (!Array.isArray(job.loader_entries) || !Array.isArray(job.occurrence_loader_indexes) || typeof job.role !== 'string') fail(`job ${index} loader`);
+    job.loader_entries.forEach((entry, loader) => {
+      if (!isObject(entry) || entry.index !== loader || !Number.isSafeInteger(entry.target_index)) fail(`job ${index} loader ${loader}`);
+    });
+    if (!job.occurrence_loader_indexes.every((value) => Number.isSafeInteger(value) && value >= 0 && value < job.loader_entries.length)) {
+      fail(`job ${index} occurrences`);
+    }
+    loaderEntries += job.loader_entries.length;
+  });
+  const joined = new Set();
+  let referrers = 0;
+  catalog.targets.forEach((target, index) => {
+    if (!isObject(target) || target.index !== index || typeof target.http_path !== 'string' || !Array.isArray(target.referrers)) fail(`target ${index}`);
+    if (report.targets[index].wire_target !== `/${target.http_path}`) fail(`target ${index} wire path`);
+    for (const referrer of target.referrers) {
+      if (!sameKeys(referrer, ['job_index', 'loader_index', 'role'])) fail(`target ${index} referrer keys`);
+      const job = catalog.jobs[referrer.job_index];
+      const entry = job && Array.isArray(job.loader_entries) ? job.loader_entries[referrer.loader_index] : undefined;
+      if (!entry || job.role !== referrer.role || entry.target_index !== index || entry.http_path !== target.http_path) fail(`target ${index} referrer join`);
+      const key = `${referrer.job_index}:${referrer.loader_index}`;
+      if (joined.has(key)) fail(`target ${index} duplicate referrer`);
+      joined.add(key);
+      referrers++;
+    }
+  });
+  if (referrers !== counts.all_catalog_referrers || loaderEntries !== referrers) fail('referrer total');
+  if (refs.referrers !== referrers) fail('report referrers');
+}
+
+function validateArtifactAudit(audit, reportSha, report, totals, referrers) {
+  const fail = (detail) => { throw new Refusal('admission_discrepancy', `root audit ${detail}`); };
+  if (!deepEqual(audit, ARTIFACT_AUDIT_EXPECTED)) fail('literal');
+  if (audit.report_sha256 !== reportSha) fail('report sha256');
+  for (const key of ['targets', 'referrers', 'request_records', 'stored_bytes', 'wire_bytes']) if (!safeCount(audit[key])) fail(key);
+  const matching = report.targets.filter((record) => record.http_status === 200 && record.signature.state === 'match').length;
+  if (audit.targets !== report.targets.length || audit.observations.attempted !== report.targets.length ||
+      audit.observations.matching_prefix_200 !== matching) fail('observations');
+  if (audit.referrers !== referrers || audit.request_records !== totals.request_records ||
+      audit.wire_bytes !== totals.wire_bytes || audit.stored_bytes !== totals.stored_bytes) fail('totals');
+}
+
+export function validateExecutionReceipt(receipt) {
+  const fail = (detail) => { throw new Refusal('admission_discrepancy', `execution ${detail}`); };
+  if (!isObject(receipt) || receipt.schema !== 'root-t07-actual-execution-gate-1') fail('schema');
+  if (receipt.root_execution_gate_valid !== true || receipt.independent_inputs_equal !== true) fail('gate');
+  if (receipt.first_failure !== null || !Array.isArray(receipt.later_errors) || receipt.later_errors.length !== 0) fail('errors');
+  if (receipt.availability_or_full_output_or_game_qualification !== null) fail('qualification claim');
+  const binding = receipt.binding;
+  if (!deepEqual(binding, EXECUTION_BINDING_EXPECTED)) fail('binding literal');
+  if (binding.argv[3] !== binding.driver_file || binding.argv[binding.argv.length - 1] !== binding.driver_pin[1]) fail('driver argv');
+  for (const key of ['driver_pin', 'guard_pin']) {
+    const pin = binding[key];
+    if (!Array.isArray(pin) || pin.length !== 2 || !safeCount(pin[0]) || !isHex64(pin[1])) fail(`${key} shape`);
+  }
+  if (!safeCount(binding.metadata_count) || !safeCount(binding.native_count)) fail('binding counts');
+  const guard = receipt.guard_result;
+  if (!isObject(guard) || guard.schema !== 'root005-two-group-external-guard-1' || guard.external_guard_valid !== true) fail('guard schema');
+  if (!Number.isSafeInteger(guard.driver_exit) || guard.driver_exit !== 0 || guard.guard_action !== null) fail('guard exit');
+  if (!isObject(guard.native)) fail('guard native');
+  const groups = guard.groups_after;
+  if (!isObject(groups) || Object.keys(groups).length === 0 || !Object.values(groups).every((group) => Array.isArray(group) && group.length === 0)) {
+    fail('guard groups');
+  }
+  if (guard.work_seconds !== 1800 || guard.rss_limit_bytes !== 2147483648 || guard.cleanup_grace_seconds !== 8) fail('guard limits');
+  const defaults = binding.guard_defaults;
+  if (defaults.work_seconds !== guard.work_seconds || defaults.rss_limit !== guard.rss_limit_bytes || defaults.grace_seconds !== guard.cleanup_grace_seconds) {
+    fail('guard defaults');
+  }
+  const pin = guard.driver_pin;
+  if (!sameKeys(pin, ['bytes', 'identity', 'sha256']) || !safeCount(pin.bytes) || !isHex64(pin.sha256) || !historicalIdentityList(pin.identity)) {
+    fail('guard driver pin shape');
+  }
+  if (pin.bytes !== binding.driver_pin[0] || pin.sha256 !== binding.driver_pin[1] || pin.identity[2] !== pin.bytes) fail('guard driver pin');
+}
+
+function supplementTargets(report, catalog, bodyDirectory) {
+  const models = [];
+  const carried = [];
+  report.targets.forEach((record, index) => {
+    const catalogTarget = catalog.targets[index];
+    if (record.signature.kind === 'model') {
+      if (!catalogTarget.referrers.every((referrer) => referrer.role === 'model')) {
+        throw new Refusal('admission_discrepancy', `target ${index} model referrer role`);
+      }
+      models.push({
+        model_ordinal: models.length,
+        target_index: index,
+        request_index: record.request_index,
+        report_pointer: `/targets/${index}`,
+        catalog_pointer: `/targets/${index}`,
+        http_path: catalogTarget.http_path,
+        referrers: catalogTarget.referrers,
+        availability_record: record,
+        body: { path: `${bodyDirectory}/${record.stored.file}`, bytes: record.stored.bytes, sha256: record.stored.sha256 },
+        signature_prefix: record.signature.prefix_hex
+      });
+    } else {
+      if (!catalogTarget.referrers.every((referrer) => referrer.role === 'ground_texture')) {
+        throw new Refusal('admission_discrepancy', `target ${index} carried referrer role`);
+      }
+      carried.push({ target_index: index, catalog_target: catalogTarget, availability_record: record });
+    }
+  });
+  return { models, carried };
+}
+
+function rootModelReferences(models, catalog) {
+  const references = [];
+  for (const target of models) {
+    for (const referrer of target.referrers) {
+      const job = catalog.jobs[referrer.job_index];
+      const occurrences = [];
+      job.occurrence_loader_indexes.forEach((loader, index) => { if (loader === referrer.loader_index) occurrences.push(index); });
+      references.push({
+        model_ordinal: target.model_ordinal,
+        target_index: target.target_index,
+        catalog_job_index: referrer.job_index,
+        catalog_job_id: job.id,
+        catalog_source_row_index: job.source_row_index,
+        loader_index: referrer.loader_index,
+        role: referrer.role,
+        root_ordinal: job.root_references[0].root_ordinal,
+        edge_kind: job.root_references[0].edge_kind,
+        occurrence_summary_pointer: job.occurrence_summary_pointer,
+        occurrence_indexes: occurrences
+      });
+    }
+  }
+  return references;
+}
+
+// Full-hash every model body before grouping. Ordinals are dense model indexes,
+// never original target indexes. BMPs are carried records, not jobs.
+export function admitSupplementCorpus({ manifest, report, catalog, audit, execution, ledgerProfile, profile, pins, readBody }) {
+  const fail = (detail) => { throw new Refusal('admission_discrepancy', detail); };
+  if (!sameKeys(manifest, MANIFEST_KEYS) || manifest.schema !== 'T06-model-constructor-input-1' || manifest.task !== 'T07.007.008') fail('manifest schema');
+  if (!deepEqual(manifest.counts, profile.counts) || !deepEqual(manifest.header_prefix_counts, profile.header_prefix_counts)) fail('manifest counts');
+  if (!deepEqual(manifest.limitations, profile.limitations)) fail('manifest limitations');
+  for (const key of ['targets', 'jobs', 'roots', 'root_model_references', 'carried_ground_targets', 'remaining_gap_root_ordinals', 'prior_first_level_gaps']) {
+    if (!Array.isArray(manifest[key])) fail(`manifest ${key}`);
+  }
+  const totals = validateAvailabilityReport(report, pins.catalog);
+  validateSupplementCatalog(catalog, report, profile.counts);
+  validateArtifactAudit(audit, pins.report.sha256, report, totals, profile.counts.all_catalog_referrers);
+  validateExecutionReceipt(execution);
+  if (!deepEqual(manifest.roots, catalog.roots)) fail('roots');
+  if (!deepEqual(manifest.remaining_gap_root_ordinals, catalog.remaining_gap_root_ordinals) ||
+      !deepEqual(manifest.remaining_gap_root_ordinals, report.catalog_refs.gap_root_ordinals)) fail('gaps');
+  if (manifest.prior_first_level_gaps.length !== 0) fail('prior gaps');
+  const ledger = manifest.world_gap_ledger_reference;
+  if (!sameKeys(ledger, ['profile', 'roots', 'remaining_core_gap_roots', 'reconciled_by_this_subset']) || ledger.reconciled_by_this_subset !== false ||
+      ledger.roots !== SUPPLEMENT_EXPECTED.world_ledger.roots || ledger.remaining_core_gap_roots !== SUPPLEMENT_EXPECTED.world_ledger.remaining_core_gap_roots) {
+    fail('world ledger');
+  }
+  if (!isObject(ledgerProfile) || ledgerProfile.task !== 'T06.003.003.006' || !isObject(ledgerProfile.counts) ||
+      ledgerProfile.counts.roots !== ledger.roots || ledgerProfile.counts.remaining_core_gap_roots !== ledger.remaining_core_gap_roots) fail('world ledger profile');
+  const bodyDirectory = profile.availability.report.path.split('/').slice(0, -1).join('/');
+  const { models, carried } = supplementTargets(report, catalog, bodyDirectory);
+  if (models.length !== profile.counts.model_targets || manifest.targets.length !== models.length) fail('model target count');
+  if (carried.length !== SUPPLEMENT_EXPECTED.carried_bmp_targets || !deepEqual(manifest.carried_ground_targets, carried)) fail('carried ground targets');
+  const groundReferrers = carried.reduce((sum, item) => sum + item.catalog_target.referrers.length, 0);
+  if (groundReferrers !== SUPPLEMENT_EXPECTED.ground_referrers) fail('ground referrers');
+  const references = rootModelReferences(models, catalog);
+  if (references.length !== profile.counts.model_referrers || !deepEqual(manifest.root_model_references, references)) fail('root model references');
+  const placements = references.reduce((sum, item) => sum + item.occurrence_indexes.length, 0);
+  if (placements !== SUPPLEMENT_EXPECTED.placement_occurrences) fail('placement occurrences');
+  if (models.length > 1 && !models.some((target) => target.model_ordinal !== target.target_index)) fail('model_ordinal collapsed onto target_index');
+  const headerByOrdinal = new Map();
+  const histogram = {};
+  let targetBytes = 0;
+  for (let i = 0; i < models.length; i++) {
+    const expected = models[i];
+    const declared = manifest.targets[i];
+    if (!isObject(declared) || !isObject(declared.body)) fail(`target ${i} shape`);
+    const { signature_prefix: prefix, ...core } = expected;
+    const want = { ...core, body: { ...expected.body, identity: declared.body.identity }, job_id: declared.job_id };
+    if (!deepEqual(declared, want)) fail(`target ${i} binding`);
+    assertExactDecimalIdentity(declared.body.identity, `target ${i}`, expected.body.bytes);
+    const file = readBody(declared);
+    if (!file || !Buffer.isBuffer(file.buffer) || file.buffer.length !== declared.body.bytes || sha256(file.buffer) !== declared.body.sha256) {
+      fail(`target ${i} bytes`);
+    }
+    if (!sameIdentity(file.identity, declared.body.identity)) fail(`target ${i} identity`);
+    const header = file.buffer.subarray(0, Math.min(6, file.buffer.length)).toString('hex');
+    if (header !== prefix) fail(`target ${i} header observation`);
+    headerByOrdinal.set(expected.model_ordinal, header);
+    histogram[header] = (histogram[header] || 0) + 1;
+    targetBytes += file.buffer.length;
+    file.buffer = null;
+  }
+  if (targetBytes !== profile.counts.target_body_bytes) fail('target bytes');
+  if (!deepEqual(histogram, profile.header_prefix_counts)) fail('header histogram');
+  const grouped = groupModelJobs(models.map((target) => ({ ...target, body: { ...target.body } })), headerByOrdinal);
+  const jobs = grouped.map((job) => ({ ...job, kind: 'model' }));
+  if (jobs.length !== profile.counts.constructor_jobs || !deepEqual(manifest.jobs, jobs)) fail('jobs');
+  const seen = new Set();
+  let distinctBytes = 0;
+  for (const job of jobs) {
+    distinctBytes += job.input_bytes;
+    if (job.target_model_ordinals[0] !== job.representative_model_ordinal) fail(`job ${job.job_id} representative`);
+    for (const ordinal of job.target_model_ordinals) {
+      if (seen.has(ordinal) || manifest.targets[ordinal].job_id !== job.job_id) fail(`target ${ordinal} job link`);
+      seen.add(ordinal);
+    }
+  }
+  if (seen.size !== models.length || distinctBytes !== profile.counts.distinct_job_bytes) fail('distinct bytes');
+  return { jobs, totals, placements, ground_referrers: groundReferrers };
 }
 
 function baseRow(job) {
@@ -902,11 +1278,25 @@ function prepare(opts) {
   if (output !== privateRoot && !output.startsWith(privateRoot + path.sep)) throw new Refusal('path_refused', 'output must be below this checkout .tools/renewal');
   if (pathExists(output)) throw new Refusal('output_exists', 'output path already exists');
   if (output === clientSource || output.startsWith(clientSource + path.sep)) throw new Refusal('path_refused', 'output inside client-source');
-  const profileFile = readPinnedFile(path.resolve(opts.profile), {
-    label: 'profile', maxBytes: 65536, expectBytes: PROFILE_BYTES, expectSha: PROFILE_SHA256
-  });
-  const profile = validateProfile(readJson(profileFile.buffer, 'profile'));
+  const profileFile = readPinnedFile(path.resolve(opts.profile), { label: 'profile', maxBytes: 65536 });
+  const route = Object.hasOwn(ROUTES, profileFile.sha256) ? ROUTES[profileFile.sha256] : null;
+  if (!route || profileFile.bytes !== route.profileBytes) throw new Refusal('pin_mismatch', 'profile sha256');
+  const admitJson = (role, buffer, label) => {
+    const value = readJson(buffer, label);
+    return hooks.afterPinnedJson ? hooks.afterPinnedJson(role, value) : value;
+  };
+  const profile = validateProfile(admitJson('profile', profileFile.buffer, 'profile'), route);
   const pins = [{ role: 'profile', path: path.resolve(opts.profile), bytes: profileFile.bytes, sha256: profileFile.sha256, identity: profileFile.identity }];
+  let workerPin = null;
+  if (route.name === 'supplement') {
+    const workerAbs = safeJoin(REPO_ROOT, profile.worker.path, 'worker');
+    if (workerAbs !== fileURLToPath(WORKER_URL)) throw new Refusal('path_refused', 'worker is not the imported worker');
+    const worker = readPinnedFile(workerAbs, {
+      label: 'worker', maxBytes: profile.worker.bytes, expectBytes: profile.worker.bytes, expectSha: profile.worker.sha256
+    });
+    workerPin = { role: 'worker', path: workerAbs, bytes: worker.bytes, sha256: worker.sha256, identity: worker.identity };
+    pins.push(workerPin);
+  }
   const summaryAbs = safeJoin(REPO_ROOT, profile.summary.path, 'summary');
   const summary = readPinnedFile(summaryAbs, {
     label: 'summary', maxBytes: profile.summary.bytes, expectBytes: profile.summary.bytes, expectSha: profile.summary.sha256
@@ -947,6 +1337,64 @@ function prepare(opts) {
       label: 'fixtures', maxBytes: policySource.max_fixture_bytes, expectBytes: profile.authored.bytes, expectSha: profile.authored.sha256
     });
     jobs = fixtureJobs(readJson(inputFile.buffer, 'fixtures'), policySource);
+  } else if (route.name === 'supplement') {
+    mode = 'corpus';
+    inputAbs = path.resolve(opts.manifest);
+    if (inputRoot !== EXECUTION_BINDING_EXPECTED.cwd) throw new Refusal('path_refused', 'input-root is not the frozen canonical root');
+    const manifestAbs = safeJoin(inputRoot, profile.manifest.path, 'manifest');
+    if (inputAbs !== manifestAbs) throw new Refusal('path_refused', 'manifest is not the profile manifest under input-root');
+    inputFile = readPinnedFile(inputAbs, {
+      label: 'manifest', maxBytes: policySource.max_manifest_bytes, expectBytes: profile.manifest.bytes, expectSha: profile.manifest.sha256
+    });
+    manifest = admitJson('manifest', inputFile.buffer, 'manifest');
+    if (!isObject(manifest) || !sameKeys(manifest.availability, AVAILABILITY_KEYS)) throw new Refusal('admission_discrepancy', 'manifest availability');
+    const caps = { report: policySource.max_availability_report_bytes, catalog: policySource.max_catalog_bytes, root_audit: 65536, execution: 65536 };
+    const loaded = {};
+    for (const key of AVAILABILITY_KEYS) {
+      const pinned = profile.availability[key];
+      const declared = manifest.availability[key];
+      if (!sameKeys(declared, ['path', 'bytes', 'sha256', 'identity']) || declared.path !== pinned.path ||
+          declared.bytes !== pinned.bytes || declared.sha256 !== pinned.sha256) throw new Refusal('admission_discrepancy', key);
+      assertExactDecimalIdentity(declared.identity, key, declared.bytes);
+      const abs = safeJoin(inputRoot, pinned.path, key);
+      loaded[key] = { abs, ...readPinnedFile(abs, { label: key, maxBytes: caps[key], expectBytes: pinned.bytes, expectSha: pinned.sha256, expectIdentity: declared.identity }) };
+    }
+    const ledgerDecl = manifest.world_gap_ledger_reference && manifest.world_gap_ledger_reference.profile;
+    if (!sameKeys(ledgerDecl, ['path', 'bytes', 'sha256', 'identity']) || ledgerDecl.path !== 'docs/project/fixtures/T06.003.003.006-profile.json' ||
+        ledgerDecl.bytes !== PROFILE_BYTES || ledgerDecl.sha256 !== PROFILE_SHA256) throw new Refusal('admission_discrepancy', 'world ledger profile');
+    assertExactDecimalIdentity(ledgerDecl.identity, 'world ledger profile', ledgerDecl.bytes);
+    const ledgerAbs = safeJoin(inputRoot, ledgerDecl.path, 'world ledger profile');
+    const ledgerFile = { abs: ledgerAbs, ...readPinnedFile(ledgerAbs, { label: 'world ledger profile', maxBytes: 65536,
+      expectBytes: PROFILE_BYTES, expectSha: PROFILE_SHA256, expectIdentity: ledgerDecl.identity }) };
+    const report = admitJson('report', loaded.report.buffer, 'availability report');
+    const catalog = admitJson('catalog', loaded.catalog.buffer, 'catalog');
+    const audit = admitJson('root_audit', loaded.root_audit.buffer, 'root audit');
+    const execution = admitJson('execution', loaded.execution.buffer, 'execution receipt');
+    const ledgerProfile = admitJson('world_ledger_profile', ledgerFile.buffer, 'world ledger profile');
+    const corpusDir = path.dirname(safeJoin(inputRoot, profile.availability.report.path, 'availability'));
+    assertNoLinks(corpusDir, 'corpus root');
+    const dirStat = fs.lstatSync(corpusDir);
+    if (!dirStat.isDirectory() || dirStat.isSymbolicLink() || (dirStat.mode & 0o777) !== 0o700) throw new Refusal('mode_refused', 'corpus root');
+    const readBody = (target) => readPinnedFile(safeJoin(inputRoot, target.body.path, 'body'), {
+      label: 'body',
+      maxBytes: policySource.max_body_bytes,
+      expectBytes: target.body.bytes,
+      expectSha: target.body.sha256,
+      expectIdentity: target.body.identity,
+      requireMode: 0o600,
+      requireNlink: 1
+    });
+    const admitted = admitSupplementCorpus({
+      manifest, report, catalog, audit, execution, ledgerProfile, profile,
+      pins: { report: loaded.report, catalog: loaded.catalog }, readBody
+    });
+    jobs = admitted.jobs;
+    corpus = { report, catalog, audit, readBody, admitted };
+    const roles = { report: 'availability_report', catalog: 'catalog', root_audit: 'root_audit', execution: 'execution_receipt' };
+    for (const key of AVAILABILITY_KEYS) {
+      pins.push({ role: roles[key], path: loaded[key].abs, bytes: loaded[key].bytes, sha256: loaded[key].sha256, identity: loaded[key].identity });
+    }
+    pins.push({ role: 'world_ledger_profile', path: ledgerFile.abs, bytes: ledgerFile.bytes, sha256: ledgerFile.sha256, identity: ledgerFile.identity });
   } else {
     mode = 'corpus';
     inputAbs = path.resolve(opts.manifest);
@@ -1016,9 +1464,45 @@ function prepare(opts) {
   for (let i = jobs.length - 1; i >= 0; i--) suffix[i] = suffix[i + 1] + reserve[i];
   if (suffix[0] > policy.max_jobs_jsonl_bytes) throw new Refusal('output_budget', 'jobs.jsonl cannot account for every job');
   return {
-    inputRoot, clientSource, output, profile, profileSha: profileFile.sha256, summary, sources, sourcePins, rulePins, ownPins, pins,
+    inputRoot, clientSource, output, route, workerPin, profile, profileSha: profileFile.sha256, summary, sources, sourcePins, rulePins, ownPins, pins,
     mode, inputAbs, inputFile, jobs, manifest, corpus, policy, suffix, privateRoot,
     summaryText: summary.buffer.toString('utf8')
+  };
+}
+
+// Complete bounded observation may include constructor exceptions; all-model
+// functional success separately needs every job to return a constructor.
+function addSupplementReport(report, P, accounting) {
+  const admitted = P.corpus.admitted;
+  report.input_manifest.task = P.manifest.task;
+  report.root_model_references = structuredClone(P.manifest.root_model_references);
+  report.carried_ground_targets = structuredClone(P.manifest.carried_ground_targets);
+  report.world_gap_ledger_reference = structuredClone(P.manifest.world_gap_ledger_reference);
+  report.availability_admission = {
+    report_task: P.corpus.report.task,
+    catalog_task: P.corpus.catalog.task,
+    root_audit_status: P.corpus.audit.status,
+    request_records: admitted.totals.request_records,
+    request_wire_bytes: admitted.totals.wire_bytes,
+    request_stored_bytes: admitted.totals.stored_bytes,
+    target_body_bytes: admitted.totals.target_body_bytes,
+    model_targets: P.manifest.targets.length,
+    carried_bmp_targets: P.manifest.carried_ground_targets.length,
+    ground_referrers: admitted.ground_referrers,
+    model_referrers: P.manifest.root_model_references.length,
+    placement_occurrences: admitted.placements,
+    execution_receipt_executed: false,
+    native_inputs_reopened: false
+  };
+  const open = accounting.filter((row) => row.outcome !== 'returned').map((row) => ({
+    job_id: row.job_id, outcome: row.outcome, reason: row.reason || null,
+    exception: row.exception ? { phase: row.exception.phase, name: row.exception.name, message: row.exception.message } : null
+  }));
+  report.functional = {
+    required_returned_constructors: P.jobs.length,
+    returned_constructors: accounting.filter((row) => row.outcome === 'returned').length,
+    all_model_constructors_returned: open.length === 0 && report.qualified === true,
+    open_failures: open
   };
 }
 
@@ -1072,7 +1556,7 @@ async function run(P, sayLine, started) {
       schema: 'T06-model-constructor-report-1',
       checkpoint: 'admission',
       qualified: false,
-      task: 'T06.003.003.006',
+      task: P.route.task,
       mode,
       job_ids: jobs.map((job) => job.job_id),
       target_ids: mode === 'corpus' ? P.manifest.targets.map((target) => target.model_ordinal) : []
@@ -1114,6 +1598,25 @@ async function run(P, sayLine, started) {
               worker_started: false,
               cleanup: { exit_observed: null, exit_code: null, terminated_by_parent: false },
               exception: exceptionInfo(error, 'input', policy)
+            };
+          }
+        }
+        if (!row && P.workerPin) {
+          // The supplement route re-verifies the pinned worker before each creation.
+          try {
+            readPinnedFile(P.workerPin.path, { label: 'worker', maxBytes: P.workerPin.bytes, expectBytes: P.workerPin.bytes,
+              expectSha: P.workerPin.sha256, expectIdentity: P.workerPin.identity });
+          } catch (error) {
+            halt ||= 'source_drift';
+            row = {
+              ...baseRow(job),
+              outcome: 'environment_failure',
+              reason: 'worker_pin',
+              constructor_returned: null,
+              elapsed_ms: 0,
+              worker_started: false,
+              cleanup: { exit_observed: null, exit_code: null, terminated_by_parent: false },
+              exception: exceptionInfo(error, 'worker_pin', policy)
             };
           }
         }
@@ -1223,7 +1726,7 @@ async function run(P, sayLine, started) {
   const jobsDigest = out ? out.hash.digest('hex') : null;
   const report = {
     schema: 'T06-model-constructor-report-1',
-    task: 'T06.003.003.006',
+    task: P.route.task,
     qualified,
     mode,
     expected_job_ids: jobs.map((job) => job.job_id),
@@ -1287,10 +1790,12 @@ async function run(P, sayLine, started) {
     report.prior_first_level_gaps = structuredClone(P.manifest.prior_first_level_gaps);
     report.targets = linked.targets;
     report.input_manifest = { schema: P.manifest.schema, counts: P.manifest.counts, limitations: P.manifest.limitations };
+    if (P.route.name === 'supplement') addSupplementReport(report, P, accounting);
   }
   let text = JSON.stringify(report);
   if (Buffer.byteLength(text) > policy.max_report_json_bytes) {
     report.qualified = false;
+    if (report.functional) report.functional.all_model_constructors_returned = false;
     report.report_limit = { limit: 'max_report_json_bytes', targets_omitted: report.targets.length, roots_omitted: report.roots.length, complete: false };
     report.targets = [];
     report.roots = [];
@@ -1309,6 +1814,7 @@ async function run(P, sayLine, started) {
       exitCode = 1;
       halt = halt || 'run_deadline_after_publication';
       report.qualified = false;
+      if (report.functional) report.functional.all_model_constructors_returned = false;
       report.deadline_after_publication = true;
       report.cleanup.halted = halt;
       publishFinal();
@@ -1318,6 +1824,7 @@ async function run(P, sayLine, started) {
     if (exitCode === 0 && performance.now() >= runDeadline) {
       exitCode = 1;
       report.qualified = false;
+      if (report.functional) report.functional.all_model_constructors_returned = false;
       report.deadline_after_publication = true;
       report.cleanup.halted = halt = 'run_deadline_after_publication';
       publishFinal();
@@ -1326,6 +1833,7 @@ async function run(P, sayLine, started) {
     exitCode = 1;
     publicationFailed = true;
     report.qualified = false;
+    if (report.functional) report.functional.all_model_constructors_returned = false;
     report.storage.publication_failed = true;
     // A one-shot publication failure may recover; persistent failure still
     // returns nonzero and preserves its checkpoint without promising a rewrite.

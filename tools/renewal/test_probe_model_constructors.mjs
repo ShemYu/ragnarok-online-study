@@ -1,4 +1,6 @@
 // Runner controls for T06.003.003.006. Fixture execution only.
+// T07.007.008 supplement-route controls below also read the frozen canonical
+// four-root manifest/availability pins and run its 273 pure constructor jobs.
 //   T06_INPUT_ROOT=/canonical/repository node --experimental-vm-modules --test tools/renewal/test_probe_model_constructors.mjs
 import assert from 'node:assert/strict';
 import { spawnSync } from 'node:child_process';
@@ -9,9 +11,10 @@ import path from 'node:path';
 import test from 'node:test';
 import { fileURLToPath, pathToFileURL } from 'node:url';
 import {
-  PROFILE_SHA256, Refusal, admitModelCorpus, boundedRow, compareAuthored,
+  ARTIFACT_AUDIT_EXPECTED, EXECUTION_BINDING_EXPECTED, PROFILE_SHA256, ROUTES, Refusal, SUPPLEMENT_PROFILE_SHA256, admitModelCorpus,
+  assertExactDecimalIdentity, boundedRow, compareAuthored,
   effectivePolicy, expandTargetOutcomes, fixtureJobs, hooks, identityOf, main, parseArgs, readPinnedFile,
-  runWorkerJob, safeJoin, selectModelTargets, unattemptedRow, writeAll
+  runWorkerJob, safeJoin, selectModelTargets, unattemptedRow, validateExecutionReceipt, validateProfile, writeAll
 } from './probe_model_constructors.mjs';
 import { ENTRY_SOURCE, MODULE_KEYS, RULE_KEYS, createRealm, outcomeForSummaryThrow, resolveSpecifier } from './model_constructor_worker.mjs';
 import { SummaryLimitError, summarizeModel } from './model_constructor_summary.mjs';
@@ -1296,4 +1299,553 @@ serial('root600-byte CLI cap refuses mandatory log-loss accounting before output
   const receipt = JSON.parse(text);
   assert.equal(receipt.reason, 'output_budget');
   assert.equal(receipt.output_created, false);
+});
+
+// T07.007.008 exact supplement route. Negative JSON semantics use the bounded
+// afterPinnedJson hook, which runs only after a complete pinned read and hash;
+// canonical inputs are never written. --max-jobs controls are not corpus evidence.
+const NEW_PROFILE = path.join(REPO, 'docs/project/fixtures/T07.007.008-profile.json');
+const BASELINE = JSON.parse(fs.readFileSync(path.join(REPO, 'docs/project/fixtures/T07.007.008-baseline.json'), 'utf8'));
+const newProfile = JSON.parse(fs.readFileSync(NEW_PROFILE, 'utf8'));
+const MANIFEST = path.join(INPUT_ROOT, newProfile.manifest.path);
+const OLD_MANIFEST = path.join(INPUT_ROOT, profile.manifest.path);
+const WORKER = path.join(HERE, 'model_constructor_worker.mjs');
+const sha256Of = (buf) => crypto.createHash('sha256').update(buf).digest('hex');
+const supplementArgs = (output, ...extra) => ['--input-root', INPUT_ROOT, '--client-source', CLIENT,
+  '--profile', NEW_PROFILE, '--manifest', MANIFEST, '--output', output, ...extra];
+const supplementFixtureArgs = (output, ...extra) => ['--input-root', INPUT_ROOT, '--client-source', CLIENT,
+  '--profile', NEW_PROFILE, '--fixtures', FIXTURES, '--output', output, ...extra];
+const supplementManifest = () => JSON.parse(fs.readFileSync(MANIFEST, 'utf8'));
+async function mainCapture(args) {
+  const chunks = [];
+  const code = await main(args, { stdout: { write(chunk) { chunks.push(Buffer.from(chunk)); } } });
+  const text = Buffer.concat(chunks).toString('utf8');
+  assert.ok(Buffer.byteLength(text) <= 4096);
+  assert.equal(text.includes('/Users'), false);
+  return { code, summary: JSON.parse(text) };
+}
+async function withPinnedJson(mutations, args) {
+  const seen = [];
+  hooks.afterPinnedJson = (role, value) => {
+    seen.push(role);
+    if (!mutations[role]) return value;
+    const copy = structuredClone(value);
+    const replaced = mutations[role](copy);
+    return replaced === undefined ? copy : replaced;
+  };
+  try { return { ...(await mainCapture(args)), seen }; } finally { hooks.afterPinnedJson = null; }
+}
+const supplementPacket = () => ({
+  type: 'result', outcome: 'returned', constructor_returned: true, constructor_ms: 0,
+  summary_json: '{"authored":true}', summary_json_bytes: 17,
+  log: { text: '', dropped: 0 }, loaded_module_keys: [...MODULE_KEYS], seek_globals: [1, 2, 3], dynamic_imports: []
+});
+// Authored worker events: plan[i] is 'clean', 'nonzero', 'silent' (no result) or 'lost' (terminate never exits).
+const supplementFakeWorkers = (plan, state) => () => {
+  const kind = plan[state.started++] || 'clean';
+  const worker = new EventEmitter();
+  worker.stdout = new EventEmitter(); worker.stderr = new EventEmitter();
+  worker.stdout.resume = worker.stderr.resume = () => {};
+  worker.terminate = () => {
+    state.terminated++;
+    if (kind !== 'lost') setImmediate(() => worker.emit('exit', 1));
+    return Promise.resolve(1);
+  };
+  setImmediate(() => {
+    worker.emit('message', { type: 'phase', phase: 'constructor' });
+    if (kind === 'silent' || kind === 'lost') return;
+    worker.emit('message', supplementPacket());
+    worker.emit('exit', kind === 'nonzero' ? 1 : 0);
+  });
+  return worker;
+};
+
+serial('T07 exact profile pins select their own routes and match the frozen baseline', () => {
+  const bytes = fs.readFileSync(NEW_PROFILE);
+  assert.equal(sha256Of(bytes), SUPPLEMENT_PROFILE_SHA256);
+  assert.equal(bytes.length, BASELINE.profile.bytes);
+  assert.equal(SUPPLEMENT_PROFILE_SHA256, BASELINE.profile.sha256);
+  assert.equal(ROUTES[PROFILE_SHA256].task, 'T06.003.003.006');
+  assert.equal(ROUTES[SUPPLEMENT_PROFILE_SHA256].task, 'T07.007.008');
+  assert.deepStrictEqual(structuredClone(EXECUTION_BINDING_EXPECTED), BASELINE.execution_binding_expected);
+  assert.deepStrictEqual(structuredClone(ARTIFACT_AUDIT_EXPECTED), BASELINE.artifact_audit_expected);
+  assert.deepStrictEqual(newProfile.policy, BASELINE.old_profile_policy_unchanged);
+  assert.deepStrictEqual(profile.policy, BASELINE.old_profile_policy_unchanged);
+  assert.deepStrictEqual(newProfile.summary_limits, BASELINE.old_summary_limits_unchanged);
+  assert.deepStrictEqual(newProfile.counts, BASELINE.new_counts);
+  assert.deepStrictEqual(newProfile.header_prefix_counts, BASELINE.new_header_observations);
+  assert.deepStrictEqual(newProfile.availability, BASELINE.availability);
+  assert.deepStrictEqual(newProfile.manifest, BASELINE.manifest);
+  for (const pin of BASELINE.baseline_sources.filter((item) => !item.path.startsWith('tools/renewal/probe_') && !item.path.startsWith('tools/renewal/test_'))) {
+    const abs = pin.path.startsWith('.tools/') ? path.join(INPUT_ROOT, pin.path) : path.join(REPO, pin.path);
+    const body = fs.readFileSync(abs);
+    assert.deepEqual([body.length, sha256Of(body)], [pin.bytes, pin.sha256], pin.path);
+  }
+  const route = ROUTES[SUPPLEMENT_PROFILE_SHA256];
+  assert.equal(validateProfile(structuredClone(newProfile), route).task, 'T07.007.008');
+  assert.throws(() => validateProfile(structuredClone(newProfile)), (error) => error.reason === 'profile_invalid');
+  assert.throws(() => validateProfile(structuredClone(profile), route), (error) => error.reason === 'profile_invalid');
+  const bad = [
+    (p) => { p.policy.job_timeout_ms = '20000'; },
+    (p) => { p.policy.rss_limit_bytes = true; },
+    (p) => { p.policy.run_timeout_ms = 900000.5; },
+    (p) => { p.policy.cleanup_wait_ms = 2 ** 53; },
+    (p) => { p.counts.model_targets = 273.5; },
+    (p) => { p.counts.roots = '4'; },
+    (p) => { p.counts.remaining_core_gap_roots = false; },
+    (p) => { delete p.availability.execution; },
+    (p) => { p.availability.extra = p.availability.report; },
+    (p) => { p.availability.execution.bytes = '5454'; },
+    (p) => { delete p.worker; },
+    (p) => { p.worker.sha256 = 'x'; },
+    (p) => { p.header_prefix_counts['4752534d0203'] = 167; },
+    (p) => { p.header_prefix_counts['4752534d0203'] = true; },
+    (p) => { p.summary_limits.nodes = 0; }
+  ];
+  for (const mutate of bad) {
+    const copy = structuredClone(newProfile);
+    mutate(copy);
+    assert.throws(() => validateProfile(copy, route), (error) => error.reason === 'profile_invalid', mutate.toString());
+  }
+  assert.throws(() => assertExactDecimalIdentity({ dev: 1, ino: '2', size: '3', mtime_ns: '4', ctime_ns: '5' }, 'x'), (error) => error.reason === 'identity_precision');
+  assert.throws(() => assertExactDecimalIdentity({ dev: '1', ino: '2', size: '3', mtime_ns: '4', ctime_ns: '5', extra: '6' }, 'x'), (error) => error.reason === 'identity_precision');
+  assert.throws(() => assertExactDecimalIdentity({ dev: '01', ino: '2', size: '3', mtime_ns: '4', ctime_ns: '5' }, 'x'), (error) => error.reason === 'identity_precision');
+  assert.throws(() => assertExactDecimalIdentity({ dev: '1', ino: '2', size: '3', mtime_ns: '4', ctime_ns: '5' }, 'x', 4), (error) => error.reason === 'identity_precision');
+  assertExactDecimalIdentity({ dev: '1', ino: '2', size: '3', mtime_ns: '9007199254740993', ctime_ns: '5' }, 'x', 3);
+});
+
+serial('T07 historical receipt integer tuple is admitted typed, never as decimal strings', () => {
+  const receipt = JSON.parse(fs.readFileSync(path.join(INPUT_ROOT, newProfile.availability.execution.path), 'utf8'));
+  const identity = receipt.guard_result.driver_pin.identity;
+  assert.equal(identity.length, 5);
+  assert.ok(identity.every((item) => Number.isInteger(item)));
+  assert.equal(Number.isSafeInteger(identity[3]), false, 'nanosecond member exceeds the safe range');
+  validateExecutionReceipt(receipt);
+  const stringly = structuredClone(receipt);
+  stringly.guard_result.driver_pin.identity = identity.map(String);
+  assert.throws(() => validateExecutionReceipt(stringly), (error) => error.reason === 'admission_discrepancy');
+  const decimalObject = structuredClone(receipt);
+  decimalObject.guard_result.driver_pin.identity = { dev: '1', ino: '2', size: '112136', mtime_ns: '3', ctime_ns: '4' };
+  assert.throws(() => validateExecutionReceipt(decimalObject), (error) => error.reason === 'admission_discrepancy');
+});
+
+serial('T07 fixture CLI keeps all 13 literal results under the new task', () => {
+  const r = cli([], { prof: NEW_PROFILE });
+  assert.equal(r.code, 0, JSON.stringify(r.summary));
+  assert.equal(r.summary.authored_matched, 13);
+  const got = rows(r.output);
+  assert.deepEqual(got.map((row) => row.id), authored.cases.map((entry) => entry.id));
+  authored.cases.forEach((entry, index) => {
+    const row = got[index];
+    assert.equal(row.outcome, entry.expected_outcome, entry.id);
+    assert.deepEqual(row.cleanup, { exit_observed: true, exit_code: 0, terminated_by_parent: false });
+    assert.deepEqual(row.seek_globals, [1, 2, 3]);
+    assert.deepEqual(row.dynamic_import_refusals, []);
+    if (entry.expected_outcome === 'returned') {
+      assert.equal(row.constructor_returned, true);
+      assert.deepStrictEqual(row.summary, entry.expected_summary, entry.id);
+    } else {
+      assert.equal(row.constructor_returned, false);
+      assert.equal(row.exception.phase, 'constructor');
+      assert.equal(row.exception.name, entry.expected_exception_name);
+      assert.equal('summary' in row, false);
+    }
+  });
+  const rep = reportOf(r.output);
+  assert.equal(rep.schema, 'T06-model-constructor-report-1');
+  assert.equal(rep.task, 'T07.007.008');
+  assert.equal(rep.qualified, true);
+  assert.equal(rep.profile_sha256, SUPPLEMENT_PROFILE_SHA256);
+  assert.deepEqual(rep.preserved_counts, newProfile.counts);
+  assert.deepEqual(rep.pinned_inputs.map((pin) => pin.role), ['profile', 'worker', 'summary', 'fixtures']);
+  assert.equal(rep.authored_comparison.matched, 13);
+  assert.deepEqual([rep.counts.job_outcomes.returned, rep.counts.job_outcomes.constructor_exception], [9, 4]);
+  assert.equal('functional' in rep, false);
+  const old = cli([]);
+  assert.equal(old.code, 0);
+  assert.equal(reportOf(old.output).task, 'T06.003.003.006');
+  assert.deepEqual(reportOf(old.output).pinned_inputs.map((pin) => pin.role), ['profile', 'summary', 'fixtures']);
+});
+
+serial('T07 fixture mode never opens the manifest, availability inputs, ledger profile or bodies', async () => {
+  const output = freshOut();
+  const opened = [];
+  const real = fs.openSync;
+  fs.openSync = (target, ...args) => {
+    if (typeof target === 'string') opened.push(path.resolve(target));
+    return real(target, ...args);
+  };
+  let result;
+  try { result = await mainCapture(supplementFixtureArgs(output, '--max-jobs', '0')); } finally { fs.openSync = real; }
+  assert.equal(result.code, 1);
+  const forbidden = [MANIFEST, ...Object.values(newProfile.availability).map((pin) => path.join(INPUT_ROOT, pin.path)),
+    path.join(INPUT_ROOT, 'docs/project/fixtures/T06.003.003.006-profile.json'), path.join(INPUT_ROOT, '.tools/renewal/t07-007-006-integrated-actual-1/output')];
+  for (const item of forbidden) assert.equal(opened.some((file) => file.startsWith(item)), false, item);
+  assert.ok(opened.includes(WORKER));
+  assert.ok(rows(output).every((row) => row.outcome === 'unattempted' && row.reason === 'max_jobs'));
+});
+
+serial('T07 cross-route substitutions refuse before output', async () => {
+  let r = cli([], { mode: ['--manifest', MANIFEST] });
+  assert.equal(r.code, 2);
+  assert.equal(r.summary.reason, 'path_refused');
+  r = cli([], { prof: NEW_PROFILE, mode: ['--manifest', OLD_MANIFEST] });
+  assert.equal(r.code, 2);
+  assert.equal(r.summary.reason, 'path_refused');
+  const elsewhere = freshOut();
+  let result = await mainCapture(['--input-root', REPO, '--client-source', CLIENT, '--profile', NEW_PROFILE,
+    '--manifest', path.join(REPO, newProfile.manifest.path), '--output', elsewhere]);
+  assert.equal(result.code, 2);
+  assert.equal(result.summary.reason, 'path_refused');
+  assert.equal(fs.existsSync(elsewhere), false);
+  const oldDoc = structuredClone(profile);
+  const cases = [
+    [{ profile: () => oldDoc }, 'profile_invalid'],
+    [{ profile: (p) => { p.task = 'T06.003.003.006'; } }, 'profile_invalid'],
+    [{ manifest: (m) => { m.task = 'T06.003.003.006'; } }, 'admission_discrepancy'],
+    [{ manifest: (m) => { m.availability.root_audit = { ...m.availability.root_audit, path: profile.availability.root_audit.path, bytes: profile.availability.root_audit.bytes, sha256: profile.availability.root_audit.sha256 }; } }, 'admission_discrepancy'],
+    [{ manifest: (m) => { m.world_gap_ledger_reference.profile.sha256 = SUPPLEMENT_PROFILE_SHA256; } }, 'admission_discrepancy']
+  ];
+  for (const [mutations, reason] of cases) {
+    const output = freshOut();
+    result = await withPinnedJson(mutations, supplementArgs(output));
+    assert.equal(result.code, 2, JSON.stringify(result.summary));
+    assert.equal(result.summary.reason, reason, Object.keys(mutations).join());
+    assert.ok(Object.keys(mutations).every((role) => result.seen.includes(role)));
+    assert.equal(fs.existsSync(output), false);
+  }
+});
+
+serial('T07 positive admission fully hashes every pinned input and all 273 bodies with a zero-job suffix', async () => {
+  const output = freshOut();
+  const result = await withPinnedJson({}, supplementArgs(output, '--max-jobs', '0'));
+  assert.equal(result.code, 1);
+  assert.deepEqual(result.seen, ['profile', 'manifest', 'report', 'catalog', 'root_audit', 'execution', 'world_ledger_profile']);
+  const rep = reportOf(output);
+  assert.equal(rep.task, 'T07.007.008');
+  assert.equal(rep.qualified, false);
+  const byRole = Object.fromEntries(rep.pinned_inputs.map((pin) => [pin.role, pin]));
+  for (const [role, key] of [['availability_report', 'report'], ['catalog', 'catalog'], ['root_audit', 'root_audit'], ['execution_receipt', 'execution']]) {
+    const body = fs.readFileSync(path.join(INPUT_ROOT, BASELINE.availability[key].path));
+    assert.deepEqual([byRole[role].bytes, byRole[role].sha256], [BASELINE.availability[key].bytes, BASELINE.availability[key].sha256]);
+    assert.equal(sha256Of(body), byRole[role].sha256);
+  }
+  assert.deepEqual([byRole.corpus.bytes, byRole.corpus.sha256], [BASELINE.manifest.bytes, BASELINE.manifest.sha256]);
+  assert.deepEqual([byRole.worker.bytes, byRole.worker.sha256], [11388, 'c1eee8dabacf3e69bb2fbe7fde8ed4e5fbd386a4a3ac768936484beceb22a3f4']);
+  assert.deepEqual([byRole.world_ledger_profile.bytes, byRole.world_ledger_profile.sha256], [4855, PROFILE_SHA256]);
+  assert.deepEqual(rep.postchecks, { checked: 273, ok: true });
+  assert.equal(rep.source_postchecks.ok, true);
+  assert.equal(rep.counts.job_outcomes.unattempted, 273);
+  assert.equal(rep.functional.all_model_constructors_returned, false);
+  assert.equal(rep.functional.open_failures.length, 273);
+  assert.deepEqual(rep.availability_admission, {
+    report_task: 'T07.007.006', catalog_task: 'T07.007.005', root_audit_status: 'complete_observation_artifacts_consistent',
+    request_records: 314, request_wire_bytes: 7575826, request_stored_bytes: 7575826, target_body_bytes: 7575328,
+    model_targets: 273, carried_bmp_targets: 38, ground_referrers: 40, model_referrers: 297, placement_occurrences: 4922,
+    execution_receipt_executed: false, native_inputs_reopened: false
+  });
+  assert.ok(rows(output).every((row) => row.outcome === 'unattempted' && row.reason === 'max_jobs' && row.worker_started === false));
+});
+
+serial('T07 admission refuses typed semantic drift after full pinned reads', async () => {
+  const manifest = supplementManifest();
+  const receiptSha = BASELINE.availability.execution.sha256;
+  const A = 'admission_discrepancy';
+  const cases = [
+    ['manifest', (m) => { m.counts.model_targets = '273'; }, A],
+    ['manifest', (m) => { m.counts.constructor_jobs = 273.5; }, A],
+    ['manifest', (m) => { m.extra = true; }, A],
+    ['manifest', (m) => { [m.targets[0], m.targets[1]] = [m.targets[1], m.targets[0]]; }, A],
+    ['manifest', (m) => { m.targets[5].target_index += 1; }, A],
+    ['manifest', (m) => { m.targets[5].model_ordinal = m.targets[5].target_index; }, A],
+    ['manifest', (m) => { m.targets[5].request_index = m.targets[5].target_index; }, A],
+    ['manifest', (m) => { m.targets[3].referrers = []; }, A],
+    ['manifest', (m) => { m.targets[3].availability_record.wire_bytes += 1; }, A],
+    ['manifest', (m) => { m.targets[3].http_path = m.targets[3].http_path.toUpperCase(); }, A],
+    ['manifest', (m) => { m.targets[3].body.identity.mtime_ns = Number(m.targets[3].body.identity.mtime_ns); }, 'identity_precision'],
+    ['manifest', (m) => { m.targets[3].body.identity.extra = '1'; }, 'identity_precision'],
+    ['manifest', (m) => { m.targets[3].body.identity.ino = String(BigInt(m.targets[3].body.identity.ino) + 1n); }, 'identity_changed'],
+    ['manifest', (m) => { m.targets[3].body.sha256 = 'f'.repeat(64); }, A],
+    ['manifest', (m) => { m.targets[3].job_id = 'model-000004'; }, A],
+    ['manifest', (m) => { m.jobs[0].header_version_bytes = '4752534d0104'; }, A],
+    ['manifest', (m) => { m.jobs.reverse(); }, A],
+    ['manifest', (m) => { m.jobs[0].target_model_ordinals = [0, 1]; }, A],
+    ['manifest', (m) => { m.jobs[0].input_bytes = String(m.jobs[0].input_bytes); }, A],
+    ['manifest', (m) => { m.root_model_references[10].occurrence_indexes.pop(); }, A],
+    ['manifest', (m) => { m.root_model_references[10].root_ordinal = (m.root_model_references[10].root_ordinal + 1) % 4; }, A],
+    ['manifest', (m) => { m.root_model_references[10].loader_index += 1; }, A],
+    ['manifest', (m) => { m.root_model_references.pop(); }, A],
+    ['manifest', (m) => { m.carried_ground_targets.pop(); }, A],
+    ['manifest', (m) => { m.carried_ground_targets[0].catalog_target.referrers.pop(); }, A],
+    ['manifest', (m) => { m.remaining_gap_root_ordinals = [0]; }, A],
+    ['manifest', (m) => { m.prior_first_level_gaps = [{ target_index: 0 }]; }, A],
+    ['manifest', (m) => { m.world_gap_ledger_reference.reconciled_by_this_subset = true; }, A],
+    ['manifest', (m) => { m.world_gap_ledger_reference.roots = '1296'; }, A],
+    ['manifest', (m) => { m.world_gap_ledger_reference.profile.identity.ino = 19645439; }, 'identity_precision'],
+    ['manifest', (m) => { m.availability.execution.sha256 = ARTIFACT_AUDIT_EXPECTED.guard_receipt_sha256; }, A],
+    ['manifest', (m) => { m.availability.report.identity.dev = '1'; }, 'identity_changed'],
+    ['manifest', (m) => { m.roots[0].edges.rsw.parse_status = 'returned'; }, A],
+    ['manifest', (m) => { m.limitations.pop(); }, A],
+    ['report', (r) => { r.task = 'T06.003.003.005'; }, A],
+    ['report', (r) => { r.records_complete = 1; }, A],
+    ['report', (r) => { r.acquisition_and_cleanup_valid = 'true'; }, A],
+    ['report', (r) => { r.targets[7].request_index += 1; }, A],
+    ['report', (r) => { r.targets[7].wire_target = '/data/other'; }, A],
+    ['report', (r) => { r.targets[7].stored.error = 'short'; }, A],
+    ['report', (r) => { r.targets[7].signature.kind = 'gat'; }, A],
+    ['report', (r) => { r.targets[7].http_status = 206; }, A],
+    ['report', (r) => { r.targets.pop(); }, A],
+    ['report', (r) => { r.totals.wire_bytes = 7575328; }, A],
+    ['report', (r) => { r.catalog_pin.sha256 = receiptSha; }, A],
+    ['report', (r) => { r.catalog_refs.referrers = 336; }, A],
+    ['catalog', (c) => { c.task = 'T07.007.004'; }, A],
+    ['catalog', (c) => { c.targets[26].referrers[0].loader_index += 1; }, A],
+    ['catalog', (c) => { c.roots[0].edges.rsw.job_id = 'target-005:rsw'; }, A],
+    ['catalog', (c) => { c.jobs[2].occurrence_loader_indexes[0] = 9999; }, A],
+    ['catalog', (c) => { c.jobs[2].loader_entries[0].target_index = 27; }, A],
+    ['root_audit', (a) => { a.status = 'complete'; }, A],
+    ['root_audit', (a) => { a.guard_receipt_sha256 = receiptSha; }, A],
+    ['root_audit', (a) => { a.observations.http_404 = false; }, A],
+    ['root_audit', (a) => { a.targets = '311'; }, A],
+    ['root_audit', (a) => { a.full_game_acceptance = true; }, A],
+    ['root_audit', (a) => { a.report_sha256 = BASELINE.availability.catalog.sha256; }, A],
+    ['root_audit', (a) => { a.wire_bytes = 7575328; }, A],
+    ['execution', (e) => { e.schema = 'root005-two-group-external-guard-1'; }, A],
+    ['execution', (e) => { e.root_execution_gate_valid = 1; }, A],
+    ['execution', (e) => { e.independent_inputs_equal = 'true'; }, A],
+    ['execution', (e) => { e.first_failure = 'x'; }, A],
+    ['execution', (e) => { e.later_errors = ['x']; }, A],
+    ['execution', (e) => { e.availability_or_full_output_or_game_qualification = true; }, A],
+    ['execution', (e) => { e.binding.argv[3] = '/tmp/observe_map_dependencies.py'; }, A],
+    ['execution', (e) => { e.binding.driver_pin = [112136, 'a'.repeat(64)]; }, A],
+    ['execution', (e) => { e.binding.driver_pin = { bytes: 112136, sha256: e.binding.driver_pin[1] }; }, A],
+    ['execution', (e) => { e.binding.metadata_count = '44'; }, A],
+    ['execution', (e) => { e.binding.HOME_present = 0; }, A],
+    ['execution', (e) => { e.binding.cwd = REPO; }, A],
+    ['execution', (e) => { e.binding.child_environment.HOME = '/tmp'; }, A],
+    ['execution', (e) => { e.guard_result.schema = 'root005-independent-actual-audit-1'; }, A],
+    ['execution', (e) => { e.guard_result.external_guard_valid = 'true'; }, A],
+    ['execution', (e) => { e.guard_result.driver_exit = '0'; }, A],
+    ['execution', (e) => { e.guard_result.driver_exit = 1; }, A],
+    ['execution', (e) => { e.guard_result.guard_action = 'kill'; }, A],
+    ['execution', (e) => { delete e.guard_result.native; }, A],
+    ['execution', (e) => { e.guard_result.groups_after[Object.keys(e.guard_result.groups_after)[0]] = [1]; }, A],
+    ['execution', (e) => { e.guard_result.groups_after = {}; }, A],
+    ['execution', (e) => { e.guard_result.work_seconds = 1801; }, A],
+    ['execution', (e) => { e.guard_result.rss_limit_bytes = 2147483647; }, A],
+    ['execution', (e) => { e.guard_result.cleanup_grace_seconds = 6; }, A],
+    ['execution', (e) => { e.guard_result.driver_pin = [112136, e.guard_result.driver_pin.sha256]; }, A],
+    ['execution', (e) => { e.guard_result.driver_pin.identity = e.guard_result.driver_pin.identity.map(String); }, A],
+    ['execution', (e) => { e.guard_result.driver_pin.identity = e.guard_result.driver_pin.identity.slice(0, 4); }, A],
+    ['execution', (e) => { e.guard_result.driver_pin.identity[0] = 1.5; }, A],
+    ['execution', (e) => { e.guard_result.driver_pin.bytes = 112137; }, A],
+    ['world_ledger_profile', (p) => { p.counts.roots = 1295; }, A],
+    ['profile', (p) => { p.policy.job_timeout_ms = '20000'; }, 'profile_invalid'],
+    ['profile', (p) => { p.policy.rss_limit_bytes = true; }, 'profile_invalid'],
+    ['profile', (p) => { p.counts.model_targets = 273.5; }, 'profile_invalid'],
+    ['profile', (p) => { p.counts.roots = 2 ** 53; }, 'profile_invalid'],
+    ['profile', (p) => { delete p.availability.execution; }, 'profile_invalid'],
+    ['profile', (p) => { p.worker.sha256 = 'a'.repeat(64); }, 'pin_mismatch'],
+    ['profile', (p) => { p.manifest.sha256 = 'a'.repeat(64); }, 'pin_mismatch']
+  ];
+  assert.ok(manifest.targets[3].body.identity.ino);
+  for (const [role, mutate, reason] of cases) {
+    const output = freshOut();
+    const result = await withPinnedJson({ [role]: mutate }, supplementArgs(output, '--max-jobs', '0'));
+    assert.equal(result.code, 2, `${role} ${mutate}: ${JSON.stringify(result.summary)}`);
+    assert.equal(result.summary.reason, reason, `${role} ${mutate}`);
+    assert.ok(result.seen.includes(role), `${role} hook activated`);
+    assert.equal(fs.existsSync(output), false);
+  }
+  // A coherent header change in both report and manifest still disagrees with the body bytes.
+  const output = freshOut();
+  const result = await withPinnedJson({
+    report: (r) => { r.targets[26].signature.prefix_hex = '4752534d0104'; },
+    manifest: (m) => { m.targets[0].availability_record.signature.prefix_hex = '4752534d0104'; }
+  }, supplementArgs(output, '--max-jobs', '0'));
+  assert.equal(result.code, 2);
+  assert.equal(result.summary.reason, A);
+});
+
+serial('T07 lower-only limits keep the unattempted suffix and still full-hash it', async () => {
+  let r = await mainCapture(supplementArgs(freshOut(), '--max-jobs', '274'));
+  assert.equal(r.summary.reason, 'policy_increase');
+  r = await mainCapture(supplementArgs(freshOut(), '--job-timeout-ms', '20001'));
+  assert.equal(r.summary.reason, 'policy_increase');
+  const output = freshOut();
+  r = await mainCapture(supplementArgs(output, '--max-jobs', '2'));
+  assert.equal(r.code, 1);
+  const got = rows(output);
+  const manifest = supplementManifest();
+  assert.deepEqual(got.map((row) => row.job_id), manifest.jobs.map((job) => job.job_id));
+  for (const row of got.slice(0, 2)) {
+    assert.equal(row.outcome, 'returned');
+    assert.deepEqual(row.cleanup, { exit_observed: true, exit_code: 0, terminated_by_parent: false });
+  }
+  assert.ok(got.slice(2).every((row) => row.outcome === 'unattempted' && row.reason === 'max_jobs'));
+  const rep = reportOf(output);
+  assert.deepEqual(rep.postchecks, { checked: 273, ok: true });
+  assert.equal(rep.qualified, false);
+  assert.equal(rep.functional.returned_constructors, 2);
+  assert.equal(rep.functional.open_failures.length, 271);
+  assert.equal(rep.counts.target_outcomes.unattempted, 271);
+});
+
+serial('T07 worker nonzero, timeout and lost exits stay visible and halt on unknown cleanup', async () => {
+  const output = freshOut();
+  const state = { started: 0, terminated: 0 };
+  hooks.createWorker = supplementFakeWorkers(['nonzero', 'clean', 'silent', 'lost'], state);
+  let result;
+  try { result = await mainCapture(supplementArgs(output, '--job-timeout-ms', '300')); }
+  finally { hooks.createWorker = null; }
+  assert.equal(result.code, 1);
+  assert.equal(state.started, 4);
+  const got = rows(output);
+  assert.equal(got.length, 273);
+  assert.equal(got[0].outcome, 'worker_error');
+  assert.equal(got[0].reason, 'nonzero_exit_after_result');
+  assert.deepEqual(got[0].prior_result, { outcome: 'returned', constructor_returned: true });
+  assert.equal('summary' in got[0], false);
+  assert.equal(got[1].outcome, 'returned');
+  assert.deepEqual(got[1].summary, { authored: true });
+  assert.equal(got[2].outcome, 'timeout');
+  assert.deepEqual(got[2].cleanup, { exit_observed: true, exit_code: 1, terminated_by_parent: true });
+  assert.equal(got[3].outcome, 'timeout');
+  assert.equal(got[3].cleanup.exit_observed, false);
+  assert.ok(got.slice(4).every((row) => row.outcome === 'unattempted' && row.reason === 'cleanup_unverified'));
+  const rep = reportOf(output);
+  assert.equal(rep.qualified, false);
+  assert.equal(rep.cleanup.verified, false);
+  assert.deepEqual(rep.cleanup.unverified, [got[3].job_id]);
+  assert.equal(rep.functional.all_model_constructors_returned, false);
+  assert.deepEqual(rep.functional.open_failures.slice(0, 3).map((item) => item.outcome), ['worker_error', 'timeout', 'timeout']);
+  assert.equal(rep.functional.open_failures.length, 272);
+});
+
+serial('T07 storage failures keep every job id and never qualify', async () => {
+  const output = freshOut();
+  const state = { started: 0, terminated: 0 };
+  const real = { open: fs.openSync, write: fs.writeSync, rename: fs.renameSync };
+  let jobsFd = null;
+  let jobsWrites = 0;
+  let renames = 0;
+  fs.openSync = (target, ...args) => {
+    const fd = real.open(target, ...args);
+    if (typeof target === 'string' && path.resolve(target) === path.join(output, 'jobs.jsonl')) jobsFd = fd;
+    return fd;
+  };
+  fs.writeSync = (fd, ...args) => {
+    if (fd === jobsFd && ++jobsWrites === 2) throw Object.assign(new Error('authored EIO'), { code: 'EIO' });
+    return real.write(fd, ...args);
+  };
+  fs.renameSync = (from, to) => {
+    if (path.resolve(String(to)) === path.join(output, 'report.json') && ++renames === 1) throw Object.assign(new Error('authored EIO'), { code: 'EIO' });
+    return real.rename(from, to);
+  };
+  hooks.createWorker = supplementFakeWorkers([], state);
+  let result;
+  try { result = await mainCapture(supplementArgs(output)); }
+  finally { fs.openSync = real.open; fs.writeSync = real.write; fs.renameSync = real.rename; hooks.createWorker = null; }
+  assert.equal(result.code, 1);
+  assert.equal(state.started, 2);
+  const got = rows(output);
+  assert.equal(got.length, 273);
+  assert.equal(got[0].outcome, 'returned');
+  assert.equal(got[1].outcome, 'environment_failure');
+  assert.deepEqual(got[1].prior_result, { outcome: 'returned', constructor_returned: true });
+  assert.ok(got.slice(2).every((row) => row.outcome === 'unattempted' && row.reason === 'output_io_error'));
+  const rep = reportOf(output);
+  assert.equal(rep.qualified, false);
+  assert.equal(rep.storage.publication_failed, true);
+  assert.equal(rep.functional.all_model_constructors_returned, false);
+  assert.equal(rep.job_accounting.length, 273);
+});
+
+serial('T07 worker pin before creation, body reread and final preservation drift stay visible', async () => {
+  const before = fs.readFileSync(WORKER);
+  let output = freshOut();
+  hooks.beforeRepresentativeReread = (item) => { if (item.job_id === 'model-000001') fs.writeFileSync(WORKER, before); };
+  let result;
+  try { result = await mainCapture(supplementArgs(output, '--max-jobs', '3')); }
+  finally { hooks.beforeRepresentativeReread = null; fs.writeFileSync(WORKER, before); }
+  assert.equal(result.code, 1);
+  let got = rows(output);
+  assert.equal(got[0].outcome, 'returned');
+  assert.equal(got[1].outcome, 'environment_failure');
+  assert.equal(got[1].reason, 'worker_pin');
+  assert.equal(got[1].worker_started, false);
+  assert.ok(got.slice(2).every((row) => row.outcome === 'unattempted' && row.reason === 'source_drift'));
+  let rep = reportOf(output);
+  assert.equal(rep.pinned_inputs_identity_unchanged_after_run, false);
+  assert.ok(rep.source_postchecks.failed.some((item) => item.role === 'worker'));
+
+  output = freshOut();
+  hooks.beforeRepresentativeReread = (item) => {
+    if (item.job_id === 'model-000000' || item.model_ordinal === 272) throw new Refusal('identity_changed', 'authored drift');
+  };
+  try { result = await mainCapture(supplementArgs(output, '--max-jobs', '1')); }
+  finally { hooks.beforeRepresentativeReread = null; }
+  assert.equal(result.code, 1);
+  got = rows(output);
+  assert.equal(got[0].outcome, 'input_refused');
+  assert.equal(got[0].reason, 'identity_changed');
+  rep = reportOf(output);
+  assert.equal(rep.postchecks.ok, false);
+  assert.equal(rep.postchecks.reason, 'identity_changed');
+  assert.equal(rep.qualified, false);
+
+  output = freshOut();
+  hooks.beforeIdentityRecheck = () => fs.writeFileSync(WORKER, before);
+  try { result = await mainCapture(supplementArgs(output, '--max-jobs', '1')); }
+  finally { hooks.beforeIdentityRecheck = null; fs.writeFileSync(WORKER, before); }
+  assert.equal(result.code, 1);
+  rep = reportOf(output);
+  assert.equal(rows(output)[0].outcome, 'returned');
+  assert.equal(rep.pinned_inputs_identity_unchanged_after_run, false);
+  assert.ok(rep.source_postchecks.failed.some((item) => item.role === 'worker'));
+  assert.equal(rep.functional.all_model_constructors_returned, false);
+});
+
+serial('T07 actual 273-job CLI preserves every typed row, target, reference and carried record', () => {
+  const r = cli([], { prof: NEW_PROFILE, mode: ['--manifest', MANIFEST] });
+  assert.equal(r.code, 0, JSON.stringify(r.summary));
+  const manifest = supplementManifest();
+  const got = rows(r.output);
+  assert.equal(got.length, 273);
+  got.forEach((row, index) => {
+    const job = manifest.jobs[index];
+    assert.equal(row.job_id, job.job_id);
+    assert.equal(row.complete_sha256, job.complete_sha256);
+    assert.equal(row.input_bytes, job.input_bytes);
+    assert.equal(row.header_version_bytes, job.header_version_bytes);
+    assert.equal(row.outcome === 'returned' || row.outcome === 'constructor_exception', true, job.job_id);
+    assert.equal(row.constructor_returned, row.outcome === 'returned');
+    if (row.outcome === 'returned') assert.equal(typeof row.summary, 'object');
+    else assert.equal(row.exception.phase, 'constructor');
+    assert.deepEqual(row.cleanup, { exit_observed: true, exit_code: 0, terminated_by_parent: false });
+    assert.deepEqual(row.seek_globals, [1, 2, 3]);
+    assert.deepEqual(row.dynamic_import_refusals, []);
+    assert.equal(row.loaded_module_keys.length, 7);
+  });
+  const rep = reportOf(r.output);
+  assert.equal(rep.task, 'T07.007.008');
+  assert.equal(rep.qualified, true);
+  assert.equal(rep.cleanup.verified, true);
+  assert.equal(rep.cleanup.workers_started, 273);
+  assert.deepEqual(rep.postchecks, { checked: 273, ok: true });
+  assert.equal(rep.source_postchecks.ok, true);
+  assert.deepEqual(rep.roots, manifest.roots);
+  assert.deepEqual(rep.root_model_references, manifest.root_model_references);
+  assert.deepEqual(rep.carried_ground_targets, manifest.carried_ground_targets);
+  assert.deepEqual(rep.world_gap_ledger_reference, manifest.world_gap_ledger_reference);
+  const outcome = new Map(got.map((row) => [row.job_id, row.outcome]));
+  assert.deepEqual(rep.targets, manifest.targets.map((target) => ({ ...target, constructor_outcome: outcome.get(target.job_id) })));
+  const returned = got.filter((row) => row.outcome === 'returned').length;
+  assert.equal(rep.functional.returned_constructors, returned);
+  assert.equal(rep.functional.all_model_constructors_returned, returned === 273);
+  const jobsBuf = fs.readFileSync(path.join(r.output, 'jobs.jsonl'));
+  assert.equal(rep.jobs_file.sha256, sha256Of(jobsBuf));
+  assert.equal(rep.jobs_file.complete, true);
+  assert.deepEqual(fs.readdirSync(r.output).sort(), ['jobs.jsonl', 'report.json']);
+  for (const name of fs.readdirSync(r.output)) assert.equal(fs.statSync(path.join(r.output, name)).mode & 0o777, 0o600);
 });
