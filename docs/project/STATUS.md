@@ -1,8 +1,8 @@
 # Current status — resume here
 
-Updated: 2026-10-21 JST. Coordinator: Codex. Active scope: **execute the documented strategy through the full milestone**.
+Updated: 2026-10-22 JST. Coordinator: Codex. Active scope: **execute the documented strategy through the full milestone**.
 
-**Execution paused by the user on2026-10-21.** The goal state is paused; do not resume tasks, workers or verification until the user explicitly resumes. [Pause checkpoint and resume instructions](reviews/2026-10-21-T07.007.010.md#user-pause-and-preserved-resume-state). Claude historical44and auditor pure76remain verified; new-route/whole-artifact/shared controls and actual scan remain pending. Grok partial code is preserved as unverified WIP40e1c92; its attempt is stopped/released. All three internal preparation agents are idle.
+**Execution resumed by the user; goal API is active.** [Resume checkpoint](reviews/2026-10-21-T07.007.010.md#explicit-resume-and-parallel-verification). Claude historical44and auditor pure76remain verified; new-route/whole-artifact/shared controls and actual scan remain pending. Actual Grok retry ctx_79f45cdc901bcontinues the preserved WIP40e1c92on its existing branch; original frozen task/inputs unchanged. Two source-only preparation lanes run in parallel; root is reviewing the focused verification driver. [Prior pause](reviews/2026-10-21-T07.007.010.md#user-pause-and-preserved-resume-state) remains historical.
 
 ## Where we are
 
