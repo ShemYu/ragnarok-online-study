@@ -4,7 +4,7 @@ Date: **2026-10-21 JST**. Functionality comes first. Normal tutorial/city reward
 
 [Chapter1 source review](reviews/2026-10-20-T07.006.md#corrected-comparison-and-bounded-readiness) is ready: Claude14/20, Grok12/20. Root corrects the helper diagnosis. Neither proposal is installed. [October acquisition](reviews/2026-10-21-T07.007.md) passes extraction and hash checks for all 4,976 files. All three archive headers pass. The [corrected inventory tool](reviews/2026-10-21-T07.007.001.md#root-corrected-integration-qualified) is qualified at9153d27. All 248,908 records and April parity checks pass.
 
-All 59 candidate patch files are acquired, including 57 new files. No patch is installed. The base package lacks the four target map names. An official August patch has all 12 terrain-name entries. Root has [independently decoded and checked those 12 bodies](reviews/2026-10-21-T07.007.003.md#root-independent-twelve-body-reference-qualified). This private reference is not qualification of a decoder tool or playable maps. Claude has submitted; its evidence is preserved and its resource is released. Root passes its 38 tests and checks all 12 complete bodies and artifacts. Fault checks find publication and validation defects. Repairs are required. Grok is implementing at the last observation. Root next checks Grok and compares both submissions. Dependencies, native loading, rendering, normal play, full story/maps/Chinese and safe migration remain open.
+All 59 candidate patch files are acquired, including 57 new files. No patch is installed. The base package lacks the four target map names. An official August patch has all 12 terrain-name entries. Root has [independently decoded and checked those 12 bodies](reviews/2026-10-21-T07.007.003.md#root-independent-twelve-body-reference-qualified). This private reference is not qualification of a decoder tool or playable maps. Claude has submitted; its evidence is preserved and its resource is released. Root passes its 38 tests and checks all 12 complete bodies and artifacts. Fault checks find publication and validation defects. Repairs are required. Grok has submitted and is released. Root next checks its source and results, then compares both submissions. The two map-loader implementations are active. Root direct checks return all12files; one has two non-finite heights. Dependencies, native loading, rendering, normal play, full story/maps/Chinese and safe migration remain open.
 
 Use this map for a short view of [Status](STATUS.md), [Tasks](TASKS.md) and
 [Phases](PHASES.md). Status gives the current next action.
@@ -28,8 +28,8 @@ CURRENT WORK: October assets and missing maps
  +-- Collect all candidate patches: done.
  +-- Independent 12-body reference: decoded and checked.
  |    Decoder tool qualification is still active.
- |    Claude: bodies pass; repairs needed. Grok: implementing.
- +-- Terrain loader checks: 12 inputs frozen; implementations next.
+ |    Claude: bodies pass; repairs needed. Grok: root checks next.
+ +-- Terrain loader checks: 12 direct returns; two workers active.
  |
 [ ] Verify payloads -> dependencies -> render -> normal play and save.
 ```
