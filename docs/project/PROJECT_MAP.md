@@ -11,7 +11,7 @@ Use this map for a short view of [Status](STATUS.md), [Tasks](TASKS.md) and
 Update this map after each important change. Keep the dated evidence.
 
 ```text
-CURRENT WORK: October assets and missing maps
+PAUSED BY USER: October assets and missing maps
 
 [V] Download and extract the base package. Verify all 4,976 files.
  |
@@ -78,10 +78,11 @@ CURRENT WORK: October assets and missing maps
 [~] Texture availability: exact task and inputs frozen.
  |    171 BMP and 7 TGA paths; full plan and source checks pass.
  |    Historical compatibility copy and its preflight pass.
- |    Claude: root historical 44 tests pass. Grok is working.
+ |    Claude: root historical 44 tests pass. Grok WIP saved; stopped.
+ |    All preparation workers idle. Resume only when the user asks.
  |    New-route checks remain open; two source checks need tightening.
  |    Auditor bug fixed: root 76 focused checks pass.
- |    Complete output checks and shared failure checks prepare in parallel.
+ |    Complete output and shared failure-check drafts are preserved.
  |    Next: verify both candidates and the auditor, then actual scan.
  |
  +-- [V] Other 28 GPF patch tables: corrected tool verified.
