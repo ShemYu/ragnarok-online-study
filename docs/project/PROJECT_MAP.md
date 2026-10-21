@@ -39,10 +39,10 @@ CURRENT WORK: October assets and missing maps
 [V] Map model and texture request list: tools compared and repaired.
  |    26 tests and all 20 shared checks pass. Both workers released.
  |
-[~] Asset availability: root checks Claude; Grok still works.
- |    Claude's 69 tests pass. Extra checks find repair needs.
- |    Metadata, file admission and diagnostic stops need fixes.
- |    Next: compare -> repair -> check -> actual 311-path scan.
+[~] Asset availability: both tools checked; Claude selected.
+ |    Both test suites pass. Extra checks find repair needs.
+ |    Both workers released. No actual asset scan yet.
+ |    Next: repair -> root checks -> actual 311-path scan.
  |
  +-- [~] Other 28 GPF patch tables: Claude submitted; Grok works.
  |        Root reference: all 5,742 raw records checked.
