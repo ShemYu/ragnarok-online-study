@@ -9,6 +9,13 @@ an explicit adapter around the pinned, unchanged .005 observer engine.
 Results are byte availability plus BMP-prefix/TGA-header observations only,
 never image decode, rendering, travel or full-game proof.
 
+T07.007.010 adds exactly one second trusted profile route, selected by its
+exact relative path and then exact bytes/SHA-256 before parse. It plans the 178
+nested targets of the qualified .009 four-root catalog and executes through a
+minimal subclass of the CURRENT engine Observer (split served root, piped
+diagnostics, cache probes) in a fresh namespace with four bound functions.
+The legacy route, its engine binding and its API are unchanged.
+
 Importing this module defines constants and functions only.
 """
 import builtins
@@ -1017,6 +1024,633 @@ def make_observer(meta, output, driver, ops=None, natives=None, policy=None, con
                container=default_container() if container is None else container, write_fn=write_fn)
 
 
+# ---------------------------------------------------------------- T07.007.010 route
+
+T07_TASK = 'T07.007.010'
+T07_PROFILE_REL = 'docs/project/fixtures/T07.007.010-profile.json'
+T07_PROFILE_BYTES = 10533
+T07_PROFILE_SHA = 'ebbed64ccdba8628f3eb5d2562649e1d6926a85281b09f5bf3e7ec65cb58cb8f'
+T07_PROFILE_KEYS = ('schema', 'task', 'basis_revision', 'catalog', 'authored', 'source_pins', 'expected_catalog_counts',
+                    'expected_kind_counts', 'native', 'policy', 'limitations', 'catalog_producer', 'constructor_producer',
+                    'engine_profile')
+T07_BASIS = '09b80b1cc79cd9a28cdbb3ed3921d2cc7755518a'
+T07_CATALOG_TASK = 'T07.007.009'
+T07_CATALOG_PIN = {'path': '.tools/renewal/t07-007-009-integrated-new-corpus-a-1/catalog.json', 'bytes': 1346475,
+                   'sha256': '9b7bca8176959ce25b05c090a75cf5b815945bc2480121675331515f9e2c1bd2'}
+T07_AUTHORED_PIN = {'path': 'docs/project/fixtures/T06.003.003.008-authored.json', 'bytes': 93233,
+                    'sha256': 'f73199757a34481e25107bce006251f1ebf7928ee4e6c752c677c047a8d1bdb3'}
+T07_PRODUCER_REL = 'tools/renewal/catalog_model_textures.mjs'
+T07_PROFILE_009_REL = 'docs/project/fixtures/T07.007.009-profile.json'
+T07_PROFILE_008_REL = 'docs/project/fixtures/T07.007.008-profile.json'
+T07_PROFILE_006_REL = 'docs/project/fixtures/T07.007.006-profile.json'
+T07_CONSTRUCTOR_PROGRAM_REL = 'tools/renewal/probe_model_constructors.mjs'
+T07_CONSTRUCTOR_WORKER_REL = 'tools/renewal/model_constructor_worker.mjs'
+T07_RULE_RELS = ('src/Loaders/Model.js', 'src/Loaders/MapLoader.js', 'src/Core/FileManager.js',
+                 'src/Renderer/Map/AnimatedModels.js')
+T07_SOURCE_PATHS = (
+    ENGINE_REL, T07_PRODUCER_REL, T07_PROFILE_009_REL, T07_PROFILE_008_REL, SUMMARY_REL,
+    CLIENT_PREFIX + 'src/Loaders/Model.js', CLIENT_PREFIX + 'src/Loaders/MapLoader.js',
+    CLIENT_PREFIX + 'src/Core/FileManager.js', CLIENT_PREFIX + 'src/Renderer/Map/AnimatedModels.js',
+    CLIENT_PREFIX + 'src/Utils/Texture.js', CLIENT_PREFIX + 'src/Loaders/Targa.js',
+    '.tools/renewal/remote-source/src/client.rs', '.tools/renewal/remote-source/src/config.rs',
+    '.tools/renewal/remote-source/src/routes.rs', '.tools/renewal/remote-source/src/http.rs',
+    '.tools/renewal/remote-source/src/cache.rs', '.tools/renewal/remote-source/src/util.rs',
+    '.tools/renewal/remote-source/src/index.rs', '.tools/renewal/remote-source/src/grf.rs',
+    '.tools/renewal/remote-source/src/encoding.rs', T07_CONSTRUCTOR_PROGRAM_REL, T07_CONSTRUCTOR_WORKER_REL,
+    T07_PROFILE_006_REL)
+# Exact role pins; the remaining descriptors are bound by the profile's full SHA-256.
+T07_ROLE_PINS = {
+    ENGINE_REL: (112136, '0e691c1e93b726cf2819f473745864469d7c2c49aebe89c0b4115f2bd7722750'),
+    T07_PRODUCER_REL: (77142, '1161cd5cf80ab0ea99212e1e96e4c2073ed8b7b1efbbeb634db0fa0ffbb6d991'),
+    T07_PROFILE_009_REL: (4711, 'c8e0a1aa853afa34088c4abca193addc5e8e66db0621fd950733b9d3339a7787'),
+    T07_PROFILE_008_REL: (4168, 'cc53e3455c1117c5fc29431c342f925d4d58d5334bbe5d0c29f67d8489050dea'),
+    SUMMARY_REL: (6452, 'ec51b8b2b4930db840503601911c1e0e5f6e6b4db641fa7ae1f85fdf6de13d5c'),
+    T07_CONSTRUCTOR_PROGRAM_REL: (105504, '02079022287d188486c90cfb8380a22fa4f04a636c27bbca9606d569fdfb5d23'),
+    T07_CONSTRUCTOR_WORKER_REL: (11388, 'c1eee8dabacf3e69bb2fbe7fde8ed4e5fbd386a4a3ac768936484beceb22a3f4'),
+    T07_PROFILE_006_REL: (9680, '0615c6d9e6e7990acc3f9012d2028115fce0543bd5fe298bfb544953865db5c6')}
+T07_CATALOG_PRODUCER = {'task': T07_CATALOG_TASK, 'commit': T07_BASIS,
+                        'program': {'path': T07_PRODUCER_REL, 'bytes': 77142,
+                                    'sha256': T07_ROLE_PINS[T07_PRODUCER_REL][1]}}
+T07_CONSTRUCTOR_PRODUCER = {'task': 'T07.007.008', 'commit': '31e16bf669cd67a0a0f114d1abc02a753c38868e',
+                            'program': {'path': T07_CONSTRUCTOR_PROGRAM_REL, 'bytes': 105504,
+                                        'sha256': T07_ROLE_PINS[T07_CONSTRUCTOR_PROGRAM_REL][1]},
+                            'worker': {'path': T07_CONSTRUCTOR_WORKER_REL, 'bytes': 11388,
+                                       'sha256': T07_ROLE_PINS[T07_CONSTRUCTOR_WORKER_REL][1]}}
+T07_ENGINE_PROFILE = {'path': T07_PROFILE_006_REL, 'bytes': 9680, 'sha256': T07_ROLE_PINS[T07_PROFILE_006_REL][1]}
+T07_POLICY = dict(POLICY, asset_attempts=178, cache_mb=0, cache_files=0, cache_attempts=2, cache_bytes=65536,
+                  diagnostic_bytes=16777216)
+T07_NATIVE_NAMES = ['binary', '2026-08-25_live_client_4340_4349_1787295394.gpf',
+                    '2026-08-25_live_client_4353_4353_1787535130.gpf', 'event.grf', 'data0.grf', 'data.grf']
+# Exact ordered input_root descriptors; strings only during preflight.
+T07_NATIVE_TABLE = [
+    {'name': 'binary', 'base': 'input_root', 'path': '.tools/renewal/t07-007-native-artifact-admission-1/reader',
+     'bytes': 2079536, 'sha256': 'ee6b328ec73a591b23b514379e1b34e876b5d860d0e1aa4d9aa15dd7173eb1c1'},
+    {'name': T07_NATIVE_NAMES[1], 'base': 'input_root',
+     'path': '.tools/renewal/t07-007-patch-acquisition-root-1/' + T07_NATIVE_NAMES[1],
+     'bytes': 306097616, 'sha256': '70725f6624f947c3096066cc66a07fcd2440adf94137b79561ed2d67843f9f0e'},
+    {'name': T07_NATIVE_NAMES[2], 'base': 'input_root',
+     'path': '.tools/renewal/t07-007-patch-acquisition-root-1/' + T07_NATIVE_NAMES[2],
+     'bytes': 86992, 'sha256': '03764f614453d2b453a5ab5b552f6af9f66599a3642943566f72cbae6a501d07'},
+    {'name': 'event.grf', 'base': 'input_root', 'path': '.tools/renewal/t07-007-execution-1/inner/app/event.grf',
+     'bytes': 5833135, 'sha256': '7fff4e0eececd10df9a9c4f83b70d78dc4dbb99c5ece64b117df7db8a2f85575'},
+    {'name': 'data0.grf', 'base': 'input_root', 'path': '.tools/renewal/t07-007-execution-1/inner/app/data0.grf',
+     'bytes': 2123919641, 'sha256': '913402ace1d3c67818b4f070650a07eb157a6d62df9e394d596d59b4c7e6678a'},
+    {'name': 'data.grf', 'base': 'input_root', 'path': '.tools/renewal/t07-007-execution-1/inner/app/data.grf',
+     'bytes': 2172616301, 'sha256': '0565853edc5ad4b70e8ad705f5bc88c1af5624ee1b7a252fa81030d2ea813cc6'}]
+T07_VALID_GRF = (('0x102', 5577), ('0x102', 3), ('0x102', 37), ('0x102', 89769), ('0x300', 155575))
+T07_HEALTH_VERSION = '1.0.5'
+T07_COUNTS = {'roots': 4, 'constructor_jobs': 273, 'model_targets': 273, 'returned_jobs': 273, 'returned_empty_jobs': 0,
+              'returned_nonempty_jobs': 273, 'constructor_exception_jobs': 0, 'global_declarations': 397,
+              'target_expanded_declarations': 397, 'nested_targets': 178, 'model_parent_links': 297,
+              'model_placement_occurrences': 4922, 'root_expanded_model_placements': 4922, 'resolved_node_slots': 401,
+              'unresolved_node_slots': 0, 'animation_jobs': {'true': 3, 'false': 270, 'unknown': 0},
+              'remaining_core_gap_roots': 0, 'prior_first_level_gaps': 0}
+T07_KIND_COUNTS = {'bmp': 171, 'tga': 7, 'unknown': 0}
+T07_PLAN_BYTES = 46000
+T07_CATALOG_KEYS = ('schema', 'task', 'mode', 'profile_sha256', 'constructor_profile_sha256', 'summary_sha256',
+                    'input_pins', 'rule_sources', 'counts', 'roots', 'remaining_gap_root_ordinals',
+                    'prior_first_level_gaps', 'model_targets', 'model_parent_links', 'jobs', 'nested_targets', 'limits',
+                    'root_model_references', 'carried_ground_targets', 'world_gap_ledger_reference',
+                    'constructor_producer')
+T07_JOB_KEYS = ('source_row_index', 'id', 'job_id', 'kind', 'input_bytes', 'complete_sha256', 'header_version_bytes',
+                'outcome', 'constructor_returned', 'worker_started', 'cleanup', 'target_model_ordinals', 'exception',
+                'animation_by_node_keys', 'numeric_fields', 'nodes', 'declarations')
+T07_CLEANUP = (('exit_observed', True), ('exit_code', 0), ('terminated_by_parent', False),
+               ('stdout_eof_observed', True), ('stderr_eof_observed', True))
+T07_ROOT_KEYS = ('ordinal', 'name', 'ordinal_scope', 'original_gap_root_ordinal', 'original_gap_root_ordinal_status',
+                 'edges')
+T07_REFERENCE_KEYS = ('model_ordinal', 'target_index', 'catalog_job_index', 'catalog_job_id', 'catalog_source_row_index',
+                      'loader_index', 'role', 'root_ordinal', 'edge_kind', 'occurrence_summary_pointer',
+                      'occurrence_indexes')
+T07_CARRIED = 38
+T07_GROUND_REFERRERS = 40
+T07_LEDGER = {'path': 'docs/project/fixtures/T06.003.003.006-profile.json', 'bytes': 4855,
+              'sha256': '9ad903297104cd6f9a03d74196d5db7a4091ee07da4d2b73b4b4f61027b2140d', 'roots': 1296,
+              'remaining_core_gap_roots': 82}
+T07_METADATA_PATHS = 4 + len(T07_SOURCE_PATHS)
+T07_BOUND_API = ('wire_target', 'write_all', 'transfer', 'unattempted')
+T07_ENGINE_TASK = 'T07.007.006'
+# Explicit runtime route handed to the current engine Observer; engine constants stay untouched.
+T07_ROUTE = {'task': T07_TASK, 'profile_bytes': T07_PROFILE_BYTES, 'profile_sha256': T07_PROFILE_SHA,
+             'policy': T07_POLICY, 'native_names': T07_NATIVE_NAMES, 'native_bases': ('input_root',),
+             'split_root': True}
+# Inherited current-engine lifecycle; the subclass must not redefine any of these.
+T07_INHERITED = ('run', 'request', 'scan', 'launch', '_launch_piped', 'health', 'cache_stats', 'shutdown',
+                 'finish_diagnostics', 'retained_postverify', '_audit_split_trees', 'audit_tree', 'create_output',
+                 'admit_output', 'hash_natives', 'diag_check', 'create_private', 'environment')
+
+
+def _ordered(value):
+    """Order-sensitive structural identity (typed: bool/int/float stay distinct)."""
+    return json.dumps(value, ensure_ascii=True, allow_nan=False)
+
+
+def _role_pin(rel):
+    nbytes, digest = T07_ROLE_PINS[rel]
+    return {'path': rel, 'bytes': nbytes, 'sha256': digest}
+
+
+def validate_profile_t07(profile):
+    """Exact checks after the trusted path/bytes/SHA selected the route."""
+    require(isinstance(profile, dict) and tuple(profile) == T07_PROFILE_KEYS, 'profile_identity')
+    require(profile['schema'] == PROFILE_SCHEMA and profile['task'] == T07_TASK
+            and profile['basis_revision'] == T07_BASIS, 'profile_identity')
+    require(typed_equal(profile['policy'], T07_POLICY), 'profile_policy')
+    require(_ordered(profile['catalog']) == _ordered(T07_CATALOG_PIN), 'profile_catalog')
+    require(_ordered(profile['authored']) == _ordered(T07_AUTHORED_PIN), 'profile_authored')
+    pins = profile['source_pins']
+    require(isinstance(pins, list) and all(_pin_ok(p) for p in pins)
+            and tuple(p['path'] for p in pins) == T07_SOURCE_PATHS
+            and all(p['bytes'] <= T07_POLICY['source_bytes'] for p in pins), 'profile_sources')
+    by_path = {p['path']: p for p in pins}
+    require(all(typed_equal(by_path[rel], _role_pin(rel)) for rel in T07_ROLE_PINS), 'profile_source_roles')
+    require(_ordered(profile['native']) == _ordered(T07_NATIVE_TABLE), 'profile_native')
+    require(_counts_ok(profile['expected_catalog_counts'], T07_COUNTS), 'profile_counts')
+    kinds = profile['expected_kind_counts']
+    require(isinstance(kinds, dict) and tuple(kinds) == HEADER_KINDS and typed_equal(kinds, T07_KIND_COUNTS)
+            and sum(kinds.values()) == T07_COUNTS['nested_targets'] == T07_POLICY['asset_attempts'], 'profile_kinds')
+    require(_ordered(profile['catalog_producer']) == _ordered(T07_CATALOG_PRODUCER)
+            and typed_equal(profile['catalog_producer']['program'], by_path[T07_PRODUCER_REL]), 'profile_catalog_producer')
+    producer = profile['constructor_producer']
+    require(_ordered(producer) == _ordered(T07_CONSTRUCTOR_PRODUCER)
+            and typed_equal(producer['program'], by_path[T07_CONSTRUCTOR_PROGRAM_REL])
+            and typed_equal(producer['worker'], by_path[T07_CONSTRUCTOR_WORKER_REL]), 'profile_constructor_producer')
+    require(_ordered(profile['engine_profile']) == _ordered(T07_ENGINE_PROFILE)
+            and typed_equal(profile['engine_profile'], by_path[T07_PROFILE_006_REL]), 'profile_engine')
+    limits = profile['limitations']
+    require(isinstance(limits, list) and limits and all(isinstance(x, str) for x in limits), 'profile_limitations')
+
+
+def validate_engine_profile_t07(engine_profile):
+    """The .006 profile is lifecycle/native authority only; its catalog is never followed."""
+    require(isinstance(engine_profile, dict) and engine_profile.get('schema') == 'T06-map-dependency-observation-profile-1'
+            and engine_profile.get('task') == T07_ENGINE_TASK, 'engine_profile')
+    require(isinstance(engine_profile.get('native'), list)
+            and _ordered(engine_profile['native']) == _ordered(T07_NATIVE_TABLE), 'engine_profile_native')
+    policy = engine_profile.get('policy')
+    lifecycle = set(T07_POLICY) - {'metadata_seconds', 'source_bytes', 'authored_bytes', 'plan_bytes'}
+    require(isinstance(policy, dict) and set(policy) == lifecycle
+            and all(typed_equal(policy[k], T07_POLICY[k]) for k in lifecycle if k != 'asset_attempts'),
+            'engine_profile_policy')
+
+
+def _decimal_identity(value, nbytes):
+    keys = ('dev', 'ino', 'size', 'mtime_ns', 'ctime_ns')
+    return (isinstance(value, dict) and tuple(value) == keys
+            and all(isinstance(value[k], str) and re.match(r'\A(?:0|[1-9][0-9]*)\Z', value[k]) for k in keys)
+            and value['size'] == str(nbytes))
+
+
+def validate_catalog_t07(catalog, profile, pins, prior, constructor_profile):
+    """Exact .009 envelope, cleanup5 and corpus-only provenance; the pure plan checks the tables.
+
+    prior and constructor_profile are the parsed .009/.008 profiles, each already an
+    exact pinned source. Embedded receipt/body paths are compared as strings only.
+    """
+    require(isinstance(catalog, dict) and tuple(catalog) == T07_CATALOG_KEYS, 'catalog_shape')
+    require(catalog['schema'] == CATALOG_SCHEMA and catalog['task'] == T07_CATALOG_TASK and catalog['mode'] == 'corpus',
+            'catalog_identity')
+    require(catalog['profile_sha256'] == pins[T07_PROFILE_009_REL]['sha256']
+            and catalog['constructor_profile_sha256'] == pins[T07_PROFILE_008_REL]['sha256']
+            and catalog['summary_sha256'] == pins[SUMMARY_REL]['sha256'], 'catalog_binding')
+    # .009 profile: the catalog's own admitted authority.
+    require(isinstance(prior, dict) and prior.get('schema') == 'T06-model-texture-catalog-profile-1'
+            and prior.get('task') == T07_CATALOG_TASK, 'prior_identity')
+    require(typed_equal(prior.get('constructor_profile'), pins[T07_PROFILE_008_REL])
+            and typed_equal(prior.get('summary'), pins[SUMMARY_REL])
+            and _ordered(prior.get('constructor_producer')) == _ordered(profile['constructor_producer']), 'prior_binding')
+    inputs = prior.get('inputs')
+    require(isinstance(inputs, dict) and tuple(inputs) == ('report', 'jobs', 'manifest', 'catalog')
+            and _ordered(catalog['input_pins']) == _ordered(inputs), 'catalog_input_pins')
+    rules = prior.get('rule_sources')
+    require(isinstance(rules, dict) and tuple(rules) == T07_RULE_RELS
+            and _ordered(catalog['rule_sources']) == _ordered(rules), 'catalog_rule_sources')
+    for rel, pin in rules.items():
+        mine = pins[CLIENT_PREFIX + rel]
+        require(typed_equal(pin, {'bytes': mine['bytes'], 'sha256': mine['sha256']}), 'catalog_rule_sources')
+    counts = profile['expected_catalog_counts']
+    require(typed_equal(catalog['counts'], counts) and typed_equal(prior.get('expected_counts'), counts), 'catalog_counts')
+    require(typed_equal(catalog['limits'], prior.get('limitations')), 'catalog_limits')
+    require(_ordered(catalog['constructor_producer']) == _ordered(profile['constructor_producer']),
+            'catalog_constructor_producer')
+    # .008 constructor profile: upstream supplement facts.
+    cp = constructor_profile
+    require(isinstance(cp, dict) and cp.get('schema') == 'T06-model-constructor-profile-1'
+            and cp.get('task') == profile['constructor_producer']['task'], 'constructor_profile_identity')
+    cpc, availability = cp.get('counts'), cp.get('availability')
+    require(typed_equal(cp.get('summary'), pins[SUMMARY_REL])
+            and typed_equal(cp.get('worker'), profile['constructor_producer']['worker'])
+            and typed_equal(cp.get('manifest'), inputs['manifest'])
+            and isinstance(availability, dict) and typed_equal(availability.get('catalog'), inputs['catalog'])
+            and isinstance(cpc, dict) and all(is_int(cpc.get(k)) for k in ('roots', 'model_targets', 'constructor_jobs',
+                                                                          'model_referrers', 'remaining_core_gap_roots'))
+            and cpc['roots'] == counts['roots'] and cpc['model_targets'] == counts['model_targets']
+            and cpc['constructor_jobs'] == counts['constructor_jobs']
+            and cpc['model_referrers'] == counts['model_parent_links']
+            and cpc['remaining_core_gap_roots'] == counts['remaining_core_gap_roots'], 'constructor_profile_binding')
+    # Every original job keeps its five typed cleanup facts; never projected to cleanup3.
+    for i, job in enumerate(catalog['jobs'] if isinstance(catalog['jobs'], list) else ()):
+        require(isinstance(job, dict) and tuple(job) == T07_JOB_KEYS and job['job_id'] == job['id']
+                and job['worker_started'] is True, 'catalog_job_shape')
+        cleanup = job['cleanup']
+        require(isinstance(cleanup, dict) and tuple(cleanup) == tuple(k for k, _ in T07_CLEANUP)
+                and all(type(cleanup[k]) is type(v) and cleanup[k] == v for k, v in T07_CLEANUP), 'catalog_cleanup')
+    # Four roots: subset-only ordinals with unknown original world ordinals.
+    roots = catalog['roots']
+    require(isinstance(roots, list) and len(roots) == counts['roots'], 'catalog_root_provenance')
+    for i, root in enumerate(roots):
+        require(isinstance(root, dict) and tuple(root) == T07_ROOT_KEYS and root['ordinal'] == i
+                and isinstance(root['name'], str) and root['ordinal_scope'] == 'four-target-subset-only'
+                and root['original_gap_root_ordinal'] is None
+                and root['original_gap_root_ordinal_status'] == 'unknown_in_admitted_reference_metadata'
+                and isinstance(root['edges'], dict) and tuple(root['edges']) == ('rsw', 'gnd', 'gat')
+                and all(isinstance(e, dict) and tuple(e) == ('job_id', 'parse_status', 'parse_outcome')
+                        and isinstance(e['job_id'], str) and e['parse_status'] == 'not_run'
+                        and e['parse_outcome'] == 'returned' for e in root['edges'].values()), 'catalog_root_provenance')
+    require(len({r['name'] for r in roots}) == len(roots), 'catalog_root_provenance')
+    # Root model references: one per parent link, exact joins, placements preserved.
+    refs, links, models = catalog['root_model_references'], catalog['model_parent_links'], catalog['model_targets']
+    require(isinstance(refs, list) and isinstance(links, list) and isinstance(models, list)
+            and len(refs) == len(links) == counts['model_parent_links'], 'catalog_root_references')
+    occurrences = 0
+    for ref, link in zip(refs, links):
+        require(isinstance(ref, dict) and tuple(ref) == T07_REFERENCE_KEYS and isinstance(link, dict)
+                and is_int(ref['model_ordinal']) and 0 <= ref['model_ordinal'] < len(models)
+                and is_int(ref['root_ordinal']) and 0 <= ref['root_ordinal'] < len(roots)
+                and isinstance(ref['edge_kind'], str) and ref['edge_kind'] in roots[ref['root_ordinal']]['edges']
+                and isinstance(ref['occurrence_indexes'], list)
+                and all(is_int(x) and x >= 0 for x in ref['occurrence_indexes']), 'catalog_root_references')
+        model = models[ref['model_ordinal']]
+        referrer = link.get('referrer')
+        require(isinstance(model, dict) and model.get('target_index') == ref['target_index']
+                and roots[ref['root_ordinal']]['edges'][ref['edge_kind']]['job_id'] == ref['catalog_job_id']
+                and link.get('model_ordinal') == ref['model_ordinal']
+                and link.get('catalog_target_index') == ref['target_index']
+                and link.get('source_job_id') == ref['catalog_job_id']
+                and isinstance(referrer, dict) and referrer.get('job_index') == ref['catalog_job_index']
+                and referrer.get('loader_index') == ref['loader_index'] and referrer.get('role') == ref['role']
+                and _ordered(link.get('root_references')) == _ordered([{'root_ordinal': ref['root_ordinal'],
+                                                                         'edge_kind': ref['edge_kind']}])
+                and _ordered(link.get('placement_indexes')) == _ordered(ref['occurrence_indexes']),
+                'catalog_root_references')
+        occurrences += len(ref['occurrence_indexes'])
+    require(occurrences == counts['model_placement_occurrences'], 'catalog_root_references')
+    # Carried BMP ground pairs: provenance only, never extra requests.
+    carried = catalog['carried_ground_targets']
+    require(isinstance(carried, list) and len(carried) == T07_CARRIED, 'catalog_carried')
+    ground, previous = 0, -1
+    for pair in carried:
+        require(isinstance(pair, dict) and tuple(pair) == ('target_index', 'catalog_target', 'availability_record')
+                and is_int(pair['target_index']) and pair['target_index'] > previous, 'catalog_carried')
+        previous = pair['target_index']
+        target, record = pair['catalog_target'], pair['availability_record']
+        require(isinstance(target, dict) and tuple(target) == ('index', 'http_path', 'referrers')
+                and target['index'] == pair['target_index'] and isinstance(target['http_path'], str)
+                and filemanager_kind(target['http_path']) == 'bmp' and isinstance(target['referrers'], list)
+                and target['referrers'] and all(isinstance(r, dict) and r.get('role') == 'ground_texture'
+                                                for r in target['referrers']), 'catalog_carried')
+        require(isinstance(record, dict) and record.get('target_index') == pair['target_index']
+                and record.get('wire_target') == '/' + target['http_path']
+                and isinstance(record.get('signature'), dict) and record['signature'].get('kind') == 'bmp'
+                and isinstance(record.get('stored'), dict) and record['stored'].get('complete') is True, 'catalog_carried')
+        ground += len(target['referrers'])
+    require(ground == T07_GROUND_REFERRERS, 'catalog_carried')
+    # World ledger: declared, never opened; this subset never reconciles it.
+    ledger = catalog['world_gap_ledger_reference']
+    require(isinstance(ledger, dict) and tuple(ledger) == ('profile', 'roots', 'remaining_core_gap_roots',
+                                                           'reconciled_by_this_subset'), 'catalog_world_ledger')
+    lp = ledger['profile']
+    require(isinstance(lp, dict) and tuple(lp) == ('path', 'bytes', 'sha256', 'identity')
+            and lp['path'] == T07_LEDGER['path'] and is_int(lp['bytes']) and lp['bytes'] == T07_LEDGER['bytes']
+            and lp['sha256'] == T07_LEDGER['sha256'] and _decimal_identity(lp['identity'], lp['bytes'])
+            and is_int(ledger['roots']) and ledger['roots'] == T07_LEDGER['roots']
+            and is_int(ledger['remaining_core_gap_roots'])
+            and ledger['remaining_core_gap_roots'] == T07_LEDGER['remaining_core_gap_roots']
+            and ledger['reconciled_by_this_subset'] is False, 'catalog_world_ledger')
+
+
+def load_engine_t07(source_bytes, engine_path):
+    """Exact admitted CURRENT engine bytes in a fresh non-main namespace; bind exactly four functions."""
+    require(type(source_bytes) is bytes, 'engine_bytes')
+    code = compile(source_bytes, engine_path, 'exec', dont_inherit=True)
+    namespace = {'__name__': '_t07_010_engine_' + sha(source_bytes)[:12], '__file__': engine_path,
+                 '__builtins__': builtins}
+    exec(code, namespace)  # Pinned bytes only; never sys.modules, engine main or map load_metadata.
+    require(namespace.get('TASK') == ENGINE_TASK and namespace.get('T07_TASK') == T07_ENGINE_TASK
+            and namespace.get('T07_PROFILE_SHA') == T07_ENGINE_PROFILE['sha256']
+            and typed_equal(namespace.get('T07_NATIVE_TABLE'), T07_NATIVE_TABLE)
+            and namespace.get('T07_NATIVE_NAMES') == T07_NATIVE_NAMES
+            and namespace.get('T07_VALID_GRF') == T07_VALID_GRF
+            and namespace.get('T07_HEALTH_VERSION') == T07_HEALTH_VERSION, 'engine_identity')
+    own = {'wire_target': wire_target, 'write_all': write_all, 'transfer': transfer, 'unattempted': unattempted}
+    for name in T07_BOUND_API:
+        require(callable(namespace.get(name)), 'engine_api')
+        namespace[name] = own[name]
+    require(all(t07_engine_bound(namespace).values()), 'engine_binding')
+    return namespace
+
+
+def t07_engine_bound(engine):
+    """Four exact identities plus every inherited lifecycle method's globals."""
+    observer = engine.get('Observer')
+    methods = [getattr(observer, name, None) for name in T07_INHERITED]
+    same = all(getattr(m, '__globals__', None) is engine for m in methods)
+    return {name: bool(same and engine.get(name) is fn) for name, fn in
+            (('wire_target', wire_target), ('write_all', write_all), ('transfer', transfer),
+             ('unattempted', unattempted))}
+
+
+def load_metadata_t07(input_root, profile_path, clock=None):
+    """Metadata-only admission of the new route; never native, HOME, process, output or HTTP."""
+    clock = time.monotonic if clock is None else clock
+    deadline = clock() + T07_POLICY['metadata_seconds']
+    require(isinstance(input_root, str) and os.path.isabs(input_root) and os.path.normpath(input_root) == input_root,
+            'input_root')
+    try:
+        check_directory(input_root)
+    except Absent:
+        raise Refusal('input_root')
+    require(profile_path == T07_PROFILE_REL, 'profile_path')
+    driver = own_sha()
+    profile_abs = relative(input_root, profile_path)
+    profile_bytes, profile_receipt = read_admitted(profile_abs, T07_PROFILE_BYTES, T07_PROFILE_SHA, deadline=deadline,
+                                                   clock=clock)
+    profile = strict_json(profile_bytes)
+    validate_profile_t07(profile)
+    apin = profile['authored']
+    authored_bytes, authored_receipt = read_admitted(relative(input_root, apin['path']), apin['bytes'], apin['sha256'],
+                                                     limit=T07_POLICY['authored_bytes'], deadline=deadline, clock=clock)
+    authored = strict_json(authored_bytes)
+    require(isinstance(authored, dict) and authored.get('schema') == AUTHORED_SCHEMA
+            and authored.get('status') == 'FROZEN_ROOT_REVIEWED', 'authored_identity')
+    sources, kept, pins = [], {}, {}
+    keep = (ENGINE_REL, T07_PROFILE_009_REL, T07_PROFILE_008_REL, T07_PROFILE_006_REL)
+    for pin in profile['source_pins']:
+        data, receipt = read_admitted(relative(input_root, pin['path']), pin['bytes'], pin['sha256'],
+                                      limit=T07_POLICY['source_bytes'], deadline=deadline, clock=clock)
+        sources.append(dict(path=pin['path'], **receipt))
+        pins[pin['path']] = {'path': pin['path'], 'bytes': pin['bytes'], 'sha256': pin['sha256']}
+        if pin['path'] in keep:
+            kept[pin['path']] = data
+    validate_engine_profile_t07(strict_json(kept[T07_PROFILE_006_REL]))
+    cpin = profile['catalog']
+    catalog_path = relative(input_root, cpin['path'])
+    catalog_bytes, catalog_receipt = read_admitted(catalog_path, cpin['bytes'], cpin['sha256'],
+                                                   limit=T07_POLICY['catalog_bytes'], deadline=deadline, clock=clock)
+    catalog = strict_json(catalog_bytes)
+    require(clock() < deadline, 'metadata_deadline')
+    validate_catalog_t07(catalog, profile, pins, strict_json(kept[T07_PROFILE_009_REL]),
+                         strict_json(kept[T07_PROFILE_008_REL]))
+    plans = build_plan(catalog, profile['expected_catalog_counts'], deadline=deadline, clock=clock)  # Full catalog.
+    referrers = sum(len(p['referrers']) for p in plans)
+    require(len(plans) == T07_COUNTS['nested_targets'] and referrers == T07_COUNTS['global_declarations'], 'plan_counts')
+    kind_counts = {k: sum(p['kind'] == k for p in plans) for k in HEADER_KINDS}
+    require(typed_equal(kind_counts, profile['expected_kind_counts']), 'plan_kinds')
+    plan_bytes = len(json.dumps(plans, ensure_ascii=True, allow_nan=False, separators=(',', ':')))
+    require(plan_bytes == T07_PLAN_BYTES and plan_bytes <= T07_POLICY['plan_bytes'], 'plan_size')
+    engine_path = relative(input_root, ENGINE_REL)
+    engine = load_engine_t07(kept[ENGINE_REL], engine_path)
+    nested = {p['http_path'] for p in plans}
+    carried = catalog['carried_ground_targets']
+    meta = {'input_root': input_root, 'profile_path': profile_abs, 'profile': profile,
+            'profile_receipt': profile_receipt, 'authored_receipt': authored_receipt, 'sources': sources,
+            'catalog_bytes': catalog_bytes, 'catalog_receipt': catalog_receipt, 'catalog_path': catalog_path,
+            'catalog': catalog, 'plans': plans, 'referrers': referrers,
+            'gaps': list(catalog['remaining_gap_root_ordinals']), 'kind_counts': kind_counts,
+            'plan_bytes': plan_bytes, 'driver_receipt': driver, 'engine': engine,
+            'engine_pin': dict(pins[ENGINE_REL]), 'authored': authored, 'route': T07_ROUTE,
+            'carried': {'pairs': len(carried), 'ground_referrers': sum(len(c['catalog_target']['referrers'])
+                                                                       for c in carried),
+                        'http_paths_also_nested': sum(c['catalog_target']['http_path'] in nested for c in carried),
+                        'requested_separately': 0}}
+    meta['recheck'] = recheck_list(meta)
+    require(len(meta['recheck']) == T07_METADATA_PATHS, 'recheck_count')
+    verify_recheck(meta['recheck'], deadline=deadline, clock=clock)  # Rehash all27 after plan construction.
+    require(clock() < deadline, 'metadata_deadline')
+    return meta
+
+
+def load_route_metadata(input_root, profile_path, clock=None):
+    """Exactly two routes, selected by the exact relative profile path before any profile read."""
+    if profile_path == T07_PROFILE_REL:
+        return load_metadata_t07(input_root, profile_path, clock=clock)
+    return load_metadata(input_root, profile_path, clock=clock)
+
+
+def native_specs_t07(meta):
+    """Six ordered input_root descriptors; never resolves HOME."""
+    out = []
+    for item in meta['profile']['native']:
+        require(item['base'] == 'input_root', 'profile_native')
+        out.append({'name': item['name'], 'path': relative(meta['input_root'], item['path']), 'bytes': item['bytes'],
+                    'sha256': item['sha256']})
+    return out
+
+
+def texture_coverage(targets):
+    """Per-row availability/header tallies; availability and header states stay separate."""
+    counts = {'transfer': {}, 'stop_reason': {}, 'http_status': {}, 'header_states': {},
+              'tga_header_checks': {'observed': 0, 'all_true': 0, 'any_false': 0},
+              'stored_complete': 0, 'storage_error': 0, 'complete_200_bytes_available': 0,
+              'http_404': 0, 'other_http': 0, 'redirect': 0, 'empty_200': 0, 'html_200': 0,
+              'cap': 0, 'transport': 0, 'unattempted': 0, 'attempted': 0}
+    for r in targets:
+        counts['stop_reason'][r['stop_reason']] = counts['stop_reason'].get(r['stop_reason'], 0) + 1
+        header = r['header']
+        key = header['kind'] + ':' + header['state']
+        counts['header_states'][key] = counts['header_states'].get(key, 0) + 1
+        if header['tga'] is not None:
+            counts['tga_header_checks']['observed'] += 1
+            counts['tga_header_checks']['all_true' if header['tga']['checks_all'] else 'any_false'] += 1
+        if not r['attempted']:
+            counts['unattempted'] += 1
+            continue
+        counts['attempted'] += 1
+        counts['stored_complete'] += r['stored']['complete']
+        counts['storage_error'] += r['stored']['error'] is not None
+        if r['stop_reason'] in OUTCOMES or r['stop_reason'] in ('http_404', 'redirect', 'http_status', 'empty_200',
+                                                                'html_200'):
+            key = r['stop_reason'] if r['stop_reason'] in OUTCOMES else 'complete'
+            counts['transfer'][key] = counts['transfer'].get(key, 0) + 1
+        status = r['http_status']
+        if status is not None:
+            counts['http_status'][str(status)] = counts['http_status'].get(str(status), 0) + 1
+        if status == 404:
+            counts['http_404'] += 1
+        elif status is not None and status != 200:
+            counts['other_http'] += 1
+            counts['redirect'] += 300 <= status < 400
+        counts['empty_200'] += r['stop_reason'] == 'empty_200'
+        counts['html_200'] += r['stop_reason'] == 'html_200'
+        counts['complete_200_bytes_available'] += (r['stop_reason'] == 'complete' and status == 200
+                                                   and r['stored']['complete'] and r['stored']['bytes'] > 0)
+        counts['cap'] += r['stop_reason'] in ('declared_over_cap', 'cap_unresolved_eof')
+        counts['transport'] += r['stop_reason'] in ('transport_error', 'timeout', 'connection_setup_error',
+                                                    'malformed_header')
+    return counts
+
+
+_T07_CLASSES = {}
+
+
+def _observer_class_t07(engine):
+    """Minimal subclass of the current engine Observer; cached per fresh namespace.
+
+    It inherits run/request/scan/launch/health/cache/shutdown/diagnostic/retained
+    behavior and only adds report provenance, 18-byte stored-prefix headers,
+    texture coverage and texture metadata postchecks.
+    """
+    key = id(engine)
+    if key in _T07_CLASSES and _T07_CLASSES[key][0] is engine:
+        return _T07_CLASSES[key][1]
+    base, Fatal = engine['Observer'], engine['Fatal']
+    caught = (Refusal, Absent, engine['Refusal'], engine['Absent'])
+
+    class NestedTextureObserver(base):
+        def __init__(self, meta, output, driver, ops=None, natives=None, policy=None, container=None, write_fn=None,
+                     diag_write_fn=None):
+            super().__init__(meta, output, driver, ops=ops, natives=natives, policy=policy, container=container,
+                             write_fn=write_fn, diag_write_fn=diag_write_fn)
+            catalog, ledger = meta['catalog'], meta['catalog']['world_gap_ledger_reference']
+            # Base report first: every current split-route field is retained.
+            self.report.update({
+                'schema': SCHEMA, 'task': T07_TASK, 'mode': 'execute',
+                'engine_pin': dict(meta['engine_pin'], bound_api=list(T07_BOUND_API)),
+                'catalog_refs': {
+                    'file': 'catalog-input.json', 'targets_pointer': '/nested_targets', 'roots_pointer': '/roots',
+                    'jobs_pointer': '/jobs', 'model_targets_pointer': '/model_targets',
+                    'parents_pointer': '/model_parent_links', 'prior_gaps_pointer': '/prior_first_level_gaps',
+                    'root_model_references_pointer': '/root_model_references',
+                    'carried_ground_targets_pointer': '/carried_ground_targets',
+                    'world_gap_ledger_pointer': '/world_gap_ledger_reference',
+                    'roots': len(catalog['roots']), 'targets': len(meta['plans']), 'referrers': meta['referrers'],
+                    'gap_root_ordinals': list(meta['gaps']), 'counts': catalog['counts'],
+                    'kind_counts': meta['kind_counts'], 'carried_ground': dict(meta['carried']),
+                    'unknown_world_ordinals': sum(r['original_gap_root_ordinal'] is None for r in catalog['roots']),
+                    'world_ledger': {'roots': ledger['roots'],
+                                     'remaining_core_gap_roots': ledger['remaining_core_gap_roots'],
+                                     'reconciled_by_this_subset': ledger['reconciled_by_this_subset']}},
+                'producers': {'catalog': meta['profile']['catalog_producer'],
+                              'constructor': meta['profile']['constructor_producer'],
+                              'engine_profile': meta['profile']['engine_profile']},
+                'header_api': {'retained_prefix_bytes': dict(HEADER_KEEP), 'stored_prefix_bytes': PREFIX_KEEP,
+                               'image_decode': 'untested', 'render': 'untested', 'playability': 'untested'},
+                'engine_bindings_after': None, 'postchecks_valid': False})
+            self.freezes = 0
+
+        @staticmethod
+        def _source_receipts(meta):
+            return {'driver': meta['driver_receipt'], 'profile': meta['profile_receipt'],
+                    'authored': meta['authored_receipt'], 'catalog': meta['catalog_receipt'],
+                    'sources': meta['sources']}
+
+        # -- provenance freeze before every persisted checkpoint
+        def freeze(self):
+            report, plans = self.report, self.meta['plans']
+            ok = (report.get('schema') == SCHEMA and report.get('task') == T07_TASK
+                  and report['profile_pin']['sha256'] == T07_PROFILE_SHA
+                  and report['catalog_refs']['targets_pointer'] == '/nested_targets'
+                  and report['engine_pin']['bound_api'] == list(T07_BOUND_API)
+                  and len(report['targets']) == len(plans))
+            launch = report.get('launch')
+            if launch is not None:
+                env = launch.get('environment') or {}
+                ok = ok and (launch.get('task') == T07_TASK and launch.get('profile_sha256') == T07_PROFILE_SHA
+                             and 'HOME' not in env and 'GRF_FILENAME_ENCODING' not in env
+                             and env.get('NODE_ENV') == 'development')
+            for row, plan in zip(report['targets'], plans):
+                ok = ok and ('signature' not in row and '_prefix' not in row
+                             and row.get('header', {}).get('kind') == plan['kind']
+                             and row['target_index'] == plan['index'] and row['catalog_pointer'] == plan['catalog_pointer']
+                             and row['referrers_pointer'] == plan['catalog_pointer'] + '/referrers'
+                             and row['http_path'] == plan['http_path'] and row['wire_target'] == plan['wire'])
+            if not ok:
+                raise Fatal('provenance_failure')
+            self.freezes += 1
+
+        def checkpoint(self):
+            self.freeze()
+            super().checkpoint()
+
+        # -- 18-byte stored prefix after the engine's full verification/registration
+        def verify_stored(self, record, result, written):
+            super().verify_stored(record, result, written)
+            if '_prefix' not in record:
+                return
+            stored = record['stored']
+            try:
+                prefix, receipt = read_admitted(self.path(stored['file']), stored['bytes'], stored['sha256'],
+                                                keep=False, limit=self.policy['body_bytes'], prefix=PREFIX_KEEP)
+                require(receipt == self.retained.get(stored['file']), 'prefix_receipt')
+            except caught + (OSError,):
+                record.pop('_prefix', None)
+                stored['complete'] = False
+                stored['error'] = stored['error'] or 'prefix_verify_failed'
+                self.fail('storage_failure', 'stored_prefix_failed')
+                return
+            record['_prefix'] = prefix[:PREFIX_KEEP]
+
+        def classify(self, record, result, kind):
+            prefix = record.pop('_prefix', None)
+            super().classify(record, result, None)  # Availability only; never an engine signature.
+            if (result is not None and result['outcome'] == 'complete' and record['http_status'] == 200
+                    and record['stored']['complete'] and prefix is not None):
+                record['header'] = inspect_texture_header(kind, bytes(prefix))
+
+        def audit_missing_log(self):
+            try:
+                super().audit_missing_log()
+            except OSError:
+                # The unchanged engine reader can raise on a read/close error.
+                self.report['missing_log']['valid'] = False
+                self.report['missing_log']['error'] = 'log_read_or_close'
+
+        def engine_bound(self):
+            return t07_engine_bound(engine)
+
+        def postchecks(self):
+            """Texture metadata/driver/bindings/natives; never map metadata admission."""
+            ok = True
+            try:
+                after = self.hash_natives()
+                self.report['native_after'] = after
+                ok = after == self.native_before and list(after) == T07_NATIVE_NAMES
+            except caught + (OSError,):
+                self.report['native_after'] = None
+                ok = False
+            try:
+                verify_recheck(self.meta['recheck'])
+                receipts = self._source_receipts(self.meta)
+                self.report['sources_after'] = receipts
+                ok = ok and receipts == self.report['sources_before']
+                ok = ok and own_sha() == self.driver == self.meta['driver_receipt']
+            except caught + (OSError,):
+                self.report['sources_after'] = None
+                ok = False
+            bound = self.engine_bound()
+            self.report['engine_bindings_after'] = bound
+            ok = ok and all(bound.values())
+            return self.retained_postverify() and ok  # Always executed, even after an earlier failure.
+
+        def coverage(self):
+            return texture_coverage(self.report['targets'])
+
+    for name in T07_INHERITED:
+        require(name not in NestedTextureObserver.__dict__, 'engine_lifecycle')
+    _T07_CLASSES[key] = (engine, NestedTextureObserver)
+    return NestedTextureObserver
+
+
+def make_observer_t07(meta, output, driver, ops=None, natives=None, policy=None, container=None, write_fn=None,
+                      diag_write_fn=None):
+    """Production new-route observer; ops/natives/policy/container/write fns are fake-test seams only."""
+    cls = _observer_class_t07(meta['engine'])
+    return cls(meta, output, driver, ops=ops, natives=natives if natives is not None else native_specs_t07(meta),
+               policy=dict(T07_POLICY if policy is None else policy),
+               container=default_container() if container is None else container, write_fn=write_fn,
+               diag_write_fn=diag_write_fn)
+
+
 # ---------------------------------------------------------------- CLI
 
 def emit(stream, payload):
@@ -1067,7 +1701,7 @@ def main(argv=None):
         driver = own_sha()
         if args['execute']:
             require(args['reviewed'] == driver['sha256'], 'driver_sha')  # Before any output/native access.
-        meta = load_metadata(args['input_root'], args['profile'])
+        meta = load_route_metadata(args['input_root'], args['profile'])
         require(meta['driver_receipt'] == driver, 'driver_drift')
     except (Refusal, Absent) as exc:
         emit(sys.stdout, {'status': 'refused', 'reason': exc.args[0] if exc.args else 'absent'})
@@ -1079,6 +1713,8 @@ def main(argv=None):
               'targets': len(meta['plans']), 'referrers': meta['referrers'], 'gap_roots': len(meta['gaps']),
               'prior_gaps': len(meta['catalog']['prior_first_level_gaps']), 'source_pins': len(meta['sources']),
               'kinds': meta['kind_counts'], 'plan_bytes': meta['plan_bytes']}
+    if meta.get('route') is T07_ROUTE:
+        return _main_t07(args, meta, driver, counts)
     if not args['execute']:
         emit(sys.stdout, {'status': 'preflight_ok', 'task': TASK, 'driver_sha256': driver['sha256'],
                           'profile_sha256': PROFILE_SHA, 'catalog_sha256': meta['catalog_receipt']['sha256'],
@@ -1096,6 +1732,37 @@ def main(argv=None):
         return 2
     report = observer.report if observer is not None else {}
     emit(sys.stdout, {'status': 'execute_qualified' if code == 0 else 'execute_failed', 'task': TASK,
+                      'halt_reason': observer.halt if observer is not None else 'internal',
+                      'coverage': {k: v for k, v in (report.get('coverage_counts') or {}).items()
+                                   if not isinstance(v, dict)},
+                      'acquisition_and_cleanup_valid': bool(report.get('acquisition_and_cleanup_valid'))})
+    return code
+
+
+def _main_t07(args, meta, driver, counts):
+    catalog = meta['catalog']
+    counts.update(model_parent_links=len(catalog['model_parent_links']),
+                  placements=sum(len(r['occurrence_indexes']) for r in catalog['root_model_references']),
+                  carried_ground=meta['carried'], metadata_paths=len(meta['recheck']),
+                  world_ledger={k: catalog['world_gap_ledger_reference'][k]
+                                for k in ('roots', 'remaining_core_gap_roots', 'reconciled_by_this_subset')})
+    if not args['execute']:
+        emit(sys.stdout, {'status': 'preflight_ok', 'task': T07_TASK, 'driver_sha256': driver['sha256'],
+                          'profile_sha256': T07_PROFILE_SHA, 'catalog_sha256': meta['catalog_receipt']['sha256'],
+                          'engine_sha256': meta['engine_pin']['sha256'], 'bound_api': list(T07_BOUND_API),
+                          'counts': counts, 'native_qualification': None, 'native_or_network_or_process': False})
+        return 0
+    observer = None
+    try:
+        observer = make_observer_t07(meta, args['output'], driver)
+        code = observer.run()
+    except Exception:
+        code = 1
+    if code == 2:
+        emit(sys.stdout, {'status': 'refused', 'reason': 'output_admission'})
+        return 2
+    report = observer.report if observer is not None else {}
+    emit(sys.stdout, {'status': 'execute_qualified' if code == 0 else 'execute_failed', 'task': T07_TASK,
                       'halt_reason': observer.halt if observer is not None else 'internal',
                       'coverage': {k: v for k, v in (report.get('coverage_counts') or {}).items()
                                    if not isinstance(v, dict)},
