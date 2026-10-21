@@ -80,6 +80,7 @@ CURRENT WORK: October assets and missing maps
  |    171 BMP and 7 TGA paths; full plan and source checks pass.
  |    Historical compatibility copy and its preflight pass.
  |    Claude: root historical 44 tests pass. Grok is submitted/released.
+ |    Grok: root historical 44 and all 20 shared cases pass.
  |    User resumed. Independent preparation runs in parallel.
  |    Claude focused 30 pass; six metadata checks need correction.
  |    Admission checks complete: two value-changing booleans refused.
