@@ -53,7 +53,9 @@ CURRENT WORK: October assets and missing maps
  |    Harness failure checks and all 13 known fixtures pass.
  |    All 273 direct loader results pass. Full output checks pass.
  |    Claude: root source review and 48 tests pass.
- |    Fresh runs, full results and EOF checks come next.
+ |    Fresh run: all 273 results match the full reference.
+ |    134 of 135 extra checks pass; timeout equality needs a fix.
+ |    EOF checks find early completion. Repair comes after comparison.
  |    Grok still works. Root will compare both results.
  |
  +-- [V] Other 28 GPF patch tables: corrected tool verified.
