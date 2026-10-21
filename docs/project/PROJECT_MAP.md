@@ -79,14 +79,14 @@ CURRENT WORK: October assets and missing maps
 [~] Texture availability: exact task and inputs frozen.
  |    171 BMP and 7 TGA paths; full plan and source checks pass.
  |    Historical compatibility copy and its preflight pass.
- |    Claude: root historical 44 tests pass. Grok retry is working.
+ |    Claude: root historical 44 tests pass. Grok is submitted/released.
  |    User resumed. Independent preparation runs in parallel.
  |    Claude focused 30 pass; six metadata checks need correction.
  |    Admission checks complete: two value-changing booleans refused.
  |    All 20 shared scanner cases pass. No native scan yet.
  |    Auditor bug fixed: root 76 focused checks pass.
  |    Full output auditor: 2 positives and 37 failure checks pass.
- |    Next: compare Grok, repair and integrate, then actual scan.
+ |    Next: root verifies Grok, compares and integrates, then actual scan.
  |
  +-- [V] Other 28 GPF patch tables: corrected tool verified.
  |        Root reference: all 5,742 raw records checked.
