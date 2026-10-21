@@ -65,6 +65,8 @@ CURRENT WORK: October assets and missing maps
  |
 [~] Nested model textures: Claude and Grok work in separate branches.
  |    Independent reference: 397 declarations, 178 distinct paths.
+ |    Claude submitted: root 26 tests and fresh repeated CLI pass.
+ |    Full output/failure checks next. Grok is still working.
  |    Availability and image decode remain open.
  |
  +-- [V] Other 28 GPF patch tables: corrected tool verified.
