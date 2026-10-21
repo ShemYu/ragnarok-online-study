@@ -94,3 +94,11 @@ The selected two files do not represent all59noncomment index rows after the
 installer's static9296value. Patcher-marker meaning, full update/lookup order,
 remaining patch contents and new reader/runtime admission remain open. Base and
 patch provenance stay separate; neither existing world or its assets change.
+
+
+Later [complete opaque suffix acquisition](reviews/2026-10-21-T07.007.md#complete-official-candidate-suffix-acquired-as-opaque-files)
+adds all57remaining exact official objects,158992380bytes, with200/exact framed
+lengths/full local hashes. Both existing GPFs are reused; root independently
+rehashes all59objects/465176988bytes. All remain separate/uninstalled. This
+supersedes the earlier unacquired wording only: the other28GPF/29RGZformats,
+records and application rules are still unverified. No complete content claim.

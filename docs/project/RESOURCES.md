@@ -89,3 +89,14 @@ unacquired. At the16MiB/s policy ceiling the byte-transfer-only lower bound is
 about27.7seconds for the entire suffix, before request latency/hash/retries and
 all format/content checks; it is not an elapsed-time promise. [T07.007.002](tasks/T07.007.002.md)
 compares the bounded acquisition/reader plan before any remaining body transfer.
+
+
+The later corrected plan00e83e4is followed by complete additive acquisition:
+57new GETs/158992380bytes, two existing objects reused, all59independently
+rehashed/465176988bytes. Owned guard44.205241s, sampled RSS36536320bytes,
+81samples/no action/exit0/empty stderr. Internal transfer/hash campaign is
+43.708965625s at the16MiB/s cap; request latency is included. New disk growth
+is roughly159MBplus bounded headers/receipts/logs, not another full465MBcopy.
+Before launch available space is529142857728bytes;128GiBfloor passes throughout.
+No new broad engineering-tree size or full-game hardware/time estimate is
+claimed. [Exact source/receipt verification](reviews/2026-10-21-T07.007.md#complete-official-candidate-suffix-acquired-as-opaque-files).
