@@ -5,6 +5,29 @@ Use this map for a short view of [Status](STATUS.md), [Tasks](TASKS.md) and
 [Phases](PHASES.md). Status gives the current next action.
 Update this map after each important change. Keep the dated evidence.
 
+```text
+CURRENT WORK: October assets and missing maps
+
+[V] Download and extract the base package. Verify all 4,976 files.
+ |
+[V] Find the official patch list. Check all 59 file sizes.
+ |    2 files acquired. 57 files remain. No patch is installed.
+ |
+[V] Find all 12 terrain-name entries for the four target maps.
+ |    Names and table fields pass. Payloads and play are not checked.
+ |
+ +-- Inventory tool: Claude records pass; validation needs fixes.
+ |                  Grok is still working.
+ |
+ +-- Patch and reader plan: Claude and Grok work in parallel.
+ |
+[ ] Verify payloads -> dependencies -> render -> normal play and save.
+```
+
+All 82 earlier RSW gaps stay open for functional checks. The checked base and
+patch have name counterparts for 26 of them. The other 56 have no counterpart
+in this checked set. A name match does not close a playable-map gap.
+
 Language: short English sentences and consistent terms, using
 [ASD-STE100 writing principles](https://www.asd-ste100.org/STE_faq.html).
 The user requested this style for the progress map only.
