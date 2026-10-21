@@ -4,7 +4,7 @@ Date: **2026-10-21 JST**. Functionality comes first. Normal tutorial/city reward
 
 [Chapter1 source review](reviews/2026-10-20-T07.006.md#corrected-comparison-and-bounded-readiness) is ready: Claude14/20, Grok12/20. Root corrects the helper diagnosis. Neither proposal is installed. [October acquisition](reviews/2026-10-21-T07.007.md) passes extraction and hash checks for all 4,976 files. All three archive headers pass. The [corrected inventory tool](reviews/2026-10-21-T07.007.001.md#root-corrected-integration-qualified) is qualified at9153d27. All 248,908 records and April parity checks pass.
 
-All 59 candidate patch files are acquired, including 57 new files. No patch is installed. The base package lacks the four target map names. An official August patch has all 12 terrain-name entries. Root has [independently decoded and checked those 12 bodies](reviews/2026-10-21-T07.007.003.md#root-independent-twelve-body-reference-qualified). The [corrected decoder tool](reviews/2026-10-21-T07.007.003.md#root-corrected-integration-qualified) now passes root52tests, all12shared refusal controls, full bodies and complete typed artifacts. Both providers are compared and released. Root direct loader checks return all12files; one has two nonfinite flag values. Grok's loader candidate is preserved/released; Claude was interrupted by computer sleep and has same-task continuation guidance. Candidate verification, dependencies, native loading, rendering, normal play, full story/maps/Chinese and safe migration remain open.
+All 59 candidate patch files are acquired, including 57 new files. No patch is installed. The base package lacks the four target map names. An official August patch has all 12 terrain-name entries. Root has [independently decoded and checked those 12 bodies](reviews/2026-10-21-T07.007.003.md#root-independent-twelve-body-reference-qualified). The [corrected decoder tool](reviews/2026-10-21-T07.007.003.md#root-corrected-integration-qualified) now passes root52tests, all12shared refusal controls, full bodies and complete typed artifacts. Both providers are compared and released. The [integrated loader tool](reviews/2026-10-21-T07.007.004.md#integrated-qualification-and-bounded-readiness) passes33tests and all12full summaries. Grok is selected for this task; both workers are released. The [exact native reader](reviews/2026-10-21-T07.007.002.md#exact-native-twelve-body-gate-independently-qualified) also returns all12matching bodies. It uses a sampled peak of194.4MiB. One map has two invalid flag lookups; they remain recorded. Next: check each map's models and textures, then render and normal play/save. Full story/maps/Chinese and safe migration remain open.
 
 Use this map for a short view of [Status](STATUS.md), [Tasks](TASKS.md) and
 [Phases](PHASES.md). Status gives the current next action.
@@ -27,11 +27,15 @@ CURRENT WORK: October assets and missing maps
  +-- Patch and reader plan: compared and corrected.
  +-- Collect all candidate patches: done.
  +-- Independent 12-body reference: decoded and checked.
- |    Decoder tool qualification is still active.
- |    Claude: bodies pass; repairs needed. Grok: root checks next.
- +-- Terrain loader checks: 12 direct returns; two workers active.
+ |    Corrected decoder tool: verified. 52 tests pass.
+ +-- Terrain loader tool: verified. All 12 full results match.
+ |    Grok selected. Both workers released.
+ +-- Exact native reader: verified for these 12 bodies.
+ |    Archive/order/loose controls and cleanup pass.
  |
-[ ] Verify payloads -> dependencies -> render -> normal play and save.
+[~] Map models and textures: prepare the exact dependency catalog.
+ |
+[ ] Render -> normal play and save -> full content checks.
 ```
 
 All 82 earlier RSW gaps stay open for functional checks. The checked base and

@@ -135,3 +135,17 @@ Next owner: root. Root reruns both candidates, compares all 12 full typed rows
 and stable summaries, checks preservation and the shared controls, then scores
 and integrates. This candidate's twelve returns are an observation for that
 comparison, not root qualification.
+
+
+## Root integrated qualification
+
+Root selects this unchanged implementation as68ec8ac (Grok18/20versus Claude15/20).
+Fresh integrated33tests/zero skips,12actual returned constructors/natural zero
+worker exits, every stable typed row/full summary and all28full input/program
+posthashes pass. Both pre-start and final worker-identity refusal controls pass.
+Canonical root metadata is the .004integrated-root-qualification-1/output-1pair,
+not the pre-provider direct reference. Full evidence and limitations are in the
+[task review](../../docs/project/reviews/2026-10-21-T07.007.004.md#integrated-qualification-and-bounded-readiness).
+The retained nonfinite values are flag slots; root traces unsigned0xffffffff
+lookup misses to TYPE_TABLE[-1]. No loader correction or runtime effect is
+claimed here. Dependency closure and ordinary rendered play remain next.
