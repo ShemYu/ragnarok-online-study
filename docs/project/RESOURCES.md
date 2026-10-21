@@ -82,3 +82,10 @@ end-user installation size. Do not add nested component rows to this total.
 No new hardware/cloud purchase is identified by these bounded stages. Full
 content, heavier scenes, retained final assets, patch closure and T12performance
 still need verification before a full build/time/cost estimate can be defended.
+
+Official candidate patch-suffix HEAD census later returns59/59HTTP200with known
+lengths:465176988compressed bytes total (about444MiB), of which158992380remain
+unacquired. At the16MiB/s policy ceiling the byte-transfer-only lower bound is
+about27.7seconds for the entire suffix, before request latency/hash/retries and
+all format/content checks; it is not an elapsed-time promise. [T07.007.002](tasks/T07.007.002.md)
+compares the bounded acquisition/reader plan before any remaining body transfer.

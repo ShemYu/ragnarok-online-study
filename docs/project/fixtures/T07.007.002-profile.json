@@ -1,0 +1,659 @@
+{
+  "acquired_patch_pins": [
+    {
+      "bytes": 306097616,
+      "index": 9298,
+      "sha256": "70725f6624f947c3096066cc66a07fcd2440adf94137b79561ed2d67843f9f0e"
+    },
+    {
+      "bytes": 86992,
+      "index": 9303,
+      "sha256": "03764f614453d2b453a5ab5b552f6af9f66599a3642943566f72cbae6a501d07"
+    }
+  ],
+  "actual_binary_build_relation": "must be frozen/verified before any launch; source review alone not parity",
+  "no_runtime_or_payload_pass": true,
+  "official_patch_prefix": "https://twcdn.gnjoy.com.tw/ragnarok/patchfile/",
+  "patch_index": {
+    "bytes": 162117,
+    "sha256": "ec7a274f282ba7b5f1b15cddbca32c06a8a1be88c5df546f84e6a05bf5eeb69b"
+  },
+  "readonly_sources": [
+    {
+      "bytes": 14558,
+      "path": ".tools/renewal/remote-source/src/config.rs",
+      "sha256": "c8592180a406010f74df395ea65a207a87341ea12a08e45bf65a8cb7f7ecaa22"
+    },
+    {
+      "bytes": 8028,
+      "path": ".tools/renewal/remote-source/src/main.rs",
+      "sha256": "80d39e6ee90420409178410ef943a5e0da1849c329c4316db0858d7c9ff83b15"
+    },
+    {
+      "bytes": 15628,
+      "path": ".tools/renewal/remote-source/src/client.rs",
+      "sha256": "59b39104e8328493d5d1ec8ff4826add3a6ece1867034f45a7fddaa974b08c68"
+    },
+    {
+      "bytes": 8550,
+      "path": ".tools/renewal/remote-source/src/index.rs",
+      "sha256": "eb471536075be604527b9ddadc9fce58727c2e04ca8fc1f81309bf48cd1c362f"
+    },
+    {
+      "bytes": 8464,
+      "path": ".tools/renewal/remote-source/src/cache.rs",
+      "sha256": "94e977d875110b55ba570bbaac1d07a99c5ffcc7715c70d7ea0e7e5b802d1c09"
+    },
+    {
+      "bytes": 30133,
+      "path": ".tools/renewal/remote-source/src/grf.rs",
+      "sha256": "4646514140bc7688bbc91e0bac7d1ee9a83aab5e1e17df20c1eb30668bd5edf5"
+    },
+    {
+      "bytes": 16954,
+      "path": ".tools/renewal/remote-source/src/routes.rs",
+      "sha256": "ee365ab832bb5ac645e5d0205e8fb5018e88aac464be5f2a96546006cbe4dbd8"
+    },
+    {
+      "bytes": 13105,
+      "path": ".tools/renewal/remote-source/src/http.rs",
+      "sha256": "5ef6817695afe65cb6337c95e329ef726c6729120f0e5e55aa81ad6d40cf72ad"
+    },
+    {
+      "bytes": 15509,
+      "path": ".tools/renewal/remote-source/src/validator.rs",
+      "sha256": "5855c461c748860618a7de8196a3d8e477573333fe6589f89f83cafdf1544668"
+    },
+    {
+      "bytes": 9690,
+      "path": ".tools/renewal/remote-source/src/util.rs",
+      "sha256": "f6e39562b6164abac0864a6ff78f6daee11223c3ccd21bb557a559768ce1cccc"
+    },
+    {
+      "bytes": 5159,
+      "path": ".tools/renewal/remote-source/README.md",
+      "sha256": "b8f33c951f0e4a10dd8bb3da57c4190f7e6e23ee991c8ef6eb65f0de961b5d51"
+    },
+    {
+      "bytes": 13610,
+      "path": ".tools/renewal/remote-source/tests/resolution.rs",
+      "sha256": "50464f0c8fd6ac0c682dccbba67282ec6d70872e3cd1497d045c7d641b387d26"
+    },
+    {
+      "bytes": 60530,
+      "path": "tools/renewal/observe_map_dependencies.py",
+      "sha256": "565a42c380e69b1c498907cf48ec2c609984b6899d16263d55a92e4e353a3a35"
+    },
+    {
+      "bytes": 2909,
+      "path": "tools/renewal/README.md",
+      "sha256": "df099ceb862bcb4684f248ff69703aa26b96c04431562608ef6b33f7616f5da9"
+    },
+    {
+      "bytes": 6332,
+      "path": "tools/renewal/MAP_DEPENDENCY_OBSERVATION.md",
+      "sha256": "1cfcbd84077feb8495764369b8586eb66f24d5555f984e3a3486a5b26ccb399a"
+    },
+    {
+      "bytes": 12358,
+      "path": ".tools/renewal/remote-source/src/des.rs",
+      "sha256": "8f0189340eab708993a493ff7300d08e0151a3c8c539a046656f3e350e01856f"
+    },
+    {
+      "bytes": 6009,
+      "path": ".tools/renewal/remote-source/src/encoding.rs",
+      "sha256": "0014c18c2ab7211b68b8dff84c66b5bbd0aa3bb68593bca2bd5e46b28973c9ad"
+    }
+  ],
+  "schema": "ro-official-patch-reader-plan/1",
+  "source_revision": "66ba94e2b84c4092e4b9cc9d0dcc805313438f53",
+  "suffix_selection": {
+    "already_acquired_bytes": 306184608,
+    "already_acquired_indices": [
+      9298,
+      9303
+    ],
+    "interpretation": "candidate numeric suffix only; actual patcher marker semantics unverified",
+    "remaining_advertised_bytes": 158992380,
+    "remaining_indices": [
+      9299,
+      9302,
+      9305,
+      9306,
+      9308,
+      9310,
+      9311,
+      9312,
+      9313,
+      9316,
+      9317,
+      9319,
+      9320,
+      9321,
+      9323,
+      9324,
+      9326,
+      9327,
+      9329,
+      9332,
+      9333,
+      9337,
+      9338,
+      9340,
+      9341,
+      9343,
+      9345,
+      9347,
+      9349,
+      9350,
+      9352,
+      9354,
+      9355,
+      9357,
+      9358,
+      9360,
+      9361,
+      9363,
+      9364,
+      9365,
+      9367,
+      9369,
+      9370,
+      9372,
+      9374,
+      9376,
+      9378,
+      9379,
+      9381,
+      9382,
+      9384,
+      9385,
+      9386,
+      9387,
+      9389,
+      9390,
+      9391
+    ],
+    "rows": [
+      {
+        "advertised_bytes": 306097616,
+        "file": "2026-08-25_live_client_4340_4349_1787295394.gpf",
+        "index": 9298,
+        "lf": 4004
+      },
+      {
+        "advertised_bytes": 18003576,
+        "file": "2026-08-25_live_client_4340_4349_1787295394.rgz",
+        "index": 9299,
+        "lf": 4005
+      },
+      {
+        "advertised_bytes": 1467,
+        "file": "2026-08-25_live_client_4351_4352_1787527015.rgz",
+        "index": 9302,
+        "lf": 4008
+      },
+      {
+        "advertised_bytes": 86992,
+        "file": "2026-08-25_live_client_4353_4353_1787535130.gpf",
+        "index": 9303,
+        "lf": 4009
+      },
+      {
+        "advertised_bytes": 95051,
+        "file": "2026-08-25_live_client_4355_4355_1787535551.gpf",
+        "index": 9305,
+        "lf": 4011
+      },
+      {
+        "advertised_bytes": 3333718,
+        "file": "2026-08-25_live_client_4359_4360_1787612742.rgz",
+        "index": 9306,
+        "lf": 4012
+      },
+      {
+        "advertised_bytes": 2673183,
+        "file": "2026-08-25_live_client_4362_4363_1787622796.rgz",
+        "index": 9308,
+        "lf": 4014
+      },
+      {
+        "advertised_bytes": 88138,
+        "file": "2026-08-25_live_client_4365_4366_1787637699.gpf",
+        "index": 9310,
+        "lf": 4016
+      },
+      {
+        "advertised_bytes": 308028,
+        "file": "2026-08-25_live_client_4367_4367_1787651523.gpf",
+        "index": 9311,
+        "lf": 4017
+      },
+      {
+        "advertised_bytes": 355528,
+        "file": "2026-09-02_live_client_4368_4370_1787899470.gpf",
+        "index": 9312,
+        "lf": 4018
+      },
+      {
+        "advertised_bytes": 2672629,
+        "file": "2026-09-02_live_client_4368_4370_1787899470.rgz",
+        "index": 9313,
+        "lf": 4019
+      },
+      {
+        "advertised_bytes": 1234090,
+        "file": "2026-09-02_live_client_4372_4373_1788133981.gpf",
+        "index": 9316,
+        "lf": 4022
+      },
+      {
+        "advertised_bytes": 2410,
+        "file": "2026-09-02_live_client_4374_4375_1788151380.rgz",
+        "index": 9317,
+        "lf": 4023
+      },
+      {
+        "advertised_bytes": 6410,
+        "file": "2026-09-02_live_client_4377_4378_1788219560.gpf",
+        "index": 9319,
+        "lf": 4025
+      },
+      {
+        "advertised_bytes": 5809533,
+        "file": "2026-09-08_live_client_4379_4380_1788411377.gpf",
+        "index": 9320,
+        "lf": 4026
+      },
+      {
+        "advertised_bytes": 2674976,
+        "file": "2026-09-08_live_client_4379_4380_1788411377.rgz",
+        "index": 9321,
+        "lf": 4027
+      },
+      {
+        "advertised_bytes": 2037,
+        "file": "2026-09-08_live_client_live_4379_4380_1788411419.gpf",
+        "index": 9323,
+        "lf": 4029
+      },
+      {
+        "advertised_bytes": 67567,
+        "file": "2026-09-08_live_client_4382_4383_1788415603.gpf",
+        "index": 9324,
+        "lf": 4030
+      },
+      {
+        "advertised_bytes": 17692,
+        "file": "2026-09-08_live_client_4385_4387_1788419778.gpf",
+        "index": 9326,
+        "lf": 4032
+      },
+      {
+        "advertised_bytes": 2674574,
+        "file": "2026-09-08_live_client_4385_4387_1788419778.rgz",
+        "index": 9327,
+        "lf": 4033
+      },
+      {
+        "advertised_bytes": 2674419,
+        "file": "2026-09-08_live_client_4389_4391_1788748420.rgz",
+        "index": 9329,
+        "lf": 4035
+      },
+      {
+        "advertised_bytes": 1750289,
+        "file": "2026-09-15_live_client_4393_4395_1789102750.gpf",
+        "index": 9332,
+        "lf": 4038
+      },
+      {
+        "advertised_bytes": 2945903,
+        "file": "2026-09-15_live_client_4393_4395_1789102750.rgz",
+        "index": 9333,
+        "lf": 4039
+      },
+      {
+        "advertised_bytes": 23576,
+        "file": "2026-09-15_live_client_4398_4399_1789372404.gpf",
+        "index": 9337,
+        "lf": 4043
+      },
+      {
+        "advertised_bytes": 3333633,
+        "file": "2026-09-15_live_client_4398_4399_1789372404.rgz",
+        "index": 9338,
+        "lf": 4044
+      },
+      {
+        "advertised_bytes": 6044944,
+        "file": "2026-09-22_live_client_4401_4402_1789706431.gpf",
+        "index": 9340,
+        "lf": 4046
+      },
+      {
+        "advertised_bytes": 3366973,
+        "file": "2026-09-22_live_client_4401_4402_1789706431.rgz",
+        "index": 9341,
+        "lf": 4047
+      },
+      {
+        "advertised_bytes": 660296,
+        "file": "2026-09-22_live_client_4406_4406_1789952252.rgz",
+        "index": 9343,
+        "lf": 4049
+      },
+      {
+        "advertised_bytes": 102981,
+        "file": "2026-09-22_live_client_4408_4410_1789953486.gpf",
+        "index": 9345,
+        "lf": 4051
+      },
+      {
+        "advertised_bytes": 3336927,
+        "file": "2026-09-22_live_client_4412_4412_1789972792.rgz",
+        "index": 9347,
+        "lf": 4053
+      },
+      {
+        "advertised_bytes": 3248515,
+        "file": "2026-09-30_live_client_4414_4419_1790667080.gpf",
+        "index": 9349,
+        "lf": 4055
+      },
+      {
+        "advertised_bytes": 3339468,
+        "file": "2026-09-30_live_client_4414_4419_1790667080.rgz",
+        "index": 9350,
+        "lf": 4056
+      },
+      {
+        "advertised_bytes": 2678907,
+        "file": "2026-09-30_live_client_4421_4422_1790727167.rgz",
+        "index": 9352,
+        "lf": 4058
+      },
+      {
+        "advertised_bytes": 81297,
+        "file": "2026-09-30_live_client_4427_4428_1790748604.gpf",
+        "index": 9354,
+        "lf": 4060
+      },
+      {
+        "advertised_bytes": 2678640,
+        "file": "2026-09-30_live_client_4427_4428_1790748604.rgz",
+        "index": 9355,
+        "lf": 4061
+      },
+      {
+        "advertised_bytes": 11089668,
+        "file": "2026-10-06_live_client_4430_4432_1790924605.gpf",
+        "index": 9357,
+        "lf": 4063
+      },
+      {
+        "advertised_bytes": 4468167,
+        "file": "2026-10-06_live_client_4430_4432_1790924605.rgz",
+        "index": 9358,
+        "lf": 4064
+      },
+      {
+        "advertised_bytes": 417471,
+        "file": "2026-10-06_live_client_4436_4437_1791242855.gpf",
+        "index": 9360,
+        "lf": 4066
+      },
+      {
+        "advertised_bytes": 3345267,
+        "file": "2026-10-06_live_client_4438_4439_1791246316.rgz",
+        "index": 9361,
+        "lf": 4067
+      },
+      {
+        "advertised_bytes": 9616231,
+        "file": "2026-10-13_live_client_4441_4445_1791446674.gpf",
+        "index": 9363,
+        "lf": 4069
+      },
+      {
+        "advertised_bytes": 3389384,
+        "file": "2026-10-13_live_client_4441_4445_1791446674.rgz",
+        "index": 9364,
+        "lf": 4070
+      },
+      {
+        "advertised_bytes": 9835280,
+        "file": "2026-10-13_Ragexe_1791446674.rgz",
+        "index": 9365,
+        "lf": 4071
+      },
+      {
+        "advertised_bytes": 236376,
+        "file": "2026-10-13_live_client_4450_4450_1791763766.gpf",
+        "index": 9367,
+        "lf": 4073
+      },
+      {
+        "advertised_bytes": 211586,
+        "file": "2026-10-13_live_client_4452_4456_1791779718.gpf",
+        "index": 9369,
+        "lf": 4075
+      },
+      {
+        "advertised_bytes": 3355958,
+        "file": "2026-10-13_live_client_4452_4456_1791779718.rgz",
+        "index": 9370,
+        "lf": 4076
+      },
+      {
+        "advertised_bytes": 2688852,
+        "file": "2026-10-13_live_client_4461_4462_1791847526.rgz",
+        "index": 9372,
+        "lf": 4078
+      },
+      {
+        "advertised_bytes": 3351791,
+        "file": "2026-10-13_live_client_4466_4467_1791861521.rgz",
+        "index": 9374,
+        "lf": 4080
+      },
+      {
+        "advertised_bytes": 2687758,
+        "file": "2026-10-13_live_client_4469_4470_1791866885.rgz",
+        "index": 9376,
+        "lf": 4082
+      },
+      {
+        "advertised_bytes": 13997225,
+        "file": "2026-10-20_live_client_4477_4479_1792391783.gpf",
+        "index": 9378,
+        "lf": 4084
+      },
+      {
+        "advertised_bytes": 4376217,
+        "file": "2026-10-20_live_client_4477_4479_1792391783.rgz",
+        "index": 9379,
+        "lf": 4085
+      },
+      {
+        "advertised_bytes": 207657,
+        "file": "2026-10-20_live_client_4481_4489_1792452494.gpf",
+        "index": 9381,
+        "lf": 4087
+      },
+      {
+        "advertised_bytes": 2728705,
+        "file": "2026-10-20_live_client_4481_4489_1792452494.rgz",
+        "index": 9382,
+        "lf": 4088
+      },
+      {
+        "advertised_bytes": 1250930,
+        "file": "2026-10-20_live_client_4491_4493_1792464907.gpf",
+        "index": 9384,
+        "lf": 4090
+      },
+      {
+        "advertised_bytes": 1250914,
+        "file": "2026-10-20_live_client_4495_4497_1792471406.gpf",
+        "index": 9385,
+        "lf": 4091
+      },
+      {
+        "advertised_bytes": 82153,
+        "file": "2026-10-20_live_client_4499_4501_1792475929.gpf",
+        "index": 9386,
+        "lf": 4092
+      },
+      {
+        "advertised_bytes": 2691540,
+        "file": "2026-10-20_live_client_4499_4501_1792475929.rgz",
+        "index": 9387,
+        "lf": 4093
+      },
+      {
+        "advertised_bytes": 82145,
+        "file": "2026-10-20_live_client_4503_4505_1792477244.gpf",
+        "index": 9389,
+        "lf": 4095
+      },
+      {
+        "advertised_bytes": 92688,
+        "file": "2026-10-20_Raghash_1792477244.rgz",
+        "index": 9390,
+        "lf": 4096
+      },
+      {
+        "advertised_bytes": 1251042,
+        "file": "2026-10-20_live_client_4507_4509_1792493396.gpf",
+        "index": 9391,
+        "lf": 4097
+      }
+    ],
+    "static_integer": 9296,
+    "sum_advertised_bytes": 465176988
+  },
+  "task": "T07.007.002",
+  "twelve_target_entries": [
+    {
+      "compressed_size": 231268,
+      "effective_kind": 5,
+      "length_aligned": 231272,
+      "metadata_filter": "eligible",
+      "name_hex": "646174615c6d755f66696c6430312e676174",
+      "ordinal": 299,
+      "payload_offset_field": 17221168,
+      "real_size": 3200014
+    },
+    {
+      "compressed_size": 1906951,
+      "effective_kind": 5,
+      "length_aligned": 1906952,
+      "metadata_filter": "eligible",
+      "name_hex": "646174615c6d755f66696c6430312e676e64",
+      "ordinal": 300,
+      "payload_offset_field": 17452440,
+      "real_size": 10362062
+    },
+    {
+      "compressed_size": 72550,
+      "effective_kind": 3,
+      "length_aligned": 72552,
+      "metadata_filter": "eligible",
+      "name_hex": "646174615c6d755f66696c6430312e727377",
+      "ordinal": 301,
+      "payload_offset_field": 19359392,
+      "real_size": 438956
+    },
+    {
+      "compressed_size": 249362,
+      "effective_kind": 5,
+      "length_aligned": 249368,
+      "metadata_filter": "eligible",
+      "name_hex": "646174615c7967675f656467652e676174",
+      "ordinal": 5691,
+      "payload_offset_field": 303629760,
+      "real_size": 1800014
+    },
+    {
+      "compressed_size": 1610,
+      "effective_kind": 5,
+      "length_aligned": 1616,
+      "metadata_filter": "eligible",
+      "name_hex": "646174615c7967675f656467652e676e64",
+      "ordinal": 5692,
+      "payload_offset_field": 303879128,
+      "real_size": 630102
+    },
+    {
+      "compressed_size": 70574,
+      "effective_kind": 3,
+      "length_aligned": 70576,
+      "metadata_filter": "eligible",
+      "name_hex": "646174615c7967675f656467652e727377",
+      "ordinal": 5693,
+      "payload_offset_field": 303880744,
+      "real_size": 417025
+    },
+    {
+      "compressed_size": 4631,
+      "effective_kind": 5,
+      "length_aligned": 4632,
+      "metadata_filter": "eligible",
+      "name_hex": "646174615c7967675f66727569742e676174",
+      "ordinal": 5694,
+      "payload_offset_field": 303951320,
+      "real_size": 1152014
+    },
+    {
+      "compressed_size": 67688,
+      "effective_kind": 5,
+      "length_aligned": 67688,
+      "metadata_filter": "eligible",
+      "name_hex": "646174615c7967675f66727569742e676e64",
+      "ordinal": 5695,
+      "payload_offset_field": 303955952,
+      "real_size": 1225734
+    },
+    {
+      "compressed_size": 32786,
+      "effective_kind": 3,
+      "length_aligned": 32792,
+      "metadata_filter": "eligible",
+      "name_hex": "646174615c7967675f66727569742e727377",
+      "ordinal": 5696,
+      "payload_offset_field": 304023640,
+      "real_size": 206828
+    },
+    {
+      "compressed_size": 485415,
+      "effective_kind": 5,
+      "length_aligned": 485416,
+      "metadata_filter": "eligible",
+      "name_hex": "646174615c7967675f726f6f74732e676174",
+      "ordinal": 5697,
+      "payload_offset_field": 304056432,
+      "real_size": 3200014
+    },
+    {
+      "compressed_size": 635189,
+      "effective_kind": 5,
+      "length_aligned": 635192,
+      "metadata_filter": "eligible",
+      "name_hex": "646174615c7967675f726f6f74732e676e64",
+      "ordinal": 5698,
+      "payload_offset_field": 304541848,
+      "real_size": 7183110
+    },
+    {
+      "compressed_size": 98943,
+      "effective_kind": 3,
+      "length_aligned": 98944,
+      "metadata_filter": "eligible",
+      "name_hex": "646174615c7967675f726f6f74732e727377",
+      "ordinal": 5699,
+      "payload_offset_field": 305177040,
+      "real_size": 628061
+    }
+  ]
+}
