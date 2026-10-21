@@ -42,6 +42,10 @@ CURRENT WORK: October assets and missing maps
 [~] Asset availability: Claude and Grok tools are in progress.
  |    All 311 paths. Next: root checks -> actual asset scan.
  |
+ +-- [~] Other 28 GPF patch tables: separate Claude/Grok tools.
+ |        Root reference: all 5,742 raw records checked.
+ +-- [~] RGZ format: primary-source preparation; no decode yet.
+ |
 [ ] Render -> normal play and save -> full content checks.
 ```
 
