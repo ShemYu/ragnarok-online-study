@@ -62,3 +62,152 @@ The `--max-jobs` runs are controls, not corpus evidence.
 - Constructors and declarations only. Nested texture availability, image decode, `createInstance`, compile, render, travel, combat, quests, persistence and Traditional Chinese acceptance are separate gates.
 - RSS is sampled, not OS containment. The guard and audit limitations of the T07.007.006 inputs carry over.
 - This is a worker candidate. Root must independently rerun it, compare all rows with the withheld reference, and audit the outputs before any `ready_for_user`.
+
+## Astra repair candidate — T07.007.008, 2026-10-21
+
+This is the separately dispatched repair consultation, not a new Claude/Grok
+comparison or a change to their scores. Base commit:
+`8427f81d0c7b2e36d05b6ec51c6cd3f72069dafd`; candidate is the commit containing
+this section on `ShemYu/t07-007-008-repair-astra-a1`. Only the parent, its test
+file and this note change. Root must independently verify this candidate before
+integration or readiness.
+
+The selected starting parent/test/note hashes were respectively
+`38fe32b11c7fb25337be8bcff854b308603afc0dd3a4ca8b5d39cb2c06f8fd37`,
+`77acbefc587cffd72aec428c65c2211c5ab99421d828b1a934058cd983f96f29`, and
+`4c4da9ea34a203b8f4083e72077763e06ebc3e27d24bbd1e22ad37ac6bf314ea`.
+The tested repaired parent is SHA256
+`02079022287d188486c90cfb8380a22fa4f04a636c27bbca9606d569fdfb5d23`;
+the tested test file is
+`b4ce68123c60e8630555e36bbd94df1a3cb78dda5ffdedaa2c07726e4ded7c33`.
+
+### Repair behavior
+
+- The new route compares every policy and summary-limit key/value with the
+  frozen semantic literals. Missing/extra keys and changed values refuse after
+  genuine full pinned admission. Noncoercing integer validation and lower-only
+  CLI overrides remain; JSON number spelling and historical identity typing
+  are unchanged.
+- Each stream has a separate observed-EOF flag and decoder-flushed flag. A
+  natural zero exit alone does not settle a result. EOF may precede or follow
+  exit; settlement waits for both streams and the exit. A single cleanup wait
+  starts on the first termination request or observed exit, never resets, and
+  bounds a missing EOF even after the worker has exited. The parent never
+  terminates an already observed exited worker.
+- Job/run deadlines are checked on events and final settlement. Result-to-exit
+  grace also has an absolute deadline, so an overdue timer cannot accept a
+  late natural exit. Cleanup expiry cannot be defeated by a delayed EOF event.
+  Decoder tails flush at most once. The first failure, prior result and
+  constructor-return/exception facts survive later stream, termination and
+  publication failures. A separate `publication_failure` fact records a later
+  jobs-write failure without overwriting the earlier execution failure.
+- New-route started rows add boolean `stdout_eof_observed` and
+  `stderr_eof_observed` under `cleanup`, including false values on failures.
+  Unstarted rows do not invent observations. Both fields survive compact
+  failure output and have explicit reservation bytes. Prior-result,
+  publication and existing log-loss facts also survive compaction. The old
+  route retains its existing cleanup field set. Either route marks cleanup
+  unverified and accounts for the unattempted suffix when an EOF is missing.
+
+### Tests and actual commands
+
+All execution used `/Users/shem/.local/bin/node`, observed version `v24.20.0`.
+Exact argument arrays, working directories and return codes are retained in
+`.tools/renewal/astra-repair-1/cli-commands.json` and
+`suite-2/command.json`; the private helper scripts retain the actual invocations:
+
+```sh
+python3 .tools/renewal/astra-repair-1/preserve.py before
+python3 .tools/renewal/astra-repair-1/run-suite.py suite-1
+python3 .tools/renewal/astra-repair-1/run-suite.py suite-2
+python3 .tools/renewal/astra-repair-1/run-clis.py
+python3 .tools/renewal/astra-repair-1/preserve.py after
+git diff --check
+```
+
+The suite helper made ordinary private copies of the parent, worker, summary,
+test, profiles, baseline, authored fixtures and unchanged probe documentation.
+Their inode separation was asserted. The tests that deliberately rewrite worker
+bytes touched only these copies. Neither canonical nor original child worker
+bytes/identities were altered. The fixed Node invocation was
+`--experimental-vm-modules --no-warnings --test` followed by the private copied
+test path; `T06_INPUT_ROOT` selected the authorized canonical read-only input.
+`TMPDIR` pointed inside this child's evidence directory and did not change
+production admission. No hardlinks were used.
+
+Final suite: **56/56 pass, zero failures/skips/cancellations**, 48099.637125ms.
+All 48 original tests remain, with eight additional repair test groups. Existing
+positive EventEmitter stand-ins now emit both `end` events on their authored
+exit, before the parent sees exit; they no longer omit this real-worker
+lifecycle requirement. Four new-route exact cleanup assertions add both true
+EOF fields; all prior outcome/failure/summary assertions remain. The logging
+stand-in emits duplicate EOFs and retains its once-only flushing assertions.
+
+New tests exercise every policy/summary field at +1, -1 and string values after
+full-pin admission, missing/extra keys, real owned workers with normal, hidden
+stdout/stderr EOF, delayed EOF, EOF-before-exit, job/run expiry, nonzero and
+unknown exits, result grace, primary exceptions, close/error/termination faults,
+late cleanup events, one-time partial UTF8 flushing, compact log/failure
+accounting, and suffix preservation under a jobs publication fault. Real-worker
+lifecycle packets, module/SEEK values and summaries are explicit authored
+stand-ins; they are not Model evidence.
+
+The first suite attempt retained 53/54 passes and one setup failure: the private
+copy omitted unchanged `MODEL_CONSTRUCTOR_PROBE.md`, causing ENOENT in its
+baseline assertion. The setup was corrected before the final full suite; that
+failed log remains in `suite-1/tests.log`. No assertion was weakened to pass it.
+
+Fresh CLI results, all at unchanged profile defaults and without `--max-jobs`:
+
+| Run | Exit / result | Preservation and cleanup |
+| --- | --- | --- |
+| Old authored | 0; 13/13 literal matches, nine full summaries/four exception names | 15/15 final pins; natural zero exits; original cleanup fields |
+| New authored | 0; 13/13 literal matches, nine full summaries/four exception names | 16/16 final pins; all 13 natural zero exits and both observed EOFs |
+| Actual supplement | 0; 273/273 returned, no open functional failures | 273/273 body postchecks, 21/21 final pins; all 273 natural zero exits, no parent termination and both observed EOFs |
+
+The separate CLI audit checks every actual job id/hash/header/input size,
+module/SEEK/dynamic-import facts, complete target expansion, roots, 297 model
+references, carried ground records and world ledger against the admitted
+manifest. Full summaries are retained for root's independent reference audit.
+Actual CLI elapsed was 8242ms; sampled RSS peaked at125501440bytes over434
+samples. These are measurements, not golden values or OS containment.
+
+### Retained evidence and boundaries
+
+All artifact paths below are relative to the child's ignored
+`.tools/renewal/astra-repair-1/`. Final directories are0700 and files0600.
+The before/after receipts compare **305 protected full hashes, identities,
+modes and link counts exactly**, including all273 bodies, availability inputs,
+canonical/original worker and summary, profiles, authored fixtures, modules and
+rules. Their bytes are identical. One own `inputs-after.json` receipt was
+initially created0644 inside the0700 evidence directory; the mode audit found
+and corrected it to0600, and the helper now sets its own077umask. This was a
+local permission deviation, not an outside-child output; no protected input
+was changed.
+
+| Artifact | Bytes | SHA256 |
+| --- | ---: | --- |
+| `suite-2/tests.log` | 5274 | `fdd22206a98ea2e2b8f35282a1f1f48093ef862b5139616d45cd84f6e79f3175` |
+| `inputs-before.json` and `inputs-after.json` (each) | 135105 | `fc58767487f886cb5dac091d04c316525ce272dcdc30c5575bfe21bdbf11148b` |
+| `cli-commands.json` | 3609 | `0e2c485596f19623dc9afc5805fc46489b6df7d9923e46141c4c4fbf5ad3bfdd` |
+| `cli-audit.json` | 1514 | `e97c1cd7a86864a57ea5c3156514bb440af5fe4533e9b7ea232d857cf810a9f2` |
+| `old13/jobs.jsonl` | 32970 | `75f4159d2872f0b9383b335c12705d254cf74f20e80b967f035770a6cfa28c01` |
+| `old13/report.json` | 19581 | `d487b44d2adaa39b1541941dc91ebf3a6322fd41a381cf00783b1631498df354` |
+| `new13/jobs.jsonl` | 33674 | `c2dd6cc746fdb94a819b51d9cff02ffe23578a7f00583b5dc80b5be50c7a7f8e` |
+| `new13/report.json` | 20399 | `c2065254369507801c9995166e645fa092b27b0b3d49abcbc31b1508745a7fbb` |
+| `actual273/jobs.jsonl` | 869622 | `1199009175b2de47c4a37f4f2c5a58531490fd2ea01e0ac0bb3837ece5629f02` |
+| `actual273/report.json` | 708957 | `f44a1e72cbbd9d0752d7708234e77930f10eeec65a79a140ac1a14f6339ab404` |
+
+`artifact-manifest.json` inventories every retained evidence file with its full
+hash, size and mode (excluding itself and the later completion receipt to avoid
+self-reference). Original and final source hashes are separately recorded in
+`source-receipt.json`. No sibling results or root withheld reference outputs
+were read. No native/browser/HTTP/network/app/save/SQL/preferences/install or
+upgrade work occurred. No old8166-job corpus rerun, push, default merge or
+history rewrite occurred. Worker/common/profile/client sources remain unchanged.
+
+Next owner: root coordinator, for independent full typed reference comparison,
+EOF/failure controls, preservation audit and separate integration decision.
+This is a worker candidate, not `ready_for_user` or user acceptance. Nested
+textures, rendering, game/quest/save behavior, the82world gaps and full-game
+coverage remain open.

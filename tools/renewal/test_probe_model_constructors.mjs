@@ -9,6 +9,7 @@ import { EventEmitter } from 'node:events';
 import fs from 'node:fs';
 import path from 'node:path';
 import test from 'node:test';
+import { Worker } from 'node:worker_threads';
 import { fileURLToPath, pathToFileURL } from 'node:url';
 import {
   ARTIFACT_AUDIT_EXPECTED, EXECUTION_BINDING_EXPECTED, PROFILE_SHA256, ROUTES, Refusal, SUPPLEMENT_PROFILE_SHA256, admitModelCorpus,
@@ -41,6 +42,11 @@ const serial = (name, fn) => test(name, () => {
   const run = chain.then(() => fn());
   chain = run.then(() => {}, () => {});
   return run;
+});
+// Existing positive stand-ins now model real readable EOF before exit.
+// This changes their lifecycle fidelity, not their packet or failure assertions.
+const endStandInStreamsOnExit = (worker) => worker.on('exit', () => {
+  worker.stdout.emit('end'); worker.stderr.emit('end');
 });
 const freshOut = () => path.join(TMP, `out-${++seq}`);
 const cli = (extra, { prof = PROFILE, client = CLIENT, output = freshOut(), mode = ['--fixtures', FIXTURES] } = {}) => {
@@ -487,6 +493,7 @@ serial('worker lifecycle keeps a result from repairing nonzero, missing, or late
     worker.stderr = new EventEmitter();
     worker.stdout.resume = () => {};
     worker.stderr.resume = () => {};
+    endStandInStreamsOnExit(worker);
     worker.terminate = () => { worker.terminated = true; setImmediate(() => worker.emit('exit', 1)); return Promise.resolve(1); };
     setImmediate(() => {
       worker.emit('message', { type: 'phase', phase: 'constructor' });
@@ -678,6 +685,7 @@ const rootFakeWorkerFactory = (state) => () => {
   const worker = new EventEmitter();
   worker.stdout = new EventEmitter(); worker.stderr = new EventEmitter();
   worker.stdout.resume = worker.stderr.resume = () => {};
+    endStandInStreamsOnExit(worker);
   worker.terminate = () => {
     state.terminated++;
     setImmediate(() => worker.emit('exit', 1));
@@ -727,6 +735,7 @@ serial('root timely result followed by stalled late exit0 is timeout with prior 
       const worker = new EventEmitter();
       worker.stdout = new EventEmitter(); worker.stderr = new EventEmitter();
       worker.stdout.resume = worker.stderr.resume = () => {};
+    endStandInStreamsOnExit(worker);
       worker.terminate = () => {
         state.terminations++;
         setImmediate(() => worker.emit('exit', 1));
@@ -1069,6 +1078,7 @@ async function rootLogStreamRow(chunks, { captureCap = 4096, consoleText = '', d
     const worker = new EventEmitter();
     worker.stdout = new EventEmitter(); worker.stderr = new EventEmitter();
     worker.stdout.resume = worker.stderr.resume = () => {};
+    endStandInStreamsOnExit(worker);
     worker.terminate = () => {
       terminations++;
       setImmediate(() => worker.emit('exit', 1));
@@ -1346,6 +1356,7 @@ const supplementFakeWorkers = (plan, state) => () => {
   const worker = new EventEmitter();
   worker.stdout = new EventEmitter(); worker.stderr = new EventEmitter();
   worker.stdout.resume = worker.stderr.resume = () => {};
+    endStandInStreamsOnExit(worker);
   worker.terminate = () => {
     state.terminated++;
     if (kind !== 'lost') setImmediate(() => worker.emit('exit', 1));
@@ -1438,7 +1449,7 @@ serial('T07 fixture CLI keeps all 13 literal results under the new task', () => 
   authored.cases.forEach((entry, index) => {
     const row = got[index];
     assert.equal(row.outcome, entry.expected_outcome, entry.id);
-    assert.deepEqual(row.cleanup, { exit_observed: true, exit_code: 0, terminated_by_parent: false });
+    assert.deepEqual(row.cleanup, { exit_observed: true, exit_code: 0, terminated_by_parent: false, stdout_eof_observed: true, stderr_eof_observed: true });
     assert.deepEqual(row.seek_globals, [1, 2, 3]);
     assert.deepEqual(row.dynamic_import_refusals, []);
     if (entry.expected_outcome === 'returned') {
@@ -1680,7 +1691,7 @@ serial('T07 lower-only limits keep the unattempted suffix and still full-hash it
   assert.deepEqual(got.map((row) => row.job_id), manifest.jobs.map((job) => job.job_id));
   for (const row of got.slice(0, 2)) {
     assert.equal(row.outcome, 'returned');
-    assert.deepEqual(row.cleanup, { exit_observed: true, exit_code: 0, terminated_by_parent: false });
+    assert.deepEqual(row.cleanup, { exit_observed: true, exit_code: 0, terminated_by_parent: false, stdout_eof_observed: true, stderr_eof_observed: true });
   }
   assert.ok(got.slice(2).every((row) => row.outcome === 'unattempted' && row.reason === 'max_jobs'));
   const rep = reportOf(output);
@@ -1709,7 +1720,7 @@ serial('T07 worker nonzero, timeout and lost exits stay visible and halt on unkn
   assert.equal(got[1].outcome, 'returned');
   assert.deepEqual(got[1].summary, { authored: true });
   assert.equal(got[2].outcome, 'timeout');
-  assert.deepEqual(got[2].cleanup, { exit_observed: true, exit_code: 1, terminated_by_parent: true });
+  assert.deepEqual(got[2].cleanup, { exit_observed: true, exit_code: 1, terminated_by_parent: true, stdout_eof_observed: true, stderr_eof_observed: true });
   assert.equal(got[3].outcome, 'timeout');
   assert.equal(got[3].cleanup.exit_observed, false);
   assert.ok(got.slice(4).every((row) => row.outcome === 'unattempted' && row.reason === 'cleanup_unverified'));
@@ -1822,7 +1833,7 @@ serial('T07 actual 273-job CLI preserves every typed row, target, reference and 
     assert.equal(row.constructor_returned, row.outcome === 'returned');
     if (row.outcome === 'returned') assert.equal(typeof row.summary, 'object');
     else assert.equal(row.exception.phase, 'constructor');
-    assert.deepEqual(row.cleanup, { exit_observed: true, exit_code: 0, terminated_by_parent: false });
+    assert.deepEqual(row.cleanup, { exit_observed: true, exit_code: 0, terminated_by_parent: false, stdout_eof_observed: true, stderr_eof_observed: true });
     assert.deepEqual(row.seek_globals, [1, 2, 3]);
     assert.deepEqual(row.dynamic_import_refusals, []);
     assert.equal(row.loaded_module_keys.length, 7);
@@ -1848,4 +1859,255 @@ serial('T07 actual 273-job CLI preserves every typed row, target, reference and 
   assert.equal(rep.jobs_file.complete, true);
   assert.deepEqual(fs.readdirSync(r.output).sort(), ['jobs.jsonl', 'report.json']);
   for (const name of fs.readdirSync(r.output)) assert.equal(fs.statSync(path.join(r.output, name)).mode & 0o777, 0o600);
+});
+
+serial('repair semantic policy and summary equality after genuine pinned admission', async () => {
+  for (const group of ['policy', 'summary_limits']) {
+    for (const key of Object.keys(newProfile[group])) {
+      for (const value of [newProfile[group][key] + 1, newProfile[group][key] - 1, String(newProfile[group][key])]) {
+        const output = freshOut();
+        const r = await withPinnedJson({ profile(p) { p[group][key] = value; } }, supplementFixtureArgs(output));
+        assert.deepEqual(r.seen, ['profile']);
+        assert.equal(r.code, 2, `${group}.${key}=${value}`);
+        assert.equal(r.summary.reason, 'profile_invalid');
+        assert.equal(fs.existsSync(output), false);
+      }
+    }
+    for (const mutate of [(p) => { delete p[group][Object.keys(p[group])[0]]; }, (p) => { p[group].extra = 1; }]) {
+      const r = await withPinnedJson({ profile: mutate }, supplementFixtureArgs(freshOut()));
+      assert.equal(r.code, 2);
+      assert.equal(r.summary.reason, 'profile_invalid');
+    }
+  }
+  const reordered = structuredClone(newProfile);
+  reordered.policy = Object.fromEntries(Object.entries(reordered.policy).reverse());
+  assert.equal(validateProfile(reordered, ROUTES[SUPPLEMENT_PROFILE_SHA256]), reordered);
+});
+
+// Actual owned Worker with authored result/module/SEEK/summary values: this
+// tests parent lifecycle only, never Model correctness. Both underlying stream
+// EOF events and actual thread exit are independently recorded before forwarding.
+function repairRealFactory(state, { hidden = null, delay = 0, exitDelay = 0, code = 0, outcome = 'returned', hold = false } = {}) {
+  return (_url, options) => {
+    const packet = outcome === 'constructor_exception'
+      ? rootPacket(authored.cases.find((entry) => entry.expected_outcome === outcome)) : supplementPacket();
+    const real = new Worker(`const { parentPort, workerData } = require('node:worker_threads');
+      process.stdout.write('real stdout'); process.stderr.write('real stderr');
+      parentPort.postMessage({ type: 'phase', phase: 'constructor' });
+      parentPort.postMessage(workerData.packet);
+      process.exitCode = workerData.code;
+      if (workerData.hold) setInterval(() => {}, 1000);`,
+    { ...options, eval: true, transferList: [], workerData: { packet, code, hold } });
+    const forwarded = new EventEmitter();
+    forwarded.stdout = new EventEmitter(); forwarded.stderr = new EventEmitter();
+    forwarded.stdout.resume = forwarded.stderr.resume = () => {};
+    for (const channel of ['stdout', 'stderr']) {
+      real[channel].on('data', (bytes) => forwarded[channel].emit('data', bytes));
+      real[channel].on('end', () => {
+        state[channel] = true;
+        if (hidden === channel) return;
+        const deliver = () => { state[`${channel}ForwardedAt`] = performance.now(); forwarded[channel].emit('end'); };
+        if (delay && channel === 'stderr') setTimeout(deliver, delay); else deliver();
+      });
+    }
+    real.on('message', (msg) => forwarded.emit('message', msg));
+    real.on('error', (err) => forwarded.emit('error', err));
+    real.on('exit', (value) => {
+      state.realExit = value; state.realExitAt = performance.now();
+      const deliver = () => { state.exitForwardedAt = performance.now(); forwarded.emit('exit', value); };
+      if (hidden === 'exit') return;
+      if (exitDelay) setTimeout(deliver, exitDelay); else deliver();
+    });
+    forwarded.terminate = () => { state.terminated++; return real.terminate(); };
+    return forwarded;
+  };
+}
+async function repairRealRow(options = {}, policyOverrides = {}, runMs = 3000) {
+  const state = { terminated: 0 };
+  const row = await runWorkerJob({ id: 'real-lifecycle', job_id: 'real-lifecycle', kind: 'model', input_bytes: 2,
+    complete_sha256: 'a'.repeat(64), header_version_bytes: '0001' }, Buffer.from([0, 1]), {
+    policy: { ...profile.policy, job_timeout_ms: 1500, cleanup_wait_ms: 250, ...policyOverrides },
+    sources: {}, summaryText: '', runDeadline: performance.now() + runMs,
+    rss: { active: null, sample() {} }, observeEof: true, workerFactory: repairRealFactory(state, options)
+  });
+  state.settledAt = performance.now();
+  assert.equal(state.stdout, true); assert.equal(state.stderr, true);
+  assert.ok(Number.isInteger(state.realExit));
+  return { row, state };
+}
+
+serial('repair real normal, delayed EOF and EOF-before-exit obey observation ordering', async () => {
+  for (const outcome of ['returned', 'constructor_exception']) {
+    for (const opts of [{}, { delay: 100 }, { exitDelay: 100 }]) {
+      const { row, state } = await repairRealRow({ ...opts, outcome });
+      assert.equal(row.outcome, outcome);
+      assert.equal(state.terminated, 0);
+      assert.ok(state.settledAt >= state.stderrForwardedAt);
+      assert.ok(state.settledAt >= state.stdoutForwardedAt);
+      assert.ok(state.settledAt >= state.exitForwardedAt);
+      if (opts.delay) assert.ok(state.stderrForwardedAt > state.realExitAt);
+      if (opts.exitDelay) assert.ok(state.exitForwardedAt > state.stderrForwardedAt);
+      assert.deepEqual(row.cleanup, { exit_observed: true, exit_code: 0, terminated_by_parent: false,
+        stdout_eof_observed: true, stderr_eof_observed: true });
+    }
+  }
+});
+
+serial('repair real missing EOF settles bounded after exit without terminating exited worker', async () => {
+  for (const hidden of ['stdout', 'stderr']) {
+    const { row, state } = await repairRealRow({ hidden });
+    assert.equal(state.terminated, 0);
+    assert.equal(row.outcome, 'worker_error');
+    assert.equal(row.reason, 'stream_eof_unobserved');
+    assert.equal(row.constructor_returned, true);
+    assert.deepEqual(row.prior_result, { outcome: 'returned', constructor_returned: true });
+    assert.equal(row.cleanup[`${hidden}_eof_observed`], false);
+    assert.equal(row.cleanup.exit_observed, true);
+    assert.ok(state.settledAt - state.realExitAt >= 240);
+    assert.ok(state.settledAt - state.realExitAt < 1500);
+    assert.equal(row._summary_json, null);
+  }
+});
+
+serial('repair delayed EOF cannot evade job or command deadline at final completion', async () => {
+  for (const outcome of ['returned', 'constructor_exception']) {
+    for (const command of [false, true]) {
+      const { row, state } = await repairRealRow({ delay: 220, outcome },
+        { job_timeout_ms: command ? 1500 : 180, cleanup_wait_ms: 500 }, command ? 180 : 3000);
+      assert.equal(row.outcome, 'timeout');
+      assert.equal(row.reason, command ? 'run_deadline' : 'job_timeout');
+      assert.equal(state.terminated, 0);
+      assert.equal(row.cleanup.stderr_eof_observed, true);
+      assert.deepEqual(row.prior_result, { outcome, constructor_returned: outcome === 'returned' });
+      assert.ok(state.settledAt >= state.stderrForwardedAt);
+    }
+  }
+});
+
+serial('repair real nonzero and unknown exit preserve original facts through missing cleanup', async () => {
+  const nonzero = await repairRealRow({ code: 7, hidden: 'stderr', outcome: 'constructor_exception' });
+  assert.equal(nonzero.row.reason, 'nonzero_exit_after_result');
+  assert.equal(nonzero.row.exception.phase, 'constructor');
+  assert.equal(nonzero.row.constructor_returned, false);
+  assert.equal(nonzero.row.prior_result.outcome, 'constructor_exception');
+  assert.equal(nonzero.row.cleanup.stderr_eof_observed, false);
+  const unknown = await repairRealRow({ hidden: 'exit', hold: true }, { result_exit_grace_ms: 100 });
+  assert.equal(unknown.row.outcome, 'worker_error');
+  assert.equal(unknown.row.reason, 'terminated_after_result');
+  assert.equal(unknown.row.cleanup.exit_observed, false);
+  assert.equal(unknown.state.terminated, 1);
+  assert.equal(unknown.row.constructor_returned, true);
+});
+
+serial('repair EOF failure halts new-route suffix and survives publication failure', async () => {
+  for (const storageFault of [false, true]) {
+    const output = freshOut(); const state = { terminated: 0 }; let starts = 0;
+    const factory = repairRealFactory(state, { hidden: 'stderr', code: 7 });
+    hooks.createWorker = (...args) => { starts++; return factory(...args); };
+    const realOpen = fs.openSync; const realWrite = fs.writeSync; let jobsFd;
+    fs.openSync = (file, ...args) => { const fd = realOpen(file, ...args); if (file === path.join(output, 'jobs.jsonl')) jobsFd = fd; return fd; };
+    let faulted = false;
+    fs.writeSync = (fd, ...args) => {
+      if (storageFault && fd === jobsFd && !faulted) { faulted = true; throw rootEio(); }
+      return realWrite(fd, ...args);
+    };
+    let r;
+    try { r = await mainCapture(supplementFixtureArgs(output, '--job-timeout-ms', '300')); }
+    finally { hooks.createWorker = null; fs.openSync = realOpen; fs.writeSync = realWrite; }
+    assert.equal(r.code, 1);
+    assert.equal(starts, 1);
+    const got = rows(output); const report = reportOf(output);
+    assert.equal(got.length, 13);
+    assert.equal(got[0].reason, 'nonzero_exit_after_result');
+    assert.equal(got[0].outcome, 'worker_error');
+    assert.equal(got[0].prior_result.outcome, 'returned');
+    assert.equal(got[0].constructor_returned, true);
+    assert.equal(got[0].cleanup.stderr_eof_observed, false);
+    if (storageFault) { assert.equal(faulted, true); assert.equal(got[0].publication_failure.reason, 'output_io_error'); }
+    assert.ok(got.slice(1).every((row) => row.outcome === 'unattempted' && !Object.hasOwn(row.cleanup, 'stdout_eof_observed')));
+    assert.equal(report.cleanup.verified, false);
+    assert.equal(report.qualified, false);
+    assert.deepEqual(report.cleanup.unverified, [got[0].id]);
+  }
+});
+
+serial('repair primary exception, decoder tail and cleanup bound survive later events', async () => {
+  for (const kind of ['close', 'error', 'terminate-throw', 'late-eof', 'unknown-code', 'late-exit']) {
+    const entry = authored.cases.find((item) => item.expected_outcome === 'constructor_exception');
+    const packet = rootPacket(entry); let terminations = 0; let exitedAt;
+    const workerFactory = () => {
+      const worker = new EventEmitter();
+      worker.stdout = new EventEmitter(); worker.stderr = new EventEmitter();
+      worker.stdout.resume = worker.stderr.resume = () => {};
+      worker.terminate = () => {
+        terminations++;
+        if (kind === 'terminate-throw') throw new Error('later termination failure');
+        return Promise.resolve(1);
+      };
+      setImmediate(() => {
+        worker.emit('message', packet);
+        worker.stderr.emit('data', Buffer.from([0xe2, 0x82]));
+        worker.stdout.emit('end');
+        if (kind === 'error' || kind === 'terminate-throw') worker.emit('error', new Error('later worker error'));
+        if (kind === 'close') worker.stderr.emit('close');
+        if (kind === 'late-exit') {
+          const until = performance.now() + 80;
+          while (performance.now() < until) { /* delayed result grace timer */ }
+        }
+        exitedAt = performance.now();
+        worker.emit('exit', kind === 'unknown-code' ? undefined : 0);
+        if (kind === 'late-eof') {
+          // An overdue cleanup timer must not lose to a delayed end event.
+          const until = performance.now() + 90;
+          while (performance.now() < until) { /* finite authored stall */ }
+          worker.stderr.emit('end');
+        } else if (kind === 'unknown-code' || kind === 'late-exit') worker.stderr.emit('end');
+        else {
+          // Repeated close/error notifications must not restart cleanup.
+          setTimeout(() => worker.stderr.emit('close'), 20);
+          setTimeout(() => worker.emit('error', new Error('still later error')), 30);
+        }
+      });
+      return worker;
+    };
+    const row = await runWorkerJob({ id: kind, job_id: kind, kind: 'model', input_bytes: 2,
+      complete_sha256: 'a'.repeat(64), header_version_bytes: '0001' }, Buffer.from([0, 1]), {
+      policy: { ...profile.policy, job_timeout_ms: 1000, cleanup_wait_ms: 60, result_exit_grace_ms: kind === 'late-exit' ? 40 : 500 },
+      sources: {}, summaryText: '', runDeadline: performance.now() + 3000,
+      rss: { active: null, sample() {} }, observeEof: true, workerFactory
+    });
+    assert.equal(row.outcome, 'worker_error', kind);
+    assert.equal(row.constructor_returned, false);
+    assert.deepEqual(row.prior_result, { outcome: 'constructor_exception', constructor_returned: false });
+    assert.deepEqual(row.exception, packet.exception);
+    assert.equal(row._log, '\ufffd', 'incomplete UTF8 flushed once, including duplicate events');
+    assert.equal(row._summary_json, null);
+    assert.ok(performance.now() - exitedAt < 400, 'cleanup bound never resets');
+    if (kind === 'close') assert.equal(row.reason, 'stream_closed_without_eof');
+    if (kind === 'error' || kind === 'terminate-throw') assert.equal(row.reason, 'worker_error');
+    if (kind === 'late-eof') assert.equal(row.reason, 'stream_eof_unobserved');
+    if (kind === 'unknown-code') { assert.equal(row.reason, 'nonzero_exit_after_result'); assert.equal(row.cleanup.exit_code, null); }
+    if (kind === 'late-exit') { assert.equal(row.reason, 'result_exit_grace'); assert.equal(terminations, 0); }
+  }
+});
+
+serial('repair compact failure keeps EOF, original result, publication and log-loss facts', () => {
+  const row = { ...unattemptedRow(fixtureJobs(authored, profile.policy)[0], 'nonzero_exit_after_result'),
+    outcome: 'worker_error', constructor_returned: false, worker_started: true,
+    cleanup: { exit_observed: true, exit_code: 7, terminated_by_parent: false, stdout_eof_observed: true, stderr_eof_observed: false },
+    prior_result: { outcome: 'constructor_exception', constructor_returned: false },
+    publication_failure: { outcome: 'environment_failure', reason: 'output_io_error' },
+    exception: { phase: 'constructor', name: 'Error', message: 'large'.repeat(400) },
+    loaded_module_keys: Array(1000).fill('stand-in'), _log: 'lost log', _log_dropped_entries: 2, _stdio_dropped_utf8_bytes: 3 };
+  const got = boundedRow(row, { ...profile.policy, max_job_json_bytes: 1024 }, 0);
+  assert.ok(Buffer.byteLength(got.line) <= 1024);
+  assert.equal('loaded_module_keys' in got.row, false, 'exercise compact fallback');
+  assert.deepEqual(got.row.cleanup, row.cleanup);
+  assert.deepEqual(got.row.prior_result, row.prior_result);
+  assert.deepEqual(got.row.publication_failure, row.publication_failure);
+  assert.equal(got.row.reason, row.reason);
+  assert.equal(got.row.exception.phase, 'constructor');
+  assert.equal(got.row.log_dropped_entries, 2);
+  assert.equal(got.row.stdio_dropped_utf8_bytes, 3);
+  assert.equal(got.row.log_dropped_utf8_bytes, 8);
 });

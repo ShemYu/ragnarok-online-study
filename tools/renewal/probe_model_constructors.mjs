@@ -510,6 +510,39 @@ function historicalIdentityList(value) {
     value.slice(0, 3).every((item) => Number.isSafeInteger(item));
 }
 
+// Frozen semantic limits; JSON number spelling is intentionally irrelevant.
+const SUPPLEMENT_POLICY = Object.freeze({
+  "max_body_bytes": 25165824,
+  "max_manifest_bytes": 67108864,
+  "max_fixture_bytes": 1048576,
+  "max_availability_report_bytes": 16777216,
+  "max_catalog_bytes": 67108864,
+  "worker_heap_mib": 512,
+  "rss_limit_bytes": 2147483648,
+  "rss_sample_ms": 50,
+  "job_timeout_ms": 20000,
+  "module_timeout_ms": 5000,
+  "constructor_timeout_ms": 10000,
+  "run_timeout_ms": 900000,
+  "max_job_json_bytes": 4194304,
+  "max_jobs_jsonl_bytes": 536870912,
+  "max_report_json_bytes": 67108864,
+  "max_job_log_bytes": 4096,
+  "max_total_log_bytes": 65536,
+  "max_exception_message_chars": 512,
+  "max_stdout_bytes": 4096,
+  "max_active_workers": 1,
+  "result_exit_grace_ms": 2000,
+  "cleanup_wait_ms": 10000
+});
+const SUPPLEMENT_SUMMARY_LIMITS = Object.freeze({
+  "nodes": 65536,
+  "textures": 65536,
+  "node_slots": 262144,
+  "string_code_units": 1048576,
+  "numeric_visits": 4194304
+});
+
 function validateSupplementProfile(profile) {
   const fail = (detail) => { throw new Refusal('profile_invalid', detail); };
   if (!sameKeys(profile.availability, AVAILABILITY_KEYS)) fail('availability keys');
@@ -521,6 +554,8 @@ function validateSupplementProfile(profile) {
   if (!isObject(headers) || Object.values(headers).some((value) => !Number.isSafeInteger(value) || value < 1) ||
       Object.keys(headers).some((key) => !/^(?:[0-9a-f]{2}){1,6}$/.test(key))) fail('header_prefix_counts');
   if (Object.values(headers).reduce((sum, value) => sum + value, 0) !== profile.counts.model_targets) fail('header total');
+  if (!deepEqual(profile.policy, SUPPLEMENT_POLICY)) fail('policy differs from frozen baseline');
+  if (!deepEqual(profile.summary_limits, SUPPLEMENT_SUMMARY_LIMITS)) fail('summary_limits differ from frozen baseline');
   const limits = profile.summary_limits;
   if (!isObject(limits) || Object.values(limits).some((value) => !Number.isSafeInteger(value) || value < 1)) fail('summary_limits');
   if (!Array.isArray(profile.limitations) || !profile.limitations.every((item) => typeof item === 'string')) fail('limitations');
@@ -858,7 +893,7 @@ export function runWorkerJob(job, bytes, ctx) {
   return new Promise((resolve) => {
     const t0 = performance.now();
     const jobDeadline = Math.min(t0 + policy.job_timeout_ms, runDeadline);
-    const budgetMs = Math.max(0, jobDeadline - performance.now());
+    const budgetMs = Math.max(0, Math.ceil(jobDeadline - performance.now()));
     const deadlineReason = jobDeadline === runDeadline ? 'run_deadline' : 'job_timeout';
     const copy = Buffer.from(bytes);
     const ab = copy.buffer.slice(copy.byteOffset, copy.byteOffset + copy.byteLength);
@@ -876,28 +911,62 @@ export function runWorkerJob(job, bytes, ctx) {
       st.stderrDropped += piece.dropped;
       if (piece.dropped) st.stderrCapped = true;
     };
-    // Each channel owns its decoder; bytes from different streams cannot form
-    // one character. Settlement flushes pending bytes once without a new wait.
+    // EOF is an observed stream event, not a side effect of decoder flushing.
+    // A single cleanup deadline starts at the first termination request or exit.
     const decoders = [new StringDecoder('utf8'), new StringDecoder('utf8')];
-    const ended = [false, false];
+    const flushed = [false, false];
+    st.eof = [false, false];
+    st.observeEof = ctx.observeEof === true;
+    let cleanupDeadline = null;
+    let resultExitDeadline = null;
     const flush = (index) => {
-      if (ended[index]) return;
-      ended[index] = true;
+      if (flushed[index]) return;
+      flushed[index] = true;
       appendDecoded(decoders[index].end());
     };
-    const finish = (exitObserved) => {
+    const refuse = (outcome, reason) => {
+      if (st.settled || st.refusal) return;
+      if (st.result) st.prior = { outcome: st.result.outcome, constructor_returned: st.result.constructor_returned };
+      st.refusal = { outcome, reason };
+    };
+    const checkDeadline = () => {
+      const now = performance.now();
+      if (now >= jobDeadline) refuse('timeout', now >= runDeadline ? 'run_deadline' : deadlineReason);
+    };
+    const finish = () => {
       if (st.settled) return;
+      checkDeadline();
+      if (!st.exited || !st.eof.every(Boolean)) refuse('worker_error', 'lifecycle');
       flush(0); flush(1);
       st.settled = true;
       for (const timer of st.timers) clearTimeout(timer);
       rss.active = null;
-      resolve(buildRow(job, st, exitObserved, performance.now() - t0));
+      resolve(buildRow(job, st, st.exited, performance.now() - t0));
+    };
+    const cleanupExpired = () => {
+      checkDeadline();
+      refuse('worker_error', st.exited ? 'stream_eof_unobserved' : 'lifecycle');
+      finish();
+    };
+    const startCleanup = () => {
+      if (cleanupDeadline !== null) return;
+      cleanupDeadline = performance.now() + policy.cleanup_wait_ms;
+      st.timers.push(setTimeout(cleanupExpired, policy.cleanup_wait_ms));
+    };
+    const maybeFinish = () => {
+      if (st.settled) return;
+      checkDeadline();
+      // Check the absolute bound even if its timer was delayed by other work.
+      if (cleanupDeadline !== null && performance.now() >= cleanupDeadline) cleanupExpired();
+      else if (st.exited && st.eof.every(Boolean)) finish();
     };
     const terminate = () => {
+      if (st.settled) return;
+      startCleanup();
       if (st.terminated || st.exited) return;
       st.terminated = true;
-      worker.terminate().catch(() => {});
-      st.timers.push(setTimeout(() => finish(false), policy.cleanup_wait_ms));
+      try { Promise.resolve(worker.terminate()).catch(() => refuse('worker_error', 'termination_failure')); }
+      catch { refuse('worker_error', 'termination_failure'); }
     };
     if (budgetMs <= 0 || performance.now() >= runDeadline) {
       resolve({ ...unattemptedRow(job, 'run_deadline'), outcome: 'timeout', reason: 'run_deadline', worker_started: false });
@@ -936,63 +1005,75 @@ export function runWorkerJob(job, bytes, ctx) {
     }
     [worker.stdout, worker.stderr].forEach((stream, index) => {
       stream.on('data', (chunk) => {
-        if (!ended[index] && !st.settled) appendDecoded(decoders[index].write(Buffer.from(chunk)));
+        if (!flushed[index] && !st.settled) appendDecoded(decoders[index].write(Buffer.from(chunk)));
       });
-      stream.on('end', () => flush(index));
+      stream.on('end', () => {
+        if (st.settled || st.eof[index]) return;
+        st.eof[index] = true;
+        flush(index);
+        maybeFinish();
+      });
+      stream.on('error', () => {
+        if (st.settled) return;
+        refuse('worker_error', 'stream_error');
+        terminate();
+      });
+      stream.on('close', () => {
+        if (st.settled || st.eof[index]) return;
+        refuse('worker_error', 'stream_closed_without_eof');
+        terminate();
+      });
     });
     worker.stdout.resume();
     worker.stderr.resume();
     worker.on('message', (message) => {
-      if (performance.now() >= jobDeadline || performance.now() >= runDeadline) {
-        st.refusal ||= { outcome: 'timeout', reason: performance.now() >= runDeadline ? 'run_deadline' : deadlineReason };
-        terminate();
-        return;
-      }
+      if (st.settled) return;
+      checkDeadline();
+      if (st.refusal) { terminate(); return; }
       if (!message || typeof message !== 'object') return;
       if (message.type === 'phase') st.phase = message.phase;
-      else if (message.type === 'result' && !st.result && !st.refusal && !st.error) {
+      else if (message.type === 'result' && !st.result && !st.error) {
         st.result = message;
-        st.timers.push(setTimeout(terminate, policy.result_exit_grace_ms));
+        resultExitDeadline = performance.now() + policy.result_exit_grace_ms;
+        st.timers.push(setTimeout(() => {
+          if (!st.exited && !st.settled) {
+            refuse('worker_error', 'terminated_after_result');
+            terminate();
+          }
+        }, policy.result_exit_grace_ms));
       }
     });
     worker.on('error', (error) => {
-      st.error = error;
-      if (st.result) st.prior = { outcome: st.result.outcome, constructor_returned: st.result.constructor_returned };
-      st.refusal ||= {
-        outcome: error.code === 'ERR_WORKER_OUT_OF_MEMORY' ? 'resource_refusal' : 'worker_error',
-        reason: 'worker_error'
-      };
+      if (st.settled) return;
+      st.error ||= error;
+      refuse(error.code === 'ERR_WORKER_OUT_OF_MEMORY' ? 'resource_refusal' : 'worker_error', 'worker_error');
       terminate();
     });
     worker.on('exit', (code) => {
+      if (st.settled || st.exited) return;
       st.exited = true;
-      st.exitCode = code;
-      // An exit event can arrive before an overdue timer gets its turn.
-      if (!st.refusal && performance.now() >= jobDeadline) {
-        if (st.result) st.prior = { outcome: st.result.outcome, constructor_returned: st.result.constructor_returned };
-        st.refusal = { outcome: 'timeout', reason: performance.now() >= runDeadline ? 'run_deadline' : deadlineReason };
+      st.exitCode = Number.isInteger(code) ? code : null;
+      checkDeadline();
+      if (resultExitDeadline !== null && performance.now() >= resultExitDeadline) {
+        refuse('worker_error', 'result_exit_grace');
       }
-      if (!st.refusal && st.result && (code !== 0 || st.terminated)) {
-        st.prior = { outcome: st.result.outcome, constructor_returned: st.result.constructor_returned };
-        st.refusal = { outcome: 'worker_error', reason: st.terminated ? 'terminated_after_result' : 'nonzero_exit_after_result' };
-      } else if (!st.refusal && code !== 0 && !st.terminated) st.refusal = { outcome: 'worker_error', reason: 'unexpected_worker_exit' };
-      finish(true);
+      if (code !== 0 || st.terminated) {
+        refuse('worker_error', st.terminated ? 'terminated_after_result' : st.result ? 'nonzero_exit_after_result' : 'unexpected_worker_exit');
+      }
+      startCleanup();
+      maybeFinish();
     });
     rss.active = () => {
-      if (!st.refusal) {
-        if (st.result) st.prior = { outcome: st.result.outcome, constructor_returned: st.result.constructor_returned };
-        st.refusal = { outcome: 'resource_refusal', reason: 'rss_limit' };
+      if (!st.settled) {
+        refuse('resource_refusal', 'rss_limit');
         terminate();
       }
     };
     rss.sample();
     st.timers.push(setTimeout(() => {
-      if (!st.refusal) {
-        if (st.result) st.prior = { outcome: st.result.outcome, constructor_returned: st.result.constructor_returned };
-        st.refusal = { outcome: 'timeout', reason: performance.now() >= runDeadline ? 'run_deadline' : deadlineReason };
-      }
+      checkDeadline();
       terminate();
-    }, Math.max(0, jobDeadline - performance.now())));
+    }, Math.max(0, Math.ceil(jobDeadline - performance.now()))));
   });
 }
 
@@ -1031,11 +1112,16 @@ function buildRow(job, st, exitObserved, elapsed) {
     phase: st.phase,
     cleanup: { exit_observed: exitObserved, exit_code: st.exitCode, terminated_by_parent: st.terminated }
   });
+  Object.defineProperty(row, '_streamsClosed', { value: st.eof.every(Boolean) });
+  if (st.observeEof) {
+    row.cleanup.stdout_eof_observed = st.eof[0];
+    row.cleanup.stderr_eof_observed = st.eof[1];
+  }
   if (!exitObserved) row.cleanup.uncertainty = 'worker exit was not observed within the cleanup wait';
   if (st.refusal && !row.reason) row.reason = st.refusal.reason;
   if (st.prior) row.prior_result = st.prior;
-  if (st.error) row.exception = exceptionInfo(st.error, 'worker', { max_exception_message_chars: 512 });
-  if (result && result.exception && !st.error) row.exception = result.exception;
+  if (result && result.exception) row.exception = result.exception;
+  else if (st.error) row.exception = exceptionInfo(st.error, 'worker', { max_exception_message_chars: 512 });
   if (result && result.constructor_ms !== undefined) row.constructor_ms = Math.round(result.constructor_ms * 1000) / 1000;
   if (result && result.summary_json_bytes !== undefined) row.summary_json_bytes = result.summary_json_bytes;
   if (result && result.limit) row.limit = result.limit;
@@ -1043,7 +1129,7 @@ function buildRow(job, st, exitObserved, elapsed) {
   if (result && result.seek_globals) row.seek_globals = result.seek_globals;
   if (result && Array.isArray(result.dynamic_imports)) row.dynamic_import_refusals = result.dynamic_imports;
   const normal = outcome === 'returned' || outcome === 'constructor_exception';
-  if (normal && (!exitObserved || st.exitCode !== 0 || st.terminated)) {
+  if (normal && (!exitObserved || st.exitCode !== 0 || st.terminated || !st.eof.every(Boolean))) {
     row.prior_result = { outcome, constructor_returned: returned };
     row.outcome = 'worker_error';
     row.reason = row.reason || 'lifecycle';
@@ -1155,6 +1241,11 @@ export function boundedRow(row, policy, logBudget, omitResult = false) {
     for (const key of ['log_truncated', 'log_omitted', 'log_dropped_entries', 'stdio_dropped_utf8_bytes', 'log_dropped_utf8_bytes']) {
       if (Object.hasOwn(clean, key)) compact[key] = clean[key];
     }
+    for (const key of ['stdout_eof_observed', 'stderr_eof_observed']) {
+      if (Object.hasOwn(clean.cleanup, key)) compact.cleanup[key] = clean.cleanup[key];
+    }
+    if (clean.prior_result) compact.prior_result = clean.prior_result;
+    if (clean.publication_failure) compact.publication_failure = clean.publication_failure;
     if (clean.reason) compact.reason = String(clean.reason).slice(0, 64);
     if (clean.exception) compact.exception = {
       phase: String(clean.exception.phase).slice(0, 64),
@@ -1451,7 +1542,10 @@ function prepare(opts) {
   const mandatoryBytes = (job) => Buffer.byteLength(JSON.stringify({
     ...baseRow(job), outcome: 'constructor_exception', constructor_returned: false,
     elapsed_ms: Number.MAX_SAFE_INTEGER, worker_started: false,
-    cleanup: { exit_observed: false, exit_code: -2147483648, terminated_by_parent: false },
+    cleanup: { exit_observed: false, exit_code: -2147483648, terminated_by_parent: false,
+      ...(route.name === 'supplement' ? { stdout_eof_observed: false, stderr_eof_observed: false } : {}) },
+    prior_result: { outcome: 'constructor_exception', constructor_returned: false },
+    publication_failure: { outcome: 'environment_failure', reason: 'output_io_error' },
     reason: '\u0800'.repeat(64), exception: { phase: '\u0800'.repeat(64), name: '\u0800'.repeat(64), message: '' },
     log_truncated: true, log_omitted: true, log_dropped_entries: Number.MAX_SAFE_INTEGER,
     stdio_dropped_utf8_bytes: Number.MAX_SAFE_INTEGER, log_dropped_utf8_bytes: policy.max_job_log_bytes * 2 + 1
@@ -1459,7 +1553,9 @@ function prepare(opts) {
   if (jobs.some((job) => mandatoryBytes(job) > policy.max_job_json_bytes)) {
     throw new Refusal('output_budget', 'job cap cannot hold mandatory accounting');
   }
-  const reserve = jobs.map((job) => Buffer.byteLength(JSON.stringify(unattemptedRow(job, 'output_limit'))) + 1 + ROW_SLACK_BYTES);
+  const eofReservation = route.name === 'supplement'
+    ? Buffer.byteLength(JSON.stringify({ stdout_eof_observed: false, stderr_eof_observed: false })) : 0;
+  const reserve = jobs.map((job) => Buffer.byteLength(JSON.stringify(unattemptedRow(job, 'output_limit'))) + 1 + ROW_SLACK_BYTES + eofReservation);
   const suffix = new Array(jobs.length + 1).fill(0);
   for (let i = jobs.length - 1; i >= 0; i--) suffix[i] = suffix[i + 1] + reserve[i];
   if (suffix[0] > policy.max_jobs_jsonl_bytes) throw new Refusal('output_budget', 'jobs.jsonl cannot account for every job');
@@ -1572,7 +1668,7 @@ async function run(P, sayLine, started) {
     out = new Output(P.output, policy);
     sampler = setInterval(rss.sample, policy.rss_sample_ms);
     if (typeof sampler.unref === 'function') sampler.unref();
-    const ctx = { policy, sources: P.sources, summaryText: P.summaryText, runDeadline, rss };
+    const ctx = { policy, sources: P.sources, summaryText: P.summaryText, runDeadline, rss, observeEof: P.route.name === 'supplement' };
     for (let i = 0; i < jobs.length; i++) {
       if (performance.now() >= runDeadline) halt ||= 'run_deadline';
       if (rss.over) halt ||= 'rss_limit';
@@ -1631,7 +1727,7 @@ async function run(P, sayLine, started) {
           if (row.worker_started) {
             cleanup.workers_started++;
             if (row.cleanup.exit_observed === true) cleanup.exits_observed++;
-            else { cleanup.unverified.push(job.id); halt = 'cleanup_unverified'; }
+            if (row.cleanup.exit_observed !== true || !row._streamsClosed) { cleanup.unverified.push(job.id); halt = 'cleanup_unverified'; }
           }
           if ((row.outcome === 'timeout' || row.outcome === 'resource_refusal') && row.cleanup.exit_observed !== true) {
             halt = 'cleanup_unverified';
@@ -1651,13 +1747,14 @@ async function run(P, sayLine, started) {
         incomplete = true;
         const failedRow = {
           ...row,
-          outcome: 'environment_failure',
+          outcome: ['returned', 'constructor_exception'].includes(row.outcome) ? 'environment_failure' : row.outcome,
           _summary_json: null,
-          reason: error.reason || 'output_io_error',
+          reason: row.reason || error.reason || 'output_io_error',
+          publication_failure: { outcome: 'environment_failure', reason: error.reason || 'output_io_error' },
           ...(['returned', 'constructor_exception'].includes(row.outcome) ? {
             prior_result: { outcome: row.outcome, constructor_returned: row.constructor_returned }
           } : {}),
-          exception: exceptionInfo(error, 'publication', policy)
+          exception: row.exception || exceptionInfo(error, 'publication', policy)
         };
         accounting[i] = accountingRow(failedRow);
         if (out.tailUncertain) { publicationFailed = true; break; }
