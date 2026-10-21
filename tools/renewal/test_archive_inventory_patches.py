@@ -1204,6 +1204,77 @@ class ConsumerTests(unittest.TestCase):
                 rewrite(copy, manifest=mutate)
                 self.refused(env, copy)
 
+    def test_zero_block_complete_encoded_name_hash_relation(self):
+        # Two independent 139-byte literals: block8, region6, derived2, zero
+        # transformed blocks. Encoded-name hashes cover exactly TWO bytes.
+        cases = [
+            ("last_nul", b"A\0xxxx", "41", True,
+             "e61c21ca716b3b1aefb7d1198f83679c4ca4d596e5792275dd6203b49216237d",
+             "8fa7ed3638737a3191a1779a329ecaf8907fe4ac4593dbf0fb7760abe8e5dec1",
+             "5dd0617aa72533439a31d6b6eead2011126458799ca857832c5737210699e837",
+             "4d6173746572206f66204d61676963004b4b4b4b4b4b4b4b4b4b4b4b4b4b40000000"
+             "030000000b0000000201000050505050505050505050505050505050505050505050"
+             "50505050505050505050505050505050505050505050505050505050505050505050"
+             "5050505050505050080000000000410078787878d5020000db920000000000000100"
+             "000000"),
+            ("unterminated", b"ABxxxx", "4142", False,
+             "38164fbd17603d73f696b8b4d72664d735bb6a7c88577687fd2ae33fd6964153",
+             "5ffb4ea50d12d9bcd2c5b27a13a69df43442173bbb7ff71ba324edb8e7eb1e25",
+             "25bdd0996b29bd6da640f1c2e83c38805343dc17433ee327a290ffe4ac658ddf",
+             "4d6173746572206f66204d61676963004b4b4b4b4b4b4b4b4b4b4b4b4b4b40000000"
+             "030000000b0000000201000050505050505050505050505050505050505050505050"
+             "50505050505050505050505050505050505050505050505050505050505050505050"
+             "5050505050505050080000000000414278787878d5020000db920000000000000100"
+             "000000")]
+        for name, region, name_hex, terminated, encoded_sha, region_sha, blob_sha, literal_hex in cases:
+            with self.subTest(name):
+                literal = bytes.fromhex(literal_hex)
+                self.assertEqual((len(literal), sha(literal)), (139, blob_sha))
+                self.assertEqual(sha(region[:2]), encoded_sha)
+                self.assertEqual(sha(region), region_sha)
+                blob = archive([entry(raw_region=region, block_len=8)])
+                self.assertEqual(blob, literal)  # Fixture encoder cannot supply its own oracle.
+                env = Env(self, archives=[blob] * 28)
+                descriptors = sorted(os.listdir("/dev/fd"))
+                target, manifest, _ = env.run()
+                self.assertEqual(env.verify(), manifest)  # Full 28-archive positive baseline.
+                self.assertEqual(len(manifest["archives"]), 28)
+                files = sorted(os.listdir(target))
+                self.assertEqual(len(files), 30)
+                first = env.selected()[0]["index"]
+                record_path = target / f"{first}.records.jsonl"
+                record = json.loads(record_path.read_bytes())
+                expected = {"block_length": 8, "encoded_region_bytes": 6,
+                            "derived_name_length": 2, "transformed_blocks": 0,
+                            "untransformed_name_bytes": 2, "name_hex": name_hex,
+                            "name_terminated": terminated, "encoded_name_sha256": encoded_sha,
+                            "encoded_region_sha256": region_sha}
+                self.assertEqual({k: record[k] for k in expected}, expected)
+                hits = []
+                def corrupt(records):
+                    self.assertEqual(len(records), 1)
+                    self.assertEqual(records[0]["encoded_name_sha256"], encoded_sha)
+                    records[0]["encoded_name_sha256"] = "0" * 64
+                    hits.append(True)
+                    return records
+                rewrite(target, records={first: corrupt})
+                self.assertEqual(hits, [True])
+                changed_record = record_path.read_bytes()
+                self.assertEqual(json.loads(changed_record)["encoded_name_sha256"], "0" * 64)
+                manifest_bytes = (target / "inventory-manifest.json").read_bytes()
+                changed_manifest = json.loads(manifest_bytes)
+                complete = json.loads((target / "inventory-complete.json").read_bytes())
+                self.assertEqual(changed_manifest["archives"][0]["records_file"]["sha256"], sha(changed_record))
+                self.assertEqual(complete["record_files"][record_path.name], sha(changed_record))
+                self.assertEqual((complete["inventory_manifest_bytes"], complete["inventory_manifest_sha256"]),
+                                 (len(manifest_bytes), sha(manifest_bytes)))
+                before = {f: (target / f).read_bytes() for f in files}
+                with self.assertRaises(aip.VerificationError):
+                    env.verify()
+                self.assertEqual({f: (target / f).read_bytes() for f in files}, before)
+                self.assertEqual(sorted(os.listdir(target)), files)
+                self.assertEqual(sorted(os.listdir("/dev/fd")), descriptors)
+
     def copy_of(self, env):
         src = env.output
         n = len([p for p in os.listdir(env.out_parent) if p.startswith("c")])

@@ -54,7 +54,8 @@ CURRENT WORK: October assets and missing maps
  |        Fresh root run and full record audit pass.
  |        Both fresh runs and all 5,742 records match the reference.
  |        Claude selected: 16/20, versus Grok 11/20.
- |        Next: repair its hash check and verify again.
+ |        Repair passes 32 enabled tests and both new failure checks.
+ |        Next: fresh run, consumer checks and full record audit.
  +-- [~] RGZ format: primary-source preparation; no decode yet.
  |
 [ ] Render -> normal play and save -> full content checks.

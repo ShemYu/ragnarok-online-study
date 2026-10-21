@@ -43,7 +43,7 @@ import stat
 import sys
 import types
 
-VERSION = "1.0.0"
+VERSION = "1.0.1"
 TASK = "T07.007.007"
 MANIFEST_SCHEMA = "ro-patch-raw-inventory/1"
 COMPLETE_SCHEMA = "ro-patch-raw-inventory-complete/1"
@@ -1522,8 +1522,9 @@ _RECORD_UNSIGNED = {
 def _record_contract(rec, row, header, ordinal, consumed, table_bytes, core):
     """Typed fields and recomputed relations of one core legacy_records row.
 
-    Opaque encoded-region hashes remain bound observations except where the encoded
-    range is empty; the original name transformation is not re-proved from hashes."""
+    Empty ranges and completely known untransformed name prefixes have computable
+    hashes. Other encoded hashes remain bound observations; neither a transformed
+    name nor unknown bytes after a NUL is reconstructed from its hash."""
     _need(isinstance(rec, dict) and set(rec) == _RECORD_KEYS, "record keys")
     _need(all(_is_int(rec[k]) for k in _RECORD_UNSIGNED), "record unsigned integer types")
     _need(type(rec["derived_compressed_size"]) is int and
@@ -1563,6 +1564,10 @@ def _record_contract(rec, row, header, ordinal, consumed, table_bytes, core):
     _need((region > 0 or rec["encoded_region_sha256"] == EMPTY_SHA256) and
           (derived > 0 or rec["encoded_name_sha256"] == EMPTY_SHA256),
           "empty encoded range hashes")
+    if blocks == 0 and (not rec["name_terminated"] or len(raw) + 1 == derived):
+        encoded_name = raw + (b"\0" if rec["name_terminated"] else b"")
+        _need(rec["encoded_name_sha256"] == sha256(encoded_name),
+              "untransformed encoded name hash")
     compressed = rec["size_field"] - rec["real_size"] - core.LEGACY_LENGTH_BIAS
     aligned = rec["aligned_field"] - core.LEGACY_ALIGNED_BIAS
     _need(_same(rec["derived_compressed_size"], compressed) and

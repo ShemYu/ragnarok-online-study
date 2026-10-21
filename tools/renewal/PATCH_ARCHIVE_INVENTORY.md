@@ -1,6 +1,6 @@
 # Patch GPF physical inventory facade (T07.007.007)
 
-Version **1.0.0**, independent Claude candidate. It has not been verified by root and the user has not accepted it.
+Version **1.0.1**, a separate root correction based on the selected independent Claude 1.0.0 candidate. See the [coordinator review](../../docs/project/reviews/2026-10-21-T07.007.007.md) for current verification and limitations. User acceptance remains separate.
 
 `archive_inventory_patches.py` inventories every physical file-table record of the
 28 selected patch GPFs listed in the frozen acquisition ledger. It is an additive
@@ -131,6 +131,8 @@ trusting a rehashed chain:
 - ordinal, table cursor and `archive_offset`;
 - low byte, derived length, region, transformed and untransformed blocks;
 - name termination and length;
+- encoded-name SHA256 when zero blocks were transformed and the complete encoded
+  prefix is known: an unterminated name, or a NUL exactly at the last derived byte;
 - signed biases and underflows;
 - kind, encryption suffix and filter;
 - the diagnostic range.
@@ -138,8 +140,11 @@ trusting a rehashed chain:
 The consumer then rebuilds the expected manifest from the profile, the recomputed
 summaries and the cross-archive totals, and requires exact typed equality. Finally it
 rechecks the source and output identities. It never opens archives and never imports
-manifest-named code. Encoded-region hashes remain bound observations: the consumer
-does not claim that hashes re-prove the original name transformation.
+manifest-named code. Empty encoded ranges retain their existing exact hash checks.
+Other encoded-region hashes remain bound observations. For a zero-block name the
+consumer can hash the raw name, plus its NUL when that NUL is the last derived
+byte. It does not invert transformed-name hashes or infer unknown padding after
+an earlier NUL, and does not claim that hashes re-prove the original transformation.
 
 ## Tests (synthetic, private under `.tools/renewal/T07.007.007/`)
 
@@ -177,6 +182,14 @@ The controls cover:
   extra-key forgeries; rehashed summary, totals, association, priority, ledger and
   helper forgeries; tree, mode and link refusals; source and profile changes; mutation
   during a read; and a read-only check.
+
+The 1.0.1 regression adds two independently literal 139-byte archives: block8,
+encoded region6, derived name2 and zero transformed blocks, with `A\0xxxx` and
+`ABxxxx`. Each checks literal archive/name/region hashes, a full 28-archive baseline,
+then a deliberately wrong encoded-name hash with the complete record/manifest/
+completion chain rehashed. Verification must raise `VerificationError`, remain
+read-only and retain the descriptor set. This defines the regression check;
+the coordinator review records its execution result.
 
 ## Meaning and limits
 
