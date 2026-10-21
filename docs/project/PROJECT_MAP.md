@@ -50,8 +50,8 @@ CURRENT WORK: October assets and missing maps
  |
 [~] Model constructor preparation.
  |    All 273 full model files and map links pass input checks.
- |    Harness failure checks pass. No model run yet.
- |    Next: 13 known fixtures, then all 273 model results.
+ |    Harness failure checks and all 13 known fixtures pass.
+ |    Next: all 273 model results.
  |
  +-- [V] Other 28 GPF patch tables: corrected tool verified.
  |        Root reference: all 5,742 raw records checked.
