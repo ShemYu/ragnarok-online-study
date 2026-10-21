@@ -81,13 +81,15 @@ CURRENT WORK: October assets and missing maps
  |    Historical compatibility copy and its preflight pass.
  |    Claude: root historical 44 tests pass. Grok is submitted/released.
  |    Grok: root historical 44 and all 20 shared cases pass.
+ |    Grok new 13 pass; eight metadata checks need repair.
  |    User resumed. Independent preparation runs in parallel.
  |    Claude focused 30 pass; six metadata checks need correction.
  |    Admission checks complete: two value-changing booleans refused.
  |    All 20 shared scanner cases pass. No native scan yet.
  |    Auditor bug fixed: root 76 focused checks pass.
  |    Full output auditor: 2 positives and 37 failure checks pass.
- |    Next: root verifies Grok, compares and integrates, then actual scan.
+ |    Claude selected for repair: 17/20 versus Grok 15/20.
+ |    Next: integrate, repair and reverify, then actual scan.
  |
  +-- [V] Other 28 GPF patch tables: corrected tool verified.
  |        Root reference: all 5,742 raw records checked.
