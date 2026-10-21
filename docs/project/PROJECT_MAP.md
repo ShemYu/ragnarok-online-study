@@ -16,8 +16,8 @@ CURRENT WORK: October assets and missing maps
 [V] Find all 12 terrain-name entries for the four target maps.
  |    Names and table fields pass. Payloads and play are not checked.
  |
- +-- Inventory tool: both record sets pass.
- |                  Claude selected; root repairs validation.
+ +-- Inventory tool: corrected and verified.
+ |                  Full records and April checks pass.
  |
  +-- Patch and reader plan: compared and corrected.
  +-- Collect all candidate patches: done.

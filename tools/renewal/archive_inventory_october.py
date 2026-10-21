@@ -36,6 +36,7 @@ verify_inventory(output) is the read-only consumer gate. Standard library only.
 import argparse
 import hashlib
 import json
+import math
 import os
 from pathlib import Path
 import posixpath
@@ -43,7 +44,7 @@ import stat
 import sys
 import types
 
-VERSION = "1.0.0"
+VERSION = "1.0.1"
 TASK = "T07.007.001"
 MANIFEST_SCHEMA = "ro-october-raw-inventory/1"
 COMPLETE_SCHEMA = "ro-october-raw-inventory-complete/1"
@@ -191,6 +192,43 @@ def _is_hex64(value):
         all(c in "0123456789abcdef" for c in value)
 
 
+def _same(left, right):
+    """JSON equality that never equates booleans/floats with integer fields."""
+    if type(left) is not type(right):
+        return False
+    if isinstance(left, dict):
+        return left.keys() == right.keys() and all(_same(v, right[k])
+                                                   for k, v in left.items())
+    if isinstance(left, list):
+        return len(left) == len(right) and all(_same(a, b) for a, b in zip(left, right))
+    return left == right
+
+
+def _json(data, what, error=InputError):
+    def pairs(items):
+        result = {}
+        for key, value in items:
+            if key in result:
+                raise ValueError("duplicate key")
+            result[key] = value
+        return result
+
+    def constant(_value):
+        raise ValueError("nonfinite constant")
+
+    def floating(text):
+        value = float(text)
+        if not math.isfinite(value):
+            raise ValueError("nonfinite number")
+        return value
+
+    try:
+        return json.loads(data, object_pairs_hook=pairs, parse_constant=constant,
+                          parse_float=floating)
+    except (ValueError, RecursionError):
+        raise error(f"{what} is not unambiguous finite JSON") from None
+
+
 # --- Pinned small files -------------------------------------------------------------------
 
 def _read_regular(path, what, limit, error=InputError):
@@ -253,7 +291,7 @@ def _load_core(contract):
 def _read_profile(contract):
     data, identity = _read_pinned_file(contract.profile_path, contract.profile_pin, "profile")
     try:
-        profile = json.loads(data.decode("ascii"))
+        profile = _json(data.decode("ascii"), "profile")
     except ValueError:
         raise InputError("profile is not ASCII JSON") from None
     validate_profile(profile, contract)
@@ -274,7 +312,7 @@ def validate_profile(profile, contract):
     need(isinstance(profile["enumeration_basis"], str), "enumeration basis")
     need(isinstance(profile["exclusions"], list) and
          all(isinstance(x, str) for x in profile["exclusions"]), "exclusions")
-    need(profile["core"] == {"path": CORE_REL, **contract.core_pin}, "core pin")
+    need(_same(profile["core"], {"path": CORE_REL, **contract.core_pin}), "core pin")
     pre = profile["source_preflight"]
     need(isinstance(pre, dict) and set(pre) == {"bytes", "sha256"} and
          _is_int(pre["bytes"]) and _is_hex64(pre["sha256"]), "source preflight")
@@ -457,12 +495,17 @@ class CheckedFile:
                      dir_fd=dir_fd)
         created[name] = None  # never unlink before ownership is verified
         self.fd, self.name, self.limit = fd, name, limit
-        info = os.fstat(fd)
-        created[name] = (info.st_dev, info.st_ino)
-        os.fchmod(fd, 0o600)
-        self.digest = hashlib.sha256()
-        self.buffer = bytearray()
-        self.bytes = self.lines = 0
+        try:
+            info = os.fstat(fd)
+            created[name] = (info.st_dev, info.st_ino)
+            os.fchmod(fd, 0o600)
+            self.digest = hashlib.sha256()
+            self.buffer = bytearray()
+            self.bytes = self.lines = 0
+        except BaseException:
+            # A partially constructed writer never reaches its caller's abort().
+            self.abort()
+            raise
 
     def write(self, data):
         if self.bytes + len(data) > self.limit:
@@ -571,13 +614,13 @@ def run(extracted_manifest, archive_root, output):
 def _run(contract, extracted_manifest, archive_root, output):
     profile, profile_identity = _read_profile(contract)
     core, core_identity = _load_core(contract)
-    generator, _ = _read_generator(contract)
+    generator, generator_identity = _read_generator(contract)
     em_pin = {"bytes": profile["extracted_manifest"]["bytes"],
               "sha256": profile["extracted_manifest"]["sha256"]}
     manifest_bytes_in, manifest_identity = _read_pinned_file(
         extracted_manifest, em_pin, "extracted manifest")
     try:
-        entries = json.loads(manifest_bytes_in.decode("utf-8"))
+        entries = _json(manifest_bytes_in.decode("utf-8"), "extracted manifest")
     except ValueError:
         raise InputError("extracted manifest is not UTF-8 JSON") from None
     facts = validate_extracted_manifest(entries, profile)
@@ -684,15 +727,34 @@ def _run(contract, extracted_manifest, archive_root, output):
         # Recheck every retained input identity immediately before completion.
         _recheck_inputs(contract, profile_identity, core_identity, extracted_manifest,
                         em_pin, manifest_identity, archive_root, root_info, retained,
-                        profile, generator)
+                        profile, generator, generator_identity)
         _check_target(target, identity)
         _publish_document(core, out_fd, OUTPUT_COMPLETE, complete, created)
         if sorted(os.listdir(out_fd)) != sorted(created):
             raise OutputError("output directory holds files this run did not write")
         _check_target(target, identity)
         _verify_inventory(target, contract, expect_identity=identity)
+        # The consumer is not an ownership oracle for this run. It may have read
+        # byte-identical foreign files or an old directory after a path swap.
+        _recheck_inputs(contract, profile_identity, core_identity, extracted_manifest,
+                        em_pin, manifest_identity, archive_root, root_info, retained,
+                        profile, generator, generator_identity)
+        expected_files = {a["records_file"]["file"]: a["records_file"] for a in archives}
+        expected_files[OUTPUT_MANIFEST] = {"bytes": len(manifest_bytes),
+                                           "sha256": hashes["manifest_sha256"]}
+        expected_files[OUTPUT_COMPLETE] = {"bytes": len(complete),
+                                           "sha256": hashes["complete_sha256"]}
+        if sorted(os.listdir(out_fd)) != sorted(created):
+            raise OutputError("output directory holds files this run did not write")
+        for name, expected in expected_files.items():
+            _private_file(os.stat(name, dir_fd=out_fd, follow_symlinks=False), name,
+                          OutputError)
+            core._verify_published(out_fd, name, expected["bytes"], expected["sha256"],
+                                   created[name])
+        _check_target(target, identity)
         closing_fd, out_fd = out_fd, None
         _close_fd(closing_fd)
+        _check_target(target, identity)
     except Exception as exc:
         _fail_publication(core, exc, target, identity, out_fd, created)
     finally:
@@ -716,16 +778,22 @@ def _check_target(target, identity):
         raise OutputError("reserved output directory is no longer at its path") from None
     if not stat.S_ISDIR(info.st_mode) or (info.st_dev, info.st_ino) != identity:
         raise OutputError("reserved output directory was replaced")
+    if info.st_uid != os.geteuid() or stat.S_IMODE(info.st_mode) != 0o700:
+        raise OutputError("reserved output directory is not private to you")
 
 
 def _recheck_inputs(contract, profile_identity, core_identity, extracted_manifest, em_pin,
-                    manifest_identity, archive_root, root_info, retained, profile, generator):
+                    manifest_identity, archive_root, root_info, retained, profile, generator,
+                    generator_identity=None):
+    manifest_data = None
     for path, pin, what, before in (
             (contract.profile_path, contract.profile_pin, "profile", profile_identity),
             (contract.core_path, contract.core_pin, "core", core_identity),
             (extracted_manifest, em_pin, "extracted manifest", manifest_identity),
-            (contract.generator_path, generator, "generator source", None)):
-        _, now = _read_pinned_file(path, pin, what)
+            (contract.generator_path, generator, "generator source", generator_identity)):
+        data, now = _read_pinned_file(path, pin, what)
+        if what == "extracted manifest":
+            manifest_data = data
         if before is not None and now != before:
             raise InputError(f"{what} identity changed during the run")
     try:
@@ -735,10 +803,17 @@ def _recheck_inputs(contract, profile_identity, core_identity, extracted_manifes
     try:
         if _identity(os.fstat(fd))[:2] != _identity(root_info)[:2]:
             raise InputError("archive root was replaced during the run")
+        facts = validate_extracted_manifest(_json(manifest_data, "extracted manifest"),
+                                            profile)
+        check_archive_root(fd, facts, profile)
         for pin in profile["archives"]:
             info = _archive_lstat(fd, pin["file"], pin["bytes"])
             if _identity(info) != retained[pin["file"]]:
                 raise InputError(f"archive {pin['file']} changed after it was read")
+        current = os.stat(archive_root, follow_symlinks=False)
+        if not stat.S_ISDIR(current.st_mode) or \
+                _identity(current)[:2] != _identity(root_info)[:2]:
+            raise InputError("archive root was replaced during the recheck")
     finally:
         os.close(fd)
 
@@ -868,17 +943,29 @@ def verify_inventory(output):
     return _verify_inventory(output, PRODUCTION)
 
 
-def _read_output_file(dir_fd, name, limit):
-    try:
-        fd = os.open(name, FILE_FLAGS, dir_fd=dir_fd)
-    except OSError:
-        raise VerificationError(f"{name} cannot be opened without following links") from None
+def _private_file(info, name, error=VerificationError):
+    if not stat.S_ISREG(info.st_mode) or info.st_nlink != 1 or \
+            stat.S_IMODE(info.st_mode) != 0o600 or info.st_uid != os.geteuid():
+        raise error(f"{name} is not a private single-link regular file")
+
+
+def _remember_file(dir_fd, name, before, after, identities):
+    _private_file(after, name)
+    current = os.stat(name, dir_fd=dir_fd, follow_symlinks=False)
+    _private_file(current, name)
+    if _identity(before) != _identity(after) or _identity(current) != _identity(before):
+        raise VerificationError(f"{name} changed or was replaced while read")
+    if identities is not None:
+        identities[name] = _identity(before)
+
+
+def _read_output_file(dir_fd, name, limit, identities=None):
+    fd = os.open(name, FILE_FLAGS, dir_fd=dir_fd)
     try:
         before = os.fstat(fd)
-        if not stat.S_ISREG(before.st_mode) or before.st_nlink != 1 or \
-                stat.S_IMODE(before.st_mode) != 0o600 or before.st_uid != os.geteuid() or \
-                before.st_size > limit:
-            raise VerificationError(f"{name} is not a bounded private single-link file")
+        _private_file(before, name)
+        if before.st_size > limit:
+            raise VerificationError(f"{name} is above its document limit")
         chunks, total = [], 0
         while total <= before.st_size:
             chunk = os.read(fd, min(8 << 20, before.st_size + 1 - total))
@@ -889,15 +976,16 @@ def _read_output_file(dir_fd, name, limit):
         after = os.fstat(fd)
     finally:
         os.close(fd)
-    if total != before.st_size or _identity(before) != _identity(after):
+    _remember_file(dir_fd, name, before, after, identities)
+    if total != before.st_size:
         raise VerificationError(f"{name} changed while read")
     return b"".join(chunks)
 
 
 def _canonical_json(data, name):
     try:
-        doc = json.loads(data.decode("ascii"))
-    except ValueError:
+        doc = _json(data.decode("ascii"), name, VerificationError)
+    except UnicodeError:
         raise VerificationError(f"{name} is not ASCII JSON") from None
     if (json.dumps(doc, ensure_ascii=True, indent=1, sort_keys=True) + "\n").encode() != data:
         raise VerificationError(f"{name} is not in canonical form")
@@ -907,158 +995,348 @@ def _canonical_json(data, name):
 def _verify_inventory(output, contract, expect_identity=None):
     try:
         return _verify_tree(output, contract, expect_identity)
-    except (KeyError, TypeError, AttributeError, IndexError):
-        raise VerificationError("inventory refused: malformed manifest or completion "
-                                "structure") from None
+    except VerificationError:
+        raise
+    except (ValueError, OSError, KeyError, TypeError, AttributeError, IndexError,
+            OverflowError, RecursionError):
+        raise VerificationError("inventory refused: malformed, changed or unreadable "
+                                "inventory contract") from None
 
 
-def _verify_tree(output, contract, expect_identity):
-    def need(ok, why):
-        if not ok:
-            raise VerificationError(f"inventory refused: {why}")
-
-    try:
-        profile, _ = _read_profile(contract)
-    except InventoryError as exc:
-        raise VerificationError(f"inventory refused: {exc}") from None
-    generator, _ = _read_generator(contract)
-    names = [a["file"] for a in profile["archives"]]
-    record_names = [n + RECORDS_SUFFIX for n in names]
-    try:
-        dir_fd = os.open(output, DIR_FLAGS)
-    except OSError:
-        raise VerificationError("inventory refused: output is missing, not a directory or "
-                                "a link") from None
-    try:
-        info = os.fstat(dir_fd)
-        need(expect_identity is None or (info.st_dev, info.st_ino) == expect_identity,
-             "directory is not the expected one")
-        listing = sorted(os.listdir(dir_fd))
-        need(OUTPUT_FAILED not in listing, "a failure marker is present")
-        need(listing == sorted(record_names + [OUTPUT_MANIFEST, OUTPUT_COMPLETE]),
-             "missing or extra files")
-        complete = _canonical_json(_read_output_file(dir_fd, OUTPUT_COMPLETE,
-                                                     MAX_COMPLETE_DOCUMENT_BYTES),
-                                   OUTPUT_COMPLETE)
-        need(isinstance(complete, dict) and set(complete) == {
-            "schema", "task", "generator_version", "status", "inventory_manifest",
-            "inventory_manifest_bytes", "inventory_manifest_sha256", "record_files"},
-            "completion keys")
-        need(complete["schema"] == COMPLETE_SCHEMA and complete["task"] == TASK and
-             complete["status"] == "complete" and complete["generator_version"] == VERSION and
-             complete["inventory_manifest"] == OUTPUT_MANIFEST, "completion contract")
-        need(isinstance(complete["record_files"], dict) and
-             sorted(complete["record_files"]) == sorted(record_names),
-             "completion record-file set")
-        manifest_bytes = _read_output_file(dir_fd, OUTPUT_MANIFEST,
-                                           MAX_MANIFEST_DOCUMENT_BYTES)
-        need(len(manifest_bytes) == complete["inventory_manifest_bytes"] and
-             sha256(manifest_bytes) == complete["inventory_manifest_sha256"],
-             "manifest hash binding")
-        manifest = _canonical_json(manifest_bytes, OUTPUT_MANIFEST)
-        need(isinstance(manifest, dict), "manifest shape")
-        need(manifest.get("schema") == MANIFEST_SCHEMA and manifest.get("task") == TASK and
-             manifest.get("status") == "complete", "manifest contract")
-        need(manifest.get("generator") == {"tool": GENERATOR_REL, "version": VERSION,
-                                           **generator}, "generator identity")
-        core = manifest.get("core")
-        need(isinstance(core, dict) and core.get("path") == CORE_REL and
-             core.get("bytes") == contract.core_pin["bytes"] and
-             core.get("sha256") == contract.core_pin["sha256"], "core identity")
-        prof = manifest.get("profile")
-        need(isinstance(prof, dict) and prof.get("path") == PROFILE_REL and
-             prof.get("bytes") == contract.profile_pin["bytes"] and
-             prof.get("sha256") == contract.profile_pin["sha256"], "profile identity")
-        em = manifest.get("extracted_manifest")
-        pem = profile["extracted_manifest"]
-        need(isinstance(em, dict) and em.get("bytes") == pem["bytes"] and
-             em.get("sha256") == pem["sha256"] and em.get("files") == pem["files"] and
-             em.get("directories") == pem["directories"] and
-             em.get("grf_paths") == pem["grf_paths"], "extracted manifest identity")
-        need(manifest.get("enumeration_order") == list(ENUMERATION_ORDER) and
-             manifest.get("lookup_priority", 0) is None and
-             manifest.get("priority_status") == "not_established" and
-             manifest.get("semantics") == SEMANTICS, "non-priority semantics")
-        archives = manifest.get("archives")
-        need(isinstance(archives, list) and len(archives) == len(names), "archive list")
-        for position, (pin, entry) in enumerate(zip(profile["archives"], archives)):
-            name = pin["file"]
-            need(isinstance(entry, dict) and entry.get("order") == position and
-                 entry.get("file") == name and entry.get("bytes") == pin["bytes"] and
-                 entry.get("sha256") == pin["sha256"], f"{name} identity")
-            header = entry.get("header") or {}
-            need(header.get("record_count") == pin["record_count"] and
-                 header.get("header_sha256") == pin["header_sha256"] and
-                 header.get("table_pos") == pin["table_pos"], f"{name} header facts")
-            agreement = entry.get("profile_agreement")
-            need(isinstance(agreement, dict) and agreement and
-                 all(v is True for v in agreement.values()), f"{name} profile agreement")
-            rf = entry.get("records_file") or {}
-            counts = entry.get("counts") or {}
-            need(rf.get("file") == name + RECORDS_SUFFIX and
-                 complete["record_files"][rf["file"]] == rf.get("sha256") and
-                 rf.get("lines") == pin["record_count"] and
-                 counts.get("raw_records") == pin["record_count"], f"{name} record binding")
-            _verify_records(dir_fd, rf, name, pin["sha256"],
-                            core_limit(manifest))
-        need(manifest.get("totals", {}).get("raw_records") == profile["total_header_records"],
-             "record totals")
-        after = os.fstat(dir_fd)
-        need(_identity(after)[:2] == _identity(info)[:2] and
-             sorted(os.listdir(dir_fd)) == listing, "directory changed during verification")
-    finally:
-        os.close(dir_fd)
-    return manifest
+def _need(ok, why):
+    if not ok:
+        raise VerificationError(f"inventory refused: {why}")
 
 
-def core_limit(manifest):
-    limits = manifest.get("work_limits")
-    if not isinstance(limits, dict) or not _is_int(limits.get("max_record_file_bytes")):
-        raise VerificationError("inventory refused: work limits")
-    return limits["max_record_file_bytes"]
+def _header_contract(header, pin, core):
+    # Validate the reported raw u32 fields using the unchanged core, without
+    # rereading any archive or reconstructing/claiming its unreported header bytes.
+    keys = {"signature", "signature_field_hex", "header_sha256", "declared_version",
+            "field_u32_30", "field_u32_34", "field_u32_38", "effective_version", "layout",
+            "version_provenance", "count_rule", "table_offset", "record_count",
+            "table_skip", "table_pos"}
+    _need(isinstance(header, dict) and set(header) == keys, "header keys")
+    _need(all(_is_int(header[k]) for k in
+              ("declared_version", "field_u32_30", "field_u32_34", "field_u32_38",
+               "effective_version", "table_offset", "record_count", "table_skip",
+               "table_pos")), "header integer types")
+    field = header["signature_field_hex"]
+    _need(isinstance(field, str) and len(field) == 30 and
+          all(c in "0123456789abcdef" for c in field), "signature field")
+    signature = bytes.fromhex(field)
+    probe = bytearray(46)
+    probe[:15] = signature
+    for offset, key in ((30, "field_u32_30"), (34, "field_u32_34"),
+                        (38, "field_u32_38"), (42, "declared_version")):
+        _need(header[key] < 1 << 32, "header u32 range")
+        probe[offset:offset + 4] = header[key].to_bytes(4, "little")
+    expected = core.parse_header(probe)
+    # The actual 46-byte hash is frozen by the profile; probe is only a field
+    # consistency check, not an independently reconstructed header/hash proof.
+    expected["header_sha256"] = pin["header_sha256"]
+    _need(_same(header, expected), "source-derived header fields")
+    plan = {"stored_start": pin["table_pos"], "stored_end": pin["stored_end"]}
+    if pin["layout"] != "legacy":
+        plan.update(compressed_size=pin["table_compressed_size"],
+                    real_size=pin["table_real_size"])
+    return compare_with_profile(pin, header, plan)
 
 
-def _verify_records(dir_fd, rf, archive, archive_sha256, limit):
+_RECORD_BASE = {
+    "archive", "archive_sha256", "ordinal", "table_offset", "record_bytes", "name_hex",
+    "name_length", "name_terminated", "compressed_size", "length_aligned", "real_size",
+    "original_kind", "effective_kind", "metadata_filter", "payload_offset_field",
+    "diagnostic_body_range", "diagnostic_body_range_within_archive",
+}
+_RECORD_LEGACY = {
+    "block_length", "block_low_byte", "derived_name_length", "name_start", "metadata_offset",
+    "encoded_region_bytes", "encoded_region_sha256", "encoded_name_sha256",
+    "transformed_blocks", "untransformed_name_bytes", "size_field", "aligned_field",
+    "derived_compressed_size", "derived_length_aligned", "compressed_underflow",
+    "aligned_underflow", "header_encryption_flag", "archive_offset",
+}
+
+
+def _record_contract(rec, pin, ordinal, consumed, core):
+    """Literal typed fields/relations of core modern_records/legacy_records.
+
+    No table/body is reopened and no codec is inferred. Opaque encoded-region
+    hashes remain bound observations, not a claim to authenticate rewritten rows.
+    """
+    legacy = pin["layout"] == "legacy"
+    expected_keys = _RECORD_BASE | (_RECORD_LEGACY if legacy else {"kind_promotion"})
+    _need(isinstance(rec, dict) and set(rec) == expected_keys, "record keys")
+    integer_keys = {"ordinal", "table_offset", "record_bytes", "name_length",
+                    "compressed_size", "length_aligned", "real_size", "original_kind",
+                    "effective_kind", "payload_offset_field"}
+    if legacy:
+        integer_keys |= _RECORD_LEGACY - {
+            "encoded_region_sha256", "encoded_name_sha256", "derived_compressed_size",
+            "derived_length_aligned", "compressed_underflow", "aligned_underflow",
+            "header_encryption_flag"}
+    _need(all(_is_int(rec[k]) for k in integer_keys), "record integer types")
+    _need(rec["ordinal"] == ordinal and rec["table_offset"] == consumed and
+          rec["archive"] == pin["file"] and rec["archive_sha256"] == pin["sha256"],
+          "record identity/order")
+    text = rec["name_hex"]
+    _need(isinstance(text, str) and len(text) == 2 * rec["name_length"] and
+          all(c in "0123456789abcdef" for c in text), "record raw name hex")
+    raw = bytes.fromhex(text)
+    _need(b"\0" not in raw and type(rec["name_terminated"]) is bool,
+          "record name termination")
+    _need(all(rec[k] < 1 << 32 for k in
+              ("real_size", "original_kind", "compressed_size", "length_aligned")) and
+          rec["original_kind"] < 256 and rec["effective_kind"] < 256,
+          "record source integer ranges")
+    effective = rec["original_kind"]
+    if legacy:
+        _need(all(type(rec[k]) is int for k in
+                  ("derived_compressed_size", "derived_length_aligned")),
+              "legacy signed integer types")
+        block = rec["block_length"]
+        derived = max((block & 255) - 6, 0)
+        region = block - 2
+        _need(block < 1 << 32 and region >= 0 and 6 + derived <= 4 + block,
+              "legacy name region")
+        blocks = min((derived + 7) // 8, region // 8)
+        fields = {"block_low_byte": block & 255, "derived_name_length": derived,
+                  "name_start": 6, "metadata_offset": 4 + block,
+                  "encoded_region_bytes": region, "transformed_blocks": blocks,
+                  "untransformed_name_bytes": max(derived - 8 * blocks, 0),
+                  "record_bytes": 4 + block + 17,
+                  "archive_offset": pin["table_pos"] + consumed}
+        _need(all(_same(rec[k], v) for k, v in fields.items()), "legacy field relations")
+        _need(rec["name_length"] < derived if rec["name_terminated"] else
+              rec["name_length"] == derived, "legacy name length")
+        _need(_is_hex64(rec["encoded_region_sha256"]) and
+              _is_hex64(rec["encoded_name_sha256"]), "legacy encoded hashes")
+        _need(all(rec[k] < 1 << 32 for k in ("size_field", "aligned_field")),
+              "legacy stored size ranges")
+        compressed = rec["size_field"] - rec["real_size"] - core.LEGACY_LENGTH_BIAS
+        aligned = rec["aligned_field"] - core.LEGACY_ALIGNED_BIAS
+        _need(_same(rec["derived_compressed_size"], compressed) and
+              _same(rec["derived_length_aligned"], aligned) and
+              _same(rec["compressed_underflow"], compressed < 0) and
+              _same(rec["aligned_underflow"], aligned < 0) and
+              rec["compressed_size"] == max(compressed, 0) and
+              rec["length_aligned"] == max(aligned, 0), "legacy length biases")
+        encryption = None
+        if compressed < 0 or aligned < 0:
+            effective &= ~core.TYPE_FILE & 255
+        elif effective & core.TYPE_FILE:
+            bit = core.header_encryption(raw)
+            effective |= bit
+            encryption = "header" if bit == core.TYPE_ENCRYPT_HEADER else "mixed"
+        _need(rec["header_encryption_flag"] == encryption, "legacy encryption flag")
+    else:
+        promotion = None
+        if effective == 0 and rec["real_size"] > 0 and \
+                rec["compressed_size"] == rec["real_size"]:
+            effective, promotion = core.TYPE_FILE, "kind0_stored_file_to_file"
+        _need(rec["kind_promotion"] == promotion and rec["name_terminated"] is True and
+              rec["record_bytes"] == rec["name_length"] + 1 +
+              (21 if pin["effective_version"] == 0x300 else 17), "modern field relations")
+    _need(rec["effective_kind"] == effective and rec["metadata_filter"] ==
+          core.metadata_filter(rec["real_size"], effective), "record effective metadata")
+    offset = rec["payload_offset_field"]
+    _need(offset < 1 << (64 if pin["effective_version"] == 0x300 else 32),
+          "payload offset range")
+    body = [offset + core.HEADER_SIZE, offset + core.HEADER_SIZE + rec["length_aligned"]]
+    _need(_same(rec["diagnostic_body_range"], body) and
+          _same(rec["diagnostic_body_range_within_archive"], body[1] <= pin["bytes"]),
+          "diagnostic range relation")
+    return raw
+
+
+def _table_contract(table, pin, consumed):
+    modern = pin["layout"] != "legacy"
+    keys = {"stored_offset", "stored_bytes", "stored_sha256", "form", "table_bytes",
+            "table_sha256", "consumed_bytes", "trailing_bytes", "trailing_sha256"}
+    if modern:
+        keys |= {"compressed_size", "real_size", "compressed_sha256"}
+    _need(isinstance(table, dict) and set(table) == keys, "table keys")
+    length = pin["table_real_size"] if modern else pin["stored_end"] - pin["table_pos"]
+    fields = {"stored_offset": pin["table_pos"],
+              "stored_bytes": pin["stored_end"] - pin["table_pos"],
+              "form": "zlib table behind compressed/real u32 sizes" if modern else
+                      "clear legacy table to EOF",
+              "table_bytes": length, "consumed_bytes": consumed,
+              "trailing_bytes": length - consumed}
+    if modern:
+        fields.update(compressed_size=pin["table_compressed_size"], real_size=length)
+    _need(0 <= consumed <= length and all(_same(table[k], v) for k, v in fields.items()),
+          "table ranges/consumption")
+    _need(all(_is_hex64(table[k]) for k in keys if k.endswith("sha256")), "table hashes")
+    _need(modern or table["stored_sha256"] == table["table_sha256"], "legacy table hash")
+    if consumed == length:
+        _need(table["trailing_sha256"] == sha256(b""), "empty trailing hash")
+
+
+def _verify_records(dir_fd, rf, archive, archive_sha256, limit, *, pin, core,
+                    identities=None):
+    _need(isinstance(rf, dict) and set(rf) == {"file", "bytes", "lines", "sha256"} and
+          rf["file"] == archive + RECORDS_SUFFIX and _is_int(rf["bytes"]) and
+          _is_int(rf["lines"]) and _is_hex64(rf["sha256"]), "record-file contract")
     name = rf["file"]
-    try:
-        fd = os.open(name, FILE_FLAGS, dir_fd=dir_fd)
-    except OSError:
-        raise VerificationError(f"inventory refused: {name} cannot be opened") from None
+    fd = os.open(name, FILE_FLAGS, dir_fd=dir_fd)
     try:
         before = os.fstat(fd)
-        if not stat.S_ISREG(before.st_mode) or before.st_nlink != 1 or \
-                stat.S_IMODE(before.st_mode) != 0o600 or before.st_uid != os.geteuid() or \
-                before.st_size != rf.get("bytes") or before.st_size > limit:
-            raise VerificationError(f"inventory refused: {name} file shape or size")
+        _private_file(before, name)
+        _need(before.st_size == rf["bytes"] <= limit and rf["lines"] == pin["record_count"],
+              "record-file size/lines")
         digest = hashlib.sha256()
-        pending, ordinal, total = b"", 0, 0
-        while True:
-            chunk = os.read(fd, 8 << 20)
+        pending, ordinal, total, consumed = b"", 0, 0, 0
+        summary = core.Summary()
+        names = set()
+        while total <= before.st_size:
+            chunk = os.read(fd, min(core.WORK_LIMITS["read_chunk_bytes"],
+                                    before.st_size + 1 - total))
             if not chunk:
                 break
             total += len(chunk)
+            _need(total <= before.st_size, "record-file growth")
             digest.update(chunk)
             lines = (pending + chunk).split(b"\n")
             pending = lines.pop()
             for line in lines:
+                _need(ordinal < pin["record_count"], "extra record")
                 try:
-                    rec = json.loads(line.decode("ascii"))
-                except ValueError:
-                    raise VerificationError(f"inventory refused: {name} line "
-                                            f"{ordinal} is not ASCII JSON") from None
-                if (json.dumps(rec, ensure_ascii=True, sort_keys=True,
-                               separators=(",", ":"))).encode() != line or \
-                        rec.get("ordinal") != ordinal or rec.get("archive") != archive or \
-                        rec.get("archive_sha256") != archive_sha256:
-                    raise VerificationError(f"inventory refused: {name} line {ordinal} "
-                                            "is not the bound record")
+                    rec = _json(line.decode("ascii"), "record", VerificationError)
+                except UnicodeError:
+                    raise VerificationError("inventory refused: non-ASCII record") from None
+                _need(json.dumps(rec, ensure_ascii=True, sort_keys=True,
+                                 separators=(",", ":")).encode() == line,
+                      "noncanonical record")
+                raw = _record_contract(rec, pin, ordinal, consumed, core)
+                consumed += rec["record_bytes"]
+                table_size = pin["table_real_size"] if pin["layout"] != "legacy" else \
+                    pin["stored_end"] - pin["table_pos"]
+                _need(consumed <= table_size, "record table bounds")
+                names.add(raw.hex())
+                summary.add(rec)
                 ordinal += 1
         after = os.fstat(fd)
     finally:
         os.close(fd)
-    if pending or total != rf["bytes"] or digest.hexdigest() != rf.get("sha256") or \
-            ordinal != rf.get("lines") or _identity(before) != _identity(after):
-        raise VerificationError(f"inventory refused: {name} hash or line binding")
+    _remember_file(dir_fd, name, before, after, identities)
+    _need(not pending and total == rf["bytes"] and digest.hexdigest() == rf["sha256"] and
+          ordinal == rf["lines"], "record-file hash or line binding")
+    return summary.result(), names, consumed
+
+
+def _verify_tree(output, contract, expect_identity):
+    profile, profile_identity = _read_profile(contract)
+    core, core_identity = _load_core(contract)
+    generator, generator_identity = _read_generator(contract)
+    names = [a["file"] for a in profile["archives"]]
+    record_names = [n + RECORDS_SUFFIX for n in names]
+    identities = {}
+    dir_fd = os.open(output, DIR_FLAGS)
+    try:
+        info = os.fstat(dir_fd)
+        identity = (info.st_dev, info.st_ino)
+        _need(expect_identity is None or identity == expect_identity,
+              "directory is not the expected one")
+        _check_target(output, identity)
+        _need(info.st_uid == os.geteuid() and stat.S_IMODE(info.st_mode) == 0o700,
+              "directory owner/mode")
+        listing = sorted(os.listdir(dir_fd))
+        _need(listing == sorted(record_names + [OUTPUT_MANIFEST, OUTPUT_COMPLETE]),
+              "failed, missing or extra files")
+        complete = _canonical_json(_read_output_file(dir_fd, OUTPUT_COMPLETE,
+                                                     MAX_COMPLETE_DOCUMENT_BYTES, identities),
+                                   OUTPUT_COMPLETE)
+        manifest_bytes = _read_output_file(dir_fd, OUTPUT_MANIFEST,
+                                           MAX_MANIFEST_DOCUMENT_BYTES, identities)
+        manifest = _canonical_json(manifest_bytes, OUTPUT_MANIFEST)
+        _need(isinstance(manifest, dict), "manifest shape")
+        _need(isinstance(complete, dict) and set(complete) == {
+            "schema", "task", "generator_version", "status", "inventory_manifest",
+            "inventory_manifest_bytes", "inventory_manifest_sha256", "record_files"},
+            "completion keys")
+        _need(complete["schema"] == COMPLETE_SCHEMA and complete["task"] == TASK and
+              complete["generator_version"] == VERSION and complete["status"] == "complete"
+              and complete["inventory_manifest"] == OUTPUT_MANIFEST and
+              _is_int(complete["inventory_manifest_bytes"]) and
+              complete["inventory_manifest_bytes"] == len(manifest_bytes) and
+              complete["inventory_manifest_sha256"] == sha256(manifest_bytes),
+              "completion/manifest binding")
+        _need(isinstance(complete["record_files"], dict) and
+              set(complete["record_files"]) == set(record_names) and
+              all(_is_hex64(v) for v in complete["record_files"].values()),
+              "completion record-file set")
+        # Validate all observed per-archive fields, recomputing row summaries while
+        # streaming every line. Hash consistency alone cannot establish this contract.
+        archives = manifest.get("archives")
+        _need(isinstance(archives, list) and len(archives) == len(names), "archive list")
+        name_sets = []
+        for position, (pin, entry) in enumerate(zip(profile["archives"], archives)):
+            _need(isinstance(entry, dict) and set(entry) == {
+                "order", "file", "extracted_path", "bytes", "sha256", "input_checks",
+                "header", "table", "profile_agreement", "counts", "records_file"},
+                "archive keys")
+            for key, expected in (("order", position), ("file", pin["file"]),
+                                  ("extracted_path", pin["extracted_path"]),
+                                  ("bytes", pin["bytes"]), ("sha256", pin["sha256"])):
+                _need(_same(entry[key], expected), "archive identity")
+            _need(_same(entry["input_checks"], dict.fromkeys(
+                ("regular_single_link", "no_follow_read", "full_sha256", "identity_stable",
+                 "manifest_entry_matches"), True)), "input checks")
+            agreement = _header_contract(entry["header"], pin, core)
+            _need(_same(entry["profile_agreement"], agreement), "profile agreement")
+            counts, raw_names, consumed = _verify_records(
+                dir_fd, entry["records_file"], pin["file"], pin["sha256"],
+                core.WORK_LIMITS["max_record_file_bytes"], pin=pin, core=core,
+                identities=identities)
+            _need(_same(entry["counts"], counts), "record summaries")
+            _table_contract(entry["table"], pin, consumed)
+            name_sets.append(raw_names)
+        em = manifest.get("extracted_manifest")
+        _need(isinstance(em, dict), "extracted manifest shape")
+        children = em.get("archive_directory_entries")
+        _need(_is_int(children) and len(names) <= children <=
+              profile["extracted_manifest"]["files"] +
+              profile["extracted_manifest"]["directories"], "root metadata count")
+        facts = {"archive_dir": posixpath.dirname(profile["archives"][0]["extracted_path"]),
+                 "children": dict.fromkeys(range(children)),
+                 "entries": profile["extracted_manifest"]["files"] +
+                            profile["extracted_manifest"]["directories"],
+                 "files": profile["extracted_manifest"]["files"],
+                 "directories": profile["extracted_manifest"]["directories"],
+                 "loose_data_ini_entries": 0}
+        usage = {"archive_bytes_hashed": sum(a["bytes"] for a in profile["archives"]),
+                 "table_bytes_captured": sum(a["table"]["stored_bytes"] for a in archives),
+                 "records": sum(a["records_file"]["lines"] for a in archives),
+                 "record_file_bytes": sum(a["records_file"]["bytes"] for a in archives),
+                 "extracted_manifest_bytes_read": profile["extracted_manifest"]["bytes"],
+                 "archive_root_entries_examined": children}
+        _need(usage["records"] <= core.WORK_LIMITS["max_records_total"], "record work limit")
+        expected = _build_manifest(contract, profile, core, generator, facts, archives,
+                                   _totals(archives, name_sets), usage)
+        _need(_same(manifest, expected), "complete manifest/source/profile/usage contract")
+        _need(_same(complete, _complete_document(manifest, manifest_bytes)),
+              "complete marker binding")
+        # Fresh exact source reads, then final observed file/directory bindings.
+        for path, pin, what, original in (
+                (contract.profile_path, contract.profile_pin, "profile", profile_identity),
+                (contract.core_path, contract.core_pin, "core", core_identity),
+                (contract.generator_path, generator, "generator source", generator_identity)):
+            _, current = _read_pinned_file(path, pin, what)
+            _need(current == original, "source identity changed during verification")
+        for name, original in identities.items():
+            current = os.stat(name, dir_fd=dir_fd, follow_symlinks=False)
+            _private_file(current, name)
+            _need(_identity(current) == original, "checked file was replaced or changed")
+        _need(sorted(os.listdir(dir_fd)) == listing, "directory entries changed")
+        current = os.fstat(dir_fd)
+        _need((current.st_dev, current.st_ino) == identity and
+              current.st_uid == os.geteuid() and stat.S_IMODE(current.st_mode) == 0o700,
+              "directory binding/mode changed")
+        _check_target(output, identity)
+    finally:
+        os.close(dir_fd)
+    _check_target(output, identity)
+    return manifest
 
 
 # --- CLI ----------------------------------------------------------------------------------

@@ -1,5 +1,11 @@
 # October physical GRF inventory facade (T07.007.001)
 
+Version **1.0.1** contains separately credited root corrections to the unchanged
+selected Claude implementation integrated at `5d1140f`. The raw implementation's
+successful census did not qualify its consumer or final publication guards.
+Root corrections enforce the complete typed contract and final ownership/input
+checks below. This attribution is not additional Claude/Grok benchmark credit.
+
 `archive_inventory_october.py` inventories every physical file-table record of
 the three October archives `data.grf`, `data0.grf` and `event.grf`. It is an
 additive facade over the unchanged core `archive_catalog.py`. It reuses the
@@ -15,7 +21,8 @@ python3 -I tools/renewal/archive_inventory_october.py \
   /abs/path/to/inner-manifest.json \
   /abs/path/to/inner/app \
   .tools/renewal/T07.007.001/inventory
-python3 -I -m unittest discover -s tools/renewal -p test_archive_inventory_october.py
+python3 -I -B -W error::ResourceWarning -m unittest discover \
+  -s tools/renewal -p test_archive_inventory_october.py
 T07_EXTRACTED_MANIFEST=/abs/path/to/inner-manifest.json \
 T07_ARCHIVE_ROOT=/abs/path/to/inner/app \
 T07_OUTPUT_PARENT=/abs/path/to/private/0700/dir \
@@ -121,16 +128,24 @@ and per-file byte limits come from the core `WORK_LIMITS`.
   a zero or invalid write fails. Each file is fsynced and closed with checking,
   then read back by the core `_verify_published` (size, hash, mode, owner,
   identity).
+  If writer construction fails after opening a descriptor (including `fstat`
+  or `fchmod`), it closes that owned descriptor before propagating the failure.
 - After the last archive the root descriptor is closed inside the transaction.
   The manifest is then published. Before the completion record, the facade
   rehashes the profile, core, extracted manifest and generator and compares their
   identities. It reopens the archive root, checks its identity, and checks every
-  retained archive identity and that each is still single-link. No archive
-  descriptor is open at completion.
+  retained archive identity and that each is still single-link. The exact root
+  entry set, kinds and sizes are reconciled again with the rehashed metadata,
+  including refusal of any extra `.grf`. No archive descriptor is open at
+  completion.
 - `inventory-complete.json` is written last. After it, the output set must equal
   the created set, the path must still name the reserved directory, and the
-  consumer gate runs over the published tree. The directory close is checked
-  last.
+  consumer gate runs over the published tree. **After** that consumer returns,
+  the producer repeats input/source checks, then rechecks every created file's
+  original device/inode, mode, owner, single-link status, size and full hash.
+  Thus even a byte-identical different-inode completion replacement is refused.
+  The output path must still identify the owned0700directory before and after
+  its checked final close.
 - **Failure:** the run removes a completion record only when it is the file it
   created (same device/inode). A foreign replacement is preserved. When the
   reserved directory can still be verified, a path-free `inventory-failed.json`
@@ -146,14 +161,49 @@ regular file. It checks the completion record's exact keys and contract, then th
 completion → manifest byte/hash binding and the canonical JSON form. It requires
 the manifest's schema/task/status, its generator identity (this file's current
 bytes), its core and profile pins and its extracted-manifest identity. It requires
-the non-priority semantics. Each archive's order, identity, header facts and
-profile agreement must hold, and each manifest → record-file binding (bytes,
-hash, lines) must match. Every record line must be canonical JSON with a
-sequential ordinal and the right archive name and hash. The record total must
-match. Finding a completion record alone is never a pass.
+the complete non-priority/source/policy/exclusion/work-limit contract. Limits
+come from freshly verified unchanged core bytes, not from the output being
+checked. All frozen header/table facts and the exact agreement key set must
+hold. Reported raw header fields are checked with the unchanged core; this does
+not reconstruct unreported header bytes or independently recalculate the frozen
+header hash from them.
+
+Every record line is streamed and checked, including its exact key set, strict
+integer versus boolean/float types, raw name hex, contiguous ordinal/table
+offsets, length/kind/promotion/encryption relations and diagnostic range. The
+consumer recomputes per-archive summaries, cross-archive totals and cumulative
+usage, and checks table consumption/trailing lengths and all file bindings.
+Signed legacy underflows remain signed observations; diagnostic out-of-archive
+ranges are not incorrectly rejected as native failures. A zero-byte record file
+is valid when its declared count is zero. Duplicate JSON keys, nonfinite values,
+extra fields and self-consistently rebound contract contradictions are refused.
+
+The consumer retains every checked file identity, rehashes/rechecks current
+profile/core/generator sources, and checks file bindings plus the directory's
+current pathname, owner and0700mode at its final boundary. Its final path check
+also occurs after directory close. It performs no writes. Finding a completion
+record alone is never a pass.
+
+Root-authored regressions use real synthetic files, rename-retained inodes,
+late mode/input/set changes and constructor descriptor faults. They cover the
+eight independently reproduced raw-candidate fault classes, both empty and
+nonempty baselines, every-row typed validation and post-consumer checks. The
+optional production test is not a synthetic-suite pass; root must separately
+run a fresh actual CLI, audit all artifacts/records and establish April parity.
 
 ## Not covered
 
 This inventory says nothing about lookup priority, a winning archive, filename
 decoding, payload readability, maps, render, playability or full-game coverage.
 Parent T07.007 map, dependency and runtime work remains open.
+
+Checks are bounded observations, not an atomic guarantee against concurrent
+same-user modification after the final check. Ambiguous close errors are fatal
+and are not blindly retried on a potentially reused descriptor. A consumer with
+only this output and the public profile cannot authenticate arbitrarily
+rewritten, self-consistent raw names or opaque table hashes; independent full
+record/artifact comparison remains root's separate evidence. The metadata root
+entry count is bounded and reconciled to usage; it is not independently recovered
+from the original metadata body by this output-only consumer. Producer admission
+and final reconciliation do read and hash that exact metadata body. No original
+archives or unrelated extracted bodies are opened by the consumer.

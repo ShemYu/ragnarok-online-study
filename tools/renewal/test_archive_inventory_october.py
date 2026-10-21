@@ -672,8 +672,11 @@ class PublicationFaultTests(Base):
         def replace(*args, **kwargs):
             marker = self.out() / inv.OUTPUT_COMPLETE
             data = marker.read_bytes()
-            marker.unlink()
-            marker.write_bytes(data)  # identical bytes, foreign inode
+            retained = self.fx.base / "retained-owned-marker"
+            old = marker.stat().st_ino
+            marker.rename(retained)  # keep old inode live; forbid reuse ambiguity
+            marker.write_bytes(data)
+            self.assertNotEqual(marker.stat().st_ino, old)
             os.chmod(marker, 0o600)
             raise RuntimeError("after foreign replacement")
 
@@ -823,6 +826,332 @@ class ConsumerTests(Base):
     def test_production_gate_refuses_synthetic_tree(self):
         with self.assertRaises(inv.VerificationError):
             inv.verify_inventory(self.out())
+
+
+class RootCorrectionTests(Base):
+    """Root-authored real-file regressions; not provider benchmark credit."""
+
+    rebind = ConsumerTests.rebind
+
+    def test_zero_record_file_and_nonempty_baselines(self):
+        self.fx.run()
+        self.assertEqual(self.fx.verify()["totals"]["raw_records"], 7)
+        zero = tac.legacy_archive([], trailing=b"abc")
+        fx = Fixture(self.fx.base / "zero", dict(ARCHIVES, **{"event.grf": zero}))
+        target, manifest, _ = fx.run()
+        self.assertEqual((target / "event.grf.records.jsonl").read_bytes(), b"")
+        self.assertEqual(manifest["archives"][2]["records_file"], {
+            "file": "event.grf.records.jsonl", "bytes": 0, "lines": 0, "sha256": sha(b"")})
+        self.assertEqual(fx.verify(), manifest)
+
+    def test_full_frozen_manifest_contract_after_hash_rebinding(self):
+        self.fx.run()
+        changes = {
+            "declared-version": lambda m: m["archives"][0]["header"].update(
+                declared_version=512),
+            "table-range": lambda m: m["archives"][0]["table"].update(stored_offset=1),
+            "table-hash-type": lambda m: m["archives"][0]["table"].update(
+                stored_sha256=False),
+            "raw-header-field": lambda m: m["archives"][0]["header"].update(
+                field_u32_38=1),
+            "agreement": lambda m: m["archives"][0].update(profile_agreement={"invented": True}),
+            "limit": lambda m: m["work_limits"].update(max_record_file_bytes=(1 << 30) + 1),
+            "source": lambda m: m["source_rules"]["source"].update(revision="invented"),
+            "validator-policy": lambda m: m["source_rules"].update(validator_policy=[]),
+            "input-check": lambda m: m["archives"][0]["input_checks"].update(full_sha256=1),
+            "header-bool": lambda m: m["archives"][0]["header"].update(table_skip=True),
+            "order-bool": lambda m: m["archives"][0].update(order=False),
+            "bytes-float": lambda m: m["archives"][0].update(bytes=float(len(DATA_GRF))),
+            "usage-bool": lambda m: m["work_usage"].update(records=True),
+            "usage-total": lambda m: m["work_usage"].update(archive_bytes_hashed=0),
+            "counts": lambda m: m["archives"][0]["counts"].update(duplicate_raw_names=0),
+            "source-preflight": lambda m: m["profile"]["source_preflight"].update(bytes=2),
+            "metadata-entries": lambda m: m["extracted_manifest"].update(entries=0),
+            "exclusions": lambda m: m.update(exclusions=[]),
+            "extra": lambda m: m.update(unknown=True),
+        }
+        for label, change in changes.items():
+            with self.subTest(label):
+                out = self.out("contract-" + label)
+                shutil.copytree(self.out(), out)
+                self.rebind(out, change)
+                with self.assertRaises(inv.VerificationError):
+                    inv._verify_inventory(out, self.fx.contract)
+        self.assertEqual(self.fx.verify()["totals"]["raw_records"], 7)
+
+    def test_typed_all_record_fields_after_hash_rebinding(self):
+        self.fx.run()
+        changes = {
+            "missing-name": ("data.grf", 1, lambda r: r.pop("name_hex")),
+            "ordinal-bool": ("data.grf", 0, lambda r: r.update(ordinal=False)),
+            "size-float": ("data.grf", 1, lambda r: r.update(real_size=float(r["real_size"]))),
+            "range-bool": ("data.grf", 0, lambda r: r.update(diagnostic_body_range=[False, 54])),
+            "promotion": ("data.grf", 0, lambda r: r.update(kind_promotion=None)),
+            "table-order": ("data.grf", 1, lambda r: r.update(table_offset=0)),
+            "legacy-signed": ("data0.grf", 1, lambda r: r.update(
+                derived_compressed_size=float(r["derived_compressed_size"]))),
+            "legacy-kind": ("data0.grf", 1, lambda r: r.update(effective_kind=1)),
+            "legacy-hash": ("data0.grf", 1, lambda r: r.update(encoded_name_sha256="x")),
+            "extra-key": ("event.grf", 1, lambda r: r.update(invented=True)),
+        }
+        for label, (archive, index, change) in changes.items():
+            with self.subTest(label):
+                out = self.out("row-" + label)
+                shutil.copytree(self.out(), out)
+
+                def mutate(data):
+                    rows = [json.loads(line) for line in data.splitlines()]
+                    change(rows[index])
+                    return b"".join(CORE.render_record(archive, sha(ARCHIVES[archive]), r)
+                                    for r in rows)
+
+                self.rebind(out, record_change=(archive + inv.RECORDS_SUFFIX, mutate))
+                with self.assertRaises(inv.VerificationError):
+                    inv._verify_inventory(out, self.fx.contract)
+
+    def test_consumer_directory_mode_is_rechecked_at_return(self):
+        self.fx.run()
+        real = inv._verify_records
+        fired = []
+
+        def change(*args, **kwargs):
+            result = real(*args, **kwargs)
+            if not fired:
+                self.out().chmod(0o777)
+                fired.append(True)
+            return result
+
+        try:
+            with mock.patch.object(inv, "_verify_records", change):
+                with self.assertRaises(inv.VerificationError):
+                    self.fx.verify()
+            self.assertEqual(fired, [True])
+        finally:
+            self.out().chmod(0o700)
+        self.assertEqual(self.fx.verify()["status"], "complete")
+
+    def test_consumer_late_directory_swap_preserves_foreign_tree(self):
+        self.fx.run()
+        real = inv._verify_records
+        held = self.out("consumer-held")
+        old = self.out().stat().st_ino
+        fired = []
+
+        def swap(*args, **kwargs):
+            if not fired:
+                self.out().rename(held)
+                self.out().mkdir(mode=0o700)
+                (self.out() / "FOREIGN").write_bytes(b"preserve")
+                self.assertNotEqual(self.out().stat().st_ino, old)
+                fired.append(True)
+            return real(*args, **kwargs)
+
+        with mock.patch.object(inv, "_verify_records", swap):
+            with self.assertRaises(inv.VerificationError):
+                self.fx.verify()
+        self.assertEqual(fired, [True])
+        self.assertEqual(list(self.out().iterdir()), [self.out() / "FOREIGN"])
+        self.assertEqual((self.out() / "FOREIGN").read_bytes(), b"preserve")
+        self.assertEqual(self.fx.verify("consumer-held")["status"], "complete")
+
+    def test_producer_directory_swap_during_and_after_consumer(self):
+        for phase in ("during", "after"):
+            with self.subTest(phase):
+                fx = Fixture(self.fx.base / phase)
+                out = fx.base / "out"
+                held = fx.base / "held"
+                fired = []
+                method = "_verify_records" if phase == "during" else "_verify_inventory"
+                real = getattr(inv, method)
+
+                def swap(*args, **kwargs):
+                    result = real(*args, **kwargs) if phase == "after" else None
+                    if not fired:
+                        old = out.stat().st_ino
+                        out.rename(held)
+                        out.mkdir(mode=0o700)
+                        (out / "FOREIGN").write_bytes(b"preserve")
+                        self.assertNotEqual(out.stat().st_ino, old)
+                        fired.append(True)
+                    return result if phase == "after" else real(*args, **kwargs)
+
+                with mock.patch.object(inv, method, swap):
+                    with self.assertRaises(inv.InventoryError):
+                        fx.run()
+                self.assertEqual(fired, [True])
+                self.assertEqual((out / "FOREIGN").read_bytes(), b"preserve")
+                self.assertEqual(sorted(os.listdir(out)), ["FOREIGN"])
+                self.assertIn(inv.OUTPUT_FAILED, os.listdir(held))
+                self.assertNotIn(inv.OUTPUT_COMPLETE, os.listdir(held))
+
+    def test_final_exact_archive_set_refuses_late_extra_grf(self):
+        real = inv._recheck_inputs
+        fired = []
+
+        def plant(*args, **kwargs):
+            if not fired:
+                (self.fx.root / "extra.GRF").write_bytes(b"owned test")
+                fired.append(True)
+            return real(*args, **kwargs)
+
+        with mock.patch.object(inv, "_recheck_inputs", plant):
+            with self.assertRaises(inv.InventoryError):
+                self.fx.run()
+        self.assertEqual(fired, [True])
+        self.assertEqual((self.fx.root / "extra.GRF").read_bytes(), b"owned test")
+        self.assertNotIn(inv.OUTPUT_COMPLETE, self.assert_failed()[0])
+
+    def test_identical_foreign_completion_swap_is_refused_and_preserved(self):
+        real = inv._publish_document
+        held = self.fx.base / "retained-owned-marker"
+        fired = []
+
+        def replace(*args, **kwargs):
+            result = real(*args, **kwargs)
+            if args[2] == inv.OUTPUT_COMPLETE:
+                marker = self.out() / inv.OUTPUT_COMPLETE
+                body = marker.read_bytes()
+                old = marker.stat().st_ino
+                marker.rename(held)
+                marker.write_bytes(body)
+                marker.chmod(0o600)
+                self.assertNotEqual(marker.stat().st_ino, old)
+                fired.append((marker.stat().st_dev, marker.stat().st_ino))
+            return result
+
+        with mock.patch.object(inv, "_publish_document", replace):
+            with self.assertRaises(inv.InventoryError):
+                self.fx.run()
+        self.assertEqual(len(fired), 1)
+        marker = self.out() / inv.OUTPUT_COMPLETE
+        self.assertEqual(marker.read_bytes(), held.read_bytes())
+        self.assertEqual((marker.stat().st_dev, marker.stat().st_ino), fired[0])
+        self.assertIn(inv.OUTPUT_FAILED, self.assert_failed()[0])
+
+    def test_consumer_rechecks_previously_read_file_binding(self):
+        self.fx.run()
+        real = inv._verify_records
+        held = self.fx.base / "retained-owned-manifest"
+        fired = []
+
+        def replace(*args, **kwargs):
+            if not fired:
+                path = self.out() / inv.OUTPUT_MANIFEST
+                body = path.read_bytes()
+                old = path.stat().st_ino
+                path.rename(held)
+                path.write_bytes(body)
+                path.chmod(0o600)
+                self.assertNotEqual(path.stat().st_ino, old)
+                fired.append(True)
+            return real(*args, **kwargs)
+
+        with mock.patch.object(inv, "_verify_records", replace):
+            with self.assertRaises(inv.VerificationError):
+                self.fx.verify()
+        self.assertEqual(fired, [True])
+        self.assertEqual((self.out() / inv.OUTPUT_MANIFEST).read_bytes(), held.read_bytes())
+        self.assertNotIn(inv.OUTPUT_FAILED, os.listdir(self.out()))  # read-only gate
+
+    def test_consumer_fresh_core_pin_and_late_source_identity(self):
+        core_copy = self.fx.base / "owned-core-copy.py"
+        body = CORE_PATH.read_bytes()
+        core_copy.write_bytes(body)
+        self.fx.contract.core_path = core_copy
+        self.fx.run()
+        core_copy.write_bytes(body + b"\n")
+        with self.assertRaises(inv.VerificationError):
+            self.fx.verify()
+        core_copy.write_bytes(body)
+        self.assertEqual(self.fx.verify()["status"], "complete")
+        real = inv._verify_records
+        fired = []
+
+        def drift(*args, **kwargs):
+            result = real(*args, **kwargs)
+            if not fired:
+                os.utime(core_copy, ns=(6, 6))
+                fired.append(True)
+            return result
+
+        with mock.patch.object(inv, "_verify_records", drift):
+            with self.assertRaises(inv.VerificationError):
+                self.fx.verify()
+        self.assertEqual(fired, [True])
+
+    def test_producer_rechecks_file_modes_and_inputs_after_consumer(self):
+        for label in ("record-mode", "profile", "core", "metadata", "generator"):
+            with self.subTest(label):
+                fx = Fixture(self.fx.base / label)
+                # Only owned byte-identical source copies may be mutated in tests.
+                core_copy, gen_copy = fx.base / "core.py", fx.base / "generator.py"
+                core_copy.write_bytes(CORE_PATH.read_bytes())
+                gen_copy.write_bytes(inv.PRODUCTION.generator_path.read_bytes())
+                fx.contract.core_path, fx.contract.generator_path = core_copy, gen_copy
+                targets = {"profile": fx.profile_path, "core": core_copy,
+                           "metadata": fx.manifest_path, "generator": gen_copy}
+                real = inv._verify_inventory
+                fired = []
+
+                def change(*args, **kwargs):
+                    result = real(*args, **kwargs)
+                    if label == "record-mode":
+                        (fx.base / "out/data.grf.records.jsonl").chmod(0o644)
+                    else:
+                        os.utime(targets[label], ns=(5, 5))
+                    fired.append(True)
+                    return result
+
+                with mock.patch.object(inv, "_verify_inventory", change):
+                    with self.assertRaises(inv.InventoryError):
+                        fx.run()
+                self.assertEqual(fired, [True])
+                self.assertNotIn(inv.OUTPUT_COMPLETE, os.listdir(fx.base / "out"))
+                self.assertIn(inv.OUTPUT_FAILED, os.listdir(fx.base / "out"))
+
+    def test_constructor_fstat_and_fchmod_failure_release_exact_owned_fd(self):
+        real_open, real_fstat, real_close = os.open, os.fstat, os.close
+        for fail in ("fstat", "fchmod"):
+            with self.subTest(fail):
+                directory = self.fx.base / ("constructor-" + fail)
+                directory.mkdir(mode=0o700)
+                dir_fd = real_open(directory, inv.DIR_FLAGS)
+                tracked = []
+
+                def opened(path, flags, *args, **kwargs):
+                    fd = real_open(path, flags, *args, **kwargs)
+                    if flags & os.O_CREAT:
+                        info = real_fstat(fd)
+                        tracked.append((fd, info.st_dev, info.st_ino))
+                    return fd
+
+                def stat_fault(fd):
+                    if tracked and fd == tracked[0][0]:
+                        raise OSError(errno.EIO, "authored constructor fstat")
+                    return real_fstat(fd)
+
+                def mode_fault(fd, mode):
+                    raise OSError(errno.EIO, "authored constructor fchmod")
+
+                try:
+                    with mock.patch.object(inv.os, "open", opened), \
+                            mock.patch.object(inv.os, fail,
+                                              stat_fault if fail == "fstat" else mode_fault):
+                        with self.assertRaises(OSError):
+                            inv.CheckedFile(dir_fd, "owned", {}, 100)
+                    self.assertEqual(len(tracked), 1)
+                    fd, dev, ino = tracked[0]
+                    try:
+                        info = real_fstat(fd)
+                    except OSError as exc:
+                        self.assertEqual(exc.errno, errno.EBADF)
+                    else:
+                        # Observe first, then release ONLY the fixture's exact inode.
+                        if (info.st_dev, info.st_ino) == (dev, ino):
+                            real_close(fd)
+                        self.fail("constructor leaked its owned descriptor")
+                finally:
+                    real_close(dir_fd)
 
 
 class CliAndCoreTests(Base):
