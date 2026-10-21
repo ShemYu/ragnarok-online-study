@@ -56,7 +56,10 @@ CURRENT WORK: October assets and missing maps
  |    Fresh run: all 273 results match the full reference.
  |    134 of 135 extra checks pass; timeout equality needs a fix.
  |    EOF checks find early completion. Repair comes after comparison.
- |    Grok still works. Root will compare both results.
+ |    Grok: 273 results match; all 135 extra checks pass.
+ |    Both EOF gates fail. Grok also crossed the output boundary.
+ |    Claude selected for repair: 17/20 versus Grok 13/20.
+ |    Both workers released. Astra repair comes next.
  |
  +-- [V] Other 28 GPF patch tables: corrected tool verified.
  |        Root reference: all 5,742 raw records checked.
