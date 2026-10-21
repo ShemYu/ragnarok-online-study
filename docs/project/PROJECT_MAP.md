@@ -51,7 +51,8 @@ CURRENT WORK: October assets and missing maps
 [~] Model constructor preparation.
  |    All 273 full model files and map links pass input checks.
  |    Harness failure checks and all 13 known fixtures pass.
- |    Next: all 273 model results.
+ |    All 273 direct loader results pass. Full output checks pass.
+ |    Next: Claude and Grok build the exact second input route.
  |
  +-- [V] Other 28 GPF patch tables: corrected tool verified.
  |        Root reference: all 5,742 raw records checked.

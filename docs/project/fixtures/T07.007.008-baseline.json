@@ -1,0 +1,256 @@
+{
+  "status": "frozen_additive_model_contract",
+  "source_snapshot_commit": "0c0e75ee45b9e66603c3a84f9d236ac93d26011b",
+  "task": "T07.007.008",
+  "old_profile_policy_unchanged": {
+    "max_body_bytes": 25165824,
+    "max_manifest_bytes": 67108864,
+    "max_fixture_bytes": 1048576,
+    "max_availability_report_bytes": 16777216,
+    "max_catalog_bytes": 67108864,
+    "worker_heap_mib": 512,
+    "rss_limit_bytes": 2147483648,
+    "rss_sample_ms": 50,
+    "job_timeout_ms": 20000,
+    "module_timeout_ms": 5000,
+    "constructor_timeout_ms": 10000,
+    "run_timeout_ms": 900000,
+    "max_job_json_bytes": 4194304,
+    "max_jobs_jsonl_bytes": 536870912,
+    "max_report_json_bytes": 67108864,
+    "max_job_log_bytes": 4096,
+    "max_total_log_bytes": 65536,
+    "max_exception_message_chars": 512,
+    "max_stdout_bytes": 4096,
+    "max_active_workers": 1,
+    "result_exit_grace_ms": 2000,
+    "cleanup_wait_ms": 10000
+  },
+  "old_summary_limits_unchanged": {
+    "nodes": 65536,
+    "textures": 65536,
+    "node_slots": 262144,
+    "string_code_units": 1048576,
+    "numeric_visits": 4194304
+  },
+  "client_source_revision": "775f8847a8b09749d03c82fcb554e155401d1e02",
+  "new_counts": {
+    "model_targets": 273,
+    "constructor_jobs": 273,
+    "model_referrers": 297,
+    "roots": 4,
+    "remaining_core_gap_roots": 0,
+    "all_catalog_referrers": 337,
+    "target_body_bytes": 4784704,
+    "distinct_job_bytes": 4784704
+  },
+  "new_header_observations": {
+    "4752534d0104": 94,
+    "4752534d0105": 5,
+    "4752534d0202": 6,
+    "4752534d0203": 168
+  },
+  "carried_bmp_targets": 38,
+  "placement_occurrences": 4922,
+  "world_ledger_separate": {
+    "roots": 1296,
+    "remaining_core_gap_roots": 82,
+    "reconciled_by_this_subset": false
+  },
+  "schema": "T07-model-constructor-baseline-1",
+  "baseline_sources": [
+    {
+      "path": "tools/renewal/probe_model_constructors.mjs",
+      "bytes": 68603,
+      "sha256": "6a8d4352509bae81cb903f11eee002193b353d9db56a68ff62de1ab4086283c1"
+    },
+    {
+      "path": "tools/renewal/test_probe_model_constructors.mjs",
+      "bytes": 64821,
+      "sha256": "7248fe55ca7c6e8fdb9f475196794ae91b9b0fa546b93ea912e1ee246eff808b"
+    },
+    {
+      "path": "tools/renewal/model_constructor_worker.mjs",
+      "bytes": 11388,
+      "sha256": "c1eee8dabacf3e69bb2fbe7fde8ed4e5fbd386a4a3ac768936484beceb22a3f4"
+    },
+    {
+      "path": "tools/renewal/model_constructor_summary.mjs",
+      "bytes": 6452,
+      "sha256": "ec51b8b2b4930db840503601911c1e0e5f6e6b4db641fa7ae1f85fdf6de13d5c"
+    },
+    {
+      "path": "tools/renewal/MODEL_CONSTRUCTOR_PROBE.md",
+      "bytes": 11468,
+      "sha256": "3e24e8fa7d135d3b871c761116fd819ec4de2efd3c202dd7ffbf0d767746116b"
+    },
+    {
+      "path": "docs/project/fixtures/T06.003.003.006-profile.json",
+      "bytes": 4855,
+      "sha256": "9ad903297104cd6f9a03d74196d5db7a4091ee07da4d2b73b4b4f61027b2140d"
+    },
+    {
+      "path": "docs/project/fixtures/T06.003.003.006-authored.json",
+      "bytes": 181031,
+      "sha256": "f64315a2dbde9f84fbc0cd1138b7e62f9ba2097e6570bfb195a88b01e9876fa3"
+    },
+    {
+      "path": ".tools/renewal/client-source/src/Loaders/Model.js",
+      "bytes": 30922,
+      "sha256": "d4643fc9a1a95747b41ee55537fe3159c2927e9840630291cce9d55bea20fe57"
+    },
+    {
+      "path": ".tools/renewal/client-source/src/Utils/BinaryReader.js",
+      "bytes": 8233,
+      "sha256": "bcf694b7034e36146eed1d5a2d7d5cf93d8a52aeafa74e62f0beed4c1ecc9215"
+    },
+    {
+      "path": ".tools/renewal/client-source/src/Utils/Struct.js",
+      "bytes": 1732,
+      "sha256": "03dedc9bf39943ff027c80d9a81ebfc2a15549c08ec3a1d7e725fb93e3ecf0b7"
+    },
+    {
+      "path": ".tools/renewal/client-source/src/Utils/CodepageManager.js",
+      "bytes": 6298,
+      "sha256": "35fc6861784c27ce417697f8c4f2e999a7703bb89741b2ddb3ea0afc44c7733e"
+    },
+    {
+      "path": ".tools/renewal/client-source/src/Utils/gl-matrix.js",
+      "bytes": 9153,
+      "sha256": "46725df08241575dd60a98dbea9a035af0dc69d89c2538c2938018cfa091ea29"
+    },
+    {
+      "path": ".tools/renewal/client-source/src/Vendors/gl-matrix.js",
+      "bytes": 110302,
+      "sha256": "bdf9ed62160fc270e995aa1a3c97eb8dac69fbd02d3141ed766a8306d2ce8f59"
+    },
+    {
+      "path": ".tools/renewal/client-source/src/Vendors/iconv-lite.js",
+      "bytes": 644664,
+      "sha256": "a7663d70d99a455b964c223eb26db6c048bfd7977d6583e8e9fd7a79e17a0303"
+    },
+    {
+      "path": ".tools/renewal/client-source/src/Loaders/MapLoader.js",
+      "bytes": 14466,
+      "sha256": "c71b01f300f62bbc6e7432444e2521d713473dc47c9c6e25a54a832d5c92a705"
+    },
+    {
+      "path": ".tools/renewal/client-source/src/Core/FileManager.js",
+      "bytes": 11279,
+      "sha256": "75c37d192bf21e7b40817a6f2fe27ef536601515c07fe20c7ce8346d50376cd7"
+    },
+    {
+      "path": ".tools/renewal/client-source/src/Renderer/Map/AnimatedModels.js",
+      "bytes": 23493,
+      "sha256": "b993b685426e01cb40d5fe357e06dac5e5cddb10808a10095d30e4069bc7818f"
+    }
+  ],
+  "availability": {
+    "report": {
+      "path": ".tools/renewal/t07-007-006-integrated-actual-1/output/report.json",
+      "bytes": 234732,
+      "sha256": "d0fca27243f75e8745c8206895cccfb75cc78db9b0a5ee3399a2f6570472a2cc"
+    },
+    "catalog": {
+      "path": ".tools/renewal/t07-007-006-integrated-actual-1/output/catalog-input.json",
+      "bytes": 169411,
+      "sha256": "0a6d44ec22de3c54f5195c32d6fd253ef5f51a74feb212181181ab5d9570c362"
+    },
+    "root_audit": {
+      "path": ".tools/renewal/t07-007-006-integrated-actual-1/root-artifact-audit-1.json",
+      "bytes": 625,
+      "sha256": "80805ef943787f9e5cba97002ca3fdc335bf91b8b564ff06e333735011664020"
+    },
+    "execution": {
+      "path": ".tools/renewal/t07-007-006-actual-runner-preparation-1/admission-1/receipt.json",
+      "bytes": 5454,
+      "sha256": "1d889007ff7cd36b5018672134e278d136a635e7c7cd2ad26c24e76bd25084e2"
+    }
+  },
+  "profile": {
+    "path": "docs/project/fixtures/T07.007.008-profile.json",
+    "bytes": 4168,
+    "sha256": "cc53e3455c1117c5fc29431c342f925d4d58d5334bbe5d0c29f67d8489050dea"
+  },
+  "manifest": {
+    "path": ".tools/renewal/t07-007-008-constructor-preparation-1/root-input-reference-1/input.json",
+    "bytes": 563422,
+    "sha256": "9980ac604d77f651802fb788f5b21f57198e6063b8df4b982b670ddd8edd541c"
+  },
+  "node_runtime": {
+    "absolute_executable": "/Users/shem/.local/bin/node",
+    "version": "v24.20.0"
+  },
+  "dispatch_base_commit": "The exact commit containing this frozen contract is supplied by the coordinator dispatch; both providers must use it.",
+  "execution_binding_expected": {
+    "HOME_present": false,
+    "argv": [
+      "/usr/bin/python3",
+      "-I",
+      "-B",
+      "/Users/shem/orca/workspaces/game-reverse-engineering/reverse-the-Ragnarok-Online-to-play-by-myself/tools/renewal/observe_map_dependencies.py",
+      "--execute",
+      "--input-root",
+      "/Users/shem/orca/workspaces/game-reverse-engineering/reverse-the-Ragnarok-Online-to-play-by-myself",
+      "--profile",
+      "/Users/shem/orca/workspaces/game-reverse-engineering/reverse-the-Ragnarok-Online-to-play-by-myself/docs/project/fixtures/T07.007.006-profile.json",
+      "--output",
+      "/Users/shem/orca/workspaces/game-reverse-engineering/reverse-the-Ragnarok-Online-to-play-by-myself/.tools/renewal/t07-007-006-integrated-actual-1/output",
+      "--root-reviewed-sha256",
+      "0e691c1e93b726cf2819f473745864469d7c2c49aebe89c0b4115f2bd7722750"
+    ],
+    "child_environment": {
+      "PATH": "/usr/bin:/bin:/usr/sbin:/sbin"
+    },
+    "cwd": "/Users/shem/orca/workspaces/game-reverse-engineering/reverse-the-Ragnarok-Online-to-play-by-myself",
+    "driver_file": "/Users/shem/orca/workspaces/game-reverse-engineering/reverse-the-Ragnarok-Online-to-play-by-myself/tools/renewal/observe_map_dependencies.py",
+    "driver_pin": [
+      112136,
+      "0e691c1e93b726cf2819f473745864469d7c2c49aebe89c0b4115f2bd7722750"
+    ],
+    "evidence": "/Users/shem/orca/workspaces/game-reverse-engineering/reverse-the-Ragnarok-Online-to-play-by-myself/.tools/renewal/t07-007-006-integrated-actual-1/guard",
+    "guard_defaults": {
+      "capture_bytes": 1048576,
+      "expect_native": true,
+      "grace_seconds": 8,
+      "rss_limit": 2147483648,
+      "work_seconds": 1800
+    },
+    "guard_file": "/Users/shem/orca/workspaces/game-reverse-engineering/reverse-the-Ragnarok-Online-to-play-by-myself/.tools/renewal/t06-map-dependency-preparation-1/root005_actual_scan_guard_1.py",
+    "guard_pin": [
+      14021,
+      "c74f86a2f7f41aa5d468fe10c21cc4a837eea4b5684c4d12fef74d26f3a97a00"
+    ],
+    "metadata_count": 44,
+    "native_count": 6,
+    "nominal_sample_seconds": 0.1,
+    "output": "/Users/shem/orca/workspaces/game-reverse-engineering/reverse-the-Ragnarok-Online-to-play-by-myself/.tools/renewal/t07-007-006-integrated-actual-1/output",
+    "root_hashing_outside_guard_seconds": true,
+    "server": "/Users/shem/orca/workspaces/game-reverse-engineering/reverse-the-Ragnarok-Online-to-play-by-myself/.tools/renewal/t07-007-006-integrated-actual-1/output/server"
+  },
+  "execution_schema": "root-t07-actual-execution-gate-1",
+  "embedded_guard_schema": "root005-two-group-external-guard-1",
+  "artifact_audit_expected": {
+    "fresh_live_process_observation": null,
+    "fresh_native_rehash": null,
+    "full_game_acceptance": null,
+    "guard_receipt_sha256": "d340cf85e923e8a446b780e8b37c64c09dcde935b59097306494f8f3176ecadd",
+    "observations": {
+      "attempted": 311,
+      "http_404": 0,
+      "matching_prefix_200": 311,
+      "signature_mismatch_or_short": 0,
+      "transport_gap": 0
+    },
+    "referrers": 337,
+    "report_sha256": "d0fca27243f75e8745c8206895cccfb75cc78db9b0a5ee3399a2f6570472a2cc",
+    "request_records": 314,
+    "reviewed_argv_binding": null,
+    "status": "complete_observation_artifacts_consistent",
+    "stored_bytes": 7575826,
+    "targets": 311,
+    "task": "T07.007.006",
+    "wire_bytes": 7575826
+  },
+  "ground_referrers": 40
+}
