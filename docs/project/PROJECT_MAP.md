@@ -41,8 +41,8 @@ CURRENT WORK: October assets and missing maps
  |
 [~] Asset availability: both tools checked; Claude selected.
  |    Both test suites pass. Extra checks find repair needs.
- |    Both workers released. No actual asset scan yet.
- |    Next: repair -> root checks -> actual 311-path scan.
+ |    Original workers released. Astra/high repairs in a new branch.
+ |    Next: root checks -> actual 311-path scan.
  |
  +-- [~] Other 28 GPF patch tables: Claude submitted; Grok works.
  |        Root reference: all 5,742 raw records checked.
