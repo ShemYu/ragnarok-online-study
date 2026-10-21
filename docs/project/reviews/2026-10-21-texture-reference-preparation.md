@@ -27,3 +27,29 @@ Next owner: root. Finish and integrate T07.007.008, then separately bind its
 exact producer schema/pins and freeze the next paired task. Keep this reference
 and root authored receipt local under ignored .tools/renewal; no game assets,
 private output or external-state changes are committed.
+
+## Exact reference metadata transformation complete
+
+After that authored-control checkpoint, root personally runs fixed reference
+mode under the unchanged130s/2GiB outer guard. Exit0,0.324665s/38797312B sampled
+peak, no action/signals/owned residue. All13helper/pin/metadata/source files plus
+wrapper/guard retain full hashes and identities; warmed outer FD identities
+agree. All four exclusive private outputs are fully reread, membership/identity
+stable and complete helper input/output receipt bindings agree.
+
+Expected-core1202363B/SHA256
+`20f9289e8f1f096cdae6eb25c77abda151a16b6262176dfa00be4b0edf70ecb6`;
+supplement133393B/SHA256
+`b2078b29c2d7c3811d361baba9a410785a83c9f8d98cbef5fe5d311b289d8ed2`.
+The four-root273-job/273-target reference yields397global declarations,
+178distinct conditional HTTP paths,297parent links/4922placements and401resolved
+node slots with none unresolved. Node-key animation is true for3jobs and false
+for270. All273return nonempty tables; no exceptions. Subset gap lists are empty;
+the supplement still retains the separate1296world roots/82functional gaps and
+38ground BMP targets/40refs. No full-world reconciliation follows.
+
+This establishes the complete independent metadata expectation for the next
+paired task, not availability, actual texture requests, image pixels or render.
+The existing production pure core remains unexecuted in this reference lane.
+Next freeze the integrated selected .008production report/jobs and source
+bindings; preserve actual five-field cleanup before any explicit core projection.
