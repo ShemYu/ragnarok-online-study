@@ -63,7 +63,7 @@ CURRENT WORK: October assets and missing maps
  |    Three real stream-end checks and full fresh output checks pass.
  |    All 273 results and both 13-case fixture sets match.
  |
-[~] Nested model textures: next paired task.
+[~] Nested model textures: Claude and Grok work in separate branches.
  |    Independent reference: 397 declarations, 178 distinct paths.
  |    Availability and image decode remain open.
  |
