@@ -32,6 +32,7 @@ CURRENT WORK: October assets and missing maps
  |    Grok selected. Both workers released.
  +-- Exact native reader: verified for these 12 bodies.
  |    Archive/order/loose controls and cleanup pass.
+ |    ygg_roots: two cell types need client/server movement checks.
  |
 [V] Freeze map dependency inputs and the independent expected result.
  |    311 first-level request paths. No asset availability claim.
