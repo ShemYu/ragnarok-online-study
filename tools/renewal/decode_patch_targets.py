@@ -50,13 +50,14 @@ content acceptance.
 
 import hashlib
 import json
+import math
 import os
 from pathlib import Path
 import stat
 import sys
 import zlib
 
-VERSION = "1.0.0"
+VERSION = "1.0.1"
 TASK = "T07.007.003"
 REPO = Path(__file__).resolve().parents[2]
 GENERATOR_PATH = "tools/renewal/decode_patch_targets.py"
@@ -87,6 +88,10 @@ FAILED = "payload-failed.json"
 TARGET_COUNT = 12
 BODY_NAMES = tuple("target-%03d.body" % i for i in range(TARGET_COUNT))
 HEADER_SIZE = 46
+# Fixed metadata bounds; body reads use each admitted real_size.
+MAX_MARKER_BYTES = 1 << 16
+MAX_MANIFEST_BYTES = 1 << 20
+MAX_CHECKOUT_BYTES = 1 << 24
 
 KIND_FILE = 0x01
 KIND_MIXED = 0x02
@@ -314,9 +319,27 @@ def _no_duplicates(pairs):
     return out
 
 
+def _finite_float(text):
+    value = float(text)
+    if not math.isfinite(value):
+        raise ValueError()
+    return value
+
+
+def _same(left, right):
+    """JSON value equality retaining bool/int/float and nested container types."""
+    if type(left) is not type(right):
+        return False
+    if type(left) is dict:
+        return left.keys() == right.keys() and all(_same(left[k], right[k]) for k in left)
+    if type(left) is list:
+        return len(left) == len(right) and all(_same(a, b) for a, b in zip(left, right))
+    return left == right
+
+
 def _parse_json(data, code):
     try:
-        return json.loads(data.decode("utf-8"), object_pairs_hook=_no_duplicates,
+        return json.loads(data.decode("utf-8"), object_pairs_hook=_no_duplicates, parse_float=_finite_float,
                           parse_constant=lambda _: (_ for _ in ()).throw(ValueError()))
     except Refusal:
         raise
@@ -325,7 +348,7 @@ def _parse_json(data, code):
 
 
 def canonical(obj):
-    return (json.dumps(obj, indent=2, sort_keys=True, ensure_ascii=True) + "\n").encode("ascii")
+    return (json.dumps(obj, indent=2, sort_keys=True, ensure_ascii=True, allow_nan=False) + "\n").encode("ascii")
 
 
 def _is_int(v, low=0, high=None):
@@ -370,8 +393,8 @@ def validate_profile(profile, vectors_pin):
         raise Refusal("profile-schema")
     authored = profile["authored"]
     _keys(authored, ("bytes", "path", "sha256"), "profile-authored")
-    if authored != {"bytes": vectors_pin["bytes"], "path": VECTORS_PATH,
-                    "sha256": vectors_pin["sha256"]}:
+    if not _same(authored, {"bytes": vectors_pin["bytes"], "path": VECTORS_PATH,
+                            "sha256": vectors_pin["sha256"]}):
         raise Refusal("profile-authored")
     if not _is_hex(profile["source_revision"], 20):
         raise Refusal("profile-revision")
@@ -386,7 +409,7 @@ def validate_profile(profile, vectors_pin):
     patch = profile["patch"]
     _keys(patch, PATCH_KEYS, "profile-patch")
     if not (_is_int(patch["index"], 1) and _is_int(patch["bytes"], HEADER_SIZE + 1)
-            and patch["header_bytes"] == HEADER_SIZE and _is_hex(patch["sha256"], 32)
+            and _same(patch["header_bytes"], HEADER_SIZE) and _is_hex(patch["sha256"], 32)
             and _is_hex(patch["header_sha256"], 32) and _is_int(patch["record_count"], 1)
             and _is_int(patch["table_start"], HEADER_SIZE + 1)
             and patch["table_start"] < patch["bytes"]
@@ -489,46 +512,73 @@ class Contract:
         self.vectors_bytes = vectors_bytes
         self.profile_pin = dict(profile_pin)
         self.vectors_pin = dict(vectors_pin)
+        self._checkout_identities = {}
         for data, pin, code in ((profile_bytes, profile_pin, "profile-pin"),
                                 (vectors_bytes, vectors_pin, "vectors-pin")):
-            if len(data) != pin["bytes"] or sha256(data) != pin["sha256"]:
+            if (not _is_int(pin["bytes"], 1) or not _is_hex(pin["sha256"], 32)
+                    or len(data) != pin["bytes"] or sha256(data) != pin["sha256"]):
                 raise Refusal(code)
         self.vectors = validate_vectors(_parse_json(vectors_bytes, "vectors-json"))
         self.profile = validate_profile(_parse_json(profile_bytes, "profile-json"), vectors_pin)
         patch = self.profile["patch"]
-        if (patch["index"] != patch_pin["index"] or patch["bytes"] != patch_pin["bytes"]
-                or patch["sha256"] != patch_pin["sha256"]
+        if (not _same({k: patch[k] for k in ("index", "bytes", "sha256")}, patch_pin)
                 or self.profile["source_revision"] != source_revision
                 or self.vectors["source_revision"] != source_revision):
             raise Refusal("profile-pin-cross-check")
         vector_sources = self.vectors["primary_sources"]
         if type(vector_sources) is not list or not all(
-                p in self.profile["source_pins"] for p in vector_sources):
+                any(_same(p, expected) for expected in self.profile["source_pins"])
+                for p in vector_sources):
             raise Refusal("vectors-sources")
         self.vector_count = check_vectors(self.vectors)
 
+    def _checkout_read(self, rel, code, expected_size=None):
+        observed = {}
+        data = _read_regular(self.repo / rel, code, expected_size=expected_size,
+                             max_size=MAX_CHECKOUT_BYTES, observed=observed)
+        identity = observed["identity"]
+        old = self._checkout_identities.setdefault(rel, identity)
+        if identity != old:
+            raise Refusal(code)
+        return data
+
     def generator_pin(self):
-        data = _read_regular(self.repo / GENERATOR_PATH, "generator-unreadable")
+        data = self._checkout_read(GENERATOR_PATH, "generator-unreadable")
         return {"bytes": len(data), "path": GENERATOR_PATH, "sha256": sha256(data)}
 
     def recheck_checkout(self):
         for rel, pin, code in ((PROFILE_PATH, self.profile_pin, "profile-drift"),
                                (VECTORS_PATH, self.vectors_pin, "vectors-drift")):
-            data = _read_regular(self.repo / rel, code)
-            if len(data) != pin["bytes"] or sha256(data) != pin["sha256"]:
+            data = self._checkout_read(rel, code, pin["bytes"])
+            if sha256(data) != pin["sha256"]:
                 raise Refusal(code)
 
 
-def _read_regular(path, code):
+def _file_identity(st):
+    return _stable(st) + (st.st_mode, st.st_uid)
+
+
+def _read_regular(path, code, expected_size=None, max_size=MAX_CHECKOUT_BYTES, observed=None):
+    """Bound allocation before reading; bind retained FD, full bytes and pathname."""
     try:
         fd = os.open(str(path), os.O_RDONLY | os.O_NOFOLLOW | os.O_NONBLOCK | os.O_CLOEXEC)
     except OSError:
         raise Refusal(code)
     try:
         st = os.fstat(fd)
-        if not stat.S_ISREG(st.st_mode):
+        if (not stat.S_ISREG(st.st_mode) or st.st_nlink != 1 or st.st_size > max_size
+                or (expected_size is not None and st.st_size != expected_size)):
             raise Refusal(code)
-        return _read_all(fd, st.st_size, code)
+        identity = _file_identity(st)
+        data = _read_all(fd, st.st_size, code)
+        if (_file_identity(os.fstat(fd)) != identity
+                or _file_identity(os.lstat(path)) != identity):
+            raise Refusal(code)
+        if observed is not None:
+            observed["identity"] = identity
+        return data
+    except OSError:
+        raise Refusal(code)
     finally:
         os.close(fd)
 
@@ -557,8 +607,8 @@ def _read_all(fd, size, code):
 
 def _production_contract():
     repo = REPO
-    profile = _read_regular(repo / PROFILE_PATH, "profile-unreadable")
-    vectors = _read_regular(repo / VECTORS_PATH, "vectors-unreadable")
+    profile = _read_regular(repo / PROFILE_PATH, "profile-unreadable", PROFILE_PIN["bytes"])
+    vectors = _read_regular(repo / VECTORS_PATH, "vectors-unreadable", VECTORS_PIN["bytes"])
     return Contract(PRODUCTION, repo, profile, vectors, PROFILE_PIN, VECTORS_PIN,
                     PATCH_PIN, SOURCE_REVISION, PATCH_HEADER_VERSION)
 
@@ -584,14 +634,17 @@ def _open_source(root_fd, rel):
             os.close(fd)
 
 
-def check_sources(source_root, pins):
-    """Hash exactly the five pinned files; returns their pins as recorded."""
+def check_sources(source_root, pins, observed=None):
+    """Hash exactly five bounded pinned files; retain stable root/file identities."""
     try:
         root_fd = os.open(str(source_root), os.O_RDONLY | os.O_DIRECTORY | os.O_NOFOLLOW
                           | os.O_CLOEXEC)
     except OSError:
         raise Refusal("source-root")
     try:
+        root_id = (os.fstat(root_fd).st_dev, os.fstat(root_fd).st_ino)
+        if observed is not None and observed.setdefault("root", root_id) != root_id:
+            raise Refusal("source-root")
         for pin in pins:
             try:
                 fd = _open_source(root_fd, pin["path"])
@@ -603,10 +656,26 @@ def check_sources(source_root, pins):
                     raise Refusal("source-not-regular")
                 if st.st_size != pin["bytes"]:
                     raise Refusal("source-pin")
-                if sha256(_read_all(fd, st.st_size, "source-unreadable")) != pin["sha256"]:
+                identity = _file_identity(st)
+                if sha256(_read_all(fd, pin["bytes"], "source-unreadable")) != pin["sha256"]:
                     raise Refusal("source-pin")
+                # Reopen only this fixed path, never enumerate SOURCE_ROOT.
+                current = _open_source(root_fd, pin["path"])
+                try:
+                    if (_file_identity(os.fstat(fd)) != identity
+                            or _file_identity(os.fstat(current)) != identity):
+                        raise Refusal("source-drift")
+                finally:
+                    os.close(current)
+                if observed is not None and observed.setdefault(pin["path"], identity) != identity:
+                    raise Refusal("source-drift")
             finally:
                 os.close(fd)
+        lst = os.lstat(source_root)
+        if not stat.S_ISDIR(lst.st_mode) or (lst.st_dev, lst.st_ino) != root_id:
+            raise Refusal("source-root")
+    except OSError:
+        raise Refusal("source-unreadable")
     finally:
         os.close(root_fd)
     return [dict(p) for p in pins]
@@ -628,17 +697,21 @@ class Patch:
                               | os.O_CLOEXEC)
         except OSError:
             raise Refusal("patch-unopenable")
-        st = os.fstat(self.fd)
-        if not stat.S_ISREG(st.st_mode):
-            raise Refusal("patch-not-regular")
-        if st.st_nlink != 1:
-            raise Refusal("patch-hardlinked")
-        if st.st_size != pin["bytes"]:
-            raise Refusal("patch-size")
-        self.identity = _stable(st)
-        self._check_path()
-        self.range_hashes = self._hash_all(targets, chunk)
-        self.recheck()
+        try:
+            st = os.fstat(self.fd)
+            if not stat.S_ISREG(st.st_mode):
+                raise Refusal("patch-not-regular")
+            if st.st_nlink != 1:
+                raise Refusal("patch-hardlinked")
+            if st.st_size != pin["bytes"]:
+                raise Refusal("patch-size")
+            self.identity = _stable(st)
+            self._check_path()
+            self.range_hashes = self._hash_all(targets, chunk)
+            self.recheck()
+        except BaseException:
+            self.close()
+            raise
 
     def _check_path(self):
         try:
@@ -735,9 +808,12 @@ class FileOps:
         os.close(fd)
 
     def read_back(self, dir_fd, name):
-        fd = os.open(name, os.O_RDONLY | os.O_NOFOLLOW | os.O_CLOEXEC, dir_fd=dir_fd)
+        fd = os.open(name, os.O_RDONLY | os.O_NOFOLLOW | os.O_NONBLOCK | os.O_CLOEXEC,
+                     dir_fd=dir_fd)
         try:
             st = os.fstat(fd)
+            if not stat.S_ISREG(st.st_mode) or st.st_size > MAX_CHECKOUT_BYTES:
+                raise Refusal("output-readback")
             return st, _read_all(fd, st.st_size, "output-readback")
         finally:
             os.close(fd)
@@ -748,6 +824,7 @@ class Output:
         self.path = str(path)
         self.ops = ops
         self.created = {}
+        self.expected = {}
         self.dir_fd = None
         self.identity = None
         parent = os.path.dirname(os.path.abspath(self.path)) or "/"
@@ -784,7 +861,8 @@ class Output:
                 or stat.S_IMODE(lst.st_mode) != 0o700 or lst.st_uid != os.getuid()):
             raise Refusal("output-foreign")
         fst = os.fstat(self.dir_fd)
-        if (fst.st_dev, fst.st_ino) != self.identity:
+        if (not stat.S_ISDIR(fst.st_mode) or (fst.st_dev, fst.st_ino) != self.identity
+                or stat.S_IMODE(fst.st_mode) != 0o700 or fst.st_uid != os.getuid()):
             raise Refusal("output-foreign")
 
     def publish(self, name, data):
@@ -795,13 +873,15 @@ class Output:
             raise Refusal("output-create")
         st = os.fstat(fd)
         self.created[name] = (st.st_dev, st.st_ino)
+        self.expected[name] = (len(data), sha256(data))
         try:
             os.fchmod(fd, 0o600)
             view = memoryview(data)
             done = 0
             while done < len(data):
-                n = self.ops.write(fd, view[done:done + (1 << 20)])
-                if type(n) is not int or n <= 0 or n > len(data) - done:
+                chunk = view[done:done + (1 << 20)]
+                n = self.ops.write(fd, chunk)
+                if type(n) is not int or n <= 0 or n > len(chunk):
                     raise Refusal("output-write")
                 done += n
             self.ops.fsync(fd)
@@ -817,14 +897,23 @@ class Output:
             raise Refusal("output-close")
         self.check_file(name, data)
 
-    def check_file(self, name, data):
+    def check_file(self, name, data=None):
         try:
+            before = os.stat(name, dir_fd=self.dir_fd, follow_symlinks=False)
+            expected_size, expected_hash = self.expected[name]
+            if (not stat.S_ISREG(before.st_mode) or before.st_size != expected_size
+                    or before.st_nlink != 1 or before.st_uid != os.getuid()
+                    or stat.S_IMODE(before.st_mode) != 0o600
+                    or (before.st_dev, before.st_ino) != self.created.get(name)):
+                raise Refusal("output-readback")
             st, back = self.ops.read_back(self.dir_fd, name)
+            after = os.stat(name, dir_fd=self.dir_fd, follow_symlinks=False)
+            if (_file_identity(before) != _file_identity(st)
+                    or _file_identity(after) != _file_identity(before)
+                    or len(back) != expected_size or sha256(back) != expected_hash
+                    or (data is not None and back != data)):
+                raise Refusal("output-readback")
         except (OSError, Refusal):
-            raise Refusal("output-readback")
-        if ((st.st_dev, st.st_ino) != self.created.get(name) or not stat.S_ISREG(st.st_mode)
-                or st.st_nlink != 1 or stat.S_IMODE(st.st_mode) != 0o600
-                or back != data):
             raise Refusal("output-readback")
 
     def check_set(self, names):
@@ -834,8 +923,15 @@ class Output:
         for name in names:
             st = os.stat(name, dir_fd=self.dir_fd, follow_symlinks=False)
             if ((st.st_dev, st.st_ino) != self.created.get(name) or st.st_nlink != 1
-                    or stat.S_IMODE(st.st_mode) != 0o600 or not stat.S_ISREG(st.st_mode)):
+                    or stat.S_IMODE(st.st_mode) != 0o600 or st.st_uid != os.getuid()
+                    or not stat.S_ISREG(st.st_mode)):
                 raise Refusal("output-identity")
+
+    def check_all(self, names):
+        self.check_set(names)
+        for name in names:
+            self.check_file(name)
+        self.check_set(names)
 
     def sync_dir(self):
         try:
@@ -846,10 +942,29 @@ class Output:
     def fail(self):
         """Invalidate an owned completion and publish a failure marker if safe."""
         if self.dir_fd is None:
-            return False
+            # A final close error is ambiguous. Never retry its numeric FD.
+            # Reopen only the original pathname, and prove its owned identity.
+            fd = None
+            try:
+                fd = os.open(self.path, os.O_RDONLY | os.O_DIRECTORY | os.O_NOFOLLOW
+                             | os.O_CLOEXEC)
+                st = os.fstat(fd)
+                if (not stat.S_ISDIR(st.st_mode) or (st.st_dev, st.st_ino) != self.identity
+                        or stat.S_IMODE(st.st_mode) != 0o700 or st.st_uid != os.getuid()):
+                    return False
+                self.dir_fd = fd
+                fd = None
+            except OSError:
+                return False
+            finally:
+                if fd is not None:
+                    os.close(fd)
         try:
-            self.check_dir()
-        except (Refusal, OSError):
+            fst = os.fstat(self.dir_fd)
+            if (not stat.S_ISDIR(fst.st_mode) or (fst.st_dev, fst.st_ino) != self.identity
+                    or stat.S_IMODE(fst.st_mode) != 0o700 or fst.st_uid != os.getuid()):
+                return False
+        except OSError:
             return False
         try:
             st = os.stat(COMPLETE, dir_fd=self.dir_fd, follow_symlinks=False)
@@ -952,8 +1067,10 @@ def _run(source_root, patch_path, output_path, contract, ops=None, consumer=None
     try:
         profile = contract.profile
         limits = profile["work_limits"]
+        contract.recheck_checkout()
         generator = contract.generator_pin()
-        sources = check_sources(source_root, profile["source_pins"])
+        source_identities = {}
+        sources = check_sources(source_root, profile["source_pins"], source_identities)
         patch = Patch(patch_path, profile["patch"], profile["targets"], limits["read_chunk_bytes"])
         header_version = check_header(patch.header, profile["patch"], contract.header_version)
         out.create()
@@ -970,9 +1087,9 @@ def _run(source_root, patch_path, output_path, contract, ops=None, consumer=None
         # Final input rechecks, then release the patch before completion.
         patch.recheck()
         patch.close()
-        check_sources(source_root, profile["source_pins"])
+        check_sources(source_root, profile["source_pins"], source_identities)
         contract.recheck_checkout()
-        if contract.generator_pin() != generator:
+        if not _same(contract.generator_pin(), generator):
             raise Refusal("generator-drift")
         out.check_set(BODY_NAMES + (MANIFEST,))
         marker = canonical({"manifest_bytes": len(manifest), "manifest_sha256": sha256(manifest),
@@ -982,7 +1099,24 @@ def _run(source_root, patch_path, output_path, contract, ops=None, consumer=None
         out.sync_dir()
         out.check_set(BODY_NAMES + (MANIFEST, COMPLETE))
         (consumer or (lambda path: _verify_payloads(path, contract)))(output_path)
-        out.check_set(BODY_NAMES + (MANIFEST, COMPLETE))
+        # The callback is not a final trust boundary: repeat every binding after it.
+        check_sources(source_root, profile["source_pins"], source_identities)
+        contract.recheck_checkout()
+        if not _same(contract.generator_pin(), generator):
+            raise Refusal("generator-drift")
+        with_patch = Patch(patch_path, profile["patch"], profile["targets"],
+                           limits["read_chunk_bytes"])
+        try:
+            if with_patch.identity != patch.identity:
+                raise Refusal("patch-drift")
+            check_header(with_patch.header, profile["patch"], contract.header_version)
+        finally:
+            with_patch.close()
+        out.check_all(BODY_NAMES + (MANIFEST, COMPLETE))
+        try:
+            out.close()
+        except OSError:
+            raise Refusal("output-close") from None
         return sha256(manifest), decoded_total
     except BaseException as exc:
         code = exc.code if isinstance(exc, Refusal) else "internal-error"
@@ -1004,7 +1138,10 @@ def _run(source_root, patch_path, output_path, contract, ops=None, consumer=None
             raise
         raise Refusal(code) from exc
     finally:
-        out.close()
+        try:
+            out.close()
+        except OSError:
+            raise Refusal("output-close") from None
 
 
 # ---------------------------------------------------------------------------
@@ -1018,7 +1155,9 @@ HASH_FIELDS = ("compressed_sha256", "decoded_sha256", "decrypted_padding_sha256"
                "decrypted_range_sha256", "raw_padding_sha256", "raw_range_sha256")
 
 
-def _consumer_read(dir_fd, name):
+def _consumer_read(dir_fd, name, *, expected_size=None, limit=None):
+    limit = (MAX_MARKER_BYTES if name == COMPLETE else MAX_MANIFEST_BYTES
+             if name == MANIFEST else 1 << 28) if limit is None else limit
     try:
         fd = os.open(name, os.O_RDONLY | os.O_NOFOLLOW | os.O_NONBLOCK | os.O_CLOEXEC,
                      dir_fd=dir_fd)
@@ -1029,15 +1168,45 @@ def _consumer_read(dir_fd, name):
         if (not stat.S_ISREG(st.st_mode) or st.st_nlink != 1 or st.st_uid != os.getuid()
                 or stat.S_IMODE(st.st_mode) != 0o600):
             raise Refusal("consumer-file-privacy")
-        return _read_all(fd, st.st_size, "consumer-unreadable")
+        if st.st_size > limit or (expected_size is not None and st.st_size != expected_size):
+            raise Refusal("consumer-size")
+        identity = _file_identity(st)
+        data = _read_all(fd, st.st_size, "consumer-unreadable")
+        if (_file_identity(os.fstat(fd)) != identity
+                or _file_identity(os.stat(name, dir_fd=dir_fd, follow_symlinks=False)) != identity):
+            raise Refusal("consumer-drift")
+        return data
+    except OSError:
+        raise Refusal("consumer-unreadable")
     finally:
         os.close(fd)
+
+
+def _consumer_observe(dir_fd, name, observations, expected_size=None):
+    before = os.stat(name, dir_fd=dir_fd, follow_symlinks=False)
+    data = _consumer_read(dir_fd, name, expected_size=expected_size)
+    after = os.stat(name, dir_fd=dir_fd, follow_symlinks=False)
+    identity = _file_identity(before)
+    if _file_identity(after) != identity:
+        raise Refusal("consumer-drift")
+    observation = (identity, len(data), sha256(data))
+    if name in observations and observations[name] != observation:
+        raise Refusal("consumer-drift")
+    observations[name] = observation
+    return data
+
+
+def _consumer_directory(output, dir_fd, identity):
+    for st in (os.fstat(dir_fd), os.lstat(output)):
+        if (not stat.S_ISDIR(st.st_mode) or (st.st_dev, st.st_ino) != identity
+                or stat.S_IMODE(st.st_mode) != 0o700 or st.st_uid != os.getuid()):
+            raise Refusal("consumer-output-privacy")
 
 
 def _check_row(expected, row):
     _keys(row, ROW_KEYS, "consumer-row-keys")
     for k in TARGET_KEYS:
-        if row[k] != expected[k] or type(row[k]) is not type(expected[k]):
+        if not _same(row[k], expected[k]):
             raise Refusal("consumer-row-contract")
     if not all(_is_hex(row[k], 32) for k in HASH_FIELDS):
         raise Refusal("consumer-row-hash")
@@ -1064,17 +1233,22 @@ def _verify_payloads(output, contract):
         st = os.fstat(dir_fd)
         if stat.S_IMODE(st.st_mode) != 0o700 or st.st_uid != os.getuid():
             raise Refusal("consumer-output-privacy")
+        directory_identity = (st.st_dev, st.st_ino)
+        _consumer_directory(output, dir_fd, directory_identity)
+        contract.recheck_checkout()
+        generator = contract.generator_pin()
+        observations = {}
         names = set(os.listdir(dir_fd))
         if FAILED in names:
             raise Refusal("consumer-failed-marker")
         if names != set(BODY_NAMES + (MANIFEST, COMPLETE)):
             raise Refusal("consumer-file-set")
-        marker_bytes = _consumer_read(dir_fd, COMPLETE)
-        manifest_bytes = _consumer_read(dir_fd, MANIFEST)
+        marker_bytes = _consumer_observe(dir_fd, COMPLETE, observations)
+        manifest_bytes = _consumer_observe(dir_fd, MANIFEST, observations)
         marker = _parse_json(marker_bytes, "consumer-marker-json")
-        if canonical(marker) != marker_bytes or marker != {
+        if canonical(marker) != marker_bytes or not _same(marker, {
                 "manifest_bytes": len(manifest_bytes), "manifest_sha256": sha256(manifest_bytes),
-                "schema": COMPLETE_SCHEMA, "status": "complete", "target_count": TARGET_COUNT}:
+                "schema": COMPLETE_SCHEMA, "status": "complete", "target_count": TARGET_COUNT}):
             raise Refusal("consumer-marker")
         manifest = _parse_json(manifest_bytes, "consumer-manifest-json")
         if canonical(manifest) != manifest_bytes:
@@ -1083,13 +1257,13 @@ def _verify_payloads(output, contract):
                          "schema", "source_revision", "sources", "strict_policy", "targets",
                          "task", "usage", "vectors", "work_limits"), "consumer-manifest-keys")
         profile = contract.profile
-        fixed = build_manifest(contract, contract.generator_pin(),
+        fixed = build_manifest(contract, generator,
                                [dict(p) for p in profile["source_pins"]],
                                "%08x" % contract.header_version, [], 0, 0)
         for key in ("contract_kind", "generator", "not_claimed", "patch", "profile", "schema",
                     "source_revision", "sources", "strict_policy", "task", "vectors",
                     "work_limits"):
-            if manifest[key] != fixed[key]:
+            if not _same(manifest[key], fixed[key]):
                 raise Refusal("consumer-contract")
         rows = manifest["targets"]
         if type(rows) is not list or len(rows) != TARGET_COUNT:
@@ -1097,21 +1271,28 @@ def _verify_payloads(output, contract):
         total = 0
         for expected, row in zip(profile["targets"], rows):
             _check_row(expected, row)
-            body = _consumer_read(dir_fd, row["output_file"])
+            body = _consumer_observe(dir_fd, row["output_file"], observations,
+                                     expected_size=expected["real_size"])
             if (len(body) != row["decoded_bytes"] or sha256(body) != row["decoded_sha256"]
                     or body[:4].hex() != row["magic_hex"]
                     or body[4:6].hex() != row["version_prefix_hex"]):
                 raise Refusal("consumer-body")
             total += len(body)
         limits = profile["work_limits"]
-        if manifest["usage"] != {"aligned_bytes_read": limits["expected_aligned_bytes_total"],
+        if not _same(manifest["usage"], {"aligned_bytes_read": limits["expected_aligned_bytes_total"],
                                  "decoded_bytes": total, "output_body_bytes": total,
                                  "patch_bytes_hashed": profile["patch"]["bytes"],
-                                 "target_count": TARGET_COUNT} \
+                                 "target_count": TARGET_COUNT}) \
                 or total != limits["expected_decoded_bytes_total"]:
             raise Refusal("consumer-usage")
-        if set(os.listdir(dir_fd)) != names or (os.fstat(dir_fd).st_dev, os.fstat(dir_fd).st_ino) \
-                != (st.st_dev, st.st_ino):
+        # Full second observation catches earlier reads changing in-place or by replacement.
+        for name, (_, size, _) in list(observations.items()):
+            _consumer_observe(dir_fd, name, observations, expected_size=size)
+        contract.recheck_checkout()
+        if not _same(contract.generator_pin(), generator):
+            raise Refusal("consumer-contract")
+        _consumer_directory(output, dir_fd, directory_identity)
+        if set(os.listdir(dir_fd)) != names:
             raise Refusal("consumer-drift")
         return {"targets": TARGET_COUNT, "decoded_bytes": total,
                 "manifest_sha256": sha256(manifest_bytes)}

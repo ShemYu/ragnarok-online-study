@@ -9,6 +9,7 @@ and $PATCH_DECODER_PATCH name the admitted inputs.
 """
 
 import hashlib
+import errno
 import json
 import os
 from pathlib import Path
@@ -341,6 +342,8 @@ class EndToEndTests(Base):
     def test_no_output_on_stdout_paths(self):
         out = tempfile.TemporaryFile("w+")
         err = tempfile.TemporaryFile("w+")
+        self.addCleanup(out.close)
+        self.addCleanup(err.close)
         with mock.patch.object(sys, "stdout", out), mock.patch.object(sys, "stderr", err):
             code = dpt.main([str(self.fx.source_root), str(self.fx.patch), str(self.fx.out)])
             usage = dpt.main(["only-one"])
@@ -586,7 +589,8 @@ class PublicationTests(Base):
             os.mkdir(path, 0o700)
         self.refuse("output-foreign", self.fx.run, consumer=swap)
         self.assertEqual(self.names(), [])  # nothing written into the foreign directory
-        self.assertIn(dpt.COMPLETE, self.names(moved))  # original preserved, not ours to edit now
+        self.assertNotIn(dpt.COMPLETE, self.names(moved))  # retained owned FD revokes its marker
+        self.assertIn(dpt.FAILED, self.names(moved))
 
     def test_identical_marker_replacement_is_not_success(self):
         def replace(path):
@@ -707,6 +711,276 @@ class ConsumerTests(Base):
         data = (self.fx.out / dpt.MANIFEST).read_bytes()
         self.rewrite(dpt.MANIFEST, data.replace(b"\n", b"\r\n", 1))
         self.refuse("consumer-marker", self.verify)
+
+
+class RootCorrectionTests(Base):
+    """Root-authored finite real-file controls; no production asset qualification."""
+
+    def test_final_directory_close_error_revokes_owned_completion(self):
+        original = dpt.Output.close
+        hits = []
+        def close_then_error(output):
+            had_fd = output.dir_fd is not None
+            original(output)
+            if had_fd and not hits:
+                hits.append(True)
+                raise OSError("injected after actual final directory close")
+        with mock.patch.object(dpt.Output, "close", close_then_error):
+            self.refuse("output-close", self.fx.run)
+        self.assertEqual(hits, [True])
+        self.assertFalse((self.fx.out / dpt.COMPLETE).exists())
+        self.assertTrue((self.fx.out / dpt.FAILED).is_file())
+        self.refuse("consumer-failed-marker", dpt._verify_payloads,
+                    self.fx.out, self.fx.contract())
+
+    def test_readback_refuses_growth_before_allocation(self):
+        self.fx.run()
+        p = self.fx.out / dpt.BODY_NAMES[0]
+        with p.open("r+b") as f:
+            f.truncate(dpt.MAX_CHECKOUT_BYTES + 1)
+        directory = os.open(self.fx.out, os.O_RDONLY | os.O_DIRECTORY)
+        try:
+            with mock.patch.object(dpt, "_read_all", side_effect=AssertionError("unbounded allocation")):
+                self.refuse("output-readback", dpt.FileOps().read_back,
+                            directory, dpt.BODY_NAMES[0])
+        finally:
+            os.close(directory)
+
+    def manifest(self):
+        return json.loads((self.fx.out / dpt.MANIFEST).read_bytes())
+
+    def rebind(self, manifest):
+        data = dpt.canonical(manifest)
+        (self.fx.out / dpt.MANIFEST).write_bytes(data)
+        (self.fx.out / dpt.COMPLETE).write_bytes(dpt.canonical({
+            "manifest_bytes": len(data), "manifest_sha256": sha(data),
+            "schema": dpt.COMPLETE_SCHEMA, "status": "complete", "target_count": 12}))
+
+    def test_fixed_source_float_rebound_refused(self):
+        self.fx.run()
+        m = self.manifest()
+        m["sources"][0]["bytes"] = float(m["sources"][0]["bytes"])
+        self.rebind(m)
+        self.refuse("consumer-contract", dpt._verify_payloads, self.fx.out, self.fx.contract())
+
+    def test_fixed_source_bool_rebound_refused(self):
+        pin = self.fx.profile["source_pins"][0]
+        (self.fx.source_root / pin["path"]).write_bytes(b"x")
+        pin.update(bytes=1, sha256=sha(b"x"))
+        vectors = json.loads(self.fx.vectors_bytes)
+        vectors["primary_sources"] = self.fx.profile["source_pins"][:2]
+        self.fx.vectors_bytes = json.dumps(vectors).encode()
+        (self.fx.repo / dpt.VECTORS_PATH).write_bytes(self.fx.vectors_bytes)
+        self.fx.vpin = {"bytes": len(self.fx.vectors_bytes), "sha256": sha(self.fx.vectors_bytes)}
+        self.fx.profile["authored"].update(self.fx.vpin)
+        self.fx.write_profile()
+        self.fx.run()  # one-byte source is a valid private baseline
+        m = self.manifest()
+        m["sources"][0]["bytes"] = True
+        self.rebind(m)
+        self.refuse("consumer-contract", dpt._verify_payloads, self.fx.out, self.fx.contract())
+
+    def test_deep_target_usage_marker_types(self):
+        self.fx.run()
+        original = self.manifest()
+        for section in ("range", "usage", "limit"):
+            with self.subTest(section=section):
+                m = json.loads(json.dumps(original))
+                if section == "range":
+                    m["targets"][0]["physical_body_range"][0] = float(m["targets"][0]["physical_body_range"][0])
+                elif section == "usage":
+                    m["usage"]["target_count"] = 12.0
+                else:
+                    m["work_limits"]["max_output_bytes"] = float(m["work_limits"]["max_output_bytes"])
+                self.rebind(m)
+                with self.assertRaises(dpt.Refusal):
+                    dpt._verify_payloads(self.fx.out, self.fx.contract())
+        self.rebind(original)
+        marker = json.loads((self.fx.out / dpt.COMPLETE).read_bytes())
+        marker["target_count"] = 12.0
+        (self.fx.out / dpt.COMPLETE).write_bytes(dpt.canonical(marker))
+        self.refuse("consumer-marker", dpt._verify_payloads, self.fx.out, self.fx.contract())
+
+    def test_consumer_final_directory_swap(self):
+        self.fx.run()
+        foreign = self.fx.base / "foreign"
+        shutil.copytree(self.fx.out, foreign)
+        foreign_id = (foreign.stat().st_dev, foreign.stat().st_ino)
+        foreign_bytes = {p.name: p.read_bytes() for p in foreign.iterdir()}
+        retained = self.fx.base / "retained"
+        original = dpt._consumer_read
+        hits = []
+        def read(fd, name, **kw):
+            data = original(fd, name, **kw)
+            if name == dpt.BODY_NAMES[-1] and not hits:
+                self.fx.out.rename(retained)
+                foreign.rename(self.fx.out)
+                hits.append(name)
+            return data
+        with mock.patch.object(dpt, "_consumer_read", read), self.assertRaises(dpt.Refusal):
+            dpt._verify_payloads(self.fx.out, self.fx.contract())
+        self.assertEqual(len(hits), 1)
+        self.assertEqual((self.fx.out.stat().st_dev, self.fx.out.stat().st_ino), foreign_id)
+        self.assertEqual({p.name: p.read_bytes() for p in self.fx.out.iterdir()}, foreign_bytes)
+        self.assertTrue((retained / dpt.COMPLETE).exists())  # read-only consumer never deletes
+
+    def test_consumer_identical_foreign_marker(self):
+        self.fx.run()
+        original = dpt._consumer_read
+        saved = self.fx.base / "old-marker"
+        hits = []
+        def read(fd, name, **kw):
+            data = original(fd, name, **kw)
+            if name == dpt.COMPLETE and not hits:
+                p = self.fx.out / name
+                p.rename(saved)  # keep original inode live, preventing inode reuse
+                with p.open("xb") as f:
+                    f.write(data)
+                os.chmod(p, 0o600)
+                hits.append((p.stat().st_dev, p.stat().st_ino, data))
+                self.assertNotEqual(hits[0][:2], (saved.stat().st_dev, saved.stat().st_ino))
+            return data
+        with mock.patch.object(dpt, "_consumer_read", read), self.assertRaises(dpt.Refusal):
+            dpt._verify_payloads(self.fx.out, self.fx.contract())
+        p = self.fx.out / dpt.COMPLETE
+        self.assertEqual((p.stat().st_dev, p.stat().st_ino, p.read_bytes()), hits[0])
+
+    def test_consumer_already_read_body_mutation(self):
+        self.fx.run()
+        original = dpt._consumer_read
+        hits = []
+        def read(fd, name, **kw):
+            data = original(fd, name, **kw)
+            if name == dpt.BODY_NAMES[0] and not hits:
+                p = self.fx.out / name
+                before = p.stat()
+                changed = data[:-1] + bytes((data[-1] ^ 1,))
+                p.write_bytes(changed)
+                self.assertEqual((p.stat().st_dev, p.stat().st_ino), (before.st_dev, before.st_ino))
+                hits.append(name)
+            return data
+        with mock.patch.object(dpt, "_consumer_read", read), self.assertRaises(dpt.Refusal):
+            dpt._verify_payloads(self.fx.out, self.fx.contract())
+        self.assertEqual(len(hits), 1)
+
+    def test_producer_after_consumer_rechecks_all_bindings(self):
+        for target in ("source", "generator", "profile", "vectors", "body"):
+            with self.subTest(target=target):
+                with tempfile.TemporaryDirectory() as tmp:
+                    fx = Fixture(tmp)
+                    contract = fx.contract()
+                    hits = []
+                    def consumer(path):
+                        self.assertEqual(dpt._verify_payloads(path, contract)["targets"], 12)
+                        p = (fx.source_root / fx.profile["source_pins"][0]["path"] if target == "source"
+                             else fx.out / dpt.BODY_NAMES[0] if target == "body"
+                             else fx.repo / {"generator": dpt.GENERATOR_PATH,
+                                             "profile": dpt.PROFILE_PATH,
+                                             "vectors": dpt.VECTORS_PATH}[target])
+                        data = p.read_bytes()
+                        before = p.stat()
+                        p.write_bytes(data[:-1] + bytes((data[-1] ^ 1,)))
+                        self.assertEqual((p.stat().st_dev, p.stat().st_ino), (before.st_dev, before.st_ino))
+                        hits.append(target)
+                    with self.assertRaises(dpt.Refusal):
+                        dpt._run(fx.source_root, fx.patch, fx.out, contract, consumer=consumer)
+                    self.assertEqual(hits, [target])
+                    self.assertFalse((fx.out / dpt.COMPLETE).exists())
+                    self.assertTrue((fx.out / dpt.FAILED).is_file())
+
+    def test_patch_constructor_refusals_close_exact_owned_fd(self):
+        for target in ("size", "hardlink", "hash"):
+            with self.subTest(target=target):
+                p = self.fx.base / (target + ".gpf")
+                p.write_bytes(b"x")
+                if target == "hardlink":
+                    os.link(p, self.fx.base / "retained-link")
+                pin = {"bytes": 2 if target == "size" else 1, "sha256": "0" * 64}
+                real_open, real_close = os.open, os.close
+                opened = []
+                def track(path, flags, *args, **kwargs):
+                    fd = real_open(path, flags, *args, **kwargs)
+                    if os.fspath(path) == str(p):
+                        st = os.fstat(fd)
+                        opened.append((fd, st.st_dev, st.st_ino))
+                    return fd
+                leaked = []
+                try:
+                    with mock.patch.object(dpt.os, "open", track), self.assertRaises(dpt.Refusal):
+                        dpt.Patch(p, pin, [], 64)
+                    self.assertEqual(len(opened), 1)
+                    for fd, dev, ino in opened:
+                        try:
+                            st = os.fstat(fd)
+                            if (st.st_dev, st.st_ino) == (dev, ino):
+                                leaked.append(fd)
+                        except OSError as exc:
+                            self.assertEqual(exc.errno, errno.EBADF)
+                    self.assertEqual(leaked, [], "owned FD still live before fixture cleanup")
+                finally:
+                    # Observe first, then close only the exact fixture-owned identity if leaked.
+                    for fd, dev, ino in opened:
+                        try:
+                            st = os.fstat(fd)
+                        except OSError:
+                            continue
+                        if (st.st_dev, st.st_ino) == (dev, ino):
+                            real_close(fd)
+
+    def test_bounded_consumer_reads_before_body_allocation(self):
+        self.fx.run()
+        p = self.fx.out / dpt.BODY_NAMES[0]
+        with p.open("ab") as f:
+            f.write(b"x")
+        target = (p.stat().st_dev, p.stat().st_ino)
+        actual = dpt._read_all
+        reads = []
+        def read(fd, size, code):
+            st = os.fstat(fd)
+            if (st.st_dev, st.st_ino) == target:
+                reads.append(size)
+            return actual(fd, size, code)
+        with mock.patch.object(dpt, "_read_all", read):
+            self.refuse("consumer-size", dpt._verify_payloads, self.fx.out, self.fx.contract())
+        self.assertEqual(reads, [])
+        (self.fx.out / dpt.COMPLETE).write_bytes(b"x" * ((1 << 16) + 1))
+        self.refuse("consumer-size", dpt._verify_payloads, self.fx.out, self.fx.contract())
+
+    def test_source_and_checkout_mutations_during_read_refuse(self):
+        for which in ("source", "checkout"):
+            with self.subTest(which=which):
+                p = (self.fx.source_root / self.fx.profile["source_pins"][0]["path"]
+                     if which == "source" else self.fx.repo / dpt.PROFILE_PATH)
+                data = p.read_bytes()
+                target = (p.stat().st_dev, p.stat().st_ino)
+                original = dpt._read_all
+                hits = []
+                def read(fd, size, code):
+                    result = original(fd, size, code)
+                    st = os.fstat(fd)
+                    if (st.st_dev, st.st_ino) == target and not hits:
+                        p.write_bytes(data[:-1] + bytes((data[-1] ^ 1,)))
+                        hits.append(which)
+                    return result
+                with mock.patch.object(dpt, "_read_all", read), self.assertRaises(dpt.Refusal):
+                    if which == "source":
+                        dpt.check_sources(self.fx.source_root, self.fx.profile["source_pins"])
+                    else:
+                        self.fx.contract().recheck_checkout()
+                self.assertEqual(hits, [which])
+                p.write_bytes(data)
+
+    def test_chunk_overcount_refused(self):
+        out = dpt.Output(self.fx.out, FaultOps("over", at=1))
+        out.create()
+        try:
+            self.refuse("output-write", out.publish, "large", b"x" * ((1 << 20) + 9))
+        finally:
+            out.close()
+
+    def test_nonfinite_json_refused(self):
+        for token in (b"1e309", b"-1e309", b"NaN"):
+            self.refuse("json", dpt._parse_json, b'{"n":' + token + b'}', "json")
 
 
 @unittest.skipUnless(os.environ.get("PATCH_DECODER_SOURCE_ROOT")

@@ -1,5 +1,10 @@
 # Bounded twelve-target patch payload decoder (T07.007.003)
 
+Version1.0.1 is the root-corrected implementation following unchanged Claude
+integration300404a. Root verifies52tests/zero skips, all twelve shared refusal
+controls, a fresh actual CLI/public consumer and every full body/typed artifact.
+See the [task review](../../docs/project/reviews/2026-10-21-T07.007.003.md#root-corrected-integration-qualified). The raw submission remains separately retained.
+
 `decode_patch_targets.py` decrypts and strictly unframes exactly the twelve
 profile-admitted terrain payloads (four maps × GAT/GND/RSW) of official patch
 9298 and publishes them as private files. It is a body gate before any native
@@ -29,16 +34,25 @@ Profile and vectors are resolved from this checkout (`Path(__file__)`), never
 the working directory. There are no command-line pin, target or limit
 overrides. SOURCE_ROOT supplies only the five fixed relative paths, opened
 component by component with `O_NOFOLLOW`; the directory is never listed. The
-producer hashes all five before reading bodies and again before completion.
+producer hashes all five before reading bodies, before completion and after the
+normal consumer returns. Each bounded read checks the retained descriptor and
+reopened fixed path, regular/single-link status, size, full hash and stable
+identity/metadata; SOURCE_ROOT pathname identity is also checked. No source
+collection is enumerated.
 
 All fixed pins and all 252 + 4 authored known answers are checked before the
-output directory is created. The patch is opened once (`O_NOFOLLOW`, regular,
+output directory is created. The initial patch descriptor is retained through decoding (`O_NOFOLLOW`, regular,
 single link, exact size); its full SHA-256 is computed through that descriptor
 while each admitted range is hashed as it streams past; the descriptor/path
 identity is rechecked; the 46-byte header must match its pin and its 0x1xx/0x200
 fields (`table_offset + 46`, `count − seed − 7`) must equal the profile's
 `table_start`/`record_count`. Only header fields are used; the file table, the
-legacy filename codec, aliases and winners are not parsed or discovered.
+legacy filename codec, aliases and winners are not parsed or discovered. After
+the normal consumer, a second descriptor repeats the full hash/header/range
+checks and must match the admitted original identity. This is a postcondition
+check, not another decoded target set; the frozen manifest usage field continues
+to report the admitted patch byte count. Constructor refusals close their owned
+descriptor, including size, hard-link and full-hash refusals.
 
 ## Decryption
 
@@ -102,10 +116,18 @@ payload-failed.json                 path-free reason code; overrides completion
 Before completion the producer rechecks patch descriptor/path identity and
 closes it, rehashes the five sources, profile, vectors and generator, and checks
 the output directory pathname/inode/mode and the exact file set and identities.
-After writing the marker it checks the set again and runs the consumer. On any
-refusal partial files and foreign replacements are preserved; only a
-completion marker whose inode this run created is removed, and a failure marker
-is written only into the still-verified owned directory. Unexpected exceptions
+After writing the marker it checks the set again and runs the consumer. After
+that callback, it repeats the source/profile/vector/generator and patch bindings,
+then re-reads every created output with its recorded size/hash/inode, current
+privacy/link/owner checks and stable before/after observations, with exact file
+set and directory pathname checks on both sides. Write counts are checked against
+the actual submitted chunk, rather than the larger remaining payload.
+
+On refusal, partial files and foreign replacements are preserved; only a
+completion marker whose inode this run created is removed. A retained verified
+owned directory FD can revoke its marker and write failure even if its pathname
+has been renamed/replaced; the replacement directory is not changed. Failure
+cleanup refuses foreign marker inodes. Unexpected producer-body exceptions
 become `internal-error` refusals, never success.
 
 `verify_payloads(output)` is the read-only production consumer: it builds the
@@ -114,11 +136,45 @@ exact fourteen 0600 single-link regular files (no failure marker), canonical
 marker/manifest bytes, a fixed manifest section equal to one rebuilt from the
 checkout profile/vectors/generator and fixed source provenance, per-row
 metadata equal to the profile, consistent derived fields, and each body's full
-size/SHA/magic/version prefix. Rehashing a changed manifest into the marker
+size/SHA/magic/version prefix. Equality is recursive and type-sensitive: bool,
+int and float are distinct, including nested target ranges, fixed sections,
+marker fields and usage. Nonfinite JSON constants and overflowing float tokens
+refuse. Rehashing a changed manifest into the marker
 cannot bless changed targets, limits, policy, profile or malformed rows. It does
 not reopen the external source files or the patch. The synthetic contract used
 by the tests is private (`_verify_payloads(output, contract)`), and the public
 consumer rejects synthetic provenance.
+
+The consumer checks checkout profile/vector/generator bytes and identities before
+and after verification. Its marker is bounded at 64 KiB, manifest at 1 MiB,
+checkout reads at 16 MiB (profile/vector reads also require their exact pinned
+sizes), and each body must have its admitted declared size before allocation.
+Reads check retained FD and named-file stability; a second full sweep compares
+every file identity, size and SHA with its first observation. Final pathname,
+0700 privacy and exact file set are rechecked. The consumer is read-only and
+does not remove pre-existing completion markers when it refuses.
+
+## Root synthetic checks and limits
+
+Root runs `-I -B -W error::ResourceWarning` with the admitted real-input
+environment:52tests pass, zero skips or ResourceWarnings. The same twelve shared
+fault intents all refuse, with zero observed FD leaks and preserved foreign
+replacements. The actual fresh CLI and a separate ordinary production consumer
+pass. Every complete body and entire canonical typed manifest/marker matches a
+root reconstruction based on the earlier independent cipher/body reference.
+
+Final directory close is inside the producer's refusal handler. On an ambiguous
+close error the original numeric FD is never retried; safe failure cleanup may
+reopen the original directory pathname only after proving its original inode,
+privacy and owner. A foreign directory is preserved. A regression closes the
+real directory then raises and verifies revoked owned completion/failure marker.
+Readback also bounds allocation at16MiB before reading and opens nonblocking.
+
+These are finite observations, not an atomic snapshot, arbitrary concurrent
+same-user attack protection, post-return or crash/power-loss guarantees. An
+ambiguous OS close may leave descriptor cleanup unproven; no broad FD retry is
+claimed. The public profile/CLI/schema and target metadata remain fixed apart
+from generator identity/version. No native reader is invoked by this tool.
 
 ## Not claimed
 
