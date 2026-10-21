@@ -70,7 +70,8 @@ with no guard action; observations do not include provider/other-app resource us
 These stages are not additive end-to-end delivery times and some independent work
 runs in parallel. Exact Claude/Grok API tokens and billing remain unobserved.
 
-Current root checkout's ignored `.tools/renewal` allocation is48165232KiB
+At the acquisition checkpoint, before later candidate preservation, the root
+checkout's ignored `.tools/renewal` allocation is48165232KiB
 (approximately45.93GiB), freshly measured after the new package/patch/reference
 work. This supersedes its older15.01GiBengineering-tree observation only. It
 includes preserved downloads, both extraction layers, source/builds, catalogs,
