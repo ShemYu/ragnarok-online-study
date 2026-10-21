@@ -82,12 +82,90 @@ both positive exit status and independently audited evidence before acceptance.
 The11new regression methods reject the original source and pass the corrected
 source; see the [root review](../../docs/project/reviews/2026-10-20-T06.003.003.005.md).
 
+## T07.007.006 second route (four-map subset)
+
+Candidate source for the [frozen brief](../../docs/project/tasks/T07.007.006.md). One exact second trusted
+descriptor is added; the route is selected **only** by the profile's trusted byte length and full SHA-256
+(`T07.007.006-profile.json`, 9680 bytes, `0615c6d9…5db5c6`) before any profile content is believed. A
+same-size different-SHA profile refuses `profile_pin`; a larger one refuses `admit_limit` before allocation.
+The legacy descriptor (7258 bytes, `c581255b…89f5`, producer pin 31720 bytes `12f5a315…897f`) is unchanged;
+neither producer is accepted by the other route.
+
+```text
+OBSERVE_INPUT_ROOT=CANONICAL_REPO/.tools/renewal/t07-007-006-legacy-metadata-1/snapshot \
+OBSERVE_NEW_INPUT_ROOT=CANONICAL_REPO \
+ python3 -m unittest discover -s tools/renewal -p test_observe_map_dependencies.py
+python3 tools/renewal/observe_map_dependencies.py --preflight \
+ --input-root CANONICAL_REPO/.tools/renewal/t07-007-006-legacy-metadata-1/snapshot \
+ --profile docs/project/fixtures/T06.003.003.005-profile.json
+python3 tools/renewal/observe_map_dependencies.py --preflight \
+ --input-root CANONICAL_REPO --profile docs/project/fixtures/T07.007.006-profile.json
+```
+
+Both test variables default to the canonical checkout layout and never bypass CLI pins. Old preflight
+against the canonical root refuses (`admit_size`, integrated .005 producer drift) — expected evidence.
+
+**Metadata admission.** `check_profile` requires the exact task/policy, the six ordered native names
+(reader under `input_root`, then DATA.INI 0..4: the two 2026-08-25 GPFs, event, data0, data — an
+experimental order, not publisher priority), `input_root` bases only (HOME is never looked up), the exact 22
+ordered source paths (old 16 with only the prior profile path replaced, plus Ground.js and the .004
+profile/manifest/worker/producer/summary), producer 48337 bytes `546ab293…ea89`, prior .005 profile 4649
+bytes `c0dccf5d…7034` and the catalog pin. All 22 sources keep stable regular/no-symlink full byte/SHA
+admission; the .005 profile, .004 profile and manifest are parsed as data, never executed.
+`validate_catalog_t07` checks the exact catalog key set, schema/task `T07.007.005`/mode, `profile_sha256`,
+ordered `input_pins` (report.json/jobs.jsonl/constructor_manifest), constructor task/worker/producer,
+`constructor_profile_sha256`, `summary_sha256`, all three rule sources and limitations against the .005
+profile; ties those sub-pins to the descriptor's source pins; binds the .004 profile and manifest
+(task/counts/gaps); validates every ordered job against its manifest row (id/kind/body hash/input
+bytes/header version, `outcome: returned`, `constructor_returned is True`); and compares the roots
+order-sensitively with the manifest roots plus each linked job's `parse_outcome` (scope, null original
+ordinal/status and `parse_status: not_run` preserved). The shared graph validator then enforces root-edge ↔
+job references, loader ↔ target ↔ referrer bidirectionality, occurrence indexes, FileManager agreement,
+UTF-8 HTTP reconstruction and `wire_target`; counts equal the profile's full `expected_counts`
+(4 roots/12 jobs/311 targets/337 referrers/273+38 distinct names) and the census is 174 rsm2/99 rsm/38 BMP.
+Manifest `body_path` strings are never followed.
+
+**Execute (root only).** Evidence (`catalog-input.json`, `report.json`, six-digit bodies,
+`native-stdout.log`, `native-stderr.log`) stays in the fresh output; the fresh 0700 `server/` is native cwd
+and `SERVER_ROOT` and holds only `resources/DATA.INI` (canonical absolute archive paths) plus a justified
+`logs/missing-files.log`. The 16-variable environment has `NODE_ENV=development`, zero caches, no HOME and
+no `GRF_FILENAME_ENCODING`. The 25 s startup clock starts immediately before `Popen` and is checked after
+`getpgid`, drainer start, the launch checkpoint and every listener/diagnostic observation. Pipes are adopted
+right after `Popen`; drainer threads retain at most 16 MiB combined, preserve LF framing across chunks and
+require exactly five ordered `  Valid GRF: PATH (version V, N files)` lines (two leading spaces; one stream)
+matching the frozen tuples. Diagnostic failure is checked before connect, after headers and after each
+transfer, and again after cleanup, so a late failure sets `diagnostic_failure`. Requests are health,
+cache-stats, the 311 assets, cache-stats (≤314, cap enforced). Health requires `version` `1.0.5`; each cache
+observation requires integer `index.grfCount=5`, `cache.size=0`, `cache.maxSize=0` (bool/float/string/null
+refused) and records the other fields as observations. A clock check follows each final metadata parse.
+Report adds `cache_before`/`cache_after`, `health.version_ok`, `totals.cache_attempts`,
+`startup_archive_counts`, `diagnostics`, `server_tree`/`evidence_tree` (both required by `tree.valid`) and
+`retained_postverify` (full receipt re-admission of the catalog copy, INI, every body and both diagnostic
+files). Exit 0 additionally requires all of these.
+
+**Shared corrections (both routes).** A storage `Fatal` during the health body previously left a bytes
+`_prefix` in the record, so the halt checkpoint raised and skipped owned-child cleanup; the prefix is now
+always removed and a non-`Fatal` halt-checkpoint error is recorded as `publication_failure` before cleanup.
+
+**Tests.** All 42 legacy methods (16 wire/11 transfer/10 signature/3 write authored cases and the 11 root
+regressions) run unchanged on the legacy snapshot. New: descriptor/route/cross-substitution refusals,
+whole-catalog/.005/.004/manifest corruption, forbidden native/body/process/socket/thread/output/HOME
+sentinels on the new preflight, a production-method fake scan of all 311 records with both cache
+observations, 404 continuation versus fatal suffix, health/cache failures, inclusive byte/attempt/
+invocation caps, late final cache/EOF, short/EINTR/zero/bool writes, connection/close/input/body drift,
+failed publication, split-root placement faults, and diagnostics overflow/short/zero/error writes,
+unterminated/duplicate/extra lines, source-close failure, startup version/count/order/path/stream
+mismatches, delayed after-`Popen` setup and drainer start failure, each with FD/thread leak inspection
+before fixture deletion. Tiny stand-in native files and pipes live only under ignored private fixtures.
+
 ## Limitations
 
 - Candidate only; no live native run was performed by the worker. Root executes the selected driver.
+- T07 route: metadata preflight and fake I/O never touch the six native inputs or prove availability; the
+  five-archive order, startup literal and cache fields are artifact observations, not source parity.
 - Listener ownership is checked with `lsof` at readiness, after transport faults and before shutdown,
   not after every target; per-target liveness uses the owned `Popen.poll()`.
-- Native stdout/stderr are discarded, so startup/extraction diagnostics are not retained. Root's RSS
+- Legacy route: native stdout/stderr are discarded, so startup/extraction diagnostics are not retained. Root's RSS
   guard is external and is not OS containment; the 24 MiB/64 MiB caps do not bound native inflation.
 - Signature state is recorded only for complete stored 200 responses; it is a magic check, not parsing.
 

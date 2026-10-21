@@ -2,8 +2,10 @@
 
 No native binary/GRF/asset bodies, real process launch, HTTP or game/browser
 state are touched. Tiny private files live under this checkout's
-.tools/renewal (0700 directories/0600 files). The full metadata preflight
-reads the canonical input root (OBSERVE_INPUT_ROOT overrides the default).
+.tools/renewal (0700 directories/0600 files). Legacy (T06.003.003.005) metadata
+tests read the root-prepared read-only legacy snapshot (OBSERVE_INPUT_ROOT);
+T07.007.006 tests read the canonical input root (OBSERVE_NEW_INPUT_ROOT).
+Neither variable bypasses the CLI pins; both default to the canonical checkout.
 """
 import errno
 import hashlib
@@ -16,6 +18,8 @@ import socket
 import stat
 import subprocess
 import sys
+import threading
+import time
 import unittest
 from contextlib import redirect_stdout
 from pathlib import Path
@@ -28,8 +32,11 @@ CHECKOUT = Path(__file__).resolve().parents[2]
 AUTHORED = CHECKOUT / 'docs/project/fixtures/T06.003.003.005-authored.json'
 PROFILE = CHECKOUT / 'docs/project/fixtures/T06.003.003.005-profile.json'
 AUTHORED_SHA = '8c06aceab400e87416cb4486991daf20d93f1d19b8a644dd10318ab45343f989'
-INPUT_ROOT = os.environ.get('OBSERVE_INPUT_ROOT',
-                            '/Users/shem/orca/workspaces/game-reverse-engineering/reverse-the-Ragnarok-Online-to-play-by-myself')
+CANONICAL = '/Users/shem/orca/workspaces/game-reverse-engineering/reverse-the-Ragnarok-Online-to-play-by-myself'
+INPUT_ROOT = os.environ.get('OBSERVE_INPUT_ROOT', CANONICAL + '/.tools/renewal/t07-007-006-legacy-metadata-1/snapshot')
+NEW_INPUT_ROOT = os.environ.get('OBSERVE_NEW_INPUT_ROOT', CANONICAL)
+NEW_PROFILE = CHECKOUT / 'docs/project/fixtures/T07.007.006-profile.json'
+NEW_PROFILE_SHA = '0615c6d9e6e7990acc3f9012d2028115fce0543bd5fe298bfb544953865db5c6'
 PRIVATE = CHECKOUT / '.tools/renewal/t06-005-claude-tests'
 HEALTH_BODY = b'{"status":"ok","service":"robrowser-remoteclient"}'
 EMPTY_SHA = hashlib.sha256(b'').hexdigest()
@@ -1241,6 +1248,948 @@ class Root005Regressions(unittest.TestCase):
         self.assertEqual(rep['totals']['stored_bytes'], len(HEALTH_BODY) + 10)
         self.assertTrue(rep['targets'][1]['stored']['complete'])
         self.assertTrue(rep['acquisition_and_cleanup_valid'])
+
+
+# ------------------------------------------------------------- T07.007.006
+
+NEW_HEALTH_BODY = b'{"status":"ok","service":"robrowser-remoteclient","version":"1.0.5"}'
+CACHE_DOC = {'index': {'grfCount': 5, 'uniqueFiles': 12, 'totalFiles': 20, 'mojibakeKeys': 0},
+             'cache': {'size': 0, 'maxSize': 0, 'maxMemoryMB': '0', 'memoryUsedMB': '0.00', 'hitRate': '0.00%'}}
+CACHE_BODY = json.dumps(CACHE_DOC, separators=(',', ':')).encode()
+JSON_HEADERS = {'Content-Type': 'application/json'}
+_NEW_META = None
+
+
+def new_meta():
+    global _NEW_META
+    if _NEW_META is None:
+        _NEW_META = omd.load_metadata(NEW_INPUT_ROOT, str(NEW_PROFILE))
+    return _NEW_META
+
+
+def cache_body(**changes):
+    doc = json.loads(CACHE_BODY)
+    for dotted, value in changes.items():
+        section, name = dotted.split('__')
+        if value is _ABSENT:
+            doc[section].pop(name)
+        else:
+            doc[section][name] = value
+    return json.dumps(doc).encode()
+
+
+_ABSENT = object()
+
+
+class T07Admission(unittest.TestCase):
+    """Metadata-only checks for the exact second descriptor; canonical inputs stay unopened."""
+
+    def run_main(self, argv):
+        out, err = io.StringIO(), io.StringIO()
+        with redirect_stdout(out), mock.patch.object(sys, 'stderr', err):
+            code = omd.main(argv)
+        text = out.getvalue()
+        self.assertLessEqual(len(text.encode()), 4096)
+        self.assertEqual(text.count('\n'), 1)
+        self.assertEqual(err.getvalue(), '')
+        return code, json.loads(text), text
+
+    def test_profile_pin(self):
+        data = NEW_PROFILE.read_bytes()
+        self.assertEqual((len(data), hashlib.sha256(data).hexdigest()), (9680, NEW_PROFILE_SHA))
+        self.assertEqual((omd.T07_PROFILE_BYTES, omd.T07_PROFILE_SHA), (9680, NEW_PROFILE_SHA))
+        # Old pins are unchanged, including the pre-.005 producer.
+        self.assertEqual((omd.PROFILE_BYTES, omd.PROFILE_SHA), (7258, 'c581255b5b77cbd7c675ada5e271360e274bdbbe740a4e7eb921317b4c6889f5'))
+        self.assertEqual(omd.LEGACY_ROUTE['producer_pin'], {'bytes': 31720, 'sha256': '12f5a315950a4f34ce8fd6aa7e2d0f4e075121f9ccbddeaae49b233b5f70897f'})
+        self.assertEqual(len(omd.ROUTES), 2)
+        self.assertEqual(len(omd.T07_SOURCE_PATHS), 22)
+        self.assertEqual([p for p in omd.T07_SOURCE_PATHS[:16] if p not in omd.LEGACY_SOURCE_PATHS], [omd.T07_PRIOR_PROFILE_PATH])
+
+    def test_new_preflight_forbidden_native_process_socket_output_home(self):
+        profile = json.loads(NEW_PROFILE.read_bytes())
+        manifest = json.loads(Path(NEW_INPUT_ROOT, omd.T07_MANIFEST_PATH).read_bytes())
+        forbidden = {os.path.normpath(os.path.join(NEW_INPUT_ROOT, n['path'])) for n in profile['native']}
+        forbidden.update(os.path.normpath(os.path.join(NEW_INPUT_ROOT, j['body_path'])) for j in manifest['jobs'])
+        forbidden.add(os.path.normpath(os.path.join(NEW_INPUT_ROOT, profile['native'][0]['path'], '..')))
+        forbidden.add('/Users/shem/Library/Application Support/Ragnarok Offline/runtime/bin/robrowser-remoteclient')
+        self.assertEqual(len(forbidden), 6 + 12 + 2)
+        real_open, real_lstat, real_stat = os.open, os.lstat, os.stat
+        hits = []
+
+        def guard(fn, writes=False):
+            def inner(path, *a, **k):
+                if os.path.normpath(os.fspath(path)) in forbidden:
+                    hits.append('native')
+                    raise AssertionError('native/body path reached')
+                if writes and a and a[0] & (os.O_CREAT | os.O_WRONLY | os.O_RDWR):
+                    hits.append('write')
+                    raise AssertionError('output created')
+                return fn(path, *a, **k)
+            return inner
+        forbid = mock.Mock(side_effect=AssertionError('forbidden effect'))
+        env = {k: v for k, v in os.environ.items() if k != 'HOME'}
+        with mock.patch.dict(os.environ, env, clear=True), \
+                mock.patch.object(os, 'open', guard(real_open, writes=True)), mock.patch.object(os, 'lstat', guard(real_lstat)), \
+                mock.patch.object(os, 'stat', guard(real_stat)), mock.patch.object(subprocess, 'Popen', forbid), \
+                mock.patch.object(subprocess, 'run', forbid), mock.patch.object(http.client, 'HTTPConnection', forbid), \
+                mock.patch.object(socket, 'socket', forbid), mock.patch.object(socket, 'create_connection', forbid), \
+                mock.patch.object(threading.Thread, 'start', forbid), mock.patch.object(os, 'mkdir', forbid), \
+                mock.patch.object(os, 'replace', forbid), mock.patch.object(os.path, 'expanduser', forbid), \
+                mock.patch.object(omd, 'native_specs', forbid), mock.patch.object(omd, 'Observer', forbid):
+            code, payload, text = self.run_main(['--preflight', '--input-root', NEW_INPUT_ROOT, '--profile', str(NEW_PROFILE)])
+        self.assertEqual(code, 0, text)
+        self.assertEqual(hits, [])
+        forbid.assert_not_called()
+        self.assertEqual((payload['status'], payload['task'], payload['profile_sha256']), ('preflight_ok', 'T07.007.006', NEW_PROFILE_SHA))
+        self.assertEqual(payload['catalog_sha256'], '0a6d44ec22de3c54f5195c32d6fd253ef5f51a74feb212181181ab5d9570c362')
+        self.assertEqual(payload['counts'], {'roots': 4, 'jobs': 12, 'targets': 311, 'referrers': 337, 'gap_roots': 0,
+                                             'source_pins': 22, 'kinds': {'model': 273, 'bmp': 38, 'jpeg': 0}})
+        self.assertIsNone(payload['native_qualification'])
+        self.assertFalse(payload['native_or_network_or_process'])
+        self.assertNotIn(NEW_INPUT_ROOT, text)
+        self.assertNotIn('T06.003.003.005', text)
+
+    def test_old_profile_refuses_canonical_producer_drift(self):
+        # Expected evidence: the unchanged old pin refuses the integrated .005 producer.
+        code, payload, text = self.run_main(['--preflight', '--input-root', NEW_INPUT_ROOT, '--profile', str(PROFILE)])
+        self.assertEqual((code, payload), (2, {'status': 'refused', 'reason': 'admit_size'}))
+        code, payload, _ = self.run_main(['--preflight', '--input-root', INPUT_ROOT, '--profile', str(PROFILE)])
+        self.assertEqual((code, payload['task'], payload['counts']['targets']), (0, 'T06.003.003.005', 11134))
+
+    def test_new_profile_refuses_legacy_snapshot(self):
+        code, payload, text = self.run_main(['--preflight', '--input-root', INPUT_ROOT, '--profile', str(NEW_PROFILE)])
+        self.assertEqual(code, 2)
+        self.assertEqual(payload['status'], 'refused')
+        self.assertNotIn(INPUT_ROOT, text)
+
+    def test_route_selected_only_by_trusted_bytes(self):
+        root = private_dir(PRIVATE / ('t07-profile-%d' % os.getpid()))
+        try:
+            data = NEW_PROFILE.read_bytes()
+            exact, changed, padded = root / 'exact.json', root / 'changed.json', root / 'padded.json'
+            exact.write_bytes(data)
+            changed.write_bytes(data.replace(b'"asset_attempts": 311', b'"asset_attempts": 312'))
+            padded.write_bytes(data + b' ')
+            for path in (exact, changed, padded):
+                os.chmod(path, 0o600)
+            self.assertEqual(self.run_main(['--preflight', '--input-root', NEW_INPUT_ROOT, '--profile', str(exact)])[0], 0)
+            # Same size, wrong SHA: no route. Larger than any descriptor: refused before allocation.
+            for path, reason in ((changed, 'profile_pin'), (padded, 'admit_limit')):
+                with self.subTest(path.name):
+                    code, payload, _ = self.run_main(['--preflight', '--input-root', NEW_INPUT_ROOT, '--profile', str(path)])
+                    self.assertEqual((code, payload['reason']), (2, reason))
+        finally:
+            shutil.rmtree(root)
+
+    def test_descriptor_cross_substitution(self):
+        new = json.loads(NEW_PROFILE.read_bytes())
+        old = json.loads(PROFILE.read_bytes())
+        omd.check_profile(new, omd.T07_ROUTE)
+        omd.check_profile(old, omd.LEGACY_ROUTE)
+        self.assertRaises(omd.Refusal, omd.check_profile, old, omd.T07_ROUTE)
+        self.assertRaises(omd.Refusal, omd.check_profile, new, omd.LEGACY_ROUTE)
+
+        def pin_of(profile, path):
+            return [p for p in profile['source_pins'] if p['path'] == path][0]
+        mutations = {
+            'old_task': lambda p: p.__setitem__('task', 'T06.003.003.005'),
+            'old_policy': lambda p: p.__setitem__('policy', dict(omd.POLICY)),
+            'cache_attempt_override': lambda p: p['policy'].__setitem__('cache_attempts', 3),
+            'asset_count_override': lambda p: p['policy'].__setitem__('asset_attempts', 11134),
+            'native_order': lambda p: p['native'].insert(1, p['native'].pop(2)),
+            'old_native_names': lambda p: p.__setitem__('native', old['native']),
+            'home_base': lambda p: p['native'][0].__setitem__('base', 'home'),
+            'missing_native': lambda p: p['native'].pop(),
+            'old_sources': lambda p: p.__setitem__('source_pins', old['source_pins']),
+            'source_dropped': lambda p: p['source_pins'].pop(),
+            'source_reordered': lambda p: p['source_pins'].insert(0, p['source_pins'].pop()),
+            'old_producer': lambda p: pin_of(p, omd.PRODUCER_PATH).update(bytes=31720, sha256=omd.LEGACY_ROUTE['producer_pin']['sha256']),
+            'old_prior_path': lambda p: pin_of(p, omd.T07_PRIOR_PROFILE_PATH).__setitem__('path', omd.PRIOR_PROFILE_PATH),
+            'prior_hash': lambda p: pin_of(p, omd.T07_PRIOR_PROFILE_PATH).__setitem__('sha256', '0' * 64),
+            'old_catalog': lambda p: p.__setitem__('catalog', old['catalog']),
+            'catalog_hash': lambda p: p['catalog'].__setitem__('sha256', '0' * 64)}
+        for name, mutate in mutations.items():
+            with self.subTest(name):
+                broken = json.loads(NEW_PROFILE.read_bytes())
+                mutate(broken)
+                self.assertRaises(omd.Refusal, omd.check_profile, broken, omd.T07_ROUTE)
+        old_mut = json.loads(PROFILE.read_bytes())
+        [p for p in old_mut['source_pins'] if p['path'] == omd.PRODUCER_PATH][0].update(
+            bytes=48337, sha256=omd.T07_ROUTE['producer_pin']['sha256'])
+        self.assertRaises(omd.Refusal, omd.check_profile, old_mut, omd.LEGACY_ROUTE)  # Never accept both producers.
+
+    def admitted_inputs(self):
+        def load(rel):
+            return json.loads(Path(NEW_INPUT_ROOT, rel).read_bytes())
+        return (load(omd.T07_PRIOR_PROFILE_PATH), load(omd.T07_CONSTRUCTOR_PROFILE_PATH), load(omd.T07_MANIFEST_PATH))
+
+    def test_new_catalog_validation_refuses_corruption(self):
+        meta = new_meta()
+        profile = meta['profile']
+        prior, cp, manifest = self.admitted_inputs()
+        plans, referrers = omd.validate_catalog_t07(json.loads(meta['catalog_bytes']), profile, prior, cp, manifest)
+        self.assertEqual((len(plans), referrers), (311, 337))
+        self.assertEqual(sum(len(t['referrers']) for t in meta['catalog']['targets']), 337)
+        catalog_mutations = {
+            'referrer_pop': lambda c: c['targets'][5]['referrers'].pop(),
+            'referrer_duplicate': lambda c: c['targets'][0]['referrers'].append(dict(c['targets'][0]['referrers'][0])),
+            'referrer_role': lambda c: c['targets'][0]['referrers'][0].__setitem__('role', 'model'),
+            'http': lambda c: c['targets'][7].__setitem__('http_path', c['targets'][7]['http_path'] + 'x'),
+            'order': lambda c: c['targets'].reverse(),
+            'filemanager': lambda c: c['jobs'][2]['loader_entries'][0].__setitem__('filemanager_name', 'data\\model\\other.rsm'),
+            'loader_target': lambda c: c['jobs'][2]['loader_entries'][0].__setitem__('target_index', 0),
+            'occurrence_range': lambda c: c['jobs'][2]['occurrence_loader_indexes'].append(10 ** 6),
+            'job_reference_dup': lambda c: c['jobs'][0]['root_references'].append(dict(c['jobs'][0]['root_references'][0])),
+            'root_original_ordinal': lambda c: c['roots'][1].__setitem__('original_gap_root_ordinal', 7),
+            'root_ordinal_status': lambda c: c['roots'][1].__setitem__('original_gap_root_ordinal_status', 'known'),
+            'root_scope': lambda c: c['roots'][2].__setitem__('ordinal_scope', 'world'),
+            'root_name': lambda c: c['roots'][3].__setitem__('name', 'prontera'),
+            'parse_outcome': lambda c: c['roots'][0]['edges']['gnd'].__setitem__('parse_outcome', 'failed'),
+            'parse_status': lambda c: c['roots'][0]['edges']['gnd'].__setitem__('parse_status', 'run'),
+            'edge_swap': lambda c: c['roots'][0]['edges']['gnd'].__setitem__('job_id', 'target-004:gnd'),
+            'job_sha': lambda c: c['jobs'][1].__setitem__('complete_sha256', '0' * 64),
+            'job_bytes': lambda c: c['jobs'][1].__setitem__('input_bytes', c['jobs'][1]['input_bytes'] + 1),
+            'job_header': lambda c: c['jobs'][1].__setitem__('header_version_bytes', [1, 8]),
+            'job_outcome': lambda c: c['jobs'][1].__setitem__('outcome', 'threw'),
+            'job_constructor_int': lambda c: c['jobs'][1].__setitem__('constructor_returned', 1),
+            'input_pins': lambda c: c['input_pins']['jobs.jsonl'].__setitem__('bytes', 1),
+            'input_pins_order': lambda c: c.__setitem__('input_pins', dict(reversed(list(c['input_pins'].items())))),
+            'limitations': lambda c: c['limitations'].pop(),
+            'rule_sources': lambda c: c['rule_sources'].pop('src/Loaders/Ground.js'),
+            'constructor_profile': lambda c: c.__setitem__('constructor_profile_sha256', '0' * 64),
+            'summary': lambda c: c.__setitem__('summary_sha256', '0' * 64),
+            'constructor_task': lambda c: c.__setitem__('constructor_task', 'T07.007.003'),
+            'constructor_worker': lambda c: c['constructor_worker'].__setitem__('bytes', 1),
+            'constructor_producer': lambda c: c['constructor_producer'].__setitem__('commit', '0' * 40),
+            'counts': lambda c: c['counts'].__setitem__('http_targets', 312),
+            'gaps': lambda c: c.__setitem__('remaining_gap_root_ordinals', [0]),
+            'profile_binding': lambda c: c.__setitem__('profile_sha256', '0' * 64),
+            'task': lambda c: c.__setitem__('task', 'T06.003.003.004'),
+            'extra_key': lambda c: c.__setitem__('combined_observation', 'ok'),
+            'census_jpeg': None}
+        for name, mutate in catalog_mutations.items():
+            with self.subTest(catalog=name):
+                broken = json.loads(meta['catalog_bytes'])
+                if name == 'census_jpeg':
+                    # A consistent rename into a JPEG target is still outside the admitted census.
+                    t = broken['targets'][0]
+                    t['http_path'] = t['http_path'][:-4] + '.jpg'
+                    for ref in t['referrers']:
+                        entry = broken['jobs'][ref['job_index']]['loader_entries'][ref['loader_index']]
+                        for f in ('raw_name', 'logical_name', 'filemanager_name'):
+                            entry[f] = entry[f][:-4] + '.jpg'
+                        entry['http_path'] = t['http_path']
+                else:
+                    mutate(broken)
+                self.assertRaises(omd.Refusal, omd.validate_catalog_t07, broken, profile, prior, cp, manifest)
+        side_mutations = {
+            'prior_manifest_pin': ('prior', lambda d: d['constructor_manifest'].__setitem__('sha256', '0' * 64)),
+            'prior_summary': ('prior', lambda d: d['summary'].__setitem__('bytes', 1)),
+            'prior_counts': ('prior', lambda d: d['expected_counts'].__setitem__('jobs', 13)),
+            'prior_task': ('prior', lambda d: d.__setitem__('task', 'T06.003.003.004')),
+            'cp_manifest': ('cp', lambda d: d['manifest'].__setitem__('bytes', 1)),
+            'cp_counts': ('cp', lambda d: d['counts'].__setitem__('observed', 3)),
+            'manifest_scope': ('manifest', lambda d: d['roots'][0].__setitem__('ordinal_scope', 'world')),
+            'manifest_ordinal': ('manifest', lambda d: d['roots'][0].__setitem__('original_gap_root_ordinal', 3)),
+            'manifest_job_sha': ('manifest', lambda d: d['jobs'][3].__setitem__('complete_sha256', '0' * 64)),
+            'manifest_job_order': ('manifest', lambda d: d['jobs'].reverse()),
+            'manifest_gaps': ('manifest', lambda d: d.__setitem__('remaining_gap_root_ordinals', [1])),
+            'manifest_task': ('manifest', lambda d: d.__setitem__('task', 'T07.007.005'))}
+        for name, (which, mutate) in side_mutations.items():
+            with self.subTest(side=name):
+                inputs = dict(zip(('prior', 'cp', 'manifest'), self.admitted_inputs()))
+                mutate(inputs[which])
+                self.assertRaises(omd.Refusal, omd.validate_catalog_t07, json.loads(meta['catalog_bytes']), profile,
+                                  inputs['prior'], inputs['cp'], inputs['manifest'])
+
+    def test_old_new_catalog_cross_validation(self):
+        meta, old = new_meta(), real_meta()
+        prior, cp, manifest = self.admitted_inputs()
+        old_prior = [p for p in old['profile']['source_pins'] if p['path'] == omd.PRIOR_PROFILE_PATH][0]
+        self.assertRaises(omd.Refusal, omd.validate_catalog, json.loads(meta['catalog_bytes']), old['profile'], old_prior)
+        self.assertRaises(omd.Refusal, omd.validate_catalog_t07, old['catalog'], meta['profile'], prior, cp, manifest)
+        self.assertRaises(omd.Refusal, omd.validate_catalog_t07, json.loads(meta['catalog_bytes']), old['profile'], prior, cp, manifest)
+
+    def test_native_specs_never_look_up_home(self):
+        meta = new_meta()
+        env = {k: v for k, v in os.environ.items() if k != 'HOME'}
+        with mock.patch.dict(os.environ, env, clear=True), \
+                mock.patch.object(os.path, 'expanduser', side_effect=AssertionError('HOME lookup')) as lookup:
+            specs = omd.native_specs(meta)
+        lookup.assert_not_called()
+        self.assertEqual([s['name'] for s in specs], omd.T07_NATIVE_NAMES)
+        self.assertTrue(all(s['path'].startswith(os.path.normpath(NEW_INPUT_ROOT) + '/') for s in specs))
+        self.assertEqual(specs[0]['path'], os.path.join(os.path.normpath(NEW_INPUT_ROOT),
+                                                        '.tools/renewal/t07-007-native-artifact-admission-1/reader'))
+        self.assertEqual([s['bytes'] for s in specs[1:]], [306097616, 86992, 5833135, 2123919641, 2172616301])
+        # The legacy route keeps its HOME-based binary semantics unchanged.
+        fake_home = str(PRIVATE / 'wrong-home')
+        with mock.patch.dict(os.environ, dict(os.environ, HOME=fake_home)):
+            old_specs = omd.native_specs(real_meta())
+        self.assertTrue(old_specs[0]['path'].startswith(fake_home + '/'))
+
+
+class PipedProc(FakeProc):
+    """Fake owned child whose stdout/stderr are real tiny pipes."""
+
+    def __init__(self, ops):
+        super().__init__(ops)
+        self.writers = {}
+        for stream in ('stdout', 'stderr'):
+            read_fd, write_fd = os.pipe()
+            setattr(self, stream, os.fdopen(read_fd, 'rb', buffering=0))
+            self.writers[stream] = write_fd
+
+    def emit(self, stream, data):
+        os.write(self.writers[stream], data)
+
+    def close_writers(self):
+        for stream in list(self.writers):
+            os.close(self.writers.pop(stream))
+
+    def poll(self):
+        if self.returncode is not None:
+            self.close_writers()
+        return self.returncode
+
+    def terminate(self):
+        if self.ops.on_terminate is not None and self.writers:
+            self.ops.on_terminate(self)
+        super().terminate()
+        if self.returncode is not None:
+            self.close_writers()
+
+    def kill(self):
+        super().kill()
+        self.close_writers()
+
+
+class PipedOps(FakeOps):
+    def __init__(self, server, natives, routes=None):
+        super().__init__(server, routes)
+        self.routes.setdefault('/api/health', (200, dict(JSON_HEADERS), NEW_HEALTH_BODY))
+        self.cache_specs = [(200, dict(JSON_HEADERS), CACHE_BODY), (200, dict(JSON_HEADERS), CACHE_BODY)]
+        self.cache_calls, self.thread_names, self.thread_fail_at = 0, [], None
+        self.on_terminate = self.getpgid_hook = self.popen_error = None
+        self.startup = [b'remote client 1.0.5 starting\n']
+        self.startup += [b'  Valid GRF: %s (version %s, %d files)\n' % (n['path'].encode(), v.encode(), c)
+                         for n, (v, c) in zip(natives[1:], omd.T07_VALID_GRF)]
+        self.startup.append(b'listening on 127.0.0.1:54321\n')
+        self.startup_stream, self.chunk = 'stdout', 7
+
+    def sleep(self, seconds):
+        self.sleep_calls += 1
+        time.sleep(0.002)
+        self.clock.value += 0.05
+
+    def popen(self, argv, cwd, env):
+        raise AssertionError('legacy DEVNULL popen on the T07 route')
+
+    def popen_piped(self, argv, cwd, env):
+        self.popen_calls.append((argv, cwd, env))
+        if self.popen_error is not None:
+            raise self.popen_error
+        self.proc = PipedProc(self)
+        data = b''.join(self.startup)
+        for i in range(0, len(data), self.chunk):  # Lines straddle pipe chunks.
+            self.proc.emit(self.startup_stream, data[i:i + self.chunk])
+        return self.proc
+
+    def getpgid(self, pid):
+        if self.getpgid_hook is not None:
+            self.getpgid_hook()
+        return pid
+
+    def start_thread(self, target, name):
+        self.thread_names.append(name)
+        if self.thread_fail_at == len(self.thread_names):
+            raise RuntimeError('authored thread start failure')
+        thread = threading.Thread(target=target, name='fixture-' + name, daemon=True)
+        thread.start()
+        return thread
+
+    def respond(self, url):
+        if url == '/api/cache-stats':
+            self.routes[url] = self.cache_specs[min(self.cache_calls, 1)]
+            self.cache_calls += 1
+        return super().respond(url)
+
+
+def asset_routes(plans, missing=()):
+    routes = {}
+    for position, plan in enumerate(plans):
+        if position in missing:
+            continue
+        body = (b'GRSM\x02\x02' if plan['kind'] == 'model' else b'BM\x36\x00') + bytes([position % 251]) * 3
+        routes[plan['wire']] = (200, {'Content-Type': 'application/octet-stream', 'Content-Length': str(len(body))}, body)
+    return routes
+
+
+class T07Lifecycle(unittest.TestCase):
+    """Production methods with tiny private stand-ins, real tiny pipes and fake process/network."""
+
+    @classmethod
+    def setUpClass(cls):
+        cls.meta = new_meta()
+        cls.driver = omd.own_sha()
+
+    def setUp(self):
+        self.root = private_dir(PRIVATE / ('t07-%d-%s' % (os.getpid(), self._testMethodName)))
+        for child in self.root.iterdir():
+            shutil.rmtree(child) if child.is_dir() else child.unlink()
+        native_dir = private_dir(self.root / 'native')
+        self.natives = []
+        for name in omd.T07_NATIVE_NAMES:
+            data = ('tiny authored stand-in ' + name).encode()
+            path = native_dir / name
+            path.write_bytes(data)
+            os.chmod(path, 0o600)
+            self.natives.append({'name': name, 'path': str(path), 'bytes': len(data), 'sha256': hashlib.sha256(data).hexdigest()})
+        self.container = str(private_dir(self.root / 'container'))
+        self.output = os.path.join(self.container, 'out')
+        self.server = os.path.join(self.output, 'server')
+        self.ops_made = []
+        self.fds_before, self.threads_before = open_fds(), set(threading.enumerate())
+        self.reload = mock.patch.object(omd, 'load_metadata', return_value=self.meta)
+        self.reload.start()
+
+    def tearDown(self):
+        self.reload.stop()
+        for ops in self.ops_made:  # Fake child exit only; production descriptors are inspected next.
+            if isinstance(ops.proc, PipedProc):
+                ops.proc.close_writers()
+        try:  # Leak inspection happens before fixture deletion.
+            self.assertEqual(open_fds() - self.fds_before, set(), 'descriptor leak')
+            self.assertEqual(set(threading.enumerate()) - self.threads_before, set(), 'thread leak')
+        finally:
+            shutil.rmtree(self.root)
+
+    def ops(self, plans=None, missing=()):
+        if os.path.exists(self.output):
+            shutil.rmtree(self.output)
+        ops = PipedOps(self.server, self.natives, asset_routes(plans or [], missing))
+        self.ops_made.append(ops)
+        return ops
+
+    def observer(self, ops, plans, policy=None, write_fn=None, diag_write_fn=None):
+        return omd.Observer(dict(self.meta, plans=plans), self.output, self.driver, ops=ops, natives=self.natives,
+                            policy=policy, container=self.container, write_fn=write_fn, diag_write_fn=diag_write_fn)
+
+    def report(self):
+        return json.loads(Path(self.output, 'report.json').read_bytes())
+
+    def wait_for(self, predicate):
+        end = time.monotonic() + 5
+        while not predicate():
+            self.assertLess(time.monotonic(), end, 'fixture wait')
+            time.sleep(0.002)
+
+    def assert_cleaned(self, ops, rep):
+        self.assertTrue(ops.proc.terminated or ops.proc.returncode is not None)
+        self.assertIsNotNone(ops.proc.poll())
+        self.assertTrue(rep['diagnostics']['finished'] if 'finished' in rep['diagnostics'] else True)
+        self.assertFalse(rep['acquisition_and_cleanup_valid'])
+
+    def test_full_production_fake_scan_all_311(self):
+        plans = self.meta['plans']
+        self.assertEqual(len(plans), 311)
+        missing = (3, 200)
+        ops = self.ops(plans, missing)
+        obs = self.observer(ops, plans)
+        self.assertEqual(obs.run(), 0)
+        rep = self.report()
+        self.assertTrue(rep['acquisition_and_cleanup_valid'])
+        self.assertEqual((rep['task'], rep['schema'], rep['launch']['profile_sha256']), ('T07.007.006', omd.SCHEMA, NEW_PROFILE_SHA))
+        self.assertEqual(ops.requests, ['/api/health', '/api/cache-stats'] + [p['wire'] for p in plans] + ['/api/cache-stats'])
+        self.assertEqual(len(ops.requests), 314)
+        self.assertEqual(len(rep['targets']), 311)
+        self.assertTrue(all(r['attempted'] for r in rep['targets']))
+        self.assertEqual([r['request_index'] for r in rep['targets']], list(range(2, 313)))
+        self.assertEqual((rep['health']['request_index'], rep['cache_before']['request_index'], rep['cache_after']['request_index']), (0, 1, 313))
+        self.assertTrue(rep['health']['version_ok'] and rep['health']['valid'])
+        for key in ('cache_before', 'cache_after'):
+            self.assertTrue(rep[key]['valid'] and rep[key]['grf_count_ok'] and rep[key]['cache_size_ok'] and rep[key]['cache_max_size_ok'])
+            self.assertEqual(rep[key]['observations'], {'cache.maxMemoryMB': '0', 'cache.memoryUsedMB': '0.00', 'cache.hitRate': '0.00%',
+                                                        'index.uniqueFiles': 12, 'index.totalFiles': 20, 'index.mojibakeKeys': 0})
+        self.assertEqual({k: rep['totals'][k] for k in ('asset_attempts', 'health_attempts', 'cache_attempts')},
+                         {'asset_attempts': 311, 'health_attempts': 1, 'cache_attempts': 2})
+        bodies = sum(len(asset_routes(plans, missing)[p['wire']][2]) for i, p in enumerate(plans) if i not in missing)
+        self.assertEqual(rep['totals']['wire_bytes'], len(NEW_HEALTH_BODY) + 2 * len(CACHE_BODY) + bodies + 2 * len(b'Not Found'))
+        stops = [r['stop_reason'] for r in rep['targets']]
+        self.assertEqual(stops.count('complete'), 309)
+        self.assertEqual([i for i, s in enumerate(stops) if s == 'http_404'], list(missing))
+        self.assertEqual(rep['coverage_counts']['complete_200_matching_prefix'], 309)
+        self.assertEqual(rep['referrers'] if 'referrers' in rep else rep['catalog_refs']['referrers'], 337)
+        archives = rep['startup_archive_counts']
+        self.assertEqual([(a['name'], a['expected_version'], a['expected_count'], a['observed_version'], a['observed_count'], a['valid'])
+                          for a in archives],
+                         [(n, v, c, v, c, True) for n, (v, c) in zip(omd.T07_NATIVE_NAMES[1:], omd.T07_VALID_GRF)])
+        self.assertEqual([a['path'] for a in archives], [n['path'] for n in self.natives[1:]])
+        diag = rep['diagnostics']
+        emitted = len(b''.join(ops.startup))
+        self.assertTrue(diag['valid'] and diag['drainers_complete'] and diag['valid_grf_exact'])
+        self.assertEqual((diag['seen_bytes'], diag['stored_bytes'], diag['overflow'], diag['errors']),
+                         ({'stdout': emitted, 'stderr': 0}, {'stdout': emitted, 'stderr': 0}, False, []))
+        self.assertEqual(Path(self.output, 'native-stdout.log').read_bytes(), b''.join(ops.startup))
+        self.assertEqual(diag['files']['stdout']['sha256'], hashlib.sha256(b''.join(ops.startup)).hexdigest())
+        argv, cwd, env = ops.popen_calls[0]
+        self.assertEqual((argv, cwd), ([self.natives[0]['path']], self.server))
+        self.assertEqual(env, {'PATH': '/usr/bin:/bin:/usr/sbin:/sbin', 'SERVER_ROOT': self.server, 'HOST': '127.0.0.1',
+                               'PORT': '54321', 'NODE_ENV': 'development', 'CLIENT_PUBLIC_URL': 'http://127.0.0.1:54321',
+                               'CLIENT_RESPATH': 'resources/', 'CLIENT_DATAINI': os.path.join(self.server, 'resources/DATA.INI'),
+                               'CACHE_MAX_FILES': '0', 'CACHE_MAX_MEMORY_MB': '0', 'CACHE_WARM_UP': 'false',
+                               'CLIENT_AUTOEXTRACT': 'false', 'CLIENT_ENABLESEARCH': 'false', 'ENABLE_STATIC_SERVE': 'false',
+                               'ENABLE_WSPROXY': 'false', 'ENABLE_COMPRESSION': 'false'})
+        ini = Path(self.server, 'resources/DATA.INI').read_text()
+        self.assertEqual(ini, '[Data]\n' + ''.join('%d=%s\n' % (i, n['path']) for i, n in enumerate(self.natives[1:])))
+        self.assertEqual(rep['missing_log']['entries'], 2)
+        self.assertTrue(Path(self.server, 'logs/missing-files.log').exists())
+        self.assertFalse(Path(self.output, 'logs').exists() or Path(self.output, 'resources').exists())
+        self.assertTrue(rep['tree']['valid'] and rep['server_tree']['valid'] and rep['evidence_tree']['valid'])
+        self.assertTrue(rep['retained_postverify']['valid'])
+        self.assertEqual(rep['retained_postverify']['files'], 1 + 1 + 314 + 2)
+        self.assertTrue(rep['postchecks_valid'] and rep['cleanup']['clean'])
+        self.assertEqual(sorted(os.listdir(self.server)), ['logs', 'resources'])
+        for path in Path(self.output).rglob('*'):
+            self.assertEqual(stat.S_IMODE(path.lstat().st_mode), 0o700 if path.is_dir() else 0o600)
+        self.assertEqual(ops.thread_names, ['diagnostics-stdout', 'diagnostics-stderr'])
+
+    def test_404_continuation_versus_fatal_suffix(self):
+        plans = self.meta['plans'][:6]
+        ops = self.ops(plans, missing=(1,))
+        state = {'n': 0, 'fired': False}
+
+        def faulty(fd, buffer):
+            state['n'] += 1
+            if state['n'] == 6:  # health, cache, asset0, 404 body, asset2, then asset3
+                state['fired'] = True
+                return 0
+            return os.write(fd, bytes(buffer))
+        self.assertEqual(self.observer(ops, plans, write_fn=faulty).run(), 1)
+        rep = self.report()
+        self.assertTrue(state['fired'])
+        self.assertEqual([r['stop_reason'] for r in rep['targets'][:4]], ['complete', 'http_404', 'complete', 'storage_error'])
+        self.assertEqual(rep['halt_reason'], 'storage_failure')
+        for row in rep['targets'][4:]:
+            self.assertEqual((row['attempted'], row['stop_reason'], row['request_index']), (False, 'storage_failure', None))
+        self.assertIsNone(rep['cache_after'])
+        self.assertNotIn('/api/cache-stats', ops.requests[2:])
+        self.assert_cleaned(ops, rep)
+
+    def test_health_and_cache_failures_are_fatal(self):
+        plans = self.meta['plans'][:2]
+        cases = {
+            'health_version': ('health', (200, JSON_HEADERS, b'{"status":"ok","service":"robrowser-remoteclient","version":"1.0.4"}')),
+            'health_no_version': ('health', (200, JSON_HEADERS, b'{"status":"ok","service":"robrowser-remoteclient"}')),
+            'grf_bool': ('before', (200, JSON_HEADERS, cache_body(index__grfCount=True))),
+            'grf_float': ('before', (200, JSON_HEADERS, cache_body(index__grfCount=5.0))),
+            'grf_string': ('before', (200, JSON_HEADERS, cache_body(index__grfCount='5'))),
+            'grf_four': ('before', (200, JSON_HEADERS, cache_body(index__grfCount=4))),
+            'grf_absent': ('before', (200, JSON_HEADERS, cache_body(index__grfCount=_ABSENT))),
+            'size_one': ('before', (200, JSON_HEADERS, cache_body(cache__size=1))),
+            'max_null': ('before', (200, JSON_HEADERS, cache_body(cache__maxSize=None))),
+            'max_bool_false': ('before', (200, JSON_HEADERS, cache_body(cache__maxSize=False))),
+            'status_500': ('before', (500, JSON_HEADERS, CACHE_BODY)),
+            'invalid_json': ('before', (200, JSON_HEADERS, b'{"index":')),
+            'truncated': ('before', (200, JSON_HEADERS, CACHE_BODY, {'fault': 'truncate'})),
+            'oversize': ('before', (200, JSON_HEADERS, b' ' * 65537)),
+            'after_invalid': ('after', (200, JSON_HEADERS, cache_body(cache__size=2)))}
+        for name, (where, spec) in cases.items():
+            with self.subTest(name):
+                ops = self.ops(plans)
+                if where == 'health':
+                    ops.routes['/api/health'] = spec
+                else:
+                    ops.cache_specs[0 if where == 'before' else 1] = spec
+                self.assertEqual(self.observer(ops, plans).run(), 1)
+                rep = self.report()
+                self.assertEqual(rep['halt_reason'], 'health_failure' if where == 'health' else 'cache_failure')
+                if where == 'after':
+                    self.assertTrue(all(r['attempted'] for r in rep['targets']))
+                    self.assertFalse(rep['cache_after']['valid'])
+                else:
+                    self.assertTrue(all(not r['attempted'] for r in rep['targets']))
+                    self.assertEqual(len(ops.requests), 1 if where == 'health' else 2)
+                self.assert_cleaned(ops, rep)
+
+    def test_health_cache_inclusive_aggregate_cap(self):
+        plans = self.meta['plans'][:3]
+        policy = dict(omd.T07_POLICY, aggregate_bytes_including_health=len(NEW_HEALTH_BODY) + len(CACHE_BODY) + 4)
+        ops = self.ops(plans)
+        self.assertEqual(self.observer(ops, plans, policy=policy).run(), 1)
+        rep = self.report()
+        self.assertEqual(rep['halt_reason'], 'aggregate_cap')
+        self.assertEqual((rep['targets'][0]['stop_reason'], rep['targets'][0]['wire_bytes']), ('aggregate_cap', 4))
+        self.assertEqual(rep['totals']['wire_bytes'], len(NEW_HEALTH_BODY) + len(CACHE_BODY) + 4)
+        self.assertEqual([r['attempted'] for r in rep['targets']], [True, False, False])
+        self.assertIsNone(rep['cache_after'])
+
+    def test_attempt_and_invocation_caps(self):
+        plans = self.meta['plans'][:3]
+        ops = self.ops(plans)
+        self.assertEqual(self.observer(ops, plans, policy=dict(omd.T07_POLICY, asset_attempts=2)).run(), 1)
+        rep = self.report()
+        self.assertEqual(rep['halt_reason'], 'asset_attempt_cap')
+        self.assertEqual(len(ops.requests), 4)
+        plans = plans[:2]
+        ops = self.ops(plans)
+        self.assertEqual(self.observer(ops, plans, policy=dict(omd.T07_POLICY, asset_attempts=2, cache_attempts=1)).run(), 1)
+        rep = self.report()
+        self.assertEqual(rep['halt_reason'], 'http_invocation_cap')
+        self.assertEqual(len(ops.requests), 4)
+        self.assertFalse(rep['cache_after']['attempted'])
+
+    def test_late_final_cache_and_late_eof(self):
+        plans = self.meta['plans'][:2]
+        ops = self.ops(plans)
+        ops.cache_specs[1] = (200, JSON_HEADERS, CACHE_BODY, {'advance': 100.0 + 1200})
+        self.assertEqual(self.observer(ops, plans).run(), 1)
+        rep = self.report()
+        self.assertEqual(rep['halt_reason'], 'acquisition_deadline')
+        self.assertTrue(rep['cache_after']['wire_complete'])
+        self.assertFalse(rep['cache_after']['valid'])
+        # Framed: the late final read stays complete. Unframed: the EOF read is past the deadline.
+        for framed, stop in ((True, 'complete'), (False, 'deadline')):
+            with self.subTest(framed=framed):
+                ops = self.ops(plans)
+                route = ops.routes[plans[1]['wire']]
+                ops.routes[plans[1]['wire']] = route + ({'advance': 100.0 + 1200, 'framed': framed},)
+                self.assertEqual(self.observer(ops, plans).run(), 1)
+                rep = self.report()
+                self.assertEqual(rep['halt_reason'], 'acquisition_deadline')
+                self.assertEqual(rep['targets'][1]['stop_reason'], stop)
+                self.assertEqual(rep['targets'][1]['wire_complete'], framed)
+                self.assertIsNone(rep['cache_after'])
+                self.assertEqual(ops.requests.count('/api/cache-stats'), 1)
+
+    def test_production_write_variants(self):
+        plans = self.meta['plans'][:2]
+        state = {}
+
+        def one_byte(fd, buffer):
+            state['short'] = state.get('short', False) or len(buffer) > 1
+            return os.write(fd, bytes(buffer[:1]))
+
+        def eintr(fd, buffer):
+            state['eintr'] = state.get('eintr', 0) + 1
+            if state['eintr'] == 3:
+                raise InterruptedError(errno.EINTR, 'authored')
+            return os.write(fd, bytes(buffer))
+
+        def zero(fd, buffer):
+            state['zero'] = True
+            return 0
+
+        def boolean(fd, buffer):
+            state['bool'] = True
+            return True
+        for name, fn, expected in (('short', one_byte, 0), ('eintr', eintr, 0), ('zero', zero, 1), ('bool', boolean, 1)):
+            with self.subTest(name):
+                ops = self.ops(plans)
+                self.assertEqual(self.observer(ops, plans, write_fn=fn).run(), expected)
+                self.assertTrue(state[name])
+                rep = self.report()
+                if expected:
+                    self.assertEqual(rep['halt_reason'], 'storage_failure')
+                    self.assertFalse(rep['acquisition_and_cleanup_valid'])
+                else:
+                    self.assertTrue(all(r['stored']['complete'] for r in rep['targets']))
+
+    def test_connection_close_and_input_drift_faults(self):
+        plans = self.meta['plans'][:3]
+        ops = self.ops(plans)
+        ops.routes[('connect', 3)] = 'fail'  # health, cache, asset0, then asset1
+        self.assertEqual(self.observer(ops, plans).run(), 0)
+        self.assertEqual([r['stop_reason'] for r in self.report()['targets']], ['complete', 'connection_setup_error', 'complete'])
+        ops = self.ops(plans)
+        ops.routes[plans[0]['wire']] = ops.routes[plans[0]['wire']] + ({'fault': 'close'},)
+        self.assertEqual(self.observer(ops, plans).run(), 1)
+        self.assertEqual(self.report()['halt_reason'], 'resource_close_failure')
+        ops = self.ops(plans)
+        drift = []
+
+        def native_drift(url):
+            if url == '/api/cache-stats' and not drift:
+                os.utime(self.natives[1]['path'], ns=(1, 1))
+                drift.append('native')
+        ops.after_request = native_drift
+        self.assertEqual(self.observer(ops, plans).run(), 1)
+        self.assertEqual(drift, ['native'])
+        self.assertFalse(self.report()['postchecks_valid'])
+        ops = self.ops(plans)
+
+        def body_drift(url):
+            if url == plans[2]['wire'] and len(drift) == 1:
+                os.utime(os.path.join(self.output, '000002'), ns=(1, 1))
+                drift.append('body')
+        ops.after_request = body_drift
+        self.assertEqual(self.observer(ops, plans).run(), 1)
+        rep = self.report()
+        self.assertEqual(drift, ['native', 'body'])
+        self.assertEqual(rep['retained_postverify']['mismatched'], ['000002'])
+        self.assertFalse(rep['postchecks_valid'] or rep['acquisition_and_cleanup_valid'])
+
+    def test_failed_final_publication(self):
+        plans = self.meta['plans'][:1]
+        ops = self.ops(plans)
+        obs = self.observer(ops, plans)
+        real_replace, hits = os.replace, []
+
+        def replace(src, dst):
+            hits.append(dst)
+            if len(hits) >= 3:
+                raise OSError(errno.EIO, 'authored persistent publication fault')
+            return real_replace(src, dst)
+        with mock.patch.object(os, 'replace', replace):
+            self.assertEqual(obs.run(), 1)
+        self.assertEqual(obs.halt, 'publication_failure')
+        self.assertFalse(obs.report['acquisition_and_cleanup_valid'])
+        self.assertFalse(Path(self.output, '.report-next').exists())
+
+    def test_split_root_placement_faults(self):
+        plans = self.meta['plans'][:2]
+        cases = {
+            'loose_asset_in_server': lambda: (os.makedirs(os.path.join(self.server, 'data/model'), 0o700),
+                                              Path(self.server, 'data/model/x.rsm').write_bytes(b'GRSM')),
+            'cache_file_in_server': lambda: (Path(self.server, 'cache.bin').write_bytes(b''), os.chmod(Path(self.server, 'cache.bin'), 0o600)),
+            'symlink_in_server': lambda: os.symlink('/nonexistent', os.path.join(self.server, 'resources/link')),
+            'evidence_extra': lambda: (Path(self.output, 'server.log').write_bytes(b''), os.chmod(Path(self.output, 'server.log'), 0o600)),
+            'evidence_dir': lambda: os.mkdir(os.path.join(self.output, 'resources'), 0o700),
+            'server_mode': lambda: os.chmod(self.server, 0o755),
+            'ini_mode': lambda: os.chmod(os.path.join(self.server, 'resources/DATA.INI'), 0o644),
+            'log_in_evidence': None}
+        for name, tamper in cases.items():
+            with self.subTest(name):
+                ops = self.ops(plans, missing=(0,) if name == 'log_in_evidence' else ())
+                if name == 'log_in_evidence':
+                    ops.output = self.output  # The fake reader writes its log outside the served root.
+                fired = []
+
+                def hook(url, tamper=tamper):
+                    if url == plans[0]['wire'] and tamper is not None and not fired:
+                        tamper()
+                        fired.append(True)
+                ops.after_request = hook
+                self.assertEqual(self.observer(ops, plans).run(), 1)
+                rep = self.report()
+                self.assertIsNone(rep['halt_reason'])
+                self.assertFalse(rep['tree']['valid'])
+                self.assertFalse(rep['acquisition_and_cleanup_valid'])
+                if name == 'log_in_evidence':
+                    self.assertFalse(rep['missing_log']['valid'])
+                    self.assertFalse(rep['evidence_tree']['valid'])
+                    self.assertTrue(rep['server_tree']['valid'])
+                else:
+                    self.assertEqual(fired, [True])
+                    which = 'evidence_tree' if name.startswith('evidence') else 'server_tree'
+                    self.assertFalse(rep[which]['valid'])
+                if name == 'ini_mode':
+                    os.chmod(os.path.join(self.server, 'resources/DATA.INI'), 0o600)
+
+    def test_diagnostic_cap_overflow_at_startup_and_during_scan(self):
+        plans = self.meta['plans'][:3]
+        ops = self.ops(plans)
+        startup = len(b''.join(ops.startup))
+        self.assertEqual(self.observer(ops, plans, policy=dict(omd.T07_POLICY, diagnostic_bytes=startup - 1)).run(), 1)
+        rep = self.report()
+        self.assertEqual(rep['halt_reason'], 'diagnostic_failure')
+        self.assertTrue(rep['diagnostics']['overflow'])
+        self.assertEqual(ops.requests, [])
+        self.assert_cleaned(ops, rep)
+        ops = self.ops(plans)
+        obs = self.observer(ops, plans, policy=dict(omd.T07_POLICY, diagnostic_bytes=startup + 10))
+        fired = []
+
+        def overflow(url):
+            if url == plans[0]['wire'] and not fired:
+                ops.proc.emit('stderr', b'x' * 64 + b'\n')
+                self.wait_for(obs.diag.failed)
+                fired.append(True)
+        ops.after_request = overflow
+        self.assertEqual(obs.run(), 1)
+        rep = self.report()
+        self.assertEqual(fired, [True])
+        self.assertEqual(rep['halt_reason'], 'diagnostic_failure')
+        self.assertEqual((rep['diagnostics']['seen_bytes']['stderr'], rep['diagnostics']['stored_bytes']['stderr']), (65, 10))
+        self.assertTrue(rep['targets'][0]['attempted'])
+        self.assertFalse(rep['targets'][1]['attempted'])
+        self.assert_cleaned(ops, rep)
+
+    def test_diagnostic_write_variants(self):
+        plans = self.meta['plans'][:1]
+        calls = []
+
+        def short(fd, buffer):
+            calls.append(len(buffer))
+            return os.write(fd, bytes(buffer[:1]))
+        ops = self.ops(plans)
+        self.assertEqual(self.observer(ops, plans, diag_write_fn=short).run(), 0)
+        self.assertTrue(any(n > 1 for n in calls))
+        self.assertTrue(self.report()['diagnostics']['valid'])
+        for name, fn in (('zero', lambda fd, b: 0), ('error', lambda fd, b: (_ for _ in ()).throw(OSError(errno.EIO, 'authored')))):
+            with self.subTest(name):
+                ops = self.ops(plans)
+                self.assertEqual(self.observer(ops, plans, diag_write_fn=fn).run(), 1)
+                rep = self.report()
+                self.assertEqual(rep['halt_reason'], 'diagnostic_failure')
+                self.assertIn('stdout_write_error', rep['diagnostics']['errors'])
+                self.assertEqual(ops.requests, [])
+
+    def test_late_eof_partial_and_duplicate_diagnostics(self):
+        plans = self.meta['plans'][:2]
+        line = PipedOps(self.server, self.natives).startup[1]
+        for name, data in (('unterminated', b'  Valid GRF: trailing'), ('duplicate_after_scan', line),
+                           ('stderr_extra', None)):
+            with self.subTest(name):
+                ops = self.ops(plans)
+                fired = []
+
+                def late(proc, data=data):
+                    proc.emit('stderr' if data is None else 'stdout', line if data is None else data)
+                    fired.append(True)
+                ops.on_terminate = late
+                self.assertEqual(self.observer(ops, plans).run(), 1)
+                rep = self.report()
+                self.assertEqual(fired, [True])
+                self.assertTrue(rep['all_targets_attempted'])
+                self.assertTrue(rep['cache_after']['valid'])
+                self.assertEqual(rep['halt_reason'], 'diagnostic_failure')
+                self.assertFalse(rep['diagnostics']['valid_grf_exact'] or rep['diagnostics']['valid'])
+                self.assertTrue(rep['diagnostics']['drainers_complete'])
+
+    def test_diagnostic_source_close_failure(self):
+        plans = self.meta['plans'][:1]
+        ops = self.ops(plans)
+        original = ops.popen_piped
+        fired = []
+
+        class Closing:
+            def __init__(self, raw):
+                self.raw = raw
+
+            def fileno(self):
+                return self.raw.fileno()
+
+            def close(self):
+                self.raw.close()  # Released, but the close is reported uncertain.
+                fired.append(True)
+                raise OSError(errno.EIO, 'authored source close')
+
+        def popen(argv, cwd, env):
+            proc = original(argv, cwd, env)
+            proc.stdout = Closing(proc.stdout)
+            return proc
+        ops.popen_piped = popen
+        self.assertEqual(self.observer(ops, plans).run(), 1)
+        rep = self.report()
+        self.assertEqual(fired, [True])
+        self.assertIn('stdout_source_close', rep['diagnostics']['errors'])
+        self.assertEqual(rep['halt_reason'], 'diagnostic_failure')
+
+    def test_startup_line_mismatches(self):
+        plans = self.meta['plans'][:1]
+        base = PipedOps(self.server, self.natives).startup
+        valid = base[1:6]
+
+        def edit(lines):
+            return [base[0]] + lines + [base[-1]]
+        cases = {
+            'version': edit([valid[0].replace(b'0x102', b'0x200')] + valid[1:]),
+            'count': edit([valid[0]] + [valid[1].replace(b' 3 files', b' 4 files')] + valid[2:]),
+            'duplicate': edit([valid[0], valid[0]] + valid[1:]),
+            'reordered': edit([valid[1], valid[0]] + valid[2:]),
+            'extra': edit(valid + [valid[4]]),
+            'one_space': edit([valid[0][1:]] + valid[1:]),
+            'path': edit([valid[0].replace(self.natives[1]['path'].encode(), b'/elsewhere.gpf')] + valid[1:]),
+            'missing': edit(valid[:4]),
+            'unterminated_last': edit(valid[:4] + [valid[4][:-1]]),
+            'split_streams': None}
+        for name, lines in cases.items():
+            with self.subTest(name):
+                ops = self.ops(plans)
+                if name == 'split_streams':
+                    original = ops.popen_piped
+
+                    def popen(argv, cwd, env):
+                        ops.startup = edit(valid[:4])
+                        proc = original(argv, cwd, env)
+                        proc.emit('stderr', valid[4])
+                        return proc
+                    ops.popen_piped = popen
+                else:
+                    ops.startup = lines
+                self.assertEqual(self.observer(ops, plans).run(), 1)
+                rep = self.report()
+                self.assertFalse(rep['diagnostics']['valid'] or rep['diagnostics']['valid_grf_exact'])
+                if name == 'missing':
+                    self.assertEqual(rep['halt_reason'], 'startup_timeout')
+                elif name == 'extra':
+                    # The first five rows match; the sixth line disqualifies at startup or final check.
+                    self.assertIn(rep['halt_reason'], ('startup_diagnostics', 'diagnostic_failure'))
+                    self.assertTrue(all(a['valid'] for a in rep['startup_archive_counts']))
+                else:
+                    self.assertEqual(rep['halt_reason'], 'startup_diagnostics')
+                    self.assertEqual(ops.requests, [])
+                if name != 'extra':
+                    self.assertFalse(all(a['valid'] for a in rep['startup_archive_counts']))
+                self.assertTrue(ops.proc.terminated)
+                self.assert_cleaned(ops, rep)
+        ops = self.ops(plans)
+        ops.startup = edit([valid[0].replace(b'0x102', b'0x200')] + valid[1:])
+        self.observer(ops, plans).run()
+        row = self.report()['startup_archive_counts'][0]
+        self.assertEqual((row['observed_version'], row['observed_count'], row['observed_path_matches'], row['valid']),
+                         ('0x200', 5577, True, False))
+
+    def test_post_popen_delayed_setup_deadline(self):
+        plans = self.meta['plans'][:1]
+        ops = self.ops(plans)
+        fired = []
+
+        def slow():
+            ops.clock.value += omd.T07_POLICY['startup_seconds'] + 1
+            fired.append(True)
+        ops.getpgid_hook = slow
+        self.assertEqual(self.observer(ops, plans).run(), 1)
+        rep = self.report()
+        self.assertEqual(fired, [True])
+        self.assertEqual(rep['halt_reason'], 'startup_timeout')
+        self.assertEqual(ops.requests, [])
+        self.assertTrue(ops.proc.terminated)
+        self.assertEqual(rep['launch']['pgid'], ops.proc.pid)
+        self.assertEqual(ops.thread_names, ['diagnostics-stdout', 'diagnostics-stderr'])
+        self.assert_cleaned(ops, rep)
+
+    def test_thread_start_failure_after_popen(self):
+        plans = self.meta['plans'][:1]
+        for fail_at in (1, 2):
+            with self.subTest(fail_at=fail_at):
+                ops = self.ops(plans)
+                ops.thread_fail_at = fail_at
+                self.assertEqual(self.observer(ops, plans).run(), 1)
+                rep = self.report()
+                self.assertEqual(len(ops.thread_names), fail_at)
+                self.assertEqual(rep['halt_reason'], 'diagnostic_failure')
+                self.assertIn(('stdout' if fail_at == 1 else 'stderr') + '_thread_start', rep['diagnostics']['errors'])
+                self.assertTrue(ops.proc.terminated)
+                self.assertEqual(ops.proc.poll(), 0)
+                self.assertEqual(ops.requests, [])
+                self.assert_cleaned(ops, rep)
+
+    def test_popen_failure_and_forced_kill(self):
+        plans = self.meta['plans'][:1]
+        ops = self.ops(plans)
+        ops.popen_error = OSError(errno.ENOENT, 'authored popen failure')
+        self.assertEqual(self.observer(ops, plans).run(), 1)
+        rep = self.report()
+        self.assertEqual(rep['halt_reason'], 'internal_failure')
+        self.assertFalse(rep['diagnostics']['valid'])
+        ops = self.ops(plans)
+        ops.exit_mode = 'hang'
+        self.assertEqual(self.observer(ops, plans).run(), 1)
+        rep = self.report()
+        self.assertTrue(rep['cleanup']['forced_kill'] and ops.proc.killed)
+        self.assertFalse(rep['cleanup']['clean'] or rep['acquisition_and_cleanup_valid'])
 
 
 if __name__ == '__main__':
