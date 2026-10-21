@@ -560,6 +560,23 @@ test('bridge admission accepts the canonical metadata and leaves the caller unch
   assert.deepEqual(buildCatalog(got).counts, newProfile.expected_counts);
 });
 
+test('new bridge requires every row to have a naturally observed zero exit', corpusOnly, () => {
+  const mutations = [
+    (row) => { row.cleanup.exit_code = 1; },
+    (row) => { row.cleanup.exit_code = false; },
+    (row) => { delete row.cleanup.exit_code; },
+    (row) => { row.cleanup.exit_observed = false; },
+    (row) => { row.cleanup.terminated_by_parent = true; },
+    (row) => { delete row.cleanup; }
+  ];
+  for (const mutate of mutations) {
+    const input = loadCanonical();
+    mutate(input.rows[0]);
+    assert.throws(() => admitConstructorBridge(input), (error) => error.reason === 'report_invalid');
+  }
+  assert.doesNotThrow(() => admitConstructorBridge(loadCanonical()));
+});
+
 test('bridge admission refuses every report, manifest, row and link fault', corpusOnly, () => {
   const swap = (list, i, j) => { [list[i], list[j]] = [list[j], list[i]]; };
   const cases = [

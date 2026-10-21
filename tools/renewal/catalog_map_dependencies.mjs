@@ -696,6 +696,11 @@ export function admitConstructorBridge({ report, manifest, rows, constructorProf
         row.input_bytes !== job.bytes || !deepEqual(row.header_version_bytes, job.header.version_bytes)) {
       throw fail('jobs_mismatch');
     }
+    // Bind each positive exit as well as the aggregate cleanup receipt.
+    if (!isObject(row.cleanup) || row.cleanup.exit_observed !== true || row.cleanup.exit_code !== 0 ||
+        row.cleanup.terminated_by_parent !== false) {
+      throw fail('report_invalid');
+    }
   });
 
   if (!isObject(report) || report.schema !== 'T06-map-constructor-report-1' || report.task !== constructorProfile.task ||

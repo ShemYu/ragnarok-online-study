@@ -185,7 +185,9 @@ is metadata only; `body_path` and nested reference paths are never followed.
 - Rows: exactly 12 physical rows. Row `i` must match `manifest.jobs[i]` for id,
   kind, `complete_sha256`, `input_bytes` (manifest `bytes`) and
   `header_version_bytes` (manifest `header.version_bytes`). Rows are never sorted,
-  dropped or replaced.
+  dropped or replaced. Each row must also report `exit_observed=true`, numeric
+  `exit_code=0` and `terminated_by_parent=false`. Aggregate cleanup cannot
+  override a contradictory row exit.
 - Report: schema `T06-map-constructor-report-1`, task `T07.007.004`, mode
   `corpus`. `input` is the resolved manifest path with its bytes/SHA. Constructor
   profile and summary SHA must match. `worker` must equal the worker pin with
@@ -253,6 +255,18 @@ fixture route still gives `d124ea94…6b5f`.
 
 This subset does not close any of the 82 world-level gaps or change the
 1296-root ledger.
+
+## Root qualification of T07.007.005
+
+The unchanged Claude integrationb24ff62 is followed by root's explicit per-row
+positive-exit repair, informed by Grok's correct row check. Root26tests/all20
+shared controls, full new corpus/repeat/fixture envelopes and entire32.96MBold
+catalog comparison pass. All27full posthash/identity checks pass. The old
+fsync-EIO reason remains `error`. Final producer48337bytes/SHA256
+`546ab2931c116e87f15348eb05610d7cab336a59898c07d7d2bf5a410372ea89`.
+The normal new output remains byte-identical. See
+[the root evidence](../../docs/project/reviews/2026-10-21-T07.007.005.md#root-corrected-integration-qualified)
+for attribution, finite-control limits and exact artifacts. Availability is next.
 
 ## Limitations
 

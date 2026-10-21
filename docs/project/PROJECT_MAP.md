@@ -36,7 +36,10 @@ CURRENT WORK: October assets and missing maps
 [V] Freeze map dependency inputs and the independent expected result.
  |    311 first-level request paths. No asset availability claim.
  |
-[~] Map models and textures: compare Claude and Grok catalog tools.
+[V] Map model and texture request list: tools compared and repaired.
+ |    26 tests and all 20 shared checks pass. Both workers released.
+ |
+[~] Prepare asset availability check for all 311 request paths.
  |
 [ ] Render -> normal play and save -> full content checks.
 ```
