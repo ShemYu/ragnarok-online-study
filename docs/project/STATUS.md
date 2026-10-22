@@ -18,6 +18,8 @@ generated-config/producer source inspection](reviews/2026-10-23-T10.003.md#bound
 [Complete source inspection now qualifies](reviews/2026-10-23-T10.003.md#complete-bounded-source-inspection-qualifies):
 generated loadLua=true/configured server langtype4; all four full pins unchanged.
 This is file-level configuration; live selected records remain unknown.
+[The fresh exact owner/producer preflight is admitted](reviews/2026-10-23-T10.003.md#fresh-bounded-owner-and-producer-preflight-admitted):
+one STATUS only, no asset/browser/game action; full actual audit remains.
 [The corrected current-decoder authored qualification now passes](reviews/2026-10-23-T10.004-decoder.md#corrected-authored-qualification-and-complete-root-audit-pass):
 six groups/21cases, full exact Root vector/adapter/source/retirement audit. First
 publication failure remains preserved. Next small paired existing-text projection;
@@ -59,6 +61,8 @@ complete ACK/main finished succeeds; short-body arrayBuffer/content-length failu
 correctly refuses before15s. Full sources/joins/cleanup pass, owned pages/listeners
 close and originals restore. Next minimal UNBOUND actual-fruit frame/ACK adapter;
 no fresh fruit attempt or root-cause/render claim yet.
+[Root completes both full fruit adapter source reviews and27pin checks](reviews/2026-10-22-T07.007.011.005.md#root-completes-minimal-fruit-frame-and-report-adapter-source-review).
+Runtime/page binding and admission remain; no fresh attempt is claimed.
 
 **Goal API is active. Current parent count: 4/14, about 29%.** This counts
 parent checkpoints, not content, effort or playable-world coverage. Full Modern /
