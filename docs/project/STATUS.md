@@ -13,6 +13,9 @@ bundle has no diagnostic exports](reviews/2026-10-23-T10.003.md).
 Claude18/20 basis versus Grok16/20, both preserved/released. Quest loading occurs
 at map-entry lazyInit; current-session records remain unknown. Next exact
 read-only producer/config binding before an owned registration diagnostic.
+[Root qualifies all34G0 input pins plus two outputs and admits the bounded
+generated-config/producer source inspection](reviews/2026-10-23-T10.003.md#bounded-producer-and-generated-config-source-inspection-admitted).
+No fresh config read, live selection or network action is claimed at admission.
 [The corrected current-decoder authored qualification now passes](reviews/2026-10-23-T10.004-decoder.md#corrected-authored-qualification-and-complete-root-audit-pass):
 six groups/21cases, full exact Root vector/adapter/source/retirement audit. First
 publication failure remains preserved. Next small paired existing-text projection;
