@@ -80,8 +80,9 @@ Current independent lanes:
   Root adopts separate uncertainty/error accounting and one-attempt child
   retirement direction. [The narrowed .002 core correction is frozen](reviews/2026-10-22-T07.007.013.002.md):
   existing ledger/errors/tests/report only; the existing fixed caller remains a
-  separate Root qualification, with no new public process wrapper. Same-base
-  independent Claude/Grok implementations are next. No cleanup/caller PASS.
+  separate Root qualification, with no new public process wrapper. [Independent
+  Claude/Grok coding is active](reviews/2026-10-22-T07.007.013.002.md#independent-core-implementations-dispatched)
+  from534ea9f on separate branches; both positively live. No cleanup/caller PASS.
   [The unmodified public pure entry and writer now
   match the actual-body oracle](reviews/2026-10-22-T07.007.013.001.md#unmodified-public-entry-and-writer-match-the-actual-body-oracle):
   exactly two bytes differ, full inverse/all heights/strict receipts pass.
