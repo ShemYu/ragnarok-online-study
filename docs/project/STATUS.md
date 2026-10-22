@@ -19,7 +19,9 @@ publication failure remains preserved. Next small paired existing-text projectio
 no acquired quest text, bridge/game execution or settings changes occurred.
 [T10.004 freezes that pure projection task](tasks/T10.004.md): [the complete
 152-record raw subset is qualified](reviews/2026-10-23-T10.004.md#complete-raw-subset-qualification),
-641text values/26KiB; no decode or translation yet. Next commit/equal dispatches.
+641text values/26KiB; no decode or translation yet. [Actual equal implementation
+pair is dispatched from e16b7be](reviews/2026-10-23-T10.004.md#actual-independent-implementation-pair-dispatched).
+Root prepares shared controls while producer/config and fruit work continue.
 Reuse Chinese resources; functionality/story evidence first. No verified
 server Chapter1 story implementation, resource-winner or Chinese projection yet.
 
