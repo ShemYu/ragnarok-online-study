@@ -164,7 +164,11 @@ re-audit is labelled separately. [All5actual controls and complete Root audit
 now pass](reviews/2026-10-23-T10.005.md#all-five-complete-deadline-controls-and-full-root-audit-pass):
 caller/actor0, original guardvalid,65cross-package full pins, full streams and
 positive closure. Next complete shared-parent review/composition; possible
-late-proxy join acceptance needs source qualification. No runtime is admitted.
+[late-proxy return acceptance is now source-qualified as F1](reviews/2026-10-23-T10.005.md#complete-shared-parent-source-review-confirms-a-recorded-return-gap):
+31full pins/four exact diff pairs; liveness-only joins can miss b>106 on an
+already-ended proxy. Keep106and prepare a precise recorded-return check/finite
+controls, then compose the two separately verified launcher corrections.
+No runtime is admitted.
 All actual-loader bindings remain NULL.
 No actual original-loader/runtime or full-game acceptance is claimed.
 Quest/story/content-gap acceptance remains open. Screenshot work is independent.

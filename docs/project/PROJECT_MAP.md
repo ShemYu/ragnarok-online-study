@@ -36,7 +36,8 @@ Latest verified work (23 Oct):
   [>] Equal Claude/Grok navigation source workers dispatched.
       Same 25 files and 54 ranges. Separate branches at 6414631.
   [V] Quest cleanup deadline source gap found; narrow correction checked.
-      All five fixed checks pass; full shared-caller review remains.
+      All five fixed checks pass. Shared runner late-return gap found.
+      Next: check actual return time, then join the verified source changes.
   [V] Navigation source contract checked: 54 ranges and 70 file pins match.
       Three plugins and their source imports found. Equal model task next.
   [V] Bounded child-absence and normal-close source changes checked.
