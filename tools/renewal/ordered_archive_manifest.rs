@@ -57,6 +57,8 @@ struct Identity {
     len: u64,
     mtime: i64,
     mtime_nsec: i64,
+    ctime: i64,
+    ctime_nsec: i64,
 }
 
 #[cfg(unix)]
@@ -69,6 +71,8 @@ fn identity_of(meta: &fs::Metadata) -> Identity {
         len: meta.len(),
         mtime: meta.mtime(),
         mtime_nsec: meta.mtime_nsec(),
+        ctime: meta.ctime(),
+        ctime_nsec: meta.ctime_nsec(),
     }
 }
 
@@ -77,7 +81,11 @@ fn same_file(left: Identity, right: Identity) -> bool {
 }
 
 fn unchanged(left: Identity, right: Identity) -> bool {
-    same_file(left, right) && left.mtime == right.mtime && left.mtime_nsec == right.mtime_nsec
+    same_file(left, right)
+        && left.mtime == right.mtime
+        && left.mtime_nsec == right.mtime_nsec
+        && left.ctime == right.ctime
+        && left.ctime_nsec == right.ctime_nsec
 }
 
 /// Read `state/asset-archives.list`.
@@ -863,6 +871,38 @@ mod tests {
         assert_eq!(fs::metadata(&laid.manifest).unwrap().len(), laid.body.len() as u64);
         assert_ne!(fs::read(&laid.manifest).unwrap(), laid.body);
         set_mode(&laid.manifest, 0o600);
+    }
+
+    #[test]
+    fn read_time_permission_change_is_refused_with_bytes_and_mtime_preserved() {
+        use std::os::unix::fs::MetadataExt;
+
+        let case = fresh("mutate-permission");
+        let laid = lay_out(&case);
+        let before = fs::metadata(&laid.manifest).unwrap();
+        assert_eq!(before.permissions().mode() & 0o777, 0o600);
+        let _guard = install_after_open_hook(|path| set_mode(path, 0o400));
+
+        let result = read_ordered_archives(&laid.state, &laid.anchor, false);
+
+        let after = fs::metadata(&laid.manifest).unwrap();
+        assert_eq!(fs::read(&laid.manifest).unwrap(), laid.body);
+        assert_eq!(after.permissions().mode() & 0o777, 0o400);
+        assert_eq!((before.dev(), before.ino()), (after.dev(), after.ino()));
+        assert_eq!(before.nlink(), after.nlink());
+        assert_eq!(before.len(), after.len());
+        assert_eq!(
+            (before.mtime(), before.mtime_nsec()),
+            (after.mtime(), after.mtime_nsec()),
+            "chmod fixture must leave mtime unchanged"
+        );
+        assert_ne!(
+            (before.ctime(), before.ctime_nsec()),
+            (after.ctime(), after.ctime_nsec()),
+            "chmod fixture must actually change the observed ctime"
+        );
+        let err = result.unwrap_err();
+        assert!(err.starts_with("manifest-identity-changed:"), "{err}");
     }
 
     fn append_one_byte(path: &Path) {

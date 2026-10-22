@@ -120,7 +120,8 @@ CURRENT WORK: October assets and missing maps
  |    Ship02 motion captured. Light GPU motion passes; view is hidden.
  |    Next: transport probe and light visibility check.
  |    In parallel: both archive selector candidates are checked/released.
- |    Grok basis selected; narrow hardening and integration next.
+ |    Grok imported; root correction passes 29 own and 35 shared checks.
+ |    Whole-stack integration/build next. No normal-game claim.
  |
  +-- [V] Other 28 GPF patch tables: corrected tool verified.
  |        Root reference: all 5,742 raw records checked.
