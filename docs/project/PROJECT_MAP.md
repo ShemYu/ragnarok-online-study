@@ -105,7 +105,9 @@ CURRENT WORK: October assets and missing maps
  |    Actual roots: all 75 groups and 1,838 placements accounted for.
  |    Static packet/GPU match; all 102 texture decoders pass.
  |    Cause found: zero normal length leads to 108 NaN components.
- |    Next: compare repairs; check edge/fruit in parallel.
+ |    Edge now passes full static/GPU and 44 texture decoders.
+ |    Both actual repair-plan workers are running independently.
+ |    Next: check fruit, then compare and verify the repair.
  |    Roots geometry is not accepted until the repair passes.
  |    Two other animated objects still need targeted visible checks.
  |
