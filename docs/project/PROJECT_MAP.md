@@ -108,8 +108,9 @@ CURRENT WORK: October assets and missing maps
  |    Edge now passes full static/GPU and 44 texture decoders.
  |    Fruit now passes full static/GPU and 74 texture decoders.
  |    All four loaded. Three static results are finite; roots fails.
- |    Claude repair plan submitted/released; Grok still working.
- |    Next: compare both plans, then implement and verify the repair.
+ |    Repair plans compared: Grok 17/20; Claude 14/20. Both released.
+ |    Exact-zero guard selected with root corrections.
+ |    Next: compare isolated implementations, then verify real output.
  |    Roots geometry is not accepted until the repair passes.
  |    Two other animated objects still need targeted visible checks.
  |
