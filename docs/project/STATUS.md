@@ -937,3 +937,9 @@ Root materializes reader/static-plan/binder, then separately admits one wave.
 [exact sticky cutoff source fix qualifies](reviews/2026-10-23-T10.005.md#exact-sticky-retirement-start-source-correction-qualifies),
 11pins/232bytes/three lines, no new cleanup allowance or target authority.
 Nine finite boundary groups are being prepared; no quest runtime admitted.
+
+[W4 reader/static-plan/binder materialization and Root audit qualify; one scene
+wave admitted](reviews/2026-10-22-T07.007.011.005.md#wave4-reader-and-exact-bindings-qualify-and-one-scene-wave-is-admitted).
+158current full pins/header inverses/five data copies/three original owners match.
+Next prelaunch once, guarded fresh reader/Chrome, exact READY joins and conditional
+observer, then complete image/transport/retirement audit. No scene result yet.
