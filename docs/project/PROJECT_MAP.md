@@ -40,7 +40,7 @@ Latest verified work (23 Oct):
   [V] Navigation source contract checked: 54 ranges and 70 file pins match.
       Three plugins and their source imports found. Equal model task next.
   [V] Bounded child-absence and normal-close source changes checked.
-      First suite passes 49 of 51; two fixture assertions need review.
+      First suite49/51 preserved. Exact correction checked; one replay admitted.
   [!] Scene wave3 stops before READY at an unknown child identity.
       Full 175-file audit passes; test processes end; original games intact.
       Next: bounded child-absence and parent-exit handling, then fixed tests.

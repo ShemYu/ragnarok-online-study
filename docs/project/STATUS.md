@@ -22,7 +22,11 @@ Root qualifies49full pins/17fragments across the two fixed control packages.
 [The actual suite fails49/51; complete preservation/closure audit passes](reviews/2026-10-22-T07.007.011.005.md#first51case-result-fails-two-assertions-and-complete-audit-qualifies).
 Two healthy-missing-controller assertions overconstrain unknown retirement at
 the fake observation boundary. Target false success is not shown. Next review
-only the precise fixture correction before a new admission. No browser wave.
+only the precise fixture correction before a new admission. [That exact four-slot
+correction now qualifies; one fresh pure replay is admitted](reviews/2026-10-22-T07.007.011.005.md#exact-missing-controller-fixture-correction-qualifies-and-one-replay-is-admitted).
+Root verifies76full pins/full inverses; unchanged target/fragments/cases/caller
+mechanisms. Next bind exact admission HEAD, run once and audit all51rows.
+No browser wave.
 
 Earlier W2 result: [the fresh Chrome wave fails before the scene observer;
 scoped closure and complete content audit qualify](reviews/2026-10-22-T07.007.011.005.md#fresh-chrome-wave-fails-before-observer-and-scoped-closure-qualifies).
