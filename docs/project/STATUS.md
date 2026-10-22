@@ -8,6 +8,11 @@ and observed retirement pass; bounded .002 is ready_for_user. No game/save/cache
 mutation occurred. Next one fresh fruit browser-failure observation; normal
 loader and story work remain independent.
 
+[One fresh actual fruit observation is now admitted](reviews/2026-10-22-T07.007.011.005.md#fresh-actual-fruit-browser-failure-observation-admitted):
+bound sources/current full preflight and new owned blank page are prepared.
+Run the read-only endpoint proof first, then the sole lease/Worker observer;
+strict full rendering acceptance and all cleanup remain required.
+
 **Goal API is active. Current parent count: 4/14, about 29%.** This counts
 parent checkpoints, not content, effort or playable-world coverage. Full Modern /
 Renewal maps, monsters, story, persistence and eventual Traditional Chinese
