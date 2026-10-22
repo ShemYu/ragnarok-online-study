@@ -1,0 +1,27 @@
+{
+  "schema": "T07.007.011.002-normal-repair-implementation-1",
+  "task": "T07.007.011.002",
+  "basis_commit": "accdf36",
+  "patch_id": "smooth-normal-zero-sum-1",
+  "inputs": [
+    {
+      "bundle": "worker",
+      "name": "ThreadEventHandler.js",
+      "bytes": 624339,
+      "sha256": "09a53f9da19689435e19e6e7ea026bc9344f5bda9ea91e9610762f3ad4e2b160"
+    },
+    {
+      "bundle": "online",
+      "name": "Online.js",
+      "bytes": 13174160,
+      "sha256": "9c148d9e43384a2498f9074efd1603b4eda1ff36dac53998985cfdf5eaf6fadf"
+    }
+  ],
+  "output_files": [
+    "ThreadEventHandler.js",
+    "Online.js",
+    "manifest.json"
+  ],
+  "scope": "Pure pinned file transformation and extracted-method controls only; no installed runtime",
+  "full_game_acceptance": null
+}
