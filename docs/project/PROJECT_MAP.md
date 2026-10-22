@@ -19,10 +19,11 @@ Latest verified work (22 Oct):
       Five startup diagnostics classified; known defects stay open.
   [V] New normal account, login and character creation pass.
   [V] Enter map, back up baseline, walk, use portal and receive a quest.
-  [~] Check earned quest/position after re-entry; then exit/cold restart.
+  [V] Earned quest/position survive character selection and full relogin.
+  [~] New earned backup retained. Full app/engine cold restart next.
   [V] Offline movement candidate: actual bytes/receipt/inverse pass.
       Claude selected; Grok close check fails. No live mapping selected.
-  [~] Chapter 1 decoder: both candidates preserved; Root review next.
+  [~] Chapter 1 decoder: common controls reviewed; not run yet.
   [~] Fruit scene: full render still fails one model fetch.
   Parent checkpoints: 4 / 14 = about 29%. Full game remains open.
 

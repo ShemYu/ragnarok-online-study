@@ -52,8 +52,10 @@ Current independent lanes:
   with the existing Chinese baseline. [Normal map/baseline backup/walking/
   portal/quest now pass](reviews/2026-10-22-T07.007.012.008.md#normal-map-baseline-backup-walking-portal-and-quest-pass):
   server-saved iz_int18,26 baseline, actual movement ACKs, room portal51,30,
-  Chinese Wounded dialogue and earned 逃離失事輪 / 與船長對話. Next: normal
-  character-selection re-entry, post-earn backup/reference and exit/cold checks under
+  Chinese Wounded dialogue and earned 逃離失事輪 / 與船長對話.
+  [Earned quest/location survive character selection and full relogin](reviews/2026-10-22-T07.007.012.008.md#earned-quest-and-position-survive-character-selection-and-full-relogin);
+  a new post-earn backup positively contains active21001 and iz_int51,30.
+  Next: admit/execute owned full app/engine cold restart and same-state checks under
   [the ordinary-play brief](tasks/T07.007.012.008.md).
 - **Movement policy:** [corrected source-plan comparison](reviews/2026-10-22-T07.007.013.md#corrected-source-plan-comparison-qualified)
   is self_verified, Grok 17/20 basis versus Claude 15/20; both workers are
@@ -62,7 +64,8 @@ Current independent lanes:
   Claude39authored/17common/three close-error intents pass; Grok9authored/17common
   pass but returns success after an injected first-close EBADF. Claude17/20 is
   selected for offline body qualification versus Grok15/20. Before-real-close
-  ownership remains unverified. [The unmodified public pure entry and writer now
+  ownership remains unverified; [Astra source consultation defines the next controls](reviews/2026-10-22-T07.007.013.001.md#astra-close-ownership-consultation-source-only).
+  [The unmodified public pure entry and writer now
   match the actual-body oracle](reviews/2026-10-22-T07.007.013.001.md#unmodified-public-entry-and-writer-match-the-actual-body-oracle):
   exactly two bytes differ, full inverse/all heights/strict receipts pass.
   Production mapping remains unselected. Actual served
@@ -76,8 +79,10 @@ Current independent lanes:
   these catalogs; zero functional gaps close. This lane is independent of
   capture and new-world startup. [A fixed Chapter1 RSW route is frozen](reviews/2026-10-22-T07.007.014.001.md):
   [both independent candidates are submitted and preserved](reviews/2026-10-22-T07.007.014.001.md#both-candidates-preserved-root-review-next).
-  Grok is released; Claude is user-owned/retained and untouched. Root review,
-  shared controls and actual body reference precede embedded terrain-name checks.
+  Grok is released; Claude is user-owned/retained and untouched. [Corrected common
+  controls have been source-reviewed](reviews/2026-10-22-T07.007.014.001.md#common-control-preparation-reviewed-still-unexecuted),
+  but are unbound/unexecuted. Remaining candidate material review, controls and
+  actual body reference precede embedded terrain-name checks.
 
 The [earlier mu pilot and Astra diagnosis](reviews/2026-10-22-T07.007.011-execution.md#actual-astra-consultation-and-discriminating-metadata-check)
 remain historical evidence. Ordinary Chapter 1 entry/save, 82 world-resource
