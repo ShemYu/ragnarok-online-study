@@ -24,7 +24,8 @@ Latest verified work (22 Oct):
   [~] Full app/engine cold restart procedure recorded; execution next.
   [V] Offline movement candidate: actual bytes/receipt/inverse pass.
       Claude selected; Grok close check fails. No live mapping selected.
-  [~] Chapter 1 decoder: common controls reviewed; not run yet.
+  [V] Chapter 1 decoder: both candidates pass 30 Root common groups.
+  [~] Real Chapter 1 body/dependencies and normal play remain.
   [~] Fruit scene: full render still fails one model fetch.
   Parent checkpoints: 4 / 14 = about 29%. Full game remains open.
 

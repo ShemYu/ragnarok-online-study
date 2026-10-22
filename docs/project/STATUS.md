@@ -82,10 +82,10 @@ Current independent lanes:
   these catalogs; zero functional gaps close. This lane is independent of
   capture and new-world startup. [A fixed Chapter1 RSW route is frozen](reviews/2026-10-22-T07.007.014.001.md):
   [both independent candidates are submitted and preserved](reviews/2026-10-22-T07.007.014.001.md#both-candidates-preserved-root-review-next).
-  Grok is released; Claude is user-owned/retained and untouched. [Corrected common
-  controls have been source-reviewed](reviews/2026-10-22-T07.007.014.001.md#common-control-preparation-reviewed-still-unexecuted),
-  but are unbound/unexecuted. Remaining candidate material review, controls and
-  actual body reference precede embedded terrain-name checks.
+  Grok is released; Claude is user-owned/retained and untouched. [Both unchanged
+  candidates now pass all30 Root common controls](reviews/2026-10-22-T07.007.014.001.md#both-unchanged-candidates-pass-root-common-controls).
+  Own-suite/material review and the independent actual-body reference/producer/
+  public-consumer gates precede embedded terrain-name checks; no content gap closes.
 
 The [earlier mu pilot and Astra diagnosis](reviews/2026-10-22-T07.007.011-execution.md#actual-astra-consultation-and-discriminating-metadata-check)
 remain historical evidence. Ordinary Chapter 1 entry/save, 82 world-resource
