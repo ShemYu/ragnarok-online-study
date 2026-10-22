@@ -28,7 +28,8 @@ Latest verified work (22 Oct):
       Claude selected; Grok close check fails. No live mapping selected.
   [V] Before-close test confirms two ownership-loss paths in the writer.
       Astra policy reviewed; core-only uncertainty correction frozen.
-      Both submitted/preserved/released. Root comparison checks next.
+      Both submitted/preserved/released. Root finds raw error-object defects;
+      Grok also loses one terminal snapshot. Full comparison/correction next.
       Existing fixed caller qualification stays separate.
       Real map/save untouched.
   [V] Chapter 1 decoder: both candidates pass 30 Root common groups.
@@ -53,8 +54,9 @@ Latest verified work (22 Oct):
   [V] Real compiled Chapter 1 core runs; complete dependency ledger passes.
       370 placements, 27 model requests, 7 ground textures; no numeric fault.
   [~] Normal dependency loading, story routes and play remain.
-      Story-route risk: indexed map has no matching pinned NPC references.
-      Actual loaded routes still need inspection; goal unchanged.
+      Installed scripts: 1185 NPC files and 94 config files checked.
+      17 configs select 841 sources; mounts match. No Chapter 1 references.
+      Story implementation risk needs repair feasibility; goal unchanged.
   [~] Fruit scene: full render still fails one model fetch.
       Plans compared: Claude 17/20 vs Grok 16/20. Diagnostic gates next.
   Parent checkpoints: 4 / 14 = about 29%. Full game remains open.

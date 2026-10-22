@@ -84,8 +84,10 @@ Current independent lanes:
   Claude/Grok coding is active](reviews/2026-10-22-T07.007.013.002.md#independent-core-implementations-dispatched)
   from534ea9f on separate branches. [Claude4368da8is preserved/released](reviews/2026-10-22-T07.007.013.002.md#claude-submitted-and-preserved-root-verification-pending);
   [Grok a478495is also preserved and released](reviews/2026-10-22-T07.007.013.002.md#grok-submitted-both-candidates-retained-and-workers-released).
-  Both await Root full reads/own/shared controls and separate fixed caller
-  qualification. No selection or cleanup/caller PASS.
+  [Focused Root controls confirm raw defects](reviews/2026-10-22-T07.007.013.002.md#focused-root-executions-confirm-primary-and-terminal-snapshot-defects):
+  both wrap the first source-read error; Grok also drops a post-close ownership
+  snapshot. Full own/shared controls, correction/scoring and separate fixed caller
+  qualification remain. No selection or cleanup/caller PASS.
   [The unmodified public pure entry and writer now
   match the actual-body oracle](reviews/2026-10-22-T07.007.013.001.md#unmodified-public-entry-and-writer-match-the-actual-body-oracle):
   exactly two bytes differ, full inverse/all heights/strict receipts pass.
@@ -152,9 +154,12 @@ Current independent lanes:
   [Actual compiled core/full ledger now qualify](reviews/2026-10-22-T07.007.014.004.md#actual-compiled-core-and-independent-complete-ledger-audit-qualify):
   370placements/27model requests/7ground textures; Root independently reconstructs
   all552world objects and57600GAT cells, source/body posthashes and owned lifecycle.
-  Core observation is self_verified; actual loaded-server route/story readiness
-  and normal dependency/render/play remain. Official sources confirm regular
-  Modern RO Chapter1, so no edition-based exclusion applies. No gap/full-game closure.
+  Core observation is self_verified; [installed script snapshot/startup closure now qualify](reviews/2026-10-22-T07.007.014.004.md#installed-server-snapshot-and-source-selected-startup-closure-qualify):
+  all1185NPC/94config files and three mounted trees checked,17configs select841
+  source files. No Chapter1 map references or published entry placements found.
+  Story implementation remains an in-scope risk requiring repair feasibility;
+  snapshot is not live NPC memory or play. Normal dependency/render/play remain.
+  Official regular-RO provenance prevents edition-based exclusion. No gap closure.
 
 The [earlier mu pilot and Astra diagnosis](reviews/2026-10-22-T07.007.011-execution.md#actual-astra-consultation-and-discriminating-metadata-check)
 remain historical evidence. Ordinary Chapter 1 entry/save, 82 world-resource

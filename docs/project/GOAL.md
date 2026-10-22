@@ -1,6 +1,6 @@
 # Renewal solo milestone: goal and feasibility
 
-Last reviewed: 2026-10-19. Owner: coordinating Codex agent. Current work: active execution of the documented strategy.
+Last reviewed: 2026-10-22. Owner: coordinating Codex agent. Current work: active execution of the documented strategy.
 
 ## User decisions
 
@@ -61,6 +61,20 @@ The82remaining RSW resource gaps are open compatibility/content work. Buying
 more compute is not an established remedy. If investigation shows a critical
 issue that may force a goal change, present the evidence/options to the user
 before changing scope; a long task alone does not authorize reducing coverage.
+
+New evidence on2026-10-22: [the actual installed NPC/config snapshot and
+source-selected startup closure](reviews/2026-10-22-T07.007.014.004.md#installed-server-snapshot-and-source-selected-startup-closure-qualify)
+contain no Chapter1 map-family references or published entry placements. The
+whole1185-file NPC tree and all mounted files are inspected; this is stronger
+than the earlier checkout-only search, while still not live NPC enumeration or
+a complete interpreter of computed strings. The regular-RO provenance is
+confirmed. Treat full Chapter1 story implementation as an unresolved in-scope
+coverage risk: asset fixes alone cannot meet it. Recommended next action is
+locating/verifying reusable licensed quest implementations, then estimating a
+faithful repair. Keeping the full goal can add substantial quest implementation
+and verification work; a reduced interim release would change the first milestone
+and requires the user's explicit decision. No reduced release, chapter exclusion,
+party-only classification or revised delivery promise is selected.
 
 Internet remains connected at the user's instruction. [Calibrated connected metrics](reviews/2026-10-18-T04.004.md) demonstrate local traffic and a guest-NAT blind spot in host per-process counters; quiet counters cannot establish full offline operation. Earlier guest-only denial/play is limited separate evidence. Do not disconnect the Mac or mark full host/browser offline proof passed.
 
