@@ -175,6 +175,7 @@ class _Ledger:
         self.records = []
         self.close_errors = []
         self.stage = "source"
+        self.primary_code_hint = None
 
     def acquire(self, role, fd):
         rec = _Acquisition()
@@ -209,6 +210,8 @@ class _Ledger:
                      for r in self.records)
 
     def failure_code(self, primary):
+        if self.primary_code_hint is not None:
+            return self.primary_code_hint
         if isinstance(primary, CandidateError):
             return primary.code
         if any(e.error is primary for e in self.close_errors):
@@ -472,8 +475,9 @@ def _read_source(ledger, path):
         raise CandidateError("source_identity_opened")
     try:
         data = _read_bounded(fd, EXPECTED_BYTES)
-    except OSError as exc:
-        raise CandidateError("source_read", type(exc).__name__) from exc
+    except OSError:
+        ledger.primary_code_hint = "source_read"
+        raise
     if len(data) != EXPECTED_BYTES:
         raise CandidateError("source_eof", str(len(data)))
     if _identity(_fstat(fd)) != _identity(pre):

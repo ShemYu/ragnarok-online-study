@@ -424,13 +424,24 @@ class A05SourceAdmission(Base):
 
     def test_read_failure(self):
         state = {"n": 0}
+        original = OSError(errno.EIO, "injected")
 
         def fail(fd, n):
             state["n"] += 1
             if state["n"] == 2:
-                raise OSError(errno.EIO, "injected")
+                raise original
             return os.read(fd, n)
-        self.refuse("source_read", _read=fail)
+        with Patch(_read=fail, normalize_bytes=fixture_stub()):
+            with self.assertRaises(m.CandidateIOError) as cm:
+                m.write_candidate(FIX["src"], self.out)
+        exc = cm.exception
+        self.assertEqual(state["n"], 2)
+        self.assertEqual(exc.code, "source_read")
+        self.assertIs(exc.primary_error, original)
+        self.assertIs(exc.__cause__, original)
+        self.assertEqual(exc.close_errors, ())
+        self.assertEqual(exc.ownership, (m.Ownership(1, "source", "closed", 1),))
+        self.assert_source_untouched()
         self.assertFalse(os.path.lexists(self.out))
 
     def test_identity_change_during_read(self):
