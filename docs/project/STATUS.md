@@ -89,11 +89,12 @@ Current independent lanes:
   candidates now pass all30 Root common controls](reviews/2026-10-22-T07.007.014.001.md#both-unchanged-candidates-pass-root-common-controls).
   [Root's own suites and complete source comparison now qualify](reviews/2026-10-22-T07.007.014.001.md#root-own-suites-and-source-comparison-qualify):
   Claude76/Grok64tests run, each one optional real-input skip, zero failures.
-  Both score19/20; Claude is a provisional preference, not integrated. Next:
-  separately checkpoint actual-body admission, old-core reference, both real
+  Both score19/20; Claude is a provisional preference, not integrated.
+  [Actual-body admission is now separately checkpointed](reviews/2026-10-22-T07.007.014.001.md#corrected-reference-controls-pass-and-actual-body-gate-is-admitted):
+  both authored output-replacement controls pass. Next old-core reference, both real
   CLIs/public consumers, then selected integration and raw embedded terrain
-  names. Reference-helper identity/cleanup checks are being corrected before
-  execution; no content gap closes.
+  names. Reference-helper identity/cleanup corrections are reviewed; no actual
+  body is yet observed at this admission checkpoint and no content gap closes.
 
 The [earlier mu pilot and Astra diagnosis](reviews/2026-10-22-T07.007.011-execution.md#actual-astra-consultation-and-discriminating-metadata-check)
 remain historical evidence. Ordinary Chapter 1 entry/save, 82 world-resource
@@ -225,7 +226,7 @@ The first playtest is an intermediate checkpoint within the full milestone. T01â
 
 ## Next action and owner
 
-1. **Root:** preserve the qualified inventory/decoder/terrain/dependency/availability/repair checkpoints; do not restart completed pairs. Current gate is .014.001: both candidates pass source review,30common groups and own suites. Finish the reference helper's output-identity/cleanup correction, personally verify the necessary authored controls and separately checkpoint actual-body admission. Then derive the reference with unchanged .003 core, run both actual new CLIs/public consumers serially, select/integrate/retest legacy and new routes, freeze the raw RSW terrain names and inspect their targeted catalog dependencies. Keep .011fruit diagnosis and .013movement ownership work independent; only Root may mutate the live test world. Full normal cold restart/earned-state return in .012.008 is already verified. No original-state migration or all-content PASS is inferred.
+1. **Root:** preserve the qualified inventory/decoder/terrain/dependency/availability/repair checkpoints; do not restart completed pairs. Current gate is .014.001: both candidates pass source review,30common groups and own suites; the corrected reference helper's authored replacement controls pass and actual-body admission is separately checkpointed. Derive the reference with unchanged .003 core, run both actual new CLIs/public consumers serially, select/integrate/retest legacy and new routes, freeze the raw RSW terrain names and inspect their targeted catalog dependencies. Keep .011fruit diagnosis and .013movement ownership work independent; only Root may mutate the live test world. Full normal cold restart/earned-state return in .012.008 is already verified. No original-state migration or all-content PASS is inferred.
 2. **Root:** use functional findings to prioritize ordinary map travel, monsters/spawns, combat, jobs/items, quest progression and persistence checks/fixes. Full world remains the goal; no single-map or shipped-subset substitution.
 3. **Root, later:** resume remaining T05 input/UI and T08/T09 localization work after functionality. Reuse current Taiwan tables/dictionaries/overlays and assess resources before bulk translation. Do not claim IME or complete language coverage from direct Unicode/ASCII input.
 4. **Root:** apply confirmed full-game scope and later-phase party-only deferral. Present concrete version/coverage/gap findings; no pending scope answer blocks the inventory. Escalate verified critical goal-changing issues before any reduction.
