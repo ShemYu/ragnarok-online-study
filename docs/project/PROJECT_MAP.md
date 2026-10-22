@@ -33,8 +33,8 @@ next action and the exact limits of each result.
 CURRENT WORK: quest data, missing story and map-load checks
 
 Latest verified work (23 Oct):
-  [>] Equal Claude/Grok navigation source task is frozen.
-      Same 25 files and 54 ranges. Separate branches start next.
+  [>] Equal Claude/Grok navigation source workers dispatched.
+      Same 25 files and 54 ranges. Separate branches at 6414631.
   [V] Quest cleanup deadline source gap found; narrow correction checked.
       Five fixed checks and full shared-caller review still remain.
   [V] Navigation source contract checked: 54 ranges and 70 file pins match.

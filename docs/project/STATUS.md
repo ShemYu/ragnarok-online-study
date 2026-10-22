@@ -80,6 +80,12 @@ fact. Next freeze the equal safe source-only pair; no repair is assumed.
 14closure rows/eight later visible gates. Next start both isolated Orca providers
 from this introducing commit, then personally verify both. No pair result or
 repair/runtime acceptance exists yet.
+[Both actual source-only workers are now dispatched](reviews/2026-10-23-T07.006.001.md#actual-equal-source-pair-dispatched)
+from6414631with identical11304-byte spec and exact task/profile/package.
+Root confirms both isolated branches/HEADs and clean tracked trees. Claude turn
+start is observed; Grok input acceptance is recorded with turn observation
+unsupported. Next preserve/verify both complete proposals and settle/release;
+no repair/runtime or model-selection result exists yet.
 
 [T10.005 freezes the bounded quest-registration implementation contract](reviews/2026-10-23-T10.005.md#frozen-source-contract-and-root-preflight).
 Root qualifies nine full source inputs/26primary LF slices and resolves callback,
