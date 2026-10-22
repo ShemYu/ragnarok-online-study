@@ -45,7 +45,13 @@ Current independent lanes:
   one49.349s startup, five correct running services/new DB volume, positive twRO,
   authenticated asset owner, six Chinese mods ON and all12normal terrain bodies
   exact. [Five nonfatal diagnostics are reconciled with known defects retained](reviews/2026-10-22-T07.007.012.007.md#five-diagnostics-reconciled-known-defects-retained);
-  startup is not error-free. Next [ordinary new-world entry/save](tasks/T07.007.012.008.md).
+  startup is not error-free. [Fresh ordinary account/login/character creation
+  pass](reviews/2026-10-22-T07.007.012.008.md#fresh-normal-account-and-visible-character-creation-pass):
+  supported create/list confirms group0/state0; only the three fresh game
+  services restart and register1265 maps. Normal UI creates one human Novice
+  with the existing Chinese baseline. Next: select it, walk/NPC/portal, fresh
+  earned-state backup/reference and save/re-entry/cold checks under
+  [the ordinary-play brief](tasks/T07.007.012.008.md).
 - **Movement policy:** [corrected source-plan comparison](reviews/2026-10-22-T07.007.013.md#corrected-source-plan-comparison-qualified)
   is self_verified, Grok 17/20 basis versus Claude 15/20; both workers are
   preserved/released. [Independent offline candidate pair runs](reviews/2026-10-22-T07.007.013.001.md#actual-independent-pair-launched).
@@ -72,9 +78,9 @@ Current independent lanes:
 
 The [earlier mu pilot and Astra diagnosis](reviews/2026-10-22-T07.007.011-execution.md#actual-astra-consultation-and-discriminating-metadata-check)
 remain historical evidence. Ordinary Chapter 1 entry/save, 82 world-resource
-gaps and full content qualification remain open. CUA/Chrome ordinary-play
-access was unavailable at the latest check; the owned Orca diagnostic viewer
-works. No critical issue requiring a goal change is established.
+gaps and full content qualification remain open. CUA/Chrome access remains
+unavailable; the new isolated Orca profile now reaches normal login and
+character creation. No critical issue requiring a goal change is established.
 
 ## Where we are
 
