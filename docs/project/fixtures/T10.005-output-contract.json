@@ -1,0 +1,192 @@
+{
+  "Snapshot": {
+    "closed_keys": [
+      "own_row_count",
+      "fixed"
+    ],
+    "fixed": "exact object with keys \"21001\" and \"16912\"; each {own:false} or {own:true,value:Typed}; no value property when absent",
+    "own_row_count": "bounded nonnegative integer count of all own string keys, without reading other row values"
+  },
+  "Stage": {
+    "aggregate": "exact {before_count,after_count,added,removed,retained,fixed_changed}; nonnegative integers; before_count=removed+retained,after_count=added+retained; fixed_changed exact object with keys \"21001\" and \"16912\" and boolean values comparing own presence/full typed values; no inference about call counts",
+    "before": "Snapshot immediately before loader delegation",
+    "callbacks": "every observed callback, in arrival order, each {ordinal,argc,first_boolean,after,aggregate}; first_boolean true/false or literal NOT_REPORTED; nonboolean is not inferred success; summary only: remaining arguments/nonboolean first value/this/return/throw are uncaptured but forwarded by identity; ordinal is contiguous zero-based per stage",
+    "closed_keys": [
+      "index",
+      "kind",
+      "path",
+      "before",
+      "callbacks"
+    ],
+    "index": "contiguous integer from0",
+    "kind": "alias|systemEN|custom|text",
+    "path": "actual exact loader request string, never normalized by tail"
+  },
+  "Typed": {
+    "arrays": "retain order/length/hole distinctions; refuse extra non-index own keys other than length or accessors/symbols; never flatten arrays or sparse records",
+    "depth_counting": "Each Typed root depth1; each contained Typed child adds1.",
+    "grammar": [
+      "[\"undefined\"]",
+      "[\"null\"]",
+      "[\"boolean\",boolean]",
+      "[\"string\",string]",
+      "[\"number\",finite JSON number except negative zero]",
+      "[\"negative-zero\"]",
+      "[\"nan\"]",
+      "[\"positive-infinity\"]",
+      "[\"negative-infinity\"]",
+      "[\"hole\"] only array positions",
+      "[\"array\",[Typed,...]]",
+      "[\"object\",[[ownStringKey,Typed],...]]"
+    ],
+    "limits": {
+      "depth": 8,
+      "final_report_UTF8_bytes": 524288,
+      "nodes": 32768,
+      "nodes_scope": "all typed nodes in complete run",
+      "own_string_keys": 65536,
+      "report_budget": "incremental compact UTF8 <=524288 bytes before appending; no unbounded build",
+      "string_code_units": 65536
+    },
+    "no_digest_substitution": true,
+    "node_counting": "One per Typed instance including holes/primitive tags/lookup values/repeated snapshots and occurrences; object keys are not Typed nodes but count toward string/report budgets; total budget never resets per snapshot.",
+    "objects": "ordinary or null-prototype own-data records only; all own string keys in deterministic UTF16 lexicographic order, no extra symbol keys; object-valued ancestor cycle/accessor/function/symbol/bigint/unsupported object refuses; no getter invocation; hostile Proxies/traps excluded from input scope, not claimed detectable"
+  },
+  "aggregate_key_scope": "QuestInfo own string keys only, including nonenumerable; own symbols excluded; symbols within fixed typed values refuse",
+  "authored_control_limit": "Node lexical stubs qualify the tail observation/routing only; they do not execute original loaders or validate Lua/vendor/configured runtime behavior",
+  "completion_window": "At most one finalization microtask queued at a time, only after terminal_seen or route-aborting original throw, zero known stage invocations awaiting their first callback, and zero delegate/forward stack depth. Decrement pending once per invocation; synchronous original throw ends that invocation. Missing callback stays pending for external deadline. Synchronous/reentrant duplicates or original throws observed before finalization refuse; rethrow identical original object. No claim about later checkpoint/future callbacks or HTTP/job retirement. Recheck eligibility in queued finalizer; if known work appeared, wait and requeue only when eligible.",
+  "custom_admission": "Dense array with own data indexes, no accessors/symbols/extra own keys, <=32 nonempty strings each <=1024UTF16 units and no NUL; retain actual array identity/order, no coercion/copy-substitution. Actual paths still need Root runtime binding. Root trial precondition: original config array not externally mutated during observation.",
+  "failure_publication": "Promise rejection preserves diagnostic failure; Root retains failure artifacts. No fabricated complete/empty-PASS report. Partial writes with original reportedtrue are still measured in successful observation snapshots. Active-chain observation failure latches without altering callbacks/fallback; reject at genuine terminal, while a hung chain stays pending for the external deadline.",
+  "fixed_ids": [
+    21001,
+    16912
+  ],
+  "frozen": true,
+  "future_Root_acceptance": [
+    "independent full source review plus own/common authored controls on both equal candidates",
+    "Root-integrated source recheck/checkpoint before runtime assembly",
+    "separately admitted exact bootstrap/config/native-reader/resource/publication/retirement trial",
+    "complete stage/fixed-value audit plus positive21001 before interpreting16912 absence",
+    "ordinary end-user UI/story/save/re-entry remains later"
+  ],
+  "initial_snapshot_timing": "Immediately after lookTables/startLua and applicable config lookup/admission; before first quest-loader dispatch.",
+  "loader_and_callback_wrapper": "non-async, synchronous Reflect.apply preserving this/arguments/return/identical original throw; no observer await or throw into original chain; strict this semantics even in authored script fixtures",
+  "no_pass_from": [
+    "callback true",
+    "HTTP200",
+    "DB.getQuestInfo fallback",
+    "DB.isLoaded",
+    "zero observed writes",
+    "one reported fixed record",
+    "Node authored stub success",
+    "reproduced routing as original lazyInit or live selected-session equivalence"
+  ],
+  "owned_files": [
+    {
+      "kind": "closed appended lexical tail; no export/import/CLI/configurable API",
+      "max_bytes": 24576,
+      "path": "tools/renewal/quest_registration_tail.js"
+    },
+    {
+      "kind": "Node authored lexical-stub tests of actual tail bytes",
+      "max_bytes": 49152,
+      "path": "tests/renewal/quest_registration_tail.test.mjs"
+    },
+    {
+      "kind": "source mapping/test results/limits/deferred seams/Root gates",
+      "max_bytes": 12288,
+      "path": "docs/project/reviews/T10.005-quest-registration-tail.md"
+    }
+  ],
+  "promise_slot": {
+    "collision": "synchronous refusal from existing own descriptor without reading getter; preserve previous descriptor; define new slot before startup; definition failure starts no run",
+    "configurable": false,
+    "enumerable": false,
+    "name": "__rootQuestRegistrationT10005",
+    "new_own_only": true,
+    "value": "one retained promise; immediate one run; no run/options API",
+    "writable": false
+  },
+  "report_closed_top_level": {
+    "branch": "lua or text, using original truthiness",
+    "current_session_equivalence": "UNKNOWN",
+    "diagnostic_complete": "literal true only after genuine terminal callback and no latched observer failure; not a semantic PASS",
+    "final": "Snapshot",
+    "initial": "Snapshot",
+    "internal_execution_errors": "UNKNOWN",
+    "lookup_values": "exact {loadLua:Typed,customQuestInfo:Typed|null,userCharpage:Typed}; customQuestInfo null means not read on text branch, not effective null value",
+    "main_quest_semantic_result": "UNKNOWN",
+    "observed_window": "literal terminal-callback/finalization-microtask",
+    "original_lazyInit_executed": false,
+    "positive_control_present": "boolean from final own21001; not getter text or truthiness",
+    "producer_provenance": "UNKNOWN",
+    "registration_and_append_call_counts": "UNKNOWN",
+    "schema": "t10.005.quest-registration-diagnostic.v1",
+    "scope": "original-private-loaders/reproduced-routing",
+    "stages": "ordered Stage[]; no fabricated skipped stages"
+  },
+  "required_authored_groups": [
+    {
+      "checks": "new global slot descriptor, one retained promise/run; existing own slot refuses before loader/Lua calls; no other public export",
+      "id": "A01"
+    },
+    {
+      "checks": "lookTables fulfilled/rejected/absent then startLua exact await order; lookTables rejection swallowed as original (not payload captured); startLua rejection refuses; no DB.init/lazyInit/progress/isLoaded/forceClean call",
+      "id": "A02"
+    },
+    {
+      "checks": "Configs original inherited server->global->default behavior, selected-server null/false/0/empty effective values versus global; loadLua truthiness including truthy string; no own-only substitute",
+      "id": "A03"
+    },
+    {
+      "checks": "one loadLua read after startLua; custom read once only Lua branch before aliases, retained array identity/order; no extra langtype/disableKorean read; userCharpage is existing initialized value",
+      "id": "A04"
+    },
+    {
+      "checks": "exact eight alias order/case; false failures continue then first reportedtrue stops; zero writes with true still stops, semantic UNKNOWN",
+      "id": "A05"
+    },
+    {
+      "checks": "all eight false then SystemEN still dispatched; SystemEN false still begins custom; custom false continues; direct custom spelling passed unchanged including authored slash/case variants",
+      "id": "A06"
+    },
+    {
+      "checks": "SystemEN overlay replaces whole fixed row/reset arrays; empty overlay preserves prior row; retained authored state/partial writes remain snapshots, no global/QuestInfo clearing",
+      "id": "A07"
+    },
+    {
+      "checks": "false branch invokes only exact loadTable filename/#/6/parseQuestEntry/true after startup; text updates can retain prior reward fields; callback no boolean remains NOT_REPORTED",
+      "id": "A08"
+    },
+    {
+      "checks": "each stage delegates exactly once; loader return/identical throw and callback this/args/return/identical throw preserved; no observer await before forwarding; any duplicate observed before report settlement is captured without suppression and refuses qualification; no claim about arbitrarily late future callbacks; original callback throw/loader throw after terminal signal rethrows identical object and prevents resolved success; duplicate-created known pending stages must finish their first callback before finalization",
+      "id": "A09"
+    },
+    {
+      "checks": "own vs inherited fixed IDs; missing/undefined/null/false/0/-0/empty strings, ordered arrays/rewards/holes; detached earlier snapshot unaffected by later replacement/append; no fabricated DB getter",
+      "id": "A10"
+    },
+    {
+      "checks": "exact aggregate add/remove/retain equations including same-key replacement, unchanged rows, inherited keys and non-enumerable own rows; no whole table/key export or call-count claim",
+      "id": "A11"
+    },
+    {
+      "checks": "both own rows zero with reportedtrue, partial fixed write then reportedtrue, and absent16912 with own21001 each yield honest evidence, never semantic success or eligibility/story inference",
+      "id": "A12"
+    },
+    {
+      "checks": "invalid custom null/nonarray/>32/invalid element refuses without coercion/no quest-loader delegate (lookTables/startLua precede admission); caps and cyclic/accessor/unsupported typed values refuse without invoking getters/truncating or replacing rows",
+      "id": "A13"
+    },
+    {
+      "checks": "observation failure sticky, genuine callback still forwarded once and original fallback unaffected; completed chain cannot resolve empty successful report after observation failure",
+      "id": "A14"
+    },
+    {
+      "checks": "tail never calls doStringSync/main_quest or clears Lua globals; literal UNKNOWN fields retained regardless stub callbacks/effects; no network/fs/process/vendor imports from tail; exact body/source dependencies listed",
+      "id": "A15"
+    }
+  ],
+  "runtime_admitted": false,
+  "schema": "t10.005.frozen-output-contract.v1"
+}

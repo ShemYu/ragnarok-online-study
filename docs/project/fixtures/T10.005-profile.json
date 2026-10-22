@@ -1,0 +1,273 @@
+{
+  "actual_pair_base": "commit introducing docs/project/tasks/T10.005.md; exact hash supplied in both dispatches",
+  "bounds": {
+    "QuestInfo_own_string_keys_max": 65536,
+    "SystemEN_candidates": 1,
+    "advisory_work_minutes": 45,
+    "alias_candidates": 8,
+    "authored_Node_grace_seconds": 3,
+    "authored_Node_job_seconds": 60,
+    "authored_Node_sampled_RSS_MiB": 512,
+    "custom_path_code_units_max": 1024,
+    "custom_paths_max": 32,
+    "fixed_ids": 2,
+    "future_actual_total_seconds": 120,
+    "report_UTF8_max_bytes": 524288,
+    "report_budget": "incremental compact UTF8 cap before appending",
+    "snapshot_depth_max": 8,
+    "snapshot_nodes_max": 32768,
+    "snapshot_nodes_scope": "all typed nodes in the complete run",
+    "stage_records_max": 41,
+    "stderr_max_bytes": 1048576,
+    "stdout_max_bytes": 4096,
+    "string_code_units_max": 65536
+  },
+  "fixed_ids": [
+    21001,
+    16912
+  ],
+  "frozen": true,
+  "inputs": [
+    {
+      "bytes": 25084,
+      "path": "docs/project/reviews/2026-10-23-T10.003.md",
+      "sha256": "77c51b08aca7718995dd4a140d0ab8ca28f98b00e3ae68e91a8a14e02b8e734c"
+    },
+    {
+      "bytes": 9618,
+      "path": ".tools/renewal/t10-003-registration-preparation-1/REPORT.md",
+      "sha256": "1fa39535cb2bd0dbf88b5ee06bcdf5eded2c420e47ac47d7616d16d4f73ffc11"
+    },
+    {
+      "bytes": 14068,
+      "path": ".tools/renewal/t10-003-registration-preparation-1/PINS.json",
+      "sha256": "6f049a28a4fa6682ef3f230fd7ae7bf52160b81e49135cf1deda55f61bd76fe2"
+    },
+    {
+      "bytes": 9685,
+      "path": ".tools/renewal/t10-003-astra-dispatch-review-1/REPORT.md",
+      "sha256": "0ee783eb0c75a770bed9ac7c82dd640b5827e298deb6114011a64be731232dd6"
+    },
+    {
+      "bytes": 12270,
+      "path": ".tools/renewal/t10-003-astra-dispatch-review-1/PINS.json",
+      "sha256": "93b0b5b13efb733d6518cc0dc3dce7f6d2e5f9624101b7bce42d28e892437a51"
+    },
+    {
+      "bytes": 9573,
+      "path": ".tools/renewal/t10-003-dispatch-root-review-1/SOURCE_QUALIFICATION_ROOT.json",
+      "sha256": "ad904e57343324c9ecfcf546cdb6bf681773dd6b215f2eaf8344294106d7c5c5"
+    },
+    {
+      "LF_slices": [
+        {
+          "bytes": 269,
+          "first": 185,
+          "last": 202,
+          "sha256": "766226ad64b6f74aa04ecf500de8c5213a958e3c64d39e0f09fb0e076c052f53"
+        },
+        {
+          "bytes": 579,
+          "first": 248,
+          "last": 272,
+          "sha256": "b5f1ec80f06f2845621b056a2b23a15e2e7cc07ce1bb3421af7f1e5f00a2b17d"
+        },
+        {
+          "bytes": 1233,
+          "first": 398,
+          "last": 437,
+          "sha256": "1b0dfbda8a66c387485c3d7f73fd91be627b5bbdd6b8639f38caee264477f79d"
+        },
+        {
+          "bytes": 789,
+          "first": 692,
+          "last": 705,
+          "sha256": "e6ebe779b6b4f50341d16e1b093fc0b0867f3caf275bf46b37689ee4e5512633"
+        },
+        {
+          "bytes": 254,
+          "first": 810,
+          "last": 816,
+          "sha256": "f3aca10792fc7c5087ecb0643ad72ec8e7b6334a077af0b99000f77488a9ac3c"
+        },
+        {
+          "bytes": 1643,
+          "first": 4164,
+          "last": 4207,
+          "sha256": "cbe0c960c7455fff031976dd3c13596bf050ad1e18dc97a1df38355441c7b5e0"
+        },
+        {
+          "bytes": 454,
+          "first": 4290,
+          "last": 4305,
+          "sha256": "f65f2374cc018f7e606ee235b2887cf2a484f824ff3f523f899d2bdfdcfd490c"
+        },
+        {
+          "bytes": 4256,
+          "first": 5100,
+          "last": 5236,
+          "sha256": "ec865ca2c033a5cdcd0d81fae311c39fb590b7c1e12b92ec01269eec8c9108b8"
+        },
+        {
+          "bytes": 1233,
+          "first": 5248,
+          "last": 5300,
+          "sha256": "8c3fef649f097520a1fa1b72769547d1e92b05e99695518a5469134c2a10a776"
+        },
+        {
+          "bytes": 276,
+          "first": 7917,
+          "last": 7925,
+          "sha256": "47608b2bec50c0c41dc8495055e9b13bd974dabb42a43d3a3b0554d9c8b65e31"
+        }
+      ],
+      "bytes": 226989,
+      "path": ".tools/renewal/client-source/src/DB/DBManager.js",
+      "sha256": "b28c99179638fd19268455c13c54a42736fab074227b81cdc1211cf2b84c3943"
+    },
+    {
+      "LF_slices": [
+        {
+          "bytes": 1216,
+          "first": 12,
+          "last": 86,
+          "sha256": "b36c63f0b17aeab06134baca0fab1a707405cf781e72dbe7064bbd1714ebe450"
+        }
+      ],
+      "bytes": 1397,
+      "path": ".tools/renewal/client-source/src/Core/Configs.js",
+      "sha256": "18e7fd1c99a4b75d72255f7ecd05863752140bf29d6d0880b31d91b7da249bc1"
+    },
+    {
+      "LF_slices": [
+        {
+          "bytes": 1174,
+          "first": 10982,
+          "last": 11037,
+          "sha256": "435b555e3039ef006825b98395cc9cfebcc35cd7542a68304c6b70da292d5bdc"
+        },
+        {
+          "bytes": 916,
+          "first": 311469,
+          "last": 311490,
+          "sha256": "d81472f45d3deb0a8592769e7008b9ffd696512152931bbf9bd046aa646b1b5d"
+        },
+        {
+          "bytes": 395,
+          "first": 311583,
+          "last": 311597,
+          "sha256": "8ef6c2328ab8dee593f4c23ea15bac838544527bff7488ae12fc7b9efea1b367"
+        },
+        {
+          "bytes": 711,
+          "first": 311605,
+          "last": 311622,
+          "sha256": "32220692e0e76c6db5a6e5af66e332dc3453f9c6890f2223328f1126a595571f"
+        },
+        {
+          "bytes": 3509,
+          "first": 312135,
+          "last": 312237,
+          "sha256": "727b35f3ae4306d7ffcbad2ce58dd8096630097320ba51344e8943bc82a8b64f"
+        },
+        {
+          "bytes": 1420,
+          "first": 312248,
+          "last": 312282,
+          "sha256": "02dbc9917f5efc8428dfb2fc67054e6f7170a54ca5f28eb2b0127c9175ca8066"
+        },
+        {
+          "bytes": 266,
+          "first": 314443,
+          "last": 314450,
+          "sha256": "b5b711f65a77224f9176b0c93b592f2523e72e4697fe8633a29754bdc85cf2b5"
+        },
+        {
+          "bytes": 1963,
+          "first": 314504,
+          "last": 314558,
+          "sha256": "52a85f98dcdbf3c337126d0e6b479e530a29ed4437e0f70518d247fdb8eca2f3"
+        },
+        {
+          "bytes": 255,
+          "first": 314579,
+          "last": 314590,
+          "sha256": "c4e3f6a1aa09be6d8131d2ec405d0ac43c67472bb4bb65d119d16020b2a614c9"
+        },
+        {
+          "bytes": 306,
+          "first": 314612,
+          "last": 314616,
+          "sha256": "2b9a90d9cd653862a0fce07c7c4f5ef26fb0d26f5f479af7cf035414f6f65f82"
+        },
+        {
+          "bytes": 664,
+          "first": 314690,
+          "last": 314709,
+          "sha256": "27cda335bb9414daa025936bcce9339faea6dc9356375a10429425694de50ff7"
+        },
+        {
+          "bytes": 472,
+          "first": 314809,
+          "last": 314814,
+          "sha256": "08157e9f7ad3bdbd26266009cb02399c370b84ba1885406fd118c2a55b703b74"
+        },
+        {
+          "bytes": 84,
+          "first": 314844,
+          "last": 314844,
+          "sha256": "47c5e76a3cf25c362a75312db0139bd39c39f3e3059d6e9b50421f9b53e14bae"
+        },
+        {
+          "bytes": 726,
+          "first": 363154,
+          "last": 363183,
+          "sha256": "433e0afa0b1a853378b4ce1929b39340df3cadb0ca76d6a0110fff1f2ee9b38d"
+        },
+        {
+          "bytes": 23,
+          "first": 363184,
+          "last": 363186,
+          "sha256": "661f9cc2b54339a0b9cb01527fc2a0e3ddfd2018c471e09f12a4a3d58364ed27"
+        }
+      ],
+      "bytes": 13174290,
+      "path": ".tools/renewal/t10-003-normal-source-freeze-root-1/Online.js",
+      "sha256": "50b724b708393d7bb6d71b4f5102e62b16e340eb1bb54f05b1c8613af4116418"
+    }
+  ],
+  "kind": "paired authored diagnostic-tail implementation; later actual execution separately admitted",
+  "owned_files": [
+    {
+      "max_bytes": 24576,
+      "path": "tools/renewal/quest_registration_tail.js"
+    },
+    {
+      "max_bytes": 49152,
+      "path": "tests/renewal/quest_registration_tail.test.mjs"
+    },
+    {
+      "max_bytes": 12288,
+      "path": "docs/project/reviews/T10.005-quest-registration-tail.md"
+    }
+  ],
+  "preparation_head": "33d9e020190f1998d60f2715043fdd5b32b0e1dc",
+  "runtime_admitted": false,
+  "runtime_binding_complete": false,
+  "runtime_bindings": {
+    "bootstrap_derivative": null,
+    "exact_custom_paths": null,
+    "global_config_literal": null,
+    "native_reader_preflight": null,
+    "normal_bundle_assembly": null,
+    "owner_checkpoint": null,
+    "page_origin": null,
+    "publication_and_retirement": null,
+    "resource_manifest": null,
+    "selected_server_literal": null
+  },
+  "runtime_or_provider_claim": false,
+  "schema": "t10.005.frozen-source-profile.v1",
+  "source_policy": "Only listed authored reports/metadata and DBManager/Configs/normal module source spans; metadata paths are not authority to follow bodies. Full source hashing does not authorize embedded/vendor semantic inspection. No vendor/acquired Lua/assets read or executed.",
+  "task": "T10.005"
+}
