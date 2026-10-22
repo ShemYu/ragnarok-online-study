@@ -102,7 +102,11 @@ CURRENT WORK: October assets and missing maps
  |    Full static packet and GPU hashes match. All 60 decoders pass.
  |    Ship motion captured with fixed camera. Owned cleanup passes.
  |    Earlier missing request did not recur. Its cause stays open.
- |    Next: roots normal trace, then repair and four-map rendering.
+ |    Actual roots: all 75 groups and 1,838 placements accounted for.
+ |    Static packet/GPU match; all 102 texture decoders pass.
+ |    Cause found: zero normal length leads to 108 NaN components.
+ |    Next: compare repairs; check edge/fruit in parallel.
+ |    Roots geometry is not accepted until the repair passes.
  |    Two other animated objects still need targeted visible checks.
  |
  +-- [V] Other 28 GPF patch tables: corrected tool verified.
