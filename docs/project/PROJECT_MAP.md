@@ -114,10 +114,13 @@ CURRENT WORK: October assets and missing maps
  |    Root: 22 tests and fresh full artifact audit pass.
  |    Repaired roots: full packet/GPU and finite normals now pass.
  |    All source, response and owned cleanup checks pass.
- |    Next: repeat the other three maps in parallel.
- |    Two other animated objects still need targeted visible checks.
- |    In parallel: private compiler verified; Claude/Grok implement
- |    the ordered archive selector on separate rollback branches.
+ |    Parallel repeats: mu and edge static checks also pass.
+ |    Fruit: one texture fetch fails. Null material prevents readiness.
+ |    Full failure data and cleanup are checked. Cause still open.
+ |    Ship02 motion captured. Light GPU motion passes; view is hidden.
+ |    Next: transport probe and light visibility check.
+ |    In parallel: both archive selector candidates are checked/released.
+ |    Grok basis selected; narrow hardening and integration next.
  |
  +-- [V] Other 28 GPF patch tables: corrected tool verified.
  |        Root reference: all 5,742 raw records checked.
