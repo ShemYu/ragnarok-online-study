@@ -1,0 +1,91 @@
+{
+  "authored": {
+    "bytes": 49381,
+    "path": "docs/project/fixtures/T07.007.003-authored.json",
+    "sha256": "d7011b6b49a8ed311c73625afe4111ad5abcac2e9dd771407e567a4f5d249a04"
+  },
+  "not_claimed": [
+    "native parity",
+    "terrain constructor/render/travel/save success",
+    "actual embedded terrain names until separately observed",
+    "body availability before an explicitly root-admitted real execution",
+    "supported RSW versions beyond a four-byte magic/header observation",
+    "full map/story/Traditional Chinese acceptance or any of 82 gaps closed"
+  ],
+  "patch": {
+    "bytes": 306097616,
+    "file": "2026-08-25_live_client_4340_4349_1787295394.gpf",
+    "header_bytes": 46,
+    "header_sha256": "81fae52437b44388f9a682bc126865ae55850568b62b011a80edce6f05fe4759",
+    "index": 9298,
+    "record_count": 5702,
+    "sha256": "70725f6624f947c3096066cc66a07fcd2440adf94137b79561ed2d67843f9f0e",
+    "table_start": 305616966
+  },
+  "schema": "ro-patch-payload-profile/2",
+  "source_pins": [
+    {
+      "bytes": 12358,
+      "path": ".tools/renewal/remote-source/src/des.rs",
+      "sha256": "8f0189340eab708993a493ff7300d08e0151a3c8c539a046656f3e350e01856f"
+    },
+    {
+      "bytes": 30133,
+      "path": ".tools/renewal/remote-source/src/grf.rs",
+      "sha256": "4646514140bc7688bbc91e0bac7d1ee9a83aab5e1e17df20c1eb30668bd5edf5"
+    },
+    {
+      "bytes": 6110,
+      "path": ".tools/renewal/client-source/src/Loaders/World.js",
+      "sha256": "e1f6d5e52fe84c2a31c4f8f13e5be20cb6f93b2675c6f7615ac295be47f5a68e"
+    },
+    {
+      "bytes": 20029,
+      "path": ".tools/renewal/client-source/src/Loaders/Ground.js",
+      "sha256": "8b82cf7321123054cf2bbeff1816931c7f3fc7833ae7af916077691d871f2db0"
+    },
+    {
+      "bytes": 3131,
+      "path": ".tools/renewal/client-source/src/Loaders/Altitude.js",
+      "sha256": "e27f5b746bb8fa77aadb59633dfbc0339f922bc4df69615a066288a6cf160b95"
+    }
+  ],
+  "source_revision": "66ba94e2b84c4092e4b9cc9d0dcc805313438f53",
+  "strict_policy": {
+    "decrypt_span": "all admitted aligned bytes; mixed branch before header",
+    "magic": "four-byte primary-loader match; next two version bytes observation only",
+    "not_native": "strict framing/size rules exceed native payload reader checks",
+    "padding": "outside compressed_size: preserve length and raw/decrypted hashes, arbitrary byte values allowed",
+    "stored": "real_size == compressed_size; truncate decrypted aligned bytes",
+    "zlib": "first compressed_size decrypted bytes only; cumulative real_size + 1; exact length, eof, no unused_data/unconsumed_tail, no flush"
+  },
+  "targets": [
+    {
+      "compressed_size": 28693,
+      "effective_kind": 3,
+      "expected_magic_hex": "47525357",
+      "kind_label": "rsw",
+      "length_aligned": 28696,
+      "metadata_filter": "eligible",
+      "name_hex": "646174615c6368315f71756530312e727377",
+      "ordinal": 23,
+      "output_file": "target-000.body",
+      "payload_offset_field": 3767952,
+      "physical_body_range": [
+        3767998,
+        3796694
+      ],
+      "real_size": 182666
+    }
+  ],
+  "task": "T07.007.014.001",
+  "work_limits": {
+    "expected_aligned_bytes_total": 28696,
+    "expected_decoded_bytes_total": 182666,
+    "max_aligned_bytes_per_target": 65536,
+    "max_decoded_bytes_per_target": 262144,
+    "max_decoded_bytes_total": 262144,
+    "max_output_bytes": 1048576,
+    "read_chunk_bytes": 1048576
+  }
+}

@@ -1,0 +1,121 @@
+{
+  "schema": "T07.007.014.001-frozen-source-inputs-1",
+  "inputs": [
+    {
+      "id": ".014_qualified_ledger",
+      "path": ".tools/renewal/t07-007-014-root-g-qualification-preparation-1/actual-g-1/gap-join.json",
+      "bytes": 250085,
+      "sha256": "c9f986b33189a0cadcd40d3ccaf3ec0094fc09cd3fb934080a3e9e0aaa1e2e62"
+    },
+    {
+      "id": ".014_frozen_profile",
+      "path": "docs/project/fixtures/T07.007.014-profile.json",
+      "bytes": 164526,
+      "sha256": "6105ef0acefa97cea81da2b90eab0e71c1151ca1867be4792efb9f29c514703c"
+    },
+    {
+      "id": "raw_9298_catalog",
+      "path": ".tools/renewal/t07-007-patch-name-root-1/9298.records.jsonl",
+      "bytes": 6770307,
+      "sha256": "02a3f5bbd677f80c9c227929aa96f08d29b150c6df39286760a625bca9d85b79"
+    },
+    {
+      "id": "qualified_catalog_receipt",
+      "path": ".tools/renewal/t07-007-patch-name-root-1/receipt.json",
+      "bytes": 10601,
+      "sha256": "10ccbf3d9b8a080a055e2c5dde8ee132ffb9c24cac8821c501a75717d8a3f947"
+    },
+    {
+      "id": "decoder",
+      "path": "tools/renewal/decode_patch_targets.py",
+      "bytes": 56374,
+      "sha256": "b9de41ab671de3067ea03f77e121222bc02d51f762f2e8fcd49b4fb47e9bf6f2"
+    },
+    {
+      "id": "decoder_tests",
+      "path": "tools/renewal/test_decode_patch_targets.py",
+      "bytes": 46298,
+      "sha256": "2a0f5abf6ed7b786a0cf759efc6a4e4c083acda85da3d990dd52d899b980565d"
+    },
+    {
+      "id": "old_profile",
+      "path": "docs/project/fixtures/T07.007.003-profile.json",
+      "bytes": 8474,
+      "sha256": "06805b0a28fef87b53d6e2f87e50079e14a3b7181a44e541b6b0c0aa268ead2a"
+    },
+    {
+      "id": "cipher_vectors",
+      "path": "docs/project/fixtures/T07.007.003-authored.json",
+      "bytes": 49381,
+      "sha256": "d7011b6b49a8ed311c73625afe4111ad5abcac2e9dd771407e567a4f5d249a04"
+    },
+    {
+      "id": "existing_header_observer",
+      "path": "tools/renewal/observe_cache_map_cores.py",
+      "bytes": 32153,
+      "sha256": "ef4f70c965cff19308741041a82bc54fa7d70c87b9069a7cacce7839f6bb7a4f"
+    },
+    {
+      "id": "World",
+      "path": ".tools/renewal/client-source/src/Loaders/World.js",
+      "bytes": 6110,
+      "sha256": "e1f6d5e52fe84c2a31c4f8f13e5be20cb6f93b2675c6f7615ac295be47f5a68e"
+    },
+    {
+      "id": "BinaryReader",
+      "path": ".tools/renewal/client-source/src/Utils/BinaryReader.js",
+      "bytes": 8233,
+      "sha256": "bcf694b7034e36146eed1d5a2d7d5cf93d8a52aeafa74e62f0beed4c1ecc9215"
+    },
+    {
+      "id": "MapLoader",
+      "path": ".tools/renewal/client-source/src/Loaders/MapLoader.js",
+      "bytes": 14466,
+      "sha256": "c71b01f300f62bbc6e7432444e2521d713473dc47c9c6e25a54a832d5c92a705"
+    },
+    {
+      "id": "FileManager",
+      "path": ".tools/renewal/client-source/src/Core/FileManager.js",
+      "bytes": 11279,
+      "sha256": "75c37d192bf21e7b40817a6f2fe27ef536601515c07fe20c7ce8346d50376cd7"
+    },
+    {
+      "id": "des_source",
+      "path": ".tools/renewal/remote-source/src/des.rs",
+      "bytes": 12358,
+      "sha256": "8f0189340eab708993a493ff7300d08e0151a3c8c539a046656f3e350e01856f"
+    },
+    {
+      "id": "grf_source",
+      "path": ".tools/renewal/remote-source/src/grf.rs",
+      "bytes": 30133,
+      "sha256": "4646514140bc7688bbc91e0bac7d1ee9a83aab5e1e17df20c1eb30668bd5edf5"
+    },
+    {
+      "id": "Ground",
+      "path": ".tools/renewal/client-source/src/Loaders/Ground.js",
+      "bytes": 20029,
+      "sha256": "8b82cf7321123054cf2bbeff1816931c7f3fc7833ae7af916077691d871f2db0"
+    },
+    {
+      "id": "Altitude",
+      "path": ".tools/renewal/client-source/src/Loaders/Altitude.js",
+      "bytes": 3131,
+      "sha256": "e27f5b746bb8fa77aadb59633dfbc0339f922bc4df69615a066288a6cf160b95"
+    },
+    {
+      "id": "archive_path_metadata",
+      "path": "docs/project/fixtures/T07.007.006-profile.json",
+      "bytes": 9680,
+      "sha256": "0615c6d9e6e7990acc3f9012d2028115fce0543bd5fe298bfb544953865db5c6"
+    },
+    {
+      "id": "decoder_docs",
+      "path": "tools/renewal/PATCH_TARGET_DECODER.md",
+      "bytes": 11025,
+      "sha256": "c3289ca3b70026a127739122e452728425e2db739956ce5e64e876839bfa342e"
+    }
+  ],
+  "input_bytes_total": 7514643,
+  "metadata_paths_are_inert": true
+}
