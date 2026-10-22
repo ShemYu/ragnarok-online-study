@@ -69,10 +69,12 @@ Current independent lanes:
   Both implementations are preserved/released. [Root comparison](reviews/2026-10-22-T07.007.013.001.md#root-comparison-and-close-error-control):
   Claude39authored/17common/three close-error intents pass; Grok9authored/17common
   pass but returns success after an injected first-close EBADF. Claude17/20 is
-  selected for offline body qualification versus Grok15/20. Before-real-close
-  ownership remains unverified; [Astra source consultation defines the next controls](reviews/2026-10-22-T07.007.013.001.md#astra-close-ownership-consultation-source-only).
-  [Finite before-close control source is now prepared and reviewed](reviews/2026-10-22-T07.007.013.001.md#before-close-control-source-prepared-in-parallel),
-  still unexecuted; no leak-free result or new candidate PASS is claimed.
+  selected for offline body qualification versus Grok15/20. [Actual before-close
+  controls now measure ownership loss](reviews/2026-10-22-T07.007.013.001.md#actual-before-close-ownership-loss-is-measured):
+  baseline closes all six generations; injected source and binary-write EIO
+  each refuses but leaves one recorded live generation before disclosed harness
+  cleanup. No retry/foreign close occurs. Astra/high reviews the minimum faithful
+  correction policy; no production cleanup or new candidate PASS is claimed.
   [The unmodified public pure entry and writer now
   match the actual-body oracle](reviews/2026-10-22-T07.007.013.001.md#unmodified-public-entry-and-writer-match-the-actual-body-oracle):
   exactly two bytes differ, full inverse/all heights/strict receipts pass.

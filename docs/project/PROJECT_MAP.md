@@ -26,6 +26,8 @@ Latest verified work (22 Oct):
       Test game running quietly; old test tab replaced after timeout.
   [V] Offline movement candidate: actual bytes/receipt/inverse pass.
       Claude selected; Grok close check fails. No live mapping selected.
+  [V] Before-close test confirms two ownership-loss paths in the writer.
+      Astra reviews correction policy. Real map/save untouched.
   [V] Chapter 1 decoder: both candidates pass 30 Root common groups.
   [V] Both own suites: Claude 76 / Grok 64 run, one skip each, no failures.
       Source comparison: 19/20 each.
