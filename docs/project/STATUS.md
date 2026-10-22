@@ -5,13 +5,14 @@ Updated: 2026-10-22 JST. Coordinator: Codex. Active scope: **execute the documen
 Latest verified result: [genuine canonical offline writer and complete caller acceptance pass](reviews/2026-10-22-T07.007.013.002.md#genuine-canonical-body-and-complete-caller-acceptance-qualify).
 Exactly two bytes/full inverse/all heights/receipt/15 records/source preservation
 and observed retirement pass; bounded .002 is ready_for_user. No game/save/cache
-mutation occurred. Next one fresh fruit browser-failure observation; normal
-loader and story work remain independent.
+mutation occurred. Normal loader and story work remain independent.
 
-[One fresh actual fruit observation is now admitted](reviews/2026-10-22-T07.007.011.005.md#fresh-actual-fruit-browser-failure-observation-admitted):
-bound sources/current full preflight and new owned blank page are prepared.
-Run the read-only endpoint proof first, then the sole lease/Worker observer;
-strict full rendering acceptance and all cleanup remain required.
+[That actual fruit observation fails before map loading](reviews/2026-10-22-T07.007.011.005.md#actual-attempt-stops-before-map-loading-and-is-fully-retired):
+all192commands ACK/gate released; loading image succeeds but the loading-screen
+continuation does not reach terrain/models before its180s timeout. Failed
+observer preserved; full source/transport/cleanup audits pass and all temporary
+actors/page/listeners retire. Original worlds/pages remain. Next asset-free
+frame/visibility check and report-terminal review before any new fruit attempt.
 
 **Goal API is active. Current parent count: 4/14, about 29%.** This counts
 parent checkpoints, not content, effort or playable-world coverage. Full Modern /

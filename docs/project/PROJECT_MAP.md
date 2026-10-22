@@ -75,8 +75,12 @@ Latest verified work (22 Oct):
       Exact failed check found: script request and end use different sessions.
   [V] Startup handling fixed; both worker fetch endings now captured.
       Failed POST gives browser error ERR_EMPTY_RESPONSE in the test.
-      Next: adapt this capture to one actual fruit scene observation.
+      Adapter is prepared; its first actual observation is recorded below.
       The cause of the game's failed fetch is still unknown.
+  [!] First actual observation stops before terrain/model loading.
+      All control replies arrive; loading image succeeds; map times out.
+      Failed record saved; temporary page/reader/processes fully closed.
+      Next: check frame progress at the loading-screen transition.
   [V] File writer fix: 51 tests, 10 shared and 2 focused checks pass.
   [V] Caller accepts the normal test; all 15 failure checks reject correctly.
   [V] Corrected writer source is integrated with separate rollback commits.
