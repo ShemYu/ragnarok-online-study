@@ -8,9 +8,10 @@ completion and report-budget ambiguities. [Both actual isolated Claude/Grok
 implementations are dispatched from ee58599](reviews/2026-10-23-T10.005.md#actual-independent-implementation-pair-dispatched),
 with the same brief/profile/contract and setup skipped. [Claude recovers and
 submits its preserved candidate; its settled terminal is released](reviews/2026-10-23-T10.005.md#claude-recovers-submits-and-is-preserved-before-release).
-Grok remains live/working. [Root completes Claude's source review and admits
-two bounded authored own/common calls](reviews/2026-10-23-T10.005.md#claude-complete-source-review-and-bounded-authored-calls-admitted).
-No candidate test result or actual loader runtime is claimed at admission.
+Grok remains live/working. [Claude passes Root's actual own/common replays and
+complete audit](reviews/2026-10-23-T10.005.md#claude-own-common-replays-and-complete-root-audit-qualify):
+15own tests and15common groups/75cases, both callers0/valid guards, full current
+pins/output/retirement pass. No provider selection or actual loader runtime yet.
 Quest/story/content-gap acceptance remains open. Screenshot work is independent.
 
 Latest diagnostic result: [event-aware actual screenshot is refused and fully closed](reviews/2026-10-22-T07.007.011.005.md#event-aware-actual-screenshot-is-refused-and-fully-closed).

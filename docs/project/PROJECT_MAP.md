@@ -18,7 +18,7 @@ Map loading            [Chapter 1 test passes; fruit test is open]
 Fruit presentation     [OPEN: screen tool unavailable; fresh browser preparation]
 Quest file inventory   [PASS: all 3 files checked]
 Server + file binding  [PASS: current owner and 21 file checks]
-Active quest records   [WORKING: Claude submitted; Grok builds; Root checks next]
+Active quest records   [WORKING: Claude tests pass; Grok builds; real trial later]
 Existing text recovery [PASS: fixed 152-record tool integrated + checked]
 Missing story scripts  [OPEN: largest content risk]
 Full game test         [LATER: 82 functional resource gaps remain]
@@ -33,6 +33,8 @@ next action and the exact limits of each result.
 CURRENT WORK: quest data, missing story and map-load checks
 
 Latest verified work (23 Oct):
+  [V] Claude: 15 own tests and all 75 common cases pass Root replay.
+      Full source/output/cleanup audit passes. Grok and real trial remain.
   [V] Root reads Claude's whole code and tests. Two authored calls admitted.
       Next: run its own suite and the 15-group, 75-case common suite.
   [!] Native screen tool cannot start. No visible pane is proved.
