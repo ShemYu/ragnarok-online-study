@@ -1,7 +1,15 @@
 #!/usr/bin/env python3
-"""Decode the twelve admitted target payloads of official patch 9298 (T07.007.003).
+"""Decode the admitted target payloads of official patch 9298 (T07.007.003, T07.007.014.001).
 
-Usage: python3 tools/renewal/decode_patch_targets.py SOURCE_ROOT PATCH_9298 FRESH_OUTPUT
+Usage: python3 tools/renewal/decode_patch_targets.py SOURCE_ROOT PATCH_9298 FRESH_OUTPUT [--chapter1-rsw]
+
+Without a flag this is the twelve-target T07.007.003 route. The literal
+--chapter1-rsw after the three positional arguments selects the fixed one-record
+T07.007.014.001 route (profile docs/project/fixtures/T07.007.014.001-profile.json,
+one RSW body target-000.body, schema family ro-patch-payload-*/2). Each route is
+an immutable internal descriptor binding profile path/size/SHA, task, count,
+output set and schemas before the profile is parsed; no other flag, profile,
+path, pin, count or limit can be selected.
 
 The fixed profile and authored known-answer vectors are read from this checkout
 (docs/project/fixtures/T07.007.003-*.json) and pinned below by exact length and
@@ -40,14 +48,15 @@ The first four decoded bytes must match the loader signature for the target
 kind (World.js GRSW, Ground.js GRGN, Altitude.js GRAT); the next two version
 bytes are only observed.
 
-Output: target-000.body .. target-011.body, payload-manifest.json and, last,
+Output: the route's target-NNN.body files, payload-manifest.json and, last,
 payload-complete.json in a fresh 0700 directory of 0600 single-link files.
-payload-failed.json overrides completion. verify_payloads(output) is the
-read-only consumer. Nothing here claims native parity, dependency closure,
+payload-failed.json overrides completion. verify_payloads(output) (twelve
+targets) and verify_chapter1_rsw(output) (one RSW) are the read-only consumers. Nothing here claims native parity, dependency closure,
 supported terrain versions, constructor/render/travel/save success or game
 content acceptance.
 """
 
+import collections
 import hashlib
 import json
 import math
@@ -57,7 +66,7 @@ import stat
 import sys
 import zlib
 
-VERSION = "1.0.1"
+VERSION = "1.1.0"
 TASK = "T07.007.003"
 REPO = Path(__file__).resolve().parents[2]
 GENERATOR_PATH = "tools/renewal/decode_patch_targets.py"
@@ -98,6 +107,45 @@ KIND_MIXED = 0x02
 KIND_HEADER = 0x04
 # Primary-loader signatures by target kind; versions are observed only.
 MAGIC = {"gat": b"GRAT", "gnd": b"GRGN", "rsw": b"GRSW"}
+
+
+class Route(collections.namedtuple("Route", (
+        "task", "profile_path", "profile_pin", "profile_schema", "manifest_schema",
+        "complete_schema", "failed_schema", "body_names", "labels", "limit_caps"))):
+    """Immutable fixed route descriptor; only the two literal instances below are admitted."""
+
+    __slots__ = ()
+
+    @property
+    def target_count(self):
+        return len(self.body_names)
+
+
+# The original twelve-target route (T07.007.003); its public contract is unchanged.
+LEGACY_ROUTE = Route(TASK, PROFILE_PATH, (PROFILE_PIN["bytes"], PROFILE_PIN["sha256"]),
+                     PROFILE_SCHEMA, MANIFEST_SCHEMA, COMPLETE_SCHEMA, FAILED_SCHEMA,
+                     BODY_NAMES, ("gat", "gnd", "rsw"), None)
+# One eligible ch1_que01 RSW record (T07.007.014.001). Limit caps are repeated
+# from the pinned profile so a profile/code mismatch is caught twice.
+CHAPTER1_RSW_ROUTE = Route(
+    "T07.007.014.001", "docs/project/fixtures/T07.007.014.001-profile.json",
+    (3415, "c47c0ebe8c3f6ec5341e92603b7860ffd3aaa3139c736786584a91f9ea19a8e2"),
+    "ro-patch-payload-profile/2", "ro-patch-payload-manifest/2",
+    "ro-patch-payload-complete/2", "ro-patch-payload-failed/2",
+    ("target-000.body",), ("rsw",),
+    (("max_aligned_bytes_per_target", 65536), ("max_decoded_bytes_per_target", 262144),
+     ("max_decoded_bytes_total", 262144), ("max_output_bytes", 1048576),
+     ("read_chunk_bytes", 1048576)))
+_ROUTES = (LEGACY_ROUTE, CHAPTER1_RSW_ROUTE)
+CHAPTER1_FLAG = "--chapter1-rsw"
+
+
+def _known_route(route):
+    """Admit only a value-identical built-in descriptor; never a caller-built one."""
+    if type(route) is not Route or not any(route == r for r in _ROUTES):
+        raise Refusal("route-unknown")
+    return route
+
 
 PATCH_STABLE = ("st_dev", "st_ino", "st_size", "st_mtime_ns", "st_ctime_ns", "st_nlink")
 
@@ -386,10 +434,11 @@ LIMIT_KEYS = ("expected_aligned_bytes_total", "expected_decoded_bytes_total",
 POLICY_KEYS = ("decrypt_span", "magic", "not_native", "padding", "stored", "zlib")
 
 
-def validate_profile(profile, vectors_pin):
-    """Typed check of the whole profile; returns it unchanged."""
+def validate_profile(profile, vectors_pin, route=LEGACY_ROUTE):
+    """Typed check of the whole profile against one fixed route; returns it unchanged."""
+    route = _known_route(route)
     _keys(profile, PROFILE_KEYS, "profile-keys")
-    if profile["schema"] != PROFILE_SCHEMA or profile["task"] != TASK:
+    if profile["schema"] != route.profile_schema or profile["task"] != route.task:
         raise Refusal("profile-schema")
     authored = profile["authored"]
     _keys(authored, ("bytes", "path", "sha256"), "profile-authored")
@@ -440,9 +489,11 @@ def validate_profile(profile, vectors_pin):
             or limits["expected_decoded_bytes_total"] > limits["max_decoded_bytes_total"]
             or limits["expected_decoded_bytes_total"] > limits["max_output_bytes"]):
         raise Refusal("profile-limits")
+    if route.limit_caps is not None and not all(_same(limits[k], v) for k, v in route.limit_caps):
+        raise Refusal("profile-limits")
 
     targets = profile["targets"]
-    if type(targets) is not list or len(targets) != TARGET_COUNT:
+    if type(targets) is not list or len(targets) != route.target_count:
         raise Refusal("profile-targets")
     aligned_total = decoded_total = 0
     last_end = HEADER_SIZE
@@ -456,13 +507,16 @@ def validate_profile(profile, vectors_pin):
                    and _is_int(t["payload_offset_field"], 0, 0xFFFFFFFF)
                    and _is_int(t["ordinal"], 0, patch["record_count"] - 1)
                    and _is_int(t["effective_kind"], 0, 0xFF))
-        if not ints_ok or t["output_file"] != BODY_NAMES[i] or t["metadata_filter"] != "eligible":
+        if (not ints_ok or t["output_file"] != route.body_names[i]
+                or t["metadata_filter"] != "eligible"):
             raise Refusal("profile-target-fields")
         if t["ordinal"] in ordinals:
             raise Refusal("profile-target-ordinal")
         ordinals.add(t["ordinal"])
         if label not in MAGIC or t["expected_magic_hex"] != MAGIC[label].hex():
             raise Refusal("profile-target-magic")
+        if label not in route.labels:
+            raise Refusal("profile-target-label")
         if not _is_hex(t["name_hex"]) or not bytes.fromhex(t["name_hex"]).lower().endswith(
                 b"." + label.encode("ascii")):
             raise Refusal("profile-target-name")
@@ -504,7 +558,23 @@ class Contract:
     """Fixed inputs a run is bound to. Only _production_contract() is public-facing."""
 
     def __init__(self, kind, repo, profile_bytes, vectors_bytes, profile_pin, vectors_pin,
-                 patch_pin, source_revision, header_version):
+                 patch_pin, source_revision, header_version, route=LEGACY_ROUTE):
+        # The route descriptor and, for production, its fixed pins are bound
+        # before any profile byte is parsed.
+        self.route = _known_route(route)
+        if type(kind) is not str or not kind:
+            raise Refusal("contract-kind")
+        if kind == PRODUCTION:
+            if Path(repo) != REPO:
+                raise Refusal("contract-kind")
+            if not _same(dict(profile_pin), {"bytes": route.profile_pin[0],
+                                             "sha256": route.profile_pin[1]}):
+                raise Refusal("profile-pin")
+            if not _same(dict(vectors_pin), VECTORS_PIN):
+                raise Refusal("vectors-pin")
+            if (not _same(dict(patch_pin), PATCH_PIN) or source_revision != SOURCE_REVISION
+                    or header_version != PATCH_HEADER_VERSION):
+                raise Refusal("profile-pin-cross-check")
         self.kind = kind
         self.header_version = header_version
         self.repo = Path(repo)
@@ -519,7 +589,8 @@ class Contract:
                     or len(data) != pin["bytes"] or sha256(data) != pin["sha256"]):
                 raise Refusal(code)
         self.vectors = validate_vectors(_parse_json(vectors_bytes, "vectors-json"))
-        self.profile = validate_profile(_parse_json(profile_bytes, "profile-json"), vectors_pin)
+        self.profile = validate_profile(_parse_json(profile_bytes, "profile-json"), vectors_pin,
+                                        self.route)
         patch = self.profile["patch"]
         if (not _same({k: patch[k] for k in ("index", "bytes", "sha256")}, patch_pin)
                 or self.profile["source_revision"] != source_revision
@@ -547,7 +618,7 @@ class Contract:
         return {"bytes": len(data), "path": GENERATOR_PATH, "sha256": sha256(data)}
 
     def recheck_checkout(self):
-        for rel, pin, code in ((PROFILE_PATH, self.profile_pin, "profile-drift"),
+        for rel, pin, code in ((self.route.profile_path, self.profile_pin, "profile-drift"),
                                (VECTORS_PATH, self.vectors_pin, "vectors-drift")):
             data = self._checkout_read(rel, code, pin["bytes"])
             if sha256(data) != pin["sha256"]:
@@ -605,12 +676,14 @@ def _read_all(fd, size, code):
     return b"".join(chunks)
 
 
-def _production_contract():
+def _production_contract(route=LEGACY_ROUTE):
+    route = _known_route(route)
     repo = REPO
-    profile = _read_regular(repo / PROFILE_PATH, "profile-unreadable", PROFILE_PIN["bytes"])
+    profile = _read_regular(repo / route.profile_path, "profile-unreadable", route.profile_pin[0])
     vectors = _read_regular(repo / VECTORS_PATH, "vectors-unreadable", VECTORS_PIN["bytes"])
-    return Contract(PRODUCTION, repo, profile, vectors, PROFILE_PIN, VECTORS_PIN,
-                    PATCH_PIN, SOURCE_REVISION, PATCH_HEADER_VERSION)
+    return Contract(PRODUCTION, repo, profile, vectors,
+                    {"bytes": route.profile_pin[0], "sha256": route.profile_pin[1]}, VECTORS_PIN,
+                    PATCH_PIN, SOURCE_REVISION, PATCH_HEADER_VERSION, route=route)
 
 
 # ---------------------------------------------------------------------------
@@ -1035,6 +1108,7 @@ def _decode_targets(patch, profile, limits):
 def build_manifest(contract, generator, sources, header_version, rows, aligned_read,
                    decoded_total):
     profile = contract.profile
+    route = contract.route
     patch = dict(profile["patch"])
     patch["header_version_hex"] = header_version
     return {
@@ -1042,14 +1116,14 @@ def build_manifest(contract, generator, sources, header_version, rows, aligned_r
         "generator": dict(generator, version=VERSION),
         "not_claimed": list(profile["not_claimed"]),
         "patch": patch,
-        "profile": {"bytes": contract.profile_pin["bytes"], "path": PROFILE_PATH,
+        "profile": {"bytes": contract.profile_pin["bytes"], "path": route.profile_path,
                     "schema": profile["schema"], "sha256": contract.profile_pin["sha256"]},
-        "schema": MANIFEST_SCHEMA,
+        "schema": route.manifest_schema,
         "source_revision": profile["source_revision"],
         "sources": sources,
         "strict_policy": dict(profile["strict_policy"]),
         "targets": rows,
-        "task": TASK,
+        "task": route.task,
         "usage": {"aligned_bytes_read": aligned_read, "decoded_bytes": decoded_total,
                   "output_body_bytes": decoded_total, "patch_bytes_hashed": profile["patch"]["bytes"],
                   "target_count": len(rows)},
@@ -1062,6 +1136,8 @@ def build_manifest(contract, generator, sources, header_version, rows, aligned_r
 
 def _run(source_root, patch_path, output_path, contract, ops=None, consumer=None):
     """Producer body. Returns the manifest SHA on success; raises Refusal."""
+    route = contract.route
+    names = route.body_names
     out = Output(output_path, ops or FileOps())
     patch = None
     try:
@@ -1091,13 +1167,13 @@ def _run(source_root, patch_path, output_path, contract, ops=None, consumer=None
         contract.recheck_checkout()
         if not _same(contract.generator_pin(), generator):
             raise Refusal("generator-drift")
-        out.check_set(BODY_NAMES + (MANIFEST,))
+        out.check_set(names + (MANIFEST,))
         marker = canonical({"manifest_bytes": len(manifest), "manifest_sha256": sha256(manifest),
-                            "schema": COMPLETE_SCHEMA, "status": "complete",
-                            "target_count": TARGET_COUNT})
+                            "schema": route.complete_schema, "status": "complete",
+                            "target_count": route.target_count})
         out.publish(COMPLETE, marker)
         out.sync_dir()
-        out.check_set(BODY_NAMES + (MANIFEST, COMPLETE))
+        out.check_set(names + (MANIFEST, COMPLETE))
         (consumer or (lambda path: _verify_payloads(path, contract)))(output_path)
         # The callback is not a final trust boundary: repeat every binding after it.
         check_sources(source_root, profile["source_pins"], source_identities)
@@ -1112,7 +1188,7 @@ def _run(source_root, patch_path, output_path, contract, ops=None, consumer=None
             check_header(with_patch.header, profile["patch"], contract.header_version)
         finally:
             with_patch.close()
-        out.check_all(BODY_NAMES + (MANIFEST, COMPLETE))
+        out.check_all(names + (MANIFEST, COMPLETE))
         try:
             out.close()
         except OSError:
@@ -1127,7 +1203,7 @@ def _run(source_root, patch_path, output_path, contract, ops=None, consumer=None
                 pass
         if out.fail():
             try:
-                out.publish(FAILED, canonical({"reason": code, "schema": FAILED_SCHEMA,
+                out.publish(FAILED, canonical({"reason": code, "schema": route.failed_schema,
                                                "status": "failed"}))
                 out.sync_dir()
             except (Refusal, OSError):
@@ -1235,20 +1311,22 @@ def _verify_payloads(output, contract):
             raise Refusal("consumer-output-privacy")
         directory_identity = (st.st_dev, st.st_ino)
         _consumer_directory(output, dir_fd, directory_identity)
+        route = contract.route
         contract.recheck_checkout()
         generator = contract.generator_pin()
         observations = {}
         names = set(os.listdir(dir_fd))
         if FAILED in names:
             raise Refusal("consumer-failed-marker")
-        if names != set(BODY_NAMES + (MANIFEST, COMPLETE)):
+        if names != set(route.body_names + (MANIFEST, COMPLETE)):
             raise Refusal("consumer-file-set")
         marker_bytes = _consumer_observe(dir_fd, COMPLETE, observations)
         manifest_bytes = _consumer_observe(dir_fd, MANIFEST, observations)
         marker = _parse_json(marker_bytes, "consumer-marker-json")
         if canonical(marker) != marker_bytes or not _same(marker, {
                 "manifest_bytes": len(manifest_bytes), "manifest_sha256": sha256(manifest_bytes),
-                "schema": COMPLETE_SCHEMA, "status": "complete", "target_count": TARGET_COUNT}):
+                "schema": route.complete_schema, "status": "complete",
+                "target_count": route.target_count}):
             raise Refusal("consumer-marker")
         manifest = _parse_json(manifest_bytes, "consumer-manifest-json")
         if canonical(manifest) != manifest_bytes:
@@ -1266,7 +1344,7 @@ def _verify_payloads(output, contract):
             if not _same(manifest[key], fixed[key]):
                 raise Refusal("consumer-contract")
         rows = manifest["targets"]
-        if type(rows) is not list or len(rows) != TARGET_COUNT:
+        if type(rows) is not list or len(rows) != route.target_count:
             raise Refusal("consumer-targets")
         total = 0
         for expected, row in zip(profile["targets"], rows):
@@ -1282,7 +1360,7 @@ def _verify_payloads(output, contract):
         if not _same(manifest["usage"], {"aligned_bytes_read": limits["expected_aligned_bytes_total"],
                                  "decoded_bytes": total, "output_body_bytes": total,
                                  "patch_bytes_hashed": profile["patch"]["bytes"],
-                                 "target_count": TARGET_COUNT}) \
+                                 "target_count": route.target_count}) \
                 or total != limits["expected_decoded_bytes_total"]:
             raise Refusal("consumer-usage")
         # Full second observation catches earlier reads changing in-place or by replacement.
@@ -1294,31 +1372,44 @@ def _verify_payloads(output, contract):
         _consumer_directory(output, dir_fd, directory_identity)
         if set(os.listdir(dir_fd)) != names:
             raise Refusal("consumer-drift")
-        return {"targets": TARGET_COUNT, "decoded_bytes": total,
+        return {"targets": route.target_count, "decoded_bytes": total,
                 "manifest_sha256": sha256(manifest_bytes)}
     finally:
         os.close(dir_fd)
 
 
 def verify_payloads(output):
-    """Read-only production consumer; raises Refusal unless the output is complete."""
-    return _verify_payloads(output, _production_contract())
+    """Read-only twelve-target production consumer; raises Refusal unless complete."""
+    return _verify_payloads(output, _production_contract(LEGACY_ROUTE))
+
+
+def verify_chapter1_rsw(output):
+    """Read-only fixed one-RSW production consumer; raises Refusal unless complete."""
+    return _verify_payloads(output, _production_contract(CHAPTER1_RSW_ROUTE))
 
 
 # ---------------------------------------------------------------------------
 
 def main(argv=None):
     argv = sys.argv[1:] if argv is None else argv
-    if len(argv) != 3:
+    argv = list(argv)
+    # Only the literal flag, only after the three positionals; anything else is usage.
+    if len(argv) == 3:
+        route = LEGACY_ROUTE
+    elif len(argv) == 4 and argv[3] == CHAPTER1_FLAG:
+        route = CHAPTER1_RSW_ROUTE
+    else:
+        route = None
+    if route is None or any(type(a) is not str or a.startswith("--") for a in argv[:3]):
         sys.stderr.write(json.dumps({"status": "usage", "reason": "expected 3 arguments"}) + "\n")
         return 64
     try:
-        contract = _production_contract()
+        contract = _production_contract(route)
         manifest_sha, decoded = _run(argv[0], argv[1], argv[2], contract)
     except Refusal as exc:
         sys.stderr.write(json.dumps({"status": "refused", "reason": exc.code}) + "\n")
         return 2
-    sys.stdout.write(json.dumps({"status": "complete", "targets": TARGET_COUNT,
+    sys.stdout.write(json.dumps({"status": "complete", "targets": route.target_count,
                                  "decoded_bytes": decoded,
                                  "manifest_sha256": manifest_sha}) + "\n")
     return 0

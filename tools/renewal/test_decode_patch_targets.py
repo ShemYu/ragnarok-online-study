@@ -6,6 +6,10 @@ synthetic source files and a synthetic contract in a temporary directory; the
 synthetic contract is private to these tests and the public consumer must
 reject its output. The real-patch test runs only when $PATCH_DECODER_SOURCE_ROOT
 and $PATCH_DECODER_PATCH name the admitted inputs.
+
+Chapter1Rsw* tests exercise the fixed one-record --chapter1-rsw route (T07.007.014.001)
+with the same built-in route descriptor and a private synthetic profile/patch;
+they never read a real archive or body.
 """
 
 import hashlib
@@ -180,8 +184,11 @@ LABELS = ("gat", "gnd", "rsw")
 class Fixture:
     """A temporary repo copy, source root, synthetic patch and synthetic contract."""
 
-    def __init__(self, base, stored_index=None, header_version=0x102):
+    def __init__(self, base, stored_index=None, header_version=0x102, route=dpt.LEGACY_ROUTE,
+                 mangle=None, sizes=None):
         self.base = Path(base)
+        self.route = route
+        chapter = route is not dpt.LEGACY_ROUTE
         rnd = random.Random(1234)
         self.repo = self.base / "repo"
         (self.repo / "tools/renewal").mkdir(parents=True)
@@ -202,22 +209,29 @@ class Fixture:
         vpin = {"bytes": len(self.vectors_bytes), "sha256": sha(self.vectors_bytes)}
 
         # Body sizes chosen so mixed compressed sizes cross cycle digit boundaries.
-        sizes = [3000, 900, 20000, 5000, 300, 140000, 1200, 50, 9000, 64000, 700, 400]
+        if sizes is None:
+            sizes = ([150000] if chapter else
+                     [3000, 900, 20000, 5000, 300, 140000, 1200, 50, 9000, 64000, 700, 400])
+        # The chapter body is more compressible so it fits the fixed 64 KiB aligned cap.
+        noisy = 4 if chapter else 2
         body = bytearray()
         offset = dpt.HEADER_SIZE
         targets = []
         self.bodies = []
         for i, size in enumerate(sizes):
-            label = LABELS[i % 3]
+            label = "rsw" if chapter else LABELS[i % 3]
             kind = 3 if label == "rsw" or i in (1, 7) else 5
             if i == 10:
                 kind = 7
             payload = dpt.MAGIC[label] + bytes((2, i)) + bytes(
-                rnd.randrange(256) if (j // 64) % 2 else j & 7 for j in range(size))
+                rnd.randrange(256) if (j // 64) % noisy == 1 else j & 7 for j in range(size))
             if i == stored_index:
                 comp = payload
             else:
                 comp = zlib.compress(payload, 6)
+            real = len(payload)
+            if mangle is not None:
+                comp, real = mangle(comp, payload)
             aligned = (len(comp) + 7) // 8 * 8 + (8 if i % 4 == 0 else 0)
             pad = bytes(rnd.randrange(1, 256) for _ in range(aligned - len(comp)))
             raw = encrypt(comp + pad, kind, len(comp))
@@ -226,9 +240,9 @@ class Fixture:
                 "expected_magic_hex": dpt.MAGIC[label].hex(), "kind_label": label,
                 "length_aligned": aligned, "metadata_filter": "eligible",
                 "name_hex": ("data\\synthetic%02d.%s" % (i, label)).encode().hex(),
-                "ordinal": 10 + i, "output_file": dpt.BODY_NAMES[i],
+                "ordinal": (23 if chapter else 10 + i), "output_file": route.body_names[i],
                 "payload_offset_field": offset - dpt.HEADER_SIZE,
-                "physical_body_range": [offset, offset + aligned], "real_size": len(payload)})
+                "physical_body_range": [offset, offset + aligned], "real_size": real})
             self.bodies.append(payload)
             body += raw
             gap = 0 if i % 2 else 16
@@ -247,21 +261,21 @@ class Fixture:
         self.header_version = header_version
         aligned_total = sum(t["length_aligned"] for t in targets)
         decoded_total = sum(t["real_size"] for t in targets)
+        limits = (dict(route.limit_caps) if chapter else
+                  {"max_aligned_bytes_per_target": 1 << 20, "max_decoded_bytes_per_target": 1 << 20,
+                   "max_decoded_bytes_total": 1 << 22, "max_output_bytes": 1 << 22,
+                   "read_chunk_bytes": 4096})
+        limits.update(expected_aligned_bytes_total=aligned_total,
+                      expected_decoded_bytes_total=decoded_total)
         self.profile = {
             "authored": {"bytes": vpin["bytes"], "path": dpt.VECTORS_PATH, "sha256": vpin["sha256"]},
             "not_claimed": ["synthetic"],
             "patch": {"bytes": len(self.patch_bytes), "file": "synthetic.gpf", "header_bytes": 46,
                       "header_sha256": sha(header), "index": 1, "record_count": record_count,
                       "sha256": sha(self.patch_bytes), "table_start": table_start},
-            "schema": dpt.PROFILE_SCHEMA, "source_pins": pins,
+            "schema": route.profile_schema, "source_pins": pins,
             "source_revision": dpt.SOURCE_REVISION, "strict_policy": dict(PROFILE["strict_policy"]),
-            "targets": targets, "task": dpt.TASK,
-            "work_limits": {"expected_aligned_bytes_total": aligned_total,
-                            "expected_decoded_bytes_total": decoded_total,
-                            "max_aligned_bytes_per_target": 1 << 20,
-                            "max_decoded_bytes_per_target": 1 << 20,
-                            "max_decoded_bytes_total": 1 << 22, "max_output_bytes": 1 << 22,
-                            "read_chunk_bytes": 4096},
+            "targets": targets, "task": route.task, "work_limits": limits,
         }
         self.vpin = vpin
         self.write_profile()
@@ -271,14 +285,15 @@ class Fixture:
 
     def write_profile(self):
         self.profile_bytes = json.dumps(self.profile, indent=2, sort_keys=True).encode()
-        (self.repo / dpt.PROFILE_PATH).write_bytes(self.profile_bytes)
+        (self.repo / self.route.profile_path).write_bytes(self.profile_bytes)
 
     def contract(self):
         p = self.profile["patch"]
         return dpt.Contract("synthetic-test", self.repo, self.profile_bytes, self.vectors_bytes,
                             {"bytes": len(self.profile_bytes), "sha256": sha(self.profile_bytes)},
                             self.vpin, {"index": p["index"], "bytes": p["bytes"],
-                                        "sha256": p["sha256"]}, dpt.SOURCE_REVISION, self.header_version)
+                                        "sha256": p["sha256"]}, dpt.SOURCE_REVISION, self.header_version,
+                            route=self.route)
 
     def run(self, **kw):
         return dpt._run(self.source_root, self.patch, self.out, self.contract(), **kw)
@@ -981,6 +996,491 @@ class RootCorrectionTests(Base):
     def test_nonfinite_json_refused(self):
         for token in (b"1e309", b"-1e309", b"NaN"):
             self.refuse("json", dpt._parse_json, b'{"n":' + token + b'}', "json")
+
+
+# ---------------------------------------------------------------------------
+# Fixed one-record --chapter1-rsw route (T07.007.014.001), synthetic only.
+
+CH1 = dpt.CHAPTER1_RSW_ROUTE
+CH1_PROFILE_BYTES = (dpt.REPO / CH1.profile_path).read_bytes()
+
+
+class ChapterBase(Base):
+    def setUp(self):
+        self.tmp = tempfile.TemporaryDirectory()
+        os.chmod(self.tmp.name, 0o700)
+        self.fx = Fixture(self.tmp.name, route=CH1)
+
+    def fixture(self, **kw):
+        tmp = tempfile.TemporaryDirectory()
+        os.chmod(tmp.name, 0o700)
+        self.addCleanup(tmp.cleanup)
+        return Fixture(tmp.name, route=CH1, **kw)
+
+    def check_failed(self, fx, code, consumer=True):
+        self.assertIn(dpt.FAILED, sorted(os.listdir(fx.out)))
+        self.assertNotIn(dpt.COMPLETE, sorted(os.listdir(fx.out)))
+        marker = json.loads((fx.out / dpt.FAILED).read_bytes())
+        self.assertEqual(marker, {"reason": code, "schema": "ro-patch-payload-failed/2",
+                                  "status": "failed"})
+        if consumer:  # a drifted checkout refuses earlier in the consumer, by design
+            self.refuse("consumer-failed-marker", dpt._verify_payloads, fx.out, fx.contract())
+
+
+class Chapter1RswRouteTests(ChapterBase):
+    def test_descriptor_is_fixed(self):
+        self.assertEqual(CH1.task, "T07.007.014.001")
+        self.assertEqual(CH1.body_names, ("target-000.body",))
+        self.assertEqual(CH1.target_count, 1)
+        self.assertEqual((CH1.profile_schema, CH1.manifest_schema, CH1.complete_schema,
+                          CH1.failed_schema),
+                         tuple("ro-patch-payload-%s/2" % k
+                               for k in ("profile", "manifest", "complete", "failed")))
+        self.assertEqual(CH1.profile_pin, (len(CH1_PROFILE_BYTES), sha(CH1_PROFILE_BYTES)))
+        self.assertEqual(dpt.LEGACY_ROUTE.target_count, 12)
+        self.assertEqual(dpt.LEGACY_ROUTE.body_names, dpt.BODY_NAMES)
+        with self.assertRaises(AttributeError):
+            CH1.task = "x"
+
+    def test_production_contract_from_frozen_profile(self):
+        c = dpt._production_contract(CH1)
+        self.assertEqual((c.kind, c.route, c.vector_count), (dpt.PRODUCTION, CH1, 252))
+        t = c.profile["targets"]
+        self.assertEqual([(x["ordinal"], x["kind_label"], x["output_file"], x["real_size"],
+                           x["length_aligned"], x["compressed_size"]) for x in t],
+                         [(23, "rsw", "target-000.body", 182666, 28696, 28693)])
+        self.assertEqual(c.profile["patch"]["sha256"], dpt.PATCH_PIN["sha256"])
+        self.assertEqual(dpt._production_contract().route, dpt.LEGACY_ROUTE)
+
+    def test_unknown_or_forged_route_refused(self):
+        forged = CH1._replace(profile_pin=(1, "0" * 64))
+        for route in (forged, tuple(CH1), "chapter1-rsw", None,
+                      CH1._replace(body_names=("target-000.body", "target-001.body"))):
+            with self.subTest(route=type(route).__name__):
+                self.refuse("route-unknown", dpt._production_contract, route)
+                self.refuse("route-unknown", dpt.validate_profile, self.fx.profile, self.fx.vpin,
+                            route)
+                self.refuse("route-unknown", dpt.Contract, "synthetic-test", self.fx.repo,
+                            self.fx.profile_bytes, self.fx.vectors_bytes,
+                            {"bytes": len(self.fx.profile_bytes),
+                             "sha256": sha(self.fx.profile_bytes)}, self.fx.vpin,
+                            {"index": 1, "bytes": 1, "sha256": "0" * 64}, dpt.SOURCE_REVISION,
+                            0x102, route=route)
+
+    def test_production_profile_cross_substitution(self):
+        old = (dpt.REPO / dpt.PROFILE_PATH).read_bytes()
+        vec = (dpt.REPO / dpt.VECTORS_PATH).read_bytes()
+        args = (dpt.VECTORS_PIN, dpt.PATCH_PIN, dpt.SOURCE_REVISION, 0x102)
+        # The route binds its own profile pin before parsing either profile.
+        self.refuse("profile-pin", dpt.Contract, dpt.PRODUCTION, dpt.REPO, old, vec,
+                    dpt.PROFILE_PIN, *args, route=CH1)
+        self.refuse("profile-pin", dpt.Contract, dpt.PRODUCTION, dpt.REPO, CH1_PROFILE_BYTES, vec,
+                    {"bytes": CH1.profile_pin[0], "sha256": CH1.profile_pin[1]}, *args,
+                    route=dpt.LEGACY_ROUTE)
+        self.refuse("profile-pin", dpt.Contract, dpt.PRODUCTION, dpt.REPO, old, vec,
+                    {"bytes": CH1.profile_pin[0], "sha256": CH1.profile_pin[1]}, *args, route=CH1)
+        # Synthetic provenance cannot claim the production kind.
+        self.refuse("profile-pin", dpt.Contract, dpt.PRODUCTION, dpt.REPO, self.fx.profile_bytes,
+                    self.fx.vectors_bytes, {"bytes": len(self.fx.profile_bytes),
+                                            "sha256": sha(self.fx.profile_bytes)},
+                    self.fx.vpin, dpt.PATCH_PIN, dpt.SOURCE_REVISION, 0x102, route=CH1)
+        self.refuse("contract-kind", dpt.Contract, dpt.PRODUCTION, self.fx.repo,
+                    CH1_PROFILE_BYTES, vec,
+                    {"bytes": CH1.profile_pin[0], "sha256": CH1.profile_pin[1]}, *args, route=CH1)
+        self.refuse("profile-pin-cross-check", dpt.Contract, dpt.PRODUCTION, dpt.REPO,
+                    CH1_PROFILE_BYTES, vec,
+                    {"bytes": CH1.profile_pin[0], "sha256": CH1.profile_pin[1]},
+                    dpt.VECTORS_PIN, dict(dpt.PATCH_PIN, index=9297), dpt.SOURCE_REVISION, 0x102,
+                    route=CH1)
+
+    def mutate(self, code, fn, route=CH1):
+        prof = json.loads(json.dumps(self.fx.profile))
+        fn(prof)
+        self.refuse(code, dpt.validate_profile, prof, self.fx.vpin, route)
+
+    def test_profile_route_binding(self):
+        legacy = json.loads(json.dumps(self.fx.profile))
+        self.assertIs(dpt.validate_profile(legacy, self.fx.vpin, CH1), legacy)
+        # Old/new schema, task and count cross-substitution.
+        self.mutate("profile-schema", lambda p: p.update(schema=dpt.PROFILE_SCHEMA))
+        self.mutate("profile-schema", lambda p: p.update(task=dpt.TASK))
+        self.mutate("profile-schema", lambda p: None, route=dpt.LEGACY_ROUTE)
+        self.mutate("profile-targets", lambda p: p["targets"].append(dict(p["targets"][0])))
+        self.mutate("profile-targets", lambda p: p["targets"].clear())
+        # Wrong row fields.
+        t = lambda **kw: lambda p: p["targets"][0].update(kw)  # noqa: E731
+        self.mutate("profile-target-fields", t(output_file="target-001.body"))
+        self.mutate("profile-target-fields", t(metadata_filter="excluded"))
+        self.mutate("profile-target-fields", t(ordinal=40))
+        self.mutate("profile-target-name", t(name_hex=b"data\\ch1_que01.gnd".hex()))
+        self.mutate("profile-target-label", t(kind_label="gnd", expected_magic_hex="4752474e",
+                                              name_hex=b"x.gnd".hex()))
+        self.mutate("profile-target-magic", t(expected_magic_hex="47524e47"))
+        self.mutate("profile-target-kind", t(effective_kind=4))
+        self.mutate("profile-target-range", t(physical_body_range=[46, 54]))
+        self.mutate("profile-target-sizes", lambda p: p["targets"][0].update(
+            compressed_size=p["targets"][0]["length_aligned"] + 1))
+        # Fixed caps cannot be widened or narrowed by the profile.
+        for key, value in CH1.limit_caps:
+            with self.subTest(key=key):
+                self.mutate("profile-limits", lambda p, k=key, v=value:
+                            p["work_limits"].update({k: v + 1}))
+                self.mutate("profile-limits", lambda p, k=key, v=value:
+                            p["work_limits"].update({k: float(v)}))
+        self.mutate("profile-target-budget", t(real_size=262145))
+        self.mutate("profile-totals", lambda p: p["work_limits"].update(
+            expected_aligned_bytes_total=p["work_limits"]["expected_aligned_bytes_total"] + 8))
+
+    def test_legacy_profile_shape_refused_by_new_synthetic_contract(self):
+        self.fx.profile["schema"] = dpt.PROFILE_SCHEMA
+        self.fx.write_profile()
+        self.refuse("profile-schema", self.fx.contract)
+        self.assertFalse(os.path.lexists(self.fx.out))
+
+
+class Chapter1RswEndToEndTests(ChapterBase):
+    def test_one_record_producer_and_consumer(self):
+        manifest_sha, total = self.fx.run()
+        self.assertEqual(total, len(self.fx.bodies[0]))
+        self.assertEqual(self.names(), sorted(("target-000.body", dpt.MANIFEST, dpt.COMPLETE)))
+        self.assertEqual(stat.S_IMODE(os.lstat(self.fx.out).st_mode), 0o700)
+        body = self.fx.out / "target-000.body"
+        self.assertEqual(body.read_bytes(), self.fx.bodies[0])
+        st = os.lstat(body)
+        self.assertEqual((stat.S_IMODE(st.st_mode), st.st_nlink), (0o600, 1))
+        result = dpt._verify_payloads(self.fx.out, self.fx.contract())
+        self.assertEqual(result, {"targets": 1, "decoded_bytes": total,
+                                  "manifest_sha256": manifest_sha})
+        manifest = json.loads((self.fx.out / dpt.MANIFEST).read_bytes())
+        self.assertEqual((manifest["schema"], manifest["task"], manifest["profile"]["path"],
+                          manifest["profile"]["schema"], manifest["usage"]["target_count"],
+                          manifest["generator"]["version"]),
+                         ("ro-patch-payload-manifest/2", "T07.007.014.001", CH1.profile_path,
+                          "ro-patch-payload-profile/2", 1, dpt.VERSION))
+        row = manifest["targets"][0]
+        self.assertEqual((row["encryption"], row["framing"], row["magic_hex"], row["cycle"]),
+                         ("mixed", "zlib", "47525357", 14))
+        self.assertEqual(row["padding_bytes"], row["length_aligned"] - row["compressed_size"])
+        self.assertGreater(row["padding_bytes"], 7)
+        marker = json.loads((self.fx.out / dpt.COMPLETE).read_bytes())
+        self.assertEqual((marker["schema"], marker["target_count"]),
+                         ("ro-patch-payload-complete/2", 1))
+        # Neither public consumer admits synthetic provenance or the other route.
+        self.refuse("consumer-contract", dpt.verify_chapter1_rsw, self.fx.out)
+        self.refuse("consumer-file-set", dpt.verify_payloads, self.fx.out)
+
+    def test_stored_and_header_kind(self):
+        fx = self.fixture(stored_index=0, sizes=[3000], header_version=0x200)
+        fx.run()
+        row = json.loads((fx.out / dpt.MANIFEST).read_bytes())["targets"][0]
+        self.assertEqual((row["framing"], row["compressed_size"], row["real_size"]),
+                         ("stored", 3006, 3006))
+        self.assertEqual(row["padding_bytes"], row["length_aligned"] - 3006)
+        self.assertGreater(row["padding_bytes"], 7)
+        self.assertEqual((fx.out / "target-000.body").read_bytes(), fx.bodies[0])
+        dpt._verify_payloads(fx.out, fx.contract())
+
+    def test_strict_framing_refusals(self):
+        adler = lambda c, b: (c[:-1] + bytes((c[-1] ^ 1,)), len(b))  # noqa: E731
+        cases = (
+            ("zlib-invalid-stream", adler),
+            ("zlib-trailing-data", lambda c, b: (c + b"\x00", len(b))),
+            ("zlib-trailing-data", lambda c, b: (c + zlib.compress(b"x"), len(b))),
+            ("zlib-overlong", lambda c, b: (c, len(b) - 1)),
+            ("zlib-short", lambda c, b: (c, len(b) + 1)),
+            ("zlib-truncated", lambda c, b: (c[:-3], len(b))),
+        )
+        for code, mangle in cases:
+            with self.subTest(code=code):
+                fx = self.fixture(mangle=mangle)
+                self.refuse(code, fx.run)
+                self.check_failed(fx, code)
+                self.assertEqual(sorted(os.listdir(fx.out)), [dpt.FAILED])
+
+    def test_wrong_kind_and_range_reach_their_gates(self):
+        fx = self.fixture()
+        fx.profile["targets"][0]["effective_kind"] = 5  # header-only decrypt of a mixed body
+        fx.write_profile()
+        self.refuse("zlib-invalid-stream", fx.run)
+        self.check_failed(fx, "zlib-invalid-stream")
+        fx = self.fixture()
+        t = fx.profile["targets"][0]
+        t["payload_offset_field"] += 8  # into the 16-byte gap: consistent profile, wrong bytes
+        t["physical_body_range"] = [r + 8 for r in t["physical_body_range"]]
+        fx.write_profile()
+        self.refuse("zlib-invalid-stream", fx.run)
+
+    def test_existing_output_sentinel_preserved(self):
+        self.fx.out.mkdir(mode=0o700)
+        (self.fx.out / "sentinel").write_bytes(b"keep")
+        self.refuse("output-exists", self.fx.run)
+        self.assertEqual(self.names(), ["sentinel"])
+        self.assertEqual((self.fx.out / "sentinel").read_bytes(), b"keep")
+        os.unlink(self.fx.out / "sentinel")
+        os.rmdir(self.fx.out)
+        os.symlink(self.fx.out_parent, self.fx.out)
+        self.refuse("output-exists", self.fx.run)
+        self.assertTrue(os.path.islink(self.fx.out))
+
+    def test_patch_and_source_special_paths(self):
+        real = self.fx.patch
+        link = real.with_name("link.gpf")
+        os.symlink(real, link)
+        self.fx.patch = link
+        self.refuse("patch-unopenable", self.fx.run)
+        os.unlink(link)
+        os.link(real, link)
+        self.fx.patch = real
+        self.refuse("patch-hardlinked", self.fx.run)
+        os.unlink(link)
+        fifo = real.with_name("fifo.gpf")
+        os.mkfifo(fifo)
+        self.fx.patch = fifo
+        self.refuse("patch-not-regular", self.fx.run)
+        self.fx.patch = real
+        p = self.fx.source_root / SOURCE_RELS[0]
+        alt = self.fx.base / "alt"
+        alt.write_bytes(p.read_bytes())
+        p.unlink()
+        os.symlink(alt, p)
+        self.refuse("source-unreadable", self.fx.run)
+        p.unlink()
+        os.link(alt, p)
+        self.refuse("source-not-regular", self.fx.run)
+        self.assertFalse(os.path.lexists(self.fx.out))
+
+    def test_late_drift_before_completion(self):
+        for target, code in (("profile", "profile-drift"), ("source", "source-pin"),
+                             ("generator", "generator-unreadable")):
+            with self.subTest(target=target):
+                fx = self.fixture()
+                path = (fx.repo / CH1.profile_path if target == "profile"
+                        else fx.source_root / SOURCE_RELS[0] if target == "source"
+                        else fx.repo / dpt.GENERATOR_PATH)
+
+                def fsync(ops, fd, path=path, hits=[]):
+                    os.fsync(fd)
+                    if os.fstat(fd).st_size and not hits and os.path.lexists(fx.out / dpt.MANIFEST):
+                        data = path.read_bytes()
+                        path.write_bytes(data[:-1] + bytes((data[-1] ^ 1,)))
+                        hits.append(True)
+                with mock.patch.object(dpt.FileOps, "fsync", fsync):
+                    self.refuse(code, fx.run)
+                self.check_failed(fx, code, consumer=target != "profile")
+
+    def test_drift_after_consumer(self):
+        for target, code in (("source", "source-pin"), ("generator", "generator-unreadable"),
+                             ("profile", "profile-drift"), ("vectors", "vectors-drift"),
+                             ("body", "output-readback")):
+            with self.subTest(target=target):
+                fx = self.fixture()
+                contract = fx.contract()
+                hits = []
+
+                def consumer(path, fx=fx, target=target):
+                    self.assertEqual(dpt._verify_payloads(path, contract)["targets"], 1)
+                    p = (fx.source_root / SOURCE_RELS[0] if target == "source"
+                         else fx.out / "target-000.body" if target == "body"
+                         else fx.repo / {"generator": dpt.GENERATOR_PATH,
+                                         "profile": CH1.profile_path,
+                                         "vectors": dpt.VECTORS_PATH}[target])
+                    data = p.read_bytes()
+                    p.write_bytes(data[:-1] + bytes((data[-1] ^ 1,)))
+                    hits.append(target)
+                self.refuse(code, dpt._run, fx.source_root, fx.patch, fx.out, contract,
+                            consumer=consumer)
+                self.assertEqual(hits, [target])
+                self.check_failed(fx, code, consumer=target not in ("profile", "vectors"))
+
+
+class Chapter1RswFaultOps(FaultOps):
+    def read_back(self, dir_fd, name):
+        st, data = dpt.FileOps.read_back(self, dir_fd, name)
+        if self.mode == "readback" and name == "target-000.body":
+            data = data[:-1] + b"\0"
+        return st, data
+
+
+class Chapter1RswPublicationTests(ChapterBase):
+    def test_publication_and_close_faults(self):
+        # Writes: 1 body, 2 manifest, 3 completion marker.
+        for mode, at, code in (("zero", 1, "output-write"), ("over", 2, "output-write"),
+                               ("raise", 3, "output-flush"), ("fsync", 3, "output-flush"),
+                               ("close", 2, "output-close"), ("readback", 1, "output-readback")):
+            with self.subTest(mode=mode, at=at):
+                fx = self.fixture()
+                self.refuse(code, fx.run, ops=Chapter1RswFaultOps(mode, at=at))
+                self.check_failed(fx, code)
+                self.assertIn("target-000.body", sorted(os.listdir(fx.out)))
+
+    def test_final_directory_close_error_revokes_completion(self):
+        original = dpt.Output.close
+        hits = []
+
+        def close_then_error(output):
+            had_fd = output.dir_fd is not None
+            original(output)
+            if had_fd and not hits:
+                hits.append(True)
+                raise OSError("injected after final directory close")
+        with mock.patch.object(dpt.Output, "close", close_then_error):
+            self.refuse("output-close", self.fx.run)
+        self.assertEqual(hits, [True])
+        self.check_failed(self.fx, "output-close")
+
+    def test_failed_marker_precedence(self):
+        self.fx.run()
+        fd = os.open(self.fx.out / dpt.FAILED, os.O_WRONLY | os.O_CREAT | os.O_EXCL, 0o600)
+        os.close(fd)
+        self.refuse("consumer-failed-marker", dpt._verify_payloads, self.fx.out, self.fx.contract())
+        self.refuse("consumer-failed-marker", dpt.verify_chapter1_rsw, self.fx.out)
+
+    def test_unexpected_error_is_refusal(self):
+        with mock.patch.object(dpt, "build_manifest", side_effect=RuntimeError("x")):
+            self.refuse("internal-error", self.fx.run)
+        self.check_failed(self.fx, "internal-error")
+
+
+class Chapter1RswConsumerTests(ChapterBase):
+    def setUp(self):
+        super().setUp()
+        self.fx.run()
+        self.contract = self.fx.contract()
+
+    def verify(self):
+        return dpt._verify_payloads(self.fx.out, self.contract)
+
+    def rewrite(self, name, data):
+        (self.fx.out / name).write_bytes(data)
+
+    def rebind(self, manifest, **marker):
+        data = dpt.canonical(manifest)
+        self.rewrite(dpt.MANIFEST, data)
+        fields = {"manifest_bytes": len(data), "manifest_sha256": sha(data),
+                  "schema": CH1.complete_schema, "status": "complete", "target_count": 1}
+        fields.update(marker)
+        self.rewrite(dpt.COMPLETE, dpt.canonical(fields))
+
+    def test_positive_and_rebound_original(self):
+        original = json.loads((self.fx.out / dpt.MANIFEST).read_bytes())
+        self.assertEqual(self.verify()["targets"], 1)
+        self.rebind(original)
+        self.assertEqual(self.verify()["targets"], 1)
+
+    def test_old_new_marker_and_manifest_substitution(self):
+        original = json.loads((self.fx.out / dpt.MANIFEST).read_bytes())
+        for code, fn, marker in (
+                ("consumer-marker", None, {"schema": dpt.COMPLETE_SCHEMA}),
+                ("consumer-marker", None, {"target_count": 12}),
+                ("consumer-marker", None, {"target_count": 1.0}),
+                ("consumer-contract", lambda m: m.update(schema=dpt.MANIFEST_SCHEMA), {}),
+                ("consumer-contract", lambda m: m.update(task=dpt.TASK), {}),
+                ("consumer-contract", lambda m: m["profile"].update(path=dpt.PROFILE_PATH), {}),
+                ("consumer-contract", lambda m: m["profile"].update(schema=dpt.PROFILE_SCHEMA), {}),
+                ("consumer-contract", lambda m: m["work_limits"].update(max_output_bytes=1 << 30),
+                 {}),
+                ("consumer-contract", lambda m: m["generator"].update(version="1.0.1"), {}),
+                ("consumer-contract", lambda m: m.update(contract_kind=dpt.PRODUCTION), {}),
+                ("consumer-usage", lambda m: m["usage"].update(target_count=12), {}),
+                ("consumer-targets", lambda m: m["targets"].append(dict(m["targets"][0])), {}),
+                ("consumer-row-contract", lambda m: m["targets"][0].update(ordinal=24), {}),
+                ("consumer-row-contract", lambda m: m["targets"][0].update(
+                    name_hex=b"data\\ch1_que02.rsw".hex()), {}),
+                ("consumer-row-contract", lambda m: m["targets"][0].update(
+                    physical_body_range=[46, 54]), {}),
+                ("consumer-row-contract", lambda m: m["targets"][0].update(effective_kind=5), {}),
+                ("consumer-row-contract", lambda m: m["targets"][0].update(real_size=1), {}),
+                ("consumer-row-contract", lambda m: m["targets"][0].update(
+                    output_file="target-001.body"), {}),
+                ("consumer-row-derived", lambda m: m["targets"][0].update(framing="stored"), {}),
+                ("consumer-row-hash", lambda m: m["targets"][0].update(decoded_sha256="x"), {}),
+                ("consumer-body", lambda m: m["targets"][0].update(decoded_sha256="0" * 64), {})):
+            with self.subTest(code=code, marker=marker):
+                m = json.loads(json.dumps(original))
+                if fn:
+                    fn(m)
+                self.rebind(m, **marker)
+                self.refuse(code, self.verify)
+        self.rebind(original)
+        self.verify()
+
+    def test_output_set_and_privacy(self):
+        (self.fx.out / "target-001.body").write_bytes(b"")
+        self.refuse("consumer-file-set", self.verify)
+        os.unlink(self.fx.out / "target-001.body")
+        body = self.fx.out / "target-000.body"
+        os.link(body, self.fx.out_parent / "hl")
+        self.refuse("consumer-file-privacy", self.verify)
+        os.unlink(self.fx.out_parent / "hl")
+        data = body.read_bytes()
+        os.rename(body, self.fx.out_parent / "moved")
+        os.symlink(self.fx.out_parent / "moved", body)
+        self.refuse("consumer-unreadable", self.verify)  # O_NOFOLLOW
+        os.unlink(body)
+        self.refuse("consumer-file-set", self.verify)
+        body.write_bytes(data[:-1])
+        self.refuse("consumer-size", self.verify)
+        body.write_bytes(data)
+        link = self.fx.out_parent / "dirlink"
+        os.symlink(self.fx.out, link)
+        self.refuse("consumer-output", dpt._verify_payloads, link, self.contract)
+        self.verify()
+
+    def test_legacy_output_refused_by_new_consumers(self):
+        tmp = tempfile.TemporaryDirectory()
+        os.chmod(tmp.name, 0o700)
+        self.addCleanup(tmp.cleanup)
+        legacy = Fixture(tmp.name)
+        legacy.run()
+        self.refuse("consumer-file-set", dpt._verify_payloads, legacy.out, self.contract)
+        self.refuse("consumer-file-set", dpt.verify_chapter1_rsw, legacy.out)
+        self.refuse("consumer-file-set", dpt._verify_payloads, self.fx.out, legacy.contract())
+
+
+class Chapter1RswCliTests(ChapterBase):
+    def run_main(self, argv):
+        out = tempfile.TemporaryFile("w+")
+        err = tempfile.TemporaryFile("w+")
+        self.addCleanup(out.close)
+        self.addCleanup(err.close)
+        with mock.patch.object(sys, "stdout", out), mock.patch.object(sys, "stderr", err):
+            code = dpt.main(argv)
+        out.seek(0)
+        err.seek(0)
+        return code, out.read(), err.read()
+
+    def test_flag_selects_fixed_route_only_after_positionals(self):
+        pos = [str(self.fx.source_root), str(self.fx.patch), str(self.fx.out)]
+        seen = []
+
+        def capture(source, patch, output, contract):
+            seen.append((contract.kind, contract.route, contract.profile_pin))
+            raise dpt.Refusal("captured")
+        with mock.patch.object(dpt, "_run", capture):
+            self.assertEqual(self.run_main(pos + ["--chapter1-rsw"])[0], 2)
+            self.assertEqual(self.run_main(pos)[0], 2)
+        self.assertEqual(seen, [
+            (dpt.PRODUCTION, CH1, {"bytes": CH1.profile_pin[0], "sha256": CH1.profile_pin[1]}),
+            (dpt.PRODUCTION, dpt.LEGACY_ROUTE, dict(dpt.PROFILE_PIN))])
+        for argv in (["--chapter1-rsw"] + pos, pos[:2] + ["--chapter1-rsw"],
+                     pos + ["--chapter1-rsw", "--chapter1-rsw"], pos + ["--chapter1-rsw=1"],
+                     pos + ["--CHAPTER1-RSW"], pos + ["--profile"], pos + ["--chapter1-rsw", "x"],
+                     pos + ["chapter1-rsw"], pos[:2] + ["--chapter1-rsw", pos[2]]):
+            with self.subTest(argv=argv[-1]):
+                with mock.patch.object(dpt, "_production_contract",
+                                       side_effect=AssertionError("contract built")):
+                    code, out, err = self.run_main(argv)
+                self.assertEqual((code, out), (64, ""))
+                self.assertIn('"status": "usage"', err)
+        self.assertFalse(os.path.lexists(self.fx.out))
+
+    def test_production_route_refuses_synthetic_inputs_before_output(self):
+        code, out, err = self.run_main([str(self.fx.source_root), str(self.fx.patch),
+                                        str(self.fx.out), "--chapter1-rsw"])
+        self.assertEqual((code, out), (2, ""))
+        self.assertEqual(json.loads(err), {"status": "refused", "reason": "source-pin"})
+        self.assertNotIn(self.tmp.name, err)
+        self.assertFalse(os.path.lexists(self.fx.out))
 
 
 @unittest.skipUnless(os.environ.get("PATCH_DECODER_SOURCE_ROOT")

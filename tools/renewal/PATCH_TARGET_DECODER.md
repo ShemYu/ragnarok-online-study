@@ -13,12 +13,23 @@ playable-game qualification.
 
 ```sh
 python3 -I tools/renewal/decode_patch_targets.py SOURCE_ROOT PATCH_9298 FRESH_OUTPUT
+python3 -I tools/renewal/decode_patch_targets.py SOURCE_ROOT PATCH_9298 FRESH_OUTPUT --chapter1-rsw
 python3 -I tools/renewal/test_decode_patch_targets.py
 ```
 
+Version1.1.0 (T07.007.014.001 worker candidate) adds only the fixed
+`--chapter1-rsw` route and its `verify_chapter1_rsw(output)` consumer; see
+[Chapter 1 RSW route](#chapter-1-rsw-route-t07007014001). The twelve-target CLI,
+`verify_payloads(output)`, schemas, count and semantics are unchanged; only the
+truthful generator pin/version in a new legacy manifest changes with the source.
+
 Standard library only. Exit 0 prints one path-free JSON status line on stdout
 (`status`, `targets`, `decoded_bytes`, `manifest_sha256`); refusal exits 2 with
-`{"status": "refused", "reason": <code>}` on stderr; wrong argument count exits 64.
+`{"status": "refused", "reason": <code>}` on stderr; any argument shape other than
+three positionals optionally followed by the literal `--chapter1-rsw` (including
+a flag before or between positionals, a repeated, cased or `=`-valued flag, any
+other flag, or a positional starting with `--`) exits 64 before any contract,
+input or output is touched.
 No body bytes, proprietary names or paths are printed.
 
 ## Fixed inputs
@@ -176,8 +187,57 @@ ambiguous OS close may leave descriptor cleanup unproven; no broad FD retry is
 claimed. The public profile/CLI/schema and target metadata remain fixed apart
 from generator identity/version. No native reader is invoked by this tool.
 
+## Chapter 1 RSW route (T07.007.014.001)
+
+Qualified ledger gap47/root1256/cache1248 `ch1_que01` has one eligible exact RSW
+record (ordinal 23) in patch 9298. `--chapter1-rsw` decodes only that record so
+Root can later observe its embedded terrain names. It reuses the unchanged
+cipher, framing, Patch, source, output and consumer machinery; there is no new
+parser, archive table/name reader, discovery or extractor.
+
+Each route is an immutable internal `Route` descriptor. A contract admits only a
+descriptor value-identical to one of the two built-ins (`route-unknown`
+otherwise) and binds it before any profile byte is parsed. A production contract
+must use this checkout, the route's own profile pin, the fixed vectors pin and
+the fixed patch/revision/header pins. The route then applies to profile
+validation, producer output set, manifest/marker/failure schemas, totals,
+preservation checks and the consumer.
+
+| | Twelve-target (default) | `--chapter1-rsw` |
+|---|---|---|
+| Task | T07.007.003 | T07.007.014.001 |
+| Profile | `T07.007.003-profile.json`, 8474 B, `06805b0a…ead2a` | `T07.007.014.001-profile.json`, 3415 B, `c47c0ebe…a8e2` |
+| Profile schema | `ro-twelve-patch-payload-profile/1` | `ro-patch-payload-profile/2` |
+| Manifest/complete/failed | `ro-twelve-patch-payload-{manifest,complete,failed}/1` | `ro-patch-payload-{manifest,complete,failed}/2` |
+| Count / output | 12 / `target-000.body`…`target-011.body` | 1 / `target-000.body` |
+| Kind labels | gat, gnd, rsw | rsw only (`profile-target-label`) |
+| Consumer | `verify_payloads(output)` | `verify_chapter1_rsw(output)` |
+
+New-route limits are repeated in the descriptor and must equal the profile
+exactly (type-sensitive): aligned per target 65536, decoded per target and total
+262144, output 1048576, read chunk 1048576. The pinned profile expects aligned
+28696 / decoded 182666 bytes (compressed 28693, mixed kind 3, range
+3767998–3796694, GRSW magic). Neither CLI nor consumer accepts a profile, path,
+pin, count or limit override; no environment variable is read.
+
+Worker checks are synthetic only: the old non-body suite is unchanged, and new
+controls use the built-in chapter descriptor with a private synthetic profile and
+patch (never the production CLI/consumer as a bypass). They cover one-record
+producer+consumer, stored/zlib/padding, adler/trailer/concatenated/overlong/
+short/truncated framing, wrong kind/range, old/new profile/schema/task/count/
+marker/manifest cross-substitution in both directions, forged/unknown routes,
+row/name/ordinal/range/kind/size/output-set mutations, late source/profile/
+generator/vectors/body drift before completion and after the consumer, symlink/
+hard-link/FIFO paths, existing-output sentinel, failed-marker precedence and
+write/fsync/close/readback/final-directory-close faults. Each asserts its exact
+refusal code. The production chapter contract is built from the frozen profile
+and vectors (text/JSON only); the real archive and body are not read, and the
+actual new route has not been run. Root performs the actual-body gate.
+
 ## Not claimed
 
 Native reader/binary parity, publisher application or winner order, dependency
 closure, supported terrain versions, constructor/render/travel/save success and
-full-map/full-game acceptance do not follow from twelve decoded bodies.
+full-map/full-game acceptance do not follow from twelve decoded bodies. The
+Chapter 1 RSW route claims no embedded terrain names, map access or repair and
+closes none of the 82 functional gaps.
