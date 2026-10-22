@@ -136,7 +136,11 @@ CURRENT WORK: October assets and missing maps
  |    Parallel: full 82-gap ledger verified; both workers released.
  |    All 63 catalogs / 408,794 rows root-checked. No map gap closes yet.
  |    Normal repair pair preserves Chinese bytes. Full Chinese source snapshot passes.
- |    Full file copy/audit passes: 1,135 sources and 1,114 targets. Next: new engine, entry/save.
+ |    Full file copy/audit passes: 1,135 sources and 1,114 targets.
+ |    New config/images/engine pass. Empty Docker and fresh backing ownership pass.
+ |    Next: full main, fresh game mounts/routes, then normal entry/save.
+ |    Movement: both candidates retained; Root Claude 39 own/17 common pass.
+ |    Parallel Chapter1 RSW route: Claude submitted; Grok works independently.
  |
  +-- [V] Other 28 GPF patch tables: corrected tool verified.
  |        Root reference: all 5,742 raw records checked.
