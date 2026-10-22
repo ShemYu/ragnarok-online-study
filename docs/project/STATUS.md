@@ -10,7 +10,8 @@ remain the goal. Functionality comes first; party-only work stays later.
 Current independent lanes:
 
 - **Story repair feasibility:** [T10.001 common brief is frozen](tasks/T10.001.md)
-  for independent Claude/Grok research. Find verifiable reusable Chapter1 quest
+  and [both actual workers are researching](reviews/2026-10-22-T10.001.md#actual-independent-research-pair-launched)
+  from common a6aa0cf. Find verifiable reusable Chapter1 quest
   implementations or expose missing mechanics and estimate a faithful repair.
   This prepares T10 in parallel with T07; no scope change or story/play PASS.
 
