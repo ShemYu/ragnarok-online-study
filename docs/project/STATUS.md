@@ -41,7 +41,9 @@ Current independent lanes:
   all1118 files remain exact; local guest-image install/full readback now pass.
   [The fresh engine boots with positive daemon/control ownership](reviews/2026-10-22-T07.007.012.006.md#actual-fresh-boot-and-daemon-ownership-qualify);
   [empty-engine/service/backing checks pass](reviews/2026-10-22-T07.007.012.006.md#empty-engine-status-storage-and-preservation-qualify).
-  Next [full main, fresh mounts/detection and normal served routes](tasks/T07.007.012.007.md), then game entry/save.
+  [Installed helpers, full fresh inputs and the concrete one-launch procedure qualify](reviews/2026-10-22-T07.007.012.007.md).
+  Next one normal-main launch, fresh mounts/detection and normal served routes,
+  then game entry/save. No full-main launch has occurred yet.
 - **Movement policy:** [corrected source-plan comparison](reviews/2026-10-22-T07.007.013.md#corrected-source-plan-comparison-qualified)
   is self_verified, Grok 17/20 basis versus Claude 15/20; both workers are
   preserved/released. [Independent offline candidate pair runs](reviews/2026-10-22-T07.007.013.001.md#actual-independent-pair-launched).
@@ -49,7 +51,9 @@ Current independent lanes:
   Claude39authored/17common/three close-error intents pass; Grok9authored/17common
   pass but returns success after an injected first-close EBADF. Claude17/20 is
   selected for offline body qualification versus Grok15/20. Before-real-close
-  ownership remains unverified; no real-body method has run yet.
+  ownership remains unverified. [The unmodified public pure entry and writer now
+  match the actual-body oracle](reviews/2026-10-22-T07.007.013.001.md#unmodified-public-entry-and-writer-match-the-actual-body-oracle):
+  exactly two bytes differ, full inverse/all heights/strict receipts pass.
   Production mapping remains unselected. Actual served
   code, effective server config/cache/cells, movement and save gates remain.
 - **All 82 resource gaps:** [root full metadata preflight](reviews/2026-10-22-T07.007.014.md#root-metadata-preflight-and-pre-provider-oracle)

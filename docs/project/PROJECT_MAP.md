@@ -16,8 +16,8 @@ CURRENT WORK: October assets and missing maps
 Latest verified work (22 Oct):
   [V] New isolated engine: empty database/storage/ports checks pass.
   [~] Start full game services there; verify mounts and normal routes.
-  [V] Offline movement candidates compared: Claude selected for body test.
-      Grok's first-close error check fails. No live mapping selected.
+  [V] Offline movement candidate: actual bytes/receipt/inverse pass.
+      Claude selected; Grok close check fails. No live mapping selected.
   [~] Chapter 1 decoder: both candidates preserved; Root review next.
   [~] Fruit scene: full render still fails one model fetch.
   Parent checkpoints: 4 / 14 = about 29%. Full game remains open.
