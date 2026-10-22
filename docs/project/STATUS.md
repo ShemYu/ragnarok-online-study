@@ -41,6 +41,11 @@ frames advance in both authored phases](reviews/2026-10-22-T07.007.011.005.md#ac
 121/122frames,50timers each; both already visible. This does not reproduce or
 explain the old scene stall. Next measure the actual scene's frame progression
 and review the report-terminal boundary before any new fruit attempt.
+[Both fresh report-boundary controls now independently qualify](reviews/2026-10-22-T07.007.011.005.md#actual-complete-and-short-report-controls-independently-qualify):
+complete ACK/main finished succeeds; short-body arrayBuffer/content-length failure
+correctly refuses before15s. Full sources/joins/cleanup pass, owned pages/listeners
+close and originals restore. Next minimal UNBOUND actual-fruit frame/ACK adapter;
+no fresh fruit attempt or root-cause/render claim yet.
 
 **Goal API is active. Current parent count: 4/14, about 29%.** This counts
 parent checkpoints, not content, effort or playable-world coverage. Full Modern /
