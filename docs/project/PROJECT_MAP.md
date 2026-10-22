@@ -45,7 +45,8 @@ Latest verified work (22 Oct):
       Private checker limitations retained. Full body reads/loading next.
   [V] Normal two-body preflight: current owner/config match.
       Automatic extraction retained; both loose/override targets absent.
-  [~] Two-response observer preparation; then separate execution admission.
+  [V] Two-response observer reviewed; wire/storage accounting corrected.
+  [~] Two-request execution admitted; complete-byte audit follows.
   [~] Chapter 1 terrain dependencies and normal play remain.
   [~] Fruit scene: full render still fails one model fetch.
       Plans compared: Claude 17/20 vs Grok 16/20. Diagnostic gates next.

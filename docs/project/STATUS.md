@@ -131,7 +131,10 @@ Current independent lanes:
   [.014.003 normal two-body preflight is admitted](reviews/2026-10-22-T07.007.014.003.md):
   [current birth/executable/listeners and config fingerprint now match](reviews/2026-10-22-T07.007.014.003.md#current-reader-and-extraction-preflight-observed).
   Both loose/override targets are absent; autoextract=true is retained. Observer
-  preparation precedes separate two-GET admission. No new decoder/restart/body PASS.
+  [Fixed two-GET execution admission is now bound](reviews/2026-10-22-T07.007.014.003.md#fixed-observer-and-two-request-execution-admission):
+  Root corrects wire/storage failure accounting and reviews the complete caller.
+  Next one authenticated status/two GETs, then independent complete-byte audit.
+  No request or body PASS yet; no new decoder/restart.
 
 The [earlier mu pilot and Astra diagnosis](reviews/2026-10-22-T07.007.011-execution.md#actual-astra-consultation-and-discriminating-metadata-check)
 remain historical evidence. Ordinary Chapter 1 entry/save, 82 world-resource
