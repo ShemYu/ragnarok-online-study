@@ -18,7 +18,7 @@ Map loading            [Chapter 1 test passes; fruit test is open]
 Quest file inventory   [PASS: all 3 files checked]
 Server + file binding  [PASS: current owner and 21 file checks]
 Active quest records   [NEXT: observe an owned test client]
-Existing text recovery [IN WORK: Claude checked; Grok is working]
+Existing text recovery [IN WORK: verify both submitted candidates]
 Missing story scripts  [OPEN: largest content risk]
 Full game test         [LATER: 82 functional resource gaps remain]
 
@@ -116,7 +116,8 @@ Latest verified work (23 Oct):
       Claude source is saved and its worker terminal is closed.
       Root: 8 authored groups and 18 shared groups pass.
       Six extra input/error checks fail; candidate is held for repair.
-      Grok is still working. Compare the same checks before selection.
+      Grok is saved; both worker terminals are closed.
+      Next: Root verifies Grok with the same checks before selection.
       No actual quest text, integration or story pass yet.
   [V] Official guide panels checked in parallel: side/daily tasks found.
       Three later cards use another map; next search must include it.
@@ -152,7 +153,8 @@ Latest verified work (23 Oct):
       Exact failure occurs during body reading, before the 15-second timer.
       Both pages, actors and listeners close. Original game view restored.
       Root reviews both full adapter files; all 27 source pins match.
-      Next: bind one fresh fruit test and record real frame progress.
+      Fresh sources are bound; Root must check them before the test.
+      Next: check exact sources, then record one actual scene attempt.
       No new fruit test or cause claim yet.
   [V] File writer fix: 51 tests, 10 shared and 2 focused checks pass.
   [V] Caller accepts the normal test; all 15 failure checks reject correctly.

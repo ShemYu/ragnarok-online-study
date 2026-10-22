@@ -33,10 +33,12 @@ pair is dispatched from e16b7be](reviews/2026-10-23-T10.004.md#actual-independen
 Root prepares shared controls while producer/config and fruit work continue.
 [Claude's original candidate is preserved/released](reviews/2026-10-23-T10.004.md#claude-submission-preserved-and-settled-terminal-released).
 [Root replays8authored passes but six extra refusal cases fail](reviews/2026-10-23-T10.004.md#root-authored-replay-passes-but-extra-refusal-checks-fail).
-No candidate selected or actual text decoded; Grok and shared controls continue.
+No candidate selected or actual text decoded.
 [Root reviews/admit18independent authored common groups](reviews/2026-10-23-T10.004.md#independent-common-controls-source-review-and-bounded-admission).
 [Claude passes the actual18common groups/100calls](reviews/2026-10-23-T10.004.md#claude-passes-the-actual-shared-authored-controls);
-the six extra refusal failures remain. Grok is live/working; one active worker.
+the six extra refusal failures remain.
+[Grok's original candidate is preserved and both workers are released](reviews/2026-10-23-T10.004.md#grok-submission-preserved-and-all-current-workers-released).
+Next complete Root Grok source/suite/common/extra checks, then repair/comparison.
 Reuse Chinese resources; functionality/story evidence first. No verified
 server Chapter1 story implementation, resource-winner or Chinese projection yet.
 
@@ -68,6 +70,8 @@ close and originals restore. Next minimal UNBOUND actual-fruit frame/ACK adapter
 no fresh fruit attempt or root-cause/render claim yet.
 [Root completes both full fruit adapter source reviews and27pin checks](reviews/2026-10-22-T07.007.011.005.md#root-completes-minimal-fruit-frame-and-report-adapter-source-review).
 Runtime/page binding and admission remain; no fresh attempt is claimed.
+[One fresh12-file source set is now bound](reviews/2026-10-22-T07.007.011.005.md#fresh-source-set-bound-with-runtime-admission-still-pending);
+preflight and runtime admission remain pending, no actor/page starts.
 
 **Goal API is active. Current parent count: 4/14, about 29%.** This counts
 parent checkpoints, not content, effort or playable-world coverage. Full Modern /
