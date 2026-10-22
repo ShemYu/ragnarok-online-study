@@ -953,3 +953,10 @@ wave admitted](reviews/2026-10-22-T07.007.011.005.md#wave4-reader-and-exact-bind
 158current full pins/header inverses/five data copies/three original owners match.
 Next prelaunch once, guarded fresh reader/Chrome, exact READY joins and conditional
 observer, then complete image/transport/retirement audit. No scene result yet.
+
+[Retained log narrows helper lead; installed Chrome trials stop](reviews/2026-10-22-T07.007.011.005.md#retained-log-narrows-the-helper-lead-and-installed-chrome-trials-stop).
+Root verifies ninepins/eightspans: PID-associated GoogleUpdater self-report,
+including reported install/prefs/request activity; kernel executable identity
+and out-of-inventory persistent changes remain unknown. Next isolated automation
+browser source/provenance/resource research, not an engine/goal change. No new
+acquisition/runtime or process-authority relaxation admitted by this checkpoint.

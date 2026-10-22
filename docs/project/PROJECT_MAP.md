@@ -70,7 +70,8 @@ Latest verified work (23 Oct):
       Reader templates + five inert data copies checked.
       W4 reaches READY, then refuses a child in another process group.
       Full179-file audit passes;24test identities end; original games intact.
-      Scene remains failed. Next: retained log + exact helper provenance.
+      Scene remains failed. Log points to GoogleUpdater activity.
+      System Chrome trials stop; isolated test-browser research next.
       Next: fresh file/process preflight. No new browser has started.
   [V] Corrected launcher tests: all 43 pass; full Root audit passes.
       Next: fresh scene setup and file/process checks before a live test.
