@@ -22,28 +22,21 @@ parent checkpoints, not content, effort or playable-world coverage. Full Modern 
 Renewal maps, monsters, story, persistence and eventual Traditional Chinese
 remain the goal. Functionality comes first; party-only work stays later.
 
-[Chapter1 normal frontend source now qualifies](reviews/2026-10-22-T07.007.014.004.md#normal-frontend-materialized-and-independently-source-verified):
-four exact proposal hunks/14full pins, both entry guards still UNBOUND. Current
-normal-reader/config/archive preflight and final caller/admission remain before
-any loading observation. No game/source installation or character change.
-[The fixed .005 normal loading verification brief is frozen](tasks/T07.007.014.005.md);
-current-owner/config/archive and final caller/source admission remain next.
-[The reviewed current-reader preflight is now admitted](reviews/2026-10-22-T07.007.014.005.md#final-sources-reviewed-and-read-only-preflight-admitted):
-one authenticated STATUS/full protected hashes, no asset GET or reader lifecycle.
-[Actual preflight and Root audit pass](reviews/2026-10-22-T07.007.014.005.md#actual-read-only-preflight-independently-qualifies):
-caller exit0, complete config/receipt reconstruction,17full pins/five archives,
-current owners/listeners and temporary-process retirement qualify. No asset GET.
-[Final normal loading inputs/caller and one-attempt sequence are admitted](reviews/2026-10-22-T07.007.014.005.md#final-normal-loading-input-and-single-attempt-admission).
+[Chapter1 normal loading verification](tasks/T07.007.014.005.md) remains active.
+[Actual reader preflight qualifies](reviews/2026-10-22-T07.007.014.005.md#actual-read-only-preflight-independently-qualifies):
+one STATUS, full config reconstruction/17pins/five archives and retirement pass.
 [First actual normal observation fails and is fully audited/retired](reviews/2026-10-22-T07.007.014.005.md#first-normal-observation-fails-on-an-unsupported-browser-icon-request):
 genuine MapLoader/RSW parsing reached and exact RSW200body passes; an unsupported
 browser favicon request ends the strict proxy before GAT forwarding. Seven
 connections close,27protected pins and two exact new extraction leaves match;
 host preserves70trace rows/publication failure. Original pages/worlds remain.
-Next verify the narrow favicon correction on an authored fixture before a new
-separate admission. No automatic map retry or render/story/save/gap acceptance.
-[The first isolated favicon fixture refuses its FD boundary](reviews/2026-10-22-T07.007.014.005.md#first-favicon-fixture-refuses-its-fd-boundary):
-terminal exit1/pass=false, sources unchanged, game untouched. Preserve it and
-record the exact descriptor difference before correcting or accepting the test.
+[Fresh corrected favicon fixture now independently qualifies](reviews/2026-10-22-T07.007.014.005.md#corrected-isolated-favicon-route-qualifies):
+five cases/six HTTP requests, original failure reproduced, corrected route
+continues and unknown/capped/sealed routes refuse. Full FD/socket/thread
+restoration passes with no exemptions; no upstream/game requests. Earlier
+failed fixtures stay preserved. Next fresh normal-reader binding and separate
+loading admission; actual complete terrain/model/render/story/save evidence
+remains open. No automatic map retry or resource-gap/parent acceptance.
 
 **Worker cleanup:** under the user's renewed cleanup instruction,
 [Root closes the four obsolete retained sessions](reviews/2026-10-22-worker-cleanup.md)

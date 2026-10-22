@@ -62,7 +62,10 @@ Latest verified work (22 Oct):
       Real map file arrives and its parser runs; terrain is not reached.
       Test proxy rejects /favicon.ico and closes. Failed evidence is saved.
       Temporary page/processes close; original game and saves remain.
-      Next: verify the small icon-route fix, then admit a fresh map check.
+  [V] Small icon-route fix passes all five isolated checks.
+      Unknown, over-limit and late requests still stop correctly.
+      Test sockets/threads/files close. No game request is sent.
+      Next: fresh reader check and a separately admitted map check.
       Installed scripts: 1185 NPC files and 94 config files checked.
       17 configs select 841 sources; mounts match. No Chapter 1 references.
   [V] Story feasibility pair checked: Claude 17/20, Grok 13/20.
