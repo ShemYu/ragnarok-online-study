@@ -76,6 +76,12 @@ Runtime/page binding and admission remain; no fresh attempt is claimed.
 preflight and runtime admission remain pending, no actor/page starts.
 [One exact read-only fruit preflight is admitted](reviews/2026-10-22-T07.007.011.005.md#one-fresh-read-only-preflight-admitted);
 native lease/page/controller still require the later actual preflight audit.
+[The actual fresh preflight and independent full audit now pass](reviews/2026-10-22-T07.007.011.005.md#fresh-actual-preflight-and-independent-full-audit-qualify):
+all61protected pins/six native inputs/three exact worlds, caller/streams and
+registered retirement qualify. No lease/page/controller starts. Next separately
+admit one owned fruit observation; the prior180s loading stall remains open.
+No new blocker requires a user decision. Missing server story implementation
+remains the largest content risk; full-game scope and82functional gaps remain.
 
 **Goal API is active. Current parent count: 4/14, about 29%.** This counts
 parent checkpoints, not content, effort or playable-world coverage. Full Modern /
