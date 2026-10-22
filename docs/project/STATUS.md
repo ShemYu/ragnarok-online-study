@@ -115,8 +115,10 @@ wire/runtime or parent/content acceptance. [Exact server emitter/first Messenger
 source now qualify](reviews/2026-10-23-T07.006.001.md#exact-server-emitter-and-first-messenger-source-qualify):
 12full sources/26pins/24spans, three identical27-byte emitters; first handoff
 derives type0/service101/hide-windowtrue. State commands precede navigation.
-Next named FIFO/string/macro/enum and client policy closure; actual installed
-server/wire/earned travel remain unverified.
+[Macro/client-policy sources now qualify](reviews/2026-10-23-T07.006.001.md#macro-and-client-request-policy-sources-qualify):51full pins/26spans; capacity16/default101/NUL padding close at source.
+Client binary service toggle and destructive hide cannot faithfully represent
+the request. Selected Worker review and service mapping remain; actual loaded
+server/wire/earned travel are unverified.
 
 [T10.005 freezes the bounded quest-registration implementation contract](reviews/2026-10-23-T10.005.md#frozen-source-contract-and-root-preflight).
 Root qualifies nine full source inputs/26primary LF slices and resolves callback,
@@ -898,3 +900,8 @@ Latest T05.008 source integration: selected unchanged Claude commit→3228016, r
 
 
 Latest installed cache checkpoint: latest integrated controller natively verifies exact0dbebd68 module/SRI, then after fresh full K and closing the old game document removes only6recognized reconstructible copies with6independent missing results.35local/0session counts/hashes, all six save tables,21protected/3absences and all runtime baselines (plus only5owned probe files) pass. [Selected serial result](reviews/2026-10-19-T05.008.md#selected-native-six-cache-removal-and-preservation-qualified). Next actual original/OFF HTTP/game and repaired/ON regression, full cleanup. Game document currently closed for cache testing; signed working app runs, internet/mute/preferences unchanged. No parent readiness/percentage/goal change.
+
+[Eight recorded-return caller source now qualifies; one pure call is admitted](reviews/2026-10-23-T10.005.md#eight-recorded-return-caller-qualifies-and-one-pure-call-is-admitted).
+Root verifies20full pins/sixfragments/eight metadata edits and complete inverses.
+Next fill exact clean admission HEAD, run once and audit all eight outcomes.
+No shared-parent, live scene or actual quest-loader admission follows.

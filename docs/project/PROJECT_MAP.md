@@ -36,10 +36,11 @@ Latest verified work (23 Oct):
   [>] Equal Claude/Grok navigation source workers dispatched.
       Root corrected comparison done:16/20 each; both released.
       Exact server emitter/first Messenger source checked:27 bytes.
-      It requests a hidden window; service/type policy and wire still open.
+      Macro/client policy checked: service toggle cannot honor request yet.
+      Destructive hide clears routing. Worker review + service mapping next.
   [V] Quest cleanup deadline source gap found; narrow correction checked.
       All five fixed checks pass. Shared runner late-return gap found.
-      Return-time source fix and eight test sources checked; caller next.
+      Return-time fix, eight test sources and caller checked; one pure run next.
   [V] Navigation source contract checked: 54 ranges and 70 file pins match.
       Three plugins and their source imports found. Equal model task next.
   [V] Bounded child-absence and normal-close source changes checked.
