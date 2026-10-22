@@ -2,10 +2,11 @@
 
 Updated: 2026-10-22 JST. Coordinator: Codex. Active scope: **execute the documented strategy through the full milestone**.
 
-Latest execution admission: [one genuine canonical offline writer attempt](reviews/2026-10-22-T07.007.013.002.md#genuine-canonical-real-body-attempt-reviewed-and-admitted).
-Full child/parent review is complete; bind the actual admission HEAD and exact
-source identities, then run once into fresh private output. No game/save/cache
-mutation is admitted. Rendering capture preparation continues independently.
+Latest verified result: [genuine canonical offline writer and complete caller acceptance pass](reviews/2026-10-22-T07.007.013.002.md#genuine-canonical-body-and-complete-caller-acceptance-qualify).
+Exactly two bytes/full inverse/all heights/receipt/15 records/source preservation
+and observed retirement pass; bounded .002 is ready_for_user. No game/save/cache
+mutation occurred. Next one fresh fruit browser-failure observation; normal
+loader and story work remain independent.
 
 **Goal API is active. Current parent count: 4/14, about 29%.** This counts
 parent checkpoints, not content, effort or playable-world coverage. Full Modern /
@@ -178,9 +179,11 @@ Current independent lanes:
   full source/stream/sentinel/retirement/resource audits pass. Intentionally
   invalid guards stay invalid. [Selected corrected source is now integrated](reviews/2026-10-22-T07.007.013.002.md#selected-corrected-writer-source-integrated):
   raw441c870 then correction2f9d2dc; canonical source/tests exactly match the
-  previously qualified bytes. Next separately admitted genuine real-body
-  output and complete independent parent acceptance.
-  Actual-body/game readiness remains open.
+  previously qualified bytes. [Genuine canonical R01 and complete parent
+  acceptance now qualify](reviews/2026-10-22-T07.007.013.002.md#genuine-canonical-body-and-complete-caller-acceptance-qualify):
+  exact3200014B/two-byte/inverse/receipt/all15records/nine source pins and
+  valid guard/retirement pass. .002 ready_for_user within this offline scope;
+  game/mapping readiness remains open.
   [The unmodified public pure entry and writer now
   match the actual-body oracle](reviews/2026-10-22-T07.007.013.001.md#unmodified-public-entry-and-writer-match-the-actual-body-oracle):
   exactly two bytes differ, full inverse/all heights/strict receipts pass.

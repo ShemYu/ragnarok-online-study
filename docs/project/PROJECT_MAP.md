@@ -80,7 +80,9 @@ Latest verified work (22 Oct):
   [V] File writer fix: 51 tests, 10 shared and 2 focused checks pass.
   [V] Caller accepts the normal test; all 15 failure checks reject correctly.
   [V] Corrected writer source is integrated with separate rollback commits.
-  [~] Check its real game-data output and independent parent acceptance.
+  [V] Corrected writer: real game-data output and full parent audit pass.
+      Only two bytes change; original, heights and receipt checks pass.
+      Test process exits cleanly. No game/save/cache change is installed.
   Parent checkpoints: 4 / 14 = about 29%. Full game remains open.
   Four old agent sessions and 18 unused child shells are closed.
   Their branches, files and evidence stay saved for rollback.
