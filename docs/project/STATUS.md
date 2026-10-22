@@ -95,8 +95,11 @@ Current independent lanes:
   Chapter1 reference now qualifies](reviews/2026-10-22-T07.007.014.001.md#independent-complete-chapter-1-body-reference-qualifies):
   182666body bytes, mixed/zlib and full archive/source/output postchecks pass.
   The first output-parent refusal is retained; only the private OUT binding is
-  corrected. Next both real CLIs/public consumers, selected integration and
-  raw embedded terrain names. No content gap closes.
+  corrected. [Both actual new CLIs and public consumers now qualify](reviews/2026-10-22-T07.007.014.001.md#both-actual-new-clis-and-public-consumers-qualify):
+  all182666body bytes/full typed artifacts and patch/source preservation match.
+  Unchanged Claude is selected on the19/20tie for broader failure-path coverage;
+  old core is preserved. Next integration, integrated checks and raw embedded
+  terrain names. No content gap closes.
 
 The [earlier mu pilot and Astra diagnosis](reviews/2026-10-22-T07.007.011-execution.md#actual-astra-consultation-and-discriminating-metadata-check)
 remain historical evidence. Ordinary Chapter 1 entry/save, 82 world-resource
@@ -228,7 +231,7 @@ The first playtest is an intermediate checkpoint within the full milestone. T01â
 
 ## Next action and owner
 
-1. **Root:** preserve qualified checkpoints; do not restart completed pairs. Current gate is .014.001: both candidates pass source review,30common groups and own suites; the separately admitted unchanged-core actual182666-byte reference now qualifies. Review/bind the actual runner, run both unchanged new CLIs/public consumers serially against the complete reference, select/integrate/retest legacy and new routes, freeze raw RSW terrain names and inspect their targeted catalog dependencies. Keep .011fruit diagnosis and .013movement ownership work independent; only Root may mutate the live test world. Full normal cold restart/earned-state return in .012.008 is already verified. No original-state migration or all-content PASS is inferred.
+1. **Root:** preserve qualified checkpoints; do not restart completed pairs. Current gate is .014.001: both source/synthetic and actual new CLI/public-consumer campaigns pass against the independent182666-byte reference. Unchanged Claude3fa2276 is selected; old core/reference origin is preserved. Integrate the three files, repeat own/common and actual new/legacy checks with separately reviewed integrated bindings, freeze raw RSW terrain names and inspect their targeted catalog dependencies. Keep .011fruit diagnosis and .013movement ownership work independent; only Root may mutate the live test world. Full normal cold restart/earned-state return in .012.008 is already verified. No original-state migration or all-content PASS is inferred.
 2. **Root:** use functional findings to prioritize ordinary map travel, monsters/spawns, combat, jobs/items, quest progression and persistence checks/fixes. Full world remains the goal; no single-map or shipped-subset substitution.
 3. **Root, later:** resume remaining T05 input/UI and T08/T09 localization work after functionality. Reuse current Taiwan tables/dictionaries/overlays and assess resources before bulk translation. Do not claim IME or complete language coverage from direct Unicode/ASCII input.
 4. **Root:** apply confirmed full-game scope and later-phase party-only deferral. Present concrete version/coverage/gap findings; no pending scope answer blocks the inventory. Escalate verified critical goal-changing issues before any reduction.

@@ -30,7 +30,8 @@ Latest verified work (22 Oct):
   [V] Both own suites: Claude 76 / Grok 64 run, one skip each, no failures.
       Source comparison: 19/20 each.
   [V] Independent Chapter 1 reference: all 182,666 map-file bytes checked.
-  [~] Compare both real decoders, then inspect embedded terrain names.
+  [V] Both real decoders and public verifiers match the complete reference.
+  [~] Integrate selected Claude, retest, then inspect terrain names.
   [~] Real Chapter 1 body/dependencies and normal play remain.
   [~] Fruit scene: full render still fails one model fetch.
   Parent checkpoints: 4 / 14 = about 29%. Full game remains open.
