@@ -122,8 +122,11 @@ Current independent lanes:
   with22one-use jobs/99authored methods and two nested-import methods excluded.
   [Actual24guarded waves pass99authored methods plus two direct imports](reviews/2026-10-22-T07.007.013.002.md#actual-own-suite-replay-and-source-comparison-complete),
   with two original nested-import methods not replayed. Source comparison is
-  Claude17/20 provisional correction basis vs Grok14/20. Known primary/snapshot
-  failures remain; minimal correction and remaining caller negatives are next.
+  Claude17/20 provisional correction basis vs Grok14/20. Known raw primary/
+  snapshot failures remain. [A minimal separate correction and regression
+  replay are admitted](reviews/2026-10-22-T07.007.013.002.md#minimal-primary-error-correction-and-regression-replay-admitted):
+  required raw one-test negative first, then corrected51methods in ten fresh
+  waves if the exact negative is verified. Shared/focused/caller gates remain.
   No raw selection or actual-body/game readiness.
   [The unmodified public pure entry and writer now
   match the actual-body oracle](reviews/2026-10-22-T07.007.013.001.md#unmodified-public-entry-and-writer-match-the-actual-body-oracle):
