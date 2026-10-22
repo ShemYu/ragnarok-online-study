@@ -1,0 +1,192 @@
+{
+  "schema": "T07.007.013.001-two-cell-candidate-output-contract-1",
+  "task": "T07.007.013.001",
+  "state": "FROZEN_INDEPENDENT_IMPLEMENTATION",
+  "owned_tracked_outputs": [
+    {
+      "path": "tools/renewal/two_cell_gat_candidate.py",
+      "max_bytes": 24576
+    },
+    {
+      "path": "tests/test_two_cell_gat_candidate.py",
+      "max_bytes": 32768
+    },
+    {
+      "path": "docs/project/reviews/T07.007.013.001-two-cell-candidate.md",
+      "max_bytes": 12288
+    }
+  ],
+  "module_requirements": [
+    "exact public normalize_bytes/write_candidate signatures and private fixed-layout fixture seam from profile, inert import and no CLI",
+    "public fixed real SHA is mandatory and not caller-overridable; exact type bytes/length/GRAT/dimensions/two original unsigned words before candidate",
+    "separate output; store raw0/raw1 at exact offsets, never mask10 in GAT; compare full bytes and independently inverse-restore input",
+    "return only after bounded exclusive owned write/fsync/close/readback; receipt<=16384 and candidate exact3200014; no success after errors; preserve prior paths/input"
+  ],
+  "real_receipt": {
+    "format": "one strict closed JSON object, unique keys/no nonfinite/trailing bytes; exact compact ASCII convention",
+    "root_fields": {
+      "schema": {
+        "const": "root013-two-cell-gat-candidate-1"
+      },
+      "status": {
+        "const": "offline_candidate_hypothesis"
+      },
+      "input": {
+        "closed_fields": {
+          "bytes": {
+            "const": 3200014
+          },
+          "sha256": {
+            "const": "758ceb1b32e059c9e70bcc55ce917c630b4d67d25b73ec677167af27a3a35ed5"
+          }
+        }
+      },
+      "candidate": {
+        "closed_fields": {
+          "bytes": {
+            "const": 3200014
+          },
+          "sha256": {
+            "type": "64 lowercase hex, measured from actual resulting bytes"
+          }
+        }
+      },
+      "format": {
+        "closed_fields": {
+          "magic": {
+            "const": "GRAT"
+          },
+          "version_hex": {
+            "type": "4 lowercase hex, exact original version bytes"
+          },
+          "width": {
+            "const": 400
+          },
+          "height": {
+            "const": 400
+          },
+          "header_bytes": {
+            "const": 14
+          },
+          "cell_bytes": {
+            "const": 20
+          },
+          "type_word_offset_within_cell": {
+            "const": 16
+          },
+          "endian": {
+            "const": "little"
+          }
+        }
+      },
+      "cells": {
+        "exact_records": [
+          {
+            "index": 83377,
+            "x": 177,
+            "y": 208,
+            "decoded_float_flag_slot": 416889,
+            "type_word_offset": 1667570,
+            "original_uint32": 1073741824,
+            "original_le_hex": "00000040",
+            "candidate_uint32": 0,
+            "candidate_le_hex": "00000000",
+            "predicted_client_mask": 10,
+            "differing_byte_offset": 1667573
+          },
+          {
+            "index": 90507,
+            "x": 107,
+            "y": 226,
+            "decoded_float_flag_slot": 452539,
+            "type_word_offset": 1810170,
+            "original_uint32": 1073741825,
+            "original_le_hex": "01000040",
+            "candidate_uint32": 1,
+            "candidate_le_hex": "01000000",
+            "predicted_client_mask": 1,
+            "differing_byte_offset": 1810173
+          }
+        ],
+        "rule": "same ordered closed records/values as frozen profile hypothesis.cells; predicted_client_mask is source prediction only"
+      },
+      "change_audit": {
+        "closed_constants": {
+          "addressed_word_bytes": 8,
+          "differing_bytes": 2,
+          "differing_byte_offsets": [
+            1667573,
+            1810173
+          ],
+          "header_unchanged": true,
+          "all_height_bytes_unchanged": true,
+          "outside_target_words_unchanged": true,
+          "inverse_restores_original": true,
+          "inverse_sha256": "758ceb1b32e059c9e70bcc55ce917c630b4d67d25b73ec677167af27a3a35ed5"
+        }
+      },
+      "policy": {
+        "closed_constants": {
+          "production_mapping_selected": false,
+          "server_agreement_verified": false,
+          "normal_runtime_verified": false,
+          "bit30_meaning_known": false,
+          "server_cache_generation_permitted": false
+        }
+      }
+    },
+    "not_permitted": [
+      "absolute input/output paths, inode/device/uid/host identifiers, timestamps/nonces, raw heights or body content, invented expected candidate SHA",
+      "fixture-tagged I/O unit receipts promoted to this actual-input receipt contract"
+    ],
+    "candidate_sha_expected_before_actual_body_run": null
+  },
+  "worker_report": {
+    "required": [
+      "task/common base and owned files; candidate commit only in final lifecycle handoff, avoiding report self-reference",
+      "all eight before/after input full pins and genuine authored checks/results",
+      "public actual-input admission not exercised; real_body_read=false and real_candidate_written=false",
+      "private layout positives versus fixed-hash public negatives versus mocked writer controls clearly separated",
+      "two differing bytes versus eight addressed bytes; exact offsets, inverse and height-byte preservation",
+      "client masks predicted only, bit meaning/server/water/cache/normal route/save unknown and no production policy",
+      "Root next review/shared tests/source checkpoint/exact-body private offline qualification before any later live gate"
+    ],
+    "no_worker_runtime_PASS": [
+      "actual game body normalization",
+      "actual client/server agreement",
+      "normal movement/persistence/full-game acceptance"
+    ]
+  },
+  "authored_test_contract": {
+    "required_ids": [
+      "A01",
+      "A02",
+      "A03",
+      "A04",
+      "A05",
+      "A06",
+      "A07",
+      "A08",
+      "A09"
+    ],
+    "execution": "Only authored own-code/stdlib tests after separate worker dispatch; no acquired-source execution/body reads.",
+    "fixed_input_boundary": "Private _normalize_layout permits authored positives but is not an admission entry; public entry rejects them. For writer-unit positives mock only normalizer return with explicitly fixture-tagged outputs, never hashlib or fixed SHA. This isolates I/O behavior and proves no actual admission. Root approved this seam before freeze.",
+    "resource_caps": {
+      "test_seconds": 60,
+      "rss_bytes": 536870912,
+      "captured_output_bytes_per_stream": 1048576,
+      "authored_files_total_bytes": 33554432,
+      "single_real_read_limit": 3200015,
+      "candidate_binary_bytes": 3200014,
+      "candidate_receipt_bytes": 16384
+    },
+    "filesystem": "Only NEW private per-worker .tools fixture directory; no global temp fallback or reuse/overwrite of prior artifacts; close owned resources; do not clean unowned paths."
+  },
+  "root_readiness": [
+    "verify owned source/size/pins/Git hygiene, personally read all code and strict closed real receipt construction",
+    "run both candidates own tests and same independent finite controls, including no hash bypass and output/input preservation",
+    "commit redacted comparison/checks before advancing; worker tests are candidate evidence only",
+    "if selected, Root separately admits exact retained real body and runs unmodified public entry offline into a fresh private namespace with full pre/post original/output/inverse checks",
+    "Root chooses later actual route/server/cache/water/ordinary movement/save gates; nothing here authorizes installation/cache generation or goal change"
+  ]
+}

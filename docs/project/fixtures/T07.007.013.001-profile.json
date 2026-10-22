@@ -1,0 +1,282 @@
+{
+  "schema": "T07.007.013.001-two-cell-candidate-profile-1",
+  "state": "FROZEN_INDEPENDENT_IMPLEMENTATION",
+  "benchmark_kind": "independent_offline_hypothesis_implementation",
+  "common_base_policy": "Root reviews/corrects/commits the final common task, profile and output contract; both separate Claude/Grok branches start at the same recorded introducing commit. No sibling inspection or feedback transfer.",
+  "inputs": [
+    {
+      "id": "I01",
+      "path": "docs/project/reviews/2026-10-22-T07.007.013.md",
+      "bytes": 11577,
+      "sha256": "05b15e64e0b278e3e54ed115f56ebb562026d68c64358ed9eb6f4f16a5e3f8ef",
+      "role": "source_text_or_prior_metadata_only"
+    },
+    {
+      "id": "I02",
+      "path": "docs/project/fixtures/T07.007.013-profile.json",
+      "bytes": 21396,
+      "sha256": "71285f4e3ef58a5e388e5d94cd098a50961d41c6df1828701f94be96efba4144",
+      "role": "source_text_or_prior_metadata_only"
+    },
+    {
+      "id": "I03",
+      "path": "docs/project/fixtures/T07.007.013-output-contract.json",
+      "bytes": 11154,
+      "sha256": "81c6247d26d1cebfd27a6fdc82be8ebc7bfef3252cb400c9d8e2b0c5a9e7cc3c",
+      "role": "source_text_or_prior_metadata_only"
+    },
+    {
+      "id": "I04",
+      "path": ".tools/renewal/t07-007-004-gat-diagnosis-correction-1/corrected-diagnosis.json",
+      "bytes": 1022,
+      "sha256": "98fe11a4f6f47c53cf17ddb711ca7f04bcb96d5b52f0bcc022bcd24fdc0156f4",
+      "role": "source_text_or_prior_metadata_only"
+    },
+    {
+      "id": "I05",
+      "path": "docs/project/fixtures/T07.007.003-profile.json",
+      "bytes": 8474,
+      "sha256": "06805b0a28fef87b53d6e2f87e50079e14a3b7181a44e541b6b0c0aa268ead2a",
+      "role": "source_text_or_prior_metadata_only"
+    },
+    {
+      "id": "I06",
+      "path": ".tools/renewal/client-source/src/Loaders/Altitude.js",
+      "bytes": 3131,
+      "sha256": "e27f5b746bb8fa77aadb59633dfbc0339f922bc4df69615a066288a6cf160b95",
+      "role": "source_text_or_prior_metadata_only",
+      "slices": [
+        {
+          "byte_offset": 329,
+          "bytes": 1341,
+          "purpose": "TYPE and exact table",
+          "raw_lf_end_inclusive": 54,
+          "raw_lf_start": 19,
+          "sha256": "7e7c97c98826e09b30adb4c6487436e8783e625cf7ad3c61fdb0b57b3d5cb6cc"
+        },
+        {
+          "byte_offset": 1840,
+          "bytes": 1013,
+          "purpose": "uint32 flags to Float32 cells",
+          "raw_lf_end_inclusive": 96,
+          "raw_lf_start": 68,
+          "sha256": "9ebd0b3ae43d07b998e8bc22f14bdd3924a74efe28c7bf65f90d654fb222de8b"
+        }
+      ]
+    },
+    {
+      "id": "I07",
+      "path": ".tools/renewal/client-source/src/Utils/BinaryReader.js",
+      "bytes": 8233,
+      "sha256": "bcf694b7034e36146eed1d5a2d7d5cf93d8a52aeafa74e62f0beed4c1ecc9215",
+      "role": "source_text_or_prior_metadata_only",
+      "slices": [
+        {
+          "byte_offset": 2706,
+          "bytes": 550,
+          "purpose": "little-endian uint32 and Float32 reads",
+          "raw_lf_end_inclusive": 143,
+          "raw_lf_start": 120,
+          "sha256": "e89eb764fa8a121083e18d79c7bb056a9197f57561a9b790f5eca2449f6a268c"
+        }
+      ]
+    },
+    {
+      "id": "I08",
+      "path": ".tools/renewal/t07-007-011-root-execution-preparation-4/actual-ygg_roots-1/upstream-000004.json",
+      "bytes": 1170,
+      "sha256": "2b6252ed9c43d56c0cbb8255403481596579aa8af16c36f17bbfcd8d50f1417a",
+      "role": "source_text_or_prior_metadata_only"
+    }
+  ],
+  "source_read_scope": "Read/hash only these eight full source/metadata files plus assigned handoff/task/profile/contract/lifecycle documents. Do not follow paths inside metadata. Existing .013 profile describes a historical task, not permission to read its other sources or binaries.",
+  "protected_unread_real_input": {
+    "path": ".tools/renewal/t07-007-011-root-execution-preparation-4/actual-ygg_roots-1/000004",
+    "bytes": 3200014,
+    "sha256": "758ceb1b32e059c9e70bcc55ce917c630b4d67d25b73ec677167af27a3a35ed5",
+    "worker_read_permitted": false,
+    "root_future_exact_body_qualification_required": true,
+    "descriptor_basis": "I08 index4/body_file000004, stored_receipt and complete transfer; prior I04/I05/I02 target metadata. This draft did not reread/hash/decode the body."
+  },
+  "format": {
+    "magic_ascii": "GRAT",
+    "header_bytes": 14,
+    "version_bytes_offset": 4,
+    "version_bytes_count": 2,
+    "version_policy": "preserve exactly; actual version not inferred",
+    "width_offset": 6,
+    "height_offset": 10,
+    "dimension_word_type": "little-endian uint32",
+    "width": 400,
+    "height": 400,
+    "cell_count": 160000,
+    "cell_bytes": 20,
+    "height_bytes_per_cell": 16,
+    "type_within_cell_offset": 16,
+    "type_word_bytes": 4,
+    "type_word_kind": "raw little-endian uint32, not the decoded client mask",
+    "exact_bytes": 3200014
+  },
+  "hypothesis": {
+    "kind": "unselected_exact_two_raw_word_client_candidate",
+    "cells": [
+      {
+        "index": 83377,
+        "x": 177,
+        "y": 208,
+        "decoded_float_flag_slot": 416889,
+        "type_word_offset": 1667570,
+        "original_uint32": 1073741824,
+        "original_le_hex": "00000040",
+        "candidate_uint32": 0,
+        "candidate_le_hex": "00000000",
+        "predicted_client_mask": 10,
+        "differing_byte_offset": 1667573
+      },
+      {
+        "index": 90507,
+        "x": 107,
+        "y": 226,
+        "decoded_float_flag_slot": 452539,
+        "type_word_offset": 1810170,
+        "original_uint32": 1073741825,
+        "original_le_hex": "01000040",
+        "candidate_uint32": 1,
+        "candidate_le_hex": "01000000",
+        "predicted_client_mask": 1,
+        "differing_byte_offset": 1810173
+      }
+    ],
+    "offset_formula": "14 + index*20 + 16 = 14 + decoded_float_flag_slot*4",
+    "addressed_word_bytes": 8,
+    "differing_bytes": 2,
+    "differing_byte_offsets": [
+      1667573,
+      1810173
+    ],
+    "byte_transitions": [
+      {
+        "offset": 1667573,
+        "before": 64,
+        "after": 0
+      },
+      {
+        "offset": 1810173,
+        "before": 64,
+        "after": 0
+      }
+    ],
+    "predicted_only": "Loader table raw0->mask10 and raw1->mask1. Do not store raw10, infer bit30 meaning, clear flags generally, alter any other word or claim runtime policy."
+  },
+  "api": {
+    "normalize_bytes": "normalize_bytes(data: bytes) -> tuple[bytes, dict]; exact built-in bytes, fixed exact real SHA/length and layout/target words, no caller-overridable pin/profile; returns separate immutable candidate and strict receipt",
+    "private_fixture_core": "_normalize_layout(data: bytes) -> bytes; same fixed dimensions/header/target words and preservation checks, but no real-body hash admission; private authored-fixture seam only. Public normalize/write must never bypass fixed real SHA. Root approved this fixture-only seam; public fixed-SHA admission remains mandatory.",
+    "write_candidate": "write_candidate(source_path: pathlib.Path, output_dir: pathlib.Path) -> dict; explicit call only, ordinary private read-only input, fresh owned0700 directory and separate0600 binary+receipt; no CLI or import-time action",
+    "stdlib": "Python3.9-compatible standard library only; no compiler/dependencies/network/source execution"
+  },
+  "io": {
+    "binary_name": "ygg_roots.candidate.gat",
+    "receipt_name": "candidate-receipt.json",
+    "receipt_max_bytes": 16384,
+    "binary_exact_bytes": 3200014,
+    "serialization": "strict compact ASCII JSON, ensure_ascii=True, allow_nan=False, separators comma/colon, no newline",
+    "input": "ordinary nonsymlink single-link current-user file with private read permissions (0400/0600), bounded read<=3200015, exact EOF, full fixed SHA, unchanged full file identity excluding atime before/opened/after; no mode/byte/metadata mutation",
+    "output": "Root/worker owns a private0700 ordinary nonsymlink parent; output_dir must not exist; no symlink or overwrite. Exclusive NOFOLLOW regular0600 files; full positive-progress writes/fsync/close/readback/hash; verify final modes. No receipt success before binary full readback/audit.",
+    "failure": "Validation completes before output creation. Any subsequent failure closes owned descriptors, raises and preserves new partial evidence; never returns success, overwrites, deletes preexisting paths or mutates input. No atomic two-file claim."
+  },
+  "limits": {
+    "test_seconds": 60,
+    "rss_bytes": 536870912,
+    "captured_output_bytes_per_stream": 1048576,
+    "authored_files_total_bytes": 33554432,
+    "single_real_read_limit": 3200015,
+    "candidate_binary_bytes": 3200014,
+    "candidate_receipt_bytes": 16384
+  },
+  "authored_controls": [
+    {
+      "id": "A01",
+      "setup": "Full fixed-size400x400 synthetic GRAT buffer; synthetic version bytes; deterministic distinct raw height bytes; exact two original target words.",
+      "expect": "Private layout core returns separate bytes with exactly the two declared differing byte positions; public normalize_bytes rejects synthetic SHA. No hash mocking."
+    },
+    {
+      "id": "A02",
+      "setup": "At nontarget indexes include all17 known unsigned words0..6 and0x80000000..09, plus0xffffffff/0x40000002/0x40000007/0x40000100/0xc0000000.",
+      "expect": "Every nontarget byte stays identical; no interpretation of signed-1, broad mask or unknown fallback."
+    },
+    {
+      "id": "A03",
+      "setup": "Restore original full4-byte words in private-core output.",
+      "expect": "Whole buffer equals authored input byte-for-byte; header, both version bytes, all height slices and all nontarget type words unchanged. Eight addressed bytes, exactly two changed bytes."
+    },
+    {
+      "id": "A04",
+      "setup": "N-1/N+1/empty; wrong magic; wrong width or height; either target wrong/swapped/already-normalized; bytearray/memoryview.",
+      "expect": "Appropriate fixed-layout/public entry rejects without mutation. Public same-size one-byte corruption anywhere rejects exact SHA. Private core does not validate arbitrary height semantics."
+    },
+    {
+      "id": "A05",
+      "setup": "Read-only EOF, short reads, extra byte/growth, changed pre/post identity, read failure; directory/symlink/hardlink/nonprivate input modes.",
+      "expect": "Writer rejects, closes every owned descriptor and creates no output on admission failure; input untouched."
+    },
+    {
+      "id": "A06",
+      "setup": "Fresh private output; preexisting output directory/file/symlink; injected exclusive-file collision.",
+      "expect": "Fresh path yields only expected ordinary0600 files in0700 dir; collisions refuse and preserve prior bytes/modes. No host umask/settings change."
+    },
+    {
+      "id": "A07",
+      "setup": "Short positive writes; zero/negative/overreported progress; fsync, close and binary/receipt readback faults.",
+      "expect": "Progress completes or bounded failure; descriptors close; no successful receipt/return after failed binary verification; preserve failed owned artifacts, no deletion/overwrite."
+    },
+    {
+      "id": "A08",
+      "setup": "Writer stage uses a clearly fixture-tagged authored normalizer stub only; no digest replacement, no real body.",
+      "expect": "Exercise positive I/O independently without claiming real SHA admission or actual candidate. Root later tests the unmodified public entry on the admitted real body."
+    },
+    {
+      "id": "A09",
+      "setup": "Repeated output attempt; nonfinite/oversize receipt injected only at writer-unit boundary; normal import.",
+      "expect": "Collision/invalid receipt refuses under cap; no arbitrary fallback; import is inert. No live game/config/cache action."
+    }
+  ],
+  "policy_gates": {
+    "production_mapping_selected": false,
+    "server_agreement_verified": false,
+    "normal_runtime_verified": false,
+    "bit30_meaning_known": false,
+    "server_cache_generation_permitted": false,
+    "actual_server_gate_owner": "Root; unselected before dispatch and before any live candidate use",
+    "water_warning": "Original flagged0 skips full-raw-zero water conversion; candidate raw0 could enter it when height>water_height with nonsentinel water. Never rebuild/use server cache from this candidate under this task.",
+    "next_runtime_requires": "Actual served normal archive route/bundles, fresh world, server binary/build/effective CLI/import/config, winning cache/direct source and terrain/dynamic/water cells; normal hover/direct/fallback movement/server position/save-reentry. Offline byte equality cannot substitute."
+  },
+  "outputs": [
+    {
+      "path": "tools/renewal/two_cell_gat_candidate.py",
+      "max_bytes": 24576
+    },
+    {
+      "path": "tests/test_two_cell_gat_candidate.py",
+      "max_bytes": 32768
+    },
+    {
+      "path": "docs/project/reviews/T07.007.013.001-two-cell-candidate.md",
+      "max_bytes": 12288
+    }
+  ],
+  "forbidden": [
+    "read/hash/decode/copy real or other game bodies/assets/cache/archives/native executables",
+    "acquired-source execution/import/build, native/server/browser/SQL/VM/world/save/settings/network actions",
+    "client/server/cache/config installation or replacement; forced walk or production mapping choice",
+    "caller-overridable admission SHA/profile, broad masks, raw10 output, other-cell/height/version changes",
+    "sibling/transcript inspection, subagents, tracked binary/assets/receipts or host environment dumps"
+  ],
+  "claims": "Frozen offline hypothesis implementation contract. Workers do not read the real body or install anything. Root separately verified metadata/layout and a private expected-byte oracle; actual candidate method/body qualification remains later. Full goal preserved.",
+  "task": "T07.007.013.001",
+  "root_freeze_decisions": {
+    "private_fixture_core_approved": true,
+    "public_fixed_sha_not_overridable": true,
+    "server_gate_deferred_to_actual_effective_cells": true,
+    "live_mapping_selected": false
+  }
+}
