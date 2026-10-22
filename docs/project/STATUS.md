@@ -105,8 +105,13 @@ unsupported. [Claude now submits and is preserved before release/ACK](reviews/20
 Its exact report/matrix/clean BASE match; worker reports541s. [Grok also submits
 and is preserved/released before ACK](reviews/2026-10-23-T07.006.001.md#both-proposals-preserved-and-both-settled-workers-released),
 reporting733s. Root reads both complete outputs; exact schema/input/63and75
-anchor audits pass. Material source qualifications are being recorded equally;
-no raw selection, repair or runtime acceptance yet.
+anchor audits pass. [Complete equal comparison and corrected source disposition
+now qualify](reviews/2026-10-23-T07.006.001.md#complete-equal-comparison-and-corrected-source-disposition-qualify):
+16/20each, neither raw selected unchanged. Root corrects complete935-key
+census/computed42alias, structure/fallback and cursor-consumption claims.
+T07.006.001self_verified is SOURCE ONLY; decision remains unbound/no repair.
+Next exact immutable server-emitter/Messenger source preparation; no gameplay,
+wire/runtime or parent/content acceptance.
 
 [T10.005 freezes the bounded quest-registration implementation contract](reviews/2026-10-23-T10.005.md#frozen-source-contract-and-root-preflight).
 Root qualifies nine full source inputs/26primary LF slices and resolves callback,
@@ -176,7 +181,9 @@ already-ended proxy. Keep106and prepare a precise recorded-return check/finite
 controls, then compose the two separately verified launcher corrections.
 [The exact five-line parent source correction now qualifies](reviews/2026-10-23-T10.005.md#exact-recorded-return-deadline-source-correction-qualifies):
 30cross-package full pins/full inverse, finite b<existing deadline. Eight pure
-controls are being prepared; no parent/runtime is admitted.
+[control sources now qualify](reviews/2026-10-23-T10.005.md#eight-recorded-return-control-sources-qualify):
+13full pins/six exact fragments/eight named cases. Next fixed caller review/
+binding and separate pure admission; no parent/runtime is admitted.
 All actual-loader bindings remain NULL.
 No actual original-loader/runtime or full-game acceptance is claimed.
 Quest/story/content-gap acceptance remains open. Screenshot work is independent.
