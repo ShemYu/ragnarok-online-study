@@ -29,7 +29,8 @@ Latest verified work (22 Oct):
   [V] Before-close test confirms two ownership-loss paths in the writer.
       Astra policy reviewed; core-only uncertainty correction frozen.
       Both submitted/preserved/released. Root finds raw error-object defects;
-      Grok also loses one terminal snapshot. Full comparison/correction next.
+      Grok also loses one terminal snapshot. Both pass 10 shared close checks.
+      Earlier defects stay open; own-suite/caller checks and correction next.
       Existing fixed caller qualification stays separate.
       Real map/save untouched.
   [V] Chapter 1 decoder: both candidates pass 30 Root common groups.
