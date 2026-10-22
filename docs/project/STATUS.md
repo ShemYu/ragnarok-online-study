@@ -54,8 +54,11 @@ and the independently controlled complete oracle, without rerunning candidates.
 [Pure oracle controls pass; one strict UTF8 retained-output audit is admitted](reviews/2026-10-23-T10.004.md#pure-oracle-authored-controls-qualify-retained-utf8-audit-admitted).
 All six authored groups/18refusals qualify. Original failed callers remain
 unchanged; actual semantic/operational acceptance and provider selection wait.
-Reuse Chinese resources; functionality/story evidence first. No verified
-server Chapter1 story implementation, resource-winner or Chinese projection yet.
+[Complete retained-output acceptance passes; Grok20/20 is selected versus Claude18/20](reviews/2026-10-23-T10.004.md#complete-retained-actual-acceptance-and-provider-selection-qualify).
+All152rows/1080fields/641decodes match completely, zero replacement characters;
+original failed ASCII-reader callers remain preserved. Next unchanged source
+integration and9own/18common/6extra rechecks. Complete Chinese quality, effective
+game source and server Chapter1 story remain unknown; functionality comes first.
 
 Previous map result: [Chapter1 actual normal loading and complete scoped rendering audit qualify](reviews/2026-10-22-T07.007.014.005.md#corrected-actual-normal-loading-and-complete-scoped-audit-qualify).
 All74native bodies,27model groups/370placements,38used texture paths and43decoders
