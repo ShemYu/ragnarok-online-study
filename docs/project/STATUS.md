@@ -48,6 +48,9 @@ independent complete trace/projection audit before final selection/integration.
 [The two exact real-record calls are now bound and admitted](reviews/2026-10-23-T10.004.md#equal-fixed-actual-calls-bound-and-admitted):
 same152records/qualified decoder, separate fresh outputs and exact20-file
 profiles; no actual result or semantic/provider acceptance is claimed yet.
+[Both actual drivers emit, but the common ASCII result reader refuses Chinese UTF8](reviews/2026-10-23-T10.004.md#both-actual-drivers-emit-shared-ascii-result-reader-refuses-utf8).
+Original failed callers remain preserved. Next strict UTF8 retained-output audit
+and the independently controlled complete oracle, without rerunning candidates.
 Reuse Chinese resources; functionality/story evidence first. No verified
 server Chapter1 story implementation, resource-winner or Chinese projection yet.
 
