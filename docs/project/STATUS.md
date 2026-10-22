@@ -145,7 +145,9 @@ Current independent lanes:
   preflight](reviews/2026-10-22-T07.007.014.004.md) are recorded: local pinned NPC
   sources/installed navigation index have no literal ch1_ references despite
   map-index presence. Actual loaded-server route inspection remains; parsing must
-  not substitute for story implementation. No gap or full-game closure.
+  not substitute for story implementation. [Fixed compiled diagnostic admission](reviews/2026-10-22-T07.007.014.004.md#fixed-compiled-diagnostic-execution-admission)
+  now binds the real worker/three bodies and separate temporary page; actual
+  parser/dependency results and Root audit are next. No gap/full-game closure.
 
 The [earlier mu pilot and Astra diagnosis](reviews/2026-10-22-T07.007.011-execution.md#actual-astra-consultation-and-discriminating-metadata-check)
 remain historical evidence. Ordinary Chapter 1 entry/save, 82 world-resource
