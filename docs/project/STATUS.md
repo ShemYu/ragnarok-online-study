@@ -2,7 +2,7 @@
 
 Updated: 2026-10-22 JST. Coordinator: Codex. Active scope: **execute the documented strategy through the full milestone**.
 
-**Goal API is active.** [Raw comparison](reviews/2026-10-21-T07.007.010.md#raw-comparison-and-selected-repair-basis) selects Claude17/20 versus Grok15/20; both preserved/released, both unqualified unchanged. Unchanged selected source integrates as07bd2db; the [separate root metadata correction](reviews/2026-10-21-T07.007.010.md#root-metadata-correction-applied-integrated-checks-next) and13 regression subcases are applied with exact proposal pins. Integrated execution checks are next:32 focused/admission, historical44, shared20 and artifact-auditor binding, then the real178-path/181-response scan. Prior raw/auditor results remain bounded historical evidence; no integrated or actual availability PASS yet. Full milestone remains open.
+**Goal API is active.** Corrected integrated source d03b796 now passes root's [complete source qualification](reviews/2026-10-21-T07.007.010.md#integrated-source-qualification-complete):32 focused tests, nine independent admission calls (all eight invalid inputs refuse), unchanged historical44, shared20 and complete physical-artifact39. All required source/resource preservation checks pass. [Raw comparison](reviews/2026-10-21-T07.007.010.md#raw-comparison-and-selected-repair-basis) remains Claude17/20 versus Grok15/20, both preserved/released; neither raw source qualified unchanged. Next: real integrated preflight CLI, exact native admission, actual178-path/181-response scan and full-body independent audit. No actual availability result yet. Full milestone remains open.
 
 ## Where we are
 

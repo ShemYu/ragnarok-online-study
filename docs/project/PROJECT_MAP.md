@@ -90,7 +90,8 @@ CURRENT WORK: October assets and missing maps
  |    Full output auditor: 2 positives and 37 failure checks pass.
  |    Claude selected for repair: 17/20 versus Grok 15/20.
  |    Selected source integrated. Separate metadata repair applied.
- |    Next: reverify the integrated code, then actual scan.
+ |    Integrated 32 tests, 9 admissions, old 44, shared 20 pass.
+ |    Artifact audit passes 39 controls. Real CLI and scan next.
  |
  +-- [V] Other 28 GPF patch tables: corrected tool verified.
  |        Root reference: all 5,742 raw records checked.
