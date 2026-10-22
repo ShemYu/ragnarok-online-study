@@ -37,10 +37,10 @@ Latest verified work (23 Oct):
       Root corrected comparison done:16/20 each; both released.
       Exact server emitter/first Messenger source checked:27 bytes.
       Macro/client policy checked: service toggle cannot honor request yet.
-      Destructive hide clears routing. Worker review + service mapping next.
+      Worker also ignores service types; source verified, mapping still open.
   [V] Quest cleanup deadline source gap found; narrow correction checked.
       All five fixed checks pass. Shared runner late-return gap found.
-      Return-time fix, eight test sources and caller checked; one pure run next.
+      All eight return-time checks and full28-file Root audit pass.
   [V] Navigation source contract checked: 54 ranges and 70 file pins match.
       Three plugins and their source imports found. Equal model task next.
   [V] Bounded child-absence and normal-close source changes checked.
@@ -63,6 +63,7 @@ Latest verified work (23 Oct):
   [V] Quest controller source checked; deadline and session fixes reviewed.
       Next: targeted tests, shared caller and actual source/owner bindings.
   [V] Scene binder now uses the corrected launcher; all 45 header slots match.
+      Fresh W4 preflight source checked; one read-only current-file/owner call next.
       Next: fresh file/process preflight. No new browser has started.
   [V] Corrected launcher tests: all 43 pass; full Root audit passes.
       Next: fresh scene setup and file/process checks before a live test.

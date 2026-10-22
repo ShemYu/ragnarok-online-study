@@ -2,7 +2,14 @@
 
 Updated: 2026-10-23 JST. Coordinator: Codex. Active scope: **execute the documented strategy through the full milestone**.
 
-Latest verification: [corrected51/51Chrome controls and complete Root audit
+Latest verification: [all eight recorded-return controls and complete Root audit
+pass](reviews/2026-10-23-T10.005.md#all-eight-recorded-return-controls-and-complete-root-audit-pass):
+caller0/original guardvalid, eight outcomes/28full pins/complete streams and
+positive closure match. [Fresh W4 preflight source now qualifies; one read-only
+call is admitted](reviews/2026-10-22-T07.007.011.005.md#fresh-wave4-preflight-source-qualifies-and-one-read-only-call-is-admitted).
+Next run current file/owner checks once; no new live browser wave admitted.
+
+Previous verification: [corrected51/51Chrome controls and complete Root audit
 pass](reviews/2026-10-22-T07.007.011.005.md#corrected51controls-and-complete-root-audit-pass):
 caller/actor0, original guardvalid,85current full pins/complete streams and
 positive test-process closure. The earlier49/51fixture failure stays preserved.
@@ -905,3 +912,9 @@ Latest installed cache checkpoint: latest integrated controller natively verifie
 Root verifies20full pins/sixfragments/eight metadata edits and complete inverses.
 Next fill exact clean admission HEAD, run once and audit all eight outcomes.
 No shared-parent, live scene or actual quest-loader admission follows.
+
+[Selected installed pathfinding Worker source qualifies](reviews/2026-10-23-T07.006.001.md#selected-installed-worker-source-qualifies):
+complete174LF/fivespans/ninepins; no type filtering of supplied same-map warps
+and no service validation of reused paths. Numeric categories remain unresolved;
+six guessed same-pin source paths return404, not a feature-absence finding.
+Next primary definition research and request-local policy; no handler admitted.
