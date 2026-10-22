@@ -38,10 +38,10 @@ Latest verified work (22 Oct):
   [V] Actual integrated new + old routes: all 13 complete files match.
   [V] Chapter 1 header: terrain names are gef_dun03.gnd / gef_dun03.gat.
       Decoder/header child ready. Catalog/body/loading checks are next.
-  [~] Exact terrain lookup: independent Claude/Grok pair launched.
+  [V] Exact terrain lookup: both providers compared and released.
   [V] Root full scan finds both exact terrain-name entries in data0.grf.
-      Claude results match; checker limitations retained. Grok active.
-      Claude fresh Root runs pass. Full body reads/loading stay next.
+      Both original/fresh results match. Claude selected: 18/20 vs 16/20.
+      Private checker limitations retained. Full body reads/loading next.
   [~] Normal two-body gate: current owner/config preflight starts.
   [~] Chapter 1 terrain dependencies and normal play remain.
   [~] Fruit scene: full render still fails one model fetch.

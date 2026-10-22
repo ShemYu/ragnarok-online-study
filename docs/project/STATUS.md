@@ -114,14 +114,16 @@ Current independent lanes:
   lookup across63catalogs, then actual request/body/loading checks.
   [.014.002 common brief and authored fixture are frozen](reviews/2026-10-22-T07.007.014.002.md):
   Root verifies five authorities and all nine authored rows. Both real workers
-  start independently at f824646; Claude is preserved/released, Grok remains active.
+  start independently at f824646; both are preserved/released.
   [Root's independent actual scan](reviews/2026-10-22-T07.007.014.002.md#root-complete-actual-oracle)
   precedes provider-result inspection and finds one exact eligible data0.grf
   entry each for gef_dun03.gnd/gat across all63catalogs/408794rows. Both
   basename-only sets are empty. Claude's complete typed outputs match, but Root
   finds numeric/identity validation limitations. Fresh Root fixture/actual runs
   also match under separate retained71-input/guard checks; the method is not a
-  reusable qualified tool. Grok review remains. Bodies/loading stay open; no gap closes.
+  reusable qualified tool. [Both original/fresh complete observations now qualify](reviews/2026-10-22-T07.007.014.002.md#both-complete-observations-qualify-and-bounded-task-is-ready):
+  Claude18/20 basis versus Grok16/20, all full typed actual/fixture values match.
+  .002 is ready_for_user for metadata only. Bodies/loading stay open; no gap closes.
   [.014.003 normal two-body preflight is admitted](reviews/2026-10-22-T07.007.014.003.md):
   bind current owner/config/extraction effects first, then separately admit two
   GETs through the unchanged reader. No new decoder/restart or body PASS yet.
