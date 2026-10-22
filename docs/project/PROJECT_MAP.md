@@ -13,6 +13,15 @@ Update this map after each important change. Keep the dated evidence.
 ```text
 CURRENT WORK: October assets and missing maps
 
+Latest verified work (22 Oct):
+  [V] New isolated engine: empty database/storage/ports checks pass.
+  [~] Start full game services there; verify mounts and normal routes.
+  [V] Offline movement candidates compared: Claude selected for body test.
+      Grok's first-close error check fails. No live mapping selected.
+  [~] Chapter 1 decoder: both candidates preserved; Root review next.
+  [~] Fruit scene: full render still fails one model fetch.
+  Parent checkpoints: 4 / 14 = about 29%. Full game remains open.
+
 [V] Download and extract the base package. Verify all 4,976 files.
  |
 [V] Find the official patch list. Check all 59 file sizes.

@@ -45,7 +45,11 @@ Current independent lanes:
 - **Movement policy:** [corrected source-plan comparison](reviews/2026-10-22-T07.007.013.md#corrected-source-plan-comparison-qualified)
   is self_verified, Grok 17/20 basis versus Claude 15/20; both workers are
   preserved/released. [Independent offline candidate pair runs](reviews/2026-10-22-T07.007.013.001.md#actual-independent-pair-launched).
-  Both implementations are preserved/released; Root Claude39authored/17common checks pass, Grok verification next.
+  Both implementations are preserved/released. [Root comparison](reviews/2026-10-22-T07.007.013.001.md#root-comparison-and-close-error-control):
+  Claude39authored/17common/three close-error intents pass; Grok9authored/17common
+  pass but returns success after an injected first-close EBADF. Claude17/20 is
+  selected for offline body qualification versus Grok15/20. Before-real-close
+  ownership remains unverified; no real-body method has run yet.
   Production mapping remains unselected. Actual served
   code, effective server config/cache/cells, movement and save gates remain.
 - **All 82 resource gaps:** [root full metadata preflight](reviews/2026-10-22-T07.007.014.md#root-metadata-preflight-and-pre-provider-oracle)
@@ -56,7 +60,9 @@ Current independent lanes:
   Previously observed names give 26 RSW leads and 56 without counterparts in
   these catalogs; zero functional gaps close. This lane is independent of
   capture and new-world startup. [A fixed Chapter1 RSW route is frozen](reviews/2026-10-22-T07.007.014.001.md):
-  the [new independent C/G pair runs](reviews/2026-10-22-T07.007.014.001.md#actual-independent-pair-launched) to advance later embedded terrain-name checks.
+  [both independent candidates are submitted and preserved](reviews/2026-10-22-T07.007.014.001.md#both-candidates-preserved-root-review-next).
+  Grok is released; Claude is user-owned/retained and untouched. Root review,
+  shared controls and actual body reference precede embedded terrain-name checks.
 
 The [earlier mu pilot and Astra diagnosis](reviews/2026-10-22-T07.007.011-execution.md#actual-astra-consultation-and-discriminating-metadata-check)
 remain historical evidence. Ordinary Chapter 1 entry/save, 82 world-resource
