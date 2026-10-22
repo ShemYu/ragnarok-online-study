@@ -33,6 +33,8 @@ next action and the exact limits of each result.
 CURRENT WORK: quest data, missing story and map-load checks
 
 Latest verified work (23 Oct):
+  [V] Grok quest-tail submission is preserved; both pair workers released.
+      Root source review and equal replay follow; no runtime or selection.
   [V] All 50 scheduling and failure-path checks pass Root execution/audit.
       Next: bind the separate browser adapter. Scene rendering is not passed.
   [V] Chrome source plan and corrected frame-gate source qualify.

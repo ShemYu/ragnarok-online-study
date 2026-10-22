@@ -8,7 +8,8 @@ completion and report-budget ambiguities. [Both actual isolated Claude/Grok
 implementations are dispatched from ee58599](reviews/2026-10-23-T10.005.md#actual-independent-implementation-pair-dispatched),
 with the same brief/profile/contract and setup skipped. [Claude recovers and
 submits its preserved candidate; its settled terminal is released](reviews/2026-10-23-T10.005.md#claude-recovers-submits-and-is-preserved-before-release).
-Grok remains live/working. [Claude passes Root's actual own/common replays and
+[Grok submits its preserved candidate and both settled terminals are released](reviews/2026-10-23-T10.005.md#grok-submission-preserved-and-both-settled-workers-released).
+Root source review/equal checks of Grok follow. [Claude passes Root's actual own/common replays and
 complete audit](reviews/2026-10-23-T10.005.md#claude-own-common-replays-and-complete-root-audit-qualify):
 15own tests and15common groups/75cases, both callers0/valid guards, full current
 pins/output/retirement pass. No provider selection or actual loader runtime yet.
