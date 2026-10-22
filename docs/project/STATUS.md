@@ -55,7 +55,10 @@ Current independent lanes:
   Chinese Wounded dialogue and earned 逃離失事輪 / 與船長對話.
   [Earned quest/location survive character selection and full relogin](reviews/2026-10-22-T07.007.012.008.md#earned-quest-and-position-survive-character-selection-and-full-relogin);
   a new post-earn backup positively contains active21001 and iz_int51,30.
-  Next: admit/execute owned full app/engine cold restart and same-state checks under
+  [The corrected read-only cold reference audit passes](reviews/2026-10-22-T07.007.012.008.md#cold-reference-audit-passes-before-lifecycle-mutation):
+  exact owner/storage/UI/backup checks and all1118payload/five archive hashes.
+  No shutdown/relaunch yet. Next: execute the committed owned cold-cycle
+  procedure and same-state checks under
   [the ordinary-play brief](tasks/T07.007.012.008.md).
 - **Movement policy:** [corrected source-plan comparison](reviews/2026-10-22-T07.007.013.md#corrected-source-plan-comparison-qualified)
   is self_verified, Grok 17/20 basis versus Claude 15/20; both workers are

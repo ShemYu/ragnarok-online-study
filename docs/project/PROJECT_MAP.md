@@ -20,7 +20,8 @@ Latest verified work (22 Oct):
   [V] New normal account, login and character creation pass.
   [V] Enter map, back up baseline, walk, use portal and receive a quest.
   [V] Earned quest/position survive character selection and full relogin.
-  [~] New earned backup retained. Full app/engine cold restart next.
+  [V] New earned backup and read-only cold reference checked.
+  [~] Full app/engine cold restart procedure recorded; execution next.
   [V] Offline movement candidate: actual bytes/receipt/inverse pass.
       Claude selected; Grok close check fails. No live mapping selected.
   [~] Chapter 1 decoder: common controls reviewed; not run yet.
