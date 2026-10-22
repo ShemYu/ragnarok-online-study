@@ -1,0 +1,33 @@
+{
+  "schema": "T07.007.012.001-ordered-archive-selector-1",
+  "task": "T07.007.012.001",
+  "basis_commit": "663341e",
+  "inputs": [
+    {
+      "path": ".tools/renewal/upstream/stack/src/assets.rs",
+      "bytes": 102728,
+      "sha256": "6cfa790e5eadf4af600c8d9ebd612c8bf462b9b7a330fdbaa8b5f98a2ccb7ee3"
+    },
+    {
+      "path": ".tools/renewal/upstream/stack/Cargo.toml",
+      "bytes": 617,
+      "sha256": "7e4a1fd363a0db0c769b382b13588dfcec98da43bbcffd02093a6edd63b44fb2"
+    }
+  ],
+  "compiler": {
+    "path": ".tools/renewal/t07-007-012-rust-local-toolchain-1/prefix/bin/rustc",
+    "bytes": 414776,
+    "sha256": "af4a9eb303553510e9d74220636dc4b21f8574ddeab73741bf6b892adc49c21c",
+    "release": "1.89.0",
+    "host": "aarch64-apple-darwin",
+    "root_execution_admission_required_before_launch": true
+  },
+  "contract": {
+    "manifest": "asset-archives.list",
+    "manifest_bytes_cap": 65536,
+    "entries": 5,
+    "data_anchor_must_be_present": true,
+    "absent_list_preserves_legacy": true
+  },
+  "full_game_acceptance": null
+}
