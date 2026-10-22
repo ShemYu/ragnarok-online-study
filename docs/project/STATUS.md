@@ -40,8 +40,10 @@ remains open. No automatic map retry or resource-gap/parent acceptance.
 [Fresh root2 read-only preflight is admitted](reviews/2026-10-22-T07.007.014.005.md#fresh-normal-reader-preflight-admission-after-the-favicon-correction).
 [Actual root2 preflight and independent audit qualify](reviews/2026-10-22-T07.007.014.005.md#fresh-root2-preflight-independently-qualifies):
 caller/auditor exit0,17full pins/five archives/current ownership/retirement pass.
-Next final corrected proxy inputs/caller and bounded screenshot sequence, then
-separate loading admission. No new map/browser request is admitted yet.
+[Fresh corrected normal loading attempt is admitted](reviews/2026-10-22-T07.007.014.005.md#fresh-corrected-normal-loading-observation-admitted).
+Run the fixed root2 caller once at its exact committed HEAD, capture bounded
+owned-page screenshot/frame evidence, then independently audit all outcome/
+effects/retirement. No render/story/save/gap pass yet.
 
 **Worker cleanup:** under the user's renewed cleanup instruction,
 [Root closes the four obsolete retained sessions](reviews/2026-10-22-worker-cleanup.md)
