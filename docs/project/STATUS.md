@@ -113,8 +113,10 @@ Current independent lanes:
   both wrap the first source-read error; Grok also drops a post-close ownership
   snapshot. [Both now pass ten identical shared close controls](reviews/2026-10-22-T07.007.013.002.md#both-unchanged-cores-pass-the-ten-shared-close-controls),
   with live-before-exit evidence and observed child retirement. Earlier defects
-  remain; own-suite replays, correction/scoring and remaining caller negatives
-  stay open. No raw selection or actual-body/game readiness.
+  remain; [the fixed own-suite replay is admitted](reviews/2026-10-22-T07.007.013.002.md#root-own-suite-replay-admission),
+  with22one-use jobs/99authored methods and two nested-import methods excluded.
+  Actual replays, correction/scoring and remaining caller negatives stay open.
+  No raw selection or actual-body/game readiness.
   [The unmodified public pure entry and writer now
   match the actual-body oracle](reviews/2026-10-22-T07.007.013.001.md#unmodified-public-entry-and-writer-match-the-actual-body-oracle):
   exactly two bytes differ, full inverse/all heights/strict receipts pass.
