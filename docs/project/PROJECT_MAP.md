@@ -15,7 +15,7 @@ NOW: 4 / 14 parent checks complete (about 29%)
 
 Basic play + save       [PASS for the checked normal route]
 Map loading            [Chapter 1 test passes; fruit test is open]
-Fruit presentation     [OPEN: reader tests pass; fresh screenshot check next]
+Fruit presentation     [OPEN: screenshot refused; owned visible surface next]
 Quest file inventory   [PASS: all 3 files checked]
 Server + file binding  [PASS: current owner and 21 file checks]
 Active quest records   [WORKING: Claude/Grok build observer; owned trial later]
@@ -33,6 +33,9 @@ next action and the exact limits of each result.
 CURRENT WORK: quest data, missing story and map-load checks
 
 Latest verified work (23 Oct):
+  [V] Corrected event reader: all 14 groups and 77 calls pass.
+  [!] Fresh screenshot returns an error; no image. All test actors close.
+      Original game remains. Next: review an owned visible surface with Astra.
   [!] Screenshot control stops on an unknown browser message; no image.
       Test page and processes close; original game and saves remain.
   [V] Source confirms screenshot support and browser event forwarding.

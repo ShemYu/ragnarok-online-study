@@ -10,14 +10,14 @@ with the same brief/profile/contract and setup skipped. Root prepares independen
 common controls; no loader runtime, submitted result or quest/story/content-gap
 acceptance yet. Screenshot work is independent.
 
-Latest diagnostic result: [screenshot control refuses an unknown envelope; complete cleanup and installed-source review qualify](reviews/2026-10-22-T07.007.011.005.md#screenshot-control-refusal-and-installed-source-review-qualify).
-Orca explicitly supports the command and forwards unsolicited events. Our
-reply-only reader rejects those events; the actual refused envelope was not
-retained, so its identity and runtime screenshot support remain UNKNOWN. No PNG
-or render pass. Temporary page/group/listener close and original worlds/tabs
-restore. Next bounded event-aware reader preparation and authored controls;
-quest-registration implementation preparation continues independently. No new
-runtime is admitted, goal change or user decision required.
+Latest diagnostic result: [event-aware actual screenshot is refused and fully closed](reviews/2026-10-22-T07.007.011.005.md#event-aware-actual-screenshot-is-refused-and-fully-closed).
+The reader accepts browser events correctly; screenshot returns code-32000 after
+8035ms with no PNG. Exact error text/cause remains UNKNOWN. Caller/driver1 and
+guardinvalid remain failed; full preservation/closure/source audit passes and
+original worlds/tabs/player restore. Next qualify an owned visible presentation
+surface with bounded Astra source review. No more passive/empty-page retries;
+quest implementation/controls continue independently. No new runtime, goal
+change or user decision is required.
 
 Latest completed tool: [selected existing-text tool is integrated and reverified](reviews/2026-10-23-T10.004.md#selected-unchanged-integration-and-bounded-readiness-qualify).
 Grok20/20 versus Claude18/20; integrated42b7ce7 passes9own/18common/6extra
@@ -148,6 +148,9 @@ map/story or functional-gap pass follows from this pure test.
 Exact owned marker/target/input/driver/caller and original-world baseline qualify.
 One external command, unchanged caps, no retry/fruit run; full PNG/page/proxy/
 original-preservation audit remains before any method support acceptance.
+[The actual event-aware attempt receives-32000 and is fully closed/audited](reviews/2026-10-22-T07.007.011.005.md#event-aware-actual-screenshot-is-refused-and-fully-closed).
+No PNG or parser refusal; unknown error reason remains. Next owned visible
+presentation review, with original worlds/tabs/player preserved and no retry.
 
 **Goal API is active. Current parent count: 4/14, about 29%.** This counts
 parent checkpoints, not content, effort or playable-world coverage. Full Modern /
