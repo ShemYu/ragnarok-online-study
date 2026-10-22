@@ -11,7 +11,8 @@ submits its preserved candidate; its settled terminal is released](reviews/2026-
 [Grok submits its preserved candidate and both settled terminals are released](reviews/2026-10-23-T10.005.md#grok-submission-preserved-and-both-settled-workers-released).
 [Grok passes15own tests but fails one of75common cases](reviews/2026-10-23-T10.005.md#grok-own-suite-passes-but-the-common-argument-identity-check-fails):
 its delegate drops an extra original argument. Complete Root audit/retirement
-qualify; the common guard remains failed. One equal pending/error check remains
+qualify; the common guard remains failed. [One corrected equal pending/error
+check is bound/admitted](reviews/2026-10-23-T10.005.md#corrected-single-pending-control-and-equal-calls-admitted)
 before selection/integration. [Claude passes Root's actual own/common replays and
 complete audit](reviews/2026-10-23-T10.005.md#claude-own-common-replays-and-complete-root-audit-qualify):
 15own tests and15common groups/75cases, both callers0/valid guards, full current

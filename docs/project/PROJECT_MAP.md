@@ -33,6 +33,8 @@ next action and the exact limits of each result.
 CURRENT WORK: quest data, missing story and map-load checks
 
 Latest verified work (23 Oct):
+  [V] Corrected pending/error control and two equal calls admitted.
+      Next: run once per provider, audit, then select/integrate.
   [V] Grok: 15 own tests pass; common is 74/75 (argument loss).
       Full audit done. One equal pending/error check remains before selection.
   [V] Grok full source review is done; equal own/common calls admitted.
