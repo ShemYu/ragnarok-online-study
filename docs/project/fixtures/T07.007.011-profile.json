@@ -1,0 +1,208 @@
+{
+  "schema": "T07-map-rendering-plan-profile-1",
+  "task": "T07.007.011",
+  "benchmark": "independent read-only plans; root serial actual execution after comparison",
+  "basis_revision": "2b27094",
+  "maps": [
+    "mu_fild01.rsw",
+    "ygg_edge.rsw",
+    "ygg_fruit.rsw",
+    "ygg_roots.rsw"
+  ],
+  "frozen_client": [
+    {
+      "path": ".tools/renewal/t07-007-011-preparation-1/client/api.html",
+      "bytes": 5848,
+      "sha256": "9a22f87113303bd16db27d577e30b0576c550ba22de886a1cec474d786665562"
+    },
+    {
+      "path": ".tools/renewal/t07-007-011-preparation-1/client/api.js",
+      "bytes": 13186,
+      "sha256": "2e4cda5f9b9bccaa06517bbcd76e1b60c6a6928007e8836c6038145f8ea9879e"
+    },
+    {
+      "path": ".tools/renewal/t07-007-011-preparation-1/client/Config.js",
+      "bytes": 1818,
+      "sha256": "d327923d76b148c94efca1c90f0b81918484689730f42d33dfcfe8f7fa02cd63"
+    },
+    {
+      "path": ".tools/renewal/t07-007-011-preparation-1/client/Online.js",
+      "bytes": 13174160,
+      "sha256": "9c148d9e43384a2498f9074efd1603b4eda1ff36dac53998985cfdf5eaf6fadf"
+    },
+    {
+      "path": ".tools/renewal/t07-007-011-preparation-1/client/ThreadEventHandler.js",
+      "bytes": 624339,
+      "sha256": "09a53f9da19689435e19e6e7ea026bc9344f5bda9ea91e9610762f3ad4e2b160"
+    },
+    {
+      "path": ".tools/renewal/t07-007-011-preparation-1/client/PathFindingWorker.js",
+      "bytes": 5291,
+      "sha256": "e3b5db57a3cfd1bb83daf9a49fa656af18fda470b34807c0f52cbc65b503c85d"
+    }
+  ],
+  "source_references": [
+    {
+      "path": ".tools/renewal/client-source/src/App/MapViewer.js",
+      "bytes": 5181,
+      "sha256": "f89cfe854c6ab5552713cec619cffd029395c47a9ce97e949e7e869042d426e3"
+    },
+    {
+      "path": ".tools/renewal/client-source/src/Core/Configs.js",
+      "bytes": 1397,
+      "sha256": "18e7fd1c99a4b75d72255f7ecd05863752140bf29d6d0880b31d91b7da249bc1"
+    },
+    {
+      "path": ".tools/renewal/client-source/src/Core/Preferences.js",
+      "bytes": 1822,
+      "sha256": "d1ec51d2a6899e35965631ae3aeacd9e8564bc7490809e3b50c677851e103123"
+    },
+    {
+      "path": ".tools/renewal/client-source/src/Preferences/Audio.js",
+      "bytes": 398,
+      "sha256": "1ce5b7a458463c4309b5087e3950d7bae23779637e949d7cbd701281badc16c3"
+    },
+    {
+      "path": ".tools/renewal/client-source/src/Core/Thread.js",
+      "bytes": 2297,
+      "sha256": "b46615fc89b8999bd91f110f8b56609c30413ca520f987a7873d94152009f964"
+    },
+    {
+      "path": ".tools/renewal/client-source/src/Core/Client.js",
+      "bytes": 10753,
+      "sha256": "7cc29740c0e4916b14806fa49cdf878e5d2f2912bdcd3e466fecec1432589829"
+    },
+    {
+      "path": ".tools/renewal/client-source/src/Core/ThreadEventHandler.js",
+      "bytes": 4070,
+      "sha256": "a9fa85d9db8d1057ebd512005d7efb16145d7a70b6f672369344fc6ad14f491a"
+    },
+    {
+      "path": ".tools/renewal/client-source/src/Core/FileManager.js",
+      "bytes": 11279,
+      "sha256": "75c37d192bf21e7b40817a6f2fe27ef536601515c07fe20c7ce8346d50376cd7"
+    },
+    {
+      "path": ".tools/renewal/client-source/src/Renderer/MapRenderer.js",
+      "bytes": 20545,
+      "sha256": "072bbb1a65eccd1ef88e582fc3be78026c862066a23a9bc42b8e643a4973705d"
+    },
+    {
+      "path": ".tools/renewal/client-source/src/Renderer/Renderer.js",
+      "bytes": 12573,
+      "sha256": "3a4a3d5433af3a9b1aecf7464fa78092bbd3e633039aa7db348d98717ad20b7e"
+    },
+    {
+      "path": ".tools/renewal/client-source/src/Renderer/Camera.js",
+      "bytes": 14942,
+      "sha256": "cb96c4edc67f360218de683f2ddc4fe3d4c3f8b5302ca08f8827e40e1f32b3c7"
+    },
+    {
+      "path": ".tools/renewal/client-source/src/Renderer/Map/Ground.js",
+      "bytes": 13854,
+      "sha256": "17f62be4a2014c17c93695b9e21c7f2eaf9503738f8cd5095f116810b930b7a8"
+    },
+    {
+      "path": ".tools/renewal/client-source/src/Renderer/Map/Models.js",
+      "bytes": 8671,
+      "sha256": "7f30a7e14ff346d394496892d33162768fb51f08acdfe21a84bcc86ed86061bc"
+    },
+    {
+      "path": ".tools/renewal/client-source/src/Renderer/Map/AnimatedModels.js",
+      "bytes": 23493,
+      "sha256": "b993b685426e01cb40d5fe357e06dac5e5cddb10808a10095d30e4069bc7818f"
+    },
+    {
+      "path": ".tools/renewal/client-source/src/Renderer/Map/Altitude.js",
+      "bytes": 10529,
+      "sha256": "01d88e5385702436cb033fb1e48eb5e3712b5ef77dc28fcf68015c1e4757aecf"
+    },
+    {
+      "path": ".tools/renewal/client-source/src/Renderer/Entity/Entity.js",
+      "bytes": 20803,
+      "sha256": "82049340c3a1fc896362711fb4308df265ce736a957bdd8993efa8ff3045c42b"
+    },
+    {
+      "path": ".tools/renewal/client-source/src/Engine/SessionStorage.js",
+      "bytes": 2910,
+      "sha256": "720571d1dc72753919a56d5ffa29924c27ce35edb6c40a42c18070bfb9e5297c"
+    },
+    {
+      "path": ".tools/renewal/client-source/src/Utils/Texture.js",
+      "bytes": 4636,
+      "sha256": "059d1294f0c5bfaca178add3ba8d0dcb7466f84f05334e35a50bf8c7f77eedb5"
+    },
+    {
+      "path": ".tools/renewal/client-source/src/Utils/WebGL.js",
+      "bytes": 7496,
+      "sha256": "2d73d3625878c55c27878d0e4b4428f76147c85d50ef55ff146631885c6e15cf"
+    },
+    {
+      "path": ".tools/renewal/client-source/src/Audio/BGM.js",
+      "bytes": 3911,
+      "sha256": "4572e9adf5150727154a91a3bd13db9dc1ab9c8c39279e98568689dd6e14d2c2"
+    },
+    {
+      "path": ".tools/renewal/client-source/src/Audio/SoundManager.js",
+      "bytes": 6695,
+      "sha256": "7e91928b9f2403333228d7aa58400a13df618879e7e271e0f0af45d2b078b253"
+    },
+    {
+      "path": ".tools/renewal/client-source/src/UI/Background.js",
+      "bytes": 8043,
+      "sha256": "bda0c6ee939a4bbabc2990bf497f27b3ea762d62cfca68cb0ad46823772e07a8"
+    }
+  ],
+  "metadata": [
+    {
+      "path": "docs/project/fixtures/T07.007.010-profile.json",
+      "bytes": 10533,
+      "sha256": "ebbed64ccdba8628f3eb5d2562649e1d6926a85281b09f5bf3e7ec65cb58cb8f"
+    },
+    {
+      "path": ".tools/renewal/t07-007-009-integrated-new-corpus-a-1/catalog.json",
+      "bytes": 1346475,
+      "sha256": "9b7bca8176959ce25b05c090a75cf5b815945bc2480121675331515f9e2c1bd2"
+    },
+    {
+      "path": ".tools/renewal/t07-007-010-integrated-verification-root-execution-1/ACTUAL_AVAILABILITY_LIST.json",
+      "bytes": 301708,
+      "sha256": "16d845ed5f873dd52ff59f003c9a72cfd4c401a5ca3a0bae9e6d5f43f006a950"
+    },
+    {
+      "path": ".tools/renewal/t07-007-nested-availability-preparation-1/reference-plan-1/plan.json",
+      "bytes": 46000,
+      "sha256": "f370447a3a5abc6a420dc18336a189131c233a94c0de40882226e08aa5ea9651"
+    }
+  ],
+  "live_source_binding_receipt": {
+    "bytes": 31036,
+    "sha256": "3a72fdc255103af853a7f540b661fb24b09305f4e4268d0f8101cd379e4ec68a",
+    "root_checked": true,
+    "worker_access": false
+  },
+  "bootstrap_seam": {
+    "full_bytes": 13174160,
+    "full_sha256": "9c148d9e43384a2498f9074efd1603b4eda1ff36dac53998985cfdf5eaf6fadf",
+    "prefix_bytes": 13174139,
+    "prefix_sha256": "37a334fd1f013014fada283cdef39f84d97879982f314354cd1cf2c75dde6cfa",
+    "exact_terminal_suffix": "init();\n//#endregion\n",
+    "only_change": "replace final Online startup invocation with explicit diagnostic exports; every production method and shader preserved"
+  },
+  "limits": {
+    "report_bytes": 16384,
+    "plan_bytes": 16384,
+    "private_input_bytes_each": 20000000,
+    "external_requests": 0,
+    "native_body_reads": 0,
+    "code_execution": false,
+    "browser_actions": false,
+    "game_state_changes": false
+  },
+  "unknowns": [
+    "No browser execution, image decode, instance/compile/GPU/render outcome is established by this source profile.",
+    "Source-reference checkout gives lineage/advice, not whole-build reproduction or direct module byte equality.",
+    "Conditional water/support resources, callbacks, omitted objects and actual animation drawing need root observation.",
+    "Ordinary Chapter1 entry/save, two ygg_roots movement cells,82full-world gaps and complete Modern/Renewal remain separate."
+  ]
+}

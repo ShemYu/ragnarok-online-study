@@ -85,6 +85,11 @@ CURRENT WORK: October assets and missing maps
  |    Reader closed cleanly. Inputs and original game preserved.
  |    Next: actual image decode, model compile and map rendering.
  |
+[~] Four-map rendering: actual served client files now pinned.
+ |    Six Web files and generated config match the live reader.
+ |    Narrow viewer bootstrap proposed; no game login needed.
+ |    Next: compare Claude/Grok plans, then root runs the viewer.
+ |
  +-- [V] Other 28 GPF patch tables: corrected tool verified.
  |        Root reference: all 5,742 raw records checked.
  |        Claude: 5,742 records and 17 consumer checks pass.
