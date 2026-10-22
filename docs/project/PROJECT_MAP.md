@@ -33,6 +33,10 @@ next action and the exact limits of each result.
 CURRENT WORK: quest data, missing story and map-load checks
 
 Latest verified work (23 Oct):
+  [V] Download source review confirms final guard/exit gates.
+      Fixed caller pins and exact admission are next; no request yet.
+  [V] Historical portal table checked; current table is still UNKNOWN.
+      One exact generator-source read admitted, independently of browser work.
   [V] CfT default build excludes the inspected updater path.
       Selected browser package still needs qualification.
       Inert download source checked; fixed caller/admission next.

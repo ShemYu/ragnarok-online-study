@@ -11,6 +11,13 @@ separate one-shot data admission; no browser execution.
 [Conditional portal-only first-handoff contract also qualifies](reviews/2026-10-23-T07.006.001.md#conditional-ordinary-portal-handoff-contract-qualifies-as-source),
 27pins/33spans; actual route/table/wire bindings and full selector101 remain open.
 
+Latest follow-up: [independent acquisition review qualifies with terminal
+gates](reviews/2026-10-22-T07.007.011.005.md#independent-inert-acquisition-review-qualifies-with-terminal-gates),
+11pins/nine spans; exact caller pins/binding/admission next. No download yet.
+[Historical portal table/producer locator qualify](reviews/2026-10-23-T07.006.001.md#historical-portal-table-and-exact-generator-locator-qualify),
+29pins/37spans. Current routing is UNKNOWN; one exact immutable navwarp source
+GET is admitted independently, no live table or game access.
+
 Latest source finding: [isolated browser metadata and bounded updater research
 qualify](reviews/2026-10-22-T07.007.011.005.md#isolated-browser-metadata-and-bounded-updater-source-research-qualify).
 Root38full pins/four Git blobs/14spans match. Exact CfT156MacARM64 candidate is
