@@ -22,7 +22,8 @@ Latest verified work (22 Oct):
   [V] Earned quest/position survive character selection and full relogin.
   [V] New earned backup and read-only cold reference checked.
   [V] Owned app/server shutdown and stopped-state checks pass.
-  [~] Normal relaunch and earned-state cold re-entry next.
+  [V] Normal full restart: same character, quest and location return.
+      Test game running quietly; old test tab replaced after timeout.
   [V] Offline movement candidate: actual bytes/receipt/inverse pass.
       Claude selected; Grok close check fails. No live mapping selected.
   [V] Chapter 1 decoder: both candidates pass 30 Root common groups.

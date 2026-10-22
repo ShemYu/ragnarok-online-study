@@ -57,10 +57,12 @@ Current independent lanes:
   a new post-earn backup positively contains active21001 and iz_int51,30.
   [The corrected read-only cold reference audit passes](reviews/2026-10-22-T07.007.012.008.md#cold-reference-audit-passes-before-lifecycle-mutation):
   exact owner/storage/UI/backup checks and all1118payload/five archive hashes.
-  [Owned shutdown and a separate stopped-state audit now pass](reviews/2026-10-22-T07.007.012.008.md#owned-shutdown-completes-separate-stopped-state-audit-passes).
-  All four test owners departed, seven ports bindable; test world is stopped.
-  Next: normal full-main relaunch and same-state checks under
-  [the ordinary-play brief](tasks/T07.007.012.008.md).
+  [Full normal cold restart and earned-state re-entry now qualify](reviews/2026-10-22-T07.007.012.008.md#full-normal-cold-restart-and-earned-state-re-entry-qualify):
+  fresh four owners/same volume/backings/routes/mods and actual normal character/
+  quest/iz_int51,30 return. Child .008 is ready_for_user within that scope.
+  The old test tab timed out; its replacement in the same quiet profile works
+  and stays live. Full world/Chapter1 progression remain. Next functional gate:
+  actual Chapter1 body/oracle/producer/consumer and embedded terrain names.
 - **Movement policy:** [corrected source-plan comparison](reviews/2026-10-22-T07.007.013.md#corrected-source-plan-comparison-qualified)
   is self_verified, Grok 17/20 basis versus Claude 15/20; both workers are
   preserved/released. [Independent offline candidate pair runs](reviews/2026-10-22-T07.007.013.001.md#actual-independent-pair-launched).
