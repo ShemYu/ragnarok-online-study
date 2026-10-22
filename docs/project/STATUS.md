@@ -122,6 +122,9 @@ Current independent lanes:
   finds numeric/identity validation limitations. Fresh Root fixture/actual runs
   also match under separate retained71-input/guard checks; the method is not a
   reusable qualified tool. Grok review remains. Bodies/loading stay open; no gap closes.
+  [.014.003 normal two-body preflight is admitted](reviews/2026-10-22-T07.007.014.003.md):
+  bind current owner/config/extraction effects first, then separately admit two
+  GETs through the unchanged reader. No new decoder/restart or body PASS yet.
 
 The [earlier mu pilot and Astra diagnosis](reviews/2026-10-22-T07.007.011-execution.md#actual-astra-consultation-and-discriminating-metadata-check)
 remain historical evidence. Ordinary Chapter 1 entry/save, 82 world-resource

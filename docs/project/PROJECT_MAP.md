@@ -42,6 +42,7 @@ Latest verified work (22 Oct):
   [V] Root full scan finds both exact terrain-name entries in data0.grf.
       Claude results match; checker limitations retained. Grok active.
       Claude fresh Root runs pass. Full body reads/loading stay next.
+  [~] Normal two-body gate: current owner/config preflight starts.
   [~] Chapter 1 terrain dependencies and normal play remain.
   [~] Fruit scene: full render still fails one model fetch.
   Parent checkpoints: 4 / 14 = about 29%. Full game remains open.
