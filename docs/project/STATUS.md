@@ -90,7 +90,11 @@ corrections now qualify](reviews/2026-10-23-T10.005.md#quest-controller-source-a
 check now precedes the socket; Worker-script session comes from an exact bound
 manifest. [The finite24-case controls and fixed caller now qualify; one pure
 call is admitted](reviews/2026-10-23-T10.005.md#finite24quest-controller-controls-qualify-and-one-pure-call-is-admitted).
-Root checks20full pins/11exact spans/inverses; next run once and audit all rows.
+Root checks20full pins/11exact spans/inverses.
+[The first call fails all24at a shared fixture brace; one corrected replay is
+admitted](reviews/2026-10-23-T10.005.md#first24case-call-exposes-fixture-brace-error-and-corrected-replay-is-admitted).
+Complete failed-run/source/closure audit passes; only one fixture brace changes.
+Next execute/audit the corrected call. Target controller is unchanged.
 Shared whole-attempt caller and actual bindings
 remain unimplemented; no actual timing or installed compatibility is proved.
 All actual-loader bindings remain NULL.

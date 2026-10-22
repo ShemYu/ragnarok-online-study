@@ -33,6 +33,8 @@ next action and the exact limits of each result.
 CURRENT WORK: quest data, missing story and map-load checks
 
 Latest verified work (23 Oct):
+  [!] Quest tests stopped at a shared fixture syntax error; no case passed.
+      Failure kept and audited. One brace fixed; corrected replay admitted.
   [V] Quest-controller test source and fixed caller checked: 24 cases.
       One pure run admitted; full result and cleanup audit follow.
   [V] Fresh scene preflight and full independent audit pass.
