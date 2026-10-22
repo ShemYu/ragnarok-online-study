@@ -1,0 +1,43 @@
+{
+  "schema": "T07.007.011.003-transport-plan-output-contract-1",
+  "markdown_output": "docs/project/reviews/T07.007.011.003-transport-plan.md",
+  "json_output": "docs/project/reviews/T07.007.011.003-transport-plan.json",
+  "json_required_top_level": {
+    "schema": "T07.007.011.003-transport-plan-output-1",
+    "task": "T07.007.011.003",
+    "scope": "plan_only",
+    "runtime_executed": false,
+    "cause_status": "unresolved",
+    "input_postchecks": "array of all supplied path/bytes/sha256 and equality observations; omit identity/private environment dumps",
+    "source_anchors": "array with input path/line or JSON sequence/claim/observation versus inference",
+    "observed_facts": "bounded facts supported by admitted evidence",
+    "hypotheses": "plausible alternatives with discriminating observations and disconfirmers",
+    "plan_stages": "bounded serial/root-owned sequence with held constants, proposed-only changes, outputs and stop conditions",
+    "predicted_controls": "array; every element has id, trigger, predicted_observation, inference_limit, preservation_gate, status=predicted_not_executed",
+    "decision_gates": "array; every element has id, observation, next_action, stop_or_escalate and what_remains_unknown",
+    "next_owner": "ROOT",
+    "runtime_qualification": null,
+    "full_game_acceptance": null
+  },
+  "minimum_control_topics": [
+    "reconstruct fetch reject before Response and absent upstream receipt without claiming no socket accept",
+    "one fresh fruit probe first with every served JS pin/readiness/native options unchanged",
+    "bounded accept/handler-entry/path/close/error/timing observations and observation-failure refusal",
+    "worker-target browser network errorText conditional on documented supported Orca capability; unavailable fallback",
+    "full observed texture completion and packet/GPU/frame gate rather than map onLoad/GL0 alone",
+    "correlated pre-handler failure versus route-admission/upstream/body/decoder branch",
+    "separate larger-backlog experiment only after discriminating evidence; successful rerun alone is not causality",
+    "original per-upstream downstream_bytes0 is pre-send snapshot, not proof failed baseline delivery",
+    "closed probe/source/native/FD-thread/original-Wlistener preservation and unchanged bounds",
+    "distinct production silent-loader-error followup proposed only; never make missing material successful"
+  ],
+  "forbidden_claims_or_actions": [
+    "implementation or runtime PASS",
+    "proof of backlog overflow from six loader requests and default queue5",
+    "manual fetch/retry or null/success/pending workaround",
+    "broad threaded proxy rewrite or shared transfer-state concurrency",
+    "invented CDP/Orca command/worker error capture",
+    "restart or host sound/IME/network/save/world mutation",
+    "arbitrary goal change or four-map/full-game acceptance from this plan"
+  ]
+}

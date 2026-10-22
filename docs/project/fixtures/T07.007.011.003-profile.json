@@ -1,0 +1,291 @@
+{
+  "schema": "T07.007.011.003-transport-diagnosis-plan-profile-1",
+  "task": "T07.007.011.003",
+  "preparation_state": "frozen source-plan contract; runtime not authorized",
+  "basis_commit": "b5c30eeb4b738a1259b93df5d4bdfbd07b20971c",
+  "benchmark": "independent read-only plans on separate Orca branches; no implementation/runtime benchmark",
+  "inputs": [
+    {
+      "path": ".tools/renewal/t07-007-011-root-execution-preparation-4/lease_ROOT.py",
+      "bytes": 30698,
+      "sha256": "e4ab5a3f317267ced1568cdc5efe0535e5db6db04a533319e62f0e3c57912757",
+      "role": "current_source"
+    },
+    {
+      "path": ".tools/renewal/t07-007-011-root-execution-preparation-4/launch_ROOT.py",
+      "bytes": 15782,
+      "sha256": "b9349f235e7438db8547dff77b69434a24a133a31ac89f7d9e5a84fdba7baeee",
+      "role": "current_source"
+    },
+    {
+      "path": ".tools/renewal/t07-007-011-root-execution-preparation-4/www/bootstrap.js",
+      "bytes": 16938,
+      "sha256": "cc5041fe0344764f1e366f4e614b55904cbcf1a3740855899f2078f2007017db",
+      "role": "current_source"
+    },
+    {
+      "path": ".tools/renewal/t07-007-011-root-execution-preparation-4/www/ThreadEventHandler.js",
+      "bytes": 650825,
+      "sha256": "db6f0ed37c40fea30c2e513e31468ca657d5b3dca5570837375d66fd5ba205ba",
+      "role": "current_source"
+    },
+    {
+      "path": ".tools/renewal/t07-007-011-root-execution-preparation-4/www/Online.js",
+      "bytes": 13174683,
+      "sha256": "e3ee908fa369f0abd4c08b2c9d80075c7e7adfd8dde24f692ab57ff5a97be5b2",
+      "role": "current_source"
+    },
+    {
+      "path": ".tools/renewal/t07-007-011-root-execution-preparation-4/EXECUTION_BINDING.json",
+      "bytes": 4528,
+      "sha256": "fc8dc7ee17be53d8b69ee62c642748fbecef68ccd7dce900aa0ccc043ab7614c",
+      "role": "current_binding"
+    },
+    {
+      "path": ".tools/renewal/t07-007-011-root-execution-preparation-4/actual-ygg_fruit-1/browser-00.json",
+      "bytes": 2233121,
+      "sha256": "06153cb77168ebb0cc5233ef3f013b0fdce0520177d3851721fb3222d37a75e3",
+      "role": "closed_failed_observation"
+    },
+    {
+      "path": ".tools/renewal/t07-007-011-root-execution-preparation-4/actual-ygg_fruit-1/LEASE_RESULT.json",
+      "bytes": 290251,
+      "sha256": "d1c6e120f0a8aad4560fc6d306290bff86e38481283f635ea40385967a578337",
+      "role": "closed_failed_observation"
+    },
+    {
+      "path": ".tools/renewal/t07-007-011-root-execution-preparation-4/external-ygg_fruit-1/EXTERNAL_RESULT.json",
+      "bytes": 53771,
+      "sha256": "d4de3896a1ba496f3cd436c667049651bfc423332c406980ff1f9f988a887d51",
+      "role": "closed_failed_observation"
+    },
+    {
+      "path": ".tools/renewal/t07-007-011-root-execution-preparation-4/actual-ygg_fruit-1/FAILURE_AUDIT_ROOT.json",
+      "bytes": 92027,
+      "sha256": "a19240cc68540756fecee228b008df19c16e5e734f4865d1947d2d11ae5768ce",
+      "role": "root_failure_audit"
+    },
+    {
+      "path": ".tools/renewal/t07-007-011-root-execution-preparation-3/actual-ygg_fruit-1/browser-00.json",
+      "bytes": 2235516,
+      "sha256": "e4ae19ca0c0009cbc6952b0ffcfb8d4fcb7f657895772970674a82b1b9234ff5",
+      "role": "closed_successful_baseline"
+    },
+    {
+      "path": ".tools/renewal/t07-007-011-root-execution-preparation-3/actual-ygg_fruit-1/LEASE_RESULT.json",
+      "bytes": 284393,
+      "sha256": "4ad3bf71e1ab13f50390d69b8a733b26ec2188e0dc139eab59692460f43fd5e4",
+      "role": "closed_successful_baseline"
+    },
+    {
+      "path": ".tools/renewal/t07-007-011-root-execution-preparation-3/actual-ygg_fruit-1/upstream-000103.json",
+      "bytes": 1150,
+      "sha256": "942c405bb5594aec0e395d5bef7a4e0c6db1babdb6a49045f0f480c0d6a2a56b",
+      "role": "baseline_receipt_not_body"
+    },
+    {
+      "path": ".tools/renewal/t07-007-011-fruit-astra-consultation-1/REPORT.md",
+      "bytes": 11262,
+      "sha256": "a43e6b5bd5f5b441c3facd9fbff105ce41d0a9d910d49f7153b5f5294ae99f02",
+      "role": "advisory_not_root_acceptance"
+    },
+    {
+      "path": ".tools/renewal/t07-007-011-003-plan-preparation-1/stdlib_socketserver.py.txt",
+      "bytes": 27296,
+      "sha256": "59007916cf2f540185bf47f3be35648d5141b9c0f4668b214900c4c35037179e",
+      "role": "current_stdlib_source_text"
+    },
+    {
+      "path": ".tools/renewal/t07-007-011-003-plan-preparation-1/stdlib_http_server.py.txt",
+      "bytes": 47705,
+      "sha256": "9d012c2f66822dea6e1baeeea02c518713247a9d5ec4459e35e365114a6828af",
+      "role": "current_stdlib_source_text"
+    },
+    {
+      "path": ".tools/renewal/t07-007-011-003-plan-preparation-1/STDLIB_PROVENANCE.json",
+      "bytes": 1078,
+      "sha256": "ae1bdf212dc79203d1ebe8f16aad10f0bba36c920b36e3ce40b7db317b74b2da",
+      "role": "stdlib_source_provenance"
+    }
+  ],
+  "observed_failure": {
+    "map": "ygg_fruit.rsw",
+    "filename": "data\\texture\\bifrost\\bif_bed02.bmp",
+    "native_wire": "/data/texture/bifrost/bif_bed02.bmp",
+    "fetch_call": 1388,
+    "trace_sequences": [
+      2505,
+      2506,
+      2507,
+      2508
+    ],
+    "fetch_outcome": "native promise TypeError Failed to fetch before Response",
+    "get_http_callback_call": 1387,
+    "load_callback_call": 1375,
+    "callback_values": [
+      null,
+      "Can't get file"
+    ],
+    "captured_native_wire_present": false,
+    "known_successful_baseline_body_receipt": {
+      "bytes": 66612,
+      "sha256": "4829ffa9c714cae0675bf38f3117bccd009f76055f071d4cb54644ca23d13936",
+      "body_not_admitted_for_worker_read": true
+    },
+    "root_failure_audit": {
+      "full_reads": 235,
+      "complete_transport_of_recorded_requests": true,
+      "complete_preservation_and_cleanup": true,
+      "geometry_or_render_qualified": false
+    },
+    "fruit_geometry_packet": {
+      "bytes": 5896908,
+      "sha256": "34ed733fce9fb259ee09209112b923a8014f734bc6b88b413faef031a97a0d7d"
+    },
+    "decoder_count": 74,
+    "failed_decoders": 1,
+    "static_material_index": 5,
+    "pending_textures": 1,
+    "batches_ready": false,
+    "cause": "unresolved before successful captured upstream receipt; socket acceptance/handler entry not recorded"
+  },
+  "source_anchors": [
+    {
+      "input": ".tools/renewal/t07-007-011-root-execution-preparation-4/lease_ROOT.py",
+      "lines": [
+        246,
+        279
+      ],
+      "claim": "Serial HTTPServer ownership/get_request/close/handle_request loop; no explicit request_queue_size override."
+    },
+    {
+      "input": ".tools/renewal/t07-007-011-root-execution-preparation-4/lease_ROOT.py",
+      "lines": [
+        280,
+        328
+      ],
+      "claim": "Recorded upstream row/complete transfer/storage occurs inside upstream; per-upstream receipt is published before downstream send."
+    },
+    {
+      "input": ".tools/renewal/t07-007-011-root-execution-preparation-4/lease_ROOT.py",
+      "lines": [
+        332,
+        388
+      ],
+      "claim": "HTTP/1.0 handler/setup/route admission and send/error paths; retain protocol and nonce shutdown."
+    },
+    {
+      "input": ".tools/renewal/t07-007-011-root-execution-preparation-4/launch_ROOT.py",
+      "lines": [
+        176,
+        183
+      ],
+      "claim": "Six-native descriptor gate; unchanged660s/2GiB/8s/1MiB guard."
+    },
+    {
+      "input": ".tools/renewal/t07-007-011-root-execution-preparation-4/www/ThreadEventHandler.js",
+      "lines": [
+        18824,
+        18847
+      ],
+      "claim": "fetch rejection is mapped to callback(null,error), no retry."
+    },
+    {
+      "input": ".tools/renewal/t07-007-011-root-execution-preparation-4/www/ThreadEventHandler.js",
+      "lines": [
+        19025,
+        19059
+      ],
+      "claim": "Six parallel downloads; null outcome still increments offset."
+    },
+    {
+      "input": ".tools/renewal/t07-007-011-root-execution-preparation-4/www/ThreadEventHandler.js",
+      "lines": [
+        19309,
+        19324
+      ],
+      "claim": "Null texture copied into MAP_MODELS then onload(true)."
+    },
+    {
+      "input": ".tools/renewal/t07-007-011-root-execution-preparation-4/www/Online.js",
+      "lines": [
+        84450,
+        84456
+      ],
+      "claim": "Texture.load(null) reports false without image decoder."
+    },
+    {
+      "input": ".tools/renewal/t07-007-011-root-execution-preparation-4/www/Online.js",
+      "lines": [
+        84675,
+        84679
+      ],
+      "claim": "WebGL texture false result returns without model callback."
+    },
+    {
+      "input": ".tools/renewal/t07-007-011-root-execution-preparation-4/www/Online.js",
+      "lines": [
+        210567,
+        210608
+      ],
+      "claim": "Only success callback decrements pending; incomplete objects fallback can draw despite batches unready."
+    },
+    {
+      "input": ".tools/renewal/t07-007-011-003-plan-preparation-1/stdlib_socketserver.py.txt",
+      "lines": [
+        441,
+        475
+      ],
+      "claim": "Actual isolated Python3.9.6 source default queue5/listen(self.request_queue_size); not proof effective queue pressure/error."
+    },
+    {
+      "input": ".tools/renewal/t07-007-011-003-plan-preparation-1/stdlib_http_server.py.txt",
+      "lines": [
+        132,
+        148
+      ],
+      "claim": "HTTPServer inherits TCPServer; no ThreadingHTTPServer is selected by current lease."
+    }
+  ],
+  "constraints": {
+    "read_only_input_bytes_each_max": 20000000,
+    "external_requests": 0,
+    "game_body_or_archive_reads": 0,
+    "source_execution": false,
+    "native_browser_server_runtime": false,
+    "live_provider_or_sibling_inspection": false,
+    "tracked_owned_outputs": [
+      "docs/project/reviews/T07.007.011.003-transport-plan.md",
+      "docs/project/reviews/T07.007.011.003-transport-plan.json"
+    ],
+    "markdown_bytes_max": 16384,
+    "json_bytes_max": 24576,
+    "working_allowance_minutes": 20,
+    "timebox_is_advisory": true,
+    "read_only_input_bytes_aggregate_max": 25000000
+  },
+  "next_probe_invariants": {
+    "all_served_js_pins_unchanged": true,
+    "production_readiness_unchanged": true,
+    "serial_upstream_owner_unchanged": true,
+    "initial_explicit_backlog_change": false,
+    "browser_network_capture": "conditional on exact supported/version-matched Orca worker-target capability; otherwise unavailable and proxy-only branch",
+    "native_wire_bytes": 536870912,
+    "requests": 1024,
+    "body_bytes": 25165824,
+    "driver_seconds": 600,
+    "guard_seconds": 660,
+    "guard_rss_bytes": 2147483648,
+    "guard_grace_seconds": 8,
+    "guard_capture_bytes_each": 1048576,
+    "browser_report_bytes": 12582912,
+    "worker_trace_rows": 20000,
+    "worker_trace_approx_bytes": 8388608
+  },
+  "full_game_acceptance": null,
+  "output_contract": {
+    "path": "docs/project/fixtures/T07.007.011.003-output-contract.json",
+    "bytes": 2905,
+    "sha256": "c8fabe01045d04d3571072e30dbcad0217cf7d97c612e5634728ae0ee28dc88b"
+  }
+}
