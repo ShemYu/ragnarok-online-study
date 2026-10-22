@@ -41,9 +41,11 @@ Current independent lanes:
   all1118 files remain exact; local guest-image install/full readback now pass.
   [The fresh engine boots with positive daemon/control ownership](reviews/2026-10-22-T07.007.012.006.md#actual-fresh-boot-and-daemon-ownership-qualify);
   [empty-engine/service/backing checks pass](reviews/2026-10-22-T07.007.012.006.md#empty-engine-status-storage-and-preservation-qualify).
-  [Installed helpers, full fresh inputs and the concrete one-launch procedure qualify](reviews/2026-10-22-T07.007.012.007.md).
-  Next one normal-main launch, fresh mounts/detection and normal served routes,
-  then game entry/save. No full-main launch has occurred yet.
+  [Actual full main, fresh mounts/detection and normal served routes qualify](reviews/2026-10-22-T07.007.012.007.md#actual-normal-startup-routes-and-fresh-mounts-qualify):
+  one49.349s startup, five correct running services/new DB volume, positive twRO,
+  authenticated asset owner, six Chinese mods ON and all12normal terrain bodies
+  exact. [Five nonfatal diagnostics are reconciled with known defects retained](reviews/2026-10-22-T07.007.012.007.md#five-diagnostics-reconciled-known-defects-retained);
+  startup is not error-free. Next [ordinary new-world entry/save](tasks/T07.007.012.008.md).
 - **Movement policy:** [corrected source-plan comparison](reviews/2026-10-22-T07.007.013.md#corrected-source-plan-comparison-qualified)
   is self_verified, Grok 17/20 basis versus Claude 15/20; both workers are
   preserved/released. [Independent offline candidate pair runs](reviews/2026-10-22-T07.007.013.001.md#actual-independent-pair-launched).

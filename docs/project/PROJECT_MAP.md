@@ -15,7 +15,9 @@ CURRENT WORK: October assets and missing maps
 
 Latest verified work (22 Oct):
   [V] New isolated engine: empty database/storage/ports checks pass.
-  [~] Start full game services there; verify mounts and normal routes.
+  [V] Full game services: new mounts/routes/12 terrain files pass.
+      Five startup diagnostics classified; known defects stay open.
+  [~] Ordinary new-world login, character creation and save checks.
   [V] Offline movement candidate: actual bytes/receipt/inverse pass.
       Claude selected; Grok close check fails. No live mapping selected.
   [~] Chapter 1 decoder: both candidates preserved; Root review next.
