@@ -77,8 +77,11 @@ No recovered quest table, effective resource winner or story pass yet.
 [Claude's candidate is preserved and its settled terminal released](reviews/2026-10-22-T10.002.md#claude-candidate-preserved-and-settled-worker-released).
 [Root now passes all26Claude authored tests and14common groups](reviews/2026-10-22-T10.002.md#root-replays-claude-authored-and-independent-common-controls),
 including11positives/37refusals with complete source preservation. No acquired
-table is parsed yet. Grok continues independently; Root prepares the fixed
-guarded actual-body caller in parallel. No selection/score before both qualify.
+table is parsed yet. [Grok also passes Root's nine authored tests and the same
+14common groups](reviews/2026-10-22-T10.002.md#grok-preserved-released-and-root-fixture-checks-pass).
+Both candidates/branches/evidence are preserved and both settled terminals
+released. Root reviews/binds the fixed guarded actual-body comparison next.
+No selection/score/integration or recovered story record yet.
 
 **Worker cleanup:** under the user's renewed cleanup instruction,
 [Root closes the four obsolete retained sessions](reviews/2026-10-22-worker-cleanup.md)

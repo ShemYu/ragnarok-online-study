@@ -78,7 +78,9 @@ Latest verified work (22 Oct):
       Both readers dispatched from the same frozen source.
       Claude submitted; old worker closed, source and branch retained.
       Root runs 26 authored tests and 14 shared groups: all pass.
-      Grok still works. Actual quest-file runs are next.
+      Grok: 9 authored tests and the same 14 shared groups pass.
+      Both workers closed; branches and evidence retained.
+      Guarded actual quest-file comparison is next.
       Official guide panels checked in parallel: side/daily tasks found.
       Three later cards use another map; next search must include it.
       Full main-story flow and Chinese decoding remain open.
