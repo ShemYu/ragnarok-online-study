@@ -33,6 +33,8 @@ next action and the exact limits of each result.
 CURRENT WORK: quest data, missing story and map-load checks
 
 Latest verified work (23 Oct):
+  [V] Exact ZIP checker correction reviewed; one metadata retry admitted.
+      Same limits. Archive extraction and browser launch remain next gates.
   [!] ZIP metadata checker refused an undefined stored-entry flag.
       Failure + archive integrity audited; exact checker correction next.
       No extraction or browser launch.

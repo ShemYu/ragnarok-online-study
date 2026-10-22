@@ -2,6 +2,12 @@
 
 Updated: 2026-10-23 JST. Coordinator: Codex. Active scope: **execute the documented strategy through the full milestone**.
 
+Latest source check: [exact ZIP inspector correction qualifies; one metadata
+reinspection admitted](reviews/2026-10-22-T07.007.011.005.md#exact-zip-inspector-correction-qualifies-and-one-metadata-reinspection-is-admitted).
+Root13full pins/four exact changes/full inverses; same archive and limits.
+Bind this admission and execute once in inspection-2, then audit. No extraction
+or browser launch is admitted.
+
 Latest metadata result: [first ZIP inspection refuses an overstrict stored-flag
 predicate](reviews/2026-10-22-T07.007.011.005.md#first-zip-metadata-attempt-refuses-an-overstrict-stored-flag-predicate).
 Root10pins/archive SHA/C8 match;447partial rows, no member reads/extraction.

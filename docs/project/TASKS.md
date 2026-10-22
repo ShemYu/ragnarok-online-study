@@ -4,6 +4,11 @@ Task owner: coordinator unless dispatched. Updated: 2026-10-21. The user has aut
 
 ## Dependency map
 
+Current T07.007.011.005 support gate: [Root qualifies the exact ZIP inspector
+correction and admits one metadata reinspection](reviews/2026-10-22-T07.007.011.005.md#exact-zip-inspector-correction-qualifies-and-one-metadata-reinspection-is-admitted),
+13full pins/four exact changes/full inverses; no extraction/browser launch or
+parent completion. Navigation historical-index inspection proceeds independently.
+
 Functionality first: `T00 → T01 → T02 → T03 → T04 → T06 → T07 → T10`.
 
 Then finish remaining `T05 + {T08, T09} → T12 → T13`; T12 still requires functional T10. Existing T05 pilots stay enabled; deferred language checks do not block functional inventory/repairs. See the [priority decision](reviews/2026-10-19-functionality-first.md).
