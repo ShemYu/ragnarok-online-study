@@ -4,9 +4,11 @@ Updated: 2026-10-23 JST. Coordinator: Codex. Active scope: **execute the documen
 
 [T10.005 freezes the bounded quest-registration implementation contract](reviews/2026-10-23-T10.005.md#frozen-source-contract-and-root-preflight).
 Root qualifies nine full source inputs/26primary LF slices and resolves callback,
-completion and report-budget ambiguities. Next actual equal isolated Claude/Grok
-implementation pair from the introducing commit. No loader runtime, provider
-result or quest/story/content-gap acceptance yet; screenshot work is independent.
+completion and report-budget ambiguities. [Both actual isolated Claude/Grok
+implementations are dispatched from ee58599](reviews/2026-10-23-T10.005.md#actual-independent-implementation-pair-dispatched),
+with the same brief/profile/contract and setup skipped. Root prepares independent
+common controls; no loader runtime, submitted result or quest/story/content-gap
+acceptance yet. Screenshot work is independent.
 
 Latest diagnostic result: [screenshot control refuses an unknown envelope; complete cleanup and installed-source review qualify](reviews/2026-10-22-T07.007.011.005.md#screenshot-control-refusal-and-installed-source-review-qualify).
 Orca explicitly supports the command and forwards unsolicited events. Our
