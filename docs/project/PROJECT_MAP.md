@@ -125,7 +125,8 @@ CURRENT WORK: October assets and missing maps
  |    Real five-archive assembly/relink passes. All 51 outputs match.
  |    Diagnostic managed reader: all 12 full map files match.
  |    All 300 input hashes, signed identity and cleanup pass.
- |    Next: actual app owner, current mods, new world and normal entry/save.
+ |    Actual source owner module passes: 12 bodies, same reader, clean stop.
+ |    Next: current mods, new world, full app and normal entry/save.
  |    Capture pair compared/released; root correction qualifies.
  |    24 authored tests pass, one optional skip; 16 common/3 extra groups pass.
  |    Next: hook checks and one new fruit probe.
