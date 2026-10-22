@@ -33,6 +33,10 @@ next action and the exact limits of each result.
 CURRENT WORK: quest data, missing story and map-load checks
 
 Latest verified work (23 Oct):
+  [V] Failure handling + one-instance feature source correction checked.
+      Next: targeted Python cases; no new browser test yet.
+  [V] Quest test has one proposed 120s schedule with early finish limits.
+      Controller and shared caller still need implementation and checks.
   [V] Two clone names account for Chrome's extra executable links.
       One-instance feature setting proposed; strict file checks stay required.
   [V] Quest browser direction checked; Worker destruction must be witnessed.

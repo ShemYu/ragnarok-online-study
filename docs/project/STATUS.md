@@ -18,7 +18,10 @@ two same-inode aliases account for the current link count, with one clone born
 during W2 startup. Existing aliases stay untouched. A single fresh-instance
 feature override with a NEW strict baseline is proposed; no flag is applied
 and installed behavior remains unverified. Failure-finalization source review
-and finite controls are next.
+now [qualifies together with the exact two-literal policy derivative](reviews/2026-10-22-T07.007.011.005.md#failure-preservation-correction-and-exact-policy-derivative-qualify-as-source).
+The failed/no-controller path can preserve evidence inside the same8s; all
+success/identity gates remain. Actual headers are unbound and no flag is applied.
+Next review/admit the adapted Python fragment controls; no new runtime yet.
 
 [T10.005 freezes the bounded quest-registration implementation contract](reviews/2026-10-23-T10.005.md#frozen-source-contract-and-root-preflight).
 Root qualifies nine full source inputs/26primary LF slices and resolves callback,
@@ -53,6 +56,10 @@ separate actual-loader trial.
 installed Orca close ACK precedes destruction, so reuse one dedicated Chrome
 socket with exact known Worker/page destruction witnesses. Shared120s schedule
 and concurrent original-guard composition remain source work.
+[One concrete shared schedule now qualifies as advice](reviews/2026-10-23-T10.005.md#one-concrete-shared-schedule-qualifies-as-source-advice):
+H120/D85/K80, early publication48/end70, cooperative overshoot and finalization
+reserves explicit. New causal residual-grant mapping and controller/caller are
+still unimplemented. No actual timing or installed compatibility is proved.
 All actual-loader bindings remain NULL.
 No actual original-loader/runtime or full-game acceptance is claimed.
 Quest/story/content-gap acceptance remains open. Screenshot work is independent.
