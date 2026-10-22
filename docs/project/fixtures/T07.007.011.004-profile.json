@@ -1,0 +1,137 @@
+{
+  "schema": "T07.007.011.004-profile-1",
+  "task": "T07.007.011.004",
+  "state": "frozen for same-base independent implementation",
+  "source_basis_commit": "425593433820f0b667f1272ac75127b9e87f159c",
+  "common_launch_base": "ROOT must freeze task/profile/contract and dispatch both from that same introducing commit; not the source basis above",
+  "inputs": [
+    {
+      "id": "I01",
+      "path": ".tools/renewal/t07-007-011-root-execution-preparation-4/lease_ROOT.py",
+      "bytes": 30698,
+      "sha256": "e4ab5a3f317267ced1568cdc5efe0535e5db6db04a533319e62f0e3c57912757",
+      "role": "later_root_hook_locations_only"
+    },
+    {
+      "id": "I02",
+      "path": ".tools/renewal/t07-007-011-003-plan-preparation-1/stdlib_socketserver.py.txt",
+      "bytes": 27296,
+      "sha256": "59007916cf2f540185bf47f3be35648d5141b9c0f4668b214900c4c35037179e",
+      "role": "frozen_source_text_not_imported"
+    },
+    {
+      "id": "I03",
+      "path": ".tools/renewal/t07-007-011-003-plan-preparation-1/stdlib_http_server.py.txt",
+      "bytes": 47705,
+      "sha256": "9d012c2f66822dea6e1baeeea02c518713247a9d5ec4459e35e365114a6828af",
+      "role": "frozen_source_text_not_imported"
+    },
+    {
+      "id": "I04",
+      "path": ".tools/renewal/t07-007-011-003-astra-priority-review-1/REPORT.md",
+      "bytes": 9870,
+      "sha256": "29a07df620b1c19b91a95452644638ac6615271340dc09300fb52497229d0a8b",
+      "role": "corrected_minimal_priority_contract_supersedes_003_overclaims"
+    }
+  ],
+  "input_scope": "Read/hash only these four source-text/advisory inputs plus exact project handoff/task/profile/output contract. Resolve private inputs under ROOT-dispatched input root; no referenced artifacts/bodies or sibling outputs. Exact dispatched Orca skill/help/lifecycle and bounded authored-test subprocesses are allowed.",
+  "output_contract": {
+    "path": "docs/project/fixtures/T07.007.011.004-output-contract.json",
+    "bytes": 10432,
+    "sha256": "62a4607731a4e9bd852bcdd09dcb268af4a63243088a7d36028f176ae10de5d3"
+  },
+  "source_anchors": [
+    {
+      "input_id": "I01",
+      "raw_lf": [
+        246,
+        279
+      ],
+      "purpose": "actual get_request/close/handler error seams and serial ownership; integration is later ROOT work"
+    },
+    {
+      "input_id": "I01",
+      "raw_lf": [
+        332,
+        388
+      ],
+      "purpose": "postparse GET/POST entry and native row call site"
+    },
+    {
+      "input_id": "I01",
+      "raw_lf": [
+        402,
+        421
+      ],
+      "purpose": "direct health/cache upstream calls lack browser socket"
+    },
+    {
+      "input_id": "I02",
+      "raw_lf": [
+        305,
+        319
+      ],
+      "purpose": "get_request OSError is not accepted-socket evidence"
+    },
+    {
+      "input_id": "I02",
+      "raw_lf": [
+        496,
+        515
+      ],
+      "purpose": "actual accept and close methods; module must not invoke them"
+    },
+    {
+      "input_id": "I03",
+      "raw_lf": [
+        393,
+        428
+      ],
+      "purpose": "EOF/parser/unsupported/timeout uncertainty; no parser reimplementation"
+    },
+    {
+      "input_id": "I03",
+      "raw_lf": [
+        554,
+        566
+      ],
+      "purpose": "log_error may run without routed GET/POST attributes"
+    }
+  ],
+  "owned_paths": [
+    "tools/renewal/fruit_transport_capture.py",
+    "tools/renewal/test_fruit_transport_capture.py",
+    "docs/project/reviews/T07.007.011.004-implementation.md"
+  ],
+  "fixed_capture_limits": {
+    "rows": 8192,
+    "serialized_result_bytes": 1048576,
+    "measurement": "len(json.dumps(result,ensure_ascii=True,allow_nan=False,separators=(',',':')).encode('ascii'))",
+    "not_configurable": true
+  },
+  "execution_scope": "Only authored standalone module/tests using stdlib and authored opaque fakes; no live sockets/process/server/client/parser/acquired code imports. No runtime integration.",
+  "worker_test_command": "RO_FRUIT_TEST_ROOT=<fresh absolute child-private 0700 fixture directory> /usr/bin/python3 -I -B tools/renewal/test_fruit_transport_capture.py (test loader may import only its adjacent owned authored module)",
+  "fixture_policy": "Own output parent .tools/renewal/t07-007-011-004-candidate-1; directories0700/files0600; no /tmp. Module itself never writes/opens files. Tests may read their own source/inputs and write only private evidence/owned fakes if needed.",
+  "resources": {
+    "suite_wall_seconds": 60,
+    "rss_bytes": 536870912,
+    "stdout_stderr_bytes_each": 1048576,
+    "boundary": "Workers use a60s outer bound and bounded captures; report RSS not_observed unless measured. ROOT qualification enforces512MiB sampled owned-group RSS/1MiB streams; no browser/GPU/native claim."
+  },
+  "advisory_minutes": 20,
+  "advisory_is_cancellation_authority": false,
+  "forbidden": [
+    "sibling/provider/private runtime evidence reads",
+    "acquired code import/exec/build/VM",
+    "network/native/server/browser/SQL/save/settings actions or runtime process launches (bounded authored-test and Orca lifecycle subprocesses are allowed)",
+    "lease/JS/parser/backlog/thread/framework edits or implementation",
+    "archive/cache/body reads, global installation/dependencies"
+  ],
+  "claim_boundary": {
+    "runtime_verified": false,
+    "transport_cause_identified": false,
+    "physical_socket_close_proved": false,
+    "rendering_qualified": false,
+    "full_game_acceptance": false
+  }
+}

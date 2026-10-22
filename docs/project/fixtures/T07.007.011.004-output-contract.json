@@ -1,0 +1,144 @@
+{
+  "schema": "T07.007.011.004-output-contract-1",
+  "task": "T07.007.011.004",
+  "owned_paths": [
+    "tools/renewal/fruit_transport_capture.py",
+    "tools/renewal/test_fruit_transport_capture.py",
+    "docs/project/reviews/T07.007.011.004-implementation.md"
+  ],
+  "api": {
+    "constructor": "TransportCapture()",
+    "record": "record(kind, connection=None, **primitive_fields) -> bool",
+    "finish": "finish() -> dict",
+    "dependencies": "Python 3.9 compatible standard library only; no CLI required"
+  },
+  "events": {
+    "listener_ready": {
+      "connection": "must be None",
+      "fields": {},
+      "rule": "At most once; confirms only that caller recorded listener readiness."
+    },
+    "accept": {
+      "connection": "required opaque nonprimitive object",
+      "fields": {},
+      "rule": "Not already active by object identity. Allocate next never-reused positive connection_id; retain object only while active."
+    },
+    "accept_error": {
+      "connection": "must be None",
+      "fields": {
+        "error_type": "str, 1..128 UTF-8 bytes",
+        "errno": "exact int or None"
+      },
+      "rule": "No connection allocated; an unsuccessful accept is not an accepted/reset socket."
+    },
+    "request": {
+      "connection": "required currently active object",
+      "fields": {
+        "method": "GET or POST",
+        "path": "str, 1..8192 UTF-8 bytes"
+      },
+      "rule": "At most one per connection in this HTTP/1.0 probe. Record verbatim; no parsing/normalizing/query/header/body copy. Unsupported fields refuse; oversized path rejects event, marks incomplete, never a truncated exact join."
+    },
+    "native": {
+      "connection": "None or currently active object",
+      "fields": {
+        "row_index": "exact int 0..1023",
+        "wire": "str, 1..8192 UTF-8 bytes"
+      },
+      "rule": "row_index unique globally. Associated event requires prior GET and at most one native event on that connection. wire /api/health or /api/cache-stats MUST use None. Direct rows have connection_id None; do not invent a browser association. No path derivation or native/body verification."
+    },
+    "handler_error": {
+      "connection": "None or currently active object",
+      "fields": {
+        "error_type": "str, 1..128 UTF-8 bytes",
+        "errno": "exact int or None"
+      },
+      "rule": "Record observation only. No exception object/stringification; no implied parser/path state or physical outcome."
+    },
+    "log_error": {
+      "connection": "None or currently active object",
+      "fields": {
+        "category": "timeout, http_error, or other",
+        "error_type": "None or str, 1..128 UTF-8 bytes",
+        "errno": "exact int or None"
+      },
+      "rule": "No arbitrary format/args/raw-request data. Caller later maps known format category; unset path/command attributes are never accessed here."
+    },
+    "close": {
+      "connection": "required currently active object",
+      "fields": {
+        "confirmed": "exact bool"
+      },
+      "rule": "One terminal close observation; release active object reference after retained event. False is valid uncertainty and permanently makes complete false. Does not call close/fileno or independently prove physical close. Later references/duplicate close to the retired object refuse as unknown."
+    }
+  },
+  "primitive_policy": [
+    "kind/field names and string field values are exact str; integral fields exact int (bool is rejected); confirmed exact bool; None only where listed; no float/list/dict/bytes/exception fields",
+    "Connection is an opaque object, not None/bool/int/float/complex/str/bytes. Never serialize, inspect attributes, call methods, equality, hashing, repr or fileno on it; object identity only. Unhashable opaque fakes are valid.",
+    "Unknown kind/extra or missing field/bad type/unknown or invalid connection/order/duplicate is a rejected observation, record returns False and latches first_fault. No coercion or caller mutation."
+  ],
+  "limits": {
+    "rows": 8192,
+    "serialized_result_bytes": 1048576,
+    "measurement": "len(json.dumps(result,ensure_ascii=True,allow_nan=False,separators=(',',':')).encode('ascii'))",
+    "not_configurable": true
+  },
+  "row_shape": {
+    "sequence": "positive attempted-call ordinal; strictly increasing, may have gaps for rejected calls",
+    "elapsed_ns": "exact nonnegative int from genuine time.monotonic_ns relative to construction; never caller supplied",
+    "kind": "exact supported kind",
+    "connection_id": "None or never-reused monotonic positive int",
+    "fields": "exact fixed field dictionary for kind, copied values"
+  },
+  "result_shape": {
+    "schema": "root011-fruit-transport-capture-1",
+    "limits": {
+      "rows": 8192,
+      "serialized_result_bytes": 1048576
+    },
+    "complete": "exact bool: no first_fault, listener_ready retained exactly once, no active/unconfirmed-close connections at finish",
+    "first_fault": "None or exactly {code: bounded fixed string <=64 ASCII bytes, attempt: nonnegative int}; no arbitrary exception/request text",
+    "counts": {
+      "attempted": "pre-seal record calls",
+      "retained": "len(rows)",
+      "rejected": "attempted-retained",
+      "accepted": "retained accept count",
+      "closed_confirmed": "retained close true count",
+      "closed_unconfirmed": "retained close false count",
+      "active_at_finish": "accepted minus both close counts",
+      "by_kind": "object containing every eight event-kind key and retained count"
+    },
+    "rows": "ordered array of exact row_shape objects"
+  },
+  "state_rules": [
+    "record is synchronous, in-memory, no callback or failure hook. Ordinary invalid observations return False without throwing, latch bounded first_fault, and leave accepted connection/request/native state unchanged; attempted/rejected still advance. Validation errors can be followed by otherwise valid close observations, while incompleteness stays sticky.",
+    "Cap rejection retains the prior rows and terminal incomplete summary; no silent drop or success return. After cap, later calls return False with attempted/rejected counters, without retaining further rows/state changes. Reserve final-envelope headroom or trim only an uncommitted prospective row; finish must always obey the actual full serialized-result cap.",
+    "Accepted connection object references exist only in active tracking, never result or rows. Removal releases the reference; a fresh accepted object with a recycled fd or recycled Python id gets a new monotonic connection_id. No fd number is used for association.",
+    "Transport accept/handler/log errors are valid observed events, not automatically observer faults. Complete describes evidence accounting, never request success, absence causality, physical closure or renderer readiness.",
+    "finish seals once, captures unresolved active counts before releasing active references, and returns a fresh deep copy. Repeated finish returns equal independent deep copies. record after sealing returns False and does not modify the sealed result/counters. No baseline is silently reset."
+  ],
+  "required_authored_controls": [
+    "Import/no-action positive; all eight event kinds through public API, exact fields/result/counts/strict JSON.",
+    "Distinct opaque/unhashable objects with forbidden attrs/hash/equality/repr; duplicate active accept rejects; fresh object with same fake fd gets distinct id without reading it.",
+    "accept_error creates no connection; unknown request/close/native; duplicate request/close/native row index reject without false accepted states; first_fault sticky.",
+    "Accepted then close without request is valid and can complete. request/handler/log errors may be absent; no inferred URL/classification.",
+    "Confirmed true vs false and missing terminal close distinguish complete/incomplete; close does not invoke fake close or any OS action.",
+    "Associated native requires earlier GET; POST-associated native rejects; direct health/cache native rows keep None and do not contribute browser-associated counts.",
+    "No path/command/request_version attribute needed for error events; category/error/errno supplied as primitives. Unknown/missing/extra/nonprimitive/nonfinite/equal-bool numeric fields reject.",
+    "Row limit and actual complete-result byte limit each exercised with finite authored events; include long multibyte path, final-envelope overhead, sticky cap/rejected counts and bounded finish result. No permissive test if cap was not reached.",
+    "Returned first/second finish values deeply independent; mutate nested rows/fields/counts in one returned value and prove later result unchanged; no caller-object mutation; post-finish rejects.",
+    "Genuine monotonic nonnegative ordered elapsed times, sequence gaps accounted when observations reject. Test expectations independent literal/invariants, not the implementation private internals."
+  ],
+  "report_requirements": [
+    "report task/base, exact source pins, API/identity/limits, actual tests/counts/skips/failures/commands/private evidence; final worker handoff alone carries candidate commit and report own hash (no self-referential report fields)",
+    "explicit source-only integration pending, in-memory evidence boundary, timing perturbation/unmeasured overhead, no runtime/client/body/physical-close/readiness/full-game PASS",
+    "unchanged original lease/std-lib inputs full pre/post pins; future ROOT owns actual hook return/identical throw/callback/cleanup semantics, native-body/send/worker receipt joins and one fresh fruit probe"
+  ],
+  "future_root_only": [
+    "Wire selected module into NEW pinned lease copy after implementation comparison. Do not edit old lease/runtime during this task.",
+    "Capture after real successful accept; record accept_error then re-raise original OSError; record GET/POST entry only after stdlib parsing.",
+    "Native event immediately before actual upstream call uses actual next index and must later match appended upstream row; direct initial/final health/cache calls stay unassociated.",
+    "handler_error/log_error must preserve original behavior; no handle_one_request/parse_request/read hooks; unknown parser outcome remains unknown.",
+    "close observation comes from ROOT-controlled real close evidence/finally; class never proves it by a count. Forward observer rejection to existing root failure callback only in later lease integration."
+  ]
+}
