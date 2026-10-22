@@ -57,6 +57,7 @@ Latest verified work (22 Oct):
   [V] Real compiled Chapter 1 core runs; complete dependency ledger passes.
       370 placements, 27 model requests, 7 ground textures; no numeric fault.
   [~] Normal dependency loading, story routes and play remain.
+      One normal-reader loading check is defined; runtime admission remains.
       Installed scripts: 1185 NPC files and 94 config files checked.
       17 configs select 841 sources; mounts match. No Chapter 1 references.
   [V] Story feasibility pair checked: Claude 17/20, Grok 13/20.

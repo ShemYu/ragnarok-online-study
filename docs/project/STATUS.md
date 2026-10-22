@@ -26,6 +26,8 @@ remain the goal. Functionality comes first; party-only work stays later.
 four exact proposal hunks/14full pins, both entry guards still UNBOUND. Current
 normal-reader/config/archive preflight and final caller/admission remain before
 any loading observation. No game/source installation or character change.
+[The fixed .005 normal loading verification brief is frozen](tasks/T07.007.014.005.md);
+current-owner/config/archive and final caller/source admission remain next.
 
 **Worker cleanup:** under the user's renewed cleanup instruction,
 [Root closes the four obsolete retained sessions](reviews/2026-10-22-worker-cleanup.md)
