@@ -25,8 +25,10 @@ Current independent lanes:
   relink and diagnostic managed reader](reviews/2026-10-22-T07.007.012.002.md#diagnostic-managed-identity-and-twelve-complete-bodies-qualify)
   qualify: 51 assembled entries, 300 current readonly input hashes and twelve
   complete map files match. The [actual source owner module](reviews/2026-10-22-T07.007.012.003.md#actual-source-owner-module-and-twelve-bodies-qualify)
-  also passes twelve bodies, same-reader reuse and normal shutdown. Next admit
-  current Chinese mods and a third fresh world for full main/normal entry/save.
+  also passes twelve bodies, same-reader reuse and normal shutdown. The
+  [selected normal repair pair preserves the Chinese baseline exactly](reviews/2026-10-22-T07.007.012.004.md#exact-normal-repair-pair-selected-and-inverse-verified).
+  Next freeze current Chinese mods/full payload and a third fresh world for
+  full main/normal entry/save.
 - **Movement policy:** [corrected source-plan comparison](reviews/2026-10-22-T07.007.013.md#corrected-source-plan-comparison-qualified)
   is self_verified, Grok 17/20 basis versus Claude 15/20; both workers are
   preserved/released. Production mapping remains unselected. Actual served

@@ -130,8 +130,12 @@ CURRENT WORK: October assets and missing maps
  |    Capture pair compared/released; root correction qualifies.
  |    24 authored tests pass, one optional skip; 16 common/3 extra groups pass.
  |    Next: hook checks and one new fruit probe.
+ |    Local close witness: all three controls pass. Hooks are in preparation.
  |    Movement plans compared: Grok 17/20 basis, Claude 15/20.
  |    Production movement policy stays open.
+ |    Parallel: actual Claude/Grok full 82-gap ledger pair is running.
+ |    All 63 catalogs / 408,794 rows root-checked. No map gap closes yet.
+ |    Normal repair pair preserves Chinese bytes. Full snapshot is next.
  |
  +-- [V] Other 28 GPF patch tables: corrected tool verified.
  |        Root reference: all 5,742 raw records checked.
@@ -552,5 +556,7 @@ five archives with all 51 outputs equal. Its diagnostic managed reader now
 returns all twelve complete map files with exact hashes. Root checks signed
 identity/shutdown, all 300 readonly input hashes and normal cleanup. See
 [managed parity evidence](reviews/2026-10-22-T07.007.012.002.md#diagnostic-managed-identity-and-twelve-complete-bodies-qualify).
-Normal owner/current Chinese mods/fresh world and ordinary save remain next;
+The actual source owner module also passes all twelve bodies, same-reader
+reuse and normal shutdown. Current Chinese source/full payload freeze, a new
+third world and ordinary save remain next;
 this diagnostic pass does not advance the 4/14 parent checkpoint count.
