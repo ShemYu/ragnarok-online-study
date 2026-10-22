@@ -9,6 +9,11 @@ remain the goal. Functionality comes first; party-only work stays later.
 
 Current independent lanes:
 
+- **Story repair feasibility:** [T10.001 common brief is frozen](tasks/T10.001.md)
+  for independent Claude/Grok research. Find verifiable reusable Chapter1 quest
+  implementations or expose missing mechanics and estimate a faithful repair.
+  This prepares T10 in parallel with T07; no scope change or story/play PASS.
+
 - **Rendering / capture repair:** repaired roots, mu and edge pass complete
   static packet/GPU/body/source/cleanup audits. Roots' 108 invalid normal words
   are corrected. Fruit's fresh capture retains one failed model fetch and
