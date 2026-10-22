@@ -33,6 +33,8 @@ next action and the exact limits of each result.
 CURRENT WORK: quest data, missing story and map-load checks
 
 Latest verified work (23 Oct):
+  [V] Corrected launcher tests: all 43 pass; full Root audit passes.
+      Next: fresh scene setup and file/process checks before a live test.
   [!] Targeted tests: 42 / 43 pass. One fixture input binding was missing.
       Failed run audited and kept; one corrected replay is admitted.
   [V] All 43 targeted test sources and the fixed caller are checked.
