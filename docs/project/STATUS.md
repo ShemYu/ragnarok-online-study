@@ -64,7 +64,9 @@ Current independent lanes:
   drop/done outcomes complete under a valid server guard. Capture still refuses
   an event predicate, whose triggering metadata was not retained. Observer
   guard invalid/exit1; full pins/cleanup/retirement pass, both originals retained.
-  Next fixed failure code/event metadata before association changes or fruit.
+  [The minimal first-code/event-metadata fixture is reviewed and admitted](reviews/2026-10-22-T07.007.011.005.md#first-validation-witness-fixture-admitted),
+  with unchanged assertions/coverage policy and fresh page authority. Actual
+  predicate/metadata observation remains next before association changes or fruit.
   Previous disconnect cause remains unknown. Parallel writer/loader work continues.
   No transport cause is proved. Ship02 visible motion passes; light's GPU motion is proved, but its
   visible check remains occluded. Previous render probes are closed.
