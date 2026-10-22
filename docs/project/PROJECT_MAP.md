@@ -30,7 +30,9 @@ Latest verified work (22 Oct):
       Astra policy reviewed; core-only uncertainty correction frozen.
       Both submitted/preserved/released. Root finds raw error-object defects;
       Grok also loses one terminal snapshot. Both pass 10 shared close checks.
-      Earlier defects stay open; own-suite/caller checks and correction next.
+      Earlier defects stay open; caller checks and correction are next.
+      Own replay: 99 methods and two direct imports pass in 24 fresh children.
+      Claude 17/20 correction basis; Grok 14/20. Raw defects remain open.
       Existing fixed caller qualification stays separate.
       Real map/save untouched.
   [V] Chapter 1 decoder: both candidates pass 30 Root common groups.
