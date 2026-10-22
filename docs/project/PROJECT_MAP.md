@@ -1,10 +1,10 @@
 # Supervision, plan and current position
 
-Date: **2026-10-21 JST**. Functionality comes first. Normal tutorial/city reward and save checks pass. The trial character reaches [Eden through normal Officer dialogue](reviews/2026-10-20-T06.006.003.md#normal-eden-arrival-verified-next-save-check-interrupted). Its save check waits for browser reconnection.
+Date: **2026-10-22 JST**. Functionality comes first. Normal tutorial/city reward and save checks pass. The trial character reaches [Eden through normal Officer dialogue](reviews/2026-10-20-T06.006.003.md#normal-eden-arrival-verified-next-save-check-interrupted). Its save check waits for browser reconnection.
 
 [Chapter1 source review](reviews/2026-10-20-T07.006.md#corrected-comparison-and-bounded-readiness) is ready: Claude14/20, Grok12/20. Root corrects the helper diagnosis. Neither proposal is installed. [October acquisition](reviews/2026-10-21-T07.007.md) passes extraction and hash checks for all 4,976 files. All three archive headers pass. The [corrected inventory tool](reviews/2026-10-21-T07.007.001.md#root-corrected-integration-qualified) is qualified at9153d27. All 248,908 records and April parity checks pass.
 
-All 59 candidate patch files are acquired, including 57 new files. No patch is installed. The base package lacks the four target map names. An official August patch has all 12 terrain-name entries. Root has [independently decoded and checked those 12 bodies](reviews/2026-10-21-T07.007.003.md#root-independent-twelve-body-reference-qualified). The [corrected decoder tool](reviews/2026-10-21-T07.007.003.md#root-corrected-integration-qualified) now passes root52tests, all12shared refusal controls, full bodies and complete typed artifacts. Both providers are compared and released. The [integrated loader tool](reviews/2026-10-21-T07.007.004.md#integrated-qualification-and-bounded-readiness) passes33tests and all12full summaries. Grok is selected for this task; both workers are released. The [exact native reader](reviews/2026-10-21-T07.007.002.md#exact-native-twelve-body-gate-independently-qualified) also returns all12matching bodies. It uses a sampled peak of194.4MiB. One map has two invalid flag lookups; they remain recorded. Next: check each map's models and textures, then render and normal play/save. Full story/maps/Chinese and safe migration remain open.
+All 59 candidate patch files are acquired, including 57 new files. No patch is installed. The base package lacks the four target map names. An official August patch has all 12 terrain-name entries. Root has [independently decoded and checked those 12 bodies](reviews/2026-10-21-T07.007.003.md#root-independent-twelve-body-reference-qualified). The [corrected decoder tool](reviews/2026-10-21-T07.007.003.md#root-corrected-integration-qualified) now passes root52tests, all12shared refusal controls, full bodies and complete typed artifacts. Both providers are compared and released. The [integrated loader tool](reviews/2026-10-21-T07.007.004.md#integrated-qualification-and-bounded-readiness) passes33tests and all12full summaries. Grok is selected for this task; both workers are released. The [exact native reader](reviews/2026-10-21-T07.007.002.md#exact-native-twelve-body-gate-independently-qualified) also returns all12matching bodies. It uses a sampled peak of194.4MiB. One map has two invalid flag lookups; they remain recorded. The bounded model/texture checks now pass. Next: actual map loading/rendering and the scoped normal entry/save test. Full story/maps/Chinese and safe migration remain open.
 
 Use this map for a short view of [Status](STATUS.md), [Tasks](TASKS.md) and
 [Phases](PHASES.md). Status gives the current next action.
@@ -74,25 +74,16 @@ CURRENT WORK: October assets and missing maps
  |    Extra checks: Claude refuses all five; Grok has validation gaps.
  |    Claude selected: 19/20 versus 14/20. Integrated and verified.
  |    Root repeats 26 tests, 26 shared checks and four full output audits.
- |    Next: check all 178 texture paths. Image decode remains open.
+ |    All 178 texture paths now verified below. Image decode is open.
  |
-[~] Texture availability: exact task and inputs frozen.
- |    171 BMP and 7 TGA paths; full plan and source checks pass.
- |    Historical compatibility copy and its preflight pass.
- |    Claude: root historical 44 tests pass. Grok is submitted/released.
- |    Grok: root historical 44 and all 20 shared cases pass.
- |    Grok new 13 pass; eight metadata checks need repair.
- |    User resumed. Independent preparation runs in parallel.
- |    Claude focused 30 pass; six metadata checks need correction.
- |    Admission checks complete: two value-changing booleans refused.
- |    All 20 shared scanner cases pass. No native scan yet.
- |    Auditor bug fixed: root 76 focused checks pass.
- |    Full output auditor: 2 positives and 37 failure checks pass.
- |    Claude selected for repair: 17/20 versus Grok 15/20.
- |    Selected source integrated. Separate metadata repair applied.
- |    Integrated 32 tests, 9 admissions, old 44, shared 20 pass.
- |    Artifact audit passes 39 controls. Real preflight CLI passes.
- |    Next: actual texture scan and independent body audit.
+[V] Texture availability: all 178 actual bodies verified.
+ |    Claude selected: 17/20 versus Grok 15/20. Both released.
+ |    Integrated repair: 32 new tests, 9 admissions, old 44 pass.
+ |    Shared 20 and auditor 39 checks pass. Real preflight passes.
+ |    All 181 responses independently checked; no missing texture.
+ |    171 BMP prefixes match; 7 TGA headers pass all checks.
+ |    Reader closed cleanly. Inputs and original game preserved.
+ |    Next: actual image decode, model compile and map rendering.
  |
  +-- [V] Other 28 GPF patch tables: corrected tool verified.
  |        Root reference: all 5,742 raw records checked.
