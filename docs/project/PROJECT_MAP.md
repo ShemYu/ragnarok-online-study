@@ -135,7 +135,8 @@ CURRENT WORK: October assets and missing maps
  |    Production movement policy stays open.
  |    Parallel: actual Claude/Grok full 82-gap ledger pair is running.
  |    All 63 catalogs / 408,794 rows root-checked. No map gap closes yet.
- |    Normal repair pair preserves Chinese bytes. Full snapshot is next.
+ |    Normal repair pair preserves Chinese bytes. Full Chinese source snapshot passes.
+ |    Next: full payload, separate world, normal entry and save.
  |
  +-- [V] Other 28 GPF patch tables: corrected tool verified.
  |        Root reference: all 5,742 raw records checked.

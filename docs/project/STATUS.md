@@ -27,8 +27,9 @@ Current independent lanes:
   complete map files match. The [actual source owner module](reviews/2026-10-22-T07.007.012.003.md#actual-source-owner-module-and-twelve-bodies-qualify)
   also passes twelve bodies, same-reader reuse and normal shutdown. The
   [selected normal repair pair preserves the Chinese baseline exactly](reviews/2026-10-22-T07.007.012.004.md#exact-normal-repair-pair-selected-and-inverse-verified).
-  Next freeze current Chinese mods/full payload and a third fresh world for
-  full main/normal entry/save.
+  The [complete Chinese source snapshot qualifies](reviews/2026-10-22-T07.007.012.004.md#actual-complete-source-snapshot-qualifies):
+  31 exact files, six mod manifests and both ON/OFF lists preserved. Next bind
+  full payload and a third fresh world for full main/normal entry/save.
 - **Movement policy:** [corrected source-plan comparison](reviews/2026-10-22-T07.007.013.md#corrected-source-plan-comparison-qualified)
   is self_verified, Grok 17/20 basis versus Claude 15/20; both workers are
   preserved/released. Production mapping remains unselected. Actual served
