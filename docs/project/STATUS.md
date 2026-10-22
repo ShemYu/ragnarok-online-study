@@ -13,9 +13,13 @@ Current independent lanes:
   and [the actual independent pair starts at a6aa0cf](reviews/2026-10-22-T10.001.md#actual-independent-research-pair-launched).
   [Claude submits/preserves/releases](reviews/2026-10-22-T10.001.md#claude-submission-preserved-root-claim-review-pending);
   [Grok also submits/preserves/releases](reviews/2026-10-22-T10.001.md#grok-submission-preserved-both-workers-released).
-  Root has read both reports; primary-claim corrections and comparison remain.
-  Find verifiable reusable Chapter1 quest
-  implementations or expose missing mechanics and estimate a faithful repair.
+  [Root source corrections/comparison qualify](reviews/2026-10-22-T10.001.md#root-source-corrections-and-bounded-comparison-qualify):
+  Claude17/20 planning basis vs Grok13/20, neither raw report accepted unchanged.
+  All1178 current-upstream NPC blobs are checked; no explicit Chapter1 footprint.
+  Existing item/reward/constants scaffolding is confirmed;92 commented monster
+  declarations do not implement spawns. No reusable verified story source found
+  within the bounded search. Next fixed client quest/text/resource inventory
+  and Taiwan guide panels; no full-game schedule or delivery promise follows.
   This prepares T10 in parallel with T07; no scope change or story/play PASS.
 
 - **Rendering / capture repair:** repaired roots, mu and edge pass complete

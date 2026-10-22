@@ -57,7 +57,11 @@ Latest verified work (22 Oct):
   [~] Normal dependency loading, story routes and play remain.
       Installed scripts: 1185 NPC files and 94 config files checked.
       17 configs select 841 sources; mounts match. No Chapter 1 references.
-      Story implementation risk needs repair feasibility; goal unchanged.
+  [V] Story feasibility pair checked: Claude 17/20, Grok 13/20.
+      Existing reward data found; quest scripts are still missing evidence.
+      All 1178 current upstream NPC files checked; no Chapter 1 references.
+      Next: recover client quest/text data and read Taiwan guide panels.
+      Story implementation remains a schedule risk; goal unchanged.
   [~] Fruit scene: full render still fails one model fetch.
       Plans compared: Claude 17/20 vs Grok 16/20. Diagnostic gates next.
   Parent checkpoints: 4 / 14 = about 29%. Full game remains open.

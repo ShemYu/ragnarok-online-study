@@ -76,6 +76,17 @@ and verification work; a reduced interim release would change the first mileston
 and requires the user's explicit decision. No reduced release, chapter exclusion,
 party-only classification or revised delivery promise is selected.
 
+[The corrected paired feasibility review](reviews/2026-10-22-T10.001.md#root-source-corrections-and-bounded-comparison-qualify)
+now verifies all1178 current-upstream NPC blobs without an explicit Chapter1
+footprint. Existing item/reward/constants scaffolding is present; it is not a
+quest implementation. No verified reusable licensed story source is found in
+the bounded search. Worker estimates cover different entry/main-quest scopes
+and remain low-confidence scenarios; they are not a full-game budget or date.
+Next inspect existing client quest/text/resource data and unread Taiwan guide
+panels to define a faithful repair. Rendering/movement proceed independently.
+The full goal and4/14 parent count are unchanged; no hardware purchase is needed
+for the current checks.
+
 Internet remains connected at the user's instruction. [Calibrated connected metrics](reviews/2026-10-18-T04.004.md) demonstrate local traffic and a guest-NAT blind spot in host per-process counters; quiet counters cannot establish full offline operation. Earlier guest-only denial/play is limited separate evidence. Do not disconnect the Mac or mark full host/browser offline proof passed.
 
 ## Historical starting state before T01–T05
