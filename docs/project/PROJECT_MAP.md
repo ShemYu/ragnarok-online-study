@@ -18,7 +18,7 @@ Map loading            [Chapter 1 test passes; fruit test is open]
 Quest file inventory   [PASS: all 3 files checked]
 Server + file binding  [PASS: current owner and 21 file checks]
 Active quest records   [NEXT: observe an owned test client]
-Existing text recovery [IN WORK: verify both submitted candidates]
+Existing text recovery [IN WORK: both checked; test actual records next]
 Missing story scripts  [OPEN: largest content risk]
 Full game test         [LATER: 82 functional resource gaps remain]
 
@@ -117,7 +117,8 @@ Latest verified work (23 Oct):
       Root: 8 authored groups and 18 shared groups pass.
       Six extra input/error checks fail; candidate is held for repair.
       Grok is saved; both worker terminals are closed.
-      Next: Root verifies Grok with the same checks before selection.
+      Root Grok: 9 own, 18 shared and all 6 extra checks pass.
+      Next: test both on actual records, then select and integrate.
       No actual quest text, integration or story pass yet.
   [V] Official guide panels checked in parallel: side/daily tasks found.
       Three later cards use another map; next search must include it.

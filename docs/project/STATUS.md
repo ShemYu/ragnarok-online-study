@@ -38,7 +38,9 @@ No candidate selected or actual text decoded.
 [Claude passes the actual18common groups/100calls](reviews/2026-10-23-T10.004.md#claude-passes-the-actual-shared-authored-controls);
 the six extra refusal failures remain.
 [Grok's original candidate is preserved and both workers are released](reviews/2026-10-23-T10.004.md#grok-submission-preserved-and-all-current-workers-released).
-Next complete Root Grok source/suite/common/extra checks, then repair/comparison.
+[Root completes Grok source review and9own/18common/6extra checks: all pass](reviews/2026-10-23-T10.004.md#grok-complete-source-review-and-all-authored-checks-qualify).
+Grok leads this authored stage; next equal guarded actual152-record calls and
+independent complete trace/projection audit before final selection/integration.
 Reuse Chinese resources; functionality/story evidence first. No verified
 server Chapter1 story implementation, resource-winner or Chinese projection yet.
 
