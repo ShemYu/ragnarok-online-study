@@ -1,0 +1,4495 @@
+{
+  "schema": "T07.007.014-gap-name-ledger-profile-1",
+  "task": "T07.007.014",
+  "metadata_only": true,
+  "inputs": [
+    {
+      "path": ".tools/renewal/t06-map-gap-plans-1/gaps.json",
+      "bytes": 93349,
+      "sha256": "8cadd3aec2dd312854c72a9fd076640b7f11133e67fb381b917117848741ddf1"
+    },
+    {
+      "path": ".tools/renewal/t06-map-gap-preparation-1/root-metadata-2/report.json",
+      "bytes": 66556,
+      "sha256": "18c6ba3af7c8adf9845383f290a8a7f7b7b7ef70322d5c727c2188164de80a57"
+    },
+    {
+      "path": ".tools/renewal/t06-map-core-preparation-1/native-all-cache-map-1/report.json",
+      "bytes": 6148485,
+      "sha256": "b4d60b663ac9cb7245608fa3c6c1d106f3a4e582a592c9fafbb7e2a6bb2959e3"
+    },
+    {
+      "path": ".tools/renewal/t06-map-core-preparation-1/root-corpus-verification-2/root-result.json",
+      "bytes": 2732,
+      "sha256": "41299dab3844df45fc00db0154dd212716f774e7f2676e93415494dbe83ca0c0"
+    },
+    {
+      "path": ".tools/renewal/t06-archive-candidates/integrated-2/catalog-manifest.json",
+      "bytes": 14774,
+      "sha256": "95d227e8b7b46163260d6488e76d4e2da4b59020a7641bcd3f718ba8d4005b84"
+    },
+    {
+      "path": ".tools/renewal/t06-archive-candidates/integrated-2/catalog-complete.json",
+      "bytes": 511,
+      "sha256": "a9cbb85e2b6108b013f1914b11b5036d4673c8344e5a93625599edaeab18feff"
+    },
+    {
+      "path": ".tools/renewal/t07-007-001-integrated-root-qualification-1/inventory-2/inventory-manifest.json",
+      "bytes": 18659,
+      "sha256": "f61fbbb92dbc9ba105dd0daa6c1d67451e03ef79b3633091073ffea42f314b8f"
+    },
+    {
+      "path": ".tools/renewal/t07-007-001-integrated-root-qualification-1/inventory-2/inventory-complete.json",
+      "bytes": 627,
+      "sha256": "067976477de77aa194b039b9dbdba2ce286c292b05ed68816ade93dec1e2f0e6"
+    },
+    {
+      "path": ".tools/renewal/t07-007-007-reference-preparation-1/reference-run-1/reference-manifest.json",
+      "bytes": 51452,
+      "sha256": "762fbd9c1ea13eb81ecf277f1ac59988d02efa6836acc431c516dc55ed6e1086"
+    },
+    {
+      "path": ".tools/renewal/t07-007-007-reference-preparation-1/reference-run-1/reference-complete.json",
+      "bytes": 208,
+      "sha256": "dd8df02e7d1d52c0a0640f08904cc79f3bbfb392e46c6f5c4955ba6265b49b06"
+    },
+    {
+      "path": ".tools/renewal/t07-007-007-reference-qualification-1/actual-audit.json",
+      "bytes": 1673,
+      "sha256": "67823f8c99e12a69149dc18e6c370ab07b90dece354f5c4192e995c13aeaefd7"
+    },
+    {
+      "path": ".tools/renewal/t07-007-patch-name-root-1/receipt.json",
+      "bytes": 10601,
+      "sha256": "10ccbf3d9b8a080a055e2c5dde8ee132ffb9c24cac8821c501a75717d8a3f947"
+    },
+    {
+      "path": ".tools/renewal/t07-007-patch-name-root-1/unchanged-core-parity.json",
+      "bytes": 3232,
+      "sha256": "3d76332b9a832b37654eb1ae86bee8735e1997060c02687366bd47ab457bd73f"
+    },
+    {
+      "path": ".tools/renewal/t07-007-007-frozen-input-1/input-manifest.json",
+      "bytes": 51345,
+      "sha256": "f8cadabafd1e7351499882146f4674d9cf2564c279e3ce1e7306b296c408b0a8"
+    },
+    {
+      "path": ".tools/renewal/t07-007-007-root-admission-1/admission.json",
+      "bytes": 94572,
+      "sha256": "7b0855a88f2b0c038db7591c070c05ba4ce508623e0955c64baf355988cee9d1"
+    },
+    {
+      "path": ".tools/renewal/t07-007-rgz-batch-reference-preparation-1/remaining28-proposed-v2-1/report.json",
+      "bytes": 100125,
+      "sha256": "6ac78beb09be926a7d565e48c172d316aeb8db2bae7940a1211bad1893865b2d"
+    },
+    {
+      "path": ".tools/renewal/t07-007-rgz-batch-reference-preparation-1/remaining28-proposed-v2-1/records.jsonl",
+      "bytes": 7168,
+      "sha256": "0057667a2b674a771e95829081f279c7c8972a3b7cc869dfefa55887f4924ab4"
+    },
+    {
+      "path": ".tools/renewal/t07-007-rgz-batch-audit-preparation-1/root-actual-audit-1/root-receipt.json",
+      "bytes": 7511,
+      "sha256": "eb7c96c159eab18629e8d69c3866e77debe3aa52fb480780815506812a399c22"
+    },
+    {
+      "path": ".tools/renewal/t07-007-rgz-pure-runner-preparation-1/fixed-9302-1/report.json",
+      "bytes": 4887,
+      "sha256": "c79e7e257b2a416487bb41fcfa4da8acbf1841f623dfa623e5f929bc6300efe3"
+    },
+    {
+      "path": ".tools/renewal/t07-007-rgz-pure-runner-preparation-1/root-actual-artifact-audit-2.json",
+      "bytes": 658,
+      "sha256": "98bd9c50315aa3658b24a0b8337a3a6c0cec818e01f316a1ce2c802f1235e8e1"
+    },
+    {
+      "path": ".tools/renewal/t06-archive-candidates/integrated-2/event.grf.records.jsonl",
+      "bytes": 46514,
+      "sha256": "d75c3ba55ffaa519b2ae4f50f9affbddc034bbd0d5daf5d2b5fca8414f7adca4"
+    },
+    {
+      "path": ".tools/renewal/t06-archive-candidates/integrated-2/data0.grf.records.jsonl",
+      "bytes": 104967698,
+      "sha256": "52fe5b6795820aea6ed8c414da5976691f7805593377f94c455f4da0faa2a0ec"
+    },
+    {
+      "path": ".tools/renewal/t06-archive-candidates/integrated-2/data.grf.records.jsonl",
+      "bytes": 88516898,
+      "sha256": "09757b373fcc6534d0f5eeb9123daef9d0fdb955e91d818ff135f44cf88ae9ad"
+    },
+    {
+      "path": ".tools/renewal/t07-007-001-integrated-root-qualification-1/inventory-2/data.grf.records.jsonl",
+      "bytes": 93735815,
+      "sha256": "852a153764cf4767e811cd185de5fc2a132c2120fff18b11600c6057111d08ca"
+    },
+    {
+      "path": ".tools/renewal/t07-007-patch-name-root-1/9298.records.jsonl",
+      "bytes": 6770307,
+      "sha256": "02a3f5bbd677f80c9c227929aa96f08d29b150c6df39286760a625bca9d85b79"
+    },
+    {
+      "path": ".tools/renewal/t07-007-rgz-batch-reference-preparation-1/remaining28-proposed-v2-1/00-9299/records.jsonl",
+      "bytes": 16904,
+      "sha256": "54db4ec252a6706f41e1bf866c4add4a35c326501a8cbcea233d731e9afe1865"
+    },
+    {
+      "path": ".tools/renewal/t07-007-rgz-pure-runner-preparation-1/fixed-9302-1/records.jsonl",
+      "bytes": 1997,
+      "sha256": "18ed981b35ab4b1c1a226817bdef23a035c55a69e899c07ac1280bfc87b9aa44"
+    },
+    {
+      "path": ".tools/renewal/t07-007-patch-name-root-1/9303.records.jsonl",
+      "bytes": 6785,
+      "sha256": "acd07f69d9238f8626c105afe8ac82f8918e55fcb204025f9256310d84debb48"
+    },
+    {
+      "path": ".tools/renewal/t07-007-007-reference-preparation-1/reference-run-1/9305.records.jsonl",
+      "bytes": 8044,
+      "sha256": "9bd9c6e9b33c41e260780baff11754cef43d34b87b6125b58f1e8f69e9806f46"
+    },
+    {
+      "path": ".tools/renewal/t07-007-rgz-batch-reference-preparation-1/remaining28-proposed-v2-1/01-9306/records.jsonl",
+      "bytes": 2196,
+      "sha256": "29e8a938440b15178ffb4192726a616d23e932ce46fa95a4464c1578321d1964"
+    },
+    {
+      "path": ".tools/renewal/t07-007-rgz-batch-reference-preparation-1/remaining28-proposed-v2-1/02-9308/records.jsonl",
+      "bytes": 1513,
+      "sha256": "c2d8155972d85992b96fc30371bf753d1e87430ab457c5ba332e011a8012eea4"
+    },
+    {
+      "path": ".tools/renewal/t07-007-007-reference-preparation-1/reference-run-1/9310.records.jsonl",
+      "bytes": 4504,
+      "sha256": "5df987d87dfda875dce248684cff18c257a18cec56e6b2473c0519902a4f298a"
+    },
+    {
+      "path": ".tools/renewal/t07-007-007-reference-preparation-1/reference-run-1/9311.records.jsonl",
+      "bytes": 2187,
+      "sha256": "421d180d70c8855b0f62a6437e3477fa361c8b7ba034898fa74036c8ca2e991e"
+    },
+    {
+      "path": ".tools/renewal/t07-007-007-reference-preparation-1/reference-run-1/9312.records.jsonl",
+      "bytes": 6764,
+      "sha256": "4ada1d4acaf8e00b5623d5ce40e164f2c112c0855770f362ff23bf206d1a15bb"
+    },
+    {
+      "path": ".tools/renewal/t07-007-rgz-batch-reference-preparation-1/remaining28-proposed-v2-1/03-9313/records.jsonl",
+      "bytes": 1513,
+      "sha256": "6ca3cd562385ae9c889f4fa7bbb389cb4882920b138e03837dde92a987ba64e8"
+    },
+    {
+      "path": ".tools/renewal/t07-007-007-reference-preparation-1/reference-run-1/9316.records.jsonl",
+      "bytes": 4568,
+      "sha256": "d9190d43821406e0361f40c9b9b95b01d21b0e0bbab9e410d90523440fdd0da1"
+    },
+    {
+      "path": ".tools/renewal/t07-007-rgz-batch-reference-preparation-1/remaining28-proposed-v2-1/04-9317/records.jsonl",
+      "bytes": 1560,
+      "sha256": "c072f392596fab5da5983d4d239afde6cd3d674f7fd07e615d26f33f110d0923"
+    },
+    {
+      "path": ".tools/renewal/t07-007-007-reference-preparation-1/reference-run-1/9319.records.jsonl",
+      "bytes": 4450,
+      "sha256": "a47cb2bd8a775d963bf5022eec8e83a98ba60c1ceb7ea77ee09c279abe48c9b8"
+    },
+    {
+      "path": ".tools/renewal/t07-007-007-reference-preparation-1/reference-run-1/9320.records.jsonl",
+      "bytes": 896429,
+      "sha256": "7d1306bd49406d0e78bba470aa4c546e75f05038cae912461d96737949f793a5"
+    },
+    {
+      "path": ".tools/renewal/t07-007-rgz-batch-reference-preparation-1/remaining28-proposed-v2-1/05-9321/records.jsonl",
+      "bytes": 1513,
+      "sha256": "42e23fba40b5bbc739f9888886fd2b8cf1db0b32eea0df2b50118879b3ef5674"
+    },
+    {
+      "path": ".tools/renewal/t07-007-007-reference-preparation-1/reference-run-1/9323.records.jsonl",
+      "bytes": 5623,
+      "sha256": "80ba0600427e1706641557ea6d584059efed4bff663e8761c0f6c7cfdc907405"
+    },
+    {
+      "path": ".tools/renewal/t07-007-007-reference-preparation-1/reference-run-1/9324.records.jsonl",
+      "bytes": 3344,
+      "sha256": "b086c1c1d5d6e6e78f805a8fbfec5f541142d94209c2cb935819079512a5b9ec"
+    },
+    {
+      "path": ".tools/renewal/t07-007-007-reference-preparation-1/reference-run-1/9326.records.jsonl",
+      "bytes": 11214,
+      "sha256": "8abf9144f6a70c3839e3cd303de3bbf77d329b7b8e118d6b66a6b76bf6342408"
+    },
+    {
+      "path": ".tools/renewal/t07-007-rgz-batch-reference-preparation-1/remaining28-proposed-v2-1/06-9327/records.jsonl",
+      "bytes": 1513,
+      "sha256": "e3cd255e9473d8cfc1064b2e5886e3676a7da5fd6b5359331eff3f225335bc79"
+    },
+    {
+      "path": ".tools/renewal/t07-007-rgz-batch-reference-preparation-1/remaining28-proposed-v2-1/07-9329/records.jsonl",
+      "bytes": 1513,
+      "sha256": "57a06e0f2161e2a60edb72ea41c11123bc4d585e6aa3bf99355700e607c10a6c"
+    },
+    {
+      "path": ".tools/renewal/t07-007-007-reference-preparation-1/reference-run-1/9332.records.jsonl",
+      "bytes": 19562,
+      "sha256": "58b4cc378b96b706c10c00b97102aa33b1b265f71bf0599d91b22c7ee42e9ff3"
+    },
+    {
+      "path": ".tools/renewal/t07-007-rgz-batch-reference-preparation-1/remaining28-proposed-v2-1/08-9333/records.jsonl",
+      "bytes": 3300,
+      "sha256": "f40c0790c2cf7847089db13875d39fce6144295fdf226d3fb35b79de0e0b8e3c"
+    },
+    {
+      "path": ".tools/renewal/t07-007-007-reference-preparation-1/reference-run-1/9337.records.jsonl",
+      "bytes": 6869,
+      "sha256": "de8dc204d6a626a2481b1c56acfc7f5dbdfcce51348002fa7a51ca348cfb4fa6"
+    },
+    {
+      "path": ".tools/renewal/t07-007-rgz-batch-reference-preparation-1/remaining28-proposed-v2-1/09-9338/records.jsonl",
+      "bytes": 2196,
+      "sha256": "ea619dd678000f24376b0fc4e569e61d384f7596dcf5cb6b3d2fbebcedc96942"
+    },
+    {
+      "path": ".tools/renewal/t07-007-007-reference-preparation-1/reference-run-1/9340.records.jsonl",
+      "bytes": 896759,
+      "sha256": "65732a3489fd5a098a07dfa268f4b895996791973ad05b27538b868b94bf65ee"
+    },
+    {
+      "path": ".tools/renewal/t07-007-rgz-batch-reference-preparation-1/remaining28-proposed-v2-1/10-9341/records.jsonl",
+      "bytes": 3456,
+      "sha256": "57fde8316077449dccd34052322de46d2bd45b0806960c340cd9de10e7457931"
+    },
+    {
+      "path": ".tools/renewal/t07-007-rgz-batch-reference-preparation-1/remaining28-proposed-v2-1/11-9343/records.jsonl",
+      "bytes": 1565,
+      "sha256": "078548906c0743f444bca0046f90c04feff59f48d63a647390ef304698355847"
+    },
+    {
+      "path": ".tools/renewal/t07-007-007-reference-preparation-1/reference-run-1/9345.records.jsonl",
+      "bytes": 5643,
+      "sha256": "b7327af15e71f9521459bc221ba6b9196d8aa6282339a01ab6d3d47bd71af184"
+    },
+    {
+      "path": ".tools/renewal/t07-007-rgz-batch-reference-preparation-1/remaining28-proposed-v2-1/12-9347/records.jsonl",
+      "bytes": 2196,
+      "sha256": "876ec1f48163c409ec8bd886e55cd2dfdb5057b6e21686ab94db5e49a0aefc20"
+    },
+    {
+      "path": ".tools/renewal/t07-007-007-reference-preparation-1/reference-run-1/9349.records.jsonl",
+      "bytes": 456742,
+      "sha256": "46acf1bfe6c5bbf4353818306e3875cd64b3a5ecbd8c4f1b59efd26432a00bfe"
+    },
+    {
+      "path": ".tools/renewal/t07-007-rgz-batch-reference-preparation-1/remaining28-proposed-v2-1/13-9350/records.jsonl",
+      "bytes": 2196,
+      "sha256": "d1a6a1f347f44dc1f310e7ab8ff6696c63e4a19544d5fb216ad7f2fa14902855"
+    },
+    {
+      "path": ".tools/renewal/t07-007-rgz-batch-reference-preparation-1/remaining28-proposed-v2-1/14-9352/records.jsonl",
+      "bytes": 1513,
+      "sha256": "5ec132fd3f6ea9e3d88e4a514ebffbb775e428a4d9d3d7e59249ecf94e06de7e"
+    },
+    {
+      "path": ".tools/renewal/t07-007-007-reference-preparation-1/reference-run-1/9354.records.jsonl",
+      "bytes": 1103,
+      "sha256": "0355962d027c3e6ff3b3414dd8135dfb0e4f3ca18557dcbf118c7bbefd6447c6"
+    },
+    {
+      "path": ".tools/renewal/t07-007-rgz-batch-reference-preparation-1/remaining28-proposed-v2-1/15-9355/records.jsonl",
+      "bytes": 1513,
+      "sha256": "c71ceabc3119c52d6d2cc4d079e7bce2f20dd78e16e1a441c0b247d9f5367b52"
+    },
+    {
+      "path": ".tools/renewal/t07-007-007-reference-preparation-1/reference-run-1/9357.records.jsonl",
+      "bytes": 915725,
+      "sha256": "3b37bf938f7a5ec6a835629eac33a86bbc671a1b6e2833bc3d6bd00b9af19f23"
+    },
+    {
+      "path": ".tools/renewal/t07-007-rgz-batch-reference-preparation-1/remaining28-proposed-v2-1/16-9358/records.jsonl",
+      "bytes": 96013,
+      "sha256": "41323bc6644e4dadf2a3514adefc6c00900e9a0aeeebca93a6b5a18db14002c1"
+    },
+    {
+      "path": ".tools/renewal/t07-007-007-reference-preparation-1/reference-run-1/9360.records.jsonl",
+      "bytes": 12277,
+      "sha256": "9bc24a8f66339f9349a5c29393fc29c6e8acf5827d79069169e9940c38a9deb1"
+    },
+    {
+      "path": ".tools/renewal/t07-007-rgz-batch-reference-preparation-1/remaining28-proposed-v2-1/17-9361/records.jsonl",
+      "bytes": 2196,
+      "sha256": "f08cb894747cdd075417580c50fbc104b920fe1b50b7805caeab40b75eec9bed"
+    },
+    {
+      "path": ".tools/renewal/t07-007-007-reference-preparation-1/reference-run-1/9363.records.jsonl",
+      "bytes": 1084422,
+      "sha256": "7519dd9cd6e71860a4dc4beae8a472c2d72e07999ba14618e6d2d159af84c5c5"
+    },
+    {
+      "path": ".tools/renewal/t07-007-rgz-batch-reference-preparation-1/remaining28-proposed-v2-1/18-9364/records.jsonl",
+      "bytes": 9206,
+      "sha256": "43d8a8a78543bc42f8b07c7c27ee3c59ee8be16e52d2103af2f4582692d0d988"
+    },
+    {
+      "path": ".tools/renewal/t07-007-rgz-batch-reference-preparation-1/remaining28-proposed-v2-1/19-9365/records.jsonl",
+      "bytes": 1016,
+      "sha256": "91bfe058d31c81c98e4d4122134608569512708b5b273b1c333ce8e2dab99916"
+    },
+    {
+      "path": ".tools/renewal/t07-007-007-reference-preparation-1/reference-run-1/9367.records.jsonl",
+      "bytes": 6833,
+      "sha256": "ff73ea1b7ac866784cf5cf7b1cfa51f0eb4ee01b7cb7667a5720a9c01dd4fcc0"
+    },
+    {
+      "path": ".tools/renewal/t07-007-007-reference-preparation-1/reference-run-1/9369.records.jsonl",
+      "bytes": 4493,
+      "sha256": "4c85d5daed5d4e77dc0c91ea50c247af5aa7ced5d7a3b2c9bae11eaa96010db0"
+    },
+    {
+      "path": ".tools/renewal/t07-007-rgz-batch-reference-preparation-1/remaining28-proposed-v2-1/20-9370/records.jsonl",
+      "bytes": 2890,
+      "sha256": "d60b29a9fc7314ff7bce067391128599dbc4263deaed8e6327ceef36673e99d3"
+    },
+    {
+      "path": ".tools/renewal/t07-007-rgz-batch-reference-preparation-1/remaining28-proposed-v2-1/21-9372/records.jsonl",
+      "bytes": 1513,
+      "sha256": "be5a9aa1fc0ccaed4ae8a2cdf42c65bc65527fa0d5e2502b731a97e3b5f2ffd9"
+    },
+    {
+      "path": ".tools/renewal/t07-007-rgz-batch-reference-preparation-1/remaining28-proposed-v2-1/22-9374/records.jsonl",
+      "bytes": 2196,
+      "sha256": "0ce05353197234b0c59c6e41d604e14776ce91877d30ab2c89b03192a11c47fc"
+    },
+    {
+      "path": ".tools/renewal/t07-007-rgz-batch-reference-preparation-1/remaining28-proposed-v2-1/23-9376/records.jsonl",
+      "bytes": 1513,
+      "sha256": "7fa249cb232d8e518b320bd0cd20794b8b1961f22a2305ddc7d011a5e75c6c60"
+    },
+    {
+      "path": ".tools/renewal/t07-007-007-reference-preparation-1/reference-run-1/9378.records.jsonl",
+      "bytes": 2365773,
+      "sha256": "cd2491f9cf21c7639d7febe49601e450534cc847c9ea4aceba0a024e83eb38f9"
+    },
+    {
+      "path": ".tools/renewal/t07-007-rgz-batch-reference-preparation-1/remaining28-proposed-v2-1/24-9379/records.jsonl",
+      "bytes": 4461,
+      "sha256": "2bd6a42c3c240a39f385da302c3552767821eb678bdeccf258398147da40e19d"
+    },
+    {
+      "path": ".tools/renewal/t07-007-007-reference-preparation-1/reference-run-1/9381.records.jsonl",
+      "bytes": 10073,
+      "sha256": "e02b9c23b7ac9c974a535e429c7bff2c796559098c988b45e02121bf47efc41f"
+    },
+    {
+      "path": ".tools/renewal/t07-007-rgz-batch-reference-preparation-1/remaining28-proposed-v2-1/25-9382/records.jsonl",
+      "bytes": 2117,
+      "sha256": "8acc206817b27a65dbe11ee55caaa58d14d2ffc3420c993413905aec30ebbf4f"
+    },
+    {
+      "path": ".tools/renewal/t07-007-007-reference-preparation-1/reference-run-1/9384.records.jsonl",
+      "bytes": 4568,
+      "sha256": "d6b07612e54cf4cb3ab5c49352d791c9ab90e8409ba6d000be2b5190b6c24028"
+    },
+    {
+      "path": ".tools/renewal/t07-007-007-reference-preparation-1/reference-run-1/9385.records.jsonl",
+      "bytes": 4568,
+      "sha256": "33cbd1e69c69059e191710b6d90e0c78728314ecb53ae25cbcbf35af9c85b151"
+    },
+    {
+      "path": ".tools/renewal/t07-007-007-reference-preparation-1/reference-run-1/9386.records.jsonl",
+      "bytes": 1103,
+      "sha256": "3ab33112a0089225d07ddf536fc833633bad514741f5a153b69b17ba103444de"
+    },
+    {
+      "path": ".tools/renewal/t07-007-rgz-batch-reference-preparation-1/remaining28-proposed-v2-1/26-9387/records.jsonl",
+      "bytes": 1513,
+      "sha256": "01decc5f4f5cc3ee57b81812265fc5047705a7369686308f60ab69e4cb9c7646"
+    },
+    {
+      "path": ".tools/renewal/t07-007-007-reference-preparation-1/reference-run-1/9389.records.jsonl",
+      "bytes": 1103,
+      "sha256": "74dd3849ea4ff1559bad1cfb3ae57a2fc31add14e39e1083f5e4029e88b5e6f6"
+    },
+    {
+      "path": ".tools/renewal/t07-007-rgz-batch-reference-preparation-1/remaining28-proposed-v2-1/27-9390/records.jsonl",
+      "bytes": 999,
+      "sha256": "a55cc54df67dab21db174bf9e95a741c22db42e0301605fa04c3eed783dcd4e3"
+    },
+    {
+      "path": ".tools/renewal/t07-007-007-reference-preparation-1/reference-run-1/9391.records.jsonl",
+      "bytes": 4568,
+      "sha256": "f41a75ccc49669b3fe851d6966a292e19a7d5b28e27f2f026bc2c3bd74ea6b66"
+    }
+  ],
+  "metadata_inputs": [
+    {
+      "path": ".tools/renewal/t06-map-gap-plans-1/gaps.json",
+      "bytes": 93349,
+      "sha256": "8cadd3aec2dd312854c72a9fd076640b7f11133e67fb381b917117848741ddf1"
+    },
+    {
+      "path": ".tools/renewal/t06-map-gap-preparation-1/root-metadata-2/report.json",
+      "bytes": 66556,
+      "sha256": "18c6ba3af7c8adf9845383f290a8a7f7b7b7ef70322d5c727c2188164de80a57"
+    },
+    {
+      "path": ".tools/renewal/t06-map-core-preparation-1/native-all-cache-map-1/report.json",
+      "bytes": 6148485,
+      "sha256": "b4d60b663ac9cb7245608fa3c6c1d106f3a4e582a592c9fafbb7e2a6bb2959e3"
+    },
+    {
+      "path": ".tools/renewal/t06-map-core-preparation-1/root-corpus-verification-2/root-result.json",
+      "bytes": 2732,
+      "sha256": "41299dab3844df45fc00db0154dd212716f774e7f2676e93415494dbe83ca0c0"
+    },
+    {
+      "path": ".tools/renewal/t06-archive-candidates/integrated-2/catalog-manifest.json",
+      "bytes": 14774,
+      "sha256": "95d227e8b7b46163260d6488e76d4e2da4b59020a7641bcd3f718ba8d4005b84"
+    },
+    {
+      "path": ".tools/renewal/t06-archive-candidates/integrated-2/catalog-complete.json",
+      "bytes": 511,
+      "sha256": "a9cbb85e2b6108b013f1914b11b5036d4673c8344e5a93625599edaeab18feff"
+    },
+    {
+      "path": ".tools/renewal/t07-007-001-integrated-root-qualification-1/inventory-2/inventory-manifest.json",
+      "bytes": 18659,
+      "sha256": "f61fbbb92dbc9ba105dd0daa6c1d67451e03ef79b3633091073ffea42f314b8f"
+    },
+    {
+      "path": ".tools/renewal/t07-007-001-integrated-root-qualification-1/inventory-2/inventory-complete.json",
+      "bytes": 627,
+      "sha256": "067976477de77aa194b039b9dbdba2ce286c292b05ed68816ade93dec1e2f0e6"
+    },
+    {
+      "path": ".tools/renewal/t07-007-007-reference-preparation-1/reference-run-1/reference-manifest.json",
+      "bytes": 51452,
+      "sha256": "762fbd9c1ea13eb81ecf277f1ac59988d02efa6836acc431c516dc55ed6e1086"
+    },
+    {
+      "path": ".tools/renewal/t07-007-007-reference-preparation-1/reference-run-1/reference-complete.json",
+      "bytes": 208,
+      "sha256": "dd8df02e7d1d52c0a0640f08904cc79f3bbfb392e46c6f5c4955ba6265b49b06"
+    },
+    {
+      "path": ".tools/renewal/t07-007-007-reference-qualification-1/actual-audit.json",
+      "bytes": 1673,
+      "sha256": "67823f8c99e12a69149dc18e6c370ab07b90dece354f5c4192e995c13aeaefd7"
+    },
+    {
+      "path": ".tools/renewal/t07-007-patch-name-root-1/receipt.json",
+      "bytes": 10601,
+      "sha256": "10ccbf3d9b8a080a055e2c5dde8ee132ffb9c24cac8821c501a75717d8a3f947"
+    },
+    {
+      "path": ".tools/renewal/t07-007-patch-name-root-1/unchanged-core-parity.json",
+      "bytes": 3232,
+      "sha256": "3d76332b9a832b37654eb1ae86bee8735e1997060c02687366bd47ab457bd73f"
+    },
+    {
+      "path": ".tools/renewal/t07-007-007-frozen-input-1/input-manifest.json",
+      "bytes": 51345,
+      "sha256": "f8cadabafd1e7351499882146f4674d9cf2564c279e3ce1e7306b296c408b0a8"
+    },
+    {
+      "path": ".tools/renewal/t07-007-007-root-admission-1/admission.json",
+      "bytes": 94572,
+      "sha256": "7b0855a88f2b0c038db7591c070c05ba4ce508623e0955c64baf355988cee9d1"
+    },
+    {
+      "path": ".tools/renewal/t07-007-rgz-batch-reference-preparation-1/remaining28-proposed-v2-1/report.json",
+      "bytes": 100125,
+      "sha256": "6ac78beb09be926a7d565e48c172d316aeb8db2bae7940a1211bad1893865b2d"
+    },
+    {
+      "path": ".tools/renewal/t07-007-rgz-batch-reference-preparation-1/remaining28-proposed-v2-1/records.jsonl",
+      "bytes": 7168,
+      "sha256": "0057667a2b674a771e95829081f279c7c8972a3b7cc869dfefa55887f4924ab4"
+    },
+    {
+      "path": ".tools/renewal/t07-007-rgz-batch-audit-preparation-1/root-actual-audit-1/root-receipt.json",
+      "bytes": 7511,
+      "sha256": "eb7c96c159eab18629e8d69c3866e77debe3aa52fb480780815506812a399c22"
+    },
+    {
+      "path": ".tools/renewal/t07-007-rgz-pure-runner-preparation-1/fixed-9302-1/report.json",
+      "bytes": 4887,
+      "sha256": "c79e7e257b2a416487bb41fcfa4da8acbf1841f623dfa623e5f929bc6300efe3"
+    },
+    {
+      "path": ".tools/renewal/t07-007-rgz-pure-runner-preparation-1/root-actual-artifact-audit-2.json",
+      "bytes": 658,
+      "sha256": "98bd9c50315aa3658b24a0b8337a3a6c0cec818e01f316a1ce2c802f1235e8e1"
+    }
+  ],
+  "catalogs": [
+    {
+      "catalog_id": "grf-7fff4e0eececd10df9a9c4f83b70d78dc4dbb99c5ece64b117df7db8a2f85575",
+      "family": "grf",
+      "archive_file": "event.grf",
+      "archive_bytes": 5833135,
+      "archive_sha256": "7fff4e0eececd10df9a9c4f83b70d78dc4dbb99c5ece64b117df7db8a2f85575",
+      "patch_index": null,
+      "source_ordinal": null,
+      "memberships": [
+        {
+          "view": "april",
+          "manifest_path": ".tools/renewal/t06-archive-candidates/integrated-2/catalog-manifest.json",
+          "archive_order": 0,
+          "archive_file": "event.grf"
+        },
+        {
+          "view": "october",
+          "manifest_path": ".tools/renewal/t07-007-001-integrated-root-qualification-1/inventory-2/inventory-manifest.json",
+          "archive_order": 2,
+          "archive_file": "event.grf"
+        }
+      ],
+      "records": {
+        "path": ".tools/renewal/t06-archive-candidates/integrated-2/event.grf.records.jsonl",
+        "bytes": 46514,
+        "sha256": "d75c3ba55ffaa519b2ae4f50f9affbddc034bbd0d5daf5d2b5fca8414f7adca4",
+        "rows": 43
+      },
+      "metadata_pointer": "/archives/0",
+      "metadata_path": ".tools/renewal/t06-archive-candidates/integrated-2/catalog-manifest.json",
+      "record_name_field": "name_hex",
+      "record_format": "grf_legacy",
+      "catalog_index": 0
+    },
+    {
+      "catalog_id": "grf-913402ace1d3c67818b4f070650a07eb157a6d62df9e394d596d59b4c7e6678a",
+      "family": "grf",
+      "archive_file": "data0.grf",
+      "archive_bytes": 2123919641,
+      "archive_sha256": "913402ace1d3c67818b4f070650a07eb157a6d62df9e394d596d59b4c7e6678a",
+      "patch_index": null,
+      "source_ordinal": null,
+      "memberships": [
+        {
+          "view": "april",
+          "manifest_path": ".tools/renewal/t06-archive-candidates/integrated-2/catalog-manifest.json",
+          "archive_order": 1,
+          "archive_file": "data0.grf"
+        },
+        {
+          "view": "october",
+          "manifest_path": ".tools/renewal/t07-007-001-integrated-root-qualification-1/inventory-2/inventory-manifest.json",
+          "archive_order": 1,
+          "archive_file": "data0.grf"
+        }
+      ],
+      "records": {
+        "path": ".tools/renewal/t06-archive-candidates/integrated-2/data0.grf.records.jsonl",
+        "bytes": 104967698,
+        "sha256": "52fe5b6795820aea6ed8c414da5976691f7805593377f94c455f4da0faa2a0ec",
+        "rows": 92065
+      },
+      "metadata_pointer": "/archives/1",
+      "metadata_path": ".tools/renewal/t06-archive-candidates/integrated-2/catalog-manifest.json",
+      "record_name_field": "name_hex",
+      "record_format": "grf_legacy",
+      "catalog_index": 1
+    },
+    {
+      "catalog_id": "grf-1c7d68f70714937abbd3741a6b3aea34a7ed9da63428941d5df453efacd1c0ad",
+      "family": "grf",
+      "archive_file": "data.grf",
+      "archive_bytes": 2043560050,
+      "archive_sha256": "1c7d68f70714937abbd3741a6b3aea34a7ed9da63428941d5df453efacd1c0ad",
+      "patch_index": null,
+      "source_ordinal": null,
+      "memberships": [
+        {
+          "view": "april",
+          "manifest_path": ".tools/renewal/t06-archive-candidates/integrated-2/catalog-manifest.json",
+          "archive_order": 2,
+          "archive_file": "data.grf"
+        }
+      ],
+      "records": {
+        "path": ".tools/renewal/t06-archive-candidates/integrated-2/data.grf.records.jsonl",
+        "bytes": 88516898,
+        "sha256": "09757b373fcc6534d0f5eeb9123daef9d0fdb955e91d818ff135f44cf88ae9ad",
+        "rows": 148161
+      },
+      "metadata_pointer": "/archives/2",
+      "metadata_path": ".tools/renewal/t06-archive-candidates/integrated-2/catalog-manifest.json",
+      "record_name_field": "name_hex",
+      "record_format": "grf_v300",
+      "catalog_index": 2
+    },
+    {
+      "catalog_id": "grf-0565853edc5ad4b70e8ad705f5bc88c1af5624ee1b7a252fa81030d2ea813cc6",
+      "family": "grf",
+      "archive_file": "data.grf",
+      "archive_bytes": 2172616301,
+      "archive_sha256": "0565853edc5ad4b70e8ad705f5bc88c1af5624ee1b7a252fa81030d2ea813cc6",
+      "patch_index": null,
+      "source_ordinal": null,
+      "memberships": [
+        {
+          "view": "october",
+          "manifest_path": ".tools/renewal/t07-007-001-integrated-root-qualification-1/inventory-2/inventory-manifest.json",
+          "archive_order": 0,
+          "archive_file": "data.grf"
+        }
+      ],
+      "records": {
+        "path": ".tools/renewal/t07-007-001-integrated-root-qualification-1/inventory-2/data.grf.records.jsonl",
+        "bytes": 93735815,
+        "sha256": "852a153764cf4767e811cd185de5fc2a132c2120fff18b11600c6057111d08ca",
+        "rows": 156800
+      },
+      "metadata_pointer": "/archives/0",
+      "metadata_path": ".tools/renewal/t07-007-001-integrated-root-qualification-1/inventory-2/inventory-manifest.json",
+      "record_name_field": "name_hex",
+      "record_format": "grf_v300",
+      "catalog_index": 3
+    },
+    {
+      "catalog_id": "gpf-9298",
+      "family": "gpf",
+      "archive_file": "2026-08-25_live_client_4340_4349_1787295394.gpf",
+      "archive_bytes": 306097616,
+      "archive_sha256": "70725f6624f947c3096066cc66a07fcd2440adf94137b79561ed2d67843f9f0e",
+      "patch_index": 9298,
+      "source_ordinal": 0,
+      "memberships": [
+        {
+          "view": "suffix59",
+          "patch_index": 9298,
+          "source_ordinal": 0,
+          "source_lf": 4004
+        }
+      ],
+      "records": {
+        "path": ".tools/renewal/t07-007-patch-name-root-1/9298.records.jsonl",
+        "bytes": 6770307,
+        "sha256": "02a3f5bbd677f80c9c227929aa96f08d29b150c6df39286760a625bca9d85b79",
+        "rows": 5702
+      },
+      "metadata_pointer": "/archives/0",
+      "metadata_path": ".tools/renewal/t07-007-patch-name-root-1/receipt.json",
+      "record_name_field": "name_hex",
+      "record_format": "grf_legacy",
+      "catalog_index": 4
+    },
+    {
+      "catalog_id": "rgz-9299",
+      "family": "rgz",
+      "archive_file": "2026-08-25_live_client_4340_4349_1787295394.rgz",
+      "archive_bytes": 18003576,
+      "archive_sha256": "b877e101347404949e618acd7df482e1b75a44b4a8026ec11ec95415c6516b62",
+      "patch_index": 9299,
+      "source_ordinal": 1,
+      "memberships": [
+        {
+          "view": "suffix59",
+          "patch_index": 9299,
+          "source_ordinal": 1,
+          "source_lf": 4005
+        }
+      ],
+      "records": {
+        "path": ".tools/renewal/t07-007-rgz-batch-reference-preparation-1/remaining28-proposed-v2-1/00-9299/records.jsonl",
+        "bytes": 16904,
+        "sha256": "54db4ec252a6706f41e1bf866c4add4a35c326501a8cbcea233d731e9afe1865",
+        "rows": 28
+      },
+      "metadata_pointer": "/ordered_files/0",
+      "metadata_path": ".tools/renewal/t07-007-rgz-batch-reference-preparation-1/remaining28-proposed-v2-1/report.json",
+      "record_name_field": "bounded_name_hex",
+      "record_format": "rgz_d_f_e",
+      "catalog_index": 5
+    },
+    {
+      "catalog_id": "rgz-9302",
+      "family": "rgz",
+      "archive_file": "2026-08-25_live_client_4351_4352_1787527015.rgz",
+      "archive_bytes": 1467,
+      "archive_sha256": "78c68f16d1f9cf6d3f8349f9617f37cef7650000d1d0de2568c234dd228ac0b8",
+      "patch_index": 9302,
+      "source_ordinal": 2,
+      "memberships": [
+        {
+          "view": "suffix59",
+          "patch_index": 9302,
+          "source_ordinal": 2,
+          "source_lf": 4008
+        }
+      ],
+      "records": {
+        "path": ".tools/renewal/t07-007-rgz-pure-runner-preparation-1/fixed-9302-1/records.jsonl",
+        "bytes": 1997,
+        "sha256": "18ed981b35ab4b1c1a226817bdef23a035c55a69e899c07ac1280bfc87b9aa44",
+        "rows": 4
+      },
+      "metadata_pointer": "/selected",
+      "metadata_path": ".tools/renewal/t07-007-rgz-pure-runner-preparation-1/fixed-9302-1/report.json",
+      "record_name_field": "bounded_name_hex",
+      "record_format": "rgz_d_f_e",
+      "catalog_index": 6
+    },
+    {
+      "catalog_id": "gpf-9303",
+      "family": "gpf",
+      "archive_file": "2026-08-25_live_client_4353_4353_1787535130.gpf",
+      "archive_bytes": 86992,
+      "archive_sha256": "03764f614453d2b453a5ab5b552f6af9f66599a3642943566f72cbae6a501d07",
+      "patch_index": 9303,
+      "source_ordinal": 3,
+      "memberships": [
+        {
+          "view": "suffix59",
+          "patch_index": 9303,
+          "source_ordinal": 3,
+          "source_lf": 4009
+        }
+      ],
+      "records": {
+        "path": ".tools/renewal/t07-007-patch-name-root-1/9303.records.jsonl",
+        "bytes": 6785,
+        "sha256": "acd07f69d9238f8626c105afe8ac82f8918e55fcb204025f9256310d84debb48",
+        "rows": 6
+      },
+      "metadata_pointer": "/archives/1",
+      "metadata_path": ".tools/renewal/t07-007-patch-name-root-1/receipt.json",
+      "record_name_field": "name_hex",
+      "record_format": "grf_legacy",
+      "catalog_index": 7
+    },
+    {
+      "catalog_id": "gpf-9305",
+      "family": "gpf",
+      "archive_file": "2026-08-25_live_client_4355_4355_1787535551.gpf",
+      "archive_bytes": 95051,
+      "archive_sha256": "134fa1d6798f0b7712f5f4b44350be197a6716956888eed01f9f5b2f3ef5e53a",
+      "patch_index": 9305,
+      "source_ordinal": 4,
+      "memberships": [
+        {
+          "view": "suffix59",
+          "patch_index": 9305,
+          "source_ordinal": 4,
+          "source_lf": 4011
+        }
+      ],
+      "records": {
+        "path": ".tools/renewal/t07-007-007-reference-preparation-1/reference-run-1/9305.records.jsonl",
+        "bytes": 8044,
+        "sha256": "9bd9c6e9b33c41e260780baff11754cef43d34b87b6125b58f1e8f69e9806f46",
+        "rows": 7
+      },
+      "metadata_pointer": "/archives/0",
+      "metadata_path": ".tools/renewal/t07-007-007-reference-preparation-1/reference-run-1/reference-manifest.json",
+      "record_name_field": "name_hex",
+      "record_format": "grf_legacy",
+      "catalog_index": 8
+    },
+    {
+      "catalog_id": "rgz-9306",
+      "family": "rgz",
+      "archive_file": "2026-08-25_live_client_4359_4360_1787612742.rgz",
+      "archive_bytes": 3333718,
+      "archive_sha256": "a63992ca597efed0a4d8e5eccac60a0027fcaf2b8dcc90d250355b32f9c61530",
+      "patch_index": 9306,
+      "source_ordinal": 5,
+      "memberships": [
+        {
+          "view": "suffix59",
+          "patch_index": 9306,
+          "source_ordinal": 5,
+          "source_lf": 4012
+        }
+      ],
+      "records": {
+        "path": ".tools/renewal/t07-007-rgz-batch-reference-preparation-1/remaining28-proposed-v2-1/01-9306/records.jsonl",
+        "bytes": 2196,
+        "sha256": "29e8a938440b15178ffb4192726a616d23e932ce46fa95a4464c1578321d1964",
+        "rows": 4
+      },
+      "metadata_pointer": "/ordered_files/1",
+      "metadata_path": ".tools/renewal/t07-007-rgz-batch-reference-preparation-1/remaining28-proposed-v2-1/report.json",
+      "record_name_field": "bounded_name_hex",
+      "record_format": "rgz_d_f_e",
+      "catalog_index": 9
+    },
+    {
+      "catalog_id": "rgz-9308",
+      "family": "rgz",
+      "archive_file": "2026-08-25_live_client_4362_4363_1787622796.rgz",
+      "archive_bytes": 2673183,
+      "archive_sha256": "9a4f2f5b81b4725ec00fad426a45205ce0eb72d5edd00392163ec8db57b5b475",
+      "patch_index": 9308,
+      "source_ordinal": 6,
+      "memberships": [
+        {
+          "view": "suffix59",
+          "patch_index": 9308,
+          "source_ordinal": 6,
+          "source_lf": 4014
+        }
+      ],
+      "records": {
+        "path": ".tools/renewal/t07-007-rgz-batch-reference-preparation-1/remaining28-proposed-v2-1/02-9308/records.jsonl",
+        "bytes": 1513,
+        "sha256": "c2d8155972d85992b96fc30371bf753d1e87430ab457c5ba332e011a8012eea4",
+        "rows": 3
+      },
+      "metadata_pointer": "/ordered_files/2",
+      "metadata_path": ".tools/renewal/t07-007-rgz-batch-reference-preparation-1/remaining28-proposed-v2-1/report.json",
+      "record_name_field": "bounded_name_hex",
+      "record_format": "rgz_d_f_e",
+      "catalog_index": 10
+    },
+    {
+      "catalog_id": "gpf-9310",
+      "family": "gpf",
+      "archive_file": "2026-08-25_live_client_4365_4366_1787637699.gpf",
+      "archive_bytes": 88138,
+      "archive_sha256": "dcb8174be13635b448983d97d0bbd1824ffc2e10b03f254fa11c6edfdf35db99",
+      "patch_index": 9310,
+      "source_ordinal": 7,
+      "memberships": [
+        {
+          "view": "suffix59",
+          "patch_index": 9310,
+          "source_ordinal": 7,
+          "source_lf": 4016
+        }
+      ],
+      "records": {
+        "path": ".tools/renewal/t07-007-007-reference-preparation-1/reference-run-1/9310.records.jsonl",
+        "bytes": 4504,
+        "sha256": "5df987d87dfda875dce248684cff18c257a18cec56e6b2473c0519902a4f298a",
+        "rows": 4
+      },
+      "metadata_pointer": "/archives/1",
+      "metadata_path": ".tools/renewal/t07-007-007-reference-preparation-1/reference-run-1/reference-manifest.json",
+      "record_name_field": "name_hex",
+      "record_format": "grf_legacy",
+      "catalog_index": 11
+    },
+    {
+      "catalog_id": "gpf-9311",
+      "family": "gpf",
+      "archive_file": "2026-08-25_live_client_4367_4367_1787651523.gpf",
+      "archive_bytes": 308028,
+      "archive_sha256": "f7a00c68aeb7b7b8e1286ff4ebeca3cca65f6b12054602ee3bb4ee0433835d4d",
+      "patch_index": 9311,
+      "source_ordinal": 8,
+      "memberships": [
+        {
+          "view": "suffix59",
+          "patch_index": 9311,
+          "source_ordinal": 8,
+          "source_lf": 4017
+        }
+      ],
+      "records": {
+        "path": ".tools/renewal/t07-007-007-reference-preparation-1/reference-run-1/9311.records.jsonl",
+        "bytes": 2187,
+        "sha256": "421d180d70c8855b0f62a6437e3477fa361c8b7ba034898fa74036c8ca2e991e",
+        "rows": 2
+      },
+      "metadata_pointer": "/archives/2",
+      "metadata_path": ".tools/renewal/t07-007-007-reference-preparation-1/reference-run-1/reference-manifest.json",
+      "record_name_field": "name_hex",
+      "record_format": "grf_legacy",
+      "catalog_index": 12
+    },
+    {
+      "catalog_id": "gpf-9312",
+      "family": "gpf",
+      "archive_file": "2026-09-02_live_client_4368_4370_1787899470.gpf",
+      "archive_bytes": 355528,
+      "archive_sha256": "efa0d3859c774311006b5b1935b8f7bd5500310d5361d71f970312dcf650af69",
+      "patch_index": 9312,
+      "source_ordinal": 9,
+      "memberships": [
+        {
+          "view": "suffix59",
+          "patch_index": 9312,
+          "source_ordinal": 9,
+          "source_lf": 4018
+        }
+      ],
+      "records": {
+        "path": ".tools/renewal/t07-007-007-reference-preparation-1/reference-run-1/9312.records.jsonl",
+        "bytes": 6764,
+        "sha256": "4ada1d4acaf8e00b5623d5ce40e164f2c112c0855770f362ff23bf206d1a15bb",
+        "rows": 6
+      },
+      "metadata_pointer": "/archives/3",
+      "metadata_path": ".tools/renewal/t07-007-007-reference-preparation-1/reference-run-1/reference-manifest.json",
+      "record_name_field": "name_hex",
+      "record_format": "grf_legacy",
+      "catalog_index": 13
+    },
+    {
+      "catalog_id": "rgz-9313",
+      "family": "rgz",
+      "archive_file": "2026-09-02_live_client_4368_4370_1787899470.rgz",
+      "archive_bytes": 2672629,
+      "archive_sha256": "eb1b2607cd589d0b94cecc5e1f4b9276c850bf99d00a12ecd41f1f224d2b77ac",
+      "patch_index": 9313,
+      "source_ordinal": 10,
+      "memberships": [
+        {
+          "view": "suffix59",
+          "patch_index": 9313,
+          "source_ordinal": 10,
+          "source_lf": 4019
+        }
+      ],
+      "records": {
+        "path": ".tools/renewal/t07-007-rgz-batch-reference-preparation-1/remaining28-proposed-v2-1/03-9313/records.jsonl",
+        "bytes": 1513,
+        "sha256": "6ca3cd562385ae9c889f4fa7bbb389cb4882920b138e03837dde92a987ba64e8",
+        "rows": 3
+      },
+      "metadata_pointer": "/ordered_files/3",
+      "metadata_path": ".tools/renewal/t07-007-rgz-batch-reference-preparation-1/remaining28-proposed-v2-1/report.json",
+      "record_name_field": "bounded_name_hex",
+      "record_format": "rgz_d_f_e",
+      "catalog_index": 14
+    },
+    {
+      "catalog_id": "gpf-9316",
+      "family": "gpf",
+      "archive_file": "2026-09-02_live_client_4372_4373_1788133981.gpf",
+      "archive_bytes": 1234090,
+      "archive_sha256": "65af381fd58cd1ab29c8bad57eed03aea48db3762e739801e84f84dee3881e4b",
+      "patch_index": 9316,
+      "source_ordinal": 11,
+      "memberships": [
+        {
+          "view": "suffix59",
+          "patch_index": 9316,
+          "source_ordinal": 11,
+          "source_lf": 4022
+        }
+      ],
+      "records": {
+        "path": ".tools/renewal/t07-007-007-reference-preparation-1/reference-run-1/9316.records.jsonl",
+        "bytes": 4568,
+        "sha256": "d9190d43821406e0361f40c9b9b95b01d21b0e0bbab9e410d90523440fdd0da1",
+        "rows": 4
+      },
+      "metadata_pointer": "/archives/4",
+      "metadata_path": ".tools/renewal/t07-007-007-reference-preparation-1/reference-run-1/reference-manifest.json",
+      "record_name_field": "name_hex",
+      "record_format": "grf_legacy",
+      "catalog_index": 15
+    },
+    {
+      "catalog_id": "rgz-9317",
+      "family": "rgz",
+      "archive_file": "2026-09-02_live_client_4374_4375_1788151380.rgz",
+      "archive_bytes": 2410,
+      "archive_sha256": "7d97d63ef64c0190b0c31a87548e09c8196fc20475a6adee4ad9a9b65acfbd5a",
+      "patch_index": 9317,
+      "source_ordinal": 12,
+      "memberships": [
+        {
+          "view": "suffix59",
+          "patch_index": 9317,
+          "source_ordinal": 12,
+          "source_lf": 4023
+        }
+      ],
+      "records": {
+        "path": ".tools/renewal/t07-007-rgz-batch-reference-preparation-1/remaining28-proposed-v2-1/04-9317/records.jsonl",
+        "bytes": 1560,
+        "sha256": "c072f392596fab5da5983d4d239afde6cd3d674f7fd07e615d26f33f110d0923",
+        "rows": 3
+      },
+      "metadata_pointer": "/ordered_files/4",
+      "metadata_path": ".tools/renewal/t07-007-rgz-batch-reference-preparation-1/remaining28-proposed-v2-1/report.json",
+      "record_name_field": "bounded_name_hex",
+      "record_format": "rgz_d_f_e",
+      "catalog_index": 16
+    },
+    {
+      "catalog_id": "gpf-9319",
+      "family": "gpf",
+      "archive_file": "2026-09-02_live_client_4377_4378_1788219560.gpf",
+      "archive_bytes": 6410,
+      "archive_sha256": "81ad9aa567cf504f201aabbc633c6f8e5e7bbe11f9aad27aada571bc29bf783a",
+      "patch_index": 9319,
+      "source_ordinal": 13,
+      "memberships": [
+        {
+          "view": "suffix59",
+          "patch_index": 9319,
+          "source_ordinal": 13,
+          "source_lf": 4025
+        }
+      ],
+      "records": {
+        "path": ".tools/renewal/t07-007-007-reference-preparation-1/reference-run-1/9319.records.jsonl",
+        "bytes": 4450,
+        "sha256": "a47cb2bd8a775d963bf5022eec8e83a98ba60c1ceb7ea77ee09c279abe48c9b8",
+        "rows": 4
+      },
+      "metadata_pointer": "/archives/5",
+      "metadata_path": ".tools/renewal/t07-007-007-reference-preparation-1/reference-run-1/reference-manifest.json",
+      "record_name_field": "name_hex",
+      "record_format": "grf_legacy",
+      "catalog_index": 17
+    },
+    {
+      "catalog_id": "gpf-9320",
+      "family": "gpf",
+      "archive_file": "2026-09-08_live_client_4379_4380_1788411377.gpf",
+      "archive_bytes": 5809533,
+      "archive_sha256": "bbdf0873154d6c3e36535c24d8a494ecef634a422d301cf16aa2bb72cbd58cab",
+      "patch_index": 9320,
+      "source_ordinal": 14,
+      "memberships": [
+        {
+          "view": "suffix59",
+          "patch_index": 9320,
+          "source_ordinal": 14,
+          "source_lf": 4026
+        }
+      ],
+      "records": {
+        "path": ".tools/renewal/t07-007-007-reference-preparation-1/reference-run-1/9320.records.jsonl",
+        "bytes": 896429,
+        "sha256": "7d1306bd49406d0e78bba470aa4c546e75f05038cae912461d96737949f793a5",
+        "rows": 757
+      },
+      "metadata_pointer": "/archives/6",
+      "metadata_path": ".tools/renewal/t07-007-007-reference-preparation-1/reference-run-1/reference-manifest.json",
+      "record_name_field": "name_hex",
+      "record_format": "grf_legacy",
+      "catalog_index": 18
+    },
+    {
+      "catalog_id": "rgz-9321",
+      "family": "rgz",
+      "archive_file": "2026-09-08_live_client_4379_4380_1788411377.rgz",
+      "archive_bytes": 2674976,
+      "archive_sha256": "ebf4417b3acf5d42215ced57bc7e2beae90473a6d02dc1b5332f338c096a8f69",
+      "patch_index": 9321,
+      "source_ordinal": 15,
+      "memberships": [
+        {
+          "view": "suffix59",
+          "patch_index": 9321,
+          "source_ordinal": 15,
+          "source_lf": 4027
+        }
+      ],
+      "records": {
+        "path": ".tools/renewal/t07-007-rgz-batch-reference-preparation-1/remaining28-proposed-v2-1/05-9321/records.jsonl",
+        "bytes": 1513,
+        "sha256": "42e23fba40b5bbc739f9888886fd2b8cf1db0b32eea0df2b50118879b3ef5674",
+        "rows": 3
+      },
+      "metadata_pointer": "/ordered_files/5",
+      "metadata_path": ".tools/renewal/t07-007-rgz-batch-reference-preparation-1/remaining28-proposed-v2-1/report.json",
+      "record_name_field": "bounded_name_hex",
+      "record_format": "rgz_d_f_e",
+      "catalog_index": 19
+    },
+    {
+      "catalog_id": "gpf-9323",
+      "family": "gpf",
+      "archive_file": "2026-09-08_live_client_live_4379_4380_1788411419.gpf",
+      "archive_bytes": 2037,
+      "archive_sha256": "7823fe92a04b5443e4629c4be8bf50b8f23ec2141c9172a6a7fd3058892ce039",
+      "patch_index": 9323,
+      "source_ordinal": 16,
+      "memberships": [
+        {
+          "view": "suffix59",
+          "patch_index": 9323,
+          "source_ordinal": 16,
+          "source_lf": 4029
+        }
+      ],
+      "records": {
+        "path": ".tools/renewal/t07-007-007-reference-preparation-1/reference-run-1/9323.records.jsonl",
+        "bytes": 5623,
+        "sha256": "80ba0600427e1706641557ea6d584059efed4bff663e8761c0f6c7cfdc907405",
+        "rows": 5
+      },
+      "metadata_pointer": "/archives/7",
+      "metadata_path": ".tools/renewal/t07-007-007-reference-preparation-1/reference-run-1/reference-manifest.json",
+      "record_name_field": "name_hex",
+      "record_format": "grf_legacy",
+      "catalog_index": 20
+    },
+    {
+      "catalog_id": "gpf-9324",
+      "family": "gpf",
+      "archive_file": "2026-09-08_live_client_4382_4383_1788415603.gpf",
+      "archive_bytes": 67567,
+      "archive_sha256": "8e4b87c385cd85a5d4934c7c782809188bfebc3717b1224f23f9e6e212da74fe",
+      "patch_index": 9324,
+      "source_ordinal": 17,
+      "memberships": [
+        {
+          "view": "suffix59",
+          "patch_index": 9324,
+          "source_ordinal": 17,
+          "source_lf": 4030
+        }
+      ],
+      "records": {
+        "path": ".tools/renewal/t07-007-007-reference-preparation-1/reference-run-1/9324.records.jsonl",
+        "bytes": 3344,
+        "sha256": "b086c1c1d5d6e6e78f805a8fbfec5f541142d94209c2cb935819079512a5b9ec",
+        "rows": 3
+      },
+      "metadata_pointer": "/archives/8",
+      "metadata_path": ".tools/renewal/t07-007-007-reference-preparation-1/reference-run-1/reference-manifest.json",
+      "record_name_field": "name_hex",
+      "record_format": "grf_legacy",
+      "catalog_index": 21
+    },
+    {
+      "catalog_id": "gpf-9326",
+      "family": "gpf",
+      "archive_file": "2026-09-08_live_client_4385_4387_1788419778.gpf",
+      "archive_bytes": 17692,
+      "archive_sha256": "e7c736bf43e660a433be18fb997419030a336c7928e8ecdae3e7ac7fb51028cc",
+      "patch_index": 9326,
+      "source_ordinal": 18,
+      "memberships": [
+        {
+          "view": "suffix59",
+          "patch_index": 9326,
+          "source_ordinal": 18,
+          "source_lf": 4032
+        }
+      ],
+      "records": {
+        "path": ".tools/renewal/t07-007-007-reference-preparation-1/reference-run-1/9326.records.jsonl",
+        "bytes": 11214,
+        "sha256": "8abf9144f6a70c3839e3cd303de3bbf77d329b7b8e118d6b66a6b76bf6342408",
+        "rows": 10
+      },
+      "metadata_pointer": "/archives/9",
+      "metadata_path": ".tools/renewal/t07-007-007-reference-preparation-1/reference-run-1/reference-manifest.json",
+      "record_name_field": "name_hex",
+      "record_format": "grf_legacy",
+      "catalog_index": 22
+    },
+    {
+      "catalog_id": "rgz-9327",
+      "family": "rgz",
+      "archive_file": "2026-09-08_live_client_4385_4387_1788419778.rgz",
+      "archive_bytes": 2674574,
+      "archive_sha256": "d6c53713e01dd24edcd57b95b2510684acb259622e7ba8e38784658db707ad68",
+      "patch_index": 9327,
+      "source_ordinal": 19,
+      "memberships": [
+        {
+          "view": "suffix59",
+          "patch_index": 9327,
+          "source_ordinal": 19,
+          "source_lf": 4033
+        }
+      ],
+      "records": {
+        "path": ".tools/renewal/t07-007-rgz-batch-reference-preparation-1/remaining28-proposed-v2-1/06-9327/records.jsonl",
+        "bytes": 1513,
+        "sha256": "e3cd255e9473d8cfc1064b2e5886e3676a7da5fd6b5359331eff3f225335bc79",
+        "rows": 3
+      },
+      "metadata_pointer": "/ordered_files/6",
+      "metadata_path": ".tools/renewal/t07-007-rgz-batch-reference-preparation-1/remaining28-proposed-v2-1/report.json",
+      "record_name_field": "bounded_name_hex",
+      "record_format": "rgz_d_f_e",
+      "catalog_index": 23
+    },
+    {
+      "catalog_id": "rgz-9329",
+      "family": "rgz",
+      "archive_file": "2026-09-08_live_client_4389_4391_1788748420.rgz",
+      "archive_bytes": 2674419,
+      "archive_sha256": "6cc1d183c2bd5fb6fc59f09b9e03f3678490ebae7a105e08ddf4b715875e0f29",
+      "patch_index": 9329,
+      "source_ordinal": 20,
+      "memberships": [
+        {
+          "view": "suffix59",
+          "patch_index": 9329,
+          "source_ordinal": 20,
+          "source_lf": 4035
+        }
+      ],
+      "records": {
+        "path": ".tools/renewal/t07-007-rgz-batch-reference-preparation-1/remaining28-proposed-v2-1/07-9329/records.jsonl",
+        "bytes": 1513,
+        "sha256": "57a06e0f2161e2a60edb72ea41c11123bc4d585e6aa3bf99355700e607c10a6c",
+        "rows": 3
+      },
+      "metadata_pointer": "/ordered_files/7",
+      "metadata_path": ".tools/renewal/t07-007-rgz-batch-reference-preparation-1/remaining28-proposed-v2-1/report.json",
+      "record_name_field": "bounded_name_hex",
+      "record_format": "rgz_d_f_e",
+      "catalog_index": 24
+    },
+    {
+      "catalog_id": "gpf-9332",
+      "family": "gpf",
+      "archive_file": "2026-09-15_live_client_4393_4395_1789102750.gpf",
+      "archive_bytes": 1750289,
+      "archive_sha256": "a41490bfc1011f5412195c7b7c7cd6b2a4aae10e7083df9cd1b71a2a95689aec",
+      "patch_index": 9332,
+      "source_ordinal": 21,
+      "memberships": [
+        {
+          "view": "suffix59",
+          "patch_index": 9332,
+          "source_ordinal": 21,
+          "source_lf": 4038
+        }
+      ],
+      "records": {
+        "path": ".tools/renewal/t07-007-007-reference-preparation-1/reference-run-1/9332.records.jsonl",
+        "bytes": 19562,
+        "sha256": "58b4cc378b96b706c10c00b97102aa33b1b265f71bf0599d91b22c7ee42e9ff3",
+        "rows": 17
+      },
+      "metadata_pointer": "/archives/10",
+      "metadata_path": ".tools/renewal/t07-007-007-reference-preparation-1/reference-run-1/reference-manifest.json",
+      "record_name_field": "name_hex",
+      "record_format": "grf_legacy",
+      "catalog_index": 25
+    },
+    {
+      "catalog_id": "rgz-9333",
+      "family": "rgz",
+      "archive_file": "2026-09-15_live_client_4393_4395_1789102750.rgz",
+      "archive_bytes": 2945903,
+      "archive_sha256": "e01dfcddf50b09cfe019e706011d48258f975e4ea92009246e8dabcca7a1f047",
+      "patch_index": 9333,
+      "source_ordinal": 22,
+      "memberships": [
+        {
+          "view": "suffix59",
+          "patch_index": 9333,
+          "source_ordinal": 22,
+          "source_lf": 4039
+        }
+      ],
+      "records": {
+        "path": ".tools/renewal/t07-007-rgz-batch-reference-preparation-1/remaining28-proposed-v2-1/08-9333/records.jsonl",
+        "bytes": 3300,
+        "sha256": "f40c0790c2cf7847089db13875d39fce6144295fdf226d3fb35b79de0e0b8e3c",
+        "rows": 6
+      },
+      "metadata_pointer": "/ordered_files/8",
+      "metadata_path": ".tools/renewal/t07-007-rgz-batch-reference-preparation-1/remaining28-proposed-v2-1/report.json",
+      "record_name_field": "bounded_name_hex",
+      "record_format": "rgz_d_f_e",
+      "catalog_index": 26
+    },
+    {
+      "catalog_id": "gpf-9337",
+      "family": "gpf",
+      "archive_file": "2026-09-15_live_client_4398_4399_1789372404.gpf",
+      "archive_bytes": 23576,
+      "archive_sha256": "1895918a028888d57a4b2f1abe31bff321a8d8198addf73a5d90f1adf4eef873",
+      "patch_index": 9337,
+      "source_ordinal": 23,
+      "memberships": [
+        {
+          "view": "suffix59",
+          "patch_index": 9337,
+          "source_ordinal": 23,
+          "source_lf": 4043
+        }
+      ],
+      "records": {
+        "path": ".tools/renewal/t07-007-007-reference-preparation-1/reference-run-1/9337.records.jsonl",
+        "bytes": 6869,
+        "sha256": "de8dc204d6a626a2481b1c56acfc7f5dbdfcce51348002fa7a51ca348cfb4fa6",
+        "rows": 6
+      },
+      "metadata_pointer": "/archives/11",
+      "metadata_path": ".tools/renewal/t07-007-007-reference-preparation-1/reference-run-1/reference-manifest.json",
+      "record_name_field": "name_hex",
+      "record_format": "grf_legacy",
+      "catalog_index": 27
+    },
+    {
+      "catalog_id": "rgz-9338",
+      "family": "rgz",
+      "archive_file": "2026-09-15_live_client_4398_4399_1789372404.rgz",
+      "archive_bytes": 3333633,
+      "archive_sha256": "70bfdf3561df80a6132f746c79aa98834d43e85cbe41a7927c7363c5e659f508",
+      "patch_index": 9338,
+      "source_ordinal": 24,
+      "memberships": [
+        {
+          "view": "suffix59",
+          "patch_index": 9338,
+          "source_ordinal": 24,
+          "source_lf": 4044
+        }
+      ],
+      "records": {
+        "path": ".tools/renewal/t07-007-rgz-batch-reference-preparation-1/remaining28-proposed-v2-1/09-9338/records.jsonl",
+        "bytes": 2196,
+        "sha256": "ea619dd678000f24376b0fc4e569e61d384f7596dcf5cb6b3d2fbebcedc96942",
+        "rows": 4
+      },
+      "metadata_pointer": "/ordered_files/9",
+      "metadata_path": ".tools/renewal/t07-007-rgz-batch-reference-preparation-1/remaining28-proposed-v2-1/report.json",
+      "record_name_field": "bounded_name_hex",
+      "record_format": "rgz_d_f_e",
+      "catalog_index": 28
+    },
+    {
+      "catalog_id": "gpf-9340",
+      "family": "gpf",
+      "archive_file": "2026-09-22_live_client_4401_4402_1789706431.gpf",
+      "archive_bytes": 6044944,
+      "archive_sha256": "31ff5debdf6b025b7cfe42b810c67672e94faf8db6bef038cfa74e607df2bb8e",
+      "patch_index": 9340,
+      "source_ordinal": 25,
+      "memberships": [
+        {
+          "view": "suffix59",
+          "patch_index": 9340,
+          "source_ordinal": 25,
+          "source_lf": 4046
+        }
+      ],
+      "records": {
+        "path": ".tools/renewal/t07-007-007-reference-preparation-1/reference-run-1/9340.records.jsonl",
+        "bytes": 896759,
+        "sha256": "65732a3489fd5a098a07dfa268f4b895996791973ad05b27538b868b94bf65ee",
+        "rows": 766
+      },
+      "metadata_pointer": "/archives/12",
+      "metadata_path": ".tools/renewal/t07-007-007-reference-preparation-1/reference-run-1/reference-manifest.json",
+      "record_name_field": "name_hex",
+      "record_format": "grf_legacy",
+      "catalog_index": 29
+    },
+    {
+      "catalog_id": "rgz-9341",
+      "family": "rgz",
+      "archive_file": "2026-09-22_live_client_4401_4402_1789706431.rgz",
+      "archive_bytes": 3366973,
+      "archive_sha256": "d1c66b4129dc8a52af056014b2bad525ab77294771cc7a2d1c16821d8572f931",
+      "patch_index": 9341,
+      "source_ordinal": 26,
+      "memberships": [
+        {
+          "view": "suffix59",
+          "patch_index": 9341,
+          "source_ordinal": 26,
+          "source_lf": 4047
+        }
+      ],
+      "records": {
+        "path": ".tools/renewal/t07-007-rgz-batch-reference-preparation-1/remaining28-proposed-v2-1/10-9341/records.jsonl",
+        "bytes": 3456,
+        "sha256": "57fde8316077449dccd34052322de46d2bd45b0806960c340cd9de10e7457931",
+        "rows": 6
+      },
+      "metadata_pointer": "/ordered_files/10",
+      "metadata_path": ".tools/renewal/t07-007-rgz-batch-reference-preparation-1/remaining28-proposed-v2-1/report.json",
+      "record_name_field": "bounded_name_hex",
+      "record_format": "rgz_d_f_e",
+      "catalog_index": 30
+    },
+    {
+      "catalog_id": "rgz-9343",
+      "family": "rgz",
+      "archive_file": "2026-09-22_live_client_4406_4406_1789952252.rgz",
+      "archive_bytes": 660296,
+      "archive_sha256": "61b20f1de3c91259fcfab09dcf0971192b7bc83ada6f3422a09c67316a780480",
+      "patch_index": 9343,
+      "source_ordinal": 27,
+      "memberships": [
+        {
+          "view": "suffix59",
+          "patch_index": 9343,
+          "source_ordinal": 27,
+          "source_lf": 4049
+        }
+      ],
+      "records": {
+        "path": ".tools/renewal/t07-007-rgz-batch-reference-preparation-1/remaining28-proposed-v2-1/11-9343/records.jsonl",
+        "bytes": 1565,
+        "sha256": "078548906c0743f444bca0046f90c04feff59f48d63a647390ef304698355847",
+        "rows": 3
+      },
+      "metadata_pointer": "/ordered_files/11",
+      "metadata_path": ".tools/renewal/t07-007-rgz-batch-reference-preparation-1/remaining28-proposed-v2-1/report.json",
+      "record_name_field": "bounded_name_hex",
+      "record_format": "rgz_d_f_e",
+      "catalog_index": 31
+    },
+    {
+      "catalog_id": "gpf-9345",
+      "family": "gpf",
+      "archive_file": "2026-09-22_live_client_4408_4410_1789953486.gpf",
+      "archive_bytes": 102981,
+      "archive_sha256": "7f1a1c76050ced3b5c2ae956a7d14302226170b334c57e9e67d26a2cfd822663",
+      "patch_index": 9345,
+      "source_ordinal": 28,
+      "memberships": [
+        {
+          "view": "suffix59",
+          "patch_index": 9345,
+          "source_ordinal": 28,
+          "source_lf": 4051
+        }
+      ],
+      "records": {
+        "path": ".tools/renewal/t07-007-007-reference-preparation-1/reference-run-1/9345.records.jsonl",
+        "bytes": 5643,
+        "sha256": "b7327af15e71f9521459bc221ba6b9196d8aa6282339a01ab6d3d47bd71af184",
+        "rows": 5
+      },
+      "metadata_pointer": "/archives/13",
+      "metadata_path": ".tools/renewal/t07-007-007-reference-preparation-1/reference-run-1/reference-manifest.json",
+      "record_name_field": "name_hex",
+      "record_format": "grf_legacy",
+      "catalog_index": 32
+    },
+    {
+      "catalog_id": "rgz-9347",
+      "family": "rgz",
+      "archive_file": "2026-09-22_live_client_4412_4412_1789972792.rgz",
+      "archive_bytes": 3336927,
+      "archive_sha256": "9432a7cefd5f1018edd6de0bf4c17bdf6254f7b61721b19044cfe8af069c822e",
+      "patch_index": 9347,
+      "source_ordinal": 29,
+      "memberships": [
+        {
+          "view": "suffix59",
+          "patch_index": 9347,
+          "source_ordinal": 29,
+          "source_lf": 4053
+        }
+      ],
+      "records": {
+        "path": ".tools/renewal/t07-007-rgz-batch-reference-preparation-1/remaining28-proposed-v2-1/12-9347/records.jsonl",
+        "bytes": 2196,
+        "sha256": "876ec1f48163c409ec8bd886e55cd2dfdb5057b6e21686ab94db5e49a0aefc20",
+        "rows": 4
+      },
+      "metadata_pointer": "/ordered_files/12",
+      "metadata_path": ".tools/renewal/t07-007-rgz-batch-reference-preparation-1/remaining28-proposed-v2-1/report.json",
+      "record_name_field": "bounded_name_hex",
+      "record_format": "rgz_d_f_e",
+      "catalog_index": 33
+    },
+    {
+      "catalog_id": "gpf-9349",
+      "family": "gpf",
+      "archive_file": "2026-09-30_live_client_4414_4419_1790667080.gpf",
+      "archive_bytes": 3248515,
+      "archive_sha256": "13af61e07fb1e4d82194acec47ebed7981181828e170a8368006cd86716dd4b8",
+      "patch_index": 9349,
+      "source_ordinal": 30,
+      "memberships": [
+        {
+          "view": "suffix59",
+          "patch_index": 9349,
+          "source_ordinal": 30,
+          "source_lf": 4055
+        }
+      ],
+      "records": {
+        "path": ".tools/renewal/t07-007-007-reference-preparation-1/reference-run-1/9349.records.jsonl",
+        "bytes": 456742,
+        "sha256": "46acf1bfe6c5bbf4353818306e3875cd64b3a5ecbd8c4f1b59efd26432a00bfe",
+        "rows": 391
+      },
+      "metadata_pointer": "/archives/14",
+      "metadata_path": ".tools/renewal/t07-007-007-reference-preparation-1/reference-run-1/reference-manifest.json",
+      "record_name_field": "name_hex",
+      "record_format": "grf_legacy",
+      "catalog_index": 34
+    },
+    {
+      "catalog_id": "rgz-9350",
+      "family": "rgz",
+      "archive_file": "2026-09-30_live_client_4414_4419_1790667080.rgz",
+      "archive_bytes": 3339468,
+      "archive_sha256": "e3ba43914434cbbe27bb929664ab2fae578b9a64d3db056852a06596edb9ad5a",
+      "patch_index": 9350,
+      "source_ordinal": 31,
+      "memberships": [
+        {
+          "view": "suffix59",
+          "patch_index": 9350,
+          "source_ordinal": 31,
+          "source_lf": 4056
+        }
+      ],
+      "records": {
+        "path": ".tools/renewal/t07-007-rgz-batch-reference-preparation-1/remaining28-proposed-v2-1/13-9350/records.jsonl",
+        "bytes": 2196,
+        "sha256": "d1a6a1f347f44dc1f310e7ab8ff6696c63e4a19544d5fb216ad7f2fa14902855",
+        "rows": 4
+      },
+      "metadata_pointer": "/ordered_files/13",
+      "metadata_path": ".tools/renewal/t07-007-rgz-batch-reference-preparation-1/remaining28-proposed-v2-1/report.json",
+      "record_name_field": "bounded_name_hex",
+      "record_format": "rgz_d_f_e",
+      "catalog_index": 35
+    },
+    {
+      "catalog_id": "rgz-9352",
+      "family": "rgz",
+      "archive_file": "2026-09-30_live_client_4421_4422_1790727167.rgz",
+      "archive_bytes": 2678907,
+      "archive_sha256": "a0f675fc6e56fc421c84c92be8364af5bacf0a2e5a379d1c29a2b0ea18c908b5",
+      "patch_index": 9352,
+      "source_ordinal": 32,
+      "memberships": [
+        {
+          "view": "suffix59",
+          "patch_index": 9352,
+          "source_ordinal": 32,
+          "source_lf": 4058
+        }
+      ],
+      "records": {
+        "path": ".tools/renewal/t07-007-rgz-batch-reference-preparation-1/remaining28-proposed-v2-1/14-9352/records.jsonl",
+        "bytes": 1513,
+        "sha256": "5ec132fd3f6ea9e3d88e4a514ebffbb775e428a4d9d3d7e59249ecf94e06de7e",
+        "rows": 3
+      },
+      "metadata_pointer": "/ordered_files/14",
+      "metadata_path": ".tools/renewal/t07-007-rgz-batch-reference-preparation-1/remaining28-proposed-v2-1/report.json",
+      "record_name_field": "bounded_name_hex",
+      "record_format": "rgz_d_f_e",
+      "catalog_index": 36
+    },
+    {
+      "catalog_id": "gpf-9354",
+      "family": "gpf",
+      "archive_file": "2026-09-30_live_client_4427_4428_1790748604.gpf",
+      "archive_bytes": 81297,
+      "archive_sha256": "0b14b9a40aa2e76a7f3e29d8aaf531b0189038ac154d952d4c9c9b24638df203",
+      "patch_index": 9354,
+      "source_ordinal": 33,
+      "memberships": [
+        {
+          "view": "suffix59",
+          "patch_index": 9354,
+          "source_ordinal": 33,
+          "source_lf": 4060
+        }
+      ],
+      "records": {
+        "path": ".tools/renewal/t07-007-007-reference-preparation-1/reference-run-1/9354.records.jsonl",
+        "bytes": 1103,
+        "sha256": "0355962d027c3e6ff3b3414dd8135dfb0e4f3ca18557dcbf118c7bbefd6447c6",
+        "rows": 1
+      },
+      "metadata_pointer": "/archives/15",
+      "metadata_path": ".tools/renewal/t07-007-007-reference-preparation-1/reference-run-1/reference-manifest.json",
+      "record_name_field": "name_hex",
+      "record_format": "grf_legacy",
+      "catalog_index": 37
+    },
+    {
+      "catalog_id": "rgz-9355",
+      "family": "rgz",
+      "archive_file": "2026-09-30_live_client_4427_4428_1790748604.rgz",
+      "archive_bytes": 2678640,
+      "archive_sha256": "475a76ef5c2e0e5a6fd95c9cc1f2ab303a68bfceba0d2d212f9ef87b763b1720",
+      "patch_index": 9355,
+      "source_ordinal": 34,
+      "memberships": [
+        {
+          "view": "suffix59",
+          "patch_index": 9355,
+          "source_ordinal": 34,
+          "source_lf": 4061
+        }
+      ],
+      "records": {
+        "path": ".tools/renewal/t07-007-rgz-batch-reference-preparation-1/remaining28-proposed-v2-1/15-9355/records.jsonl",
+        "bytes": 1513,
+        "sha256": "c71ceabc3119c52d6d2cc4d079e7bce2f20dd78e16e1a441c0b247d9f5367b52",
+        "rows": 3
+      },
+      "metadata_pointer": "/ordered_files/15",
+      "metadata_path": ".tools/renewal/t07-007-rgz-batch-reference-preparation-1/remaining28-proposed-v2-1/report.json",
+      "record_name_field": "bounded_name_hex",
+      "record_format": "rgz_d_f_e",
+      "catalog_index": 38
+    },
+    {
+      "catalog_id": "gpf-9357",
+      "family": "gpf",
+      "archive_file": "2026-10-06_live_client_4430_4432_1790924605.gpf",
+      "archive_bytes": 11089668,
+      "archive_sha256": "c8a2b0f21601504935ddeff8be46ae59802e2c1f33b97be5985e51f841c1150c",
+      "patch_index": 9357,
+      "source_ordinal": 35,
+      "memberships": [
+        {
+          "view": "suffix59",
+          "patch_index": 9357,
+          "source_ordinal": 35,
+          "source_lf": 4063
+        }
+      ],
+      "records": {
+        "path": ".tools/renewal/t07-007-007-reference-preparation-1/reference-run-1/9357.records.jsonl",
+        "bytes": 915725,
+        "sha256": "3b37bf938f7a5ec6a835629eac33a86bbc671a1b6e2833bc3d6bd00b9af19f23",
+        "rows": 778
+      },
+      "metadata_pointer": "/archives/16",
+      "metadata_path": ".tools/renewal/t07-007-007-reference-preparation-1/reference-run-1/reference-manifest.json",
+      "record_name_field": "name_hex",
+      "record_format": "grf_legacy",
+      "catalog_index": 39
+    },
+    {
+      "catalog_id": "rgz-9358",
+      "family": "rgz",
+      "archive_file": "2026-10-06_live_client_4430_4432_1790924605.rgz",
+      "archive_bytes": 4468167,
+      "archive_sha256": "ffa14994b842be873a6a3e638454e319b373e530e52899e7617fdafbe1181d87",
+      "patch_index": 9358,
+      "source_ordinal": 36,
+      "memberships": [
+        {
+          "view": "suffix59",
+          "patch_index": 9358,
+          "source_ordinal": 36,
+          "source_lf": 4064
+        }
+      ],
+      "records": {
+        "path": ".tools/renewal/t07-007-rgz-batch-reference-preparation-1/remaining28-proposed-v2-1/16-9358/records.jsonl",
+        "bytes": 96013,
+        "sha256": "41323bc6644e4dadf2a3514adefc6c00900e9a0aeeebca93a6b5a18db14002c1",
+        "rows": 135
+      },
+      "metadata_pointer": "/ordered_files/16",
+      "metadata_path": ".tools/renewal/t07-007-rgz-batch-reference-preparation-1/remaining28-proposed-v2-1/report.json",
+      "record_name_field": "bounded_name_hex",
+      "record_format": "rgz_d_f_e",
+      "catalog_index": 40
+    },
+    {
+      "catalog_id": "gpf-9360",
+      "family": "gpf",
+      "archive_file": "2026-10-06_live_client_4436_4437_1791242855.gpf",
+      "archive_bytes": 417471,
+      "archive_sha256": "4d1dad21a6ba497ef0ff6e37f455481f15c2eea077276742996a7c978cdf3a50",
+      "patch_index": 9360,
+      "source_ordinal": 37,
+      "memberships": [
+        {
+          "view": "suffix59",
+          "patch_index": 9360,
+          "source_ordinal": 37,
+          "source_lf": 4066
+        }
+      ],
+      "records": {
+        "path": ".tools/renewal/t07-007-007-reference-preparation-1/reference-run-1/9360.records.jsonl",
+        "bytes": 12277,
+        "sha256": "9bc24a8f66339f9349a5c29393fc29c6e8acf5827d79069169e9940c38a9deb1",
+        "rows": 11
+      },
+      "metadata_pointer": "/archives/17",
+      "metadata_path": ".tools/renewal/t07-007-007-reference-preparation-1/reference-run-1/reference-manifest.json",
+      "record_name_field": "name_hex",
+      "record_format": "grf_legacy",
+      "catalog_index": 41
+    },
+    {
+      "catalog_id": "rgz-9361",
+      "family": "rgz",
+      "archive_file": "2026-10-06_live_client_4438_4439_1791246316.rgz",
+      "archive_bytes": 3345267,
+      "archive_sha256": "17350cea7931347736476b3ff8213753bc2b955dc76b0f882b0cdc4625eaa6c1",
+      "patch_index": 9361,
+      "source_ordinal": 38,
+      "memberships": [
+        {
+          "view": "suffix59",
+          "patch_index": 9361,
+          "source_ordinal": 38,
+          "source_lf": 4067
+        }
+      ],
+      "records": {
+        "path": ".tools/renewal/t07-007-rgz-batch-reference-preparation-1/remaining28-proposed-v2-1/17-9361/records.jsonl",
+        "bytes": 2196,
+        "sha256": "f08cb894747cdd075417580c50fbc104b920fe1b50b7805caeab40b75eec9bed",
+        "rows": 4
+      },
+      "metadata_pointer": "/ordered_files/17",
+      "metadata_path": ".tools/renewal/t07-007-rgz-batch-reference-preparation-1/remaining28-proposed-v2-1/report.json",
+      "record_name_field": "bounded_name_hex",
+      "record_format": "rgz_d_f_e",
+      "catalog_index": 42
+    },
+    {
+      "catalog_id": "gpf-9363",
+      "family": "gpf",
+      "archive_file": "2026-10-13_live_client_4441_4445_1791446674.gpf",
+      "archive_bytes": 9616231,
+      "archive_sha256": "460c4381d2b43b26845cb1657c032b730ac9c5bae943cb61d345ab8da9f7d051",
+      "patch_index": 9363,
+      "source_ordinal": 39,
+      "memberships": [
+        {
+          "view": "suffix59",
+          "patch_index": 9363,
+          "source_ordinal": 39,
+          "source_lf": 4069
+        }
+      ],
+      "records": {
+        "path": ".tools/renewal/t07-007-007-reference-preparation-1/reference-run-1/9363.records.jsonl",
+        "bytes": 1084422,
+        "sha256": "7519dd9cd6e71860a4dc4beae8a472c2d72e07999ba14618e6d2d159af84c5c5",
+        "rows": 923
+      },
+      "metadata_pointer": "/archives/18",
+      "metadata_path": ".tools/renewal/t07-007-007-reference-preparation-1/reference-run-1/reference-manifest.json",
+      "record_name_field": "name_hex",
+      "record_format": "grf_legacy",
+      "catalog_index": 43
+    },
+    {
+      "catalog_id": "rgz-9364",
+      "family": "rgz",
+      "archive_file": "2026-10-13_live_client_4441_4445_1791446674.rgz",
+      "archive_bytes": 3389384,
+      "archive_sha256": "fe16dc44760abfbe77fd70dfc7987dbf2f4e13faba5492469dd634ed0c84d0e1",
+      "patch_index": 9364,
+      "source_ordinal": 40,
+      "memberships": [
+        {
+          "view": "suffix59",
+          "patch_index": 9364,
+          "source_ordinal": 40,
+          "source_lf": 4070
+        }
+      ],
+      "records": {
+        "path": ".tools/renewal/t07-007-rgz-batch-reference-preparation-1/remaining28-proposed-v2-1/18-9364/records.jsonl",
+        "bytes": 9206,
+        "sha256": "43d8a8a78543bc42f8b07c7c27ee3c59ee8be16e52d2103af2f4582692d0d988",
+        "rows": 15
+      },
+      "metadata_pointer": "/ordered_files/18",
+      "metadata_path": ".tools/renewal/t07-007-rgz-batch-reference-preparation-1/remaining28-proposed-v2-1/report.json",
+      "record_name_field": "bounded_name_hex",
+      "record_format": "rgz_d_f_e",
+      "catalog_index": 44
+    },
+    {
+      "catalog_id": "rgz-9365",
+      "family": "rgz",
+      "archive_file": "2026-10-13_Ragexe_1791446674.rgz",
+      "archive_bytes": 9835280,
+      "archive_sha256": "2405ac4ea4ef6591c09702c0e62bb53f78f59d49ba33e000302835d35aefef5e",
+      "patch_index": 9365,
+      "source_ordinal": 41,
+      "memberships": [
+        {
+          "view": "suffix59",
+          "patch_index": 9365,
+          "source_ordinal": 41,
+          "source_lf": 4071
+        }
+      ],
+      "records": {
+        "path": ".tools/renewal/t07-007-rgz-batch-reference-preparation-1/remaining28-proposed-v2-1/19-9365/records.jsonl",
+        "bytes": 1016,
+        "sha256": "91bfe058d31c81c98e4d4122134608569512708b5b273b1c333ce8e2dab99916",
+        "rows": 2
+      },
+      "metadata_pointer": "/ordered_files/19",
+      "metadata_path": ".tools/renewal/t07-007-rgz-batch-reference-preparation-1/remaining28-proposed-v2-1/report.json",
+      "record_name_field": "bounded_name_hex",
+      "record_format": "rgz_d_f_e",
+      "catalog_index": 45
+    },
+    {
+      "catalog_id": "gpf-9367",
+      "family": "gpf",
+      "archive_file": "2026-10-13_live_client_4450_4450_1791763766.gpf",
+      "archive_bytes": 236376,
+      "archive_sha256": "15c648e74061f3ccb5b6dc3ec547771b159d31a2e230f48d911b4bc8d259ff7b",
+      "patch_index": 9367,
+      "source_ordinal": 42,
+      "memberships": [
+        {
+          "view": "suffix59",
+          "patch_index": 9367,
+          "source_ordinal": 42,
+          "source_lf": 4073
+        }
+      ],
+      "records": {
+        "path": ".tools/renewal/t07-007-007-reference-preparation-1/reference-run-1/9367.records.jsonl",
+        "bytes": 6833,
+        "sha256": "ff73ea1b7ac866784cf5cf7b1cfa51f0eb4ee01b7cb7667a5720a9c01dd4fcc0",
+        "rows": 6
+      },
+      "metadata_pointer": "/archives/19",
+      "metadata_path": ".tools/renewal/t07-007-007-reference-preparation-1/reference-run-1/reference-manifest.json",
+      "record_name_field": "name_hex",
+      "record_format": "grf_legacy",
+      "catalog_index": 46
+    },
+    {
+      "catalog_id": "gpf-9369",
+      "family": "gpf",
+      "archive_file": "2026-10-13_live_client_4452_4456_1791779718.gpf",
+      "archive_bytes": 211586,
+      "archive_sha256": "f7e44b69b45469f3d3d926194ffd226601bacafc867a1b65bc6ec469bd5dd3c4",
+      "patch_index": 9369,
+      "source_ordinal": 43,
+      "memberships": [
+        {
+          "view": "suffix59",
+          "patch_index": 9369,
+          "source_ordinal": 43,
+          "source_lf": 4075
+        }
+      ],
+      "records": {
+        "path": ".tools/renewal/t07-007-007-reference-preparation-1/reference-run-1/9369.records.jsonl",
+        "bytes": 4493,
+        "sha256": "4c85d5daed5d4e77dc0c91ea50c247af5aa7ced5d7a3b2c9bae11eaa96010db0",
+        "rows": 4
+      },
+      "metadata_pointer": "/archives/20",
+      "metadata_path": ".tools/renewal/t07-007-007-reference-preparation-1/reference-run-1/reference-manifest.json",
+      "record_name_field": "name_hex",
+      "record_format": "grf_legacy",
+      "catalog_index": 47
+    },
+    {
+      "catalog_id": "rgz-9370",
+      "family": "rgz",
+      "archive_file": "2026-10-13_live_client_4452_4456_1791779718.rgz",
+      "archive_bytes": 3355958,
+      "archive_sha256": "8825a85cc972f986c2962c07e0eb8af2acd9927812a8be723f3dfd676e8db9e2",
+      "patch_index": 9370,
+      "source_ordinal": 44,
+      "memberships": [
+        {
+          "view": "suffix59",
+          "patch_index": 9370,
+          "source_ordinal": 44,
+          "source_lf": 4076
+        }
+      ],
+      "records": {
+        "path": ".tools/renewal/t07-007-rgz-batch-reference-preparation-1/remaining28-proposed-v2-1/20-9370/records.jsonl",
+        "bytes": 2890,
+        "sha256": "d60b29a9fc7314ff7bce067391128599dbc4263deaed8e6327ceef36673e99d3",
+        "rows": 5
+      },
+      "metadata_pointer": "/ordered_files/20",
+      "metadata_path": ".tools/renewal/t07-007-rgz-batch-reference-preparation-1/remaining28-proposed-v2-1/report.json",
+      "record_name_field": "bounded_name_hex",
+      "record_format": "rgz_d_f_e",
+      "catalog_index": 48
+    },
+    {
+      "catalog_id": "rgz-9372",
+      "family": "rgz",
+      "archive_file": "2026-10-13_live_client_4461_4462_1791847526.rgz",
+      "archive_bytes": 2688852,
+      "archive_sha256": "7ca3d4606a8fb152b81f203ee7a6babad4b992d665a75f5678d1b6e6ed8009de",
+      "patch_index": 9372,
+      "source_ordinal": 45,
+      "memberships": [
+        {
+          "view": "suffix59",
+          "patch_index": 9372,
+          "source_ordinal": 45,
+          "source_lf": 4078
+        }
+      ],
+      "records": {
+        "path": ".tools/renewal/t07-007-rgz-batch-reference-preparation-1/remaining28-proposed-v2-1/21-9372/records.jsonl",
+        "bytes": 1513,
+        "sha256": "be5a9aa1fc0ccaed4ae8a2cdf42c65bc65527fa0d5e2502b731a97e3b5f2ffd9",
+        "rows": 3
+      },
+      "metadata_pointer": "/ordered_files/21",
+      "metadata_path": ".tools/renewal/t07-007-rgz-batch-reference-preparation-1/remaining28-proposed-v2-1/report.json",
+      "record_name_field": "bounded_name_hex",
+      "record_format": "rgz_d_f_e",
+      "catalog_index": 49
+    },
+    {
+      "catalog_id": "rgz-9374",
+      "family": "rgz",
+      "archive_file": "2026-10-13_live_client_4466_4467_1791861521.rgz",
+      "archive_bytes": 3351791,
+      "archive_sha256": "25cf09bc47a42c0af3e75b946f3801963877fcbc06638179b0df41d4ec48bdb2",
+      "patch_index": 9374,
+      "source_ordinal": 46,
+      "memberships": [
+        {
+          "view": "suffix59",
+          "patch_index": 9374,
+          "source_ordinal": 46,
+          "source_lf": 4080
+        }
+      ],
+      "records": {
+        "path": ".tools/renewal/t07-007-rgz-batch-reference-preparation-1/remaining28-proposed-v2-1/22-9374/records.jsonl",
+        "bytes": 2196,
+        "sha256": "0ce05353197234b0c59c6e41d604e14776ce91877d30ab2c89b03192a11c47fc",
+        "rows": 4
+      },
+      "metadata_pointer": "/ordered_files/22",
+      "metadata_path": ".tools/renewal/t07-007-rgz-batch-reference-preparation-1/remaining28-proposed-v2-1/report.json",
+      "record_name_field": "bounded_name_hex",
+      "record_format": "rgz_d_f_e",
+      "catalog_index": 50
+    },
+    {
+      "catalog_id": "rgz-9376",
+      "family": "rgz",
+      "archive_file": "2026-10-13_live_client_4469_4470_1791866885.rgz",
+      "archive_bytes": 2687758,
+      "archive_sha256": "83edd719dcdef051437290fae1c0001830b5a8b74d84e9bae03c0698cd534902",
+      "patch_index": 9376,
+      "source_ordinal": 47,
+      "memberships": [
+        {
+          "view": "suffix59",
+          "patch_index": 9376,
+          "source_ordinal": 47,
+          "source_lf": 4082
+        }
+      ],
+      "records": {
+        "path": ".tools/renewal/t07-007-rgz-batch-reference-preparation-1/remaining28-proposed-v2-1/23-9376/records.jsonl",
+        "bytes": 1513,
+        "sha256": "7fa249cb232d8e518b320bd0cd20794b8b1961f22a2305ddc7d011a5e75c6c60",
+        "rows": 3
+      },
+      "metadata_pointer": "/ordered_files/23",
+      "metadata_path": ".tools/renewal/t07-007-rgz-batch-reference-preparation-1/remaining28-proposed-v2-1/report.json",
+      "record_name_field": "bounded_name_hex",
+      "record_format": "rgz_d_f_e",
+      "catalog_index": 51
+    },
+    {
+      "catalog_id": "gpf-9378",
+      "family": "gpf",
+      "archive_file": "2026-10-20_live_client_4477_4479_1792391783.gpf",
+      "archive_bytes": 13997225,
+      "archive_sha256": "3a3cf483088f25d701ddb9db94635ea9848cc47a2b626f6ea1d286ce866a5396",
+      "patch_index": 9378,
+      "source_ordinal": 48,
+      "memberships": [
+        {
+          "view": "suffix59",
+          "patch_index": 9378,
+          "source_ordinal": 48,
+          "source_lf": 4084
+        }
+      ],
+      "records": {
+        "path": ".tools/renewal/t07-007-007-reference-preparation-1/reference-run-1/9378.records.jsonl",
+        "bytes": 2365773,
+        "sha256": "cd2491f9cf21c7639d7febe49601e450534cc847c9ea4aceba0a024e83eb38f9",
+        "rows": 2009
+      },
+      "metadata_pointer": "/archives/21",
+      "metadata_path": ".tools/renewal/t07-007-007-reference-preparation-1/reference-run-1/reference-manifest.json",
+      "record_name_field": "name_hex",
+      "record_format": "grf_legacy",
+      "catalog_index": 52
+    },
+    {
+      "catalog_id": "rgz-9379",
+      "family": "rgz",
+      "archive_file": "2026-10-20_live_client_4477_4479_1792391783.rgz",
+      "archive_bytes": 4376217,
+      "archive_sha256": "a0a32224cdea7bab238bb782b55a097901affc1ac0829165cf4a514a94ba0988",
+      "patch_index": 9379,
+      "source_ordinal": 49,
+      "memberships": [
+        {
+          "view": "suffix59",
+          "patch_index": 9379,
+          "source_ordinal": 49,
+          "source_lf": 4085
+        }
+      ],
+      "records": {
+        "path": ".tools/renewal/t07-007-rgz-batch-reference-preparation-1/remaining28-proposed-v2-1/24-9379/records.jsonl",
+        "bytes": 4461,
+        "sha256": "2bd6a42c3c240a39f385da302c3552767821eb678bdeccf258398147da40e19d",
+        "rows": 8
+      },
+      "metadata_pointer": "/ordered_files/24",
+      "metadata_path": ".tools/renewal/t07-007-rgz-batch-reference-preparation-1/remaining28-proposed-v2-1/report.json",
+      "record_name_field": "bounded_name_hex",
+      "record_format": "rgz_d_f_e",
+      "catalog_index": 53
+    },
+    {
+      "catalog_id": "gpf-9381",
+      "family": "gpf",
+      "archive_file": "2026-10-20_live_client_4481_4489_1792452494.gpf",
+      "archive_bytes": 207657,
+      "archive_sha256": "16cef9de05ef990c74aa3f80cbc2899a5934e98f6fc0845759a553ae0b1b9f21",
+      "patch_index": 9381,
+      "source_ordinal": 50,
+      "memberships": [
+        {
+          "view": "suffix59",
+          "patch_index": 9381,
+          "source_ordinal": 50,
+          "source_lf": 4087
+        }
+      ],
+      "records": {
+        "path": ".tools/renewal/t07-007-007-reference-preparation-1/reference-run-1/9381.records.jsonl",
+        "bytes": 10073,
+        "sha256": "e02b9c23b7ac9c974a535e429c7bff2c796559098c988b45e02121bf47efc41f",
+        "rows": 9
+      },
+      "metadata_pointer": "/archives/22",
+      "metadata_path": ".tools/renewal/t07-007-007-reference-preparation-1/reference-run-1/reference-manifest.json",
+      "record_name_field": "name_hex",
+      "record_format": "grf_legacy",
+      "catalog_index": 54
+    },
+    {
+      "catalog_id": "rgz-9382",
+      "family": "rgz",
+      "archive_file": "2026-10-20_live_client_4481_4489_1792452494.rgz",
+      "archive_bytes": 2728705,
+      "archive_sha256": "9741d58e19963ed4b5bce93f57edb0f9449f5c051b3d95247a7c2cb5faad95fc",
+      "patch_index": 9382,
+      "source_ordinal": 51,
+      "memberships": [
+        {
+          "view": "suffix59",
+          "patch_index": 9382,
+          "source_ordinal": 51,
+          "source_lf": 4088
+        }
+      ],
+      "records": {
+        "path": ".tools/renewal/t07-007-rgz-batch-reference-preparation-1/remaining28-proposed-v2-1/25-9382/records.jsonl",
+        "bytes": 2117,
+        "sha256": "8acc206817b27a65dbe11ee55caaa58d14d2ffc3420c993413905aec30ebbf4f",
+        "rows": 4
+      },
+      "metadata_pointer": "/ordered_files/25",
+      "metadata_path": ".tools/renewal/t07-007-rgz-batch-reference-preparation-1/remaining28-proposed-v2-1/report.json",
+      "record_name_field": "bounded_name_hex",
+      "record_format": "rgz_d_f_e",
+      "catalog_index": 55
+    },
+    {
+      "catalog_id": "gpf-9384",
+      "family": "gpf",
+      "archive_file": "2026-10-20_live_client_4491_4493_1792464907.gpf",
+      "archive_bytes": 1250930,
+      "archive_sha256": "a687868a6d7e159becdef73022a58659dcc8300f6bad856a4ee2bc628aab707e",
+      "patch_index": 9384,
+      "source_ordinal": 52,
+      "memberships": [
+        {
+          "view": "suffix59",
+          "patch_index": 9384,
+          "source_ordinal": 52,
+          "source_lf": 4090
+        }
+      ],
+      "records": {
+        "path": ".tools/renewal/t07-007-007-reference-preparation-1/reference-run-1/9384.records.jsonl",
+        "bytes": 4568,
+        "sha256": "d6b07612e54cf4cb3ab5c49352d791c9ab90e8409ba6d000be2b5190b6c24028",
+        "rows": 4
+      },
+      "metadata_pointer": "/archives/23",
+      "metadata_path": ".tools/renewal/t07-007-007-reference-preparation-1/reference-run-1/reference-manifest.json",
+      "record_name_field": "name_hex",
+      "record_format": "grf_legacy",
+      "catalog_index": 56
+    },
+    {
+      "catalog_id": "gpf-9385",
+      "family": "gpf",
+      "archive_file": "2026-10-20_live_client_4495_4497_1792471406.gpf",
+      "archive_bytes": 1250914,
+      "archive_sha256": "1575b23c4c202d8eebc29141a09759706d8f2b86de7f4450979d28f1f102bc14",
+      "patch_index": 9385,
+      "source_ordinal": 53,
+      "memberships": [
+        {
+          "view": "suffix59",
+          "patch_index": 9385,
+          "source_ordinal": 53,
+          "source_lf": 4091
+        }
+      ],
+      "records": {
+        "path": ".tools/renewal/t07-007-007-reference-preparation-1/reference-run-1/9385.records.jsonl",
+        "bytes": 4568,
+        "sha256": "33cbd1e69c69059e191710b6d90e0c78728314ecb53ae25cbcbf35af9c85b151",
+        "rows": 4
+      },
+      "metadata_pointer": "/archives/24",
+      "metadata_path": ".tools/renewal/t07-007-007-reference-preparation-1/reference-run-1/reference-manifest.json",
+      "record_name_field": "name_hex",
+      "record_format": "grf_legacy",
+      "catalog_index": 57
+    },
+    {
+      "catalog_id": "gpf-9386",
+      "family": "gpf",
+      "archive_file": "2026-10-20_live_client_4499_4501_1792475929.gpf",
+      "archive_bytes": 82153,
+      "archive_sha256": "381a2bc84b932164f80ec0492118f259961340c498b27daed2e91df3cffe2ba8",
+      "patch_index": 9386,
+      "source_ordinal": 54,
+      "memberships": [
+        {
+          "view": "suffix59",
+          "patch_index": 9386,
+          "source_ordinal": 54,
+          "source_lf": 4092
+        }
+      ],
+      "records": {
+        "path": ".tools/renewal/t07-007-007-reference-preparation-1/reference-run-1/9386.records.jsonl",
+        "bytes": 1103,
+        "sha256": "3ab33112a0089225d07ddf536fc833633bad514741f5a153b69b17ba103444de",
+        "rows": 1
+      },
+      "metadata_pointer": "/archives/25",
+      "metadata_path": ".tools/renewal/t07-007-007-reference-preparation-1/reference-run-1/reference-manifest.json",
+      "record_name_field": "name_hex",
+      "record_format": "grf_legacy",
+      "catalog_index": 58
+    },
+    {
+      "catalog_id": "rgz-9387",
+      "family": "rgz",
+      "archive_file": "2026-10-20_live_client_4499_4501_1792475929.rgz",
+      "archive_bytes": 2691540,
+      "archive_sha256": "3dbdfedc36ce1d1facb4a6e9c73acdacc2fcb119cb62a3f7e78ad853dfd0b4de",
+      "patch_index": 9387,
+      "source_ordinal": 55,
+      "memberships": [
+        {
+          "view": "suffix59",
+          "patch_index": 9387,
+          "source_ordinal": 55,
+          "source_lf": 4093
+        }
+      ],
+      "records": {
+        "path": ".tools/renewal/t07-007-rgz-batch-reference-preparation-1/remaining28-proposed-v2-1/26-9387/records.jsonl",
+        "bytes": 1513,
+        "sha256": "01decc5f4f5cc3ee57b81812265fc5047705a7369686308f60ab69e4cb9c7646",
+        "rows": 3
+      },
+      "metadata_pointer": "/ordered_files/26",
+      "metadata_path": ".tools/renewal/t07-007-rgz-batch-reference-preparation-1/remaining28-proposed-v2-1/report.json",
+      "record_name_field": "bounded_name_hex",
+      "record_format": "rgz_d_f_e",
+      "catalog_index": 59
+    },
+    {
+      "catalog_id": "gpf-9389",
+      "family": "gpf",
+      "archive_file": "2026-10-20_live_client_4503_4505_1792477244.gpf",
+      "archive_bytes": 82145,
+      "archive_sha256": "a8518490a0a43e1e2c58023f669971fa7ffbd830a7c104abb2f901d37387d5d3",
+      "patch_index": 9389,
+      "source_ordinal": 56,
+      "memberships": [
+        {
+          "view": "suffix59",
+          "patch_index": 9389,
+          "source_ordinal": 56,
+          "source_lf": 4095
+        }
+      ],
+      "records": {
+        "path": ".tools/renewal/t07-007-007-reference-preparation-1/reference-run-1/9389.records.jsonl",
+        "bytes": 1103,
+        "sha256": "74dd3849ea4ff1559bad1cfb3ae57a2fc31add14e39e1083f5e4029e88b5e6f6",
+        "rows": 1
+      },
+      "metadata_pointer": "/archives/26",
+      "metadata_path": ".tools/renewal/t07-007-007-reference-preparation-1/reference-run-1/reference-manifest.json",
+      "record_name_field": "name_hex",
+      "record_format": "grf_legacy",
+      "catalog_index": 60
+    },
+    {
+      "catalog_id": "rgz-9390",
+      "family": "rgz",
+      "archive_file": "2026-10-20_Raghash_1792477244.rgz",
+      "archive_bytes": 92688,
+      "archive_sha256": "3d987e2505d36a155f7d24752b02190fd160bc0f7ca37e3b8c817ffa15923462",
+      "patch_index": 9390,
+      "source_ordinal": 57,
+      "memberships": [
+        {
+          "view": "suffix59",
+          "patch_index": 9390,
+          "source_ordinal": 57,
+          "source_lf": 4096
+        }
+      ],
+      "records": {
+        "path": ".tools/renewal/t07-007-rgz-batch-reference-preparation-1/remaining28-proposed-v2-1/27-9390/records.jsonl",
+        "bytes": 999,
+        "sha256": "a55cc54df67dab21db174bf9e95a741c22db42e0301605fa04c3eed783dcd4e3",
+        "rows": 2
+      },
+      "metadata_pointer": "/ordered_files/27",
+      "metadata_path": ".tools/renewal/t07-007-rgz-batch-reference-preparation-1/remaining28-proposed-v2-1/report.json",
+      "record_name_field": "bounded_name_hex",
+      "record_format": "rgz_d_f_e",
+      "catalog_index": 61
+    },
+    {
+      "catalog_id": "gpf-9391",
+      "family": "gpf",
+      "archive_file": "2026-10-20_live_client_4507_4509_1792493396.gpf",
+      "archive_bytes": 1251042,
+      "archive_sha256": "9ae705781fc6bcfc47e26f5588daaa973335b2ce3a8d9e17bcd56a985a31de53",
+      "patch_index": 9391,
+      "source_ordinal": 58,
+      "memberships": [
+        {
+          "view": "suffix59",
+          "patch_index": 9391,
+          "source_ordinal": 58,
+          "source_lf": 4097
+        }
+      ],
+      "records": {
+        "path": ".tools/renewal/t07-007-007-reference-preparation-1/reference-run-1/9391.records.jsonl",
+        "bytes": 4568,
+        "sha256": "f41a75ccc49669b3fe851d6966a292e19a7d5b28e27f2f026bc2c3bd74ea6b66",
+        "rows": 4
+      },
+      "metadata_pointer": "/archives/27",
+      "metadata_path": ".tools/renewal/t07-007-007-reference-preparation-1/reference-run-1/reference-manifest.json",
+      "record_name_field": "name_hex",
+      "record_format": "grf_legacy",
+      "catalog_index": 62
+    }
+  ],
+  "gaps": [
+    {
+      "gap_index": 0,
+      "root_ordinal": 627,
+      "map_name": "poring_c01",
+      "cache_file": "db/map_cache.dat",
+      "cache_ordinal": 619,
+      "configured": false,
+      "server_packet_name": "poring_c01.gat",
+      "renderer_name": "poring_c01.rsw",
+      "rsw_request": "poring_c01.rsw",
+      "rsw_effective": "poring_c01.rsw",
+      "rsw_request_index": 1391,
+      "expected_name_hex": {
+        "rsw": "646174615c706f72696e675f6330312e727377",
+        "gnd": "646174615c706f72696e675f6330312e676e64",
+        "gat": "646174615c706f72696e675f6330312e676174"
+      },
+      "terrain_basis": {
+        "rsw": "prior_observed_request",
+        "gnd": "unobserved_same_stem_candidate",
+        "gat": "unobserved_same_stem_candidate"
+      },
+      "gap_extract_pointer": "/gaps/0",
+      "original_report_pointer": "/roots/627",
+      "corrected_metadata_pointer": "/rows/0"
+    },
+    {
+      "gap_index": 1,
+      "root_ordinal": 628,
+      "map_name": "poring_c02",
+      "cache_file": "db/map_cache.dat",
+      "cache_ordinal": 620,
+      "configured": false,
+      "server_packet_name": "poring_c02.gat",
+      "renderer_name": "poring_c02.rsw",
+      "rsw_request": "poring_c02.rsw",
+      "rsw_effective": "poring_c02.rsw",
+      "rsw_request_index": 1392,
+      "expected_name_hex": {
+        "rsw": "646174615c706f72696e675f6330322e727377",
+        "gnd": "646174615c706f72696e675f6330322e676e64",
+        "gat": "646174615c706f72696e675f6330322e676174"
+      },
+      "terrain_basis": {
+        "rsw": "prior_observed_request",
+        "gnd": "unobserved_same_stem_candidate",
+        "gat": "unobserved_same_stem_candidate"
+      },
+      "gap_extract_pointer": "/gaps/1",
+      "original_report_pointer": "/roots/628",
+      "corrected_metadata_pointer": "/rows/1"
+    },
+    {
+      "gap_index": 2,
+      "root_ordinal": 989,
+      "map_name": "pprontera",
+      "cache_file": "db/map_cache.dat",
+      "cache_ordinal": 981,
+      "configured": true,
+      "server_packet_name": "pprontera.gat",
+      "renderer_name": "pprontera.rsw",
+      "rsw_request": "pprontera.rsw",
+      "rsw_effective": "pprontera.rsw",
+      "rsw_request_index": 2161,
+      "expected_name_hex": {
+        "rsw": "646174615c7070726f6e746572612e727377",
+        "gnd": "646174615c7070726f6e746572612e676e64",
+        "gat": "646174615c7070726f6e746572612e676174"
+      },
+      "terrain_basis": {
+        "rsw": "prior_observed_request",
+        "gnd": "unobserved_same_stem_candidate",
+        "gat": "unobserved_same_stem_candidate"
+      },
+      "gap_extract_pointer": "/gaps/3",
+      "original_report_pointer": "/roots/989",
+      "corrected_metadata_pointer": "/rows/2"
+    },
+    {
+      "gap_index": 3,
+      "root_ordinal": 991,
+      "map_name": "sch_lab",
+      "cache_file": "db/map_cache.dat",
+      "cache_ordinal": 983,
+      "configured": true,
+      "server_packet_name": "sch_lab.gat",
+      "renderer_name": "sch_lab.rsw",
+      "rsw_request": "sch_lab.rsw",
+      "rsw_effective": "sch_lab.rsw",
+      "rsw_request_index": 2165,
+      "expected_name_hex": {
+        "rsw": "646174615c7363685f6c61622e727377",
+        "gnd": "646174615c7363685f6c61622e676e64",
+        "gat": "646174615c7363685f6c61622e676174"
+      },
+      "terrain_basis": {
+        "rsw": "prior_observed_request",
+        "gnd": "unobserved_same_stem_candidate",
+        "gat": "unobserved_same_stem_candidate"
+      },
+      "gap_extract_pointer": "/gaps/4",
+      "original_report_pointer": "/roots/991",
+      "corrected_metadata_pointer": "/rows/3"
+    },
+    {
+      "gap_index": 4,
+      "root_ordinal": 992,
+      "map_name": "nakhyang",
+      "cache_file": "db/map_cache.dat",
+      "cache_ordinal": 984,
+      "configured": true,
+      "server_packet_name": "nakhyang.gat",
+      "renderer_name": "nakhyang.rsw",
+      "rsw_request": "nakhyang.rsw",
+      "rsw_effective": "nakhyang.rsw",
+      "rsw_request_index": 2166,
+      "expected_name_hex": {
+        "rsw": "646174615c6e616b6879616e672e727377",
+        "gnd": "646174615c6e616b6879616e672e676e64",
+        "gat": "646174615c6e616b6879616e672e676174"
+      },
+      "terrain_basis": {
+        "rsw": "prior_observed_request",
+        "gnd": "unobserved_same_stem_candidate",
+        "gat": "unobserved_same_stem_candidate"
+      },
+      "gap_extract_pointer": "/gaps/5",
+      "original_report_pointer": "/roots/992",
+      "corrected_metadata_pointer": "/rows/4"
+    },
+    {
+      "gap_index": 5,
+      "root_ordinal": 999,
+      "map_name": "vis_h01",
+      "cache_file": "db/map_cache.dat",
+      "cache_ordinal": 991,
+      "configured": true,
+      "server_packet_name": "vis_h01.gat",
+      "renderer_name": "vis_h01.rsw",
+      "rsw_request": "vis_h01.rsw",
+      "rsw_effective": "vis_h01.rsw",
+      "rsw_request_index": 2185,
+      "expected_name_hex": {
+        "rsw": "646174615c7669735f6830312e727377",
+        "gnd": "646174615c7669735f6830312e676e64",
+        "gat": "646174615c7669735f6830312e676174"
+      },
+      "terrain_basis": {
+        "rsw": "prior_observed_request",
+        "gnd": "unobserved_same_stem_candidate",
+        "gat": "unobserved_same_stem_candidate"
+      },
+      "gap_extract_pointer": "/gaps/6",
+      "original_report_pointer": "/roots/999",
+      "corrected_metadata_pointer": "/rows/5"
+    },
+    {
+      "gap_index": 6,
+      "root_ordinal": 1000,
+      "map_name": "vis_h02",
+      "cache_file": "db/map_cache.dat",
+      "cache_ordinal": 992,
+      "configured": true,
+      "server_packet_name": "vis_h02.gat",
+      "renderer_name": "vis_h02.rsw",
+      "rsw_request": "vis_h02.rsw",
+      "rsw_effective": "vis_h02.rsw",
+      "rsw_request_index": 2186,
+      "expected_name_hex": {
+        "rsw": "646174615c7669735f6830322e727377",
+        "gnd": "646174615c7669735f6830322e676e64",
+        "gat": "646174615c7669735f6830322e676174"
+      },
+      "terrain_basis": {
+        "rsw": "prior_observed_request",
+        "gnd": "unobserved_same_stem_candidate",
+        "gat": "unobserved_same_stem_candidate"
+      },
+      "gap_extract_pointer": "/gaps/7",
+      "original_report_pointer": "/roots/1000",
+      "corrected_metadata_pointer": "/rows/6"
+    },
+    {
+      "gap_index": 7,
+      "root_ordinal": 1001,
+      "map_name": "vis_h03",
+      "cache_file": "db/map_cache.dat",
+      "cache_ordinal": 993,
+      "configured": true,
+      "server_packet_name": "vis_h03.gat",
+      "renderer_name": "vis_h03.rsw",
+      "rsw_request": "vis_h03.rsw",
+      "rsw_effective": "vis_h03.rsw",
+      "rsw_request_index": 2187,
+      "expected_name_hex": {
+        "rsw": "646174615c7669735f6830332e727377",
+        "gnd": "646174615c7669735f6830332e676e64",
+        "gat": "646174615c7669735f6830332e676174"
+      },
+      "terrain_basis": {
+        "rsw": "prior_observed_request",
+        "gnd": "unobserved_same_stem_candidate",
+        "gat": "unobserved_same_stem_candidate"
+      },
+      "gap_extract_pointer": "/gaps/8",
+      "original_report_pointer": "/roots/1001",
+      "corrected_metadata_pointer": "/rows/7"
+    },
+    {
+      "gap_index": 8,
+      "root_ordinal": 1002,
+      "map_name": "vis_h04",
+      "cache_file": "db/map_cache.dat",
+      "cache_ordinal": 994,
+      "configured": true,
+      "server_packet_name": "vis_h04.gat",
+      "renderer_name": "vis_h04.rsw",
+      "rsw_request": "vis_h04.rsw",
+      "rsw_effective": "vis_h04.rsw",
+      "rsw_request_index": 2188,
+      "expected_name_hex": {
+        "rsw": "646174615c7669735f6830342e727377",
+        "gnd": "646174615c7669735f6830342e676e64",
+        "gat": "646174615c7669735f6830342e676174"
+      },
+      "terrain_basis": {
+        "rsw": "prior_observed_request",
+        "gnd": "unobserved_same_stem_candidate",
+        "gat": "unobserved_same_stem_candidate"
+      },
+      "gap_extract_pointer": "/gaps/9",
+      "original_report_pointer": "/roots/1002",
+      "corrected_metadata_pointer": "/rows/8"
+    },
+    {
+      "gap_index": 9,
+      "root_ordinal": 1008,
+      "map_name": "2009rwc_01",
+      "cache_file": "db/map_cache.dat",
+      "cache_ordinal": 1000,
+      "configured": true,
+      "server_packet_name": "2009rwc_01.gat",
+      "renderer_name": "2009rwc_01.rsw",
+      "rsw_request": "2009rwc_01.rsw",
+      "rsw_effective": "2009rwc_01.rsw",
+      "rsw_request_index": 2204,
+      "expected_name_hex": {
+        "rsw": "646174615c323030397277635f30312e727377",
+        "gnd": "646174615c323030397277635f30312e676e64",
+        "gat": "646174615c323030397277635f30312e676174"
+      },
+      "terrain_basis": {
+        "rsw": "prior_observed_request",
+        "gnd": "unobserved_same_stem_candidate",
+        "gat": "unobserved_same_stem_candidate"
+      },
+      "gap_extract_pointer": "/gaps/10",
+      "original_report_pointer": "/roots/1008",
+      "corrected_metadata_pointer": "/rows/9"
+    },
+    {
+      "gap_index": 10,
+      "root_ordinal": 1009,
+      "map_name": "2009rwc_02",
+      "cache_file": "db/map_cache.dat",
+      "cache_ordinal": 1001,
+      "configured": true,
+      "server_packet_name": "2009rwc_02.gat",
+      "renderer_name": "2009rwc_02.rsw",
+      "rsw_request": "2009rwc_02.rsw",
+      "rsw_effective": "2009rwc_02.rsw",
+      "rsw_request_index": 2205,
+      "expected_name_hex": {
+        "rsw": "646174615c323030397277635f30322e727377",
+        "gnd": "646174615c323030397277635f30322e676e64",
+        "gat": "646174615c323030397277635f30322e676174"
+      },
+      "terrain_basis": {
+        "rsw": "prior_observed_request",
+        "gnd": "unobserved_same_stem_candidate",
+        "gat": "unobserved_same_stem_candidate"
+      },
+      "gap_extract_pointer": "/gaps/11",
+      "original_report_pointer": "/roots/1009",
+      "corrected_metadata_pointer": "/rows/10"
+    },
+    {
+      "gap_index": 11,
+      "root_ordinal": 1010,
+      "map_name": "2009rwc_03",
+      "cache_file": "db/map_cache.dat",
+      "cache_ordinal": 1002,
+      "configured": true,
+      "server_packet_name": "2009rwc_03.gat",
+      "renderer_name": "2009rwc_03.rsw",
+      "rsw_request": "2009rwc_03.rsw",
+      "rsw_effective": "2009rwc_03.rsw",
+      "rsw_request_index": 2206,
+      "expected_name_hex": {
+        "rsw": "646174615c323030397277635f30332e727377",
+        "gnd": "646174615c323030397277635f30332e676e64",
+        "gat": "646174615c323030397277635f30332e676174"
+      },
+      "terrain_basis": {
+        "rsw": "prior_observed_request",
+        "gnd": "unobserved_same_stem_candidate",
+        "gat": "unobserved_same_stem_candidate"
+      },
+      "gap_extract_pointer": "/gaps/12",
+      "original_report_pointer": "/roots/1010",
+      "corrected_metadata_pointer": "/rows/11"
+    },
+    {
+      "gap_index": 12,
+      "root_ordinal": 1011,
+      "map_name": "2009rwc_04",
+      "cache_file": "db/map_cache.dat",
+      "cache_ordinal": 1003,
+      "configured": true,
+      "server_packet_name": "2009rwc_04.gat",
+      "renderer_name": "2009rwc_04.rsw",
+      "rsw_request": "2009rwc_04.rsw",
+      "rsw_effective": "2009rwc_04.rsw",
+      "rsw_request_index": 2207,
+      "expected_name_hex": {
+        "rsw": "646174615c323030397277635f30342e727377",
+        "gnd": "646174615c323030397277635f30342e676e64",
+        "gat": "646174615c323030397277635f30342e676174"
+      },
+      "terrain_basis": {
+        "rsw": "prior_observed_request",
+        "gnd": "unobserved_same_stem_candidate",
+        "gat": "unobserved_same_stem_candidate"
+      },
+      "gap_extract_pointer": "/gaps/13",
+      "original_report_pointer": "/roots/1011",
+      "corrected_metadata_pointer": "/rows/12"
+    },
+    {
+      "gap_index": 13,
+      "root_ordinal": 1012,
+      "map_name": "2009rwc_05",
+      "cache_file": "db/map_cache.dat",
+      "cache_ordinal": 1004,
+      "configured": true,
+      "server_packet_name": "2009rwc_05.gat",
+      "renderer_name": "2009rwc_05.rsw",
+      "rsw_request": "2009rwc_05.rsw",
+      "rsw_effective": "2009rwc_05.rsw",
+      "rsw_request_index": 2208,
+      "expected_name_hex": {
+        "rsw": "646174615c323030397277635f30352e727377",
+        "gnd": "646174615c323030397277635f30352e676e64",
+        "gat": "646174615c323030397277635f30352e676174"
+      },
+      "terrain_basis": {
+        "rsw": "prior_observed_request",
+        "gnd": "unobserved_same_stem_candidate",
+        "gat": "unobserved_same_stem_candidate"
+      },
+      "gap_extract_pointer": "/gaps/14",
+      "original_report_pointer": "/roots/1012",
+      "corrected_metadata_pointer": "/rows/13"
+    },
+    {
+      "gap_index": 14,
+      "root_ordinal": 1013,
+      "map_name": "2009rwc_06",
+      "cache_file": "db/map_cache.dat",
+      "cache_ordinal": 1005,
+      "configured": true,
+      "server_packet_name": "2009rwc_06.gat",
+      "renderer_name": "2009rwc_06.rsw",
+      "rsw_request": "2009rwc_06.rsw",
+      "rsw_effective": "2009rwc_06.rsw",
+      "rsw_request_index": 2209,
+      "expected_name_hex": {
+        "rsw": "646174615c323030397277635f30362e727377",
+        "gnd": "646174615c323030397277635f30362e676e64",
+        "gat": "646174615c323030397277635f30362e676174"
+      },
+      "terrain_basis": {
+        "rsw": "prior_observed_request",
+        "gnd": "unobserved_same_stem_candidate",
+        "gat": "unobserved_same_stem_candidate"
+      },
+      "gap_extract_pointer": "/gaps/15",
+      "original_report_pointer": "/roots/1013",
+      "corrected_metadata_pointer": "/rows/14"
+    },
+    {
+      "gap_index": 15,
+      "root_ordinal": 1014,
+      "map_name": "2009rwc_07",
+      "cache_file": "db/map_cache.dat",
+      "cache_ordinal": 1006,
+      "configured": true,
+      "server_packet_name": "2009rwc_07.gat",
+      "renderer_name": "2009rwc_07.rsw",
+      "rsw_request": "2009rwc_07.rsw",
+      "rsw_effective": "2009rwc_07.rsw",
+      "rsw_request_index": 2210,
+      "expected_name_hex": {
+        "rsw": "646174615c323030397277635f30372e727377",
+        "gnd": "646174615c323030397277635f30372e676e64",
+        "gat": "646174615c323030397277635f30372e676174"
+      },
+      "terrain_basis": {
+        "rsw": "prior_observed_request",
+        "gnd": "unobserved_same_stem_candidate",
+        "gat": "unobserved_same_stem_candidate"
+      },
+      "gap_extract_pointer": "/gaps/16",
+      "original_report_pointer": "/roots/1014",
+      "corrected_metadata_pointer": "/rows/15"
+    },
+    {
+      "gap_index": 16,
+      "root_ordinal": 1015,
+      "map_name": "2009rwc_08",
+      "cache_file": "db/map_cache.dat",
+      "cache_ordinal": 1007,
+      "configured": true,
+      "server_packet_name": "2009rwc_08.gat",
+      "renderer_name": "2009rwc_08.rsw",
+      "rsw_request": "2009rwc_08.rsw",
+      "rsw_effective": "2009rwc_08.rsw",
+      "rsw_request_index": 2211,
+      "expected_name_hex": {
+        "rsw": "646174615c323030397277635f30382e727377",
+        "gnd": "646174615c323030397277635f30382e676e64",
+        "gat": "646174615c323030397277635f30382e676174"
+      },
+      "terrain_basis": {
+        "rsw": "prior_observed_request",
+        "gnd": "unobserved_same_stem_candidate",
+        "gat": "unobserved_same_stem_candidate"
+      },
+      "gap_extract_pointer": "/gaps/17",
+      "original_report_pointer": "/roots/1015",
+      "corrected_metadata_pointer": "/rows/16"
+    },
+    {
+      "gap_index": 17,
+      "root_ordinal": 1016,
+      "map_name": "2009rwc_f01",
+      "cache_file": "db/map_cache.dat",
+      "cache_ordinal": 1008,
+      "configured": true,
+      "server_packet_name": "2009rwc_f01.gat",
+      "renderer_name": "2009rwc_f01.rsw",
+      "rsw_request": "2009rwc_f01.rsw",
+      "rsw_effective": "2009rwc_f01.rsw",
+      "rsw_request_index": 2212,
+      "expected_name_hex": {
+        "rsw": "646174615c323030397277635f6630312e727377",
+        "gnd": "646174615c323030397277635f6630312e676e64",
+        "gat": "646174615c323030397277635f6630312e676174"
+      },
+      "terrain_basis": {
+        "rsw": "prior_observed_request",
+        "gnd": "unobserved_same_stem_candidate",
+        "gat": "unobserved_same_stem_candidate"
+      },
+      "gap_extract_pointer": "/gaps/18",
+      "original_report_pointer": "/roots/1016",
+      "corrected_metadata_pointer": "/rows/17"
+    },
+    {
+      "gap_index": 18,
+      "root_ordinal": 1017,
+      "map_name": "2012rwc_01",
+      "cache_file": "db/map_cache.dat",
+      "cache_ordinal": 1009,
+      "configured": true,
+      "server_packet_name": "2012rwc_01.gat",
+      "renderer_name": "2012rwc_01.rsw",
+      "rsw_request": "2012rwc_01.rsw",
+      "rsw_effective": "2012rwc_01.rsw",
+      "rsw_request_index": 2213,
+      "expected_name_hex": {
+        "rsw": "646174615c323031327277635f30312e727377",
+        "gnd": "646174615c323031327277635f30312e676e64",
+        "gat": "646174615c323031327277635f30312e676174"
+      },
+      "terrain_basis": {
+        "rsw": "prior_observed_request",
+        "gnd": "unobserved_same_stem_candidate",
+        "gat": "unobserved_same_stem_candidate"
+      },
+      "gap_extract_pointer": "/gaps/19",
+      "original_report_pointer": "/roots/1017",
+      "corrected_metadata_pointer": "/rows/18"
+    },
+    {
+      "gap_index": 19,
+      "root_ordinal": 1018,
+      "map_name": "2012rwc_02",
+      "cache_file": "db/map_cache.dat",
+      "cache_ordinal": 1010,
+      "configured": true,
+      "server_packet_name": "2012rwc_02.gat",
+      "renderer_name": "2012rwc_02.rsw",
+      "rsw_request": "2012rwc_02.rsw",
+      "rsw_effective": "2012rwc_02.rsw",
+      "rsw_request_index": 2214,
+      "expected_name_hex": {
+        "rsw": "646174615c323031327277635f30322e727377",
+        "gnd": "646174615c323031327277635f30322e676e64",
+        "gat": "646174615c323031327277635f30322e676174"
+      },
+      "terrain_basis": {
+        "rsw": "prior_observed_request",
+        "gnd": "unobserved_same_stem_candidate",
+        "gat": "unobserved_same_stem_candidate"
+      },
+      "gap_extract_pointer": "/gaps/20",
+      "original_report_pointer": "/roots/1018",
+      "corrected_metadata_pointer": "/rows/19"
+    },
+    {
+      "gap_index": 20,
+      "root_ordinal": 1019,
+      "map_name": "2012rwc_03",
+      "cache_file": "db/map_cache.dat",
+      "cache_ordinal": 1011,
+      "configured": true,
+      "server_packet_name": "2012rwc_03.gat",
+      "renderer_name": "2012rwc_03.rsw",
+      "rsw_request": "2012rwc_03.rsw",
+      "rsw_effective": "2012rwc_03.rsw",
+      "rsw_request_index": 2215,
+      "expected_name_hex": {
+        "rsw": "646174615c323031327277635f30332e727377",
+        "gnd": "646174615c323031327277635f30332e676e64",
+        "gat": "646174615c323031327277635f30332e676174"
+      },
+      "terrain_basis": {
+        "rsw": "prior_observed_request",
+        "gnd": "unobserved_same_stem_candidate",
+        "gat": "unobserved_same_stem_candidate"
+      },
+      "gap_extract_pointer": "/gaps/21",
+      "original_report_pointer": "/roots/1019",
+      "corrected_metadata_pointer": "/rows/20"
+    },
+    {
+      "gap_index": 21,
+      "root_ordinal": 1020,
+      "map_name": "2012rwc_04",
+      "cache_file": "db/map_cache.dat",
+      "cache_ordinal": 1012,
+      "configured": true,
+      "server_packet_name": "2012rwc_04.gat",
+      "renderer_name": "2012rwc_04.rsw",
+      "rsw_request": "2012rwc_04.rsw",
+      "rsw_effective": "2012rwc_04.rsw",
+      "rsw_request_index": 2216,
+      "expected_name_hex": {
+        "rsw": "646174615c323031327277635f30342e727377",
+        "gnd": "646174615c323031327277635f30342e676e64",
+        "gat": "646174615c323031327277635f30342e676174"
+      },
+      "terrain_basis": {
+        "rsw": "prior_observed_request",
+        "gnd": "unobserved_same_stem_candidate",
+        "gat": "unobserved_same_stem_candidate"
+      },
+      "gap_extract_pointer": "/gaps/22",
+      "original_report_pointer": "/roots/1020",
+      "corrected_metadata_pointer": "/rows/21"
+    },
+    {
+      "gap_index": 22,
+      "root_ordinal": 1021,
+      "map_name": "2012rwc_05",
+      "cache_file": "db/map_cache.dat",
+      "cache_ordinal": 1013,
+      "configured": true,
+      "server_packet_name": "2012rwc_05.gat",
+      "renderer_name": "2012rwc_05.rsw",
+      "rsw_request": "2012rwc_05.rsw",
+      "rsw_effective": "2012rwc_05.rsw",
+      "rsw_request_index": 2217,
+      "expected_name_hex": {
+        "rsw": "646174615c323031327277635f30352e727377",
+        "gnd": "646174615c323031327277635f30352e676e64",
+        "gat": "646174615c323031327277635f30352e676174"
+      },
+      "terrain_basis": {
+        "rsw": "prior_observed_request",
+        "gnd": "unobserved_same_stem_candidate",
+        "gat": "unobserved_same_stem_candidate"
+      },
+      "gap_extract_pointer": "/gaps/23",
+      "original_report_pointer": "/roots/1021",
+      "corrected_metadata_pointer": "/rows/22"
+    },
+    {
+      "gap_index": 23,
+      "root_ordinal": 1022,
+      "map_name": "2012rwc_06",
+      "cache_file": "db/map_cache.dat",
+      "cache_ordinal": 1014,
+      "configured": true,
+      "server_packet_name": "2012rwc_06.gat",
+      "renderer_name": "2012rwc_06.rsw",
+      "rsw_request": "2012rwc_06.rsw",
+      "rsw_effective": "2012rwc_06.rsw",
+      "rsw_request_index": 2218,
+      "expected_name_hex": {
+        "rsw": "646174615c323031327277635f30362e727377",
+        "gnd": "646174615c323031327277635f30362e676e64",
+        "gat": "646174615c323031327277635f30362e676174"
+      },
+      "terrain_basis": {
+        "rsw": "prior_observed_request",
+        "gnd": "unobserved_same_stem_candidate",
+        "gat": "unobserved_same_stem_candidate"
+      },
+      "gap_extract_pointer": "/gaps/24",
+      "original_report_pointer": "/roots/1022",
+      "corrected_metadata_pointer": "/rows/23"
+    },
+    {
+      "gap_index": 24,
+      "root_ordinal": 1023,
+      "map_name": "2012rwc_07",
+      "cache_file": "db/map_cache.dat",
+      "cache_ordinal": 1015,
+      "configured": true,
+      "server_packet_name": "2012rwc_07.gat",
+      "renderer_name": "2012rwc_07.rsw",
+      "rsw_request": "2012rwc_07.rsw",
+      "rsw_effective": "2012rwc_07.rsw",
+      "rsw_request_index": 2219,
+      "expected_name_hex": {
+        "rsw": "646174615c323031327277635f30372e727377",
+        "gnd": "646174615c323031327277635f30372e676e64",
+        "gat": "646174615c323031327277635f30372e676174"
+      },
+      "terrain_basis": {
+        "rsw": "prior_observed_request",
+        "gnd": "unobserved_same_stem_candidate",
+        "gat": "unobserved_same_stem_candidate"
+      },
+      "gap_extract_pointer": "/gaps/25",
+      "original_report_pointer": "/roots/1023",
+      "corrected_metadata_pointer": "/rows/24"
+    },
+    {
+      "gap_index": 25,
+      "root_ordinal": 1024,
+      "map_name": "2012rwc_08",
+      "cache_file": "db/map_cache.dat",
+      "cache_ordinal": 1016,
+      "configured": true,
+      "server_packet_name": "2012rwc_08.gat",
+      "renderer_name": "2012rwc_08.rsw",
+      "rsw_request": "2012rwc_08.rsw",
+      "rsw_effective": "2012rwc_08.rsw",
+      "rsw_request_index": 2220,
+      "expected_name_hex": {
+        "rsw": "646174615c323031327277635f30382e727377",
+        "gnd": "646174615c323031327277635f30382e676e64",
+        "gat": "646174615c323031327277635f30382e676174"
+      },
+      "terrain_basis": {
+        "rsw": "prior_observed_request",
+        "gnd": "unobserved_same_stem_candidate",
+        "gat": "unobserved_same_stem_candidate"
+      },
+      "gap_extract_pointer": "/gaps/26",
+      "original_report_pointer": "/roots/1024",
+      "corrected_metadata_pointer": "/rows/25"
+    },
+    {
+      "gap_index": 26,
+      "root_ordinal": 1042,
+      "map_name": "1@gl_he2",
+      "cache_file": "db/map_cache.dat",
+      "cache_ordinal": 1034,
+      "configured": true,
+      "server_packet_name": "1@gl_he2.gat",
+      "renderer_name": "1@gl_he2.rsw",
+      "rsw_request": "1@gl_he2.rsw",
+      "rsw_effective": "1@gl_he2.rsw",
+      "rsw_request_index": 2269,
+      "expected_name_hex": {
+        "rsw": "646174615c3140676c5f6865322e727377",
+        "gnd": "646174615c3140676c5f6865322e676e64",
+        "gat": "646174615c3140676c5f6865322e676174"
+      },
+      "terrain_basis": {
+        "rsw": "prior_observed_request",
+        "gnd": "unobserved_same_stem_candidate",
+        "gat": "unobserved_same_stem_candidate"
+      },
+      "gap_extract_pointer": "/gaps/27",
+      "original_report_pointer": "/roots/1042",
+      "corrected_metadata_pointer": "/rows/26"
+    },
+    {
+      "gap_index": 27,
+      "root_ordinal": 1051,
+      "map_name": "1@odin",
+      "cache_file": "db/map_cache.dat",
+      "cache_ordinal": 1043,
+      "configured": true,
+      "server_packet_name": "1@odin.gat",
+      "renderer_name": "1@odin.rsw",
+      "rsw_request": "1@odin.rsw",
+      "rsw_effective": "1@odin.rsw",
+      "rsw_request_index": 2294,
+      "expected_name_hex": {
+        "rsw": "646174615c31406f64696e2e727377",
+        "gnd": "646174615c31406f64696e2e676e64",
+        "gat": "646174615c31406f64696e2e676174"
+      },
+      "terrain_basis": {
+        "rsw": "prior_observed_request",
+        "gnd": "unobserved_same_stem_candidate",
+        "gat": "unobserved_same_stem_candidate"
+      },
+      "gap_extract_pointer": "/gaps/28",
+      "original_report_pointer": "/roots/1051",
+      "corrected_metadata_pointer": "/rows/27"
+    },
+    {
+      "gap_index": 28,
+      "root_ordinal": 1151,
+      "map_name": "1@pdb",
+      "cache_file": "db/map_cache.dat",
+      "cache_ordinal": 1143,
+      "configured": true,
+      "server_packet_name": "1@pdb.gat",
+      "renderer_name": "1@pdb.rsw",
+      "rsw_request": "1@pdb.rsw",
+      "rsw_effective": "1@pdb.rsw",
+      "rsw_request_index": 2580,
+      "expected_name_hex": {
+        "rsw": "646174615c31407064622e727377",
+        "gnd": "646174615c31407064622e676e64",
+        "gat": "646174615c31407064622e676174"
+      },
+      "terrain_basis": {
+        "rsw": "prior_observed_request",
+        "gnd": "unobserved_same_stem_candidate",
+        "gat": "unobserved_same_stem_candidate"
+      },
+      "gap_extract_pointer": "/gaps/29",
+      "original_report_pointer": "/roots/1151",
+      "corrected_metadata_pointer": "/rows/28"
+    },
+    {
+      "gap_index": 29,
+      "root_ordinal": 1156,
+      "map_name": "airplane2",
+      "cache_file": "db/map_cache.dat",
+      "cache_ordinal": 1148,
+      "configured": true,
+      "server_packet_name": "airplane2.gat",
+      "renderer_name": "airplane2.rsw",
+      "rsw_request": "airplane2.rsw",
+      "rsw_effective": "airplane2.rsw",
+      "rsw_request_index": 2593,
+      "expected_name_hex": {
+        "rsw": "646174615c616972706c616e65322e727377",
+        "gnd": "646174615c616972706c616e65322e676e64",
+        "gat": "646174615c616972706c616e65322e676174"
+      },
+      "terrain_basis": {
+        "rsw": "prior_observed_request",
+        "gnd": "unobserved_same_stem_candidate",
+        "gat": "unobserved_same_stem_candidate"
+      },
+      "gap_extract_pointer": "/gaps/30",
+      "original_report_pointer": "/roots/1156",
+      "corrected_metadata_pointer": "/rows/29"
+    },
+    {
+      "gap_index": 30,
+      "root_ordinal": 1160,
+      "map_name": "rag_fes_a",
+      "cache_file": "db/map_cache.dat",
+      "cache_ordinal": 1152,
+      "configured": true,
+      "server_packet_name": "rag_fes_a.gat",
+      "renderer_name": "rag_fes_a.rsw",
+      "rsw_request": "rag_fes_a.rsw",
+      "rsw_effective": "rag_fes_a.rsw",
+      "rsw_request_index": 2603,
+      "expected_name_hex": {
+        "rsw": "646174615c7261675f6665735f612e727377",
+        "gnd": "646174615c7261675f6665735f612e676e64",
+        "gat": "646174615c7261675f6665735f612e676174"
+      },
+      "terrain_basis": {
+        "rsw": "prior_observed_request",
+        "gnd": "unobserved_same_stem_candidate",
+        "gat": "unobserved_same_stem_candidate"
+      },
+      "gap_extract_pointer": "/gaps/31",
+      "original_report_pointer": "/roots/1160",
+      "corrected_metadata_pointer": "/rows/30"
+    },
+    {
+      "gap_index": 31,
+      "root_ordinal": 1161,
+      "map_name": "rag_fes",
+      "cache_file": "db/map_cache.dat",
+      "cache_ordinal": 1153,
+      "configured": true,
+      "server_packet_name": "rag_fes.gat",
+      "renderer_name": "rag_fes.rsw",
+      "rsw_request": "rag_fes.rsw",
+      "rsw_effective": "rag_fes.rsw",
+      "rsw_request_index": 2604,
+      "expected_name_hex": {
+        "rsw": "646174615c7261675f6665732e727377",
+        "gnd": "646174615c7261675f6665732e676e64",
+        "gat": "646174615c7261675f6665732e676174"
+      },
+      "terrain_basis": {
+        "rsw": "prior_observed_request",
+        "gnd": "unobserved_same_stem_candidate",
+        "gat": "unobserved_same_stem_candidate"
+      },
+      "gap_extract_pointer": "/gaps/32",
+      "original_report_pointer": "/roots/1161",
+      "corrected_metadata_pointer": "/rows/31"
+    },
+    {
+      "gap_index": 32,
+      "root_ordinal": 1214,
+      "map_name": "1@vrpop",
+      "cache_file": "db/map_cache.dat",
+      "cache_ordinal": 1206,
+      "configured": true,
+      "server_packet_name": "1@vrpop.gat",
+      "renderer_name": "1@vrpop.rsw",
+      "rsw_request": "1@vrpop.rsw",
+      "rsw_effective": "1@vrpop.rsw",
+      "rsw_request_index": 2761,
+      "expected_name_hex": {
+        "rsw": "646174615c31407672706f702e727377",
+        "gnd": "646174615c31407672706f702e676e64",
+        "gat": "646174615c31407672706f702e676174"
+      },
+      "terrain_basis": {
+        "rsw": "prior_observed_request",
+        "gnd": "unobserved_same_stem_candidate",
+        "gat": "unobserved_same_stem_candidate"
+      },
+      "gap_extract_pointer": "/gaps/33",
+      "original_report_pointer": "/roots/1214",
+      "corrected_metadata_pointer": "/rows/32"
+    },
+    {
+      "gap_index": 33,
+      "root_ordinal": 1215,
+      "map_name": "2@vrpop",
+      "cache_file": "db/map_cache.dat",
+      "cache_ordinal": 1207,
+      "configured": true,
+      "server_packet_name": "2@vrpop.gat",
+      "renderer_name": "2@vrpop.rsw",
+      "rsw_request": "2@vrpop.rsw",
+      "rsw_effective": "2@vrpop.rsw",
+      "rsw_request_index": 2762,
+      "expected_name_hex": {
+        "rsw": "646174615c32407672706f702e727377",
+        "gnd": "646174615c32407672706f702e676e64",
+        "gat": "646174615c32407672706f702e676174"
+      },
+      "terrain_basis": {
+        "rsw": "prior_observed_request",
+        "gnd": "unobserved_same_stem_candidate",
+        "gat": "unobserved_same_stem_candidate"
+      },
+      "gap_extract_pointer": "/gaps/34",
+      "original_report_pointer": "/roots/1215",
+      "corrected_metadata_pointer": "/rows/33"
+    },
+    {
+      "gap_index": 34,
+      "root_ordinal": 1216,
+      "map_name": "3@vrpop",
+      "cache_file": "db/map_cache.dat",
+      "cache_ordinal": 1208,
+      "configured": true,
+      "server_packet_name": "3@vrpop.gat",
+      "renderer_name": "3@vrpop.rsw",
+      "rsw_request": "3@vrpop.rsw",
+      "rsw_effective": "3@vrpop.rsw",
+      "rsw_request_index": 2763,
+      "expected_name_hex": {
+        "rsw": "646174615c33407672706f702e727377",
+        "gnd": "646174615c33407672706f702e676e64",
+        "gat": "646174615c33407672706f702e676174"
+      },
+      "terrain_basis": {
+        "rsw": "prior_observed_request",
+        "gnd": "unobserved_same_stem_candidate",
+        "gat": "unobserved_same_stem_candidate"
+      },
+      "gap_extract_pointer": "/gaps/35",
+      "original_report_pointer": "/roots/1216",
+      "corrected_metadata_pointer": "/rows/34"
+    },
+    {
+      "gap_index": 35,
+      "root_ordinal": 1239,
+      "map_name": "iz_in_a",
+      "cache_file": "db/map_cache.dat",
+      "cache_ordinal": 1231,
+      "configured": true,
+      "server_packet_name": "iz_in_a.gat",
+      "renderer_name": "iz_in_a.rsw",
+      "rsw_request": "iz_in_a.rsw",
+      "rsw_effective": "iz_in_a.rsw",
+      "rsw_request_index": 2830,
+      "expected_name_hex": {
+        "rsw": "646174615c697a5f696e5f612e727377",
+        "gnd": "646174615c697a5f696e5f612e676e64",
+        "gat": "646174615c697a5f696e5f612e676174"
+      },
+      "terrain_basis": {
+        "rsw": "prior_observed_request",
+        "gnd": "unobserved_same_stem_candidate",
+        "gat": "unobserved_same_stem_candidate"
+      },
+      "gap_extract_pointer": "/gaps/36",
+      "original_report_pointer": "/roots/1239",
+      "corrected_metadata_pointer": "/rows/35"
+    },
+    {
+      "gap_index": 36,
+      "root_ordinal": 1240,
+      "map_name": "iz_in_b",
+      "cache_file": "db/map_cache.dat",
+      "cache_ordinal": 1232,
+      "configured": true,
+      "server_packet_name": "iz_in_b.gat",
+      "renderer_name": "iz_in_b.rsw",
+      "rsw_request": "iz_in_b.rsw",
+      "rsw_effective": "iz_in_b.rsw",
+      "rsw_request_index": 2831,
+      "expected_name_hex": {
+        "rsw": "646174615c697a5f696e5f622e727377",
+        "gnd": "646174615c697a5f696e5f622e676e64",
+        "gat": "646174615c697a5f696e5f622e676174"
+      },
+      "terrain_basis": {
+        "rsw": "prior_observed_request",
+        "gnd": "unobserved_same_stem_candidate",
+        "gat": "unobserved_same_stem_candidate"
+      },
+      "gap_extract_pointer": "/gaps/37",
+      "original_report_pointer": "/roots/1240",
+      "corrected_metadata_pointer": "/rows/36"
+    },
+    {
+      "gap_index": 37,
+      "root_ordinal": 1241,
+      "map_name": "iz_in_c",
+      "cache_file": "db/map_cache.dat",
+      "cache_ordinal": 1233,
+      "configured": true,
+      "server_packet_name": "iz_in_c.gat",
+      "renderer_name": "iz_in_c.rsw",
+      "rsw_request": "iz_in_c.rsw",
+      "rsw_effective": "iz_in_c.rsw",
+      "rsw_request_index": 2832,
+      "expected_name_hex": {
+        "rsw": "646174615c697a5f696e5f632e727377",
+        "gnd": "646174615c697a5f696e5f632e676e64",
+        "gat": "646174615c697a5f696e5f632e676174"
+      },
+      "terrain_basis": {
+        "rsw": "prior_observed_request",
+        "gnd": "unobserved_same_stem_candidate",
+        "gat": "unobserved_same_stem_candidate"
+      },
+      "gap_extract_pointer": "/gaps/38",
+      "original_report_pointer": "/roots/1241",
+      "corrected_metadata_pointer": "/rows/37"
+    },
+    {
+      "gap_index": 38,
+      "root_ordinal": 1242,
+      "map_name": "iz_in_d",
+      "cache_file": "db/map_cache.dat",
+      "cache_ordinal": 1234,
+      "configured": true,
+      "server_packet_name": "iz_in_d.gat",
+      "renderer_name": "iz_in_d.rsw",
+      "rsw_request": "iz_in_d.rsw",
+      "rsw_effective": "iz_in_d.rsw",
+      "rsw_request_index": 2833,
+      "expected_name_hex": {
+        "rsw": "646174615c697a5f696e5f642e727377",
+        "gnd": "646174615c697a5f696e5f642e676e64",
+        "gat": "646174615c697a5f696e5f642e676174"
+      },
+      "terrain_basis": {
+        "rsw": "prior_observed_request",
+        "gnd": "unobserved_same_stem_candidate",
+        "gat": "unobserved_same_stem_candidate"
+      },
+      "gap_extract_pointer": "/gaps/39",
+      "original_report_pointer": "/roots/1242",
+      "corrected_metadata_pointer": "/rows/38"
+    },
+    {
+      "gap_index": 39,
+      "root_ordinal": 1247,
+      "map_name": "cmd_bhole",
+      "cache_file": "db/map_cache.dat",
+      "cache_ordinal": 1239,
+      "configured": true,
+      "server_packet_name": "cmd_bhole.gat",
+      "renderer_name": "cmd_bhole.rsw",
+      "rsw_request": "cmd_bhole.rsw",
+      "rsw_effective": "cmd_bhole.rsw",
+      "rsw_request_index": 2846,
+      "expected_name_hex": {
+        "rsw": "646174615c636d645f62686f6c652e727377",
+        "gnd": "646174615c636d645f62686f6c652e676e64",
+        "gat": "646174615c636d645f62686f6c652e676174"
+      },
+      "terrain_basis": {
+        "rsw": "prior_observed_request",
+        "gnd": "unobserved_same_stem_candidate",
+        "gat": "unobserved_same_stem_candidate"
+      },
+      "gap_extract_pointer": "/gaps/40",
+      "original_report_pointer": "/roots/1247",
+      "corrected_metadata_pointer": "/rows/39"
+    },
+    {
+      "gap_index": 40,
+      "root_ordinal": 1249,
+      "map_name": "1@ch1a",
+      "cache_file": "db/map_cache.dat",
+      "cache_ordinal": 1241,
+      "configured": true,
+      "server_packet_name": "1@ch1a.gat",
+      "renderer_name": "1@ch1a.rsw",
+      "rsw_request": "1@ch1a.rsw",
+      "rsw_effective": "1@ch1a.rsw",
+      "rsw_request_index": 2848,
+      "expected_name_hex": {
+        "rsw": "646174615c3140636831612e727377",
+        "gnd": "646174615c3140636831612e676e64",
+        "gat": "646174615c3140636831612e676174"
+      },
+      "terrain_basis": {
+        "rsw": "prior_observed_request",
+        "gnd": "unobserved_same_stem_candidate",
+        "gat": "unobserved_same_stem_candidate"
+      },
+      "gap_extract_pointer": "/gaps/41",
+      "original_report_pointer": "/roots/1249",
+      "corrected_metadata_pointer": "/rows/40"
+    },
+    {
+      "gap_index": 41,
+      "root_ordinal": 1250,
+      "map_name": "1@ch1b",
+      "cache_file": "db/map_cache.dat",
+      "cache_ordinal": 1242,
+      "configured": true,
+      "server_packet_name": "1@ch1b.gat",
+      "renderer_name": "1@ch1b.rsw",
+      "rsw_request": "1@ch1b.rsw",
+      "rsw_effective": "1@ch1b.rsw",
+      "rsw_request_index": 2849,
+      "expected_name_hex": {
+        "rsw": "646174615c3140636831622e727377",
+        "gnd": "646174615c3140636831622e676e64",
+        "gat": "646174615c3140636831622e676174"
+      },
+      "terrain_basis": {
+        "rsw": "prior_observed_request",
+        "gnd": "unobserved_same_stem_candidate",
+        "gat": "unobserved_same_stem_candidate"
+      },
+      "gap_extract_pointer": "/gaps/42",
+      "original_report_pointer": "/roots/1250",
+      "corrected_metadata_pointer": "/rows/41"
+    },
+    {
+      "gap_index": 42,
+      "root_ordinal": 1251,
+      "map_name": "ch1_dw",
+      "cache_file": "db/map_cache.dat",
+      "cache_ordinal": 1243,
+      "configured": true,
+      "server_packet_name": "ch1_dw.gat",
+      "renderer_name": "ch1_dw.rsw",
+      "rsw_request": "ch1_dw.rsw",
+      "rsw_effective": "ch1_dw.rsw",
+      "rsw_request_index": 2850,
+      "expected_name_hex": {
+        "rsw": "646174615c6368315f64772e727377",
+        "gnd": "646174615c6368315f64772e676e64",
+        "gat": "646174615c6368315f64772e676174"
+      },
+      "terrain_basis": {
+        "rsw": "prior_observed_request",
+        "gnd": "unobserved_same_stem_candidate",
+        "gat": "unobserved_same_stem_candidate"
+      },
+      "gap_extract_pointer": "/gaps/43",
+      "original_report_pointer": "/roots/1251",
+      "corrected_metadata_pointer": "/rows/42"
+    },
+    {
+      "gap_index": 43,
+      "root_ordinal": 1252,
+      "map_name": "ch1_gef_in",
+      "cache_file": "db/map_cache.dat",
+      "cache_ordinal": 1244,
+      "configured": true,
+      "server_packet_name": "ch1_gef_in.gat",
+      "renderer_name": "ch1_gef_in.rsw",
+      "rsw_request": "ch1_gef_in.rsw",
+      "rsw_effective": "ch1_gef_in.rsw",
+      "rsw_request_index": 2851,
+      "expected_name_hex": {
+        "rsw": "646174615c6368315f6765665f696e2e727377",
+        "gnd": "646174615c6368315f6765665f696e2e676e64",
+        "gat": "646174615c6368315f6765665f696e2e676174"
+      },
+      "terrain_basis": {
+        "rsw": "prior_observed_request",
+        "gnd": "unobserved_same_stem_candidate",
+        "gat": "unobserved_same_stem_candidate"
+      },
+      "gap_extract_pointer": "/gaps/44",
+      "original_report_pointer": "/roots/1252",
+      "corrected_metadata_pointer": "/rows/43"
+    },
+    {
+      "gap_index": 44,
+      "root_ordinal": 1253,
+      "map_name": "ch1_geffen",
+      "cache_file": "db/map_cache.dat",
+      "cache_ordinal": 1245,
+      "configured": true,
+      "server_packet_name": "ch1_geffen.gat",
+      "renderer_name": "ch1_geffen.rsw",
+      "rsw_request": "ch1_geffen.rsw",
+      "rsw_effective": "ch1_geffen.rsw",
+      "rsw_request_index": 2852,
+      "expected_name_hex": {
+        "rsw": "646174615c6368315f67656666656e2e727377",
+        "gnd": "646174615c6368315f67656666656e2e676e64",
+        "gat": "646174615c6368315f67656666656e2e676174"
+      },
+      "terrain_basis": {
+        "rsw": "prior_observed_request",
+        "gnd": "unobserved_same_stem_candidate",
+        "gat": "unobserved_same_stem_candidate"
+      },
+      "gap_extract_pointer": "/gaps/45",
+      "original_report_pointer": "/roots/1253",
+      "corrected_metadata_pointer": "/rows/44"
+    },
+    {
+      "gap_index": 45,
+      "root_ordinal": 1254,
+      "map_name": "ch1_gfn01",
+      "cache_file": "db/map_cache.dat",
+      "cache_ordinal": 1246,
+      "configured": true,
+      "server_packet_name": "ch1_gfn01.gat",
+      "renderer_name": "ch1_gfn01.rsw",
+      "rsw_request": "ch1_gfn01.rsw",
+      "rsw_effective": "ch1_gfn01.rsw",
+      "rsw_request_index": 2853,
+      "expected_name_hex": {
+        "rsw": "646174615c6368315f67666e30312e727377",
+        "gnd": "646174615c6368315f67666e30312e676e64",
+        "gat": "646174615c6368315f67666e30312e676174"
+      },
+      "terrain_basis": {
+        "rsw": "prior_observed_request",
+        "gnd": "unobserved_same_stem_candidate",
+        "gat": "unobserved_same_stem_candidate"
+      },
+      "gap_extract_pointer": "/gaps/46",
+      "original_report_pointer": "/roots/1254",
+      "corrected_metadata_pointer": "/rows/45"
+    },
+    {
+      "gap_index": 46,
+      "root_ordinal": 1255,
+      "map_name": "ch1_gfn03",
+      "cache_file": "db/map_cache.dat",
+      "cache_ordinal": 1247,
+      "configured": true,
+      "server_packet_name": "ch1_gfn03.gat",
+      "renderer_name": "ch1_gfn03.rsw",
+      "rsw_request": "ch1_gfn03.rsw",
+      "rsw_effective": "ch1_gfn03.rsw",
+      "rsw_request_index": 2854,
+      "expected_name_hex": {
+        "rsw": "646174615c6368315f67666e30332e727377",
+        "gnd": "646174615c6368315f67666e30332e676e64",
+        "gat": "646174615c6368315f67666e30332e676174"
+      },
+      "terrain_basis": {
+        "rsw": "prior_observed_request",
+        "gnd": "unobserved_same_stem_candidate",
+        "gat": "unobserved_same_stem_candidate"
+      },
+      "gap_extract_pointer": "/gaps/47",
+      "original_report_pointer": "/roots/1255",
+      "corrected_metadata_pointer": "/rows/46"
+    },
+    {
+      "gap_index": 47,
+      "root_ordinal": 1256,
+      "map_name": "ch1_que01",
+      "cache_file": "db/map_cache.dat",
+      "cache_ordinal": 1248,
+      "configured": true,
+      "server_packet_name": "ch1_que01.gat",
+      "renderer_name": "ch1_que01.rsw",
+      "rsw_request": "ch1_que01.rsw",
+      "rsw_effective": "ch1_que01.rsw",
+      "rsw_request_index": 2855,
+      "expected_name_hex": {
+        "rsw": "646174615c6368315f71756530312e727377",
+        "gnd": "646174615c6368315f71756530312e676e64",
+        "gat": "646174615c6368315f71756530312e676174"
+      },
+      "terrain_basis": {
+        "rsw": "prior_observed_request",
+        "gnd": "unobserved_same_stem_candidate",
+        "gat": "unobserved_same_stem_candidate"
+      },
+      "gap_extract_pointer": "/gaps/48",
+      "original_report_pointer": "/roots/1256",
+      "corrected_metadata_pointer": "/rows/47"
+    },
+    {
+      "gap_index": 48,
+      "root_ordinal": 1257,
+      "map_name": "ch1_sf01",
+      "cache_file": "db/map_cache.dat",
+      "cache_ordinal": 1249,
+      "configured": true,
+      "server_packet_name": "ch1_sf01.gat",
+      "renderer_name": "ch1_sf01.rsw",
+      "rsw_request": "ch1_sf01.rsw",
+      "rsw_effective": "ch1_sf01.rsw",
+      "rsw_request_index": 2856,
+      "expected_name_hex": {
+        "rsw": "646174615c6368315f736630312e727377",
+        "gnd": "646174615c6368315f736630312e676e64",
+        "gat": "646174615c6368315f736630312e676174"
+      },
+      "terrain_basis": {
+        "rsw": "prior_observed_request",
+        "gnd": "unobserved_same_stem_candidate",
+        "gat": "unobserved_same_stem_candidate"
+      },
+      "gap_extract_pointer": "/gaps/49",
+      "original_report_pointer": "/roots/1257",
+      "corrected_metadata_pointer": "/rows/48"
+    },
+    {
+      "gap_index": 49,
+      "root_ordinal": 1258,
+      "map_name": "ch1_sf02",
+      "cache_file": "db/map_cache.dat",
+      "cache_ordinal": 1250,
+      "configured": true,
+      "server_packet_name": "ch1_sf02.gat",
+      "renderer_name": "ch1_sf02.rsw",
+      "rsw_request": "ch1_sf02.rsw",
+      "rsw_effective": "ch1_sf02.rsw",
+      "rsw_request_index": 2857,
+      "expected_name_hex": {
+        "rsw": "646174615c6368315f736630322e727377",
+        "gnd": "646174615c6368315f736630322e676e64",
+        "gat": "646174615c6368315f736630322e676174"
+      },
+      "terrain_basis": {
+        "rsw": "prior_observed_request",
+        "gnd": "unobserved_same_stem_candidate",
+        "gat": "unobserved_same_stem_candidate"
+      },
+      "gap_extract_pointer": "/gaps/50",
+      "original_report_pointer": "/roots/1258",
+      "corrected_metadata_pointer": "/rows/49"
+    },
+    {
+      "gap_index": 50,
+      "root_ordinal": 1259,
+      "map_name": "ch1_sf03",
+      "cache_file": "db/map_cache.dat",
+      "cache_ordinal": 1251,
+      "configured": true,
+      "server_packet_name": "ch1_sf03.gat",
+      "renderer_name": "ch1_sf03.rsw",
+      "rsw_request": "ch1_sf03.rsw",
+      "rsw_effective": "ch1_sf03.rsw",
+      "rsw_request_index": 2858,
+      "expected_name_hex": {
+        "rsw": "646174615c6368315f736630332e727377",
+        "gnd": "646174615c6368315f736630332e676e64",
+        "gat": "646174615c6368315f736630332e676174"
+      },
+      "terrain_basis": {
+        "rsw": "prior_observed_request",
+        "gnd": "unobserved_same_stem_candidate",
+        "gat": "unobserved_same_stem_candidate"
+      },
+      "gap_extract_pointer": "/gaps/51",
+      "original_report_pointer": "/roots/1259",
+      "corrected_metadata_pointer": "/rows/50"
+    },
+    {
+      "gap_index": 51,
+      "root_ordinal": 1260,
+      "map_name": "ch1_vrgef1",
+      "cache_file": "db/map_cache.dat",
+      "cache_ordinal": 1252,
+      "configured": true,
+      "server_packet_name": "ch1_vrgef1.gat",
+      "renderer_name": "ch1_vrgef1.rsw",
+      "rsw_request": "ch1_vrgef1.rsw",
+      "rsw_effective": "ch1_vrgef1.rsw",
+      "rsw_request_index": 2859,
+      "expected_name_hex": {
+        "rsw": "646174615c6368315f7672676566312e727377",
+        "gnd": "646174615c6368315f7672676566312e676e64",
+        "gat": "646174615c6368315f7672676566312e676174"
+      },
+      "terrain_basis": {
+        "rsw": "prior_observed_request",
+        "gnd": "unobserved_same_stem_candidate",
+        "gat": "unobserved_same_stem_candidate"
+      },
+      "gap_extract_pointer": "/gaps/52",
+      "original_report_pointer": "/roots/1260",
+      "corrected_metadata_pointer": "/rows/51"
+    },
+    {
+      "gap_index": 52,
+      "root_ordinal": 1261,
+      "map_name": "ch1_vrgef2",
+      "cache_file": "db/map_cache.dat",
+      "cache_ordinal": 1253,
+      "configured": true,
+      "server_packet_name": "ch1_vrgef2.gat",
+      "renderer_name": "ch1_vrgef2.rsw",
+      "rsw_request": "ch1_vrgef2.rsw",
+      "rsw_effective": "ch1_vrgef2.rsw",
+      "rsw_request_index": 2860,
+      "expected_name_hex": {
+        "rsw": "646174615c6368315f7672676566322e727377",
+        "gnd": "646174615c6368315f7672676566322e676e64",
+        "gat": "646174615c6368315f7672676566322e676174"
+      },
+      "terrain_basis": {
+        "rsw": "prior_observed_request",
+        "gnd": "unobserved_same_stem_candidate",
+        "gat": "unobserved_same_stem_candidate"
+      },
+      "gap_extract_pointer": "/gaps/53",
+      "original_report_pointer": "/roots/1261",
+      "corrected_metadata_pointer": "/rows/52"
+    },
+    {
+      "gap_index": 53,
+      "root_ordinal": 1262,
+      "map_name": "hem_dun01",
+      "cache_file": "db/map_cache.dat",
+      "cache_ordinal": 1254,
+      "configured": true,
+      "server_packet_name": "hem_dun01.gat",
+      "renderer_name": "hem_dun01.rsw",
+      "rsw_request": "hem_dun01.rsw",
+      "rsw_effective": "hem_dun01.rsw",
+      "rsw_request_index": 2861,
+      "expected_name_hex": {
+        "rsw": "646174615c68656d5f64756e30312e727377",
+        "gnd": "646174615c68656d5f64756e30312e676e64",
+        "gat": "646174615c68656d5f64756e30312e676174"
+      },
+      "terrain_basis": {
+        "rsw": "prior_observed_request",
+        "gnd": "unobserved_same_stem_candidate",
+        "gat": "unobserved_same_stem_candidate"
+      },
+      "gap_extract_pointer": "/gaps/54",
+      "original_report_pointer": "/roots/1262",
+      "corrected_metadata_pointer": "/rows/53"
+    },
+    {
+      "gap_index": 54,
+      "root_ordinal": 1263,
+      "map_name": "hem_dun02",
+      "cache_file": "db/map_cache.dat",
+      "cache_ordinal": 1255,
+      "configured": true,
+      "server_packet_name": "hem_dun02.gat",
+      "renderer_name": "hem_dun02.rsw",
+      "rsw_request": "hem_dun02.rsw",
+      "rsw_effective": "hem_dun02.rsw",
+      "rsw_request_index": 2862,
+      "expected_name_hex": {
+        "rsw": "646174615c68656d5f64756e30322e727377",
+        "gnd": "646174615c68656d5f64756e30322e676e64",
+        "gat": "646174615c68656d5f64756e30322e676174"
+      },
+      "terrain_basis": {
+        "rsw": "prior_observed_request",
+        "gnd": "unobserved_same_stem_candidate",
+        "gat": "unobserved_same_stem_candidate"
+      },
+      "gap_extract_pointer": "/gaps/55",
+      "original_report_pointer": "/roots/1263",
+      "corrected_metadata_pointer": "/rows/54"
+    },
+    {
+      "gap_index": 55,
+      "root_ordinal": 1264,
+      "map_name": "hem_fild",
+      "cache_file": "db/map_cache.dat",
+      "cache_ordinal": 1256,
+      "configured": true,
+      "server_packet_name": "hem_fild.gat",
+      "renderer_name": "hem_fild.rsw",
+      "rsw_request": "hem_fild.rsw",
+      "rsw_effective": "hem_fild.rsw",
+      "rsw_request_index": 2863,
+      "expected_name_hex": {
+        "rsw": "646174615c68656d5f66696c642e727377",
+        "gnd": "646174615c68656d5f66696c642e676e64",
+        "gat": "646174615c68656d5f66696c642e676174"
+      },
+      "terrain_basis": {
+        "rsw": "prior_observed_request",
+        "gnd": "unobserved_same_stem_candidate",
+        "gat": "unobserved_same_stem_candidate"
+      },
+      "gap_extract_pointer": "/gaps/56",
+      "original_report_pointer": "/roots/1264",
+      "corrected_metadata_pointer": "/rows/55"
+    },
+    {
+      "gap_index": 56,
+      "root_ordinal": 1265,
+      "map_name": "mu_fild01",
+      "cache_file": "db/map_cache.dat",
+      "cache_ordinal": 1257,
+      "configured": true,
+      "server_packet_name": "mu_fild01.gat",
+      "renderer_name": "mu_fild01.rsw",
+      "rsw_request": "mu_fild01.rsw",
+      "rsw_effective": "mu_fild01.rsw",
+      "rsw_request_index": 2864,
+      "expected_name_hex": {
+        "rsw": "646174615c6d755f66696c6430312e727377",
+        "gnd": "646174615c6d755f66696c6430312e676e64",
+        "gat": "646174615c6d755f66696c6430312e676174"
+      },
+      "terrain_basis": {
+        "rsw": "prior_observed_request",
+        "gnd": "unobserved_same_stem_candidate",
+        "gat": "unobserved_same_stem_candidate"
+      },
+      "gap_extract_pointer": "/gaps/57",
+      "original_report_pointer": "/roots/1265",
+      "corrected_metadata_pointer": "/rows/56"
+    },
+    {
+      "gap_index": 57,
+      "root_ordinal": 1266,
+      "map_name": "uknw_ruin",
+      "cache_file": "db/map_cache.dat",
+      "cache_ordinal": 1258,
+      "configured": true,
+      "server_packet_name": "uknw_ruin.gat",
+      "renderer_name": "uknw_ruin.rsw",
+      "rsw_request": "uknw_ruin.rsw",
+      "rsw_effective": "uknw_ruin.rsw",
+      "rsw_request_index": 2865,
+      "expected_name_hex": {
+        "rsw": "646174615c756b6e775f7275696e2e727377",
+        "gnd": "646174615c756b6e775f7275696e2e676e64",
+        "gat": "646174615c756b6e775f7275696e2e676174"
+      },
+      "terrain_basis": {
+        "rsw": "prior_observed_request",
+        "gnd": "unobserved_same_stem_candidate",
+        "gat": "unobserved_same_stem_candidate"
+      },
+      "gap_extract_pointer": "/gaps/58",
+      "original_report_pointer": "/roots/1266",
+      "corrected_metadata_pointer": "/rows/57"
+    },
+    {
+      "gap_index": 58,
+      "root_ordinal": 1267,
+      "map_name": "uknw_ruin2",
+      "cache_file": "db/map_cache.dat",
+      "cache_ordinal": 1259,
+      "configured": true,
+      "server_packet_name": "uknw_ruin2.gat",
+      "renderer_name": "uknw_ruin2.rsw",
+      "rsw_request": "uknw_ruin2.rsw",
+      "rsw_effective": "uknw_ruin2.rsw",
+      "rsw_request_index": 2866,
+      "expected_name_hex": {
+        "rsw": "646174615c756b6e775f7275696e322e727377",
+        "gnd": "646174615c756b6e775f7275696e322e676e64",
+        "gat": "646174615c756b6e775f7275696e322e676174"
+      },
+      "terrain_basis": {
+        "rsw": "prior_observed_request",
+        "gnd": "unobserved_same_stem_candidate",
+        "gat": "unobserved_same_stem_candidate"
+      },
+      "gap_extract_pointer": "/gaps/59",
+      "original_report_pointer": "/roots/1267",
+      "corrected_metadata_pointer": "/rows/58"
+    },
+    {
+      "gap_index": 59,
+      "root_ordinal": 1268,
+      "map_name": "ygg_edge",
+      "cache_file": "db/map_cache.dat",
+      "cache_ordinal": 1260,
+      "configured": true,
+      "server_packet_name": "ygg_edge.gat",
+      "renderer_name": "ygg_edge.rsw",
+      "rsw_request": "ygg_edge.rsw",
+      "rsw_effective": "ygg_edge.rsw",
+      "rsw_request_index": 2867,
+      "expected_name_hex": {
+        "rsw": "646174615c7967675f656467652e727377",
+        "gnd": "646174615c7967675f656467652e676e64",
+        "gat": "646174615c7967675f656467652e676174"
+      },
+      "terrain_basis": {
+        "rsw": "prior_observed_request",
+        "gnd": "unobserved_same_stem_candidate",
+        "gat": "unobserved_same_stem_candidate"
+      },
+      "gap_extract_pointer": "/gaps/60",
+      "original_report_pointer": "/roots/1268",
+      "corrected_metadata_pointer": "/rows/59"
+    },
+    {
+      "gap_index": 60,
+      "root_ordinal": 1269,
+      "map_name": "ygg_fruit",
+      "cache_file": "db/map_cache.dat",
+      "cache_ordinal": 1261,
+      "configured": true,
+      "server_packet_name": "ygg_fruit.gat",
+      "renderer_name": "ygg_fruit.rsw",
+      "rsw_request": "ygg_fruit.rsw",
+      "rsw_effective": "ygg_fruit.rsw",
+      "rsw_request_index": 2868,
+      "expected_name_hex": {
+        "rsw": "646174615c7967675f66727569742e727377",
+        "gnd": "646174615c7967675f66727569742e676e64",
+        "gat": "646174615c7967675f66727569742e676174"
+      },
+      "terrain_basis": {
+        "rsw": "prior_observed_request",
+        "gnd": "unobserved_same_stem_candidate",
+        "gat": "unobserved_same_stem_candidate"
+      },
+      "gap_extract_pointer": "/gaps/61",
+      "original_report_pointer": "/roots/1269",
+      "corrected_metadata_pointer": "/rows/60"
+    },
+    {
+      "gap_index": 61,
+      "root_ordinal": 1270,
+      "map_name": "ygg_roots",
+      "cache_file": "db/map_cache.dat",
+      "cache_ordinal": 1262,
+      "configured": true,
+      "server_packet_name": "ygg_roots.gat",
+      "renderer_name": "ygg_roots.rsw",
+      "rsw_request": "ygg_roots.rsw",
+      "rsw_effective": "ygg_roots.rsw",
+      "rsw_request_index": 2869,
+      "expected_name_hex": {
+        "rsw": "646174615c7967675f726f6f74732e727377",
+        "gnd": "646174615c7967675f726f6f74732e676e64",
+        "gat": "646174615c7967675f726f6f74732e676174"
+      },
+      "terrain_basis": {
+        "rsw": "prior_observed_request",
+        "gnd": "unobserved_same_stem_candidate",
+        "gat": "unobserved_same_stem_candidate"
+      },
+      "gap_extract_pointer": "/gaps/62",
+      "original_report_pointer": "/roots/1270",
+      "corrected_metadata_pointer": "/rows/61"
+    },
+    {
+      "gap_index": 62,
+      "root_ordinal": 1273,
+      "map_name": "starhall",
+      "cache_file": "db/map_cache.dat",
+      "cache_ordinal": 1265,
+      "configured": false,
+      "server_packet_name": "starhall.gat",
+      "renderer_name": "starhall.rsw",
+      "rsw_request": "starhall.rsw",
+      "rsw_effective": "starhall.rsw",
+      "rsw_request_index": 2870,
+      "expected_name_hex": {
+        "rsw": "646174615c7374617268616c6c2e727377",
+        "gnd": "646174615c7374617268616c6c2e676e64",
+        "gat": "646174615c7374617268616c6c2e676174"
+      },
+      "terrain_basis": {
+        "rsw": "prior_observed_request",
+        "gnd": "unobserved_same_stem_candidate",
+        "gat": "unobserved_same_stem_candidate"
+      },
+      "gap_extract_pointer": "/gaps/63",
+      "original_report_pointer": "/roots/1273",
+      "corrected_metadata_pointer": "/rows/62"
+    },
+    {
+      "gap_index": 63,
+      "root_ordinal": 1274,
+      "map_name": "2025arena1",
+      "cache_file": "db/map_cache.dat",
+      "cache_ordinal": 1266,
+      "configured": true,
+      "server_packet_name": "2025arena1.gat",
+      "renderer_name": "2025arena1.rsw",
+      "rsw_request": "2025arena1.rsw",
+      "rsw_effective": "2025arena1.rsw",
+      "rsw_request_index": 2871,
+      "expected_name_hex": {
+        "rsw": "646174615c323032356172656e61312e727377",
+        "gnd": "646174615c323032356172656e61312e676e64",
+        "gat": "646174615c323032356172656e61312e676174"
+      },
+      "terrain_basis": {
+        "rsw": "prior_observed_request",
+        "gnd": "unobserved_same_stem_candidate",
+        "gat": "unobserved_same_stem_candidate"
+      },
+      "gap_extract_pointer": "/gaps/64",
+      "original_report_pointer": "/roots/1274",
+      "corrected_metadata_pointer": "/rows/63"
+    },
+    {
+      "gap_index": 64,
+      "root_ordinal": 1275,
+      "map_name": "2025arena2",
+      "cache_file": "db/map_cache.dat",
+      "cache_ordinal": 1267,
+      "configured": true,
+      "server_packet_name": "2025arena2.gat",
+      "renderer_name": "2025arena2.rsw",
+      "rsw_request": "2025arena2.rsw",
+      "rsw_effective": "2025arena2.rsw",
+      "rsw_request_index": 2872,
+      "expected_name_hex": {
+        "rsw": "646174615c323032356172656e61322e727377",
+        "gnd": "646174615c323032356172656e61322e676e64",
+        "gat": "646174615c323032356172656e61322e676174"
+      },
+      "terrain_basis": {
+        "rsw": "prior_observed_request",
+        "gnd": "unobserved_same_stem_candidate",
+        "gat": "unobserved_same_stem_candidate"
+      },
+      "gap_extract_pointer": "/gaps/65",
+      "original_report_pointer": "/roots/1275",
+      "corrected_metadata_pointer": "/rows/64"
+    },
+    {
+      "gap_index": 65,
+      "root_ordinal": 1276,
+      "map_name": "2025arena3",
+      "cache_file": "db/map_cache.dat",
+      "cache_ordinal": 1268,
+      "configured": true,
+      "server_packet_name": "2025arena3.gat",
+      "renderer_name": "2025arena3.rsw",
+      "rsw_request": "2025arena3.rsw",
+      "rsw_effective": "2025arena3.rsw",
+      "rsw_request_index": 2873,
+      "expected_name_hex": {
+        "rsw": "646174615c323032356172656e61332e727377",
+        "gnd": "646174615c323032356172656e61332e676e64",
+        "gat": "646174615c323032356172656e61332e676174"
+      },
+      "terrain_basis": {
+        "rsw": "prior_observed_request",
+        "gnd": "unobserved_same_stem_candidate",
+        "gat": "unobserved_same_stem_candidate"
+      },
+      "gap_extract_pointer": "/gaps/66",
+      "original_report_pointer": "/roots/1276",
+      "corrected_metadata_pointer": "/rows/65"
+    },
+    {
+      "gap_index": 66,
+      "root_ordinal": 1277,
+      "map_name": "2025arena4",
+      "cache_file": "db/map_cache.dat",
+      "cache_ordinal": 1269,
+      "configured": true,
+      "server_packet_name": "2025arena4.gat",
+      "renderer_name": "2025arena4.rsw",
+      "rsw_request": "2025arena4.rsw",
+      "rsw_effective": "2025arena4.rsw",
+      "rsw_request_index": 2874,
+      "expected_name_hex": {
+        "rsw": "646174615c323032356172656e61342e727377",
+        "gnd": "646174615c323032356172656e61342e676e64",
+        "gat": "646174615c323032356172656e61342e676174"
+      },
+      "terrain_basis": {
+        "rsw": "prior_observed_request",
+        "gnd": "unobserved_same_stem_candidate",
+        "gat": "unobserved_same_stem_candidate"
+      },
+      "gap_extract_pointer": "/gaps/67",
+      "original_report_pointer": "/roots/1277",
+      "corrected_metadata_pointer": "/rows/66"
+    },
+    {
+      "gap_index": 67,
+      "root_ordinal": 1278,
+      "map_name": "2025arena5",
+      "cache_file": "db/map_cache.dat",
+      "cache_ordinal": 1270,
+      "configured": true,
+      "server_packet_name": "2025arena5.gat",
+      "renderer_name": "2025arena5.rsw",
+      "rsw_request": "2025arena5.rsw",
+      "rsw_effective": "2025arena5.rsw",
+      "rsw_request_index": 2875,
+      "expected_name_hex": {
+        "rsw": "646174615c323032356172656e61352e727377",
+        "gnd": "646174615c323032356172656e61352e676e64",
+        "gat": "646174615c323032356172656e61352e676174"
+      },
+      "terrain_basis": {
+        "rsw": "prior_observed_request",
+        "gnd": "unobserved_same_stem_candidate",
+        "gat": "unobserved_same_stem_candidate"
+      },
+      "gap_extract_pointer": "/gaps/68",
+      "original_report_pointer": "/roots/1278",
+      "corrected_metadata_pointer": "/rows/67"
+    },
+    {
+      "gap_index": 68,
+      "root_ordinal": 1279,
+      "map_name": "25ros03_01",
+      "cache_file": "db/map_cache.dat",
+      "cache_ordinal": 1271,
+      "configured": true,
+      "server_packet_name": "25ros03_01.gat",
+      "renderer_name": "25ros03_01.rsw",
+      "rsw_request": "25ros03_01.rsw",
+      "rsw_effective": "25ros03_01.rsw",
+      "rsw_request_index": 2876,
+      "expected_name_hex": {
+        "rsw": "646174615c3235726f7330335f30312e727377",
+        "gnd": "646174615c3235726f7330335f30312e676e64",
+        "gat": "646174615c3235726f7330335f30312e676174"
+      },
+      "terrain_basis": {
+        "rsw": "prior_observed_request",
+        "gnd": "unobserved_same_stem_candidate",
+        "gat": "unobserved_same_stem_candidate"
+      },
+      "gap_extract_pointer": "/gaps/69",
+      "original_report_pointer": "/roots/1279",
+      "corrected_metadata_pointer": "/rows/68"
+    },
+    {
+      "gap_index": 69,
+      "root_ordinal": 1280,
+      "map_name": "ch1zero1",
+      "cache_file": "db/map_cache.dat",
+      "cache_ordinal": 1272,
+      "configured": true,
+      "server_packet_name": "ch1zero1.gat",
+      "renderer_name": "ch1zero1.rsw",
+      "rsw_request": "ch1zero1.rsw",
+      "rsw_effective": "ch1zero1.rsw",
+      "rsw_request_index": 2877,
+      "expected_name_hex": {
+        "rsw": "646174615c6368317a65726f312e727377",
+        "gnd": "646174615c6368317a65726f312e676e64",
+        "gat": "646174615c6368317a65726f312e676174"
+      },
+      "terrain_basis": {
+        "rsw": "prior_observed_request",
+        "gnd": "unobserved_same_stem_candidate",
+        "gat": "unobserved_same_stem_candidate"
+      },
+      "gap_extract_pointer": "/gaps/70",
+      "original_report_pointer": "/roots/1280",
+      "corrected_metadata_pointer": "/rows/69"
+    },
+    {
+      "gap_index": 70,
+      "root_ordinal": 1281,
+      "map_name": "ch1zero2",
+      "cache_file": "db/map_cache.dat",
+      "cache_ordinal": 1273,
+      "configured": true,
+      "server_packet_name": "ch1zero2.gat",
+      "renderer_name": "ch1zero2.rsw",
+      "rsw_request": "ch1zero2.rsw",
+      "rsw_effective": "ch1zero2.rsw",
+      "rsw_request_index": 2878,
+      "expected_name_hex": {
+        "rsw": "646174615c6368317a65726f322e727377",
+        "gnd": "646174615c6368317a65726f322e676e64",
+        "gat": "646174615c6368317a65726f322e676174"
+      },
+      "terrain_basis": {
+        "rsw": "prior_observed_request",
+        "gnd": "unobserved_same_stem_candidate",
+        "gat": "unobserved_same_stem_candidate"
+      },
+      "gap_extract_pointer": "/gaps/71",
+      "original_report_pointer": "/roots/1281",
+      "corrected_metadata_pointer": "/rows/70"
+    },
+    {
+      "gap_index": 71,
+      "root_ordinal": 1282,
+      "map_name": "ch1zero3",
+      "cache_file": "db/map_cache.dat",
+      "cache_ordinal": 1274,
+      "configured": true,
+      "server_packet_name": "ch1zero3.gat",
+      "renderer_name": "ch1zero3.rsw",
+      "rsw_request": "ch1zero3.rsw",
+      "rsw_effective": "ch1zero3.rsw",
+      "rsw_request_index": 2879,
+      "expected_name_hex": {
+        "rsw": "646174615c6368317a65726f332e727377",
+        "gnd": "646174615c6368317a65726f332e676e64",
+        "gat": "646174615c6368317a65726f332e676174"
+      },
+      "terrain_basis": {
+        "rsw": "prior_observed_request",
+        "gnd": "unobserved_same_stem_candidate",
+        "gat": "unobserved_same_stem_candidate"
+      },
+      "gap_extract_pointer": "/gaps/72",
+      "original_report_pointer": "/roots/1282",
+      "corrected_metadata_pointer": "/rows/71"
+    },
+    {
+      "gap_index": 72,
+      "root_ordinal": 1283,
+      "map_name": "ch1zero4",
+      "cache_file": "db/map_cache.dat",
+      "cache_ordinal": 1275,
+      "configured": true,
+      "server_packet_name": "ch1zero4.gat",
+      "renderer_name": "ch1zero4.rsw",
+      "rsw_request": "ch1zero4.rsw",
+      "rsw_effective": "ch1zero4.rsw",
+      "rsw_request_index": 2880,
+      "expected_name_hex": {
+        "rsw": "646174615c6368317a65726f342e727377",
+        "gnd": "646174615c6368317a65726f342e676e64",
+        "gat": "646174615c6368317a65726f342e676174"
+      },
+      "terrain_basis": {
+        "rsw": "prior_observed_request",
+        "gnd": "unobserved_same_stem_candidate",
+        "gat": "unobserved_same_stem_candidate"
+      },
+      "gap_extract_pointer": "/gaps/73",
+      "original_report_pointer": "/roots/1283",
+      "corrected_metadata_pointer": "/rows/72"
+    },
+    {
+      "gap_index": 73,
+      "root_ordinal": 1284,
+      "map_name": "ch1fild1",
+      "cache_file": "db/map_cache.dat",
+      "cache_ordinal": 1276,
+      "configured": true,
+      "server_packet_name": "ch1fild1.gat",
+      "renderer_name": "ch1fild1.rsw",
+      "rsw_request": "ch1fild1.rsw",
+      "rsw_effective": "ch1fild1.rsw",
+      "rsw_request_index": 2881,
+      "expected_name_hex": {
+        "rsw": "646174615c63683166696c64312e727377",
+        "gnd": "646174615c63683166696c64312e676e64",
+        "gat": "646174615c63683166696c64312e676174"
+      },
+      "terrain_basis": {
+        "rsw": "prior_observed_request",
+        "gnd": "unobserved_same_stem_candidate",
+        "gat": "unobserved_same_stem_candidate"
+      },
+      "gap_extract_pointer": "/gaps/74",
+      "original_report_pointer": "/roots/1284",
+      "corrected_metadata_pointer": "/rows/73"
+    },
+    {
+      "gap_index": 74,
+      "root_ordinal": 1285,
+      "map_name": "vr_po",
+      "cache_file": "db/map_cache.dat",
+      "cache_ordinal": 1277,
+      "configured": true,
+      "server_packet_name": "vr_po.gat",
+      "renderer_name": "vr_po.rsw",
+      "rsw_request": "vr_po.rsw",
+      "rsw_effective": "vr_po.rsw",
+      "rsw_request_index": 2882,
+      "expected_name_hex": {
+        "rsw": "646174615c76725f706f2e727377",
+        "gnd": "646174615c76725f706f2e676e64",
+        "gat": "646174615c76725f706f2e676174"
+      },
+      "terrain_basis": {
+        "rsw": "prior_observed_request",
+        "gnd": "unobserved_same_stem_candidate",
+        "gat": "unobserved_same_stem_candidate"
+      },
+      "gap_extract_pointer": "/gaps/75",
+      "original_report_pointer": "/roots/1285",
+      "corrected_metadata_pointer": "/rows/74"
+    },
+    {
+      "gap_index": 75,
+      "root_ordinal": 1286,
+      "map_name": "vr_pop1",
+      "cache_file": "db/map_cache.dat",
+      "cache_ordinal": 1278,
+      "configured": true,
+      "server_packet_name": "vr_pop1.gat",
+      "renderer_name": "vr_pop1.rsw",
+      "rsw_request": "vr_pop1.rsw",
+      "rsw_effective": "vr_pop1.rsw",
+      "rsw_request_index": 2883,
+      "expected_name_hex": {
+        "rsw": "646174615c76725f706f70312e727377",
+        "gnd": "646174615c76725f706f70312e676e64",
+        "gat": "646174615c76725f706f70312e676174"
+      },
+      "terrain_basis": {
+        "rsw": "prior_observed_request",
+        "gnd": "unobserved_same_stem_candidate",
+        "gat": "unobserved_same_stem_candidate"
+      },
+      "gap_extract_pointer": "/gaps/76",
+      "original_report_pointer": "/roots/1286",
+      "corrected_metadata_pointer": "/rows/75"
+    },
+    {
+      "gap_index": 76,
+      "root_ordinal": 1287,
+      "map_name": "vr_pop2",
+      "cache_file": "db/map_cache.dat",
+      "cache_ordinal": 1279,
+      "configured": true,
+      "server_packet_name": "vr_pop2.gat",
+      "renderer_name": "vr_pop2.rsw",
+      "rsw_request": "vr_pop2.rsw",
+      "rsw_effective": "vr_pop2.rsw",
+      "rsw_request_index": 2884,
+      "expected_name_hex": {
+        "rsw": "646174615c76725f706f70322e727377",
+        "gnd": "646174615c76725f706f70322e676e64",
+        "gat": "646174615c76725f706f70322e676174"
+      },
+      "terrain_basis": {
+        "rsw": "prior_observed_request",
+        "gnd": "unobserved_same_stem_candidate",
+        "gat": "unobserved_same_stem_candidate"
+      },
+      "gap_extract_pointer": "/gaps/77",
+      "original_report_pointer": "/roots/1287",
+      "corrected_metadata_pointer": "/rows/76"
+    },
+    {
+      "gap_index": 77,
+      "root_ordinal": 1288,
+      "map_name": "vr_pop3",
+      "cache_file": "db/map_cache.dat",
+      "cache_ordinal": 1280,
+      "configured": true,
+      "server_packet_name": "vr_pop3.gat",
+      "renderer_name": "vr_pop3.rsw",
+      "rsw_request": "vr_pop3.rsw",
+      "rsw_effective": "vr_pop3.rsw",
+      "rsw_request_index": 2885,
+      "expected_name_hex": {
+        "rsw": "646174615c76725f706f70332e727377",
+        "gnd": "646174615c76725f706f70332e676e64",
+        "gat": "646174615c76725f706f70332e676174"
+      },
+      "terrain_basis": {
+        "rsw": "prior_observed_request",
+        "gnd": "unobserved_same_stem_candidate",
+        "gat": "unobserved_same_stem_candidate"
+      },
+      "gap_extract_pointer": "/gaps/78",
+      "original_report_pointer": "/roots/1288",
+      "corrected_metadata_pointer": "/rows/77"
+    },
+    {
+      "gap_index": 78,
+      "root_ordinal": 1289,
+      "map_name": "vr_clo1",
+      "cache_file": "db/map_cache.dat",
+      "cache_ordinal": 1281,
+      "configured": true,
+      "server_packet_name": "vr_clo1.gat",
+      "renderer_name": "vr_clo1.rsw",
+      "rsw_request": "vr_clo1.rsw",
+      "rsw_effective": "vr_clo1.rsw",
+      "rsw_request_index": 2886,
+      "expected_name_hex": {
+        "rsw": "646174615c76725f636c6f312e727377",
+        "gnd": "646174615c76725f636c6f312e676e64",
+        "gat": "646174615c76725f636c6f312e676174"
+      },
+      "terrain_basis": {
+        "rsw": "prior_observed_request",
+        "gnd": "unobserved_same_stem_candidate",
+        "gat": "unobserved_same_stem_candidate"
+      },
+      "gap_extract_pointer": "/gaps/79",
+      "original_report_pointer": "/roots/1289",
+      "corrected_metadata_pointer": "/rows/78"
+    },
+    {
+      "gap_index": 79,
+      "root_ordinal": 1290,
+      "map_name": "vr_clo2",
+      "cache_file": "db/map_cache.dat",
+      "cache_ordinal": 1282,
+      "configured": true,
+      "server_packet_name": "vr_clo2.gat",
+      "renderer_name": "vr_clo2.rsw",
+      "rsw_request": "vr_clo2.rsw",
+      "rsw_effective": "vr_clo2.rsw",
+      "rsw_request_index": 2887,
+      "expected_name_hex": {
+        "rsw": "646174615c76725f636c6f322e727377",
+        "gnd": "646174615c76725f636c6f322e676e64",
+        "gat": "646174615c76725f636c6f322e676174"
+      },
+      "terrain_basis": {
+        "rsw": "prior_observed_request",
+        "gnd": "unobserved_same_stem_candidate",
+        "gat": "unobserved_same_stem_candidate"
+      },
+      "gap_extract_pointer": "/gaps/80",
+      "original_report_pointer": "/roots/1290",
+      "corrected_metadata_pointer": "/rows/79"
+    },
+    {
+      "gap_index": 80,
+      "root_ordinal": 1291,
+      "map_name": "vr_gen",
+      "cache_file": "db/map_cache.dat",
+      "cache_ordinal": 1283,
+      "configured": true,
+      "server_packet_name": "vr_gen.gat",
+      "renderer_name": "vr_gen.rsw",
+      "rsw_request": "vr_gen.rsw",
+      "rsw_effective": "vr_gen.rsw",
+      "rsw_request_index": 2888,
+      "expected_name_hex": {
+        "rsw": "646174615c76725f67656e2e727377",
+        "gnd": "646174615c76725f67656e2e676e64",
+        "gat": "646174615c76725f67656e2e676174"
+      },
+      "terrain_basis": {
+        "rsw": "prior_observed_request",
+        "gnd": "unobserved_same_stem_candidate",
+        "gat": "unobserved_same_stem_candidate"
+      },
+      "gap_extract_pointer": "/gaps/81",
+      "original_report_pointer": "/roots/1291",
+      "corrected_metadata_pointer": "/rows/80"
+    },
+    {
+      "gap_index": 81,
+      "root_ordinal": 1292,
+      "map_name": "vr_cas",
+      "cache_file": "db/map_cache.dat",
+      "cache_ordinal": 1284,
+      "configured": true,
+      "server_packet_name": "vr_cas.gat",
+      "renderer_name": "vr_cas.rsw",
+      "rsw_request": "vr_cas.rsw",
+      "rsw_effective": "vr_cas.rsw",
+      "rsw_request_index": 2889,
+      "expected_name_hex": {
+        "rsw": "646174615c76725f6361732e727377",
+        "gnd": "646174615c76725f6361732e676e64",
+        "gat": "646174615c76725f6361732e676174"
+      },
+      "terrain_basis": {
+        "rsw": "prior_observed_request",
+        "gnd": "unobserved_same_stem_candidate",
+        "gat": "unobserved_same_stem_candidate"
+      },
+      "gap_extract_pointer": "/gaps/82",
+      "original_report_pointer": "/roots/1292",
+      "corrected_metadata_pointer": "/rows/81"
+    }
+  ],
+  "policy": {
+    "raw_name": "GRF/GPF name_hex; RGZ bounded_name_hex with complete raw_name_hex/opcode retained",
+    "full_path_key": "bytes.replace(backslash,slash), ASCII A-Z only to a-z; preserve all other bytes/segments; compare complete data/<stem>.<ext>",
+    "raw_exact": "raw_name exactly equals expected_name_hex Windows-separator bytes",
+    "ascii_slash_casefold": "full_path_key equal but raw bytes unequal",
+    "basename_only": "same final component but complete key unequal; diagnostic only, never full-path witness",
+    "transformations_not_performed": [
+      "codec decode",
+      "Unicode normalization/casefold",
+      "whitespace trim",
+      "URI unescape/escape",
+      "prefix insertion",
+      "dot/empty-segment resolution",
+      "aliases",
+      "native winner/application order"
+    ],
+    "all_occurrences": "retain eligible and filtered/non-file rows separately; no winner or path dedup; shared GRF physical SHA dedup only as literal catalog mapping",
+    "rsw": "prior requested/effective filename counterpart; missing source not parsed",
+    "gnd_gat": "same-stem comparison candidates only; embedded RSW filenames unknown"
+  },
+  "denominators": {
+    "world_roots": 1296,
+    "configured_world_roots": 1265,
+    "gap_roots": 82,
+    "configured_gap_roots": 79,
+    "cache_only_gap_roots": 3,
+    "comparison_names": 246,
+    "grf_catalog_view_memberships": 6,
+    "unique_grf_archives": 4,
+    "gpf_archives": 30,
+    "rgz_archives": 29,
+    "unique_archive_catalogs": 63,
+    "raw_record_rows_unique_archive_scope": 408794,
+    "grf_rows": 397069,
+    "gpf_rows": 11450,
+    "rgz_rows_all_opcodes": 275,
+    "rgz_file_records": 204,
+    "physical_view_rows_before_shared_grf_dedup": 500902
+  },
+  "gap_sources": {
+    "original_report": ".tools/renewal/t06-map-core-preparation-1/native-all-cache-map-1/report.json",
+    "extract": ".tools/renewal/t06-map-gap-plans-1/gaps.json",
+    "corrected_metadata": ".tools/renewal/t06-map-gap-preparation-1/root-metadata-2/report.json",
+    "filter": "extract.gaps rows with rsw.outcome exact http_404, preserving original order; cross-check original1296 rows and corrected82 metadata",
+    "excluded_successful_cap_case": "schg_dun01; observed_header RSW, not one of82 RSW404 roots"
+  },
+  "limits": {
+    "input_file_bytes": 134217728,
+    "input_total_bytes": 536870912,
+    "jsonl_row_bytes": 1048576,
+    "record_rows": 600000,
+    "output_total_bytes": 4194304,
+    "outer_seconds": 130,
+    "outer_sampled_rss_bytes": 2147483648,
+    "stdout_bytes": 4096,
+    "stderr_bytes": 1048576
+  },
+  "source_read_scope": "Only these83 exact metadata inputs plus project handoff/task/profile/contract/literal fixture and dispatch lifecycle. Embedded source/archive/body paths and URLs are inert; never follow them. No sibling/private proposals, no acquired imports/network/native/browser/VM/SQL/game/settings actions.",
+  "common_base_policy": "Both candidates start from the same introducing checkpoint recorded by root; preparation history is not a launch base."
+}

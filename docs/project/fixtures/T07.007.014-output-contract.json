@@ -1,0 +1,153 @@
+{
+  "schema": "T07.007.014-output-contract-1",
+  "task": "T07.007.014",
+  "production_output": {
+    "filename": "gap-join.json",
+    "encoding": "UTF-8 strict JSON with final LF; unique keys; no NaN/Infinity/trailing data",
+    "max_bytes": 4194304,
+    "root_exact_keys": [
+      "schema",
+      "task",
+      "inputs",
+      "policy",
+      "catalogs",
+      "counts",
+      "roots"
+    ],
+    "schema_value": "world-gap-name-ledger/1",
+    "task_value": "T07.007.014",
+    "inputs": "exact full typed profile.inputs array; no identities",
+    "policy": "exact full typed profile.policy",
+    "catalogs": "exact full typed profile.catalogs"
+  },
+  "roots": {
+    "length": 82,
+    "order": "profile.gaps order",
+    "exact_keys": [
+      "gap",
+      "terrain"
+    ],
+    "gap": "complete unchanged corresponding profile.gaps dictionary",
+    "terrain_exact_keys": [
+      "rsw",
+      "gnd",
+      "gat"
+    ],
+    "slot_exact_keys": [
+      "role",
+      "basis",
+      "expected_name_hex",
+      "full_path_occurrences",
+      "basename_only_occurrences"
+    ],
+    "role": "corresponding key rsw/gnd/gat",
+    "basis": "profile.gaps[i].terrain_basis[role]",
+    "expected_name_hex": "profile.gaps[i].expected_name_hex[role]",
+    "arrays": "explicit even empty; sorted catalog_index then record_ordinal"
+  },
+  "occurrence": {
+    "exact_keys": [
+      "catalog_index",
+      "record_ordinal",
+      "jsonl_line",
+      "match",
+      "file_candidate",
+      "record"
+    ],
+    "catalog_index": "exact nonnegative int from catalog.catalog_index; never bool/float",
+    "record_ordinal": "exact nonnegative int from unchanged row.ordinal, equal zero-based JSONL line",
+    "jsonl_line": "record_ordinal+1 exact int",
+    "match": [
+      "raw_exact",
+      "ascii_slash_casefold",
+      "basename_only"
+    ],
+    "file_candidate": "exact bool: GRF/GPF metadata_filter==eligible, RGZ opcode==f; other observations retained as false",
+    "record": "complete unchanged typed raw input dictionary, including all flags/sizes/offsets/hashes/nulls/name/opcode fields; embedded paths/spans inert",
+    "multiplicity": "keep every physical-source record, including duplicates/filtered/non-file; shared catalog views do not duplicate records"
+  },
+  "matching": {
+    "source_name": "GRF/GPF name_hex; RGZ bounded_name_hex; decode hex bytes only",
+    "key": "replace backslash with slash then fold ASCII A-Z to a-z, preserving every other byte/segment",
+    "full": "complete key equals expected key; raw_exact only byte-identical raw vs expected Windows name, otherwise ascii_slash_casefold",
+    "basename": "only when full key differs but final slash component equals expected final component; diagnostic basename_only",
+    "otherwise": "no occurrence",
+    "forbidden": [
+      "codec or Unicode normalization",
+      "trim",
+      "URI escape/unescape",
+      "prefix insertion",
+      "dot/empty-segment resolution",
+      "alias/extension rewriting",
+      "winner/application inference"
+    ]
+  },
+  "counts": {
+    "exact_keys": [
+      "world_roots",
+      "gap_roots",
+      "configured_gap_roots",
+      "cache_only_gap_roots",
+      "catalogs",
+      "grf_view_memberships",
+      "rows_scanned",
+      "full_path_occurrences",
+      "full_path_file_candidates",
+      "basename_only_occurrences",
+      "basename_only_file_candidates",
+      "roots_with_full_path",
+      "roots_with_full_path_file_candidates"
+    ],
+    "fixed_production": {
+      "world_roots": 1296,
+      "gap_roots": 82,
+      "configured_gap_roots": 79,
+      "cache_only_gap_roots": 3,
+      "catalogs": 63,
+      "grf_view_memberships": 6,
+      "rows_scanned": 408794
+    },
+    "extension_counter_keys": [
+      "rsw",
+      "gnd",
+      "gat"
+    ],
+    "counter_rules": {
+      "full_path_occurrences": "sum full arrays",
+      "full_path_file_candidates": "sum true file_candidate in full arrays",
+      "basename_only_occurrences": "sum basename arrays",
+      "basename_only_file_candidates": "sum true file_candidate in basename arrays",
+      "roots_with_full_path": "number of distinct roots with nonempty full array",
+      "roots_with_full_path_file_candidates": "number of distinct roots with any true candidate in full array"
+    },
+    "types": "all counters exact nonnegative int, never bool/float; derive from complete scan"
+  },
+  "fixture": {
+    "input": "docs/project/fixtures/T07.007.014-name-fixture.json",
+    "output_filename": "fixture-result.json",
+    "output": "one flat array ordered target input order then catalog_index then record_ordinal; each occurrence adds target_id to production occurrence shape",
+    "input_shape": "targets non-dense exact nonnegative target_id with expected_name_hex; catalogs physical catalog_index/family/views/records; use same matching/file_candidate logic; never duplicate shared views",
+    "expected": "root literal golden retained privately before provider inspection; each complete typed raw record must survive"
+  },
+  "method": {
+    "cli_actual": "python3 -I -B method.py --input-root ABS --output NEW_ABS",
+    "cli_fixture": "python3 -I -B method.py --fixture ABS --output NEW_ABS",
+    "scope": "authored stdlib metadata operations only; no acquired imports or embedded path traversal",
+    "publication": "create new0700 directory and0600 files exclusively, never replace existing output; finite caps; report refusal honestly",
+    "preservation": "full83 hashes and no-follow regular/single-link descriptor/path identities before/after; root checks independently"
+  },
+  "claims": {
+    "all_functional_gaps_remain_open": true,
+    "rsw": "counterpart to prior request only",
+    "gnd_gat": "unobserved same-stem candidates, missing RSW embedded filenames unknown",
+    "empty": "no counterpart under this byte policy within these catalogs only",
+    "not_established": [
+      "body availability",
+      "archive winner/application",
+      "loaded map/render/travel",
+      "story/party routes",
+      "full regional/version coverage",
+      "full game acceptance"
+    ]
+  }
+}

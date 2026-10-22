@@ -31,6 +31,12 @@ Current independent lanes:
   is self_verified, Grok 17/20 basis versus Claude 15/20; both workers are
   preserved/released. Production mapping remains unselected. Actual served
   code, effective server config/cache/cells, movement and save gates remain.
+- **All 82 resource gaps:** [root full metadata preflight](reviews/2026-10-22-T07.007.014.md#root-metadata-preflight-and-pre-provider-oracle)
+  verifies all 63 catalogs / 408794 records and preserves every original gap.
+  A data-only Claude/Grok pair is being frozen for the complete typed ledger.
+  Previously observed names give 26 RSW leads and 56 without counterparts in
+  these catalogs; zero functional gaps close. This lane is independent of
+  capture and new-world startup.
 
 The [earlier mu pilot and Astra diagnosis](reviews/2026-10-22-T07.007.011-execution.md#actual-astra-consultation-and-discriminating-metadata-check)
 remain historical evidence. Ordinary Chapter 1 entry/save, 82 world-resource

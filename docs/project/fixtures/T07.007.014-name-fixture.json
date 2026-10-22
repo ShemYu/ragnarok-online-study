@@ -1,0 +1,49 @@
+{
+  "targets": [
+    {"target_id": 17, "expected_name_hex": "646174615c612e727377"},
+    {"target_id": 0, "expected_name_hex": "646174615c622e676e64"},
+    {"target_id": 91, "expected_name_hex": "646174615c6d697373696e672e676174"}
+  ],
+  "catalogs": [
+    {
+      "catalog_index": 8,
+      "family": "grf",
+      "views": ["april", "october"],
+      "records": [
+        {"ordinal": 0, "name_hex": "646174615c612e727377", "metadata_filter": "eligible", "real_size": 7, "label": "grf-exact-first"},
+        {"ordinal": 1, "name_hex": "646174615c612e727377", "metadata_filter": "eligible", "real_size": 8, "label": "grf-exact-duplicate"},
+        {"ordinal": 2, "name_hex": "646174615c622e676e64", "metadata_filter": "file_bit_absent", "real_size": 0, "label": "grf-filtered", "retained": {"text": "literal", "count": 0, "flag": false, "none": null}},
+        {"ordinal": 3, "name_hex": "444154412f412e525357", "metadata_filter": "eligible", "real_size": 9, "label": "grf-case-and-slash"}
+      ]
+    },
+    {
+      "catalog_index": 2,
+      "family": "gpf",
+      "views": ["suffix-authored"],
+      "records": [
+        {"ordinal": 0, "name_hex": "6f746865725c612e727377", "metadata_filter": "eligible", "label": "wrong-directory"},
+        {"ordinal": 1, "name_hex": "646174615c20612e727377", "metadata_filter": "eligible", "label": "leading-basename-space"},
+        {"ordinal": 2, "name_hex": "646174615c61202e727377", "metadata_filter": "eligible", "label": "embedded-basename-space"},
+        {"ordinal": 3, "name_hex": "646174615c61253265727377", "metadata_filter": "eligible", "label": "percent-dot-not-decoded"},
+        {"ordinal": 4, "name_hex": "646174615c612e7273775c2e", "metadata_filter": "eligible", "label": "trailing-dot-segment-nonmatch"},
+        {"ordinal": 5, "name_hex": "646174615c612e7273775c", "metadata_filter": "eligible", "label": "trailing-empty-segment-nonmatch"},
+        {"ordinal": 6, "name_hex": "646174615cefbd812e727377", "metadata_filter": "eligible", "label": "nonascii-bytes-no-normalization"},
+        {"ordinal": 7, "name_hex": "646174615c2e5c612e727377", "metadata_filter": "eligible", "label": "internal-dot-segment-basename-only"},
+        {"ordinal": 8, "name_hex": "646174615c5c612e727377", "metadata_filter": "eligible", "label": "internal-empty-segment-basename-only"},
+        {"ordinal": 9, "name_hex": "646174615c612e72737720", "metadata_filter": "eligible", "label": "trailing-basename-space"},
+        {"ordinal": 10, "name_hex": "444154415c422e474e44", "metadata_filter": "eligible", "real_size": 0, "label": "gpf-case-only-zero-size"}
+      ]
+    },
+    {
+      "catalog_index": 14,
+      "family": "rgz",
+      "views": ["rgz-reference-authored"],
+      "records": [
+        {"ordinal": 0, "opcode": "d", "bounded_name_hex": "646174615c612e727377", "raw_name_hex": "646174615c612e72737700", "size": null, "label": "rgz-directory-name-observation"},
+        {"ordinal": 1, "opcode": "f", "bounded_name_hex": "646174615c612e727377", "raw_name_hex": "646174615c612e72737700", "size": 3, "label": "rgz-file-exact"},
+        {"ordinal": 2, "opcode": "f", "bounded_name_hex": "444154412f422e474e44", "raw_name_hex": "444154412f422e474e440058", "bytes_after_first_nul_hex": "58", "size": 0, "label": "rgz-bounded-name-case-and-slash"},
+        {"ordinal": 3, "opcode": "e", "bounded_name_hex": "656e64", "raw_name_hex": "656e6400", "size": null, "label": "rgz-end-nonmatch"}
+      ]
+    }
+  ]
+}
