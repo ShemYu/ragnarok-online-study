@@ -21,10 +21,10 @@ guardinvalid remain failed; full preservation/closure/source audit passes and
 original worlds/tabs/player restore. [Astra's visible-surface source advice now
 qualifies under Root's primary-source review](reviews/2026-10-22-T07.007.011.005.md#astra-visible-surface-source-advice-independently-qualifies).
 The [native screen preflight cannot start](reviews/2026-10-22-T07.007.011.005.md#native-screen-preflight-is-unavailable-and-chrome-preparation-continues).
-[Root qualifies the Chrome source plan and corrected scheduling-gate sources;
-one pure50case call is bound/admitted](reviews/2026-10-22-T07.007.011.005.md#chrome-source-plan-and-corrected-pure-gate-call-qualify-for-admission).
-No surface is yet bound or browser/native/game run admitted. Next run/audit the
-pure call while the minimal dedicated-browser adapter is prepared independently.
+[All50pure scheduling controls and complete Root audit pass](reviews/2026-10-22-T07.007.011.005.md#all50pure-scheduling-controls-and-complete-root-audit-pass):
+caller0/valid guard, full sources/output/retirement qualify. No actual surface
+or browser/native/game run is admitted. Next review/bind the minimal dedicated
+Chrome adapter being prepared independently, then a distinct real-scene trial.
 No more passive/empty-page retries;
 quest implementation/controls continue independently. No new runtime, goal
 change or user decision is required.
