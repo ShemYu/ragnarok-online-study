@@ -51,6 +51,9 @@ profiles; no actual result or semantic/provider acceptance is claimed yet.
 [Both actual drivers emit, but the common ASCII result reader refuses Chinese UTF8](reviews/2026-10-23-T10.004.md#both-actual-drivers-emit-shared-ascii-result-reader-refuses-utf8).
 Original failed callers remain preserved. Next strict UTF8 retained-output audit
 and the independently controlled complete oracle, without rerunning candidates.
+[Pure oracle controls pass; one strict UTF8 retained-output audit is admitted](reviews/2026-10-23-T10.004.md#pure-oracle-authored-controls-qualify-retained-utf8-audit-admitted).
+All six authored groups/18refusals qualify. Original failed callers remain
+unchanged; actual semantic/operational acceptance and provider selection wait.
 Reuse Chinese resources; functionality/story evidence first. No verified
 server Chapter1 story implementation, resource-winner or Chinese projection yet.
 
