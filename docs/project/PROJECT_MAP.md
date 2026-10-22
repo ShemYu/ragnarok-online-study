@@ -95,10 +95,10 @@ CURRENT WORK: October assets and missing maps
  |    No browser/GL/audio errors. Static upload hash matches its packet.
  |    Both pages/readers closed. Source/world listeners preserved.
  |    Astra and root: one model request absent; exact size gap matches.
- |    Reference: mu static hash matches the earlier complete buffer.
- |    Other maps need a diagnostic filename fix; failed run preserved.
- |    One roots model has invalid output values; cause still open.
- |    Next: corrected reference, trace live loading, then four maps.
+ |    Reference: all 4,922 placements and 6,470 meshes accounted for.
+ |    All raw matrix hashes and four expected static sizes match.
+ |    Three maps have finite model meshes. Roots has NaN normals.
+ |    Next: actual loading and normal trace, then four-map rendering.
  |    Full geometry, texture, GPU and frame checks remain open.
  |
  +-- [V] Other 28 GPF patch tables: corrected tool verified.
