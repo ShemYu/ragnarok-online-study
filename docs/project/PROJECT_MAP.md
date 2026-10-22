@@ -18,7 +18,7 @@ Map loading            [Chapter 1 test passes; fruit test is open]
 Fruit presentation     [OPEN: screenshot refused; owned visible surface next]
 Quest file inventory   [PASS: all 3 files checked]
 Server + file binding  [PASS: current owner and 21 file checks]
-Active quest records   [WORKING: Claude/Grok build observer; owned trial later]
+Active quest records   [WORKING: Claude submitted; Grok builds; Root checks next]
 Existing text recovery [PASS: fixed 152-record tool integrated + checked]
 Missing story scripts  [OPEN: largest content risk]
 Full game test         [LATER: 82 functional resource gaps remain]
@@ -33,6 +33,11 @@ next action and the exact limits of each result.
 CURRENT WORK: quest data, missing story and map-load checks
 
 Latest verified work (23 Oct):
+  [V] Claude recovers, commits its source and closes after preservation.
+      Its reported tests await Root replay. Grok is still working.
+  [V] Root reads the 15-group, 75-case common test source. No run yet.
+  [V] Astra and Root source review: use an actually visible owned pane.
+      A focus reply alone is insufficient. Bind the real surface next.
   [V] Corrected event reader: all 14 groups and 77 calls pass.
   [!] Fresh screenshot returns an error; no image. All test actors close.
       Original game remains. Next: review an owned visible surface with Astra.

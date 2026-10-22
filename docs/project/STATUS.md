@@ -6,16 +6,21 @@ Updated: 2026-10-23 JST. Coordinator: Codex. Active scope: **execute the documen
 Root qualifies nine full source inputs/26primary LF slices and resolves callback,
 completion and report-budget ambiguities. [Both actual isolated Claude/Grok
 implementations are dispatched from ee58599](reviews/2026-10-23-T10.005.md#actual-independent-implementation-pair-dispatched),
-with the same brief/profile/contract and setup skipped. Root prepares independent
-common controls; no loader runtime, submitted result or quest/story/content-gap
-acceptance yet. Screenshot work is independent.
+with the same brief/profile/contract and setup skipped. [Claude recovers and
+submits its preserved candidate; its settled terminal is released](reviews/2026-10-23-T10.005.md#claude-recovers-submits-and-is-preserved-before-release).
+Grok remains live/working. Root qualifies the independent15group/75case common
+source; no candidate tests have been personally replayed or runtime admitted.
+Quest/story/content-gap acceptance remains open. Screenshot work is independent.
 
 Latest diagnostic result: [event-aware actual screenshot is refused and fully closed](reviews/2026-10-22-T07.007.011.005.md#event-aware-actual-screenshot-is-refused-and-fully-closed).
 The reader accepts browser events correctly; screenshot returns code-32000 after
 8035ms with no PNG. Exact error text/cause remains UNKNOWN. Caller/driver1 and
 guardinvalid remain failed; full preservation/closure/source audit passes and
-original worlds/tabs/player restore. Next qualify an owned visible presentation
-surface with bounded Astra source review. No more passive/empty-page retries;
+original worlds/tabs/player restore. [Astra's visible-surface source advice now
+qualifies under Root's primary-source review](reviews/2026-10-22-T07.007.011.005.md#astra-visible-surface-source-advice-independently-qualifies).
+Next bind an actually displayed owned Orca pane, with fresh-profile Chrome as a
+separately qualified fallback. No surface is yet bound or runtime admitted.
+No more passive/empty-page retries;
 quest implementation/controls continue independently. No new runtime, goal
 change or user decision is required.
 
