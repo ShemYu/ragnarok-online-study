@@ -75,6 +75,7 @@ Latest verified work (22 Oct):
       Event validation still stops capture; exact failed check is next.
       Need worker-level failure evidence before another fruit test.
   Parent checkpoints: 4 / 14 = about 29%. Full game remains open.
+  Four old unused agent sessions are closed. Source/evidence stay saved.
 
 [V] Download and extract the base package. Verify all 4,976 files.
  |

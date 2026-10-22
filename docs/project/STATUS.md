@@ -7,6 +7,13 @@ parent checkpoints, not content, effort or playable-world coverage. Full Modern 
 Renewal maps, monsters, story, persistence and eventual Traditional Chinese
 remain the goal. Functionality comes first; party-only work stays later.
 
+**Worker cleanup:** under the user's renewed cleanup instruction,
+[Root closes the four obsolete retained sessions](reviews/2026-10-22-worker-cleanup.md)
+after exact transcript/handle/preservation checks. Four positive PTY-close
+receipts; all checkouts/branches/evidence remain. Four historical retained
+resource rows/147 released rows are not a live-agent count. The current root
+workspace has only its coordinator; no reclaimable worker waits for cleanup.
+
 Current independent lanes:
 
 - **Story repair feasibility:** [T10.001 common brief is frozen](tasks/T10.001.md)
