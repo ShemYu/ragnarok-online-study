@@ -14,8 +14,8 @@ Current independent lanes:
   are corrected. Fruit retains one failed texture fetch and pending readiness;
   transport cause is unknown. [Capture implementation](reviews/2026-10-22-T07.007.011.004.md)
   has Claude's root 22 authored / 16 shared passes and three reproduced adaptive
-  contract deviations. Grok is still implementing; root selection/integration
-  and one fresh fruit probe follow. No repeat is automatically counted as cause
+  contract deviations. Both candidates are preserved/released; root selects Claude as correction
+  basis (16/20 versus 15/20), then rechecks integration before one fresh fruit probe. No repeat is automatically counted as cause
   proof. Ship02 visible motion passes; light's GPU motion is proved, but its
   visible check remains occluded. All owned probes are closed.
 - **Normal asset route:** corrected selector passes 29 authored / 35 shared
