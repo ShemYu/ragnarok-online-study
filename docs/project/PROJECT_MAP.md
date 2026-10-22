@@ -33,6 +33,8 @@ next action and the exact limits of each result.
 CURRENT WORK: quest data, missing story and map-load checks
 
 Latest verified work (23 Oct):
+  [V] Chrome source plan and corrected frame-gate source qualify.
+      One pure 50-case check admitted. Actual browser/scene test stays open.
   [V] Claude: 15 own tests and all 75 common cases pass Root replay.
       Full source/output/cleanup audit passes. Grok and real trial remain.
   [V] Root reads Claude's whole code and tests. Two authored calls admitted.
