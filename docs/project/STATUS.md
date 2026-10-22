@@ -51,8 +51,10 @@ Current independent lanes:
   actors exit1 with guard-invalid failures; source/input postpins and positive
   retirement checks pass. The owned page/server are closed, original two pages
   retained. Cause and Worker session/event coverage remain unqualified.
-  Astra's single-connection source delta is prepared, not admitted/executed;
-  parallel writer correction/replay and normal-loader proxy review continue.
+  [Root fully reviews/binds/adopts one changed-controller qualification](reviews/2026-10-22-T07.007.011.005.md#single-connection-changed-controller-qualification-admitted):
+  fresh owned page/endpoint, first read-only target proof, then one socket
+  controls the held fixture and captures child events. Not executed yet;
+  previous failure/cause uncertainty remain. Parallel writer/loader work continues.
   No transport cause is proved. Ship02 visible motion passes; light's GPU motion is proved, but its
   visible check remains occluded. Previous render probes are closed.
 - **Normal asset route:** corrected selector passes 29 authored / 35 shared
