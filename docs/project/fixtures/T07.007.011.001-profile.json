@@ -1,0 +1,56 @@
+{
+  "schema": "T07.007.011.001-normal-repair-plan-1",
+  "task": "T07.007.011.001",
+  "basis_commit": "8d93e9e",
+  "benchmark": "independent read-only repair proposals, not implementation",
+  "inputs": [
+    {
+      "path": ".tools/renewal/t07-007-011-preparation-1/client/ThreadEventHandler.js",
+      "bytes": 624339,
+      "sha256": "09a53f9da19689435e19e6e7ea026bc9344f5bda9ea91e9610762f3ad4e2b160"
+    },
+    {
+      "path": ".tools/renewal/t07-007-011-preparation-1/client/Online.js",
+      "bytes": 13174160,
+      "sha256": "9c148d9e43384a2498f9074efd1603b4eda1ff36dac53998985cfdf5eaf6fadf"
+    },
+    {
+      "path": ".tools/renewal/t07-007-011-root-execution-preparation-3/actual-ygg_roots-1/browser-00.json",
+      "bytes": 4132889,
+      "sha256": "22c6d53687fe9728b885699245ad54fe8ee12934ae9671b76a8d04995db34958"
+    },
+    {
+      "path": ".tools/renewal/t07-007-011-root-execution-preparation-3/actual-ygg_roots-1/NORMAL_AUDIT_ROOT.json",
+      "bytes": 2449,
+      "sha256": "d5c0bff0595f7f88e5c404f130bc2f976ac0f17906ae3972a3dae16d3000eb2c"
+    },
+    {
+      "path": ".tools/renewal/t07-007-011-geometry-reference-preparation-2/execution-1/REFERENCE_RESULT.json",
+      "bytes": 13378983,
+      "sha256": "b483045a5336add21f4b38e829645ce40e3625d730adbc8fbc3b1ba27ffa1151"
+    },
+    {
+      "path": ".tools/renewal/t07-007-011-preparation-1/EXPECTED_MAP_METADATA_ROOT.json",
+      "bytes": 953587,
+      "sha256": "54af6bc9e28197aac61a1b1a1ead3e81f2d39b5e6c26cfa35827565cb5f23fd3"
+    },
+    {
+      "path": "docs/project/fixtures/T07.007.011-profile.json",
+      "bytes": 7941,
+      "sha256": "148511079a59338926062e69b3716a1e281dc33e882eb44adc44b1605d09a99b"
+    }
+  ],
+  "constraints": [
+    "No live app/browser/native/save/network mutation.",
+    "Read only the frozen inputs; no sibling answer.",
+    "Output only plan.md and result.json in assigned disjoint ignored directory.",
+    "No code or generated client bundle execution."
+  ],
+  "acceptance": [
+    "Exact zero-flat-input/zero-sum failure with emitted108normal components.",
+    "Identify actual worker and main/animated implementations and existing safeguards precisely.",
+    "Propose smallest compatible repair, precise arithmetic and output byte limits, fallback rationale.",
+    "Define meaningful isolated fixtures and actual reference/GPU/render verification, rollback and remaining limits."
+  ],
+  "full_game_acceptance": null
+}
