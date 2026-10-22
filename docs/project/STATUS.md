@@ -30,7 +30,11 @@ any loading observation. No game/source installation or character change.
 current-owner/config/archive and final caller/source admission remain next.
 [The reviewed current-reader preflight is now admitted](reviews/2026-10-22-T07.007.014.005.md#final-sources-reviewed-and-read-only-preflight-admitted):
 one authenticated STATUS/full protected hashes, no asset GET or reader lifecycle.
-Run once, independently audit two receipts/retirement, then bind the later proxy.
+[Actual preflight and Root audit pass](reviews/2026-10-22-T07.007.014.005.md#actual-read-only-preflight-independently-qualifies):
+caller exit0, complete config/receipt reconstruction,17full pins/five archives,
+current owners/listeners and temporary-process retirement qualify. No asset GET.
+Next bind final proxy inputs/caller and fixed browser sequence, then separately
+admit one actual loading observation. No loading/rendering/story/save pass yet.
 
 **Worker cleanup:** under the user's renewed cleanup instruction,
 [Root closes the four obsolete retained sessions](reviews/2026-10-22-worker-cleanup.md)
