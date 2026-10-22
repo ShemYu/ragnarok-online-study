@@ -122,6 +122,8 @@ CURRENT WORK: October assets and missing maps
  |    In parallel: both archive selector candidates are checked/released.
  |    Grok imported; root correction passes 29 own and 35 shared checks.
  |    Whole-stack integration/build next. No normal-game claim.
+ |    Two Grok lanes run independently: transport and movement-policy plans.
+ |    Both have separate Claude comparisons. Runtime policy stays open.
  |
  +-- [V] Other 28 GPF patch tables: corrected tool verified.
  |        Root reference: all 5,742 raw records checked.
