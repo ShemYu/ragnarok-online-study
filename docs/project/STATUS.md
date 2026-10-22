@@ -75,6 +75,11 @@ prepared before an equal Claude/Grok pair. No handler absence or runtime claim.
 generated plugins/four dependency copies. An invalid draft Unicode/LF range
 contract stays preserved; actual2022length is27bytes conditionally, not a wire
 fact. Next freeze the equal safe source-only pair; no repair is assumed.
+[T07.006.001 now freezes that actual pair contract](reviews/2026-10-23-T07.006.001.md#frozen-safe-source-contract):
+25readonly data files/54package spans, config-selector-only disclosure,
+14closure rows/eight later visible gates. Next start both isolated Orca providers
+from this introducing commit, then personally verify both. No pair result or
+repair/runtime acceptance exists yet.
 
 [T10.005 freezes the bounded quest-registration implementation contract](reviews/2026-10-23-T10.005.md#frozen-source-contract-and-root-preflight).
 Root qualifies nine full source inputs/26primary LF slices and resolves callback,
