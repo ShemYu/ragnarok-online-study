@@ -33,7 +33,9 @@ only the precise fixture correction before a new admission. [That exact four-slo
 correction now qualifies; one fresh pure replay is admitted](reviews/2026-10-22-T07.007.011.005.md#exact-missing-controller-fixture-correction-qualifies-and-one-replay-is-admitted).
 Root verifies76full pins/full inverses; unchanged target/fragments/cases/caller
 mechanisms. [Corrected51/51and complete audit now pass](reviews/2026-10-22-T07.007.011.005.md#corrected51controls-and-complete-root-audit-pass).
-Next fresh binder/file/owner preflight; no browser wave admitted.
+[The exact new scene binder now qualifies as source](reviews/2026-10-22-T07.007.011.005.md#corroborated-launcher-scene-binder-source-qualifies):
+one tuple/three descriptor values,45literal slots/full inverses. Next fresh
+file/owner preflight; no browser wave admitted.
 
 Earlier W2 result: [the fresh Chrome wave fails before the scene observer;
 scoped closure and complete content audit qualify](reviews/2026-10-22-T07.007.011.005.md#fresh-chrome-wave-fails-before-observer-and-scoped-closure-qualifies).
@@ -100,9 +102,11 @@ from6414631with identical11304-byte spec and exact task/profile/package.
 Root confirms both isolated branches/HEADs and clean tracked trees. Claude turn
 start is observed; Grok input acceptance is recorded with turn observation
 unsupported. [Claude now submits and is preserved before release/ACK](reviews/2026-10-23-T07.006.001.md#claude-submission-preserved-and-settled-terminal-released).
-Its exact report/matrix/clean BASE match; worker reports541s. Full Root semantic
-review/score pending, Grok still independent/active. Next preserve Grok and
-personally compare both; no repair/runtime or model selection yet.
+Its exact report/matrix/clean BASE match; worker reports541s. [Grok also submits
+and is preserved/released before ACK](reviews/2026-10-23-T07.006.001.md#both-proposals-preserved-and-both-settled-workers-released),
+reporting733s. Root reads both complete outputs; exact schema/input/63and75
+anchor audits pass. Material source qualifications are being recorded equally;
+no raw selection, repair or runtime acceptance yet.
 
 [T10.005 freezes the bounded quest-registration implementation contract](reviews/2026-10-23-T10.005.md#frozen-source-contract-and-root-preflight).
 Root qualifies nine full source inputs/26primary LF slices and resolves callback,
@@ -170,7 +174,9 @@ positive closure. Next complete shared-parent review/composition; possible
 31full pins/four exact diff pairs; liveness-only joins can miss b>106 on an
 already-ended proxy. Keep106and prepare a precise recorded-return check/finite
 controls, then compose the two separately verified launcher corrections.
-No runtime is admitted.
+[The exact five-line parent source correction now qualifies](reviews/2026-10-23-T10.005.md#exact-recorded-return-deadline-source-correction-qualifies):
+30cross-package full pins/full inverse, finite b<existing deadline. Eight pure
+controls are being prepared; no parent/runtime is admitted.
 All actual-loader bindings remain NULL.
 No actual original-loader/runtime or full-game acceptance is claimed.
 Quest/story/content-gap acceptance remains open. Screenshot work is independent.

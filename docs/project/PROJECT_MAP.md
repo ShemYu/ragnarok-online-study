@@ -34,10 +34,10 @@ CURRENT WORK: quest data, missing story and map-load checks
 
 Latest verified work (23 Oct):
   [>] Equal Claude/Grok navigation source workers dispatched.
-      Claude submitted/preserved/released; Grok active. Root review next.
+      Both submitted/preserved/released; full Root comparison in progress.
   [V] Quest cleanup deadline source gap found; narrow correction checked.
       All five fixed checks pass. Shared runner late-return gap found.
-      Next: check actual return time, then join the verified source changes.
+      Return-time source fix checked. Eight fixed tests are being prepared.
   [V] Navigation source contract checked: 54 ranges and 70 file pins match.
       Three plugins and their source imports found. Equal model task next.
   [V] Bounded child-absence and normal-close source changes checked.
