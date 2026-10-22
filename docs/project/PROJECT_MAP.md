@@ -57,7 +57,12 @@ Latest verified work (22 Oct):
   [V] Real compiled Chapter 1 core runs; complete dependency ledger passes.
       370 placements, 27 model requests, 7 ground textures; no numeric fault.
   [~] Normal dependency loading, story routes and play remain.
-      One normal-reader loading check is defined; runtime admission remains.
+      Current reader check passes: five archives and exact ownership match.
+  [!] First normal loading check stops on the browser icon request.
+      Real map file arrives and its parser runs; terrain is not reached.
+      Test proxy rejects /favicon.ico and closes. Failed evidence is saved.
+      Temporary page/processes close; original game and saves remain.
+      Next: verify the small icon-route fix, then admit a fresh map check.
       Installed scripts: 1185 NPC files and 94 config files checked.
       17 configs select 841 sources; mounts match. No Chapter 1 references.
   [V] Story feasibility pair checked: Claude 17/20, Grok 13/20.
