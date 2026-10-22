@@ -13,8 +13,9 @@ submits its preserved candidate; its settled terminal is released](reviews/2026-
 Both15own suites pass; Claude passes75common cases and the equal pending/error
 case. Grok fails one common argument-forwarding case and rejects with another
 known callback still pending. Both failures and complete audits are preserved;
-both settled terminals are released. Next import the three unchanged Claude
-blobs, then verify integrated own/common/adaptive checks before readiness.
+both settled terminals are released. [The unchanged Claude import fbc2e96 and
+three integrated check calls are bound/admitted](reviews/2026-10-23-T10.005.md#unchanged-claude-import-and-integrated-checks-admitted).
+Next execute/audit them before readiness.
 No actual original-loader/runtime or full-game acceptance is claimed.
 Quest/story/content-gap acceptance remains open. Screenshot work is independent.
 
