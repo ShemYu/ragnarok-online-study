@@ -1,6 +1,6 @@
 # Supervision, plan and current position
 
-Date: **2026-10-22 JST**. Functionality comes first. Normal tutorial/city reward and save checks pass. The trial character reaches [Eden through normal Officer dialogue](reviews/2026-10-20-T06.006.003.md#normal-eden-arrival-verified-next-save-check-interrupted). Its save check waits for browser reconnection.
+Date: **2026-10-23 JST**. Functionality comes first. Normal tutorial/city reward and save checks pass. The trial character reaches [Eden through normal Officer dialogue](reviews/2026-10-20-T06.006.003.md#normal-eden-arrival-verified-next-save-check-interrupted). Its save check waits for browser reconnection.
 
 [Chapter1 source review](reviews/2026-10-20-T07.006.md#corrected-comparison-and-bounded-readiness) is ready: Claude14/20, Grok12/20. Root corrects the helper diagnosis. Neither proposal is installed. [October acquisition](reviews/2026-10-21-T07.007.md) passes extraction and hash checks for all 4,976 files. All three archive headers pass. The [corrected inventory tool](reviews/2026-10-21-T07.007.001.md#root-corrected-integration-qualified) is qualified at9153d27. All 248,908 records and April parity checks pass.
 
@@ -73,14 +73,16 @@ Latest verified work (22 Oct):
       First image is later than planned; background progress is unproved.
       This is a map-loading check. Normal entry, story and save remain.
       Next: client quest/text inventory and normal Chapter 1 entry flow.
-  [~] Client quest inventory: three existing files selected (4.57 MB).
+  [V] Client quest inventory: three existing files checked (4.57 MB).
       All file hashes and headers pass; no Lua execution.
       Both readers dispatched from the same frozen source.
       Claude submitted; old worker closed, source and branch retained.
       Root runs 26 authored tests and 14 shared groups: all pass.
       Grok: 9 authored tests and the same 14 shared groups pass.
       Both workers closed; branches and evidence retained.
-      Guarded actual quest-file comparison is next.
+      Both guarded actual runs pass; all three full outputs match.
+      Newest table: 10,023 rows; 86 reference Chapter 1 maps.
+      Claude selected (20/20 vs 19/20); source integration is next.
       Official guide panels checked in parallel: side/daily tasks found.
       Three later cards use another map; next search must include it.
       Full main-story flow and Chinese decoding remain open.

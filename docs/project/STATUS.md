@@ -87,6 +87,13 @@ all three full synthetic outputs/diagnostic/14pins/retirement exact. [Both fresh
 actual provider jobs are bound and admitted](reviews/2026-10-23-T10.002-execution.md#bound-actual-body-admission)
 after this checkpoint, with the same fixed inputs and separate60s/512MiB sampled
 guards. Next actual parallel calls, complete equality audit and comparison.
+[Both actual three-file runs and Root's complete audit now pass](reviews/2026-10-23-T10.002-execution.md#actual-parallel-inventories-and-complete-comparison-qualify).
+All three canonical inventories match byte-for-byte. _True has10023rows,
+including86ch1_ reference rows; the other two tables have no fixed Chapter1
+map-family matches. Effective normal-game winner and story implementation are
+still unknown. [Claude20/20 is selected versus Grok19/20](reviews/2026-10-23-T10.002-execution.md#bounded-provider-score-and-selection)
+for earlier expansion checks. Next selected source integration and its checks,
+then effective quest-resource/text projection; no full-story/parent progress claim.
 
 **Worker cleanup:** under the user's renewed cleanup instruction,
 [Root closes the four obsolete retained sessions](reviews/2026-10-22-worker-cleanup.md)
