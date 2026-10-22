@@ -2,9 +2,39 @@
 
 Updated: 2026-10-22 JST. Coordinator: Codex. Active scope: **execute the documented strategy through the full milestone**.
 
-**Goal API is active.** [Actual repaired roots](reviews/2026-10-22-T07.007.011-execution.md#actual-repaired-roots-packet-gpu-and-finite-normals-qualified), [mu and edge](reviews/2026-10-22-T07.007.011-execution.md#parallel-wave-closed-root-audits-and-retained-fruit-failure) pass complete static packet/GPU/source/body/cleanup audits. Roots'108NaN normal words are corrected. The parallel fruit run has one fetch rejection before the reader, null texture propagation and pendingTextures1; its complete incident/preservation audit is retained and strict rendering remains failed. Astra localizes the chain; transport cause is unknown. Ship02genuine position/GPU motion is captured with visible ship frames; light's GPU motion is proved but surrounding geometry occludes the visible check. All owned probes are closed. **Next:** [actual independent transport-observation pair](reviews/2026-10-22-T07.007.011.003.md#actual-independent-pair-launched) is launched; both raw plans are preserved/released. [Corrected source-plan comparison](reviews/2026-10-22-T07.007.011.003.md#root-comparison-and-corrected-minimal-probe-contract) selects C15/20basis versus G14/20and Astra/root minimal hooks. Next [actual bounded capture implementation pair](reviews/2026-10-22-T07.007.011.004.md#independent-actual-implementation-pair-launched), then one qualified probe; light visibility/placement review remains open; preserve full four-map acceptance as open. Independent [archive selector pair](reviews/2026-10-22-T07.007.012.001.md#both-candidates-preserved-and-root-shared-controls-complete) is fully read/preserved/released: root C16/G28own tests and34shared cases each pass; adaptive valid internal-TAB control fails Claude and passes Grok. Grok19/20basis versus Claude17/20; raw imported unchanged as1eda8ca. [Separate root ctime correction](reviews/2026-10-22-T07.007.012.001.md#corrected-integrated-selector-qualifies) now passes29own/35shared checks after the distinguishing raw regression fails101. Bounded module self_verified; [private whole-stack build and three filtered integration checks pass](reviews/2026-10-22-T07.007.012.md#offline-stack-build-and-targeted-integration-checks-pass),19.1s command wall/602.5MiB sampled build peak; [actual real-archive assembly/relink passes](reviews/2026-10-22-T07.007.012.002.md#actual-assembly-and-complete-relink-outputs-qualify), both CLI calls/all51outputs/249source checks; [diagnostic managed native12-body parity passes](reviews/2026-10-22-T07.007.012.002.md#diagnostic-managed-identity-and-twelve-complete-bodies-qualify); normal owner/current Chinese mods/fresh world are next. Independent [two-GAT-flag source-policy review](tasks/T07.007.013.md) [corrected source-plan comparison qualifies](reviews/2026-10-22-T07.007.013.md#corrected-source-plan-comparison-qualified), Grok17/20basis versus Claude15/20; both preserved/released and production mapping remains unselected. Compiler/copied-stack build are verified; normal owner/production parity, ordinary Chapter1entry/save and full milestone remain open.
+**Goal API is active. Current parent count: 4/14, about 29%.** This counts
+parent checkpoints, not content, effort or playable-world coverage. Full Modern /
+Renewal maps, monsters, story, persistence and eventual Traditional Chinese
+remain the goal. Functionality comes first; party-only work stays later.
 
-The earlier [silent real mu pilot](reviews/2026-10-22-T07.007.011-execution.md#second-pilot-bootdecodeuploaddraw-check-passes) passes bounded boot/decode/upload/draw (2.75s/60decoders). [Astra/root](reviews/2026-10-22-T07.007.011-execution.md#actual-astra-consultation-and-discriminating-metadata-check) tie its intermittent248,832B geometry deficit to one absent request/18placements; fetch cause remains open. The complete reference mu hash matches the earlier full packet. Actual pair Claude15/20/Grok14/20and Astra are preserved/released. Full rendering, ordinary Chapter1entry/save,82world gaps/full milestone remain open; **4/14parent checkpoints (about29%)**, not content/effort completion. CUA/Chrome ordinary-play remains unavailable; the owned Orca diagnostic viewer works.
+Current independent lanes:
+
+- **Rendering / capture repair:** repaired roots, mu and edge pass complete
+  static packet/GPU/body/source/cleanup audits. Roots' 108 invalid normal words
+  are corrected. Fruit retains one failed texture fetch and pending readiness;
+  transport cause is unknown. [Capture implementation](reviews/2026-10-22-T07.007.011.004.md)
+  has Claude's root 22 authored / 16 shared passes and three reproduced adaptive
+  contract deviations. Grok is still implementing; root selection/integration
+  and one fresh fruit probe follow. No repeat is automatically counted as cause
+  proof. Ship02 visible motion passes; light's GPU motion is proved, but its
+  visible check remains occluded. All owned probes are closed.
+- **Normal asset route:** corrected selector passes 29 authored / 35 shared
+  checks. [Copied-stack build](reviews/2026-10-22-T07.007.012.md#offline-stack-build-and-targeted-integration-checks-pass)
+  and three targeted integration tests pass. [Real five-archive assembly,
+  relink and diagnostic managed reader](reviews/2026-10-22-T07.007.012.002.md#diagnostic-managed-identity-and-twelve-complete-bodies-qualify)
+  qualify: 51 assembled entries, 300 current readonly input hashes and twelve
+  complete map files match. Next bind the application's actual owner module,
+  then current Chinese mods and a third fresh world for normal entry/save.
+- **Movement policy:** [corrected source-plan comparison](reviews/2026-10-22-T07.007.013.md#corrected-source-plan-comparison-qualified)
+  is self_verified, Grok 17/20 basis versus Claude 15/20; both workers are
+  preserved/released. Production mapping remains unselected. Actual served
+  code, effective server config/cache/cells, movement and save gates remain.
+
+The [earlier mu pilot and Astra diagnosis](reviews/2026-10-22-T07.007.011-execution.md#actual-astra-consultation-and-discriminating-metadata-check)
+remain historical evidence. Ordinary Chapter 1 entry/save, 82 world-resource
+gaps and full content qualification remain open. CUA/Chrome ordinary-play
+access was unavailable at the latest check; the owned Orca diagnostic viewer
+works. No critical issue requiring a goal change is established.
 
 ## Where we are
 

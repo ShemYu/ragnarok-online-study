@@ -123,9 +123,12 @@ CURRENT WORK: October assets and missing maps
  |    Grok imported; root correction passes 29 own and 35 shared checks.
  |    Private stack builds. All three integration checks pass.
  |    Real five-archive assembly/relink passes. All 51 outputs match.
- |    Next: managed native 12-body parity. No normal-game claim.
- |    Two Grok lanes run independently: capture code and movement-policy review.
- |    Both have separate Claude comparisons. Runtime policy stays open.
+ |    Diagnostic managed reader: all 12 full map files match.
+ |    All 300 input hashes, signed identity and cleanup pass.
+ |    Next: actual app owner, current mods, new world and normal entry/save.
+ |    Grok capture code continues; Claude common checks pass with edge faults.
+ |    Movement plans compared: Grok 17/20 basis, Claude 15/20.
+ |    Production movement policy stays open.
  |
  +-- [V] Other 28 GPF patch tables: corrected tool verified.
  |        Root reference: all 5,742 raw records checked.
