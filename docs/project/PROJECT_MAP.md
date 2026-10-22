@@ -36,11 +36,11 @@ Latest verified work (23 Oct):
   [>] Equal Claude/Grok navigation source workers dispatched.
       Same 25 files and 54 ranges. Separate branches at 6414631.
   [V] Quest cleanup deadline source gap found; narrow correction checked.
-      Five fixed checks are admitted; full shared-caller review remains.
+      All five fixed checks pass; full shared-caller review remains.
   [V] Navigation source contract checked: 54 ranges and 70 file pins match.
       Three plugins and their source imports found. Equal model task next.
   [V] Bounded child-absence and normal-close source changes checked.
-      Fixed 51-case checks and caller reviewed; one pure run admitted.
+      First suite passes 49 of 51; two fixture assertions need review.
   [!] Scene wave3 stops before READY at an unknown child identity.
       Full 175-file audit passes; test processes end; original games intact.
       Next: bounded child-absence and parent-exit handling, then fixed tests.

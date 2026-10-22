@@ -19,8 +19,10 @@ or full-scene acceptance. Shared quest caller preparation continues independentl
 20full pins/26verbatim slots/inverses; final34567-byte source handles bounded
 absence plus explicit WORK leader-loss transition. [Fixed51controls and caller now qualify; one pure call is admitted](reviews/2026-10-22-T07.007.011.005.md#fixed51controls-source-qualifies-and-one-pure-call-is-admitted).
 Root qualifies49full pins/17fragments across the two fixed control packages.
-Next bind the exact post-commit caller HEAD, run once and audit all51rows.
-No new browser/live wave is admitted.
+[The actual suite fails49/51; complete preservation/closure audit passes](reviews/2026-10-22-T07.007.011.005.md#first51case-result-fails-two-assertions-and-complete-audit-qualifies).
+Two healthy-missing-controller assertions overconstrain unknown retirement at
+the fake observation boundary. Target false success is not shown. Next review
+only the precise fixture correction before a new admission. No browser wave.
 
 Earlier W2 result: [the fresh Chrome wave fails before the scene observer;
 scoped closure and complete content audit qualify](reviews/2026-10-22-T07.007.011.005.md#fresh-chrome-wave-fails-before-observer-and-scoped-closure-qualifies).
@@ -147,8 +149,11 @@ source correction: ten full pins/nine slots/inverses. Complete
 Root parent review and W3ownership composition remain. [Five deadline controls
 and their caller now qualify; one pure call is admitted](reviews/2026-10-23-T10.005.md#five-complete-deadline-controls-qualify-and-one-pure-call-is-admitted).
 Root personally checks the complete source/caller and exact fragments; author
-re-audit is labelled separately. Next bind the post-commit HEAD, run once and
-audit the complete five rows/actual guard/exit/closure. No runtime is admitted.
+re-audit is labelled separately. [All5actual controls and complete Root audit
+now pass](reviews/2026-10-23-T10.005.md#all-five-complete-deadline-controls-and-full-root-audit-pass):
+caller/actor0, original guardvalid,65cross-package full pins, full streams and
+positive closure. Next complete shared-parent review/composition; possible
+late-proxy join acceptance needs source qualification. No runtime is admitted.
 All actual-loader bindings remain NULL.
 No actual original-loader/runtime or full-game acceptance is claimed.
 Quest/story/content-gap acceptance remains open. Screenshot work is independent.
