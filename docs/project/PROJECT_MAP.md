@@ -71,6 +71,8 @@ Latest verified work (22 Oct):
       Failed timing zeros do not mean no request was sent.
       Held-worker check stops at an unexpected connection close.
       No fetch start is sent; both test processes/page/server retire.
+      New single-controller test reaches worker setup and both fetches.
+      Event validation still stops capture; exact failed check is next.
       Need worker-level failure evidence before another fruit test.
   Parent checkpoints: 4 / 14 = about 29%. Full game remains open.
 

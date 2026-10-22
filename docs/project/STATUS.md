@@ -52,9 +52,13 @@ Current independent lanes:
   retirement checks pass. The owned page/server are closed, original two pages
   retained. Cause and Worker session/event coverage remain unqualified.
   [Root fully reviews/binds/adopts one changed-controller qualification](reviews/2026-10-22-T07.007.011.005.md#single-connection-changed-controller-qualification-admitted):
-  fresh owned page/endpoint, first read-only target proof, then one socket
-  controls the held fixture and captures child events. Not executed yet;
-  previous failure/cause uncertainty remain. Parallel writer/loader work continues.
+  [The single-controller attempt now reaches actual child setup](reviews/2026-10-22-T07.007.011.005.md#single-controller-reaches-child-setup-but-event-validation-refuses):
+  all eleven commands ACK/Worker attached/held start ACK; authored GET200 and
+  drop/done outcomes complete under a valid server guard. Capture still refuses
+  an event predicate, whose triggering metadata was not retained. Observer
+  guard invalid/exit1; full pins/cleanup/retirement pass, both originals retained.
+  Next fixed failure code/event metadata before association changes or fruit.
+  Previous disconnect cause remains unknown. Parallel writer/loader work continues.
   No transport cause is proved. Ship02 visible motion passes; light's GPU motion is proved, but its
   visible check remains occluded. Previous render probes are closed.
 - **Normal asset route:** corrected selector passes 29 authored / 35 shared
@@ -205,6 +209,10 @@ Current independent lanes:
   source files. No Chapter1 map references or published entry placements found.
   Story implementation remains an in-scope risk requiring repair feasibility;
   snapshot is not live NPC memory or play. Normal dependency/render/play remain.
+  [Root now fully reviews the corrected normal-loader proxy source](reviews/2026-10-22-T07.007.014.004.md#normal-loader-proxy-source-review-and-minimal-preservation-correction):
+  one final parent-preservation check is repeated after full posthashes.
+  Fresh frontend/caller/owner/config/archive bindings and execution admission
+  remain; this source-only review does not qualify rendering.
   Official regular-RO provenance prevents edition-based exclusion. No gap closure.
 
 The [earlier mu pilot and Astra diagnosis](reviews/2026-10-22-T07.007.011-execution.md#actual-astra-consultation-and-discriminating-metadata-check)
