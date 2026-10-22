@@ -19,7 +19,9 @@ generated-config/producer source inspection](reviews/2026-10-23-T10.003.md#bound
 generated loadLua=true/configured server langtype4; all four full pins unchanged.
 This is file-level configuration; live selected records remain unknown.
 [The fresh exact owner/producer preflight is admitted](reviews/2026-10-23-T10.003.md#fresh-bounded-owner-and-producer-preflight-admitted):
-one STATUS only, no asset/browser/game action; full actual audit remains.
+one STATUS only, no asset/browser/game action.
+[The actual preflight and full independent21pin/five-archive audit pass](reviews/2026-10-23-T10.003.md#actual-owner-and-producer-preflight-independently-qualifies).
+Owner/producer/config gate clears; owned registration observation remains.
 [The corrected current-decoder authored qualification now passes](reviews/2026-10-23-T10.004-decoder.md#corrected-authored-qualification-and-complete-root-audit-pass):
 six groups/21cases, full exact Root vector/adapter/source/retirement audit. First
 publication failure remains preserved. Next small paired existing-text projection;
@@ -32,6 +34,7 @@ Root prepares shared controls while producer/config and fruit work continue.
 [Claude's original candidate is preserved/released](reviews/2026-10-23-T10.004.md#claude-submission-preserved-and-settled-terminal-released).
 [Root replays8authored passes but six extra refusal cases fail](reviews/2026-10-23-T10.004.md#root-authored-replay-passes-but-extra-refusal-checks-fail).
 No candidate selected or actual text decoded; Grok and shared controls continue.
+[Root reviews/admit18independent authored common groups](reviews/2026-10-23-T10.004.md#independent-common-controls-source-review-and-bounded-admission).
 Reuse Chinese resources; functionality/story evidence first. No verified
 server Chapter1 story implementation, resource-winner or Chinese projection yet.
 
