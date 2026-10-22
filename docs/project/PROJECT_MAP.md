@@ -50,6 +50,8 @@ Latest verified work (22 Oct):
   [V] Both normal terrain responses pass all 4,073,068 bytes and hashes.
   [V] Exact extracted copies, 25 protected inputs and live reader pass.
   [~] Chapter 1 terrain dependencies and normal play remain.
+      Story-route risk: indexed map has no matching pinned NPC references.
+      Actual loaded routes still need inspection; goal unchanged.
   [~] Fruit scene: full render still fails one model fetch.
       Plans compared: Claude 17/20 vs Grok 16/20. Diagnostic gates next.
   Parent checkpoints: 4 / 14 = about 29%. Full game remains open.

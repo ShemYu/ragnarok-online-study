@@ -140,7 +140,11 @@ Current independent lanes:
   Root independently rehashes all25protected inputs and audits full bodies/headers/
   effects. Positive game/reader ownership remains; no restart/save/settings change.
   .003 is ready_for_user within that scope. Next compiled parser/dependency loading
-  and ordinary Chapter1 entry/play/save. No gap or full-game closure.
+  and ordinary Chapter1 entry/play/save. [Compiled path preparation and story-route
+  preflight](reviews/2026-10-22-T07.007.014.004.md) are recorded: local pinned NPC
+  sources/installed navigation index have no literal ch1_ references despite
+  map-index presence. Actual loaded-server route inspection remains; parsing must
+  not substitute for story implementation. No gap or full-game closure.
 
 The [earlier mu pilot and Astra diagnosis](reviews/2026-10-22-T07.007.011-execution.md#actual-astra-consultation-and-discriminating-metadata-check)
 remain historical evidence. Ordinary Chapter 1 entry/save, 82 world-resource
