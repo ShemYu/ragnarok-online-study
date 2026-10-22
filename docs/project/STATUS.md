@@ -11,9 +11,11 @@ mutation occurred. Normal loader and story work remain independent.
 all192commands ACK/gate released; loading image succeeds but the loading-screen
 continuation does not reach terrain/models before its180s timeout. Failed
 observer preserved; full source/transport/cleanup audits pass and all temporary
-actors/page/listeners retire. Original worlds/pages remain. Next asset-free
-[frame/visibility check is admitted](reviews/2026-10-22-T07.007.011.005.md#asset-free-owned-page-frame-check-admitted);
-report-terminal review remains before any new fruit attempt.
+actors/page/listeners retire. Original worlds/pages remain. [Actual blank-page
+frames advance in both authored phases](reviews/2026-10-22-T07.007.011.005.md#actual-blank-page-frame-progress-qualifies-without-reproducing-the-stall):
+121/122frames,50timers each; both already visible. This does not reproduce or
+explain the old scene stall. Next measure the actual scene's frame progression
+and review the report-terminal boundary before any new fruit attempt.
 
 **Goal API is active. Current parent count: 4/14, about 29%.** This counts
 parent checkpoints, not content, effort or playable-world coverage. Full Modern /

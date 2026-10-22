@@ -81,6 +81,9 @@ Latest verified work (22 Oct):
       All control replies arrive; loading image succeeds; map times out.
       Failed record saved; temporary page/reader/processes fully closed.
       Next: check frame progress at the loading-screen transition.
+  [V] Blank test page: frames advance in both one-second checks.
+      Both states were visible; this does not explain the old scene stall.
+      Next actual scene must record its own frame progress.
   [V] File writer fix: 51 tests, 10 shared and 2 focused checks pass.
   [V] Caller accepts the normal test; all 15 failure checks reject correctly.
   [V] Corrected writer source is integrated with separate rollback commits.
