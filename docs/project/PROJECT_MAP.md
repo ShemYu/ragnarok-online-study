@@ -36,6 +36,8 @@ Latest verified work (22 Oct):
   [V] Actual integrated new + old routes: all 13 complete files match.
   [V] Chapter 1 header: terrain names are gef_dun03.gnd / gef_dun03.gat.
       Decoder/header child ready. Catalog/body/loading checks are next.
+  [~] Exact terrain lookup: independent Claude/Grok pair launched.
+      Claude submitted; Grok active. Root actual scan/comparison next.
   [~] Chapter 1 terrain dependencies and normal play remain.
   [~] Fruit scene: full render still fails one model fetch.
   Parent checkpoints: 4 / 14 = about 29%. Full game remains open.

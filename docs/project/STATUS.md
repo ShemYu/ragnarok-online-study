@@ -111,8 +111,10 @@ Current independent lanes:
   bodies and exact header spans/NULs agree. Next the targeted two-name metadata
   lookup across63catalogs, then actual request/body/loading checks.
   [.014.002 common brief and authored fixture are frozen](reviews/2026-10-22-T07.007.014.002.md):
-  Root verifies five authorities and all nine authored rows; actual queries and
-  independent dispatch remain next. No content gap closes.
+  Root verifies five authorities and all nine authored rows. Both real workers
+  start independently at f824646; Claude has submitted, Grok remains active.
+  Root's independent actual scan precedes provider-result inspection. No content
+  gap closes.
 
 The [earlier mu pilot and Astra diagnosis](reviews/2026-10-22-T07.007.011-execution.md#actual-astra-consultation-and-discriminating-metadata-check)
 remain historical evidence. Ordinary Chapter 1 entry/save, 82 world-resource
