@@ -82,6 +82,9 @@ Current independent lanes:
   child matching,13events/all11ACK, both guards exit0/valid and full cleanup.
   Next minimal source-reviewed adaptation to one fresh actual fruit observation;
   production association and fruit cause/repair remain unproved.
+  [The actual-fruit adapter receives full Root source review and a cleanup-race correction](reviews/2026-10-22-T07.007.011.005.md#actual-fruit-capture-source-reviewed-with-cleanup-correction).
+  It remains UNBOUND/unexecuted; fresh lease/caller/protected-input binding and
+  separate admission are next. No renderer/fetch/native tuning is selected.
   Previous disconnect cause remains unknown. Parallel writer/loader work continues.
   No transport cause is proved. Ship02 visible motion passes; light's GPU motion is proved, but its
   visible check remains occluded. Previous render probes are closed.
@@ -165,8 +168,11 @@ Current independent lanes:
   exact original error/snapshot,25.6MB full binary/inverse/receipt,18postpins
   per common case/twelve valid guards/retirement pass.
   [The finite fixed caller failure controls are reviewed/bound/admitted](reviews/2026-10-22-T07.007.013.002.md#fixed-caller-failure-controls-reviewed-and-admitted).
-  Actual three stand-ins/strict diagnostic and retirement refusals are next;
-  source integration and separately admitted real-body output remain.
+  [Actual three stand-ins and all15 refusal controls now qualify](reviews/2026-10-22-T07.007.013.002.md#actual-fixed-caller-failure-controls-qualify):
+  normal accepted; exit17/deadline/malformed/unknown retirement rejected;
+  full source/stream/sentinel/retirement/resource audits pass. Intentionally
+  invalid guards stay invalid. Next selected corrected source integration,
+  then separately admitted genuine real-body output/parent acceptance.
   No raw selection or actual-body/game readiness.
   [The unmodified public pure entry and writer now
   match the actual-body oracle](reviews/2026-10-22-T07.007.013.001.md#unmodified-public-entry-and-writer-match-the-actual-body-oracle):

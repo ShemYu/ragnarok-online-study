@@ -78,7 +78,8 @@ Latest verified work (22 Oct):
       Next: adapt this capture to one actual fruit scene observation.
       The cause of the game's failed fetch is still unknown.
   [V] File writer fix: 51 tests, 10 shared and 2 focused checks pass.
-  [~] Caller failure tests, source integration and real output remain.
+  [V] Caller accepts the normal test; all 15 failure checks reject correctly.
+  [~] Integrate the corrected source, then check the real output.
   Parent checkpoints: 4 / 14 = about 29%. Full game remains open.
   Four old agent sessions and 18 unused child shells are closed.
   Their branches, files and evidence stay saved for rollback.
