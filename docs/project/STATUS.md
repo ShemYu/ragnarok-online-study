@@ -49,8 +49,11 @@ Current independent lanes:
   pass](reviews/2026-10-22-T07.007.012.008.md#fresh-normal-account-and-visible-character-creation-pass):
   supported create/list confirms group0/state0; only the three fresh game
   services restart and register1265 maps. Normal UI creates one human Novice
-  with the existing Chinese baseline. Next: select it, walk/NPC/portal, fresh
-  earned-state backup/reference and save/re-entry/cold checks under
+  with the existing Chinese baseline. [Normal map/baseline backup/walking/
+  portal/quest now pass](reviews/2026-10-22-T07.007.012.008.md#normal-map-baseline-backup-walking-portal-and-quest-pass):
+  server-saved iz_int18,26 baseline, actual movement ACKs, room portal51,30,
+  Chinese Wounded dialogue and earned 逃離失事輪 / 與船長對話. Next: normal
+  character-selection re-entry, post-earn backup/reference and exit/cold checks under
   [the ordinary-play brief](tasks/T07.007.012.008.md).
 - **Movement policy:** [corrected source-plan comparison](reviews/2026-10-22-T07.007.013.md#corrected-source-plan-comparison-qualified)
   is self_verified, Grok 17/20 basis versus Claude 15/20; both workers are
@@ -80,7 +83,7 @@ The [earlier mu pilot and Astra diagnosis](reviews/2026-10-22-T07.007.011-execut
 remain historical evidence. Ordinary Chapter 1 entry/save, 82 world-resource
 gaps and full content qualification remain open. CUA/Chrome access remains
 unavailable; the new isolated Orca profile now reaches normal login and
-character creation. No critical issue requiring a goal change is established.
+character creation and ordinary map/quest play. No critical issue requiring a goal change is established.
 
 ## Where we are
 

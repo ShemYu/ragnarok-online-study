@@ -18,7 +18,8 @@ Latest verified work (22 Oct):
   [V] Full game services: new mounts/routes/12 terrain files pass.
       Five startup diagnostics classified; known defects stay open.
   [V] New normal account, login and character creation pass.
-  [~] Enter that map; check walk, NPC, save and re-entry.
+  [V] Enter map, back up baseline, walk, use portal and receive a quest.
+  [~] Check earned quest/position after re-entry; then exit/cold restart.
   [V] Offline movement candidate: actual bytes/receipt/inverse pass.
       Claude selected; Grok close check fails. No live mapping selected.
   [~] Chapter 1 decoder: both candidates preserved; Root review next.
