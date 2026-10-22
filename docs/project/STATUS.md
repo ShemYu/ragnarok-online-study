@@ -82,6 +82,8 @@ registered retirement qualify. No lease/page/controller starts. Next separately
 admit one owned fruit observation; the prior180s loading stall remains open.
 No new blocker requires a user decision. Missing server story implementation
 remains the largest content risk; full-game scope and82functional gaps remain.
+[One exact fresh fruit observation is now admitted](reviews/2026-10-22-T07.007.011.005.md#one-fresh-bound-fruit-observation-admitted).
+No retry or deadline increase; results and complete cleanup must qualify first.
 
 **Goal API is active. Current parent count: 4/14, about 29%.** This counts
 parent checkpoints, not content, effort or playable-world coverage. Full Modern /
