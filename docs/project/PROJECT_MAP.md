@@ -15,7 +15,7 @@ NOW: 4 / 14 parent checks complete (about 29%)
 
 Basic play + save       [PASS for the checked normal route]
 Map loading            [Chapter 1 test passes; fruit test is open]
-Fruit presentation     [OPEN: image code checked; fresh scene test next]
+Fruit presentation     [OPEN: browser test failed before scene loading]
 Quest file inventory   [PASS: all 3 files checked]
 Server + file binding  [PASS: current owner and 21 file checks]
 Active quest records   [Tool + 31 clock checks pass; real-loader trial next]
@@ -33,8 +33,11 @@ next action and the exact limits of each result.
 CURRENT WORK: quest data, missing story and map-load checks
 
 Latest verified work (23 Oct):
+  [!] Fresh Chrome test stops on child identity; scene observer never starts.
+      Failed run kept. Known test processes/listeners gone; original games stay.
+      Fix failure cleanup and explain executable link change before a new run.
   [V] Reader files and fixed browser binder checked; one scene wave admitted.
-      Next: fresh browser + scene run, then full image/resource/cleanup audit.
+      That wave fails before the scene. Full image/resource checks remain open.
   [V] Fresh scene preflight: 113 full file checks and 3 game owners pass.
       First metadata-parser refusal kept; no browser or reader starts yet.
   [V] One-image observer and exact browser template update source checked.

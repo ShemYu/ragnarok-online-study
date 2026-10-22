@@ -2,6 +2,18 @@
 
 Updated: 2026-10-23 JST. Coordinator: Codex. Active scope: **execute the documented strategy through the full milestone**.
 
+Latest actual result: [the fresh Chrome wave fails before the scene observer;
+scoped closure and complete content audit qualify](reviews/2026-10-22-T07.007.011.005.md#fresh-chrome-wave-fails-before-observer-and-scoped-closure-qualifies).
+The launcher refuses an unqualified descendant identity; no Node observer,
+scene loading or PNG capture starts. Original caller1/guardinvalid stay failed.
+Root verifies17retained identities/four groups/three test listeners are absent,
+all113preflight file contents plus materialized/generated sources match, and
+three original game services remain. Chrome executable link-count/ctime changed;
+its bytes match, but original identity preservation fails. Astra and Root confirm
+a separate failure-cleanup wait bug. Next: bounded first-refusal metadata and
+failure finalization within the same8s, then explain/bind executable identity
+before any new Chrome admission. No automatic retry or cap increase.
+
 [T10.005 freezes the bounded quest-registration implementation contract](reviews/2026-10-23-T10.005.md#frozen-source-contract-and-root-preflight).
 Root qualifies nine full source inputs/26primary LF slices and resolves callback,
 completion and report-budget ambiguities. [Both actual isolated Claude/Grok
@@ -35,7 +47,7 @@ All actual-loader bindings remain NULL.
 No actual original-loader/runtime or full-game acceptance is claimed.
 Quest/story/content-gap acceptance remains open. Screenshot work is independent.
 
-Latest diagnostic result: [event-aware actual screenshot is refused and fully closed](reviews/2026-10-22-T07.007.011.005.md#event-aware-actual-screenshot-is-refused-and-fully-closed).
+Earlier diagnostic result: [event-aware actual screenshot is refused and fully closed](reviews/2026-10-22-T07.007.011.005.md#event-aware-actual-screenshot-is-refused-and-fully-closed).
 The reader accepts browser events correctly; screenshot returns code-32000 after
 8035ms with no PNG. Exact error text/cause remains UNKNOWN. Caller/driver1 and
 guardinvalid remain failed; full preservation/closure/source audit passes and
@@ -61,12 +73,13 @@ pins;12input/5artifact descriptor changes and45header slots match.
 worlds match. Root's first lsof-field parser refusal is preserved; the corrected
 read-only procedure passes. [New reader/static-plan/binder sources qualify and
 one fixed scene wave is admitted](reviews/2026-10-22-T07.007.011.005.md#one-fresh-dedicated-chrome-scene-wave-admitted).
-Root executes prelaunch once, checks all generated headers, then fresh reader/
-Chrome/READY associations and one observer under this same HEAD. Full PNG
-decode/pixel and scene audits remain; no runtime result is claimed yet.
+Root executes prelaunch once and checks all generated headers. The actual reader
+and Chrome then start under the same admission HEAD, but the Chrome caller fails
+before ready-stage binding or observer execution. The failed run and scoped
+closure are preserved above. Full PNG/pixel and scene verification remain open.
 No more passive/empty-page retries;
 quest runtime preparation continues independently. No actual scene or loader
-runs in this source checkpoint; no goal change or user decision is required.
+runs in the earlier source checkpoint; no goal change or user decision is required.
 
 Latest completed tool: [selected existing-text tool is integrated and reverified](reviews/2026-10-23-T10.004.md#selected-unchanged-integration-and-bounded-readiness-qualify).
 Grok20/20 versus Claude18/20; integrated42b7ce7 passes9own/18common/6extra
