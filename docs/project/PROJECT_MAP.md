@@ -107,13 +107,14 @@ CURRENT WORK: October assets and missing maps
  |    Cause found: zero normal length leads to 108 NaN components.
  |    Edge now passes full static/GPU and 44 texture decoders.
  |    Fruit now passes full static/GPU and 74 texture decoders.
- |    All four loaded. Three static results are finite; roots fails.
+ |    Original: all four loaded; roots has 108 invalid normal values.
  |    Repair plans compared: Grok 17/20; Claude 14/20. Both released.
  |    Exact-zero guard selected with root corrections.
  |    Both implementations compared. Raw delivery faults corrected.
  |    Root: 22 tests and fresh full artifact audit pass.
- |    Next: run repaired renderer and check complete packet/GPU output.
- |    Roots geometry is not accepted until the repair passes.
+ |    Repaired roots: full packet/GPU and finite normals now pass.
+ |    All source, response and owned cleanup checks pass.
+ |    Next: repeat the other three maps in parallel.
  |    Two other animated objects still need targeted visible checks.
  |    In parallel: private compiler verified; Claude/Grok implement
  |    the ordered archive selector on separate rollback branches.
