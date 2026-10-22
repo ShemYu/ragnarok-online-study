@@ -37,6 +37,9 @@ Current independent lanes:
   Chinese state. The first guard's exit-observation refusal is preserved and
   narrowly reconciled; the separate complete audit passes. Next scoped new
   config/empty engine, full main/routing, normal entry/save.
+  [Fresh configuration and bundled CLI inspection qualify](reviews/2026-10-22-T07.007.012.006.md#bundled-cli-inspection-qualifies-local-image-install-admitted):
+  all1118 files remain exact; local guest-image install is admitted next.
+  Engine startup and normal game entry remain unverified.
 - **Movement policy:** [corrected source-plan comparison](reviews/2026-10-22-T07.007.013.md#corrected-source-plan-comparison-qualified)
   is self_verified, Grok 17/20 basis versus Claude 15/20; both workers are
   preserved/released. [Independent offline candidate pair runs](reviews/2026-10-22-T07.007.013.001.md#actual-independent-pair-launched).
