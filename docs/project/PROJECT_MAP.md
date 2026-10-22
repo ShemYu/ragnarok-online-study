@@ -126,7 +126,9 @@ CURRENT WORK: October assets and missing maps
  |    Diagnostic managed reader: all 12 full map files match.
  |    All 300 input hashes, signed identity and cleanup pass.
  |    Next: actual app owner, current mods, new world and normal entry/save.
- |    Grok capture code continues; Claude common checks pass with edge faults.
+ |    Capture pair compared/released; root correction qualifies.
+ |    24 authored tests pass, one optional skip; 16 common/3 extra groups pass.
+ |    Next: hook checks and one new fruit probe.
  |    Movement plans compared: Grok 17/20 basis, Claude 15/20.
  |    Production movement policy stays open.
  |

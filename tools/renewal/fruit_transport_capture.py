@@ -41,11 +41,8 @@ KINDS = (
 )
 DIRECT_WIRES = ("/api/health", "/api/cache-stats")
 LOG_CATEGORIES = ("timeout", "http_error", "other")
-# Exact ints are bounded so a hostile caller cannot make serialization slow.
-INT_MIN = -(2 ** 63)
-INT_MAX = 2 ** 63 - 1
 # Types that can never be an accepted socket object.
-_PRIMITIVE_TYPES = (type(None), bool, int, float, complex, str, bytes, bytearray, memoryview)
+_PRIMITIVE_TYPES = (type(None), bool, int, float, complex, str, bytes)
 # Upper bound for every envelope counter/attempt rendered as a JSON integer.
 _COUNTER_PLACEHOLDER = 10 ** 19
 _FAULT_CODE_MAX = 64
@@ -89,12 +86,16 @@ def _bounded_str(value, limit):
     return type(value) is str and 1 <= _utf8_len(value) <= limit
 
 
-def _exact_int(value, low=INT_MIN, high=INT_MAX):
-    return type(value) is int and low <= value <= high
+def _exact_int(value, low=None, high=None):
+    return (type(value) is int
+            and (low is None or low <= value)
+            and (high is None or value <= high))
 
 
 def _check_fields(kind, fields):
     """Return None or a fixed fault code for the kind's primitive fields."""
+    if any(type(name) is not str for name in fields):
+        return "fields_mismatch"
     if tuple(sorted(fields)) != tuple(sorted(_FIELDS[kind])):
         return "fields_mismatch"
     if kind in ("accept_error", "handler_error"):

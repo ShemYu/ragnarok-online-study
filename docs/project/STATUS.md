@@ -13,9 +13,10 @@ Current independent lanes:
   static packet/GPU/body/source/cleanup audits. Roots' 108 invalid normal words
   are corrected. Fruit retains one failed texture fetch and pending readiness;
   transport cause is unknown. [Capture implementation](reviews/2026-10-22-T07.007.011.004.md)
-  has Claude's root 22 authored / 16 shared passes and three reproduced adaptive
-  contract deviations. Both candidates are preserved/released; root selects Claude as correction
-  basis (16/20 versus 15/20), then rechecks integration before one fresh fruit probe. No repeat is automatically counted as cause
+  now qualifies corrected integration: 25 authored tests run (24 pass, one
+  optional allocator-reuse skip), 16 common and three adaptive groups pass.
+  Both candidates are preserved/released; Claude is the correction basis
+  (16/20 versus 15/20). Next root verifies hooks/new lease, then one fresh fruit probe. No repeat is automatically counted as cause
   proof. Ship02 visible motion passes; light's GPU motion is proved, but its
   visible check remains occluded. All owned probes are closed.
 - **Normal asset route:** corrected selector passes 29 authored / 35 shared

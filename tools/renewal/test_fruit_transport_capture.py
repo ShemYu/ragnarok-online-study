@@ -418,7 +418,6 @@ class EventAccounting(unittest.TestCase):
             ("errno_invalid", ("accept_error", None, {"error_type": "E", "errno": 1.0})),
             ("errno_invalid", ("accept_error", None, {"error_type": "E", "errno": math.nan})),
             ("errno_invalid", ("accept_error", None, {"error_type": "E", "errno": math.inf})),
-            ("errno_invalid", ("handler_error", None, {"error_type": "E", "errno": 2 ** 64})),
             ("errno_invalid", ("log_error", None, {"category": "other", "error_type": None, "errno": "5"})),
             ("category_invalid", ("log_error", None, {"category": "bogus", "error_type": None, "errno": None})),
             ("category_invalid", ("log_error", None, {"category": None, "error_type": None, "errno": None})),
@@ -472,7 +471,7 @@ class EventAccounting(unittest.TestCase):
         boundary = "香" * 2730 + "/a"  # 8192 bytes
         self.assertTrue(cap.record("request", a, method="GET", path=boundary))
         self.assertTrue(cap.record("native", a, row_index=1023, wire="w" * 8192))
-        self.assertTrue(cap.record("handler_error", a, error_type="香" * 42 + "xx", errno=2 ** 63 - 1))
+        self.assertTrue(cap.record("handler_error", a, error_type="香" * 42 + "xx", errno=2 ** 80))
         self.assertTrue(cap.record("close", a, confirmed=False))
         result = cap.finish()
         self.assertIsNone(result["first_fault"])
@@ -491,6 +490,60 @@ class EventAccounting(unittest.TestCase):
         self.assertFalse(result["complete"])
         self.assertEqual(result["counts"]["active_at_finish"], 0)
         self.assertEqual(result["counts"]["rejected"], 2)
+
+
+class ContractRegressions(unittest.TestCase):
+    def test_exact_errno_above_and_below_signed64(self):
+        for kind in ("accept_error", "handler_error", "log_error"):
+            for value in (2 ** 64, 2 ** 80, -(2 ** 80)):
+                with self.subTest(kind=kind, value=value):
+                    cap = ftc.TransportCapture()
+                    self.assertTrue(cap.record("listener_ready"))
+                    fields = {"error_type": "E", "errno": value}
+                    if kind == "log_error":
+                        fields["category"] = "other"
+                    self.assertTrue(cap.record(kind, **fields))
+                    result = cap.finish()
+                    self.assertTrue(result["complete"])
+                    self.assertEqual(result["rows"][1]["fields"], fields)
+                    self.assertEqual(json.loads(strict(result)), result)
+
+    def test_equal_buffers_and_containers_are_opaque_identity_tokens(self):
+        cap = ftc.TransportCapture()
+        tokens = [bytearray(b"a"), bytearray(b"a"),
+                  memoryview(bytearray(b"a")), memoryview(bytearray(b"a")),
+                  [1], [1], {"a": 1}, {"a": 1}]
+        self.assertTrue(cap.record("listener_ready"))
+        for token in tokens:
+            self.assertTrue(cap.record("accept", token))
+        for token in reversed(tokens):
+            self.assertTrue(cap.record("close", token, confirmed=True))
+        result = cap.finish()
+        self.assertTrue(result["complete"])
+        self.assertEqual(result["counts"]["accepted"], 8)
+        self.assertEqual([r["connection_id"] for r in result["rows"] if r["kind"] == "accept"], list(range(1, 9)))
+        self.assertEqual([r["connection_id"] for r in result["rows"] if r["kind"] == "close"], list(range(8, 0, -1)))
+
+    def test_subclass_keyword_names_reject_before_state_change(self):
+        class Name(str):
+            pass
+        for changed in (("method",), ("path",), ("method", "path")):
+            with self.subTest(changed=changed):
+                cap = ftc.TransportCapture()
+                token = OpaqueSocket(1)
+                self.assertTrue(cap.record("listener_ready"))
+                self.assertTrue(cap.record("accept", token))
+                fields = {(Name(k) if k in changed else k): v
+                          for k, v in {"method": "GET", "path": "/invalid"}.items()}
+                self.assertFalse(cap.record("request", token, **fields))
+                self.assertTrue(cap.record("request", token, method="GET", path="/valid"))
+                self.assertTrue(cap.record("close", token, confirmed=True))
+                result = cap.finish()
+                self.assertFalse(result["complete"])
+                self.assertEqual(result["first_fault"]["attempt"], 3)
+                self.assertEqual([r["sequence"] for r in result["rows"]], [1, 2, 4, 5])
+                self.assertEqual(result["counts"]["rejected"], 1)
+                self.assertEqual(result["rows"][2]["fields"]["path"], "/valid")
 
 
 class Limits(unittest.TestCase):
