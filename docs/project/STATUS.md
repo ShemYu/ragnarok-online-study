@@ -33,7 +33,8 @@ Current independent lanes:
   code, effective server config/cache/cells, movement and save gates remain.
 - **All 82 resource gaps:** [root full metadata preflight](reviews/2026-10-22-T07.007.014.md#root-metadata-preflight-and-pre-provider-oracle)
   verifies all 63 catalogs / 408794 records and preserves every original gap.
-  A data-only Claude/Grok pair is being frozen for the complete typed ledger.
+  The [actual independent Claude/Grok pair is running](reviews/2026-10-22-T07.007.014.md#actual-independent-pair-launched)
+  from the same frozen checkpoint for the complete typed ledger.
   Previously observed names give 26 RSW leads and 56 without counterparts in
   these catalogs; zero functional gaps close. This lane is independent of
   capture and new-world startup.
