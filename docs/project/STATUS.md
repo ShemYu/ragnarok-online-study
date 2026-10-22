@@ -21,6 +21,8 @@ finds two timing boundaries to correct](reviews/2026-10-23-T10.005.md#actual-loa
 13inputs/10artifacts and both exact diffs match. Root reviews the exact small
 bootstrap correction; the earlier page deadline/cross-clock mapping and shared120s
 caller/lease/page-Worker retirement seam remains unbound before a separate trial.
+[Shared-clock and authenticated failure-end derivatives are prepared](reviews/2026-10-23-T10.005.md#shared-clock-and-failure-end-preparation-remains-unadmitted);
+Root source/control review is next, all actual bindings remain NULL.
 No actual original-loader/runtime or full-game acceptance is claimed.
 Quest/story/content-gap acceptance remains open. Screenshot work is independent.
 
@@ -35,10 +37,11 @@ The [native screen preflight cannot start](reviews/2026-10-22-T07.007.011.005.md
 caller0/valid guard, full sources/output/retirement qualify. No actual surface
 or browser/native/game run is admitted. Next review/bind the minimal dedicated
 Chrome adapter: [Root completes corrected actor/caller source review](reviews/2026-10-22-T07.007.011.005.md#corrected-chrome-actors-and-callers-complete-root-source-review),
-30source paths/21binary files/four links match. [Root binds and admits two
-finite lifecycle-control calls](reviews/2026-10-22-T07.007.011.005.md#finite-lifecycle-controls-bound-and-admitted):
-25launcher/15observer authored cases; actual results are pending. Exact live
-bindings and a distinct real-scene admission remain.
+30source paths/21binary files/four links match. [All40lifecycle cases and the
+complete Root audit pass](reviews/2026-10-22-T07.007.011.005.md#all40lifecycle-cases-and-complete-root-audit-pass):
+25launcher/15observer, both callers0/valid guard,20current source pins and
+positive retirement checks. Next concrete one-scene binding preparation;
+exact live bindings and a distinct real-scene admission remain.
 No more passive/empty-page retries;
 quest implementation/controls continue independently. No new runtime, goal
 change or user decision is required.
