@@ -1,0 +1,111 @@
+{
+  "acceptance": "Root separately verifies guard exit0/no failed outcome, common fixture full typed equality, exact actual63-stream scan/full raw occurrence dictionaries including negatives/filtered/duplicates and zero input drift. Public note/counts alone cannot pass.",
+  "claims": {
+    "exact_value": {
+      "aliases_applied": false,
+      "body_availability_established": false,
+      "functional_gaps_closed": 0,
+      "raw_declarations_only": true,
+      "request_winner_established": false,
+      "terrain_or_runtime_verified": false
+    }
+  },
+  "counts": {
+    "actual_fixed": {
+      "catalogs": 63,
+      "rows_scanned": 408794
+    },
+    "exact_keys": [
+      "catalogs",
+      "rows_scanned",
+      "full_path_occurrences",
+      "full_path_file_candidates",
+      "basename_only_occurrences",
+      "basename_only_file_candidates"
+    ],
+    "four_occurrence_counters": "each exact closed gnd/gat nonnegative integer dictionary derived from complete arrays; never bool/float"
+  },
+  "fixture": {
+    "exact_root_keys": [
+      "schema",
+      "scan",
+      "queries",
+      "counts"
+    ],
+    "extra_controls": [
+      "empty second query",
+      "same raw-name duplicates",
+      "normalized-only filtered full witness",
+      "RGZ f and d same-name observations",
+      "wrong directory, double slash and dot segments stay basename only",
+      "non-ASCII byte remains a distinct raw name",
+      "opaque int1/float1.0/booltrue/null values remain typed"
+    ],
+    "golden": "Root privately freezes full literal golden BEFORE provider outputs; GND has5full(3eligible)/3basename witnesses, GAT both arrays empty; non-dense catalogs11/47/58 and2sharedviews do not duplicate occurrences",
+    "input": "exact Root-frozen authored fixture .002 bytes/pin",
+    "output": "same query/scan/counts objects as actual but schema root014002-authored-golden/1; no claims/catalogs/authority fields required; complete typed raw records survive"
+  },
+  "json": {
+    "authority_inputs": "exact5profile.authority_inputs descriptors; fullhash pre/post",
+    "catalogs": "exact full parent profile.catalogs63typed dictionaries in order; no copied bodies",
+    "encoding": "UTF-8 strict JSON + final LF; unique keys; no nonfinite or trailing data; preserve raw row value types",
+    "exact_root_keys": [
+      "schema",
+      "task",
+      "profile_pin",
+      "authority_inputs",
+      "catalogs",
+      "scan",
+      "queries",
+      "counts",
+      "claims"
+    ],
+    "profile_pin": "Root-frozen actual .002 profile path/bytes/sha256; checked pre/post, supplied in common dispatch; no self-pin inside profile",
+    "scan": "exact63objects catalog_index/rows_scanned in catalog order; equal descriptors.records.rows; full stream pins and EOF checked, including empty query results",
+    "schema_value": "root-declared-terrain-lookup/1"
+  },
+  "occurrence": {
+    "catalog_index": "exact nonnegative int from descriptor, not bool/float",
+    "exact_keys": [
+      "catalog_index",
+      "record_ordinal",
+      "jsonl_line",
+      "match",
+      "file_candidate",
+      "record"
+    ],
+    "file_candidate": "exact bool by fixed family rule, false rows retained",
+    "jsonl_line": "record_ordinal+1 exact int",
+    "match": [
+      "raw_exact",
+      "ascii_slash_casefold",
+      "basename_only"
+    ],
+    "record": "COMPLETE unchanged typed raw input dictionary; all fields, flags, sizes, offsets, names, opcodes, hashes, booleans/floats/integers/nulls/arrays remain; embedded paths/spans never followed",
+    "record_ordinal": "exact nonnegative int equal unchanged row.ordinal and zero-based physical JSONL line"
+  },
+  "publication": {
+    "private_files": "NEW0700 output directory/0600 exclusive result+fixture/method; refuse existing output, preserve failed evidence; all artifacts<=8MiB",
+    "public_owned_path": "docs/project/reviews/T07.007.014.002-declared-terrain-lookup.md",
+    "public_report": "short actual metadata method/counts/input-preservation/limitations/evidence path, common base/candidate commit in handoff, no raw rows/body/machine identity; do not claim actual results before run",
+    "source_preservation": "all5authority +63catalog full bytes/hashes and nofollow regular singlelink/stable descriptor/path identity before/after; newtask profile+fixture ownpins too; emit path/byte/hash descriptors, no host identities in public Markdown"
+  },
+  "query": {
+    "empty": "both arrays always present, even empty",
+    "exact_keys": [
+      "query",
+      "full_path_occurrences",
+      "basename_only_occurrences"
+    ],
+    "length": 2,
+    "order": [
+      "gnd",
+      "gat"
+    ],
+    "query": "complete unchanged corresponding profile.queries dictionary",
+    "sort": "catalog_index then record_ordinal; retain all multiplicity"
+  },
+  "schema": "T07.007.014.002-output-contract-1",
+  "state": "FROZEN_READ_ONLY_METADATA_CONTRACT",
+  "task": "T07.007.014.002"
+}

@@ -109,7 +109,10 @@ Current independent lanes:
   bounded child is ready_for_user](reviews/2026-10-22-T07.007.014.001.md#raw-header-names-frozen-and-bounded-child-is-ready):
   v2.1 declares gef_dun03.gnd and gef_dun03.gat; ini is empty. All four qualified
   bodies and exact header spans/NULs agree. Next the targeted two-name metadata
-  lookup across63catalogs, then actual request/body/loading checks. No content gap closes.
+  lookup across63catalogs, then actual request/body/loading checks.
+  [.014.002 common brief and authored fixture are frozen](reviews/2026-10-22-T07.007.014.002.md):
+  Root verifies five authorities and all nine authored rows; actual queries and
+  independent dispatch remain next. No content gap closes.
 
 The [earlier mu pilot and Astra diagnosis](reviews/2026-10-22-T07.007.011-execution.md#actual-astra-consultation-and-discriminating-metadata-check)
 remain historical evidence. Ordinary Chapter 1 entry/save, 82 world-resource

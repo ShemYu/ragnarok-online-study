@@ -1,0 +1,228 @@
+{
+  "schema": "root014002-authored-raw-join-fixture/1",
+  "metadata_only": true,
+  "targets": [
+    {
+      "role": "gnd",
+      "basis": "actual_frozen_rsw_declared_raw_field_plus_literal_loader_prefix",
+      "header_field_pointer": "/fields/gnd",
+      "header_span": [
+        46,
+        86
+      ],
+      "first_nul_index": 13,
+      "declared_raw_hex": "6765665f64756e30332e676e64",
+      "prefix_raw_hex": "646174615c",
+      "expected_name_hex": "646174615c6765665f64756e30332e676e64"
+    },
+    {
+      "role": "gat",
+      "basis": "actual_frozen_rsw_declared_raw_field_plus_literal_loader_prefix",
+      "header_field_pointer": "/fields/gat",
+      "header_span": [
+        86,
+        126
+      ],
+      "first_nul_index": 13,
+      "declared_raw_hex": "6765665f64756e30332e676174",
+      "prefix_raw_hex": "646174615c",
+      "expected_name_hex": "646174615c6765665f64756e30332e676174"
+    }
+  ],
+  "catalogs": [
+    {
+      "catalog_index": 11,
+      "family": "gpf",
+      "views": [
+        "a",
+        "b"
+      ],
+      "records": [
+        {
+          "ordinal": 0,
+          "name_hex": "646174615c6765665f64756e30332e676e64",
+          "metadata_filter": "eligible",
+          "flags": 3,
+          "compressed_size": 17,
+          "length_aligned": 24,
+          "real_size": 31,
+          "physical_body_range": [
+            100,
+            124
+          ],
+          "opaque_fixture": {
+            "null": null,
+            "bool": true,
+            "int": 1,
+            "float": 1.0,
+            "string": "1"
+          }
+        },
+        {
+          "ordinal": 1,
+          "name_hex": "646174615c6765665f64756e30332e676e64",
+          "metadata_filter": "eligible",
+          "flags": 3,
+          "compressed_size": 17,
+          "length_aligned": 24,
+          "real_size": 31,
+          "physical_body_range": [
+            100,
+            124
+          ],
+          "opaque_fixture": {
+            "null": null,
+            "bool": true,
+            "int": 1,
+            "float": 1.0,
+            "string": "1"
+          }
+        },
+        {
+          "ordinal": 2,
+          "name_hex": "444154412f4745465f44554e30332e474e44",
+          "metadata_filter": "filtered",
+          "flags": 3,
+          "compressed_size": 17,
+          "length_aligned": 24,
+          "real_size": 31,
+          "physical_body_range": [
+            100,
+            124
+          ],
+          "opaque_fixture": {
+            "null": null,
+            "bool": true,
+            "int": 1,
+            "float": 1.0,
+            "string": "1"
+          }
+        },
+        {
+          "ordinal": 3,
+          "name_hex": "785c6765665f64756e30332e676e64",
+          "metadata_filter": "eligible",
+          "flags": 3,
+          "compressed_size": 17,
+          "length_aligned": 24,
+          "real_size": 31,
+          "physical_body_range": [
+            100,
+            124
+          ],
+          "opaque_fixture": {
+            "null": null,
+            "bool": true,
+            "int": 1,
+            "float": 1.0,
+            "string": "1"
+          }
+        },
+        {
+          "ordinal": 4,
+          "name_hex": "444154415cc04745465f44554e30332e474e44",
+          "metadata_filter": "eligible",
+          "flags": 3,
+          "compressed_size": 17,
+          "length_aligned": 24,
+          "real_size": 31,
+          "physical_body_range": [
+            100,
+            124
+          ],
+          "opaque_fixture": {
+            "null": null,
+            "bool": true,
+            "int": 1,
+            "float": 1.0,
+            "string": "1"
+          }
+        }
+      ]
+    },
+    {
+      "catalog_index": 47,
+      "family": "rgz",
+      "views": [
+        "a"
+      ],
+      "records": [
+        {
+          "ordinal": 0,
+          "bounded_name_hex": "646174615c6765665f64756e30332e676e64",
+          "raw_name_hex": "646174615c6765665f64756e30332e676e6400",
+          "opcode": "f",
+          "payload_span": null,
+          "opaque_fixture": [
+            null,
+            false,
+            0,
+            0.0
+          ]
+        },
+        {
+          "ordinal": 1,
+          "bounded_name_hex": "646174615c6765665f64756e30332e676e64",
+          "raw_name_hex": "646174615c6765665f64756e30332e676e6400",
+          "opcode": "d",
+          "payload_span": null,
+          "opaque_fixture": [
+            null,
+            false,
+            0,
+            0.0
+          ]
+        }
+      ]
+    },
+    {
+      "catalog_index": 58,
+      "family": "grf",
+      "views": [
+        "a"
+      ],
+      "records": [
+        {
+          "ordinal": 0,
+          "name_hex": "646174612f2f6765665f64756e30332e676e64",
+          "metadata_filter": "eligible",
+          "flags": 3,
+          "compressed_size": 17,
+          "length_aligned": 24,
+          "real_size": 31,
+          "physical_body_range": [
+            100,
+            124
+          ],
+          "opaque_fixture": {
+            "null": null,
+            "bool": true,
+            "int": 1,
+            "float": 1.0,
+            "string": "1"
+          }
+        },
+        {
+          "ordinal": 1,
+          "name_hex": "646174615c6469725c2e2e5c6765665f64756e30332e676e64",
+          "metadata_filter": "eligible",
+          "flags": 3,
+          "compressed_size": 17,
+          "length_aligned": 24,
+          "real_size": 31,
+          "physical_body_range": [
+            100,
+            124
+          ],
+          "opaque_fixture": {
+            "null": null,
+            "bool": true,
+            "int": 1,
+            "float": 1.0,
+            "string": "1"
+          }
+        }
+      ]
+    }
+  ]
+}

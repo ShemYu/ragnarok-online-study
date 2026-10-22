@@ -1,0 +1,133 @@
+{
+  "authored_fixture": {
+    "bytes": 5615,
+    "path": "docs/project/fixtures/T07.007.014.002-name-fixture.json",
+    "sha256": "d4acbc6b51681b22cb7e3065dfd91d257631c7744ecee9059727a7e5d6f8b853"
+  },
+  "authority_inputs": [
+    {
+      "bytes": 164526,
+      "path": "docs/project/fixtures/T07.007.014-profile.json",
+      "sha256": "6105ef0acefa97cea81da2b90eab0e71c1151ca1867be4792efb9f29c514703c"
+    },
+    {
+      "bytes": 6045,
+      "path": "docs/project/fixtures/T07.007.014-output-contract.json",
+      "sha256": "15b3f01fcedd83bad3b4bc1835e6be9d9510d43f46b13aa252a815a361d9d28a"
+    },
+    {
+      "bytes": 24673,
+      "path": ".tools/renewal/t07-007-014-001-rsw-header-preparation-1/actual-header-1/HEADER.json",
+      "sha256": "03d8a1c7fe0710a76fb4b8d6608ce49a0a2456267dde9d78e920b4145056d62f"
+    },
+    {
+      "bytes": 1750,
+      "path": ".tools/renewal/t07-007-014-001-header-root-guard-1/receipt.json",
+      "sha256": "603a601c030279b12a99a29dca20276171a9c4be3ff4602f912f1618429bf00d"
+    },
+    {
+      "bytes": 9613,
+      "path": ".tools/renewal/t07-007-014-001-rsw-header-preparation-1/REPORT.md",
+      "sha256": "45ebcb8c18bfe118f348c526f35364f3c40fc52f4820c85014c8b963db3721aa"
+    }
+  ],
+  "catalog_authority": {
+    "catalog_count": 63,
+    "catalog_indices": "exact0through62",
+    "families": {
+      "gpf": 30,
+      "grf": 4,
+      "rgz": 29
+    },
+    "literal_policy": "exact full63descriptors in parent order; do not substitute catalog lists or historical gap-join outputs",
+    "profile_path": "docs/project/fixtures/T07.007.014-profile.json",
+    "record_bytes_total": 300967118,
+    "record_files": "exact catalog.records path/bytes/sha256/rows only; descriptor archive/metadata paths remain inert; do not read parent.metadata_inputs20files",
+    "rows_total": 408794,
+    "selector": "/catalogs"
+  },
+  "coordinator": "Root personally compares all full typed raw rows and fixed input hashes independently; worker result is not Root/user acceptance.",
+  "fixture_golden": "Root private literal golden, not an actual catalog lookup or an input body; Root reviews before dispatch and tests exact full typed dictionaries.",
+  "forbidden": [
+    "Catalog stream reads before dispatch; after dispatch only the exact63catalog.records streams and fixed authority/contract/fixture files may be read.",
+    "body/archive/native/acquired-source/parser/game/cache/server/world/save/SQL/network/migration actions",
+    "codec or Unicode normalization, trim, URI transformations, dot/empty-segment resolution, extension/alias rewriting",
+    "prefix insertion into catalog names; only two query constructions explicitly prepend the literal loader prefix",
+    "winner/application/body availability/gap closure inferred from declarations",
+    "sibling/provider output inspection, changing profile/pins/queries or a configurable profile override"
+  ],
+  "ini_empty": true,
+  "limits": {
+    "actual_json_max_bytes": 4194304,
+    "advisory_work_minutes": 35,
+    "artifacts_total_bytes": 8388608,
+    "exact_actual_rows": 408794,
+    "fixture_json_max_bytes": 65536,
+    "input_file_max_bytes": 134217728,
+    "input_total_max_bytes": 536870912,
+    "jsonl_row_max_bytes": 1048576,
+    "private_method_source_max_bytes": 32768,
+    "public_md_max_bytes": 8192,
+    "sampled_rss_bytes": 2147483648,
+    "seconds_per_job": 130,
+    "stderr_max_bytes": 1048576,
+    "stdout_max_bytes": 4096
+  },
+  "matching": {
+    "ascii_slash_casefold": "full keys equal but raw bytes unequal",
+    "basename_only": "full keys unequal but final normalized slash component equal; diagnostic only",
+    "file_candidate": {
+      "gpf": "metadata_filter == eligible",
+      "grf": "metadata_filter == eligible",
+      "rgz": "opcode == f"
+    },
+    "full_key": "replace byte0x5c with0x2f then ASCII A-Z only to a-z; preserve every other byte/segment",
+    "raw_exact": "complete raw source name bytes equal expected_name_hex bytes",
+    "retain": "every physical-source row, duplicates and filtered/non-file included; shared view memberships do not multiply rows",
+    "source_name": {
+      "gpf": "name_hex",
+      "grf": "name_hex",
+      "rgz": "bounded_name_hex"
+    }
+  },
+  "metadata_only": true,
+  "outputs": {
+    "method_provenance": "retain exact private fixed job source or exact bounded command text; no tracked universal tool or product CLI required",
+    "private_fixture_result": "fixture-result.json",
+    "private_result": "declared-terrain-lookup.json",
+    "public_owned": "docs/project/reviews/T07.007.014.002-declared-terrain-lookup.md"
+  },
+  "prerequisite": "Actual header readiness committed71cdeade; read-only metadata execution only after the independent task dispatch.",
+  "queries": [
+    {
+      "basis": "actual_frozen_rsw_declared_raw_field_plus_literal_loader_prefix",
+      "declared_raw_hex": "6765665f64756e30332e676e64",
+      "expected_name_hex": "646174615c6765665f64756e30332e676e64",
+      "first_nul_index": 13,
+      "header_field_pointer": "/fields/gnd",
+      "header_span": [
+        46,
+        86
+      ],
+      "prefix_raw_hex": "646174615c",
+      "role": "gnd"
+    },
+    {
+      "basis": "actual_frozen_rsw_declared_raw_field_plus_literal_loader_prefix",
+      "declared_raw_hex": "6765665f64756e30332e676174",
+      "expected_name_hex": "646174615c6765665f64756e30332e676174",
+      "first_nul_index": 13,
+      "header_field_pointer": "/fields/gat",
+      "header_span": [
+        86,
+        126
+      ],
+      "prefix_raw_hex": "646174615c",
+      "role": "gat"
+    }
+  ],
+  "root_header_ready_checkpoint": "71cdeadebb7adc72d289111564ab02e832e1b16e",
+  "schema": "T07.007.014.002-profile-1",
+  "state": "FROZEN_READ_ONLY_METADATA_TASK",
+  "task": "T07.007.014.002"
+}
