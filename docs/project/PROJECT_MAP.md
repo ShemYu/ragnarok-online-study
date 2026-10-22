@@ -122,7 +122,8 @@ CURRENT WORK: October assets and missing maps
  |    In parallel: both archive selector candidates are checked/released.
  |    Grok imported; root correction passes 29 own and 35 shared checks.
  |    Private stack builds. All three integration checks pass.
- |    Next: real-asset/native parity. No normal-game claim.
+ |    Real five-archive assembly/relink passes. All 51 outputs match.
+ |    Next: managed native 12-body parity. No normal-game claim.
  |    Two Grok lanes run independently: capture code and movement-policy review.
  |    Both have separate Claude comparisons. Runtime policy stays open.
  |
