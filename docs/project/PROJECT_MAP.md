@@ -33,6 +33,9 @@ next action and the exact limits of each result.
 CURRENT WORK: quest data, missing story and map-load checks
 
 Latest verified work (23 Oct):
+  [V] Inert download caller checked:25full pins/four exact reused sections.
+      One archive download admitted; full checksum/exit audit follows.
+      Browser launch remains a separate gate.
   [V] Download source review confirms final guard/exit gates.
       Fixed caller pins and exact admission are next; no request yet.
   [V] Historical portal table checked; current table is still UNKNOWN.

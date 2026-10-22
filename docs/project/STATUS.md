@@ -2,6 +2,13 @@
 
 Updated: 2026-10-23 JST. Coordinator: Codex. Active scope: **execute the documented strategy through the full milestone**.
 
+Latest admission: [fixed inert acquisition caller qualifies; one data call
+admitted](reviews/2026-10-22-T07.007.011.005.md#fixed-inert-acquisition-caller-qualifies-and-one-data-call-is-admitted).
+Root25full pins/four donor seams/full inverses match. Next fill this exact clean
+HEAD, run once and audit the fixed194932023-byte archive and terminal evidence.
+No browser launch or ZIP extraction is admitted. Exact navigation-generator
+source acquisition proceeds independently; full-game count remains4/14.
+
 Latest source checkpoint: [CfT default updater exclusion and inert acquisition
 utility qualify](reviews/2026-10-22-T07.007.011.005.md#cft-default-updater-exclusion-and-inert-acquisition-source-qualify).
 Root27full pins/22spans establish the conditional source-default exclusion;
