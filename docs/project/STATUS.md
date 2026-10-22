@@ -136,6 +136,10 @@ Root must verify the complete outcome and close the temporary page before advanc
 Source support is explicit; actual screenshot support and the refused message
 identity remain UNKNOWN. Next prepare a bounded event-aware reader, preserving
 strict command/ownership/PNG/closure gates and the failed attempt unchanged.
+[The minimal event-aware reader source qualifies; one pure-classifier control run is admitted](reviews/2026-10-22-T07.007.011.005.md#event-aware-reader-source-qualifies-and-pure-controls-are-admitted).
+Only the exact inline function/14authored groups run under the existing guard.
+No whole screenshot driver, page, socket or game executes; actual method/frame
+support waits for separately qualified controls and a fresh runtime admission.
 
 **Goal API is active. Current parent count: 4/14, about 29%.** This counts
 parent checkpoints, not content, effort or playable-world coverage. Full Modern /
