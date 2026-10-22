@@ -16,8 +16,11 @@ Current independent lanes:
   now qualifies corrected integration: 25 authored tests run (24 pass, one
   optional allocator-reuse skip), 16 common and three adaptive groups pass.
   Both candidates are preserved/released; Claude is the correction basis
-  (16/20 versus 15/20). Next root verifies hooks/new lease, then one fresh fruit probe. No repeat is automatically counted as cause
-  proof. Ship02 visible motion passes; light's GPU motion is proved, but its
+  (16/20 versus 15/20). [Corrected hooks pass nine groups and the fresh capture completes](reviews/2026-10-22-T07.007.011.004.md#fresh-fruit-capture-completes-full-reference-gate-correctly-fails):
+  711events/179local closes/173native rows. Full fruit acceptance still fails:
+  one different model fetch rejects, leaving88/89groups and504/509placements
+  despite ready=true. Next paired diagnosis uses this complete capture. No
+  transport cause is proved. Ship02 visible motion passes; light's GPU motion is proved, but its
   visible check remains occluded. All owned probes are closed.
 - **Normal asset route:** corrected selector passes 29 authored / 35 shared
   checks. [Copied-stack build](reviews/2026-10-22-T07.007.012.md#offline-stack-build-and-targeted-integration-checks-pass)
