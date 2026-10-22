@@ -163,8 +163,10 @@ Current independent lanes:
   common/focused controls are admitted](reviews/2026-10-22-T07.007.013.002.md#corrected-common-and-focused-controls-admitted).
   [All ten common/two focused controls now qualify](reviews/2026-10-22-T07.007.013.002.md#corrected-ten-common-and-two-focused-controls-qualify):
   exact original error/snapshot,25.6MB full binary/inverse/receipt,18postpins
-  per common case/twelve valid guards/retirement pass. Existing fixed caller
-  negative gates, integration and separately admitted real-body output remain.
+  per common case/twelve valid guards/retirement pass.
+  [The finite fixed caller failure controls are reviewed/bound/admitted](reviews/2026-10-22-T07.007.013.002.md#fixed-caller-failure-controls-reviewed-and-admitted).
+  Actual three stand-ins/strict diagnostic and retirement refusals are next;
+  source integration and separately admitted real-body output remain.
   No raw selection or actual-body/game readiness.
   [The unmodified public pure entry and writer now
   match the actual-body oracle](reviews/2026-10-22-T07.007.013.001.md#unmodified-public-entry-and-writer-match-the-actual-body-oracle):
