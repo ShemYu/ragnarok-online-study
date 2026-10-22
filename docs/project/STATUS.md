@@ -88,7 +88,10 @@ were proposed there. [The complete quest-controller source and two narrow
 corrections now qualify](reviews/2026-10-23-T10.005.md#quest-controller-source-and-two-narrow-corrections-qualify):
 28full pins/26changed slots/eight sections/inverses match. Existing deadline
 check now precedes the socket; Worker-script session comes from an exact bound
-manifest. Finite controls are being prepared. Shared caller and actual bindings
+manifest. [The finite24-case controls and fixed caller now qualify; one pure
+call is admitted](reviews/2026-10-23-T10.005.md#finite24quest-controller-controls-qualify-and-one-pure-call-is-admitted).
+Root checks20full pins/11exact spans/inverses; next run once and audit all rows.
+Shared whole-attempt caller and actual bindings
 remain unimplemented; no actual timing or installed compatibility is proved.
 All actual-loader bindings remain NULL.
 No actual original-loader/runtime or full-game acceptance is claimed.
