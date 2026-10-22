@@ -34,7 +34,7 @@ CURRENT WORK: quest data, missing story and map-load checks
 
 Latest verified work (23 Oct):
   [>] Equal Claude/Grok navigation source workers dispatched.
-      Same 25 files and 54 ranges. Separate branches at 6414631.
+      Claude submitted/preserved/released; Grok active. Root review next.
   [V] Quest cleanup deadline source gap found; narrow correction checked.
       All five fixed checks pass. Shared runner late-return gap found.
       Next: check actual return time, then join the verified source changes.

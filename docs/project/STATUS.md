@@ -99,8 +99,10 @@ repair/runtime acceptance exists yet.
 from6414631with identical11304-byte spec and exact task/profile/package.
 Root confirms both isolated branches/HEADs and clean tracked trees. Claude turn
 start is observed; Grok input acceptance is recorded with turn observation
-unsupported. Next preserve/verify both complete proposals and settle/release;
-no repair/runtime or model-selection result exists yet.
+unsupported. [Claude now submits and is preserved before release/ACK](reviews/2026-10-23-T07.006.001.md#claude-submission-preserved-and-settled-terminal-released).
+Its exact report/matrix/clean BASE match; worker reports541s. Full Root semantic
+review/score pending, Grok still independent/active. Next preserve Grok and
+personally compare both; no repair/runtime or model selection yet.
 
 [T10.005 freezes the bounded quest-registration implementation contract](reviews/2026-10-23-T10.005.md#frozen-source-contract-and-root-preflight).
 Root qualifies nine full source inputs/26primary LF slices and resolves callback,
