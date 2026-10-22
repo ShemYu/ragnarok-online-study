@@ -22,7 +22,12 @@ finds two timing boundaries to correct](reviews/2026-10-23-T10.005.md#actual-loa
 bootstrap correction; the earlier page deadline/cross-clock mapping and shared120s
 caller/lease/page-Worker retirement seam remains unbound before a separate trial.
 [Shared-clock and authenticated failure-end derivatives are prepared](reviews/2026-10-23-T10.005.md#shared-clock-and-failure-end-preparation-remains-unadmitted);
-Root source/control review is next, all actual bindings remain NULL.
+[Root completes their source review and qualifies a separate BOM correction](reviews/2026-10-23-T10.005.md#clock-abort-source-review-and-one-option-bom-correction-qualify).
+Both complete differences and full pins match. A leading UTF8 BOM could bypass
+the canonical-byte refusal; the separate one-option fix retains it for rejection.
+Root also reviews the finite16browser/15proxy controls and all10exact fragments.
+Fixed caller adaptation, admission and execution remain; no control has run.
+All actual-loader bindings remain NULL.
 No actual original-loader/runtime or full-game acceptance is claimed.
 Quest/story/content-gap acceptance remains open. Screenshot work is independent.
 
@@ -41,7 +46,12 @@ Chrome adapter: [Root completes corrected actor/caller source review](reviews/20
 complete Root audit pass](reviews/2026-10-22-T07.007.011.005.md#all40lifecycle-cases-and-complete-root-audit-pass):
 25launcher/15observer, both callers0/valid guard,20current source pins and
 positive retirement checks. Next concrete one-scene binding preparation;
-exact live bindings and a distinct real-scene admission remain.
+[Root qualifies the fixed scene binder source](reviews/2026-10-22-T07.007.011.005.md#one-scene-binder-source-qualifies-image-gap-remains):
+14inputs/8artifacts,45header slots and three exact file differences match.
+The frozen observer has no PNG capture before automatic close. Root keeps the
+image acceptance requirement and prepares one bounded capture on that same
+connection. The PNG derivative, fresh live bindings and distinct real-scene
+admission remain; the old observer is not a complete image test.
 No more passive/empty-page retries;
 quest implementation/controls continue independently. No new runtime, goal
 change or user decision is required.

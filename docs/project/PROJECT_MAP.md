@@ -15,10 +15,10 @@ NOW: 4 / 14 parent checks complete (about 29%)
 
 Basic play + save       [PASS for the checked normal route]
 Map loading            [Chapter 1 test passes; fruit test is open]
-Fruit presentation     [OPEN: screen tool unavailable; fresh browser preparation]
+Fruit presentation     [OPEN: 40 cleanup checks pass; image + live binding next]
 Quest file inventory   [PASS: all 3 files checked]
 Server + file binding  [PASS: current owner and 21 file checks]
-Active quest records   [WORKING: Claude tests pass; Grok builds; real trial later]
+Active quest records   [Tool checked; real-loader clock checks + trial next]
 Existing text recovery [PASS: fixed 152-record tool integrated + checked]
 Missing story scripts  [OPEN: largest content risk]
 Full game test         [LATER: 82 functional resource gaps remain]
@@ -33,6 +33,12 @@ next action and the exact limits of each result.
 CURRENT WORK: quest data, missing story and map-load checks
 
 Latest verified work (23 Oct):
+  [V] Fresh-browser binder: source pins and 45 header slots checked.
+      One image capture must be added before automatic browser close.
+  [V] Quest clock/abort source reviewed; one BOM refusal defect corrected.
+      Next: run the 16 browser / 15 proxy checks with fixed callers.
+  [V] Browser cleanup: all 25 launcher / 15 observer cases pass Root audit.
+      No real browser or game scene ran in these checks.
   [V] Integrated quest tail: 15 own / 75 shared / 1 edge case pass.
       Root full audit done. Next: real-loader source/caller binding.
   [V] Unchanged Claude source imported as fbc2e96 (3 exact blobs).
