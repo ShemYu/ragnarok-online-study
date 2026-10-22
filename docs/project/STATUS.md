@@ -31,11 +31,16 @@ Current independent lanes:
   also passes twelve bodies, same-reader reuse and normal shutdown. The
   [selected normal repair pair preserves the Chinese baseline exactly](reviews/2026-10-22-T07.007.012.004.md#exact-normal-repair-pair-selected-and-inverse-verified).
   The [complete Chinese source snapshot qualifies](reviews/2026-10-22-T07.007.012.004.md#actual-complete-source-snapshot-qualifies):
-  31 exact files, six mod manifests and both ON/OFF lists preserved. Next bind
-  full payload and a third fresh world for full main/normal entry/save.
+  31 exact files, six mod manifests and both ON/OFF lists preserved.
+  [Complete third-runtime file audit qualifies](reviews/2026-10-22-T07.007.012.005.md#complete-retained-runtime-file-audit-qualifies):
+  1135 source pins/1114 destination files, including the full runtime and
+  Chinese state. The first guard's exit-observation refusal is preserved and
+  narrowly reconciled; the separate complete audit passes. Next scoped new
+  config/empty engine, full main/routing, normal entry/save.
 - **Movement policy:** [corrected source-plan comparison](reviews/2026-10-22-T07.007.013.md#corrected-source-plan-comparison-qualified)
   is self_verified, Grok 17/20 basis versus Claude 15/20; both workers are
-  preserved/released. Production mapping remains unselected. Actual served
+  preserved/released. [Independent offline candidate pair runs](reviews/2026-10-22-T07.007.013.001.md#actual-independent-pair-launched).
+  Production mapping remains unselected. Actual served
   code, effective server config/cache/cells, movement and save gates remain.
 - **All 82 resource gaps:** [root full metadata preflight](reviews/2026-10-22-T07.007.014.md#root-metadata-preflight-and-pre-provider-oracle)
   verifies all 63 catalogs / 408794 records and preserves every original gap.

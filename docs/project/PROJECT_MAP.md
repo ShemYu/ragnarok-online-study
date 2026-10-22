@@ -129,14 +129,14 @@ CURRENT WORK: October assets and missing maps
  |    Next: current mods, new world, full app and normal entry/save.
  |    Capture pair compared/released; root correction qualifies.
  |    24 authored tests pass, one optional skip; 16 common/3 extra groups pass.
- |    Next: hook checks and one new fruit probe.
- |    Local close witness: all three controls pass. Hooks are in preparation.
+ |    Hook controls: nine groups pass. Fresh capture complete; model omission fails full check.
+ |    Local close witness: three controls pass. New paired transport diagnosis runs.
  |    Movement plans compared: Grok 17/20 basis, Claude 15/20.
  |    Production movement policy stays open.
  |    Parallel: full 82-gap ledger verified; both workers released.
  |    All 63 catalogs / 408,794 rows root-checked. No map gap closes yet.
  |    Normal repair pair preserves Chinese bytes. Full Chinese source snapshot passes.
- |    Next: full payload, separate world, normal entry and save.
+ |    Full file copy/audit passes: 1,135 sources and 1,114 targets. Next: new engine, entry/save.
  |
  +-- [V] Other 28 GPF patch tables: corrected tool verified.
  |        Root reference: all 5,742 raw records checked.
