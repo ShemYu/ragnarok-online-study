@@ -2,7 +2,17 @@
 
 Updated: 2026-10-23 JST. Coordinator: Codex. Active scope: **execute the documented strategy through the full milestone**.
 
-Latest verification: [fresh W4 preflight and independent full audit pass](reviews/2026-10-22-T07.007.011.005.md#fresh-wave4-preflight-and-complete-independent-inventory-audit-pass).
+Latest actual scene result: [W4 reaches READY then refuses a separate group;
+complete Root closure qualifies](reviews/2026-10-22-T07.007.011.005.md#wave4-reaches-ready-then-refuses-a-separate-group-and-full-closure-qualifies).
+Chrome caller1/original guardinvalid stays failed; no observer/frame/PNG. Reader
+ends once200/CL6, caller0/valid guard and138positive I/O closures. Root179full
+pins/24retained-or-observed test identities/two callers/five groups/three test
+listeners are absent, including the rejected unowned child; three original
+owners and executable C8 remain intact. Next retained-log/positive executable
+provenance review; no automatic retry or new live admission. Quest composed
+boundary controls are prepared and await Root source review.
+
+Previous verification: [fresh W4 preflight and independent full audit pass](reviews/2026-10-22-T07.007.011.005.md#fresh-wave4-preflight-and-complete-independent-inventory-audit-pass).
 One read-only call0;114inventory paths/127current full pins/three original owners
 match. Historical Markdown provenance correction is isolated and recorded; no
 preflight replay. Next fresh reader/static-plan/binder preparation; no live wave

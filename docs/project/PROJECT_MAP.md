@@ -68,8 +68,9 @@ Latest verified work (23 Oct):
   [V] Scene binder now uses the corrected launcher; all 45 header slots match.
       Fresh W4 preflight + full audit pass:114 inventory files,3 original owners.
       Reader templates + five inert data copies checked.
-      Materialization +158-file audit pass; one W4 scene wave admitted.
-      Next: fresh reader/Chrome and exact READY joins; no scene result yet.
+      W4 reaches READY, then refuses a child in another process group.
+      Full179-file audit passes;24test identities end; original games intact.
+      Scene remains failed. Next: retained log + exact helper provenance.
       Next: fresh file/process preflight. No new browser has started.
   [V] Corrected launcher tests: all 43 pass; full Root audit passes.
       Next: fresh scene setup and file/process checks before a live test.
