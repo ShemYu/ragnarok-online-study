@@ -28,7 +28,8 @@ Latest verified work (22 Oct):
       Claude selected; Grok close check fails. No live mapping selected.
   [V] Before-close test confirms two ownership-loss paths in the writer.
       Astra policy reviewed; core-only uncertainty correction frozen.
-      Independent Claude/Grok coding active; existing caller stays separate.
+      Claude submitted/preserved/released; Grok coding. Root checks next.
+      Existing fixed caller qualification stays separate.
       Real map/save untouched.
   [V] Chapter 1 decoder: both candidates pass 30 Root common groups.
   [V] Both own suites: Claude 76 / Grok 64 run, one skip each, no failures.

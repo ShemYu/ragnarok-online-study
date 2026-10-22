@@ -82,7 +82,8 @@ Current independent lanes:
   existing ledger/errors/tests/report only; the existing fixed caller remains a
   separate Root qualification, with no new public process wrapper. [Independent
   Claude/Grok coding is active](reviews/2026-10-22-T07.007.013.002.md#independent-core-implementations-dispatched)
-  from534ea9f on separate branches; both positively live. No cleanup/caller PASS.
+  from534ea9f on separate branches. [Claude4368da8is preserved/released](reviews/2026-10-22-T07.007.013.002.md#claude-submitted-and-preserved-root-verification-pending);
+  Root source/execution verification remains; Grok is still coding. No cleanup/caller PASS.
   [The unmodified public pure entry and writer now
   match the actual-body oracle](reviews/2026-10-22-T07.007.013.001.md#unmodified-public-entry-and-writer-match-the-actual-body-oracle):
   exactly two bytes differ, full inverse/all heights/strict receipts pass.
