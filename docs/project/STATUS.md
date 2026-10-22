@@ -43,6 +43,9 @@ Current independent lanes:
   including the successful control. Failed timing zeros coexist with server
   receipt. This surface cannot diagnose fruit; supported worker-target evidence
   or mechanism-specific counter qualification is next. No blind fruit retry.
+  [Astra's endpoint lead is confirmed on the installed wrapper](reviews/2026-10-22-T07.007.011.005.md#astra-advisory-and-installed-endpoint-discovery);
+  owned-page protocol/Worker coverage remains unqualified. The fixed read-only
+  endpoint probe is admitted; parallel replay/proxy drafts await Root review.
   No transport cause is proved. Ship02 visible motion passes; light's GPU motion is proved, but its
   visible check remains occluded. All owned probes are closed.
 - **Normal asset route:** corrected selector passes 29 authored / 35 shared
