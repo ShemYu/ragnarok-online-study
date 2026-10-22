@@ -117,8 +117,9 @@ Current independent lanes:
   precedes provider-result inspection and finds one exact eligible data0.grf
   entry each for gef_dun03.gnd/gat across all63catalogs/408794rows. Both
   basename-only sets are empty. Claude's complete typed outputs match, but Root
-  finds numeric/identity validation limitations; fresh execution and Grok review
-  remain. Complete bodies/loading stay open; no gap closes.
+  finds numeric/identity validation limitations. Fresh Root fixture/actual runs
+  also match under separate retained71-input/guard checks; the method is not a
+  reusable qualified tool. Grok review remains. Bodies/loading stay open; no gap closes.
 
 The [earlier mu pilot and Astra diagnosis](reviews/2026-10-22-T07.007.011-execution.md#actual-astra-consultation-and-discriminating-metadata-check)
 remain historical evidence. Ordinary Chapter 1 entry/save, 82 world-resource
