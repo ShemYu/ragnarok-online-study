@@ -88,6 +88,11 @@ No new blocker requires a user decision. Missing server story implementation
 remains the largest content risk; full-game scope and82functional gaps remain.
 [One exact fresh fruit observation is now admitted](reviews/2026-10-22-T07.007.011.005.md#one-fresh-bound-fruit-observation-admitted).
 No retry or deadline increase; results and complete cleanup must qualify first.
+[The fresh attempt fails with measured zero RAF while full report ACK succeeds](reviews/2026-10-22-T07.007.011.005.md#fresh-scene-attempt-fails-with-zero-raf-while-report-ack-completes).
+Root completes full source/native/transport/retirement audits and restores the
+original pages/worlds. Next qualify one sole-controller screenshot intervention;
+if unsupported or only transient, bind an owned visible surface. No passive
+retry, rendering/gap closure or goal change follows; no temporary actor remains.
 
 **Goal API is active. Current parent count: 4/14, about 29%.** This counts
 parent checkpoints, not content, effort or playable-world coverage. Full Modern /
