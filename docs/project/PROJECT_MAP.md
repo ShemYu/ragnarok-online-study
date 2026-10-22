@@ -133,7 +133,7 @@ CURRENT WORK: October assets and missing maps
  |    Local close witness: all three controls pass. Hooks are in preparation.
  |    Movement plans compared: Grok 17/20 basis, Claude 15/20.
  |    Production movement policy stays open.
- |    Parallel: actual Claude/Grok full 82-gap ledger pair is running.
+ |    Parallel: full 82-gap ledger verified; both workers released.
  |    All 63 catalogs / 408,794 rows root-checked. No map gap closes yet.
  |    Normal repair pair preserves Chinese bytes. Full Chinese source snapshot passes.
  |    Next: full payload, separate world, normal entry and save.

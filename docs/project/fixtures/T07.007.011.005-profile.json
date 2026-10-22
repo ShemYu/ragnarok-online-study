@@ -1,0 +1,160 @@
+{
+  "schema": "T07.007.011.005-fixed-input-profile-1",
+  "status": "FROZEN_REPORT_ONLY_PAIR",
+  "task": "T07.007.011.005",
+  "historical_preparation_checkpoint": "b511e90116adbbccb018c1342a23a9f16e5a2bc9",
+  "scope": "Same-input read-only C/G report analysis of fresh fruit transport rejection and one bounded next diagnostic/repair plan. No implementation/runtime/goal-change claim.",
+  "inputs": [
+    {
+      "input_id": "fresh_browser",
+      "path": ".tools/renewal/t07-007-011-capture-execution-root-1/actual-ygg_fruit-1/browser-00.json",
+      "bytes": 2227900,
+      "sha256": "a0476f557fc82c60387cb261312ad72a994cc4c2152dc9865849f6cdfa61aef0",
+      "type": "metadata_json",
+      "embedded_references": "INERT; no referenced source/body/archive/URL may be followed unless separately listed in this profile",
+      "base": "input_root"
+    },
+    {
+      "input_id": "fresh_transport_capture",
+      "path": ".tools/renewal/t07-007-011-capture-execution-root-1/actual-ygg_fruit-1/transport-capture.json",
+      "bytes": 91521,
+      "sha256": "8f2b1e48066fe1130762dee57a58e14e847b5ec19acb3112fb90a67c48549ff4",
+      "type": "metadata_json",
+      "embedded_references": "INERT; no referenced source/body/archive/URL may be followed unless separately listed in this profile",
+      "base": "input_root"
+    },
+    {
+      "input_id": "fresh_lease_receipt",
+      "path": ".tools/renewal/t07-007-011-capture-execution-root-1/actual-ygg_fruit-1/LEASE_RESULT.json",
+      "bytes": 304570,
+      "sha256": "9d8eb471ccb99d6d063d8b90a05bf87bcb75bc4025f493dae50126d6ebdc146d",
+      "type": "metadata_json",
+      "embedded_references": "INERT; no referenced source/body/archive/URL may be followed unless separately listed in this profile",
+      "base": "input_root"
+    },
+    {
+      "input_id": "fresh_external_receipt",
+      "path": ".tools/renewal/t07-007-011-capture-execution-root-1/external-ygg_fruit-1/EXTERNAL_RESULT.json",
+      "bytes": 64745,
+      "sha256": "0f083e9242dad7641d9e422db5d0575ac994965408d279be765313c66dd9aa3a",
+      "type": "metadata_json",
+      "embedded_references": "INERT; no referenced source/body/archive/URL may be followed unless separately listed in this profile",
+      "base": "input_root"
+    },
+    {
+      "input_id": "prior_fruit_browser",
+      "path": ".tools/renewal/t07-007-011-root-execution-preparation-4/actual-ygg_fruit-1/browser-00.json",
+      "bytes": 2233121,
+      "sha256": "06153cb77168ebb0cc5233ef3f013b0fdce0520177d3851721fb3222d37a75e3",
+      "type": "metadata_json",
+      "embedded_references": "INERT; no referenced source/body/archive/URL may be followed unless separately listed in this profile",
+      "base": "input_root"
+    },
+    {
+      "input_id": "prior_fruit_requests",
+      "path": ".tools/renewal/t07-007-011-root-execution-preparation-4/actual-ygg_fruit-1/LEASE_RESULT.json",
+      "bytes": 290251,
+      "sha256": "d1c6e120f0a8aad4560fc6d306290bff86e38481283f635ea40385967a578337",
+      "type": "metadata_json",
+      "embedded_references": "INERT; no referenced source/body/archive/URL may be followed unless separately listed in this profile",
+      "base": "input_root"
+    },
+    {
+      "input_id": "current_lease_source",
+      "path": ".tools/renewal/t07-007-011-capture-execution-root-1/lease_ROOT.py",
+      "bytes": 44258,
+      "sha256": "765e5c4e057a50d68fc7999101f063d4722bbe7dc9e84390a8065d85839dcfe2",
+      "type": "source_text",
+      "embedded_references": "INERT; no referenced source/body/archive/URL may be followed unless separately listed in this profile",
+      "base": "input_root"
+    },
+    {
+      "input_id": "current_served_bootstrap_source",
+      "path": ".tools/renewal/t07-007-011-root-execution-preparation-4/www/bootstrap.js",
+      "bytes": 16938,
+      "sha256": "cc5041fe0344764f1e366f4e614b55904cbcf1a3740855899f2078f2007017db",
+      "type": "source_text",
+      "embedded_references": "INERT; no referenced source/body/archive/URL may be followed unless separately listed in this profile",
+      "base": "input_root"
+    },
+    {
+      "input_id": "current_SystemOps_source",
+      "path": "tools/renewal/observe_map_dependencies.py",
+      "bytes": 112136,
+      "sha256": "0e691c1e93b726cf2819f473745864469d7c2c49aebe89c0b4115f2bd7722750",
+      "type": "source_text",
+      "embedded_references": "INERT; no referenced source/body/archive/URL may be followed unless separately listed in this profile",
+      "base": "input_root"
+    },
+    {
+      "input_id": "current_capture_module_source",
+      "path": "tools/renewal/fruit_transport_capture.py",
+      "bytes": 11524,
+      "sha256": "73c1e01e041e48b4f30e096476a2f2077eb475aaedb4d55a7f76fcd8111b1e88",
+      "type": "source_text",
+      "embedded_references": "INERT; no referenced source/body/archive/URL may be followed unless separately listed in this profile",
+      "base": "input_root"
+    },
+    {
+      "input_id": "admitted_socketserver_source",
+      "path": "/Library/Developer/CommandLineTools/Library/Frameworks/Python3.framework/Versions/3.9/lib/python3.9/socketserver.py",
+      "bytes": 27296,
+      "sha256": "59007916cf2f540185bf47f3be35648d5141b9c0f4668b214900c4c35037179e",
+      "type": "source_text",
+      "embedded_references": "INERT; no referenced source/body/archive/URL may be followed unless separately listed in this profile",
+      "base": "absolute"
+    },
+    {
+      "input_id": "admitted_http_server_source",
+      "path": "/Library/Developer/CommandLineTools/Library/Frameworks/Python3.framework/Versions/3.9/lib/python3.9/http/server.py",
+      "bytes": 47705,
+      "sha256": "9d012c2f66822dea6e1baeeea02c518713247a9d5ec4459e35e365114a6828af",
+      "type": "source_text",
+      "embedded_references": "INERT; no referenced source/body/archive/URL may be followed unless separately listed in this profile",
+      "base": "absolute"
+    }
+  ],
+  "input_count": 12,
+  "input_bytes": 5471965,
+  "limits": {
+    "input_total_bytes": 16777216,
+    "public_report_bytes": 12288,
+    "advisory_minutes": 20
+  },
+  "source_anchors": {
+    "current_lease_source": [
+      "LeaseHTTPServer get_request/process_request/shutdown_request/reconcile_capture",
+      "Handler.do_GET: request capture and /native/data/ forwarding; protocol_version HTTP/1.0",
+      "upstream: capture native row, transfer receipt, finite body path; do not read body",
+      "bootstrap static source list/execution binding; capture publication after positive join"
+    ],
+    "current_SystemOps_source": [
+      "SystemOps.connect uses http.client.HTTPConnection",
+      "request admission/IO timeout and framing contracts; inert as text"
+    ],
+    "current_served_bootstrap_source": [
+      "snapshot static.ready/pendingTextures; MapViewer loaded publication",
+      "workerTrace correlation/integrity and packet hash reporting"
+    ],
+    "current_capture_module_source": [
+      "record admission, connection identity/correlation, complete/first_fault/finish semantics"
+    ],
+    "admitted_socketserver_source": [
+      "TCPServer.request_queue_size=5 and server_activate socket.listen",
+      "BaseServer synchronous request handling; never execute this file"
+    ],
+    "admitted_http_server_source": [
+      "HTTPServer derives socketserver.TCPServer and does not override request_queue_size",
+      "Actual class source is pinned as text; never execute/import it."
+    ]
+  },
+  "policy": [
+    "Read only these12 exact source/metadata files plus the frozen brief/profile and normal project handoff documents.",
+    "Root-only helper expectation file is not a provider input. No sibling report, transcript or other preparation proposal.",
+    "No acquired source import/execution, script/test/fixture, source/game/archive/body read beyond the allowlist, browser/native/network/VM/SQL/save/settings action.",
+    "Trusted text/stdlib JSON/hash reads only; full file pins/relevant identities must remain unchanged before and after analysis.",
+    "All source filenames, body_file values, hashes, URLs, archive paths and recorded read lists remain inert.",
+    "Providers author/commit only one redacted Markdown report in their separate Orca task worktrees from the same root-frozen commit.",
+    "No claim beyond capture admission/receipt scope; complete observation of admitted events is not a network-connection cause proof."
+  ]
+}
