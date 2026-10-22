@@ -15,7 +15,7 @@ NOW: 4 / 14 parent checks complete (about 29%)
 
 Basic play + save       [PASS for the checked normal route]
 Map loading            [Chapter 1 test passes; fruit test is open]
-Fruit presentation     [OPEN: screenshot refused; owned visible surface next]
+Fruit presentation     [OPEN: screen tool unavailable; fresh browser preparation]
 Quest file inventory   [PASS: all 3 files checked]
 Server + file binding  [PASS: current owner and 21 file checks]
 Active quest records   [WORKING: Claude submitted; Grok builds; Root checks next]
@@ -33,6 +33,10 @@ next action and the exact limits of each result.
 CURRENT WORK: quest data, missing story and map-load checks
 
 Latest verified work (23 Oct):
+  [V] Root reads Claude's whole code and tests. Two authored calls admitted.
+      Next: run its own suite and the 15-group, 75-case common suite.
+  [!] Native screen tool cannot start. No visible pane is proved.
+      Next: qualify a new private Chrome profile and owned browser.
   [V] Claude recovers, commits its source and closes after preservation.
       Its reported tests await Root replay. Grok is still working.
   [V] Root reads the 15-group, 75-case common test source. No run yet.

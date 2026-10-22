@@ -8,8 +8,9 @@ completion and report-budget ambiguities. [Both actual isolated Claude/Grok
 implementations are dispatched from ee58599](reviews/2026-10-23-T10.005.md#actual-independent-implementation-pair-dispatched),
 with the same brief/profile/contract and setup skipped. [Claude recovers and
 submits its preserved candidate; its settled terminal is released](reviews/2026-10-23-T10.005.md#claude-recovers-submits-and-is-preserved-before-release).
-Grok remains live/working. Root qualifies the independent15group/75case common
-source; no candidate tests have been personally replayed or runtime admitted.
+Grok remains live/working. [Root completes Claude's source review and admits
+two bounded authored own/common calls](reviews/2026-10-23-T10.005.md#claude-complete-source-review-and-bounded-authored-calls-admitted).
+No candidate test result or actual loader runtime is claimed at admission.
 Quest/story/content-gap acceptance remains open. Screenshot work is independent.
 
 Latest diagnostic result: [event-aware actual screenshot is refused and fully closed](reviews/2026-10-22-T07.007.011.005.md#event-aware-actual-screenshot-is-refused-and-fully-closed).
@@ -18,8 +19,9 @@ The reader accepts browser events correctly; screenshot returns code-32000 after
 guardinvalid remain failed; full preservation/closure/source audit passes and
 original worlds/tabs/player restore. [Astra's visible-surface source advice now
 qualifies under Root's primary-source review](reviews/2026-10-22-T07.007.011.005.md#astra-visible-surface-source-advice-independently-qualifies).
-Next bind an actually displayed owned Orca pane, with fresh-profile Chrome as a
-separately qualified fallback. No surface is yet bound or runtime admitted.
+The [native screen preflight cannot start](reviews/2026-10-22-T07.007.011.005.md#native-screen-preflight-is-unavailable-and-chrome-preparation-continues).
+Root source-qualifies a fresh-profile Chrome fallback; no surface is yet bound
+or browser/native/game run admitted.
 No more passive/empty-page retries;
 quest implementation/controls continue independently. No new runtime, goal
 change or user decision is required.
