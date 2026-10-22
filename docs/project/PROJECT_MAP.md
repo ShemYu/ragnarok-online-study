@@ -33,6 +33,8 @@ next action and the exact limits of each result.
 CURRENT WORK: quest data, missing story and map-load checks
 
 Latest verified work (23 Oct):
+  [V] Fresh scene files and binding checks pass; one live wave admitted.
+      All 143 file pins and 3 original services match. Scene test next.
   [V] Corrected quest tests: all 24 pass; full Root audit passes.
       All 45 file pins match. First fixture failure stays preserved.
   [V] Quest-controller test source and fixed caller checked: 24 cases.

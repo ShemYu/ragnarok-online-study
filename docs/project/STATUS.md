@@ -42,6 +42,11 @@ run once and audit current full files/three original owners.
 107complete inventory paths/117current full pins,21Chrome files/four links,
 six native inputs and three original owners/listeners match. Next fresh reader/
 static-plan/binder materialization and separate live admission. No scene yet.
+[Fresh reader/static-plan/binder materialization now qualifies; one scene wave
+is admitted](reviews/2026-10-22-T07.007.011.005.md#fresh-wave3reader-materialization-qualifies-and-one-scene-wave-is-admitted).
+All143current full pins/inverses and three original owners match. Next once-only
+prelaunch binding, reader/Chrome, exact READY joins and observer, then complete
+scene/image/retirement audit. No runtime has started in this checkpoint.
 
 [One independent full-game navigation task is identified](reviews/2026-10-20-T07.006.md#independent-next-work-review-reopens-the-exact-dispatch-source-boundary):
 close the selected0x08e2registration/packet-year/overlay path before conditional
