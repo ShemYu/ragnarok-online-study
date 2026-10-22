@@ -74,6 +74,8 @@ Latest verified work (22 Oct):
       New single-controller test reaches worker setup and both fetches.
       Event validation still stops capture; exact failed check is next.
       Need worker-level failure evidence before another fruit test.
+  [V] File writer fix: 51 tests, 10 shared and 2 focused checks pass.
+  [~] Caller failure tests, source integration and real output remain.
   Parent checkpoints: 4 / 14 = about 29%. Full game remains open.
   Four old unused agent sessions are closed. Source/evidence stay saved.
 

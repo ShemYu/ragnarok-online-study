@@ -143,9 +143,11 @@ Current independent lanes:
   guard remains invalid(exit1). [Corrected51methods and a separate direct
   import now pass](reviews/2026-10-22-T07.007.013.002.md#corrected-own-suite-regression-and-isolated-close-cases-pass),
   with eleven valid guards/all source and retirement checks. [Fresh corrected
-  common/focused controls are admitted](reviews/2026-10-22-T07.007.013.002.md#corrected-common-and-focused-controls-admitted):
-  ten common cases/two focused children; first baseline/source-close must pass
-  before independent remaining cases. Fixed caller gates remain before output use.
+  common/focused controls are admitted](reviews/2026-10-22-T07.007.013.002.md#corrected-common-and-focused-controls-admitted).
+  [All ten common/two focused controls now qualify](reviews/2026-10-22-T07.007.013.002.md#corrected-ten-common-and-two-focused-controls-qualify):
+  exact original error/snapshot,25.6MB full binary/inverse/receipt,18postpins
+  per common case/twelve valid guards/retirement pass. Existing fixed caller
+  negative gates, integration and separately admitted real-body output remain.
   No raw selection or actual-body/game readiness.
   [The unmodified public pure entry and writer now
   match the actual-body oracle](reviews/2026-10-22-T07.007.013.001.md#unmodified-public-entry-and-writer-match-the-actual-body-oracle):
