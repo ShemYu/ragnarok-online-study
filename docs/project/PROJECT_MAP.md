@@ -121,7 +121,8 @@ CURRENT WORK: October assets and missing maps
  |    Next: transport probe and light visibility check.
  |    In parallel: both archive selector candidates are checked/released.
  |    Grok imported; root correction passes 29 own and 35 shared checks.
- |    Whole-stack integration/build next. No normal-game claim.
+ |    Private stack builds. All three integration checks pass.
+ |    Next: real-asset/native parity. No normal-game claim.
  |    Two Grok lanes run independently: transport and movement-policy plans.
  |    Both have separate Claude comparisons. Runtime policy stays open.
  |

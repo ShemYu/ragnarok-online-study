@@ -1,0 +1,40 @@
+--- upstream/stack/src/main.rs
++++ private/stack/src/main.rs
+@@ -14,0 +15 @@
++mod ordered_archive_manifest;
+--- upstream/stack/src/assets.rs
++++ private/stack/src/assets.rs
+@@ -316,0 +317,8 @@
++    // An optional list supplies the whole vector; positional data still anchors
++    // client System/BGM/AI discovery. Refuse invalid input before any transaction.
++    let ordered_archives = crate::ordered_archive_manifest::read_ordered_archives(
++        &cfg.state,
++        &data,
++        rdata.is_some() || official.is_some() || fallback.is_some(),
++    )?;
++
+@@ -328,8 +336,11 @@
+-    // the GRFs. Lower indices preserve official -> rdata -> data precedence;
+-    // the fallback GRF is last, so it fills only names the client has none of.
+-    let archives: Vec<_> = official
+-        .iter()
+-        .chain(rdata.iter())
+-        .chain(std::iter::once(&data))
+-        .chain(fallback.iter())
+-        .collect();
++    // the GRFs. A manifest supplies its exact whole order; without one, retain
++    // legacy official -> rdata -> data -> fallback precedence.
++    let archives: Vec<_> = match &ordered_archives {
++        Some(ordered) => ordered.iter().collect(),
++        None => official
++            .iter()
++            .chain(rdata.iter())
++            .chain(std::iter::once(&data))
++            .chain(fallback.iter())
++            .collect(),
++    };
+@@ -2090,0 +2102,4 @@
++
++// Root-only synthetic integration checks; existing legacy tests remain unadmitted.
++#[cfg(all(test, unix))]
++mod root_ordered_integration;
