@@ -112,6 +112,9 @@ Root completes full source/native/transport/retirement audits and restores the
 original pages/worlds. Next qualify one sole-controller screenshot intervention;
 if unsupported or only transient, bind an owned visible surface. No passive
 retry, rendering/gap closure or goal change follows; no temporary actor remains.
+[One owned empty-page screenshot-support control is admitted](reviews/2026-10-22-T07.007.011.005.md#one-owned-blank-page-screenshot-support-control-admitted).
+Exactly one command after ownership checks; no game/assets or fresh fruit run.
+Root must verify the complete outcome and close the temporary page before advancing.
 
 **Goal API is active. Current parent count: 4/14, about 29%.** This counts
 parent checkpoints, not content, effort or playable-world coverage. Full Modern /
