@@ -90,10 +90,12 @@ CURRENT WORK: October assets and missing maps
  |    Narrow viewer bootstrap proposed; no game login needed.
  |    Both plans compared: Claude 15/20; Grok 14/20. Both released.
  |    Root corrects boot and observer details. All 32 inputs pass again.
- |    First pilot: map is visible; 60 decoder callbacks succeed.
- |    Test policy blocks WebAssembly. Pilot fails; evidence retained.
- |    Reader/page closed. Inputs and original world listeners preserved.
- |    Next: correct owned policy, then repeat with fresh resources.
+ |    First pilot retained after a test-policy failure. Policy corrected.
+ |    Second pilot: real map loads in 2.75s. All 60 decoders succeed.
+ |    No browser/GL/audio errors. Static upload hash matches its packet.
+ |    Both pages/readers closed. Source/world listeners preserved.
+ |    Geometry differs from a conditional estimate; cause still open.
+ |    Next: full instance/geometry reference, then all four maps.
  |    Full geometry, texture, GPU and frame checks remain open.
  |
  +-- [V] Other 28 GPF patch tables: corrected tool verified.
