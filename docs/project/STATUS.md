@@ -41,6 +41,9 @@ connections close,27protected pins and two exact new extraction leaves match;
 host preserves70trace rows/publication failure. Original pages/worlds remain.
 Next verify the narrow favicon correction on an authored fixture before a new
 separate admission. No automatic map retry or render/story/save/gap acceptance.
+[The first isolated favicon fixture refuses its FD boundary](reviews/2026-10-22-T07.007.014.005.md#first-favicon-fixture-refuses-its-fd-boundary):
+terminal exit1/pass=false, sources unchanged, game untouched. Preserve it and
+record the exact descriptor difference before correcting or accepting the test.
 
 **Worker cleanup:** under the user's renewed cleanup instruction,
 [Root closes the four obsolete retained sessions](reviews/2026-10-22-worker-cleanup.md)
