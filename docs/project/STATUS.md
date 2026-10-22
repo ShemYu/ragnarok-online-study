@@ -26,8 +26,11 @@ caller/lease/page-Worker retirement seam remains unbound before a separate trial
 Both complete differences and full pins match. A leading UTF8 BOM could bypass
 the canonical-byte refusal; the separate one-option fix retains it for rejection.
 Root also reviews the finite16browser/15proxy controls and all10exact fragments.
-[Both fixed callers are now bound and separately admitted](reviews/2026-10-23-T10.005.md#finite-clock-abort-controls-bound-and-admitted);
-Root execution and complete audit follow. No control has run yet.
+[All31clock-abort controls and complete Root audit pass](reviews/2026-10-23-T10.005.md#all31clock-abort-controls-and-complete-root-audit-pass):
+16browser/15proxy, both callers0/valid guards,30qualified full source pins and
+positive retirement checks. No correction or rerun. Next exact assembly/config/
+owner/resource and shared whole-attempt caller/controller binding before the
+separate actual-loader trial.
 All actual-loader bindings remain NULL.
 No actual original-loader/runtime or full-game acceptance is claimed.
 Quest/story/content-gap acceptance remains open. Screenshot work is independent.

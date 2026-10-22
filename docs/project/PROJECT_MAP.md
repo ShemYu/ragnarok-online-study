@@ -18,7 +18,7 @@ Map loading            [Chapter 1 test passes; fruit test is open]
 Fruit presentation     [OPEN: 40 cleanup checks pass; image + live binding next]
 Quest file inventory   [PASS: all 3 files checked]
 Server + file binding  [PASS: current owner and 21 file checks]
-Active quest records   [Tool checked; real-loader clock checks + trial next]
+Active quest records   [Tool + 31 clock checks pass; real-loader trial next]
 Existing text recovery [PASS: fixed 152-record tool integrated + checked]
 Missing story scripts  [OPEN: largest content risk]
 Full game test         [LATER: 82 functional resource gaps remain]
@@ -33,6 +33,8 @@ next action and the exact limits of each result.
 CURRENT WORK: quest data, missing story and map-load checks
 
 Latest verified work (23 Oct):
+  [V] Quest clock/abort: all 16 browser / 15 proxy checks pass Root audit.
+      Next: bind the real-loader trial and whole-attempt cleanup.
   [V] Fresh-browser binder: source pins and 45 header slots checked.
       One image capture must be added before automatic browser close.
   [V] Quest clock/abort source reviewed; one BOM refusal defect corrected.
