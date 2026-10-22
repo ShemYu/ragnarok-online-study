@@ -2,7 +2,21 @@
 
 Updated: 2026-10-23 JST. Coordinator: Codex. Active scope: **execute the documented strategy through the full milestone**.
 
-Latest actual result: [the fresh Chrome wave fails before the scene observer;
+Latest actual result: [wave3 stops at an unregistered child identity; complete
+preservation and scoped closure audit pass](reviews/2026-10-22-T07.007.011.005.md#wave3fails-before-ready-and-complete-scoped-closure-qualifies).
+No Chrome READY, observer or scene capture occurs. Chrome caller/actor1 and
+guardinvalid stay failed. Reader ends once with authenticated200/CL6 and
+caller0/valid guard;138I/O closures match. Root verifies175full file pins,
+nine retained test identities/both callers/four groups/two reader listeners
+absent, three original owners intact and strict executable C8 unchanged.
+[Root qualifies Astra's narrow source explanation and next policy](reviews/2026-10-22-T07.007.011.005.md#bounded-unregistered-absence-and-retirement-direction-qualifies):
+the sampled child query returns the ESRCH/ENOENT class, but its birth and exact
+errno are unknown. Next separate bounded corroborating-absence disposition
+outside ownership/signaling authority and leader-gone retirement, then targeted
+controls/source review before any new admission. No automatic retry, goal change
+or full-scene acceptance. Shared quest caller preparation continues independently.
+
+Earlier W2 result: [the fresh Chrome wave fails before the scene observer;
 scoped closure and complete content audit qualify](reviews/2026-10-22-T07.007.011.005.md#fresh-chrome-wave-fails-before-observer-and-scoped-closure-qualifies).
 The launcher refuses an unqualified descendant identity; no Node observer,
 scene loading or PNG capture starts. Original caller1/guardinvalid stay failed.

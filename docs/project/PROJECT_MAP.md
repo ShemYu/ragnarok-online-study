@@ -33,6 +33,9 @@ next action and the exact limits of each result.
 CURRENT WORK: quest data, missing story and map-load checks
 
 Latest verified work (23 Oct):
+  [!] Scene wave3 stops before READY at an unknown child identity.
+      Full 175-file audit passes; test processes end; original games intact.
+      Next: bounded child-absence and parent-exit handling, then fixed tests.
   [V] Fresh scene files and binding checks pass; one live wave admitted.
       All 143 file pins and 3 original services match. Scene test next.
   [V] Corrected quest tests: all 24 pass; full Root audit passes.
