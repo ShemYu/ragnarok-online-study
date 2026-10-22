@@ -76,7 +76,9 @@ Latest verified work (22 Oct):
   [~] Client quest inventory: three existing files selected (4.57 MB).
       All file hashes and headers pass; no Lua execution.
       Both readers dispatched from the same frozen source.
-      Root prepares shared checks while both workers implement.
+      Claude submitted; old worker closed, source and branch retained.
+      Root runs 26 authored tests and 14 shared groups: all pass.
+      Grok still works. Actual quest-file runs are next.
       Official guide panels checked in parallel: side/daily tasks found.
       Three later cards use another map; next search must include it.
       Full main-story flow and Chinese decoding remain open.
