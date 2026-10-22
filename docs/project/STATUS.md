@@ -144,6 +144,10 @@ support waits for separately qualified controls and a fresh runtime admission.
 Caller/driver0, guardvalid, complete sources/streams/retirement qualify. Next
 fresh owned empty-page screenshot binding/admission; no actual method/frame/
 map/story or functional-gap pass follows from this pure test.
+[One fresh event-aware empty-page screenshot control is bound and admitted](reviews/2026-10-22-T07.007.011.005.md#one-fresh-event-aware-screenshot-control-is-bound-and-admitted).
+Exact owned marker/target/input/driver/caller and original-world baseline qualify.
+One external command, unchanged caps, no retry/fruit run; full PNG/page/proxy/
+original-preservation audit remains before any method support acceptance.
 
 **Goal API is active. Current parent count: 4/14, about 29%.** This counts
 parent checkpoints, not content, effort or playable-world coverage. Full Modern /
