@@ -74,6 +74,9 @@ prior A01/A02 facts reused. The gallery includes side/daily branches and omits
 some main-story transitions. Later uknw_ruin clues stay outside the frozen
 seven-clue benchmark. No quest ID/dialogue/implementation or full flow is inferred.
 No recovered quest table, effective resource winner or story pass yet.
+[Claude's candidate is preserved and its settled terminal released](reviews/2026-10-22-T10.002.md#claude-candidate-preserved-and-settled-worker-released).
+Root reads its complete source/tests/report; replay/common/body checks remain.
+Grok continues independently. No selection or score before both are verified.
 
 **Worker cleanup:** under the user's renewed cleanup instruction,
 [Root closes the four obsolete retained sessions](reviews/2026-10-22-worker-cleanup.md)
