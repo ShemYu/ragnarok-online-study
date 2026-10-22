@@ -95,8 +95,10 @@ CURRENT WORK: October assets and missing maps
  |    No browser/GL/audio errors. Static upload hash matches its packet.
  |    Both pages/readers closed. Source/world listeners preserved.
  |    Astra and root: one model request absent; exact size gap matches.
- |    Cause still open. All 4,922 placements bound for reference check.
- |    Next: run reference, trace live loading, then all four maps.
+ |    Reference: mu static hash matches the earlier complete buffer.
+ |    Other maps need a diagnostic filename fix; failed run preserved.
+ |    One roots model has invalid output values; cause still open.
+ |    Next: corrected reference, trace live loading, then four maps.
  |    Full geometry, texture, GPU and frame checks remain open.
  |
  +-- [V] Other 28 GPF patch tables: corrected tool verified.
