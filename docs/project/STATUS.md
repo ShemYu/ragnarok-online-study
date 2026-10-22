@@ -33,8 +33,10 @@ one authenticated STATUS/full protected hashes, no asset GET or reader lifecycle
 [Actual preflight and Root audit pass](reviews/2026-10-22-T07.007.014.005.md#actual-read-only-preflight-independently-qualifies):
 caller exit0, complete config/receipt reconstruction,17full pins/five archives,
 current owners/listeners and temporary-process retirement qualify. No asset GET.
-Next bind final proxy inputs/caller and fixed browser sequence, then separately
-admit one actual loading observation. No loading/rendering/story/save pass yet.
+[Final normal loading inputs/caller and one-attempt sequence are admitted](reviews/2026-10-22-T07.007.014.005.md#final-normal-loading-input-and-single-attempt-admission).
+Next run once at its exact committed HEAD, inspect the owned scene, preserve
+publication/cleanup and independently audit the complete outcome. No loading,
+rendering, story, save or resource-gap pass yet.
 
 **Worker cleanup:** under the user's renewed cleanup instruction,
 [Root closes the four obsolete retained sessions](reviews/2026-10-22-worker-cleanup.md)
