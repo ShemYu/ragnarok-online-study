@@ -15,6 +15,10 @@ errno are unknown. Next separate bounded corroborating-absence disposition
 outside ownership/signaling authority and leader-gone retirement, then targeted
 controls/source review before any new admission. No automatic retry, goal change
 or full-scene acceptance. Shared quest caller preparation continues independently.
+[The two exact source derivatives now qualify](reviews/2026-10-22-T07.007.011.005.md#corroborated-absence-and-explicit-work-retirement-source-qualify):
+20full pins/26verbatim slots/inverses; final34567-byte source handles bounded
+absence plus explicit WORK leader-loss transition. Fixed51controls are being
+authored; no pure call or new live wave is admitted yet.
 
 Earlier W2 result: [the fresh Chrome wave fails before the scene observer;
 scoped closure and complete content audit qualify](reviews/2026-10-22-T07.007.011.005.md#fresh-chrome-wave-fails-before-observer-and-scoped-closure-qualifies).
