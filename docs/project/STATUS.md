@@ -126,7 +126,12 @@ Complete failed-run/source/closure audit passes; only one fixture brace changes.
 caller/actor0, original guardvalid,45full pins, complete streams and positive
 retirement. Original0/24failure remains preserved; target controller is unchanged.
 Shared whole-attempt caller and actual bindings
-remain unimplemented; no actual timing or installed compatibility is proved.
+remain unqualified; no actual timing or installed compatibility is proved.
+[A frozen shared-caller proposal and separate complete-deadline source correction
+are now available](reviews/2026-10-23-T10.005.md#shared-caller-proposal-exposes-a-complete-retirement-deadline-gap).
+Root confirms the early-retirement false-pass path and qualifies the separate
+source correction: ten full pins/nine slots/inverses. Five finite controls, complete
+Root parent review and W3ownership composition remain. No runtime is admitted.
 All actual-loader bindings remain NULL.
 No actual original-loader/runtime or full-game acceptance is claimed.
 Quest/story/content-gap acceptance remains open. Screenshot work is independent.
