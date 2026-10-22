@@ -38,8 +38,10 @@ failed fixtures stay preserved. Next fresh normal-reader binding and separate
 loading admission; actual complete terrain/model/render/story/save evidence
 remains open. No automatic map retry or resource-gap/parent acceptance.
 [Fresh root2 read-only preflight is admitted](reviews/2026-10-22-T07.007.014.005.md#fresh-normal-reader-preflight-admission-after-the-favicon-correction).
-Run its fixed caller once at the actual committed HEAD, independently audit,
-then bind a new loading observation. No new map/browser request is admitted yet.
+[Actual root2 preflight and independent audit qualify](reviews/2026-10-22-T07.007.014.005.md#fresh-root2-preflight-independently-qualifies):
+caller/auditor exit0,17full pins/five archives/current ownership/retirement pass.
+Next final corrected proxy inputs/caller and bounded screenshot sequence, then
+separate loading admission. No new map/browser request is admitted yet.
 
 **Worker cleanup:** under the user's renewed cleanup instruction,
 [Root closes the four obsolete retained sessions](reviews/2026-10-22-worker-cleanup.md)
