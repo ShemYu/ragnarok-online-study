@@ -34,9 +34,13 @@ one authenticated STATUS/full protected hashes, no asset GET or reader lifecycle
 caller exit0, complete config/receipt reconstruction,17full pins/five archives,
 current owners/listeners and temporary-process retirement qualify. No asset GET.
 [Final normal loading inputs/caller and one-attempt sequence are admitted](reviews/2026-10-22-T07.007.014.005.md#final-normal-loading-input-and-single-attempt-admission).
-Next run once at its exact committed HEAD, inspect the owned scene, preserve
-publication/cleanup and independently audit the complete outcome. No loading,
-rendering, story, save or resource-gap pass yet.
+[First actual normal observation fails and is fully audited/retired](reviews/2026-10-22-T07.007.014.005.md#first-normal-observation-fails-on-an-unsupported-browser-icon-request):
+genuine MapLoader/RSW parsing reached and exact RSW200body passes; an unsupported
+browser favicon request ends the strict proxy before GAT forwarding. Seven
+connections close,27protected pins and two exact new extraction leaves match;
+host preserves70trace rows/publication failure. Original pages/worlds remain.
+Next verify the narrow favicon correction on an authored fixture before a new
+separate admission. No automatic map retry or render/story/save/gap acceptance.
 
 **Worker cleanup:** under the user's renewed cleanup instruction,
 [Root closes the four obsolete retained sessions](reviews/2026-10-22-worker-cleanup.md)
