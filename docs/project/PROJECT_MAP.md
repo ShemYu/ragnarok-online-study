@@ -80,7 +80,8 @@ Latest verified work (22 Oct):
   [V] File writer fix: 51 tests, 10 shared and 2 focused checks pass.
   [~] Caller failure tests, source integration and real output remain.
   Parent checkpoints: 4 / 14 = about 29%. Full game remains open.
-  Four old unused agent sessions are closed. Source/evidence stay saved.
+  Four old agent sessions and 18 unused child shells are closed.
+  Their branches, files and evidence stay saved for rollback.
 
 [V] Download and extract the base package. Verify all 4,976 files.
  |

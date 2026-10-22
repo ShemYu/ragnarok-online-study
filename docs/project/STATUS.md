@@ -13,6 +13,11 @@ after exact transcript/handle/preservation checks. Four positive PTY-close
 receipts; all checkouts/branches/evidence remain. Four historical retained
 resource rows/147 released rows are not a live-agent count. The current root
 workspace has only its coordinator; no reclaimable worker waits for cleanup.
+[Broader inventory also closes 18 obsolete child shells](reviews/2026-10-22-worker-cleanup.md#additional-obsolete-child-shells-closed):
+all are idle foreground zsh/no children, with settled task provenance and clean
+historical HEADs. Positive close/kernel retirement and unchanged checkouts pass.
+22 obsolete terminals closed in total; original workspace/four unrelated surfaces
+remain. Keep branches/private evidence for rollback and retain only needed work.
 
 Current independent lanes:
 
