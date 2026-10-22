@@ -13,6 +13,12 @@ its bytes match, but original identity preservation fails. Astra and Root confir
 a separate failure-cleanup wait bug. Next: bounded first-refusal metadata and
 failure finalization within the same8s, then explain/bind executable identity
 before any new Chrome admission. No automatic retry or cap increase.
+[The exact clone pathname witness and process-local source strategy now qualify](reviews/2026-10-22-T07.007.011.005.md#executable-clone-paths-are-witnessed-and-a-process-local-strategy-is-reviewed):
+two same-inode aliases account for the current link count, with one clone born
+during W2 startup. Existing aliases stay untouched. A single fresh-instance
+feature override with a NEW strict baseline is proposed; no flag is applied
+and installed behavior remains unverified. Failure-finalization source review
+and finite controls are next.
 
 [T10.005 freezes the bounded quest-registration implementation contract](reviews/2026-10-23-T10.005.md#frozen-source-contract-and-root-preflight).
 Root qualifies nine full source inputs/26primary LF slices and resolves callback,
@@ -43,6 +49,10 @@ Root also reviews the finite16browser/15proxy controls and all10exact fragments.
 positive retirement checks. No correction or rerun. Next exact assembly/config/
 owner/resource and shared whole-attempt caller/controller binding before the
 separate actual-loader trial.
+[The owned-browser closure direction independently qualifies](reviews/2026-10-23-T10.005.md#owned-browser-closure-direction-independently-qualifies):
+installed Orca close ACK precedes destruction, so reuse one dedicated Chrome
+socket with exact known Worker/page destruction witnesses. Shared120s schedule
+and concurrent original-guard composition remain source work.
 All actual-loader bindings remain NULL.
 No actual original-loader/runtime or full-game acceptance is claimed.
 Quest/story/content-gap acceptance remains open. Screenshot work is independent.

@@ -33,6 +33,10 @@ next action and the exact limits of each result.
 CURRENT WORK: quest data, missing story and map-load checks
 
 Latest verified work (23 Oct):
+  [V] Two clone names account for Chrome's extra executable links.
+      One-instance feature setting proposed; strict file checks stay required.
+  [V] Quest browser direction checked; Worker destruction must be witnessed.
+      Shared time limits and the runtime adapter still need binding.
   [!] Fresh Chrome test stops on child identity; scene observer never starts.
       Failed run kept. Known test processes/listeners gone; original games stay.
       Fix failure cleanup and explain executable link change before a new run.
