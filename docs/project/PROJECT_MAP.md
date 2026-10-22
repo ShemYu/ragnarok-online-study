@@ -98,8 +98,12 @@ CURRENT WORK: October assets and missing maps
  |    Reference: all 4,922 placements and 6,470 meshes accounted for.
  |    All raw matrix hashes and four expected static sizes match.
  |    Three maps have finite model meshes. Roots has NaN normals.
- |    Next: actual loading and normal trace, then four-map rendering.
- |    Full geometry, texture, GPU and frame checks remain open.
+ |    Actual mu trace: all 48 groups and 1,285 placements accounted for.
+ |    Full static packet and GPU hashes match. All 60 decoders pass.
+ |    Ship motion captured with fixed camera. Owned cleanup passes.
+ |    Earlier missing request did not recur. Its cause stays open.
+ |    Next: roots normal trace, then repair and four-map rendering.
+ |    Two other animated objects still need targeted visible checks.
  |
  +-- [V] Other 28 GPF patch tables: corrected tool verified.
  |        Root reference: all 5,742 raw records checked.
