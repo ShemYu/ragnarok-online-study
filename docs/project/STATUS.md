@@ -2,7 +2,14 @@
 
 Updated: 2026-10-23 JST. Coordinator: Codex. Active scope: **execute the documented strategy through the full milestone**.
 
-Latest verified result: [complete raw quest inventory and selected source integration qualify](reviews/2026-10-23-T10.002-execution.md#selected-source-integration-and-bounded-readiness-qualify).
+Latest verified result: [selected existing-text tool is integrated and reverified](reviews/2026-10-23-T10.004.md#selected-unchanged-integration-and-bounded-readiness-qualify).
+Grok20/20 versus Claude18/20; integrated42b7ce7 passes9own/18common/6extra
+checks and rejoins complete equal152-record actual outputs. T10.004 is
+ready_for_user within this pure-tool/fixed-data scope. Next Root: screenshot
+method support control and the separate owned quest-registration implementation.
+No full Chinese/live-game/story/parent acceptance follows.
+
+Previous verified inventory result: [complete raw quest inventory and selected source integration qualify](reviews/2026-10-23-T10.002-execution.md#selected-source-integration-and-bounded-readiness-qualify).
 Both actual three-file inventories match completely; newest _True has10023rows,
 including86ch1_ references. Claude20/20 selected versus Grok19/20; unchanged
 integration passes26authored tests and14common groups. T10.002 is ready_for_user

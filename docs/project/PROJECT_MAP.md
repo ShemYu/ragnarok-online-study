@@ -19,7 +19,7 @@ Fruit presentation     [OPEN: zero frames measured; controlled test next]
 Quest file inventory   [PASS: all 3 files checked]
 Server + file binding  [PASS: current owner and 21 file checks]
 Active quest records   [NEXT: observe an owned test client]
-Existing text recovery [PASS: fixed 152-record projection; integrate next]
+Existing text recovery [PASS: fixed 152-record tool integrated + checked]
 Missing story scripts  [OPEN: largest content risk]
 Full game test         [LATER: 82 functional resource gaps remain]
 
