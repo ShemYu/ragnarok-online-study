@@ -35,6 +35,9 @@ and separate live admission. No Chrome/native/scene trial is admitted yet.
 [The corrected-launcher scene binder source now qualifies](reviews/2026-10-22-T07.007.011.005.md#corrected-launcher-scene-binder-source-qualifies):
 13full pins/45header slots/inverses match. Current executable and fresh wave
 bindings still require preflight; old waves stay untouched.
+[The fresh wave3read-only preflight is bound and admitted](reviews/2026-10-22-T07.007.011.005.md#fresh-wave3read-only-preflight-bound-and-admitted).
+Root qualifies13full source/artifact pins and unchanged check mechanisms. Next
+run once and audit current full files/three original owners. No live scene yet.
 
 [T10.005 freezes the bounded quest-registration implementation contract](reviews/2026-10-23-T10.005.md#frozen-source-contract-and-root-preflight).
 Root qualifies nine full source inputs/26primary LF slices and resolves callback,

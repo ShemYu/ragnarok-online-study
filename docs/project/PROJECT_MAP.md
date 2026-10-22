@@ -33,6 +33,8 @@ next action and the exact limits of each result.
 CURRENT WORK: quest data, missing story and map-load checks
 
 Latest verified work (23 Oct):
+  [V] Fresh read-only scene preflight source checked; one run admitted.
+      Next: current full-file and original-game owner checks, then audit.
   [V] Quest controller source checked; deadline and session fixes reviewed.
       Next: targeted tests, shared caller and actual source/owner bindings.
   [V] Scene binder now uses the corrected launcher; all 45 header slots match.
