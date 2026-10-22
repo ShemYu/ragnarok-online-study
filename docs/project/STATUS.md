@@ -2,6 +2,14 @@
 
 Updated: 2026-10-23 JST. Coordinator: Codex. Active scope: **execute the documented strategy through the full milestone**.
 
+Latest source checkpoint: [nine composed quest-launcher boundary groups qualify;
+one pure call is admitted](reviews/2026-10-23-T10.005.md#nine-composed-boundary-groups-qualify-and-one-pure-call-is-admitted).
+Root46full pins/17fragments/full inverses/three envelope spans match; closed
+9groups/104variants and explicit successful-full/failed-prefix row adapter.
+Next bind this exact clean admission HEAD, run once and audit all results and
+closure. No live quest/browser trial is admitted. Isolated-browser research
+continues independently; installed-system Chrome trials remain stopped.
+
 Latest actual scene result: [W4 reaches READY then refuses a separate group;
 complete Root closure qualifies](reviews/2026-10-22-T07.007.011.005.md#wave4-reaches-ready-then-refuses-a-separate-group-and-full-closure-qualifies).
 Chrome caller1/original guardinvalid stays failed; no observer/frame/PNG. Reader
