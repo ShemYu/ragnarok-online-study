@@ -169,7 +169,8 @@ def hunk_record(bundle):
 
 
 def _identity(st):
-    return (st.st_dev, st.st_ino, st.st_size, st.st_mtime_ns, st.st_mode, st.st_nlink)
+    return (st.st_dev, st.st_ino, st.st_size, st.st_mtime_ns,
+            st.st_ctime_ns, st.st_mode, st.st_nlink)
 
 
 def read_source(path):
@@ -190,8 +191,10 @@ def read_source(path):
             if not chunk:
                 break
             chunks.append(chunk)
-        if _identity(os.fstat(fd)) != _identity(pre):
-            raise PatchError("%s changed while reading" % os.path.basename(path))
+        final_fd = _identity(os.fstat(fd))
+        final_path = _identity(os.lstat(path))
+        if final_fd != _identity(pre) or final_path != _identity(pre):
+            raise PatchError("%s FD or current pathname changed while reading" % os.path.basename(path))
     finally:
         os.close(fd)
     return b"".join(chunks), _identity(pre)
@@ -203,10 +206,50 @@ def write_exclusive(path, data):
         os.fchmod(fd, 0o600)
         view = memoryview(data)
         while view:
-            view = view[os.write(fd, view):]
+            try:
+                written = os.write(fd, view)
+            except InterruptedError:
+                continue
+            if written <= 0 or written > len(view):
+                raise PatchError("invalid output write progress")
+            view = view[written:]
         os.fsync(fd)
     finally:
         os.close(fd)
+
+
+def _unlink_owned(path, identity):
+    """Finite current-name ownership check; never delete a different inode."""
+    current = os.lstat(path)
+    if not stat.S_ISREG(current.st_mode) or (current.st_dev, current.st_ino) != identity[:2]:
+        raise PatchError("foreign publication entry retained: %s" % os.path.basename(path))
+    os.unlink(path)
+
+
+def _publish_manifest(partial, final, identity):
+    if _identity(os.lstat(partial)) != identity:
+        raise PatchError("staged manifest identity changed")
+    # Linking cannot replace an existing marker; a same-directory stage stays
+    # available until the final name has been created and its ownership checked.
+    os.link(partial, final, follow_symlinks=False)
+    try:
+        current = os.lstat(final)
+        if not stat.S_ISREG(current.st_mode) or (current.st_dev, current.st_ino) != identity[:2]:
+            raise PatchError("final manifest is not the staged inode")
+        _unlink_owned(partial, identity)
+        current = os.lstat(final)
+        if (not stat.S_ISREG(current.st_mode) or (current.st_dev, current.st_ino) != identity[:2]
+                or current.st_nlink != 1 or stat.S_IMODE(current.st_mode) != 0o600
+                or os.path.lexists(partial)):
+            raise PatchError("final manifest did not reach the single-link private state")
+    except Exception as original:
+        try:
+            _unlink_owned(final, identity)
+        except FileNotFoundError:
+            pass
+        except (PatchError, OSError) as cleanup:
+            raise PatchError("manifest failure (%s); owned revocation refused/failed: %s" % (original, cleanup)) from original
+        raise
 
 
 def build_manifest(results):
@@ -266,7 +309,18 @@ def run(input_root, output_dir):
         "sources": receipts,
     }
     body = (json.dumps(manifest, indent=2, sort_keys=True) + "\n").encode("ascii")
-    write_exclusive(os.path.join(output_dir, "manifest.json"), body)
+    partial = os.path.join(output_dir, "manifest.json.partial")
+    write_exclusive(partial, body)  # Flush/fsync/close must all finish first.
+    staged, staged_identity = read_source(partial)
+    if staged != body:
+        raise PatchError("staged manifest readback mismatch")
+    # This final full pass is after stage creation AND readback, not just after
+    # the two bundle writes. No source identity is inferred from stale receipts.
+    for bundle in ("worker", "online"):
+        again, ident = read_source(os.path.join(input_root, PINS[bundle]["name"]))
+        if ident != identities[bundle] or sha256(again) != PINS[bundle]["sha256"]:
+            raise PatchError("%s source changed after manifest staging" % bundle)
+    _publish_manifest(partial, os.path.join(output_dir, "manifest.json"), staged_identity)
     return manifest
 
 

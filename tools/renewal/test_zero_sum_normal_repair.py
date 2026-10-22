@@ -528,6 +528,274 @@ class CliTests(unittest.TestCase):
         self.assertFalse(os.path.lexists(out))
 
 
+# ROOT correction regressions below. Original sixteen test methods unchanged.
+import contextlib
+import errno
+import io
+from unittest import mock
+
+_ROOT_OS = {name: getattr(os, name) for name in
+            ("open", "write", "fsync", "close", "fstat", "lstat", "rename", "unlink")}
+
+
+def _root_create(path, data):
+    """Only owned fixture files; bypass producer hooks while creating controls."""
+    fd = _ROOT_OS["open"](path, os.O_WRONLY | os.O_CREAT | os.O_EXCL | os.O_NOFOLLOW, 0o600)
+    try:
+        view = memoryview(data)
+        while view:
+            count = _ROOT_OS["write"](fd, view)
+            if count <= 0 or count > len(view):
+                raise RuntimeError("fixture write did not progress")
+            view = view[count:]
+        _ROOT_OS["fsync"](fd)
+    finally:
+        _ROOT_OS["close"](fd)
+
+
+class _RootAssertions:
+    def assert_owned_fd_closed(self, fd, identity):
+        """Observe first, then free ONLY an exact owned leaked inode and fail."""
+        try:
+            current = _ROOT_OS["fstat"](fd)
+        except OSError as exc:
+            self.assertEqual(exc.errno, errno.EBADF)
+            return
+        if (current.st_dev, current.st_ino) == identity[:2]:
+            _ROOT_OS["close"](fd)
+        self.fail("producer FD remained open (or was reused); observation preceded any fixture cleanup")
+
+    def direct_main(self, root, output):
+        with contextlib.redirect_stdout(io.StringIO()), contextlib.redirect_stderr(io.StringIO()):
+            return zr.main(["--input-root", root, "--output-dir", output])
+
+
+class RootWriteTests(_RootAssertions, unittest.TestCase):
+    def test_zero_progress_refused_before_second_write(self):
+        path = os.path.join(private_dir(run_id()), "zero-progress.bin")
+        state = {"calls": 0}
+
+        def zero_then_sentinel(fd, data):
+            state["calls"] += 1
+            state["fd"], state["identity"] = fd, zr._identity(_ROOT_OS["fstat"](fd))
+            if state["calls"] == 1:
+                return 0
+            raise OSError(errno.EIO, "fixture sentinel after retry, preventing hang")
+
+        caught = None
+        try:
+            with mock.patch.object(zr.os, "write", new=zero_then_sentinel):
+                try:
+                    zr.write_exclusive(path, b"finite authored bytes")
+                except (zr.PatchError, OSError) as exc:
+                    caught = exc
+        finally:
+            if "fd" in state:
+                self.assert_owned_fd_closed(state["fd"], state["identity"])
+        self.assertEqual(state["calls"], 1)
+        self.assertIsInstance(caught, zr.PatchError)
+        self.assertEqual(read_bytes(path), b"")
+
+    def test_interrupted_and_real_short_write_complete(self):
+        path = os.path.join(private_dir(run_id()), "short-write.bin")
+        state = {"calls": 0, "positive": []}
+        data = b"literal partial write control"
+
+        def interrupt_then_short(fd, view):
+            state["calls"] += 1
+            state["fd"], state["identity"] = fd, zr._identity(_ROOT_OS["fstat"](fd))
+            if state["calls"] == 1:
+                raise InterruptedError(errno.EINTR, "authored interruption")
+            count = _ROOT_OS["write"](fd, view[:3] if state["calls"] == 2 else view)
+            state["positive"].append(count)
+            return count
+
+        try:
+            with mock.patch.object(zr.os, "write", new=interrupt_then_short):
+                zr.write_exclusive(path, data)
+        finally:
+            if "fd" in state:
+                self.assert_owned_fd_closed(state["fd"], state["identity"])
+        self.assertGreaterEqual(state["calls"], 3)
+        self.assertTrue(0 < state["positive"][0] <= 3)
+        self.assertEqual(sum(state["positive"]), len(data))
+        self.assertEqual(read_bytes(path), data)
+
+
+@unittest.skipUnless(INPUT_ROOT, SKIP_REASON)
+class RootDeliveryTests(_RootAssertions, unittest.TestCase):
+    @classmethod
+    def setUpClass(cls):
+        cls.work = private_dir(run_id())
+        cls.before = {bundle: zr.read_source(os.path.join(INPUT_ROOT, zr.PINS[bundle]["name"]))
+                      for bundle in ("worker", "online")}
+
+    @classmethod
+    def tearDownClass(cls):
+        for bundle in ("worker", "online"):
+            current = zr.read_source(os.path.join(INPUT_ROOT, zr.PINS[bundle]["name"]))
+            if current[1] != cls.before[bundle][1] or sha(current[0]) != zr.PINS[bundle]["sha256"]:
+                raise AssertionError("canonical source changed")
+
+    def input_copy(self, label):
+        case = private_dir(os.path.basename(self.work), label)
+        root = os.path.join(case, "input")
+        os.mkdir(root, 0o700)
+        for bundle in ("worker", "online"):
+            _root_create(os.path.join(root, zr.PINS[bundle]["name"]), self.before[bundle][0])
+        return case, root, os.path.join(case, "output")
+
+    def test_staged_manifest_fsync_and_real_close_errors(self):
+        for fault in ("fsync", "close"):
+            with self.subTest(fault=fault):
+                _, root, output = self.input_copy("manifest-" + fault)
+                partial = os.path.join(output, "manifest.json.partial")
+                final = os.path.join(output, "manifest.json")
+                state = {"hits": 0}
+
+                def opened(path, flags, *args, **kwargs):
+                    fd = _ROOT_OS["open"](path, flags, *args, **kwargs)
+                    if os.fspath(path) in (partial, final) and flags & os.O_ACCMODE == os.O_WRONLY:
+                        state.update(fd=fd, identity=zr._identity(_ROOT_OS["fstat"](fd)), path=os.fspath(path))
+                    return fd
+
+                def complete_bytes():
+                    body = read_bytes(state["path"])
+                    self.assertEqual(json.loads(body)["schema"], "T07.007.011.002-normal-repair-manifest-1")
+                    self.assertEqual(len(body), _ROOT_OS["fstat"](state["fd"]).st_size)
+                    state["bytes"] = len(body)
+
+                def fsynced(fd):
+                    _ROOT_OS["fsync"](fd)
+                    if fault == "fsync" and fd == state.get("fd"):
+                        complete_bytes()
+                        state["hits"] += 1
+                        raise OSError(errno.EIO, "authored error after real manifest fsync")
+
+                def closed(fd):
+                    fail = fault == "close" and fd == state.get("fd") and state["hits"] == 0
+                    if fail:
+                        complete_bytes()
+                    _ROOT_OS["close"](fd)
+                    if fail:
+                        state["hits"] += 1
+                        self.assert_owned_fd_closed(fd, state["identity"])
+                        raise OSError(errno.EIO, "authored error after real manifest close")
+
+                try:
+                    with mock.patch.object(zr.os, "open", new=opened), mock.patch.object(zr.os, "fsync", new=fsynced), mock.patch.object(zr.os, "close", new=closed):
+                        code = self.direct_main(root, output)
+                finally:
+                    if "fd" in state:
+                        self.assert_owned_fd_closed(state["fd"], state["identity"])
+                self.assertEqual(state["hits"], 1)
+                self.assertGreater(state["bytes"], 0)
+                self.assertEqual(code, 1)
+                self.assertEqual(state["path"], partial)
+                self.assertTrue(os.path.isfile(partial))
+                self.assertFalse(os.path.lexists(final))
+
+    def test_final_second_and_third_source_eof_path_replacement(self):
+        real_read = os.read
+        for ordinal in (2, 3):
+            with self.subTest(source_open=ordinal):
+                case, root, output = self.input_copy("source-eof-%d" % ordinal)
+                target, stash = os.path.join(root, "Online.js"), os.path.join(case, "Online-original-stash.js")
+                opened_fds, state = {}, {"opens": 0, "hits": 0}
+
+                def opened(path, flags, *args, **kwargs):
+                    fd = _ROOT_OS["open"](path, flags, *args, **kwargs)
+                    if os.fspath(path) == target and flags & os.O_ACCMODE == os.O_RDONLY:
+                        state["opens"] += 1
+                        opened_fds[fd] = state["opens"]
+                    else:
+                        opened_fds[fd] = None
+                    return fd
+
+                def at_eof(fd, count):
+                    data = real_read(fd, count)
+                    if not data and opened_fds.get(fd) == ordinal and state["hits"] == 0:
+                        old = zr._identity(_ROOT_OS["fstat"](fd))
+                        _ROOT_OS["rename"](target, stash)
+                        _root_create(target, self.before["online"][0])
+                        replacement = zr._identity(_ROOT_OS["lstat"](target))
+                        self.assertNotEqual(old[:2], replacement[:2])
+                        self.assertEqual(sha(read_bytes(target)), zr.PINS["online"]["sha256"])
+                        state.update(hits=1, fd=fd, identity=old, replacement=replacement)
+                        state["staged_at_fault"] = os.path.isfile(os.path.join(output, "manifest.json.partial"))
+                    return data
+
+                try:
+                    with mock.patch.object(zr.os, "open", new=opened), mock.patch.object(zr.os, "read", new=at_eof):
+                        code = self.direct_main(root, output)
+                finally:
+                    if "fd" in state:
+                        self.assert_owned_fd_closed(state["fd"], state["identity"])
+                self.assertEqual(state["hits"], 1)
+                self.assertEqual(code, 1)
+                self.assertEqual(state["staged_at_fault"], ordinal == 3)
+                self.assertEqual(zr._identity(_ROOT_OS["lstat"](target)), state["replacement"])
+                self.assertEqual(sha(read_bytes(target)), sha(read_bytes(stash)))
+                self.assertFalse(os.path.lexists(os.path.join(output, "manifest.json")))
+
+    def test_inserted_manifest_marker_preserved(self):
+        _, root, output = self.input_copy("inserted-marker")
+        final = os.path.join(output, "manifest.json")
+        marker = b"ROOT owned preexisting marker; must survive unchanged\n"
+        state = {"hits": 0}
+
+        def opened(path, flags, *args, **kwargs):
+            if os.fspath(path) in (final, final + ".partial") and flags & os.O_ACCMODE == os.O_WRONLY and state["hits"] == 0:
+                _root_create(final, marker)
+                state.update(hits=1, identity=zr._identity(_ROOT_OS["lstat"](final)))
+            return _ROOT_OS["open"](path, flags, *args, **kwargs)
+
+        with mock.patch.object(zr.os, "open", new=opened):
+            code = self.direct_main(root, output)
+        self.assertEqual(state["hits"], 1)
+        self.assertEqual(code, 1)
+        self.assertEqual(zr._identity(_ROOT_OS["lstat"](final)), state["identity"])
+        self.assertEqual(read_bytes(final), marker)
+
+    def test_partial_unlink_failure_revokes_only_owned_final(self):
+        for foreign in (False, True):
+            with self.subTest(foreign_final=foreign):
+                case, root, output = self.input_copy("unlink-foreign-%s" % foreign)
+                partial, final = os.path.join(output, "manifest.json.partial"), os.path.join(output, "manifest.json")
+                state = {"hits": 0, "real_final_unlinks": 0}
+                sentinel = b"ROOT different-inode marker: never delete\n"
+
+                def unlinked(path, *args, **kwargs):
+                    if os.fspath(path) == partial and state["hits"] == 0:
+                        own = zr._identity(_ROOT_OS["lstat"](partial))
+                        self.assertEqual(own[:2], zr._identity(_ROOT_OS["lstat"](final))[:2])
+                        self.assertEqual(own[-1], 2)
+                        state.update(hits=1, owned=own)
+                        if foreign:
+                            _ROOT_OS["rename"](final, os.path.join(case, "owned-final-stash.json"))
+                            _root_create(final, sentinel)
+                            state["foreign_identity"] = zr._identity(_ROOT_OS["lstat"](final))
+                            self.assertNotEqual(state["foreign_identity"][:2], own[:2])
+                        raise OSError(errno.EIO, "authored partial unlink failure before release")
+                    if os.fspath(path) == final:
+                        state["real_final_unlinks"] += 1
+                    return _ROOT_OS["unlink"](path, *args, **kwargs)
+
+                with mock.patch.object(zr.os, "unlink", new=unlinked):
+                    code = self.direct_main(root, output)
+                self.assertEqual(state["hits"], 1)
+                self.assertEqual(code, 1)
+                self.assertEqual(zr._identity(_ROOT_OS["lstat"](partial))[:2], state["owned"][:2])
+                self.assertEqual(json.loads(read_bytes(partial))["patch_id"], zr.PATCH_ID)
+                if foreign:
+                    self.assertEqual(state["real_final_unlinks"], 0)
+                    self.assertEqual(zr._identity(_ROOT_OS["lstat"](final)), state["foreign_identity"])
+                    self.assertEqual(read_bytes(final), sentinel)
+                else:
+                    self.assertEqual(state["real_final_unlinks"], 1)
+                    self.assertFalse(os.path.lexists(final))
+
+
 if __name__ == "__main__":
     if not INPUT_ROOT:
         print(SKIP_REASON, file=sys.stderr)
