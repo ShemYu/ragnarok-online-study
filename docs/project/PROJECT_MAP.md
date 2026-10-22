@@ -32,7 +32,9 @@ Latest verified work (22 Oct):
   [V] Independent Chapter 1 reference: all 182,666 map-file bytes checked.
   [V] Both real decoders and public verifiers match the complete reference.
   [V] Selected Claude integrated; 76 tests and 30 common groups pass.
-      One optional real-input skip; actual integrated routes are next.
+      One optional real-input skip in the synthetic suite.
+  [V] Actual integrated new + old routes: all 13 complete files match.
+  [~] Freeze embedded terrain names, then inspect their dependencies.
   [~] Real Chapter 1 body/dependencies and normal play remain.
   [~] Fruit scene: full render still fails one model fetch.
   Parent checkpoints: 4 / 14 = about 29%. Full game remains open.
