@@ -94,7 +94,9 @@ Root checks20full pins/11exact spans/inverses.
 [The first call fails all24at a shared fixture brace; one corrected replay is
 admitted](reviews/2026-10-23-T10.005.md#first24case-call-exposes-fixture-brace-error-and-corrected-replay-is-admitted).
 Complete failed-run/source/closure audit passes; only one fixture brace changes.
-Next execute/audit the corrected call. Target controller is unchanged.
+[All24corrected checks and the complete Root audit now pass](reviews/2026-10-23-T10.005.md#corrected24quest-controls-and-complete-root-audit-pass):
+caller/actor0, original guardvalid,45full pins, complete streams and positive
+retirement. Original0/24failure remains preserved; target controller is unchanged.
 Shared whole-attempt caller and actual bindings
 remain unimplemented; no actual timing or installed compatibility is proved.
 All actual-loader bindings remain NULL.
