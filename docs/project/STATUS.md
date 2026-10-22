@@ -127,8 +127,10 @@ Current independent lanes:
   replay are admitted](reviews/2026-10-22-T07.007.013.002.md#minimal-primary-error-correction-and-regression-replay-admitted):
   [The raw one-test negative now exposes the exact defect](reviews/2026-10-22-T07.007.013.002.md#raw-negative-exposes-the-exact-original-object-defect),
   retaining source/traceback and caller rejection;32postpins/retirement pass,
-  guard remains invalid(exit1). Next corrected51methods in ten fresh waves.
-  Shared/focused/caller gates remain.
+  guard remains invalid(exit1). [Corrected51methods and a separate direct
+  import now pass](reviews/2026-10-22-T07.007.013.002.md#corrected-own-suite-regression-and-isolated-close-cases-pass),
+  with eleven valid guards/all source and retirement checks. Next corrected
+  shared/focused checks and remaining fixed caller gates before integration.
   No raw selection or actual-body/game readiness.
   [The unmodified public pure entry and writer now
   match the actual-body oracle](reviews/2026-10-22-T07.007.013.001.md#unmodified-public-entry-and-writer-match-the-actual-body-oracle):
