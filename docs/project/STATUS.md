@@ -142,8 +142,10 @@ Current independent lanes:
   retaining source/traceback and caller rejection;32postpins/retirement pass,
   guard remains invalid(exit1). [Corrected51methods and a separate direct
   import now pass](reviews/2026-10-22-T07.007.013.002.md#corrected-own-suite-regression-and-isolated-close-cases-pass),
-  with eleven valid guards/all source and retirement checks. Next corrected
-  shared/focused checks and remaining fixed caller gates before integration.
+  with eleven valid guards/all source and retirement checks. [Fresh corrected
+  common/focused controls are admitted](reviews/2026-10-22-T07.007.013.002.md#corrected-common-and-focused-controls-admitted):
+  ten common cases/two focused children; first baseline/source-close must pass
+  before independent remaining cases. Fixed caller gates remain before output use.
   No raw selection or actual-body/game readiness.
   [The unmodified public pure entry and writer now
   match the actual-body oracle](reviews/2026-10-22-T07.007.013.001.md#unmodified-public-entry-and-writer-match-the-actual-body-oracle):
