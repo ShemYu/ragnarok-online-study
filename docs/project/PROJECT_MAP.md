@@ -110,9 +110,13 @@ CURRENT WORK: October assets and missing maps
  |    All four loaded. Three static results are finite; roots fails.
  |    Repair plans compared: Grok 17/20; Claude 14/20. Both released.
  |    Exact-zero guard selected with root corrections.
- |    Next: compare isolated implementations, then verify real output.
+ |    Both implementations compared. Raw delivery faults corrected.
+ |    Root: 22 tests and fresh full artifact audit pass.
+ |    Next: run repaired renderer and check complete packet/GPU output.
  |    Roots geometry is not accepted until the repair passes.
  |    Two other animated objects still need targeted visible checks.
+ |    In parallel: private compiler verified; Claude/Grok implement
+ |    the ordered archive selector on separate rollback branches.
  |
  +-- [V] Other 28 GPF patch tables: corrected tool verified.
  |        Root reference: all 5,742 raw records checked.
