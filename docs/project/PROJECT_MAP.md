@@ -79,7 +79,8 @@ Latest verified work (22 Oct):
       The cause of the game's failed fetch is still unknown.
   [V] File writer fix: 51 tests, 10 shared and 2 focused checks pass.
   [V] Caller accepts the normal test; all 15 failure checks reject correctly.
-  [~] Integrate the corrected source, then check the real output.
+  [V] Corrected writer source is integrated with separate rollback commits.
+  [~] Check its real game-data output and independent parent acceptance.
   Parent checkpoints: 4 / 14 = about 29%. Full game remains open.
   Four old agent sessions and 18 unused child shells are closed.
   Their branches, files and evidence stay saved for rollback.

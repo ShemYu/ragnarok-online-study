@@ -171,9 +171,11 @@ Current independent lanes:
   [Actual three stand-ins and all15 refusal controls now qualify](reviews/2026-10-22-T07.007.013.002.md#actual-fixed-caller-failure-controls-qualify):
   normal accepted; exit17/deadline/malformed/unknown retirement rejected;
   full source/stream/sentinel/retirement/resource audits pass. Intentionally
-  invalid guards stay invalid. Next selected corrected source integration,
-  then separately admitted genuine real-body output/parent acceptance.
-  No raw selection or actual-body/game readiness.
+  invalid guards stay invalid. [Selected corrected source is now integrated](reviews/2026-10-22-T07.007.013.002.md#selected-corrected-writer-source-integrated):
+  raw441c870 then correction2f9d2dc; canonical source/tests exactly match the
+  previously qualified bytes. Next separately admitted genuine real-body
+  output and complete independent parent acceptance.
+  Actual-body/game readiness remains open.
   [The unmodified public pure entry and writer now
   match the actual-body oracle](reviews/2026-10-22-T07.007.013.001.md#unmodified-public-entry-and-writer-match-the-actual-body-oracle):
   exactly two bytes differ, full inverse/all heights/strict receipts pass.
