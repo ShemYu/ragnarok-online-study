@@ -34,8 +34,9 @@ Latest verified work (22 Oct):
   [V] Selected Claude integrated; 76 tests and 30 common groups pass.
       One optional real-input skip in the synthetic suite.
   [V] Actual integrated new + old routes: all 13 complete files match.
-  [~] Freeze embedded terrain names, then inspect their dependencies.
-  [~] Real Chapter 1 body/dependencies and normal play remain.
+  [V] Chapter 1 header: terrain names are gef_dun03.gnd / gef_dun03.gat.
+      Decoder/header child ready. Catalog/body/loading checks are next.
+  [~] Chapter 1 terrain dependencies and normal play remain.
   [~] Fruit scene: full render still fails one model fetch.
   Parent checkpoints: 4 / 14 = about 29%. Full game remains open.
 
