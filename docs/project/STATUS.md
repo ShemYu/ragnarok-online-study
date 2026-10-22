@@ -15,7 +15,9 @@ at map-entry lazyInit; current-session records remain unknown. Next exact
 read-only producer/config binding before an owned registration diagnostic.
 [Root qualifies all34G0 input pins plus two outputs and admits the bounded
 generated-config/producer source inspection](reviews/2026-10-23-T10.003.md#bounded-producer-and-generated-config-source-inspection-admitted).
-No fresh config read, live selection or network action is claimed at admission.
+[Complete source inspection now qualifies](reviews/2026-10-23-T10.003.md#complete-bounded-source-inspection-qualifies):
+generated loadLua=true/configured server langtype4; all four full pins unchanged.
+This is file-level configuration; live selected records remain unknown.
 [The corrected current-decoder authored qualification now passes](reviews/2026-10-23-T10.004-decoder.md#corrected-authored-qualification-and-complete-root-audit-pass):
 six groups/21cases, full exact Root vector/adapter/source/retirement audit. First
 publication failure remains preserved. Next small paired existing-text projection;
@@ -25,6 +27,9 @@ no acquired quest text, bridge/game execution or settings changes occurred.
 641text values/26KiB; no decode or translation yet. [Actual equal implementation
 pair is dispatched from e16b7be](reviews/2026-10-23-T10.004.md#actual-independent-implementation-pair-dispatched).
 Root prepares shared controls while producer/config and fruit work continue.
+[Claude's original candidate is preserved/released](reviews/2026-10-23-T10.004.md#claude-submission-preserved-and-settled-terminal-released).
+[Root replays8authored passes but six extra refusal cases fail](reviews/2026-10-23-T10.004.md#root-authored-replay-passes-but-extra-refusal-checks-fail).
+No candidate selected or actual text decoded; Grok and shared controls continue.
 Reuse Chinese resources; functionality/story evidence first. No verified
 server Chapter1 story implementation, resource-winner or Chinese projection yet.
 
