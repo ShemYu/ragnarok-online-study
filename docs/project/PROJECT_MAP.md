@@ -88,9 +88,10 @@ CURRENT WORK: October assets and missing maps
 [~] Four-map rendering: actual served client files now pinned.
  |    Six Web files and generated config match the live reader.
  |    Narrow viewer bootstrap proposed; no game login needed.
- |    Claude plan received and worker released. Grok plan is still live.
- |    Root checks all 32 inputs and observer details. No viewer run yet.
- |    Next: verify both plans, then root runs the silent viewer.
+ |    Both plans compared: Claude 15/20; Grok 14/20. Both released.
+ |    Root corrects boot and observer details. All 32 inputs pass again.
+ |    Next: commit the procedure, then root runs the silent pilot.
+ |    Full geometry, texture, GPU and frame checks remain open.
  |
  +-- [V] Other 28 GPF patch tables: corrected tool verified.
  |        Root reference: all 5,742 raw records checked.
