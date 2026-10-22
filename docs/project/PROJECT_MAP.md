@@ -46,7 +46,8 @@ Latest verified work (22 Oct):
   [V] Normal two-body preflight: current owner/config match.
       Automatic extraction retained; both loose/override targets absent.
   [V] Two-response observer reviewed; wire/storage accounting corrected.
-  [~] Two-request execution admitted; complete-byte audit follows.
+  [V] Both normal terrain responses pass all 4,073,068 bytes and hashes.
+  [V] Exact extracted copies, 25 protected inputs and live reader pass.
   [~] Chapter 1 terrain dependencies and normal play remain.
   [~] Fruit scene: full render still fails one model fetch.
       Plans compared: Claude 17/20 vs Grok 16/20. Diagnostic gates next.
