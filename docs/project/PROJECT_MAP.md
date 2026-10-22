@@ -11,6 +11,24 @@ Use this map for a short view of [Status](STATUS.md), [Tasks](TASKS.md) and
 Update this map after each important change. Keep the dated evidence.
 
 ```text
+NOW: 4 / 14 parent checks complete (about 29%)
+
+Basic play + save       [PASS for the checked normal route]
+Map loading            [Chapter 1 test passes; fruit test is open]
+Quest file inventory   [PASS: all 3 files checked]
+Server + file binding  [PASS: current owner and 21 file checks]
+Active quest records   [NEXT: observe an owned test client]
+Existing text recovery [IN WORK: Claude checked; Grok is working]
+Missing story scripts  [OPEN: largest content risk]
+Full game test         [LATER: 82 functional resource gaps remain]
+
+No decision is needed from you now. The full-game goal is unchanged.
+```
+
+The sections below keep the dated history. [Status](STATUS.md) gives the live
+next action and the exact limits of each result.
+
+```text
 CURRENT WORK: quest data, missing story and map-load checks
 
 Latest verified work (23 Oct):
@@ -88,12 +106,19 @@ Latest verified work (23 Oct):
   [V] Quest-load plans checked: Claude 18/20, Grok 16/20.
       Both worker terminals closed; reports and branches retained.
       Quest tables load on map entry. Current selected records stay unknown.
-      Next: read-only source/config binding, then an owned observation.
+      Current owner/config/source check now passes: all 21 pins match.
+      Next: observe actual registrations in an owned test client.
   [V] Current text decoder: all 6 groups / 21 authored cases pass.
       Full Root audit checks characters, raw bytes, markup and source hashes.
       First result-file check failed; correction and both records are saved.
       No game quest text decoded yet. Reuse existing Chinese before translation.
-      Official guide panels checked in parallel: side/daily tasks found.
+  [~] Existing text projection: 152 records, 641 byte values, 26 KiB.
+      Claude source is saved and its worker terminal is closed.
+      Root: 8 authored groups and 18 shared groups pass.
+      Six extra input/error checks fail; candidate is held for repair.
+      Grok is still working. Compare the same checks before selection.
+      No actual quest text, integration or story pass yet.
+  [V] Official guide panels checked in parallel: side/daily tasks found.
       Three later cards use another map; next search must include it.
       Full main-story flow and Chinese decoding remain open.
       Installed scripts: 1185 NPC files and 94 config files checked.
@@ -126,7 +151,8 @@ Latest verified work (23 Oct):
   [V] Report test: full reply succeeds; short reply correctly fails.
       Exact failure occurs during body reading, before the 15-second timer.
       Both pages, actors and listeners close. Original game view restored.
-      Next: review the small scene-frame/report adapter before one fruit test.
+      Root reviews both full adapter files; all 27 source pins match.
+      Next: bind one fresh fruit test and record real frame progress.
       No new fruit test or cause claim yet.
   [V] File writer fix: 51 tests, 10 shared and 2 focused checks pass.
   [V] Caller accepts the normal test; all 15 failure checks reject correctly.
