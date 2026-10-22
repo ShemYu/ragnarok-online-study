@@ -9,8 +9,8 @@ integration passes26authored tests and14common groups. T10.002 is ready_for_user
 within this raw-data scope; both settled terminals are released.
 **Next:** [source preparations and passive window metadata qualify; the normal
 bundle has no diagnostic exports](reviews/2026-10-23-T10.003.md).
-[T10.003 freezes equal plan-only C/G tasks](tasks/T10.003.md) for the smallest
-effective quest-record observation. Commit/launch this independent pair while
+[T10.003 actual equal plan-only C/G pair is running](reviews/2026-10-23-T10.003.md#actual-independent-plan-pair-launched)
+for the smallest effective quest-record observation, on separate cf26a36 branches.
 Root qualifies current existing-text decoding and fruit report-terminal controls.
 Reuse Chinese resources; functionality/story evidence first. No verified
 server Chapter1 story implementation, resource-winner or Chinese projection yet.
