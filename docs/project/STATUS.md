@@ -2,7 +2,14 @@
 
 Updated: 2026-10-22 JST. Coordinator: Codex. Active scope: **execute the documented strategy through the full milestone**.
 
-Latest verified result: [genuine canonical offline writer and complete caller acceptance pass](reviews/2026-10-22-T07.007.013.002.md#genuine-canonical-body-and-complete-caller-acceptance-qualify).
+Latest verified result: [Chapter1 actual normal loading and complete scoped rendering audit qualify](reviews/2026-10-22-T07.007.014.005.md#corrected-actual-normal-loading-and-complete-scoped-audit-qualify).
+All74native bodies,27model groups/370placements,38used texture paths and43decoders
+pass; two actual frames advance500ms/30draw cycles. Root personally inspects the
+textured scene. Full preservation and owned-page/process cleanup pass. .005 is
+ready_for_user for this screenshot-observed diagnostic only. Ordinary Chapter1
+entry/story/save and all82functional resource gaps remain open.
+
+Previous verified result: [genuine canonical offline writer and complete caller acceptance pass](reviews/2026-10-22-T07.007.013.002.md#genuine-canonical-body-and-complete-caller-acceptance-qualify).
 Exactly two bytes/full inverse/all heights/receipt/15 records/source preservation
 and observed retirement pass; bounded .002 is ready_for_user. No game/save/cache
 mutation occurred. Normal loader and story work remain independent.
@@ -22,7 +29,8 @@ parent checkpoints, not content, effort or playable-world coverage. Full Modern 
 Renewal maps, monsters, story, persistence and eventual Traditional Chinese
 remain the goal. Functionality comes first; party-only work stays later.
 
-[Chapter1 normal loading verification](tasks/T07.007.014.005.md) remains active.
+[Chapter1 normal loading verification](tasks/T07.007.014.005.md) is ready_for_user
+within its diagnostic scope; actual ordinary story/play remains.
 [Actual reader preflight qualifies](reviews/2026-10-22-T07.007.014.005.md#actual-read-only-preflight-independently-qualifies):
 one STATUS, full config reconstruction/17pins/five archives and retirement pass.
 [First actual normal observation fails and is fully audited/retired](reviews/2026-10-22-T07.007.014.005.md#first-normal-observation-fails-on-an-unsupported-browser-icon-request):
@@ -34,16 +42,22 @@ host preserves70trace rows/publication failure. Original pages/worlds remain.
 five cases/six HTTP requests, original failure reproduced, corrected route
 continues and unknown/capped/sealed routes refuse. Full FD/socket/thread
 restoration passes with no exemptions; no upstream/game requests. Earlier
-failed fixtures stay preserved. Next fresh normal-reader binding and separate
-loading admission; actual complete terrain/model/render/story/save evidence
-remains open. No automatic map retry or resource-gap/parent acceptance.
+failed fixtures stay preserved. This qualifies the narrow correction used by
+the separately admitted root2 observation below; no resource-gap/parent
+acceptance follows from the fixture itself.
 [Fresh root2 read-only preflight is admitted](reviews/2026-10-22-T07.007.014.005.md#fresh-normal-reader-preflight-admission-after-the-favicon-correction).
 [Actual root2 preflight and independent audit qualify](reviews/2026-10-22-T07.007.014.005.md#fresh-root2-preflight-independently-qualifies):
 caller/auditor exit0,17full pins/five archives/current ownership/retirement pass.
 [Fresh corrected normal loading attempt is admitted](reviews/2026-10-22-T07.007.014.005.md#fresh-corrected-normal-loading-observation-admitted).
-Run the fixed root2 caller once at its exact committed HEAD, capture bounded
-owned-page screenshot/frame evidence, then independently audit all outcome/
-effects/retirement. No render/story/save/gap pass yet.
+[The one actual root2 attempt and Root's complete audits now pass](reviews/2026-10-22-T07.007.014.005.md#corrected-actual-normal-loading-and-complete-scoped-audit-qualify).
+Caller and both supplemental auditors exit0; full transport/effects/ownership/
+retirement and visible rendering qualify. The first screenshot occurs at34.568s,
+later than planned; actual RAF progression is correlated with that observation.
+No background-scheduling or compiler-formula oracle is claimed. Earlier failures
+stay preserved. Next Root freezes the minimal client quest/text inventory for
+T10.002, reusing three extracted chunks/retained Taiwan guide evidence, and
+defines authentic ordinary Chapter1 entry/prerequisite/story gates. No user
+decision is needed; story implementation remains the main content/schedule risk.
 
 **Worker cleanup:** under the user's renewed cleanup instruction,
 [Root closes the four obsolete retained sessions](reviews/2026-10-22-worker-cleanup.md)

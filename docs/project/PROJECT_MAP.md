@@ -65,7 +65,14 @@ Latest verified work (22 Oct):
   [V] Small icon-route fix passes all five isolated checks.
       Unknown, over-limit and late requests still stop correctly.
       Test sockets/threads/files close. No game request is sent.
-      Next: fresh reader check and a separately admitted map check.
+  [V] Fresh reader check and corrected map loading now pass.
+      All 74 responses, 27 model groups and 370 placements checked.
+      All 38 used texture files and 43 decoder callbacks pass.
+      Two saved frames advance; Root sees textured terrain and models.
+      Report reply consumed; test page/processes close; saves preserved.
+      First image is later than planned; background progress is unproved.
+      This is a map-loading check. Normal entry, story and save remain.
+      Next: client quest/text inventory and normal Chapter 1 entry flow.
       Installed scripts: 1185 NPC files and 94 config files checked.
       17 configs select 841 sources; mounts match. No Chapter 1 references.
   [V] Story feasibility pair checked: Claude 17/20, Grok 13/20.
