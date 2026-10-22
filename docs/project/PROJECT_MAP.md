@@ -33,6 +33,11 @@ next action and the exact limits of each result.
 CURRENT WORK: quest data, missing story and map-load checks
 
 Latest verified work (23 Oct):
+  [V] CfT default build excludes the inspected updater path.
+      Selected browser package still needs qualification.
+      Inert download source checked; fixed caller/admission next.
+  [V] First story handoff has a source-defined ordinary portal candidate.
+      Actual route/table/packet binding and full service filtering stay open.
   [V] Test-browser metadata and pinned source checked.
       ZIP proposal:186MiB. Updater exclusion is still UNKNOWN.
       Data-only acquisition preparation next; no browser launch.

@@ -2,6 +2,15 @@
 
 Updated: 2026-10-23 JST. Coordinator: Codex. Active scope: **execute the documented strategy through the full milestone**.
 
+Latest source checkpoint: [CfT default updater exclusion and inert acquisition
+utility qualify](reviews/2026-10-22-T07.007.011.005.md#cft-default-updater-exclusion-and-inert-acquisition-source-qualify).
+Root27full pins/22spans establish the conditional source-default exclusion;
+selected binary/build association stays UNKNOWN. Acquisition actor11pins/full
+inverse match; no request yet. Next fixed original-guard caller review and
+separate one-shot data admission; no browser execution.
+[Conditional portal-only first-handoff contract also qualifies](reviews/2026-10-23-T07.006.001.md#conditional-ordinary-portal-handoff-contract-qualifies-as-source),
+27pins/33spans; actual route/table/wire bindings and full selector101 remain open.
+
 Latest source finding: [isolated browser metadata and bounded updater research
 qualify](reviews/2026-10-22-T07.007.011.005.md#isolated-browser-metadata-and-bounded-updater-source-research-qualify).
 Root38full pins/four Git blobs/14spans match. Exact CfT156MacARM64 candidate is
