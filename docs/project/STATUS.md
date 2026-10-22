@@ -52,13 +52,15 @@ complete Root audit pass](reviews/2026-10-22-T07.007.011.005.md#all40lifecycle-c
 positive retirement checks. Next concrete one-scene binding preparation;
 [Root qualifies the fixed scene binder source](reviews/2026-10-22-T07.007.011.005.md#one-scene-binder-source-qualifies-image-gap-remains):
 14inputs/8artifacts,45header slots and three exact file differences match.
-The frozen observer has no PNG capture before automatic close. Root keeps the
-image acceptance requirement and prepares one bounded capture on that same
-connection. The PNG derivative, fresh live bindings and distinct real-scene
-admission remain; the old observer is not a complete image test.
+The original observer has no PNG capture before automatic close.
+[Root now qualifies the separate PNG source and exact template substitution](reviews/2026-10-22-T07.007.011.005.md#sole-connection-png-source-and-template-substitution-qualify):
+one capture on the same connection, unchanged cleanup/caps,7input/3artifact
+pins;12input/5artifact descriptor changes and45header slots match.
+Next fresh reader/world/resource/bundle preflight, exact live bindings and
+distinct real-scene admission. Full PNG decode/pixel and scene audits remain.
 No more passive/empty-page retries;
-quest implementation/controls continue independently. No new runtime, goal
-change or user decision is required.
+quest runtime preparation continues independently. No actual scene or loader
+runs in this source checkpoint; no goal change or user decision is required.
 
 Latest completed tool: [selected existing-text tool is integrated and reverified](reviews/2026-10-23-T10.004.md#selected-unchanged-integration-and-bounded-readiness-qualify).
 Grok20/20 versus Claude18/20; integrated42b7ce7 passes9own/18common/6extra
