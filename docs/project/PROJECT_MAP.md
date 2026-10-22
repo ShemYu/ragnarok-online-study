@@ -33,6 +33,9 @@ next action and the exact limits of each result.
 CURRENT WORK: quest data, missing story and map-load checks
 
 Latest verified work (23 Oct):
+  [V] Test-browser metadata and pinned source checked.
+      ZIP proposal:186MiB. Updater exclusion is still UNKNOWN.
+      Data-only acquisition preparation next; no browser launch.
   [V] Quest launcher tests: all 9 groups / 104 variants pass.
       Full Root audit passes:54file pins and positive test-process closure.
       Test-browser qualification and real quest-loader trial remain open.

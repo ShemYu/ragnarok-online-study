@@ -2,6 +2,13 @@
 
 Updated: 2026-10-23 JST. Coordinator: Codex. Active scope: **execute the documented strategy through the full milestone**.
 
+Latest source finding: [isolated browser metadata and bounded updater research
+qualify](reviews/2026-10-22-T07.007.011.005.md#isolated-browser-metadata-and-bounded-updater-source-research-qualify).
+Root38full pins/four Git blobs/14spans match. Exact CfT156MacARM64 candidate is
+194932023bytes; no binary acquired. Updater startup exclusion and source/build
+association remain UNKNOWN. Next review one inert acquisition utility and
+commit its separate admission. No browser launch or systemChrome retry.
+
 Latest verification: [all nine composed quest-launcher groups and104variants
 pass; complete Root audit qualifies](reviews/2026-10-23-T10.005.md#all-nine-composed-groups-and-complete-root-audit-pass).
 One caller0/original guardvalid;54current full pins, complete result/streams and
