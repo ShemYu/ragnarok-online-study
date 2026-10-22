@@ -2,7 +2,13 @@
 
 Updated: 2026-10-23 JST. Coordinator: Codex. Active scope: **execute the documented strategy through the full milestone**.
 
-Latest verification: [all eight recorded-return controls and complete Root audit
+Latest verification: [fresh W4 preflight and independent full audit pass](reviews/2026-10-22-T07.007.011.005.md#fresh-wave4-preflight-and-complete-independent-inventory-audit-pass).
+One read-only call0;114inventory paths/127current full pins/three original owners
+match. Historical Markdown provenance correction is isolated and recorded; no
+preflight replay. Next fresh reader/static-plan/binder preparation; no live wave
+admitted. Shared quest launcher composition is under independent Astra review.
+
+Previous verification: [all eight recorded-return controls and complete Root audit
 pass](reviews/2026-10-23-T10.005.md#all-eight-recorded-return-controls-and-complete-root-audit-pass):
 caller0/original guardvalid, eight outcomes/28full pins/complete streams and
 positive closure match. [Fresh W4 preflight source now qualifies; one read-only
@@ -918,3 +924,8 @@ complete174LF/fivespans/ninepins; no type filtering of supplied same-map warps
 and no service validation of reused paths. Numeric categories remain unresolved;
 six guessed same-pin source paths return404, not a feature-absence finding.
 Next primary definition research and request-local policy; no handler admitted.
+
+[Primary link category comment/generator qualifies](reviews/2026-10-23-T07.006.001.md#primary-link-category-comment-and-generator-qualify):
+correct navi.cpp path, four equal immutable bodies/11pins. It explains categories
+but does not prove faithful selector101 filtering or installed-table association.
+Navigation implementation remains unbound while scene preparation continues.
