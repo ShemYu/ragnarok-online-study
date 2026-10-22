@@ -12,8 +12,11 @@ bundle has no diagnostic exports](reviews/2026-10-23-T10.003.md).
 [T10.003 actual equal plan-only C/G pair is running](reviews/2026-10-23-T10.003.md#actual-independent-plan-pair-launched)
 for the smallest effective quest-record observation, on separate cf26a36 branches.
 Root qualifies current existing-text decoding and fruit report-terminal controls.
-[The fixed authored current-decoder qualification is source-reviewed and admitted](reviews/2026-10-23-T10.004-decoder.md#fixed-authored-qualification-admitted),
-without acquired quest data, bridge/game execution or settings changes.
+[Claude's plan is preserved/released; Grok continues](reviews/2026-10-23-T10.003.md#claude-submitted-and-its-settled-terminal-released).
+[The first authored decoder attempt refuses on receipt preservation](reviews/2026-10-23-T10.004-decoder.md#first-authored-attempt-refuses-during-receipt-preservation):
+all21internal cases match, but the directory link count changes during its own
+file creation. Failed exit/guard remain preserved; minimal fresh correction is
+next. No acquired quest data, bridge/game execution or settings changes.
 Reuse Chinese resources; functionality/story evidence first. No verified
 server Chapter1 story implementation, resource-winner or Chinese projection yet.
 
