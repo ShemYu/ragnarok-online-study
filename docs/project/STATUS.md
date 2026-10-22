@@ -2,7 +2,14 @@
 
 Updated: 2026-10-23 JST. Coordinator: Codex. Active scope: **execute the documented strategy through the full milestone**.
 
-Latest actual result: [wave3 stops at an unregistered child identity; complete
+Latest verification: [corrected51/51Chrome controls and complete Root audit
+pass](reviews/2026-10-22-T07.007.011.005.md#corrected51controls-and-complete-root-audit-pass):
+caller/actor0, original guardvalid,85current full pins/complete streams and
+positive test-process closure. The earlier49/51fixture failure stays preserved.
+The independent five deadline controls also pass. Next fresh scene binder/
+preflight and shared-parent source review; no new live wave is admitted.
+
+Latest actual game trial: [wave3 stops at an unregistered child identity; complete
 preservation and scoped closure audit pass](reviews/2026-10-22-T07.007.011.005.md#wave3fails-before-ready-and-complete-scoped-closure-qualifies).
 No Chrome READY, observer or scene capture occurs. Chrome caller/actor1 and
 guardinvalid stay failed. Reader ends once with authenticated200/CL6 and
@@ -25,8 +32,8 @@ the fake observation boundary. Target false success is not shown. Next review
 only the precise fixture correction before a new admission. [That exact four-slot
 correction now qualifies; one fresh pure replay is admitted](reviews/2026-10-22-T07.007.011.005.md#exact-missing-controller-fixture-correction-qualifies-and-one-replay-is-admitted).
 Root verifies76full pins/full inverses; unchanged target/fragments/cases/caller
-mechanisms. Next bind exact admission HEAD, run once and audit all51rows.
-No browser wave.
+mechanisms. [Corrected51/51and complete audit now pass](reviews/2026-10-22-T07.007.011.005.md#corrected51controls-and-complete-root-audit-pass).
+Next fresh binder/file/owner preflight; no browser wave admitted.
 
 Earlier W2 result: [the fresh Chrome wave fails before the scene observer;
 scoped closure and complete content audit qualify](reviews/2026-10-22-T07.007.011.005.md#fresh-chrome-wave-fails-before-observer-and-scoped-closure-qualifies).
