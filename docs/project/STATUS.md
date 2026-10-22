@@ -1,6 +1,6 @@
 # Current status — resume here
 
-Updated: 2026-10-22 JST. Coordinator: Codex. Active scope: **execute the documented strategy through the full milestone**.
+Updated: 2026-10-23 JST. Coordinator: Codex. Active scope: **execute the documented strategy through the full milestone**.
 
 Latest verified result: [Chapter1 actual normal loading and complete scoped rendering audit qualify](reviews/2026-10-22-T07.007.014.005.md#corrected-actual-normal-loading-and-complete-scoped-audit-qualify).
 All74native bodies,27model groups/370placements,38used texture paths and43decoders
@@ -82,6 +82,11 @@ table is parsed yet. [Grok also passes Root's nine authored tests and the same
 Both candidates/branches/evidence are preserved and both settled terminals
 released. Root reviews/binds the fixed guarded actual-body comparison next.
 No selection/score/integration or recovered story record yet.
+[Root's semantic oracle and complete authored caller qualification now pass](reviews/2026-10-23-T10.002-execution.md#root-semantic-cross-check-and-caller-controls-qualify):
+all three full synthetic outputs/diagnostic/14pins/retirement exact. [Both fresh
+actual provider jobs are bound and admitted](reviews/2026-10-23-T10.002-execution.md#bound-actual-body-admission)
+after this checkpoint, with the same fixed inputs and separate60s/512MiB sampled
+guards. Next actual parallel calls, complete equality audit and comparison.
 
 **Worker cleanup:** under the user's renewed cleanup instruction,
 [Root closes the four obsolete retained sessions](reviews/2026-10-22-worker-cleanup.md)
