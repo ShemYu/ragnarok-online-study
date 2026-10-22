@@ -38,7 +38,11 @@ Current independent lanes:
   Counter coverage or supported browser failure-capture capability must qualify
   before another fruit probe. [One authored dedicated-worker failure fixture is
   admitted](reviews/2026-10-22-T07.007.011.005.md#authored-worker-failure-capture-fixture-admitted)
-  for supported browser capture; actual coverage/results remain pending.
+  for supported browser capture. [Actual fixture/cleanup pass, but page capture
+  omits both worker requests](reviews/2026-10-22-T07.007.011.005.md#actual-worker-fixture-exposes-page-capture-coverage-limit),
+  including the successful control. Failed timing zeros coexist with server
+  receipt. This surface cannot diagnose fruit; supported worker-target evidence
+  or mechanism-specific counter qualification is next. No blind fruit retry.
   No transport cause is proved. Ship02 visible motion passes; light's GPU motion is proved, but its
   visible check remains occluded. All owned probes are closed.
 - **Normal asset route:** corrected selector passes 29 authored / 35 shared

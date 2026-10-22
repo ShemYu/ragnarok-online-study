@@ -64,6 +64,10 @@ Latest verified work (22 Oct):
       Story implementation remains a schedule risk; goal unchanged.
   [~] Fruit scene: full render still fails one model fetch.
       Plans compared: Claude 17/20 vs Grok 16/20. Diagnostic gates next.
+  [V] Small worker-failure test completes; temporary server/page closed.
+      Page capture misses both worker requests, including the success.
+      Failed timing zeros do not mean no request was sent.
+      Need worker-level failure evidence before another fruit test.
   Parent checkpoints: 4 / 14 = about 29%. Full game remains open.
 
 [V] Download and extract the base package. Verify all 4,976 files.
