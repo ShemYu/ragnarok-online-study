@@ -75,7 +75,8 @@ Latest verified work (22 Oct):
       Next: client quest/text inventory and normal Chapter 1 entry flow.
   [~] Client quest inventory: three existing files selected (4.57 MB).
       All file hashes and headers pass; no Lua execution.
-      Both-reader contract frozen. Actual pair is next.
+      Both readers dispatched from the same frozen source.
+      Root prepares shared checks while both workers implement.
       Chinese decoding and guide checks follow.
       Installed scripts: 1185 NPC files and 94 config files checked.
       17 configs select 841 sources; mounts match. No Chapter 1 references.

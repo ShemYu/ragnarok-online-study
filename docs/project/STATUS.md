@@ -62,9 +62,12 @@ decision is needed; story implementation remains the main content/schedule risk.
 extracted quest chunks, no translation or live-game action. [Actual full-body
 hash/identity/header check passes and the common implementation contract
 freezes](reviews/2026-10-22-T10.002.md#actual-three-input-bodies-qualify-and-common-contract-freezes).
-All4566003B/three headers exact; no input Lua executes. Next actual independent
-Claude/Grok pure-reader implementations on separate branches; Root owns later
-equal real-input runs. Guide expansion and decoder parity stay subsequent.
+All4566003B/three headers exact; no input Lua executes. Actual independent
+Claude/Grok pure-reader implementations [are now dispatched from the same
+afd6de6 base](reviews/2026-10-22-T10.002.md#actual-independent-reader-pair-launched)
+on separate branches; both inputs accepted. Root owns later equal real-input
+runs and prepares independent common controls in parallel. Guide expansion and
+decoder parity stay subsequent.
 No recovered quest table, effective resource winner or story pass yet.
 
 **Worker cleanup:** under the user's renewed cleanup instruction,
