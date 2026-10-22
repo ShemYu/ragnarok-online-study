@@ -15,7 +15,7 @@ NOW: 4 / 14 parent checks complete (about 29%)
 
 Basic play + save       [PASS for the checked normal route]
 Map loading            [Chapter 1 test passes; fruit test is open]
-Fruit presentation     [OPEN: zero frames; corrected reader tests next]
+Fruit presentation     [OPEN: reader tests pass; fresh screenshot check next]
 Quest file inventory   [PASS: all 3 files checked]
 Server + file binding  [PASS: current owner and 21 file checks]
 Active quest records   [WORKING: Claude/Grok build observer; owned trial later]
