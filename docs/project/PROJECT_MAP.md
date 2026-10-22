@@ -33,6 +33,8 @@ next action and the exact limits of each result.
 CURRENT WORK: quest data, missing story and map-load checks
 
 Latest verified work (23 Oct):
+  [V] Integrated quest tail: 15 own / 75 shared / 1 edge case pass.
+      Root full audit done. Next: real-loader source/caller binding.
   [V] Unchanged Claude source imported as fbc2e96 (3 exact blobs).
       Integrated own/common/pending calls admitted; execution/audit next.
   [V] Claude selected 20/20 vs Grok 16/20 for the quest tail.

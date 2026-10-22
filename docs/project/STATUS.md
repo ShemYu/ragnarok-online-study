@@ -13,9 +13,11 @@ submits its preserved candidate; its settled terminal is released](reviews/2026-
 Both15own suites pass; Claude passes75common cases and the equal pending/error
 case. Grok fails one common argument-forwarding case and rejects with another
 known callback still pending. Both failures and complete audits are preserved;
-both settled terminals are released. [The unchanged Claude import fbc2e96 and
-three integrated check calls are bound/admitted](reviews/2026-10-23-T10.005.md#unchanged-claude-import-and-integrated-checks-admitted).
-Next execute/audit them before readiness.
+both settled terminals are released. [Unchanged fbc2e96 integration and complete
+Root audit pass](reviews/2026-10-23-T10.005.md#integrated-observer-verification-and-complete-root-audit-pass):
+15own tests,75common cases and one pending/error case all pass. T10.005 is
+self_verified for the authored observer. Next Root fully reviews/binds the
+UNBOUND actual-loader assembly/proxy/shared120s caller before a separate trial.
 No actual original-loader/runtime or full-game acceptance is claimed.
 Quest/story/content-gap acceptance remains open. Screenshot work is independent.
 
@@ -29,7 +31,8 @@ The [native screen preflight cannot start](reviews/2026-10-22-T07.007.011.005.md
 [All50pure scheduling controls and complete Root audit pass](reviews/2026-10-22-T07.007.011.005.md#all50pure-scheduling-controls-and-complete-root-audit-pass):
 caller0/valid guard, full sources/output/retirement qualify. No actual surface
 or browser/native/game run is admitted. Next review/bind the minimal dedicated
-Chrome adapter being prepared independently, then a distinct real-scene trial.
+Chrome adapter: corrected source preparations await full Root review/binding,
+then a distinct real-scene trial.
 No more passive/empty-page retries;
 quest implementation/controls continue independently. No new runtime, goal
 change or user decision is required.
