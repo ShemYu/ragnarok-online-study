@@ -2,6 +2,11 @@
 
 Updated: 2026-10-22 JST. Coordinator: Codex. Active scope: **execute the documented strategy through the full milestone**.
 
+Latest execution admission: [one genuine canonical offline writer attempt](reviews/2026-10-22-T07.007.013.002.md#genuine-canonical-real-body-attempt-reviewed-and-admitted).
+Full child/parent review is complete; bind the actual admission HEAD and exact
+source identities, then run once into fresh private output. No game/save/cache
+mutation is admitted. Rendering capture preparation continues independently.
+
 **Goal API is active. Current parent count: 4/14, about 29%.** This counts
 parent checkpoints, not content, effort or playable-world coverage. Full Modern /
 Renewal maps, monsters, story, persistence and eventual Traditional Chinese
