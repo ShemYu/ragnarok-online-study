@@ -12,7 +12,8 @@ all192commands ACK/gate released; loading image succeeds but the loading-screen
 continuation does not reach terrain/models before its180s timeout. Failed
 observer preserved; full source/transport/cleanup audits pass and all temporary
 actors/page/listeners retire. Original worlds/pages remain. Next asset-free
-frame/visibility check and report-terminal review before any new fruit attempt.
+[frame/visibility check is admitted](reviews/2026-10-22-T07.007.011.005.md#asset-free-owned-page-frame-check-admitted);
+report-terminal review remains before any new fruit attempt.
 
 **Goal API is active. Current parent count: 4/14, about 29%.** This counts
 parent checkpoints, not content, effort or playable-world coverage. Full Modern /
