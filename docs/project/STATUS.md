@@ -11,8 +11,9 @@ Current independent lanes:
 
 - **Rendering / capture repair:** repaired roots, mu and edge pass complete
   static packet/GPU/body/source/cleanup audits. Roots' 108 invalid normal words
-  are corrected. Fruit retains one failed texture fetch and pending readiness;
-  transport cause is unknown. [Capture implementation](reviews/2026-10-22-T07.007.011.004.md)
+  are corrected. Fruit's fresh capture retains one failed model fetch and
+  incomplete geometry despite readiness; transport cause is unknown.
+  [Capture implementation](reviews/2026-10-22-T07.007.011.004.md)
   now qualifies corrected integration: 25 authored tests run (24 pass, one
   optional allocator-reuse skip), 16 common and three adaptive groups pass.
   Both candidates are preserved/released; Claude is the correction basis
@@ -73,8 +74,9 @@ Current independent lanes:
   controls now measure ownership loss](reviews/2026-10-22-T07.007.013.001.md#actual-before-close-ownership-loss-is-measured):
   baseline closes all six generations; injected source and binary-write EIO
   each refuses but leaves one recorded live generation before disclosed harness
-  cleanup. No retry/foreign close occurs. Astra/high reviews the minimum faithful
-  correction policy; no production cleanup or new candidate PASS is claimed.
+  cleanup. No retry/foreign close occurs. [Astra/high policy review is complete](reviews/2026-10-22-T07.007.013.001.md#astra-actual-evidence-policy-review-completed):
+  Root adopts separate uncertainty/error accounting and one-attempt child
+  retirement direction; new contract preparation only. No production cleanup PASS.
   [The unmodified public pure entry and writer now
   match the actual-body oracle](reviews/2026-10-22-T07.007.013.001.md#unmodified-public-entry-and-writer-match-the-actual-body-oracle):
   exactly two bytes differ, full inverse/all heights/strict receipts pass.
@@ -125,8 +127,9 @@ Current independent lanes:
   Claude18/20 basis versus Grok16/20, all full typed actual/fixture values match.
   .002 is ready_for_user for metadata only. Bodies/loading stay open; no gap closes.
   [.014.003 normal two-body preflight is admitted](reviews/2026-10-22-T07.007.014.003.md):
-  bind current owner/config/extraction effects first, then separately admit two
-  GETs through the unchanged reader. No new decoder/restart or body PASS yet.
+  [current birth/executable/listeners and config fingerprint now match](reviews/2026-10-22-T07.007.014.003.md#current-reader-and-extraction-preflight-observed).
+  Both loose/override targets are absent; autoextract=true is retained. Observer
+  preparation precedes separate two-GET admission. No new decoder/restart/body PASS.
 
 The [earlier mu pilot and Astra diagnosis](reviews/2026-10-22-T07.007.011-execution.md#actual-astra-consultation-and-discriminating-metadata-check)
 remain historical evidence. Ordinary Chapter 1 entry/save, 82 world-resource

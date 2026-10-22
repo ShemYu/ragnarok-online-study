@@ -27,7 +27,8 @@ Latest verified work (22 Oct):
   [V] Offline movement candidate: actual bytes/receipt/inverse pass.
       Claude selected; Grok close check fails. No live mapping selected.
   [V] Before-close test confirms two ownership-loss paths in the writer.
-      Astra reviews correction policy. Real map/save untouched.
+      Astra policy reviewed; child/uncertainty correction draft next.
+      Real map/save untouched.
   [V] Chapter 1 decoder: both candidates pass 30 Root common groups.
   [V] Both own suites: Claude 76 / Grok 64 run, one skip each, no failures.
       Source comparison: 19/20 each.
@@ -42,7 +43,9 @@ Latest verified work (22 Oct):
   [V] Root full scan finds both exact terrain-name entries in data0.grf.
       Both original/fresh results match. Claude selected: 18/20 vs 16/20.
       Private checker limitations retained. Full body reads/loading next.
-  [~] Normal two-body gate: current owner/config preflight starts.
+  [V] Normal two-body preflight: current owner/config match.
+      Automatic extraction retained; both loose/override targets absent.
+  [~] Two-response observer preparation; then separate execution admission.
   [~] Chapter 1 terrain dependencies and normal play remain.
   [~] Fruit scene: full render still fails one model fetch.
   Parent checkpoints: 4 / 14 = about 29%. Full game remains open.
