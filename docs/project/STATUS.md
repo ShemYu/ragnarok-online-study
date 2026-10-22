@@ -70,6 +70,11 @@ scene/image/retirement audit. No runtime has started in this checkpoint.
 close the selected0x08e2registration/packet-year/overlay path before conditional
 repair. Root qualifies24advice/source pins; exact current source binding is being
 prepared before an equal Claude/Grok pair. No handler absence or runtime claim.
+[The retained source contract now qualifies](reviews/2026-10-20-T07.006.md#retained-navigation-sources-and-corrected-range-contract-qualify):
+70current full pins/54corrected LF spans, retained direct-query launch and three
+generated plugins/four dependency copies. An invalid draft Unicode/LF range
+contract stays preserved; actual2022length is27bytes conditionally, not a wire
+fact. Next freeze the equal safe source-only pair; no repair is assumed.
 
 [T10.005 freezes the bounded quest-registration implementation contract](reviews/2026-10-23-T10.005.md#frozen-source-contract-and-root-preflight).
 Root qualifies nine full source inputs/26primary LF slices and resolves callback,

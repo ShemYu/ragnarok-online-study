@@ -33,6 +33,8 @@ next action and the exact limits of each result.
 CURRENT WORK: quest data, missing story and map-load checks
 
 Latest verified work (23 Oct):
+  [V] Navigation source contract checked: 54 ranges and 70 file pins match.
+      Three plugins and their source imports found. Equal model task next.
   [V] Bounded child-absence and normal-close source changes checked.
       20 file pins match. The fixed 51-case checks are being prepared.
   [!] Scene wave3 stops before READY at an unknown child identity.
