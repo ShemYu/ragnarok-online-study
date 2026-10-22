@@ -22,6 +22,10 @@ This is file-level configuration; live selected records remain unknown.
 one STATUS only, no asset/browser/game action.
 [The actual preflight and full independent21pin/five-archive audit pass](reviews/2026-10-23-T10.003.md#actual-owner-and-producer-preflight-independently-qualifies).
 Owner/producer/config gate clears; owned registration observation remains.
+[Root qualifies the narrow registration architecture with useful Astra review](reviews/2026-10-23-T10.003.md#root-qualifies-registration-architecture-and-astra-consultation).
+Next paired closed diagnostic-tail implementation; it will use original loaders
+under reproduced routing. Original lazyInit/current-session equivalence and the
+discarded main_quest semantic result remain UNKNOWN; no runtime is admitted.
 [The corrected current-decoder authored qualification now passes](reviews/2026-10-23-T10.004-decoder.md#corrected-authored-qualification-and-complete-root-audit-pass):
 six groups/21cases, full exact Root vector/adapter/source/retirement audit. First
 publication failure remains preserved. Next small paired existing-text projection;
