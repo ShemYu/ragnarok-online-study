@@ -33,6 +33,11 @@ next action and the exact limits of each result.
 CURRENT WORK: quest data, missing story and map-load checks
 
 Latest verified work (23 Oct):
+  [V] One inert browser archive download + full Root audit pass.
+      186MiB file/checksums/34pins match; test processes are gone.
+      ZIP metadata inspection next. No browser launch yet.
+  [V] Exact portal-generator source checked:10pins/17spans.
+      Selected server table/index/era/mod inputs still need binding.
   [V] Inert download caller checked:25full pins/four exact reused sections.
       One archive download admitted; full checksum/exit audit follows.
       Browser launch remains a separate gate.
