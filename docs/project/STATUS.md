@@ -9,10 +9,10 @@ integration passes26authored tests and14common groups. T10.002 is ready_for_user
 within this raw-data scope; both settled terminals are released.
 **Next:** [source preparations and passive window metadata qualify; the normal
 bundle has no diagnostic exports](reviews/2026-10-23-T10.003.md).
-[T10.003 actual equal plan-only C/G pair is running](reviews/2026-10-23-T10.003.md#actual-independent-plan-pair-launched)
-for the smallest effective quest-record observation, on separate cf26a36 branches.
-Root qualifies current existing-text decoding and fruit report-terminal controls.
-[Claude's plan is preserved/released; Grok continues](reviews/2026-10-23-T10.003.md#claude-submitted-and-its-settled-terminal-released).
+[T10.003 corrected source-plan comparison qualifies](reviews/2026-10-23-T10.003.md#root-comparison-and-corrected-plan-selection):
+Claude18/20 basis versus Grok16/20, both preserved/released. Quest loading occurs
+at map-entry lazyInit; current-session records remain unknown. Next exact
+read-only producer/config binding before an owned registration diagnostic.
 [The corrected current-decoder authored qualification now passes](reviews/2026-10-23-T10.004-decoder.md#corrected-authored-qualification-and-complete-root-audit-pass):
 six groups/21cases, full exact Root vector/adapter/source/retirement audit. First
 publication failure remains preserved. Next small paired existing-text projection;

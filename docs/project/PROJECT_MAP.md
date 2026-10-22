@@ -11,7 +11,7 @@ Use this map for a short view of [Status](STATUS.md), [Tasks](TASKS.md) and
 Update this map after each important change. Keep the dated evidence.
 
 ```text
-CURRENT WORK: October assets and missing maps
+CURRENT WORK: quest data, missing story and map-load checks
 
 Latest verified work (23 Oct):
   [V] New isolated engine: empty database/storage/ports checks pass.
@@ -85,6 +85,14 @@ Latest verified work (23 Oct):
       Claude selected (20/20 vs 19/20); source integration passes.
       Root path: all 26 tests and the same 14 shared groups pass.
       Next: find the game-selected table and read its existing text safely.
+  [V] Quest-load plans checked: Claude 18/20, Grok 16/20.
+      Both worker terminals closed; reports and branches retained.
+      Quest tables load on map entry. Current selected records stay unknown.
+      Next: read-only source/config binding, then an owned observation.
+  [V] Current text decoder: all 6 groups / 21 authored cases pass.
+      Full Root audit checks characters, raw bytes, markup and source hashes.
+      First result-file check failed; correction and both records are saved.
+      No game quest text decoded yet. Reuse existing Chinese before translation.
       Official guide panels checked in parallel: side/daily tasks found.
       Three later cards use another map; next search must include it.
       Full main-story flow and Chinese decoding remain open.
@@ -115,6 +123,11 @@ Latest verified work (23 Oct):
   [V] Blank test page: frames advance in both one-second checks.
       Both states were visible; this does not explain the old scene stall.
       Next actual scene must record its own frame progress.
+  [V] Report test: full reply succeeds; short reply correctly fails.
+      Exact failure occurs during body reading, before the 15-second timer.
+      Both pages, actors and listeners close. Original game view restored.
+      Next: review the small scene-frame/report adapter before one fruit test.
+      No new fruit test or cause claim yet.
   [V] File writer fix: 51 tests, 10 shared and 2 focused checks pass.
   [V] Caller accepts the normal test; all 15 failure checks reject correctly.
   [V] Corrected writer source is integrated with separate rollback commits.
