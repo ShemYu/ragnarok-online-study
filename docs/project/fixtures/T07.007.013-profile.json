@@ -1,0 +1,587 @@
+{
+  "allowance_advisory_not_cancellation_authority": true,
+  "allowed_execution": [
+    "trusted text/search/stdlib hashing",
+    "Git only in assigned candidate checkout for status/diff/owned commit",
+    "version-matched Orca dispatch lifecycle"
+  ],
+  "claims": "Source predictions and retained metadata only; no runtime/client-server/cell policy/readiness/full-game PASS.",
+  "common_dispatch_base_policy": "Root commits reviewed task/profile/output-contract together and dispatches both candidates from that same introducing commit; actual dispatch base is recorded outside these files.",
+  "forbidden": [
+    "source import/build/test/evaluation/VM or synthetic experiments",
+    "raw asset/cache/archive/native executable reads, new network acquisition",
+    "native/server/browser/SQL/save/settings actions",
+    "source or profile edits, sibling/private candidate inspection, subagents",
+    "production mapping selection, broad masks, forced walk, cache/config/installation changes"
+  ],
+  "historical_runtime_boundary": {
+    "compiled_bundle_inputs_included": false,
+    "source_bundle_parity_claim_allowed": false,
+    "statement": "Historical original compiled-bundle pointers are intentionally omitted: they are unnecessary to decide the source-only contract and do not attest the current normal runtime. The normal repair is separately scoped to model normals; that fact does not prove GAT source/bundle parity. Any later ordinary runtime must bind its actually served bundles independently."
+  },
+  "input_count": 21,
+  "inputs": [
+    {
+      "bytes": 3131,
+      "id": "I01",
+      "path": ".tools/renewal/client-source/src/Loaders/Altitude.js",
+      "role": "core_client",
+      "sha256": "e27f5b746bb8fa77aadb59633dfbc0339f922bc4df69615a066288a6cf160b95",
+      "slices": [
+        {
+          "byte_offset": 329,
+          "bytes": 1341,
+          "purpose": "TYPE and exact table",
+          "raw_lf_end_inclusive": 54,
+          "raw_lf_start": 19,
+          "sha256": "7e7c97c98826e09b30adb4c6487436e8783e625cf7ad3c61fdb0b57b3d5cb6cc"
+        },
+        {
+          "byte_offset": 1840,
+          "bytes": 1013,
+          "purpose": "uint32 flags to Float32 cells",
+          "raw_lf_end_inclusive": 96,
+          "raw_lf_start": 68,
+          "sha256": "9ebd0b3ae43d07b998e8bc22f14bdd3924a74efe28c7bf65f90d654fb222de8b"
+        }
+      ]
+    },
+    {
+      "bytes": 8233,
+      "id": "I02",
+      "path": ".tools/renewal/client-source/src/Utils/BinaryReader.js",
+      "role": "core_client",
+      "sha256": "bcf694b7034e36146eed1d5a2d7d5cf93d8a52aeafa74e62f0beed4c1ecc9215",
+      "slices": [
+        {
+          "byte_offset": 2706,
+          "bytes": 550,
+          "purpose": "little-endian uint32 and Float32 reads",
+          "raw_lf_end_inclusive": 143,
+          "raw_lf_start": 120,
+          "sha256": "e89eb764fa8a121083e18d79c7bb056a9197f57561a9b790f5eca2449f6a268c"
+        }
+      ]
+    },
+    {
+      "bytes": 10529,
+      "id": "I03",
+      "path": ".tools/renewal/client-source/src/Renderer/Map/Altitude.js",
+      "role": "core_client",
+      "sha256": "01d88e5385702436cb033fb1e48eb5e3712b5ef77dc28fcf68015c1e4757aecf",
+      "slices": [
+        {
+          "byte_offset": 990,
+          "bytes": 703,
+          "purpose": "Float32 flag to Uint8 and PathFinding binding",
+          "raw_lf_end_inclusive": 70,
+          "raw_lf_start": 40,
+          "sha256": "8c9a1ca1db5fafb116462213f49be06df8502654eccfd15327ce87c391fd1aa8"
+        },
+        {
+          "byte_offset": 2590,
+          "bytes": 307,
+          "purpose": "getCellType",
+          "raw_lf_end_inclusive": 116,
+          "raw_lf_start": 104,
+          "sha256": "6e84bebb0d42afe214b78fa09fe594f17f224180ff10e3b09c89ecfeaffe2abc"
+        },
+        {
+          "byte_offset": 3686,
+          "bytes": 143,
+          "purpose": "dynamic update lookup",
+          "raw_lf_end_inclusive": 157,
+          "raw_lf_start": 154,
+          "sha256": "03fc5f6098605277fb64894c1d502b74210b3ffabd8946c201df88a8e39ca681"
+        },
+        {
+          "byte_offset": 8888,
+          "bytes": 1594,
+          "purpose": "copied TYPE and TYPE_TABLE",
+          "raw_lf_end_inclusive": 395,
+          "raw_lf_start": 354,
+          "sha256": "d99938bc31b6f432cc040124b2dc9aa1c039c460410c3a22292ec63c209dad4f"
+        }
+      ]
+    },
+    {
+      "bytes": 11822,
+      "id": "I04",
+      "path": ".tools/renewal/client-source/src/Utils/PathFinding.js",
+      "role": "core_client",
+      "sha256": "a1280fcc368de711c083afd5e51bea7795a29b068738a3f65b85a4ba7550ad43",
+      "slices": [
+        {
+          "byte_offset": 4045,
+          "bytes": 2187,
+          "purpose": "setGat/direct equality checks",
+          "raw_lf_end_inclusive": 295,
+          "raw_lf_start": 190,
+          "sha256": "e010874351b7228824b726c10989ed65bad8f6b349ce51e0847717718d78d74d"
+        },
+        {
+          "byte_offset": 6260,
+          "bytes": 778,
+          "purpose": "search begins with direct attempt",
+          "raw_lf_end_inclusive": 330,
+          "raw_lf_start": 298,
+          "sha256": "e2e7f780ee205194e19e4a023ddf40780564fe789d2588a444aa0aec9f2b1eeb"
+        },
+        {
+          "byte_offset": 7323,
+          "bytes": 1612,
+          "purpose": "fallback WALKABLE checks",
+          "raw_lf_end_inclusive": 395,
+          "raw_lf_start": 350,
+          "sha256": "037c373c6f73b7387c5400861a4320affb4167151d5d8ab48e9a2ced8c8539d3"
+        },
+        {
+          "byte_offset": 9866,
+          "bytes": 76,
+          "purpose": "dynamic update",
+          "raw_lf_end_inclusive": 438,
+          "raw_lf_start": 436,
+          "sha256": "dc11504295e1badde3f552b2d3f0e701e50bb3b9b70ea0346a85a5b9f506cbcd"
+        }
+      ]
+    },
+    {
+      "bytes": 20545,
+      "id": "I05",
+      "path": ".tools/renewal/client-source/src/Renderer/MapRenderer.js",
+      "role": "ordinary_ui",
+      "sha256": "072bbb1a65eccd1ef88e582fc3be78026c862066a23a9bc42b8e643a4973705d",
+      "slices": [
+        {
+          "byte_offset": 7618,
+          "bytes": 1203,
+          "purpose": "hover selector and Mouse.world coordinates",
+          "raw_lf_end_inclusive": 305,
+          "raw_lf_start": 269,
+          "sha256": "4ebc6651378140a887afffaac811b5cb539f1f464e670d4b1d11d1e6a96c9635"
+        }
+      ]
+    },
+    {
+      "bytes": 38006,
+      "id": "I06",
+      "path": ".tools/renewal/client-source/src/Engine/MapEngine.js",
+      "role": "ordinary_ui",
+      "sha256": "f3ead6ab364d7b392ba945afca1614584a7c6b9c7c62fbe5f318f72aa6e085cc",
+      "slices": [
+        {
+          "byte_offset": 31535,
+          "bytes": 1516,
+          "purpose": "ordinary request/destination fallback",
+          "raw_lf_end_inclusive": 1130,
+          "raw_lf_start": 1070,
+          "sha256": "478d828a6888f9b7446442e4ac52d90821e4eafffe76e05347ccf303de022ba0"
+        },
+        {
+          "byte_offset": 33183,
+          "bytes": 1219,
+          "purpose": "free-cell selection WALKABLE predicate",
+          "raw_lf_end_inclusive": 1195,
+          "raw_lf_start": 1139,
+          "sha256": "bfd3bd1bca45f1c11f08b242ecde010b3910d8ce537e03d30529c3b7942c6542"
+        }
+      ]
+    },
+    {
+      "bytes": 8240,
+      "id": "I07",
+      "path": ".tools/renewal/rathena-source/src/tool/mapcache.cpp",
+      "role": "core_server",
+      "sha256": "9823958e6b8506a9d9e0641400dfc2d048922e5bdc8b779b2e783756fc1efb7e",
+      "slices": [
+        {
+          "byte_offset": 1322,
+          "bytes": 1640,
+          "purpose": "GAT read, exact water check, unsigned-char narrowing and compression",
+          "raw_lf_end_inclusive": 130,
+          "raw_lf_start": 67,
+          "sha256": "bb8ba9621508fd933c0762e064c33fcd1f3dacf08aca53b93df77116d0566784"
+        }
+      ]
+    },
+    {
+      "bytes": 161227,
+      "id": "I08",
+      "path": ".tools/renewal/rathena-source/src/map/map.cpp",
+      "role": "core_server",
+      "sha256": "2ec53a19360b2363d6bcb1401f71bfdf130d72e74a624676e4a25f17de21a189",
+      "slices": [
+        {
+          "byte_offset": 95214,
+          "bytes": 1922,
+          "purpose": "gat conversion and cell lookup indexing/bounds",
+          "raw_lf_end_inclusive": 3349,
+          "raw_lf_start": 3295,
+          "sha256": "c10ed4dec00ebd08a2cedbbccaaec70b42ebc15a42398e5215b78a6a9d37ae66"
+        },
+        {
+          "byte_offset": 97896,
+          "bytes": 616,
+          "purpose": "pass/nopass predicates",
+          "raw_lf_end_inclusive": 3414,
+          "raw_lf_start": 3385,
+          "sha256": "288d440d82fe1a0b2a9945a18ecd160be68c3c3d88bb469fa6e9b7760e76b30e"
+        },
+        {
+          "byte_offset": 106058,
+          "bytes": 1288,
+          "purpose": "cache entry selection and decoded-byte conversion",
+          "raw_lf_end_inclusive": 3733,
+          "raw_lf_start": 3688,
+          "sha256": "e1cda238f7abad5383b5e6b9c794e80a86eb1129f9166122bf51bf108b6f8a56"
+        },
+        {
+          "byte_offset": 111068,
+          "bytes": 889,
+          "purpose": "direct full-word GAT route",
+          "raw_lf_end_inclusive": 3911,
+          "raw_lf_start": 3871,
+          "sha256": "39c19843e8a82379198a4d59309fd34f3f97a16a019930815d97f938667848a7"
+        },
+        {
+          "byte_offset": 112317,
+          "bytes": 1866,
+          "purpose": "cache path order, route and no fallback",
+          "raw_lf_end_inclusive": 3995,
+          "raw_lf_start": 3927,
+          "sha256": "aa69c6cd0e92bc8fc6ee30b011c3f46467511d6959d79ea430b69db612aebfb2"
+        },
+        {
+          "byte_offset": 120696,
+          "bytes": 507,
+          "purpose": "use_grf assignment",
+          "raw_lf_end_inclusive": 4221,
+          "raw_lf_start": 4210,
+          "sha256": "4ffc7ed4ba837db8ac75292fc5356b829eb614d74382e06990acee254246a142"
+        },
+        {
+          "byte_offset": 157757,
+          "bytes": 318,
+          "purpose": "CLI then config",
+          "raw_lf_end_inclusive": 5417,
+          "raw_lf_start": 5409,
+          "sha256": "d6f9124866d0596b55d73d6696e99f8871b11a8e36df5d19a4202a5a10705125"
+        },
+        {
+          "byte_offset": 159419,
+          "bytes": 184,
+          "purpose": "GRF init conditional and map loading",
+          "raw_lf_end_inclusive": 5470,
+          "raw_lf_start": 5462,
+          "sha256": "92dff2fa687b6f68ff16c8dbc3c24d941a00f45858debeb972a4b34a38bcd5ca"
+        }
+      ]
+    },
+    {
+      "bytes": 15523,
+      "id": "I09",
+      "path": ".tools/renewal/rathena-source/src/map/path.cpp",
+      "role": "movement_server",
+      "sha256": "61232a958b740c40cb7c13c9df00f90c476d19092ed3d0863ff5556864945233",
+      "slices": [
+        {
+          "byte_offset": 6600,
+          "bytes": 2327,
+          "purpose": "destination obstruction and direct path",
+          "raw_lf_end_inclusive": 336,
+          "raw_lf_start": 264,
+          "sha256": "4746b6a62c20d6ff917099c37dada37d5815b60631578e1f14cd7402d10868dd"
+        },
+        {
+          "byte_offset": 8927,
+          "bytes": 3721,
+          "purpose": "A-star direction eligibility",
+          "raw_lf_end_inclusive": 426,
+          "raw_lf_start": 337,
+          "sha256": "7a9f595dc742980fbf4e982d86e09e9b35a96bbbde9f9822ae9886286101da50"
+        }
+      ]
+    },
+    {
+      "bytes": 123023,
+      "id": "I10",
+      "path": ".tools/renewal/rathena-source/src/map/unit.cpp",
+      "role": "movement_server",
+      "sha256": "e042d781fbceeb21b802a5ec44ae2cab234b673bd415a0488fa8853d8497af29",
+      "slices": [
+        {
+          "byte_offset": 8606,
+          "bytes": 633,
+          "purpose": "sub-path validation",
+          "raw_lf_end_inclusive": 274,
+          "raw_lf_start": 254,
+          "sha256": "6db0e4df1008cf7032c4fe81fe36a871ef42ae3603ca7972914005fa00992cc1"
+        },
+        {
+          "byte_offset": 18339,
+          "bytes": 376,
+          "purpose": "per-step passability recheck",
+          "raw_lf_end_inclusive": 609,
+          "raw_lf_start": 599,
+          "sha256": "34b815e83327e07cc775ee0897c4a6103c6de220e0d6ec822610861c07dfb7dc"
+        },
+        {
+          "byte_offset": 24810,
+          "bytes": 1669,
+          "purpose": "ordinary unit_walktoxy path and limits",
+          "raw_lf_end_inclusive": 881,
+          "raw_lf_start": 830,
+          "sha256": "2be79193d9c89f1327657a0cf37633400149bc70970bc30fe7a152a52c79c201"
+        }
+      ]
+    },
+    {
+      "bytes": 782617,
+      "id": "I11",
+      "path": ".tools/renewal/rathena-source/src/map/clif.cpp",
+      "role": "movement_server",
+      "sha256": "3c2ac43cc44dbeaf509f8ca8b5042ef6e5d04ad911ce3317ab76a491c1855afc",
+      "slices": [
+        {
+          "byte_offset": 352647,
+          "bytes": 1874,
+          "purpose": "packet coordinates and unit_walktoxy flag4",
+          "raw_lf_end_inclusive": 11429,
+          "raw_lf_start": 11378,
+          "sha256": "517d609c62fbec696c66f0eb3b30041af4f186fa562791e0e37ede3747706841"
+        }
+      ]
+    },
+    {
+      "bytes": 41595,
+      "id": "I12",
+      "path": ".tools/renewal/rathena-source/src/map/map.hpp",
+      "role": "declaration_context",
+      "sha256": "3214f2dcccec3dc97b89625ffa166afb6c0b7711faa48b5e2d7e6d586892c34b",
+      "slices": [
+        {
+          "byte_offset": 21631,
+          "bytes": 665,
+          "purpose": "cell-check enum",
+          "raw_lf_end_inclusive": 785,
+          "raw_lf_start": 773,
+          "sha256": "989c7da36d2a5acc871297ce50e445f6b73ebbfb63c3ac43bb183c466d4b4247"
+        },
+        {
+          "byte_offset": 22783,
+          "bytes": 354,
+          "purpose": "mapcell terrain/dynamic flags",
+          "raw_lf_end_inclusive": 820,
+          "raw_lf_start": 797,
+          "sha256": "b3232f4f3b192d0d74fa30b708d34474fac4532ed6bc5f0db3c6d90e3b0d4690"
+        }
+      ]
+    },
+    {
+      "bytes": 4513,
+      "id": "I13",
+      "path": ".tools/renewal/rathena-source/src/config/core.hpp",
+      "role": "build_context",
+      "sha256": "cc0ca8e341b08549cc5cd8ec6b5eec744b455242222b1244ffb0c512793fe291",
+      "slices": [
+        {
+          "byte_offset": 471,
+          "bytes": 867,
+          "purpose": "OFFICIAL_WALKPATH and CELL_NOSTACK source defaults",
+          "raw_lf_end_inclusive": 33,
+          "raw_lf_start": 18,
+          "sha256": "516270d4317eba90ba86c652ef5935822b80b3d49baefb14053f160bb72845f8"
+        }
+      ]
+    },
+    {
+      "bytes": 6398,
+      "id": "I14",
+      "path": ".tools/renewal/rathena-source/src/common/cli.cpp",
+      "role": "route_context",
+      "sha256": "f21db15851a903e31b12dc1378667b7f2c60b54baf8ce0818c16bca661a095c7",
+      "slices": [
+        {
+          "byte_offset": 390,
+          "bytes": 346,
+          "purpose": "default config names",
+          "raw_lf_end_inclusive": 29,
+          "raw_lf_start": 23,
+          "sha256": "bd6f3673643eb1ae70e2a3c170d3a2d7d0cfd9043c49fe09a9fd563ec3939d14"
+        },
+        {
+          "byte_offset": 4355,
+          "bytes": 290,
+          "purpose": "map-config CLI override",
+          "raw_lf_end_inclusive": 149,
+          "raw_lf_start": 141,
+          "sha256": "56b43cd028af95eba6047fb51c6c2fb6691d7cb73b4d4d97b33b5a4599c72894"
+        }
+      ]
+    },
+    {
+      "bytes": 3368,
+      "id": "I15",
+      "path": ".tools/renewal/rathena-source/src/config/const.hpp",
+      "role": "route_context",
+      "sha256": "eec729d3651087279dc710f69d7d396e720c1a12a5eecd76e7c9c3fcdc9dfa1d",
+      "slices": [
+        {
+          "byte_offset": 890,
+          "bytes": 178,
+          "purpose": "Renewal DBPATH and DBIMPORT",
+          "raw_lf_end_inclusive": 44,
+          "raw_lf_start": 34,
+          "sha256": "7c5ceb86f2c76efd91346fd23a33723731113c41d0a7d702911809f0c3266fdd"
+        }
+      ]
+    },
+    {
+      "bytes": 28264,
+      "id": "I16",
+      "path": ".tools/renewal/rathena-source/src/common/strlib.cpp",
+      "role": "route_context",
+      "sha256": "e0c198ad92d701a9d12dbf5507a449a94dee953629f3e0b0764b15a61ba7be66",
+      "slices": [
+        {
+          "byte_offset": 4885,
+          "bytes": 534,
+          "purpose": "config_switch no->0",
+          "raw_lf_end_inclusive": 248,
+          "raw_lf_start": 237,
+          "sha256": "6991683b591c43a49486b336ac8831a590e697ff4103e6c5991b3adc89665ca2"
+        }
+      ]
+    },
+    {
+      "bytes": 4537,
+      "id": "I17",
+      "path": ".tools/renewal/t06-text-frozen-1/snapshot/rathena/conf/map_athena.conf",
+      "role": "frozen_config_only",
+      "sha256": "5b54eb9f510d8b657015bbb546e1cd5cdb526f623fa7b0a0d9abcd3dcd712b77",
+      "slices": [
+        {
+          "byte_offset": 2655,
+          "bytes": 148,
+          "purpose": "frozen stock use_grf no",
+          "raw_lf_end_inclusive": 81,
+          "raw_lf_start": 77,
+          "sha256": "fc8f2f3e85274ab7294df63c726cb17cd1cab8044c688d166eeb0490c72c7cfb"
+        },
+        {
+          "byte_offset": 4464,
+          "bytes": 73,
+          "purpose": "config import sequence",
+          "raw_lf_end_inclusive": 128,
+          "raw_lf_start": 125,
+          "sha256": "723fea1cf3276d68129743d38fe2f7fdd043fc1016ea39053984fd01dbf2221d"
+        }
+      ]
+    },
+    {
+      "bytes": 0,
+      "id": "I18",
+      "path": ".tools/renewal/t06-text-frozen-1/snapshot/rathena/conf/import/map_conf.txt",
+      "role": "frozen_config_only",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "slices": []
+    },
+    {
+      "bytes": 1022,
+      "id": "I19",
+      "path": ".tools/renewal/t07-007-004-gat-diagnosis-correction-1/corrected-diagnosis.json",
+      "role": "qualified_prior_body_metadata_no_body_read",
+      "sha256": "98fe11a4f6f47c53cf17ddb711ca7f04bcb96d5b52f0bcc022bcd24fdc0156f4",
+      "slices": []
+    },
+    {
+      "bytes": 8474,
+      "id": "I20",
+      "path": "docs/project/fixtures/T07.007.003-profile.json",
+      "role": "qualified_target_map_identity_metadata",
+      "sha256": "06805b0a28fef87b53d6e2f87e50079e14a3b7181a44e541b6b0c0aa268ead2a",
+      "slices": []
+    },
+    {
+      "bytes": 24301,
+      "id": "I21",
+      "path": "docs/project/reviews/2026-10-21-T07.007.004.md",
+      "role": "prior_root_decisions_and_runtime_gate",
+      "sha256": "b1c7c321323f5c64621531ed68b09c15a5161cc2b26b50c0704c507d267f16f5",
+      "slices": [
+        {
+          "byte_offset": 16594,
+          "bytes": 7707,
+          "purpose": "corrected diagnosis and movement followup",
+          "raw_lf_end_inclusive": 397,
+          "raw_lf_start": 272,
+          "sha256": "deeb34bc1cfa7957fd6dccba2275b5c63bcb3924d17b3d036ead36c9de687651"
+        }
+      ]
+    }
+  ],
+  "line_convention": "raw LF-delimited bytes; inclusive line endpoints; CRLF preserved; slice byte offsets/lengths/hash bind exact bytes",
+  "output_contract": {
+    "bytes": 11154,
+    "path": "docs/project/fixtures/T07.007.013-output-contract.json",
+    "sha256": "81c6247d26d1cebfd27a6fdc82be8ebc7bfef3252cb400c9d8e2b0c5a9e7cc3c"
+  },
+  "outputs": [
+    {
+      "encoding": "UTF-8",
+      "max_bytes": 16384,
+      "path": "docs/project/reviews/T07.007.013-gat-policy-plan.md",
+      "requirements": [
+        "source-only status and common base; scope/inputs; exact evidence; policy tradeoffs with conditional hypothesis; predicted controls; runtime gates/dependencies; handoff/limitations",
+        "Do not reproduce acquired source or machine identifiers; redacted summaries and exact input references suffice."
+      ]
+    },
+    {
+      "encoding": "UTF-8 strict JSON",
+      "max_bytes": 24576,
+      "path": "docs/project/reviews/T07.007.013-gat-policy-plan.json",
+      "requirements": [
+        "one object; unique keys; no NaN/Infinity/trailing content",
+        "all root fields listed below required, no unlisted root fields",
+        "all limits are byte limits, not character counts"
+      ]
+    }
+  ],
+  "schema": "T07.007.013-gat-policy-source-plan-profile-1",
+  "source_basis_commit": "f500a179b3459fe06365ef6298f7e9a26bbc4eb8",
+  "source_read_scope": "Read/hash only these21 full files plus assigned project handoff/task/profile/output-contract and Orca dispatch lifecycle instructions. Start analysis with the bounded pinned LF slices; read more of an admitted full file when needed. Follow no other private/body/archive/cache/native path contained inside metadata.",
+  "source_revisions": {
+    "client": "775f8847a8b09749d03c82fcb554e155401d1e02",
+    "meaning": "prior source provenance, not new acquired-source Git/build/runtime attestation",
+    "server_fork": "0693b8c69911d5ca42269684aa036b67d67f4d3e"
+  },
+  "target": {
+    "body_bytes": 3200014,
+    "body_sha256": "758ceb1b32e059c9e70bcc55ce917c630b4d67d25b73ec677167af27a3a35ed5",
+    "cells": [
+      {
+        "float_flag_slot": 416889,
+        "index": 83377,
+        "raw_hex": "0x40000000",
+        "raw_uint32": 1073741824,
+        "x": 177,
+        "y": 208
+      },
+      {
+        "float_flag_slot": 452539,
+        "index": 90507,
+        "raw_hex": "0x40000001",
+        "raw_uint32": 1073741825,
+        "x": 107,
+        "y": 226
+      }
+    ],
+    "height": 400,
+    "map": "ygg_roots",
+    "provenance": "I19 prior root corrected diagnosis and I20 qualified target profile, metadata only",
+    "width": 400
+  },
+  "task": "T07.007.013",
+  "working_allowance_minutes": 20,
+  "config_evidence_boundary": "Frozen map_athena.conf states use_grf:no and imports another unadmitted config plus the empty admitted map_conf.txt. This is default/source evidence, not a complete frozen import closure or effective runtime configuration."
+}

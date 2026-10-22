@@ -1,0 +1,256 @@
+{
+  "contract_kind": "closed field/constraint contract; trusted stdlib/manual root checking; no external schema or runtime dependency",
+  "files": [
+    {
+      "encoding": "UTF-8",
+      "max_bytes": 16384,
+      "path": "docs/project/reviews/T07.007.013-gat-policy-plan.md",
+      "requirements": [
+        "source-only status and common base; scope/inputs; exact evidence; policy tradeoffs with conditional hypothesis; predicted controls; runtime gates/dependencies; handoff/limitations",
+        "Do not reproduce acquired source or machine identifiers; redacted summaries and exact input references suffice."
+      ]
+    },
+    {
+      "encoding": "UTF-8 strict JSON",
+      "max_bytes": 24576,
+      "path": "docs/project/reviews/T07.007.013-gat-policy-plan.json",
+      "requirements": [
+        "one object; unique keys; no NaN/Infinity/trailing content",
+        "all root fields listed below required, no unlisted root fields",
+        "all limits are byte limits, not character counts"
+      ]
+    }
+  ],
+  "json_root_fields": {
+    "base_commit": {
+      "rule": "actual common dispatch base from this candidate checkout; never guess the future introducing commit",
+      "type": "40 lowercase hexadecimal characters"
+    },
+    "benchmark_kind": {
+      "const": "source_plan_only"
+    },
+    "claim_boundary": {
+      "required_constants": {
+        "full_game_goal_changed": false,
+        "predictions_executed": false,
+        "production_mapping_selected": false,
+        "runtime_verified": false,
+        "source_bundle_parity_verified": false
+      }
+    },
+    "client_pipeline": {
+      "required_fields": [
+        "known_unsigned_mappings",
+        "literal_minus_one",
+        "unsigned_ffffffff",
+        "observed_flags",
+        "zero_consumers",
+        "dynamic_lookup_site"
+      ],
+      "rules": [
+        "known_unsigned_mappings has exactly17 unique {raw_uint32,mask} records: ordinary0..6 and0x80000000..09",
+        "literal_minus_one records table mask1 and cannot_be_returned_by_readULong=true",
+        "unsigned_ffffffff separates missing unsigned key from literal signed-1 table key",
+        "observed_flags exactly two records; distinguish uint32/table lookup/Float32/Uint8 stages",
+        "zero_consumers covers WALKABLE hover/free-cell, equality-based direct search and WALKABLE fallback; do not claim uniform blocking",
+        "dynamic_lookup_site identifies renderer copied TYPE_TABLE/setCellType and its limits",
+        "all behavior is marked source_predicted_only; no synthetic method execution"
+      ]
+    },
+    "dependencies": {
+      "fields": [
+        "plan_independent_of",
+        "later_runtime_requires"
+      ],
+      "rules": [
+        "source-plan task has no dependency on completion of .011transport or .012adapter",
+        "later runtime validation depends on qualified ordinary asset route, fresh-world admission, actual server/config/cache evidence and normal navigation/movement/save access"
+      ]
+    },
+    "handoff": {
+      "fields": [
+        "next_owner",
+        "next_action",
+        "rollback_boundary",
+        "full_goal_preserved"
+      ],
+      "rules": [
+        "root owns independent primary-source review/scoring/corrections/checkpoint before implementation",
+        "source-only candidates roll back by Git revert after checkpoint; Git is not game/save rollback",
+        "full_goal_preserved explicitly states full Modern/Renewal maps/monsters/story/persistence/eventual Traditional Chinese, functionality first, party-only later"
+      ]
+    },
+    "input_checks": {
+      "before_after_fields": [
+        "bytes",
+        "sha256"
+      ],
+      "exact_count": 21,
+      "item_fields": [
+        "input_id",
+        "before",
+        "after"
+      ],
+      "rules": [
+        "IDs I01..I21 occur exactly once in profile order",
+        "both observations equal the exact frozen profile bytes/SHA256",
+        "do not claim before/after admission without reading and hashing each complete file",
+        "source paths are resolved solely from profile and dispatch private input root; do not copy inode/device/owner identifiers to public JSON"
+      ],
+      "type": "array"
+    },
+    "policy": {
+      "fields": [
+        "production_state",
+        "recommended_next_action",
+        "options",
+        "two_entry_hypothesis",
+        "prohibited_generalizations"
+      ],
+      "options_count": "2..3 source-backed options with tradeoffs and conditions; do not select an installed mapping",
+      "production_state_const": "unselected_pending_runtime_evidence",
+      "recommended_next_action_enum": [
+        "collect_bound_runtime_evidence",
+        "prepare_conditional_two_entry_experiment_after_runtime_gate"
+      ],
+      "rules": [
+        "two_entry_hypothesis is explicitly conditional/unselected; proposed0x40000000->existing0 mask10 and0x40000001->existing1 mask1",
+        "do not infer bit30 meaning or malformed data from absent table entries",
+        "no broad high-bit/low-byte mask, blanket unknown-ground fallback, forced movement or cache/config change"
+      ]
+    },
+    "predicted_controls": {
+      "coverage": [
+        "all17 known unsigned mappings; especially0x80000004->1 and0x80000005->10",
+        "literal-1 vs unsigned0xffffffff",
+        "the two observed raw values through all client stages",
+        "zero direct traversal versus forced fallback with positive/negative supported-key controls",
+        "unknown neighbors0x40000002,0x40000007,0x40000100,0xc0000000 retain no guessed semantics",
+        "water conversion on full raw0 before narrowing; flagged0 does not enter it",
+        "cache-generation prediction versus direct-GRF route and existing-cache uncertainty",
+        "conditional exact-two experiment plus all-other-flag/height/dimension preservation requirement",
+        "ordinary selector/navigation/movement/server-position and save admission dependencies",
+        "unknown bit meaning, config/build/runtime distinction"
+      ],
+      "execution_status_const": "predicted_only",
+      "item_fields": [
+        "id",
+        "input_or_setup",
+        "expected_from_source",
+        "discriminates",
+        "evidence_refs",
+        "execution_status"
+      ],
+      "max": 14,
+      "min": 10,
+      "type": "array"
+    },
+    "retained_target_metadata": {
+      "fields": [
+        "map",
+        "width",
+        "height",
+        "body_bytes",
+        "body_sha256",
+        "cells",
+        "provenance",
+        "body_reread"
+      ],
+      "rules": [
+        "map ygg_roots,400x400,3200014B, exact target SHA from profile",
+        "exact two index/x/y/raw_uint32/float_flag_slot records",
+        "provenance identifies prior qualified I19/I20 metadata",
+        "body_reread=false; do not imply this task verified raw body/header/entire map anew"
+      ]
+    },
+    "runtime_gates": {
+      "item_fields": [
+        "id",
+        "depends_on",
+        "admit",
+        "root_verification",
+        "user_visible_expected",
+        "failure_action",
+        "status"
+      ],
+      "max": 10,
+      "min": 6,
+      "required_coverage": [
+        "fresh isolated ordinary world; preserve original/W and existing Chinese overlays",
+        "actual normal five-archive order, selected target GAT/resource identity and ordinary navigation—not diagnostic viewer proof",
+        "actual binary/build flags/startup map-config/generated/import/mod settings and effective route",
+        "selected cache generation provenance/winner/entry/dimensions/exact two effective terrain+dynamic cells or admitted direct route",
+        "ordinary hover, approach, direct and forced-fallback paths with controlled neighbors/status/occupancy/limits and server-authoritative coordinates",
+        "normal persistence/save/reentry on the isolated world with tested ownership/rollback; no existing-world mutation"
+      ],
+      "status_const": "not_run",
+      "type": "array"
+    },
+    "schema": {
+      "const": "T07.007.013-gat-policy-plan-result-1"
+    },
+    "server_routes": {
+      "required_fields": [
+        "cache_builder",
+        "direct_grf",
+        "stock_config",
+        "movement_validation"
+      ],
+      "rules": [
+        "cache_builder predicts exact water-before-narrowing condition, stored bytes0/1 and corresponding terrain flags; existing_cache_contents_verified=false",
+        "direct_grf preserves full words into unknown/default conversion; distinguish from cache source path",
+        "stock_config records observed source/default use_grf no->0, import/Renewal/common cache search and first successful map match, no per-map GRF fallback; frozen import closure is incomplete (maps_athena.conf unadmitted), so do not claim final effective config; actual_runtime_config_verified=false",
+        "movement_validation identifies clif->unit->path->map cell checks/per-step recheck plus build/status/occupancy/path-limit caveats",
+        "all behavior is marked source_predicted_only"
+      ]
+    },
+    "source_claims": {
+      "item_fields": [
+        "id",
+        "statement",
+        "kind",
+        "evidence"
+      ],
+      "kind_enum": [
+        "source_prediction",
+        "retained_prior_observation",
+        "unresolved"
+      ],
+      "max": 18,
+      "min": 8,
+      "rules": [
+        "each supported claim cites exact raw-LF ranges in an admitted full source input (prefer supplied pinned slices) or metadata member paths",
+        "unresolved claims identify the missing evidence; source inference is not runtime observation"
+      ],
+      "type": "array"
+    },
+    "status": {
+      "const": "candidate_submitted"
+    },
+    "task": {
+      "const": "T07.007.013"
+    },
+    "unknowns": {
+      "max": 10,
+      "min": 4,
+      "rules": [
+        "include bit30 semantic meaning, actual selected cache generation/values, actual binary/config/build and ordinary movement/coordinate/navigation/save behavior",
+        "do not resolve unknowns with inferred service episode or full-content claims"
+      ],
+      "type": "array"
+    }
+  },
+  "readiness_conditions": [
+    "both independent providers submit exact owned output files and commit on their own branches",
+    "root rehashes all21 source inputs, checks every material claim and predicted control against primary source, compares both plans and records corrections",
+    "root verifies output sizes/strict JSON/allowed paths/public-tree hygiene and commits the reviewed no-change evidence before advancing",
+    "only bounded source-plan readiness can follow; no actual experiment, policy install, client-server movement/save or full-game acceptance"
+  ],
+  "scalar_conventions": {
+    "client_mask": "integer or literal string undefined/NaN when describing the relevant stage; never invalid JSON numeric NaN",
+    "evidence_ref": "input_id plus exact raw_lf_start/raw_lf_end_inclusive within the admitted fully pinned source file (prefer supplied bounded slices), or a JSON member path for I19/I20; no new private path",
+    "raw_flag": "unsigned integer0..4294967295; no decimal/string signed reinterpretation"
+  },
+  "schema": "T07.007.013-gat-policy-output-contract-1",
+  "task": "T07.007.013"
+}
