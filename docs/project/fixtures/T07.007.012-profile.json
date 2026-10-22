@@ -1,0 +1,75 @@
+{
+  "schema": "T07.007.012-normal-five-input-route-plan-1",
+  "task": "T07.007.012",
+  "basis_commit": "178936c",
+  "inputs": [
+    {
+      "path": ".tools/renewal/upstream/electron/main.js",
+      "bytes": 200609,
+      "sha256": "9ff6bfe98497ca2e86965c9da4070f0ca102ff6a0c6490275e409f1b9666f75b"
+    },
+    {
+      "path": ".tools/renewal/upstream/electron/asset-server.js",
+      "bytes": 17695,
+      "sha256": "a97973894f68c9aa71410a1a100b6653f14f649b32d478d60f6877059bff1f1f"
+    },
+    {
+      "path": ".tools/renewal/upstream/stack/src/main.rs",
+      "bytes": 14654,
+      "sha256": "18c3028a454bf109c4a8bb3a4348458ababfa5cebbc140864ad88faee54943bf"
+    },
+    {
+      "path": ".tools/renewal/upstream/stack/src/assets.rs",
+      "bytes": 102728,
+      "sha256": "6cfa790e5eadf4af600c8d9ebd612c8bf462b9b7a330fdbaa8b5f98a2ccb7ee3"
+    },
+    {
+      "path": ".tools/renewal/upstream/stack/src/config.rs",
+      "bytes": 11850,
+      "sha256": "dc072ee6df2571ecb740f501537825b614ed5c0d28473aea6f92f1b24d05b3ec"
+    },
+    {
+      "path": ".tools/renewal/upstream/stack/src/asset_transaction.rs",
+      "bytes": 12007,
+      "sha256": "f7865a4c215d9055dca4d214314ded17cb26290eef730f7bdb4955cf3d00afe5"
+    },
+    {
+      "path": ".tools/renewal/upstream/stack/src/cmds.rs",
+      "bytes": 167113,
+      "sha256": "0c44deaa5c66b839f84f9600449fd76aeeb0d2615534b738d10970a972e2a1a4"
+    },
+    {
+      "path": ".tools/renewal/remote-source/src/config.rs",
+      "bytes": 14558,
+      "sha256": "c8592180a406010f74df395ea65a207a87341ea12a08e45bf65a8cb7f7ecaa22"
+    },
+    {
+      "path": ".tools/renewal/remote-source/src/index.rs",
+      "bytes": 8550,
+      "sha256": "eb471536075be604527b9ddadc9fce58727c2e04ca8fc1f81309bf48cd1c362f"
+    },
+    {
+      "path": ".tools/renewal/remote-source/src/client.rs",
+      "bytes": 15628,
+      "sha256": "59b39104e8328493d5d1ec8ff4826add3a6ece1867034f45a7fddaa974b08c68"
+    },
+    {
+      "path": ".tools/renewal/client-source/src/Core/FileManager.js",
+      "bytes": 11279,
+      "sha256": "75c37d192bf21e7b40817a6f2fe27ef536601515c07fe20c7ce8346d50376cd7"
+    },
+    {
+      "path": "docs/project/fixtures/T07.007.006-profile.json",
+      "bytes": 9680,
+      "sha256": "0615c6d9e6e7990acc3f9012d2028115fce0543bd5fe298bfb544953865db5c6"
+    },
+    {
+      "path": ".tools/renewal/t07-007-native-experiment-run-3/actual-five/server/resources/DATA.INI",
+      "bytes": 868,
+      "sha256": "99a83529bbfd82ec96df29fa7e930eb4ca0c9bf0aa8c926d25cf1d4d5708a35b"
+    }
+  ],
+  "scope": "Source-only route and smallest fresh-world adaptation plan; no execution or integration",
+  "qualified_order": "GPF4340_4349,GPF4353_4353,event.grf,data0.grf,data.grf; observed experimental order, publisher priority not proven",
+  "full_game_acceptance": null
+}
