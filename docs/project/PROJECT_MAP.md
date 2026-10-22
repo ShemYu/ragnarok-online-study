@@ -42,6 +42,8 @@ Latest verified work (23 Oct):
   [V] Quest cleanup deadline source gap found; narrow correction checked.
       All five fixed checks pass. Shared runner late-return gap found.
       All eight return-time checks and full28-file Root audit pass.
+      Astra finds late cleanup-start gap; three-line source fix checked.
+      Nine composed boundary groups next, then actual quest binding.
   [V] Navigation source contract checked: 54 ranges and 70 file pins match.
       Three plugins and their source imports found. Equal model task next.
   [V] Bounded child-absence and normal-close source changes checked.
@@ -65,7 +67,8 @@ Latest verified work (23 Oct):
       Next: targeted tests, shared caller and actual source/owner bindings.
   [V] Scene binder now uses the corrected launcher; all 45 header slots match.
       Fresh W4 preflight + full audit pass:114 inventory files,3 original owners.
-      Next: fresh reader/static plan and exact binding before scene trial.
+      Reader templates + five inert data copies checked.
+      Next: exact materialization and binding before scene trial.
       Next: fresh file/process preflight. No new browser has started.
   [V] Corrected launcher tests: all 43 pass; full Root audit passes.
       Next: fresh scene setup and file/process checks before a live test.

@@ -929,3 +929,11 @@ Next primary definition research and request-local policy; no handler admitted.
 correct navi.cpp path, four equal immutable bodies/11pins. It explains categories
 but does not prove faithful selector101 filtering or installed-table association.
 Navigation implementation remains unbound while scene preparation continues.
+
+[W4 reader source/inert data qualify](reviews/2026-10-22-T07.007.011.005.md#wave4-reader-source-and-inert-served-data-qualify):
+29pins/six namespace literals/three full inverses/five exact data copies. Next
+Root materializes reader/static-plan/binder, then separately admits one wave.
+[Composed quest-launcher review finds strict late-start F1](reviews/2026-10-23-T10.005.md#composed-launcher-review-confirms-a-strict-retirement-start-gap);
+[exact sticky cutoff source fix qualifies](reviews/2026-10-23-T10.005.md#exact-sticky-retirement-start-source-correction-qualifies),
+11pins/232bytes/three lines, no new cleanup allowance or target authority.
+Nine finite boundary groups are being prepared; no quest runtime admitted.
