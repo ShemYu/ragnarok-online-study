@@ -71,6 +71,8 @@ Current independent lanes:
   pass but returns success after an injected first-close EBADF. Claude17/20 is
   selected for offline body qualification versus Grok15/20. Before-real-close
   ownership remains unverified; [Astra source consultation defines the next controls](reviews/2026-10-22-T07.007.013.001.md#astra-close-ownership-consultation-source-only).
+  [Finite before-close control source is now prepared and reviewed](reviews/2026-10-22-T07.007.013.001.md#before-close-control-source-prepared-in-parallel),
+  still unexecuted; no leak-free result or new candidate PASS is claimed.
   [The unmodified public pure entry and writer now
   match the actual-body oracle](reviews/2026-10-22-T07.007.013.001.md#unmodified-public-entry-and-writer-match-the-actual-body-oracle):
   exactly two bytes differ, full inverse/all heights/strict receipts pass.
