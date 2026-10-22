@@ -22,6 +22,11 @@ parent checkpoints, not content, effort or playable-world coverage. Full Modern 
 Renewal maps, monsters, story, persistence and eventual Traditional Chinese
 remain the goal. Functionality comes first; party-only work stays later.
 
+[Chapter1 normal frontend source now qualifies](reviews/2026-10-22-T07.007.014.004.md#normal-frontend-materialized-and-independently-source-verified):
+four exact proposal hunks/14full pins, both entry guards still UNBOUND. Current
+normal-reader/config/archive preflight and final caller/admission remain before
+any loading observation. No game/source installation or character change.
+
 **Worker cleanup:** under the user's renewed cleanup instruction,
 [Root closes the four obsolete retained sessions](reviews/2026-10-22-worker-cleanup.md)
 after exact transcript/handle/preservation checks. Four positive PTY-close
