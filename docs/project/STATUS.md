@@ -39,8 +39,9 @@ Current independent lanes:
   code, effective server config/cache/cells, movement and save gates remain.
 - **All 82 resource gaps:** [root full metadata preflight](reviews/2026-10-22-T07.007.014.md#root-metadata-preflight-and-pre-provider-oracle)
   verifies all 63 catalogs / 408794 records and preserves every original gap.
-  The [actual independent Claude/Grok pair is running](reviews/2026-10-22-T07.007.014.md#actual-independent-pair-launched)
-  from the same frozen checkpoint for the complete typed ledger.
+  [Both root executions and the full typed ledger qualify](reviews/2026-10-22-T07.007.014.md#both-root-executions-and-complete-typed-ledger-qualify):
+  Claude/Grok tie19/20; unchanged Grok is selected for its observed streaming
+  memory advantage. Both workers are preserved/released.
   Previously observed names give 26 RSW leads and 56 without counterparts in
   these catalogs; zero functional gaps close. This lane is independent of
   capture and new-world startup.
