@@ -46,7 +46,8 @@ Current independent lanes:
   [Astra's endpoint lead is confirmed on the installed wrapper](reviews/2026-10-22-T07.007.011.005.md#astra-advisory-and-installed-endpoint-discovery);
   [owned marker and three read-only protocol commands now pass](reviews/2026-10-22-T07.007.011.005.md#owned-endpoint-marker-and-read-only-protocol-qualify).
   Worker session/event coverage remains unqualified; a separate authored
-  success/failure handshake fixture is next. One owned blank page is retained
+  [success/failure handshake fixture is admitted](reviews/2026-10-22-T07.007.011.005.md#held-worker-child-session-qualification-admitted).
+  One owned blank page is retained
   for it; parallel replay/proxy drafts await Root review.
   No transport cause is proved. Ship02 visible motion passes; light's GPU motion is proved, but its
   visible check remains occluded. Previous render probes are closed.
