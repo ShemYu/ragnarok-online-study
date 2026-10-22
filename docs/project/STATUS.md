@@ -2,11 +2,20 @@
 
 Updated: 2026-10-23 JST. Coordinator: Codex. Active scope: **execute the documented strategy through the full milestone**.
 
-Latest verified result: [selected existing-text tool is integrated and reverified](reviews/2026-10-23-T10.004.md#selected-unchanged-integration-and-bounded-readiness-qualify).
+Latest diagnostic result: [screenshot control refuses an unknown envelope; complete cleanup and installed-source review qualify](reviews/2026-10-22-T07.007.011.005.md#screenshot-control-refusal-and-installed-source-review-qualify).
+Orca explicitly supports the command and forwards unsolicited events. Our
+reply-only reader rejects those events; the actual refused envelope was not
+retained, so its identity and runtime screenshot support remain UNKNOWN. No PNG
+or render pass. Temporary page/group/listener close and original worlds/tabs
+restore. Next bounded event-aware reader preparation and authored controls;
+quest-registration implementation preparation continues independently. No new
+runtime is admitted, goal change or user decision required.
+
+Latest completed tool: [selected existing-text tool is integrated and reverified](reviews/2026-10-23-T10.004.md#selected-unchanged-integration-and-bounded-readiness-qualify).
 Grok20/20 versus Claude18/20; integrated42b7ce7 passes9own/18common/6extra
 checks and rejoins complete equal152-record actual outputs. T10.004 is
-ready_for_user within this pure-tool/fixed-data scope. Next Root: screenshot
-method support control and the separate owned quest-registration implementation.
+ready_for_user within this pure-tool/fixed-data scope. Next Root: corrected
+screenshot-reader controls and the separate owned quest-registration implementation.
 No full Chinese/live-game/story/parent acceptance follows.
 
 Previous verified inventory result: [complete raw quest inventory and selected source integration qualify](reviews/2026-10-23-T10.002-execution.md#selected-source-integration-and-bounded-readiness-qualify).
@@ -115,6 +124,10 @@ retry, rendering/gap closure or goal change follows; no temporary actor remains.
 [One owned empty-page screenshot-support control is admitted](reviews/2026-10-22-T07.007.011.005.md#one-owned-blank-page-screenshot-support-control-admitted).
 Exactly one command after ownership checks; no game/assets or fresh fruit run.
 Root must verify the complete outcome and close the temporary page before advancing.
+[That control refuses an unknown envelope and is fully closed/audited](reviews/2026-10-22-T07.007.011.005.md#screenshot-control-refusal-and-installed-source-review-qualify).
+Source support is explicit; actual screenshot support and the refused message
+identity remain UNKNOWN. Next prepare a bounded event-aware reader, preserving
+strict command/ownership/PNG/closure gates and the failed attempt unchanged.
 
 **Goal API is active. Current parent count: 4/14, about 29%.** This counts
 parent checkpoints, not content, effort or playable-world coverage. Full Modern /
