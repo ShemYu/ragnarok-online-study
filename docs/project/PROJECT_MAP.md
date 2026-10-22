@@ -69,6 +69,8 @@ Latest verified work (22 Oct):
   [V] Small worker-failure test completes; temporary server/page closed.
       Page capture misses both worker requests, including the success.
       Failed timing zeros do not mean no request was sent.
+      Held-worker check stops at an unexpected connection close.
+      No fetch start is sent; both test processes/page/server retire.
       Need worker-level failure evidence before another fruit test.
   Parent checkpoints: 4 / 14 = about 29%. Full game remains open.
 

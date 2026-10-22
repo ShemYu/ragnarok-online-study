@@ -45,10 +45,14 @@ Current independent lanes:
   or mechanism-specific counter qualification is next. No blind fruit retry.
   [Astra's endpoint lead is confirmed on the installed wrapper](reviews/2026-10-22-T07.007.011.005.md#astra-advisory-and-installed-endpoint-discovery);
   [owned marker and three read-only protocol commands now pass](reviews/2026-10-22-T07.007.011.005.md#owned-endpoint-marker-and-read-only-protocol-qualify).
-  Worker session/event coverage remains unqualified; a separate authored
-  [success/failure handshake fixture is admitted](reviews/2026-10-22-T07.007.011.005.md#held-worker-child-session-qualification-admitted).
-  One owned blank page is retained
-  for it; parallel replay/proxy drafts await Root review.
+  [The held-Worker attempt stops before child readiness](reviews/2026-10-22-T07.007.011.005.md#held-worker-attempt-fails-before-child-readiness):
+  four setup commands ACK and three document events arrive, then the socket
+  closes unexpectedly. Root never sends the held fetch start. Both diagnostic
+  actors exit1 with guard-invalid failures; source/input postpins and positive
+  retirement checks pass. The owned page/server are closed, original two pages
+  retained. Cause and Worker session/event coverage remain unqualified.
+  Astra's single-connection source delta is prepared, not admitted/executed;
+  parallel writer correction/replay and normal-loader proxy review continue.
   No transport cause is proved. Ship02 visible motion passes; light's GPU motion is proved, but its
   visible check remains occluded. Previous render probes are closed.
 - **Normal asset route:** corrected selector passes 29 authored / 35 shared
