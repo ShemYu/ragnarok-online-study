@@ -33,6 +33,11 @@ next action and the exact limits of each result.
 CURRENT WORK: quest data, missing story and map-load checks
 
 Latest verified work (23 Oct):
+  [!] ZIP metadata checker refused an undefined stored-entry flag.
+      Failure + archive integrity audited; exact checker correction next.
+      No extraction or browser launch.
+  [V] Browser integration plan checked; strict ownership/clocks stay.
+  [V] Preserved navigation index located; one historical data read admitted.
   [V] One inert browser archive download + full Root audit pass.
       186MiB file/checksums/34pins match; test processes are gone.
       ZIP metadata inspection next. No browser launch yet.

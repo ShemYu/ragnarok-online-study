@@ -2,6 +2,16 @@
 
 Updated: 2026-10-23 JST. Coordinator: Codex. Active scope: **execute the documented strategy through the full milestone**.
 
+Latest metadata result: [first ZIP inspection refuses an overstrict stored-flag
+predicate](reviews/2026-10-22-T07.007.011.005.md#first-zip-metadata-attempt-refuses-an-overstrict-stored-flag-predicate).
+Root10pins/archive SHA/C8 match;447partial rows, no member reads/extraction.
+Primary ZIP specification explains the checker restriction. Next exact source
+correction/review and separate one-shot metadata admission, same bounds.
+[One CfT integration direction qualifies as source advice](reviews/2026-10-22-T07.007.011.005.md#one-bounded-cft-integration-direction-qualifies-as-source-advice),
+12pins/12spans; no browser admitted. [Retained index locator qualifies and one
+historical body read is admitted](reviews/2026-10-23-T07.006.001.md#retained-index-locator-qualifies-and-one-historical-body-read-is-admitted),
+15metadata pins/seven unchanged candidate stats; selected/current routing unknown.
+
 Latest verification: [one inert browser archive download and complete Root
 audit pass](reviews/2026-10-22-T07.007.011.005.md#one-inert-browser-archive-download-and-complete-root-audit-pass).
 One caller0/original guardvalid;194932023bytes,34full pins, complete checksums/
