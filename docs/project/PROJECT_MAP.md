@@ -123,7 +123,7 @@ CURRENT WORK: October assets and missing maps
  |    Grok imported; root correction passes 29 own and 35 shared checks.
  |    Private stack builds. All three integration checks pass.
  |    Next: real-asset/native parity. No normal-game claim.
- |    Two Grok lanes run independently: transport and movement-policy plans.
+ |    Two Grok lanes run independently: capture code and movement-policy review.
  |    Both have separate Claude comparisons. Runtime policy stays open.
  |
  +-- [V] Other 28 GPF patch tables: corrected tool verified.
