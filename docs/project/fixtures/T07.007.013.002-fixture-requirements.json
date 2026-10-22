@@ -1,0 +1,81 @@
+{
+  "authored_controls": [
+    {
+      "assert": "exact two differing bytes/inverse/preserved heights/header/neighbor words, unchanged actual success-receipt construction; six acquired generations each physically closed once/no uncertainty or residual.",
+      "cases": 1,
+      "id": "C01",
+      "stimulus": "Baseline corrected writer with tagged fixture stub, public SHA negative first."
+    },
+    {
+      "assert": "positive activation and original generation still live before hook throws with zero physical close; exactly one candidate attempt, immutable uncertainty/primary and other cleanup preserved; no success/retry/foreign close. Record live residual immediately before process exit; no harness repair or another writer attempt. Source failure no output, binary stages no successful receipt, later stages may retain both files.",
+      "cases": 6,
+      "id": "C02",
+      "stimulus": "Before-real-close EIO once for source/directory/binary_write/binary_readback/receipt_write/receipt_readback."
+    },
+    {
+      "assert": "one physical close/one attempt, refusal and uncertainty still recorded (production cannot infer release); no retry. Retirement externally observed separately.",
+      "cases": 1,
+      "id": "C03",
+      "stimulus": "After-real-close EIO at one shared helper role; observe immediate EBADF before any new allocation."
+    },
+    {
+      "assert": "different acquisition despite same integer/inode/metadata; sentinel usable/no foreign close/no retry. If exact vacancy reuse not obtained, refuse/skip honestly; never dup2 over an unowned FD. Parent/harness sentinel ownership separate. An unobtained reuse premise is UNEXERCISED/inconclusive and cannot satisfy C04 or Root readiness.",
+      "cases": 1,
+      "id": "C04",
+      "stimulus": "After real close controlled same-FD/same-inode independently reopened authored sentinel."
+    },
+    {
+      "assert": "exact primary object/cause and both cleanup exceptions/errno/role/token/order retained; all remaining still-open records attempted once; both unresolved writer generations measured live without harness repair before child exit.",
+      "cases": 1,
+      "id": "C05",
+      "stimulus": "Primary binary-write EPIPE plus before-close EIO on binary cleanup and ENOSPC on directory cleanup."
+    },
+    {
+      "assert": "API error/uncertainty despite apparently valid two files; never infer success from receipt presence, complete=true or driver exit0.",
+      "cases": 0,
+      "id": "C06",
+      "stimulus": "Reuse C02 directory failure after both complete files (no duplicate case required)."
+    }
+  ],
+  "layout": "Reuse original A01..A09 fixture boundary: deterministic synthetic400x400 GRAT/version/raw height bytes, exact two original words/all17known/unknown neighbors; public synthetic SHA refusal before approved tagged normalizer-return writer stub. No game body or hash bypass.",
+  "limits": {
+    "authored_files_total_bytes": 33554432,
+    "candidate_binary_bytes": 3200014,
+    "candidate_receipt_bytes": 16384,
+    "captured_output_bytes_per_stream": 1048576,
+    "rss_bytes": 536870912,
+    "single_real_read_limit": 3200015,
+    "test_seconds": 60
+  },
+  "no_scope_expansion": "No role x errno crossproduct, generic IPC/parser negative framework, production process API, fixture hash override, body installation or broad GAT policy.",
+  "root_caller_controls": [
+    {
+      "id": "R01",
+      "owner": "Root",
+      "require": "Exact successful API outcome + observed successful retirement of same owned child + independent complete input/bytes/receipt/inverse/modes audit, all conjunctive. Actual public real-body success only after separate admission."
+    },
+    {
+      "id": "R02",
+      "owner": "Root",
+      "require": "Actual corrected writer before-close case records positive live original FD pre-exit and no harness cleanup; externally observe same owned child retirement. Failed API remains rejected; conditional OS teardown evidence is separate from function release."
+    },
+    {
+      "id": "R03",
+      "owner": "Root",
+      "require": "Late API/directory failure after complete files, abnormal exit and timeout/unobserved retirement each refuse; diagnostic completion/guard exit0 never substitutes for API success. Fixed existing caller only, no provider supervision implementation."
+    },
+    {
+      "id": "R04",
+      "owner": "Root",
+      "require": "Missing/malformed/truncated/oversize/late diagnostic or independent input/output/receipt/source audit failure refuses even if complete-looking files exist; preserve artifacts/uncertainty, no retry."
+    },
+    {
+      "id": "R05",
+      "owner": "Root",
+      "require": "Exact caller source/argv/env/ownership/IPC pins; no inherited/delegated/duplicated writer handles/surviving descendants; caller IPC/audit FDs separately accounted. Observe direct-child wait status; never accept reported PID or child-claimed retirement alone."
+    }
+  ],
+  "schema": "root013002-core-finite-fixture-requirements-1",
+  "selection_and_execution": "Keep uncertainty-producing cases individually selectable and the only/last writer attempt in each fresh interpreter; expose finite test cases/assertions/diagnostic source rather than a new process framework. Root supplies the existing qualified disposable caller. No cleanup of uncertain writer FDs, context-manager/finalizer retry or fixture repair before retirement. Known separately owned test sentinels may be handled only after observations, never conflated with writer release.",
+  "state": "FROZEN_REQUIREMENTS_NOT_TEST_RESULTS"
+}

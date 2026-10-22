@@ -1,0 +1,198 @@
+{
+  "authored_fixture_diagnostics": "Bounded private fixture evidence only; identify API returned/raised, complete error fields, fault hit, acquired generation/close attempt/real-close counts, live original residual BEFORE any intervention, source/output preservation and no retry/foreign close. Do not define new production IPC or alter success receipt. Diagnostic completion/exit0 is not API success. Raw FD/identity evidence stays ignored/private and cannot authorize parent close.",
+  "io_exception_contract": {
+    "attributes": {
+      "close_errors": "immutable tuple of immutable records exactly matching profile ledger.CloseError_fields, all close failures in occurrence order",
+      "code": "short stable str",
+      "ownership": "immutable bounded snapshot matching profile ledger.ownership_fields; distinct acquisition token per open, no retry-capable FD",
+      "primary_error": "exact original primary Exception object; same object as __cause__"
+    },
+    "class": "CandidateIOError subclass of CandidateError",
+    "primary_close_failure": "retained as primary_error and also among close_errors; later cleanup errors are not dropped",
+    "primary_plus_cleanup": "EPIPE primary + two injected cleanup failures must retain all three exact errors, roles/tokens/order/errno"
+  },
+  "module_requirements": [
+    "same existing normalize_bytes/write_candidate signatures, private fixed-layout seam, exact fixed real SHA/format/two-byte transform/inverse and unchanged closed actual success receipt",
+    "inert import/no CLI/no subprocess/IPC/process wrapper/new public operational API",
+    "single per-acquisition ledger spanning six roles; close once, uncertainty retained/no retry/foreign close",
+    "preserve original primary object/cause and every cleanup error in immutable ordered typed records; no swallowed finally errors",
+    "explicit normal success only after all owned closes and original writer readback/input audits; failed same-process uncertainty is not falsely called released"
+  ],
+  "operational_acceptance": {
+    "assumptions": "Conditional on ordinary OS process teardown releasing that observed-retired child descriptor table, positive child ownership/exit and no writer handle delegation. No unconditional OS progress/release guarantee, no durability/rollback/two-file atomicity claim. Ledger alone gives truthfulness/no-foreign-close safety, not function-level release.",
+    "caller_controls_owner": "Root independently tests caller acceptance of successful API return/retirement/audits, writer failure with live pre-exit residual then observed exit, late/abnormal/deadline/unresolved/malformed outcomes and no FD inheritance/delegation; do not add these as new production provider APIs.",
+    "caller_direction": "Reuse the existing pinned Root005 fixed one-attempt disposable caller. Root separately binds/reviews/qualifies its exact source/argv/environment/IPC/owner and acceptance records; do not implement a new public runner, generic process wrapper or IPC schema here.",
+    "caller_source_binding": null,
+    "failure": "Any writer exception/close uncertainty, late outcome/deadline, abnormal exit, malformed or missing outcome, independent audit failure, caller cleanup uncertainty or unobserved retirement rejects all apparent output even if both files look complete. Preserve partial artifacts and bounded diagnostics; no blind retry or uncertain/foreign FD close.",
+    "owner": "Root only; separate caller qualification, not provider implementation scope",
+    "residual_control": "Before-close diagnostic positively records still-live original acquisition/token/FD identity immediately before child exit. There is NO harness close, repair, context-manager/finalizer retry or second writer attempt first. Retirement must be observed externally by Root, not asserted by child. Existing old diagnostic harness repair remains historical, not credited.",
+    "success": "Exact successful unmodified write_candidate API outcome plus positively observed successful retirement of the same owned child plus independent complete original/candidate/two-byte inverse/receipt/input preservation audit. These are conjunctive, not alternatives. A diagnostic driver exit0 or complete=true is not writer API success.",
+    "writer_isolation": "One writer attempt in one fresh owned disposable child. All writer source/output/directory FDs are acquired only inside it. No writer FD inherited from parent, delegated, duplicated, detached, transferred, or retained by a survivor; no descendants/exec/FD passing. Intentional caller IPC and parent audit FDs are separately owned, never counted as writer teardown."
+  },
+  "owned_tracked_outputs": [
+    {
+      "max_bytes": 28672,
+      "path": "tools/renewal/two_cell_gat_candidate.py"
+    },
+    {
+      "max_bytes": 49152,
+      "path": "tests/test_two_cell_gat_candidate.py"
+    },
+    {
+      "max_bytes": 12288,
+      "path": "docs/project/reviews/T07.007.013.002-two-cell-close-policy.md"
+    }
+  ],
+  "required_case_ids": [
+    "C01",
+    "C02",
+    "C03",
+    "C04",
+    "C05",
+    "C06"
+  ],
+  "required_root_operational_ids": [
+    "R01",
+    "R02",
+    "R03",
+    "R04",
+    "R05"
+  ],
+  "root_readiness": [
+    "personally read all three candidate outputs plus unchanged pure core/receipt/API and eight authority pins",
+    "run both own applicable regressions and identical finite close controls using one isolated disposable interpreter per uncertainty-producing attempt; inspect live residual before exit without harness repair",
+    "separately qualify exact existing Root005 fixed caller ownership/no inheritance/delegation/teardown/late-abnormal-deadline-malformed rejection and independent acceptance; no new provider wrapper",
+    "commit comparison/selected correction before later exact real-body public writer attempt and independent input/output/receipt/inverse audit",
+    "no current actual runtime admission/installation/cache/server agreement/gameplay acceptance is supplied by these drafts"
+  ],
+  "same_success_receipt": {
+    "candidate_sha_expected_before_actual_body_run": null,
+    "format": "one strict closed JSON object, unique keys/no nonfinite/trailing bytes; exact compact ASCII convention",
+    "not_permitted": [
+      "absolute input/output paths, inode/device/uid/host identifiers, timestamps/nonces, raw heights or body content, invented expected candidate SHA",
+      "fixture-tagged I/O unit receipts promoted to this actual-input receipt contract"
+    ],
+    "root_fields": {
+      "candidate": {
+        "closed_fields": {
+          "bytes": {
+            "const": 3200014
+          },
+          "sha256": {
+            "type": "64 lowercase hex, measured from actual resulting bytes"
+          }
+        }
+      },
+      "cells": {
+        "exact_records": [
+          {
+            "candidate_le_hex": "00000000",
+            "candidate_uint32": 0,
+            "decoded_float_flag_slot": 416889,
+            "differing_byte_offset": 1667573,
+            "index": 83377,
+            "original_le_hex": "00000040",
+            "original_uint32": 1073741824,
+            "predicted_client_mask": 10,
+            "type_word_offset": 1667570,
+            "x": 177,
+            "y": 208
+          },
+          {
+            "candidate_le_hex": "01000000",
+            "candidate_uint32": 1,
+            "decoded_float_flag_slot": 452539,
+            "differing_byte_offset": 1810173,
+            "index": 90507,
+            "original_le_hex": "01000040",
+            "original_uint32": 1073741825,
+            "predicted_client_mask": 1,
+            "type_word_offset": 1810170,
+            "x": 107,
+            "y": 226
+          }
+        ],
+        "rule": "same ordered closed records/values as frozen profile unchanged_hypothesis.cells; predicted_client_mask is source prediction only"
+      },
+      "change_audit": {
+        "closed_constants": {
+          "addressed_word_bytes": 8,
+          "all_height_bytes_unchanged": true,
+          "differing_byte_offsets": [
+            1667573,
+            1810173
+          ],
+          "differing_bytes": 2,
+          "header_unchanged": true,
+          "inverse_restores_original": true,
+          "inverse_sha256": "758ceb1b32e059c9e70bcc55ce917c630b4d67d25b73ec677167af27a3a35ed5",
+          "outside_target_words_unchanged": true
+        }
+      },
+      "format": {
+        "closed_fields": {
+          "cell_bytes": {
+            "const": 20
+          },
+          "endian": {
+            "const": "little"
+          },
+          "header_bytes": {
+            "const": 14
+          },
+          "height": {
+            "const": 400
+          },
+          "magic": {
+            "const": "GRAT"
+          },
+          "type_word_offset_within_cell": {
+            "const": 16
+          },
+          "version_hex": {
+            "type": "4 lowercase hex, exact original version bytes"
+          },
+          "width": {
+            "const": 400
+          }
+        }
+      },
+      "input": {
+        "closed_fields": {
+          "bytes": {
+            "const": 3200014
+          },
+          "sha256": {
+            "const": "758ceb1b32e059c9e70bcc55ce917c630b4d67d25b73ec677167af27a3a35ed5"
+          }
+        }
+      },
+      "policy": {
+        "closed_constants": {
+          "bit30_meaning_known": false,
+          "normal_runtime_verified": false,
+          "production_mapping_selected": false,
+          "server_agreement_verified": false,
+          "server_cache_generation_permitted": false
+        }
+      },
+      "schema": {
+        "const": "root013-two-cell-gat-candidate-1"
+      },
+      "status": {
+        "const": "offline_candidate_hypothesis"
+      }
+    }
+  },
+  "schema": "T07.007.013.002-core-close-policy-output-contract-1",
+  "state": "FROZEN_FOR_OWNED_AUTHORED_IMPLEMENTATION_ONLY",
+  "task": "T07.007.013.002",
+  "worker_report_required": [
+    "common base/three owned paths/actual authored counts/results/limits; candidate commit in final handoff",
+    "all eight before/after input full pins; no actual body/game/native reads",
+    "private layout positives/public SHA negatives/tagged writer-unit controls distinguished; source-only/unexecuted controls explicitly labelled",
+    "all close errors/primary/state/no-retry observed only where actually tested; live-pre-exit residual not repaired or claimed released at raise",
+    "Root-only existing caller source binding and actual retirement/acceptance still separate; preserve raw001 failed unconditional guarantee",
+    "full goal/functionality priority/Chinese final scope/party deferral unchanged; mapping/server/cache/water/movement/save still unselected"
+  ]
+}

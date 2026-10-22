@@ -27,7 +27,8 @@ Latest verified work (22 Oct):
   [V] Offline movement candidate: actual bytes/receipt/inverse pass.
       Claude selected; Grok close check fails. No live mapping selected.
   [V] Before-close test confirms two ownership-loss paths in the writer.
-      Astra policy reviewed; child/uncertainty correction draft next.
+      Astra policy reviewed; core-only uncertainty correction frozen.
+      Next independent Claude/Grok coding; existing caller stays separate.
       Real map/save untouched.
   [V] Chapter 1 decoder: both candidates pass 30 Root common groups.
   [V] Both own suites: Claude 76 / Grok 64 run, one skip each, no failures.

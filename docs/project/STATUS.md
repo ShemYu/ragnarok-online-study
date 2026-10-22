@@ -78,7 +78,10 @@ Current independent lanes:
   each refuses but leaves one recorded live generation before disclosed harness
   cleanup. No retry/foreign close occurs. [Astra/high policy review is complete](reviews/2026-10-22-T07.007.013.001.md#astra-actual-evidence-policy-review-completed):
   Root adopts separate uncertainty/error accounting and one-attempt child
-  retirement direction; new contract preparation only. No production cleanup PASS.
+  retirement direction. [The narrowed .002 core correction is frozen](reviews/2026-10-22-T07.007.013.002.md):
+  existing ledger/errors/tests/report only; the existing fixed caller remains a
+  separate Root qualification, with no new public process wrapper. Same-base
+  independent Claude/Grok implementations are next. No cleanup/caller PASS.
   [The unmodified public pure entry and writer now
   match the actual-body oracle](reviews/2026-10-22-T07.007.013.001.md#unmodified-public-entry-and-writer-match-the-actual-body-oracle):
   exactly two bytes differ, full inverse/all heights/strict receipts pass.

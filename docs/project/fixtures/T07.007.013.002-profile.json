@@ -1,0 +1,391 @@
+{
+  "api": {
+    "normalize_bytes": "normalize_bytes(data: bytes) -> tuple[bytes, dict]; exact built-in bytes, fixed exact real SHA/length and layout/target words, no caller-overridable pin/profile; returns separate immutable candidate and strict receipt",
+    "private_fixture_core": "_normalize_layout(data: bytes) -> bytes; same fixed dimensions/header/target words and preservation checks, but no real-body hash admission; private authored-fixture seam only. Public normalize/write must never bypass fixed real SHA. Root approved this fixture-only seam; public fixed-SHA admission remains mandatory.",
+    "stdlib": "Python3.9-compatible standard library only; no compiler/dependencies/network/acquired game/client/native source execution. Only own copied/corrected core and authored tests may execute after dispatch.",
+    "write_candidate": "write_candidate(source_path: pathlib.Path, output_dir: pathlib.Path) -> dict; explicit call only, ordinary private read-only input, fresh owned0700 directory and separate0600 binary+receipt; no CLI or import-time action"
+  },
+  "api_policy_correction": "normalize_bytes(data)->(bytes,receipt), _normalize_layout fixture seam and write_candidate(Path,Path)->receipt remain the only existing entries; inert import/no CLI/no process launch. Preserve exact pure fixed-SHA admission, two changed bytes, inverse/heights/version/other words and unchanged actual success receipt. The old unconditional same-process closes-all-on-failure guarantee remains failed; new I/O exception policy is truthful uncertainty followed by separately qualified external retirement.",
+  "authored_control_ids": [
+    "C01",
+    "C02",
+    "C03",
+    "C04",
+    "C05",
+    "C06"
+  ],
+  "common_base": null,
+  "common_base_policy": "Root personally reviews/corrects/freezes and commits common task/profile/contract/fixture requirements; both real independent Claude/Grok branches start at that exact recorded introducing commit. Same inputs/criteria, no sibling inspection or transferred feedback.",
+  "fixture_boundary": "Retain private fixed-layout positive/public fixed-SHA negative and explicitly tagged normalizer-return writer-unit seams. Never mock digest/admission. Each uncertainty-producing I/O control is individually selectable and the only/last writer attempt in its fresh interpreter, retaining live pre-exit residual with no harness repair. Tests provide the finite case/assertions/diagnostic source; Root invokes them via the separately bound existing caller and observes actual retirement. No provider process supervisor/public fixture API/IPC protocol is added. Worker report labels controls unexecuted if that caller authority was not supplied.",
+  "forbidden": [
+    "new public run_attempt API, subprocess/IPC/process-supervision module or CLI",
+    "actual game/body/archive/cache/native/source-assets/live runtime/world/save/auth/network access",
+    "production mapping/client/server/cache installation, broader masks/raw10/other-byte changes",
+    "provider/sibling/transcript/subagent inspection beyond dispatched lifecycle",
+    "caller-supplied digest/profile/executable/hash override, generic framework/dependencies/global settings",
+    "retry uncertain close, close a replacement, inherited/delegated/duplicated writer FD, harness repair credited as release"
+  ],
+  "historical_failure": {
+    "actual_diagnosis_cases": 3,
+    "fixture_harness_later_repaired_residuals": true,
+    "ledger_alone_is_not_release": true,
+    "old_guard_exit_is_not_new_operational_PASS": true,
+    "original001_contract_unchanged": true,
+    "raw001_same_process_cleanup_failed": true
+  },
+  "inputs": [
+    {
+      "bytes": 4833,
+      "id": "I01",
+      "path": "docs/project/tasks/T07.007.013.001.md",
+      "role": "read_only_source_or_retained_diagnosis_metadata_do_not_follow_paths",
+      "sha256": "58c4134b07e17ee3436fa2a7d3431228a3a431a8516f0de32cd45f1de40c84bc"
+    },
+    {
+      "bytes": 13929,
+      "id": "I02",
+      "path": "docs/project/fixtures/T07.007.013.001-profile.json",
+      "role": "read_only_source_or_retained_diagnosis_metadata_do_not_follow_paths",
+      "sha256": "037bd9df86ff7b2ae6a4ba62ae1428dfd51066c314e9b8905d16ef4b902d20ee"
+    },
+    {
+      "bytes": 7661,
+      "id": "I03",
+      "path": "docs/project/fixtures/T07.007.013.001-output-contract.json",
+      "role": "read_only_source_or_retained_diagnosis_metadata_do_not_follow_paths",
+      "sha256": "58652d385861394d421daf0a5f525786130b718c0deb2502a85655c1b0027f93"
+    },
+    {
+      "bytes": 18248,
+      "id": "I04",
+      "path": ".tools/renewal/t07-007-013-001-claude-preservation-1/source/tools/renewal/two_cell_gat_candidate.py",
+      "role": "read_only_source_or_retained_diagnosis_metadata_do_not_follow_paths",
+      "sha256": "f32f6301a86b5448ba91c29c54a7a03f688e2d0b0acfc3fb1749f61b9466446a"
+    },
+    {
+      "bytes": 28238,
+      "id": "I05",
+      "path": ".tools/renewal/t07-007-013-001-claude-preservation-1/source/tests/test_two_cell_gat_candidate.py",
+      "role": "read_only_source_or_retained_diagnosis_metadata_do_not_follow_paths",
+      "sha256": "b60da14ddbe04d667d0c61c26594d73c7c4341959acf908de4457829ecd1360d"
+    },
+    {
+      "bytes": 18377,
+      "id": "I06",
+      "path": ".tools/renewal/t07-007-013-001-root-before-close-execution-1/first-wave-1/RESULT.json",
+      "role": "read_only_source_or_retained_diagnosis_metadata_do_not_follow_paths",
+      "sha256": "98bebbf0ae0f1801b171eee69efd31acc9544e236cf32c7d81033368338397d4"
+    },
+    {
+      "bytes": 1748,
+      "id": "I07",
+      "path": ".tools/renewal/t07-007-013-001-root-before-close-execution-1/guard-1/receipt.json",
+      "role": "read_only_source_or_retained_diagnosis_metadata_do_not_follow_paths",
+      "sha256": "c54be623e62e98b964a66978c51f12e5fd2810955a390d243711aa7a1be2f465"
+    },
+    {
+      "bytes": 12851,
+      "id": "I08",
+      "path": ".tools/renewal/t07-007-013-001-astra-actual-close-policy-1/REPORT.md",
+      "role": "read_only_source_or_retained_diagnosis_metadata_do_not_follow_paths",
+      "sha256": "84d9706942867c44754bcf12db1ac0d5838078736b4c900b60f6f7fa211e336c"
+    }
+  ],
+  "io_unchanged_except_cleanup_policy": {
+    "binary_name": "ygg_roots.candidate.gat",
+    "failure": "Validation before output creation; subsequent error raises with primary/all close uncertainties. Preserve partial/foreign artifacts and source; no unconditional same-process release claim. Root independently retires one failed owned writer child under operational boundary.",
+    "input": "ordinary nonsymlink single-link current-user file with private read permissions (0400/0600), bounded read<=3200015, exact EOF, full fixed SHA, unchanged full file identity excluding atime before/opened/after; no mode/byte/metadata mutation",
+    "output": "Root/worker owns a private0700 ordinary nonsymlink parent; output_dir must not exist; no symlink or overwrite. Exclusive NOFOLLOW regular0600 files; full positive-progress writes/fsync/close/readback/hash; verify final modes. No receipt success before binary full readback/audit.",
+    "receipt_max_bytes": 16384,
+    "receipt_name": "candidate-receipt.json",
+    "serialization": "strict compact ASCII JSON, ensure_ascii=True, allow_nan=False, separators comma/colon, no newline"
+  },
+  "ledger": {
+    "CloseError_fields": {
+      "acquisition": "exact built-in int1..6",
+      "error": "exact original Exception object, preserving exact errno int or None",
+      "operation": "literal close",
+      "release_state": "literal unknown",
+      "role": "six-role enum"
+    },
+    "acquisitions": "one monotonic token per successful open, distinct even if FD integers or inode metadata repeat. Keep owned records through failure/terminal snapshot; records are not discarded before close result.",
+    "cleanup": "Visit every still-open acquired record once, continuing after any close error; skip closing/closed/uncertain. Do not close by bare numeric FD after ownership changed. No retry, fstat-then-retry, same-inode lifetime assumption, duplicate/delegate/detach/GC/finalizer retry of uncertainty.",
+    "failure_objects": "CandidateIOError, a CandidateError subclass, preserves stable code, primary_error exact original primary Exception object and __cause__ referencing it; close_errors immutable ordered tuple of immutable CloseError records; ownership immutable bounded snapshot of acquired token/role/state/close_attempts. Primary is first action/validation/close failure; if it is close, also retain it in close_errors. No finally error is dropped/shadowed.",
+    "no_success": "No returned receipt after ordinary primary/cleanup/close uncertainty. Normal successful API return requires all acquired records closed by normal return and full existing writer/post-input audits. Retain partial evidence, no overwrite/delete/source mutation.",
+    "ownership_fields": {
+      "acquisition": "exact built-in int1..6 unique monotonic",
+      "close_attempts": "exact built-in int0|1",
+      "role": "six-role enum",
+      "state": "open|closing|closed|uncertain"
+    },
+    "roles": [
+      "source",
+      "directory",
+      "binary_write",
+      "binary_readback",
+      "receipt_write",
+      "receipt_readback"
+    ],
+    "states": [
+      "open",
+      "closing",
+      "closed",
+      "uncertain"
+    ],
+    "transition": "open -> closing immediately before exactly one close attempt; normal return -> closed; any ordinary close Exception -> uncertain with original exception retained. No inferred errno or physical-release meaning on exceptional return."
+  },
+  "limits": {
+    "authored_files_total_bytes": 33554432,
+    "candidate_binary_bytes": 3200014,
+    "candidate_receipt_bytes": 16384,
+    "captured_output_bytes_per_stream": 1048576,
+    "rss_bytes": 536870912,
+    "single_real_read_limit": 3200015,
+    "test_seconds": 60
+  },
+  "operational_boundary": {
+    "assumptions": "Conditional on ordinary OS process teardown releasing that observed-retired child descriptor table, positive child ownership/exit and no writer handle delegation. No unconditional OS progress/release guarantee, no durability/rollback/two-file atomicity claim. Ledger alone gives truthfulness/no-foreign-close safety, not function-level release.",
+    "caller_controls_owner": "Root independently tests caller acceptance of successful API return/retirement/audits, writer failure with live pre-exit residual then observed exit, late/abnormal/deadline/unresolved/malformed outcomes and no FD inheritance/delegation; do not add these as new production provider APIs.",
+    "caller_direction": "Reuse the existing pinned Root005 fixed one-attempt disposable caller. Root separately binds/reviews/qualifies its exact source/argv/environment/IPC/owner and acceptance records; do not implement a new public runner, generic process wrapper or IPC schema here.",
+    "caller_source_binding": null,
+    "failure": "Any writer exception/close uncertainty, late outcome/deadline, abnormal exit, malformed or missing outcome, independent audit failure, caller cleanup uncertainty or unobserved retirement rejects all apparent output even if both files look complete. Preserve partial artifacts and bounded diagnostics; no blind retry or uncertain/foreign FD close.",
+    "owner": "Root only; separate caller qualification, not provider implementation scope",
+    "residual_control": "Before-close diagnostic positively records still-live original acquisition/token/FD identity immediately before child exit. There is NO harness close, repair, context-manager/finalizer retry or second writer attempt first. Retirement must be observed externally by Root, not asserted by child. Existing old diagnostic harness repair remains historical, not credited.",
+    "success": "Exact successful unmodified write_candidate API outcome plus positively observed successful retirement of the same owned child plus independent complete original/candidate/two-byte inverse/receipt/input preservation audit. These are conjunctive, not alternatives. A diagnostic driver exit0 or complete=true is not writer API success.",
+    "writer_isolation": "One writer attempt in one fresh owned disposable child. All writer source/output/directory FDs are acquired only inside it. No writer FD inherited from parent, delegated, duplicated, detached, transferred, or retained by a survivor; no descendants/exec/FD passing. Intentional caller IPC and parent audit FDs are separately owned, never counted as writer teardown."
+  },
+  "outputs": [
+    {
+      "max_bytes": 28672,
+      "path": "tools/renewal/two_cell_gat_candidate.py"
+    },
+    {
+      "max_bytes": 49152,
+      "path": "tests/test_two_cell_gat_candidate.py"
+    },
+    {
+      "max_bytes": 12288,
+      "path": "docs/project/reviews/T07.007.013.002-two-cell-close-policy.md"
+    }
+  ],
+  "policy_gates": {
+    "actual_server_gate_owner": "Root; unselected before dispatch and before any live candidate use",
+    "bit30_meaning_known": false,
+    "next_runtime_requires": "Actual served normal archive route/bundles, fresh world, server binary/build/effective CLI/import/config, winning cache/direct source and terrain/dynamic/water cells; normal hover/direct/fallback movement/server position/save-reentry. Offline byte equality cannot substitute.",
+    "normal_runtime_verified": false,
+    "production_mapping_selected": false,
+    "server_agreement_verified": false,
+    "server_cache_generation_permitted": false,
+    "water_warning": "Original flagged0 skips full-raw-zero water conversion; candidate raw0 could enter it when height>water_height with nonsentinel water. Never rebuild/use server cache from this candidate under this task."
+  },
+  "protected_unread_real_input": {
+    "bytes": 3200014,
+    "descriptor_basis": "I08 index4/body_file000004, stored_receipt and complete transfer; prior I04/I05/I02 target metadata. This draft did not reread/hash/decode the body.",
+    "path": ".tools/renewal/t07-007-011-root-execution-preparation-4/actual-ygg_roots-1/000004",
+    "root_future_exact_body_qualification_required": true,
+    "sha256": "758ceb1b32e059c9e70bcc55ce917c630b4d67d25b73ec677167af27a3a35ed5",
+    "worker_read_permitted": false
+  },
+  "read_boundary": "Only eight fixed inputs plus handoff/current task/profile/contract and dispatched lifecycle; no paths followed from metadata, bodies/assets/cache/archives/native/game/save/auth/runtime. Selected retained code/tests are common baseline; copy to owned outputs before modification. Future dispatch permits own copied/corrected code and authored fixture tests only.",
+  "root_operational_control_ids": [
+    "R01",
+    "R02",
+    "R03",
+    "R04",
+    "R05"
+  ],
+  "same_success_receipt": {
+    "candidate_sha_expected_before_actual_body_run": null,
+    "format": "one strict closed JSON object, unique keys/no nonfinite/trailing bytes; exact compact ASCII convention",
+    "not_permitted": [
+      "absolute input/output paths, inode/device/uid/host identifiers, timestamps/nonces, raw heights or body content, invented expected candidate SHA",
+      "fixture-tagged I/O unit receipts promoted to this actual-input receipt contract"
+    ],
+    "root_fields": {
+      "candidate": {
+        "closed_fields": {
+          "bytes": {
+            "const": 3200014
+          },
+          "sha256": {
+            "type": "64 lowercase hex, measured from actual resulting bytes"
+          }
+        }
+      },
+      "cells": {
+        "exact_records": [
+          {
+            "candidate_le_hex": "00000000",
+            "candidate_uint32": 0,
+            "decoded_float_flag_slot": 416889,
+            "differing_byte_offset": 1667573,
+            "index": 83377,
+            "original_le_hex": "00000040",
+            "original_uint32": 1073741824,
+            "predicted_client_mask": 10,
+            "type_word_offset": 1667570,
+            "x": 177,
+            "y": 208
+          },
+          {
+            "candidate_le_hex": "01000000",
+            "candidate_uint32": 1,
+            "decoded_float_flag_slot": 452539,
+            "differing_byte_offset": 1810173,
+            "index": 90507,
+            "original_le_hex": "01000040",
+            "original_uint32": 1073741825,
+            "predicted_client_mask": 1,
+            "type_word_offset": 1810170,
+            "x": 107,
+            "y": 226
+          }
+        ],
+        "rule": "same ordered closed records/values as frozen profile unchanged_hypothesis.cells; predicted_client_mask is source prediction only"
+      },
+      "change_audit": {
+        "closed_constants": {
+          "addressed_word_bytes": 8,
+          "all_height_bytes_unchanged": true,
+          "differing_byte_offsets": [
+            1667573,
+            1810173
+          ],
+          "differing_bytes": 2,
+          "header_unchanged": true,
+          "inverse_restores_original": true,
+          "inverse_sha256": "758ceb1b32e059c9e70bcc55ce917c630b4d67d25b73ec677167af27a3a35ed5",
+          "outside_target_words_unchanged": true
+        }
+      },
+      "format": {
+        "closed_fields": {
+          "cell_bytes": {
+            "const": 20
+          },
+          "endian": {
+            "const": "little"
+          },
+          "header_bytes": {
+            "const": 14
+          },
+          "height": {
+            "const": 400
+          },
+          "magic": {
+            "const": "GRAT"
+          },
+          "type_word_offset_within_cell": {
+            "const": 16
+          },
+          "version_hex": {
+            "type": "4 lowercase hex, exact original version bytes"
+          },
+          "width": {
+            "const": 400
+          }
+        }
+      },
+      "input": {
+        "closed_fields": {
+          "bytes": {
+            "const": 3200014
+          },
+          "sha256": {
+            "const": "758ceb1b32e059c9e70bcc55ce917c630b4d67d25b73ec677167af27a3a35ed5"
+          }
+        }
+      },
+      "policy": {
+        "closed_constants": {
+          "bit30_meaning_known": false,
+          "normal_runtime_verified": false,
+          "production_mapping_selected": false,
+          "server_agreement_verified": false,
+          "server_cache_generation_permitted": false
+        }
+      },
+      "schema": {
+        "const": "root013-two-cell-gat-candidate-1"
+      },
+      "status": {
+        "const": "offline_candidate_hypothesis"
+      }
+    }
+  },
+  "schema": "T07.007.013.002-core-close-policy-profile-1",
+  "scope": "Correct existing core acquisition ledger/error preservation plus existing tests and one report only. Root separately qualifies the existing fixed disposable caller; no new production API/CLI/process wrapper/IPC implementation.",
+  "state": "FROZEN_FOR_OWNED_AUTHORED_IMPLEMENTATION_ONLY",
+  "task": "T07.007.013.002",
+  "unchanged_format": {
+    "cell_bytes": 20,
+    "cell_count": 160000,
+    "dimension_word_type": "little-endian uint32",
+    "exact_bytes": 3200014,
+    "header_bytes": 14,
+    "height": 400,
+    "height_bytes_per_cell": 16,
+    "height_offset": 10,
+    "magic_ascii": "GRAT",
+    "type_within_cell_offset": 16,
+    "type_word_bytes": 4,
+    "type_word_kind": "raw little-endian uint32, not the decoded client mask",
+    "version_bytes_count": 2,
+    "version_bytes_offset": 4,
+    "version_policy": "preserve exactly; actual version not inferred",
+    "width": 400,
+    "width_offset": 6
+  },
+  "unchanged_hypothesis": {
+    "addressed_word_bytes": 8,
+    "byte_transitions": [
+      {
+        "after": 0,
+        "before": 64,
+        "offset": 1667573
+      },
+      {
+        "after": 0,
+        "before": 64,
+        "offset": 1810173
+      }
+    ],
+    "cells": [
+      {
+        "candidate_le_hex": "00000000",
+        "candidate_uint32": 0,
+        "decoded_float_flag_slot": 416889,
+        "differing_byte_offset": 1667573,
+        "index": 83377,
+        "original_le_hex": "00000040",
+        "original_uint32": 1073741824,
+        "predicted_client_mask": 10,
+        "type_word_offset": 1667570,
+        "x": 177,
+        "y": 208
+      },
+      {
+        "candidate_le_hex": "01000000",
+        "candidate_uint32": 1,
+        "decoded_float_flag_slot": 452539,
+        "differing_byte_offset": 1810173,
+        "index": 90507,
+        "original_le_hex": "01000040",
+        "original_uint32": 1073741825,
+        "predicted_client_mask": 1,
+        "type_word_offset": 1810170,
+        "x": 107,
+        "y": 226
+      }
+    ],
+    "differing_byte_offsets": [
+      1667573,
+      1810173
+    ],
+    "differing_bytes": 2,
+    "kind": "unselected_exact_two_raw_word_client_candidate",
+    "offset_formula": "14 + index*20 + 16 = 14 + decoded_float_flag_slot*4",
+    "predicted_only": "Loader table raw0->mask10 and raw1->mask1. Do not store raw10, infer bit30 meaning, clear flags generally, alter any other word or claim runtime policy."
+  },
+  "worker_handoff": "Task/base/candidate commit; exactly three owned source/test/report paths; actual pure/fixture checks and clearly unexecuted cases; eight postpins; real_body_read=false/real_candidate_written=false. Root owns existing-caller qualification, independent authored retirement/acceptance controls, selected source checkpoint and later actual offline body run."
+}
