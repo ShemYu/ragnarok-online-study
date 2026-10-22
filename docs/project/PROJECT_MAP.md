@@ -540,3 +540,11 @@ Both scored18/20. The normal quest sample now passes. Full-language work remains
 You confirmed the full-game goal and deferred party-only content.
 The inventory will show the actual version, coverage and gaps.
 See the [scope decision](reviews/2026-10-19-scope-clarification.md).
+
+Latest independent asset lane: the new built stack assembles/relinks the actual
+five archives with all 51 outputs equal. Its diagnostic managed reader now
+returns all twelve complete map files with exact hashes. Root checks signed
+identity/shutdown, all 300 readonly input hashes and normal cleanup. See
+[managed parity evidence](reviews/2026-10-22-T07.007.012.002.md#diagnostic-managed-identity-and-twelve-complete-bodies-qualify).
+Normal owner/current Chinese mods/fresh world and ordinary save remain next;
+this diagnostic pass does not advance the 4/14 parent checkpoint count.
