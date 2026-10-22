@@ -33,6 +33,8 @@ next action and the exact limits of each result.
 CURRENT WORK: quest data, missing story and map-load checks
 
 Latest verified work (23 Oct):
+  [V] All 43 targeted test sources and the fixed caller are checked.
+      Healthy missing-controller case added. One pure test run is admitted.
   [V] Failure handling + one-instance feature source correction checked.
       Next: targeted Python cases; no new browser test yet.
   [V] Quest test has one proposed 120s schedule with early finish limits.

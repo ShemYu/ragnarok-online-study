@@ -21,7 +21,11 @@ and installed behavior remains unverified. Failure-finalization source review
 now [qualifies together with the exact two-literal policy derivative](reviews/2026-10-22-T07.007.011.005.md#failure-preservation-correction-and-exact-policy-derivative-qualify-as-source).
 The failed/no-controller path can preserve evidence inside the same8s; all
 success/identity gates remain. Actual headers are unbound and no flag is applied.
-Next review/admit the adapted Python fragment controls; no new runtime yet.
+[The corrected43-case fixture and fixed caller now qualify; one pure call is
+admitted](reviews/2026-10-22-T07.007.011.005.md#corrected43failure-controls-qualify-and-one-pure-call-is-admitted).
+Root checks34full pins/ten exact spans/inverses; Astra's healthy/no-controller
+coverage gap is closed inside the same case. Next run once and audit complete
+results. No new Chrome/native/scene trial is admitted.
 
 [T10.005 freezes the bounded quest-registration implementation contract](reviews/2026-10-23-T10.005.md#frozen-source-contract-and-root-preflight).
 Root qualifies nine full source inputs/26primary LF slices and resolves callback,
