@@ -9,14 +9,13 @@ implementations are dispatched from ee58599](reviews/2026-10-23-T10.005.md#actua
 with the same brief/profile/contract and setup skipped. [Claude recovers and
 submits its preserved candidate; its settled terminal is released](reviews/2026-10-23-T10.005.md#claude-recovers-submits-and-is-preserved-before-release).
 [Grok submits its preserved candidate and both settled terminals are released](reviews/2026-10-23-T10.005.md#grok-submission-preserved-and-both-settled-workers-released).
-[Grok passes15own tests but fails one of75common cases](reviews/2026-10-23-T10.005.md#grok-own-suite-passes-but-the-common-argument-identity-check-fails):
-its delegate drops an extra original argument. Complete Root audit/retirement
-qualify; the common guard remains failed. [One corrected equal pending/error
-check is bound/admitted](reviews/2026-10-23-T10.005.md#corrected-single-pending-control-and-equal-calls-admitted)
-before selection/integration. [Claude passes Root's actual own/common replays and
-complete audit](reviews/2026-10-23-T10.005.md#claude-own-common-replays-and-complete-root-audit-qualify):
-15own tests and15common groups/75cases, both callers0/valid guards, full current
-pins/output/retirement pass. No provider selection or actual loader runtime yet.
+[Claude20/20 is selected versus Grok16/20 after the complete equal comparison](reviews/2026-10-23-T10.005.md#equal-pending-control-audited-and-claude-selected).
+Both15own suites pass; Claude passes75common cases and the equal pending/error
+case. Grok fails one common argument-forwarding case and rejects with another
+known callback still pending. Both failures and complete audits are preserved;
+both settled terminals are released. Next import the three unchanged Claude
+blobs, then verify integrated own/common/adaptive checks before readiness.
+No actual original-loader/runtime or full-game acceptance is claimed.
 Quest/story/content-gap acceptance remains open. Screenshot work is independent.
 
 Latest diagnostic result: [event-aware actual screenshot is refused and fully closed](reviews/2026-10-22-T07.007.011.005.md#event-aware-actual-screenshot-is-refused-and-fully-closed).
