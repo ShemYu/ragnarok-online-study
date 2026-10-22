@@ -35,9 +35,10 @@ The [native screen preflight cannot start](reviews/2026-10-22-T07.007.011.005.md
 caller0/valid guard, full sources/output/retirement qualify. No actual surface
 or browser/native/game run is admitted. Next review/bind the minimal dedicated
 Chrome adapter: [Root completes corrected actor/caller source review](reviews/2026-10-22-T07.007.011.005.md#corrected-chrome-actors-and-callers-complete-root-source-review),
-30source paths/21binary files/four links match. Finite authored lifecycle
-controls are being prepared; exact live bindings and a distinct real-scene
-admission remain.
+30source paths/21binary files/four links match. [Root binds and admits two
+finite lifecycle-control calls](reviews/2026-10-22-T07.007.011.005.md#finite-lifecycle-controls-bound-and-admitted):
+25launcher/15observer authored cases; actual results are pending. Exact live
+bindings and a distinct real-scene admission remain.
 No more passive/empty-page retries;
 quest implementation/controls continue independently. No new runtime, goal
 change or user decision is required.
