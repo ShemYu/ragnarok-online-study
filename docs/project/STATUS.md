@@ -45,6 +45,9 @@ the six extra refusal failures remain.
 [Root completes Grok source review and9own/18common/6extra checks: all pass](reviews/2026-10-23-T10.004.md#grok-complete-source-review-and-all-authored-checks-qualify).
 Grok leads this authored stage; next equal guarded actual152-record calls and
 independent complete trace/projection audit before final selection/integration.
+[The two exact real-record calls are now bound and admitted](reviews/2026-10-23-T10.004.md#equal-fixed-actual-calls-bound-and-admitted):
+same152records/qualified decoder, separate fresh outputs and exact20-file
+profiles; no actual result or semantic/provider acceptance is claimed yet.
 Reuse Chinese resources; functionality/story evidence first. No verified
 server Chapter1 story implementation, resource-winner or Chinese projection yet.
 
