@@ -111,7 +111,12 @@ now qualify](reviews/2026-10-23-T07.006.001.md#complete-equal-comparison-and-cor
 census/computed42alias, structure/fallback and cursor-consumption claims.
 T07.006.001self_verified is SOURCE ONLY; decision remains unbound/no repair.
 Next exact immutable server-emitter/Messenger source preparation; no gameplay,
-wire/runtime or parent/content acceptance.
+wire/runtime or parent/content acceptance. [Exact server emitter/first Messenger
+source now qualify](reviews/2026-10-23-T07.006.001.md#exact-server-emitter-and-first-messenger-source-qualify):
+12full sources/26pins/24spans, three identical27-byte emitters; first handoff
+derives type0/service101/hide-windowtrue. State commands precede navigation.
+Next named FIFO/string/macro/enum and client policy closure; actual installed
+server/wire/earned travel remain unverified.
 
 [T10.005 freezes the bounded quest-registration implementation contract](reviews/2026-10-23-T10.005.md#frozen-source-contract-and-root-preflight).
 Root qualifies nine full source inputs/26primary LF slices and resolves callback,

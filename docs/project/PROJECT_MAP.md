@@ -35,7 +35,8 @@ CURRENT WORK: quest data, missing story and map-load checks
 Latest verified work (23 Oct):
   [>] Equal Claude/Grok navigation source workers dispatched.
       Root corrected comparison done:16/20 each; both released.
-      Packet layout/flag evidence next. No repair or runtime result yet.
+      Exact server emitter/first Messenger source checked:27 bytes.
+      It requests a hidden window; service/type policy and wire still open.
   [V] Quest cleanup deadline source gap found; narrow correction checked.
       All five fixed checks pass. Shared runner late-return gap found.
       Return-time source fix and eight test sources checked; caller next.
