@@ -70,8 +70,9 @@ Current independent lanes:
   the exact Worker script request arrives in the page session; its completion
   arrives in the child session with the same request/target ID. All11 commands
   ACK, fixture/cleanup/postpins pass; observer correctly exits1/guard-invalid.
-  Next review/admit a bootstrap-only link, keeping ordinary fetch matching
-  within each session strict, then qualify actual Worker terminal coverage.
+  [The bootstrap-only link is reviewed/bound/admitted](reviews/2026-10-22-T07.007.011.005.md#bootstrap-only-association-fixture-admitted),
+  including rejection of later duplicate events in either session. Next qualify
+  actual Worker terminal coverage; ordinary same-session fetch matching stays strict.
   Previous disconnect cause remains unknown. Parallel writer/loader work continues.
   No transport cause is proved. Ship02 visible motion passes; light's GPU motion is proved, but its
   visible check remains occluded. Previous render probes are closed.
