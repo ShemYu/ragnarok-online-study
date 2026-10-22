@@ -77,7 +77,9 @@ Latest verified work (22 Oct):
       All file hashes and headers pass; no Lua execution.
       Both readers dispatched from the same frozen source.
       Root prepares shared checks while both workers implement.
-      Chinese decoding and guide checks follow.
+      Official guide panels checked in parallel: side/daily tasks found.
+      Three later cards use another map; next search must include it.
+      Full main-story flow and Chinese decoding remain open.
       Installed scripts: 1185 NPC files and 94 config files checked.
       17 configs select 841 sources; mounts match. No Chapter 1 references.
   [V] Story feasibility pair checked: Claude 17/20, Grok 13/20.

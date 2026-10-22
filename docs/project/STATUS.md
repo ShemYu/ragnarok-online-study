@@ -66,8 +66,13 @@ All4566003B/three headers exact; no input Lua executes. Actual independent
 Claude/Grok pure-reader implementations [are now dispatched from the same
 afd6de6 base](reviews/2026-10-22-T10.002.md#actual-independent-reader-pair-launched)
 on separate branches; both inputs accepted. Root owns later equal real-input
-runs and prepares independent common controls in parallel. Guide expansion and
-decoder parity stay subsequent.
+runs and prepares independent common controls in parallel. Remaining guide
+sections and decoder parity stay subsequent.
+[Parallel Root guide review now qualifies all Info_01 panels](reviews/2026-10-22-T10.002-guide.md#documentary-flow-facts-and-limits):
+retained A03 plus nine new images/full hashes/personal visual inspection pass;
+prior A01/A02 facts reused. The gallery includes side/daily branches and omits
+some main-story transitions. Later uknw_ruin clues stay outside the frozen
+seven-clue benchmark. No quest ID/dialogue/implementation or full flow is inferred.
 No recovered quest table, effective resource winner or story pass yet.
 
 **Worker cleanup:** under the user's renewed cleanup instruction,
