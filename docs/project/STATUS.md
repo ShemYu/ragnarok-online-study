@@ -20,8 +20,10 @@ Current independent lanes:
   (16/20 versus 15/20). [Corrected hooks pass nine groups and the fresh capture completes](reviews/2026-10-22-T07.007.011.004.md#fresh-fruit-capture-completes-full-reference-gate-correctly-fails):
   711events/179local closes/173native rows. Full fruit acceptance still fails:
   one different model fetch rejects, leaving88/89groups and504/509placements
-  despite ready=true. Next paired diagnosis uses this complete capture. No
-  transport cause is proved. Ship02 visible motion passes; light's GPU motion is proved, but its
+  despite ready=true. [Both diagnostic plans are compared](reviews/2026-10-22-T07.007.011.005.md#root-source-comparison-and-corrected-next-action):
+  Claude17/20 correction basis versus Grok16/20; neither raw proposal is admitted.
+  Counter coverage or supported browser failure-capture capability must qualify
+  before another fruit probe. No transport cause is proved. Ship02 visible motion passes; light's GPU motion is proved, but its
   visible check remains occluded. All owned probes are closed.
 - **Normal asset route:** corrected selector passes 29 authored / 35 shared
   checks. [Copied-stack build](reviews/2026-10-22-T07.007.012.md#offline-stack-build-and-targeted-integration-checks-pass)

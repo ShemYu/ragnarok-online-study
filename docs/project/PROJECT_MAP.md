@@ -48,6 +48,7 @@ Latest verified work (22 Oct):
   [~] Two-response observer preparation; then separate execution admission.
   [~] Chapter 1 terrain dependencies and normal play remain.
   [~] Fruit scene: full render still fails one model fetch.
+      Plans compared: Claude 17/20 vs Grok 16/20. Diagnostic gates next.
   Parent checkpoints: 4 / 14 = about 29%. Full game remains open.
 
 [V] Download and extract the base package. Verify all 4,976 files.
