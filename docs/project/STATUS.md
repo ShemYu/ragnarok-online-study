@@ -59,9 +59,11 @@ pins;12input/5artifact descriptor changes and45header slots match.
 [Fresh file/kernel/listener preflight and full independent audit pass](reviews/2026-10-22-T07.007.011.005.md#fresh-scene-file-and-protected-owner-preflight-independently-qualifies):
 113current full pins,6native inputs,21Chrome files/four links and3protected
 worlds match. Root's first lsof-field parser refusal is preserved; the corrected
-read-only procedure passes. Next new reader headers/served files/static plan,
-exact live bindings and distinct real-scene admission. Full PNG decode/pixel
-and scene audits remain.
+read-only procedure passes. [New reader/static-plan/binder sources qualify and
+one fixed scene wave is admitted](reviews/2026-10-22-T07.007.011.005.md#one-fresh-dedicated-chrome-scene-wave-admitted).
+Root executes prelaunch once, checks all generated headers, then fresh reader/
+Chrome/READY associations and one observer under this same HEAD. Full PNG
+decode/pixel and scene audits remain; no runtime result is claimed yet.
 No more passive/empty-page retries;
 quest runtime preparation continues independently. No actual scene or loader
 runs in this source checkpoint; no goal change or user decision is required.

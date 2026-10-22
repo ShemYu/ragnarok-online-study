@@ -33,6 +33,8 @@ next action and the exact limits of each result.
 CURRENT WORK: quest data, missing story and map-load checks
 
 Latest verified work (23 Oct):
+  [V] Reader files and fixed browser binder checked; one scene wave admitted.
+      Next: fresh browser + scene run, then full image/resource/cleanup audit.
   [V] Fresh scene preflight: 113 full file checks and 3 game owners pass.
       First metadata-parser refusal kept; no browser or reader starts yet.
   [V] One-image observer and exact browser template update source checked.
