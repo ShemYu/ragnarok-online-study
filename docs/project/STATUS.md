@@ -32,6 +32,9 @@ unchanged. [All43corrected cases and the complete Root audit now pass](reviews/2
 caller/actor0, original guardvalid,58full pins, complete streams and positive
 retirement. Failed42/43attempt preserved. Next fresh real-scene binding/preflight
 and separate live admission. No Chrome/native/scene trial is admitted yet.
+[The corrected-launcher scene binder source now qualifies](reviews/2026-10-22-T07.007.011.005.md#corrected-launcher-scene-binder-source-qualifies):
+13full pins/45header slots/inverses match. Current executable and fresh wave
+bindings still require preflight; old waves stay untouched.
 
 [T10.005 freezes the bounded quest-registration implementation contract](reviews/2026-10-23-T10.005.md#frozen-source-contract-and-root-preflight).
 Root qualifies nine full source inputs/26primary LF slices and resolves callback,
@@ -68,8 +71,13 @@ socket with exact known Worker/page destruction witnesses. Shared120s schedule
 and concurrent original-guard composition remain source work.
 [One concrete shared schedule now qualifies as advice](reviews/2026-10-23-T10.005.md#one-concrete-shared-schedule-qualifies-as-source-advice):
 H120/D85/K80, early publication48/end70, cooperative overshoot and finalization
-reserves explicit. New causal residual-grant mapping and controller/caller are
-still unimplemented. No actual timing or installed compatibility is proved.
+reserves explicit. New causal residual-grant mapping and controller/caller
+were proposed there. [The complete quest-controller source and two narrow
+corrections now qualify](reviews/2026-10-23-T10.005.md#quest-controller-source-and-two-narrow-corrections-qualify):
+28full pins/26changed slots/eight sections/inverses match. Existing deadline
+check now precedes the socket; Worker-script session comes from an exact bound
+manifest. Finite controls are being prepared. Shared caller and actual bindings
+remain unimplemented; no actual timing or installed compatibility is proved.
 All actual-loader bindings remain NULL.
 No actual original-loader/runtime or full-game acceptance is claimed.
 Quest/story/content-gap acceptance remains open. Screenshot work is independent.

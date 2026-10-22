@@ -33,6 +33,10 @@ next action and the exact limits of each result.
 CURRENT WORK: quest data, missing story and map-load checks
 
 Latest verified work (23 Oct):
+  [V] Quest controller source checked; deadline and session fixes reviewed.
+      Next: targeted tests, shared caller and actual source/owner bindings.
+  [V] Scene binder now uses the corrected launcher; all 45 header slots match.
+      Next: fresh file/process preflight. No new browser has started.
   [V] Corrected launcher tests: all 43 pass; full Root audit passes.
       Next: fresh scene setup and file/process checks before a live test.
   [!] Targeted tests: 42 / 43 pass. One fixture input binding was missing.
