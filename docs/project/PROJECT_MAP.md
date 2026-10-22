@@ -33,6 +33,8 @@ next action and the exact limits of each result.
 CURRENT WORK: quest data, missing story and map-load checks
 
 Latest verified work (23 Oct):
+  [V] Fresh scene preflight: 113 full file checks and 3 game owners pass.
+      First metadata-parser refusal kept; no browser or reader starts yet.
   [V] One-image observer and exact browser template update source checked.
       Next: fresh setup, one real scene, full image and cleanup audit.
   [V] Quest clock/abort: all 16 browser / 15 proxy checks pass Root audit.

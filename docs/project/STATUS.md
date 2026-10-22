@@ -56,8 +56,12 @@ The original observer has no PNG capture before automatic close.
 [Root now qualifies the separate PNG source and exact template substitution](reviews/2026-10-22-T07.007.011.005.md#sole-connection-png-source-and-template-substitution-qualify):
 one capture on the same connection, unchanged cleanup/caps,7input/3artifact
 pins;12input/5artifact descriptor changes and45header slots match.
-Next fresh reader/world/resource/bundle preflight, exact live bindings and
-distinct real-scene admission. Full PNG decode/pixel and scene audits remain.
+[Fresh file/kernel/listener preflight and full independent audit pass](reviews/2026-10-22-T07.007.011.005.md#fresh-scene-file-and-protected-owner-preflight-independently-qualifies):
+113current full pins,6native inputs,21Chrome files/four links and3protected
+worlds match. Root's first lsof-field parser refusal is preserved; the corrected
+read-only procedure passes. Next new reader headers/served files/static plan,
+exact live bindings and distinct real-scene admission. Full PNG decode/pixel
+and scene audits remain.
 No more passive/empty-page retries;
 quest runtime preparation continues independently. No actual scene or loader
 runs in this source checkpoint; no goal change or user decision is required.
