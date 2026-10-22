@@ -12,7 +12,8 @@ Current independent lanes:
 - **Story repair feasibility:** [T10.001 common brief is frozen](tasks/T10.001.md)
   and [the actual independent pair starts at a6aa0cf](reviews/2026-10-22-T10.001.md#actual-independent-research-pair-launched).
   [Claude submits/preserves/releases](reviews/2026-10-22-T10.001.md#claude-submission-preserved-root-claim-review-pending);
-  Grok research remains active. Root primary-claim checks and comparison follow.
+  [Grok also submits/preserves/releases](reviews/2026-10-22-T10.001.md#grok-submission-preserved-both-workers-released).
+  Root has read both reports; primary-claim corrections and comparison remain.
   Find verifiable reusable Chapter1 quest
   implementations or expose missing mechanics and estimate a faithful repair.
   This prepares T10 in parallel with T07; no scope change or story/play PASS.
