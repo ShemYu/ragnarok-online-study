@@ -35,6 +35,8 @@ Root prepares shared controls while producer/config and fruit work continue.
 [Root replays8authored passes but six extra refusal cases fail](reviews/2026-10-23-T10.004.md#root-authored-replay-passes-but-extra-refusal-checks-fail).
 No candidate selected or actual text decoded; Grok and shared controls continue.
 [Root reviews/admit18independent authored common groups](reviews/2026-10-23-T10.004.md#independent-common-controls-source-review-and-bounded-admission).
+[Claude passes the actual18common groups/100calls](reviews/2026-10-23-T10.004.md#claude-passes-the-actual-shared-authored-controls);
+the six extra refusal failures remain. Grok is live/working; one active worker.
 Reuse Chinese resources; functionality/story evidence first. No verified
 server Chapter1 story implementation, resource-winner or Chinese projection yet.
 
