@@ -39,7 +39,8 @@ Current independent lanes:
   config/empty engine, full main/routing, normal entry/save.
   [Fresh configuration and bundled CLI inspection qualify](reviews/2026-10-22-T07.007.012.006.md#bundled-cli-inspection-qualifies-local-image-install-admitted):
   all1118 files remain exact; local guest-image install/full readback now pass.
-  One bounded fresh-engine boot is admitted; actual engine ownership and normal game entry remain unverified.
+  [The fresh engine boots with positive daemon/control ownership](reviews/2026-10-22-T07.007.012.006.md#actual-fresh-boot-and-daemon-ownership-qualify);
+  actual empty-engine/service/backing checks are next, then normal main/game entry.
 - **Movement policy:** [corrected source-plan comparison](reviews/2026-10-22-T07.007.013.md#corrected-source-plan-comparison-qualified)
   is self_verified, Grok 17/20 basis versus Claude 15/20; both workers are
   preserved/released. [Independent offline candidate pair runs](reviews/2026-10-22-T07.007.013.001.md#actual-independent-pair-launched).
