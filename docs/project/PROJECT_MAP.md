@@ -106,8 +106,10 @@ CURRENT WORK: October assets and missing maps
  |    Static packet/GPU match; all 102 texture decoders pass.
  |    Cause found: zero normal length leads to 108 NaN components.
  |    Edge now passes full static/GPU and 44 texture decoders.
- |    Both actual repair-plan workers are running independently.
- |    Next: check fruit, then compare and verify the repair.
+ |    Fruit now passes full static/GPU and 74 texture decoders.
+ |    All four loaded. Three static results are finite; roots fails.
+ |    Claude repair plan submitted/released; Grok still working.
+ |    Next: compare both plans, then implement and verify the repair.
  |    Roots geometry is not accepted until the repair passes.
  |    Two other animated objects still need targeted visible checks.
  |
