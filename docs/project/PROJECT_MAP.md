@@ -33,6 +33,8 @@ next action and the exact limits of each result.
 CURRENT WORK: quest data, missing story and map-load checks
 
 Latest verified work (23 Oct):
+  [!] Targeted tests: 42 / 43 pass. One fixture input binding was missing.
+      Failed run audited and kept; one corrected replay is admitted.
   [V] All 43 targeted test sources and the fixed caller are checked.
       Healthy missing-controller case added. One pure test run is admitted.
   [V] Failure handling + one-instance feature source correction checked.

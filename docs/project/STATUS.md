@@ -25,7 +25,10 @@ success/identity gates remain. Actual headers are unbound and no flag is applied
 admitted](reviews/2026-10-22-T07.007.011.005.md#corrected43failure-controls-qualify-and-one-pure-call-is-admitted).
 Root checks34full pins/ten exact spans/inverses; Astra's healthy/no-controller
 coverage gap is closed inside the same case. Next run once and audit complete
-results. No new Chrome/native/scene trial is admitted.
+results. [The first run completes42/43; a missing fixture input binding is
+corrected and one fresh replay is admitted](reviews/2026-10-22-T07.007.011.005.md#first43case-run-fails-one-fixture-binding-and-corrected-replay-is-admitted).
+Complete failed-run preservation/closure audit qualifies; target source stays
+unchanged. Next execute/audit the corrected call. No Chrome/native/scene trial.
 
 [T10.005 freezes the bounded quest-registration implementation contract](reviews/2026-10-23-T10.005.md#frozen-source-contract-and-root-preflight).
 Root qualifies nine full source inputs/26primary LF slices and resolves callback,
