@@ -65,8 +65,13 @@ Current independent lanes:
   an event predicate, whose triggering metadata was not retained. Observer
   guard invalid/exit1; full pins/cleanup/retirement pass, both originals retained.
   [The minimal first-code/event-metadata fixture is reviewed and admitted](reviews/2026-10-22-T07.007.011.005.md#first-validation-witness-fixture-admitted),
-  with unchanged assertions/coverage policy and fresh page authority. Actual
-  predicate/metadata observation remains next before association changes or fruit.
+  with unchanged assertions/coverage policy and fresh page authority.
+  [Its actual witness identifies a Worker bootstrap session boundary](reviews/2026-10-22-T07.007.011.005.md#actual-first-witness-identifies-worker-bootstrap-session-boundary):
+  the exact Worker script request arrives in the page session; its completion
+  arrives in the child session with the same request/target ID. All11 commands
+  ACK, fixture/cleanup/postpins pass; observer correctly exits1/guard-invalid.
+  Next review/admit a bootstrap-only link, keeping ordinary fetch matching
+  within each session strict, then qualify actual Worker terminal coverage.
   Previous disconnect cause remains unknown. Parallel writer/loader work continues.
   No transport cause is proved. Ship02 visible motion passes; light's GPU motion is proved, but its
   visible check remains occluded. Previous render probes are closed.

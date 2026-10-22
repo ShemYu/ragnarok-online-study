@@ -72,7 +72,8 @@ Latest verified work (22 Oct):
       Held-worker check stops at an unexpected connection close.
       No fetch start is sent; both test processes/page/server retire.
       New single-controller test reaches worker setup and both fetches.
-      Event validation still stops capture; exact failed check is next.
+      Exact failed check found: script request and end use different sessions.
+      Next: handle that startup event, then check both worker fetch endings.
       Need worker-level failure evidence before another fruit test.
   [V] File writer fix: 51 tests, 10 shared and 2 focused checks pass.
   [~] Caller failure tests, source integration and real output remain.
