@@ -32,12 +32,16 @@ next action and the exact limits of each result.
 ```text
 CURRENT WORK: quest data, missing story and map-load checks
 
-Latest verified work (23 Oct):
-  [V] Exact ZIP checker correction reviewed; one metadata retry admitted.
-      Same limits. Archive extraction and browser launch remain next gates.
-  [!] ZIP metadata checker refused an undefined stored-entry flag.
-      Failure + archive integrity audited; exact checker correction next.
-      No extraction or browser launch.
+CURRENT (23 Oct):
+  [V] Corrected ZIP metadata + full Root audit pass.
+      All 673 entries, 15 small bodies and archive hash checked.
+  [>] Next: private extraction, signature and architecture checks.
+      Test browser has not launched.
+  [V] Full historical navigation index checked: no Yggdrasil portal rows.
+  [>] Next: identify current era/mod/index and generated table.
+      Historical absence does not prove current absence.
+
+Earlier checkpoints (their next actions can be superseded):
   [V] Browser integration plan checked; strict ownership/clocks stay.
   [V] Preserved navigation index located; one historical data read admitted.
   [V] One inert browser archive download + full Root audit pass.

@@ -2,6 +2,22 @@
 
 Updated: 2026-10-23 JST. Coordinator: Codex. Active scope: **execute the documented strategy through the full milestone**.
 
+## Current checkpoint
+
+[Corrected ZIP metadata inspection and Root audit pass](reviews/2026-10-22-T07.007.011.005.md#corrected-zip-metadata-inspection-and-complete-root-audit-pass):
+673entries,15small CRC-checked metadata bodies,23full pins and full archive hash
+match. Next prepare/review one private payload extraction, then verify signature
+and architecture before an isolated browser trial. No extraction or launch yet.
+[Historical navigation index audit also passes](reviews/2026-10-23-T07.006.001.md#historical-index-body-and-complete-root-data-review-qualify):
+all7825lines/4498warps checked; no Yggdrasil portal rows in that historical copy.
+Current era/mod/index/table selection remains unknown. Next identify exact
+generation inputs. Functionality remains first;4/14parent checks, about29%.
+
+## Recent verification history
+
+The notes below retain earlier results. Their proposed next actions are
+historical; use the current checkpoint above when resuming work.
+
 Latest source check: [exact ZIP inspector correction qualifies; one metadata
 reinspection admitted](reviews/2026-10-22-T07.007.011.005.md#exact-zip-inspector-correction-qualifies-and-one-metadata-reinspection-is-admitted).
 Root13full pins/four exact changes/full inverses; same archive and limits.

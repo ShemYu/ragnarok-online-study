@@ -4,10 +4,12 @@ Task owner: coordinator unless dispatched. Updated: 2026-10-21. The user has aut
 
 ## Dependency map
 
-Current T07.007.011.005 support gate: [Root qualifies the exact ZIP inspector
-correction and admits one metadata reinspection](reviews/2026-10-22-T07.007.011.005.md#exact-zip-inspector-correction-qualifies-and-one-metadata-reinspection-is-admitted),
-13full pins/four exact changes/full inverses; no extraction/browser launch or
-parent completion. Navigation historical-index inspection proceeds independently.
+Current T07.007.011.005 support gate: [corrected metadata inspection/full Root
+audit pass](reviews/2026-10-22-T07.007.011.005.md#corrected-zip-metadata-inspection-and-complete-root-audit-pass),
+673entries/15small bodies/23full pins. Extraction/signature/architecture gates
+are next; no browser launch or parent completion. [Navigation historical-index
+body qualifies independently](reviews/2026-10-23-T07.006.001.md#historical-index-body-and-complete-root-data-review-qualify),
+eight pins/all7825LF; current selection stays unknown.
 
 Functionality first: `T00 → T01 → T02 → T03 → T04 → T06 → T07 → T10`.
 
