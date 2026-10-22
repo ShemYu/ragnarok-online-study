@@ -58,6 +58,11 @@ stay preserved. Next Root freezes the minimal client quest/text inventory for
 T10.002, reusing three extracted chunks/retained Taiwan guide evidence, and
 defines authentic ordinary Chapter1 entry/prerequisite/story gates. No user
 decision is needed; story implementation remains the main content/schedule risk.
+[T10.002 minimal raw inventory is now defined](tasks/T10.002.md): three already
+extracted quest chunks, no translation or live-game action. Root's fixed full
+body hash/identity/header check is admitted; actual paired implementation
+contract/dispatch follows its qualification. Guide expansion and decoder parity
+stay explicit subsequent work. No recovered quest table or story pass yet.
 
 **Worker cleanup:** under the user's renewed cleanup instruction,
 [Root closes the four obsolete retained sessions](reviews/2026-10-22-worker-cleanup.md)

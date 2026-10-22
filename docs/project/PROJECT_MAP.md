@@ -73,6 +73,9 @@ Latest verified work (22 Oct):
       First image is later than planned; background progress is unproved.
       This is a map-loading check. Normal entry, story and save remain.
       Next: client quest/text inventory and normal Chapter 1 entry flow.
+  [~] Client quest inventory: three existing files selected (4.57 MB).
+      First check: exact file hashes and headers; no Lua execution.
+      Then compare both readers. Chinese decoding and guide checks follow.
       Installed scripts: 1185 NPC files and 94 config files checked.
       17 configs select 841 sources; mounts match. No Chapter 1 references.
   [V] Story feasibility pair checked: Claude 17/20, Grok 13/20.
