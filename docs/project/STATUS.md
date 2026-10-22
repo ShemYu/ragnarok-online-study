@@ -37,7 +37,16 @@ and separate live admission. No Chrome/native/scene trial is admitted yet.
 bindings still require preflight; old waves stay untouched.
 [The fresh wave3read-only preflight is bound and admitted](reviews/2026-10-22-T07.007.011.005.md#fresh-wave3read-only-preflight-bound-and-admitted).
 Root qualifies13full source/artifact pins and unchanged check mechanisms. Next
-run once and audit current full files/three original owners. No live scene yet.
+run once and audit current full files/three original owners.
+[The actual fresh preflight and complete independent inventory audit now pass](reviews/2026-10-22-T07.007.011.005.md#fresh-wave3preflight-and-complete-independent-inventory-audit-pass):
+107complete inventory paths/117current full pins,21Chrome files/four links,
+six native inputs and three original owners/listeners match. Next fresh reader/
+static-plan/binder materialization and separate live admission. No scene yet.
+
+[One independent full-game navigation task is identified](reviews/2026-10-20-T07.006.md#independent-next-work-review-reopens-the-exact-dispatch-source-boundary):
+close the selected0x08e2registration/packet-year/overlay path before conditional
+repair. Root qualifies24advice/source pins; exact current source binding is being
+prepared before an equal Claude/Grok pair. No handler absence or runtime claim.
 
 [T10.005 freezes the bounded quest-registration implementation contract](reviews/2026-10-23-T10.005.md#frozen-source-contract-and-root-preflight).
 Root qualifies nine full source inputs/26primary LF slices and resolves callback,

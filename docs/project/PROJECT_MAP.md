@@ -33,6 +33,10 @@ next action and the exact limits of each result.
 CURRENT WORK: quest data, missing story and map-load checks
 
 Latest verified work (23 Oct):
+  [V] Fresh scene preflight and full independent audit pass.
+      All 107 inventory paths and 3 original game services match.
+  [>] Independent navigation task: bind the selected packet/overlay path.
+      Compare Claude/Grok after exact inputs are frozen; no repair assumed.
   [V] Fresh read-only scene preflight source checked; one run admitted.
       Next: current full-file and original-game owner checks, then audit.
   [V] Quest controller source checked; deadline and session fixes reviewed.
