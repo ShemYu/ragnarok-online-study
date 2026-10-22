@@ -37,7 +37,8 @@ Latest verified work (22 Oct):
   [V] Chapter 1 header: terrain names are gef_dun03.gnd / gef_dun03.gat.
       Decoder/header child ready. Catalog/body/loading checks are next.
   [~] Exact terrain lookup: independent Claude/Grok pair launched.
-      Claude submitted; Grok active. Root actual scan/comparison next.
+  [V] Root full scan finds both exact terrain-name entries in data0.grf.
+      Provider comparison, full body reads and loading checks remain.
   [~] Chapter 1 terrain dependencies and normal play remain.
   [~] Fruit scene: full render still fails one model fetch.
   Parent checkpoints: 4 / 14 = about 29%. Full game remains open.
