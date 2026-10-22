@@ -2,7 +2,17 @@
 
 Updated: 2026-10-23 JST. Coordinator: Codex. Active scope: **execute the documented strategy through the full milestone**.
 
-Latest verified result: [Chapter1 actual normal loading and complete scoped rendering audit qualify](reviews/2026-10-22-T07.007.014.005.md#corrected-actual-normal-loading-and-complete-scoped-audit-qualify).
+Latest verified result: [complete raw quest inventory and selected source integration qualify](reviews/2026-10-23-T10.002-execution.md#selected-source-integration-and-bounded-readiness-qualify).
+Both actual three-file inventories match completely; newest _True has10023rows,
+including86ch1_ references. Claude20/20 selected versus Grok19/20; unchanged
+integration passes26authored tests and14common groups. T10.002 is ready_for_user
+within this raw-data scope; both settled terminals are released.
+**Next:** review independent source preparations for effective normal-game
+quest-table selection and existing byte-to-text parity, then freeze equal C/G
+tasks. Reuse Chinese resources; functionality/story evidence first. No verified
+server Chapter1 story implementation, resource-winner or Chinese projection yet.
+
+Previous map result: [Chapter1 actual normal loading and complete scoped rendering audit qualify](reviews/2026-10-22-T07.007.014.005.md#corrected-actual-normal-loading-and-complete-scoped-audit-qualify).
 All74native bodies,27model groups/370placements,38used texture paths and43decoders
 pass; two actual frames advance500ms/30draw cycles. Root personally inspects the
 textured scene. Full preservation and owned-page/process cleanup pass. .005 is

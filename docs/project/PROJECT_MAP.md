@@ -13,7 +13,7 @@ Update this map after each important change. Keep the dated evidence.
 ```text
 CURRENT WORK: October assets and missing maps
 
-Latest verified work (22 Oct):
+Latest verified work (23 Oct):
   [V] New isolated engine: empty database/storage/ports checks pass.
   [V] Full game services: new mounts/routes/12 terrain files pass.
       Five startup diagnostics classified; known defects stay open.
@@ -82,7 +82,9 @@ Latest verified work (22 Oct):
       Both workers closed; branches and evidence retained.
       Both guarded actual runs pass; all three full outputs match.
       Newest table: 10,023 rows; 86 reference Chapter 1 maps.
-      Claude selected (20/20 vs 19/20); source integration is next.
+      Claude selected (20/20 vs 19/20); source integration passes.
+      Root path: all 26 tests and the same 14 shared groups pass.
+      Next: find the game-selected table and read its existing text safely.
       Official guide panels checked in parallel: side/daily tasks found.
       Three later cards use another map; next search must include it.
       Full main-story flow and Chinese decoding remain open.
