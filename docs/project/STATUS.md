@@ -59,10 +59,13 @@ T10.002, reusing three extracted chunks/retained Taiwan guide evidence, and
 defines authentic ordinary Chapter1 entry/prerequisite/story gates. No user
 decision is needed; story implementation remains the main content/schedule risk.
 [T10.002 minimal raw inventory is now defined](tasks/T10.002.md): three already
-extracted quest chunks, no translation or live-game action. Root's fixed full
-body hash/identity/header check is admitted; actual paired implementation
-contract/dispatch follows its qualification. Guide expansion and decoder parity
-stay explicit subsequent work. No recovered quest table or story pass yet.
+extracted quest chunks, no translation or live-game action. [Actual full-body
+hash/identity/header check passes and the common implementation contract
+freezes](reviews/2026-10-22-T10.002.md#actual-three-input-bodies-qualify-and-common-contract-freezes).
+All4566003B/three headers exact; no input Lua executes. Next actual independent
+Claude/Grok pure-reader implementations on separate branches; Root owns later
+equal real-input runs. Guide expansion and decoder parity stay subsequent.
+No recovered quest table, effective resource winner or story pass yet.
 
 **Worker cleanup:** under the user's renewed cleanup instruction,
 [Root closes the four obsolete retained sessions](reviews/2026-10-22-worker-cleanup.md)
