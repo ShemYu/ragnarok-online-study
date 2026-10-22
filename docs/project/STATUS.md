@@ -71,8 +71,12 @@ Current independent lanes:
   arrives in the child session with the same request/target ID. All11 commands
   ACK, fixture/cleanup/postpins pass; observer correctly exits1/guard-invalid.
   [The bootstrap-only link is reviewed/bound/admitted](reviews/2026-10-22-T07.007.011.005.md#bootstrap-only-association-fixture-admitted),
-  including rejection of later duplicate events in either session. Next qualify
-  actual Worker terminal coverage; ordinary same-session fetch matching stays strict.
+  including rejection of later duplicate events in either session.
+  [Actual same-Worker success/failure capture now qualifies](reviews/2026-10-22-T07.007.011.005.md#actual-fixture-qualifies-same-worker-success-and-browser-failure-capture):
+  GET200/finished and POST/loadingFailed net::ERR_EMPTY_RESPONSE, strict same
+  child matching,13events/all11ACK, both guards exit0/valid and full cleanup.
+  Next minimal source-reviewed adaptation to one fresh actual fruit observation;
+  production association and fruit cause/repair remain unproved.
   Previous disconnect cause remains unknown. Parallel writer/loader work continues.
   No transport cause is proved. Ship02 visible motion passes; light's GPU motion is proved, but its
   visible check remains occluded. Previous render probes are closed.

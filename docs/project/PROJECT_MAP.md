@@ -73,8 +73,10 @@ Latest verified work (22 Oct):
       No fetch start is sent; both test processes/page/server retire.
       New single-controller test reaches worker setup and both fetches.
       Exact failed check found: script request and end use different sessions.
-      Next: handle that startup event, then check both worker fetch endings.
-      Need worker-level failure evidence before another fruit test.
+  [V] Startup handling fixed; both worker fetch endings now captured.
+      Failed POST gives browser error ERR_EMPTY_RESPONSE in the test.
+      Next: adapt this capture to one actual fruit scene observation.
+      The cause of the game's failed fetch is still unknown.
   [V] File writer fix: 51 tests, 10 shared and 2 focused checks pass.
   [~] Caller failure tests, source integration and real output remain.
   Parent checkpoints: 4 / 14 = about 29%. Full game remains open.
