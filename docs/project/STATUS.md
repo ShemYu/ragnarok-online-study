@@ -83,7 +83,9 @@ Current independent lanes:
   separate Root qualification, with no new public process wrapper. [Independent
   Claude/Grok coding is active](reviews/2026-10-22-T07.007.013.002.md#independent-core-implementations-dispatched)
   from534ea9f on separate branches. [Claude4368da8is preserved/released](reviews/2026-10-22-T07.007.013.002.md#claude-submitted-and-preserved-root-verification-pending);
-  Root source/execution verification remains; Grok is still coding. No cleanup/caller PASS.
+  [Grok a478495is also preserved and released](reviews/2026-10-22-T07.007.013.002.md#grok-submitted-both-candidates-retained-and-workers-released).
+  Both await Root full reads/own/shared controls and separate fixed caller
+  qualification. No selection or cleanup/caller PASS.
   [The unmodified public pure entry and writer now
   match the actual-body oracle](reviews/2026-10-22-T07.007.013.001.md#unmodified-public-entry-and-writer-match-the-actual-body-oracle):
   exactly two bytes differ, full inverse/all heights/strict receipts pass.
@@ -147,7 +149,12 @@ Current independent lanes:
   map-index presence. Actual loaded-server route inspection remains; parsing must
   not substitute for story implementation. [Fixed compiled diagnostic admission](reviews/2026-10-22-T07.007.014.004.md#fixed-compiled-diagnostic-execution-admission)
   now binds the real worker/three bodies and separate temporary page; actual
-  parser/dependency results and Root audit are next. No gap/full-game closure.
+  [Actual compiled core/full ledger now qualify](reviews/2026-10-22-T07.007.014.004.md#actual-compiled-core-and-independent-complete-ledger-audit-qualify):
+  370placements/27model requests/7ground textures; Root independently reconstructs
+  all552world objects and57600GAT cells, source/body posthashes and owned lifecycle.
+  Core observation is self_verified; actual loaded-server route/story readiness
+  and normal dependency/render/play remain. Official sources confirm regular
+  Modern RO Chapter1, so no edition-based exclusion applies. No gap/full-game closure.
 
 The [earlier mu pilot and Astra diagnosis](reviews/2026-10-22-T07.007.011-execution.md#actual-astra-consultation-and-discriminating-metadata-check)
 remain historical evidence. Ordinary Chapter 1 entry/save, 82 world-resource

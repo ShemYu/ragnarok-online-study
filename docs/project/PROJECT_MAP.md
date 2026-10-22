@@ -28,7 +28,7 @@ Latest verified work (22 Oct):
       Claude selected; Grok close check fails. No live mapping selected.
   [V] Before-close test confirms two ownership-loss paths in the writer.
       Astra policy reviewed; core-only uncertainty correction frozen.
-      Claude submitted/preserved/released; Grok coding. Root checks next.
+      Both submitted/preserved/released. Root comparison checks next.
       Existing fixed caller qualification stays separate.
       Real map/save untouched.
   [V] Chapter 1 decoder: both candidates pass 30 Root common groups.
@@ -50,7 +50,9 @@ Latest verified work (22 Oct):
   [V] Two-response observer reviewed; wire/storage accounting corrected.
   [V] Both normal terrain responses pass all 4,073,068 bytes and hashes.
   [V] Exact extracted copies, 25 protected inputs and live reader pass.
-  [~] Chapter 1 terrain dependencies and normal play remain.
+  [V] Real compiled Chapter 1 core runs; complete dependency ledger passes.
+      370 placements, 27 model requests, 7 ground textures; no numeric fault.
+  [~] Normal dependency loading, story routes and play remain.
       Story-route risk: indexed map has no matching pinned NPC references.
       Actual loaded routes still need inspection; goal unchanged.
   [~] Fruit scene: full render still fails one model fetch.
