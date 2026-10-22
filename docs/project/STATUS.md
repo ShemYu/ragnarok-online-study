@@ -7,9 +7,12 @@ Both actual three-file inventories match completely; newest _True has10023rows,
 including86ch1_ references. Claude20/20 selected versus Grok19/20; unchanged
 integration passes26authored tests and14common groups. T10.002 is ready_for_user
 within this raw-data scope; both settled terminals are released.
-**Next:** review independent source preparations for effective normal-game
-quest-table selection and existing byte-to-text parity, then freeze equal C/G
-tasks. Reuse Chinese resources; functionality/story evidence first. No verified
+**Next:** [source preparations and passive window metadata qualify; the normal
+bundle has no diagnostic exports](reviews/2026-10-23-T10.003.md).
+[T10.003 freezes equal plan-only C/G tasks](tasks/T10.003.md) for the smallest
+effective quest-record observation. Commit/launch this independent pair while
+Root qualifies current existing-text decoding and fruit report-terminal controls.
+Reuse Chinese resources; functionality/story evidence first. No verified
 server Chapter1 story implementation, resource-winner or Chinese projection yet.
 
 Previous map result: [Chapter1 actual normal loading and complete scoped rendering audit qualify](reviews/2026-10-22-T07.007.014.005.md#corrected-actual-normal-loading-and-complete-scoped-audit-qualify).
