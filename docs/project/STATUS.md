@@ -112,8 +112,9 @@ Neither raw candidate is installed. [Root repeats both actual own-source checks
 and selects Claude15/20 as the correction basis over Grok13/20](reviews/2026-10-23-T10.007.md#root-repeats-both-actual-source-checks-and-selects-correction-basis).
 Claude21tests/Grok16reported groups pass with valid original guards and full37pin
 audit. [Selected source/handoff is corrected and qualified](reviews/2026-10-23-T10.007.md#selected-source-corrected-and-qualified-before-integrated-check);
-NPC/mod/DB bytes and test logic are unchanged. Commit/repeat the integrated
-source check, then verify isolated server loading
+NPC/mod/DB bytes and test logic are unchanged. [Committed2734d8f passes all21
+integrated source tests/full19pin audit](reviews/2026-10-23-T10.007.md#integrated-source-check-passes).
+Next bind exact installed-image SQL inputs and verify isolated server loading
 and persistence before user evaluation. Thirty input files/78full Root pins, collision/import and
 reference-state boundaries qualify. [Fresh installed quest DB source capture/audit
 passes](reviews/2026-10-23-T10.007.md#current-installed-quest-db-source-closure-verified-read-only):
