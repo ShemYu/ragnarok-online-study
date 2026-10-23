@@ -7,28 +7,20 @@ Updated: 2026-10-24 JST. Coordinator: Codex. Active scope: **execute the documen
 Functionality remains first; **4/14 parent checks, about29%**. All82functional
 resource gaps remain open. No full-game scope change or new user decision.
 
-**Live next action:** [Eighth trial reaches the map; full failure/cleanup audit passes](reviews/2026-10-23-T10.007.md#eighth-trial-reaches-map-fails-npc-identity-full-audit-passes-two-independent-pairs-frozen).
-RemoteClient/Chrome/Node start; exact A199 character/map/cell and three WS
-connections are observed. NPC identity fails before any behavioral case or
-screenshot. All16test births/two groups/four containers/network are gone;
-originals preserved. Outer FD/thread/HEAD/clean and846pins now pass. No player
-quest PASS; one-shot admission consumed. Next launch both independent N8NPC
-and R8loose-file pairs, review C2 cursors, personally verify all candidates.
-Limits and full-game goal unchanged; no action is needed from you.
-[Both independent pairs are now dispatched](reviews/2026-10-23-T10.007.md#two-repair-pairs-started-first-loose-data-qualifies-c2-own-reference-sources-qualify).
-R8Claude's four files pass Root data checks and its worker is released;
-N8Claude source is retained/released with a historical C8-record omission.
-Both Grok N8/R8 workers remain active. [C2 both qualify all15finite groups;
-Claude explicit cursor selected](reviews/2026-10-23-T10.007.md#corrected-c2-reference-checks-pass-claude-selected-host-status-pair-frozen).
-No image-capture/game admission yet. Next local FileStore proof and independent
-optional host-status pair; Astra checks the unresolved dictionary cancellation.
-[Both R8 datasets now qualify; Grok selected; both NPC drafts retained](reviews/2026-10-23-T10.007.md#loose-pair-qualified-grok-data-selected-npc-pair-retained-local-filestore-control-admitted).
-S8Claude's unbound proposal is retained/released; Grok S8 is the only active
-Orca worker (221released/four retained). Root next runs the qualified one-shot
-local FileStore diagnostic: [all5 actual groups/full audit pass](reviews/2026-10-23-T10.007.md#actual-local-filestore-five-groups-and-complete-root-audit-pass).
-Next unbound capture caller/current-world qualification; no Engine admission.
-Shared NPC prefix checks are being prepared.
-Dictionary fault remains open: ready node and request initializer are not joined.
+**Live next action:** [NPC prefix verification source qualifies](reviews/2026-10-23-T10.007.md#npc-prefix-source-qualified-one-pure-call-admitted-host-status-pair-settled).
+Run the one admitted pure Node prefix check, then personally audit all donor/
+Claude/Grok outcomes. No game/browser replay is admitted. Trial8 reached the
+correct character/map/cell but failed NPC identity before dialogue; complete
+cleanup and original-state preservation pass. Its one-shot binding is consumed.
+Both R8 loose datasets qualify; Grok's equal data is selected for future setup.
+C2 cursor and all5 real FileStore groups pass; stopped-image caller/current-
+world qualification is next, with no Engine action admitted yet.
+Both S8 host-status reviews are retained and both workers released; Root must
+resolve their source inference disagreement before any adoption.
+Independent NPC pipeline and dictionary component source packets are being
+prepared for qualified provider work. The dictionary cancellation remains
+open because request and ready status are not joined to the same initializer.
+Limits and full-game goal are unchanged; no action is needed from you.
 
 **Latest:** [All three isolated native parser cases now pass Root verification](reviews/2026-10-23-T10.007.md#actual-three-case-native-parser-trial-and-complete-root-audit-pass):
 134 requests/231 full pins, valid original guard/13.231s, real NPC and three

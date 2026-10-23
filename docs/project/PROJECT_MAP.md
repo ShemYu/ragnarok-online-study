@@ -20,7 +20,7 @@ Quest file inventory   [PASS: all 3 files checked]
 Server + file binding  [PASS: current owner and 21 file checks]
 Active quest records   [PASS: fixed loading/shutdown diagnostic; session open]
 Story entry research   [CHECKED: Claude basis; mechanics still incomplete]
-Story implementation   [PLAYER BLOCKED: startup identity + cleanup checks]
+Story implementation   [OPEN: map reached; NPC identity fails before dialogue]
 Isolated server test   [PASS: 3 cases, SQL checks and cleanup verified]
 Chinese quest text     [SOURCE PASS: 28 tests + common checks; install is next]
 Existing text recovery [PASS: fixed 152-record tool integrated + checked]
@@ -1076,3 +1076,8 @@ The actual source owner module also passes all twelve bodies, same-reader
 reuse and normal shutdown. Current Chinese source/full payload freeze, a new
 third world and ordinary save remain next;
 this diagnostic pass does not advance the 4/14 parent checkpoint count.
+
+
+Latest: N8 exact prefix wrapper source qualifies; one bounded pure call is next.
+Both optional host-status workers settled/released; source inference disagrees.
+No new browser/game/Engine admission. All82functional gaps remain open.
