@@ -8,7 +8,8 @@ Functionality remains first; **4/14 parent checks, about29%**. All82functional
 resource gaps remain open. No full-game scope change or new user decision.
 
 **Live next action:** [Parallel D10controller/D11driver correction packet frozen](reviews/2026-10-23-T10.007.md#independent-dictionary-controller-and-driver-correction-packet-frozen).
-Root starts two independent Grok source corrections under fixed interfaces.
+D10controller and D11driver Grok corrections are active under fixed interfaces.
+[All3source-worker ready receipts and cleanup inventory are retained](reviews/2026-10-23-T10.007.md#three-qualified-source-workers-active-after-independent-correction-launch).
 C4Grok binary-source work continues; Claude quota was reported, no retry.
 [Integrated NPC module syntax and full audit pass](reviews/2026-10-23-T10.007.md#integrated-npc-syntax-passes-and-both-raw-d9-sources-are-refused).
 NPC shared36source controls and caller5controls pass. Actual NPC dialogue

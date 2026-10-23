@@ -50,7 +50,8 @@ Full cleanup/original-state preservation PASS. No quest/player case PASS.
 Independent web capture: prior attempt refused before create; originals PASS.
 GET-only binary: Grok active; Claude failed/no output, quota reported.
 NPC36 source controls + caller5 controls + integrated syntax PASS.
-Dictionary raw proposals refused; controller/driver corrections split next.
+Dictionary raw proposals refused; controller/driver corrections now active.
+Three independent Grok source workers; zero reclaimable workers.
 No browser trial admitted.
 No new browser, game or Engine action admitted. No user decision needed.
 
