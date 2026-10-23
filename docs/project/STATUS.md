@@ -19,7 +19,8 @@ No B200quest-assignment/reconnection case or parent-check credit.
 D16 host correction, D14 UI, F1 genuine-logout/functional-evidence source,
 and narrow D12 own-metadata cleanup. D12/D13 submissions are preserved;
 Root confirms four source/control blockers, no compilation/runtime qualification.
-C6 source submission is pinned and under independent Astra review. Its proven
+C6 source submission is pinned; Astra/Root confirm one final publication
+deadline blocker. Narrow C7 source correction is frozen. Its proven
 terminal is immediately reused by D15; D13 is released. Fleet observation:
 5active/6retained records/232released/0reclaimable. Retained records represent
 four user-owned resources plus two transferred old dispatches; no extra worker
