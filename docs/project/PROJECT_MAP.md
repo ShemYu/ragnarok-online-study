@@ -18,7 +18,7 @@ Map loading            [Chapter 1 test passes; fruit test is open]
 Fruit presentation     [OPEN: browser test failed before scene loading]
 Quest file inventory   [PASS: all 3 files checked]
 Server + file binding  [PASS: current owner and 21 file checks]
-Active quest records   [Tool + test setup checked; real-loader trial next]
+Active quest records   [First trial stopped on a clock issue; repair next]
 Existing text recovery [PASS: fixed 152-record tool integrated + checked]
 Missing story scripts  [OPEN: largest content risk]
 Full game test         [LATER: 82 functional resource gaps remain]
@@ -57,9 +57,12 @@ CURRENT (23 Oct):
       Actual stored bytes match predictions and restore the exact donors.
   [V] Final proxy/parent bindings and fresh three-world owner checks pass.
       44 full pins / 13 parent headers / 2 proxy edits + full inverses.
-  [>] One quest-loader test admitted under this clean commit.
-      Bind its sole remaining admission-HEAD header; run once and audit.
-      No map/render gate in that test. No test browser has launched.
+  [!] First live test stops before browser launch: startup clocks disagree.
+      Both guards stay failed; caller 1. No game data request or Node run.
+  [V] Failure/preservation audit passes: 70 pins / all 3 original owners.
+      18 effects / 7 parents unchanged; both test drivers and caller gone.
+  [>] Equal Claude/Grok clock repair frozen: 6 inputs / 5 control groups.
+      Then actual common-clock witness and a fresh separately admitted test.
   [V] On-disk navigation table read/audit pass: empty table, 22 bytes.
       Served table/browser winner and actual route still unknown.
   [V] Equal portal-routing implementation task frozen: 6 inputs / 8 groups.
@@ -82,7 +85,7 @@ CURRENT (23 Oct):
   [V] Unchanged Claude source integrated as 88577ae; three full blobs match.
   [V] Actual tracked-source verification/audit: 34 own + 53 common pass.
       Source-tool task self_verified; 28 pins / test cleanup checked.
-  [>] One admitted isolated quest test, then full actual-result verification.
+  [>] Clock repair and actual clock proof before a new isolated quest test.
       No game patch is installed. Parent progress stays 4/14.
       No game design or milestone change. No user action is needed.
 

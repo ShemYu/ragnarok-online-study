@@ -17,50 +17,26 @@ test-process/group closure. T07.006.002 is self_verified for its source-tool
 scope. Both provider workers are released. All run admissions are
 consumed; no installed game patch or ordinary runtime/story acceptance.
 
-**Browser diagnostic:** [fresh normal-reader preflight and complete Root audit
-pass](reviews/2026-10-23-T10.005.md#fresh-same-world-preflight-and-complete-root-audit-pass):
-one caller0/valid original guard/4.951s, complete typed outputs/17pins/five
-archives/current owner and positive test-process closure.
-[Final launcher/controller copies now qualify](reviews/2026-10-23-T10.005.md#final-launcher-and-controller-source-copies-qualify):
-16+1header groups/full donor inverses, clocks/ownership unchanged. At that
-source-copy checkpoint only those two files existed; the later five-file
-assembly is recorded below. No role inputs, outputs, guards, profile, READY
-or browser execution exists.
+**Browser diagnostic — first live call failed before browser launch.**
+[Complete failed-trial audit](reviews/2026-10-23-T10.005.md#first-live-quest-call-refuses-cross-process-clock-epochs-and-full-failure-audit-passes)
+checks70full pins, both exact actor inputs/invalid guards/complete retained
+streams, all18effect leaves/seven parents, all three original owner/listener
+pairs and positive test-driver/caller/group absence. Caller1,0.872s observed;
+parent0.547s before publication. Proxy and launcher both reject startup clocks,
+before their outputs, STATUS/GET or browser Popen. Node never starts. The
+939916c one-shot admission is consumed; no unchanged retry is authorized.
 
-The [one nine-resource acquisition and complete Root audit now pass](reviews/2026-10-23-T10.005.md#one-nine-resource-acquisition-and-complete-root-audit-pass):
-caller0/original guardvalid/11.849s,59full pins plus exact Python/seam supplement.
-Three complete200 bodies/6complete404 responses total4566087B. Three root
-files are preexisting/unchanged/full-body equal; six root leaves and all nine
-overrides remain absent. All seven parents match. Original game owner,
-executables/listeners and positive actor/caller/group absence match.
-[The exact source projection/request set now qualifies](reviews/2026-10-23-T10.005.md#exact-diagnostic-projection-and-nine-request-source-set-qualify),
-23pins/16spans. [The finite acquisition actor and corrected return check also
-qualify](reviews/2026-10-23-T10.005.md#nine-body-acquisition-source-and-observed-return-correction-qualify):
-26actor groups/two caller edits/full inverses.
-[The one-shot admission](reviews/2026-10-23-T10.005.md#exact-nine-body-bindings-qualify-and-one-data-acquisition-is-admitted)
-is consumed; do not replay it. No acquired body is executed and no browser is
-admitted. [Diagnostic response/configuration/session and served-byte recipes now
-qualify](reviews/2026-10-23-T10.005.md#diagnostic-configuration-session-policy-and-served-byte-recipes-qualify):
-68full pins/57exact source spans/eight literal substitutions and complete donor
-inverses; all nine retained bodies rehashed,18leaves/seven parents joined.
-All five served-file byte predictions match. The two review-script schema
-failures remain preserved; no acquisition or runtime replay occurred. Root chose
-page-only policies for the optional favicon/PathFindingWorker routes and the
-shared nonsecret attempt ID; actual CDP sessions remain unknown.
-[All five inert served files now match](reviews/2026-10-23-T10.005.md#five-inert-served-files-materialize-and-match):
-13856768B total/18full pins, exact stored-file donor inverses and preserved
-ordinary prefix. The actual namespace now contains the bound launcher,
-controller/proxy and five-file www directory; no actor inputs/outputs/guards, profile, READY or test
-browser exists. [Final proxy/parent bindings and fresh original-world witnesses
-now qualify; one live call is admitted](reviews/2026-10-23-T10.005.md#final-proxy-parent-bindings-qualify-and-one-live-quest-call-is-admitted):
-44full pins/13parent headers/two proxy literals/full inverses; three original
-owner/listener pairs and current app/native executable/births match. The parent
-has exactly one late-bound admission-HEAD header, with a qualified deterministic
-recipe. Run that recipe once under this introducing clean commit, invoke the
-bound shared parent once, then fully audit the actual result/guards/transport/
-registration and original-world preservation. No unchanged retry is authorized.
-This is a fixed-ID quest-loader diagnostic with no map/render/ordinary
-story/play/save gate; passing it cannot close the full-game goal.
+The local system Python is3.9.6, whose macOS monotonic origins are process
+relative. [Astra identifies the narrow repair](reviews/2026-10-23-T10.005.md#first-live-quest-call-refuses-cross-process-clock-epochs-and-full-failure-audit-passes):
+one explicit common CLOCK_UPTIME_RAW domain for the three Python sources plus
+the existing transfer helper's clock keyword. Actual parent-child witnessing
+is still required; source advice alone is not a runtime fix.
+[T10.005.001](tasks/T10.005.001.md) freezes an equal independent Claude/Grok
+source comparison, six readonly inputs/five groups. Dispatch both from its
+introducing common BASE, then Root verifies/selects before any fresh binding
+or separate live admission. The existing observer implementation, five inert
+served files, actual response/effect data and previous source qualification
+remain preserved. No map/render/ordinary story/play/save gate closes.
 
 [All17browser architecture checks and full Root audit pass](reviews/2026-10-22-T07.007.011.005.md#all17architecture-observations-and-complete-root-audit-pass).
 The failed publisher-assumption check remains preserved; Root's
@@ -71,13 +47,11 @@ product is source-predicted and must match the actual endpoint strictly.
 served winner, selected route and packet/runtime/story gates remain unknown.
 Original game/save/settings and internet connection stay preserved.
 
-The shared runner's final-publication/return checks and explicit profile
-expect_native:false correction are committed. Both runs use the same runner
-policy/caps and corrected profile. All raw/corrected/integrated namespaces are
-consumed and immutable. Source-only browser
-response/session/assembly recipes and five actual inert files are Root-qualified.
-The final bindings/witnesses are checked and the separate one-shot live admission
-is recorded above; no browser has executed yet.
+The navigation raw/corrected/integrated namespaces and the first quest live
+namespace are consumed and immutable. All previous source results retain their
+stated scopes. No test browser has launched; the clock-repair comparison and
+actual common-clock witness are the current next actions. No goal change or
+user decision is needed.
 
 ## Recent verification history
 

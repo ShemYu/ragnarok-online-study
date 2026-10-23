@@ -1,0 +1,72 @@
+{
+  "schema": "T10.005.001-component-implementation-1",
+  "task_id": "T10.005.001",
+  "runtime_admitted": false,
+  "common_base": "Exact introducing commit supplied identically at dispatch",
+  "package_root": "READ_ONLY_PACKAGE_FROM_DISPATCH",
+  "package_manifest": {
+    "bytes": 1560,
+    "sha256": "a87e90fbeae6575978a78f0a37ce2d2ca183639ce1caf6d9dcf67589ef897c53"
+  },
+  "inputs": [
+    {"role":"parent","package_path":"parent.source","bytes":36819,"sha256":"dd43957d2c2bb03f749e9a792b1c51e5f35befe4508f7212dfbeb90eceeae1ea","source_execution_allowed":false},
+    {"role":"proxy","package_path":"proxy.source","bytes":45904,"sha256":"84ca87cf1507a35cd761cb071247d28542f56cdbb2abc83f722517d7ba42529c","source_execution_allowed":false},
+    {"role":"launcher","package_path":"launcher.source","bytes":40911,"sha256":"0d2b2c5fef36e01b6d4fd53e8ab7c1fc686054a4289092714cdb78efc1d4c5ed","source_execution_allowed":false},
+    {"role":"transfer","package_path":"transfer.source","bytes":112136,"sha256":"0e691c1e93b726cf2819f473745864469d7c2c49aebe89c0b4115f2bd7722750","source_execution_allowed":false},
+    {"role":"advice","package_path":"clock-advice.md","bytes":12696,"sha256":"cca1fb0d15eeb383229d6d103f3cd2f97b7fa225f5952f3a18a02f6055d0771c","source_execution_allowed":false},
+    {"role":"observation","package_path":"clock-observation.json","bytes":625,"sha256":"583a86b5e4a0d019415619ec9be7e9e2ef6a3eea097a5b903c3aff9858eb3074","source_execution_allowed":false}
+  ],
+  "ownership": [
+    "tools/renewal/quest_shared_clock_patch.py",
+    "tools/renewal/quest_shared_clock_patch.test.py",
+    "docs/project/candidates/T10.005.001-REPORT.md"
+  ],
+  "api": {
+    "patch": "apply_shared_trial_clock(sources) -> dict parent/proxy/launcher bytes",
+    "tests": "run_authored(sources, patcher) -> exact finite result",
+    "clock_helper": "trial_now(): same private helper in each patched source; time.clock_gettime(time.CLOCK_UPTIME_RAW); finite nonnegative float; no fallback or module monkeypatch",
+    "test_result": {
+      "schema": "T10.005.001-authored-1",
+      "scope": "authored_source_controls",
+      "original_sha256": {"parent":"computed SHA256","proxy":"computed SHA256","launcher":"computed SHA256"},
+      "patched_sha256": {"parent":"computed SHA256","proxy":"computed SHA256","launcher":"computed SHA256"},
+      "groups": [
+        {"id":"G01","passed":"boolean computed from checks","checks":[{"name":"short unique nonempty label","passed":"boolean","observed":"bounded finite JSON evidence"}]},
+        {"id":"G02","passed":"boolean computed from checks","checks":[{"name":"short unique nonempty label","passed":"boolean","observed":"bounded finite JSON evidence"}]},
+        {"id":"G03","passed":"boolean computed from checks","checks":[{"name":"short unique nonempty label","passed":"boolean","observed":"bounded finite JSON evidence"}]},
+        {"id":"G04","passed":"boolean computed from checks","checks":[{"name":"short unique nonempty label","passed":"boolean","observed":"bounded finite JSON evidence"}]},
+        {"id":"G05","passed":"boolean computed from checks","checks":[{"name":"short unique nonempty label","passed":"boolean","observed":"bounded finite JSON evidence"}]}
+      ]
+    }
+  },
+  "literal_surface": {
+    "helper_insertion": "Immediately before the unique module-level def need( anchor; helper ends with exactly two LF bytes",
+    "own_call_old": "time.monotonic()",
+    "own_call_new": "trial_now()",
+    "own_call_counts": {"parent":11,"proxy":11,"launcher":21},
+    "proxy_transfer_old": "deadline=deadline,write_fn=write_body",
+    "proxy_transfer_new": "deadline=deadline,clock=trial_now,write_fn=write_body",
+    "all_other_bytes": "unchanged"
+  },
+  "caps": {
+    "patch_bytes": 16384,
+    "test_bytes": 16384,
+    "report_bytes": 8192,
+    "per_source_growth_bytes": 2048,
+    "test_result_bytes": 131072
+  },
+  "root_later_pure_runtime": {
+    "python": "/usr/bin/python3 -I -B",
+    "python_bytes": 200560,
+    "python_sha256": "34129c71a01a74f7f3b2443521519b2e5447553fa187f5fcafaaf8c42cc192e2",
+    "python_version_observed": "3.9.6",
+    "expect_native": false,
+    "work_seconds": 30,
+    "sampled_owned_rss_bytes": 536870912,
+    "grace_seconds": 3,
+    "separate_stream_cap_bytes": 1048576,
+    "source_only_workers": true,
+    "actual_admission": "Root source review, exact bindings and committed admission before each actual call"
+  },
+  "preserved_goal": "Full Modern/Renewal personal play, eventual Traditional Chinese and persistence; party-only later. No parent/content acceptance from source or clock checks."
+}
