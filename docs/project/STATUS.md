@@ -153,7 +153,9 @@ and fixed read-only capability checks, with no more subcommand help probes.
 and copy/readback before start. [Current image/entrypoint binding now passes](reviews/2026-10-23-T10.007.md#current-images-and-db-entrypoint-verified-read-only):
 eight fixed GETs/17 full pins, both exact images present,6088B startup script
 byte-equal to retained source, original owners/container mounts preserved.
-Bind readiness/shutdown and concrete material/budgets, then run the parser fixture.
+[Readiness sources and17 fixed files now qualify](reviews/2026-10-23-T10.007.md#parser-readiness-sources-and-fixed-material-qualified):
+43 Root pins/30 spans/two exec-source tree joins. Review the short caller,
+bind fresh ownership/HEAD/deadline and finite cleanup, then run the parser fixture.
 No parser fixture or game/DB test has started. This successful
 fixed diagnostic uses reproduced private-loader routing:0→5520own keys, only
 16912/21001inspected, original lazyInit not executed; no ordinary session,
