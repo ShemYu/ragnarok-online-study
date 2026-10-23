@@ -71,7 +71,10 @@ Test7 fails before browser: copied RemoteClient lacks execute permission.
 Full cleanup/original-state audit PASS; outer FD mismatch retained.
 HTTP import initialization reproduced; narrow preload source qualifies.
 Fresh normal8 executable copies + fixture5 data/normalization PASS.
-Next: runtime bridge -> changed trial/FD verification.
+Runtime bridge data + execute checks PASS; changed-trial source qualifies.
+NOW: bind current HEAD/ports/lease -> one Stage1 trial -> Root audit.
+Parallel C2 drafts both retained/released; comparison/tests next.
+Fleet: 216 released / 4 user-retained / 0 active or reclaimable.
 No player PASS; source-only image-capture correction remains independent.
 Fresh test data + corrected hotkey capture source prepared independently.
 Root: test6 failed before UI: process-identity sample + early Chrome cleanup.
