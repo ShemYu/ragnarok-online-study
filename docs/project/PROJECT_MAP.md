@@ -58,7 +58,8 @@ Six own suites checked: Jboth/KGrok/PGrok pass; ClaudeK/P fail.
 Parallel: 2 Grok + 1 Claude correcting cleanup/postchecks; ClaudeP2 saved/released.
 Root: fresh fixture4 + 59 client/resource/config copies PASS as data.
 Lineage edge observations audited; corrected Claude basis selected (17 vs 15).
-Next: changed-source verification + cleanup/postcheck comparisons.
+Corrected lineage: all 7 own + 4 common cases PASS.
+Next: completed postcheck own tests + remaining correction comparisons.
 No player PASS; source-only image-capture correction remains independent.
 Fresh test data + corrected hotkey capture source prepared independently.
 Root: test6 failed before UI: process-identity sample + early Chrome cleanup.
