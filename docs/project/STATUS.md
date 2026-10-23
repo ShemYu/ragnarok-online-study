@@ -7,28 +7,24 @@ Updated: 2026-10-24 JST. Coordinator: Codex. Active scope: **execute the documen
 Functionality remains first; **4/14 parent checks, about29%**. All82functional
 resource gaps remain open. No full-game scope change or new user decision.
 
-**Live next action:** [Correct the reviewed driver/host sources while independent Grok tasks continue](reviews/2026-10-23-T10.007.md#d12-and-d13-source-settlements-reviewed-corrections-required).
-The ninth game trial remains failed. A199 shows expected Traditional Chinese
-refusal; dictionary abort and independent userconfig/load405 stop later cases.
-Root's233-wire and complete failure/preservation audits pass:842full pins,
-all18test PIDs/two groups gone, four test containers/network absent, new SQL
-volume retained, original five containers/owners/backings/listeners preserved.
-No B200quest-assignment/reconnection case or parent-check credit.
+**Live next action:** [Prioritize F1 quest/logout verification and a genuine isolated backend](reviews/2026-10-24-functional-priority.md#priority-and-stop-criteria).
+The ninth game trial remains failed. Expected A199 Chinese refusal is observed;
+dictionary abort/load405/map-connection settlement stop later cases. Root's
+complete failure/preservation audit passes; no B200assignment/reconnection or
+parent-check credit. 4/14 is a check count, not measured full-content coverage.
 
-**Parallel work:** Six Grok dispatches are live: D15 driver correction,
-D16 host correction, D14 UI, F1 genuine-logout/functional-evidence source,
-C7 backend caller correction, and narrow D12 own-metadata cleanup.
-D12/D13 submissions are preserved;
-Root confirms four source/control blockers, no compilation/runtime qualification.
-C6 source submission is pinned; Astra/Root confirm one final publication
-deadline blocker. Narrow C7 source correction is live. C6's proven
-terminal is immediately reused by D15; D13 is released. Fleet observation:
-6active/6retained records/232released/0reclaimable. Retained records represent
-four user-owned resources plus two transferred old dispatches; no extra worker
-is left waiting for cleanup. All six actual C5 pure-control groups pass Root
-verification/full48pins. No binary capture or fresh game actor is admitted.
-F1 keeps existing client faults failed and requires positive logout/connection
-settlement. Provider comparison is incomplete; effective model/cost unknown.
+**Parallel work:** Five Grok source dispatches are live: D15 driver correction,
+D16 host correction, D14 UI, F1 game-test continuation and C7 backend caller.
+CLEAN1 two-file cleanup is checked and released. Fleet5active/6retainedrecords/
+233released/0reclaimable; four actual user-retained resources plus two old
+transferred records. All six C5 pure-control groups remain Root-verified.
+No binary capture or fresh game actor is admitted. Finish the frozen scopes;
+additional diagnostics need a concrete question that selects a real repair.
+F1 does not automatically wait for all dictionary repairs. Its known faults
+remain failed; genuine native logout/all3WSclosure/fresh SQL gate continuation.
+New save405 or uncertain state stops. Root separately prepares genuine backend
+routing and the mu_fild01 client/resource binding for actual content work.
+Provider comparison remains incomplete; effective model/cost unknown.
 
 The [full-spawn output-budget measurement passes](reviews/2026-10-24-T06-full-spawn-output-budget.md#actual-bounded-measurement-and-root-audit-pass):
 839sources/723206physical lines require172547908canonical JSONL bytes, below

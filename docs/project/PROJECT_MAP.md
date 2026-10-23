@@ -27,39 +27,23 @@ Existing text recovery [PASS: fixed 152-record tool integrated + checked]
 Missing story scripts  [OPEN: largest content risk]
 Full game test         [LATER: 82 functional resource gaps remain]
 
-Current path:
-  Server/parser PASS -> login/character/map PASS
-                              |
-                  A199 Chinese dialogue OBSERVED
-                              |
-                  Dictionary/console faults FAIL
-                              |
-                  +-----------+-----------+
-                  |           |           |
-              D15 driver   D16 host    D14 UI
-                 active      active      active
-                  +-----------+-----------+
-                              |
-                 verified integration / fresh trial
-                              |
-                    grant -> relog -> restart
+Current priority:
+  F1 source -> Root verification -> one fresh fixed quest/logout sequence
+                         ^
+  genuine isolated backend route (where actual dependency requires it)
 
-Trial9 is finished/failed; later player cases were stopped.
-Full233-wire/preservation audit PASS; original world preserved.
-Trial remains failed. No percentage credit.
-D12/D13 source submissions reviewed; four blockers require corrections.
-D13 released; D12 terminal reused for narrow own-metadata cleanup.
-D13/D14 use disjoint files and one frozen interface; no sibling reads.
-C5 six actual pure-control groups PASS; C6 caller source worker active.
-Six Grok tasks live: D15 driver, D16 host, D14 UI, F1 game test, C7 caller,
-D12 cleanup.
-C6 review HOLD: late publication; narrow C7 correction active.
-C6 terminal reused by D15.
-F1 requires genuine logout; existing client faults remain failed.
-Full-spawn budget PASS:839sources,723206lines,172547908virtual bytes.
-No large JSONL written; full wrapper/profile/oracle remain open.
-No actual binary capture or fresh game trial is admitted.
-Original saves/Chrome/profile/network stay untouched. Full goal unchanged.
+Parallel:
+  D15 driver + D16 host + D14 UI -> finish frozen dictionary repairs
+  C7 caller -> installed capability question for the backend repair
+  mu_fild01 -> exact isolated resource binding -> real load/draw repair
+  full839spawn -> budget PASS; wrapper/profile/oracle choices still open
+
+Five actual Grok tasks live. CLEAN1 verified/released;233released total.
+Four actual user-retained workers stay;zero reclaimable.
+Trial9 stays failed; known faults stay failed. No new actor admitted.
+4/14 is parent-check progress, not percentage of playable content.
+All82functional resource gaps remain open. Full Renewal goal unchanged.
+Original saves/Chrome/profile/network stay untouched.
 
 ```
 
