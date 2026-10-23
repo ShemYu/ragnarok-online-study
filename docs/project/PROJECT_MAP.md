@@ -46,16 +46,17 @@ Current path:
 Root verified both NPC metadata proposals; Grok selected20/20 vs19/20.
 Name-binding shared controls PASS for both; Grok narrow repair selected.
 UI integration/syntax, strict driver pin and runtime inventory PASS.
-Fresh fixture + normal/runtime + normalization PASS -> binding data -> test.
+Fresh fixture + normal/runtime + normalization + binding data PASS
+  -> final HEAD/lease rebind + Root audit -> one changed NPC game trial.
 Full cleanup/original-state preservation PASS. No quest/player case PASS.
 Independent web capture: prior attempt refused before create; originals PASS.
-GET-only binary: two source defects found; bounded C5 Grok repair active.
+GET-only binary: C5 correction submitted; full control verification pending.
 NPC36 source controls + caller5 controls + integrated syntax PASS.
 Dictionary raw proposals refused; controller/driver corrections now active.
-C5/D10 active; D11 submitted/released, four defects confirmed; D12 ready.
-Final binder five-dependency gap corrected; data-only binding admitted.
-No browser trial admitted.
-No new browser, game or Engine action admitted. No user decision needed.
+D12 Grok repair active; C5/D10 source submitted/released, review pending.
+Final binder five-dependency gap corrected and actual data verification PASS.
+One changed NPC trial admitted only after final rebind/audit and fresh gates.
+Original saves/Chrome/profile/network stay untouched. No user decision needed.
 
 ```
 

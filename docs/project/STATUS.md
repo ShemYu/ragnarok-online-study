@@ -7,29 +7,24 @@ Updated: 2026-10-24 JST. Coordinator: Codex. Active scope: **execute the documen
 Functionality remains first; **4/14 parent checks, about29%**. All82functional
 resource gaps remain open. No full-game scope change or new user decision.
 
-**Live next action:** [Parallel D10controller/D11driver correction packet frozen](reviews/2026-10-23-T10.007.md#independent-dictionary-controller-and-driver-correction-packet-frozen).
-D10controller and D11driver Grok corrections are active under fixed interfaces.
-[All3source-worker ready receipts and cleanup inventory are retained](reviews/2026-10-23-T10.007.md#three-qualified-source-workers-active-after-independent-correction-launch).
-C4Grok source is submitted/released; C5 repair preparation is below.
-Claude quota was reported, no Claude retry.
-[Integrated NPC module syntax and full audit pass](reviews/2026-10-23-T10.007.md#integrated-npc-syntax-passes-and-both-raw-d9-sources-are-refused).
-NPC shared36source controls and caller5controls pass. Actual NPC dialogue
-still needs a fresh game trial; trial8 cause is unknown. Both raw D9 sources
-are refused before actors for concrete identity/fault-retention/lifecycle
-gaps. They remain retained; both workers released. No complete paired
-provider comparison is claimed for the new corrections.
-[Strict driver pin is integrated](reviews/2026-10-23-T10.007.md#changed-npc-driver-strict-content-pin-integrated-without-actor-authority).
-[Fresh trial recipe and selected runtime closure pass Root byte qualification](reviews/2026-10-23-T10.007.md#fresh-trial-recipe-and-component-dependency-inventory-root-qualified).
-[Both data writers qualify; one fresh-fixture data call is admitted](reviews/2026-10-23-T10.007.md#fresh-data-writers-qualified-and-one-fixture-data-call-admitted).
-[Fresh fixture actual verification passes; normal/runtime data call admitted](reviews/2026-10-23-T10.007.md#fresh-fixture-actual-pass-and-normalruntime-data-call-admitted).
-[Normal/runtime data actual verification passes; C5 starts](reviews/2026-10-23-T10.007.md#normalruntime-data-actual-pass-and-third-grok-correction-starts).
-C5/D10 remain active; D11 source submitted/released:2active/4retained/229released/0reclaimable.
-D12 narrow driver repair packet is ready after Root/Astra confirm four defects.
-[Normalizer source qualifies; final binder needs a narrow closure fix](reviews/2026-10-23-T10.007.md#metadata-normalizer-qualified-final-binder-dependency-gap-found).
-[Normalization actual PASS; final dependency fix and data binding admitted](reviews/2026-10-23-T10.007.md#normalization-actual-pass-final-binder-corrected-d11-source-held).
-One final-data binding call is admitted; game/browser/Engine actors remain unadmitted.
-No new game/browser/Engine capture admission. Fresh normal10/runtime data is exact/unbound.
-Dictionary abort, actual resource routes and NPC dialogue remain open.
+**Live next action:** [Final HEAD/lease rebind, independent Root audit, then one changed NPC trial](reviews/2026-10-23-T10.007.md#final-binding-data-actual-pass-and-one-changed-npc-trial-admitted).
+Fresh fixture, normal64/runtime204/UI177, metadata normalization and all ten
+binding-data outputs pass Root verification. No new player case has passed.
+The unchanged parent must freshly pass original-world gates before actors;
+all existing dictionary/resource/console faults remain fatal. Final game
+binding will use the new committed HEAD and one-shot1200s lease.
+
+**Parallel work:** D12 Grok driver repair is active. C5 capture correction and
+D10 controller source are submitted/pinned/released; controls/source review
+remain. D11 four concrete defects are confirmed and frozen in D12. D10 Astra
+findings wait for Root confirmation and disjoint repair briefs. Current fleet:
+1active/4user-retained/231released/0reclaimable. Complete provider comparison
+is unavailable after reported Claude quota; no provider winner is claimed.
+
+[Selected NPC36 source controls, caller5 controls and integrated syntax pass](reviews/2026-10-23-T10.007.md#integrated-npc-syntax-passes-and-both-raw-d9-sources-are-refused).
+Trial8 NPC failure cause remains unknown; actual dialogue/grant/relog are open.
+Original app/saves/Chrome/profile/settings/mute/IME/network stay untouched.
+No capture admission, goal change or user decision is required.
 
 **Prior native parser checkpoint:** [All three isolated native parser cases now pass Root verification](reviews/2026-10-23-T10.007.md#actual-three-case-native-parser-trial-and-complete-root-audit-pass):
 134 requests/231 full pins, valid original guard/13.231s, real NPC and three
