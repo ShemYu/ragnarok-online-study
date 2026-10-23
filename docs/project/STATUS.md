@@ -14,10 +14,16 @@ pre/post SQL character/quest counts remain0/0. All test resources are API-absent
 original five containers/owners/mounts and saves/settings are preserved.
 The corrected text tool also passes28 tests plus common controls.
 
-**Next:** verify actual isolated player grant/cancel/resume/inactive/later-ID/
-two-character behavior and relog/restart persistence, then installed mod
-assembly/ordinary route and normal journal. No unchanged parser/source reruns.
-These runtime/player/UI gates still keep T10.007/T10.008 open.
+**Player route prepared:** [Root qualifies the existing normal-client and
+isolated server route](reviews/2026-10-23-T10.007.md#isolated-normal-player-route-qualified-and-equal-live-task-plan-packet-frozen):
+69full pins/108source spans, fresh normal Config/RemoteClient/three WS targets,
+new login/char/map plus durable SQL. No runtime actions or player PASS yet.
+
+**Next:** compare the [equal read-only live player plans](tasks/T10.007-player-trial.md),
+then Root executes the selected bounded isolated trial: real grant/cancel/resume,
+character separation and saved progress across relog/restart. Inactive/later-ID
+guards, installed4848+3assembly/ordinary route and normal Chinese journal remain
+explicit gates. No unchanged parser/source reruns. T10.007/T10.008 stay open.
 
 **Portal guidance:** [actual equal comparison selects Claude20/20 over
 Grok13/20](reviews/2026-10-23-T07.006.002.md#equal-corrected-results-fully-audited-and-claude-selected).
