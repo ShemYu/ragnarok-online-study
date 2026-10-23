@@ -20,11 +20,13 @@ own harness throws before behavior checks; common41/53 includes the same
 eleven fixture comparisons plus unknown Worker policy routing. Both raw
 caller1/guardinvalid results stay failed and consumed. [Exact shared fixture
 correction qualifies as source](reviews/2026-10-23-T07.006.002.md#exact-shared-observation-realm-correction-qualifies-as-source),
-with all cases/expected values unchanged. [Fresh equal corrected bindings
-qualify; one call each is admitted](reviews/2026-10-23-T07.006.002.md#equal-corrected-fixture-bindings-qualify-and-two-pure-calls-are-admitted).
-Run the two independent pure calls under this exact clean introducing HEAD,
-preserve every actual result and fully audit before score or selection.
-No candidate is accepted or installed.
+with all cases/expected values unchanged. [Both corrected actual runs/full Root
+audit now qualify; Claude20/20 selected over Grok13/20](reviews/2026-10-23-T07.006.002.md#equal-corrected-results-fully-audited-and-claude-selected).
+Claude34/34own+53/53common/caller0/valid original G; Grok own harness error+
+52/53common/caller1/guardinvalid. Fortyfull pins, complete source/results and
+positive four-PID/two-group closure pass. Next integrate unchanged Claude5c3a9a1
+and reverify actual tracked files before source-tool self_verified. Both
+corrected admissions are consumed; no installed game patch or content gate.
 
 **Browser diagnostic:** [fresh normal-reader preflight and complete Root audit
 pass](reviews/2026-10-23-T10.005.md#fresh-same-world-preflight-and-complete-root-audit-pass):

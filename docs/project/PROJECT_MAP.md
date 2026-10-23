@@ -69,8 +69,11 @@ CURRENT (23 Oct):
   [V] Grok raw test/audit: own harness error, common 41/53; stays failed.
       Same 11 fixture failures plus unknown Worker policy routing.
   [V] Equal corrected fixture/bindings checked; one fresh call each admitted.
-  [>] Run both independent calls / audit actual results before selection.
-      No candidate is selected or installed.
+  [V] Corrected pair/audit: Claude 34/34 own + 53/53 common pass.
+      Grok own harness error + 52/53 common; stays failed. All tests exited.
+  [V] Claude 20/20 selected; Grok 13/20, retained for comparison.
+  [>] Integrate unchanged Claude source / reverify actual tracked files.
+      No game patch is installed. Parent progress stays 4/14.
       No game design or milestone change. No user action is needed.
 
 Earlier checkpoints (their next actions can be superseded):

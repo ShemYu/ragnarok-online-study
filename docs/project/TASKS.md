@@ -74,6 +74,11 @@ match Claude. Next fresh corrected common runs for both; no candidate changes.
 first10roles/Node/donors match, both six+one header inverses/provider bytes
 unchanged. One private pure call each, optionally parallel, then complete
 Root audits before score/selection. All original cases/caps stay fixed.
+[Corrected actual pair/full Root audit and selection](reviews/2026-10-23-T07.006.002.md#equal-corrected-results-fully-audited-and-claude-selected):
+Claude34own/53common PASS, Grok own harness error/common52of53 FAIL;40full pins,
+complete sources/streams and all four test PIDs/two groups absent. Claude20/20
+selected versus Grok13/20. Next unchanged source integration and actual tracked
+file reverification; no installed patch or parent/content closure.
 
 Earlier T07.007.011.005 support gate: [corrected private extraction/full Root
 payload audit pass](reviews/2026-10-22-T07.007.011.005.md#corrected-private-extraction-and-complete-root-payload-audit-pass),
