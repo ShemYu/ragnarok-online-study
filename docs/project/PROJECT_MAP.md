@@ -123,7 +123,10 @@ CURRENT (23 Oct):
       Root16 exact fragments / 13 pins / full driver+caller inverses pass.
   [V] All32 groups pass: caller0 / driver0 / valid original guard / no signals.
       Root22-pin/full-stream audit passes; caller/driver/group are gone.
-  [>] Fresh full actor/served/current-world binding, then new browser admission.
+  [V] Fresh3 actor sources + 5 served files materialize; Root66-pin audit passes.
+      Four Node fields + 12 policy edits invert; other actor behavior unchanged.
+      No actor/game code has run; actual-root-4 contains source/data only.
+  [>] Current-world/effect and13-header parent binding, then browser admission.
       Installed startup/response and quest result are still unverified.
       No game patch is installed. Parent progress stays 4/14.
       No game design or milestone change. No user action is needed.

@@ -115,9 +115,15 @@ Caller0/driver0/valid original guard, no signals, complete streams and22full
 Root audit pins agree. Driver/caller PIDs and the registered group are absent;
 FD/thread boundaries match. The9d84fe7pure admission is consumed once; no repeat
 is needed. Actual installed Worker startup/response behavior is still unknown.
-Next materialize fresh corrected full actors/served files, bind current original
-worlds/effects and a new parent, then commit a separate one-shot browser-trial
-admission. No browser trial is admitted by this control result.
+[Fresh corrected actors/served files now materialize and pass Root's66pin
+audit](reviews/2026-10-23-T10.005.md#fresh-worker-corrected-actors-and-served-files-materialize-and-qualify).
+Three full actor sources and five served files occupy unused actual-root-4;
+no actor/game code, runtime inputs/outputs/profile/READY/grant or parent exists.
+The controller fully inverts its four bound fields and12policy edits; launcher/
+proxy differ from qualified root-3 only by fresh namespace fields. Next bind
+current original worlds/effects and the new13header parent, then commit a separate
+one-shot browser-trial admission. No browser trial is admitted by this source
+materialization.
 No general orphan/duplicate-event acceptance, timing/cap growth,
 guard change or unchanged retry. All actual-root-3 inputs/outputs/admission are
 consumed and immutable. The single test-keychain argument is relevant to this
