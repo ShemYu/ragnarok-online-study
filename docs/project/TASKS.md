@@ -4,7 +4,12 @@ Task owner: coordinator unless dispatched. Updated: 2026-10-21. The user has aut
 
 ## Dependency map
 
-Current T07.007.011.005 support gate: [corrected private extraction/full Root
+Current support: [finite51 browser command list qualifies](reviews/2026-10-22-T07.007.011.005.md#finite-signature-list-and-independent-review-qualify),
+Root17full pins; fixed invocation/source admission next, no commands run.
+[One-table navigation contract qualifies](reviews/2026-10-23-T07.006.001.md#one-table-on-disk-read-contract-qualifies),
+Root10pins/15stat-only paths; bounded inert-read source/admission next.
+
+Earlier T07.007.011.005 support gate: [corrected private extraction/full Root
 payload audit pass](reviews/2026-10-22-T07.007.011.005.md#corrected-private-extraction-and-complete-root-payload-audit-pass),
 367full pins/all677nodes/344full regular CRC+SHA/5links/archive/positive closure.
 Next finite signature/architecture commands, then isolated browser trial. Original

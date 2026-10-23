@@ -33,6 +33,10 @@ next action and the exact limits of each result.
 CURRENT WORK: quest data, missing story and map-load checks
 
 CURRENT (23 Oct):
+  [V] Exact 51 browser-check commands and independent review checked.
+      Invocation source/admission next; no tool or browser run yet.
+  [V] Navigation one-table read contract checked; 15 stat-only paths match.
+      Inert read source/admission next. No current table body read.
   [V] Test-browser ZIP and corrected extraction pass full Root audit.
       All 677 nodes / 344 regular files / 5 links checked; tests gone.
       First failed attempt stays preserved.

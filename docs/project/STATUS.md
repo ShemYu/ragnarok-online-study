@@ -4,6 +4,17 @@ Updated: 2026-10-23 JST. Coordinator: Codex. Active scope: **execute the documen
 
 ## Current checkpoint
 
+[The finite browser verification list qualifies](reviews/2026-10-22-T07.007.011.005.md#finite-signature-list-and-independent-review-qualify):
+Root checks17full source/metadata pins, all51argv,17physical code objects/files,
+ten plist identifier joins and seven standalone observations. Next qualify the
+fixed direct-original-guard invocation, commit its admission and run once.
+No signature/architecture command or browser launch has run.
+
+[The one-table navigation read contract qualifies](reviews/2026-10-23-T07.006.001.md#one-table-on-disk-read-contract-qualifies):
+Root checks10full retained pins and15current stat-only paths. All frozen ordinary
+root/owner/overlay/TABLE identities match; journal absent. Next qualify/admit
+one22-byte inert read under the same20s/512KiB bound. No TABLE body or PID query.
+
 [Corrected private browser extraction and complete Root audit pass](reviews/2026-10-22-T07.007.011.005.md#corrected-private-extraction-and-complete-root-payload-audit-pass):
 actual caller0/guardvalid,2.072s externally observed. All677nodes/328directories/
 344regular files/five links and367full pins qualify, including independent full
