@@ -19,7 +19,9 @@ gaps. They remain retained; both workers released. No complete paired
 provider comparison is claimed for the new corrections.
 [Strict driver pin is integrated](reviews/2026-10-23-T10.007.md#changed-npc-driver-strict-content-pin-integrated-without-actor-authority).
 [Fresh trial recipe and selected runtime closure pass Root byte qualification](reviews/2026-10-23-T10.007.md#fresh-trial-recipe-and-component-dependency-inventory-root-qualified).
-Source-only fresh fixture/materializer writers are being prepared.
+[Both data writers qualify; one fresh-fixture data call is admitted](reviews/2026-10-23-T10.007.md#fresh-data-writers-qualified-and-one-fixture-data-call-admitted).
+No data call has run yet. C4Grok source is submitted/pinned/released; full code
+review is next. D10/D11 remain active:2active/4retained/228released/0reclaimable.
 No new game/browser/Engine capture admission. Normal9 data is exact/unbound.
 Dictionary abort, actual resource routes and NPC dialogue remain open.
 
