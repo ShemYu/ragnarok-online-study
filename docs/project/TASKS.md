@@ -79,6 +79,10 @@ Claude34own/53common PASS, Grok own harness error/common52of53 FAIL;40full pins,
 complete sources/streams and all four test PIDs/two groups absent. Claude20/20
 selected versus Grok13/20. Next unchanged source integration and actual tracked
 file reverification; no installed patch or parent/content closure.
+[Selected source integrates unchanged; one tracked-file run admitted](reviews/2026-10-23-T07.006.002.md#unchanged-selected-source-integrated-and-one-tracked-file-run-admitted):
+88577ae/exact three paths/full blobs;547public paths pass. Actual tracked
+modules bind directly with the same common/profile/donors/caps. Run once and
+Root audit before source-tool self_verified; no live installation.
 
 Earlier T07.007.011.005 support gate: [corrected private extraction/full Root
 payload audit pass](reviews/2026-10-22-T07.007.011.005.md#corrected-private-extraction-and-complete-root-payload-audit-pass),

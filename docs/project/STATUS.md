@@ -24,9 +24,12 @@ with all cases/expected values unchanged. [Both corrected actual runs/full Root
 audit now qualify; Claude20/20 selected over Grok13/20](reviews/2026-10-23-T07.006.002.md#equal-corrected-results-fully-audited-and-claude-selected).
 Claude34/34own+53/53common/caller0/valid original G; Grok own harness error+
 52/53common/caller1/guardinvalid. Fortyfull pins, complete source/results and
-positive four-PID/two-group closure pass. Next integrate unchanged Claude5c3a9a1
-and reverify actual tracked files before source-tool self_verified. Both
-corrected admissions are consumed; no installed game patch or content gate.
+positive four-PID/two-group closure pass. [Unchanged Claude source is integrated
+as88577ae; one actual tracked-file run is admitted](reviews/2026-10-23-T07.006.002.md#unchanged-selected-source-integrated-and-one-tracked-file-run-admitted).
+Exact three selected/integrated/working-file bytes match; only fresh private
+bindings exist. Run once under this introducing clean HEAD and fully audit
+before source-tool self_verified. Both pair admissions are consumed; no
+installed game patch or content gate.
 
 **Browser diagnostic:** [fresh normal-reader preflight and complete Root audit
 pass](reviews/2026-10-23-T10.005.md#fresh-same-world-preflight-and-complete-root-audit-pass):
