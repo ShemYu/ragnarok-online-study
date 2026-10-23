@@ -752,3 +752,51 @@ Inventory9744B/989798020ea27d4d90be2ec0f521825f008f37331c455a4f1dc9c50dcfd71fee.
 The preceding Root4 snapshot was5active/243released/6retained,254records;
 both inventories are checkpoints, not provider model/cost or gameplay proof.
 Full goal,4/14 parent-check progress and all82 functional gaps are unchanged.
+
+
+## Backend fixed entry correction and UI composition qualified
+
+Root's actual B2D call passes groups1/2 (natural0/positive original G,
+0.297273s/0.298539s) and stops at3: Root's fixed entry omitted driver_path.
+This TypeError occurs before the group3 helper body; it is a Root caller
+error, not a candidate production defect. Full151pin audit82084B/
+64a08a785be3a8869ff7c48467737f5865c78bfef4d0b8317a4160088e79e701
+preserves the natural1/failed guard, full stderr/stdout/receipt and checks
+source/context stability and test PID/group absence. It remains FAILED.
+Root checks all seven actual signatures and corrects only entries3/4 to
+pass both Engine and driver paths; group7 already passes both. No worker
+source, G/S or budget is changed. Qualification80786B/
+c4db427baa9a77c28b7095e9a12bec938dc73ab349b237e6438f1716bebe2a08
+admits only remaining groups3–7 once after this checkpoint. Passed1/2 are
+not replayed or inferred into whole-suite success.
+
+Root fully reads the5492B final Astra B2U report
+90791f968b824104a74e386cbbaac0868de4b70503e35c5368811affdb71c17d,
+checks all56 reviewed input pins and final output pins, and personally
+reconstructs four maps/15unchanged spans. Empty Location and native-origin
+dispatch corrections are present on actual production paths. The5168B
+F2 classifier/wait block remains byte-identical. No concrete remaining
+production blocker is found by this source review. Native CORS/auth/schema/
+JSON/SQL and changed-setting reload are unverified. Source/HTTP200 is not
+save proof.
+
+The one existing group exercises real route/admission/producer/logout
+helpers but not the live response dispatcher or pending-to-completion
+polling. These two requested extensions were not fully adopted; record them
+as explicit coverage limits, not proven production defects or executed
+coverage. No automatic new framework/diagnostic generation is created.
+
+Root verifies all nine unique donor-to-UI operations forward and reverse,
+and substitutes exactly the three B2D UI operation/size/SHA slots. The
+composed driver restores exactly after the three inverse substitutions;
+ROOT_BOUND staysFalse and runtime config is unbound. Three stage files and
+one fixed Node entry are pinned, Python composition compiles only.
+Qualification75435B/897250fd5fe608b2968ce02535f4b7be2f7fdc0c9ed413050bf4e9ead25575f0
+admits only the one existing Node group after this checkpoint, under
+unchanged G10s/512MiB/grace3/no-native/1MiB and original S. Root1/2 early
+byte-review directories are empty after applying an inverse list without
+its declared descending sort and using an incorrect function export label;
+Root3 is authoritative. No test, actor or source change resulted from them.
+Full UI62401B/c96cd1bfc54b14819d5e80dac7002a71f3162a7e7c687aba4f58cb6efb687965
+remains the reviewed candidate. Three Grok map/export sources remain live.
+Full goal/progress and all82 functional gaps remain unchanged.

@@ -43,7 +43,8 @@ Parallel:
        (retained water geometry0; current scene still verifies it)
   full839spawn -> budget PASS; profile/oracles frozen -> Grok source LIVE
 
-B2D bytes qualified -> seven pure checks next; B2U final review in parallel.
+B2D:1/2 PASS,3 Root caller FAILED -> fix3/4 -> remaining3-7 next.
+B2U:source reviewed + UI composition qualified -> one pure group next.
 Three Grok sources live: MuC UI / MuD driver / F839.
 Current3active/245released/6retained records; no settled owner awaits cleanup.
 Four actual user-retained resources stay;2transferred records have none.

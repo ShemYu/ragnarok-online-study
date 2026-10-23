@@ -23,8 +23,11 @@ pass complete Root203pin verification under original G/S.
 No Engine/browser/game actor is admitted. Water-source review confirms retained zero water geometry for the exact
 current map/worker/GND join; no extra water deployment is justified. B2U/B2D source candidates are submitted, fully pinned and released.
 [Root qualifies B2D bytes and admits seven focused calls](reviews/2026-10-24-functional-priority.md#backend-sources-settled-seven-driver-checks-admitted)
-after this checkpoint; B2U final producer review runs in parallel. UI binding
-and all native/backend/game verification remain open. Three actual Grok
+Root groups1/2 pass; group3 fails at a missing Root caller argument.
+[Root fixes entries3/4 and qualifies B2U UI composition](reviews/2026-10-24-functional-priority.md#backend-fixed-entry-correction-and-ui-composition-qualified):
+remaining five Python calls and one Node call are next after checkpoint.
+Two UI control coverage limits remain explicit. Runtime bindings and all
+native/backend/game verification remain open. Three actual Grok
 sources remain live: MuC UI, MuD driver and F839 exporter. Fresh254record/
 3page inventory:3active/245released/6retained/0reclaimable; all nine old
 attention flags have no lifecycle argv. Four actual user-retained resources
