@@ -163,8 +163,13 @@ server/BGM/01.mp3. Adopt neither extra directory/env driver patch; the tested
 driver/empty override remain sufficient. [All seven copies and corrected fresh
 fixture3 now pass Root data qualification](reviews/2026-10-23-T10.007.md#seven-loose-copies-and-corrected-fresh-fixture-data-qualify).
 Original51normal files remain exact; Config copy/normalized fixture qualify.
-No assets served yet; current-world/runtime/HEAD/lease bindings remain next.
-No service recipe admitted.
+No assets served yet. [The199runtime/172UI file set now qualifies](reviews/2026-10-23-T10.007.md#expanded-player-runtime-qualifies-and-independent-webcap-pair-starts):
+new bound-flag-only driver,216audit-artifacts; current-world/HEAD/lease and
+game admission remain next. Astra confirms a4GiB parameter is composable but
+finds a missing exact receipt-policy check; corrected parent/control draft is
+being prepared. No larger allowance is admitted yet. An independent Grok/
+Claude pair prepares an inert bounded image-file capture adapter for hotkeys;
+no actual API/image/service action is permitted in that pair.
 No higher allowance or
 unchanged retry is admitted.
 Physical footprint/headroom remain unknown. Independent
