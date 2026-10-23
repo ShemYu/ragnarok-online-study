@@ -4,33 +4,24 @@ Updated: 2026-10-23 JST. Coordinator: Codex. Active scope: **execute the documen
 
 ## Current checkpoint
 
-[Fixed browser verifier source qualifies; one run is admitted](reviews/2026-10-22-T07.007.011.005.md#fixed-signature-caller-qualifies-and-one-verification-is-admitted):
-Root19full pins/six spans plus29final source joins/two exact donor seams;
-independent review agrees. Bind this clean admission HEAD/four source headers
-and run the finite51commands once. All actual guard returns<150s, whole
-invocation/postchecks<180s. Audit complete results before browser use.
+[First browser display refuses the assumed publisher gate; complete Root failure audit passes](reviews/2026-10-22-T07.007.011.005.md#first-signature-display-refuses-the-publisher-assumption-and-full-failure-audit-passes).
+Actual caller1/0.977s; first display0/valid guard. Main is ad-hoc signed, no
+Google TeamIdentifier or resource seal. Root372full pins/all677nodes and
+positive tool/caller/group closure match; no verify/lipo/browser command ran.
+[Root explicitly revises this test artifact's local admission basis](reviews/2026-10-22-T07.007.011.005.md#explicit-cft-local-provenance-basis-revised):
+22pins/four primary resources, exact official object/generation/checksums and
+full payload integrity. No certificate/seal/notarization claim or OS bypass.
+Next qualify a new finite17architecture-only operation; do not replay failed51.
+Then finish exact launcher/controller bindings before any owned game trial.
 
-[Fixed one-table observer qualifies; one inert read is admitted](reviews/2026-10-23-T07.006.001.md#fixed-one-table-observer-qualifies-and-one-inert-read-is-admitted):
-Root12full pins/six source spans/closed bindings; actor353LF reviewed. Bind
-this HEAD/six headers and run once, exact22B/one open/20s/512KiB. Root owns
-external HEAD/basis/source pre-post and timely terminal/artifact verification.
-No command, TABLE body read, browser launch or content acceptance has run yet.
+[One on-disk navigation TABLE read and complete Root audit pass](reviews/2026-10-23-T07.006.001.md#one-on-disk-table-read-and-complete-root-audit-pass):
+actor0/0.079s,18full pins/22bytes and stable brackets. Exact inert text declares
+an empty Navi_Link_Server table. Owner stays recorded_candidate_only; current
+serving, build inputs, browser winner and route remain unknown. A bounded
+independent pure portal-routing comparison brief is being prepared; no patch.
 
-[Corrected private browser extraction and complete Root audit pass](reviews/2026-10-22-T07.007.011.005.md#corrected-private-extraction-and-complete-root-payload-audit-pass):
-actual caller0/guardvalid,2.072s externally observed. All677nodes/328directories/
-344regular files/five links and367full pins qualify, including independent full
-CRC/SHA checks and archive preservation. Both test processes/group are gone.
-The first failure remains preserved. Next qualify/bind the finite signature/
-architecture command list and execute it before an isolated browser game trial.
-No signature command or browser launch has run.
-
-[Native owner schema and a retained-only projection qualify](reviews/2026-10-23-T07.006.001.md#native-owner-schema-and-a-separate-retained-only-projection-qualify),
-14pins/13source spans; executable is a declared string field. Original failed
-observation stays unchanged; no current reread/PID query. Retained choices disable
-the navigation mod, while existing generation inputs/TABLE/owner liveness and
-current serving remain unknown. Next a separately bounded same-generation
-table/owner observation contract; full navigation/runtime/content remain open.
-Functionality remains first;4/14parent checks, about29%.
+Functionality remains first; **4/14 parent checks, about29%**. All82functional
+resource gaps remain open. No full-game scope change or new user decision.
 
 ## Recent verification history
 

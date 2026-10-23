@@ -4,10 +4,13 @@ Task owner: coordinator unless dispatched. Updated: 2026-10-21. The user has aut
 
 ## Dependency map
 
-Current support: [fixed signature source qualifies; one51-command run admitted](reviews/2026-10-22-T07.007.011.005.md#fixed-signature-caller-qualifies-and-one-verification-is-admitted),
-Root19pins/six spans+29final joins/two donor seams. Bind/run once/audit next.
-[Fixed one-table observer qualifies; one inert read admitted](reviews/2026-10-23-T07.006.001.md#fixed-one-table-observer-qualifies-and-one-inert-read-is-admitted),
-Root12pins/six spans; exact22B/20s/one open. Neither actual operation has run.
+Current support: [first publisher-gate refusal/full Root audit](reviews/2026-10-22-T07.007.011.005.md#first-signature-display-refuses-the-publisher-assumption-and-full-failure-audit-passes)
+and [explicit corrected local CfT basis](reviews/2026-10-22-T07.007.011.005.md#explicit-cft-local-provenance-basis-revised).
+372failure-audit pins/677nodes preserved,22research pins/four primary resources;
+next new17architecture source/admission, then exact owned game-trial bindings.
+[One on-disk navigation read/full Root audit pass](reviews/2026-10-23-T07.006.001.md#one-on-disk-table-read-and-complete-root-audit-pass),
+18pins/22B/empty table, owner/served association unknown; independent pure fix
+brief next. Neither browser/game nor parent/content acceptance advances.
 
 Earlier T07.007.011.005 support gate: [corrected private extraction/full Root
 payload audit pass](reviews/2026-10-22-T07.007.011.005.md#corrected-private-extraction-and-complete-root-payload-audit-pass),

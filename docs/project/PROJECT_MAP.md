@@ -33,24 +33,15 @@ next action and the exact limits of each result.
 CURRENT WORK: quest data, missing story and map-load checks
 
 CURRENT (23 Oct):
-  [V] Fixed signature caller source + independent review checked.
-  [>] Bind committed admission; run 51 checks once, then full Root audit.
-  [V] Fixed one-table observer source checked.
-  [>] Bind admission; read 22 bytes once, then audit. No game changes.
-  [V] Exact 51 browser-check commands and independent review checked.
-      Invocation source/admission next; no tool or browser run yet.
-  [V] Navigation one-table read contract checked; 15 stat-only paths match.
-      Inert read source/admission next. No current table body read.
-  [V] Test-browser ZIP and corrected extraction pass full Root audit.
-      All 677 nodes / 344 regular files / 5 links checked; tests gone.
-      First failed attempt stays preserved.
-  [>] Next: signature and architecture checks, then owned game trial.
-      Test browser has not launched.
-  [V] Full historical navigation index checked: no Yggdrasil portal rows.
-  [V] Owner field checked in source; retained-data projection passes.
-      Original failure stays failed. No current read or process query.
-  [>] Next: current table/generation proof. Retained list disables mod.
-      Historical absence does not prove current absence.
+  [!] Browser publisher gate refused: main has an ad-hoc signature.
+      Failed run kept; full Root integrity/closure audit passes.
+  [V] Official-download/file-integrity basis checked for this local test.
+      No certificate or notarization claim; ownership rules stay strict.
+  [>] Next: 17 architecture checks, then exact owned game-trial bindings.
+      No test browser has launched.
+  [V] On-disk navigation table read/audit pass: empty table, 22 bytes.
+      Served table/browser winner and actual route still unknown.
+  [>] Prepare equal pure portal-routing fix task while live work proceeds.
 
 Earlier checkpoints (their next actions can be superseded):
   [V] Browser integration plan checked; strict ownership/clocks stay.
