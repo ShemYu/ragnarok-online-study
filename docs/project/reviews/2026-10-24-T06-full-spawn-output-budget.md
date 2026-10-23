@@ -40,3 +40,34 @@ No complete marker may imply lexical completeness despite cutoffs/gaps.
 No native/effective monster, ordinary encounter, quest/save or full-world
 acceptance follows from this measurement. Full Renewal goal/4of14/all82gaps
 stay unchanged. Root owns this new coordination record; source/data stay private.
+
+
+## Actual bounded measurement and Root audit pass
+
+One actual read-only data call completes under original G45s/512MiB/grace3/
+no-native/1MiB: natural0,4.865421s, sampled39157760B. Internal35s and every
+source/row/output cap remain unchanged. Root checks all866fullpins, all839
+selected source bytes/hash/prepost joins,11metadata/source inputs, receipts,
+streams, retirement, FD/thread/HEAD and clean tracked state. All pass.
+
+Measured839sources/24222094source bytes/723206physical lines serialize to
+172547908virtual canonical JSONL bytes. Maximum row1330B, physical line581B,
+source physical lines18844. No large JSONL is written. Root independently
+recomputes each source's physical counts and exact closed-form canonical
+serialized size; all per-source byte totals and overall total match. Virtual
+stream SHA256e4108fa16182173e515fcd07a4cf5fa296dea59584b2d17062b6cbff3ed27f61
+comes from the qualified serializer; Root does not independently replicate
+the entire stream hash or claim a retained physical JSONL file.
+
+Actual audit t06-full-spawn-output-budget-actual-root-1/AUDIT_ROOT.json
+428894B/SHA256
+9091abb52d151394c6ca9fe8e91ccd39191da235fae7a13e1bd844b8e873f0d7,
+866fullpins plus result, errors empty. Private provisional receipt1344130B/
+SHA2561cf3771cf8ad9b26ae2a89718745c5e1fcfa4d6f3523d1bca7d4cacf2c6b3644
+keeps budgetCompleted null; returned result is true only after close/readback
+and source/request postpins. Measurement resolves the physical-output budget
+prerequisite. Next: freeze full profile, candidate-independent typed
+expectations, qualified publication semantics and finite wrapper controls
+before actual Grok implementation. Existing two-file reference stays locked.
+This is not lexer/full-inventory/native monster/quest/save/full-game acceptance;
+4of14/all82functional gaps and the full Renewal scope remain unchanged.

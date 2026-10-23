@@ -37,7 +37,7 @@ Current path:
                   +-----------+-----------+
                   |           |           |
               D12 driver   D13 host    D14 UI
-                active      active      active
+               corrections corrections active
                   +-----------+-----------+
                               |
                  verified integration / fresh trial
@@ -47,11 +47,14 @@ Current path:
 Trial9 is finished/failed; later player cases were stopped.
 Full233-wire/preservation audit PASS; original world preserved.
 Trial remains failed. No percentage credit.
+D12/D13 source submissions reviewed; four blockers require corrections.
+D13 released; D12 terminal reused for narrow own-metadata cleanup.
 D13/D14 use disjoint files and one frozen interface; no sibling reads.
 C5 six actual pure-control groups PASS; C6 caller source worker active.
-Four actual Grok tasks now run: driver, host, UI and backend caller.
-F1 genuine-logout/functional-evidence source task prepared; faults stay fatal.
-Full-spawn output-budget source qualified; bounded measurement is next.
+Four Grok dispatches live: D14 UI, C6 caller, F1 game test, D12 cleanup.
+F1 requires genuine logout; existing client faults remain failed.
+Full-spawn budget PASS:839sources,723206lines,172547908virtual bytes.
+No large JSONL written; full wrapper/profile/oracle remain open.
 No actual binary capture or fresh game trial is admitted.
 Original saves/Chrome/profile/network stay untouched. Full goal unchanged.
 

@@ -7,27 +7,32 @@ Updated: 2026-10-24 JST. Coordinator: Codex. Active scope: **execute the documen
 Functionality remains first; **4/14 parent checks, about29%**. All82functional
 resource gaps remain open. No full-game scope change or new user decision.
 
-**Live next action:** [Prepare the GET-only backend caller while Grok repairs continue](reviews/2026-10-23-T10.007.md#c5-six-pure-controls-pass-independent-grok-caller-task-frozen).
+**Live next action:** [Correct the reviewed driver/host sources while independent Grok tasks continue](reviews/2026-10-23-T10.007.md#d12-and-d13-source-settlements-reviewed-corrections-required).
 The ninth game trial remains failed. A199 shows expected Traditional Chinese
 refusal; dictionary abort and independent userconfig/load405 stop later cases.
-Root's233-wire and complete failure/preservation audits now pass:842full pins,
+Root's233-wire and complete failure/preservation audits pass:842full pins,
 all18test PIDs/two groups gone, four test containers/network absent, new SQL
 volume retained, original five containers/owners/backings/listeners preserved.
 No B200quest-assignment/reconnection case or parent-check credit.
 
-**Parallel work:** D12 driver, D13 host and D14 UI Grok repairs are active,
-with disjoint ownership and one frozen host/UI interface. All six actual C5
-pure-control groups now pass Root verification/full48pins. C6 minimal caller
-source worker is now live, independent of D12/13/14. Current fleet:4active,
-4user-retained,231released,0reclaimable.
-No binary capture or game actor is admitted.
-Four user-retained workers stay; no settled worker currently awaits cleanup.
+**Parallel work:** Four actual Grok dispatches are live: D14 UI, C6 GET-only
+backend caller, F1 genuine-logout/functional-evidence source, and narrow D12
+own-metadata cleanup. D12/D13 submissions are preserved and source-only accepted;
+Root confirms two driver/control and two host blockers after independent review.
+Neither source is qualified or executed. Separate corrections are next.
+D13 worker is released. Fleet observation:4active,5retained records,232released;
+four retained workers are user-owned, one old D12 record transferred its resource
+to the active cleanup dispatch. It is not a fifth retained worker to close.
+All six actual C5 pure-control groups pass Root verification/full48pins.
+No binary capture or fresh game actor is admitted. F1 retains all existing
+client faults as failures and requires positive logout/connection settlement.
 Provider comparison remains incomplete; effective model/cost unknown.
-Root also prepares F1, a separate game-test source change after Astra review:
-genuine UI logout and strict conditional collection of later quest evidence,
-with all known faults/cases/trial still failed. No F1 actor is admitted.
-The [full-spawn output budget](reviews/2026-10-24-T06-full-spawn-output-budget.md)
-source qualifies; one bounded read-only measurement may run after checkpoint.
+
+The [full-spawn output-budget measurement passes](reviews/2026-10-24-T06-full-spawn-output-budget.md#actual-bounded-measurement-and-root-audit-pass):
+839sources/723206physical lines require172547908canonical JSONL bytes, below
+the512MiB virtual cap. Root verifies866fullpins and every source's byte/count
+join; no large JSONL is written. Typed expectations/profile/publication semantics
+remain prerequisites to the full wrapper. This is no spawn-inventory/game PASS.
 
 Original app/saves/Chrome/profile/settings/mute/IME/network stay untouched.
 The consumed ninth trial is not retried. All Chinese overlays stay enabled;
