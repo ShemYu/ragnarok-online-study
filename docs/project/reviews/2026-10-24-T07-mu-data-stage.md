@@ -391,3 +391,73 @@ This does not dynamically exercise the async response dispatcher/browser
 cleanup, load/draw the105 assets or establish1285 actual placements. MuD
 finite cleanup source/composition and one fresh separately admitted scene
 remain next. No parent check/resource-gap/gameplay credit or actor admission.
+
+## MuD frozen source qualified two focused calls admitted
+
+Grok provider500 interrupts final source sealing. Root freezes all14current
+outputs with full byte/C8 copies, snapshot27733B/
+7705f5e13cc95eb910f37b1165155ad3ad9cdaef5069bdfc59a287ee5d73e200.
+This is provisional captured source, not eventual submission/settlement.
+Root fully reads5272B independent review, checks24stable full input pins
+and closed outputs, then personally checks actual production deadlines/
+cleanup paths and the two real zero-argument functions.
+
+D1 checks the original deadline before birth/executable identity work and
+immediately before actual SIGTERM. Independent Chrome/Remote attempts and
+sticky faults remain. D2 requires successful own creation and current dev/
+inode at cleanup decision; stable preexisting/foreign replacement/symlink
+paths are preserved. Explicit assumption: Root controls an exclusive private
+0700 test directory with no concurrent writer. Pathname mkdir/check/rmdir
+is not an atomic inode-conditional operation against an adversarial same-
+UID concurrent rename. Root records this filesystem limit; no new concurrency
+framework/guard or expanded two-fix requirement is introduced.
+
+Root reconstructs both full range maps and complementary changes,61equal
+spans/59changed gaps, exact F1helper17780B/
+4deb777f7b3615c684305303337c3d52578f68c5793e83cc1585435e2741bb0d.
+All17 complete scenario records join independently typed expected data.
+Three private staged siblings equal captured driver68622B/
+031e91ceff3b1be6624f34373b75f9ba643e4990e4627f854976dec1d70a4e92,
+GROUPS17437B/0b110d4946d3dcd5400f20913a23885d65a21443195c18f81c6d96a477733e0e
+and EXPECTATIONS. Two fixed tiny Root entries import by exact path under
+Python-I-B and print actual full return values. Returned objects do not have
+a passed field; uncaught helper failures stay nonzero. group-run must be
+absent before/after; no caller-filled expected result or new runner.
+
+Root qualification26232B/
+0d55888a88427cbd4ff0fa422262f39167592230c033a91f65754aa69e13abc5
+admits only the original two focused calls after this checkpoint, original
+G/S10s/512MiB/grace3/no-native/1MiB. Stop at first failure. No calls yet.
+No active-output edit, actor admission, final Grok submission or lifecycle
+settlement; eventual final bytes/pins/modes must be joined separately.
+
+## Fresh Mu19 view recommended without changing native Engine contract
+
+Root fully reads6080B Astra source decision/
+430246d461663951b7b59e12815a68005affa00236ee731533c86f1dec3c8133,
+verifies45stable full SHA+C8 opened pins/closed outputs and personally
+checks the finite counts/byte derivation. Root adoption26605B/
+6f872b327497297b51ef20d8a1ead3c922cbca31017e8740f2121145aa152c80
+joins the later MuC actual6PASS separately from its source-only qualification.
+
+Keep MuD Engine19roles/twoSQL unchanged. Conditional on qualifying repaired
+B3 source and independently checking ONE DEDICATED NEW Mu21 fixture, derive
+a fixed Root-only19-role private view. Do not share B4's quest fixture or
+reuse consumed attempt9. Copy18 retained bodies exactly with fresh C8;
+restore the old1318B/621fcbf6fc2d0b9ddbb4b9507f344e704b806ddc95917fa631d321bec5942f89
+inter template and replace exactly five DB-password tokens with that NEW
+fixture's64hex DB credential. Expected1538B and exact inverse. Deleting web
+lines from the new inter is not this derivation. Active19roles=12immutable+
+7generated,9archives,12runtime tokens/21nonruntime replacements; all web-only
+roles/metadata removed, historical provenance separate and endpoints still
+UNBOUND. Old19 generator inherits newly identified close/rollback/metadata
+gaps and must not be reused unchanged. No second generator family required.
+
+This is a finite source/data plan; no projector source, generation or actor
+is qualified/admitted. Actual binding still needs selected MuC/MuD source,
+fresh19 data, Engine/G/S/Node/CfT/Remote/libraries,105body data stage, sealed
+viewer/client/worker, fresh HEAD/lease/original world/four protected ports,
+all cleanup/postchecks and one scoped Mu scene. Current zero-water source
+finding does not waive fresh scene verification or unexpected-path failure.
+G390/4GiB/grace3/twoPGIDs, driver385/Engine300+60/UI240+Node243/parent60
+remain fixed. No login/travel/save/Chinese-UI/fullgame credit from this leaf.

@@ -1048,3 +1048,30 @@ Full259record/3page fleet11 verifies4active/249released/6retained/0reclaimable,
 B3fix/B4/MuD/F839 all live; nine historical flags still nextAction:none,
 with existing user-retained ownership preserved. No unowned settled worker.
 Full Modern/Renewal scope and4/14 parent count remain unchanged.
+
+## Grok provider errors observed local verification continues
+
+Fresh bounded exact-terminal reads of all four actual live Grok workers
+show Server error500 with automatic retries. This is local observed provider
+failure, not proof of a provider-wide outage, exhausted quota, process exit
+or settlement. Root4965B observation/
+db6a944392b5556ffe548b952f4e6e10a1fda1c12907a692f4146946ebbb78fc
+retains all four exact receipts/clipping limits. Root enqueues scope-
+preservation messages0e1d14463376/82416e464c4e/b7e6a3f4dfa2/6a42534779bc;
+enqueue is not adoption. No additional Grok launches or duplicate editors
+while the service is failing. Existing live sessions retry; none are stopped,
+released or replaced on an absence/error inference. No goal change is needed.
+
+After three empty waits Root enumerates all259records/3pages: fleet12
+4active/249released/6retained/0reclaimable,10978B/
+67734e1fa840c1bd3ad47a0bae9cf514f874983f204b5ce66dfd31b22673c78d.
+All four active projections remain live/nextAction:none. Six historical
+missing-status retained records have none; three historical failures are
+already resource-released/exited. Four real user-retained resources and
+two transferred/no-resource records stay intact. No unsupported cleanup.
+
+[MuD frozen source permits its two focused checks while provider retries](2026-10-24-T07-mu-data-stage.md#mud-frozen-source-qualified-two-focused-calls-admitted).
+Root qualifies immutable copies independently; no active worker output is
+edited and no final submission/settlement or actor is inferred.
+[Mu's next finite fixture/binding route is reviewed](2026-10-24-T07-mu-data-stage.md#fresh-mu19-view-recommended-without-changing-native-engine-contract).
+No generated data or native/map/game actor is admitted. Full goal unchanged.

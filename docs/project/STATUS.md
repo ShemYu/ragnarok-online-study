@@ -18,13 +18,20 @@ Current259record/3page fleet11:4active/249released/6retained/0reclaimable.
 Actual live Grok tasks are F839 exporter, MuD cleanup, B4 runtime materializer
 and B3 bounded server-fixture repair.
 MuC and B3 prior owners are released/archive captured before acknowledgment.
+[All four active Grok terminals currently show provider500 automatic retries](reviews/2026-10-24-functional-priority.md#grok-provider-errors-observed-local-verification-continues).
+No new Grok starts/duplicate editors; frozen local source verification continues.
+Liveness is not useful progress or settlement. Full fleet12 remains4/249/6.
 B3 four source defects/private modes remain HOLD; actual Grok finite repair
 is ready after2ad53c6. All82functional resource gaps remain open.
 
 [All six actual MuC focused calls pass complete Root223pin verification](reviews/2026-10-24-T07-mu-data-stage.md#actual-six-muc-focused-calls-pass-complete-root-audit).
 Three source fixes qualify; no fresh map actor/render result yet. MU1 exact105body private
 stage remains verified; retained water geometry0 requires no extra assets.
-Actual scene load/draw still waits for separately qualified MuD composition.
+[MuD frozen source qualifies for two focused calls](reviews/2026-10-24-T07-mu-data-stage.md#mud-frozen-source-qualified-two-focused-calls-admitted),
+not yet executed; final worker submission is still pending. Actual scene
+load/draw waits for fresh fixture/runtime/lease bindings.
+[Dedicated Mu19 data view preserves the native contract](reviews/2026-10-24-T07-mu-data-stage.md#fresh-mu19-view-recommended-without-changing-native-engine-contract);
+this is a reviewed plan, no generated data/actor.
 
 [B2U/B2D eight selected focused backend checks pass Root verification](reviews/2026-10-24-functional-priority.md#eight-backend-focused-checks-verified-fresh21-fixture-source-frozen);
 [one actual pending-producer poll also passes](reviews/2026-10-24-functional-priority.md#actual-pending-backend-control-passes-root-verification).
