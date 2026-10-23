@@ -139,9 +139,11 @@ success receipt after the authored close failure. Select Claude14/20 as the
 correction basis over Grok13/20. [The selected tool is corrected and source-qualified](reviews/2026-10-23-T10.008.md#selected-tool-corrected-and-source-qualified):
 raw symlink components are refused before parent traversal, zero writes fail,
 post-creation failures retain accurate reporting, and success needs no stdout.
-Seven focused controls bring the suite to28 tests; integrated execution is
-still unrun at this source checkpoint. Commit, then repeat the28 tests and
-the same common path/receipt controls before installation. [Bundled CLI help is unreliable; its one
+Seven focused controls bring the suite to28 tests. [Integrated fae85ea and the
+unchanged common controls now pass](reviews/2026-10-23-T10.008.md#integrated-source-checks-pass):
+28/28 tests, both path refusals, receipt-close refusal and35 full audit pins.
+Next verify supported installation/config/order and normal journal; no more
+unchanged source repeats. [Bundled CLI help is unreliable; its one
 unexpected unused volume is inspected, nonforce-removed and confirmed absent](reviews/2026-10-23-T10.007.md#bundled-cli-help-is-unreliable-unexpected-volume-cleaned-up).
 Original owners/five containers match. Use pinned primary Engine/client source
 and fixed read-only capability checks, with no more subcommand help probes.
