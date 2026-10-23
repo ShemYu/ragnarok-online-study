@@ -63,8 +63,9 @@ CURRENT (23 Oct):
   [V] Independent test source checked: 53 cases / 8 groups, still unrun.
       Both implementations receive the same Root checks after submission.
   [V] Shared test-runner source and two-assertion final deadline fix checked.
-      One execution-metadata Boolean corrected; same notice goes to both.
-      Full candidate review / exact bindings / equal actual tests are next.
+      One execution-metadata Boolean corrected; same Root policy for both.
+  [V] Claude full source and exact pure-run bindings checked; one call admitted.
+  [>] Run Claude once / audit results; test Grok with the same controls later.
       No game design or milestone change. No user action is needed.
 
 Earlier checkpoints (their next actions can be superseded):

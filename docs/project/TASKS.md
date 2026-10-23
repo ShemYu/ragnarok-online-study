@@ -55,6 +55,10 @@ exact three paths/commit/full bytes, clean worktree; Grok remains active.
 29pins/19caller groups/two exact deadline assertions/full inverses. Profile's
 expect_native Boolean explicitly corrected to false; equal notice and full
 candidate review/bindings/admission remain. Neither candidate has run or been selected.
+[Claude full source and exact pure bindings qualify; one call admitted](reviews/2026-10-23-T07.006.002.md#claude-source-and-exact-pure-bindings-qualify-and-one-call-is-admitted):
+18host/one Worker hunk, six+one header groups/full inverses; actual run/full
+Root audit next. Grok remains independent; same profile/controls/runner/caps
+before selection. No candidate execution, installed patch or content gate yet.
 
 Earlier T07.007.011.005 support gate: [corrected private extraction/full Root
 payload audit pass](reviews/2026-10-22-T07.007.011.005.md#corrected-private-extraction-and-complete-root-payload-audit-pass),

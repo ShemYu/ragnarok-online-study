@@ -56,8 +56,13 @@ Grok remains active. Neither candidate is executed or installed. Independent
 source review found one final-report deadline gap in the shared pure caller;
 [Root now qualifies its two-assertion correction and the shared runner](reviews/2026-10-23-T07.006.002.md#shared-pure-verifier-source-and-final-return-correction-qualify),
 29full pins/complete inverses. The profile expect_native metadata Boolean is
-explicitly corrected to false; equal provider notification, full candidate
-source review, exact bindings and separate admission precede actual runs.
+explicitly corrected to false. [Claude full source/exact bindings now qualify;
+one pure call is admitted](reviews/2026-10-23-T07.006.002.md#claude-source-and-exact-pure-bindings-qualify-and-one-call-is-admitted).
+18host/one Worker hunk, six+one header groups/full inverses; no execution yet.
+The same Root policy notice is retained for the pair and sent to live Grok;
+settled Claude's mailbox correctly refuses inactive. Run Claude once under
+this exact introducing HEAD, audit fully, and later execute Grok under the
+same unchanged common/profile/runner policy. No patch is installed or selected.
 
 ## Recent verification history
 
