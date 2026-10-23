@@ -157,7 +157,9 @@ CURRENT (23 Oct):
   [V] Root144-pin audit / 15test PIDs / 4groups / original worlds pass.
   [V] T10.005.005 freezes14equal inputs / six groups / readonly source plans.
   [V] Both real C/G plans dispatched from dd460a3; exact workers live.
-  [>] Collect/check/score both reports, then route the bounded correction.
+  [V] Claude report read/preserved/released; raw plan still needs correction.
+      Root/Astra confirm missing ACK/error order and Worker budget authority.
+  [>] Collect/check Grok; score both, then route the bounded correction.
       Admission consumed; failed namespace immutable; no retry admitted.
       No game patch is installed. Parent progress stays 4/14.
       No game design or milestone change. No user action is needed.

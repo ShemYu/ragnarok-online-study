@@ -95,7 +95,9 @@ are now consumed and immutable; the existing inputs/outputs are not fresh.
 [Both real workers are dispatched/live](reviews/2026-10-23-T10.005.005.md#actual-independent-plan-pair-dispatched)
 from dd460a3, using the same frozen14inputs/six groups and disjoint reports.
 Claude requested/effectiveOpus5.5high; Grok configured default/banner4.7high.
-No new implementation or live trial is admitted. [Root-5 actual trial/full144pin audit](reviews/2026-10-23-T10.005.md#actual-lua-startup-repair-loads-quest-data-but-optional404-lacks-terminal):
+[Claude report is preserved/released; Root timing review is complete](reviews/2026-10-23-T10.005.005.md#claude-report-preserved-and-root-timing-review-completed).
+Its raw drain/clock/shutdown plan needs correction; Grok remains live. No final
+comparison, implementation or live trial is admitted. [Root-5 actual trial/full144pin audit](reviews/2026-10-23-T10.005.md#actual-lua-startup-repair-loads-quest-data-but-optional404-lacks-terminal):
 Lua startup now succeeds; five genuine Wasm chains close, two native requests
 return, and a report observes5520own keys plus the Chinese21001 row. Full
 diagnostic staysFAILED: optional Worker404 has no terminal; allEnded blocks
