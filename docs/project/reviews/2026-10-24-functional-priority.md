@@ -360,3 +360,28 @@ defect, not a game cleanup failure. Independent source-only cause review is
 closing. D16 remains HOLD; no automatic new diagnostic repair generation.
 It is not an F1/B1 dependency by default. Backend/quest work continues; exact
 mu_fild01 normal-loader/material handoff is independently prepared.
+
+
+## Third qualified Grok task exact105body mu data stage
+
+[MU1 frozen handoff](2026-10-24-T07-mu-data-stage.md#root-qualification-and-frozen-handoff)
+creates actual candidate asset files in a new private SERVER_ROOT/data,
+independent of B1/F2. Root checks147pins/all105bodies/27149083B/unique paths/
+1285placement indexes. No new decoder/proxy/renderer or current-game install.
+The old Chapter1 ownership/AUTOEXTRACTtrue proxy is explicitly not admitted.
+Actual native serving/drawing and conditional water/effect closure stay open.
+After this checkpoint launch actualGrok; no game actor/parent credit.
+
+D16 independent cause review2872B confirms the Root-observed collision is
+preexisting: note603B/classify+invokeCleanup545B/group6whole1734B match donors.
+Its21fullpre/postpins close; PINS_ROOTSHA
+1f7ff43578e028b49aa748ba569880e100195b22778ca2cc4dd5929d601f6d8b.
+Cleanup structured fields and D14cleanup/final-dispose/DISPOSE vetoes survive.
+No F1/B1 dependency or player failure established; diagnostic stays parked.
+Earlier static review missed this collision; the actual failed call is retained.
+
+C7 finite independent review4366B/SHA
+8a7acb21162c1cda88c605156fe914c47ad27b7db4c3d29ac657cf605bd914ec
+finds no concrete new source blocker, checks both maps/22unchangedhelperhashes/
+37stableinputpins and prepares four unexecuted actual-group entry/recipe.
+Root qualification remains; no capture or F1/B1 prerequisite admitted.

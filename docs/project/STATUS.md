@@ -13,8 +13,8 @@ dictionary abort/load405/map-connection settlement stop later cases. Root's
 complete failure/preservation audit passes; no B200assignment/reconnection or
 parent-check credit. 4/14 is a check count, not measured full-content coverage.
 
-**Parallel work:** B1 genuine isolated backend is the remaining live Grok
-source worker. D15,D16,D14,F1,C7 are submitted and their workers released;
+**Parallel work:** B1 genuine isolated backend and F2 quest/logout are live
+Grok source workers. D15,D16,D14,F1,C7 are submitted and their workers released;
 Root verifies each before any user evaluation. F2 is now live in parallel,
 limited to two actual quest/logout defects under the shared B1 contract.
 Prior245row inventory is checked across three pages; after the F2 launch
@@ -34,8 +34,10 @@ byte-identical private copies after an ambiguous worker path/mode handoff.
 C7 source is submitted/pinned/released; no actual binary capture is admitted.
 No fresh game actor is admitted. Finish bounded scopes and prioritize real
 backend/gameplay/content work. All six C5 pure groups remain verified.
-B1 has its narrow UI backend-origin supplement; Root separately freezes the
-mu_fild01 client/resource binding. Provider comparison remains incomplete.
+B1 has its narrow UI backend-origin supplement. [MU1 exact105body data
+deployment](reviews/2026-10-24-T07-mu-data-stage.md#selected-target-and-acceptance)
+is frozen for a third independent Grok task after this checkpoint. Root has
+checked147sourcepins/all105bodies; no current game installation or draw claim. Provider comparison remains incomplete.
 
 The [full-spawn output-budget measurement passes](reviews/2026-10-24-T06-full-spawn-output-budget.md#actual-bounded-measurement-and-root-audit-pass):
 839sources/723206physical lines require172547908canonical JSONL bytes, below

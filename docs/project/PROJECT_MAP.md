@@ -38,7 +38,8 @@ Parallel:
   D16 host: pure call FAILED at cleanup event; HOLD
   D14 diagnostic UI: HOLD4defects; not an F1 dependency
   C7 caller: submitted/released; capture not admitted by default
-  mu_fild01 -> exact isolated resource binding -> real load/draw repair
+  MU1:105body candidate data stage frozen -> Root checks -> native load/draw
+       (conditional water/effect requests stay open)
   full839spawn -> budget PASS; wrapper/profile/oracle choices still open
 
 Six Grok workers ran at peak. B1 + F2 are now live.

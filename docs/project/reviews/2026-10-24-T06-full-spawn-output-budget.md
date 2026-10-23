@@ -82,3 +82,6 @@ See [the latest source checkpoint](2026-10-24-functional-priority.md#d15-eight-p
 
 
 See [live F2 and D16 failure](2026-10-24-functional-priority.md#f2-actual-grok-live-d16-pure-call-failed-and-preserved). B1/F2 are actual live sources; D16purefailure is preserved/HOLD. Full839wrapper stays unadmitted and does not displace gameplay/content work.
+
+
+[Third qualified Grok scope](2026-10-24-functional-priority.md#third-qualified-grok-task-exact105body-mu-data-stage): MU1 creates an exact105body private map-data stage; Root checks it before native integration. B1/F2 continue. D16diagnostic parked; C7finite source review prepared. No game actor/coverage credit.
