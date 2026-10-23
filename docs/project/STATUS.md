@@ -147,6 +147,10 @@ unchanged source repeats. [Bundled CLI help is unreliable; its one
 unexpected unused volume is inspected, nonforce-removed and confirmed absent](reviews/2026-10-23-T10.007.md#bundled-cli-help-is-unreliable-unexpected-volume-cleaned-up).
 Original owners/five containers match. Use pinned primary Engine/client source
 and fixed read-only capability checks, with no more subcommand help probes.
+[Primary Engine source qualification and explicit fixture policy pass](reviews/2026-10-23-T10.007.md#primary-engine-sources-qualified-concrete-fixture-policy-selected):
+46 full pins/23 tree joins/50 spans. Use a fresh bridge/no published ports
+(no firewall claim), fresh parser-only tmpfs SQL, exact image/full container IDs
+and copy/readback before start. Current image/entrypoint binding is next.
 No parser fixture or game/DB test has started. This successful
 fixed diagnostic uses reproduced private-loader routing:0→5520own keys, only
 16912/21001inspected, original lazyInit not executed; no ordinary session,
