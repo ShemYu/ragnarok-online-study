@@ -72,7 +72,9 @@ Full cleanup/original-state audit PASS; outer FD mismatch retained.
 HTTP import initialization reproduced; narrow preload source qualifies.
 Fresh normal8 executable copies + fixture5 data/normalization PASS.
 Runtime bridge data + execute checks PASS; changed-trial source qualifies.
-NOW: bind current HEAD/ports/lease -> one Stage1 trial -> Root audit.
+Trial8: client logs in; character/map identity observed; NPC identity fails.
+Cleanup + strict outer FD checks PASS. No quest behavior or screenshot PASS.
+NOW: independent NPC / missing loose-file pairs -> Root verification.
 Parallel C2 drafts both retained/released; comparison/tests next.
 Fleet: 216 released / 4 user-retained / 0 active or reclaimable.
 No player PASS; source-only image-capture correction remains independent.

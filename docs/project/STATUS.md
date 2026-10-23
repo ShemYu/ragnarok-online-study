@@ -7,15 +7,14 @@ Updated: 2026-10-24 JST. Coordinator: Codex. Active scope: **execute the documen
 Functionality remains first; **4/14 parent checks, about29%**. All82functional
 resource gaps remain open. No full-game scope change or new user decision.
 
-**Live next action:** [Corrected executable runtime data and eighth-trial source qualify](reviews/2026-10-23-T10.007.md#fresh-runtime-with-execute-checks-qualifies-eighth-changed-trial-source-and-c2-settlement).
-Root checks199runtime/172UI pins, all three executable permissions and complete
-224pin data audit. New final source uses the narrow HTTP preload, unchanged
-limits and strict FD veto. After this checkpoint bind current HEAD/lease/ports,
-require complete outer projection<=1024, then invoke one exact isolated Stage1
-call and personally audit cleanup/preservation/outcome. No player PASS yet.
-Grok C2 source is retained/released:216released/four retained/zero active or
-reclaimable. Root comparison/tests of both C2 cursors remain pending; no
-performance claim. Original game/settings/internet stay under prior ownership.
+**Live next action:** [Eighth trial reaches the map; full failure/cleanup audit passes](reviews/2026-10-23-T10.007.md#eighth-trial-reaches-map-fails-npc-identity-full-audit-passes-two-independent-pairs-frozen).
+RemoteClient/Chrome/Node start; exact A199 character/map/cell and three WS
+connections are observed. NPC identity fails before any behavioral case or
+screenshot. All16test births/two groups/four containers/network are gone;
+originals preserved. Outer FD/thread/HEAD/clean and846pins now pass. No player
+quest PASS; one-shot admission consumed. Next launch both independent N8NPC
+and R8loose-file pairs, review C2 cursors, personally verify all candidates.
+Limits and full-game goal unchanged; no action is needed from you.
 
 **Latest:** [All three isolated native parser cases now pass Root verification](reviews/2026-10-23-T10.007.md#actual-three-case-native-parser-trial-and-complete-root-audit-pass):
 134 requests/231 full pins, valid original guard/13.231s, real NPC and three
