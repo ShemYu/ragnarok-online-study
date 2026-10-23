@@ -17,7 +17,17 @@ test-process/group closure. T07.006.002 is self_verified for its source-tool
 scope. Both provider workers are released. All run admissions are
 consumed; no installed game patch or ordinary runtime/story acceptance.
 
-**Browser diagnostic — first live call failed before browser launch.**
+**Browser diagnostic — latest call reaches browser/controller, then fails.**
+[The fresh clock-fixed trial and complete failure audit](reviews/2026-10-23-T10.005.md#fresh-clock-fixed-trial-reaches-browser-and-controller-but-navigation-stalls)
+retain caller1/all three invalid guards,66.025s before publication. Actual CDP
+product matches Chrome/156.0.8078.47. Navigation never reaches the proxy GET
+handler; no viewer/Worker/quest data is served. The controller later aborts and
+the original guard terminates only its freshly matched registered browser.
+Root's128pin audit confirms all16retained test PIDs/groups absent, all three
+original owners/listeners intact,18effect leaves/seven parents unchanged and
+equal caller FD/thread boundaries. Audit passes; trial stays failed.
+
+**Previous clock failure:**
 [Complete failed-trial audit](reviews/2026-10-23-T10.005.md#first-live-quest-call-refuses-cross-process-clock-epochs-and-full-failure-audit-passes)
 checks70full pins, both exact actor inputs/invalid guards/complete retained
 streams, all18effect leaves/seven parents, all three original owner/listener
@@ -52,8 +62,9 @@ no repeated witness is needed. No full-actor game acceptance follows.
 [All17browser architecture checks and full Root audit pass](reviews/2026-10-22-T07.007.011.005.md#all17architecture-observations-and-complete-root-audit-pass).
 The failed publisher-assumption check remains preserved; Root's
 [explicit local official-download/integrity basis](reviews/2026-10-22-T07.007.011.005.md#explicit-cft-local-provenance-basis-revised)
-makes no certificate/notarization/build or OS-bypass claim. The expected CDP
-product is source-predicted and must match the actual endpoint strictly.
+makes no certificate/notarization/build or OS-bypass claim. The previously
+source-predicted CDP product matches the observed endpoint in the failed trial;
+that observation does not turn the overall failed guard into a pass.
 [The on-disk navigation table is exactly22B/empty](reviews/2026-10-23-T07.006.001.md#one-on-disk-table-read-and-complete-root-audit-pass);
 served winner, selected route and packet/runtime/story gates remain unknown.
 Original game/save/settings and internet connection stay preserved.
@@ -63,19 +74,19 @@ three exact patched donors, three bound actor sources and five served files,
 42full Root audit pins, complete clock/header inverses and only the new bootstrap
 attempt literal. No actor or game code runs in this source/data materialization.
 
-[Final parent/current-world binding now passes](reviews/2026-10-23-T10.005.md#fresh-parent-and-current-world-binding-qualify-one-live-clock-fixed-trial-admitted):
-Root actual binder0,82full pins,18effect leaves/seven parents, all three original
-owner/listener pairs and closed template/source joins. Parent has only its
-admission HEAD unresolved; generated clocks/endpoints stay null.
+[Final parent/current-world binding](reviews/2026-10-23-T10.005.md#fresh-parent-and-current-world-binding-qualify-one-live-clock-fixed-trial-admitted)
+passed before the single4988c8d call. Its admission and actual-root-2 namespace
+are now consumed and immutable; the existing inputs/outputs are not fresh.
 
-**Next:** this checkpoint admits one fresh root2 quest-loader diagnostic under
-the unchanged120s schedule. Apply the reviewed one-HEAD literal substitution,
-invoke that exact parent once, preserve its actual outcome and audit complete
-guards/streams/quest states/worlds/effects/process closure before any conclusion.
-No unchanged retry, original-world lifecycle authority or full-game acceptance.
+**Next:** isolate the pre-GET browser/navigation wait using bounded source and
+owned-process metadata evidence. Astra finds no evidence for a threading rewrite;
+keychain/OS-crypt interaction is only an unproved hypothesis, and no test-keychain
+flag is qualified. Do not change flags, limits, guard policy or retry unchanged.
+Any next discriminator needs a concrete reviewed scope and fresh admission.
 
-The navigation and clock source-test/witness/integrated namespaces and the first
-quest live namespace are consumed and immutable. No test browser has launched.
+The navigation and clock source-test/witness/integrated namespaces and both
+quest live namespaces are consumed and immutable. The test browser is absent
+after original-guard cleanup; natural browser retirement did not pass.
 No map/render/ordinary story/play/save gate closes. No goal change or user
 decision is needed.
 

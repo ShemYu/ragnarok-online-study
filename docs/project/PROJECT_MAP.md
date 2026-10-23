@@ -18,7 +18,7 @@ Map loading            [Chapter 1 test passes; fruit test is open]
 Fruit presentation     [OPEN: browser test failed before scene loading]
 Quest file inventory   [PASS: all 3 files checked]
 Server + file binding  [PASS: current owner and 21 file checks]
-Active quest records   [Clock fix verified; fresh game test still needed]
+Active quest records   [Clock fixed; test page stalls before GET handler]
 Existing text recovery [PASS: fixed 152-record tool integrated + checked]
 Missing story scripts  [OPEN: largest content risk]
 Full game test         [LATER: 82 functional resource gaps remain]
@@ -75,6 +75,10 @@ CURRENT (23 Oct):
       42 full audit pins / exact source inverses. No actor has run yet.
   [V] Final parent and current-game checks pass: 82 pins / all 3 owners.
       18 effects / 7 parents / fresh templates match. One game test admitted.
+  [!] Fresh test reaches browser + controller; first page stalls before GET.
+      Caller1 / no quest data / original guard retires its registered browser.
+  [V] Full failure audit: 128 pins / all 16 retained test PIDs gone.
+      Original 3 worlds / 18 effects / 7 parents unchanged. Trial stays failed.
   [V] On-disk navigation table read/audit pass: empty table, 22 bytes.
       Served table/browser winner and actual route still unknown.
   [V] Equal portal-routing implementation task frozen: 6 inputs / 8 groups.
@@ -97,7 +101,7 @@ CURRENT (23 Oct):
   [V] Unchanged Claude source integrated as 88577ae; three full blobs match.
   [V] Actual tracked-source verification/audit: 34 own + 53 common pass.
       Source-tool task self_verified; 28 pins / test cleanup checked.
-  [>] Run the new clock-fixed quest diagnostic once, then audit its result.
+  [>] Find the browser/navigation wait before any new diagnostic admission.
       No game patch is installed. Parent progress stays 4/14.
       No game design or milestone change. No user action is needed.
 
