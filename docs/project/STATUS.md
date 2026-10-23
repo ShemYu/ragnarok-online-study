@@ -147,10 +147,12 @@ three commands complete naturally in0.262086s; pressure1 is normal per the
 published Apple ABI, physical RAM64GiB and rounded swap use1180.56MiB.
 This snapshot does not guarantee4GiB headroom or admit a larger game allowance.
 Astra's separate
-failure-aware SQL collection direction is drafted but unqualified; it keeps all
-errors/trial failure. Supplemental review finds a cleanup-reserve deadline gap;
-Root corrects/qualifies it alongside the minimal ledger. Independent source
-locators prepare the next bounded provider tasks. No higher allowance or
+failure-aware SQL collection and minimal ledger now [qualify as source](reviews/2026-10-23-T10.007.md#failure-aware-evidence-and-minimal-request-ledger-source-qualify).
+Root corrects the per-read cleanup-reserve gap and explicitly records unrun
+comparisons; all errors/trial failure remain. JS syntax and focused finite
+controls are being prepared, with no actor/game admission. Independent source
+locators find genuine BGM/navigation donors and web-service route sources for
+the next bounded provider tasks. No higher allowance or
 unchanged retry is admitted.
 Physical footprint/headroom remain unknown. Independent
 full-spawn preparation is unadopted; main player repair first.
