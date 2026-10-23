@@ -133,8 +133,10 @@ guest-readable material before creation. The parser error veto is mandatory
 even if a malformed NPC appears registered. [Claude text tool is submitted,
 preserved and released; Root reproduces two path refusals that fail](reviews/2026-10-23-T10.008.md#claude-submitted-and-released-root-reproduces-a-refusal-defect).
 [Both text-tool submissions are now preserved and workers released](reviews/2026-10-23-T10.008.md#both-submissions-preserved-and-released);
-Root finishes both own-suite repeats/equal common controls and repairs the
-stronger source before installation. [Bundled CLI help is unreliable; its one
+[Both own-suite repeats and equal common controls are personally checked](reviews/2026-10-23-T10.008.md#both-actual-own-suites-and-stronger-common-controls-personally-repeated).
+Own suites pass; both fail raw-path symlink cases, while only Grok leaves a
+success receipt after the authored close failure. Select Claude14/20 as the
+correction basis over Grok13/20; fix/recheck before installation. [Bundled CLI help is unreliable; its one
 unexpected unused volume is inspected, nonforce-removed and confirmed absent](reviews/2026-10-23-T10.007.md#bundled-cli-help-is-unreliable-unexpected-volume-cleaned-up).
 Original owners/five containers match. Use pinned primary Engine/client source
 and fixed read-only capability checks, with no more subcommand help probes.
