@@ -48,6 +48,8 @@ Fifth test: same memory stop; dictionary status is ready despite cancellation.
 Root checked cleanup. No avatar, NPC or player case passes yet.
 Next: resolve request lifecycle + client resources; assess a bounded memory step.
 Parallel now: two Grok + two Claude source tasks; Root verifies before repair.
+Three proposals submitted/released; one Grok is finishing.
+Read-only host snapshot is source-qualified; game memory limit stays 3 GiB.
 Content-contract preparation is preserved; its oracle is still unqualified.
 
 No decision is needed from you now. The full-game goal is unchanged.

@@ -135,12 +135,15 @@ abort/release function; cancellation cause remains unresolved. Driver RSS is
 
 **Next:** diagnose the dictionary/request-lifecycle discrepancy and the
 independent client service/resource failures in parallel. [Two actual equal-input
-pairs are active](reviews/2026-10-23-T10.007.md#two-independent-client-repair-pairs-active):
-two Grok/two Claude, separate private proposals, same33-file frozen packet.
-Root separately prepares a source-supported host-pressure preflight. Qualify Astra's
-proposed read-only host-pressure preflight before deciding whether one4GiB
-experimental trial is justified. No OS probe, higher allowance or unchanged
-retry is admitted yet. Physical footprint/headroom remain unknown. Independent
+pairs were launched](reviews/2026-10-23-T10.007.md#two-independent-client-repair-pairs-active):
+both D proposals and SClaude are submitted/released; SGrok remains active.
+Root comparison/repair qualification remains pending. [Root qualifies a fixed
+read-only host preflight](reviews/2026-10-23-T10.007.md#fixed-read-only-host-preflight-source-qualified):
+three scalar/statistics commands only; no game call or larger allowance. Run it
+once and review evidence before any proposed4GiB experiment. Astra's separate
+failure-aware SQL collection direction is drafted but unqualified; it keeps all
+errors/trial failure. No higher allowance or unchanged retry is admitted.
+Physical footprint/headroom remain unknown. Independent
 full-spawn preparation is unadopted; main player repair first.
 A199 refusal, B200 cancel/grant/repeat and genuine relog remain unverified.
 Restart, inactive/later-ID guards, installed4848+3assembly/ordinary route and
