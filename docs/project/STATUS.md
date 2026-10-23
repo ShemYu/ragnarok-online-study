@@ -7,6 +7,18 @@ Updated: 2026-10-23 JST. Coordinator: Codex. Active scope: **execute the documen
 Functionality remains first; **4/14 parent checks, about29%**. All82functional
 resource gaps remain open. No full-game scope change or new user decision.
 
+**Latest:** [All three isolated native parser cases now pass Root verification](reviews/2026-10-23-T10.007.md#actual-three-case-native-parser-trial-and-complete-root-audit-pass):
+134 requests/231 full pins, valid original guard/13.231s, real NPC and three
+quest definitions load, both fault controls expose their causal errors,
+pre/post SQL character/quest counts remain0/0. All test resources are API-absent;
+original five containers/owners/mounts and saves/settings are preserved.
+The corrected text tool also passes28 tests plus common controls.
+
+**Next:** verify actual isolated player grant/cancel/resume/inactive/later-ID/
+two-character behavior and relog/restart persistence, then installed mod
+assembly/ordinary route and normal journal. No unchanged parser/source reruns.
+These runtime/player/UI gates still keep T10.007/T10.008 open.
+
 **Portal guidance:** [actual equal comparison selects Claude20/20 over
 Grok13/20](reviews/2026-10-23-T07.006.002.md#equal-corrected-results-fully-audited-and-claude-selected).
 Both raw failures and the shared observation-only fixture correction remain
@@ -102,7 +114,7 @@ full source/artifact pins and independently streams100source/protected pins
 (overlapping sets). All87focused/regression groups passed before this trial.
 The c03396d admission is consumed once; root6 is immutable, no retry admitted.
 
-**Next:** [T10.007 equal source brief/inputs are personally qualified and frozen](reviews/2026-10-23-T10.007.md#equal-source-task-prepared-and-personally-qualified);
+**Dependency history:** [T10.007 equal source brief/inputs are personally qualified and frozen](reviews/2026-10-23-T10.007.md#equal-source-task-prepared-and-personally-qualified);
 both actual Claude/Grok NPC implementations are submitted on separate branches
 from common ee23e4e; [submissions, preserved evidence and releases are checked](reviews/2026-10-23-T10.007.md#both-submissions-preserved-and-source-review-findings-confirmed).
 Root reads both complete candidates and confirms fixable source/handoff issues:
@@ -172,7 +184,8 @@ exit-state race and nine missing fixture city dependencies veto acceptance.
 [Bounded state settlement and real fixture map dependencies are corrected; one
 third trial is admitted](reviews/2026-10-23-T10.007.md#state-settlement-and-fixture-dependencies-corrected-third-trial-admitted).
 Bind clean HEAD/fresh current world/expiry and run root3 once; actual result
-still unrun, no unchanged retry/user decision.
+[That third trial and full Root audit now pass](reviews/2026-10-23-T10.007.md#actual-three-case-native-parser-trial-and-complete-root-audit-pass).
+Player-state/persistence and normal client binding are next; no unchanged rerun/user decision.
 No parser fixture or game/DB test has started. This successful
 fixed diagnostic uses reproduced private-loader routing:0→5520own keys, only
 16912/21001inspected, original lazyInit not executed; no ordinary session,
