@@ -155,7 +155,9 @@ eight fixed GETs/17 full pins, both exact images present,6088B startup script
 byte-equal to retained source, original owners/container mounts preserved.
 [Readiness sources and17 fixed files now qualify](reviews/2026-10-23-T10.007.md#parser-readiness-sources-and-fixed-material-qualified):
 43 Root pins/30 spans/two exec-source tree joins. Review the short caller,
-bind fresh ownership/HEAD/deadline and finite cleanup, then run the parser fixture.
+[The short caller/parent are personally reviewed and one fixed trial is admitted](reviews/2026-10-23-T10.007.md#one-fixed-disposable-parser-trial-admitted-after-source-review).
+Bind fresh ownership/HEAD/deadline, then execute the isolated three-case parser
+trial once. Its results and cleanup are still unrun at this admission checkpoint.
 No parser fixture or game/DB test has started. This successful
 fixed diagnostic uses reproduced private-loader routing:0→5520own keys, only
 16912/21001inspected, original lazyInit not executed; no ordinary session,
