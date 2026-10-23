@@ -48,7 +48,8 @@ Trial9 is finished/failed; later player cases were stopped.
 Full233-wire/preservation audit PASS; original world preserved.
 Trial remains failed. No percentage credit.
 D13/D14 use disjoint files and one frozen interface; no sibling reads.
-C5 six actual pure-control groups PASS; C6 caller source task prepared.
+C5 six actual pure-control groups PASS; C6 caller source worker active.
+Four actual Grok tasks now run: driver, host, UI and backend caller.
 No actual binary capture is admitted.
 Original saves/Chrome/profile/network stay untouched. Full goal unchanged.
 

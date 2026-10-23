@@ -18,7 +18,8 @@ No reward/relog case or parent-check credit.
 **Parallel work:** D12 driver, D13 host and D14 UI Grok repairs are active,
 with disjoint ownership and one frozen host/UI interface. All six actual C5
 pure-control groups now pass Root verification/full48pins. C6 minimal caller
-source task is frozen and may start after checkpoint, independent of D12/13/14.
+source worker is now live, independent of D12/13/14. Current fleet:4active,
+4user-retained,231released,0reclaimable.
 No binary capture or game actor is admitted.
 Four user-retained workers stay; no settled worker currently awaits cleanup.
 Provider comparison remains incomplete; effective model/cost unknown.
