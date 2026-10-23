@@ -19,7 +19,9 @@ Limits and full-game goal unchanged; no action is needed from you.
 R8Claude's four files pass Root data checks and its worker is released;
 N8Claude source is retained/released with a historical C8-record omission.
 Both Grok workers remain active. Root now runs four qualified C2
-own/reference pure diagnostics; no candidate selection or game replay yet.
+own/reference pure diagnostics: both own5 pass; reference9 pass plus one
+shared SQL-size fixture error. [Only corrected g01 is next](reviews/2026-10-23-T10.007.md#both-c2-own-suites-pass-reference-suites-find-a-shared-fixture-size-error);
+no candidate selection or game replay yet.
 
 **Latest:** [All three isolated native parser cases now pass Root verification](reviews/2026-10-23-T10.007.md#actual-three-case-native-parser-trial-and-complete-root-audit-pass):
 134 requests/231 full pins, valid original guard/13.231s, real NPC and three
