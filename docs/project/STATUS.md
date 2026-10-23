@@ -29,8 +29,10 @@ before their outputs, STATUS/GET or browser Popen. Node never starts. The
 The local system Python is3.9.6, whose macOS monotonic origins are process
 relative. [Astra identifies the narrow repair](reviews/2026-10-23-T10.005.md#first-live-quest-call-refuses-cross-process-clock-epochs-and-full-failure-audit-passes):
 one explicit common CLOCK_UPTIME_RAW domain for the three Python sources plus
-the existing transfer helper's clock keyword. Actual parent-child witnessing
-is still required; source advice alone is not a runtime fix.
+the existing transfer helper's clock keyword. [The actual two-exec witness and
+complete24pin Root audit now pass](reviews/2026-10-23-T10.005.001.md#actual-two-exec-clock-and-complete-root-audit-pass)
+on the qualified Claude helper: both startup/expired-transfer seams, five
+samples each, complete child streams and positive process/group closure.
 [T10.005.001](tasks/T10.005.001.md) freezes an equal independent Claude/Grok
 source comparison, six readonly inputs/five groups. [Both actual isolated
 workers run](reviews/2026-10-23-T10.005.001.md#actual-isolated-pair-dispatched)
@@ -41,7 +43,7 @@ equally before any run. [Claude now passes24own/27common checks and the complete
 25-pin Root audit](reviews/2026-10-23-T10.005.001.md#claude24authored-and27common-checks-plus-full-root-audit-pass).
 Its admission is consumed. Root's earlier authored-fixture concern is disproved
 and corrected; no candidate defect or edit. The corrected separate witness
-source qualifies, with actual clock proof still pending. Root verifies/selects before any fresh binding
+source and actual clock proof qualify. Root verifies/selects before any fresh binding
 or separate live admission. The existing observer implementation, five inert
 served files, actual response/effect data and previous source qualification
 remain preserved. No map/render/ordinary story/play/save gate closes.
@@ -57,14 +59,13 @@ Original game/save/settings and internet connection stay preserved.
 
 The navigation raw/corrected/integrated namespaces and the first quest live
 namespace are consumed and immutable. All previous source results retain their
-stated scopes. No test browser has launched; the clock-repair comparison and
-actual common-clock witness are the current next actions. No goal change or
+stated scopes. No test browser has launched; the remaining Grok comparison,
+selection/integration and fresh full-actor clock binding are next. No goal change or
 user decision is needed.
 
 Grok finishes independently; no result is shared with it. Its equal verification
-remains. [One bounded actual two-exec clock witness is now admitted](reviews/2026-10-23-T10.005.001.md#one-actual-two-exec-clock-witness-admitted)
-on the qualified Claude basis, with all game actors excluded. Actual result and
-full Root audit remain; no game retry follows.
+remains. Both Claude source-test and actual-clock admissions are consumed and
+fully audited. No game retry follows from these results.
 
 ## Recent verification history
 

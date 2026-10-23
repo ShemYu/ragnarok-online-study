@@ -18,7 +18,7 @@ Map loading            [Chapter 1 test passes; fruit test is open]
 Fruit presentation     [OPEN: browser test failed before scene loading]
 Quest file inventory   [PASS: all 3 files checked]
 Server + file binding  [PASS: current owner and 21 file checks]
-Active quest records   [First trial stopped on a clock issue; repair next]
+Active quest records   [Clock fix verified; fresh game test still needed]
 Existing text recovery [PASS: fixed 152-record tool integrated + checked]
 Missing story scripts  [OPEN: largest content risk]
 Full game test         [LATER: 82 functional resource gaps remain]
@@ -65,7 +65,9 @@ CURRENT (23 Oct):
       25 pins / caller0 / valid original guard; test driver group is gone.
   [>] Grok clock repair remains active on its independent branch.
       Same 9cebae1 BASE / 6 inputs / 5 groups; same corrected common checks.
-      Then actual common-clock witness and a fresh separately admitted test.
+  [V] Actual clock proof: two fresh processes, both startup/transfer seams pass.
+      Full Root audit passes: 24 pins / 5 samples each / all test PIDs gone.
+      Finish comparison/integration, then a fresh separately admitted game test.
   [V] On-disk navigation table read/audit pass: empty table, 22 bytes.
       Served table/browser winner and actual route still unknown.
   [V] Equal portal-routing implementation task frozen: 6 inputs / 8 groups.
