@@ -7,17 +7,16 @@ Updated: 2026-10-24 JST. Coordinator: Codex. Active scope: **execute the documen
 Functionality remains first; **4/14 parent checks, about29%**. All82functional
 resource gaps remain open. No full-game scope change or new user decision.
 
-**Live next action:** [C4 pair active; N9 source controls admitted](reviews/2026-10-23-T10.007.md#c4-pair-active-and-n9-finite-source-controls-admitted).
-Both C4 providers are active on equal GET-only binary source proposals.
-The earlier stopped-image attempt remains failed/consumed; no retry or
-image-volume normalization. No original mount shadows the proposed leaf.
-This source-only pair has no runtime admission. Root admits one bounded N9
-finite source-fixture check and reviews the caller-postcheck correction; D9Grok remains
-fresh/live on the dictionary component. Other settled workers are released.
-Normal9 exact64body copies pass as data; ports/paths remain stale/unbound.
-N8Grok metadata and R8Grok/S8Claude data selections keep their narrow limits.
-Trial8 reached the map but no NPC dialogue; dictionary abort remains open.
-No game/service PASS, new browser/game admission, cap or goal change.
+**Live next action:** [N9 actual shared controls pass; narrow Grok binding selected](reviews/2026-10-23-T10.007.md#actual-n9-shared-controls-pass-and-grok-narrow-binding-selected).
+Both providers pass36total source-fixture observations. Root selects Grok's
+smaller exact raw-name binding for source integration with N8Grok metadata.
+A fresh game trial must still confirm the NPC behavior; trial8 cause is unknown.
+[Both D9 submissions are retained and released; caller finite controls admitted](reviews/2026-10-23-T10.007.md#d9-source-pair-settled-and-caller-postcheck-controls-admitted).
+Root next runs the5inert caller failure-path controls. Independent D9 source
+audits and C4 Claude/Grok GET-only binary source proposals run in parallel.
+No new game/browser/Engine capture admission. Prior stopped-image refusal is
+consumed and preserved; all originals match. Normal9 data is exact/unbound.
+Dictionary abort, actual resource routes and NPC dialogue remain open.
 
 **Prior native parser checkpoint:** [All three isolated native parser cases now pass Root verification](reviews/2026-10-23-T10.007.md#actual-three-case-native-parser-trial-and-complete-root-audit-pass):
 134 requests/231 full pins, valid original guard/13.231s, real NPC and three
