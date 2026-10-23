@@ -171,8 +171,10 @@ qualifies; one pure control call is admitted](reviews/2026-10-23-T10.007.md#four
 [Actual seven-group/27variant policy checks pass](reviews/2026-10-23-T10.007.md#actual-four-gib-receipt-policy-controls-pass):
 natural exit0/full15audit-artifacts; no real parent/game call or larger game
 allowance yet. [New parent linkage and pressure composition source qualify](reviews/2026-10-23-T10.007.md#pressure-composition-source-qualifies-one-pure-call-admitted);
-one eight-group/27check pure call is next. Concrete runner/current-world/HEAD/
-lease joins and separate game admission remain. [Claude's inert image-capture
+[Actual eight-group/27check pure pressure controls pass; outer runner source
+qualifies](reviews/2026-10-23-T10.007.md#actual-pressure-fragments-pass-outer-runner-source-qualifies).
+One four-group/eight-case runner control is next; current-world/HEAD/lease
+joins and separate game admission remain. [Claude's inert image-capture
 proposal is retained/released](reviews/2026-10-23-T10.007.md#webcap-claude-proposal-retained-and-worker-released);
 Grok continues that independent hotkey task. No actual API/image/service action
 is permitted in those proposals.
