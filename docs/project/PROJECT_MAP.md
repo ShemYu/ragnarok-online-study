@@ -36,8 +36,8 @@ Current path:
                               |
                   +-----------+-----------+
                   |           |           |
-              D12 driver   D13 host    D14 UI
-               corrections corrections active
+              D15 driver   D16 host    D14 UI
+                 active      active      active
                   +-----------+-----------+
                               |
                  verified integration / fresh trial
@@ -51,7 +51,8 @@ D12/D13 source submissions reviewed; four blockers require corrections.
 D13 released; D12 terminal reused for narrow own-metadata cleanup.
 D13/D14 use disjoint files and one frozen interface; no sibling reads.
 C5 six actual pure-control groups PASS; C6 caller source worker active.
-Four Grok dispatches live: D14 UI, C6 caller, F1 game test, D12 cleanup.
+Five Grok tasks live: D15 driver, D16 host, D14 UI, F1 game test, D12 cleanup.
+C6 source submitted; Astra review active; terminal reused by D15.
 F1 requires genuine logout; existing client faults remain failed.
 Full-spawn budget PASS:839sources,723206lines,172547908virtual bytes.
 No large JSONL written; full wrapper/profile/oracle remain open.

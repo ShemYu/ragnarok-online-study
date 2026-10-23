@@ -15,20 +15,18 @@ all18test PIDs/two groups gone, four test containers/network absent, new SQL
 volume retained, original five containers/owners/backings/listeners preserved.
 No B200quest-assignment/reconnection case or parent-check credit.
 
-**Parallel work:** Three Grok tasks continue: D14 UI, F1 genuine-logout/functional-evidence
-source, and narrow D12
-own-metadata cleanup. D12/D13 submissions are preserved and source-only accepted;
-Root confirms two driver/control and two host blockers after independent review.
-Neither source is qualified or executed. D15/D16 correction packets are frozen; dispatch is next.
-D13 worker is released. Earlier fleet observation:4active,5retained records,232released;
-four retained workers are user-owned, one old D12 record transferred its resource
-to the active cleanup dispatch. It is not a fifth retained worker to close.
-C6 source submission is preserved; independent Astra review is active. Its
-proven terminal will immediately take D15; independent D16 starts separately.
-All six actual C5 pure-control groups pass Root verification/full48pins.
-No binary capture or fresh game actor is admitted. F1 retains all existing
-client faults as failures and requires positive logout/connection settlement.
-Provider comparison remains incomplete; effective model/cost unknown.
+**Parallel work:** Five Grok dispatches are live: D15 driver correction,
+D16 host correction, D14 UI, F1 genuine-logout/functional-evidence source,
+and narrow D12 own-metadata cleanup. D12/D13 submissions are preserved;
+Root confirms four source/control blockers, no compilation/runtime qualification.
+C6 source submission is pinned and under independent Astra review. Its proven
+terminal is immediately reused by D15; D13 is released. Fleet observation:
+5active/6retained records/232released/0reclaimable. Retained records represent
+four user-owned resources plus two transferred old dispatches; no extra worker
+is left waiting for cleanup. All six actual C5 pure-control groups pass Root
+verification/full48pins. No binary capture or fresh game actor is admitted.
+F1 keeps existing client faults failed and requires positive logout/connection
+settlement. Provider comparison is incomplete; effective model/cost unknown.
 
 The [full-spawn output-budget measurement passes](reviews/2026-10-24-T06-full-spawn-output-budget.md#actual-bounded-measurement-and-root-audit-pass):
 839sources/723206physical lines require172547908canonical JSONL bytes, below
