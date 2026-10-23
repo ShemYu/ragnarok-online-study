@@ -23,9 +23,13 @@ render gate and cannot prove gameplay/story works. No browser launched.
 51full pins/42literal slots/eight source spans; product remains source-predicted
 with strict actual mismatch refusal.
 [Fresh same-world preflight source qualifies; one read-only call is admitted](reviews/2026-10-23-T10.005.md#fresh-same-world-preflight-source-qualifies-and-one-read-only-call-is-admitted):
-14pins/seven metadata slots/full inverses, unchanged world/guard. Next run once
-under this exact introducing HEAD, audit complete outputs and checkpoint. No
-browser or reader lifecycle is admitted by that preflight.
+14pins/seven metadata slots/full inverses, unchanged world/guard.
+[Actual preflight and complete Root audit pass](reviews/2026-10-23-T10.005.md#fresh-same-world-preflight-and-complete-root-audit-pass):
+one caller0/valid original guard/4.951s, full typed outputs/all17pins/five archives/
+fresh owner/listeners and positive test-process closure. Next bind these private
+outputs, exact served/config/body/effect/actor inputs and protected original
+world checks, then separately admit one live quest-loader diagnostic. No
+browser has launched; no original state or internet setting changes.
 
 [One on-disk navigation TABLE read and complete Root audit pass](reviews/2026-10-23-T07.006.001.md#one-on-disk-table-read-and-complete-root-audit-pass):
 actor0/0.079s,18full pins/22bytes and stable brackets. Exact inert text declares

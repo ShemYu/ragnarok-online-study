@@ -25,6 +25,10 @@ a quest-loader diagnostic, with no map/render/content acceptance.
 [Fresh preflight qualifies; one read-only call is admitted](reviews/2026-10-23-T10.005.md#fresh-same-world-preflight-source-qualifies-and-one-read-only-call-is-admitted),
 14pins/seven metadata changes. Run once under introducing HEAD, then full Root
 audit; no browser launch/native lifecycle or content acceptance.
+[Actual fresh preflight/full Root audit pass](reviews/2026-10-23-T10.005.md#fresh-same-world-preflight-and-complete-root-audit-pass):
+caller0/4.951s/valid original guard, complete typed outputs/17pins/five archives/
+fresh owner and positive test-process closure. Exact remaining shared input
+bindings and separate live admission next; no browser/content acceptance.
 
 Earlier T07.007.011.005 support gate: [corrected private extraction/full Root
 payload audit pass](reviews/2026-10-22-T07.007.011.005.md#corrected-private-extraction-and-complete-root-payload-audit-pass),
