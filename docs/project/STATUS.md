@@ -38,21 +38,29 @@ All four plans are preserved/released. No raw restart recipe is admitted;
 the actual earning receipt is still a prerequisite. Fleet182released/four
 user-retained/zero reclaimable. These are plan comparisons, not runtime passes.
 
-**One player trial admitted:** [Composition/parent source and actual UI syntax
-checks pass](reviews/2026-10-23-T10.007.md#composed-player-driver-and-parent-qualified-one-first-player-trial-admitted):
-256full pins, fixed native/package/client closure, actual Node syntax exit0/
-valid original guard, fresh17-role materials and normal config. No server,
-browser session, NPC action or save result yet. Final input/head/lease binding
-must pass immediately before the single call.
+**First player trial fails before the browser:** [Root verifies the failure and
+recovers the isolated resources](reviews/2026-10-23-T10.007.md#first-real-player-attempt-fails-at-server-startup-owned-recovery-verified).
+The new database initializes and its offline fixture has two characters/no
+quests. Character-server configuration errors trigger the native error veto;
+no browser, NPC action or player save is tested. The one-shot admission is
+consumed. Root checks147Engine wires, including one incomplete timed-out wait,
+and475audit/artifact pins. All four test containers and their bridge are now
+API-absent; the owned database volume is retained. Original game owners,
+listeners, five containers and mounts match before/after. The trial stays failed.
 
-**Next:** bind the admitted input and execute the bounded real-player trial:
-A199 refusal, B200 cancel/dialogue grant/
-repeat with A untouched, then genuine relog. Restart, inactive/later-ID guards,
-installed4848+3assembly/ordinary route and normal Chinese journal stay explicit
-gates. The independent full-import/restart proposals above can inform their
-later implementation after the first real grant/relog. The trial keeps the
-owned SQL volume on success or failure; no unchanged retry is admitted.
-No unchanged parser/source reruns. T10.007/T10.008 remain open.
+**Parallel repair:** [Two actual Grok/Claude pairs investigate startup and
+cleanup](reviews/2026-10-23-T10.007.md#two-parallel-startup-repair-pairs-dispatched).
+Both Claude reports are preserved/released; both Grok reports remain pending
+at this checkpoint. Root confirms a stock-config omission exposes the clan
+table-name defaults and missing inter-server YAML setting. No schema migration
+or game-goal change is supported. The map SQL stall remains a separate unknown.
+
+**Next:** finish both equal repair comparisons, verify the smallest configuration
+and cleanup corrections, then checkpoint before admitting a changed isolated
+trial. A199 refusal, B200 cancel/dialogue grant/repeat and genuine relog remain
+unverified. Restart, inactive/later-ID guards, installed4848+3assembly/ordinary
+route and normal Chinese journal stay open. No unchanged trial, parser or
+source-test rerun. T10.007/T10.008 and all82functional gaps remain open.
 
 **Portal guidance:** [actual equal comparison selects Claude20/20 over
 Grok13/20](reviews/2026-10-23-T07.006.002.md#equal-corrected-results-fully-audited-and-claude-selected).

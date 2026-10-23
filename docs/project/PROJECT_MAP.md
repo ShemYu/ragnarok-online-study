@@ -20,12 +20,21 @@ Quest file inventory   [PASS: all 3 files checked]
 Server + file binding  [PASS: current owner and 21 file checks]
 Active quest records   [PASS: fixed loading/shutdown diagnostic; session open]
 Story entry research   [CHECKED: Claude basis; mechanics still incomplete]
-Story implementation   [NATIVE LOAD PASS; player/save checks are next]
+Story implementation   [PLAYER BLOCKED: isolated server configuration]
 Isolated server test   [PASS: 3 cases, SQL checks and cleanup verified]
 Chinese quest text     [SOURCE PASS: 28 tests + common checks; install is next]
 Existing text recovery [PASS: fixed 152-record tool integrated + checked]
 Missing story scripts  [OPEN: largest content risk]
 Full game test         [LATER: 82 functional resource gaps remain]
+
+Current path:
+  Native parser PASS -> isolated server startup FAIL -> parallel repair
+                                                       |
+                                                       v
+                                      real NPC grant -> relog -> restart
+
+Root checked the failed trial and recovered its test containers/bridge.
+Original game preserved. Test database retained. No player PASS yet.
 
 No decision is needed from you now. The full-game goal is unchanged.
 ```
