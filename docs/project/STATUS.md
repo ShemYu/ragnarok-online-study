@@ -187,8 +187,11 @@ Jlineage/KpreCDPcleanup/Pprecisepostcheck, same18-file packet, three Grok/
 three Claude plus the existing Grok webcap worker. All source-only; Root owns
 comparison/controls and any new game admission. [Claude's inert image-capture
 proposal is retained/released](reviews/2026-10-23-T10.007.md#webcap-claude-proposal-retained-and-worker-released);
-Grok continues that independent hotkey task. No actual API/image/service action
-is permitted in those proposals.
+[Grok C is also retained/released; both pure control sources qualify](reviews/2026-10-23-T10.007.md#webcap-pair-retained-pure-comparisons-qualified-three-calls-admitted).
+Root next runs two own-control wrappers and one common eight-case harness;
+no actual API/image/service action is admitted. [All three Claude startup
+drafts are retained/released](reviews/2026-10-23-T10.007.md#all-three-claude-startup-drafts-retained-and-released);
+their Grok counterparts continue, with Root source/controls verification next.
 That one-shot experiment is consumed; no automatic increase or unchanged
 retry is admitted.
 Physical footprint/headroom remain unknown. Independent
