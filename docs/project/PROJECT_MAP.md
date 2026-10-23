@@ -1056,3 +1056,7 @@ Next launch both providers independently of D9; no cause/repair/runtime PASS.
 Latest: four actual workers active (two Grok); two independent problems.
 Normal9 exact64body copies and compact capture caller source/syntax qualify.
 Configuration stale/unbound; current-world preflight preparation is next.
+
+
+Latest: existing world-check source/pins qualify; one read-only G55call admitted.
+Root binds fresh HEAD/lease/output before checking originals. No capture yet.
