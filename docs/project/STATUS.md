@@ -222,7 +222,9 @@ Claude passes all eight focused cases; Grok passes three. Root corrects its
 own result-order audit and rechecks retained outputs with zero reruns.
 Next: integrated J/K controls, complete closure and fresh changed-trial binding.
 [Integrated J/K control sources qualify; both HTTP-reader workers start](reviews/2026-10-23-T10.007.md#selected-j-k-integration-control-sources-qualify-parallel-reader-pair-started).
-Root admits only two pure integrated suites; next runtime remains unbound.
+[Both integrated suites now pass Root audit](reviews/2026-10-23-T10.007.md#integrated-selected-j-k-actual-controls-and-complete-root-audit-pass):
+J7own+4common and K7own+final-deadline. Next runtime remains unbound;
+Root is preparing its complete closure and fresh changed-trial binding.
 Fleet214released/four user-retained/two source Dispatches. No image capture
 or game admission yet.
 Source review finds cleanup-deadline/log-finalization gaps and a postcheck

@@ -64,9 +64,9 @@ Cleanup: all 7 groups + final deadline PASS after test-fixture correction.
 Combined selected source prepared, unbound; integrated control source qualifies.
 Grok own: K2 fixture failed; P2 seven groups PASS. Common source qualifies.
 Common cases checked: Claude8/8, Grok3/8; lane-specific bases selected.
-K2 Claude18/Grok12; P2 Claude20/Grok13. Source integration is next.
+K2 Claude18/Grok12; P2 Claude20/Grok13. Integrated J/K controls PASS.
 Parallel: Grok + Claude HTTP-reader source workers active; no game dependency.
-Next: integration checks -> fresh binding -> changed game trial.
+Next: complete runtime closure -> fresh binding -> changed game trial.
 No player PASS; source-only image-capture correction remains independent.
 Fresh test data + corrected hotkey capture source prepared independently.
 Root: test6 failed before UI: process-identity sample + early Chrome cleanup.
