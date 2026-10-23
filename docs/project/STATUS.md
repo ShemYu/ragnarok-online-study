@@ -105,8 +105,8 @@ workers released:192released/four user-retained/zero active or reclaimable.
 
 **Fresh preparation runs in parallel:** [Grok and Claude independently prepare
 new isolated fixture data](reviews/2026-10-23-T10.007.md#fresh-fixture-comparison-runs-alongside-diagnostic-correction)
-from the same26-file frozen packet at3d619fd. Both actual Orca Dispatches are
-active; no candidate is qualified yet. Root separately copies/checks51unchanged
+from the same26-file frozen packet at3d619fd. At launch both Dispatches were
+active; their completed comparison is below. Root separately copies/checks51unchanged
 normal-client files/72936301B into a fresh namespace, with a new Config copy and
 two empty private directories. No actor or existing save is touched.
 
@@ -117,12 +117,14 @@ returns only whitelisted state/code, with timestamps and no late writes. Both
 actual Node calls exit0 under valid original guards. These synthetic checks do
 not establish real CDP behavior or the dictionary failure cause. New runtime
 closure qualifies192files/165UI pins; G/parent/3GiB and all fault gates remain.
-Claude's new19-role fixture passes Root's69pin audit and is released; Grok is
-still active. No fixture is selected and no new game call is admitted yet.
+Claude's new19-role fixture passes Root's69pin audit; Grok also passes66pins.
+[Both fixtures qualify; Claude20/20 is selected over Grok19/20](reviews/2026-10-23-T10.007.md#both-fresh-fixtures-qualify-one-unchanged-limit-diagnostic-admitted).
+Both are released:194released/four retained/zero active or reclaimable. Root
+normalizes the chosen data; no game PASS follows from data qualification.
 
-**Next:** finish the equal fixture comparison, normalize the selected data and
-perform fresh HEAD/lease/current-world binding before one separately admitted
-changed diagnostic. Physical footprint, pressure/headroom and failure cause
+**Next:** bind the clean committed HEAD/lease and selected fresh material, then
+run the one admitted changed diagnostic with fresh original-world joins and a
+complete Root audit. Physical footprint, pressure/headroom and failure cause
 remain unknown. No OS probe or higher allowance is admitted. Independent
 full-spawn preparation is unadopted; main player repair first.
 A199 refusal, B200 cancel/grant/repeat and genuine relog remain unverified.

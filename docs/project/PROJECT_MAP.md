@@ -43,8 +43,8 @@ Fourth test reaches browser, then stops above the 3 GiB summed-RSS fence.
 No validated avatar/map/NPC or completed player case. Cleanup is verified.
 Both parallel pairs reviewed and released. Raw guard changes rejected.
 New diagnostics: source, syntax and nine finite checks PASS.
-Fresh test data: Claude checked/released; Grok is still working.
-Next: compare, bind fresh state, then one new diagnostic browser test.
+Fresh test data: both checked/released; Claude selected (20 vs 19).
+Next: bind fresh state, then one new diagnostic browser test.
 Content-contract preparation is preserved; its oracle is still unqualified.
 
 No decision is needed from you now. The full-game goal is unchanged.
