@@ -1,0 +1,95 @@
+{
+  "aggregate_retained_bytes": 12582912,
+  "benchmark_type": "independent_readonly_functional_contract_research",
+  "groups": [
+    {
+      "criterion": "Typed client IDs/record/navigation/reward absence and negative/boundary source limits",
+      "id": "E01"
+    },
+    {
+      "criterion": "Same-region observable entry interactions and state effects supported or explicitly unknown",
+      "id": "E02"
+    },
+    {
+      "criterion": "Primary-source quality, inspectable evidence and regional/version/conflict separation",
+      "id": "E03"
+    },
+    {
+      "criterion": "Behavior contract versus implementation choices; no demanded proprietary internal variable IDs",
+      "id": "E04"
+    },
+    {
+      "criterion": "Finite implementation gate/next observation and normal end-user entry/progression/reward/persistence checks",
+      "id": "E05"
+    },
+    {
+      "criterion": "Ownership/research/cost honesty/full goal and functionality-first scope preserved",
+      "id": "E06"
+    }
+  ],
+  "inputs": [
+    {
+      "bytes": 1101416,
+      "package_path": "quest-text-projection.json",
+      "sha256": "1d3cafacac5333d9bb5126b4e8ddcb426b63b4c71b0bd8c8ac35494941df1f09"
+    },
+    {
+      "bytes": 4918,
+      "package_path": "taiwan-later-panels-review.json",
+      "sha256": "f8b2918535eddebb1590f81e52847380238094612d8dcfc8abd73c874a9dd4a8"
+    },
+    {
+      "bytes": 17044,
+      "package_path": "source-scaffolding-audit.json",
+      "sha256": "f1a14d19ef6f8fc56ad62d47e013bd6f32c01e3dd23ab29fd381c6cab1554598"
+    },
+    {
+      "bytes": 8942,
+      "package_path": "taiwan-guide.html",
+      "sha256": "373c39b882b69e111db678bfae3612144b0ece37935108ac5f530b66756e725c"
+    },
+    {
+      "bytes": 183028,
+      "package_path": "japan-guide.html",
+      "sha256": "f290909a5bc84350a4a66d51f48a0caeb89809dbccd5c8a4c44d8eae55d32c1d"
+    },
+    {
+      "bytes": 71780,
+      "package_path": "korea-devnote.html",
+      "sha256": "ce8eaa682571e36ca71b7770d50b02795032d10d0ccde7c01d7888a35fedacf0"
+    },
+    {
+      "bytes": 272960,
+      "package_path": "taiwan-entry-A01.jpg",
+      "sha256": "7451b1a924c3032eb63bd5d0bccea5f1fc5e553150bba31279c71c78cbddaf81"
+    },
+    {
+      "bytes": 207050,
+      "package_path": "taiwan-next-A02.jpg",
+      "sha256": "d0bf5ec7e645d52e909582eae25278eaa689c700c9bd32f7dd7e1d4417245535"
+    },
+    {
+      "bytes": 5260,
+      "package_path": "official-guide-acquisition.json",
+      "sha256": "f781b6f2f9714aaa26303022dd03e6777b2fbbae5cbc692d8bda2440023f44e8"
+    },
+    {
+      "bytes": 4252,
+      "package_path": "root-entry-observations.json",
+      "sha256": "6b77af961e11c0cb19c6c50e431940b5bd31332423adb6da2bbd798c0a3b71a9"
+    }
+  ],
+  "manifest": {
+    "bytes": 1771,
+    "sha256": "ffef314e8e6065d1aa4ccb02ce646b5cc0e37b237322138fe669903c79795606"
+  },
+  "per_response_bytes": 4194304,
+  "primary_requests": 16,
+  "report_bytes": 12288,
+  "research_minutes": 20,
+  "root_scoring": "WORKFLOW.md five dimensions0-4; research only, not implementation/runtime acceptance",
+  "runtime_allowed": false,
+  "schema": "T10.006-entry-interaction-evidence-profile.v1",
+  "search_queries": 8,
+  "source_execution_allowed": false
+}
