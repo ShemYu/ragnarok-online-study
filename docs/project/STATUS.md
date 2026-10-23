@@ -11,8 +11,10 @@ positive tool/caller/group closure match; no verify/lipo/browser command ran.
 [Root explicitly revises this test artifact's local admission basis](reviews/2026-10-22-T07.007.011.005.md#explicit-cft-local-provenance-basis-revised):
 22pins/four primary resources, exact official object/generation/checksums and
 full payload integrity. No certificate/seal/notarization claim or OS bypass.
-Next qualify a new finite17architecture-only operation; do not replay failed51.
-Then finish exact launcher/controller bindings before any owned game trial.
+[Architecture-only source qualifies; one17-command operation is admitted](reviews/2026-10-22-T07.007.011.005.md#architecture-only-source-qualifies-and-one17-command-operation-is-admitted):
+Root26full pins/16literal changes/full inverse/four unchanged seams. Bind this
+HEAD/four headers, run once under180/150s and audit complete results. Then finish
+exact launcher/controller bindings before any owned game trial. Failed51 stays.
 
 [One on-disk navigation TABLE read and complete Root audit pass](reviews/2026-10-23-T07.006.001.md#one-on-disk-table-read-and-complete-root-audit-pass):
 actor0/0.079s,18full pins/22bytes and stable brackets. Exact inert text declares

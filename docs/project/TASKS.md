@@ -7,7 +7,9 @@ Task owner: coordinator unless dispatched. Updated: 2026-10-21. The user has aut
 Current support: [first publisher-gate refusal/full Root audit](reviews/2026-10-22-T07.007.011.005.md#first-signature-display-refuses-the-publisher-assumption-and-full-failure-audit-passes)
 and [explicit corrected local CfT basis](reviews/2026-10-22-T07.007.011.005.md#explicit-cft-local-provenance-basis-revised).
 372failure-audit pins/677nodes preserved,22research pins/four primary resources;
-next new17architecture source/admission, then exact owned game-trial bindings.
+[Architecture-only source/admission qualifies](reviews/2026-10-22-T07.007.011.005.md#architecture-only-source-qualifies-and-one17-command-operation-is-admitted),
+26pins/16literal changes/full inverse/four unchanged seams. Bind/run once/full
+audit next, then exact owned game-trial bindings. Failed51 remains unchanged.
 [One on-disk navigation read/full Root audit pass](reviews/2026-10-23-T07.006.001.md#one-on-disk-table-read-and-complete-root-audit-pass),
 18pins/22B/empty table, owner/served association unknown; independent pure fix
 brief next. Neither browser/game nor parent/content acceptance advances.
