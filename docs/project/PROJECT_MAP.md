@@ -79,8 +79,10 @@ CURRENT (23 Oct):
       Caller1 / no quest data / original guard retires its registered browser.
   [V] Full failure audit: 128 pins / all 16 retained test PIDs gone.
       Original 3 worlds / 18 effects / 7 parents unchanged. Trial stays failed.
-  [>] Claude/Grok diagnosis plans running on the same 12 saved inputs.
-      Requested Claude Opus5.5 high; Root verifies both before another test.
+  [V] Claude/Grok plan comparison complete: 12/20 and 13/20; neither probe fits.
+      Root 41-pin source/evidence audit passes; both workers released.
+  [V] Exact browser source has a test-keychain flag and provider consumer.
+      Previous cause stays unknown; no runtime fix or fresh run is claimed.
   [V] On-disk navigation table read/audit pass: empty table, 22 bytes.
       Served table/browser winner and actual route still unknown.
   [V] Equal portal-routing implementation task frozen: 6 inputs / 8 groups.
@@ -103,7 +105,8 @@ CURRENT (23 Oct):
   [V] Unchanged Claude source integrated as 88577ae; three full blobs match.
   [V] Actual tracked-source verification/audit: 34 own + 53 common pass.
       Source-tool task self_verified; 28 pins / test cleanup checked.
-  [>] Find the browser/navigation wait before any new diagnostic admission.
+  [>] Prepare one extra test-browser argument, then review fresh source/bindings.
+      A separate committed one-shot admission must precede any browser run.
       No game patch is installed. Parent progress stays 4/14.
       No game design or milestone change. No user action is needed.
 

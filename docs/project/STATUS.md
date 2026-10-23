@@ -78,15 +78,22 @@ attempt literal. No actor or game code runs in this source/data materialization.
 passed before the single4988c8d call. Its admission and actual-root-2 namespace
 are now consumed and immutable; the existing inputs/outputs are not fresh.
 
-**Next:** isolate the pre-GET browser/navigation wait using bounded source and
-owned-process metadata evidence. Astra finds no evidence for a threading rewrite;
-keychain/OS-crypt interaction is only an unproved hypothesis, and no test-keychain
-flag is qualified. Do not change flags, limits, guard policy or retry unchanged.
-Any next discriminator needs a concrete reviewed scope and fresh admission.
-[The independent twelve-input diagnosis pair is live](reviews/2026-10-23-T10.005.002.md#actual-independent-pair-dispatched):
-Claude requested/effective launch option Opus5.5high and default Grok, both
-observed working; this is plan-only. Root verifies both before any measurement
-or repair. No live game retry has started.
+**Next:** prepare one source-supported --use-mock-keychain argument for a fresh
+disposable test browser, preserving all other arguments/HOME/mute/settings,
+120s schedule, caps and original G. Review exact source inverses/current bindings
+and commit a separate one-shot admission before execution. This is an
+intervention against an unproved cause, not a confirmed runtime repair.
+[The completed independent diagnosis comparison](reviews/2026-10-23-T10.005.002.md#root-comparison-rejects-both-probes-and-qualifies-one-source-intervention)
+scores Claude12/20 and Grok13/20; neither proposed probe is admitted as written.
+Root's41pin audit checks both complete reports/frozen inputs and exact-revision
+primary sources. Claude's probe triggers too late and cannot isolate credentials;
+Grok's port/PID classifier lacks the needed socket/birth association. Both workers
+are preserved/released; four user-retained workers stay and none is reclaimable.
+Root independently locates the exact switch definition/provider consumer; this
+supersedes the earlier search limitation, not the unknown cause. The fake uses
+a fixed public test secret and is confined to a credential-free disposable
+profile. No browser run, global keychain change or original-game change occurs
+in this source-only review. No live game retry has started.
 
 The navigation and clock source-test/witness/integrated namespaces and both
 quest live namespaces are consumed and immutable. The test browser is absent
