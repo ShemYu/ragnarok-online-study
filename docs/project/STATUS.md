@@ -175,13 +175,18 @@ allowance yet. [New parent linkage and pressure composition source qualify](revi
 qualifies](reviews/2026-10-23-T10.007.md#actual-pressure-fragments-pass-outer-runner-source-qualifies).
 [Actual four-group/eight-case runner controls pass; one changed4GiB Stage1
 experiment is admitted](reviews/2026-10-23-T10.007.md#runner-controls-pass-one-changed-four-gib-player-experiment-admitted).
-Next bind fresh HEAD/lease/ports, require complete fresh before pressure1,
-run once, then independently audit raw results/cleanup/after pressure. [Claude's inert image-capture
+[Sixth actual attempt/full audit completes with failure before UI](reviews/2026-10-23-T10.007.md#sixth-player-attempt-fails-at-early-chrome-ownership-sampling-audit-completes):
+pressure1 before/after, peak~1.00GB below4GiB; sampled_child_join refuses, then
+early Chrome cleanup lacks CDP. G stops only owned Chrome after driver1.
+229complete wires/900audit-artifacts verify owned cleanup/original preservation;
+outer generic postcheck remains separately unqualified. No Node/UI/player
+case. Next qualified sampler/early-close repair and precise outer-postcheck
+diagnosis; no unchanged trial or further limit increase admitted. [Claude's inert image-capture
 proposal is retained/released](reviews/2026-10-23-T10.007.md#webcap-claude-proposal-retained-and-worker-released);
 Grok continues that independent hotkey task. No actual API/image/service action
 is permitted in those proposals.
-Only that one changed experiment is admitted; no automatic increase or
-unchanged retry is admitted.
+That one-shot experiment is consumed; no automatic increase or unchanged
+retry is admitted.
 Physical footprint/headroom remain unknown. Independent
 full-spawn preparation is unadopted; main player repair first.
 A199 refusal, B200 cancel/grant/repeat and genuine relog remain unverified.
