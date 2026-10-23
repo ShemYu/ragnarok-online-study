@@ -55,9 +55,10 @@ All four workers released. Seven direct asset copies + fresh fixture checked.
 Next: runtime binding and a separately justified changed quest test.
 Runtime files checked: 199 driver pins / 172 UI pins.
 Six own suites checked: Jboth/KGrok/PGrok pass; ClaudeK/P fail.
-Parallel: 2 Grok + 2 Claude correcting cleanup/postchecks.
+Parallel: 2 Grok + 1 Claude correcting cleanup/postchecks; ClaudeP2 saved/released.
 Root: fresh fixture4 + 59 client/resource/config copies PASS as data.
-Next: one 8-case lineage observation + correction comparisons.
+Lineage edge observations audited; corrected Claude basis selected (17 vs 15).
+Next: changed-source verification + cleanup/postcheck comparisons.
 No player PASS; source-only image-capture correction remains independent.
 Fresh test data + corrected hotkey capture source prepared independently.
 Root: test6 failed before UI: process-identity sample + early Chrome cleanup.
