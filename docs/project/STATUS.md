@@ -96,13 +96,20 @@ retained host births/two groups/four containers/network are gone, volume retaine
 originals/parent boundaries match. Trial stays failed. Earlier dictionary-request
 and console/resource faults also remain; more RAM alone cannot make it pass.
 
-**Next:** two actual independent equal Grok/Claude source-plan pairs run in
-parallel: Mbounded resource measurement, Uclient-fault observation/classification.
-Both use34frozen files/BASE8bd3124. No new live call or guard increase is admitted.
-Supplemental Astra/Root verify64GiB host capacity and summed-RSS semantics;
-physical footprint, pressure, headroom and the dictionary failure cause remain
-unknown. Preserve the original3GiB diagnostic fence until measurement qualifies.
-Independent full-spawn preparation remains unadopted; main player repair is first.
+**Parallel comparisons finished:** [Root reviews both pairs and rejects raw
+guard changes](reviews/2026-10-23-T10.007.md#both-browser-follow-up-pairs-reviewed-guard-preserved-metadata-draft-remains-unqualified).
+M14/20 each: useful diagnosis, both raw patches alter the fixed guard receipt
+and fail selection. UClaude16/Grok15: combine required-dictionary response data
+with synchronous metadata; no fault exemption. All four reports/pins preserved,
+workers released:192released/four user-retained/zero active or reclaimable.
+
+**Next:** correct and qualify the small observability draft before a separate
+changed diagnostic admission. Root's11pin provenance audit/15exact inverses and
+Python AST pass; JS syntax/behavior are unrun, console meaning was dropped and
+loader DOM code stays unknown. Resolve those limits, keep G/parent/3GiB and all
+fault gates unchanged. No new live call, OS probe or higher allowance is admitted.
+Physical footprint, pressure, headroom and dictionary failure cause remain
+unknown. Independent full-spawn preparation is unadopted; main player repair first.
 A199 refusal, B200 cancel/grant/repeat and genuine relog remain unverified.
 Restart, inactive/later-ID guards, installed4848+3assembly/ordinary route and
 normal Chinese journal stay open. No unchanged trial, syntax or parser rerun.

@@ -41,7 +41,8 @@ Third test: all three game servers ready; test client exits before browser.
 All four test containers/network removed; original game preserved.
 Fourth test reaches browser, then stops above the 3 GiB summed-RSS fence.
 No validated avatar/map/NPC or completed player case. Cleanup is verified.
-Now: two parallel Grok/Claude pairs, memory measurement and client faults.
+Both parallel pairs reviewed and released. Raw guard changes rejected.
+Now: qualify small, fail-closed memory/client metadata before a new test.
 Content-contract preparation is preserved; its oracle is still unqualified.
 
 No decision is needed from you now. The full-game goal is unchanged.
