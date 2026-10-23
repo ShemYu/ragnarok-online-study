@@ -76,7 +76,10 @@ Trial8: client logs in; character/map identity observed; NPC identity fails.
 Cleanup + strict outer FD checks PASS. No quest behavior or screenshot PASS.
 NOW: independent NPC / missing loose-file pairs -> Root verification.
 Parallel C2 drafts both retained/released; comparison/tests next.
-Fleet: 216 released / 4 user-retained / 0 active or reclaimable.
+Fleet: 218 released / 4 user-retained / 2 Grok active / 0 reclaimable.
+R8 Claude copies: Root data PASS; N8 Claude source retained, unqualified.
+Grok R8 and N8 remain active. Root tests earlier HTTP candidates.
+C2 own + 10-group reference sources checked; pure diagnostics next.
 No player PASS; source-only image-capture correction remains independent.
 Fresh test data + corrected hotkey capture source prepared independently.
 Root: test6 failed before UI: process-identity sample + early Chrome cleanup.

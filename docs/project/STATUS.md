@@ -15,6 +15,11 @@ originals preserved. Outer FD/thread/HEAD/clean and846pins now pass. No player
 quest PASS; one-shot admission consumed. Next launch both independent N8NPC
 and R8loose-file pairs, review C2 cursors, personally verify all candidates.
 Limits and full-game goal unchanged; no action is needed from you.
+[Both independent pairs are now dispatched](reviews/2026-10-23-T10.007.md#two-repair-pairs-started-first-loose-data-qualifies-c2-own-reference-sources-qualify).
+R8Claude's four files pass Root data checks and its worker is released;
+N8Claude source is retained/released with a historical C8-record omission.
+Both Grok workers remain active. Root now runs four qualified C2
+own/reference pure diagnostics; no candidate selection or game replay yet.
 
 **Latest:** [All three isolated native parser cases now pass Root verification](reviews/2026-10-23-T10.007.md#actual-three-case-native-parser-trial-and-complete-root-audit-pass):
 134 requests/231 full pins, valid original guard/13.231s, real NPC and three
