@@ -1081,3 +1081,9 @@ this diagnostic pass does not advance the 4/14 parent checkpoint count.
 Latest: N8 exact prefix wrapper source qualifies; one bounded pure call is next.
 Both optional host-status workers settled/released; source inference disagrees.
 No new browser/game/Engine admission. All82functional gaps remain open.
+
+
+Latest: all45NPC prefix observations PASS; Grok failure metadata selected20vs19.
+S8Claude source/data selected19vs16; actual serving remains unverified.
+Next independent D9 implementations; NPC name dataflow packet preparation.
+No new full-game/Engine/browser admission;4/14/about29% and all82gaps unchanged.
