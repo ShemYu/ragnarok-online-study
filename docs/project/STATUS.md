@@ -91,16 +91,18 @@ attempt literal. No actor or game code runs in this source/data materialization.
 passed before the single4988c8d call. Its admission and actual-root-2 namespace
 are now consumed and immutable; the existing inputs/outputs are not fresh.
 
-**Next:** qualify the controller's exact Worker-bootstrap network-event policy
-using the retained source/witness and exact-revision primary evidence. Define a
-closed correction or discriminator with independent Claude/Grok proposals and
-Root checks. [The twelve-input/six-group pair is now live](reviews/2026-10-23-T10.005.003.md#actual-independent-pair-dispatched),
-with four shared exact-revision sources: Claude Opus5.5high launch options and
-configured default Grok. [Claude is preserved/released and Root checks the
-response path](reviews/2026-10-23-T10.005.003.md#claude-submitted-and-root-response-path-evidence-checked);
-Grok is still working. Root's51pin source/evidence audit passes, but throttle/
-renderer-enable dependencies remain unresolved and no correction is selected.
-This remains plan-only.
+**Next:** implement and qualify the corrected controller policy, then prepare a
+fresh bounded trial. [The equal twelve-input/six-group plan comparison is
+self_verified](reviews/2026-10-23-T10.005.003.md#both-plans-preserved-and-corrected-claude-direction-selected):
+Claude17/20 versus Grok15/20; both reports preserved and workers released.
+Root selects Claude's scoped startup pause and genuine-response join direction,
+with explicit corrections to retained waiting evidence, request readiness around
+the resume ACK, and the late-event fence. Neither raw procedure executes unchanged.
+Root's74pin comparison audit and18independent primary responses support the
+normal page-renderer startup path conditionally; installed ACK/response delivery
+still needs controls and a real trial. Preserve the existing24controls and add
+focused startup/error/deadline/join cases. This completes plan comparison only;
+no controller implementation, runtime success or content closure is claimed.
 No general orphan/duplicate-event acceptance, timing/cap growth,
 guard change or unchanged retry. All actual-root-3 inputs/outputs/admission are
 consumed and immutable. The single test-keychain argument is relevant to this

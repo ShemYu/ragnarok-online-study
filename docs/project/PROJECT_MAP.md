@@ -115,9 +115,11 @@ CURRENT (23 Oct):
       Caller1 / no native asset request / no quest result. Trial stays failed.
   [V] Complete failure audit: 129 pins / 15 retained test PIDs + 4 groups gone.
       Original 3 worlds / 18 effects / 7 parents unchanged. Admission consumed.
-  [>] Verify exact Worker-bootstrap event rules before any new source correction.
-      Claude plan preserved/released; Grok still working on the same 12 inputs.
-      Root 51-pin source audit passes; startup-hold/enable order needs proof.
+  [V] Equal Worker-bootstrap plans checked: Claude17/20 vs Grok15/20.
+      Both preserved/released; Root74-pin audit and18primary responses checked.
+  [>] Implement corrected Claude startup pause and one genuine-response join.
+      Fix waiting evidence, resume/readiness race and late-event fence.
+      Existing24 controls + focused startup controls, then fresh actual trial.
       No game patch is installed. Parent progress stays 4/14.
       No game design or milestone change. No user action is needed.
 
