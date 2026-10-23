@@ -104,6 +104,9 @@ protocol or tail-only regression repeat is needed. No live trial is admitted.
 are now stored: controller63184B, Worker656492B and proxy46357B, with exact full
 inverses and matching predicted hashes. They support the old40rebind and later
 fresh namespace assembly; no actor/game code runs in this materialization.
+[Root now qualifies the fresh40-group binding and admits one pure run](reviews/2026-10-23-T10.005.md#legacy40-source-binding-qualifies-and-one-pure-run-is-admitted),
+preserving40names/38case bodies and all limits. One fragment line-number typo
+is corrected without changing its bytes. No browser/live trial is admitted.
 
 Earlier source repair history: [submitted source failed review](reviews/2026-10-23-T10.005.md#source-submission-retained-and-coordinator-repair-owns-next-action)
 under T10.005. Grok task_1349907b83b4/ctx_6ae8a3b701b9 settled with the unchanged
