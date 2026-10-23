@@ -58,12 +58,17 @@ product is source-predicted and must match the actual endpoint strictly.
 served winner, selected route and packet/runtime/story gates remain unknown.
 Original game/save/settings and internet connection stay preserved.
 
-**Next:** apply the selected patch to the three canonical unbound donors and
-prepare fresh actor/attempt bindings, source pins and same-world checks. Reuse
-the qualified controller/served-file algorithms and existing limits. Review
-those concrete bindings before a separate one-shot game-trial admission. The
-existing observer implementation and previous response/effect evidence remain
-preserved; old passed receipts do not establish current-world freshness.
+[Fresh clock-patched actor and served copies now qualify](reviews/2026-10-23-T10.005.md#fresh-clock-patched-actor-and-served-materialization-qualifies):
+three exact patched donors, three bound actor sources and five served files,
+42full Root audit pins, complete clock/header inverses and only the new bootstrap
+attempt literal. No actor or game code runs in this source/data materialization.
+
+**Next:** bind the final parent/templates to these fresh descriptors and perform
+the existing current-world owner/file/effect checks. The reviewed binder remains
+unbound until its exact source-proof/HEAD literals are supplied. Commit those
+concrete results and a separate one-shot game-trial admission before launching.
+Reuse the qualified algorithms and limits; old receipts alone do not establish
+current-world freshness. The previous observer/response/effect evidence stays.
 
 The navigation and clock source-test/witness/integrated namespaces and the first
 quest live namespace are consumed and immutable. No test browser has launched.
