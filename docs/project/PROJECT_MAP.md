@@ -52,6 +52,8 @@ CURRENT (23 Oct):
       Hidden guidance, ordinary portals and stale-work fences are in scope.
   [>] Actual Claude/Grok pair dispatched on separate branches from 44afe8e.
       Same task/profile/spec checked; both live. Root verifies submissions.
+  [V] Independent test source checked: 53 cases / 8 groups, still unrun.
+      Both implementations receive the same Root checks after submission.
 
 Earlier checkpoints (their next actions can be superseded):
   [V] Browser integration plan checked; strict ownership/clocks stay.

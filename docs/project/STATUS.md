@@ -43,6 +43,9 @@ deadline/removal ambiguities.
 from44afe8e: identical actual specs/BASE/task/profile, setup skipped, both live.
 Workers author tests; Root executes both and independent controls after
 submission. No patch is installed.
+[Independent common control source now qualifies](reviews/2026-10-23-T07.006.002.md#independent-common-control-source-qualifies):
+12pins/three actual source spans/53authored cases/eight groups. No candidate
+read or execution; both actual submissions and Root's equal execution remain.
 
 Functionality remains first; **4/14 parent checks, about29%**. All82functional
 resource gaps remain open. No full-game scope change or new user decision.
