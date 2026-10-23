@@ -7,7 +7,9 @@ Updated: 2026-10-23 JST. Coordinator: Codex. Active scope: **execute the documen
 [Corrected ZIP metadata inspection and Root audit pass](reviews/2026-10-22-T07.007.011.005.md#corrected-zip-metadata-inspection-and-complete-root-audit-pass):
 673entries,15small CRC-checked metadata bodies,23full pins and full archive hash
 match. [Extraction source/independent review qualify](reviews/2026-10-22-T07.007.011.005.md#bounded-payload-extraction-source-and-independent-review-qualify);
-next fixed caller review and one extraction admission. [Signature procedure and
+[Fixed caller review passes and one extraction is admitted](reviews/2026-10-22-T07.007.011.005.md#fixed-extraction-caller-qualifies-and-one-payload-extraction-is-admitted),
+22pins/four reused sections/11independent spans. Next bind committed HEAD, run
+once and personally audit all payload bytes. [Signature procedure and
 direct system tools qualify as preparation](reviews/2026-10-22-T07.007.011.005.md#signature-procedure-and-direct-system-tool-contract-qualify).
 Actual extraction, signature/architecture and browser trial remain unrun.
 [Historical navigation index audit also passes](reviews/2026-10-23-T07.006.001.md#historical-index-body-and-complete-root-data-review-qualify):

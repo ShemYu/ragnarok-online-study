@@ -12,9 +12,13 @@ body qualifies independently](reviews/2026-10-23-T07.006.001.md#historical-index
 eight pins/all7825LF; current selection stays unknown.
 
 Follow-up: [extractor source/independent review qualify](reviews/2026-10-22-T07.007.011.005.md#bounded-payload-extraction-source-and-independent-review-qualify),
-ten pins/ten spans, actual fixed caller/admission next. [Four-leaf generation
+ten pins/ten spans; its separate fixed-caller follow-up is below. [Four-leaf generation
 observation admitted](reviews/2026-10-23-T07.006.001.md#ordinary-generation-contract-qualifies-and-one-four-leaf-read-is-admitted)
 after21pins/28spans/21stat checks; no TABLE read or owner-liveness claim.
+
+[Extraction fixed caller now qualifies and one actual call is admitted](reviews/2026-10-22-T07.007.011.005.md#fixed-extraction-caller-qualifies-and-one-payload-extraction-is-admitted),
+22pins/four reused sections/11independent spans. Bind once/run once; full Root
+payload audit and signature/architecture checks remain before browser use.
 
 Functionality first: `T00 → T01 → T02 → T03 → T04 → T06 → T07 → T10`.
 

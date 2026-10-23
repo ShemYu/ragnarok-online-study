@@ -36,7 +36,8 @@ CURRENT (23 Oct):
   [V] Corrected ZIP metadata + full Root audit pass.
       All 673 entries, 15 small bodies and archive hash checked.
   [V] Extractor source and independent review pass.
-  [>] Next: fixed caller review, private extraction, signature checks.
+  [V] Fixed caller reviewed; one private extraction admitted.
+  [>] Next: extract once, audit all payload bytes, verify signatures.
       Test browser has not launched.
   [V] Full historical navigation index checked: no Yggdrasil portal rows.
   [>] Four small on-disk generation/choice reads admitted.
