@@ -62,7 +62,8 @@ Corrected lineage: all 7 own + 4 common cases PASS.
 Postcheck Claude: all 7 own groups PASS.
 Cleanup: all 7 groups + final deadline PASS after test-fixture correction.
 Provisional combined source prepared, unselected/unbound.
-Next: own/common Grok comparisons -> integration checks -> changed game trial.
+Grok own: K2 fixture failed; P2 seven groups PASS. Common source qualifies.
+Next: equal common cases -> integration checks -> changed game trial.
 No player PASS; source-only image-capture correction remains independent.
 Fresh test data + corrected hotkey capture source prepared independently.
 Root: test6 failed before UI: process-identity sample + early Chrome cleanup.

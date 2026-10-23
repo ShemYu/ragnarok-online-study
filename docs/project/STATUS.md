@@ -216,7 +216,10 @@ Both Grok corrections are now submitted, read, preserved and released:
 Cleanup lacks explicit controller exclusion and individual retained-read
 deadline checks; postchecks accept incomplete pin descriptors and can stop
 on an unprintable exception. These are source findings pending actual common
-controls. No paired K2/P2 selection or game admission.
+controls. [Actual own diagnostics are audited; equal common sources qualify](reviews/2026-10-23-T10.007.md#grok-own-diagnostics-audited-equal-k2-p2-common-source-qualifies):
+Grok K2 own fixture fails at a kernel-interface mismatch; P2 own7pass.
+Root will run the same four focused cases per provider/lane next.
+No paired K2/P2 selection or game admission.
 Source review finds cleanup-deadline/log-finalization gaps and a postcheck
 test-fixture defect. Fresh test data and corrected image-capture source are
 prepared independently; neither is admitted for runtime.
