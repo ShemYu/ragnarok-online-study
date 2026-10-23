@@ -91,8 +91,8 @@ attempt literal. No actor or game code runs in this source/data materialization.
 passed before the single4988c8d call. Its admission and actual-root-2 namespace
 are now consumed and immutable; the existing inputs/outputs are not fresh.
 
-**Next:** qualify focused controller controls, then prepare a fresh bounded
-trial. [The equal twelve-input/six-group plan comparison is
+**Next:** execute the single fresh admitted browser trial, then audit its actual
+outcome. [The equal twelve-input/six-group plan comparison is
 self_verified](reviews/2026-10-23-T10.005.003.md#both-plans-preserved-and-corrected-claude-direction-selected):
 Claude17/20 versus Grok15/20; both reports preserved and workers released.
 Root selects Claude's scoped startup pause and genuine-response join direction,
@@ -100,8 +100,8 @@ with explicit corrections to retained waiting evidence, request readiness around
 the resume ACK, and the late-event fence. Neither raw procedure executes unchanged.
 Root's74pin comparison audit and18independent primary responses support the
 normal page-renderer startup path conditionally; installed ACK/response delivery
-still needs controls and a real trial. Preserve the existing24controls and add
-focused startup/error/deadline/join cases. This completes plan comparison only;
+still needs a real trial. The focused controls now pass as recorded below.
+The comparison itself establishes plans only;
 no runtime success or content closure is claimed.
 [Root's pure source correction now materializes and passes its independent
 inverse/source audit](reviews/2026-10-23-T10.005.md#corrected-worker-bootstrap-source-materialization-qualifies).
@@ -120,10 +120,16 @@ audit](reviews/2026-10-23-T10.005.md#fresh-worker-corrected-actors-and-served-fi
 Three full actor sources and five served files occupy unused actual-root-4;
 no actor/game code, runtime inputs/outputs/profile/READY/grant or parent exists.
 The controller fully inverts its four bound fields and12policy edits; launcher/
-proxy differ from qualified root-3 only by fresh namespace fields. Next bind
-current original worlds/effects and the new13header parent, then commit a separate
-one-shot browser-trial admission. No browser trial is admitted by this source
-materialization.
+proxy differ from qualified root-3 only by fresh namespace fields.
+[Current-world/effect/parent binding and Root metadata audit now pass; this checkpoint
+admits one corrected quest trial](reviews/2026-10-23-T10.005.md#fresh-worker-corrected-parent-binding-and-one-shot-live-admission).
+The binder fully rehashes86entries; Root checks79unique current C8 descriptors,
+all13parent-header inverses, seven Node source joins, all three original owner/
+listener pairs and18effect leaves/seven parents. The source preview still has
+ADMISSION_HEAD=None. Run only the qualified one-header late binder with this
+introducing HEAD, then its exact final parent once in actual-root-4 under the
+unchanged schedule/guards/caps. Actual startup/quest outcome remains unverified;
+preserve and audit the complete real outcome before advancing.
 No general orphan/duplicate-event acceptance, timing/cap growth,
 guard change or unchanged retry. All actual-root-3 inputs/outputs/admission are
 consumed and immutable. The single test-keychain argument is relevant to this

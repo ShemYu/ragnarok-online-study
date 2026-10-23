@@ -126,7 +126,10 @@ CURRENT (23 Oct):
   [V] Fresh3 actor sources + 5 served files materialize; Root66-pin audit passes.
       Four Node fields + 12 policy edits invert; other actor behavior unchanged.
       No actor/game code has run; actual-root-4 contains source/data only.
-  [>] Current-world/effect and13-header parent binding, then browser admission.
+  [V] Current-world/effect and13-header parent binding pass.
+      Binder86 full-hash entries; Root79 unique C8 / exact13-header inverse.
+      Original3 owners/listeners and18effects/7parents unchanged.
+  [>] One corrected actual quest call admitted; late-bind this HEAD, run once.
       Installed startup/response and quest result are still unverified.
       No game patch is installed. Parent progress stays 4/14.
       No game design or milestone change. No user action is needed.
