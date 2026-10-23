@@ -136,14 +136,22 @@ abort/release function; cancellation cause remains unresolved. Driver RSS is
 **Next:** diagnose the dictionary/request-lifecycle discrepancy and the
 independent client service/resource failures in parallel. [Two actual equal-input
 pairs were launched](reviews/2026-10-23-T10.007.md#two-independent-client-repair-pairs-active):
-all four proposals are submitted/released; Root comparison/repair qualification
-remains pending. [The actual fixed read-only host preflight passes](reviews/2026-10-23-T10.007.md#actual-read-only-host-preflight-passes-without-a-game-allowance):
+all four proposals are [Root-reviewed and released](reviews/2026-10-23-T10.007.md#both-client-repair-pairs-reviewed-corrected-next-steps-selected).
+DClaude17/Grok16 and SClaude18/Grok17 are source-only comparisons. Select a
+minimal request-identity ledger for the next functional trial; no loader patch,
+fault exemption or extra instrumentation-only game replay. The hotkey route/
+service gap is real; BGM/navigation sources remain to locate. Host-app sign-in
+is optional account integration, not game-friend or party content.
+[The actual fixed read-only host preflight passes](reviews/2026-10-23-T10.007.md#actual-read-only-host-preflight-passes-without-a-game-allowance):
 three commands complete naturally in0.262086s; pressure1 is normal per the
 published Apple ABI, physical RAM64GiB and rounded swap use1180.56MiB.
 This snapshot does not guarantee4GiB headroom or admit a larger game allowance.
 Astra's separate
 failure-aware SQL collection direction is drafted but unqualified; it keeps all
-errors/trial failure. No higher allowance or unchanged retry is admitted.
+errors/trial failure. Supplemental review finds a cleanup-reserve deadline gap;
+Root corrects/qualifies it alongside the minimal ledger. Independent source
+locators prepare the next bounded provider tasks. No higher allowance or
+unchanged retry is admitted.
 Physical footprint/headroom remain unknown. Independent
 full-spawn preparation is unadopted; main player repair first.
 A199 refusal, B200 cancel/grant/repeat and genuine relog remain unverified.
