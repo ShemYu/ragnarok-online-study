@@ -20,7 +20,7 @@ Quest file inventory   [PASS: all 3 files checked]
 Server + file binding  [PASS: current owner and 21 file checks]
 Active quest records   [PASS: fixed loading/shutdown diagnostic; session open]
 Story entry research   [CHECKED: Claude basis; mechanics still incomplete]
-Story implementation   [PLAYER BLOCKED: isolated server configuration]
+Story implementation   [PLAYER BLOCKED: test client startup settings]
 Isolated server test   [PASS: 3 cases, SQL checks and cleanup verified]
 Chinese quest text     [SOURCE PASS: 28 tests + common checks; install is next]
 Existing text recovery [PASS: fixed 152-record tool integrated + checked]
@@ -28,16 +28,18 @@ Missing story scripts  [OPEN: largest content risk]
 Full game test         [LATER: 82 functional resource gaps remain]
 
 Current path:
-  Native parser PASS -> storage/clans PASS -> table default corrected
-                                                       |
-                                                       v
-                                      real NPC grant -> relog -> restart
+  Native parser PASS -> login/char/map ready -> test client fix
+                                                        |
+                                                        v
+                                       real NPC grant -> relog -> restart
 
 Root checked the failed trial and recovered its test containers/bridge.
 Original game preserved. Test database retained. No player PASS yet.
 Both Grok/Claude pairs finished. Root checked the proposed repairs.
-Second startup test cleaned up correctly. Map/player never started.
-Next: bind and run the admitted third changed isolated trial.
+Third test: all three game servers ready; test client exits before browser.
+All four test containers/network removed; original game preserved.
+Now: Grok/Claude client correction + independent content-contract preparation.
+Next: Root checks repairs, then one separately admitted changed player test.
 
 No decision is needed from you now. The full-game goal is unchanged.
 ```

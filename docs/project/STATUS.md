@@ -70,14 +70,23 @@ uninitialized default. Adding its stock setting closes the source table-name
 set against all58pinned SQL tables. Both earlier config proposals missed it;
 their current revised score is16/20 each. No schema migration is needed.
 
-**Next:** bind and execute the single admitted third changed fresh trial after
-the new fixture's49pin/source-artifact qualification. Engine/UI/runtime bodies
-stay unchanged; the credential-free template adds elemental_db once, with new
-credentials/account/characters/volume. Personally audit the complete outcome.
-A199 refusal, B200 cancel/dialogue grant/repeat and genuine relog remain
-unverified. Restart, inactive/later-ID guards, installed4848+3assembly/ordinary
-route and normal Chinese journal stay open. No unchanged trial, parser or
-source-test rerun. T10.007/T10.008 and all82functional gaps remain open.
+**Third actual trial clears server startup:** [Root verifies all three native
+readiness gates and the next client failure](reviews/2026-10-23-T10.007.md#third-player-attempt-clears-native-startup-remoteclient-validation-blocks-browser).
+The18.033413s call passes char DB integrity and login/char/map readiness. The
+separate RemoteClient then exits1 because CLIENT_PUBLIC_URL and its resources
+directory are missing. No browser or player case runs. Root checks232complete
+Engine wires/692audit-artifact pins. All four test containers/network are absent,
+volume retained, originals/parent boundaries match. The trial stays failed.
+
+**Next:** review the actual equal Grok/Claude normal-client correction pair,
+then qualify the smallest source/material correction before a separately
+admitted changed trial. Both receive25identical frozen files/BASE b86e714;
+their work is source-only. Independent full-spawn contract preparation also
+proceeds without game actions; its typed oracle still needs Root qualification.
+A199 refusal, B200 cancel/grant/repeat and genuine relog remain unverified.
+Restart, inactive/later-ID guards, installed4848+3assembly/ordinary route and
+normal Chinese journal stay open. No unchanged trial or parser rerun.
+T10.007/T10.008 and all82functional gaps remain open; no user decision.
 
 **Portal guidance:** [actual equal comparison selects Claude20/20 over
 Grok13/20](reviews/2026-10-23-T07.006.002.md#equal-corrected-results-fully-audited-and-claude-selected).
