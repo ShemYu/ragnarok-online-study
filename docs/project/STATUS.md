@@ -32,14 +32,19 @@ No new resource, player interaction or persistence PASS.
 87full pins, exact13-group UI derivation, three unused config keys removed.
 The first grant/relog check keeps the Chinese journal gate separate.
 
+**Future-gate pairs reviewed:** [Qselects Claude18/20 over Grok14/20;
+Ruses corrected Grok14/20 over Claude13/20 as its policy basis](reviews/2026-10-23-T10.007.md#both-future-gate-pairs-reviewed-useful-policies-selected-workers-released).
+All four plans are preserved/released. No raw restart recipe is admitted;
+the actual earning receipt is still a prerequisite. Fleet182released/four
+user-retained/zero reclaimable. These are plan comparisons, not runtime passes.
+
 **Next:** qualify the composed driver/parent, bind fresh endpoints and
 admit one bounded real-player trial: A199 refusal, B200 cancel/dialogue grant/
 repeat with A untouched, then genuine relog. Restart, inactive/later-ID guards,
 installed4848+3assembly/ordinary route and normal Chinese journal stay explicit
-gates. [Two actual future-gate plan pairs are dispatched](reviews/2026-10-23-T10.007.md#two-independent-future-gate-pairs-dispatched-with-qualified-common-inputs)
-for full quest imports and owned restart, following the user's request for
-more qualified Grok parallelism. Both Claude proposals are preserved/released;
-both Grok workers remain active. No proposal selection/runtime credit yet.
+gates. The independent full-import/restart proposals above can inform their
+later implementation after the first real grant/relog. Both main composition
+drafts are under Root review; no new server/browser/SQL operation yet.
 No unchanged parser/source reruns. T10.007/T10.008 remain open.
 
 **Portal guidance:** [actual equal comparison selects Claude20/20 over
