@@ -1,0 +1,117 @@
+{
+  "aggregate_retained_text_bytes": 16777216,
+  "benchmark_type": "independent_source_and_retained_evidence_plan_only",
+  "groups": [
+    {
+      "criterion": "Exact timeline and pre-GET boundary; no invented peer/byte attribution",
+      "id": "D01"
+    },
+    {
+      "criterion": "Clock fix, invalid guard and cleanup consequences remain separate",
+      "id": "D02"
+    },
+    {
+      "criterion": "Ranked hypotheses include contradicting evidence and honest uncertainty",
+      "id": "D03"
+    },
+    {
+      "criterion": "Exact-revision primary support and bounded honest research accounting",
+      "id": "D04"
+    },
+    {
+      "criterion": "One concrete owned metadata discriminator within unchanged bounds and privacy/state rules",
+      "id": "D05"
+    },
+    {
+      "criterion": "Minimal justified next action, source scope and truthful unrun handoff",
+      "id": "D06"
+    }
+  ],
+  "inputs": [
+    {
+      "bytes": 37119,
+      "package_path": "parent.source",
+      "sha256": "1d4684501ff890d69f4d2654258bcdc99d1266bbd4efb11042e9b0f46814615a",
+      "source_execution_allowed": false
+    },
+    {
+      "bytes": 46220,
+      "package_path": "proxy.source",
+      "sha256": "4aac9671ca8ff0d214a7b25fe9dcfbc7c1b18e2b45c75d3c8dee81549cb74028",
+      "source_execution_allowed": false
+    },
+    {
+      "bytes": 41161,
+      "package_path": "launcher.source",
+      "sha256": "d03b811318ce612d0dd356e0d06d2a04d73398e510f9e5042632903e5a0d2856",
+      "source_execution_allowed": false
+    },
+    {
+      "bytes": 44509,
+      "package_path": "controller.source",
+      "sha256": "a951b3a7956a0a402b1b616743eba369a87dc919b849e7f1acaeb6bb8a934a45",
+      "source_execution_allowed": false
+    },
+    {
+      "bytes": 31345,
+      "package_path": "caller.json",
+      "sha256": "b6cb8dfa770d087980f05bc4d62f193bc6b161392b73eacc3631984c012336cf",
+      "source_execution_allowed": false
+    },
+    {
+      "bytes": 16854,
+      "package_path": "proxy.json",
+      "sha256": "273d923d0b669528b1be45c3e300544ccea0a47d1a50dc84ab65e077c2fc47f6",
+      "source_execution_allowed": false
+    },
+    {
+      "bytes": 1469,
+      "package_path": "capture.json",
+      "sha256": "0b8a8f5932c7382486c52ffa3cf602c4efc3388f2a8ba50eacb5de19804b7e8a",
+      "source_execution_allowed": false
+    },
+    {
+      "bytes": 8530,
+      "package_path": "node.json",
+      "sha256": "9099844d41cff35a1128478bd34177eb93cdf1ace5f92e5c5c9334c7d3be087a",
+      "source_execution_allowed": false
+    },
+    {
+      "bytes": 4675,
+      "package_path": "chrome.json",
+      "sha256": "c75bda6784464c41b252763ec5447097fd7ba49a9aa4646f2725b972a677d529",
+      "source_execution_allowed": false
+    },
+    {
+      "bytes": 98,
+      "package_path": "chrome-stderr.txt",
+      "sha256": "aef93ef6970a236eb4bd2948396fdbb413d386a67966e57149f98db659315e8b",
+      "source_execution_allowed": false
+    },
+    {
+      "bytes": 4357,
+      "package_path": "astra-advice.md",
+      "sha256": "ed0592eb0d399ebd29ef85fe153f32337f6ebf356d4560c59ffe8c880743556c",
+      "source_execution_allowed": false
+    },
+    {
+      "bytes": 65908,
+      "package_path": "root-failure-audit.json",
+      "sha256": "c04ef710e37e396ca3128022c086023a49790cf14dd81810c9d0a7706e6bdd47",
+      "source_execution_allowed": false
+    }
+  ],
+  "manifest": {
+    "bytes": 2641,
+    "sha256": "a364f57c5a44d5cc508ec1f29e9d03560dad241d299ba84e8efd373381aefdb9"
+  },
+  "official_requests": 12,
+  "original_G_and_120s_schedule_unchanged": true,
+  "per_response_bytes": 4194304,
+  "report_bytes": 8192,
+  "research_minutes": 20,
+  "root_scoring": "WORKFLOW.md five dimensions0-4; plan-only result, no runtime acceptance",
+  "runtime_allowed": false,
+  "schema": "T10.005.002-diagnostic-plan-profile.v1",
+  "source_execution_allowed": false
+}
