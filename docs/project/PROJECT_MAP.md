@@ -33,17 +33,15 @@ next action and the exact limits of each result.
 CURRENT WORK: quest data, missing story and map-load checks
 
 CURRENT (23 Oct):
-  [V] Corrected ZIP metadata + full Root audit pass.
-      All 673 entries, 15 small bodies and archive hash checked.
-  [!] First extraction stops at four omitted parent directory entries.
-      No archive open or output. Full failure/closure audit passes.
-  [V] Exact four-parent correction reviewed; one fresh call admitted.
-  [>] Next: extraction-2 and full payload audit. Same byte/time limits.
+  [V] Test-browser ZIP and corrected extraction pass full Root audit.
+      All 677 nodes / 344 regular files / 5 links checked; tests gone.
+      First failed attempt stays preserved.
+  [>] Next: signature and architecture checks, then owned game trial.
       Test browser has not launched.
   [V] Full historical navigation index checked: no Yggdrasil portal rows.
-  [!] Four small reads finish; owner whitelist misses one field.
-      Failure preserved. Retained choice list disables navigation mod.
-  [>] Next: check that field from source; current generation stays open.
+  [V] Owner field checked in source; retained-data projection passes.
+      Original failure stays failed. No current read or process query.
+  [>] Next: current table/generation proof. Retained list disables mod.
       Historical absence does not prove current absence.
 
 Earlier checkpoints (their next actions can be superseded):

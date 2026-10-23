@@ -4,24 +4,20 @@ Updated: 2026-10-23 JST. Coordinator: Codex. Active scope: **execute the documen
 
 ## Current checkpoint
 
-[Corrected ZIP metadata inspection and Root audit pass](reviews/2026-10-22-T07.007.011.005.md#corrected-zip-metadata-inspection-and-complete-root-audit-pass):
-673entries,15small CRC-checked metadata bodies,23full pins and full archive hash
-match. [First extraction refuses a missing-parent assumption; full failure audit
-passes](reviews/2026-10-22-T07.007.011.005.md#first-extraction-refuses-implicit-parents-and-complete-failure-audit-passes),
-21pins/archive hash/positive test-process closure. No archive open or payload
-output. [Exact four-parent/caller correction qualifies and one fresh extraction
-is admitted](reviews/2026-10-22-T07.007.011.005.md#exact-four-parent-correction-qualifies-and-one-fresh-extraction-is-admitted),
-33pins/12spans/full inverses; next bind this HEAD and run once with unchanged
-byte/time limits, then full Root audit. [Signature procedure and
-direct system tools qualify as preparation](reviews/2026-10-22-T07.007.011.005.md#signature-procedure-and-direct-system-tool-contract-qualify).
-Actual extraction, signature/architecture and browser trial remain unrun.
-[Historical navigation index audit also passes](reviews/2026-10-23-T07.006.001.md#historical-index-body-and-complete-root-data-review-qualify):
-all7825lines/4498warps checked; no Yggdrasil portal rows in that historical copy.
-[Four-leaf observation preserves an owner-schema refusal](reviews/2026-10-23-T07.006.001.md#four-leaf-observation-refuses-an-incomplete-whitelist-and-root-audits-the-retained-data),
-Root9pins/four copies/1242bytes/five spans. Retained disabled list includes the
-navigation mod; existing generation inputs remain unknown. Next qualify the
-omitted executable field and project retained data only, without current rereads.
-Owner liveness/current served generation and actual TABLE remain unverified.
+[Corrected private browser extraction and complete Root audit pass](reviews/2026-10-22-T07.007.011.005.md#corrected-private-extraction-and-complete-root-payload-audit-pass):
+actual caller0/guardvalid,2.072s externally observed. All677nodes/328directories/
+344regular files/five links and367full pins qualify, including independent full
+CRC/SHA checks and archive preservation. Both test processes/group are gone.
+The first failure remains preserved. Next qualify/bind the finite signature/
+architecture command list and execute it before an isolated browser game trial.
+No signature command or browser launch has run.
+
+[Native owner schema and a retained-only projection qualify](reviews/2026-10-23-T07.006.001.md#native-owner-schema-and-a-separate-retained-only-projection-qualify),
+14pins/13source spans; executable is a declared string field. Original failed
+observation stays unchanged; no current reread/PID query. Retained choices disable
+the navigation mod, while existing generation inputs/TABLE/owner liveness and
+current serving remain unknown. Next a separately bounded same-generation
+table/owner observation contract; full navigation/runtime/content remain open.
 Functionality remains first;4/14parent checks, about29%.
 
 ## Recent verification history

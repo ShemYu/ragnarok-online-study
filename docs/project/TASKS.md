@@ -4,20 +4,16 @@ Task owner: coordinator unless dispatched. Updated: 2026-10-21. The user has aut
 
 ## Dependency map
 
-Current T07.007.011.005 support gate: ZIP metadata passes; [first extraction
-fails its parent assumption and complete failure audit passes](reviews/2026-10-22-T07.007.011.005.md#first-extraction-refuses-implicit-parents-and-complete-failure-audit-passes),
-21pins/whole archive preserved/owned tests gone/no payload output. Exact four
-implicit-directory source correction/review is next, same byte/time bounds.
+Current T07.007.011.005 support gate: [corrected private extraction/full Root
+payload audit pass](reviews/2026-10-22-T07.007.011.005.md#corrected-private-extraction-and-complete-root-payload-audit-pass),
+367full pins/all677nodes/344full regular CRC+SHA/5links/archive/positive closure.
+Next finite signature/architecture commands, then isolated browser trial. Original
+failed attempt remains preserved; no game gap or parent checkpoint closes.
 
-That follow-up now [qualifies with one fresh extraction admitted](reviews/2026-10-22-T07.007.011.005.md#exact-four-parent-correction-qualifies-and-one-fresh-extraction-is-admitted):
-33pins/12spans/exact5actor+7caller changes/inverses. Execute once in root-2;
-actual complete payload/signature/browser acceptance remains open.
-
-T07.006.001: historical index qualifies; [four-leaf observation preserves an
-owner-schema refusal and Root audits all retained data](reviews/2026-10-23-T07.006.001.md#four-leaf-observation-refuses-an-incomplete-whitelist-and-root-audits-the-retained-data),
-nine pins/1242bytes/five spans. Retained choices disable the navigation mod;
-current generation inputs/TABLE/liveness remain unknown. Source schema and
-retained projection follow-up only; no implicit current read retry or repair.
+T07.006.001: historical index/data qualify; [native owner schema and separate
+retained-only projection qualify](reviews/2026-10-23-T07.006.001.md#native-owner-schema-and-a-separate-retained-only-projection-qualify),
+14pins/13spans/source-compatible11fields. Original observation stays failed.
+Current table/generation/liveness proof remains open; no implicit current retry.
 
 Functionality first: `T00 → T01 → T02 → T03 → T04 → T06 → T07 → T10`.
 
