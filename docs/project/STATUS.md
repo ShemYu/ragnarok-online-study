@@ -134,7 +134,10 @@ abort/release function; cancellation cause remains unresolved. Driver RSS is
 41943040B in the last joined sample; the largest named renderer is929562624B.
 
 **Next:** diagnose the dictionary/request-lifecycle discrepancy and the
-independent client service/resource failures in parallel. Qualify Astra's
+independent client service/resource failures in parallel. [Two actual equal-input
+pairs are active](reviews/2026-10-23-T10.007.md#two-independent-client-repair-pairs-active):
+two Grok/two Claude, separate private proposals, same33-file frozen packet.
+Root separately prepares a source-supported host-pressure preflight. Qualify Astra's
 proposed read-only host-pressure preflight before deciding whether one4GiB
 experimental trial is justified. No OS probe, higher allowance or unchanged
 retry is admitted yet. Physical footprint/headroom remain unknown. Independent
