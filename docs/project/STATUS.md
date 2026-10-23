@@ -21,14 +21,15 @@ F2-C1 fixture correction matches Root's exact one-call byte prediction and
 is released. Root qualifies the corrected F2 stage/178pins; all eight focused calls now
 pass complete Root203pin verification under original G/S.
 No Engine/browser/game actor is admitted. Water-source review confirms retained zero water geometry for the exact
-current map/worker/GND join; no extra water deployment is justified. B2U UI and B2D native-driver/Engine source compositions are now live
-independent Grok tasks. MuC_UI and MuD_driver independent corrections are now
-actual ready Grok workers alongside B2U/B2D. F839 selected-spawn export
-source is also actual Grok ready:5active/243released/
-6retained/0reclaimable;
-fresh all-page inventory follows settlements. Four actual user-retained
-resources stay; two transferred records have none. Six Grok sources ran
-at peak. Effective model/cost and full provider comparison remain unknown.
+current map/worker/GND join; no extra water deployment is justified. B2U/B2D source candidates are submitted, fully pinned and released.
+[Root qualifies B2D bytes and admits seven focused calls](reviews/2026-10-24-functional-priority.md#backend-sources-settled-seven-driver-checks-admitted)
+after this checkpoint; B2U final producer review runs in parallel. UI binding
+and all native/backend/game verification remain open. Three actual Grok
+sources remain live: MuC UI, MuD driver and F839 exporter. Fresh254record/
+3page inventory:3active/245released/6retained/0reclaimable; all nine old
+attention flags have no lifecycle argv. Four actual user-retained resources
+stay; two transferred records have none. Six Grok sources ran at peak.
+Effective model/cost and full provider comparison remain unknown.
 
 D15 passes all eight pure groups and Root's complete183pin audit: unchanged
 G10s/512MiB/grace3, natural0/positiveguard/0.229156s/24068096B sampled peak,

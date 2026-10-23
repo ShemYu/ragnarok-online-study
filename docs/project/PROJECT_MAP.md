@@ -31,7 +31,7 @@ Current priority:
   F1 two defects -> F2 source + fixture checked -> eight pure groups PASS
                          -> one fresh fixed quest/logout sequence
                          ^
-  B1 backend HOLD -> B2U UI + B2D native driver in parallel
+  B1 backend HOLD -> B2U/B2D submitted + released -> Root checks
 
 Parallel:
   D15 driver: eight pure groups PASS; no game credit
@@ -43,8 +43,9 @@ Parallel:
        (retained water geometry0; current scene still verifies it)
   full839spawn -> budget PASS; profile/oracles frozen -> Grok source LIVE
 
-Five Grok sources live: B2U UI / B2D native / MuC UI / MuD driver / F839.
-Current5active/243released/6retained records; no settled owner awaits cleanup.
+B2D bytes qualified -> seven pure checks next; B2U final review in parallel.
+Three Grok sources live: MuC UI / MuD driver / F839.
+Current3active/245released/6retained records; no settled owner awaits cleanup.
 Four actual user-retained resources stay;2transferred records have none.
 Trial9 stays failed; known faults stay failed. No new actor admitted.
 4/14 is parent-check progress, not percentage of playable content.

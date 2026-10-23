@@ -681,3 +681,74 @@ backend/map corrections. Current active-scope inventory confirms5live/no
 nextAction,243released/6retained. F839investigating heartbeat is processed/ACKed.
 No new execution/actor/content credit. Root continues personal verification and
 releases accepted settled owners; full Renewal goal and check progress unchanged.
+
+
+## Backend sources settled seven driver checks admitted
+
+B2D task536ee930dd92/ctxf406f86504cd submits21 closed regular outputs.
+Root fully reads the4336B report, checks every output/full input SHA+C8,
+PRE/POST and detached checksum, then accepts the source submission. Root
+releases/archive-captures the worker before deliveryf381eac7000f ACK.
+Settlement:48740B/2fbbbb4708cc800f869c2a552559fed8c1a6e81acacc6671e07f5568170e88a7;
+lifecycle455B/6ad8b1db933d07d4366fca15e869680e7c510beac0366050ffb8e2117265301b.
+
+Root personally reconstructs six forward/inverse maps (Engine1, driver65,
+client2hunks in each direction),71 unchanged spans and seven whole-file
+copies. The Engine is B1 plus exactly434B of cleanup web-log veto; the
+19804B F2 helper block is byte-identical. Driver64048B/
+73a8457ac5583f8b8e594325fb062d1c95bd768ba67eb92894d8551815a11eb7;
+Engine41972B/3d2207f28a3a01032fa1ea6d72c9dabd5b7ab231952007471402fb56984d63ab.
+UI operation/size/SHA slots remainNone. Root must bind reviewed B2U and
+equate Engine ui_port/CORS origin to the actual RemoteClient UI port/origin
+as well as the three backend-origin consumers to Engine's web port.
+
+The sealed4650B Astra provisional report
+4bbc1e49ac70e1a7b6f4df939f50c96933b5d557df1b56fbe30073ca4a3805ed
+finds one concrete control defect: group7's negative source assertion matches
+its own string. Root routes that exact fix while the writer is active; final
+11474B group/66600add45a7565a81ec8e9d16c5b513d165fa19ad34d57e9a701b79efceafea
+removes it. Root verifies all61 reviewed input pins and final production
+bytes equal the frozen snapshot. A separate final-control source review is
+under way; helper/source-presence checks do not execute nested Engine
+lifecycle branches.
+
+Root stages three byte-identical private files and seven fixed single-group
+entries, compiles Python only, and freezes141 full pins. Qualification
+79366B/6e0073f8a9b1f56d19059814b892a4db729980d95029f9af3a5cb93bb42adee0
+admits only these seven calls after this Git checkpoint: unchanged original
+G10s/512MiB/grace3/no-native/1MiB and original S, full literal outputs and
+positive guard/retirement/source/context checks. No native actor or gameplay
+admission. No UI binding is needed to call these pure helpers.
+
+B2U task94df2f56a1ba/ctx492239515b2b submits13 closed outputs.
+Root fully reads its3014B report and checks closed outputs, full frozen
+inputs, PRE/POST/zero drift and detached checksum. Accepted source submission
+is released/archive-captured before deliveryab550a4cf1fc ACK.
+Settlement44807B/282de25de83ff14777e947758b43ac493ef86218cadd66f0bd62ff34b659d28c;
+lifecycle455B/5ebd060e62e4e192a5a8d02c6f0829b7772317b2c2e17d86d7cde89b0e0c9554.
+Final UI62401B/c96cd1bfc54b14819d5e80dac7002a71f3162a7e7c687aba4f58cb6efb687965;
+one group19245B/716835c8ed65330e6d311ab0aaf015580e451409fd5fdf4e625cca7368e8d2dd.
+This is submission acceptance, not correctness/native/save/game PASS.
+
+The5284B Astra provisional report
+9bebc17abcfc8281bc55a47884507c4eaa8c2a1165802e127bd597db322b7d04
+identifies empty-Location key presence and native-origin response ownership
+as two narrow corrections. Root sends both before settlement; the final
+report says both are adopted. Root final source review is now under way,
+including actual live dispatcher and pending-settle coverage. Guidance
+enqueue alone is not read/adoption proof. No observed malformed-response
+runtime occurrence is claimed. Root's first B2U bookkeeping directory is
+empty after a wrong donor-directory name; Root2 is authoritative. No worker
+change, execution or premature ACK resulted.
+
+Fresh Root fleet5 inventory checks all254 records across3pages:
+3active/245released/6retained/0reclaimable. Live Grok scopes are MuC_UI,
+MuD_driver and F839; B2U/B2D are released. Nine historical attention flags
+all have literal nextAction:none;6retained missing-status records preserve
+four user-owned resources and two transferred records with no terminal,
+and three old failures are already released/positively exited. No lifecycle
+argv or duplicate worker is inferred from absence.
+Inventory9744B/989798020ea27d4d90be2ec0f521825f008f37331c455a4f1dc9c50dcfd71fee.
+The preceding Root4 snapshot was5active/243released/6retained,254records;
+both inventories are checkpoints, not provider model/cost or gameplay proof.
+Full goal,4/14 parent-check progress and all82 functional gaps are unchanged.
