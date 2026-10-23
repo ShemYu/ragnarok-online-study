@@ -230,7 +230,14 @@ Fleet215released/four user-retained/one Grok source Dispatch remains.
 [Fresh runtime now passes its complete data audit; changed-trial source qualifies](reviews/2026-10-23-T10.007.md#fresh-runtime-complete-data-audit-passes-seventh-changed-trial-source-qualifies).
 199runtime/172UI pins and exact bound driver qualify. Root next binds current
 HEAD/four ports/lease and complete projected outer closure, then may invoke
-one changed4GiB/390s Stage1 trial. No image capture or player PASS yet.
+one changed4GiB/390s Stage1 trial.
+[The seventh trial fails before RemoteClient; full cleanup audit passes](reviews/2026-10-23-T10.007.md#seventh-actual-trial-permission-failure-and-full-cleanup-audited-import-fd-witness-qualifies).
+Root's fresh copy lost execute permission. No browser/player case runs.
+All232Engine wires/1085audit pins, original preservation and owned cleanup
+qualify. Precise postchecks verify775pins but expose outer FD4->5; a stdlib
+import witness supports preloading HTTP before the baseline. Source correction
+qualifies; full actual FD equality remains next. Fresh normal8 with executable
+checks and fixture5 preparation are next; no unchanged retry or player PASS.
 Source review finds cleanup-deadline/log-finalization gaps and a postcheck
 test-fixture defect. Fresh test data and corrected image-capture source are
 prepared independently; neither is admitted for runtime.

@@ -67,7 +67,10 @@ Common cases checked: Claude8/8, Grok3/8; lane-specific bases selected.
 K2 Claude18/Grok12; P2 Claude20/Grok13. Integrated J/K controls PASS.
 Parallel: Claude reader draft saved/released; Grok continues. No game dependency.
 Fresh runtime199/UI172 pins PASS. Changed-trial source qualifies.
-Next: current HEAD/ports/lease/closure binding -> one changed game trial.
+Test7 fails before browser: copied RemoteClient lacks execute permission.
+Full cleanup/original-state audit PASS; outer FD mismatch retained.
+HTTP import initialization reproduced; narrow preload source qualifies.
+Next: fresh executable copies + fixture5 -> changed trial/FD verification.
 No player PASS; source-only image-capture correction remains independent.
 Fresh test data + corrected hotkey capture source prepared independently.
 Root: test6 failed before UI: process-identity sample + early Chrome cleanup.
