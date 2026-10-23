@@ -18,7 +18,7 @@ Map loading            [Chapter 1 test passes; fruit test is open]
 Fruit presentation     [OPEN: browser test failed before scene loading]
 Quest file inventory   [PASS: all 3 files checked]
 Server + file binding  [PASS: current owner and 21 file checks]
-Active quest records   [Clock fixed; test page stalls before GET handler]
+Active quest records   [Page loads; Worker attaches; event check needs work]
 Existing text recovery [PASS: fixed 152-record tool integrated + checked]
 Missing story scripts  [OPEN: largest content risk]
 Full game test         [LATER: 82 functional resource gaps remain]
@@ -108,8 +108,14 @@ CURRENT (23 Oct):
   [V] One-argument candidate materialized: 58-pin audit / exact full inverses.
       Three fresh actor sources and five served files; no actor has run.
   [V] Fresh parent/current-world binding passes: 82 pins / 13 exact headers.
-      Original worlds/effects unchanged; one new trial admitted by this commit.
-  [>] Bind this admission HEAD once, run the new parent once, then audit.
+      Original worlds/effects unchanged; one trial admitted at db138b9.
+  [V] Actual one-argument test loads page/Online; Worker target attaches.
+      Chrome exits cleanly with valid original guard/no signal. Network ACK passes.
+  [!] Controller rejects Worker-session finish for page-seen bootstrap request.
+      Caller1 / no native asset request / no quest result. Trial stays failed.
+  [V] Complete failure audit: 129 pins / 15 retained test PIDs + 4 groups gone.
+      Original 3 worlds / 18 effects / 7 parents unchanged. Admission consumed.
+  [>] Verify exact Worker-bootstrap event rules before any new source correction.
       No game patch is installed. Parent progress stays 4/14.
       No game design or milestone change. No user action is needed.
 

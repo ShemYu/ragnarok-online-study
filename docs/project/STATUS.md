@@ -17,8 +17,21 @@ test-process/group closure. T07.006.002 is self_verified for its source-tool
 scope. Both provider workers are released. All run admissions are
 consumed; no installed game patch or ordinary runtime/story acceptance.
 
-**Browser diagnostic — latest call reaches browser/controller, then fails.**
-[The fresh clock-fixed trial and complete failure audit](reviews/2026-10-23-T10.005.md#fresh-clock-fixed-trial-reaches-browser-and-controller-but-navigation-stalls)
+**Browser diagnostic — latest call loads the page and Worker, then controller refuses.**
+[The one-argument trial and complete failure audit](reviews/2026-10-23-T10.005.md#one-argument-trial-loads-page-and-worker-but-controller-rejects-terminal-event)
+retain caller1 at12.504s before publication. Viewer/bootstrap/budget/Online
+return200; the Worker-script GET is served and its target attaches. Controller
+READY_WORKER records Network.enable ACK, not game-worker initialization. Chrome
+returns0 with a valid original guard, natural retirement, empty groups and no
+signal. Node rejects a Worker-session loadingFinished whose requestId was
+observed in the page session for the exact Worker bootstrap; proxy later aborts.
+No native asset request, quest publication or content acceptance occurs.
+Root's129pin audit confirms all15retained test PIDs/four registered groups absent,
+all three original owner/listener pairs intact,18effect leaves/seven parents
+unchanged and equal caller FD/thread boundaries. Audit passes; trial stays failed.
+
+**Previous pre-GET failure:**
+[The clock-fixed trial and complete failure audit](reviews/2026-10-23-T10.005.md#fresh-clock-fixed-trial-reaches-browser-and-controller-but-navigation-stalls)
 retain caller1/all three invalid guards,66.025s before publication. Actual CDP
 product matches Chrome/156.0.8078.47. Navigation never reaches the proxy GET
 handler; no viewer/Worker/quest data is served. The controller later aborts and
@@ -78,15 +91,13 @@ attempt literal. No actor or game code runs in this source/data materialization.
 passed before the single4988c8d call. Its admission and actual-root-2 namespace
 are now consumed and immutable; the existing inputs/outputs are not fresh.
 
-**Next:** bind this introducing admission HEAD once and execute the fresh
-actual-root-3 parent once, then personally audit the result and cleanup.
-[Final parent/current-world qualification and one-shot admission](reviews/2026-10-23-T10.005.md#one-argument-parent-current-world-binding-and-one-shot-admission)
-pass:82full binder pins, exact13parent headers/templates, original three-world
-identities/listeners and18effect leaves/seven parents unchanged. Source
-[materialization already passes58Root audit pins](reviews/2026-10-23-T10.005.md#one-argument-disposable-browser-candidate-materialized-and-audited).
-One --use-mock-keychain argument is the only behavioral change; HOME/mute/settings,
-120s schedule, caps and original G stay unchanged. This is an intervention
-against an unproved cause, not a confirmed runtime repair. No unchanged retry.
+**Next:** qualify the controller's exact Worker-bootstrap network-event policy
+using the retained source/witness and exact-revision primary evidence. Define a
+closed correction or discriminator with independent Claude/Grok proposals and
+Root checks. No general orphan/duplicate-event acceptance, timing/cap growth,
+guard change or unchanged retry. All actual-root-3 inputs/outputs/admission are
+consumed and immutable. The single test-keychain argument is relevant to this
+successful transport/retirement attempt, but the prior causal wait is unproved.
 [The completed independent diagnosis comparison](reviews/2026-10-23-T10.005.002.md#root-comparison-rejects-both-probes-and-qualifies-one-source-intervention)
 scores Claude12/20 and Grok13/20; neither proposed probe is admitted as written.
 Root's41pin audit checks both complete reports/frozen inputs and exact-revision
@@ -96,12 +107,13 @@ are preserved/released; four user-retained workers stay and none is reclaimable.
 Root independently locates the exact switch definition/provider consumer; this
 supersedes the earlier search limitation, not the unknown cause. The fake uses
 a fixed public test secret and is confined to a credential-free disposable
-profile. No browser run, global keychain change or original-game change occurs
-in this source-only review. No live game retry has started.
+profile. That review itself ran no browser. The separately admitted latest trial
+above preserves original games/settings and internet; it is not a quest pass.
 
-The navigation and clock source-test/witness/integrated namespaces and both
-quest live namespaces are consumed and immutable. The test browser is absent
-after original-guard cleanup; natural browser retirement did not pass.
+The navigation and clock source-test/witness/integrated namespaces and all three
+quest live namespaces are consumed and immutable. The latest test browser is
+absent after qualified natural retirement; the previous retirement failure stays
+preserved. There is no currently admitted retry.
 No map/render/ordinary story/play/save gate closes. No goal change or user
 decision is needed.
 
