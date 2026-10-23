@@ -169,7 +169,10 @@ checks; reconciliation is fully audited](reviews/2026-10-23-T10.007.md#second-at
 actual tmpfs/SQLzero/three definitions/NPC registration observed, but immediate
 exit-state race and nine missing fixture city dependencies veto acceptance.
 58+28 requests/165 pins; own resources API-absent, only originalfive remain.
-Next bounded state settlement and fixture map dependencies; no unchanged retry/user decision.
+[Bounded state settlement and real fixture map dependencies are corrected; one
+third trial is admitted](reviews/2026-10-23-T10.007.md#state-settlement-and-fixture-dependencies-corrected-third-trial-admitted).
+Bind clean HEAD/fresh current world/expiry and run root3 once; actual result
+still unrun, no unchanged retry/user decision.
 No parser fixture or game/DB test has started. This successful
 fixed diagnostic uses reproduced private-loader routing:0→5520own keys, only
 16912/21001inspected, original lazyInit not executed; no ordinary session,
