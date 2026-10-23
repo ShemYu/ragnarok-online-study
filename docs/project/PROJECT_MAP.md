@@ -146,7 +146,9 @@ CURRENT (23 Oct):
   [V] All40groups pass; Root22-pin audit / complete streams / cleanup pass.
   [V] Fresh parent binder draft qualifies: 12groups/14sites/full inverse.
       Six static leaves; parent body / nine protected / seven Node roles kept.
-  [>] Review inert source materializer, fresh binding, then one browser trial.
+  [V] Fresh3actors / 6static files qualify: 62full pins / exact inverses.
+      Root-5 source files only; no runtime inputs/profile/T0/admission.
+  [>] Bind current worlds and parent headers, then one browser trial.
       Source CSP conflicts with embedded Wasm fetch; actual cause not retained.
       Admission consumed; failed namespace immutable; no retry admitted.
       No game patch is installed. Parent progress stays 4/14.
