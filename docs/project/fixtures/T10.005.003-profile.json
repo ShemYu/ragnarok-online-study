@@ -1,0 +1,124 @@
+{
+  "aggregate_retained_text_bytes": 16777216,
+  "benchmark_type": "independent_source_and_retained_evidence_plan_only",
+  "groups": [
+    {
+      "criterion": "Exact cross-session bootstrap facts, missing response/value evidence and no invented causality",
+      "id": "B01"
+    },
+    {
+      "criterion": "Primary producer/response/enable/replay path with conditional source-to-binary boundary",
+      "id": "B02"
+    },
+    {
+      "criterion": "One minimum closed correction or finite discriminator with concrete next action",
+      "id": "B03"
+    },
+    {
+      "criterion": "Unchanged timing/caps/original G, raw provenance, no generalized orphan/duplicate or response-less success",
+      "id": "B04"
+    },
+    {
+      "criterion": "Meaningful positive and refusal verification matrix; no tests executed in this task",
+      "id": "B05"
+    },
+    {
+      "criterion": "Complete bounded report, exact source edits if justified, honest request/model/unrun handoff",
+      "id": "B06"
+    }
+  ],
+  "inputs": [
+    {
+      "bytes": 44509,
+      "package_path": "controller.source",
+      "sha256": "a951b3a7956a0a402b1b616743eba369a87dc919b849e7f1acaeb6bb8a934a45",
+      "source_execution_allowed": false
+    },
+    {
+      "bytes": 15725,
+      "package_path": "node.json",
+      "sha256": "8e4844b95f3b596fd6f804b68605cdddbf0fdd7d45138db899210f9adfadcd47",
+      "source_execution_allowed": false
+    },
+    {
+      "bytes": 17176,
+      "package_path": "proxy.json",
+      "sha256": "de286d73263e464b610fb8b11111cb3d7427e9ee82ced3973f557c9424a3cd9d",
+      "source_execution_allowed": false
+    },
+    {
+      "bytes": 2682,
+      "package_path": "capture.json",
+      "sha256": "aed8304f9a0d85e1c1fd2e7ab02d36c12f50440437720b050d699f3f0887b0f6",
+      "source_execution_allowed": false
+    },
+    {
+      "bytes": 3449,
+      "package_path": "chrome.json",
+      "sha256": "83725bfad6cb10785da6632362183a9a32706224e6cc4804c0cad96a03238e70",
+      "source_execution_allowed": false
+    },
+    {
+      "bytes": 31029,
+      "package_path": "caller.json",
+      "sha256": "72ee7676392842084810f50df8c75936672afe8180f6a90d216ab1ff794f0ec4",
+      "source_execution_allowed": false
+    },
+    {
+      "bytes": 66748,
+      "package_path": "root-failure-audit.json",
+      "sha256": "3ebef8860d5be3274f0fef074bc500ade4aebf3b9dd4f63cd6b85de6db0d0c31",
+      "source_execution_allowed": false
+    },
+    {
+      "bytes": 127641,
+      "package_path": "devtools_instrumentation.cc",
+      "sha256": "8587f825a29e186f064f13b5ed08cdb8f756e9b071d1c22301965df1e8bec277",
+      "source_execution_allowed": false
+    },
+    {
+      "bytes": 4407,
+      "package_path": "worker_or_worklet_devtools_agent_host.cc",
+      "sha256": "7b82f12d809d257f45bb6eea3f0b1f8d380bd641fd4d8f19817e38964e9a7064",
+      "source_execution_allowed": false
+    },
+    {
+      "bytes": 4594,
+      "package_path": "dedicated_worker_devtools_agent_host.cc",
+      "sha256": "d901956c262748aaf3171a43f8cb54c054184c4020e232b6688257084ae74bbc",
+      "source_execution_allowed": false
+    },
+    {
+      "bytes": 118680,
+      "package_path": "inspector_network_agent.cc",
+      "sha256": "2ea4d7a5dde70311ce758f41544097f2e0359042873e406e1723abf790588981",
+      "source_execution_allowed": false
+    },
+    {
+      "bytes": 2038,
+      "package_path": "astra-advice.md",
+      "sha256": "62afcd5a993f07573d51d7506b5b9d45265342636748f65a6bd9d30d029d6188",
+      "source_execution_allowed": false
+    }
+  ],
+  "manifest": {
+    "bytes": 2595,
+    "sha256": "2f513b2dc2a1b388ebe5407ea1b1c67fbf640f5075df8db165039123070d51e8"
+  },
+  "official_requests": 12,
+  "original_G_and_120s_schedule_unchanged": true,
+  "per_response_bytes": 4194304,
+  "primary_source_urls": {
+    "dedicated_worker_devtools_agent_host.cc": "https://chromium.googlesource.com/chromium/src/+/1d17a2e2ee147bb7d6ae2ab6abdb3a2510c17775/content/browser/devtools/dedicated_worker_devtools_agent_host.cc?format=TEXT",
+    "devtools_instrumentation.cc": "https://chromium.googlesource.com/chromium/src/+/1d17a2e2ee147bb7d6ae2ab6abdb3a2510c17775/content/browser/devtools/devtools_instrumentation.cc?format=TEXT",
+    "inspector_network_agent.cc": "https://chromium.googlesource.com/chromium/src/+/1d17a2e2ee147bb7d6ae2ab6abdb3a2510c17775/third_party/blink/renderer/core/inspector/inspector_network_agent.cc?format=TEXT",
+    "worker_or_worklet_devtools_agent_host.cc": "https://chromium.googlesource.com/chromium/src/+/1d17a2e2ee147bb7d6ae2ab6abdb3a2510c17775/content/browser/devtools/worker_or_worklet_devtools_agent_host.cc?format=TEXT"
+  },
+  "report_bytes": 8192,
+  "research_minutes": 20,
+  "revision": "1d17a2e2ee147bb7d6ae2ab6abdb3a2510c17775",
+  "root_scoring": "WORKFLOW.md five dimensions0-4; plan-only result, no runtime acceptance",
+  "runtime_allowed": false,
+  "schema": "T10.005.003-worker-bootstrap-plan-profile.v1",
+  "source_execution_allowed": false
+}
