@@ -149,9 +149,11 @@ This snapshot does not guarantee4GiB headroom or admit a larger game allowance.
 Astra's separate
 failure-aware SQL collection and minimal ledger now [qualify as source](reviews/2026-10-23-T10.007.md#failure-aware-evidence-and-minimal-request-ledger-source-qualify).
 Root corrects the per-read cleanup-reserve gap and explicitly records unrun
-comparisons; all errors/trial failure remain. [The12finite control groups now
-qualify as source; three pure calls are admitted](reviews/2026-10-23-T10.007.md#evidence-control-source-qualifies-three-pure-calls-admitted).
-Actual syntax/controls and retirement audit are next; no game admission. Independent source
+comparisons; all errors/trial failure remain. [Actual changed UI syntax and all
+12finite groups now pass Root's complete audit](reviews/2026-10-23-T10.007.md#actual-evidence-controls-and-complete-root-audit-pass):
+three natural exit0 calls, original guards,27audit-artifacts and unchanged
+source/FD/thread state. This verifies synthetic boundaries, with no game
+admission. Independent source
 locators find genuine BGM/navigation donors and web-service route sources.
 [Two new independent provider pairs are active](reviews/2026-10-23-T10.007.md#resource-material-and-web-service-pairs-dispatched-in-parallel):
 Rprepares seven exact loose resources and an unbound driver correction;
