@@ -39,14 +39,15 @@ Parallel:
   D14 diagnostic UI: HOLD4defects; not an F1 dependency
   C7 caller: four pure checks PASS; no capture/backend compatibility
   MU1:105body stage PASS (Root checked/released)
-  MU2: source HOLD -> MuC UI + MuD driver corrections -> one fresh scene
+  MU2 -> MuC/MuD: HOLD5findings -> finite fixes -> one fresh scene
        (retained water geometry0; current scene still verifies it)
   full839spawn -> budget PASS; profile/oracles frozen -> Grok source LIVE
 
-B2D:1/2 PASS,3 Root caller FAILED -> fix3/4 -> remaining3-7 next.
-B2U:source reviewed + UI composition qualified -> one pure group next.
-Three Grok sources live: MuC UI / MuD driver / F839.
-Current3active/245released/6retained records; no settled owner awaits cleanup.
+B2D/B2U:all8 selected focused checks PASS; original Root error preserved.
+B3:fresh21role fixture source ready; native binding/play test next.
+MuC/MuD:submitted+released, HOLD5findings -> finite UI/driver fixes ready.
+F839:Grok source still live. Three independent source starts next.
+Current1active/247released/6retained records; no settled owner awaits cleanup.
 Four actual user-retained resources stay;2transferred records have none.
 Trial9 stays failed; known faults stay failed. No new actor admitted.
 4/14 is parent-check progress, not percentage of playable content.

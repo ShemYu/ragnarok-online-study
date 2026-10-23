@@ -253,3 +253,64 @@ full byte equality of final Mu2 UI/driver to reviewed snapshot. Review28001B/SHA
 c703654757192709367736c5b5bc413b1ee5872fedf79546b2b7c7e15a8c6c91
 preserves source HOLD/no executions. Root handles personal final qualification.
 Expected4active/243released/6retained/0reclaimable. No scene/game actor admitted.
+
+## MuC MuD submitted held five finite corrections frozen
+
+Both actual workers submit source-only candidates. Root fully reads both
+reports, checks closed outputs/private modes/detached pins/all opened
+PRE/POST/full frozen input pins, accepts submissions and immediately releases/
+archive-captures both before delivery0c2df786b743 ACK.
+MuC17outputs,UI48230B/c885b9d92d9a49ff4bae4db0e3749efccebb00e20c661f24545bf0d418c1e994;
+settlement32671B/5c97811dd48bd5d3bfd1875b72c6aa851a81dc725234c88fe95ca69c1f92d59e,
+lifecycle455B/1d8893c52486969395658dc938681bd775682c72477442a728df2e2451016fcb.
+MuD14outputs,driver67986B/902a0efd34317223b62ed82c702b6adf230776386a12b9226c3703d7951a58ac;
+settlement30662B/cf5f7909481da15e311100a3ad8a1d3841e8a872e342e5daab12ae8daa2469a1,
+lifecycle455B/09e22f7fdbb31a6e39886c64c1ed5e0bc114d649bb28397e8527d4dbbc2080c8.
+Submission acceptance is not correctness, runtime or gameplay PASS.
+
+Root fully reads and personally checks the concrete source counterpaths
+from the two independent reviews. MuC5924B report
+187e8ee76b94f9c7e0671212bb6583b8015a24c0d6b406cd44b1e50948e51679
+checks46stable input pins,722-operation forward/inverse maps and361equal
+spans. It finds:
+- A scoped data response after final assessment/publication can settle
+  during screenshot/cleanup and escape BODY_JOINS/traceCoverage without a
+  sticky fault. Freeze the first assessment frontier and refuse all later
+  data observations while still draining them.
+- The FileManager callback is compared by byte length but not its available
+  buffer object ID. Equal length/different or missing ID must refuse.
+- Placement matching uses object ID OR index and discards mapId. All three
+  identity facts must agree, alongside the actual model/instance checks.
+
+The latter two are concrete validator counterexamples, not observations
+that the native renderer emitted inconsistent evidence. Root freezes full
+copies of the original worker/trace suffix for the precise getHTTP buffer
+and map/model trace schema,4331B supplement/
+505039c16a68383a6aee1f77e4662f9e87489883cc2ffab9b60ed24da5739bcf.
+No native source is modified or executed.
+
+MuD5076B report/b9446c11603a78a970aa37334daf17872980eae9f94c3bbbb2ba8c202ee5c6f5
+checks20stable opened inputs,21equal spans and unchanged17780B F1helpers.
+It confirms postscene one-shot dispatch, strict body/scene flags and
+initial-only SQL refusal, but finds:
+- After Chrome consumes close_end, Remote signalling lacks a current check
+  before identity work and immediately before SIGTERM. A later wait refusal
+  cannot undo an expired-deadline signal.
+- The first group refuses preexisting group-run then deletes it in finally.
+  Cleanup must prove successful own creation and current directory identity.
+
+Root confirms both paths directly in final source. Existing two Py groups
+use actual dispatch helpers with stub effects and cannot prove the nested
+signal deadline; no calls are admitted on these held candidates.
+
+Root freezes two disjoint source corrections in36payloadcopies/139fullpins,
+manifest106961B/e9208150e14e8abdbf802c7dcd65279eba2aef403d91542a639d08b1f38cac93.
+MuC owns only its UI and existing six groups; MuD owns only its driver and
+existing two groups. Add only the necessary actual production helper reach/
+finite fixture negatives, no second trace/HTTP/ledger/framework/diagnostic
+generation. Shared schemas,19roles/twoSQL, all clocks/resource caps and
+no-credit semantics stay fixed. A partial Root1 input-freeze directory is
+preserved after a review pin-schema mismatch; Root2 is authoritative, no
+candidate execution or actor. Admit these source tasks after this Git
+checkpoint; Root later personally qualifies all relevant changes/controls.
+No new native render/game actor, no full105body loading or gameplay claim.

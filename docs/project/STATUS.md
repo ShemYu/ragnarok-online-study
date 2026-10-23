@@ -22,17 +22,18 @@ is released. Root qualifies the corrected F2 stage/178pins; all eight focused ca
 pass complete Root203pin verification under original G/S.
 No Engine/browser/game actor is admitted. Water-source review confirms retained zero water geometry for the exact
 current map/worker/GND join; no extra water deployment is justified. B2U/B2D source candidates are submitted, fully pinned and released.
-[Root qualifies B2D bytes and admits seven focused calls](reviews/2026-10-24-functional-priority.md#backend-sources-settled-seven-driver-checks-admitted)
-Root groups1/2 pass; group3 fails at a missing Root caller argument.
-[Root fixes entries3/4 and qualifies B2U UI composition](reviews/2026-10-24-functional-priority.md#backend-fixed-entry-correction-and-ui-composition-qualified):
-remaining five Python calls and one Node call are next after checkpoint.
-Two UI control coverage limits remain explicit. Runtime bindings and all
-native/backend/game verification remain open. Three actual Grok
-sources remain live: MuC UI, MuD driver and F839 exporter. Fresh254record/
-3page inventory:3active/245released/6retained/0reclaimable; all nine old
-attention flags have no lifecycle argv. Four actual user-retained resources
-stay; two transferred records have none. Six Grok sources ran at peak.
-Effective model/cost and full provider comparison remain unknown.
+[All eight selected focused backend checks now pass Root verification](reviews/2026-10-24-functional-priority.md#eight-backend-focused-checks-verified-fresh21-fixture-source-frozen).
+The failed original Root caller remains preserved. UI composition is byte-
+qualified; actual native runtime bindings/HTTP/auth/SQL/game remain open.
+[MuC/MuD sources are submitted, pinned and released, HOLD for five finite
+source findings](reviews/2026-10-24-T07-mu-data-stage.md#muc-mud-submitted-held-five-finite-corrections-frozen).
+Root freezes disjoint UI/driver fixes and a fresh21role backend fixture
+writer source task, ready after this checkpoint. Existing F839 Grok source
+remains live. Current all254record inventory before starts:
+1active/247released/6retained/0reclaimable. Four user-retained resources
+stay; two transferred records have none. No missing-status lifecycle action
+is inferred. No new actor admitted. Effective model/cost/provider comparison
+remain unknown.
 
 D15 passes all eight pure groups and Root's complete183pin audit: unchanged
 G10s/512MiB/grace3, natural0/positiveguard/0.229156s/24068096B sampled peak,

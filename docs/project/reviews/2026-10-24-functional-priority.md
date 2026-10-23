@@ -800,3 +800,53 @@ Root3 is authoritative. No test, actor or source change resulted from them.
 Full UI62401B/c96cd1bfc54b14819d5e80dac7002a71f3162a7e7c687aba4f58cb6efb687965
 remains the reviewed candidate. Three Grok map/export sources remain live.
 Full goal/progress and all82 functional gaps remain unchanged.
+
+## Eight backend focused checks verified fresh21 fixture source frozen
+
+All eight selected focused backend checks now have complete Root evidence.
+Original groups1/2 stay positive; the corrected remaining3–7 each return
+natural0/positive unchanged G and exact literal envelopes, elapsed
+0.309063/0.307143/0.291862/0.291458/0.321264s. The one existing Node group
+returns natural0/positive G/0.115271s. Both actual audits have errors[].
+Original failed Root entry3 stays FAILED; no receipt or guard was rewritten.
+
+Remaining-driver audit95744B/e54efa81596f1c9713705469b2f8f0eb581486674d67c109845ae50166f5beab
+checks170 full pins; UI audit57449B/
+753773e391500bf1d328e8275c99d60967ac5aa5d423805e0e9e6da15c0f94b0 checks113.
+Root also fully reads the5989B final independent driver source report
+dd769b618357801d75359039a73a24d6303a72a4341adfa7de73a6f81692a1ae
+and checks all64 reviewed input/output pins. Cumulative Root211pin record
+121156B/5fc0eea09d9ca880dabb990fd56fbc1497d85401cbd17a3a8f892b397b04f6d7
+joins the actual selected eight positive guards, complete streams/receipts,
+original limits, current source/executable stability, retirement and caller
+context. Sampled RSS is not unsampled peak. The first empty cumulative
+directory reflects a Root pin-schema assumption; Root2 is authoritative.
+No nested Engine lifecycle/native HTTP/auth/SQL/browser/game credit. Live
+UI dispatcher and pending-to-completion polling remain source/coverage
+limits, not dynamically checked by that group.
+
+The existing fresh generator emits19roles and cannot supply B2's web SQL/
+config or sixth DB handle. Root fully reads its13261B source and freezes
+a finite B3 source derivative: exactly21fresh roles/10templates/15runtime
+tokens, five distinct UNPROBED proposals, genuine native web config and
+fresh account/credentials. Engine ui_port/CORS must equal the actual future
+RemoteClient origin; prepared proposal equality is not current-world proof.
+No old attempt/secret/lease is reused. Input packet63payload copies/
+130fullpins has manifest131106B/
+62f0da0a3b5b934ff17ccc3e1cf34a873c2d0b8c407e13689d7028607fc0e13e.
+B3 is source-authoring only after this checkpoint, independent of F839
+and map fixes. No generator/import/test/native actor is admitted. Root later
+performs complete source/body/pin/ownership checks and fresh runtime binding.
+No generic framework or diagnostic generation is added.
+
+[MuC/MuD are submitted, released and HOLD for five confirmed bounded
+findings](2026-10-24-T07-mu-data-stage.md#muc-mud-submitted-held-five-finite-corrections-frozen).
+Three independent finite Grok tasks (MuC fix, MuD fix, B3 fixture writer)
+are admitted after this checkpoint alongside the actual F839 source worker.
+Original game/Chrome/network/settings remain untouched; full goal unchanged.
+
+Fresh all254records/3page fleet6 inventory is1active/247released/6retained/
+0reclaimable before the three starts,9040B/
+8be739e7cf7a60f0ba0cb20d7cfa06b1da5b75b3d803b3b390ab86b0923fdb6a.
+All nine old attention flags retain nextAction:none and prior ownership
+decisions. No stop/duplicate is inferred from missing-status records.
