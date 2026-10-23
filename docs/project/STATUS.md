@@ -150,7 +150,10 @@ and fixed read-only capability checks, with no more subcommand help probes.
 [Primary Engine source qualification and explicit fixture policy pass](reviews/2026-10-23-T10.007.md#primary-engine-sources-qualified-concrete-fixture-policy-selected):
 46 full pins/23 tree joins/50 spans. Use a fresh bridge/no published ports
 (no firewall claim), fresh parser-only tmpfs SQL, exact image/full container IDs
-and copy/readback before start. Current image/entrypoint binding is next.
+and copy/readback before start. [Current image/entrypoint binding now passes](reviews/2026-10-23-T10.007.md#current-images-and-db-entrypoint-verified-read-only):
+eight fixed GETs/17 full pins, both exact images present,6088B startup script
+byte-equal to retained source, original owners/container mounts preserved.
+Bind readiness/shutdown and concrete material/budgets, then run the parser fixture.
 No parser fixture or game/DB test has started. This successful
 fixed diagnostic uses reproduced private-loader routing:0→5520own keys, only
 16912/21001inspected, original lazyInit not executed; no ordinary session,
