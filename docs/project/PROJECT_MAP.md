@@ -107,8 +107,9 @@ CURRENT (23 Oct):
       Source-tool task self_verified; 28 pins / test cleanup checked.
   [V] One-argument candidate materialized: 58-pin audit / exact full inverses.
       Three fresh actor sources and five served files; no actor has run.
-  [>] Bind the fresh parent to the current game and verify those bindings.
-      A separate committed one-shot admission must precede any browser run.
+  [V] Fresh parent/current-world binding passes: 82 pins / 13 exact headers.
+      Original worlds/effects unchanged; one new trial admitted by this commit.
+  [>] Bind this admission HEAD once, run the new parent once, then audit.
       No game patch is installed. Parent progress stays 4/14.
       No game design or milestone change. No user action is needed.
 
