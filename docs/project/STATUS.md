@@ -7,29 +7,15 @@ Updated: 2026-10-23 JST. Coordinator: Codex. Active scope: **execute the documen
 Functionality remains first; **4/14 parent checks, about29%**. All82functional
 resource gaps remain open. No full-game scope change or new user decision.
 
-**Portal guidance:** [both actual isolated Claude/Grok implementations were
-dispatched](reviews/2026-10-23-T07.006.002.md#actual-equal-implementation-pair-dispatched)
-from44afe8e with identical actual specs/BASE/task/profile and setup skipped.
-T07.006.002 adds request-local ordinary portals, hidden maintenance and
-stale-work fences. Both implementations are preserved and both settled
-workers released. [Claude raw run/full Root audit](reviews/2026-10-23-T07.006.002.md#claude-raw-own-checks-pass-but-common-fixture-comparisons-fail)
-records34/34own and42/53common; eleven strict comparisons expose a VM-array
-prototype observation defect. Original caller1/guardinvalid stay failed.
-[Grok raw failure/full equal-baseline audit also qualify](reviews/2026-10-23-T07.006.002.md#grok-raw-failure-and-complete-equal-baseline-audit-qualify):
-own harness throws before behavior checks; common41/53 includes the same
-eleven fixture comparisons plus unknown Worker policy routing. Both raw
-caller1/guardinvalid results stay failed and consumed. [Exact shared fixture
-correction qualifies as source](reviews/2026-10-23-T07.006.002.md#exact-shared-observation-realm-correction-qualifies-as-source),
-with all cases/expected values unchanged. [Both corrected actual runs/full Root
-audit now qualify; Claude20/20 selected over Grok13/20](reviews/2026-10-23-T07.006.002.md#equal-corrected-results-fully-audited-and-claude-selected).
-Claude34/34own+53/53common/caller0/valid original G; Grok own harness error+
-52/53common/caller1/guardinvalid. Fortyfull pins, complete source/results and
-positive four-PID/two-group closure pass. [Unchanged Claude source is integrated
-as88577ae; one actual tracked-file run is admitted](reviews/2026-10-23-T07.006.002.md#unchanged-selected-source-integrated-and-one-tracked-file-run-admitted).
-Exact three selected/integrated/working-file bytes match; only fresh private
-bindings exist. Run once under this introducing clean HEAD and fully audit
-before source-tool self_verified. Both pair admissions are consumed; no
-installed game patch or content gate.
+**Portal guidance:** [actual equal comparison selects Claude20/20 over
+Grok13/20](reviews/2026-10-23-T07.006.002.md#equal-corrected-results-fully-audited-and-claude-selected).
+Both raw failures and the shared observation-only fixture correction remain
+preserved. [Unchanged selected source88577ae and actual tracked-file verification
+now pass](reviews/2026-10-23-T07.006.002.md#integrated-actual-tracked-source-and-complete-root-audit-pass):
+34/34own+53/53common/caller0/valid original G,28full audit pins and positive
+test-process/group closure. T07.006.002 is self_verified for its source-tool
+scope. Both provider workers are released. All run admissions are
+consumed; no installed game patch or ordinary runtime/story acceptance.
 
 **Browser diagnostic:** [fresh normal-reader preflight and complete Root audit
 pass](reviews/2026-10-23-T10.005.md#fresh-same-world-preflight-and-complete-root-audit-pass):
@@ -68,8 +54,8 @@ Original game/save/settings and internet connection stay preserved.
 
 The shared runner's final-publication/return checks and explicit profile
 expect_native:false correction are committed. Both runs use the same runner
-policy/caps and corrected profile. The original Claude namespace is consumed
-and immutable; Grok's raw run is also complete/audited. Source-only browser
+policy/caps and corrected profile. All raw/corrected/integrated namespaces are
+consumed and immutable. Source-only browser
 response-value/session/assembly proposals are prepared and await Root review;
 no browser execution is admitted.
 
