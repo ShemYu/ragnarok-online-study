@@ -162,7 +162,7 @@ CURRENT (23 Oct):
   [V] Root comparison: Claude15/20, Grok15/20; neither raw fix accepted.
       Fix cancellation-as-EOF and missing ACK/error/close ordering.
       Existing outer deadlines suffice; no new Worker grant protocol needed.
-  [>] Root repairs submitted source + unrun controls in an isolated branch.
+  [V] Root repairs submitted source + controls in an isolated branch.
       Root checks 10 sources / 20 excerpts for affected validation checks.
       Refresh embedded Worker hash; test actual error + ACK handlers.
       First draft byte composition matches; parallel audits find fixable gaps.
@@ -173,9 +173,12 @@ CURRENT (23 Oct):
       Exact test births/groups gone, no signals, source/FD/thread checks pass.
   [V] Actual integrated5e96cf6: all10Python / all37Node and18-pin audit pass.
   [V] Required40regressions pass; full25-pin Root audit/clean exit/no signals.
-      Fresh actor/parent bindings and a separate live admission remain.
-      Admission consumed; failed namespace immutable; no retry admitted.
-      No game patch is installed. Parent progress stays 4/14.
+  [V] Root6 fresh source/parent bindings + one live diagnostic pass.
+      14request/response/finish chains; optional404drains14B to EOF.
+      Strict shutdown sequence + independent Chrome natural exit0.
+      Full Root audit passes; original worlds/effects preserved; no signals.
+      Loading/shutdown blocker CLOSED for this diagnostic; root6 immutable.
+      Ordinary-session table winner/story/content remain open. Progress4/14.
       No game design or milestone change. No user action is needed.
   [V] T10.006 research: Claude16/20 versus Grok13/20; both workers released.
       Root confirms typed NPC coordinates; no complete story contract yet.

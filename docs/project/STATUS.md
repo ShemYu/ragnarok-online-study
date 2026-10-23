@@ -91,32 +91,26 @@ attempt literal. No actor or game code runs in this source/data materialization.
 passed before the single4988c8d call. Its admission and actual-root-2 namespace
 are now consumed and immutable; the existing inputs/outputs are not fresh.
 
-**Next:** [one fresh root6 browser diagnostic is admitted](reviews/2026-10-23-T10.005.md#one-fresh-negative-lifecycle-browser-diagnostic-is-admitted).
-Late-bind only ADMISSION_HEAD to that introducing commit, invoke the exact
-parent once, then personally audit complete results/closure. Preserve failure;
-no unchanged retry. All original guard/clock/cap/ownership rules remain.
-[Fresh parent/current-world bindings and Root audit pass](reviews/2026-10-23-T10.005.md#fresh-parent-and-current-original-world-bindings-qualify):
-84full-hash entries/77unique current C8/20independent complete source reads;
-three original worlds/effects unchanged,13-header/canonical clock inverses pass.
-The67321B parent preview has only ADMISSION_HEAD=None left. No actor runs yet.
-[Fresh compact source composition and43-pin Root audit pass](reviews/2026-10-23-T10.005.md#fresh-compact-source-composition-and-full-root-audit-qualify):
-root6 has six served leaves/three actor sources and an UNBOUND derivative binder.
-No actors or historical assembly rerun; no runtime fields/live admission yet. [Actual integrated5e96cf6 and full Root audit pass](reviews/2026-10-23-T10.005.md#actual-integrated-source-and-complete-control-audit-pass):
-10/10Python+37/37Node, zero skips;18full audit pins/two executable pins, both
-valid original guards and fresh positive test-process/group absence. Candidate
-26343ef had independently passed the same controls/19-pin audit before integration.
-[Existing40regressions now pass with a complete25-pin Root audit](reviews/2026-10-23-T10.005.md#legacy40-actual-regressions-and-complete-root-audit-pass):
-caller0/driver0, no skips, valid original G, no signals/actions and positive
-test-driver/group absence. Named handlers/real ACKs/async witness are exercised. Compact Root5-based composition is
-source-supported; no historical Lua/bootstrap pipeline replay, new grant/launcher
-protocol or tail-only regression repeat is needed. No live trial is admitted.
-[Qualified intermediate bodies](reviews/2026-10-23-T10.005.md#qualified-intermediate-source-bodies-materialized)
-are now stored: controller63184B, Worker656492B and proxy46357B, with exact full
-inverses and matching predicted hashes. They support the old40rebind and later
-fresh namespace assembly; no actor/game code runs in this materialization.
-[Root now qualifies the fresh40-group binding and admits one pure run](reviews/2026-10-23-T10.005.md#legacy40-source-binding-qualifies-and-one-pure-run-is-admitted),
-preserving40names/38case bodies and all limits. One fragment line-number typo
-is corrected without changing its bytes. No browser/live trial is admitted.
+**Latest: the fixed browser diagnostic passes; its loading/shutdown blocker is closed.**
+[Actual root6 trial and complete Root audit](reviews/2026-10-23-T10.005.md#actual-negative-lifecycle-diagnostic-and-complete-root-audit-pass):
+caller0/all three drivers0/valid original guards,13.156s;14genuine request/
+response/finish chains, five Wasm chains, optional404uncancelledEOF14B and
+one acknowledged report. Strict shutdown send/ACK/error/close joins independent
+Chrome natural exit0. No signals/actions;14registered test births/four groups
+absent, original3worlds/18effects/7parents and FD/threads match. Root reads209
+full source/artifact pins and independently streams100source/protected pins
+(overlapping sets). All87focused/regression groups passed before this trial.
+The c03396d admission is consumed once; root6 is immutable, no retry admitted.
+
+**Next:** personally qualify/freeze the prepared equal-input starter NPC task,
+then dispatch real Claude/Grok implementations in separate branches. In parallel,
+resolve normal-session table selection/content/route bindings. This successful
+fixed diagnostic uses reproduced private-loader routing:0→5520own keys, only
+16912/21001inspected, original lazyInit not executed; no ordinary session,
+effective winner, MainQuest/story or full-content acceptance. Functionality
+remains first and progress stays4/14/about29%/all82gaps open. No user action or
+goal change is required. The earlier failure/source records below are superseded
+by this successful fixed-diagnostic outcome where applicable.
 
 Earlier source repair history: [submitted source failed review](reviews/2026-10-23-T10.005.md#source-submission-retained-and-coordinator-repair-owns-next-action)
 under T10.005. Grok task_1349907b83b4/ctx_6ae8a3b701b9 settled with the unchanged
