@@ -19,11 +19,17 @@ isolated server route](reviews/2026-10-23-T10.007.md#isolated-normal-player-rout
 69full pins/108source spans, fresh normal Config/RemoteClient/three WS targets,
 new login/char/map plus durable SQL. No runtime actions or player PASS yet.
 
-**Next:** compare the [equal read-only live player plans](tasks/T10.007-player-trial.md),
-then Root executes the selected bounded isolated trial: real grant/cancel/resume,
-character separation and saved progress across relog/restart. Inactive/later-ID
-guards, installed4848+3assembly/ordinary route and normal Chinese journal remain
-explicit gates. No unchanged parser/source reruns. T10.007/T10.008 stay open.
+**Both player plans reviewed:** [Grok13/20 and Claude12/20, plan-only](reviews/2026-10-23-T10.007.md#both-live-player-plans-reviewed-corrected-synthesis-selected):
+neither raw recipe is admitted. Root corrects volume freshness, ten-map setup,
+stop semantics and two-character case order. Both workers are preserved/released.
+[Normal material is copied and checked](reviews/2026-10-23-T10.007.md#ordinary-client-material-copied-from-current-selected-files):
+51outputs/72936301B, with current Chinese settings/known overlays; no runtime yet.
+
+**Next:** review/qualify the small Engine/UI actors, bind fresh endpoints and
+admit one bounded real-player trial: A199 refusal, B200 cancel/dialogue grant/
+repeat with A untouched, then genuine relog/restart. Inactive/later-ID guards,
+installed4848+3assembly/ordinary route and normal Chinese journal stay explicit
+gates. No unchanged parser/source reruns. T10.007/T10.008 remain open.
 
 **Portal guidance:** [actual equal comparison selects Claude20/20 over
 Grok13/20](reviews/2026-10-23-T07.006.002.md#equal-corrected-results-fully-audited-and-claude-selected).
