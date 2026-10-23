@@ -183,7 +183,9 @@ CURRENT (23 Oct):
   [V] T10.006 research: Claude16/20 versus Grok13/20; both workers released.
       Root confirms typed NPC coordinates; no complete story contract yet.
       Exact Taiwan parity is not an added requirement for personal Renewal play.
-  [>] Prepare persistent entry progression with existing Chinese text.
+  [V] T10.007 freezes30equal inputs; Root78-pin/source/collision audit passes.
+  [>] Actual C/G pair assigned: persistent starter registration/cancel/resume.
+      Sameee23e4e / separate branches / no installed app or DB mutation.
       Resolve real route/reward/transition rules before integration and play.
 
 Earlier checkpoints (their next actions can be superseded):

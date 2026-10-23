@@ -103,8 +103,9 @@ full source/artifact pins and independently streams100source/protected pins
 The c03396d admission is consumed once; root6 is immutable, no retry admitted.
 
 **Next:** [T10.007 equal source brief/inputs are personally qualified and frozen](reviews/2026-10-23-T10.007.md#equal-source-task-prepared-and-personally-qualified);
-dispatch real Claude/Grok NPC implementations in separate branches from this
-common commit. Thirty input files/78full Root pins, collision/import and
+both actual Claude/Grok NPC implementations are assigned in separate branches
+from common ee23e4e; [dispatch receipts are retained](reviews/2026-10-23-T10.007.md#both-actual-independent-implementations-dispatched).
+Supervise/verify both before selection and user evaluation. Thirty input files/78full Root pins, collision/import and
 reference-state boundaries qualify. No parser/DB fixture or installed changes. In parallel,
 resolve normal-session table selection/content/route bindings. This successful
 fixed diagnostic uses reproduced private-loader routing:0→5520own keys, only
