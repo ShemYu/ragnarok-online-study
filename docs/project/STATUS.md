@@ -1,6 +1,6 @@
 # Current status — resume here
 
-Updated: 2026-10-23 JST. Coordinator: Codex. Active scope: **execute the documented strategy through the full milestone**.
+Updated: 2026-10-24 JST. Coordinator: Codex. Active scope: **execute the documented strategy through the full milestone**.
 
 ## Current checkpoint
 
@@ -122,10 +122,22 @@ Claude's new19-role fixture passes Root's69pin audit; Grok also passes66pins.
 Both are released:194released/four retained/zero active or reclaimable. Root
 normalizes the chosen data; no game PASS follows from data qualification.
 
-**Next:** bind the clean committed HEAD/lease and selected fresh material, then
-run the one admitted changed diagnostic with fresh original-world joins and a
-complete Root audit. Physical footprint, pressure/headroom and failure cause
-remain unknown. No OS probe or higher allowance is admitted. Independent
+**Fifth actual diagnostic is audited:** [The new metadata exposes a ready
+dictionary and renderer growth; the3GiB stop remains](reviews/2026-10-23-T10.007.md#fifth-diagnostic-identifies-dictionary-ready-state-and-renderer-rss-cleanup-passes).
+At25.279s G is failed after stopping only the owned actors at24.422s; peak
+3238854656B. Root checks232complete wires/783audit-artifact pins. All16retained
+host births/two groups/four containers/network are gone, volume retained,
+originals/parent boundaries match. No avatar/NPC/player case or screenshot.
+Dictionary GET200/application-json precedes ERR_ABORTED, yet one owned status
+is ready at2236ms. Root confirms the loader's success path does not call its
+abort/release function; cancellation cause remains unresolved. Driver RSS is
+41943040B in the last joined sample; the largest named renderer is929562624B.
+
+**Next:** diagnose the dictionary/request-lifecycle discrepancy and the
+independent client service/resource failures in parallel. Qualify Astra's
+proposed read-only host-pressure preflight before deciding whether one4GiB
+experimental trial is justified. No OS probe, higher allowance or unchanged
+retry is admitted yet. Physical footprint/headroom remain unknown. Independent
 full-spawn preparation is unadopted; main player repair first.
 A199 refusal, B200 cancel/grant/repeat and genuine relog remain unverified.
 Restart, inactive/later-ID guards, installed4848+3assembly/ordinary route and

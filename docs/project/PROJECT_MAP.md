@@ -1,6 +1,6 @@
 # Supervision, plan and current position
 
-Date: **2026-10-23 JST**. Functionality comes first. Normal tutorial/city reward and save checks pass. The trial character reaches [Eden through normal Officer dialogue](reviews/2026-10-20-T06.006.003.md#normal-eden-arrival-verified-next-save-check-interrupted). Its save check waits for browser reconnection.
+Date: **2026-10-24 JST**. Functionality comes first. Normal tutorial/city reward and save checks pass. The trial character reaches [Eden through normal Officer dialogue](reviews/2026-10-20-T06.006.003.md#normal-eden-arrival-verified-next-save-check-interrupted). Its save check waits for browser reconnection.
 
 [Chapter1 source review](reviews/2026-10-20-T07.006.md#corrected-comparison-and-bounded-readiness) is ready: Claude14/20, Grok12/20. Root corrects the helper diagnosis. Neither proposal is installed. [October acquisition](reviews/2026-10-21-T07.007.md) passes extraction and hash checks for all 4,976 files. All three archive headers pass. The [corrected inventory tool](reviews/2026-10-21-T07.007.001.md#root-corrected-integration-qualified) is qualified at9153d27. All 248,908 records and April parity checks pass.
 
@@ -44,7 +44,9 @@ No validated avatar/map/NPC or completed player case. Cleanup is verified.
 Both parallel pairs reviewed and released. Raw guard changes rejected.
 New diagnostics: source, syntax and nine finite checks PASS.
 Fresh test data: both checked/released; Claude selected (20 vs 19).
-Next: bind fresh state, then one new diagnostic browser test.
+Fifth test: same memory stop; dictionary status is ready despite cancellation.
+Root checked cleanup. No avatar, NPC or player case passes yet.
+Next: resolve request lifecycle + client resources; assess a bounded memory step.
 Content-contract preparation is preserved; its oracle is still unqualified.
 
 No decision is needed from you now. The full-game goal is unchanged.
