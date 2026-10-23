@@ -43,6 +43,8 @@ Fourth test reaches browser, then stops above the 3 GiB summed-RSS fence.
 No validated avatar/map/NPC or completed player case. Cleanup is verified.
 Both parallel pairs reviewed and released. Raw guard changes rejected.
 Now: qualify small, fail-closed memory/client metadata before a new test.
+In parallel: Grok + Claude prepare fresh isolated test data from equal inputs.
+Root checks the result before any browser or server can use it.
 Content-contract preparation is preserved; its oracle is still unqualified.
 
 No decision is needed from you now. The full-game goal is unchanged.

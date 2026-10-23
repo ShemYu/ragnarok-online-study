@@ -103,13 +103,23 @@ and fail selection. UClaude16/Grok15: combine required-dictionary response data
 with synchronous metadata; no fault exemption. All four reports/pins preserved,
 workers released:192released/four user-retained/zero active or reclaimable.
 
+**Fresh preparation runs in parallel:** [Grok and Claude independently prepare
+new isolated fixture data](reviews/2026-10-23-T10.007.md#fresh-fixture-comparison-runs-alongside-diagnostic-correction)
+from the same26-file frozen packet at3d619fd. Both actual Orca Dispatches are
+active; no candidate is qualified yet. Root separately copies/checks51unchanged
+normal-client files/72936301B into a fresh namespace, with a new Config copy and
+two empty private directories. No actor or existing save is touched.
+
 **Next:** correct and qualify the small observability draft before a separate
 changed diagnostic admission. Root's11pin provenance audit/15exact inverses and
 Python AST pass; JS syntax/behavior are unrun, console meaning was dropped and
 loader DOM code stays unknown. Resolve those limits, keep G/parent/3GiB and all
 fault gates unchanged. No new live call, OS probe or higher allowance is admitted.
 Physical footprint, pressure, headroom and dictionary failure cause remain
-unknown. Independent full-spawn preparation is unadopted; main player repair first.
+unknown. Astra confirms the loader code must be projected from its fixed status
+text, with only one bounded observation and no late result mutation. The new
+draft remains unqualified. Independent full-spawn preparation is unadopted;
+main player repair first.
 A199 refusal, B200 cancel/grant/repeat and genuine relog remain unverified.
 Restart, inactive/later-ID guards, installed4848+3assembly/ordinary route and
 normal Chinese journal stay open. No unchanged trial, syntax or parser rerun.
