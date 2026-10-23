@@ -22,6 +22,11 @@ Both Grok N8/R8 workers remain active. [C2 both qualify all15finite groups;
 Claude explicit cursor selected](reviews/2026-10-23-T10.007.md#corrected-c2-reference-checks-pass-claude-selected-host-status-pair-frozen).
 No image-capture/game admission yet. Next local FileStore proof and independent
 optional host-status pair; Astra checks the unresolved dictionary cancellation.
+[Both R8 datasets now qualify; Grok selected; both NPC drafts retained](reviews/2026-10-23-T10.007.md#loose-pair-qualified-grok-data-selected-npc-pair-retained-local-filestore-control-admitted).
+S8Claude's unbound proposal is retained/released; Grok S8 is the only active
+Orca worker (221released/four retained). Root next runs the qualified one-shot
+local FileStore diagnostic. Shared NPC prefix checks are being prepared.
+Dictionary fault remains open: ready node and request initializer are not joined.
 
 **Latest:** [All three isolated native parser cases now pass Root verification](reviews/2026-10-23-T10.007.md#actual-three-case-native-parser-trial-and-complete-root-audit-pass):
 134 requests/231 full pins, valid original guard/13.231s, real NPC and three
