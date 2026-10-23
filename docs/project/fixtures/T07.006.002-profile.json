@@ -193,7 +193,7 @@
   "preserved_goal": "Full Modern/Renewal personal play; Chinese retained; party-only later; no parent/content acceptance from pure controls",
   "root_later_pure_runtime": {
     "actual_source_binding_and_caller_admission": "Root before actual execution; no test-source execution admitted by dispatch",
-    "expect_native": true,
+    "expect_native": false,
     "grace_seconds": 3,
     "node_bytes": 121911744,
     "node_sha256": "9d050fd455b56426e25d4d603c7c501cbb2630348e836cf221dcce748e90588a",

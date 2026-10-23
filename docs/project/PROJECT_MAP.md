@@ -62,7 +62,9 @@ CURRENT (23 Oct):
       Claude files/commit preserved, settled worker released. Tests pending.
   [V] Independent test source checked: 53 cases / 8 groups, still unrun.
       Both implementations receive the same Root checks after submission.
-  [>] Small final-report deadline fix in shared test runner awaits review.
+  [V] Shared test-runner source and two-assertion final deadline fix checked.
+      One execution-metadata Boolean corrected; same notice goes to both.
+      Full candidate review / exact bindings / equal actual tests are next.
       No game design or milestone change. No user action is needed.
 
 Earlier checkpoints (their next actions can be superseded):

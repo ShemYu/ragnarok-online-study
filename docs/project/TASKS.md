@@ -51,8 +51,10 @@ positive test-process closure match. No body execution/browser/content gate.
 Next bind actual observed statuses and final effects into the diagnostic inputs.
 [Claude submission preserved and worker released](reviews/2026-10-23-T07.006.002.md#claude-authored-submission-preserved-and-settled-worker-released):
 exact three paths/commit/full bytes, clean worktree; Grok remains active.
-Shared pure caller final-publication deadline correction awaits Root review;
-neither candidate has run or been selected.
+[Shared runner and strict return correction qualify](reviews/2026-10-23-T07.006.002.md#shared-pure-verifier-source-and-final-return-correction-qualify):
+29pins/19caller groups/two exact deadline assertions/full inverses. Profile's
+expect_native Boolean explicitly corrected to false; equal notice and full
+candidate review/bindings/admission remain. Neither candidate has run or been selected.
 
 Earlier T07.007.011.005 support gate: [corrected private extraction/full Root
 payload audit pass](reviews/2026-10-22-T07.007.011.005.md#corrected-private-extraction-and-complete-root-payload-audit-pass),

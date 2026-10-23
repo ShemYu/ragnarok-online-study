@@ -53,9 +53,11 @@ Original game/save/settings and internet connection stay preserved.
 
 [Claude's authored submission is preserved and its settled worker released](reviews/2026-10-23-T07.006.002.md#claude-authored-submission-preserved-and-settled-worker-released).
 Grok remains active. Neither candidate is executed or installed. Independent
-source review finds one final-report deadline gap in the shared pure caller;
-the two-assertion correction awaits Root review. The separate expect_native
-metadata correction and equal provider notification precede actual runs.
+source review found one final-report deadline gap in the shared pure caller;
+[Root now qualifies its two-assertion correction and the shared runner](reviews/2026-10-23-T07.006.002.md#shared-pure-verifier-source-and-final-return-correction-qualify),
+29full pins/complete inverses. The profile expect_native metadata Boolean is
+explicitly corrected to false; equal provider notification, full candidate
+source review, exact bindings and separate admission precede actual runs.
 
 ## Recent verification history
 
