@@ -37,8 +37,10 @@ CURRENT (23 Oct):
       Failed run kept; full Root integrity/closure audit passes.
   [V] Official-download/file-integrity basis checked for this local test.
       No certificate or notarization claim; ownership rules stay strict.
-  [V] Exact 17-check architecture source reviewed; one run admitted.
-  [>] Bind/run once/full audit, then exact owned game-trial bindings.
+  [V] All 17 architecture checks pass; complete Root audit passes.
+      419 full pins, 677 nodes, 18 owned test processes/groups gone.
+  [V] Minimal test-browser launcher source checked; clocks stay strict.
+  [>] Next: exact controller bindings/preflight, then one quest/map trial.
       No test browser has launched.
   [V] On-disk navigation table read/audit pass: empty table, 22 bytes.
       Served table/browser winner and actual route still unknown.

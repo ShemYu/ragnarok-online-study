@@ -11,16 +11,19 @@ positive tool/caller/group closure match; no verify/lipo/browser command ran.
 [Root explicitly revises this test artifact's local admission basis](reviews/2026-10-22-T07.007.011.005.md#explicit-cft-local-provenance-basis-revised):
 22pins/four primary resources, exact official object/generation/checksums and
 full payload integrity. No certificate/seal/notarization claim or OS bypass.
-[Architecture-only source qualifies; one17-command operation is admitted](reviews/2026-10-22-T07.007.011.005.md#architecture-only-source-qualifies-and-one17-command-operation-is-admitted):
-Root26full pins/16literal changes/full inverse/four unchanged seams. Bind this
-HEAD/four headers, run once under180/150s and audit complete results. Then finish
-exact launcher/controller bindings before any owned game trial. Failed51 stays.
+[All17architecture observations and complete Root audit pass](reviews/2026-10-22-T07.007.011.005.md#all17architecture-observations-and-complete-root-audit-pass):
+actual caller0/2.384s,419full pins/all677nodes/17single arm64 results, complete
+original guards/streams and18owned process/group closures. Failed51 stays.
+[Minimal CfT launcher source qualifies](reviews/2026-10-22-T07.007.011.005.md#minimal-cft-composed-launcher-source-qualifies):
+15pins/five literal groups/full inverse/seven unchanged clock/ownership spans.
+Next exact parent/proxy/controller/CDP-product bindings and fresh protected-state
+preflight, then one existing bounded quest/map observation. No browser launched.
 
 [One on-disk navigation TABLE read and complete Root audit pass](reviews/2026-10-23-T07.006.001.md#one-on-disk-table-read-and-complete-root-audit-pass):
 actor0/0.079s,18full pins/22bytes and stable brackets. Exact inert text declares
 an empty Navi_Link_Server table. Owner stays recorded_candidate_only; current
-serving, build inputs, browser winner and route remain unknown. A bounded
-independent pure portal-routing comparison brief is being prepared; no patch.
+serving, build inputs, browser winner and route remain unknown. Next review a
+bounded independent pure portal-routing comparison brief; no patch is installed.
 
 Functionality remains first; **4/14 parent checks, about29%**. All82functional
 resource gaps remain open. No full-game scope change or new user decision.

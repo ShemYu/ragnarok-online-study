@@ -7,9 +7,11 @@ Task owner: coordinator unless dispatched. Updated: 2026-10-21. The user has aut
 Current support: [first publisher-gate refusal/full Root audit](reviews/2026-10-22-T07.007.011.005.md#first-signature-display-refuses-the-publisher-assumption-and-full-failure-audit-passes)
 and [explicit corrected local CfT basis](reviews/2026-10-22-T07.007.011.005.md#explicit-cft-local-provenance-basis-revised).
 372failure-audit pins/677nodes preserved,22research pins/four primary resources;
-[Architecture-only source/admission qualifies](reviews/2026-10-22-T07.007.011.005.md#architecture-only-source-qualifies-and-one17-command-operation-is-admitted),
-26pins/16literal changes/full inverse/four unchanged seams. Bind/run once/full
-audit next, then exact owned game-trial bindings. Failed51 remains unchanged.
+[All17architecture observations/full Root audit pass](reviews/2026-10-22-T07.007.011.005.md#all17architecture-observations-and-complete-root-audit-pass),
+419pins/all677nodes/17single arm64/18positive owned closures; caller0/2.384s.
+[Minimal CfT launcher source qualifies](reviews/2026-10-22-T07.007.011.005.md#minimal-cft-composed-launcher-source-qualifies),
+15pins/five changes/seven unchanged witnesses. Exact runtime bindings/preflight
+next; no browser launch. Failed51 remains unchanged.
 [One on-disk navigation read/full Root audit pass](reviews/2026-10-23-T07.006.001.md#one-on-disk-table-read-and-complete-root-audit-pass),
 18pins/22B/empty table, owner/served association unknown; independent pure fix
 brief next. Neither browser/game nor parent/content acceptance advances.
