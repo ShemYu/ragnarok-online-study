@@ -62,7 +62,9 @@ actual common-clock witness are the current next actions. No goal change or
 user decision is needed.
 
 Grok finishes independently; no result is shared with it. Its equal verification
-and the later separately admitted host-clock witness remain; no game retry follows.
+remains. [One bounded actual two-exec clock witness is now admitted](reviews/2026-10-23-T10.005.001.md#one-actual-two-exec-clock-witness-admitted)
+on the qualified Claude basis, with all game actors excluded. Actual result and
+full Root audit remain; no game retry follows.
 
 ## Recent verification history
 
