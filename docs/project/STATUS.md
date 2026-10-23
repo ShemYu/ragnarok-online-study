@@ -114,7 +114,7 @@ Claude21tests/Grok16reported groups pass with valid original guards and full37pi
 audit. [Selected source/handoff is corrected and qualified](reviews/2026-10-23-T10.007.md#selected-source-corrected-and-qualified-before-integrated-check);
 NPC/mod/DB bytes and test logic are unchanged. [Committed2734d8f passes all21
 integrated source tests/full19pin audit](reviews/2026-10-23-T10.007.md#integrated-source-check-passes).
-Next bind exact installed-image SQL inputs and verify isolated server loading
+Next verify isolated server loading
 and persistence before user evaluation. Thirty input files/78full Root pins, collision/import and
 reference-state boundaries qualify. [Fresh installed quest DB source capture/audit
 passes](reviews/2026-10-23-T10.007.md#current-installed-quest-db-source-closure-verified-read-only):
@@ -123,9 +123,16 @@ container/owners preserved, valid original G/clean retirement. Actual parser/DB
 fixture, character ownership and persistence stay unrun. In parallel,
 [T10.008 supported Chinese System-table tool is frozen and Root-qualified](reviews/2026-10-23-T10.008.md#equal-source-task-personally-qualified-and-frozen):
 16real input files/36full pins/12source joins, no module/config patch.
-[Both actual independent generator/test/runbook workers are live](reviews/2026-10-23-T10.008.md#both-actual-independent-implementations-dispatched)
+[Both actual independent generator/test/runbook workers were dispatched](reviews/2026-10-23-T10.008.md#both-actual-independent-implementations-dispatched)
 from common bcaa466 while Root verifies the corrected NPC and prepares isolated
-SQL/map proof with an independent Astra source review. This successful
+SQL/map proof. [Current SQL source capture and corrected fixture-source review
+pass](reviews/2026-10-23-T10.007.md#current-sql-inputs-and-corrected-fixture-source-personally-qualified):
+two full SQL files/17pin runtime audit;44full fixture/source pins/65span checks.
+Bind actual existing CLI/Engine/image/isolation/lifecycle support and fresh
+guest-readable material before creation. The parser error veto is mandatory
+even if a malformed NPC appears registered. [Claude text tool is submitted,
+preserved and released; Root reproduces two path refusals that fail](reviews/2026-10-23-T10.008.md#claude-submitted-and-released-root-reproduces-a-refusal-defect).
+Grok remains live; compare both and repair before installation. This successful
 fixed diagnostic uses reproduced private-loader routing:0→5520own keys, only
 16912/21001inspected, original lazyInit not executed; no ordinary session,
 effective winner, MainQuest/story or full-content acceptance. Functionality
