@@ -877,3 +877,23 @@ Fresh257record/3page inventory4active/247released/6retained/0reclaimable,
 All nine prior attention flags have literal no-action; four user-owned
 retentions and two transferred/no-terminal records stay untouched.
 Full goal and4/14 parent-check progress unchanged; all82gaps still open.
+
+## One actual pending backend control admitted
+
+Root independently authors one fixed private control for the specific
+pending-to-completion coverage gap. It imports the byte-identical reviewed
+B2U module, opens one actual producer slot, starts actual settle/poll while
+unfinished, then joins the same Request/Response/finished via one finite
+1ms timer. It requires no early event, one exact literal canonical event,
+zero faults, one original bound callback, and no later duplicate publication.
+Finally clears its own timer. No production change, second ledger, selector,
+HTTP, new framework or replay of the eight passed groups.
+
+Qualification55725B/19854d8a355d54833ffac054f1434b7c2e0032fe1711aa08214d607e16052e81
+pins the unchanged62401B UI, fixed Node entry, source/frozen artifacts,
+Node121911744B/9d050fd455b56426e25d4d603c7c501cbb2630348e836cf221dcce748e90588a,
+original G/S and independent complete expected output. After this Git
+checkpoint admit exactly one original G10s/512MiB/grace3/no-native/1MiB
+call, full stream/receipt/guard/source/retirement/context checks. No actor.
+The actual live response dispatcher remains source-inspected only; this
+single helper check cannot establish native backend/auth/SQL/game/save.

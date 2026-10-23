@@ -44,6 +44,7 @@ Parallel:
   full839spawn -> budget PASS; profile/oracles frozen -> Grok source LIVE
 
 B2D/B2U:all8 selected focused checks PASS; original Root error preserved.
+Root:one actual pending-producer poll check next; native game still open.
 B3:fresh21role fixture source LIVE; native binding/play test next.
 MuC/MuD:submitted+released, HOLD5findings -> finite UI/driver fixes ready.
 MuCfix/MuDfix/B3/F839:four actual Grok source workers live.\nCurrent4active/247released/6retained records; no settled owner awaits cleanup.
