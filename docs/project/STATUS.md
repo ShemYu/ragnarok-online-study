@@ -7,15 +7,15 @@ Updated: 2026-10-24 JST. Coordinator: Codex. Active scope: **execute the documen
 Functionality remains first; **4/14 parent checks, about29%**. All82functional
 resource gaps remain open. No full-game scope change or new user decision.
 
-**Live next action:** [N9 actual shared controls pass; narrow Grok binding selected](reviews/2026-10-23-T10.007.md#actual-n9-shared-controls-pass-and-grok-narrow-binding-selected).
-Both providers pass36total source-fixture observations. Root selects Grok's
-smaller exact raw-name binding for source integration with N8Grok metadata.
-A fresh game trial must still confirm the NPC behavior; trial8 cause is unknown.
-[Both D9 submissions are retained and released; caller finite controls admitted](reviews/2026-10-23-T10.007.md#d9-source-pair-settled-and-caller-postcheck-controls-admitted).
-Root next runs the5inert caller failure-path controls. Independent D9 source
-audits and C4 Claude/Grok GET-only binary source proposals run in parallel.
-No new game/browser/Engine capture admission. Prior stopped-image refusal is
-consumed and preserved; all originals match. Normal9 data is exact/unbound.
+**Live next action:** [Caller5 actual controls pass; integrated NPC syntax admitted](reviews/2026-10-23-T10.007.md#caller-postcheck-actual-controls-pass-and-integrated-npc-syntax-admitted).
+Root runs one bounded syntax-only check on the integrated N8/N9Grok UI.
+Both NPC source-fixture candidates already pass36total observations; a fresh
+game trial must still confirm dialogue. Trial8 cause stays unknown.
+[C4Claude failed without output and reports a usage limit](reviews/2026-10-23-T10.007.md#c4-claude-fails-without-output-provider-limit-reported);
+released, no retry. C4Grok continues; comparison lacks a Claude candidate.
+Both D9 proposals are retained/released. Supplemental source audits expose
+identity/fault-retention gaps; Root prepares a focused correction task.
+No new game/browser/Engine capture admission. Normal9 data is exact/unbound.
 Dictionary abort, actual resource routes and NPC dialogue remain open.
 
 **Prior native parser checkpoint:** [All three isolated native parser cases now pass Root verification](reviews/2026-10-23-T10.007.md#actual-three-case-native-parser-trial-and-complete-root-audit-pass):
