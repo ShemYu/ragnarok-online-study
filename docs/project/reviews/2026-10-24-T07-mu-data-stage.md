@@ -361,3 +361,33 @@ preserve actual receipt/streams/status. No calls yet, no larger guard or
 new control family. Dynamic async response dispatcher/actual cleanup remain
 outside helper coverage; source paths are inspected. No native/map/render/
 1285placements/105bodies/fullgame credit or new actor admission.
+
+## Actual six MuC focused calls pass complete Root audit
+
+All six fixed actual Node calls return natural0/positive original
+G10s/512MiB/grace3/no-native/1MiB, with no signals. Elapsed seconds are
+0.130849/0.110464/0.115565/0.258286/0.111635/0.167689. Largest observed
+sampled owned RSS is68780032B; sampling is not an unsampled peak claim.
+Root verifies the full independent literal UTF-8 stdout objects/LF and
+empty stderr, complete streams/receipt/limits, original S retirement,
+current PID/group absence,223 full source/executable/artifact pre/post
+pins, FD/thread/HEAD/clean caller context. Audit122891B/
+5aea83ab8e49b7a448e223699b7e9766705648b6ee8276998211041a7df73058
+is PASS/errors[]. No failed guard or natural nonzero is rewritten.
+
+Root also reads independent5202B oracle report/
+115732e9d6b40a13fdc4f7abc8083571849938f53285f908fd18c0978badc3b9,
+verifies all20stable input pins/20closed outputs and exact six literal raw
+oracles8499B/f194844d55fdd133b7edfc57db516f5616a305ecb68ac2a4cbbc460a163fe421.
+Its complete values match Root's independently fixed expectations. Before
+any G call, a Root-only validation mistakenly serialized sort-key-loaded
+expectation dictionaries in stored key order. That assertion refused before
+G/Node/any candidate execution; empty actualRoot1 is retained. Root2 fixes
+only explicit expected key order id/passed/failures,
+keeps source/entries/guard/S unchanged, then executes the six once.
+
+The three source fixes plus six meaningful helper groups now qualify.
+This does not dynamically exercise the async response dispatcher/browser
+cleanup, load/draw the105 assets or establish1285 actual placements. MuD
+finite cleanup source/composition and one fresh separately admitted scene
+remain next. No parent check/resource-gap/gameplay credit or actor admission.

@@ -1032,3 +1032,19 @@ admission retains all separate lease/ownership/current-world requirements.
 
 [MuC final source qualifies and six focused calls are admitted](2026-10-24-T07-mu-data-stage.md#muc-final-source-qualified-six-focused-calls-admitted).
 No actual call or actor has yet run at this checkpoint. Full goal unchanged.
+
+## MuC six checks pass and B3 finite repair actual ready
+
+[Root verifies all six actual focused MuC checks and223fullpins](2026-10-24-T07-mu-data-stage.md#actual-six-muc-focused-calls-pass-complete-root-audit),
+under unchanged G/S; no native/map/game acceptance follows.
+
+The bounded B3 repair starts after2ad53c6 as actual Grok
+task268976293466/ctxb44950eeb2ca, terminald7ee6951161141dfbb48ccc2d10b46e7.
+Ready/input_accepted receipt2307B/
+d9773a86dbc713821cbd0c7b2659ed1d1a5ae5ae2bf942b46a3385ab863f435f.
+Provider Grok, model/effort null; no cost comparison claim.
+Full259record/3page fleet11 verifies4active/249released/6retained/0reclaimable,
+10099B/1fed2fa4514e80f5e7b604551b96b21ae978c91ffb7e2e76946cd52a368ca2f3.
+B3fix/B4/MuD/F839 all live; nine historical flags still nextAction:none,
+with existing user-retained ownership preserved. No unowned settled worker.
+Full Modern/Renewal scope and4/14 parent count remain unchanged.

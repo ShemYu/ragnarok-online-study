@@ -14,14 +14,15 @@ complete failure/preservation audit passes; no B200assignment/reconnection or
 parent-check credit. 4/14 is a check count, not measured full-content coverage.
 
 **Parallel work:** [B4 actual Grok ready; B3 bounded source repair frozen](reviews/2026-10-24-functional-priority.md#b4-actual-ready-b3-finite-repair-and-muc-six-calls-admitted).
-Current258record/3page fleet10:3active/249released/6retained/0reclaimable.
-Actual live Grok tasks are F839 exporter, MuD cleanup and B4 runtime materializer.
+Current259record/3page fleet11:4active/249released/6retained/0reclaimable.
+Actual live Grok tasks are F839 exporter, MuD cleanup, B4 runtime materializer
+and B3 bounded server-fixture repair.
 MuC and B3 prior owners are released/archive captured before acknowledgment.
-B3 four source defects/private modes remain HOLD; its finite repair starts
-after this checkpoint. All82functional resource gaps remain open.
+B3 four source defects/private modes remain HOLD; actual Grok finite repair
+is ready after2ad53c6. All82functional resource gaps remain open.
 
-[MuC three fixes source-qualified; same six focused calls admitted](reviews/2026-10-24-T07-mu-data-stage.md#muc-final-source-qualified-six-focused-calls-admitted).
-No actual six-call result or fresh map actor yet. MU1 exact105body private
+[All six actual MuC focused calls pass complete Root223pin verification](reviews/2026-10-24-T07-mu-data-stage.md#actual-six-muc-focused-calls-pass-complete-root-audit).
+Three source fixes qualify; no fresh map actor/render result yet. MU1 exact105body private
 stage remains verified; retained water geometry0 requires no extra assets.
 Actual scene load/draw still waits for separately qualified MuD composition.
 

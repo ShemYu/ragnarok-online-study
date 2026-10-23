@@ -48,9 +48,9 @@ Root:actual pending-producer poll PASS/116pins; native game still open.
 B3:submitted/released; HOLD4findings/modes -> finite repair admitted.
 B4:existing64body source actual Grok ready after8171b27.
 MuC/MuD:submitted+released, HOLD5findings -> finite UI/driver fixes ready.
-MuC:three fixes source-qualified -> six focused calls admitted, not run.
-MuDfix/B4/F839:three actual Grok sources live; B3repair starts next.
-Current3active/249released/6retained/0reclaimable across258records.
+MuC:three fixes + all six actual focused calls PASS/223pins.
+MuDfix/B4/F839/B3fix:four actual Grok source workers live.
+Current4active/249released/6retained/0reclaimable across259records.
 MuC/B3 prior owners released/archive beforeACK; no cleanup debt.
 Four actual user-retained resources stay;2transferred records have none.
 Trial9 stays failed; known faults stay failed. No new actor admitted.
