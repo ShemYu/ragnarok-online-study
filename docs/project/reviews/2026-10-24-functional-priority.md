@@ -116,3 +116,44 @@ Six earlier heartbeats and CLEAN1settlement are processed; the returned next
 message is only C7 implementing heartbeat. Original Chrome/profile/settings/
 IME/mute/network/app/saves remain untouched. Root keeps source verification,
 local Git checkpoints and final user evaluation separate.
+
+
+## B1 genuine isolated backend source task frozen
+
+Root reads the complete4830B Astra preparation/SHA256
+7908d059879ac61c36a9a170841c37080f38157a9b5a760d49675af100b2d8d4
+and checks actual Engine role/material/SQL paths and the two client URL sites.
+One new native web container reuses the fresh fixture DB/volume:21material roles,
+three exact SQL import files, explicit web branch/config/four SQL handles,
+exact UI-origin CORS and fresh loopback port. Cleanup must stop/remove web
+before DB or retain DB when web state is unknown. Original budgets stay fixed.
+Web load may insert user_configs; save authorizes/merges/replaces. Keep those
+changes separate from quest/inventory/variables/zeny preservation. No dummy
+responses, original DB writes, auth bypass, proxy or rebuild fallback.
+
+Root also retains matching upstream auth source/header from the same fixed
+commit: two GET bodies2367/253B; manifest1328B/SHA256
+d31003da052aa877a83df0a5b535ab17987910fd7f3fc6d6fd34c3c083d78f22.
+Its native save checks account/token/enabled login state. Installed support
+remains unknown; ELF markers/upstream/readiness200 alone cannot qualify it.
+Future native browser HTTP/JSON/SQL roundtrip is required. If unchanged hotkeys
+skip save, no save claim; changed-setting persistence needs genuine UI change
+and reload. Unsupported CORS/auth/schema stops this selected option.
+
+B1 owns new private Engine/backend-driver candidates, web/config/material
+sources, exact two client URL edits and at most8unexecuted changed-path groups.
+F1 independently owns gameplay/logout changes from the same immutable driver;
+Root composes and verifies them later. No sibling output read or live action.
+The full13174290B client donor is copied/pinned; exact2URL sites are192B each.
+Current corrected inter template has its five DB password occurrences redacted;
+no plaintext secret is included. New web SQL handle makes DBIP joins5to6.
+
+Frozen37payloads/72fullpins plus manifest: B1-native-web-backend-inputs-root-1/
+MANIFEST_ROOT.json75944B/SHA256
+eb014e82c460203b92ae3ffb639292a7914fb0a44f58c0be2aaecf1a1d26c3a6;
+brief6008B/SHA256
+8e08c5b70b1dc32ead272acb9f022211bd0f04e613c51c33cb9bbe907be61a00.
+Full before/after source copies/pins pass; after this checkpoint actual Grok
+may author the isolated UNBOUND candidate only. Root personally qualifies,
+tests and freshly binds later. No backend/native/game PASS or actor admission.
+This task addresses a real functionality gap rather than adding diagnostics.

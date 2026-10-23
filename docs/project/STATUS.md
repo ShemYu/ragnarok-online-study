@@ -22,8 +22,9 @@ No binary capture or fresh game actor is admitted. Finish the frozen scopes;
 additional diagnostics need a concrete question that selects a real repair.
 F1 does not automatically wait for all dictionary repairs. Its known faults
 remain failed; genuine native logout/all3WSclosure/fresh SQL gate continuation.
-New save405 or uncertain state stops. Root separately prepares genuine backend
-routing and the mu_fild01 client/resource binding for actual content work.
+New save405 or uncertain state stops. B1 genuine isolated backend
+source packet is frozen for a sixth Grok dispatch; Root separately freezes the
+mu_fild01 client/resource binding for actual content work.
 Provider comparison remains incomplete; effective model/cost unknown.
 
 The [full-spawn output-budget measurement passes](reviews/2026-10-24-T06-full-spawn-output-budget.md#actual-bounded-measurement-and-root-audit-pass):
