@@ -48,16 +48,23 @@ and475audit/artifact pins. All four test containers and their bridge are now
 API-absent; the owned database volume is retained. Original game owners,
 listeners, five containers and mounts match before/after. The trial stays failed.
 
-**Parallel repair:** [Two actual Grok/Claude pairs investigate startup and
-cleanup](reviews/2026-10-23-T10.007.md#two-parallel-startup-repair-pairs-dispatched).
-Both Claude reports are preserved/released; both Grok reports remain pending
-at this checkpoint. Root confirms a stock-config omission exposes the clan
-table-name defaults and missing inter-server YAML setting. No schema migration
-or game-goal change is supported. The map SQL stall remains a separate unknown.
+**Parallel repair reviewed:** [Both pairs finish; useful corrections selected](reviews/2026-10-23-T10.007.md#both-startup-repair-pairs-reviewed-and-astra-timing-correction-verified).
+Config proposals score18/20 each; cleanup Claude17/20/Grok15/20. Root checks
+186source/artifact pins and prepares the inert three-key inter template fix.
+Grok's dependency hold is useful alongside Claude's nonzero-exit verdict handling;
+neither raw cleanup snippet is admitted. Astra/Root confirm map received SIGTERM
+only14.75ms after its start response, so the first trial cannot establish a
+sustained healthy-DB connection failure. Root also captures the storage YAML
+and confirms its import is missing; bind that full closure before retrying.
+All four workers are preserved/released:186released/four user-retained/zero
+reclaimable. No schema migration or goal change is supported.
 
-**Next:** finish both equal repair comparisons, verify the smallest configuration
-and cleanup corrections, then checkpoint before admitting a changed isolated
-trial. A199 refusal, B200 cancel/dialogue grant/repeat and genuine relog remain
+**Next:** implement and source-qualify the bounded Engine correction: explicit
+storage YAML closure, sequential char readiness/current-life check before map,
+nonzero failure cleanup and holding DB while a dependent server is unresolved.
+Checkpoint before separately admitting a changed fresh trial. The corrected
+inter template is source-only, not installed. A199 refusal, B200 cancel/dialogue
+grant/repeat and genuine relog remain
 unverified. Restart, inactive/later-ID guards, installed4848+3assembly/ordinary
 route and normal Chinese journal stay open. No unchanged trial, parser or
 source-test rerun. T10.007/T10.008 and all82functional gaps remain open.
