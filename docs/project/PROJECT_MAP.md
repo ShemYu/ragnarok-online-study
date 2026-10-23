@@ -40,7 +40,10 @@ CURRENT (23 Oct):
   [V] All 17 architecture checks pass; complete Root audit passes.
       419 full pins, 677 nodes, 18 owned test processes/groups gone.
   [V] Minimal test-browser launcher source checked; clocks stay strict.
-  [>] Next: exact controller bindings/preflight, then one quest-loader test.
+  [V] Shared bindings checked: 51 full pins / 42 exact source slots.
+      Expected browser product will be checked during the actual test.
+  [>] Fresh read-only game preflight admitted; run once and audit next.
+      Then finish actual bindings for one quest-loader test.
       No map/render gate in that test. No test browser has launched.
   [V] On-disk navigation table read/audit pass: empty table, 22 bytes.
       Served table/browser winner and actual route still unknown.

@@ -19,6 +19,13 @@ original guards/streams and18owned process/group closures. Failed51 stays.
 Next exact parent/proxy/controller/CDP-product bindings and fresh protected-state
 preflight, then one existing bounded quest-loader diagnostic. It has no map or
 render gate and cannot prove gameplay/story works. No browser launched.
+[Shared binding recipe/product expectation now qualify](reviews/2026-10-23-T10.005.md#cft-shared-binding-recipe-and-finite-product-expectation-qualify):
+51full pins/42literal slots/eight source spans; product remains source-predicted
+with strict actual mismatch refusal.
+[Fresh same-world preflight source qualifies; one read-only call is admitted](reviews/2026-10-23-T10.005.md#fresh-same-world-preflight-source-qualifies-and-one-read-only-call-is-admitted):
+14pins/seven metadata slots/full inverses, unchanged world/guard. Next run once
+under this exact introducing HEAD, audit complete outputs and checkpoint. No
+browser or reader lifecycle is admitted by that preflight.
 
 [One on-disk navigation TABLE read and complete Root audit pass](reviews/2026-10-23-T07.006.001.md#one-on-disk-table-read-and-complete-root-audit-pass):
 actor0/0.079s,18full pins/22bytes and stable brackets. Exact inert text declares

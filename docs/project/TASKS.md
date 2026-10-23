@@ -20,6 +20,11 @@ six equal readonly inputs/eight groups;
 from44afe8e, identical actual specs/BASE/task/profile, both live. Root's equal
 pure execution follows submission. No patch installed. The browser lane is
 a quest-loader diagnostic, with no map/render/content acceptance.
+[Shared CfT binding recipe qualifies](reviews/2026-10-23-T10.005.md#cft-shared-binding-recipe-and-finite-product-expectation-qualify),
+51pins/42slots; product is a source-predicted strict expectation.
+[Fresh preflight qualifies; one read-only call is admitted](reviews/2026-10-23-T10.005.md#fresh-same-world-preflight-source-qualifies-and-one-read-only-call-is-admitted),
+14pins/seven metadata changes. Run once under introducing HEAD, then full Root
+audit; no browser launch/native lifecycle or content acceptance.
 
 Earlier T07.007.011.005 support gate: [corrected private extraction/full Root
 payload audit pass](reviews/2026-10-22-T07.007.011.005.md#corrected-private-extraction-and-complete-root-payload-audit-pass),
