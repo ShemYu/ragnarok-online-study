@@ -38,13 +38,20 @@ All four plans are preserved/released. No raw restart recipe is admitted;
 the actual earning receipt is still a prerequisite. Fleet182released/four
 user-retained/zero reclaimable. These are plan comparisons, not runtime passes.
 
-**Next:** qualify the composed driver/parent, bind fresh endpoints and
-admit one bounded real-player trial: A199 refusal, B200 cancel/dialogue grant/
+**One player trial admitted:** [Composition/parent source and actual UI syntax
+checks pass](reviews/2026-10-23-T10.007.md#composed-player-driver-and-parent-qualified-one-first-player-trial-admitted):
+256full pins, fixed native/package/client closure, actual Node syntax exit0/
+valid original guard, fresh17-role materials and normal config. No server,
+browser session, NPC action or save result yet. Final input/head/lease binding
+must pass immediately before the single call.
+
+**Next:** bind the admitted input and execute the bounded real-player trial:
+A199 refusal, B200 cancel/dialogue grant/
 repeat with A untouched, then genuine relog. Restart, inactive/later-ID guards,
 installed4848+3assembly/ordinary route and normal Chinese journal stay explicit
 gates. The independent full-import/restart proposals above can inform their
-later implementation after the first real grant/relog. Both main composition
-drafts are under Root review; no new server/browser/SQL operation yet.
+later implementation after the first real grant/relog. The trial keeps the
+owned SQL volume on success or failure; no unchanged retry is admitted.
 No unchanged parser/source reruns. T10.007/T10.008 remain open.
 
 **Portal guidance:** [actual equal comparison selects Claude20/20 over
