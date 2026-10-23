@@ -91,9 +91,11 @@ attempt literal. No actor or game code runs in this source/data materialization.
 passed before the single4988c8d call. Its admission and actual-root-2 namespace
 are now consumed and immutable; the existing inputs/outputs are not fresh.
 
-**Next:** dispatch the independent [T10.005.005 plans](tasks/T10.005.005.md)
-from the introducing frozen-contract checkpoint, then personally check both.
-[Equal14-input/six-group contract and readonly package qualify](reviews/2026-10-23-T10.005.005.md#frozen-contract-and-equal-inputs); no worker or live trial runs yet. [Root-5 actual trial/full144pin audit](reviews/2026-10-23-T10.005.md#actual-lua-startup-repair-loads-quest-data-but-optional404-lacks-terminal):
+**Next:** collect and personally check both independent [T10.005.005 plans](tasks/T10.005.005.md).
+[Both real workers are dispatched/live](reviews/2026-10-23-T10.005.005.md#actual-independent-plan-pair-dispatched)
+from dd460a3, using the same frozen14inputs/six groups and disjoint reports.
+Claude requested/effectiveOpus5.5high; Grok configured default/banner4.7high.
+No new implementation or live trial is admitted. [Root-5 actual trial/full144pin audit](reviews/2026-10-23-T10.005.md#actual-lua-startup-repair-loads-quest-data-but-optional404-lacks-terminal):
 Lua startup now succeeds; five genuine Wasm chains close, two native requests
 return, and a report observes5520own keys plus the Chinese21001 row. Full
 diagnostic staysFAILED: optional Worker404 has no terminal; allEnded blocks

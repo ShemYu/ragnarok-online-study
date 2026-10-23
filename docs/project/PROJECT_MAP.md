@@ -156,7 +156,8 @@ CURRENT (23 Oct):
       Separate shutdown socket error also remains. No content acceptance.
   [V] Root144-pin audit / 15test PIDs / 4groups / original worlds pass.
   [V] T10.005.005 freezes14equal inputs / six groups / readonly source plans.
-  [>] Dispatch both real C/G plans, compare, then bounded correction.
+  [V] Both real C/G plans dispatched from dd460a3; exact workers live.
+  [>] Collect/check/score both reports, then route the bounded correction.
       Admission consumed; failed namespace immutable; no retry admitted.
       No game patch is installed. Parent progress stays 4/14.
       No game design or milestone change. No user action is needed.
