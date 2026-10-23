@@ -37,6 +37,10 @@ candidate reads. Actual C/G submission and Root's equal execution remain.
 the fresh actual namespace; no inputs/outputs/guards or browser execution.
 Current quest responses/effects/config/assembly, proxy/parent and separate
 live admission remain; no scope/content acceptance changes.
+[Exact diagnostic projection/nine routes qualify](reviews/2026-10-23-T10.005.md#exact-diagnostic-projection-and-nine-request-source-set-qualify),
+23pins/16spans. [Finite body acquisition source/return correction qualify](reviews/2026-10-23-T10.005.md#nine-body-acquisition-source-and-observed-return-correction-qualify):
+26actor groups/two caller edits/full inverses; actual return<48s required.
+Bind fresh copies and commit separate data-only admission next; no GET/browser.
 
 Earlier T07.007.011.005 support gate: [corrected private extraction/full Root
 payload audit pass](reviews/2026-10-22-T07.007.011.005.md#corrected-private-extraction-and-complete-root-payload-audit-pass),

@@ -45,7 +45,9 @@ CURRENT (23 Oct):
   [V] Fresh read-only game preflight and full Root audit pass: 4.951s.
       All 17 pins / 5 archives / current game owner and cleanup checked.
   [V] Final launcher/controller copies checked; only bindings change.
-  [>] Bind exact quest responses/effects and finish proxy/parent inputs.
+  [V] Exact nine-resource source set and finite reader source checked.
+      Actual return-time check corrected; no resource request yet.
+  [>] Bind/admit one resource read; finish proxy/parent inputs after audit.
       Then separately admit one quest-loader test.
       No map/render gate in that test. No test browser has launched.
   [V] On-disk navigation table read/audit pass: empty table, 22 bytes.
