@@ -4,21 +4,20 @@ Task owner: coordinator unless dispatched. Updated: 2026-10-21. The user has aut
 
 ## Dependency map
 
-Current T07.007.011.005 support gate: [corrected metadata inspection/full Root
-audit pass](reviews/2026-10-22-T07.007.011.005.md#corrected-zip-metadata-inspection-and-complete-root-audit-pass),
-673entries/15small bodies/23full pins. Extraction/signature/architecture gates
-are next; no browser launch or parent completion. [Navigation historical-index
-body qualifies independently](reviews/2026-10-23-T07.006.001.md#historical-index-body-and-complete-root-data-review-qualify),
-eight pins/all7825LF; current selection stays unknown.
+Current T07.007.011.005 support gate: ZIP metadata passes; [first extraction
+fails its parent assumption and complete failure audit passes](reviews/2026-10-22-T07.007.011.005.md#first-extraction-refuses-implicit-parents-and-complete-failure-audit-passes),
+21pins/whole archive preserved/owned tests gone/no payload output. Exact four
+implicit-directory source correction/review is next, same byte/time bounds.
 
-Follow-up: [extractor source/independent review qualify](reviews/2026-10-22-T07.007.011.005.md#bounded-payload-extraction-source-and-independent-review-qualify),
-ten pins/ten spans; its separate fixed-caller follow-up is below. [Four-leaf generation
-observation admitted](reviews/2026-10-23-T07.006.001.md#ordinary-generation-contract-qualifies-and-one-four-leaf-read-is-admitted)
-after21pins/28spans/21stat checks; no TABLE read or owner-liveness claim.
+That follow-up now [qualifies with one fresh extraction admitted](reviews/2026-10-22-T07.007.011.005.md#exact-four-parent-correction-qualifies-and-one-fresh-extraction-is-admitted):
+33pins/12spans/exact5actor+7caller changes/inverses. Execute once in root-2;
+actual complete payload/signature/browser acceptance remains open.
 
-[Extraction fixed caller now qualifies and one actual call is admitted](reviews/2026-10-22-T07.007.011.005.md#fixed-extraction-caller-qualifies-and-one-payload-extraction-is-admitted),
-22pins/four reused sections/11independent spans. Bind once/run once; full Root
-payload audit and signature/architecture checks remain before browser use.
+T07.006.001: historical index qualifies; [four-leaf observation preserves an
+owner-schema refusal and Root audits all retained data](reviews/2026-10-23-T07.006.001.md#four-leaf-observation-refuses-an-incomplete-whitelist-and-root-audits-the-retained-data),
+nine pins/1242bytes/five spans. Retained choices disable the navigation mod;
+current generation inputs/TABLE/liveness remain unknown. Source schema and
+retained projection follow-up only; no implicit current read retry or repair.
 
 Functionality first: `T00 → T01 → T02 → T03 → T04 → T06 → T07 → T10`.
 

@@ -35,13 +35,15 @@ CURRENT WORK: quest data, missing story and map-load checks
 CURRENT (23 Oct):
   [V] Corrected ZIP metadata + full Root audit pass.
       All 673 entries, 15 small bodies and archive hash checked.
-  [V] Extractor source and independent review pass.
-  [V] Fixed caller reviewed; one private extraction admitted.
-  [>] Next: extract once, audit all payload bytes, verify signatures.
+  [!] First extraction stops at four omitted parent directory entries.
+      No archive open or output. Full failure/closure audit passes.
+  [V] Exact four-parent correction reviewed; one fresh call admitted.
+  [>] Next: extraction-2 and full payload audit. Same byte/time limits.
       Test browser has not launched.
   [V] Full historical navigation index checked: no Yggdrasil portal rows.
-  [>] Four small on-disk generation/choice reads admitted.
-      Current routing and generated-table provenance remain open.
+  [!] Four small reads finish; owner whitelist misses one field.
+      Failure preserved. Retained choice list disables navigation mod.
+  [>] Next: check that field from source; current generation stays open.
       Historical absence does not prove current absence.
 
 Earlier checkpoints (their next actions can be superseded):
