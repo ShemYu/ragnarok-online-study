@@ -18,7 +18,7 @@ Map loading            [Chapter 1 test passes; fruit test is open]
 Fruit presentation     [OPEN: browser test failed before scene loading]
 Quest file inventory   [PASS: all 3 files checked]
 Server + file binding  [PASS: current owner and 21 file checks]
-Active quest records   [Tool + 31 clock checks pass; real-loader trial next]
+Active quest records   [Tool + test setup checked; real-loader trial next]
 Existing text recovery [PASS: fixed 152-record tool integrated + checked]
 Missing story scripts  [OPEN: largest content risk]
 Full game test         [LATER: 82 functional resource gaps remain]
@@ -50,8 +50,11 @@ CURRENT (23 Oct):
   [V] Nine responses and complete Root audit pass: 11.849s / 4.36MiB.
       Three files return 200; six aliases return 404. No new extraction.
       18 effects / 7 parents / original owner / test cleanup all checked.
-  [>] Finish exact diagnostic data/configuration and proxy/parent bindings.
-      Then separately admit one quest-loader test.
+  [V] Diagnostic data/configuration/session and served-byte recipes checked.
+      68 full pins / 57 source spans / 8 exact edits + full inverses pass.
+      Nine retained bodies / 18 leaves / 7 parents match. No live test yet.
+  [>] Create and check inert served files, then finish proxy/parent bindings.
+      Refresh original-world checks; separately admit one quest-loader test.
       No map/render gate in that test. No test browser has launched.
   [V] On-disk navigation table read/audit pass: empty table, 22 bytes.
       Served table/browser winner and actual route still unknown.
@@ -75,7 +78,7 @@ CURRENT (23 Oct):
   [V] Unchanged Claude source integrated as 88577ae; three full blobs match.
   [V] Actual tracked-source verification/audit: 34 own + 53 common pass.
       Source-tool task self_verified; 28 pins / test cleanup checked.
-  [>] Quest response/session/assembly source check and remaining live bindings.
+  [>] Final served files and remaining live bindings for the quest test.
       No game patch is installed. Parent progress stays 4/14.
       No game design or milestone change. No user action is needed.
 

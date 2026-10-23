@@ -86,7 +86,12 @@ Root audit before source-tool self_verified; no live installation.
 [Integrated tracked-source run/full Root audit pass](reviews/2026-10-23-T07.006.002.md#integrated-actual-tracked-source-and-complete-root-audit-pass):
 34own/53common/caller0/valid guard,28full pins/complete sources/positive test
 closure. T07.006.002 source tool self_verified; ordinary runtime/game gates
-remain. Next browser response/session/assembly qualification independently.
+remain. [Browser response/session/assembly recipes now qualify](reviews/2026-10-23-T10.005.md#diagnostic-configuration-session-policy-and-served-byte-recipes-qualify):
+68full pins/57spans/eight substitutions/full inverses, nine bodies/18leaves/
+seven parents and all five served-byte predictions match. Two source-review
+schema failures remain preserved. Next inert served-file materialization,
+proxy/parent binding, fresh protected-world witnesses and separate live admission;
+no browser, installed patch or parent/content gate closes.
 
 Earlier T07.007.011.005 support gate: [corrected private extraction/full Root
 payload audit pass](reviews/2026-10-22-T07.007.011.005.md#corrected-private-extraction-and-complete-root-payload-audit-pass),

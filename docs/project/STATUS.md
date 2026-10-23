@@ -38,8 +38,18 @@ qualify](reviews/2026-10-23-T10.005.md#nine-body-acquisition-source-and-observed
 26actor groups/two caller edits/full inverses.
 [The one-shot admission](reviews/2026-10-23-T10.005.md#exact-nine-body-bindings-qualify-and-one-data-acquisition-is-admitted)
 is consumed; do not replay it. No acquired body is executed and no browser is
-admitted. Finish source-bound diagnostic configuration/assembly, proxy/parent bindings
-and protected original-world checks, then commit one separate live admission.
+admitted. [Diagnostic response/configuration/session and served-byte recipes now
+qualify](reviews/2026-10-23-T10.005.md#diagnostic-configuration-session-policy-and-served-byte-recipes-qualify):
+68full pins/57exact source spans/eight literal substitutions and complete donor
+inverses; all nine retained bodies rehashed,18leaves/seven parents joined.
+All five served-file byte predictions match. The two review-script schema
+failures remain preserved; no acquisition or runtime replay occurred. Root chose
+page-only policies for the optional favicon/PathFindingWorker routes and the
+shared nonsecret attempt ID; actual CDP sessions remain unknown.
+Next materialize and independently pin the five inert served files, bind
+proxy/parent inputs, refresh protected original-world checks, then commit one
+separate live admission. Only the two bound source files currently exist in the
+actual namespace; no served files, actor inputs/outputs or test browser exist.
 This is a fixed-ID quest-loader diagnostic with no map/render/ordinary
 story/play/save gate; passing it cannot close the full-game goal.
 
@@ -56,8 +66,8 @@ The shared runner's final-publication/return checks and explicit profile
 expect_native:false correction are committed. Both runs use the same runner
 policy/caps and corrected profile. All raw/corrected/integrated namespaces are
 consumed and immutable. Source-only browser
-response-value/session/assembly proposals are prepared and await Root review;
-no browser execution is admitted.
+response/session/assembly recipes are Root-qualified. Final materialization,
+proxy/parent bindings and live admission remain; no browser execution is admitted.
 
 ## Recent verification history
 
