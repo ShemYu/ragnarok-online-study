@@ -119,8 +119,10 @@ CURRENT (23 Oct):
       Both preserved/released; Root74-pin audit and18primary responses checked.
   [V] Corrected startup/real-response source materializes: 12 closed edits.
       Full inverse and9-pin Root audit pass; first inert token-reuse gap fixed.
-  [>] Existing24 controls + 8 focused startup/join groups, then fresh trial.
-      Controls have not run; no new live call is admitted yet.
+  [V] Existing24 case bodies + 8 new groups/30 variants qualify as source.
+      Root16 exact fragments / 13 pins / full driver+caller inverses pass.
+  [>] One pure32-group call admitted under unchanged guard; not yet run.
+      Audit actual controls/closure, then fresh full browser-trial binding.
       No game patch is installed. Parent progress stays 4/14.
       No game design or milestone change. No user action is needed.
 

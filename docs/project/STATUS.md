@@ -107,10 +107,15 @@ no runtime success or content closure is claimed.
 inverse/source audit](reviews/2026-10-23-T10.005.md#corrected-worker-bootstrap-source-materialization-qualifies).
 It changes12closed spans and preserves all other bytes. Independent review finds
 and Root fixes a reserved-token request-reuse gap before any test or actor runs;
-the first inert revision is retained as superseded. Controls remain unrun. Keep
-the existing24case bodies and add eight focused startup/join groups, including
-real protocol-error replies and token reuse before/after association. No browser
-trial is admitted by this source-only checkpoint.
+the first inert revision is retained as superseded.
+[The32group control source and fixed caller now qualify](reviews/2026-10-23-T10.005.md#finite32-worker-bootstrap-groups-qualify-and-one-pure-call-is-admitted):
+all24baseline bodies remain exact; eight new groups cover30fixed variants,
+including real reply-handler protocol errors and token reuse before/after join.
+Root checks16exact fragments,13full pins and driver/caller inverses. This
+introducing checkpoint admits one pure-control call in fresh controls-root-2
+with unchanged60s/512MiB/3s/1MiB guard. Controls remain unrun until that call;
+preserve/audit its actual result and closure before advancing. No browser trial
+is admitted here.
 No general orphan/duplicate-event acceptance, timing/cap growth,
 guard change or unchanged retry. All actual-root-3 inputs/outputs/admission are
 consumed and immutable. The single test-keychain argument is relevant to this
