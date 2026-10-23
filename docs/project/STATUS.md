@@ -91,8 +91,12 @@ attempt literal. No actor or game code runs in this source/data materialization.
 passed before the single4988c8d call. Its admission and actual-root-2 namespace
 are now consumed and immutable; the existing inputs/outputs are not fresh.
 
-**Next:** implement and qualify the corrected same-origin Wasm route and bounded
-original Lua error summary under T10.005.
+**Next:** qualify focused Wasm-route/actual-completion/original-error controls
+under T10.005. [Corrected source materialization now passes Root verification](reviews/2026-10-23-T10.005.md#corrected-lua-route-source-materialization-qualifies):
+12source/output pins, all12closed spans/two Online joins and independent full
+inverses agree. Public pure materializer and five private source-only outputs
+are prepared; no produced JS/actor/Wasm has run. Old root-4 headers are lineage
+only and must be rebound before execution. No actual-root-5/live admission exists.
 [Equal T10.005.004 plan comparison now qualifies](reviews/2026-10-23-T10.005.004.md#both-plans-checked-and-corrected-same-origin-direction-selected):
 Claude13/20 versus Grok14/20; both complete reports preserved/workers released.
 Root selects the shared direction with Claude's protected six-file/static inverse
@@ -101,8 +105,8 @@ The original normal_source witness stays intact; only a fresh served diagnostic
 copy changes. A conservative1..10route bound is not a proven source/CDP count,
 and extra requests do not prove fallback. No original-error constructor/getter/
 coercion or raw payload capture. All25full comparison pins agree.
-This closes only source-plan comparison; implementation, focused controls/current
-bindings and separate one-shot admission remain. No live retry is admitted. The corrected actual trial has run once and its full failure
+The comparison closes plans only; source construction now qualifies above.
+Focused controls/current bindings and separate one-shot admission remain. No live retry is admitted. The corrected actual trial has run once and its full failure
 audit passes; the quest diagnostic itself still fails at startLua-rejected.
 [The earlier equal twelve-input/six-group Worker plan comparison is
 self_verified](reviews/2026-10-23-T10.005.003.md#both-plans-preserved-and-corrected-claude-direction-selected):

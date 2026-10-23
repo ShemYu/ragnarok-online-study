@@ -137,7 +137,9 @@ CURRENT (23 Oct):
       Original3 owners/listeners,18effects/7parents and FD/threads unchanged.
   [V] Equal Lua-startup plans checked: Claude13/20 versus Grok14/20.
       Both preserved/released; Root25-pin audit. Corrected shared HTTP route chosen.
-  [>] Implement protected local Wasm route and bounded original-error summary.
+  [V] Lua-route source materializes: 12 spans / 2 joins / full inverses pass.
+      Root12 source/output pins; produced JS/Wasm/actors have not run.
+  [>] Prepare focused route/real-completion/error controls and finite caller.
       Source CSP conflicts with embedded Wasm fetch; actual cause not retained.
       Admission consumed; failed namespace immutable; no retry admitted.
       No game patch is installed. Parent progress stays 4/14.
