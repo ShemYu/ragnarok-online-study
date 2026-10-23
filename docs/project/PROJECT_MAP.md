@@ -55,8 +55,10 @@ CURRENT (23 Oct):
       Nine retained bodies / 18 leaves / 7 parents match. No live test yet.
   [V] All five inert test files created and checked: 13.21MiB / 18 full pins.
       Actual stored bytes match predictions and restore the exact donors.
-  [>] Finish proxy/parent bindings.
-      Refresh original-world checks; separately admit one quest-loader test.
+  [V] Final proxy/parent bindings and fresh three-world owner checks pass.
+      44 full pins / 13 parent headers / 2 proxy edits + full inverses.
+  [>] One quest-loader test admitted under this clean commit.
+      Bind its sole remaining admission-HEAD header; run once and audit.
       No map/render gate in that test. No test browser has launched.
   [V] On-disk navigation table read/audit pass: empty table, 22 bytes.
       Served table/browser winner and actual route still unknown.
@@ -80,7 +82,7 @@ CURRENT (23 Oct):
   [V] Unchanged Claude source integrated as 88577ae; three full blobs match.
   [V] Actual tracked-source verification/audit: 34 own + 53 common pass.
       Source-tool task self_verified; 28 pins / test cleanup checked.
-  [>] Remaining live bindings and original-world checks for the quest test.
+  [>] One admitted isolated quest test, then full actual-result verification.
       No game patch is installed. Parent progress stays 4/14.
       No game design or milestone change. No user action is needed.
 

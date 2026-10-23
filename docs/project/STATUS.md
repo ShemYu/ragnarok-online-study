@@ -49,10 +49,16 @@ page-only policies for the optional favicon/PathFindingWorker routes and the
 shared nonsecret attempt ID; actual CDP sessions remain unknown.
 [All five inert served files now match](reviews/2026-10-23-T10.005.md#five-inert-served-files-materialize-and-match):
 13856768B total/18full pins, exact stored-file donor inverses and preserved
-ordinary prefix. The actual namespace contains the two bound sources and
-five-file www directory; no actor inputs/outputs/guards, profile, READY or test
-browser exists. Next bind proxy/parent inputs, refresh protected original-world
-checks, then commit one separate live admission.
+ordinary prefix. The actual namespace now contains the bound launcher,
+controller/proxy and five-file www directory; no actor inputs/outputs/guards, profile, READY or test
+browser exists. [Final proxy/parent bindings and fresh original-world witnesses
+now qualify; one live call is admitted](reviews/2026-10-23-T10.005.md#final-proxy-parent-bindings-qualify-and-one-live-quest-call-is-admitted):
+44full pins/13parent headers/two proxy literals/full inverses; three original
+owner/listener pairs and current app/native executable/births match. The parent
+has exactly one late-bound admission-HEAD header, with a qualified deterministic
+recipe. Run that recipe once under this introducing clean commit, invoke the
+bound shared parent once, then fully audit the actual result/guards/transport/
+registration and original-world preservation. No unchanged retry is authorized.
 This is a fixed-ID quest-loader diagnostic with no map/render/ordinary
 story/play/save gate; passing it cannot close the full-game goal.
 
@@ -69,8 +75,9 @@ The shared runner's final-publication/return checks and explicit profile
 expect_native:false correction are committed. Both runs use the same runner
 policy/caps and corrected profile. All raw/corrected/integrated namespaces are
 consumed and immutable. Source-only browser
-response/session/assembly recipes are Root-qualified. Final materialization,
-proxy/parent bindings and live admission remain; no browser execution is admitted.
+response/session/assembly recipes and five actual inert files are Root-qualified.
+The final bindings/witnesses are checked and the separate one-shot live admission
+is recorded above; no browser has executed yet.
 
 ## Recent verification history
 
