@@ -207,7 +207,9 @@ lease/runtime stay unbound. [Common full-ledger J source qualifies](reviews/2026
 [Corrected J actually passes all seven own/four common cases](reviews/2026-10-23-T10.007.md#corrected-lineage-actual-controls-pass-p2-claude-controls-source-qualifies).
 [ClaudeP2 actually passes all seven groups; ClaudeK2 control source qualifies](reviews/2026-10-23-T10.007.md#p2-claude-actual-controls-pass-k2-claude-control-source-qualifies).
 [K2 actual six groups/final-deadline case pass; its expression fixture is corrected](reviews/2026-10-23-T10.007.md#k2-actual-six-groups-and-final-deadline-pass-expression-fixture-corrected).
-One changed-fixture pure call admitted; the driver gate is unchanged.
+[The corrected K2 fixture actually passes all seven groups plus the final-deadline case](reviews/2026-10-23-T10.007.md#corrected-k2-fixture-passes-provisional-combined-source-prepared).
+Provisional J+K2 source is prepared unselected/unbound; no integrated controls
+or runtime are admitted. The driver gate is unchanged.
 Both Claude workers are
 retained/released; K2Grok/P2Grok continue,212released/four retained/two active.
 No paired K2/P2 selection or game admission.

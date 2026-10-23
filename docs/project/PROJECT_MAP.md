@@ -60,8 +60,9 @@ Root: fresh fixture4 + 59 client/resource/config copies PASS as data.
 Lineage edge observations audited; corrected Claude basis selected (17 vs 15).
 Corrected lineage: all 7 own + 4 common cases PASS.
 Postcheck Claude: all 7 own groups PASS.
-Cleanup: 6 groups + final deadline PASS; test-expression fixture fixed.
-Next: changed-fixture test + remaining paired correction comparisons.
+Cleanup: all 7 groups + final deadline PASS after test-fixture correction.
+Provisional combined source prepared, unselected/unbound.
+Next: Grok comparisons -> final integration checks -> changed game trial.
 No player PASS; source-only image-capture correction remains independent.
 Fresh test data + corrected hotkey capture source prepared independently.
 Root: test6 failed before UI: process-identity sample + early Chrome cleanup.
