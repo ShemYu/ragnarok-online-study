@@ -638,3 +638,13 @@ e06ebafed18145770ea89dc6dc0d826bf935bcc8d3701b86b40022ba0e2686b1
 proves delivery enqueue only. Its fresh scene retains strict conditional/body
 checks. Root continues full839existing semantic-oracle preparation independently;
 no new wrapper/framework or actor is admitted.
+
+
+## MU2 held independent concrete UI driver repairs frozen
+
+[Full Mu source evidence and correction scopes](2026-10-24-T07-mu-data-stage.md#mu2-source-submitted-held-muc-ui-mud-driver-corrections-frozen):
+Root verifies16closed outputs/releases accepted source worker beforeACK, holds
+source for ordinary-asset refusal, actual model/body/GPU evidence gaps and
+failure-path SQL/native/cleanup skips. Two disjoint MuC_UI/MuD_driver corrections
+are frozen, six actualNode/two actualPy groups; previous stubs are not coverage.
+No parser/loader/new framework/actor/cap expansion. B2U/B2D remain live.

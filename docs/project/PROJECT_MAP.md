@@ -39,12 +39,12 @@ Parallel:
   D14 diagnostic UI: HOLD4defects; not an F1 dependency
   C7 caller: four pure checks PASS; no capture/backend compatibility
   MU1:105body stage PASS (Root checked/released)
-  MU2: native load/draw source LIVE -> Root checks -> one fresh scene
+  MU2: source HOLD -> MuC UI + MuD driver corrections -> one fresh scene
        (retained water geometry0; current scene still verifies it)
   full839spawn -> budget PASS; wrapper/profile/oracle choices still open
 
-Six Grok workers ran at peak. MU2 + B2U UI + B2D native driver now live.
-Fresh251records/3pages:3active/242released/6retained/zero reclaimable.
+Six Grok workers ran at peak. B2U/B2D live; MuC/MuD independent fixes frozen.
+After MU2release expected2active/243released/6retained/zero reclaimable.
 Four actual user-retained resources stay;2transferred records have none.
 Trial9 stays failed; known faults stay failed. No new actor admitted.
 4/14 is parent-check progress, not percentage of playable content.

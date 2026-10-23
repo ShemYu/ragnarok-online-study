@@ -177,3 +177,64 @@ All newfiles0600/dir0700, no source execution or parser/loader change. Actor/
 native serving/bootstrap integration/draw remains unadmitted and separate.
 The active MU2 worker receives the source-grounded water0 finding; no extra
 assets/test generation or fault waiver. Body/geometry joins remain mandatory.
+
+
+## MU2 source submitted held MuC UI MuD driver corrections frozen
+
+MU2 completes taskc43e0ea0c969/ctxea500e7e658a. Root reads final2485Breport/
+SHAe4bd9a9834ef508799783ec437c134d7b1b5def37d1c0941c87769a4c1848f61,
+checks16closed private outputs/full current packet inputpins, accepts source
+submission only and releases/archive captures before delivery0eac1c0120f4ACK.
+Settlement28139B/SHA258ef1d4972f4236431493f4810039873af9160acd0004c306200a0622866d61;
+lifecycle455B/SHAa7669ca49d75506738e29a3679f8a7e26245307f832ad8c525814eca74dacae9.
+Root1no-output directory is preserved: a Root expected snapshot-label assertion
+was wrong; root2 binds actual driver full62051Bhash. No group/actor executed.
+
+Root provisional snapshot8738B/SHA4c16a1f1d7bf8a7ec12df16f36a1c774b0f054bd5125da48d904f9741ce00821
+captures the exact UI24760B/d8d1ecfcb3a203cd55d11e4fd052714d169b96f207acef06f9a2fca91593d412
+and driver62051B/6318a8564ad9d2bd148ba9e9bddeb14e59263e6a0f2ec51a7f87744cac10df06.
+Their final bodies match the snapshot used by actualAstra. Root reads complete
+5795Baudit/SHA5ae7ce52d62f78d8b9c0934ea37540081139e8ac3f1e237275954134add89c58,
+checks actual source counterpaths and preserves51stable frozen inputpins.
+No runtime claim: source necessarily faults normal non-data asset GETs; accepts
+unmatched trace rows/zero observed body coverage; declared placements alone can
+miss null-loaded models/omitted instances; ready-texture/numericScan/history
+checks are incomplete. Failed UI raises before postscene SQL/native snapshot;
+short reserve raises before both Chrome/Remote retirement try blocks. Those
+paths require correction before any scene actor.
+
+Eight claimed groups are raising placeholders rather than actual-path controls;
+UI unconditionally enters main on import. Root sent both corrections before
+completion, but final source does not adopt them. Enqueue does not prove read/
+adoption. The source stays HOLD. No placeholder is run or counted as coverage.
+
+Freeze two disjoint functional corrections: MuC_UI owns actual UI production
+evidence checks plus six callable Node groups/main guard. It must join existing
+actual fetch/body/response identities/completion in both directions, loaded-model
+outcomes/1285instances, texture readiness/finite GPU uploads/context-loss history.
+It separates normal assets from strict scoped /data/ paths and keeps all caps.
+MuD_driver owns strict fixed scene/body consumer plus applicable once-only
+postscene SQL/native checks on success/failure, and identity-qualified bounded
+cleanup after reserve/first-step faults; two actual Python groups. Failure stays
+sticky. No parser/loader/source-client/worker/bootstrap/viewer/Engine changes,
+new observer/framework/extra HTTP/actor or enlarged clock/cap.
+
+Prospective shared contract2052B/SHA70611c94eae1d330b3e5fdb88359c71bc5516914f03e85d47fad6dfc0e18e004:
+existing result/body schemas retained; four exact sceneAssertions booleans are
+derived only from actual validated evidence, completed traceCoverage has exact
+four integer fields/nonempty observations, and each row carries actual exact
+response/redirect/completion/trace identity flags. D refuses missing/false
+fields; Root later inspects complete map/trace/PNG independently. Unrequested
+allowlist paths remain uncredited, unknown conditional paths fatal. Same fresh
+origin/19roles/2SQL; MuUI240/210+30/Node<=243/driver385/Engine300+60/G390/
+4GiB/grace3/twoPGID/60sparent reserve unchanged. Roughly24ssetup reserve remains
+a future feasibility gate, not proof of failure or permission to reset clocks.
+
+Packet mu-correction-inputs-root-1:21payload copies/45fullpins;
+MANIFEST44821B/SHA28b70838bf28c1c86912d0bda3be66ad83d50f2d342c986591fe46c831e77089;
+Ubrief5349B/SHA82c2dbd4203dd9e7e4bd827e4411a106f569590e7b48bfc260cd58aeaa8f1dcc;
+Dbrief4859B/SHA999705fd5766162646112ebac650f2d6f4e2c27fd9cf11fdbe84d070cf8a0731.
+After this Git checkpoint actual Grok can author both independently. Root
+personally qualifies/tests/binds before any fresh actual scene. B2U/B2D backend
+source continues independently; expected2active/243released/6retained before
+new starts. Full game goal unchanged;4/14checks/about29%, all82gaps open.

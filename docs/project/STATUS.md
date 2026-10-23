@@ -13,7 +13,8 @@ dictionary abort/load405/map-connection settlement stop later cases. Root's
 complete failure/preservation audit passes; no B200assignment/reconnection or
 parent-check credit. 4/14 is a check count, not measured full-content coverage.
 
-**Parallel work:** MU2 native map-render source remains live in Grok. B1 is
+**Parallel work:** MU2 map-render source is submitted/released and HOLD for
+concrete UI evidence/failure-cleanup defects. B1 is
 submitted/pinned/released; source review finds its actual backend producer
 does not yet satisfy the shared F2 contract. It remains HOLD. The completed
 F2-C1 fixture correction matches Root's exact one-call byte prediction and
@@ -21,8 +22,9 @@ is released. Root qualifies the corrected F2 stage/178pins; all eight focused ca
 pass complete Root203pin verification under original G/S.
 No Engine/browser/game actor is admitted. Water-source review confirms retained zero water geometry for the exact
 current map/worker/GND join; no extra water deployment is justified. B2U UI and B2D native-driver/Engine source compositions are now live
-independent Grok tasks. Fresh251record/three-page inventory:3active/
-242released/6retained/0reclaimable;
+independent Grok tasks. MuC_UI and MuD_driver independent corrections are
+frozen for the next checkpoint. After MU2release expected2active/243released/
+6retained/0reclaimable;
 fresh all-page inventory follows settlements. Four actual user-retained
 resources stay; two transferred records have none. Six Grok sources ran
 at peak. Effective model/cost and full provider comparison remain unknown.
