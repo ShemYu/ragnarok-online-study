@@ -208,8 +208,7 @@ lease/runtime stay unbound. [Common full-ledger J source qualifies](reviews/2026
 [ClaudeP2 actually passes all seven groups; ClaudeK2 control source qualifies](reviews/2026-10-23-T10.007.md#p2-claude-actual-controls-pass-k2-claude-control-source-qualifies).
 [K2 actual six groups/final-deadline case pass; its expression fixture is corrected](reviews/2026-10-23-T10.007.md#k2-actual-six-groups-and-final-deadline-pass-expression-fixture-corrected).
 [The corrected K2 fixture actually passes all seven groups plus the final-deadline case](reviews/2026-10-23-T10.007.md#corrected-k2-fixture-passes-provisional-combined-source-prepared).
-Provisional J+K2 source is prepared unselected/unbound; no integrated controls
-or runtime are admitted. The driver gate is unchanged.
+J+K2 integration candidate is prepared unbound. The driver gate is unchanged.
 Both Grok corrections are now submitted, read, preserved and released:
 214released/four user-retained/zero active or reclaimable. Root qualifies
 [their two own diagnostic wrappers](reviews/2026-10-23-T10.007.md#both-grok-corrections-preserved-own-diagnostic-sources-qualified).
@@ -222,8 +221,10 @@ Grok K2 own fixture fails at a kernel-interface mismatch; P2 own7pass.
 Claude passes all eight focused cases; Grok passes three. Root corrects its
 own result-order audit and rechecks retained outputs with zero reruns.
 Next: integrated J/K controls, complete closure and fresh changed-trial binding.
-Independent equal HTTP-reader performance proposals are frozen for parallel
-Grok/Claude source work. No image capture or game admission yet.
+[Integrated J/K control sources qualify; both HTTP-reader workers start](reviews/2026-10-23-T10.007.md#selected-j-k-integration-control-sources-qualify-parallel-reader-pair-started).
+Root admits only two pure integrated suites; next runtime remains unbound.
+Fleet214released/four user-retained/two source Dispatches. No image capture
+or game admission yet.
 Source review finds cleanup-deadline/log-finalization gaps and a postcheck
 test-fixture defect. Fresh test data and corrected image-capture source are
 prepared independently; neither is admitted for runtime.

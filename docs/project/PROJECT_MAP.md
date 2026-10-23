@@ -61,11 +61,11 @@ Lineage edge observations audited; corrected Claude basis selected (17 vs 15).
 Corrected lineage: all 7 own + 4 common cases PASS.
 Postcheck Claude: all 7 own groups PASS.
 Cleanup: all 7 groups + final deadline PASS after test-fixture correction.
-Provisional combined source prepared, unselected/unbound.
+Combined selected source prepared, unbound; integrated control source qualifies.
 Grok own: K2 fixture failed; P2 seven groups PASS. Common source qualifies.
 Common cases checked: Claude8/8, Grok3/8; lane-specific bases selected.
 K2 Claude18/Grok12; P2 Claude20/Grok13. Source integration is next.
-Parallel: equal HTTP-reader source proposals; no game dependency.
+Parallel: Grok + Claude HTTP-reader source workers active; no game dependency.
 Next: integration checks -> fresh binding -> changed game trial.
 No player PASS; source-only image-capture correction remains independent.
 Fresh test data + corrected hotkey capture source prepared independently.
