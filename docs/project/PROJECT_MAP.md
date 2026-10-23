@@ -59,8 +59,9 @@ Parallel: 2 Grok correcting cleanup/postchecks; both Claude drafts saved/release
 Root: fresh fixture4 + 59 client/resource/config copies PASS as data.
 Lineage edge observations audited; corrected Claude basis selected (17 vs 15).
 Corrected lineage: all 7 own + 4 common cases PASS.
-Postcheck Claude: all 7 own groups PASS. Cleanup control source qualifies.
-Next: cleanup own tests + remaining paired correction comparisons.
+Postcheck Claude: all 7 own groups PASS.
+Cleanup: 6 groups + final deadline PASS; test-expression fixture fixed.
+Next: changed-fixture test + remaining paired correction comparisons.
 No player PASS; source-only image-capture correction remains independent.
 Fresh test data + corrected hotkey capture source prepared independently.
 Root: test6 failed before UI: process-identity sample + early Chrome cleanup.

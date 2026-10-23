@@ -206,7 +206,9 @@ lease/runtime stay unbound. [Common full-ledger J source qualifies](reviews/2026
 [The eight observations are audited; corrected Claude J basis qualifies](reviews/2026-10-23-T10.007.md#common-lineage-observations-audited-corrected-claude-basis-qualifies).
 [Corrected J actually passes all seven own/four common cases](reviews/2026-10-23-T10.007.md#corrected-lineage-actual-controls-pass-p2-claude-controls-source-qualifies).
 [ClaudeP2 actually passes all seven groups; ClaudeK2 control source qualifies](reviews/2026-10-23-T10.007.md#p2-claude-actual-controls-pass-k2-claude-control-source-qualifies).
-One K2 own7+Root final-deadline pure call admitted. Both Claude workers are
+[K2 actual six groups/final-deadline case pass; its expression fixture is corrected](reviews/2026-10-23-T10.007.md#k2-actual-six-groups-and-final-deadline-pass-expression-fixture-corrected).
+One changed-fixture pure call admitted; the driver gate is unchanged.
+Both Claude workers are
 retained/released; K2Grok/P2Grok continue,212released/four retained/two active.
 No paired K2/P2 selection or game admission.
 Source review finds cleanup-deadline/log-finalization gaps and a postcheck
