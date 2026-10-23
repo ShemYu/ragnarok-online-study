@@ -91,8 +91,10 @@ attempt literal. No actor or game code runs in this source/data materialization.
 passed before the single4988c8d call. Its admission and actual-root-2 namespace
 are now consumed and immutable; the existing inputs/outputs are not fresh.
 
-**Next:** review/bind the40group controller/error controls, then admit one pure
-run. [All three corrected-tail regressions and the full Root audit now pass](reviews/2026-10-23-T10.005.md#corrected-tail-regressions-and-complete-root-audit-pass):
+**Next:** run the newly admitted40group pure controls once, then audit all
+results/streams and cleanup. [Source/caller qualification and one-shot admission](reviews/2026-10-23-T10.005.md#forty-lua-route-and-error-control-groups-qualify-and-one-pure-call-is-admitted)
+pass13full pins/21exact fragments/full inverses;32old bodies stay exact.
+No browser admission exists. [All three corrected-tail regressions and the full Root audit now pass](reviews/2026-10-23-T10.005.md#corrected-tail-regressions-and-complete-root-audit-pass):
 15own/75shared/one-pending, all caller0/driver0/valid original guards, no skips,
 complete streams and positive cleanup. Common/adaptive results are byte-exact
 with the qualified old results; Root checks53full pins. The three parallel calls

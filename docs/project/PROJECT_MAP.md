@@ -142,7 +142,8 @@ CURRENT (23 Oct):
   [V] Exact new-tail regression bindings qualify; old test bodies unchanged.
   [V] All15own/75shared/one-pending pass in parallel; full53-pin audit passes.
       Three caller0/driver0/valid guards; complete streams and cleanup checked.
-  [>] Review/bind40group route/real-completion/error controls, then run once.
+  [V] New40group source/caller qualifies: 13pins / 21fragments / full inverses.
+  [>] Run40groups once under fixed caller/guard, then audit all results.
       Source CSP conflicts with embedded Wasm fetch; actual cause not retained.
       Admission consumed; failed namespace immutable; no retry admitted.
       No game patch is installed. Parent progress stays 4/14.
