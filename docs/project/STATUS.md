@@ -225,8 +225,10 @@ Next: integrated J/K controls, complete closure and fresh changed-trial binding.
 [Both integrated suites now pass Root audit](reviews/2026-10-23-T10.007.md#integrated-selected-j-k-actual-controls-and-complete-root-audit-pass):
 J7own+4common and K7own+final-deadline. Next runtime remains unbound;
 Root is preparing its complete closure and fresh changed-trial binding.
-Fleet214released/four user-retained/two source Dispatches. No image capture
-or game admission yet.
+[Fresh runtime data qualifier source is checked; C2 Claude is submitted/released](reviews/2026-10-23-T10.007.md#fresh-runtime-data-qualifier-source-checked-c2-claude-submission-preserved).
+Fleet215released/four user-retained/one Grok source Dispatch remains.
+Root next materializes/rechecks the fresh runtime; no image capture or game
+admission yet.
 Source review finds cleanup-deadline/log-finalization gaps and a postcheck
 test-fixture defect. Fresh test data and corrected image-capture source are
 prepared independently; neither is admitted for runtime.
