@@ -9,18 +9,20 @@ resource gaps remain open. No full-game scope change or new user decision.
 
 **Live next action:** [NPC prefix checks pass; Grok selected; dictionary source packet qualifies](reviews/2026-10-23-T10.007.md#actual-npc-prefix-checks-pass-grok-selected-next-component-packet-qualified).
 Both independent D9 component implementations are running on the same frozen
-inputs (Grok and Claude;222released/four user-retained/two active). Root next
+inputs (Grok and Claude). N9 also has both providers running: four active,
+including two Grok workers;222released/four user-retained. Root next
 verifies their source. [The independent NPC pipeline packet now qualifies](reviews/2026-10-23-T10.007.md#npc-raw-name-pipeline-packet-qualified-for-independent-source-fixture-pair);
-start both N9 source-fixture workers before waiting. Grok's N8
+both N9 workers are ready/input_accepted. Grok's N8
 failure metadata qualifies (20/20 vs19/20); this is
 observability, not an NPC repair. Source suggests a raw-name/rendered-label
 difference; actual trial8 NPC identity remains unknown.
 S8Claude's17B disabled-host data proposal is selected as source/data (19vs16);
 actual serving/login behavior remains unverified. No file is installed.
-Both R8 datasets qualify; Grok's equal loose data is selected for future setup.
+[Normal9 now passes Root data checks](reviews/2026-10-23-T10.007.md#n9-pair-running-normal9-data-and-compact-capture-caller-source-qualify):64bodies/82662519B, including selected R8/S8
+copies; all copied configuration remains stale/unbound.
 C2 cursor, all5 real FileStore groups and the full source correction chain
-pass; stopped-image caller/current-world qualification remains next, with no
-Engine action admitted.
+pass; compact caller source/syntax also qualifies. Current-world preflight
+preparation is next; no Engine action is admitted.
 Trial8 reached the map but no NPC dialogue; complete cleanup/original-state
 preservation pass. All old one-shot admissions are consumed. Dictionary abort
 remains open; request and ready node are not joined to the same initializer.

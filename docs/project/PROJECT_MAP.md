@@ -36,7 +36,7 @@ Current path:
                   |           |           |
               NPC name    Dictionary   Resources
               dataflow    component    four copies PASS
-              research    C/G running  route test pending
+              C/G running C/G running  route test pending
                   +-----------+-----------+
                               |
                     changed normal NPC trial
@@ -1051,3 +1051,8 @@ The complete stopped-image source correction chain verifies without new runtime.
 
 Latest: N9 raw-name pipeline packet qualifies:15origins/10copies/32exact slices.
 Next launch both providers independently of D9; no cause/repair/runtime PASS.
+
+
+Latest: four actual workers active (two Grok); two independent problems.
+Normal9 exact64body copies and compact capture caller source/syntax qualify.
+Configuration stale/unbound; current-world preflight preparation is next.
