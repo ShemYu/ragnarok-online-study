@@ -143,7 +143,8 @@ CURRENT (23 Oct):
   [V] All15own/75shared/one-pending pass in parallel; full53-pin audit passes.
       Three caller0/driver0/valid guards; complete streams and cleanup checked.
   [V] New40group source/caller qualifies: 13pins / 21fragments / full inverses.
-  [>] Run40groups once under fixed caller/guard, then audit all results.
+  [V] All40groups pass; Root22-pin audit / complete streams / cleanup pass.
+  [>] Fresh actor/current-world binding, then separate one-shot browser trial.
       Source CSP conflicts with embedded Wasm fetch; actual cause not retained.
       Admission consumed; failed namespace immutable; no retry admitted.
       No game patch is installed. Parent progress stays 4/14.
