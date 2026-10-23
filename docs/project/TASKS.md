@@ -70,6 +70,10 @@ for both unchanged candidates. No acceptance/installation/content closure.
 own harness error/eight fallback rows,common41/53,caller1/guardinvalid preserved;
 28full pins and positive process closure. Actual shared inputs/Node/donors
 match Claude. Next fresh corrected common runs for both; no candidate changes.
+[Equal corrected bindings qualify; two calls admitted](reviews/2026-10-23-T07.006.002.md#equal-corrected-fixture-bindings-qualify-and-two-pure-calls-are-admitted):
+first10roles/Node/donors match, both six+one header inverses/provider bytes
+unchanged. One private pure call each, optionally parallel, then complete
+Root audits before score/selection. All original cases/caps stay fixed.
 
 Earlier T07.007.011.005 support gate: [corrected private extraction/full Root
 payload audit pass](reviews/2026-10-22-T07.007.011.005.md#corrected-private-extraction-and-complete-root-payload-audit-pass),

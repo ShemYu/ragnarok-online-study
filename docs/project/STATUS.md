@@ -20,9 +20,11 @@ own harness throws before behavior checks; common41/53 includes the same
 eleven fixture comparisons plus unknown Worker policy routing. Both raw
 caller1/guardinvalid results stay failed and consumed. [Exact shared fixture
 correction qualifies as source](reviews/2026-10-23-T07.006.002.md#exact-shared-observation-realm-correction-qualifies-as-source),
-with all cases/expected values unchanged. Bind fresh corrected runs for both
-unchanged candidates, separately admit, execute and fully audit before score
-or selection. No candidate is accepted or installed.
+with all cases/expected values unchanged. [Fresh equal corrected bindings
+qualify; one call each is admitted](reviews/2026-10-23-T07.006.002.md#equal-corrected-fixture-bindings-qualify-and-two-pure-calls-are-admitted).
+Run the two independent pure calls under this exact clean introducing HEAD,
+preserve every actual result and fully audit before score or selection.
+No candidate is accepted or installed.
 
 **Browser diagnostic:** [fresh normal-reader preflight and complete Root audit
 pass](reviews/2026-10-23-T10.005.md#fresh-same-world-preflight-and-complete-root-audit-pass):

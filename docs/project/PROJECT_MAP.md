@@ -68,7 +68,8 @@ CURRENT (23 Oct):
       11 common comparisons fail on VM-array prototypes. Fixture fix reviewed.
   [V] Grok raw test/audit: own harness error, common 41/53; stays failed.
       Same 11 fixture failures plus unknown Worker policy routing.
-  [>] Same fixture fix and fresh runs for both unchanged candidates.
+  [V] Equal corrected fixture/bindings checked; one fresh call each admitted.
+  [>] Run both independent calls / audit actual results before selection.
       No candidate is selected or installed.
       No game design or milestone change. No user action is needed.
 
