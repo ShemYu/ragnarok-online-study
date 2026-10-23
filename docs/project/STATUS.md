@@ -91,13 +91,15 @@ attempt literal. No actor or game code runs in this source/data materialization.
 passed before the single4988c8d call. Its admission and actual-root-2 namespace
 are now consumed and immutable; the existing inputs/outputs are not fresh.
 
-**Next:** finish the [qualified source integration and required regressions](reviews/2026-10-23-T10.005.md#all-corrected-source-controls-and-complete-root-audit-pass).
-Corrected candidate26343ef passes10/10Python+37/37Node, zero skips; complete19-pin
-Root audit and two executable pins pass, with positive test-process/group absence.
-Three exact files are copied into the coordination worktree. Checkpoint them,
-then verify the actual integrated paths, rebind/run the existing40controller
-groups and prepare fresh Root5-based source/parent bindings. No live trial is
-admitted, and tail-only suites need no repeat for this change.
+**Next:** rebind/run the existing40controller regressions, then fresh Root5-based
+source/parent bindings. [Actual integrated5e96cf6 and full Root audit pass](reviews/2026-10-23-T10.005.md#actual-integrated-source-and-complete-control-audit-pass):
+10/10Python+37/37Node, zero skips;18full audit pins/two executable pins, both
+valid original guards and fresh positive test-process/group absence. Candidate
+26343ef had independently passed the same controls/19-pin audit before integration.
+Existing40groups need actual named message/error/close hooks and validated ACK
+replies; W05 now awaits the Worker witness. Compact Root5-based composition is
+source-supported; no historical Lua/bootstrap pipeline replay, new grant/launcher
+protocol or tail-only regression repeat is needed. No live trial is admitted.
 
 Earlier source repair history: [submitted source failed review](reviews/2026-10-23-T10.005.md#source-submission-retained-and-coordinator-repair-owns-next-action)
 under T10.005. Grok task_1349907b83b4/ctx_6ae8a3b701b9 settled with the unchanged
