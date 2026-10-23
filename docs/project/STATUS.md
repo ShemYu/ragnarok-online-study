@@ -94,8 +94,9 @@ are now consumed and immutable; the existing inputs/outputs are not fresh.
 **Next:** qualify the controller's exact Worker-bootstrap network-event policy
 using the retained source/witness and exact-revision primary evidence. Define a
 closed correction or discriminator with independent Claude/Grok proposals and
-Root checks. [The next twelve-input/six-group comparison is frozen](reviews/2026-10-23-T10.005.003.md#frozen-package-and-root-preflight),
-with four shared exact-revision sources; dispatch is pending at this checkpoint.
+Root checks. [The twelve-input/six-group pair is now live](reviews/2026-10-23-T10.005.003.md#actual-independent-pair-dispatched),
+with four shared exact-revision sources: Claude Opus5.5high launch options and
+configured default Grok, both confirmed working. This remains plan-only.
 No general orphan/duplicate-event acceptance, timing/cap growth,
 guard change or unchanged retry. All actual-root-3 inputs/outputs/admission are
 consumed and immutable. The single test-keychain argument is relevant to this
