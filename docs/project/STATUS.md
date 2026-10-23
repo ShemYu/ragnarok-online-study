@@ -17,10 +17,12 @@ parent-check credit. 4/14 is a check count, not measured full-content coverage.
 submitted/pinned/released; source review finds its actual backend producer
 does not yet satisfy the shared F2 contract. It remains HOLD. The completed
 F2-C1 fixture correction matches Root's exact one-call byte prediction and
-is released. Root qualifies the corrected F2 stage/178pins and eight fixed
-pure entries; those eight calls are admitted after this Git checkpoint.
-No Engine/browser/game actor is admitted. Independent water-resource
-preparation continues. Expected1active/242released/6retained records;
+is released. Root qualifies the corrected F2 stage/178pins; all eight focused calls now
+pass complete Root203pin verification under original G/S.
+No Engine/browser/game actor is admitted. Water-source review confirms retained zero water geometry for the exact
+current map/worker/GND join; no extra water deployment is justified. B2U UI and B2D native-driver/Engine source composition are frozen as
+independent Grok tasks for the next checkpoint. Expected1active/242released/
+6retained before their start;
 fresh all-page inventory follows settlements. Four actual user-retained
 resources stay; two transferred records have none. Six Grok sources ran
 at peak. Effective model/cost and full provider comparison remain unknown.
@@ -34,7 +36,7 @@ The host overwrites its event kind with cleanup subtype; diagnostic stays HOLD.
 No replay/new diagnostic generation or native/browser/game credit. D14 diagnostic UI is held for four concrete defects; it is
 not an automatic F1 prerequisite. F2 corrects the two F1 blockers in source;
 Root checks10maps/15unchangedhelpers/125pins and compiles Python only.
-Its eight focused groups are now admitted; B1 composition stays unadmitted. Root stages
+Its eight focused groups pass; B1 composition stays unadmitted. Root stages
 byte-identical private copies after an ambiguous worker path/mode handoff.
 C7 passes all four actual pure groups and Root complete62pin audit, each
 natural0/positive unchanged G10guard, clean streams/sourcepostpins/retirement.

@@ -28,10 +28,10 @@ Missing story scripts  [OPEN: largest content risk]
 Full game test         [LATER: 82 functional resource gaps remain]
 
 Current priority:
-  F1 two defects -> F2 source checked + fixture fixed -> eight pure calls next
+  F1 two defects -> F2 source + fixture checked -> eight pure groups PASS
                          -> one fresh fixed quest/logout sequence
                          ^
-  B1 backend submitted: producer contract HOLD -> narrow repair
+  B1 backend HOLD -> B2U UI + B2D native driver in parallel
 
 Parallel:
   D15 driver: eight pure groups PASS; no game credit
@@ -40,10 +40,10 @@ Parallel:
   C7 caller: four pure checks PASS; no capture/backend compatibility
   MU1:105body stage PASS (Root checked/released)
   MU2: native load/draw source LIVE -> Root checks -> one fresh scene
-       (conditional water/effect requests stay open)
+       (retained water geometry0; current scene still verifies it)
   full839spawn -> budget PASS; wrapper/profile/oracle choices still open
 
-Six Grok workers ran at peak. MU2 live; B1 + F2 + fixture worker released.
+Six Grok workers ran at peak. MU2 live; B2U/B2D independent source tasks frozen.
 Expected:1active/242released/6retained records/zero reclaimable.
 Four actual user-retained resources stay;2transferred records have none.
 Trial9 stays failed; known faults stay failed. No new actor admitted.

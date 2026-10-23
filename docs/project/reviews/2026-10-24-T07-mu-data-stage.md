@@ -139,3 +139,26 @@ terminal652d3671-b6e1-4a96-8b9a-d04d5d0ab9e8. Start5001B/SHA
 Investigating heartbeat processed. Source authoring only; no live map actor,
 response-body read, draw or user acceptance. This independent scope proceeds
 while B1 backend is authored and F2 gameplay consumer changes are reviewed.
+
+
+## Water source join no extra deployment task
+
+Independent source-only review4653B/SHA
+69c6186e83426d9567e56939ef5fd59f1561500cf78c9fc745240542728f5269
+closes26opened inputprepost pins. Root reads the complete report, verifies its
+pins and actual retained browser message9ground.waterVertCount/trace59/80 are0.
+The genuine worker prefix624463B/SHA1501ca10336d91e4f8a0301101c43e5ca1a0ef1aa81212bbffb5690c68c13325
+and current GND10362062B/SHA956dca90cd3114174a24a8fc9ffe18476b030c7c42913440bb60dbbfc2d29fdf
+match the retained observation/source/MU1stagedbody. Ground water takes precedence
+over RSW for GND1.9; type4 alone is not an enable flag. Existing normal loader/
+Water.init require positive water vertices before32frames. Retained zero means
+no additional water deployment is justified for this exact source/body join.
+Current fresh scene still must verify its own water geometry and request trace.
+
+Root review15217B/SHAa5008eca232405b760aa55db270ed62c9cd904201e97629061f6cac52d544ba4
+keeps deploymentAllowlist[] and32exact legacy-byte conditional paths only as
+conditional references. Local archive frame body availability remains unknown,
+not absent. No new decoder/inventory/actor/asset acquisition, no draw/travel/
+spawn/story credit. Root1empty preserved: a Root second read used default4MiB
+against the already full-read larger browser artifact; root2 uses bounded64MiB.
+No game source modified and no Grok task added for an unproved requirement.

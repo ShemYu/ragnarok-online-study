@@ -539,3 +539,58 @@ the genuine scene. Only a source-proved finite missing requirement may become
 a Grok deployment task; no assumed assets or new diagnostic generation.
 Expected1activeMU2/242released/6retained/0reclaimable; fresh fleet follows.
 Full goal unchanged;4/14parent checks/about29%, all82functional gaps stay open.
+
+
+## F2 eight focused controls pass B2 independent compositions frozen
+
+Root calls each fixed F2group once under the unchanged G10s/512MiB/grace3/
+no-native/1MiB profile. All eight return natural0/positive original guard,
+exact independent literal object/full stdout, empty stderr and no signals.
+Elapsedseconds01–08:0.189084,0.197695,0.112897,0.192781,0.193339,0.192081,
+0.193867,0.190269. Sampled owned peak max4374528B is a sampled bound, not full
+unsampled peak proof. Complete original receipts/limits/current PIDgroup absence,
+all source/executable prepost pins and FD/thread/HEADclean checks pass. Audit
+119680B/SHA c887b7b64c278cdf5037578ff74b64c6612cd8177eb5a6d07f499293b3090eb0
+closes203fullpins/errors[]. No actual backend producer/Engine/SQL/browser/game
+case or new parent-check credit. The former group02 fixture blocker is resolved.
+
+Root personally confirms B1actual shared-producer omission and two pure-control
+blockers: bounded start_server slice computes t10007_+role+.conf, so requiring
+literal t10007_map.conf there necessarily refuses; UI metadataPath accepts
+explicit uiOrigin but still constructs URL with uninitialized imported input.
+B1 original groups remain unadmitted. ActualAstra also confirms web native veto
+only runs before UI; success postcase only map, failed snapshot db/login/char/
+map, cleanup reads web logs without examining errors. Preserve the existing
+cleanup log read and continue owned retirement after recording a sticky web
+error. No cap widening or guarantee every high-poll/failure path completes.
+
+Freeze two disjoint functionality tasks from fully pinned source copies:
+B2U composes reviewed F2UI with exact native backend route/admission plus the
+missing same-request nine-key completed-transfer producer; fixes metadataPath,
+removes the duplicate backend ledger and settles pending work before F2logout
+classification and page/listener teardown. One expanded existing Node group.
+B2D composes reviewed F2driver with B1native/material/client seams, corrects
+the impossible map-filename control, and adds applicable web native-log veto
+to postcase/failed evidence and existing cleanup read. Seven existing Py groups.
+Driver UI derivation stays failclosed in explicit unbound Root edit/size/SHA
+slots against F2UI49815B/f89ae4...; Root later binds the exact independently
+produced Ucandidate/maps. No sibling read/dependency or loose runtime checks.
+F2 consumers/gameplay/sticky helpers are unchanged; exact single validated
+C.webOrigin/client_web_origin/UI.webOrigin/Engine web port is mandatory.
+Unknown installed CORS/auth/schema/save405/ACK/WS/SQL/native/time/identity stops.
+
+Frozen packet B2-parallel-inputs-root-1:38payload copies/78fullpins.
+MANIFEST79358B/SHAf72159e2b707f868ba1125530d5e0ca8617cddb43a89d0765726348bc77c376b;
+Ubrief5702B/SHAf956b8e6e500f45707d64885db9e17b66ef3c621b6bb34701ba4508a5a48b409;
+Dbrief6038B/SHA3867b71767c01cbc2eb0772549f094bc210ea3a4413029e9fb86af0613b4e595.
+After this checkpoint actual Grok may author both source-only candidates
+independently while MU2 continues. No code executes; Root reviews/maps/pins/
+tests/composition/current bindings remain required before a fresh actor.
+These tasks repair actual functionality seams rather than extend diagnostics.
+
+[Mu water-source review](2026-10-24-T07-mu-data-stage.md#water-source-join-no-extra-deployment-task)
+finds retained actual waterVertCount0 for current source/GND/worker. Root
+personally verifies full source/retained pointers/body joins and keeps an empty
+required deployment allowlist. Type4 alone does not require32frames. Fresh MU2
+scene still checks current geometry/request joins; no archive absence/draw claim.
+No water worker is added merely to use capacity. Full goal unchanged.
