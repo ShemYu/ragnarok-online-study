@@ -23,7 +23,8 @@ pass complete Root203pin verification under original G/S.
 No Engine/browser/game actor is admitted. Water-source review confirms retained zero water geometry for the exact
 current map/worker/GND join; no extra water deployment is justified. B2U UI and B2D native-driver/Engine source compositions are now live
 independent Grok tasks. MuC_UI and MuD_driver independent corrections are now
-actual ready Grok workers alongside B2U/B2D: expected4active/243released/
+actual ready Grok workers alongside B2U/B2D. F839 selected-spawn export
+source is also actual Grok ready:5active/243released/
 6retained/0reclaimable;
 fresh all-page inventory follows settlements. Four actual user-retained
 resources stay; two transferred records have none. Six Grok sources ran
@@ -57,7 +58,7 @@ The [full-spawn output-budget measurement passes](reviews/2026-10-24-T06-full-sp
 the512MiB virtual cap. Root verifies866fullpins and every source's byte/count
 join; no large JSONL is written. Root now freezes the full selected839 profile/three typed expectation sets
 and qualified-publication semantics; independent Grok source implementation
-is admitted after the new checkpoint. No wrapper/test/game actor is admitted.
+is actual Grok ready after4425a98. No wrapper/test/game actor is admitted.
 
 Original app/saves/Chrome/profile/settings/mute/IME/network stay untouched.
 The consumed ninth trial is not retried. All Chinese overlays stay enabled;

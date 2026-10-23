@@ -167,3 +167,15 @@ and seven unexecuted actual-path groups/finite recipe. No generic framework,
 lexer/reader/reference edit,839-body rescan or game coverage. Root verifies
 source/pins/finite controls before any one full-selected run. Backend/map four
 workers keep priority and remain independent. Full goal/4of14/all82gaps unchanged.
+
+
+## F839 actual Grok source worker ready
+
+F839 starts ready after4425a98: task0f7229050153/ctxef5e2f8a249b.
+START2307B/SHAecab7d394e88a82f11b4b79b6e9102b1b05a54fcd4b7ed588f6dc2733d986a3a.
+Effective provider Grok, model/effort null. Its investigating heartbeat in
+delivery90d2ebcd6c05 is processed before ACK. Source authoring only; no corpus/
+wrapper/caller/finite-test/native actor admission. Five actual source workers
+are live including backend/map four. Current active-scope inventory verifies
+all5live/nextAction:none; counts5active/243released/6retained. Four actual
+user-owned resources plus2historical absent records stay preserved.

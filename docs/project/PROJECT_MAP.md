@@ -41,10 +41,10 @@ Parallel:
   MU1:105body stage PASS (Root checked/released)
   MU2: source HOLD -> MuC UI + MuD driver corrections -> one fresh scene
        (retained water geometry0; current scene still verifies it)
-  full839spawn -> budget PASS; profile/oracles frozen -> source implementation
+  full839spawn -> budget PASS; profile/oracles frozen -> Grok source LIVE
 
-Four Grok sources live: B2U UI / B2D native / MuC UI / MuD driver.
-Expected4active/243released/6retained/zero reclaimable.
+Five Grok sources live: B2U UI / B2D native / MuC UI / MuD driver / F839.
+Current5active/243released/6retained records; no settled owner awaits cleanup.
 Four actual user-retained resources stay;2transferred records have none.
 Trial9 stays failed; known faults stay failed. No new actor admitted.
 4/14 is parent-check progress, not percentage of playable content.
