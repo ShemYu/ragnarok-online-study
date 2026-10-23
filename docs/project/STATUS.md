@@ -25,11 +25,19 @@ stop semantics and two-character case order. Both workers are preserved/released
 [Normal material is copied and checked](reviews/2026-10-23-T10.007.md#ordinary-client-material-copied-from-current-selected-files):
 51outputs/72936301B, with current Chinese settings/known overlays; no runtime yet.
 
-**Next:** review/qualify the small Engine/UI actors, bind fresh endpoints and
+**Engine actor source qualified:** [Root checks the unexecuted lifecycle adapter](reviews/2026-10-23-T10.007.md#player-engine-source-qualified-parallel-future-gates-prepared):
+12full pins, exact helper/source comparisons and four narrow corrections.
+No new resource, player interaction or persistence PASS. The UI draft is under
+review; the first grant/relog check will keep the Chinese journal gate separate.
+
+**Next:** qualify the small UI actor, bind fresh endpoints and
 admit one bounded real-player trial: A199 refusal, B200 cancel/dialogue grant/
-repeat with A untouched, then genuine relog/restart. Inactive/later-ID guards,
+repeat with A untouched, then genuine relog. Restart, inactive/later-ID guards,
 installed4848+3assembly/ordinary route and normal Chinese journal stay explicit
-gates. No unchanged parser/source reruns. T10.007/T10.008 remain open.
+gates. [Two independent future-gate plan pairs are prepared](tasks/T10.007-next-gates.md)
+for full quest imports and owned restart, following the user's request for
+more qualified Grok parallelism. Dispatch/results are not yet recorded.
+No unchanged parser/source reruns. T10.007/T10.008 remain open.
 
 **Portal guidance:** [actual equal comparison selects Claude20/20 over
 Grok13/20](reviews/2026-10-23-T07.006.002.md#equal-corrected-results-fully-audited-and-claude-selected).

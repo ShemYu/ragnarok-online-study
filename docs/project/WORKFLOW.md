@@ -21,6 +21,14 @@ While independent read-only plans run, the coordinator may perform independently
 
 The planning comparison is deliberately a read-only proposal comparison, not an implementation benchmark. Re-evaluate model fit as actual tasks generate evidence.
 
+On2026-10-23 the user asked Root to use more of the available Grok capacity
+through qualified parallel tasks. Launch independent useful work together,
+with explicit inputs, ownership and observable acceptance; keep the equal
+Claude/Grok comparison and Root verification. Reported remaining provider
+capacity is scheduling context, not a measured cost or reason to create
+unnecessary work. Keep live game actions under one owner, and release settled
+workers when no immediate follow-up needs them.
+
 ## Scorecard
 
 Score each dimension 0–4, with a brief evidence-based reason; total /20. A severe factual or ownership violation prevents selection regardless of total.
