@@ -7,7 +7,7 @@ Updated: 2026-10-24 JST. Coordinator: Codex. Active scope: **execute the documen
 Functionality remains first; **4/14 parent checks, about29%**. All82functional
 resource gaps remain open. No full-game scope change or new user decision.
 
-**Live next action:** [Verify C5 pure controls while three Grok repairs continue](reviews/2026-10-23-T10.007.md#ninth-trial-full-failure-audit-passes-c5-pure-controls-qualified).
+**Live next action:** [Prepare the GET-only backend caller while Grok repairs continue](reviews/2026-10-23-T10.007.md#c5-six-pure-controls-pass-independent-grok-caller-task-frozen).
 The ninth game trial remains failed. A199 shows expected Traditional Chinese
 refusal; dictionary abort and independent userconfig/load405 stop later cases.
 Root's233-wire and complete failure/preservation audits now pass:842full pins,
@@ -16,9 +16,10 @@ volume retained, original five containers/owners/backings/listeners preserved.
 No reward/relog case or parent-check credit.
 
 **Parallel work:** D12 driver, D13 host and D14 UI Grok repairs are active,
-with disjoint ownership and one frozen host/UI interface. C5 source/full
-inverses/18unchanged fragments and42pins qualify; one G10s/512MiB pure-control
-call may run after checkpoint. No binary capture or game actor is admitted.
+with disjoint ownership and one frozen host/UI interface. All six actual C5
+pure-control groups now pass Root verification/full48pins. C6 minimal caller
+source task is frozen and may start after checkpoint, independent of D12/13/14.
+No binary capture or game actor is admitted.
 Four user-retained workers stay; no settled worker currently awaits cleanup.
 Provider comparison remains incomplete; effective model/cost unknown.
 
