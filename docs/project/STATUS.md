@@ -59,12 +59,16 @@ and confirms its import is missing; bind that full closure before retrying.
 All four workers are preserved/released:186released/four user-retained/zero
 reclaimable. No schema migration or goal change is supported.
 
-**Next:** implement and source-qualify the bounded Engine correction: explicit
-storage YAML closure, sequential char readiness/current-life check before map,
-nonzero failure cleanup and holding DB while a dependent server is unresolved.
-Checkpoint before separately admitting a changed fresh trial. The corrected
-inter template is source-only, not installed. A199 refusal, B200 cancel/dialogue
-grant/repeat and genuine relog remain
+**Changed trial source qualified:** [Root checks the Engine correction and fresh
+material](reviews/2026-10-23-T10.007.md#repaired-engine-and-fresh-material-source-qualified-one-changed-player-trial-admitted).
+Nine exact source changes add the storage YAML closure, sequential native
+readiness, nonzero failure cleanup and DB dependency hold. Unchanged driver/UI/
+parent mechanisms are retained. Fresh material has19roles and all12runtime
+placeholders; private credentials fit the protocol. No game action yet.
+
+**Next:** bind the committed head/lease/inputs and invoke the single admitted
+changed fresh trial, then personally audit its complete outcome. A199 refusal,
+B200 cancel/dialogue grant/repeat and genuine relog remain
 unverified. Restart, inactive/later-ID guards, installed4848+3assembly/ordinary
 route and normal Chinese journal stay open. No unchanged trial, parser or
 source-test rerun. T10.007/T10.008 and all82functional gaps remain open.

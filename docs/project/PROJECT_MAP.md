@@ -28,7 +28,7 @@ Missing story scripts  [OPEN: largest content risk]
 Full game test         [LATER: 82 functional resource gaps remain]
 
 Current path:
-  Native parser PASS -> isolated server startup FAIL -> repair selected
+  Native parser PASS -> isolated server startup FAIL -> repair qualified
                                                        |
                                                        v
                                       real NPC grant -> relog -> restart
@@ -36,7 +36,7 @@ Current path:
 Root checked the failed trial and recovered its test containers/bridge.
 Original game preserved. Test database retained. No player PASS yet.
 Both Grok/Claude pairs finished. Root checked the proposed repairs.
-Next: Engine correction, then a changed isolated trial.
+Next: bind and run the one admitted changed isolated trial.
 
 No decision is needed from you now. The full-game goal is unchanged.
 ```
