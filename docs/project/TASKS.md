@@ -44,6 +44,15 @@ Bind fresh copies and commit separate data-only admission next; no GET/browser.
 [Exact nine-body bindings qualify; one data call is admitted](reviews/2026-10-23-T10.005.md#exact-nine-body-bindings-qualify-and-one-data-acquisition-is-admitted),
 12actor/13caller headers/full inverses; original G45s/512MiB/3s, actualreturn<48s.
 Run once and fully audit under exact introducing HEAD; no browser/content PASS.
+[One nine-resource acquisition/full Root audit pass](reviews/2026-10-23-T10.005.md#one-nine-resource-acquisition-and-complete-root-audit-pass):
+caller0/valid original guard/11.849s,59full pins plus exact Python/seam supplement;
+3complete200/6complete404,4566087B,18effects/seven parents/current owner and
+positive test-process closure match. No body execution/browser/content gate.
+Next bind actual observed statuses and final effects into the diagnostic inputs.
+[Claude submission preserved and worker released](reviews/2026-10-23-T07.006.002.md#claude-authored-submission-preserved-and-settled-worker-released):
+exact three paths/commit/full bytes, clean worktree; Grok remains active.
+Shared pure caller final-publication deadline correction awaits Root review;
+neither candidate has run or been selected.
 
 Earlier T07.007.011.005 support gate: [corrected private extraction/full Root
 payload audit pass](reviews/2026-10-22-T07.007.011.005.md#corrected-private-extraction-and-complete-root-payload-audit-pass),

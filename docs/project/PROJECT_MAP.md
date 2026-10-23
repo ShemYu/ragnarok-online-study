@@ -46,9 +46,11 @@ CURRENT (23 Oct):
       All 17 pins / 5 archives / current game owner and cleanup checked.
   [V] Final launcher/controller copies checked; only bindings change.
   [V] Exact nine-resource source set and finite reader source checked.
-      Actual return-time check corrected; no resource request yet.
-  [>] Exact resource bindings checked; one data acquisition admitted.
-      Run once and audit all responses/effects, then finish proxy/parent.
+      Actual return-time check corrected; one data call now completes.
+  [V] Nine responses and complete Root audit pass: 11.849s / 4.36MiB.
+      Three files return 200; six aliases return 404. No new extraction.
+      18 effects / 7 parents / original owner / test cleanup all checked.
+  [>] Finish exact diagnostic data/configuration and proxy/parent bindings.
       Then separately admit one quest-loader test.
       No map/render gate in that test. No test browser has launched.
   [V] On-disk navigation table read/audit pass: empty table, 22 bytes.
@@ -56,9 +58,12 @@ CURRENT (23 Oct):
   [V] Equal portal-routing implementation task frozen: 6 inputs / 8 groups.
       Hidden guidance, ordinary portals and stale-work fences are in scope.
   [>] Actual Claude/Grok pair dispatched on separate branches from 44afe8e.
-      Same task/profile/spec checked; both live. Root verifies submissions.
+      Same task/profile/spec checked. Claude submitted; Grok is working.
+      Claude files/commit preserved, settled worker released. Tests pending.
   [V] Independent test source checked: 53 cases / 8 groups, still unrun.
       Both implementations receive the same Root checks after submission.
+  [>] Small final-report deadline fix in shared test runner awaits review.
+      No game design or milestone change. No user action is needed.
 
 Earlier checkpoints (their next actions can be superseded):
   [V] Browser integration plan checked; strict ownership/clocks stay.

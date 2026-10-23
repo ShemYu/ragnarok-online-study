@@ -7,8 +7,8 @@ Updated: 2026-10-23 JST. Coordinator: Codex. Active scope: **execute the documen
 Functionality remains first; **4/14 parent checks, about29%**. All82functional
 resource gaps remain open. No full-game scope change or new user decision.
 
-**Portal guidance:** [both actual isolated Claude/Grok implementations are
-working](reviews/2026-10-23-T07.006.002.md#actual-equal-implementation-pair-dispatched)
+**Portal guidance:** [both actual isolated Claude/Grok implementations were
+dispatched](reviews/2026-10-23-T07.006.002.md#actual-equal-implementation-pair-dispatched)
 from44afe8e with identical actual specs/BASE/task/profile and setup skipped.
 T07.006.002 adds request-local ordinary portals, hidden maintenance and
 stale-work fences. [Root checked the independent common test source](reviews/2026-10-23-T07.006.002.md#independent-common-control-source-qualifies):
@@ -25,18 +25,19 @@ archives/current owner and positive test-process closure.
 two private source files exist in the fresh actual namespace; no role inputs,
 outputs, guards, profile, READY or browser execution.
 
-Next establish the finite nine quest-resource response bodies/statuses and
-18exact extraction/override effects through the existing normal reader.
-Source candidates and missing loose files cannot prove current200/404.
+The [one nine-resource acquisition and complete Root audit now pass](reviews/2026-10-23-T10.005.md#one-nine-resource-acquisition-and-complete-root-audit-pass):
+caller0/original guardvalid/11.849s,59full pins plus exact Python/seam supplement.
+Three complete200 bodies/6complete404 responses total4566087B. Three root
+files are preexisting/unchanged/full-body equal; six root leaves and all nine
+overrides remain absent. All seven parents match. Original game owner,
+executables/listeners and positive actor/caller/group absence match.
 [The exact source projection/request set now qualifies](reviews/2026-10-23-T10.005.md#exact-diagnostic-projection-and-nine-request-source-set-qualify),
 23pins/16spans. [The finite acquisition actor and corrected return check also
 qualify](reviews/2026-10-23-T10.005.md#nine-body-acquisition-source-and-observed-return-correction-qualify):
 26actor groups/two caller edits/full inverses.
-[Exact fresh bindings qualify; one data acquisition is now admitted](reviews/2026-10-23-T10.005.md#exact-nine-body-bindings-qualify-and-one-data-acquisition-is-admitted):
-12actor/13caller headers/full inverses. Run once under this exact clean
-introducing HEAD, then audit every body/effect/guard before further bindings.
-No request has run yet; no browser is admitted.
-Finish source-bound diagnostic configuration/assembly, proxy/parent bindings
+[The one-shot admission](reviews/2026-10-23-T10.005.md#exact-nine-body-bindings-qualify-and-one-data-acquisition-is-admitted)
+is consumed; do not replay it. No acquired body is executed and no browser is
+admitted. Finish source-bound diagnostic configuration/assembly, proxy/parent bindings
 and protected original-world checks, then commit one separate live admission.
 This is a fixed-ID quest-loader diagnostic with no map/render/ordinary
 story/play/save gate; passing it cannot close the full-game goal.
@@ -49,6 +50,12 @@ product is source-predicted and must match the actual endpoint strictly.
 [The on-disk navigation table is exactly22B/empty](reviews/2026-10-23-T07.006.001.md#one-on-disk-table-read-and-complete-root-audit-pass);
 served winner, selected route and packet/runtime/story gates remain unknown.
 Original game/save/settings and internet connection stay preserved.
+
+[Claude's authored submission is preserved and its settled worker released](reviews/2026-10-23-T07.006.002.md#claude-authored-submission-preserved-and-settled-worker-released).
+Grok remains active. Neither candidate is executed or installed. Independent
+source review finds one final-report deadline gap in the shared pure caller;
+the two-assertion correction awaits Root review. The separate expect_native
+metadata correction and equal provider notification precede actual runs.
 
 ## Recent verification history
 
