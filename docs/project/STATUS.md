@@ -7,28 +7,21 @@ Updated: 2026-10-24 JST. Coordinator: Codex. Active scope: **execute the documen
 Functionality remains first; **4/14 parent checks, about29%**. All82functional
 resource gaps remain open. No full-game scope change or new user decision.
 
-**Live next action:** [NPC prefix checks pass; Grok selected; dictionary source packet qualifies](reviews/2026-10-23-T10.007.md#actual-npc-prefix-checks-pass-grok-selected-next-component-packet-qualified).
-Both independent D9 component implementations are running on the same frozen
-inputs (Grok and Claude). N9 also has both providers running: four active,
-including two Grok workers;222released/four user-retained. Root next
-verifies their source. [The independent NPC pipeline packet now qualifies](reviews/2026-10-23-T10.007.md#npc-raw-name-pipeline-packet-qualified-for-independent-source-fixture-pair);
-both N9 workers are ready/input_accepted. Grok's N8
-failure metadata qualifies (20/20 vs19/20); this is
-observability, not an NPC repair. Source suggests a raw-name/rendered-label
-difference; actual trial8 NPC identity remains unknown.
-S8Claude's17B disabled-host data proposal is selected as source/data (19vs16);
-actual serving/login behavior remains unverified. No file is installed.
-[Normal9 now passes Root data checks](reviews/2026-10-23-T10.007.md#n9-pair-running-normal9-data-and-compact-capture-caller-source-qualify):64bodies/82662519B, including selected R8/S8
-copies; all copied configuration remains stale/unbound.
-C2 cursor, all5 FileStore groups, full source chain and compact caller qualify.
-[Actual read-only world preflight passes Root audit; one fixed stopped-image
-capture is admitted](reviews/2026-10-23-T10.007.md#actual-world-preflight-passes-complete-root-audit-one-stopped-image-capture-admitted).
-Root next binds the current HEAD/lease/authority and invokes once, then audits
-all raw wires/files/cleanup. It starts no service or browser/game process.
-Trial8 reached the map but no NPC dialogue; complete cleanup/original-state
-preservation pass. All old one-shot admissions are consumed. Dictionary abort
-remains open; request and ready node are not joined to the same initializer.
-No game replay is admitted. Limits/goal unchanged; no user action is needed.
+**Live next action:** [First capture safely refuses before creation; N9 pair retained](reviews/2026-10-23-T10.007.md#first-capture-refuses-omitted-image-volume-field-originals-preserved-three-workers-settled).
+Root next verifies both NPC raw-name fixtures and the dictionary proposals.
+Both N9 workers and D9Claude are released after full submission checks;
+D9Grok is the sole active Orca worker (225released/four user-retained).
+Source proposals remain untested/unselected; NPC trial8 cause stays unknown.
+Astra reviews the image API's omitted-volume-field contract. The stopped-image
+attempt issued only13GETs and created nothing; originals match. All raw wires/
+retained pins/cleanup are independently audited; no capability PASS or retry.
+The caller skips independent postchecks after a failed close verdict; a narrow
+source correction is being prepared. No limits or cleanup allowance changes.
+Normal9 exact64body copies pass as data; ports/paths remain stale/unbound.
+Earlier N8Grok failure metadata and R8Grok/S8Claude data selections remain
+qualified for their narrow scope; actual serving/game behavior is unverified.
+Trial8 reached the map but no NPC dialogue. Dictionary abort remains open.
+No new browser/game/capture admission. Limits/goal unchanged; no user action.
 
 **Prior native parser checkpoint:** [All three isolated native parser cases now pass Root verification](reviews/2026-10-23-T10.007.md#actual-three-case-native-parser-trial-and-complete-root-audit-pass):
 134 requests/231 full pins, valid original guard/13.231s, real NPC and three

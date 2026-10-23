@@ -36,7 +36,7 @@ Current path:
                   |           |           |
               NPC name    Dictionary   Resources
               dataflow    component    four copies PASS
-              C/G running C/G running  route test pending
+              Root verify Grok active  route test pending
                   +-----------+-----------+
                               |
                     changed normal NPC trial
@@ -1065,3 +1065,9 @@ Root binds fresh HEAD/lease/output before checking originals. No capture yet.
 Latest: actual world preservation preflight PASS (sixGETs/four owners/five originals).
 One fixed never-started image file-capture call admitted after fresh exact binding.
 No service/browser/game execution; Root full-wire/cleanup audit remains mandatory.
+
+
+Latest: first capture stops on omitted image volume field BEFORE any creation.
+All13GET wires/original preservation audited; no file capability PASS.
+Both N9 and D9Claude source submissions retained/released; only D9Grok active.
+Next Root controls + API contract and narrow caller failure-path checks.
