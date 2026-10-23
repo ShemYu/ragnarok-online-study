@@ -172,7 +172,7 @@ CURRENT (23 Oct):
   [V] Corrected26343ef: all10Python / all37Node pass; full19-pin audit passes.
       Exact test births/groups gone, no signals, source/FD/thread checks pass.
   [V] Actual integrated5e96cf6: all10Python / all37Node and18-pin audit pass.
-  [>] Rebind required40controller regressions to actual handlers and ACKs.
+  [V] Required40regressions pass; full25-pin Root audit/clean exit/no signals.
       Fresh actor/parent bindings and a separate live admission remain.
       Admission consumed; failed namespace immutable; no retry admitted.
       No game patch is installed. Parent progress stays 4/14.

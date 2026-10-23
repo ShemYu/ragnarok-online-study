@@ -91,13 +91,14 @@ attempt literal. No actor or game code runs in this source/data materialization.
 passed before the single4988c8d call. Its admission and actual-root-2 namespace
 are now consumed and immutable; the existing inputs/outputs are not fresh.
 
-**Next:** rebind/run the existing40controller regressions, then fresh Root5-based
-source/parent bindings. [Actual integrated5e96cf6 and full Root audit pass](reviews/2026-10-23-T10.005.md#actual-integrated-source-and-complete-control-audit-pass):
+**Next:** qualify fresh compact Root5-based source/parent/current-owner bindings,
+then separately admit and run the actual browser diagnostic. [Actual integrated5e96cf6 and full Root audit pass](reviews/2026-10-23-T10.005.md#actual-integrated-source-and-complete-control-audit-pass):
 10/10Python+37/37Node, zero skips;18full audit pins/two executable pins, both
 valid original guards and fresh positive test-process/group absence. Candidate
 26343ef had independently passed the same controls/19-pin audit before integration.
-Existing40groups need actual named message/error/close hooks and validated ACK
-replies; W05 now awaits the Worker witness. Compact Root5-based composition is
+[Existing40regressions now pass with a complete25-pin Root audit](reviews/2026-10-23-T10.005.md#legacy40-actual-regressions-and-complete-root-audit-pass):
+caller0/driver0, no skips, valid original G, no signals/actions and positive
+test-driver/group absence. Named handlers/real ACKs/async witness are exercised. Compact Root5-based composition is
 source-supported; no historical Lua/bootstrap pipeline replay, new grant/launcher
 protocol or tail-only regression repeat is needed. No live trial is admitted.
 [Qualified intermediate bodies](reviews/2026-10-23-T10.005.md#qualified-intermediate-source-bodies-materialized)
