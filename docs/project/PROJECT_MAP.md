@@ -33,6 +33,10 @@ next action and the exact limits of each result.
 CURRENT WORK: quest data, missing story and map-load checks
 
 CURRENT (23 Oct):
+  [V] Fixed signature caller source + independent review checked.
+  [>] Bind committed admission; run 51 checks once, then full Root audit.
+  [V] Fixed one-table observer source checked.
+  [>] Bind admission; read 22 bytes once, then audit. No game changes.
   [V] Exact 51 browser-check commands and independent review checked.
       Invocation source/admission next; no tool or browser run yet.
   [V] Navigation one-table read contract checked; 15 stat-only paths match.

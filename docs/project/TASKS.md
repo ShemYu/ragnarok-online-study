@@ -4,10 +4,10 @@ Task owner: coordinator unless dispatched. Updated: 2026-10-21. The user has aut
 
 ## Dependency map
 
-Current support: [finite51 browser command list qualifies](reviews/2026-10-22-T07.007.011.005.md#finite-signature-list-and-independent-review-qualify),
-Root17full pins; fixed invocation/source admission next, no commands run.
-[One-table navigation contract qualifies](reviews/2026-10-23-T07.006.001.md#one-table-on-disk-read-contract-qualifies),
-Root10pins/15stat-only paths; bounded inert-read source/admission next.
+Current support: [fixed signature source qualifies; one51-command run admitted](reviews/2026-10-22-T07.007.011.005.md#fixed-signature-caller-qualifies-and-one-verification-is-admitted),
+Root19pins/six spans+29final joins/two donor seams. Bind/run once/audit next.
+[Fixed one-table observer qualifies; one inert read admitted](reviews/2026-10-23-T07.006.001.md#fixed-one-table-observer-qualifies-and-one-inert-read-is-admitted),
+Root12pins/six spans; exact22B/20s/one open. Neither actual operation has run.
 
 Earlier T07.007.011.005 support gate: [corrected private extraction/full Root
 payload audit pass](reviews/2026-10-22-T07.007.011.005.md#corrected-private-extraction-and-complete-root-payload-audit-pass),
