@@ -7,21 +7,17 @@ Updated: 2026-10-24 JST. Coordinator: Codex. Active scope: **execute the documen
 Functionality remains first; **4/14 parent checks, about29%**. All82functional
 resource gaps remain open. No full-game scope change or new user decision.
 
-**Live next action:** [First capture safely refuses before creation; N9 pair retained](reviews/2026-10-23-T10.007.md#first-capture-refuses-omitted-image-volume-field-originals-preserved-three-workers-settled).
-Root next verifies both NPC raw-name fixtures and the dictionary proposals.
-Both N9 workers and D9Claude are released after full submission checks;
-D9Grok is the sole active Orca worker (225released/four user-retained).
-Source proposals remain untested/unselected; NPC trial8 cause stays unknown.
-Astra reviews the image API's omitted-volume-field contract. The stopped-image
-attempt issued only13GETs and created nothing; originals match. All raw wires/
-retained pins/cleanup are independently audited; no capability PASS or retry.
-The caller skips independent postchecks after a failed close verdict; a narrow
-source correction is being prepared. No limits or cleanup allowance changes.
+**Live next action:** [Read-only runtime-binary route; independent C4 source pair](reviews/2026-10-23-T10.007.md#runtime-binary-readonly-route-qualified-for-independent-source-pair).
+Root dispatches equal Claude/Grok proposals for one GET-only binary capture.
+The earlier stopped-image attempt remains failed/consumed; no retry or
+image-volume normalization. No original mount shadows the proposed leaf.
+This source-only pair has no runtime admission. Root next verifies the N9
+raw-name fixtures and independent caller-postcheck correction; D9Grok remains
+fresh/live on the dictionary component. Other settled workers are released.
 Normal9 exact64body copies pass as data; ports/paths remain stale/unbound.
-Earlier N8Grok failure metadata and R8Grok/S8Claude data selections remain
-qualified for their narrow scope; actual serving/game behavior is unverified.
-Trial8 reached the map but no NPC dialogue. Dictionary abort remains open.
-No new browser/game/capture admission. Limits/goal unchanged; no user action.
+N8Grok metadata and R8Grok/S8Claude data selections keep their narrow limits.
+Trial8 reached the map but no NPC dialogue; dictionary abort remains open.
+No game/service PASS, new browser/game admission, cap or goal change.
 
 **Prior native parser checkpoint:** [All three isolated native parser cases now pass Root verification](reviews/2026-10-23-T10.007.md#actual-three-case-native-parser-trial-and-complete-root-audit-pass):
 134 requests/231 full pins, valid original guard/13.231s, real NPC and three
