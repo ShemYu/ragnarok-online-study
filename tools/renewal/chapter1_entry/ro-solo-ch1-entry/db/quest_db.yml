@@ -1,0 +1,16 @@
+# ro-solo-ch1-entry (T10.007): additive QUEST_DB definitions, UTF-8.
+# The app assembles this file into db/import/quest_db.yml. Only Id and Title
+# are defined; the client quest log supplies the description and objective.
+# No Clear, Footer, targets, time limit or rewards.
+
+Header:
+  Type: QUEST_DB
+  Version: 3
+
+Body:
+  - Id: 18368
+    Title: 天地樹的召喚(1)
+  - Id: 18369
+    Title: 天地樹的召喚(2)
+  - Id: 18370
+    Title: 天地樹的召喚(3)

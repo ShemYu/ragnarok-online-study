@@ -1,0 +1,107 @@
+//===== ro-solo-ch1-entry 0.1.0 (T10.007) ======================================
+//= Chapter 1 starter branch: registers, cancels or resumes quest 18368 only.
+//= Encoding: UTF-8 (Traditional Chinese dialogue).
+//= Durable state is the character's quest log alone. This script defines no
+//=   permanent character, account, global or NPC variable; .@ scope only.
+//= Quest state uses default checkquest (HAVEQUEST) as implemented in rAthena
+//=   0693b8c quest_check: -1 absent, 1 active OR inactive (Q_INACTIVE is
+//=   reported as 1), 2 complete. Any other value is treated as unknown.
+//= Out of scope: 18368 -> 18369 -> 18370 transitions, completequest,
+//=   erasequest, changequest, warps, transport and rewards. 18369/18370 are
+//=   only read, never written.
+//==============================================================================
+
+prt_fild05,353,252,4	script	梧桐枝#ROSOLO_CH1	4_CH1_BRANCH,{
+	.@state = callsub(L_State);
+	if (.@state == 1) goto L_Resume;
+	if (.@state == 2) goto L_Done;
+	if (.@state != 0) goto L_Conflict;
+	if (BaseLevel < 200) goto L_TooLow;
+
+	mes "[梧桐枝]";
+	mes "一根泛著淡淡綠光的樹枝。";
+	mes "靠近時，彷彿聽見遠方傳來的呼喚。";
+	next;
+	if (select("回應呼喚:先離開") != 1) {
+		mes "[梧桐枝]";
+		mes "樹枝的光芒漸漸淡去。";
+		mes "改變心意時，再來這裡就好。";
+		close;
+	}
+
+	// The menu yielded to the client: recheck level and every quest before writing.
+	.@state = callsub(L_State);
+	if (.@state == 1) goto L_Resume;
+	if (.@state == 2) goto L_Done;
+	if (.@state != 0) goto L_Conflict;
+	if (BaseLevel < 200) goto L_TooLow;
+
+	setquest 18368;
+	// setquest reports success even when quest_add fails, so read the log back.
+	.@a = checkquest(18368);
+	if (.@a == 1 && checkquest(18369) == -1 && checkquest(18370) == -1) {
+		mes "[梧桐枝]";
+		mes "樹枝的光芒輕輕包圍了你。";
+		mes "任務「天地樹的召喚(1)」已記錄。";
+		mes "目標：前往梧桐村";
+		close;
+	}
+	if (.@a == -1) {
+		debugmes "ROSOLO_CH1: setquest 18368 was not recorded; quest log unchanged.";
+		mes "[梧桐枝]";
+		mes "呼喚中斷了，任務沒有被記錄。";
+		mes "你的任務清單沒有變更，可以稍後再試一次。";
+		close;
+	}
+	goto L_Conflict;
+
+L_TooLow:
+	mes "[梧桐枝]";
+	mes "樹枝靜靜地垂著，沒有任何回應。";
+	mes "（需要基本等級 200 以上）";
+	close;
+
+L_Resume:
+	mes "[梧桐枝]";
+	mes "你已經回應過這股呼喚了。";
+	mes "任務「天地樹的召喚(1)」仍在進行中。";
+	mes "目標：前往梧桐村";
+	mes "詳細內容可以在任務清單中查看。";
+	close;
+
+L_Done:
+	mes "[梧桐枝]";
+	mes "樹枝已經安靜下來，";
+	mes "這裡的呼喚已經結束了。";
+	close;
+
+L_Conflict:
+	debugmes "ROSOLO_CH1: unrecognised quest state 18368=" + checkquest(18368) + " 18369=" + checkquest(18369) + " 18370=" + checkquest(18370) + "; no change made.";
+	mes "[梧桐枝]";
+	mes "任務紀錄的狀態無法確認。";
+	mes "為了保護你的紀錄，這裡不會做任何變更。";
+	close;
+
+// 0 fresh (all three absent), 1 entry in progress (18368 active or inactive,
+// nothing later), 2 entry finished or a later quest present without conflict,
+// 3 anything else. Later quests may exist without 18368 if a future script
+// moves on with changequest, so absent 18368 plus later progress is legal.
+L_State:
+	.@a = checkquest(18368);
+	.@b = checkquest(18369);
+	.@c = checkquest(18370);
+	if (.@a != -1 && .@a != 1 && .@a != 2) return 3;
+	if (.@b != -1 && .@b != 1 && .@b != 2) return 3;
+	if (.@c != -1 && .@c != 1 && .@c != 2) return 3;
+	if (.@a == -1 && .@b == -1 && .@c == -1) return 0;
+	if (.@a == 1) {
+		if (.@b == -1 && .@c == -1) return 1;
+		return 3; // 18368 still open alongside a later quest
+	}
+	if (.@b == 1 && .@c != -1) return 3; // 18369 still open alongside 18370
+	return 2;
+
+OnInit:
+	questinfo(QTYPE_QUEST, QMARK_YELLOW, "BaseLevel >= 200 && checkquest(18368) == -1 && checkquest(18369) == -1 && checkquest(18370) == -1");
+	end;
+}

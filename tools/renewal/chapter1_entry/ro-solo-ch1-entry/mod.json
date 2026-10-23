@@ -1,0 +1,7 @@
+{
+  "name": "ro-solo-ch1-entry",
+  "version": "0.1.0",
+  "author": "ro-solo local component (T10.007)",
+  "description": "Chapter 1 starter branch on prt_fild05 for BaseLevel 200+: registers, cancels or resumes quest 18368 only, preserves 18369/18370, and adds QUEST_DB definitions for 18368-18370 (Id/Title only). No story transitions, transport or rewards. Text is UTF-8 Traditional Chinese.",
+  "requires": { "app": ">=1.6.3", "era": "renewal" }
+}
