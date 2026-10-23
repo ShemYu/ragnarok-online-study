@@ -160,9 +160,11 @@ RClaude19/Grok19 both qualify data; Ucorrected Grok18 over Claude17 is the
 source-only capture direction. Root resolves its layout error with the existing
 LocalFile route: copy the seven bodies directly to fresh server/data/... and
 server/BGM/01.mp3. Adopt neither extra directory/env driver patch; the tested
-driver/empty override remain sufficient. No assets served yet. Corrected fresh
-fixture3 is prepared after Root refuses fixture2's policy mismatches; Root
-qualification and runtime/config bindings are next. No service recipe admitted.
+driver/empty override remain sufficient. [All seven copies and corrected fresh
+fixture3 now pass Root data qualification](reviews/2026-10-23-T10.007.md#seven-loose-copies-and-corrected-fresh-fixture-data-qualify).
+Original51normal files remain exact; Config copy/normalized fixture qualify.
+No assets served yet; current-world/runtime/HEAD/lease bindings remain next.
+No service recipe admitted.
 No higher allowance or
 unchanged retry is admitted.
 Physical footprint/headroom remain unknown. Independent
