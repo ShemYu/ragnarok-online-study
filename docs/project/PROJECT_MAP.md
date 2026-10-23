@@ -162,11 +162,13 @@ CURRENT (23 Oct):
   [V] Root comparison: Claude15/20, Grok15/20; neither raw fix accepted.
       Fix cancellation-as-EOF and missing ACK/error/close ordering.
       Existing outer deadlines suffice; no new Worker grant protocol needed.
-  [>] Grok writes corrected source + unrun controls in an isolated branch.
+  [>] Root repairs submitted source + unrun controls in an isolated branch.
       Root checks 10 sources / 20 excerpts for affected validation checks.
       Refresh embedded Worker hash; test actual error + ACK handlers.
       First draft byte composition matches; parallel audits find fixable gaps.
       Correct stream shapes, inverse and witness/shutdown ordering before tests.
+      Grok submission stays needs_fix; raw2affd6b kept and worker released.
+      Root repairs with disjoint native proposals and Astra support.
       Admission consumed; failed namespace immutable; no retry admitted.
       No game patch is installed. Parent progress stays 4/14.
       No game design or milestone change. No user action is needed.

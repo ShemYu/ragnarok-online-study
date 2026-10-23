@@ -91,15 +91,17 @@ attempt literal. No actor or game code runs in this source/data materialization.
 passed before the single4988c8d call. Its admission and actual-root-2 namespace
 are now consumed and immutable; the existing inputs/outputs are not fresh.
 
-**Next:** collect/check the [corrected final source after active-draft review](reviews/2026-10-23-T10.005.md#active-source-draft-reviewed-and-corrections-returned)
-under T10.005. Actual Grok task_1349907b83b4/ctx_6ae8a3b701b9 is live on
-ShemYu/t10-negative-lifecycle-grok-1 from exact9d2d4d7. Root's immutable draft
-check matches four source pins/eleven fragments/predicted byte inverses. Parallel
-source audits find stream-shape, inverse, failure-retention and shutdown/witness
-ordering defects; bounded corrections return to the same worker. Worker source
-execution/temporary-path deviation is preserved and must be reported; it earns
-no runtime credit. No setup, actor trial or control run is accepted. Three owned
-source/control files plus report; Root owns verification/commit/integration.
+**Next:** Root corrects the [submitted source that failed review](reviews/2026-10-23-T10.005.md#source-submission-retained-and-coordinator-repair-owns-next-action)
+under T10.005. Grok task_1349907b83b4/ctx_6ae8a3b701b9 settled with the unchanged
+reviewed draft, then was preserved/released. Raw candidate2affd6b is isolated on
+ShemYu/t10-negative-lifecycle-grok-1 from9d2d4d7; no selected integration.
+Root's four-pin/eleven-fragment byte-composition check passes, but stream-shape,
+inverse, failure-retention and shutdown/witness ordering defects remain. Worker
+source-execution/temporary-path deviation is preserved and earns no runtime
+credit. Root owns correction with disjoint native source proposals/Astra support,
+then verifies and checkpoints the corrected revision before guarded controls.
+No setup, actor trial or control run is accepted;172released/four user-retained/
+zero active Orca workers/zero reclaimable. No new live trial is admitted.
 [Independent downstream-validator review is now personally checked](reviews/2026-10-23-T10.005.md#independent-downstream-closure-review-personally-checked):
 ten full sources/twenty excerpts, embedded Worker prefix claim, real error/ACK
 test hooks and unchanged launcher/parent vetoes. Same source worker continues;
