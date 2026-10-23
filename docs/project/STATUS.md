@@ -238,6 +238,10 @@ qualify. Precise postchecks verify775pins but expose outer FD4->5; a stdlib
 import witness supports preloading HTTP before the baseline. Source correction
 qualifies; full actual FD equality remains next. Fresh normal8 with executable
 checks and fixture5 preparation are next; no unchanged retry or player PASS.
+[Correct executable copies, fixture5 data and normalization now pass](reviews/2026-10-23-T10.007.md#correct-executable-copies-and-fresh-fixture5-data-qualify-runtime-bridge-source-prepared).
+Root prepares the same runtime bridge against fresh normal8/fixture5 inputs;
+source qualifies. Next materialize/recheck all executable permissions and
+bind one separately reviewed changed trial. C2Grok remains live.
 Source review finds cleanup-deadline/log-finalization gaps and a postcheck
 test-fixture defect. Fresh test data and corrected image-capture source are
 prepared independently; neither is admitted for runtime.

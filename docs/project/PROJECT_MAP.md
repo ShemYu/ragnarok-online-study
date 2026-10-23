@@ -70,7 +70,8 @@ Fresh runtime199/UI172 pins PASS. Changed-trial source qualifies.
 Test7 fails before browser: copied RemoteClient lacks execute permission.
 Full cleanup/original-state audit PASS; outer FD mismatch retained.
 HTTP import initialization reproduced; narrow preload source qualifies.
-Next: fresh executable copies + fixture5 -> changed trial/FD verification.
+Fresh normal8 executable copies + fixture5 data/normalization PASS.
+Next: runtime bridge -> changed trial/FD verification.
 No player PASS; source-only image-capture correction remains independent.
 Fresh test data + corrected hotkey capture source prepared independently.
 Root: test6 failed before UI: process-identity sample + early Chrome cleanup.
