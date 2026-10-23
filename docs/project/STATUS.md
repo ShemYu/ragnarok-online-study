@@ -37,8 +37,11 @@ workers run](reviews/2026-10-23-T10.005.001.md#actual-isolated-pair-dispatched)
 from9cebae1 with the same frozen spec/inputs. [Claude is preserved/released;
 Grok remains active](reviews/2026-10-23-T10.005.001.md#claude-preserved-and-released-source-checks-remain-unrun).
 Root reads the full Claude source and corrects one shared fake-clock fixture
-equally before any run. The separate witness proposal needs a narrow source
-correction. Root verifies/selects before any fresh binding
+equally before any run. [Claude now passes24own/27common checks and the complete
+25-pin Root audit](reviews/2026-10-23-T10.005.001.md#claude24authored-and27common-checks-plus-full-root-audit-pass).
+Its admission is consumed. Root's earlier authored-fixture concern is disproved
+and corrected; no candidate defect or edit. The corrected separate witness
+source qualifies, with actual clock proof still pending. Root verifies/selects before any fresh binding
 or separate live admission. The existing observer implementation, five inert
 served files, actual response/effect data and previous source qualification
 remain preserved. No map/render/ordinary story/play/save gate closes.
@@ -58,11 +61,8 @@ stated scopes. No test browser has launched; the clock-repair comparison and
 actual common-clock witness are the current next actions. No goal change or
 user decision is needed.
 
-[The corrected witness source qualifies and one Claude pure call is now
-admitted](reviews/2026-10-23-T10.005.001.md#corrected-witness-source-and-one-claude-pure-call-admitted),
-with exact preview/late-binding pins and unchanged guard limits. Grok finishes
-independently; no result is shared with it. Actual controls, full Root audit and
-the later separately admitted host-clock witness remain; no game retry follows.
+Grok finishes independently; no result is shared with it. Its equal verification
+and the later separately admitted host-clock witness remain; no game retry follows.
 
 ## Recent verification history
 

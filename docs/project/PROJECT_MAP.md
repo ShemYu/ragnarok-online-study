@@ -61,8 +61,10 @@ CURRENT (23 Oct):
       Both guards stay failed; caller 1. No game data request or Node run.
   [V] Failure/preservation audit passes: 70 pins / all 3 original owners.
       18 effects / 7 parents unchanged; both test drivers and caller gone.
-  [>] Equal Claude/Grok clock repair runs on two isolated branches.
-      Same 9cebae1 BASE / 6 inputs / 5 control groups; blind checks in progress.
+  [V] Claude clock source: 24 own + 27 common checks and full Root audit pass.
+      25 pins / caller0 / valid original guard; test driver group is gone.
+  [>] Grok clock repair remains active on its independent branch.
+      Same 9cebae1 BASE / 6 inputs / 5 groups; same corrected common checks.
       Then actual common-clock witness and a fresh separately admitted test.
   [V] On-disk navigation table read/audit pass: empty table, 22 bytes.
       Served table/browser winner and actual route still unknown.
