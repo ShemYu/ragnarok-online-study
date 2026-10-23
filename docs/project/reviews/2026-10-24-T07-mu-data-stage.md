@@ -238,3 +238,18 @@ After this Git checkpoint actual Grok can author both independently. Root
 personally qualifies/tests/binds before any fresh actual scene. B2U/B2D backend
 source continues independently; expected2active/243released/6retained before
 new starts. Full game goal unchanged;4/14checks/about29%, all82gaps open.
+
+
+## MuC MuD actual Grok source workers ready
+
+Both source workers are ready after9751fa1, alongside independent B2U/B2D:
+MuC task2515bd34a5ec/ctx7cf5a8d3d99a, START2307B/SHA
+1207fee5f40e84abb27479dbaa7335ac69ffdf445b084dcceae09ed5efa606c7;
+MuD task77be1a653f9e/ctx9cd8a57f6018, START2307B/SHA
+e48aa664b7be6b02ff99ac564d773f5c86d05390b42b5fad7ceaa8dd5e83b38a.
+Effective provider Grok; model/effort null, no named effective-model claim.
+Root separately verifies all51Astra frozen inputprepost pins/artifactpins and
+full byte equality of final Mu2 UI/driver to reviewed snapshot. Review28001B/SHA
+c703654757192709367736c5b5bc413b1ee5872fedf79546b2b7c7e15a8c6c91
+preserves source HOLD/no executions. Root handles personal final qualification.
+Expected4active/243released/6retained/0reclaimable. No scene/game actor admitted.

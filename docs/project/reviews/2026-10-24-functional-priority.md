@@ -648,3 +648,14 @@ source for ordinary-asset refusal, actual model/body/GPU evidence gaps and
 failure-path SQL/native/cleanup skips. Two disjoint MuC_UI/MuD_driver corrections
 are frozen, six actualNode/two actualPy groups; previous stubs are not coverage.
 No parser/loader/new framework/actor/cap expansion. B2U/B2D remain live.
+
+
+## Four independent Grok functionality sources active
+
+[Actual MuC/MuD ready receipts](2026-10-24-T07-mu-data-stage.md#muc-mud-actual-grok-source-workers-ready)
+add two disjoint map UI/driver corrections alongside backend B2U/B2D. Root
+verifies final Mu2 source equals the audited frozen snapshot/full51pins; HOLD
+remains. Four actual sources, no artificial filler, no shared output edits,
+no native/browser/game actor or extra test framework. Expected4active/
+243released/6retained/0reclaimable. Root preserves finished workers by archive
+and releases them; only the four user-owned resources stay retained.
