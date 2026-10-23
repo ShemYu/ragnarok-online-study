@@ -179,3 +179,36 @@ wrapper/caller/finite-test/native actor admission. Five actual source workers
 are live including backend/map four. Current active-scope inventory verifies
 all5live/nextAction:none; counts5active/243released/6retained. Four actual
 user-owned resources plus2historical absent records stay preserved.
+
+## Full839 provisional implementation reviewed three finite fixes routed
+
+Root freezes seven current writer output files into a private immutable
+snapshot14509B/b452ecc398bfe775d7daa5d19511fa1df84a722e897e58af479ceaac39e347c8.
+Worker remains active; this is not a final source submission. Astra6154B
+report/92bd142b2929f59f738e028100120d5da6e62920b6fe2f88a5ae863771944d93
+checks31 stable full input pins and exact spans. It finds a substantive
+one-global-scan/streaming implementation: no172MB output buffer/full physical
+row dictionary list/repeated global event filtering. Snapshot1683 scope
+remains metadata; two reference locks remain691/772.
+
+Root fully reads the report, checks all opened/output SHA+C8 pins and
+personally confirms three concrete counterpaths in frozen source:
+- read_bounded finalizer can skip remaining owned descriptor closes after
+  one close/release_many failure. Attempt all independent known-owned roles
+  before aggregate refusal; unknown identity/close remains untrusted.
+- Qualified consumer validates aggregate totals but omits full ordered
+  source ledger/closed schemas/receipt and current pin joins. A changed
+  selection index/source pin/range can be accepted after manifest rehash.
+  Fixed Root oracle values may stay unbound; checking logic may not be absent.
+- Source postpins include839 bodies but omit consumed code/three metadata
+  inputs. Immutable memory bytes do not prove current-file stability.
+
+Root enqueues exact fixes as msg2300a9e249ed to the still-active writer,
+within the existing<=7finite-group scope. No new framework/generation,
+source execution, scan/corpus replay or actor. Enqueue is not adoption proof.
+Provisional groups1–4 call actual helpers but do not by themselves compare
+all whole typed oracles; groups5–7 were absent at snapshot and are not called
+missing-final defects. DirectCLI semantic1 stays failedguard; separate
+qualified caller needs complete independent publication proof. Root later
+checks final submission/source/control/profile and full publication before
+any export/game credit. This provisional source is HOLD, not final accepted.

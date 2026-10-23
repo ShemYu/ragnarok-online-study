@@ -41,11 +41,12 @@ Parallel:
   MU1:105body stage PASS (Root checked/released)
   MU2 -> MuC/MuD: HOLD5findings -> finite fixes -> one fresh scene
        (retained water geometry0; current scene still verifies it)
-  full839spawn -> budget PASS; profile/oracles frozen -> Grok source LIVE
+  full839spawn -> budget PASS; source LIVE;3early fixes routed
 
 B2D/B2U:all8 selected focused checks PASS; original Root error preserved.
 Root:actual pending-producer poll PASS/116pins; native game still open.
-B3:fresh21role fixture source LIVE; native binding/play test next.
+B3:fresh21role source LIVE; independent expected bytes/tokens checked.
+B4:existing64body materializer input packet in preparation; no actor.
 MuC/MuD:submitted+released, HOLD5findings -> finite UI/driver fixes ready.
 MuCfix/MuDfix/B3/F839:four actual Grok source workers live.\nCurrent4active/247released/6retained records; no settled owner awaits cleanup.
 Four actual user-retained resources stay;2transferred records have none.

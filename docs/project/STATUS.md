@@ -27,6 +27,8 @@ The failed original Root caller remains preserved. UI composition is byte-
 qualified; actual native runtime bindings/HTTP/auth/SQL/game remain open.
 [The actual pending-producer poll check passes Root116pin verification](reviews/2026-10-24-functional-priority.md#actual-pending-backend-control-passes-root-verification).
 Live response dispatch still has source review only; no production change.
+[Next native binding and independent21-role expectations are reviewed](reviews/2026-10-24-functional-priority.md#native-binding-and-independent-fresh-fixture-expectations-reviewed);
+actual fresh data/runtime/native verification remains next.
 [MuC/MuD sources are submitted, pinned and released, HOLD for five finite
 source findings](reviews/2026-10-24-T07-mu-data-stage.md#muc-mud-submitted-held-five-finite-corrections-frozen).
 [Disjoint UI/driver fixes and a fresh21role backend fixture writer are actual\nGrok ready](reviews/2026-10-24-functional-priority.md#four-qualified-scope-grok-sources-actual-ready)\nalongside F839. Current all257record/3page inventory:\n4active/247released/6retained/0reclaimable. Four user-retained resources
@@ -63,6 +65,8 @@ the512MiB virtual cap. Root verifies866fullpins and every source's byte/count
 join; no large JSONL is written. Root now freezes the full selected839 profile/three typed expectation sets
 and qualified-publication semantics; independent Grok source implementation
 is actual Grok ready after4425a98. No wrapper/test/game actor is admitted.
+[Provisional exporter review finds three finite cleanup/validation gaps](reviews/2026-10-24-T06-full-spawn-output-budget.md#full839-provisional-implementation-reviewed-three-finite-fixes-routed);
+Root sends them to the active writer, no final submission/adoption claim.
 
 Original app/saves/Chrome/profile/settings/mute/IME/network stay untouched.
 The consumed ninth trial is not retried. All Chinese overlays stay enabled;

@@ -916,3 +916,47 @@ coverage limit. Actual live response dispatcher remains source-inspected
 only. No replay of prior eight, changed production, native backend/auth/
 SQL/browser/game/save credit or new actor. Four independent Grok sources
 continue while Root prepares exact fresh native data bindings.
+
+## Native binding and independent fresh fixture expectations reviewed
+
+Root fully reads6470B next-binding report/d97c851652965faf8c41ef99de6bf6782ad8a2ee2d942384fead1b9b7ff7b034,
+checks all26 opened input pins and11 closed outputs. Its seven finite
+binding slots cover fresh21-role/five-port projection, actual served
+Web/Online.js two-span edit, explicit RemoteUI=Engine.ui_port/CORS, all
+three backend origins, five native readiness roles, preserved corrected P2/
+parent/G/S/current-world protection and one four-case sequence. The corrected
+preloaded P2 is14303B/6dee37b843691fa55f4970574081a24f99621db15e65844bd780ff02afd06469;
+the older6685B caller is not a replacement. This is a source plan, no actor.
+
+Root also fully reads independent B3 expectations/report, checks all38
+opened pins and current output hashes, and personally verifies every raw
+role/template token dictionary and fixed length calculation. Exactly21
+roles=13immutable+8generated;10templates;15runtime tokens;22nonruntime
+substitutions. Immutable bodies total67223B; grammar-implied generated
+lengths char477/map490/inter1849/seed1911/web379/password64+64/cnf127.
+No actual generated body or secret is produced or verified by this arithmetic.
+EXPECTED25760B/c3b4d2fd5280e885a9c8782da1bc7800f013ed1a18cd76e2d05e7c0f36757e11
+is independent acceptance data, not candidate-filled expected output.
+
+The56 legacy source-input entries and seven backend descriptors are separate
+namespaces; all needed63 payloads exist. Root enqueues msg_ad4a111de14b/
+msg_cb9069c4a244: read/rejoin consumed backend descriptors and replace stale
+inter5/role12/template9/token12/allTemplatesUnchanged current assertions.
+Historical facts may stay historical. Enqueue alone is not adoption proof.
+No concrete decision/template/Engine contradiction is found.
+
+Root52730B preparation audit/33c44a383fb8d9e0021e7a52e048681bf8645eff8bfb878490b8d415c165af0b
+joins all reviewed source/metadata SHA+C8 and the manual oracle. No candidate
+execution, generator/native/browser/game or current-world claim. A finite
+B4 input packet is being prepared for adapting the existing64-body private
+materializer. B3 native MATERIAL origin/remote/config staynull; later normal
+runtime derives UNBOUND endpoint data from five proposals. Runtime driver/
+UI/Engine/Remote entries stay source descriptors, with a separate closed
+backendBinding data object. Counts must be computed under actual driver256/
+UI192 pin and512MiB/192MiB caps; no new framework or increased limits.
+
+Four actual Grok sources remain live. Latest all257record/3page fleet9
+inventory4active/247released/6retained/0reclaimable,
+10096B/efdc3e82370027dd78c441d1d05b60497eb690cb00289877c87160bc32c0874c.
+All nine historical attention flags have literal nextAction:none; existing
+retention/release authority is preserved. Full goal/progress unchanged.
