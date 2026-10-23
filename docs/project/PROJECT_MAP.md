@@ -79,8 +79,9 @@ Parallel C2 drafts both retained/released; comparison/tests next.
 Fleet: 218 released / 4 user-retained / 2 Grok active / 0 reclaimable.
 R8 Claude copies: Root data PASS; N8 Claude source retained, unqualified.
 Grok R8 and N8 remain active. Root tests earlier HTTP candidates.
-C2 both own5 PASS; common9 PASS + one shared fixture typo.
-Root corrects expected SQL byte count; only g01 needs recheck.
+C2 both own5 + reference10 PASS after fixture correction.
+Select explicit cursor: Claude20 / Grok19; local FileStore proof next.
+Independent optional host-status pair frozen; Astra checks dictionary failure.
 No player PASS; source-only image-capture correction remains independent.
 Fresh test data + corrected hotkey capture source prepared independently.
 Root: test6 failed before UI: process-identity sample + early Chrome cleanup.

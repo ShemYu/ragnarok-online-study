@@ -18,10 +18,10 @@ Limits and full-game goal unchanged; no action is needed from you.
 [Both independent pairs are now dispatched](reviews/2026-10-23-T10.007.md#two-repair-pairs-started-first-loose-data-qualifies-c2-own-reference-sources-qualify).
 R8Claude's four files pass Root data checks and its worker is released;
 N8Claude source is retained/released with a historical C8-record omission.
-Both Grok workers remain active. Root now runs four qualified C2
-own/reference pure diagnostics: both own5 pass; reference9 pass plus one
-shared SQL-size fixture error. [Only corrected g01 is next](reviews/2026-10-23-T10.007.md#both-c2-own-suites-pass-reference-suites-find-a-shared-fixture-size-error);
-no candidate selection or game replay yet.
+Both Grok N8/R8 workers remain active. [C2 both qualify all15finite groups;
+Claude explicit cursor selected](reviews/2026-10-23-T10.007.md#corrected-c2-reference-checks-pass-claude-selected-host-status-pair-frozen).
+No image-capture/game admission yet. Next local FileStore proof and independent
+optional host-status pair; Astra checks the unresolved dictionary cancellation.
 
 **Latest:** [All three isolated native parser cases now pass Root verification](reviews/2026-10-23-T10.007.md#actual-three-case-native-parser-trial-and-complete-root-audit-pass):
 134 requests/231 full pins, valid original guard/13.231s, real NPC and three
