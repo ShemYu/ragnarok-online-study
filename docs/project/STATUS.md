@@ -151,8 +151,12 @@ failure-aware SQL collection and minimal ledger now [qualify as source](reviews/
 Root corrects the per-read cleanup-reserve gap and explicitly records unrun
 comparisons; all errors/trial failure remain. JS syntax and focused finite
 controls are being prepared, with no actor/game admission. Independent source
-locators find genuine BGM/navigation donors and web-service route sources for
-the next bounded provider tasks. No higher allowance or
+locators find genuine BGM/navigation donors and web-service route sources.
+[Two new independent provider pairs are active](reviews/2026-10-23-T10.007.md#resource-material-and-web-service-pairs-dispatched-in-parallel):
+Rprepares seven exact loose resources and an unbound driver correction;
+Udefines the real service/capability plan. Same51-file packet per provider,
+two Grok/two Claude; no shared runtime actions. Root controls proceed alongside.
+No higher allowance or
 unchanged retry is admitted.
 Physical footprint/headroom remain unknown. Independent
 full-spawn preparation is unadopted; main player repair first.

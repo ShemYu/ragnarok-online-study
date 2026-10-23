@@ -50,7 +50,8 @@ Next: resolve request lifecycle + client resources; assess a bounded memory step
 Both client pairs reviewed/released: D Claude17/Grok16; S Claude18/Grok17.
 Small request ledger + failed-case evidence: source checked, controls next.
 All failures stay visible; no new player case or larger game allowance.
-Parallel source preparation: real music/navigation files + hotkey service.
+Parallel now: Grok + Claude on resources; Grok + Claude on hotkey service.
+Root verifies the changed evidence collector alongside those tasks.
 Read-only host snapshot PASS: normal pressure, 64 GiB physical RAM.
 Available headroom is not guaranteed; game memory limit stays 3 GiB.
 Content-contract preparation is preserved; its oracle is still unqualified.
