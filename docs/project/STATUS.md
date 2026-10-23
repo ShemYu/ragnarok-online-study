@@ -33,8 +33,12 @@ the existing transfer helper's clock keyword. Actual parent-child witnessing
 is still required; source advice alone is not a runtime fix.
 [T10.005.001](tasks/T10.005.001.md) freezes an equal independent Claude/Grok
 source comparison, six readonly inputs/five groups. [Both actual isolated
-workers now run](reviews/2026-10-23-T10.005.001.md#actual-isolated-pair-dispatched)
-from9cebae1 with the same frozen spec/inputs. Root verifies/selects before any fresh binding
+workers run](reviews/2026-10-23-T10.005.001.md#actual-isolated-pair-dispatched)
+from9cebae1 with the same frozen spec/inputs. [Claude is preserved/released;
+Grok remains active](reviews/2026-10-23-T10.005.001.md#claude-preserved-and-released-source-checks-remain-unrun).
+Root reads the full Claude source and corrects one shared fake-clock fixture
+equally before any run. The separate witness proposal needs a narrow source
+correction. Root verifies/selects before any fresh binding
 or separate live admission. The existing observer implementation, five inert
 served files, actual response/effect data and previous source qualification
 remain preserved. No map/render/ordinary story/play/save gate closes.
