@@ -157,7 +157,11 @@ byte-equal to retained source, original owners/container mounts preserved.
 43 Root pins/30 spans/two exec-source tree joins. Review the short caller,
 [The short caller/parent are personally reviewed and one fixed trial is admitted](reviews/2026-10-23-T10.007.md#one-fixed-disposable-parser-trial-admitted-after-source-review).
 Bind fresh ownership/HEAD/deadline, then execute the isolated three-case parser
-trial once. Its results and cleanup are still unrun at this admission checkpoint.
+trial once. [That first attempt failed before DB start and was fully audited](reviews/2026-10-23-T10.007.md#first-isolated-attempt-fails-before-db-start-preservation-audit-passes):
+second stopped-file read500/overlay Resource busy; driver1/G invalid, no parser
+result. Seventeen requests/70 audit pins, own container/network API retirement
+and unchanged original world pass. Astra investigates the Engine ordering issue;
+no unchanged retry or user decision.
 No parser fixture or game/DB test has started. This successful
 fixed diagnostic uses reproduced private-loader routing:0→5520own keys, only
 16912/21001inspected, original lazyInit not executed; no ordinary session,
