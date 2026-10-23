@@ -100,6 +100,10 @@ Existing40groups need actual named message/error/close hooks and validated ACK
 replies; W05 now awaits the Worker witness. Compact Root5-based composition is
 source-supported; no historical Lua/bootstrap pipeline replay, new grant/launcher
 protocol or tail-only regression repeat is needed. No live trial is admitted.
+[Qualified intermediate bodies](reviews/2026-10-23-T10.005.md#qualified-intermediate-source-bodies-materialized)
+are now stored: controller63184B, Worker656492B and proxy46357B, with exact full
+inverses and matching predicted hashes. They support the old40rebind and later
+fresh namespace assembly; no actor/game code runs in this materialization.
 
 Earlier source repair history: [submitted source failed review](reviews/2026-10-23-T10.005.md#source-submission-retained-and-coordinator-repair-owns-next-action)
 under T10.005. Grok task_1349907b83b4/ctx_6ae8a3b701b9 settled with the unchanged
