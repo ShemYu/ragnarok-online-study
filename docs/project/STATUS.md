@@ -91,7 +91,11 @@ attempt literal. No actor or game code runs in this source/data materialization.
 passed before the single4988c8d call. Its admission and actual-root-2 namespace
 are now consumed and immutable; the existing inputs/outputs are not fresh.
 
-**Next:** prepare serial isolated corrected source and controls under T10.005.
+**Next:** collect/check the [isolated corrected source implementation](reviews/2026-10-23-T10.005.md#corrected-negative-lifecycle-source-implementation-dispatched)
+under T10.005. Actual Grok task_1349907b83b4/ctx_6ae8a3b701b9 is live on
+ShemYu/t10-negative-lifecycle-grok-1 from exact9d2d4d7; no setup or tests run.
+Three source/control files only; Root owns later verification/commit/integration.
+Native downstream-validator review runs independently in parallel.
 [Both independent T10.005.005 plans are personally checked](reviews/2026-10-23-T10.005.005.md#both-plans-checked-and-corrected-combined-direction-selected):
 Claude15/20 and Grok15/20, plan only; neither raw fix is accepted. Both complete
 reports are preserved and workers released;169released/four retained/zero
@@ -99,7 +103,7 @@ reclaimable. The comparison alone is self_verified. Select a corrected combined
 finite drain and strict ACK/error/close ordering. Grok's timeout can mistake
 cancellation for EOF; both plans need enforced outcome/source-pin closure.
 Existing outer fences suffice; a new Worker grant protocol is not required.
-No new implementation, controls or live trial are accepted or admitted.
+No new implementation or control result is accepted; no live trial is admitted.
 [Root-5 actual trial/full144pin audit](reviews/2026-10-23-T10.005.md#actual-lua-startup-repair-loads-quest-data-but-optional404-lacks-terminal):
 Lua startup now succeeds; five genuine Wasm chains close, two native requests
 return, and a report observes5520own keys plus the Chinese21001 row. Full

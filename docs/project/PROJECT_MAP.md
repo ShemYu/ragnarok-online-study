@@ -160,7 +160,8 @@ CURRENT (23 Oct):
   [V] Root comparison: Claude15/20, Grok15/20; neither raw fix accepted.
       Fix cancellation-as-EOF and missing ACK/error/close ordering.
       Existing outer deadlines suffice; no new Worker grant protocol needed.
-  [>] Prepare corrected isolated source and controls, then Root verifies.
+  [>] Grok writes corrected source + unrun controls in an isolated branch.
+      Independent validator review runs in parallel; Root verifies next.
       Admission consumed; failed namespace immutable; no retry admitted.
       No game patch is installed. Parent progress stays 4/14.
       No game design or milestone change. No user action is needed.
