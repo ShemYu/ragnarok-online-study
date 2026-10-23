@@ -7,24 +7,25 @@ Updated: 2026-10-24 JST. Coordinator: Codex. Active scope: **execute the documen
 Functionality remains first; **4/14 parent checks, about29%**. All82functional
 resource gaps remain open. No full-game scope change or new user decision.
 
-**Live next action:** [Final HEAD/lease rebind, independent Root audit, then one changed NPC trial](reviews/2026-10-23-T10.007.md#final-binding-data-actual-pass-and-one-changed-npc-trial-admitted).
-Fresh fixture, normal64/runtime204/UI177, metadata normalization and all ten
-binding-data outputs pass Root verification. No new player case has passed.
-The unchanged parent must freshly pass original-world gates before actors;
-all existing dictionary/resource/console faults remain fatal. Final game
-binding will use the new committed HEAD and one-shot1200s lease.
+**Live next action:** [Audit the ninth trial and repair independent diagnostic components](reviews/2026-10-23-T10.007.md#ninth-trial-reaches-chinese-npc-dialogue-independent-grok-repair-wave-prepared).
+The actual one-shot trial is finished and failed. Root inspected the screenshot:
+A199 reaches the expected Traditional Chinese refusal dialogue. Dictionary
+request abort, console error and case failure stop B200/grant/relog. Full
+retained-wire and preservation audit is pending; no parent-check credit.
 
-**Parallel work:** D12 Grok driver repair is active. C5 capture correction and
-D10 controller source are submitted/pinned/released; controls/source review
-remain. D11 four concrete defects are confirmed and frozen in D12. D10 Astra
-findings wait for Root confirmation and disjoint repair briefs. Current fleet:
-1active/4user-retained/231released/0reclaimable. Complete provider comparison
-is unavailable after reported Claude quota; no provider winner is claimed.
+**Parallel work:** D12 Grok driver repair is active. Root confirms all five
+D10 source defects and freezes independent D13 host / D14 UI repairs against
+one exact interface. Both may start after this checkpoint. C5 source controls
+remain pending; no capture actor is admitted. Existing four user-retained
+workers remain. Incomplete Claude comparison and unknown effective model/cost
+are explicit; no provider winner is claimed.
 
-[Selected NPC36 source controls, caller5 controls and integrated syntax pass](reviews/2026-10-23-T10.007.md#integrated-npc-syntax-passes-and-both-raw-d9-sources-are-refused).
-Trial8 NPC failure cause remains unknown; actual dialogue/grant/relog are open.
-Original app/saves/Chrome/profile/settings/mute/IME/network stay untouched.
-No capture admission, goal change or user decision is required.
+The ninth admission/accounts/attempt/volume are consumed and cannot be
+retried. Immediate read-only kernel checks find all18 retained test PIDs and
+both groups absent, with four original owner births/executables matching.
+This is partial evidence; full cleanup audit remains separate. Original
+app/saves/Chrome/profile/settings/mute/IME/network stay untouched. No goal
+change or user decision is required.
 
 **Prior native parser checkpoint:** [All three isolated native parser cases now pass Root verification](reviews/2026-10-23-T10.007.md#actual-three-case-native-parser-trial-and-complete-root-audit-pass):
 134 requests/231 full pins, valid original guard/13.231s, real NPC and three

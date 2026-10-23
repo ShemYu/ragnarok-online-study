@@ -20,7 +20,7 @@ Quest file inventory   [PASS: all 3 files checked]
 Server + file binding  [PASS: current owner and 21 file checks]
 Active quest records   [PASS: fixed loading/shutdown diagnostic; session open]
 Story entry research   [CHECKED: Claude basis; mechanics still incomplete]
-Story implementation   [OPEN: map reached; NPC identity fails before dialogue]
+Story implementation   [PARTIAL: A199 Chinese dialogue reached; later cases open]
 Isolated server test   [PASS: 3 cases, SQL checks and cleanup verified]
 Chinese quest text     [SOURCE PASS: 28 tests + common checks; install is next]
 Existing text recovery [PASS: fixed 152-record tool integrated + checked]
@@ -30,33 +30,25 @@ Full game test         [LATER: 82 functional resource gaps remain]
 Current path:
   Server/parser PASS -> login/character/map PASS
                               |
-                      NPC identity FAIL
+                  A199 Chinese dialogue OBSERVED
+                              |
+                  Dictionary/console faults FAIL
                               |
                   +-----------+-----------+
                   |           |           |
-              NPC name    Dictionary   Resources
-              dataflow    component    four copies PASS
-              controls PASS  source audit  route pending
+              D12 driver   D13 host    D14 UI
+                active     prepared    prepared
                   +-----------+-----------+
                               |
-                    changed normal NPC trial
+                 verified integration / fresh trial
                               |
                     grant -> relog -> restart
 
-Root verified both NPC metadata proposals; Grok selected20/20 vs19/20.
-Name-binding shared controls PASS for both; Grok narrow repair selected.
-UI integration/syntax, strict driver pin and runtime inventory PASS.
-Fresh fixture + normal/runtime + normalization + binding data PASS
-  -> final HEAD/lease rebind + Root audit -> one changed NPC game trial.
-Full cleanup/original-state preservation PASS. No quest/player case PASS.
-Independent web capture: prior attempt refused before create; originals PASS.
-GET-only binary: C5 correction submitted; full control verification pending.
-NPC36 source controls + caller5 controls + integrated syntax PASS.
-Dictionary raw proposals refused; controller/driver corrections now active.
-D12 Grok repair active; C5/D10 source submitted/released, review pending.
-Final binder five-dependency gap corrected and actual data verification PASS.
-One changed NPC trial admitted only after final rebind/audit and fresh gates.
-Original saves/Chrome/profile/network stay untouched. No user decision needed.
+Trial9 is finished/failed; later player cases were stopped.
+Full retained-wire/preservation audit is pending. No percentage credit.
+D13/D14 use disjoint files and one frozen interface; no sibling reads.
+C5 independent binary-capture controls remain pending; no capture admission.
+Original saves/Chrome/profile/network stay untouched. Full goal unchanged.
 
 ```
 
