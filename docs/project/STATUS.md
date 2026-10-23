@@ -15,14 +15,16 @@ all18test PIDs/two groups gone, four test containers/network absent, new SQL
 volume retained, original five containers/owners/backings/listeners preserved.
 No B200quest-assignment/reconnection case or parent-check credit.
 
-**Parallel work:** Four actual Grok dispatches are live: D14 UI, C6 GET-only
-backend caller, F1 genuine-logout/functional-evidence source, and narrow D12
+**Parallel work:** Three Grok tasks continue: D14 UI, F1 genuine-logout/functional-evidence
+source, and narrow D12
 own-metadata cleanup. D12/D13 submissions are preserved and source-only accepted;
 Root confirms two driver/control and two host blockers after independent review.
-Neither source is qualified or executed. Separate corrections are next.
-D13 worker is released. Fleet observation:4active,5retained records,232released;
+Neither source is qualified or executed. D15/D16 correction packets are frozen; dispatch is next.
+D13 worker is released. Earlier fleet observation:4active,5retained records,232released;
 four retained workers are user-owned, one old D12 record transferred its resource
 to the active cleanup dispatch. It is not a fifth retained worker to close.
+C6 source submission is preserved; independent Astra review is active. Its
+proven terminal will immediately take D15; independent D16 starts separately.
 All six actual C5 pure-control groups pass Root verification/full48pins.
 No binary capture or fresh game actor is admitted. F1 retains all existing
 client faults as failures and requires positive logout/connection settlement.
