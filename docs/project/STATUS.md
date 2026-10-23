@@ -33,20 +33,21 @@ the existing transfer helper's clock keyword. [The actual two-exec witness and
 complete24pin Root audit now pass](reviews/2026-10-23-T10.005.001.md#actual-two-exec-clock-and-complete-root-audit-pass)
 on the qualified Claude helper: both startup/expired-transfer seams, five
 samples each, complete child streams and positive process/group closure.
-[T10.005.001](tasks/T10.005.001.md) freezes an equal independent Claude/Grok
-source comparison, six readonly inputs/five groups. [Both actual isolated
-workers run](reviews/2026-10-23-T10.005.001.md#actual-isolated-pair-dispatched)
-from9cebae1 with the same frozen spec/inputs. [Claude is preserved/released;
-Grok remains active](reviews/2026-10-23-T10.005.001.md#claude-preserved-and-released-source-checks-remain-unrun).
-Root reads the full Claude source and corrects one shared fake-clock fixture
-equally before any run. [Claude now passes24own/27common checks and the complete
-25-pin Root audit](reviews/2026-10-23-T10.005.001.md#claude24authored-and27common-checks-plus-full-root-audit-pass).
-Its admission is consumed. Root's earlier authored-fixture concern is disproved
-and corrected; no candidate defect or edit. The corrected separate witness
-source and actual clock proof qualify. Root verifies/selects before any fresh binding
-or separate live admission. The existing observer implementation, five inert
-served files, actual response/effect data and previous source qualification
-remain preserved. No map/render/ordinary story/play/save gate closes.
+[T10.005.001](tasks/T10.005.001.md) completes its equal independent comparison
+from9cebae1, with the same six readonly inputs/five groups. [Claude20/20 is
+selected over Grok9/20](reviews/2026-10-23-T10.005.001.md#equal-results-audited-and-claude-selected).
+Grok's actual valid input raises call count;7/31own and4/27common pass, so its
+result stays failed. Both workers are preserved and released; four user-retained
+terminals stay and no settled worker needs reclamation. Root's shared integer
+fake-clock correction applies equally; the earlier authored-fixture concern
+was incorrect and is corrected without editing Claude's tests.
+
+[Unchanged selected source db25488 and actual tracked verification now
+pass](reviews/2026-10-23-T10.005.001.md#actual-tracked-clock-source-and-complete-root-audit-pass):
+24/24own+27/27common, caller0/driver0/valid original G,26full audit pins and
+positive test-process/group closure. T10.005.001 is self_verified for its
+source-tool scope. The actual two-exec proof covers the byte-identical helper;
+no repeated witness is needed. No full-actor game acceptance follows.
 
 [All17browser architecture checks and full Root audit pass](reviews/2026-10-22-T07.007.011.005.md#all17architecture-observations-and-complete-root-audit-pass).
 The failed publisher-assumption check remains preserved; Root's
@@ -57,19 +58,17 @@ product is source-predicted and must match the actual endpoint strictly.
 served winner, selected route and packet/runtime/story gates remain unknown.
 Original game/save/settings and internet connection stay preserved.
 
-The navigation raw/corrected/integrated namespaces and the first quest live
-namespace are consumed and immutable. All previous source results retain their
-stated scopes. No test browser has launched; the remaining Grok comparison,
-selection/integration and fresh full-actor clock binding are next. No goal change or
-user decision is needed.
+**Next:** apply the selected patch to the three canonical unbound donors and
+prepare fresh actor/attempt bindings, source pins and same-world checks. Reuse
+the qualified controller/served-file algorithms and existing limits. Review
+those concrete bindings before a separate one-shot game-trial admission. The
+existing observer implementation and previous response/effect evidence remain
+preserved; old passed receipts do not establish current-world freshness.
 
-Both providers are now [fully audited and Claude20/20 selected over Grok9/20](reviews/2026-10-23-T10.005.001.md#equal-results-audited-and-claude-selected).
-Grok's actual valid input raises call count;7/31own and4/27common pass, result
-stays failed. Both workers are released. Integrate only unchanged Claude and
-the [unchanged selected source is integrated as db25488 and one tracked-source
-verification is admitted](reviews/2026-10-23-T10.005.001.md#selected-source-integrated-unchanged-and-one-tracked-verification-admitted).
-Previous source-test/clock admissions are consumed and
-fully audited. No game retry follows from these results.
+The navigation and clock source-test/witness/integrated namespaces and the first
+quest live namespace are consumed and immutable. No test browser has launched.
+No map/render/ordinary story/play/save gate closes. No goal change or user
+decision is needed.
 
 ## Recent verification history
 

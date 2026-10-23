@@ -68,7 +68,9 @@ CURRENT (23 Oct):
   [V] Claude 20/20 selected over Grok 9/20 for this source task.
   [V] Actual clock proof: two fresh processes, both startup/transfer seams pass.
       Full Root audit passes: 24 pins / 5 samples each / all test PIDs gone.
-      Integrate/verify tracked source, then a fresh separately admitted game test.
+  [V] Unchanged clock source integrated as db25488 and tracked checks pass.
+      24 own + 27 common / 26 audit pins / all test processes gone.
+      Source task self_verified; fresh actor bindings and game test remain.
   [V] On-disk navigation table read/audit pass: empty table, 22 bytes.
       Served table/browser winner and actual route still unknown.
   [V] Equal portal-routing implementation task frozen: 6 inputs / 8 groups.
@@ -91,7 +93,7 @@ CURRENT (23 Oct):
   [V] Unchanged Claude source integrated as 88577ae; three full blobs match.
   [V] Actual tracked-source verification/audit: 34 own + 53 common pass.
       Source-tool task self_verified; 28 pins / test cleanup checked.
-  [>] Clock repair and actual clock proof before a new isolated quest test.
+  [>] Fresh clock-patched actor/attempt bindings before a new quest game test.
       No game patch is installed. Parent progress stays 4/14.
       No game design or milestone change. No user action is needed.
 
