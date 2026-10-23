@@ -132,7 +132,13 @@ Bind actual existing CLI/Engine/image/isolation/lifecycle support and fresh
 guest-readable material before creation. The parser error veto is mandatory
 even if a malformed NPC appears registered. [Claude text tool is submitted,
 preserved and released; Root reproduces two path refusals that fail](reviews/2026-10-23-T10.008.md#claude-submitted-and-released-root-reproduces-a-refusal-defect).
-Grok remains live; compare both and repair before installation. This successful
+[Both text-tool submissions are now preserved and workers released](reviews/2026-10-23-T10.008.md#both-submissions-preserved-and-released);
+Root finishes both own-suite repeats/equal common controls and repairs the
+stronger source before installation. [Bundled CLI help is unreliable; its one
+unexpected unused volume is inspected, nonforce-removed and confirmed absent](reviews/2026-10-23-T10.007.md#bundled-cli-help-is-unreliable-unexpected-volume-cleaned-up).
+Original owners/five containers match. Use pinned primary Engine/client source
+and fixed read-only capability checks, with no more subcommand help probes.
+No parser fixture or game/DB test has started. This successful
 fixed diagnostic uses reproduced private-loader routing:0→5520own keys, only
 16912/21001inspected, original lazyInit not executed; no ordinary session,
 effective winner, MainQuest/story or full-content acceptance. Functionality

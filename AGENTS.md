@@ -20,6 +20,7 @@
 ## Coordination and evidence
 
 - Use Orca for supervised Claude/Grok work. Follow the version-matched orchestration guide and dispatched lifecycle instructions.
+- Do not run bundled docker-slim subcommand `--help` probes. This client's advertised help is unreliable: `volume create --help` created a volume named `--help`. Root removed only that new unused volume and verified absence/original-container preservation. Use pinned Engine/client source and fixed read-only API discovery instead; see the [capability/cleanup record](docs/project/reviews/2026-10-23-T10.007.md#bundled-cli-help-is-unreliable-unexpected-volume-cleaned-up).
 - Compare Claude and Grok independently on each bounded task using the same frozen inputs and acceptance criteria. Record plan-only comparisons as plan-only.
 - Workers own only their dispatched scope. Implementation attempts need separate branches/worktrees; two worktrees do not isolate an app's external database.
 - The coordinator must personally perform the applicable verification before `ready_for_user`. A worker's PASS is a candidate result, not coordinator verification or user acceptance.
