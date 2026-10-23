@@ -11,6 +11,11 @@ are next; no browser launch or parent completion. [Navigation historical-index
 body qualifies independently](reviews/2026-10-23-T07.006.001.md#historical-index-body-and-complete-root-data-review-qualify),
 eight pins/all7825LF; current selection stays unknown.
 
+Follow-up: [extractor source/independent review qualify](reviews/2026-10-22-T07.007.011.005.md#bounded-payload-extraction-source-and-independent-review-qualify),
+ten pins/ten spans, actual fixed caller/admission next. [Four-leaf generation
+observation admitted](reviews/2026-10-23-T07.006.001.md#ordinary-generation-contract-qualifies-and-one-four-leaf-read-is-admitted)
+after21pins/28spans/21stat checks; no TABLE read or owner-liveness claim.
+
 Functionality first: `T00 → T01 → T02 → T03 → T04 → T06 → T07 → T10`.
 
 Then finish remaining `T05 + {T08, T09} → T12 → T13`; T12 still requires functional T10. Existing T05 pilots stay enabled; deferred language checks do not block functional inventory/repairs. See the [priority decision](reviews/2026-10-19-functionality-first.md).

@@ -35,10 +35,12 @@ CURRENT WORK: quest data, missing story and map-load checks
 CURRENT (23 Oct):
   [V] Corrected ZIP metadata + full Root audit pass.
       All 673 entries, 15 small bodies and archive hash checked.
-  [>] Next: private extraction, signature and architecture checks.
+  [V] Extractor source and independent review pass.
+  [>] Next: fixed caller review, private extraction, signature checks.
       Test browser has not launched.
   [V] Full historical navigation index checked: no Yggdrasil portal rows.
-  [>] Next: identify current era/mod/index and generated table.
+  [>] Four small on-disk generation/choice reads admitted.
+      Current routing and generated-table provenance remain open.
       Historical absence does not prove current absence.
 
 Earlier checkpoints (their next actions can be superseded):

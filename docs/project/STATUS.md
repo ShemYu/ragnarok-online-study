@@ -6,12 +6,16 @@ Updated: 2026-10-23 JST. Coordinator: Codex. Active scope: **execute the documen
 
 [Corrected ZIP metadata inspection and Root audit pass](reviews/2026-10-22-T07.007.011.005.md#corrected-zip-metadata-inspection-and-complete-root-audit-pass):
 673entries,15small CRC-checked metadata bodies,23full pins and full archive hash
-match. Next prepare/review one private payload extraction, then verify signature
-and architecture before an isolated browser trial. No extraction or launch yet.
+match. [Extraction source/independent review qualify](reviews/2026-10-22-T07.007.011.005.md#bounded-payload-extraction-source-and-independent-review-qualify);
+next fixed caller review and one extraction admission. [Signature procedure and
+direct system tools qualify as preparation](reviews/2026-10-22-T07.007.011.005.md#signature-procedure-and-direct-system-tool-contract-qualify).
+Actual extraction, signature/architecture and browser trial remain unrun.
 [Historical navigation index audit also passes](reviews/2026-10-23-T07.006.001.md#historical-index-body-and-complete-root-data-review-qualify):
 all7825lines/4498warps checked; no Yggdrasil portal rows in that historical copy.
-Current era/mod/index/table selection remains unknown. Next identify exact
-generation inputs. Functionality remains first;4/14parent checks, about29%.
+Current era/mod/index/table selection remains unknown. [Minimal four-leaf
+observation contract qualifies and its read is admitted](reviews/2026-10-23-T07.006.001.md#ordinary-generation-contract-qualifies-and-one-four-leaf-read-is-admitted),
+21pins/28spans/21current stats; filesystem-only owner candidate, no liveness claim.
+Functionality remains first;4/14parent checks, about29%.
 
 ## Recent verification history
 
