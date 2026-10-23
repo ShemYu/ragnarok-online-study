@@ -218,8 +218,12 @@ deadline checks; postchecks accept incomplete pin descriptors and can stop
 on an unprintable exception. These are source findings pending actual common
 controls. [Actual own diagnostics are audited; equal common sources qualify](reviews/2026-10-23-T10.007.md#grok-own-diagnostics-audited-equal-k2-p2-common-source-qualifies):
 Grok K2 own fixture fails at a kernel-interface mismatch; P2 own7pass.
-Root will run the same four focused cases per provider/lane next.
-No paired K2/P2 selection or game admission.
+[Actual equal cases now select Claude K2 18/20 over Grok12/20, P2 20/20 over13/20](reviews/2026-10-23-T10.007.md#equal-k2-p2-actual-controls-audited-claude-bases-selected).
+Claude passes all eight focused cases; Grok passes three. Root corrects its
+own result-order audit and rechecks retained outputs with zero reruns.
+Next: integrated J/K controls, complete closure and fresh changed-trial binding.
+Independent equal HTTP-reader performance proposals are frozen for parallel
+Grok/Claude source work. No image capture or game admission yet.
 Source review finds cleanup-deadline/log-finalization gaps and a postcheck
 test-fixture defect. Fresh test data and corrected image-capture source are
 prepared independently; neither is admitted for runtime.
