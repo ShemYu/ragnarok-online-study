@@ -196,7 +196,11 @@ drafts are retained/released](reviews/2026-10-23-T10.007.md#all-three-claude-sta
 their Grok counterparts have also submitted and been released. All six drafts
 are preserved; fleet210released/four retained/zero active or reclaimable.
 [Root checks all six source inverses and prepares own-control diagnostics](reviews/2026-10-23-T10.007.md#all-six-startup-drafts-settle-own-control-source-qualifies).
-[All six pure own-control calls are audited](reviews/2026-10-23-T10.007.md#six-actual-startup-own-control-calls-audited-correction-wave-prepared):\nJboth/KGrok/PGrok pass their suites; ClaudeK/P fail. No game call.\nTwo equal correction pairs K2/P2 are prepared for independent source work.
+[All six pure own-control calls are audited](reviews/2026-10-23-T10.007.md#six-actual-startup-own-control-calls-audited-correction-wave-prepared):
+Jboth/KGrok/PGrok pass their suites; ClaudeK/P fail. No game call.
+[Two equal correction pairs K2/P2 are running](reviews/2026-10-23-T10.007.md#two-correction-pairs-start-fresh-fixture4-data-qualifies): two Grok/two Claude,
+all four ready/input accepted. Root separately qualifies fresh preparation4
+with all19roles/33files/95audit-artifacts; ports/HEAD/lease/runtime stay unbound.
 Source review finds cleanup-deadline/log-finalization gaps and a postcheck
 test-fixture defect. Fresh test data and corrected image-capture source are
 prepared independently; neither is admitted for runtime.

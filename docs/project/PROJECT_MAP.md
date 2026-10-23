@@ -54,7 +54,9 @@ Both resource candidates: 19/20. Hotkey plan: Grok18, Claude17.
 All four workers released. Seven direct asset copies + fresh fixture checked.
 Next: runtime binding and a separately justified changed quest test.
 Runtime files checked: 199 driver pins / 172 UI pins.
-Six own suites checked: Jboth/KGrok/PGrok pass; ClaudeK/P fail.\nParallel next: K2 cleanup + P2 postcheck corrections; Root checks J/fixtures.
+Six own suites checked: Jboth/KGrok/PGrok pass; ClaudeK/P fail.
+Parallel: 2 Grok + 2 Claude correcting cleanup/postchecks.
+Root: fresh fixture4 data PASS; lineage edge checks next.
 Fresh test data + corrected hotkey capture source prepared independently.
 Root: test6 failed before UI: process-identity sample + early Chrome cleanup.
 Read-only host snapshot PASS: normal pressure, 64 GiB physical RAM.
