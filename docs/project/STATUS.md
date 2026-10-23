@@ -10,12 +10,15 @@ resource gaps remain open. No full-game scope change or new user decision.
 **Live next action:** [Audit the ninth trial and repair independent diagnostic components](reviews/2026-10-23-T10.007.md#ninth-trial-reaches-chinese-npc-dialogue-independent-grok-repair-wave-prepared).
 The actual one-shot trial is finished and failed. Root inspected the screenshot:
 A199 reaches the expected Traditional Chinese refusal dialogue. Dictionary
-request abort, console error and case failure stop B200/grant/relog. Full
-retained-wire and preservation audit is pending; no parent-check credit.
+request abort plus separate userconfig/load HTTP405 console error stop
+B200/grant/relog. Full
+retained-wire and preservation audit is pending; its read-only auditor source
+and all244 pins qualify. One guarded retained-data call may run after this
+checkpoint; no game actor or retry. No parent-check credit.
 
 **Parallel work:** D12 Grok driver repair is active. Root confirms all five
-D10 source defects and freezes independent D13 host / D14 UI repairs against
-one exact interface. Both may start after this checkpoint. C5 source controls
+D10 source defects. D13 host and D14 UI now run independently against
+one frozen interface. All three Grok workers are live with no attention flags. C5 source controls
 remain pending; no capture actor is admitted. Existing four user-retained
 workers remain. Incomplete Claude comparison and unknown effective model/cost
 are explicit; no provider winner is claimed.

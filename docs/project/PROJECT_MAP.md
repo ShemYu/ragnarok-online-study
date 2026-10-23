@@ -37,7 +37,7 @@ Current path:
                   +-----------+-----------+
                   |           |           |
               D12 driver   D13 host    D14 UI
-                active     prepared    prepared
+                active      active      active
                   +-----------+-----------+
                               |
                  verified integration / fresh trial
