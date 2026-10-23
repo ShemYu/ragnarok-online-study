@@ -13,17 +13,19 @@ dictionary abort/load405/map-connection settlement stop later cases. Root's
 complete failure/preservation audit passes; no B200assignment/reconnection or
 parent-check credit. 4/14 is a check count, not measured full-content coverage.
 
-**Parallel work:** Five Grok source dispatches are live: D15 driver correction,
-D16 host correction, D14 UI, F1 game-test continuation and C7 backend caller.
+**Parallel work:** B1 genuine backend, D16 host, D14 UI, F1 game-test
+continuation and C7 caller are the five expected live Grok sources. D15 source
+is submitted/pinned and its worker released; independent preparation of its
+eight pure groups is active, no source/runtime PASS yet.
 CLEAN1 two-file cleanup is checked and released. Fleet5active/6retainedrecords/
-233released/0reclaimable; four actual user-retained resources plus two old
+234released after D15 release; prior zero-reclaimable inventory is being refreshed; four actual user-retained resources plus two old
 transferred records. All six C5 pure-control groups remain Root-verified.
 No binary capture or fresh game actor is admitted. Finish the frozen scopes;
 additional diagnostics need a concrete question that selects a real repair.
 F1 does not automatically wait for all dictionary repairs. Its known faults
 remain failed; genuine native logout/all3WSclosure/fresh SQL gate continuation.
 New save405 or uncertain state stops. B1 genuine isolated backend
-source packet is frozen for a sixth Grok dispatch; Root separately freezes the
+source worker is ready, with a narrow UI backend-origin supplement frozen; Root separately freezes the
 mu_fild01 client/resource binding for actual content work.
 Provider comparison remains incomplete; effective model/cost unknown.
 

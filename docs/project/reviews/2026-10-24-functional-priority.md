@@ -157,3 +157,46 @@ Full before/after source copies/pins pass; after this checkpoint actual Grok
 may author the isolated UNBOUND candidate only. Root personally qualifies,
 tests and freshly binds later. No backend/native/game PASS or actor admission.
 This task addresses a real functionality gap rather than adding diagnostics.
+
+
+## B1 actual source worker live D15 submitted and released
+
+Actual Grok B1ready taskddeb3551811c/ctx70ff279cf91b, START_ROOT4509B/SHA256
+8496362851aac7c31361cbee43af54625b8663c2daf66c1c0ab85a49eb380db4.
+While B1starts, D15completes. Root reads its complete4387Breport, pins17closed
+outputs and frozen inputs, accepts source submission only and immediately
+releases its worker/archivecaptured. Settlement90208B/SHA256
+1443cd54432ae8a96963f7974dc2a1c284c4625d50e65a82ec987ccfd9d55fc8;
+lifecycle1101B/SHA256
+99af8f11bc841567c239f3c36a2cf0b1acaa57d7076bd60bd9a2a9942f3e8962,
+persisted before delivery1cef7b589d92ACK. F1implementing heartbeat in that same
+batch is processed. D15driver63819B/SHA256
+3c8695551c9d147e8e367eb215055f3a4ed0db7dd751c2bd800ab2fafa339087;
+controls26956B/SHA256
+d0aad4eeca8af0c77c48b12bb392100fd50924a05fd2995e9d9e162028ba79df.
+No execution/source qualification yet. An independent source reviewer checks
+exact maps/spans and prepares one existing-mechanism8group run. Controls copy
+alone gets ROOT_BOUNDtrue; its imported component stays unchangedfalse. The
+recipe's instruction to bind both is incorrect for these controls; no new
+implementation generation is needed. Root personally qualifies/tests next.
+After D15release, five expected active source workers are B1,C7,D16,F1,D14;
+234released. Refresh actual inventory after processing the pending delivery.
+
+Root finds one necessary backend integration seam: original UIroute blocks all
+HTTPorigins excepttheUIorigin. Direct native web requests would otherwise be
+aborted by the test wrapper. Freeze a narrow B1supplement adding a validated
+webOrigin and actual request predicate for only the2bound POST/xhr endpoints,
+plus redacted path metadata and backend observations. Other methods/types/
+origins/paths/query/hash/credentials/redirect targets remain blocked/fatal;
+exact3gameWS remain. No preauthorized OPTIONS or wildcard. F1 separately owns
+gameplay/logout changes from the same immutable UI donor; Root composes later.
+This admits a bound owned endpoint, not a fault exemption or native success.
+
+Supplement MANIFEST_ROOT2519B/SHA256
+d29ffecb13683da834f1a103b28e62185f62ca0af63b58ce2efe17abdc0fce3a;
+brief2332B/SHA256
+d6958e48bab859e2ac4f30de6c4ebf5ddd964361c84826b8142f7e053445f0d1;
+UI donor40108B unchanged79d21e7518eb0685d8371c8c9c2d32a8ab2ea3d2755be49795c9ac0cea2ffc01.
+The original B1packet stays immutable. After checkpoint send concrete source
+scope guidance to the active B1dispatch; enqueue is not proof of adoption.
+No actor/native/backend/game PASS. Keep fixed budgets/goal/overlays unchanged.
