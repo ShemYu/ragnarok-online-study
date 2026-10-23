@@ -76,3 +76,6 @@ This is not lexer/full-inventory/native monster/quest/save/full-game acceptance;
 ## Functionality priority at source-wave settlement
 
 [Current source decisions](2026-10-24-functional-priority.md#source-settlements-and-bounded-correction-decisions) keep the full839wrapper unadmitted. B1 backend and a narrow two-defect F2 quest/logout correction take priority. No new spawn execution or content credit.
+
+
+See [the latest source checkpoint](2026-10-24-functional-priority.md#d15-eight-pure-groups-pass-f2-source-packet-frozen-d16-call-admitted). D15pure8groups pass; F2/B1 gameplay work remains priority. D16onepure7group call admitted. Full839wrapper remains unadmitted.

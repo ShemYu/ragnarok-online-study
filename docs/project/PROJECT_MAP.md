@@ -34,14 +34,14 @@ Current priority:
   genuine isolated backend route (where actual dependency requires it)
 
 Parallel:
-  D15 driver: source qualified -> one pure8group check admitted
-  D16 host: source review done; pure7group entry unexecuted
+  D15 driver: eight pure groups PASS; no game credit
+  D16 host: source qualified; one pure7group call admitted
   D14 diagnostic UI: HOLD4defects; not an F1 dependency
   C7 caller: submitted/released; capture not admitted by default
   mu_fild01 -> exact isolated resource binding -> real load/draw repair
   full839spawn -> budget PASS; wrapper/profile/oracle choices still open
 
-Six Grok workers ran at peak. Now B1live; F2narrow task preparing.
+Six Grok workers ran at peak. Now B1live; F2narrow task frozen for launch.
 Fleet:1active/238released/6retained records/zero reclaimable.
 Four actual user-retained resources stay;2transferred records have none.
 Trial9 stays failed; known faults stay failed. No new actor admitted.

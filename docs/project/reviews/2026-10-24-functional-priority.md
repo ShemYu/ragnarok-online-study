@@ -277,3 +277,49 @@ closes179fullpins. After this checkpoint Root admits one existing unchanged
 G/S call at10s/512MiB/grace3/no-native/1MiB to the eight pure groups.
 Full streams, natural0/positiveguard, retirement, postpins and caller context
 are mandatory. No browser/Engine/native actor or game acceptance is admitted.
+
+
+## D15 eight pure groups pass F2 source packet frozen D16 call admitted
+
+D15 actual unchanged G/S call passes all8groups with exact complete stdout,
+empty stderr, natural0/positiveguard, no native/signal, elapsed0.229156s and
+24068096B sampled peak. Root checks183fullpins/current PID and group absence,
+receipt/stream counts and SHA, FD/thread/HEAD/clean tree. Audit93045B/SHA
+ d9e53949433d41fbebbc8598b4da6515d723e23cf68868c09efd449c5fd74012.
+This is a focused driver-controls result; no component/browser/game actor.
+
+Root reads4762B Astra F2 handoff/SHA4b34aa3a15c70c41026479c776849e8c75a080eb5737f9001ce5ddc24dd0f8f8,
+checks the source seams and adopts the minimal prospective common contract.
+Existing events array gets only exact9field backend_http transport success:
+bound origin, load/save path, POST/xhr, integer200, normalized JSON MIME,
+no redirect and requestFinishedtrue. Actual request-object joins and completion
+are B1 producer obligations. At most one load and one save per case; unknown,
+unjoined, duplicate, pending or failed backend work remains sticky fatal.
+Native backend errors never enter the old7field static load405 classifier.
+No new ledger/listener/body/token read, fault exemption or persistence claim.
+F2 consumes this exact contract on both clean/failed paths and fixes sticky
+logout waitError; groups01–03 extend,04–08 stay unchanged. Root later composes
+B1/F2 against their common immutable ancestors and personally qualifies/tests.
+
+F2 packet55payloads/107fullpins: correction-inputs-root-1/MANIFEST_ROOT.json
+111588B/SHA c78b0611c454c068296f2ec2ffce696e84a01750f283760c736f02e8c8727a3b;
+brief4463B/SHA63a33c0ed7f94bc30ee41271ef56d805d2a7daccd71d664fb9e6b93b9f1b37fb;
+commoncontract2047B/SHA6125c2bef7368637b2310cefea6a27bd855424a36c569260650ec5ca4248f705.
+After this checkpoint start actual Grok F2 and send this exact immutable common
+contract to active B1. Dispatch/enqueue are not proof of work or adoption.
+Both own source-only private outputs; no game actor admitted.
+
+Root also qualifies D16:99input pre/post equal, four full forward/inverse maps,
+13declared unchanged spans and exact seven-file stage with static import
+closure. First preparation incorrectly required insert src to consume bytes;
+insert coordinates are anchors. Empty root1 is preserved. Root2 enforces full
+copy/delete source coverage and copy/insert target coverage plus exact hashes
+and both reconstructions. Stage/candidate bytes remain unchanged; no compile
+or execution. Additive snapshot shape is explicitly accepted as source only.
+Qualification64685B/SHA4cd00397289ea3db37279e362fbc1620c7e0629e9092a74970789df2c857524c
+closes120fullpins including exact Node binary. Minimal1065B entry/SHA
+8fce16ff648f9ecede3aaf257454c9e9aee1ff47621a987a588c9fa06eb9b706 calls
+actual runAll once. After this checkpoint one unchanged G/S Node invocation is
+admitted at10s/512MiB/grace3/no-native/1MiB with strict unhandled rejections.
+Root audits complete expected7groups, streams/receipt/retirement/postpins and
+caller context. No browser/sourceURL/native diagnostic/game acceptance.
