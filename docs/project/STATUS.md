@@ -18,7 +18,7 @@ Grok source workers. D15,D16,D14,F1,C7 are submitted and their workers released;
 Root verifies each before any user evaluation. F2 is now live in parallel,
 limited to two actual quest/logout defects under the shared B1 contract.
 Prior245row inventory is checked across three pages; after the F2 launch
-expected fleet246records/2active/238released/6retained/0reclaimable. Four actual user-retained resources stay; two transferred records
+after MU1launch expected247records/3active/238released/6retained/0reclaimable. Four actual user-retained resources stay; two transferred records
 have no resource. Six Grok sources ran at the peak; exact model/cost unknown.
 
 D15 passes all eight pure groups and Root's complete183pin audit: unchanged
@@ -31,13 +31,15 @@ No replay/new diagnostic generation or native/browser/game credit. D14 diagnosti
 not an automatic F1 prerequisite. F1 is held for sticky logout-wait failure
 and valid native backend responses being misclassified as faults. Root stages
 byte-identical private copies after an ambiguous worker path/mode handoff.
-C7 source is submitted/pinned/released; no actual binary capture is admitted.
+C7 source qualifies49fullpins/two maps/22unchangedhelperhashes and a minimal
+bound entry; four separate pure G10group calls are admitted after checkpoint.
+No actual binary capture is admitted.
 No fresh game actor is admitted. Finish bounded scopes and prioritize real
 backend/gameplay/content work. All six C5 pure groups remain verified.
 B1 has its narrow UI backend-origin supplement. [MU1 exact105body data
 deployment](reviews/2026-10-24-T07-mu-data-stage.md#selected-target-and-acceptance)
-is frozen for a third independent Grok task after this checkpoint. Root has
-checked147sourcepins/all105bodies; no current game installation or draw claim. Provider comparison remains incomplete.
+is actual live Grok taskdb57d6fd75a4/ctxf4a334e219f4. Root has checked147source
+pins/all105bodies; no current game installation or draw claim. Provider comparison remains incomplete.
 
 The [full-spawn output-budget measurement passes](reviews/2026-10-24-T06-full-spawn-output-budget.md#actual-bounded-measurement-and-root-audit-pass):
 839sources/723206physical lines require172547908canonical JSONL bytes, below

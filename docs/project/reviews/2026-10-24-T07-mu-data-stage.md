@@ -58,3 +58,13 @@ Rollback removes only the new private candidate after any later owners retire;
 original assets/saves/client/archives/profile/settings stay untouched. Git holds
 this redacted step and future source evidence, not private game bodies.
 All82functional gaps and4/14parent checks remain unchanged.
+
+
+## Actual Grok data staging live
+
+After2a5c133, actualGrok MU1ready taskdb57d6fd75a4/ctxf4a334e219f4,
+terminalce4a74f9-b939-4149-8220-11494739809a. Start4470B/SHA
+74f8bafffe5d5b314341df62bf03199298e100f6b380d96a3d5289a6a074ba77.
+Bounded copy-only scope is accepted; investigating heartbeat proves live work,
+not file completion. Root verifies every copy after submission, then releases
+or reuses the settled worker. No actual native serving/draw/coverage credit.

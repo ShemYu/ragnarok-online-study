@@ -385,3 +385,29 @@ C7 finite independent review4366B/SHA
 finds no concrete new source blocker, checks both maps/22unchangedhelperhashes/
 37stableinputpins and prepares four unexecuted actual-group entry/recipe.
 Root qualification remains; no capture or F1/B1 prerequisite admitted.
+
+
+## MU1 live C7 finite source qualification
+
+Actual Grok MU1ready taskdb57d6fd75a4/ctxf4a334e219f4, start4470B/SHA
+74f8bafffe5d5b314341df62bf03199298e100f6b380d96a3d5289a6a074ba77.
+Three independent actualGrok tasks now B1/F2/MU1; expected247records/3active/
+238released/6retained/0reclaimable. B1implementing and MU1investigating
+heartbeats processed. No current source implementation/completion claim.
+
+Root personally reviews actual C7 serialization/settle/write/retry/emit/final
+return seams. Late equality/clockfault/partial/full accepted bytes cannot
+return0; no second contradictory stdout object follows accepted bytes. Root
+verifies full transforms both directions, all22unchangedhelper bodies,37input
+pre/postpins, and exact evidence spans. Only the minimal entry ROOT_BOUND
+boolean changes; caller/capture stays unbound. Entry/caller/controls compile
+only. Qualification24753B/SHA
+04b97ecf0d6d05204864d1ef4d1e37a0eb4192c9fb50153828d8082a843324dd
+closes49fullpins. Bound entry2482B/SHA
+65fec296cffc4b6630e1dfaabac3bc1a838237f9d4391949cf7ff65ed09f7b54
+calls one actual inert group with source pre/postjoins; no capture actor.
+After this checkpoint Root admits groups1–4 separately exactly once each
+using originalG10s/512MiB/grace3/no-native/1MiB and S exact-fullstdout/natural
+retirement. Physical streams, sourcepostpins/caller context/currentPIDgroup
+checks remain required. No C5suite replay or live capture admission. Existing
+live-capture65s/leafcaps/freshworldbindings would remain a separate gate.
