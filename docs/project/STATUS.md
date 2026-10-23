@@ -91,18 +91,26 @@ attempt literal. No actor or game code runs in this source/data materialization.
 passed before the single4988c8d call. Its admission and actual-root-2 namespace
 are now consumed and immutable; the existing inputs/outputs are not fresh.
 
-**Next:** run the separately admitted Lua-route-corrected browser trial once,
-then audit complete results and cleanup. [Final parent/current-world binding and one-shot admission qualify](reviews/2026-10-23-T10.005.md#fresh-lua-route-parent-binding-and-one-shot-live-admission):
+**Next:** freeze equal real Claude/Grok plans for the negative-response body
+lifecycle and shutdown socket evidence. [Root-5 actual trial/full144pin audit](reviews/2026-10-23-T10.005.md#actual-lua-startup-repair-loads-quest-data-but-optional404-lacks-terminal):
+Lua startup now succeeds; five genuine Wasm chains close, two native requests
+return, and a report observes5520own keys plus the Chinese21001 row. Full
+diagnostic staysFAILED: optional Worker404 has no terminal; allEnded blocks
+completion until cutoff, with a separate shutdown socket error. All15test PIDs/
+four groups are absent; original3owners/effects and FD/threads match. Admission
+fe553a3 is consumed once; root5 is immutable. No user input/goal change needed.
+
+Earlier source/admission checkpoints (superseded by that actual outcome): [Final parent/current-world binding and one-shot admission qualify](reviews/2026-10-23-T10.005.md#fresh-lua-route-parent-binding-and-one-shot-live-admission):
 95binder full hashes/87unique current C8, original3owners/listeners/effects and
-13-header inverse pass; runtime fields/namespaces remain fresh before the call. [The fresh parent binder draft qualifies](reviews/2026-10-23-T10.005.md#fresh-lua-route-parent-draft-qualifies):
+13-header inverse passed; runtime fields/namespaces were fresh before the call. [The fresh parent binder draft qualifies](reviews/2026-10-23-T10.005.md#fresh-lua-route-parent-draft-qualifies):
 12metadata/proof groups/14sites fully invert; six served leaves/new private tail/
 Wasm joins retain the same parent body, nine protected and seven Node roles.
 [Fresh Lua-route actor/six-file materialization and Root audit pass](reviews/2026-10-23-T10.005.md#fresh-lua-route-actors-and-six-served-files-materialize-and-qualify):
 62full pins/exact inverses; direct normal-prefix claim corrected. Root-5 has
-source files only; inputs/outputs/READY/grants/profile/T0 remain absent.
+source files were prepared without runtime inputs/outputs/READY/grants/profile/T0.
 [All40Lua-route/error groups and the full Root audit pass](reviews/2026-10-23-T10.005.md#all-forty-lua-route-groups-and-complete-root-audit-pass):
 caller0/driver0/valid original guard,22full pins, complete40rows/streams and
-positive cleanup. Admission03418b1 is consumed once. Only the new one-shot admission above exists. [All three corrected-tail regressions and the full Root audit now pass](reviews/2026-10-23-T10.005.md#corrected-tail-regressions-and-complete-root-audit-pass):
+positive cleanup. Admission03418b1 is consumed once. All listed admissions are now consumed. [All three corrected-tail regressions and the full Root audit now pass](reviews/2026-10-23-T10.005.md#corrected-tail-regressions-and-complete-root-audit-pass):
 15own/75shared/one-pending, all caller0/driver0/valid original guards, no skips,
 complete streams and positive cleanup. Common/adaptive results are byte-exact
 with the qualified old results; Root checks53full pins. The three parallel calls
@@ -111,7 +119,7 @@ consume210b7be once; no unchanged retry is admitted. No browser/actual Lua ran.
 12source/output pins, all12closed spans/two Online joins and independent full
 inverses agree. Public pure materializer and five private source-only outputs
 are prepared; no produced JS/actor/Wasm has run. Old root-4 headers are lineage
-only and must be rebound before execution. Fresh actual-root-5 source copies qualify; use only the new live admission above.
+only and must be rebound before execution. Fresh actual-root-5 copies qualified before the consumed trial above.
 [Equal T10.005.004 plan comparison now qualifies](reviews/2026-10-23-T10.005.004.md#both-plans-checked-and-corrected-same-origin-direction-selected):
 Claude13/20 versus Grok14/20; both complete reports preserved/workers released.
 Root selects the shared direction with Claude's protected six-file/static inverse
@@ -121,8 +129,9 @@ copy changes. A conservative1..10route bound is not a proven source/CDP count,
 and extra requests do not prove fallback. No original-error constructor/getter/
 coercion or raw payload capture. All25full comparison pins agree.
 The comparison closes plans only; source construction now qualifies above.
-Focused controls/current bindings and separate one-shot admission remain. No live retry is admitted. The corrected actual trial has run once and its full failure
-audit passes; the quest diagnostic itself still fails at startLua-rejected.
+Focused controls/current bindings and the subsequent trial are recorded above.
+The earlier root4 trial failed at startLua-rejected; root5 repairs that startup
+and exposes the unfinished optional404 chain. No live retry is admitted.
 [The earlier equal twelve-input/six-group Worker plan comparison is
 self_verified](reviews/2026-10-23-T10.005.003.md#both-plans-preserved-and-corrected-claude-direction-selected):
 Claude17/20 versus Grok15/20; both reports preserved and workers released.

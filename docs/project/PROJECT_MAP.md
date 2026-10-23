@@ -150,8 +150,12 @@ CURRENT (23 Oct):
       Root-5 source files only; no runtime inputs/profile/T0/admission.
   [V] Fresh parent binding: 95hash entries / 87current C8 / 13header inverse.
       Original3owners/listeners and18effects/7parents match; no actor ran.
-  [>] Run the one newly admitted root-5 browser trial; audit full outcome.
-      Source CSP conflicts with embedded Wasm fetch; actual cause not retained.
+  [V] Root-5 starts Lua: five real Wasm chains / two native reads / report.
+      Report counts5520own keys; Chinese21001 present,16912 absent.
+  [!] Optional Worker404 has no terminal; full diagnostic reaches cutoff.
+      Separate shutdown socket error also remains. No content acceptance.
+  [V] Root144-pin audit / 15test PIDs / 4groups / original worlds pass.
+  [>] Compare equal C/G negative-body/shutdown plans, then bounded correction.
       Admission consumed; failed namespace immutable; no retry admitted.
       No game patch is installed. Parent progress stays 4/14.
       No game design or milestone change. No user action is needed.
