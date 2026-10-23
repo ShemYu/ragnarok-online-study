@@ -20,7 +20,7 @@ Quest file inventory   [PASS: all 3 files checked]
 Server + file binding  [PASS: current owner and 21 file checks]
 Active quest records   [PASS: fixed loading/shutdown diagnostic; session open]
 Story entry research   [CHECKED: Claude basis; mechanics still incomplete]
-Story implementation   [PLAYER NEXT: corrected test client qualified]
+Story implementation   [PLAYER BLOCKED: memory fence + client faults]
 Isolated server test   [PASS: 3 cases, SQL checks and cleanup verified]
 Chinese quest text     [SOURCE PASS: 28 tests + common checks; install is next]
 Existing text recovery [PASS: fixed 152-record tool integrated + checked]
@@ -28,9 +28,10 @@ Missing story scripts  [OPEN: largest content risk]
 Full game test         [LATER: 82 functional resource gaps remain]
 
 Current path:
-  Native parser PASS -> login/char/map ready -> test client fix
+  Native parser PASS -> servers/client ready -> login/char/map WS traffic
                                                         |
-                                                        v
+                          NOW: memory measure + client fault diagnosis
+                                                        |
                                        real NPC grant -> relog -> restart
 
 Root checked the failed trial and recovered its test containers/bridge.
@@ -38,8 +39,9 @@ Original game preserved. Test database retained. No player PASS yet.
 Both Grok/Claude pairs finished. Root checked the proposed repairs.
 Third test: all three game servers ready; test client exits before browser.
 All four test containers/network removed; original game preserved.
-Both client plans checked. Root's two source changes and fresh files qualify.
-Now: bind and run one admitted fourth changed fresh player test.
+Fourth test reaches browser, then stops above the 3 GiB summed-RSS fence.
+No validated avatar/map/NPC or completed player case. Cleanup is verified.
+Now: two parallel Grok/Claude pairs, memory measurement and client faults.
 Content-contract preparation is preserved; its oracle is still unqualified.
 
 No decision is needed from you now. The full-game goal is unchanged.

@@ -86,11 +86,23 @@ for CLIENT_PUBLIC_URL. Fresh51-file normal copies, two empty private directories
 and a new19-role fixture qualify; Engine/UI/parent bodies remain unchanged.
 Fleet188released/four user-retained/zero active or reclaimable.
 
-**Next:** final head/input/lease/current-world binding, then invoke the single
-admitted fourth changed fresh Stage1 call and audit the full outcome personally.
-No old fixture volume is adopted. Independent full-spawn contract preparation
-is preserved/metadata-checked, but not adopted or dispatched: its typed oracle
-and common controls still need Root qualification. Main player test comes first.
+**Fourth actual trial reaches the browser:** [Client startup passes; RSS guard
+stops loading and Root verifies full cleanup](reviews/2026-10-23-T10.007.md#fourth-player-attempt-reaches-three-ws-routes-rss-stop-and-independent-ui-faults-audited).
+Remote validates/listens and browser logs in/selects its slot with traffic on
+all three expected WS targets. No avatar/map/NPC stage or screenshot validates.
+Summed process RSS reaches3261661184B, above3GiB; G stops only the owned driver/
+Chrome at24.487s. Root audits231complete wires/737audit-artifact pins: all15
+retained host births/two groups/four containers/network are gone, volume retained,
+originals/parent boundaries match. Trial stays failed. Earlier dictionary-request
+and console/resource faults also remain; more RAM alone cannot make it pass.
+
+**Next:** two actual independent equal Grok/Claude source-plan pairs run in
+parallel: Mbounded resource measurement, Uclient-fault observation/classification.
+Both use34frozen files/BASE8bd3124. No new live call or guard increase is admitted.
+Supplemental Astra/Root verify64GiB host capacity and summed-RSS semantics;
+physical footprint, pressure, headroom and the dictionary failure cause remain
+unknown. Preserve the original3GiB diagnostic fence until measurement qualifies.
+Independent full-spawn preparation remains unadopted; main player repair is first.
 A199 refusal, B200 cancel/grant/repeat and genuine relog remain unverified.
 Restart, inactive/later-ID guards, installed4848+3assembly/ordinary route and
 normal Chinese journal stay open. No unchanged trial, syntax or parser rerun.
