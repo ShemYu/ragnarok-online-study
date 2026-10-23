@@ -7,28 +7,24 @@ Updated: 2026-10-24 JST. Coordinator: Codex. Active scope: **execute the documen
 Functionality remains first; **4/14 parent checks, about29%**. All82functional
 resource gaps remain open. No full-game scope change or new user decision.
 
-**Live next action:** [Audit the ninth trial and repair independent diagnostic components](reviews/2026-10-23-T10.007.md#ninth-trial-reaches-chinese-npc-dialogue-independent-grok-repair-wave-prepared).
-The actual one-shot trial is finished and failed. Root inspected the screenshot:
-A199 reaches the expected Traditional Chinese refusal dialogue. Dictionary
-request abort plus separate userconfig/load HTTP405 console error stop
-B200/grant/relog. Full
-retained-wire and preservation audit is pending; its read-only auditor source
-and all244 pins qualify. One guarded retained-data call may run after this
-checkpoint; no game actor or retry. No parent-check credit.
+**Live next action:** [Verify C5 pure controls while three Grok repairs continue](reviews/2026-10-23-T10.007.md#ninth-trial-full-failure-audit-passes-c5-pure-controls-qualified).
+The ninth game trial remains failed. A199 shows expected Traditional Chinese
+refusal; dictionary abort and independent userconfig/load405 stop later cases.
+Root's233-wire and complete failure/preservation audits now pass:842full pins,
+all18test PIDs/two groups gone, four test containers/network absent, new SQL
+volume retained, original five containers/owners/backings/listeners preserved.
+No reward/relog case or parent-check credit.
 
-**Parallel work:** D12 Grok driver repair is active. Root confirms all five
-D10 source defects. D13 host and D14 UI now run independently against
-one frozen interface. All three Grok workers are live with no attention flags. C5 source controls
-remain pending; no capture actor is admitted. Existing four user-retained
-workers remain. Incomplete Claude comparison and unknown effective model/cost
-are explicit; no provider winner is claimed.
+**Parallel work:** D12 driver, D13 host and D14 UI Grok repairs are active,
+with disjoint ownership and one frozen host/UI interface. C5 source/full
+inverses/18unchanged fragments and42pins qualify; one G10s/512MiB pure-control
+call may run after checkpoint. No binary capture or game actor is admitted.
+Four user-retained workers stay; no settled worker currently awaits cleanup.
+Provider comparison remains incomplete; effective model/cost unknown.
 
-The ninth admission/accounts/attempt/volume are consumed and cannot be
-retried. Immediate read-only kernel checks find all18 retained test PIDs and
-both groups absent, with four original owner births/executables matching.
-This is partial evidence; full cleanup audit remains separate. Original
-app/saves/Chrome/profile/settings/mute/IME/network stay untouched. No goal
-change or user decision is required.
+Original app/saves/Chrome/profile/settings/mute/IME/network stay untouched.
+The consumed ninth trial is not retried. All Chinese overlays stay enabled;
+translator isolation remains an unused source proposal. Full goal unchanged.
 
 **Prior native parser checkpoint:** [All three isolated native parser cases now pass Root verification](reviews/2026-10-23-T10.007.md#actual-three-case-native-parser-trial-and-complete-root-audit-pass):
 134 requests/231 full pins, valid original guard/13.231s, real NPC and three
