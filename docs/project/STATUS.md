@@ -7,14 +7,15 @@ Updated: 2026-10-24 JST. Coordinator: Codex. Active scope: **execute the documen
 Functionality remains first; **4/14 parent checks, about29%**. All82functional
 resource gaps remain open. No full-game scope change or new user decision.
 
-**Live next action:** [Caller5 actual controls pass; integrated NPC syntax admitted](reviews/2026-10-23-T10.007.md#caller-postcheck-actual-controls-pass-and-integrated-npc-syntax-admitted).
-Root runs one bounded syntax-only check on the integrated N8/N9Grok UI.
-Both NPC source-fixture candidates already pass36total observations; a fresh
-game trial must still confirm dialogue. Trial8 cause stays unknown.
-[C4Claude failed without output and reports a usage limit](reviews/2026-10-23-T10.007.md#c4-claude-fails-without-output-provider-limit-reported);
-released, no retry. C4Grok continues; comparison lacks a Claude candidate.
-Both D9 proposals are retained/released. Supplemental source audits expose
-identity/fault-retention gaps; Root prepares a focused correction task.
+**Live next action:** [Parallel D10controller/D11driver correction packet frozen](reviews/2026-10-23-T10.007.md#independent-dictionary-controller-and-driver-correction-packet-frozen).
+Root starts two independent Grok source corrections under fixed interfaces.
+C4Grok binary-source work continues; Claude quota was reported, no retry.
+[Integrated NPC module syntax and full audit pass](reviews/2026-10-23-T10.007.md#integrated-npc-syntax-passes-and-both-raw-d9-sources-are-refused).
+NPC shared36source controls and caller5controls pass. Actual NPC dialogue
+still needs a fresh game trial; trial8 cause is unknown. Both raw D9 sources
+are refused before actors for concrete identity/fault-retention/lifecycle
+gaps. They remain retained; both workers released. No complete paired
+provider comparison is claimed for the new corrections.
 No new game/browser/Engine capture admission. Normal9 data is exact/unbound.
 Dictionary abort, actual resource routes and NPC dialogue remain open.
 

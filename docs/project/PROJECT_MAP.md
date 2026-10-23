@@ -49,8 +49,9 @@ Source integration and actual NPC game verification remain.
 Full cleanup/original-state preservation PASS. No quest/player case PASS.
 Independent web capture: prior attempt refused before create; originals PASS.
 GET-only binary: Grok active; Claude failed/no output, quota reported.
-NPC36 source controls + caller5 controls PASS; integrated syntax next.
-Dictionary raw proposals need source correction; no browser trial admitted.
+NPC36 source controls + caller5 controls + integrated syntax PASS.
+Dictionary raw proposals refused; controller/driver corrections split next.
+No browser trial admitted.
 No new browser, game or Engine action admitted. No user decision needed.
 
 ```
