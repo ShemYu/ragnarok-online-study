@@ -1,0 +1,211 @@
+{
+  "api": {
+    "legacy_worker_result_fields": [
+      "type",
+      "path",
+      "workerId"
+    ],
+    "patch": "applyNavigationPortalPolicy(onlineText, workerText) -> {onlineText, workerText}",
+    "tagged_coordinate_validation": "Normalized maps must be nonempty strings; all four coordinates finite nonnegative integers. Missing player state cannot generate synthetic0/0. No clamping or invented map reachability.",
+    "tagged_worker_fields": {
+      "linkPolicy": "ordinary-portals-only",
+      "requestGeneration": "positive safe integer active generation",
+      "requestMap": "normalized actual current computation map"
+    },
+    "test_result": {
+      "groups": [
+        {
+          "checks": [
+            {
+              "name": "short nonempty unique label",
+              "observed": "bounded finite JSON evidence",
+              "passed": "boolean"
+            }
+          ],
+          "id": "G01",
+          "passed": "boolean computed from actual checks"
+        },
+        {
+          "checks": [
+            {
+              "name": "short nonempty unique label",
+              "observed": "bounded finite JSON evidence",
+              "passed": "boolean"
+            }
+          ],
+          "id": "G02",
+          "passed": "boolean computed from actual checks"
+        },
+        {
+          "checks": [
+            {
+              "name": "short nonempty unique label",
+              "observed": "bounded finite JSON evidence",
+              "passed": "boolean"
+            }
+          ],
+          "id": "G03",
+          "passed": "boolean computed from actual checks"
+        },
+        {
+          "checks": [
+            {
+              "name": "short nonempty unique label",
+              "observed": "bounded finite JSON evidence",
+              "passed": "boolean"
+            }
+          ],
+          "id": "G04",
+          "passed": "boolean computed from actual checks"
+        },
+        {
+          "checks": [
+            {
+              "name": "short nonempty unique label",
+              "observed": "bounded finite JSON evidence",
+              "passed": "boolean"
+            }
+          ],
+          "id": "G05",
+          "passed": "boolean computed from actual checks"
+        },
+        {
+          "checks": [
+            {
+              "name": "short nonempty unique label",
+              "observed": "bounded finite JSON evidence",
+              "passed": "boolean"
+            }
+          ],
+          "id": "G06",
+          "passed": "boolean computed from actual checks"
+        },
+        {
+          "checks": [
+            {
+              "name": "short nonempty unique label",
+              "observed": "bounded finite JSON evidence",
+              "passed": "boolean"
+            }
+          ],
+          "id": "G07",
+          "passed": "boolean computed from actual checks"
+        },
+        {
+          "checks": [
+            {
+              "name": "short nonempty unique label",
+              "observed": "bounded finite JSON evidence",
+              "passed": "boolean"
+            }
+          ],
+          "id": "G08",
+          "passed": "boolean computed from actual checks"
+        }
+      ],
+      "original_sha256": {
+        "online": "50b724b708393d7bb6d71b4f5102e62b16e340eb1bb54f05b1c8613af4116418",
+        "worker": "e3b5db57a3cfd1bb83daf9a49fa656af18fda470b34807c0f52cbc65b503c85d"
+      },
+      "patched_sha256": {
+        "online": "computed full UTF8 SHA256",
+        "worker": "computed full UTF8 SHA256"
+      },
+      "schema": "T07.006.002-authored-1",
+      "scope": "authored_source_controls"
+    },
+    "tests": "runAuthored(onlineText, workerText) -> exact result below",
+    "unknown_explicit_policy": "Refuse; no fallback to manual. Host returns false before navigation mutation."
+  },
+  "caps": {
+    "patch_bytes": 32768,
+    "patched_online_bytes_maximum": 13239826,
+    "patched_worker_bytes_maximum": 38059,
+    "report_bytes": 8192,
+    "test_bytes": 32768
+  },
+  "common_base": "Exact introducing commit supplied identically at dispatch",
+  "comparison": "Independent source implementations; actual equal execution and acceptance by Root after submission. No live-game acceptance.",
+  "controls": {
+    "G01": "Pinned pair/drift/invalid explicit options/raw101 no opt-in",
+    "G02": "Actual planner and Worker type200 membership/blocked shortcuts/walking/no-links",
+    "G03": "Both checkbox states, unchanged preferences/visibility and manual policy",
+    "G04": "Hidden maintenance/append/show/map transitions without forced UI",
+    "G05": "Target/policy/manual override, stale results, same Worker ID, no stale unlock/path cache",
+    "G06": "Clear/hide/cancel/complete/removal inactive fence and legitimate re-entry, no duplicates",
+    "G07": "Before/at/after5000ms, same pending deadline survives repeated maintenance, no render-only timeout restart",
+    "G08": "Unchanged-byte scope/manual/labels/movement/services/network/quest and existing algorithm regression"
+  },
+  "inputs": [
+    {
+      "bytes": 13174290,
+      "package_path": "core_online.source",
+      "role": "core_online",
+      "sha256": "50b724b708393d7bb6d71b4f5102e62b16e340eb1bb54f05b1c8613af4116418",
+      "source_execution_allowed": false
+    },
+    {
+      "bytes": 5291,
+      "package_path": "PathFindingWorker.source",
+      "role": "worker",
+      "sha256": "e3b5db57a3cfd1bb83daf9a49fa656af18fda470b34807c0f52cbc65b503c85d",
+      "source_execution_allowed": false
+    },
+    {
+      "bytes": 11835,
+      "package_path": "functional-contract.md",
+      "role": "functional_contract",
+      "sha256": "b5fe04a5bff2be40cba231cc9de88d191356825a117b194628f7a5444ef372b0",
+      "source_execution_allowed": false
+    },
+    {
+      "bytes": 9320,
+      "package_path": "client-policy.md",
+      "role": "client_policy",
+      "sha256": "f1bc9a23894f705dc5ceda2863a1fe0585ea09d044eb8fb4d040a16a8b33931d",
+      "source_execution_allowed": false
+    },
+    {
+      "bytes": 6018,
+      "package_path": "worker-source-review.md",
+      "role": "worker_review",
+      "sha256": "0fdff6b17f6493f54d8821a54eb757d9566343187fb680d64c0895770d23dae9",
+      "source_execution_allowed": false
+    },
+    {
+      "bytes": 416,
+      "package_path": "source_spans.json",
+      "role": "spans",
+      "sha256": "078cf13607de7fd53ce7a23d0592d49c0f3d4753bc9b63b47c8abd67c34dbd5a",
+      "source_execution_allowed": false
+    }
+  ],
+  "ownership": [
+    "tools/renewal/navigation_portal_patch.cjs",
+    "tools/renewal/navigation_portal_patch.test.cjs",
+    "docs/project/candidates/T07.006.002-REPORT.md"
+  ],
+  "package_manifest": {
+    "bytes": 1710,
+    "sha256": "f0c819abaf92e7c643e772d5680f681cd3a02ac24184cb3fe7c796a618fd7541"
+  },
+  "package_root": "READ_ONLY_PACKAGE_FROM_DISPATCH",
+  "preserved_goal": "Full Modern/Renewal personal play; Chinese retained; party-only later; no parent/content acceptance from pure controls",
+  "root_later_pure_runtime": {
+    "actual_source_binding_and_caller_admission": "Root before actual execution; no test-source execution admitted by dispatch",
+    "expect_native": true,
+    "grace_seconds": 3,
+    "node_bytes": 121911744,
+    "node_sha256": "9d050fd455b56426e25d4d603c7c501cbb2630348e836cf221dcce748e90588a",
+    "node_version": "v24.20.0",
+    "sampled_owned_rss_bytes": 536870912,
+    "separate_stream_cap_bytes": 1048576,
+    "source_only_workers": true,
+    "work_seconds": 60
+  },
+  "runtime_admitted": false,
+  "schema": "T07.006.002-component-implementation-1",
+  "selected_route_and_served_table": "UNBOUND",
+  "task_id": "T07.006.002",
+  "wire_service101_semantics": "UNBOUND"
+}

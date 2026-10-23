@@ -17,13 +17,19 @@ original guards/streams and18owned process/group closures. Failed51 stays.
 [Minimal CfT launcher source qualifies](reviews/2026-10-22-T07.007.011.005.md#minimal-cft-composed-launcher-source-qualifies):
 15pins/five literal groups/full inverse/seven unchanged clock/ownership spans.
 Next exact parent/proxy/controller/CDP-product bindings and fresh protected-state
-preflight, then one existing bounded quest/map observation. No browser launched.
+preflight, then one existing bounded quest-loader diagnostic. It has no map or
+render gate and cannot prove gameplay/story works. No browser launched.
 
 [One on-disk navigation TABLE read and complete Root audit pass](reviews/2026-10-23-T07.006.001.md#one-on-disk-table-read-and-complete-root-audit-pass):
 actor0/0.079s,18full pins/22bytes and stable brackets. Exact inert text declares
 an empty Navi_Link_Server table. Owner stays recorded_candidate_only; current
-serving, build inputs, browser winner and route remain unknown. Next review a
-bounded independent pure portal-routing comparison brief; no patch is installed.
+serving, build inputs, browser winner and route remain unknown.
+[T07.006.002 now freezes the equal implementation contract](reviews/2026-10-23-T07.006.002.md#frozen-implementation-contract):
+six readonly inputs/eight pure groups, request-local type200 policy, hidden
+maintenance and stale-work fencing. Root resolves the two independently found
+deadline/removal ambiguities. Commit this introducing BASE, then dispatch both
+actual isolated Claude/Grok implementations. Workers author tests; Root executes
+both and independent controls after submission. No patch is installed.
 
 Functionality remains first; **4/14 parent checks, about29%**. All82functional
 resource gaps remain open. No full-game scope change or new user decision.

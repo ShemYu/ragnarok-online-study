@@ -40,11 +40,13 @@ CURRENT (23 Oct):
   [V] All 17 architecture checks pass; complete Root audit passes.
       419 full pins, 677 nodes, 18 owned test processes/groups gone.
   [V] Minimal test-browser launcher source checked; clocks stay strict.
-  [>] Next: exact controller bindings/preflight, then one quest/map trial.
-      No test browser has launched.
+  [>] Next: exact controller bindings/preflight, then one quest-loader test.
+      No map/render gate in that test. No test browser has launched.
   [V] On-disk navigation table read/audit pass: empty table, 22 bytes.
       Served table/browser winner and actual route still unknown.
-  [>] Prepare equal pure portal-routing fix task while live work proceeds.
+  [V] Equal portal-routing implementation task frozen: 6 inputs / 8 groups.
+      Hidden guidance, ordinary portals and stale-work fences are in scope.
+  [>] Dispatch actual Claude/Grok pair; Root verifies both submissions.
 
 Earlier checkpoints (their next actions can be superseded):
   [V] Browser integration plan checked; strict ownership/clocks stay.
