@@ -17,7 +17,7 @@ test-process/group closure. T07.006.002 is self_verified for its source-tool
 scope. Both provider workers are released. All run admissions are
 consumed; no installed game patch or ordinary runtime/story acceptance.
 
-**Browser diagnostic — latest call loads the page and Worker, then controller refuses.**
+**Earlier browser diagnostic — page and Worker load, then controller refuses.**
 [The one-argument trial and complete failure audit](reviews/2026-10-23-T10.005.md#one-argument-trial-loads-page-and-worker-but-controller-rejects-terminal-event)
 retain caller1 at12.504s before publication. Viewer/bootstrap/budget/Online
 return200; the Worker-script GET is served and its target attaches. Controller
@@ -91,13 +91,16 @@ attempt literal. No actor or game code runs in this source/data materialization.
 passed before the single4988c8d call. Its admission and actual-root-2 namespace
 are now consumed and immutable; the existing inputs/outputs are not fresh.
 
-**Next:** collect and personally check both independent [T10.005.005 plans](tasks/T10.005.005.md).
-[Both real workers are dispatched/live](reviews/2026-10-23-T10.005.005.md#actual-independent-plan-pair-dispatched)
-from dd460a3, using the same frozen14inputs/six groups and disjoint reports.
-Claude requested/effectiveOpus5.5high; Grok configured default/banner4.7high.
-[Claude report is preserved/released; Root timing review is complete](reviews/2026-10-23-T10.005.005.md#claude-report-preserved-and-root-timing-review-completed).
-Its raw drain/clock/shutdown plan needs correction; Grok remains live. No final
-comparison, implementation or live trial is admitted. [Root-5 actual trial/full144pin audit](reviews/2026-10-23-T10.005.md#actual-lua-startup-repair-loads-quest-data-but-optional404-lacks-terminal):
+**Next:** prepare serial isolated corrected source and controls under T10.005.
+[Both independent T10.005.005 plans are personally checked](reviews/2026-10-23-T10.005.005.md#both-plans-checked-and-corrected-combined-direction-selected):
+Claude15/20 and Grok15/20, plan only; neither raw fix is accepted. Both complete
+reports are preserved and workers released;169released/four retained/zero
+reclaimable. The comparison alone is self_verified. Select a corrected combined
+finite drain and strict ACK/error/close ordering. Grok's timeout can mistake
+cancellation for EOF; both plans need enforced outcome/source-pin closure.
+Existing outer fences suffice; a new Worker grant protocol is not required.
+No new implementation, controls or live trial are accepted or admitted.
+[Root-5 actual trial/full144pin audit](reviews/2026-10-23-T10.005.md#actual-lua-startup-repair-loads-quest-data-but-optional404-lacks-terminal):
 Lua startup now succeeds; five genuine Wasm chains close, two native requests
 return, and a report observes5520own keys plus the Chinese21001 row. Full
 diagnostic staysFAILED: optional Worker404 has no terminal; allEnded blocks

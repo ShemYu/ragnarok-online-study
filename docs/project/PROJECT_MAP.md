@@ -18,7 +18,7 @@ Map loading            [Chapter 1 test passes; fruit test is open]
 Fruit presentation     [OPEN: browser test failed before scene loading]
 Quest file inventory   [PASS: all 3 files checked]
 Server + file binding  [PASS: current owner and 21 file checks]
-Active quest records   [Page loads; Worker attaches; event check needs work]
+Active quest records   [Lua loads data; full diagnostic needs two repairs]
 Existing text recovery [PASS: fixed 152-record tool integrated + checked]
 Missing story scripts  [OPEN: largest content risk]
 Full game test         [LATER: 82 functional resource gaps remain]
@@ -156,10 +156,11 @@ CURRENT (23 Oct):
       Separate shutdown socket error also remains. No content acceptance.
   [V] Root144-pin audit / 15test PIDs / 4groups / original worlds pass.
   [V] T10.005.005 freezes14equal inputs / six groups / readonly source plans.
-  [V] Both real C/G plans dispatched from dd460a3; exact workers live.
-  [V] Claude report read/preserved/released; raw plan still needs correction.
-      Root/Astra confirm missing ACK/error order and Worker budget authority.
-  [>] Collect/check Grok; score both, then route the bounded correction.
+  [V] Both real C/G plans complete; full reports kept; both workers released.
+  [V] Root comparison: Claude15/20, Grok15/20; neither raw fix accepted.
+      Fix cancellation-as-EOF and missing ACK/error/close ordering.
+      Existing outer deadlines suffice; no new Worker grant protocol needed.
+  [>] Prepare corrected isolated source and controls, then Root verifies.
       Admission consumed; failed namespace immutable; no retry admitted.
       No game patch is installed. Parent progress stays 4/14.
       No game design or milestone change. No user action is needed.
