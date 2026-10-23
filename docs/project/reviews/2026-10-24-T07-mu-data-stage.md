@@ -332,3 +332,32 @@ accepts source submission only and releases/archive captures the actual
 Grok owner before acknowledgment. The same six controls remain unexecuted;
 independent source/oracle review precedes Root qualification and calls.
 MuD finite driver fix continues independently. No fresh map actor/credit.
+
+## MuC final source qualified six focused calls admitted
+
+Root fully reads5244B independent review/
+5d2878e42de965f89434670db0e71be0e3827f4337e875353b619f45397d7413,
+verifies all35 opened full SHA+C8 PRE/POST and closed review outputs, and
+personally checks actual production/cleanup paths and all six controls.
+No concrete blocker remains in the three frozen fixes. Late completed data
+faults at the actual production frontier and remains failed through cleanup/
+existing body publication; callback/body buffer IDs must match positively;
+placement objectID/mapId/index all match. Shared schemas/caps stay fixed.
+
+Root reconstructs changed UI/g1/g3/g4 forward and inverse exactly,68forward/
+66inverse operations and36unchanged spans; g2/g5/g6 and policy pins remain
+byte-identical. Seven staged private source copies have fresh identities
+and equal bytes. All six zero-argument run functions have fixed independent
+complete literal expectations: exact group ID,passed:true,failures:[].
+Direct CLI prints nothing, so six tiny fixed Root entries invoke actual run
+once and publish the actual full return object with LF. G6 is async, others
+sync; no browser/Playwright import/actor runs through these imports.
+
+Root qualification101135B/
+990fc182a963f894654f90f6138b8ca4a02fda3928f624824c9a9130c95a6798
+admits the same six focused calls after this Git checkpoint under unchanged
+G10s/512MiB/grace3/no-native/1MiB and original S. Stop on first failure;
+preserve actual receipt/streams/status. No calls yet, no larger guard or
+new control family. Dynamic async response dispatcher/actual cleanup remain
+outside helper coverage; source paths are inspected. No native/map/render/
+1285placements/105bodies/fullgame credit or new actor admission.

@@ -45,13 +45,13 @@ Parallel:
 
 B2D/B2U:all8 selected focused checks PASS; original Root error preserved.
 Root:actual pending-producer poll PASS/116pins; native game still open.
-B3:fresh21role source LIVE; independent expected bytes/tokens checked.
-B4:existing64body source scope Root-admitted; actual launch is next.
+B3:submitted/released; HOLD4findings/modes -> finite repair admitted.
+B4:existing64body source actual Grok ready after8171b27.
 MuC/MuD:submitted+released, HOLD5findings -> finite UI/driver fixes ready.
-MuCfix/MuDfix/B3/F839:four actual Grok source workers live.
-Current4active/247released/6retained records; no settled owner awaits cleanup.
-MuC/B3 have now submitted/released; prior four-live fleet is historical.
-MuC:six-call review next. B3:HOLD4source defects + private modes; repair prep.
+MuC:three fixes source-qualified -> six focused calls admitted, not run.
+MuDfix/B4/F839:three actual Grok sources live; B3repair starts next.
+Current3active/249released/6retained/0reclaimable across258records.
+MuC/B3 prior owners released/archive beforeACK; no cleanup debt.
 Four actual user-retained resources stay;2transferred records have none.
 Trial9 stays failed; known faults stay failed. No new actor admitted.
 4/14 is parent-check progress, not percentage of playable content.

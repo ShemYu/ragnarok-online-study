@@ -1003,3 +1003,32 @@ spans and three Config edits, all full inverses and256/192 pin caps remain
 required. B3 final data/schema pins stay unbound until separately qualified.
 No original asset/credential/native-role body or actor is read/run now.
 No framework/diagnostic generation, full-game scope change or parent credit.
+
+## B4 actual ready B3 finite repair and MuC six calls admitted
+
+B4 starts after8171b27 as actual Grok task e6d27309d9d2/ctx0882eb061af7,
+terminal100aa294d89945c88560c64885e972e1. Ready/input_accepted receipt2307B/
+11e68ce9b7056f86a0ab32c0142d41c90bbcb8ac1745869d50e2e9b652c1955f.
+Provider Grok; effective model/effort null, no cost/model claim. Full258record/
+3page fleet10 is3active/249released/6retained/0reclaimable,9747B/
+c7e2650134ef1aa38a5f68b2f9c555de38dc7af960f809e3df5bc35ae0430b9e.
+All three actual Grok sources B4/MuD/F839 are live. Nine historical attention
+flags still have nextAction:none; retained/user-owned resources stay intact.
+
+Root reviews the finite B3 four-fix/private-mode packet in full and verifies
+all87byte-identical source copies,98closed private files, full source/copy
+pre/post SHA+C8, exact94 descriptor rebases and63unique future payloads.
+Rebase preserves the existing schema and all historical original descriptors.
+The independent25760B/c3b4d2fd5280e885a9c8782da1bc7800f013ed1a18cd76e2d05e7c0f36757e11
+oracle remains exact. Manifest47899B/
+4ec2610cc8b2994f0ca8a747e5bb78b8ea42a7cb405f96da1dfefc0c420b75db;
+Root admission91847B/8e50bfa95c168cf158346280e48b764a48e21060ae474e107b2e9e28d86e10ce.
+Admit one actual Grok bounded source repair after this checkpoint; no changed
+21role/10template/15runtime/22nonruntime policy, new framework or generation.
+Prior67 SOURCE-AUTHOR inputs differ from future63 GENERATOR payload reads.
+The inherited recipe's live actor lease/config prerequisite is incorrect
+for pure private data generation and must be corrected. Native/game actor
+admission retains all separate lease/ownership/current-world requirements.
+
+[MuC final source qualifies and six focused calls are admitted](2026-10-24-T07-mu-data-stage.md#muc-final-source-qualified-six-focused-calls-admitted).
+No actual call or actor has yet run at this checkpoint. Full goal unchanged.

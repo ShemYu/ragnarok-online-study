@@ -13,37 +13,23 @@ dictionary abort/load405/map-connection settlement stop later cases. Root's
 complete failure/preservation audit passes; no B200assignment/reconnection or
 parent-check credit. 4/14 is a check count, not measured full-content coverage.
 
-**Parallel work:** MU2 map-render source is submitted/released and HOLD for
-concrete UI evidence/failure-cleanup defects. B1 is
-submitted/pinned/released; source review finds its actual backend producer
-does not yet satisfy the shared F2 contract. It remains HOLD. The completed
-F2-C1 fixture correction matches Root's exact one-call byte prediction and
-is released. Root qualifies the corrected F2 stage/178pins; all eight focused calls now
-pass complete Root203pin verification under original G/S.
-No Engine/browser/game actor is admitted. Water-source review confirms retained zero water geometry for the exact
-current map/worker/GND join; no extra water deployment is justified. B2U/B2D source candidates are submitted, fully pinned and released.
-[All eight selected focused backend checks now pass Root verification](reviews/2026-10-24-functional-priority.md#eight-backend-focused-checks-verified-fresh21-fixture-source-frozen).
-The failed original Root caller remains preserved. UI composition is byte-
-qualified; actual native runtime bindings/HTTP/auth/SQL/game remain open.
-[The actual pending-producer poll check passes Root116pin verification](reviews/2026-10-24-functional-priority.md#actual-pending-backend-control-passes-root-verification).
-Live response dispatch still has source review only; no production change.
-[Next native binding and independent21-role expectations are reviewed](reviews/2026-10-24-functional-priority.md#native-binding-and-independent-fresh-fixture-expectations-reviewed);
-actual fresh data/runtime/native verification remains next.
-[MuC/MuD sources are submitted, pinned and released, HOLD for five finite
-source findings](reviews/2026-10-24-T07-mu-data-stage.md#muc-mud-submitted-held-five-finite-corrections-frozen).
-[Disjoint UI/driver fixes and a fresh21role backend fixture writer are actual
-Grok ready](reviews/2026-10-24-functional-priority.md#four-qualified-scope-grok-sources-actual-ready)
-alongside F839. Current all257record/3page inventory:
-4active/247released/6retained/0reclaimable. Four user-retained resources
-stay; two transferred records have none. No missing-status lifecycle action
-is inferred. No new actor admitted. Effective model/cost/provider comparison
-remain unknown.
+**Parallel work:** [B4 actual Grok ready; B3 bounded source repair frozen](reviews/2026-10-24-functional-priority.md#b4-actual-ready-b3-finite-repair-and-muc-six-calls-admitted).
+Current258record/3page fleet10:3active/249released/6retained/0reclaimable.
+Actual live Grok tasks are F839 exporter, MuD cleanup and B4 runtime materializer.
+MuC and B3 prior owners are released/archive captured before acknowledgment.
+B3 four source defects/private modes remain HOLD; its finite repair starts
+after this checkpoint. All82functional resource gaps remain open.
 
-[MuC and B3 source submissions are settled and released; B4 scope admitted](reviews/2026-10-24-functional-priority.md#muc-and-b3-submissions-settled-and-b4-finite-source-scope-admitted).
-MuC six-call source/oracle verification is next. B3 remains HOLD for four
-verified source findings and private-mode failure; bounded repair preparation
-continues. B4 source launch follows this checkpoint, no data/actor admission.
-The four-live inventory above is historical; MuC/B3 owners are now released.
+[MuC three fixes source-qualified; same six focused calls admitted](reviews/2026-10-24-T07-mu-data-stage.md#muc-final-source-qualified-six-focused-calls-admitted).
+No actual six-call result or fresh map actor yet. MU1 exact105body private
+stage remains verified; retained water geometry0 requires no extra assets.
+Actual scene load/draw still waits for separately qualified MuD composition.
+
+[B2U/B2D eight selected focused backend checks pass Root verification](reviews/2026-10-24-functional-priority.md#eight-backend-focused-checks-verified-fresh21-fixture-source-frozen);
+[one actual pending-producer poll also passes](reviews/2026-10-24-functional-priority.md#actual-pending-backend-control-passes-root-verification).
+Original failed Root caller preserved; live response dispatch remains source-
+inspected only. Fresh21-role files,64-body runtime,actual backend/auth/SQL/
+fixed four game cases remain next. B3/B4 are SOURCE ONLY, no actor authority.
 
 D15 passes all eight pure groups and Root's complete183pin audit: unchanged
 G10s/512MiB/grace3, natural0/positiveguard/0.229156s/24068096B sampled peak,
