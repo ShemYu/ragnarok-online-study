@@ -1,0 +1,22 @@
+{
+  "schema": "T10.007-equal-starter-component-profile.v1",
+  "task": "T10.007",
+  "scope": "actual NPC registration/cancel/resume18368, guarding later IDs, three additive DB definitions; source comparison before isolated server integration",
+  "input_manifest": {
+    "bytes": 28548,
+    "sha256": "23de3bdac05aa49634d4a5e38b4541f494faa5bac43b93f590b5054cec91264e",
+    "total_files": 30,
+    "total_bytes": 830671
+  },
+  "groups": [
+    {"id": "A", "name": "real NPC and package", "requires": "five owned paths, actual rAthena NPC, matching mod metadata and effective db/quest_db.yml path; no helper substitution"},
+    {"id": "B", "name": "eligible registration and cancel", "requires": "199/200/201, cancel no mutation, post-menu level/all-ID recheck, one insertion and verified failure postcondition"},
+    {"id": "C", "name": "persistent state discipline", "requires": "active/inactive resume, completed/later/conflicting state preservation, idempotence, character scope and no foreign/consequential mutation"},
+    {"id": "D", "name": "existing text and additive data", "requires": "UTF-8 original TC interaction, existing log reuse by ID, three audited DB Titles with Id/Title only, no Clear/Footer/hunt/time/reward/client rewrite"},
+    {"id": "E", "name": "verification and handoff", "requires": "bounded actual own-source checks, honest modeled/unrun boundaries, stateless parser/persistence/merge/user-evaluation and source versus external-state recovery runbook"}
+  ],
+  "score_dimensions": ["correctness and evidence", "task coverage", "verification design/results", "handoff clarity", "Git/state discipline"],
+  "points_per_dimension": 4,
+  "hard_limits": ["no installed state or network actions", "no real server/parser without a supplied disposable fixture", "no invented progression/transport/rewards", "no sibling material", "same BASE and frozen inputs", "no nested workers"],
+  "source_pass_is_story_acceptance": false
+}

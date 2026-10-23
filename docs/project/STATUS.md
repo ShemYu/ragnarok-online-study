@@ -102,8 +102,10 @@ full source/artifact pins and independently streams100source/protected pins
 (overlapping sets). All87focused/regression groups passed before this trial.
 The c03396d admission is consumed once; root6 is immutable, no retry admitted.
 
-**Next:** personally qualify/freeze the prepared equal-input starter NPC task,
-then dispatch real Claude/Grok implementations in separate branches. In parallel,
+**Next:** [T10.007 equal source brief/inputs are personally qualified and frozen](reviews/2026-10-23-T10.007.md#equal-source-task-prepared-and-personally-qualified);
+dispatch real Claude/Grok NPC implementations in separate branches from this
+common commit. Thirty input files/78full Root pins, collision/import and
+reference-state boundaries qualify. No parser/DB fixture or installed changes. In parallel,
 resolve normal-session table selection/content/route bindings. This successful
 fixed diagnostic uses reproduced private-loader routing:0→5520own keys, only
 16912/21001inspected, original lazyInit not executed; no ordinary session,
