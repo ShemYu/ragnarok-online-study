@@ -51,8 +51,10 @@ D12/D13 source submissions reviewed; four blockers require corrections.
 D13 released; D12 terminal reused for narrow own-metadata cleanup.
 D13/D14 use disjoint files and one frozen interface; no sibling reads.
 C5 six actual pure-control groups PASS; C6 caller source worker active.
-Five Grok tasks live: D15 driver, D16 host, D14 UI, F1 game test, D12 cleanup.
-C6 source submitted; Astra review active; terminal reused by D15.
+Six Grok tasks live: D15 driver, D16 host, D14 UI, F1 game test, C7 caller,
+D12 cleanup.
+C6 review HOLD: late publication; narrow C7 correction active.
+C6 terminal reused by D15.
 F1 requires genuine logout; existing client faults remain failed.
 Full-spawn budget PASS:839sources,723206lines,172547908virtual bytes.
 No large JSONL written; full wrapper/profile/oracle remain open.

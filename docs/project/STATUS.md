@@ -15,14 +15,15 @@ all18test PIDs/two groups gone, four test containers/network absent, new SQL
 volume retained, original five containers/owners/backings/listeners preserved.
 No B200quest-assignment/reconnection case or parent-check credit.
 
-**Parallel work:** Five Grok dispatches are live: D15 driver correction,
+**Parallel work:** Six Grok dispatches are live: D15 driver correction,
 D16 host correction, D14 UI, F1 genuine-logout/functional-evidence source,
-and narrow D12 own-metadata cleanup. D12/D13 submissions are preserved;
+C7 backend caller correction, and narrow D12 own-metadata cleanup.
+D12/D13 submissions are preserved;
 Root confirms four source/control blockers, no compilation/runtime qualification.
 C6 source submission is pinned; Astra/Root confirm one final publication
-deadline blocker. Narrow C7 source correction is frozen. Its proven
+deadline blocker. Narrow C7 source correction is live. C6's proven
 terminal is immediately reused by D15; D13 is released. Fleet observation:
-5active/6retained records/232released/0reclaimable. Retained records represent
+6active/6retained records/232released/0reclaimable. Retained records represent
 four user-owned resources plus two transferred old dispatches; no extra worker
 is left waiting for cleanup. All six actual C5 pure-control groups pass Root
 verification/full48pins. No binary capture or fresh game actor is admitted.
