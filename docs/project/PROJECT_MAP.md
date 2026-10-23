@@ -139,7 +139,9 @@ CURRENT (23 Oct):
       Both preserved/released; Root25-pin audit. Corrected shared HTTP route chosen.
   [V] Lua-route source materializes: 12 spans / 2 joins / full inverses pass.
       Root12 source/output pins; produced JS/Wasm/actors have not run.
-  [>] Prepare focused route/real-completion/error controls and finite caller.
+  [V] Exact new-tail regression bindings qualify; old test bodies unchanged.
+  [>] Run15own/75shared/one-pending in parallel once; audit complete results.
+      New40group route/real-completion/error draft continues independently.
       Source CSP conflicts with embedded Wasm fetch; actual cause not retained.
       Admission consumed; failed namespace immutable; no retry admitted.
       No game patch is installed. Parent progress stays 4/14.

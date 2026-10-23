@@ -91,8 +91,10 @@ attempt literal. No actor or game code runs in this source/data materialization.
 passed before the single4988c8d call. Its admission and actual-root-2 namespace
 are now consumed and immutable; the existing inputs/outputs are not fresh.
 
-**Next:** qualify focused Wasm-route/actual-completion/original-error controls
-under T10.005. [Corrected source materialization now passes Root verification](reviews/2026-10-23-T10.005.md#corrected-lua-route-source-materialization-qualifies):
+**Next:** run/audit the three newly admitted pure tail regressions in parallel
+while the40group controller/error control draft is prepared. [Bindings/admission](reviews/2026-10-23-T10.005.md#corrected-tail-regression-sources-qualify-and-three-pure-calls-are-admitted)
+keep every15own/75shared/one-pending assertion unchanged and target the exact new
+tail through a fresh private candidate tree. No browser/actual Lua executes. [Corrected source materialization now passes Root verification](reviews/2026-10-23-T10.005.md#corrected-lua-route-source-materialization-qualifies):
 12source/output pins, all12closed spans/two Online joins and independent full
 inverses agree. Public pure materializer and five private source-only outputs
 are prepared; no produced JS/actor/Wasm has run. Old root-4 headers are lineage
