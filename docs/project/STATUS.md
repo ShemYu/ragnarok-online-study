@@ -106,8 +106,12 @@ The c03396d admission is consumed once; root6 is immutable, no retry admitted.
 both actual Claude/Grok NPC implementations are assigned in separate branches
 from common ee23e4e; [dispatch receipts are retained](reviews/2026-10-23-T10.007.md#both-actual-independent-implementations-dispatched).
 Supervise/verify both before selection and user evaluation. Thirty input files/78full Root pins, collision/import and
-reference-state boundaries qualify. No parser/DB fixture or installed changes. In parallel,
-resolve normal-session table selection/content/route bindings. This successful
+reference-state boundaries qualify. [Fresh installed quest DB source capture/audit
+passes](reviews/2026-10-23-T10.007.md#current-installed-quest-db-source-closure-verified-read-only):
+six GETs, three exact source files/4848declarations/no target collision, original
+container/owners preserved, valid original G/clean retirement. Actual parser/DB
+fixture, character ownership and persistence stay unrun. In parallel, qualify
+the supported Chinese System-table overlay task and normal-session bindings. This successful
 fixed diagnostic uses reproduced private-loader routing:0→5520own keys, only
 16912/21001inspected, original lazyInit not executed; no ordinary session,
 effective winner, MainQuest/story or full-content acceptance. Functionality
