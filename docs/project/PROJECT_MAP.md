@@ -50,7 +50,9 @@ Trial remains failed. No percentage credit.
 D13/D14 use disjoint files and one frozen interface; no sibling reads.
 C5 six actual pure-control groups PASS; C6 caller source worker active.
 Four actual Grok tasks now run: driver, host, UI and backend caller.
-No actual binary capture is admitted.
+F1 genuine-logout/functional-evidence source task prepared; faults stay fatal.
+Full-spawn output-budget source qualified; bounded measurement is next.
+No actual binary capture or fresh game trial is admitted.
 Original saves/Chrome/profile/network stay untouched. Full goal unchanged.
 
 ```

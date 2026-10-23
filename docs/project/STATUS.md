@@ -13,7 +13,7 @@ refusal; dictionary abort and independent userconfig/load405 stop later cases.
 Root's233-wire and complete failure/preservation audits now pass:842full pins,
 all18test PIDs/two groups gone, four test containers/network absent, new SQL
 volume retained, original five containers/owners/backings/listeners preserved.
-No reward/relog case or parent-check credit.
+No B200quest-assignment/reconnection case or parent-check credit.
 
 **Parallel work:** D12 driver, D13 host and D14 UI Grok repairs are active,
 with disjoint ownership and one frozen host/UI interface. All six actual C5
@@ -23,6 +23,11 @@ source worker is now live, independent of D12/13/14. Current fleet:4active,
 No binary capture or game actor is admitted.
 Four user-retained workers stay; no settled worker currently awaits cleanup.
 Provider comparison remains incomplete; effective model/cost unknown.
+Root also prepares F1, a separate game-test source change after Astra review:
+genuine UI logout and strict conditional collection of later quest evidence,
+with all known faults/cases/trial still failed. No F1 actor is admitted.
+The [full-spawn output budget](reviews/2026-10-24-T06-full-spawn-output-budget.md)
+source qualifies; one bounded read-only measurement may run after checkpoint.
 
 Original app/saves/Chrome/profile/settings/mute/IME/network stay untouched.
 The consumed ninth trial is not retried. All Chinese overlays stay enabled;
