@@ -78,10 +78,13 @@ attempt literal. No actor or game code runs in this source/data materialization.
 passed before the single4988c8d call. Its admission and actual-root-2 namespace
 are now consumed and immutable; the existing inputs/outputs are not fresh.
 
-**Next:** prepare one source-supported --use-mock-keychain argument for a fresh
-disposable test browser, preserving all other arguments/HOME/mute/settings,
-120s schedule, caps and original G. Review exact source inverses/current bindings
-and commit a separate one-shot admission before execution. This is an
+**Next:** bind the already materialized single-argument candidate to the current
+world and a fresh parent. [Source-only materialization and58pin Root audit
+pass](reviews/2026-10-23-T10.005.md#one-argument-disposable-browser-candidate-materialized-and-audited):
+one --use-mock-keychain argument, all other actor bytes unchanged except fresh
+paths; four served files unchanged and only the bootstrap attempt literal differs.
+HOME/mute/settings,120s schedule, caps and original G stay unchanged. Review
+current bindings and commit a separate one-shot admission before execution. This is an
 intervention against an unproved cause, not a confirmed runtime repair.
 [The completed independent diagnosis comparison](reviews/2026-10-23-T10.005.002.md#root-comparison-rejects-both-probes-and-qualifies-one-source-intervention)
 scores Claude12/20 and Grok13/20; neither proposed probe is admitted as written.

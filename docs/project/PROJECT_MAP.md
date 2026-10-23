@@ -105,7 +105,9 @@ CURRENT (23 Oct):
   [V] Unchanged Claude source integrated as 88577ae; three full blobs match.
   [V] Actual tracked-source verification/audit: 34 own + 53 common pass.
       Source-tool task self_verified; 28 pins / test cleanup checked.
-  [>] Prepare one extra test-browser argument, then review fresh source/bindings.
+  [V] One-argument candidate materialized: 58-pin audit / exact full inverses.
+      Three fresh actor sources and five served files; no actor has run.
+  [>] Bind the fresh parent to the current game and verify those bindings.
       A separate committed one-shot admission must precede any browser run.
       No game patch is installed. Parent progress stays 4/14.
       No game design or milestone change. No user action is needed.
