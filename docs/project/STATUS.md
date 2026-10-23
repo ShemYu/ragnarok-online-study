@@ -58,6 +58,12 @@ stated scopes. No test browser has launched; the clock-repair comparison and
 actual common-clock witness are the current next actions. No goal change or
 user decision is needed.
 
+[The corrected witness source qualifies and one Claude pure call is now
+admitted](reviews/2026-10-23-T10.005.001.md#corrected-witness-source-and-one-claude-pure-call-admitted),
+with exact preview/late-binding pins and unchanged guard limits. Grok finishes
+independently; no result is shared with it. Actual controls, full Root audit and
+the later separately admitted host-clock witness remain; no game retry follows.
+
 ## Recent verification history
 
 The notes below retain earlier results. Their proposed next actions are
