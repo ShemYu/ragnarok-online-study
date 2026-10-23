@@ -102,6 +102,12 @@ credit. Root owns correction with disjoint native source proposals/Astra support
 then verifies and checkpoints the corrected revision before guarded controls.
 No setup, actor trial or control run is accepted;172released/four user-retained/
 zero active Orca workers/zero reclaimable. No new live trial is admitted.
+[Root correction36ca6c1 and first guarded controls](reviews/2026-10-23-T10.005.md#coordinator-correction-and-first-guarded-controls)
+now exist: Python9/10 and JavaScript35/37; full donor apply/inverse/tamper checks
+pass. One double-cancel cleanup bug and two fixture errors remain. Root fixes
+those, selects an explicit reporter, checkpoints, then runs fresh guarded checks.
+Both failed test drivers/groups are gone; no signals, pinned-source drift or
+caller FD/thread leak. No control-suite PASS or actual game diagnostic accepted.
 [Independent downstream-validator review is now personally checked](reviews/2026-10-23-T10.005.md#independent-downstream-closure-review-personally-checked):
 ten full sources/twenty excerpts, embedded Worker prefix claim, real error/ACK
 test hooks and unchanged launcher/parent vetoes. Same source worker continues;
