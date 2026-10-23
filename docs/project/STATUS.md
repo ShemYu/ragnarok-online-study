@@ -13,13 +13,13 @@ dictionary abort/load405/map-connection settlement stop later cases. Root's
 complete failure/preservation audit passes; no B200assignment/reconnection or
 parent-check credit. 4/14 is a check count, not measured full-content coverage.
 
-**Parallel work:** B1 genuine isolated backend and F2 quest/logout are live
-Grok source workers. D15,D16,D14,F1,C7 are submitted and their workers released;
-Root verifies each before any user evaluation. F2 is now live in parallel,
-limited to two actual quest/logout defects under the shared B1 contract.
-Prior245row inventory is checked across three pages; after the F2 launch
-after MU1release expected247records/2active/239released/6retained/0reclaimable. Four actual user-retained resources stay; two transferred records
-have no resource. Six Grok sources ran at the peak; exact model/cost unknown.
+**Parallel work:** B1 isolated backend and MU2 native map-render source are live
+Grok workers. F2 is submitted/pinned/released and under Root/Astra review.
+Its group02 has a source-only fixture blocker; a one-call correction is frozen
+for Grok, with production code unchanged. Expected fleet248records/2active/
+240released/6retained/0reclaimable; full inventory refresh follows settlements.
+Four actual user-retained resources stay; two transferred records have none.
+Six Grok sources ran at the peak; exact effective models/cost remain unknown.
 
 D15 passes all eight pure groups and Root's complete183pin audit: unchanged
 G10s/512MiB/grace3, natural0/positiveguard/0.229156s/24068096B sampled peak,
@@ -28,8 +28,9 @@ D16 actual pure call fails at group6 cleanup_event, natural1/failedguard.
 Root verifies full failure streams/receipt,125pins and clean retirement.
 The host overwrites its event kind with cleanup subtype; diagnostic stays HOLD.
 No replay/new diagnostic generation or native/browser/game credit. D14 diagnostic UI is held for four concrete defects; it is
-not an automatic F1 prerequisite. F1 is held for sticky logout-wait failure
-and valid native backend responses being misclassified as faults. Root stages
+not an automatic F1 prerequisite. F2 corrects the two F1 blockers in source;
+Root checks10maps/15unchangedhelpers/125pins and compiles Python only.
+Its actual eight groups and B1 composition remain unadmitted. Root stages
 byte-identical private copies after an ambiguous worker path/mode handoff.
 C7 passes all four actual pure groups and Root complete62pin audit, each
 natural0/positive unchanged G10guard, clean streams/sourcepostpins/retirement.
@@ -40,7 +41,8 @@ B1 has its narrow UI backend-origin supplement. [MU1 exact105body data
 deployment](reviews/2026-10-24-T07-mu-data-stage.md#selected-target-and-acceptance)
 passes Root full276pin audit/all105fullbyte comparisons and is released.
 [MU2native load/draw source handoff](reviews/2026-10-24-T07-mu-data-stage.md#mu2-fresh-native-render-source-task-frozen)
-is frozen for independent Grok work. No current game installation/draw claim. Provider comparison remains incomplete.
+is actual Grok taskc43e0ea0c969/ctxea500e7e658a, independent of B1/F2.
+No current game installation/draw claim. Provider comparison remains incomplete.
 
 The [full-spawn output-budget measurement passes](reviews/2026-10-24-T06-full-spawn-output-budget.md#actual-bounded-measurement-and-root-audit-pass):
 839sources/723206physical lines require172547908canonical JSONL bytes, below

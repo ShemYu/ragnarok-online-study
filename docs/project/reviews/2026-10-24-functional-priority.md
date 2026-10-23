@@ -442,3 +442,38 @@ origin, within original outer lifecycle/caps; no old-reader proxy or newframewor
 Mu-specific leaf/bounded responsebody observation profile is explicit/separate
 from F1 game policy; Chinese production files retained, no gameUI/travel credit.
 ActualGrok source work can start after checkpoint; Root verifies before actors.
+
+
+## MU2 live F2 submitted released one fixture correction frozen
+
+ActualGrok MU2ready taskc43e0ea0c969/ctxea500e7e658a; start5001B/SHA
+1880ff04988f6f2d1cad5fbad33745fad91a99117705d13ada6639671fbf0ed0.
+Its investigating heartbeat is processed. It authors source only, no map actor.
+
+F2 completes. Root reads complete report, checks16private closed outputs and
+124full source/packet pins, accepts source submission only, immediately releases
+worker/archive captured and persists lifecycle before deliverycfe9fda5a2f7ACK.
+Settlement60589B/SHA9bcfdf33143c39bdd5b8dfabc4627bf84aa89134514e81ea7934278921978971;
+lifecycle640B/SHAa1612522fd8c183e2ba420fe2c352c863a394480ff7a669bcf1d80322866c30d.
+Driver54472B/SHA50b163ef2ee8ca6e4f194d9ffbbeede5bb9d9ddd92f05c8471fcfedfd7423e75;
+UI49815B/SHAf89ae4ef5d859b4491b4ec6974bbebb4aac338e9054b6464bc19abcc0dca6466.
+Root personally verifies10full forward/inverse maps (UI,driver,groups01–03),
+15unchanged helper bodies/all declared eq spans and byte-identical04–08.
+Python driver/groups compile only; no group executes. Mechanical review62046B/
+SHAd3f9392f9f43911fe5b434cc8ff52f614284434ae4d49a34f022ba661f4e6d0b
+closes125pins. Production source judgment/pure entries are under Astra review;
+Root still composes exact B1 producer/consumer and freshly binds later.
+
+A concrete group02 fixture blocker is found and personally confirmed by Root:
+backend_detail('/userconfig/load',pathname='/other') repeats the positional
+pathname argument defined by group01, so TypeError occurs before the matcher.
+No actual control was run. Freeze F2-C1, exactly that call becomes
+backend_detail('/other'); all other bytes/production source stay unchanged.
+This is a fixture-only correction, not another production implementation.
+Expected corrected5113B/SHAb2423cbfb3b33b600357bc0a52cb2fe66df3a9c5fe4cdc00a4b237402bdf985c.
+PacketMANIFEST6936B/SHA34b60f7946ae8feabd0bc8c77dedf61210bf5eb0349b3ddb53bd0fea6670a1c0;
+brief1475B/SHA7fc314d075422481b498b797674e87b9823fbab11157569aad392cbb0ba69ca2,
+6fullpins. After this checkpoint actualGrok may make that single bounded
+unexecuted fixture correction; Root tests the resulting eight groups later.
+No actor/source runtime PASS. Expected2activeB1/MU2/240released/6retained/
+0reclaimable after F2release; full inventory refresh follows settlements.

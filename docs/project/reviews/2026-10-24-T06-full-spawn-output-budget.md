@@ -94,3 +94,16 @@ See [live F2 and D16 failure](2026-10-24-functional-priority.md#f2-actual-grok-l
 
 
 [MU1Root276pinauditPASS/MU2sourcefrozen](2026-10-24-functional-priority.md#mu1-all105copies-verified-mu2-native-scene-source-frozen). MU1releasedbeforeACK; B1/F2continue; Mu native scene uses separate explicit leaf under unchanged outer caps. No actor/content credit.
+
+
+## Independent admission options retained without dispatch
+
+Root reads3905B proposal/SHAc4f75cbcde85f59cdde47ce3b18b077d28409b5b4cd56395bb27ddc209a85ccd;
+16stable inputs, pins4273B/SHA9c08babded5c884e9e30de9dadad77c5052bcd35ce4e35d43bdd94ba8ce38ab3.
+839selected/24222094B is distinct from snapshot1683/68752782B. Proposed selected
+admission, unchanged global lexer limits/two locks, bounded publication and
+qualified1 consumer remain source proposals. Three typed expectation sets
+(combined-source ranges/counters, publication-fault outcomes, qualified/fatal
+consumer envelope) are not frozen, so wrapper is not dispatched/admitted.
+No new corpus/test execution or native-content/absence claim; backend/gameplay/
+Mu real-loading work keeps priority.

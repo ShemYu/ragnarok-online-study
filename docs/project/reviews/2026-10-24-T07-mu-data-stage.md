@@ -129,3 +129,13 @@ Mu driver/UI/bootstrap/viewer derivatives, assembly plan and<=8unexecuted
 actual-path groups/fullmaps/inverses/pins/Rootrecipe. No active B1/F2 output
 reads or new actor framework. Root personally qualifies/tests/materializes and
 freshly admits later. Rollback is only new owned private generations.
+
+
+## MU2 actual source worker live
+
+Afteraa287e3 actualGrok MU2ready taskc43e0ea0c969/ctxea500e7e658a,
+terminal652d3671-b6e1-4a96-8b9a-d04d5d0ab9e8. Start5001B/SHA
+1880ff04988f6f2d1cad5fbad33745fad91a99117705d13ada6639671fbf0ed0.
+Investigating heartbeat processed. Source authoring only; no live map actor,
+response-body read, draw or user acceptance. This independent scope proceeds
+while B1 backend is authored and F2 gameplay consumer changes are reviewed.
