@@ -227,8 +227,10 @@ J7own+4common and K7own+final-deadline. Next runtime remains unbound;
 Root is preparing its complete closure and fresh changed-trial binding.
 [Fresh runtime data qualifier source is checked; C2 Claude is submitted/released](reviews/2026-10-23-T10.007.md#fresh-runtime-data-qualifier-source-checked-c2-claude-submission-preserved).
 Fleet215released/four user-retained/one Grok source Dispatch remains.
-Root next materializes/rechecks the fresh runtime; no image capture or game
-admission yet.
+[Fresh runtime now passes its complete data audit; changed-trial source qualifies](reviews/2026-10-23-T10.007.md#fresh-runtime-complete-data-audit-passes-seventh-changed-trial-source-qualifies).
+199runtime/172UI pins and exact bound driver qualify. Root next binds current
+HEAD/four ports/lease and complete projected outer closure, then may invoke
+one changed4GiB/390s Stage1 trial. No image capture or player PASS yet.
 Source review finds cleanup-deadline/log-finalization gaps and a postcheck
 test-fixture defect. Fresh test data and corrected image-capture source are
 prepared independently; neither is admitted for runtime.
