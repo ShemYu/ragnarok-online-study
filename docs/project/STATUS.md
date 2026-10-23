@@ -91,8 +91,10 @@ attempt literal. No actor or game code runs in this source/data materialization.
 passed before the single4988c8d call. Its admission and actual-root-2 namespace
 are now consumed and immutable; the existing inputs/outputs are not fresh.
 
-**Next:** prepare fresh full-actor/current-world bindings, then separately
-admit one browser trial. [The fresh parent binder draft qualifies](reviews/2026-10-23-T10.005.md#fresh-lua-route-parent-draft-qualifies):
+**Next:** run the separately admitted Lua-route-corrected browser trial once,
+then audit complete results and cleanup. [Final parent/current-world binding and one-shot admission qualify](reviews/2026-10-23-T10.005.md#fresh-lua-route-parent-binding-and-one-shot-live-admission):
+95binder full hashes/87unique current C8, original3owners/listeners/effects and
+13-header inverse pass; runtime fields/namespaces remain fresh before the call. [The fresh parent binder draft qualifies](reviews/2026-10-23-T10.005.md#fresh-lua-route-parent-draft-qualifies):
 12metadata/proof groups/14sites fully invert; six served leaves/new private tail/
 Wasm joins retain the same parent body, nine protected and seven Node roles.
 [Fresh Lua-route actor/six-file materialization and Root audit pass](reviews/2026-10-23-T10.005.md#fresh-lua-route-actors-and-six-served-files-materialize-and-qualify):
@@ -100,7 +102,7 @@ Wasm joins retain the same parent body, nine protected and seven Node roles.
 source files only; inputs/outputs/READY/grants/profile/T0 remain absent.
 [All40Lua-route/error groups and the full Root audit pass](reviews/2026-10-23-T10.005.md#all-forty-lua-route-groups-and-complete-root-audit-pass):
 caller0/driver0/valid original guard,22full pins, complete40rows/streams and
-positive cleanup. Admission03418b1 is consumed once. No browser admission exists. [All three corrected-tail regressions and the full Root audit now pass](reviews/2026-10-23-T10.005.md#corrected-tail-regressions-and-complete-root-audit-pass):
+positive cleanup. Admission03418b1 is consumed once. Only the new one-shot admission above exists. [All three corrected-tail regressions and the full Root audit now pass](reviews/2026-10-23-T10.005.md#corrected-tail-regressions-and-complete-root-audit-pass):
 15own/75shared/one-pending, all caller0/driver0/valid original guards, no skips,
 complete streams and positive cleanup. Common/adaptive results are byte-exact
 with the qualified old results; Root checks53full pins. The three parallel calls
@@ -109,7 +111,7 @@ consume210b7be once; no unchanged retry is admitted. No browser/actual Lua ran.
 12source/output pins, all12closed spans/two Online joins and independent full
 inverses agree. Public pure materializer and five private source-only outputs
 are prepared; no produced JS/actor/Wasm has run. Old root-4 headers are lineage
-only and must be rebound before execution. Fresh actual-root-5 source copies now qualify above; no live admission exists.
+only and must be rebound before execution. Fresh actual-root-5 source copies qualify; use only the new live admission above.
 [Equal T10.005.004 plan comparison now qualifies](reviews/2026-10-23-T10.005.004.md#both-plans-checked-and-corrected-same-origin-direction-selected):
 Claude13/20 versus Grok14/20; both complete reports preserved/workers released.
 Root selects the shared direction with Claude's protected six-file/static inverse

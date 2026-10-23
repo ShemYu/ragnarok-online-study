@@ -148,7 +148,9 @@ CURRENT (23 Oct):
       Six static leaves; parent body / nine protected / seven Node roles kept.
   [V] Fresh3actors / 6static files qualify: 62full pins / exact inverses.
       Root-5 source files only; no runtime inputs/profile/T0/admission.
-  [>] Bind current worlds and parent headers, then one browser trial.
+  [V] Fresh parent binding: 95hash entries / 87current C8 / 13header inverse.
+      Original3owners/listeners and18effects/7parents match; no actor ran.
+  [>] Run the one newly admitted root-5 browser trial; audit full outcome.
       Source CSP conflicts with embedded Wasm fetch; actual cause not retained.
       Admission consumed; failed namespace immutable; no retry admitted.
       No game patch is installed. Parent progress stays 4/14.
