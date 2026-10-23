@@ -92,7 +92,9 @@ passed before the single4988c8d call. Its admission and actual-root-2 namespace
 are now consumed and immutable; the existing inputs/outputs are not fresh.
 
 **Next:** [compare bounded Lua-startup/CSP and original-error plans](tasks/T10.005.004.md)
-using the same twelve pinned inputs/six groups for real Claude/Grok. The corrected actual trial has run once and its full failure
+using the same twelve pinned inputs/six groups for real Claude/Grok.
+[Both actual source-only workers are dispatched/live/working](reviews/2026-10-23-T10.005.004.md#actual-independent-pair-dispatched);
+reports and Root selection remain pending. No live retry is admitted. The corrected actual trial has run once and its full failure
 audit passes; the quest diagnostic itself still fails at startLua-rejected.
 [The earlier equal twelve-input/six-group Worker plan comparison is
 self_verified](reviews/2026-10-23-T10.005.003.md#both-plans-preserved-and-corrected-claude-direction-selected):
