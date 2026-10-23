@@ -10,7 +10,8 @@ resource gaps remain open. No full-game scope change or new user decision.
 **Live next action:** [NPC prefix checks pass; Grok selected; dictionary source packet qualifies](reviews/2026-10-23-T10.007.md#actual-npc-prefix-checks-pass-grok-selected-next-component-packet-qualified).
 Both independent D9 component implementations are running on the same frozen
 inputs (Grok and Claude;222released/four user-retained/two active). Root next
-verifies their source and the independent NPC pipeline packet. Grok's N8
+verifies their source. [The independent NPC pipeline packet now qualifies](reviews/2026-10-23-T10.007.md#npc-raw-name-pipeline-packet-qualified-for-independent-source-fixture-pair);
+start both N9 source-fixture workers before waiting. Grok's N8
 failure metadata qualifies (20/20 vs19/20); this is
 observability, not an NPC repair. Source suggests a raw-name/rendered-label
 difference; actual trial8 NPC identity remains unknown.

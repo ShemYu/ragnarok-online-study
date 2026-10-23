@@ -1047,3 +1047,7 @@ No new full-game/Engine/browser admission;4/14/about29% and all82gaps unchanged.
 
 Latest D9 actual workers both ready before wait;222released/4retained/2active.
 The complete stopped-image source correction chain verifies without new runtime.
+
+
+Latest: N9 raw-name pipeline packet qualifies:15origins/10copies/32exact slices.
+Next launch both providers independently of D9; no cause/repair/runtime PASS.
