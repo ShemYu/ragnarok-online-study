@@ -28,71 +28,27 @@ Missing story scripts  [OPEN: largest content risk]
 Full game test         [LATER: 82 functional resource gaps remain]
 
 Current path:
-  Native parser PASS -> servers/client ready -> login/char/map WS traffic
-                                                        |
-                          NOW: startup repair + finite verification
-                                                        |
-                                       real NPC grant -> relog -> restart
+  Server/parser PASS -> login/character/map PASS
+                              |
+                      NPC identity FAIL
+                              |
+                  +-----------+-----------+
+                  |           |           |
+              NPC name    Dictionary   Resources
+              dataflow    component    four copies PASS
+              research    C/G running  route test pending
+                  +-----------+-----------+
+                              |
+                    changed normal NPC trial
+                              |
+                    grant -> relog -> restart
 
-Root checked the failed trial and recovered its test containers/bridge.
-Original game preserved. Test database retained. No player PASS yet.
-Both Grok/Claude pairs finished. Root checked the proposed repairs.
-Third test: all three game servers ready; test client exits before browser.
-All four test containers/network removed; original game preserved.
-Fourth test reaches browser, then stops above the 3 GiB summed-RSS fence.
-No validated avatar/map/NPC or completed player case. Cleanup is verified.
-Both parallel pairs reviewed and released. Raw guard changes rejected.
-New diagnostics: source, syntax and nine finite checks PASS.
-Fresh test data: both checked/released; Claude selected (20 vs 19).
-Fifth test: same memory stop; dictionary status is ready despite cancellation.
-Root checked cleanup. No avatar, NPC or player case passes yet.
-Next: resolve request lifecycle + client resources; assess a bounded memory step.
-Both client pairs reviewed/released: D Claude17/Grok16; S Claude18/Grok17.
-Small request ledger + failed-case evidence: syntax + all 12 controls PASS.
-All failures stay visible; no new player case or larger game allowance.
-Both resource candidates: 19/20. Hotkey plan: Grok18, Claude17.
-All four workers released. Seven direct asset copies + fresh fixture checked.
-Next: runtime binding and a separately justified changed quest test.
-Runtime files checked: 199 driver pins / 172 UI pins.
-Six own suites checked: Jboth/KGrok/PGrok pass; ClaudeK/P fail.
-Both Grok corrections submitted, reviewed and released; no active Orca worker.
-Root: fresh fixture4 + 59 client/resource/config copies PASS as data.
-Lineage edge observations audited; corrected Claude basis selected (17 vs 15).
-Corrected lineage: all 7 own + 4 common cases PASS.
-Postcheck Claude: all 7 own groups PASS.
-Cleanup: all 7 groups + final deadline PASS after test-fixture correction.
-Combined selected source prepared, unbound; integrated control source qualifies.
-Grok own: K2 fixture failed; P2 seven groups PASS. Common source qualifies.
-Common cases checked: Claude8/8, Grok3/8; lane-specific bases selected.
-K2 Claude18/Grok12; P2 Claude20/Grok13. Integrated J/K controls PASS.
-Parallel: Claude reader draft saved/released; Grok continues. No game dependency.
-Fresh runtime199/UI172 pins PASS. Changed-trial source qualifies.
-Test7 fails before browser: copied RemoteClient lacks execute permission.
-Full cleanup/original-state audit PASS; outer FD mismatch retained.
-HTTP import initialization reproduced; narrow preload source qualifies.
-Fresh normal8 executable copies + fixture5 data/normalization PASS.
-Runtime bridge data + execute checks PASS; changed-trial source qualifies.
-Trial8: client logs in; character/map identity observed; NPC identity fails.
-Cleanup + strict outer FD checks PASS. No quest behavior or screenshot PASS.
-NOW: independent NPC / missing loose-file pairs -> Root verification.
-Parallel C2 drafts both retained/released; comparison/tests next.
-Fleet: 221 released / 4 user-retained / 1 Grok S8 active / 0 reclaimable.
-R8 both Root data PASS; Grok copies selected (20/20 tie).
-N8 both drafts retained/released; shared prefix verification next.
-C2 both own5 + reference10 PASS after fixture correction.
-Select explicit cursor: Claude20 / Grok19; real FileStore5 PASS.
-S8 Claude draft retained; Grok source review active.
-Local-file admission consumed; no Engine capture admitted.
-Next capture-caller/source/world qualification, parallel NPC checks.
-Dictionary failure stays open; initializer/request association missing.
-No player PASS; source-only image-capture correction remains independent.
-Fresh test data + corrected hotkey capture source prepared independently.
-Root: test6 failed before UI: process-identity sample + early Chrome cleanup.
-Read-only host snapshot PASS: normal pressure, 64 GiB physical RAM.
-Test6 pressure normal. Hotkey pure tests find defects; corrected Claude basis.
-Content-contract preparation is preserved; its oracle is still unqualified.
+Root verified both NPC metadata proposals; Grok selected20/20 vs19/20.
+The name hypothesis needs source-fixture and actual game verification.
+Full cleanup/original-state preservation PASS. No quest/player case PASS.
+Independent web capture: parser/FileStore/source-chain PASS; caller next.
+No new browser, game or Engine action admitted. No user decision needed.
 
-No decision is needed from you now. The full-game goal is unchanged.
 ```
 
 The sections below keep the dated history. [Status](STATUS.md) gives the live
@@ -1087,3 +1043,7 @@ Latest: all45NPC prefix observations PASS; Grok failure metadata selected20vs19.
 S8Claude source/data selected19vs16; actual serving remains unverified.
 Next independent D9 implementations; NPC name dataflow packet preparation.
 No new full-game/Engine/browser admission;4/14/about29% and all82gaps unchanged.
+
+
+Latest D9 actual workers both ready before wait;222released/4retained/2active.
+The complete stopped-image source correction chain verifies without new runtime.

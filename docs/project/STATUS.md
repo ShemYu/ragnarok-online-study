@@ -8,22 +8,24 @@ Functionality remains first; **4/14 parent checks, about29%**. All82functional
 resource gaps remain open. No full-game scope change or new user decision.
 
 **Live next action:** [NPC prefix checks pass; Grok selected; dictionary source packet qualifies](reviews/2026-10-23-T10.007.md#actual-npc-prefix-checks-pass-grok-selected-next-component-packet-qualified).
-Dispatch the independent D9 component reproduction implementations on the same
-frozen inputs before waiting. Root next verifies them and the independent NPC
-pipeline packet. Grok's N8 failure metadata qualifies (20/20 vs19/20); this is
+Both independent D9 component implementations are running on the same frozen
+inputs (Grok and Claude;222released/four user-retained/two active). Root next
+verifies their source and the independent NPC pipeline packet. Grok's N8
+failure metadata qualifies (20/20 vs19/20); this is
 observability, not an NPC repair. Source suggests a raw-name/rendered-label
 difference; actual trial8 NPC identity remains unknown.
 S8Claude's17B disabled-host data proposal is selected as source/data (19vs16);
 actual serving/login behavior remains unverified. No file is installed.
 Both R8 datasets qualify; Grok's equal loose data is selected for future setup.
-C2 cursor and all5 real FileStore groups pass; stopped-image caller/current-
-world qualification remains next, with no Engine action admitted.
+C2 cursor, all5 real FileStore groups and the full source correction chain
+pass; stopped-image caller/current-world qualification remains next, with no
+Engine action admitted.
 Trial8 reached the map but no NPC dialogue; complete cleanup/original-state
 preservation pass. All old one-shot admissions are consumed. Dictionary abort
 remains open; request and ready node are not joined to the same initializer.
 No game replay is admitted. Limits/goal unchanged; no user action is needed.
 
-**Latest:** [All three isolated native parser cases now pass Root verification](reviews/2026-10-23-T10.007.md#actual-three-case-native-parser-trial-and-complete-root-audit-pass):
+**Prior native parser checkpoint:** [All three isolated native parser cases now pass Root verification](reviews/2026-10-23-T10.007.md#actual-three-case-native-parser-trial-and-complete-root-audit-pass):
 134 requests/231 full pins, valid original guard/13.231s, real NPC and three
 quest definitions load, both fault controls expose their causal errors,
 pre/post SQL character/quest counts remain0/0. All test resources are API-absent;
