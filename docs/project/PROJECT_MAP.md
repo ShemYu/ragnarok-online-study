@@ -28,21 +28,21 @@ Missing story scripts  [OPEN: largest content risk]
 Full game test         [LATER: 82 functional resource gaps remain]
 
 Current priority:
-  F1 two defects -> F2 narrow source repair -> Root verification
+  F1 two defects -> F2 narrow Grok repair LIVE -> Root verification
                          -> one fresh fixed quest/logout sequence
                          ^
   genuine isolated backend route (where actual dependency requires it)
 
 Parallel:
   D15 driver: eight pure groups PASS; no game credit
-  D16 host: source qualified; one pure7group call admitted
+  D16 host: pure call FAILED at cleanup event; HOLD
   D14 diagnostic UI: HOLD4defects; not an F1 dependency
   C7 caller: submitted/released; capture not admitted by default
   mu_fild01 -> exact isolated resource binding -> real load/draw repair
   full839spawn -> budget PASS; wrapper/profile/oracle choices still open
 
-Six Grok workers ran at peak. Now B1live; F2narrow task frozen for launch.
-Fleet:1active/238released/6retained records/zero reclaimable.
+Six Grok workers ran at peak. B1 + F2 are now live.
+Expected after F2launch:2active/238released/6retained/zero reclaimable.
 Four actual user-retained resources stay;2transferred records have none.
 Trial9 stays failed; known faults stay failed. No new actor admitted.
 4/14 is parent-check progress, not percentage of playable content.

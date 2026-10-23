@@ -15,18 +15,19 @@ parent-check credit. 4/14 is a check count, not measured full-content coverage.
 
 **Parallel work:** B1 genuine isolated backend is the remaining live Grok
 source worker. D15,D16,D14,F1,C7 are submitted and their workers released;
-Root verifies each before any user evaluation. The next qualified parallel
-task is F2, frozen in the current review and limited to two actual quest/logout defects.
-Fleet245records/1active/238released/6retained/0reclaimable, all three pages
-checked. Four actual user-retained resources stay; two transferred records
+Root verifies each before any user evaluation. F2 is now live in parallel,
+limited to two actual quest/logout defects under the shared B1 contract.
+Prior245row inventory is checked across three pages; after the F2 launch
+expected fleet246records/2active/238released/6retained/0reclaimable. Four actual user-retained resources stay; two transferred records
 have no resource. Six Grok sources ran at the peak; exact model/cost unknown.
 
 D15 passes all eight pure groups and Root's complete183pin audit: unchanged
 G10s/512MiB/grace3, natural0/positiveguard/0.229156s/24068096B sampled peak,
 full streams, source stability, PID/group retirement and caller context checked.
-D16 source qualifies120fullpins/four maps/13spans and unchanged seven-file
-stage. One existing G/S pure-seven-group run is admitted after this checkpoint.
-No native/browser/game credit. D14 diagnostic UI is held for four concrete defects; it is
+D16 actual pure call fails at group6 cleanup_event, natural1/failedguard.
+Root verifies full failure streams/receipt,125pins and clean retirement.
+The host overwrites its event kind with cleanup subtype; diagnostic stays HOLD.
+No replay/new diagnostic generation or native/browser/game credit. D14 diagnostic UI is held for four concrete defects; it is
 not an automatic F1 prerequisite. F1 is held for sticky logout-wait failure
 and valid native backend responses being misclassified as faults. Root stages
 byte-identical private copies after an ambiguous worker path/mode handoff.

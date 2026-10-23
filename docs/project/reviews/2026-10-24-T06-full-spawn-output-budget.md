@@ -79,3 +79,6 @@ This is not lexer/full-inventory/native monster/quest/save/full-game acceptance;
 
 
 See [the latest source checkpoint](2026-10-24-functional-priority.md#d15-eight-pure-groups-pass-f2-source-packet-frozen-d16-call-admitted). D15pure8groups pass; F2/B1 gameplay work remains priority. D16onepure7group call admitted. Full839wrapper remains unadmitted.
+
+
+See [live F2 and D16 failure](2026-10-24-functional-priority.md#f2-actual-grok-live-d16-pure-call-failed-and-preserved). B1/F2 are actual live sources; D16purefailure is preserved/HOLD. Full839wrapper stays unadmitted and does not displace gameplay/content work.

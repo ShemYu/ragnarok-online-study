@@ -323,3 +323,40 @@ actual runAll once. After this checkpoint one unchanged G/S Node invocation is
 admitted at10s/512MiB/grace3/no-native/1MiB with strict unhandled rejections.
 Root audits complete expected7groups, streams/receipt/retirement/postpins and
 caller context. No browser/sourceURL/native diagnostic/game acceptance.
+
+
+## F2 actual Grok live D16 pure call failed and preserved
+
+After13d1416, actual Grok F2ready taskc3f19a33938f/ctx4735f7783d12,
+terminal332d0ce5-7595-4a21-a42c-4c355099a27b. Start4615B/SHA
+00e627e4e22dd5ab9fd3f63134f148a8bb0e8a0a20ab0236b5f6e25feea60de6.
+Root sends active B1 the exact2047B/SHA6125c2bef7368637b2310cefea6a27bd855424a36c569260650ec5ca4248f705
+contract, permitting only that immutable supplemental read. Guidance6434B/SHA
+2f51e62aa5a2cbcff59b36c857750291a6b3dcfdb66db9c0465ee836f92f8e38
+proves durable enqueue only; adoption remains unverified. Both workers live,
+F2investigating heartbeat processed. Expected246records/2active/238released/
+6retained/0reclaimable after launch; no fresh full-inventory claim.
+
+D16's one actual G/S call FAILS at actual CONTROLS.mjs487 cleanup_event in
+registeredFinalDisposeAndDisposeDiagnostic. Naturalexit1/guardfalse,
+guard_actiondriver_nonzero, elapsed0.147239s/sample1032192B/no signals or
+native. No complete seven-group result is returned; earlier groups are not
+individually credited. Initial actual audit63569B/SHA
+8e34646088728d2f096cf68be9e3364ea33ae62e7e07327575c5973e64b672e9
+stays failed. Its success-oriented stream check stops on nonempty stderr.
+Root separately audits the failure without converting acceptance: complete
+stream counts/hashes and unchanged receipt, original limits,125fullpostpins,
+current PID/group absence, and original caller FD/thread/HEAD/clean checks.
+Failure audit65255B/SHA
+bc3fe9193397b38e86d8df0522dedba58993df2fd524dfbbf0ea7e2c5790bafa.
+The one call is consumed; no replay admitted.
+
+Root personally reads the actual note/invokeCleanup paths: the event row is
+{kind,...fields}, while host_cleanup_invoked supplies fields.kind=row.kind.
+The subtype overwrites the event discriminator. Cleanup invocation/throw/final
+throw/diagnostic checks preceding the assertion succeed, but the event cannot
+be found under its intended name. This is an existing diagnostic-host source
+defect, not a game cleanup failure. Independent source-only cause review is
+closing. D16 remains HOLD; no automatic new diagnostic repair generation.
+It is not an F1/B1 dependency by default. Backend/quest work continues; exact
+mu_fild01 normal-loader/material handoff is independently prepared.
