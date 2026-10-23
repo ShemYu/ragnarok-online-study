@@ -594,3 +594,47 @@ personally verifies full source/retained pointers/body joins and keeps an empty
 required deployment allowlist. Type4 alone does not require32frames. Fresh MU2
 scene still checks current geometry/request joins; no archive absence/draw claim.
 No water worker is added merely to use capacity. Full goal unchanged.
+
+
+## B2U B2D actual Grok wave live B1 Root byte review complete
+
+Both actual Grok source workers are ready after b72b8b0:
+B2U task94df2f56a1ba/ctx492239515b2b, START2307B/SHA
+dfb150bb7aee318e169738e719b95568135c07d74448dff4fed7f079ed443d89;
+B2D task536ee930dd92/ctxf406f86504cd, START2307B/SHA
+57a0d0ff037b16c4952e3842c0c21835138691e335a1dc37e2ef442f07a7830e.
+Actual effective provider Grok; model/effort are null in receipts, so no named
+effective-model claim. Investigating heartbeats for both are processed before
+deliveryed9ef74da2f2ACK. MU2implementing heartbeat e052d60bcca2 was also processed.
+
+Root reads complete6897BAstra B1audit/SHA
+634bb5d126a46d1578e47d1e24567cb51ed8f9ca84bfa26cb63d8c3b14c77114;
+70input prepost pins, actual source counterpaths and native omission confirmed.
+Root independently reconstructs all8forward/inverse map directions, verifies
+all45declared unchanged spans and all9embedded UI operations against full donors.
+Client unbound predicted13174002B/SHA21f9b803324063a73905d099b984bf7b87f0ac07aba86cebef69fbcd188d77aa
+comes from exactly2authorized spans. Root review44463B/SHA
+6f634622503a1aa758df826313ef7f695e27996f449673e7a5e0d41eaa6211f3
+retains B1HOLD. Original bad groups remain unadmitted; no actor/native PASS.
+
+Fresh entire fleet is251records/threepages:3activeB2U/B2D/MU2,242released,
+6retained,0reclaimable. Evaluation9744B/SHA
+94cb59722e1dc240699d12a607e0995db2f312c3a61541ce6322e1191786cb22
+preserves each page and every nextAction. Nine historical attention flags have
+literal nextAction:none: three already-released failures, four user-owned
+retained resources, two settled transferred/absent-resource records. Their
+missing status is not proof of death and earns no new stop/retry/release.
+Four actual user-retained resources are preserved, not six extra idle agents.
+No current settled owner owes cleanup. No full-game progress credit added.
+
+Root also materializes the previously sealed Mu client/worker assembly in a
+new inert private stage, verifies full readbacks/inverses and all source pins:
+Online13174683B/e3ee908fa369f0abd4c08b2c9d80075c7e7adfd8dde24f692ab57ff5a97be5b2,
+worker650825B/db6f0ed37c40fea30c2e513e31468ca657d5b3dca5570837375d66fd5ba205ba.
+Assembly4524B/SHA56f5c533c5411d316cbe46380112261756786ba4e95b3bf2e26b67b138770883.
+No source parser/loader change, service or render. MU2 receives bounded guidance
+on the retained exact-source water0 finding; enqueue1728B/SHA
+e06ebafed18145770ea89dc6dc0d826bf935bcc8d3701b86b40022ba0e2686b1
+proves delivery enqueue only. Its fresh scene retains strict conditional/body
+checks. Root continues full839existing semantic-oracle preparation independently;
+no new wrapper/framework or actor is admitted.

@@ -162,3 +162,18 @@ not absent. No new decoder/inventory/actor/asset acquisition, no draw/travel/
 spawn/story credit. Root1empty preserved: a Root second read used default4MiB
 against the already full-read larger browser artifact; root2 uses bounded64MiB.
 No game source modified and no Grok task added for an unproved requirement.
+
+
+## Exact sealed client worker assembly materialized
+
+Root creates only the two already-qualified inert scene assemblies; it removes
+the final21B init tail and appends exact414B export tail, and appends unchanged
+17598/8764B worker suffixes to the exact624463B normal worker. Full predicted
+sizes/hashes, byte inverses/readbacks/current sourcepins pass. Online13174683B/
+e3ee908fa369f0abd4c08b2c9d80075c7e7adfd8dde24f692ab57ff5a97be5b2;
+worker650825B/db6f0ed37c40fea30c2e513e31468ca657d5b3dca5570837375d66fd5ba205ba.
+ASSEMBLY_ROOT4524B/SHA56f5c533c5411d316cbe46380112261756786ba4e95b3bf2e26b67b138770883.
+All newfiles0600/dir0700, no source execution or parser/loader change. Actor/
+native serving/bootstrap integration/draw remains unadmitted and separate.
+The active MU2 worker receives the source-grounded water0 finding; no extra
+assets/test generation or fault waiver. Body/geometry joins remain mandatory.

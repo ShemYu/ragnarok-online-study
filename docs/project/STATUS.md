@@ -20,9 +20,9 @@ F2-C1 fixture correction matches Root's exact one-call byte prediction and
 is released. Root qualifies the corrected F2 stage/178pins; all eight focused calls now
 pass complete Root203pin verification under original G/S.
 No Engine/browser/game actor is admitted. Water-source review confirms retained zero water geometry for the exact
-current map/worker/GND join; no extra water deployment is justified. B2U UI and B2D native-driver/Engine source composition are frozen as
-independent Grok tasks for the next checkpoint. Expected1active/242released/
-6retained before their start;
+current map/worker/GND join; no extra water deployment is justified. B2U UI and B2D native-driver/Engine source compositions are now live
+independent Grok tasks. Fresh251record/three-page inventory:3active/
+242released/6retained/0reclaimable;
 fresh all-page inventory follows settlements. Four actual user-retained
 resources stay; two transferred records have none. Six Grok sources ran
 at peak. Effective model/cost and full provider comparison remain unknown.

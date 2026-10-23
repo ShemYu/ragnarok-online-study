@@ -43,8 +43,8 @@ Parallel:
        (retained water geometry0; current scene still verifies it)
   full839spawn -> budget PASS; wrapper/profile/oracle choices still open
 
-Six Grok workers ran at peak. MU2 live; B2U/B2D independent source tasks frozen.
-Expected:1active/242released/6retained records/zero reclaimable.
+Six Grok workers ran at peak. MU2 + B2U UI + B2D native driver now live.
+Fresh251records/3pages:3active/242released/6retained/zero reclaimable.
 Four actual user-retained resources stay;2transferred records have none.
 Trial9 stays failed; known faults stay failed. No new actor admitted.
 4/14 is parent-check progress, not percentage of playable content.
