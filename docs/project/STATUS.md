@@ -170,10 +170,12 @@ finds a missing exact receipt-policy check. [Corrected parent/control source now
 qualifies; one pure control call is admitted](reviews/2026-10-23-T10.007.md#four-gib-parent-source-qualifies-one-pure-policy-call-admitted).
 [Actual seven-group/27variant policy checks pass](reviews/2026-10-23-T10.007.md#actual-four-gib-receipt-policy-controls-pass):
 natural exit0/full15audit-artifacts; no real parent/game call or larger game
-allowance yet. Next new parent linkage, fresh pressure finalization and
-current-world/HEAD/lease joins before separate admission. An independent Grok/
-Claude pair prepares an inert bounded image-file capture adapter for hotkeys;
-no actual API/image/service action is permitted in that pair.
+allowance yet. [New parent linkage and pressure composition source qualify](reviews/2026-10-23-T10.007.md#pressure-composition-source-qualifies-one-pure-call-admitted);
+one eight-group/27check pure call is next. Concrete runner/current-world/HEAD/
+lease joins and separate game admission remain. [Claude's inert image-capture
+proposal is retained/released](reviews/2026-10-23-T10.007.md#webcap-claude-proposal-retained-and-worker-released);
+Grok continues that independent hotkey task. No actual API/image/service action
+is permitted in those proposals.
 No higher allowance or
 unchanged retry is admitted.
 Physical footprint/headroom remain unknown. Independent

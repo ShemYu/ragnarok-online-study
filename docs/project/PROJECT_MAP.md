@@ -54,8 +54,8 @@ Both resource candidates: 19/20. Hotkey plan: Grok18, Claude17.
 All four workers released. Seven direct asset copies + fresh fixture checked.
 Next: runtime binding and a separately justified changed quest test.
 Runtime files checked: 199 driver pins / 172 UI pins.
-Parallel: Grok + Claude prepare the hotkey binary check; no live API actions.
-Root: 27 receipt-policy cases PASS; bind pressure checks before a game test.
+Parallel: Claude hotkey-check draft saved/released; Grok continues.
+Root: 27 policy cases PASS; pressure source checked, pure controls next.
 Read-only host snapshot PASS: normal pressure, 64 GiB physical RAM.
 Available headroom is not guaranteed; game memory limit stays 3 GiB.
 Content-contract preparation is preserved; its oracle is still unqualified.
