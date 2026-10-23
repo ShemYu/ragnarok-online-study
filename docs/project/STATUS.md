@@ -13,13 +13,17 @@ dictionary abort/load405/map-connection settlement stop later cases. Root's
 complete failure/preservation audit passes; no B200assignment/reconnection or
 parent-check credit. 4/14 is a check count, not measured full-content coverage.
 
-**Parallel work:** B1 isolated backend and MU2 native map-render source are live
-Grok workers. F2 is submitted/pinned/released and under Root/Astra review.
-Its group02 has a source-only fixture blocker; a one-call correction is frozen
-for Grok, with production code unchanged. Expected fleet248records/2active/
-240released/6retained/0reclaimable; full inventory refresh follows settlements.
-Four actual user-retained resources stay; two transferred records have none.
-Six Grok sources ran at the peak; exact effective models/cost remain unknown.
+**Parallel work:** MU2 native map-render source remains live in Grok. B1 is
+submitted/pinned/released; source review finds its actual backend producer
+does not yet satisfy the shared F2 contract. It remains HOLD. The completed
+F2-C1 fixture correction matches Root's exact one-call byte prediction and
+is released. Root qualifies the corrected F2 stage/178pins and eight fixed
+pure entries; those eight calls are admitted after this Git checkpoint.
+No Engine/browser/game actor is admitted. Independent water-resource
+preparation continues. Expected1active/242released/6retained records;
+fresh all-page inventory follows settlements. Four actual user-retained
+resources stay; two transferred records have none. Six Grok sources ran
+at peak. Effective model/cost and full provider comparison remain unknown.
 
 D15 passes all eight pure groups and Root's complete183pin audit: unchanged
 G10s/512MiB/grace3, natural0/positiveguard/0.229156s/24068096B sampled peak,
@@ -30,7 +34,7 @@ The host overwrites its event kind with cleanup subtype; diagnostic stays HOLD.
 No replay/new diagnostic generation or native/browser/game credit. D14 diagnostic UI is held for four concrete defects; it is
 not an automatic F1 prerequisite. F2 corrects the two F1 blockers in source;
 Root checks10maps/15unchangedhelpers/125pins and compiles Python only.
-Its actual eight groups and B1 composition remain unadmitted. Root stages
+Its eight focused groups are now admitted; B1 composition stays unadmitted. Root stages
 byte-identical private copies after an ambiguous worker path/mode handoff.
 C7 passes all four actual pure groups and Root complete62pin audit, each
 natural0/positive unchanged G10guard, clean streams/sourcepostpins/retirement.

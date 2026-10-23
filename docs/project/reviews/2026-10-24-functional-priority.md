@@ -477,3 +477,65 @@ brief1475B/SHA7fc314d075422481b498b797674e87b9823fbab11157569aad392cbb0ba69ca2,
 unexecuted fixture correction; Root tests the resulting eight groups later.
 No actor/source runtime PASS. Expected2activeB1/MU2/240released/6retained/
 0reclaimable after F2release; full inventory refresh follows settlements.
+
+
+## F2 corrected fixture qualified eight focused calls admitted B1 submitted
+
+F2-C1 actualGrok taska2dc9762030a/ctx6630578437b8 completes. Root reads full
+1987Breport, verifies eight closed outputs, six original fullpins/current
+packet prepost identities and exact single3207offset forward/inverse change.
+Corrected group02 is5113B/SHAb2423cbfb3b33b600357bc0a52cb2fe66df3a9c5fe4cdc00a4b237402bdf985c.
+Source settlement14910B/SHAed11aaa9897afe95d8208efed0122aaad00f71682482913086009beb282a952d;
+released/archive captured lifecycle455B/SHAd8906c2d550a9d9952fabb2c3abf59e7dbb7156374e3ffa57e1ee6fc6b431945
+persists before deliveryf4001cb7308cACK. MU2implementing heartbeat also processed.
+
+Root reads complete5641BactualAstra source audit/SHA
+1bc623ccbed6eb95acabf12f5f51e595aa75439df5a0451874459705f52f470c,
+checks78input prepost pins and exact actual logout/backend-consumer paths.
+F2 preserves rejected logout waits as failures even if later trace is positive;
+explicit waitError:null is mandatory. Exact nine-key backend success proves
+transport only. Malformed/duplicate/unbound/cleanup/save405 faults stay fatal.
+No new concrete production blocker. Ten maps/fifteen helper bodies/thirty-five
+equal spans were independently checked; original04–08 are unchanged.
+
+New private F2-controls-bound-root-2 stages ten files: only group02 differs from
+F2; production driver/UI and seven groups are full-byte unchanged. Eight fixed
+entries bind only ROOT_BOUND/path; Python entries compile only. Original driver
+stays UNBOUND. Qualification107124B/SHA
+3934dfd8c75323b7b0ec7c099199e1957f91ad12640032ae01721929c7b5e2f6
+closes178fullpins, including exact Python/Node/G/S. Root1 staged files are
+preserved: a Root whitespace assertion used ROOT_BOUND=False rather than the
+actual ROOT_BOUND = False; no group executed there.
+
+After this Git checkpoint admit each fixed group once, sequentially, under
+unchanged G10s/512MiB/grace3/no-native/1MiB. Root requires exact literal complete
+objects, empty stderr/full streams/receipt, positive original guard/natural0,
+source prepost equality/PIDgroup retirement/FDthread/HEADclean. Stop on mismatch;
+no automatic replay. Focused helpers are not actual SQL/native request producer
+or gameplay/backend compatibility. No Engine/browser/new game actor admission.
+
+B1 completes taskddeb3551811c/ctx70ff279cf91b. Root reads full3466Breport,
+checks25closed outputs/current sourcepacket pins, accepts submission only and
+releases/archive captures. Settlement50396B/SHA
+f93ebc0b8fee4fd0f3e427d9a5be41ecb633459b1069f8c930670ea06399ccec;
+lifecycle455B/SHAb862e1881b4446b4f2fe3c26e69099ccd62ada498a15e85305d1039085b6b5d5.
+Root initially treated CLOSED_OUTPUTS as including POST/sidecar, so its exact
+inventory assertion failed. That empty root1 is preserved. Root erroneously
+acknowledged delivery7b6f046d9818 before release; root2 immediately closes all
+25files and releases the accepted owner. No duplicate editor/actor resulted.
+Do not describe this delivery as released-before-ACK.
+
+B1 is HOLD under actualAstra/Root review: UI retains separate backend rows and
+no exact backend_http completed-request event. Its actual requestfinished path
+is dictionary-only, so the frozen shared producer contract is not yet adopted.
+Native/config/controls review continues; no compatibility or source PASS.
+The 192 worst startup polls versus144cap remains failclosed; cap is unchanged.
+Two emblem defaults outside the authorized client URL spans still mention8888;
+no actual fallback request is established. Root composes the pending HTTP
+settlement before F2 classifier and before page/listener detach after repair.
+
+Independent existing Mu water/body-closure preparation runs while MU2 authors
+the genuine scene. Only a source-proved finite missing requirement may become
+a Grok deployment task; no assumed assets or new diagnostic generation.
+Expected1activeMU2/242released/6retained/0reclaimable; fresh fleet follows.
+Full goal unchanged;4/14parent checks/about29%, all82functional gaps stay open.
