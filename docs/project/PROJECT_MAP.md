@@ -66,8 +66,10 @@ CURRENT (23 Oct):
   [V] Claude full source and exact pure-run bindings checked; one call admitted.
   [V] Claude raw test/audit: 34/34 own, 42/53 common; result stays failed.
       11 common comparisons fail on VM-array prototypes. Fixture fix reviewed.
-  [>] Run Grok once with original controls / audit; then same fixture fix
-      and fresh runs for both. No candidate is selected or installed.
+  [V] Grok raw test/audit: own harness error, common 41/53; stays failed.
+      Same 11 fixture failures plus unknown Worker policy routing.
+  [>] Same fixture fix and fresh runs for both unchanged candidates.
+      No candidate is selected or installed.
       No game design or milestone change. No user action is needed.
 
 Earlier checkpoints (their next actions can be superseded):

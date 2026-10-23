@@ -15,11 +15,14 @@ stale-work fences. Both implementations are preserved and both settled
 workers released. [Claude raw run/full Root audit](reviews/2026-10-23-T07.006.002.md#claude-raw-own-checks-pass-but-common-fixture-comparisons-fail)
 records34/34own and42/53common; eleven strict comparisons expose a VM-array
 prototype observation defect. Original caller1/guardinvalid stay failed.
-[Exact shared fixture correction qualifies as source](reviews/2026-10-23-T07.006.002.md#exact-shared-observation-realm-correction-qualifies-as-source),
-with all cases/expected values unchanged. [Grok source/bindings qualify for
-one original-baseline call](reviews/2026-10-23-T07.006.002.md#grok-submission-preserved-and-exact-original-baseline-call-admitted).
-Run once under this clean introducing HEAD, fully audit, then use the corrected
-shared fixture equally in fresh runs. No candidate is accepted or installed.
+[Grok raw failure/full equal-baseline audit also qualify](reviews/2026-10-23-T07.006.002.md#grok-raw-failure-and-complete-equal-baseline-audit-qualify):
+own harness throws before behavior checks; common41/53 includes the same
+eleven fixture comparisons plus unknown Worker policy routing. Both raw
+caller1/guardinvalid results stay failed and consumed. [Exact shared fixture
+correction qualifies as source](reviews/2026-10-23-T07.006.002.md#exact-shared-observation-realm-correction-qualifies-as-source),
+with all cases/expected values unchanged. Bind fresh corrected runs for both
+unchanged candidates, separately admit, execute and fully audit before score
+or selection. No candidate is accepted or installed.
 
 **Browser diagnostic:** [fresh normal-reader preflight and complete Root audit
 pass](reviews/2026-10-23-T10.005.md#fresh-same-world-preflight-and-complete-root-audit-pass):
@@ -59,7 +62,7 @@ Original game/save/settings and internet connection stay preserved.
 The shared runner's final-publication/return checks and explicit profile
 expect_native:false correction are committed. Both runs use the same runner
 policy/caps and corrected profile. The original Claude namespace is consumed
-and immutable; Grok's one original-baseline call is next. Source-only browser
+and immutable; Grok's raw run is also complete/audited. Source-only browser
 response-value/session/assembly proposals are prepared and await Root review;
 no browser execution is admitted.
 

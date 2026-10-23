@@ -66,6 +66,10 @@ comparison failures. [Exact shared correction source qualifies](reviews/2026-10-
 preserved/released and original-baseline call admitted](reviews/2026-10-23-T07.006.002.md#grok-submission-preserved-and-exact-original-baseline-call-admitted).
 Both workers released; run Grok once, audit, then fresh corrected common runs
 for both unchanged candidates. No acceptance/installation/content closure.
+[Grok raw failure/full equal-baseline audit qualify](reviews/2026-10-23-T07.006.002.md#grok-raw-failure-and-complete-equal-baseline-audit-qualify):
+own harness error/eight fallback rows,common41/53,caller1/guardinvalid preserved;
+28full pins and positive process closure. Actual shared inputs/Node/donors
+match Claude. Next fresh corrected common runs for both; no candidate changes.
 
 Earlier T07.007.011.005 support gate: [corrected private extraction/full Root
 payload audit pass](reviews/2026-10-22-T07.007.011.005.md#corrected-private-extraction-and-complete-root-payload-audit-pass),
