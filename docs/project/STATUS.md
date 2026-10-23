@@ -136,11 +136,12 @@ abort/release function; cancellation cause remains unresolved. Driver RSS is
 **Next:** diagnose the dictionary/request-lifecycle discrepancy and the
 independent client service/resource failures in parallel. [Two actual equal-input
 pairs were launched](reviews/2026-10-23-T10.007.md#two-independent-client-repair-pairs-active):
-both D proposals and SClaude are submitted/released; SGrok remains active.
-Root comparison/repair qualification remains pending. [Root qualifies a fixed
-read-only host preflight](reviews/2026-10-23-T10.007.md#fixed-read-only-host-preflight-source-qualified):
-three scalar/statistics commands only; no game call or larger allowance. Run it
-once and review evidence before any proposed4GiB experiment. Astra's separate
+all four proposals are submitted/released; Root comparison/repair qualification
+remains pending. [The actual fixed read-only host preflight passes](reviews/2026-10-23-T10.007.md#actual-read-only-host-preflight-passes-without-a-game-allowance):
+three commands complete naturally in0.262086s; pressure1 is normal per the
+published Apple ABI, physical RAM64GiB and rounded swap use1180.56MiB.
+This snapshot does not guarantee4GiB headroom or admit a larger game allowance.
+Astra's separate
 failure-aware SQL collection direction is drafted but unqualified; it keeps all
 errors/trial failure. No higher allowance or unchanged retry is admitted.
 Physical footprint/headroom remain unknown. Independent

@@ -47,9 +47,9 @@ Fresh test data: both checked/released; Claude selected (20 vs 19).
 Fifth test: same memory stop; dictionary status is ready despite cancellation.
 Root checked cleanup. No avatar, NPC or player case passes yet.
 Next: resolve request lifecycle + client resources; assess a bounded memory step.
-Parallel now: two Grok + two Claude source tasks; Root verifies before repair.
-Three proposals submitted/released; one Grok is finishing.
-Read-only host snapshot is source-qualified; game memory limit stays 3 GiB.
+Both client pairs are submitted/released; Root comparison is next.
+Read-only host snapshot PASS: normal pressure, 64 GiB physical RAM.
+Available headroom is not guaranteed; game memory limit stays 3 GiB.
 Content-contract preparation is preserved; its oracle is still unqualified.
 
 No decision is needed from you now. The full-game goal is unchanged.
