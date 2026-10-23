@@ -32,6 +32,11 @@ bindings and separate live admission next; no browser/content acceptance.
 [Independent navigation common-control source qualifies](reviews/2026-10-23-T07.006.002.md#independent-common-control-source-qualifies),
 12pins/three source spans/53authored cases/eight groups, authored/unrun without
 candidate reads. Actual C/G submission and Root's equal execution remain.
+[Final launcher/controller source copies qualify](reviews/2026-10-23-T10.005.md#final-launcher-and-controller-source-copies-qualify),
+16+1header groups/full donor inverses. Only two private source files exist in
+the fresh actual namespace; no inputs/outputs/guards or browser execution.
+Current quest responses/effects/config/assembly, proxy/parent and separate
+live admission remain; no scope/content acceptance changes.
 
 Earlier T07.007.011.005 support gate: [corrected private extraction/full Root
 payload audit pass](reviews/2026-10-22-T07.007.011.005.md#corrected-private-extraction-and-complete-root-payload-audit-pass),

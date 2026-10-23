@@ -4,51 +4,43 @@ Updated: 2026-10-23 JST. Coordinator: Codex. Active scope: **execute the documen
 
 ## Current checkpoint
 
-[First browser display refuses the assumed publisher gate; complete Root failure audit passes](reviews/2026-10-22-T07.007.011.005.md#first-signature-display-refuses-the-publisher-assumption-and-full-failure-audit-passes).
-Actual caller1/0.977s; first display0/valid guard. Main is ad-hoc signed, no
-Google TeamIdentifier or resource seal. Root372full pins/all677nodes and
-positive tool/caller/group closure match; no verify/lipo/browser command ran.
-[Root explicitly revises this test artifact's local admission basis](reviews/2026-10-22-T07.007.011.005.md#explicit-cft-local-provenance-basis-revised):
-22pins/four primary resources, exact official object/generation/checksums and
-full payload integrity. No certificate/seal/notarization claim or OS bypass.
-[All17architecture observations and complete Root audit pass](reviews/2026-10-22-T07.007.011.005.md#all17architecture-observations-and-complete-root-audit-pass):
-actual caller0/2.384s,419full pins/all677nodes/17single arm64 results, complete
-original guards/streams and18owned process/group closures. Failed51 stays.
-[Minimal CfT launcher source qualifies](reviews/2026-10-22-T07.007.011.005.md#minimal-cft-composed-launcher-source-qualifies):
-15pins/five literal groups/full inverse/seven unchanged clock/ownership spans.
-Next exact parent/proxy/controller/CDP-product bindings and fresh protected-state
-preflight, then one existing bounded quest-loader diagnostic. It has no map or
-render gate and cannot prove gameplay/story works. No browser launched.
-[Shared binding recipe/product expectation now qualify](reviews/2026-10-23-T10.005.md#cft-shared-binding-recipe-and-finite-product-expectation-qualify):
-51full pins/42literal slots/eight source spans; product remains source-predicted
-with strict actual mismatch refusal.
-[Fresh same-world preflight source qualifies; one read-only call is admitted](reviews/2026-10-23-T10.005.md#fresh-same-world-preflight-source-qualifies-and-one-read-only-call-is-admitted):
-14pins/seven metadata slots/full inverses, unchanged world/guard.
-[Actual preflight and complete Root audit pass](reviews/2026-10-23-T10.005.md#fresh-same-world-preflight-and-complete-root-audit-pass):
-one caller0/valid original guard/4.951s, full typed outputs/all17pins/five archives/
-fresh owner/listeners and positive test-process closure. Next bind these private
-outputs, exact served/config/body/effect/actor inputs and protected original
-world checks, then separately admit one live quest-loader diagnostic. No
-browser has launched; no original state or internet setting changes.
-
-[One on-disk navigation TABLE read and complete Root audit pass](reviews/2026-10-23-T07.006.001.md#one-on-disk-table-read-and-complete-root-audit-pass):
-actor0/0.079s,18full pins/22bytes and stable brackets. Exact inert text declares
-an empty Navi_Link_Server table. Owner stays recorded_candidate_only; current
-serving, build inputs, browser winner and route remain unknown.
-[T07.006.002 now freezes the equal implementation contract](reviews/2026-10-23-T07.006.002.md#frozen-implementation-contract):
-six readonly inputs/eight pure groups, request-local type200 policy, hidden
-maintenance and stale-work fencing. Root resolves the two independently found
-deadline/removal ambiguities.
-[Both actual isolated Claude/Grok implementations are now dispatched](reviews/2026-10-23-T07.006.002.md#actual-equal-implementation-pair-dispatched)
-from44afe8e: identical actual specs/BASE/task/profile, setup skipped, both live.
-Workers author tests; Root executes both and independent controls after
-submission. No patch is installed.
-[Independent common control source now qualifies](reviews/2026-10-23-T07.006.002.md#independent-common-control-source-qualifies):
-12pins/three actual source spans/53authored cases/eight groups. No candidate
-read or execution; both actual submissions and Root's equal execution remain.
-
 Functionality remains first; **4/14 parent checks, about29%**. All82functional
 resource gaps remain open. No full-game scope change or new user decision.
+
+**Portal guidance:** [both actual isolated Claude/Grok implementations are
+working](reviews/2026-10-23-T07.006.002.md#actual-equal-implementation-pair-dispatched)
+from44afe8e with identical actual specs/BASE/task/profile and setup skipped.
+T07.006.002 adds request-local ordinary portals, hidden maintenance and
+stale-work fences. [Root checked the independent common test source](reviews/2026-10-23-T07.006.002.md#independent-common-control-source-qualifies):
+12pins/three actual source spans/53authored cases/eight groups. Tests remain
+unrun; preserve both submissions, qualify the same caller and personally
+execute both before selection. No patch is installed.
+
+**Browser diagnostic:** [fresh normal-reader preflight and complete Root audit
+pass](reviews/2026-10-23-T10.005.md#fresh-same-world-preflight-and-complete-root-audit-pass):
+one caller0/valid original guard/4.951s, complete typed outputs/17pins/five
+archives/current owner and positive test-process closure.
+[Final launcher/controller copies now qualify](reviews/2026-10-23-T10.005.md#final-launcher-and-controller-source-copies-qualify):
+16+1header groups/full donor inverses, clocks/ownership unchanged. Only those
+two private source files exist in the fresh actual namespace; no role inputs,
+outputs, guards, profile, READY or browser execution.
+
+Next establish the finite nine quest-resource response bodies/statuses and
+18exact extraction/override effects through the existing normal reader.
+Source candidates and missing loose files cannot prove current200/404.
+Finish source-bound diagnostic configuration/assembly, proxy/parent bindings
+and protected original-world checks, then commit one separate live admission.
+This is a fixed-ID quest-loader diagnostic with no map/render/ordinary
+story/play/save gate; passing it cannot close the full-game goal.
+
+[All17browser architecture checks and full Root audit pass](reviews/2026-10-22-T07.007.011.005.md#all17architecture-observations-and-complete-root-audit-pass).
+The failed publisher-assumption check remains preserved; Root's
+[explicit local official-download/integrity basis](reviews/2026-10-22-T07.007.011.005.md#explicit-cft-local-provenance-basis-revised)
+makes no certificate/notarization/build or OS-bypass claim. The expected CDP
+product is source-predicted and must match the actual endpoint strictly.
+[The on-disk navigation table is exactly22B/empty](reviews/2026-10-23-T07.006.001.md#one-on-disk-table-read-and-complete-root-audit-pass);
+served winner, selected route and packet/runtime/story gates remain unknown.
+Original game/save/settings and internet connection stay preserved.
 
 ## Recent verification history
 
