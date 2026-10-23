@@ -108,14 +108,16 @@ inverse/source audit](reviews/2026-10-23-T10.005.md#corrected-worker-bootstrap-s
 It changes12closed spans and preserves all other bytes. Independent review finds
 and Root fixes a reserved-token request-reuse gap before any test or actor runs;
 the first inert revision is retained as superseded.
-[The32group control source and fixed caller now qualify](reviews/2026-10-23-T10.005.md#finite32-worker-bootstrap-groups-qualify-and-one-pure-call-is-admitted):
+[All32control groups and the full Root audit now pass](reviews/2026-10-23-T10.005.md#all32-worker-bootstrap-groups-and-full-root-audit-pass):
 all24baseline bodies remain exact; eight new groups cover30fixed variants,
 including real reply-handler protocol errors and token reuse before/after join.
-Root checks16exact fragments,13full pins and driver/caller inverses. This
-introducing checkpoint admits one pure-control call in fresh controls-root-2
-with unchanged60s/512MiB/3s/1MiB guard. Controls remain unrun until that call;
-preserve/audit its actual result and closure before advancing. No browser trial
-is admitted here.
+Caller0/driver0/valid original guard, no signals, complete streams and22full
+Root audit pins agree. Driver/caller PIDs and the registered group are absent;
+FD/thread boundaries match. The9d84fe7pure admission is consumed once; no repeat
+is needed. Actual installed Worker startup/response behavior is still unknown.
+Next materialize fresh corrected full actors/served files, bind current original
+worlds/effects and a new parent, then commit a separate one-shot browser-trial
+admission. No browser trial is admitted by this control result.
 No general orphan/duplicate-event acceptance, timing/cap growth,
 guard change or unchanged retry. All actual-root-3 inputs/outputs/admission are
 consumed and immutable. The single test-keychain argument is relevant to this

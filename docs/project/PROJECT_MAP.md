@@ -121,8 +121,10 @@ CURRENT (23 Oct):
       Full inverse and9-pin Root audit pass; first inert token-reuse gap fixed.
   [V] Existing24 case bodies + 8 new groups/30 variants qualify as source.
       Root16 exact fragments / 13 pins / full driver+caller inverses pass.
-  [>] One pure32-group call admitted under unchanged guard; not yet run.
-      Audit actual controls/closure, then fresh full browser-trial binding.
+  [V] All32 groups pass: caller0 / driver0 / valid original guard / no signals.
+      Root22-pin/full-stream audit passes; caller/driver/group are gone.
+  [>] Fresh full actor/served/current-world binding, then new browser admission.
+      Installed startup/response and quest result are still unverified.
       No game patch is installed. Parent progress stays 4/14.
       No game design or milestone change. No user action is needed.
 
