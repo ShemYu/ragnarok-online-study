@@ -149,13 +149,17 @@ This snapshot does not guarantee4GiB headroom or admit a larger game allowance.
 Astra's separate
 failure-aware SQL collection and minimal ledger now [qualify as source](reviews/2026-10-23-T10.007.md#failure-aware-evidence-and-minimal-request-ledger-source-qualify).
 Root corrects the per-read cleanup-reserve gap and explicitly records unrun
-comparisons; all errors/trial failure remain. JS syntax and focused finite
-controls are being prepared, with no actor/game admission. Independent source
+comparisons; all errors/trial failure remain. [The12finite control groups now
+qualify as source; three pure calls are admitted](reviews/2026-10-23-T10.007.md#evidence-control-source-qualifies-three-pure-calls-admitted).
+Actual syntax/controls and retirement audit are next; no game admission. Independent source
 locators find genuine BGM/navigation donors and web-service route sources.
 [Two new independent provider pairs are active](reviews/2026-10-23-T10.007.md#resource-material-and-web-service-pairs-dispatched-in-parallel):
 Rprepares seven exact loose resources and an unbound driver correction;
 Udefines the real service/capability plan. Same51-file packet per provider,
-two Grok/two Claude; no shared runtime actions. Root controls proceed alongside.
+both Claude reports are submitted/released and both Grok attempts remain active.
+No shared runtime actions. Root controls proceed alongside. The resource review
+flags Root's data-prefix layout mistake; preserve raw equal-input attempts and
+correct the resolver layout after comparison, before any serving.
 No higher allowance or
 unchanged retry is admitted.
 Physical footprint/headroom remain unknown. Independent

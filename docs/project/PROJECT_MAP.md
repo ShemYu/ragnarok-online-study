@@ -48,9 +48,9 @@ Fifth test: same memory stop; dictionary status is ready despite cancellation.
 Root checked cleanup. No avatar, NPC or player case passes yet.
 Next: resolve request lifecycle + client resources; assess a bounded memory step.
 Both client pairs reviewed/released: D Claude17/Grok16; S Claude18/Grok17.
-Small request ledger + failed-case evidence: source checked, controls next.
+Small request ledger + failed-case evidence: source checked, 12 controls next.
 All failures stay visible; no new player case or larger game allowance.
-Parallel now: Grok + Claude on resources; Grok + Claude on hotkey service.
+Parallel now: both Claude reports submitted/released; both Grok still active.
 Root verifies the changed evidence collector alongside those tasks.
 Read-only host snapshot PASS: normal pressure, 64 GiB physical RAM.
 Available headroom is not guaranteed; game memory limit stays 3 GiB.
