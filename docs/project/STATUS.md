@@ -161,8 +161,10 @@ trial once. [That first attempt failed before DB start and was fully audited](re
 second stopped-file read500/overlay Resource busy; driver1/G invalid, no parser
 result. Seventeen requests/70 audit pins, own container/network API retirement
 and unchanged original world pass. [Astra diagnosis and narrow EOF caller source now qualify](reviews/2026-10-23-T10.007.md#astra-diagnosis-and-narrow-eof-repair-source-qualified):
-58 pins/one exact new primary source. Run five local authored EOF controls
-before separately admitting a fresh native attempt; no unchanged retry/user decision.
+58 pins/one exact new primary source. [All five production EOF controls now
+pass and one fresh second native attempt is admitted](reviews/2026-10-23-T10.007.md#five-production-eof-controls-pass-fresh-second-trial-admitted):
+75 audit pins/valid guard/no signals. Bind fresh HEAD/expiry/current world,
+then execute root2 once; no adaptive retry or user decision.
 No parser fixture or game/DB test has started. This successful
 fixed diagnostic uses reproduced private-loader routing:0→5520own keys, only
 16912/21001inspected, original lazyInit not executed; no ordinary session,
