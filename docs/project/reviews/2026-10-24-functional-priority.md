@@ -411,3 +411,20 @@ using originalG10s/512MiB/grace3/no-native/1MiB and S exact-fullstdout/natural
 retirement. Physical streams, sourcepostpins/caller context/currentPIDgroup
 checks remain required. No C5suite replay or live capture admission. Existing
 live-capture65s/leafcaps/freshworldbindings would remain a separate gate.
+
+
+## C7 four actual pure groups and complete Root audit pass
+
+After6dcea7f, Root executes exactly one separate originalG10s/512MiB/grace3/
+no-native/1MiB call per groupC01–C04. All four return complete exact expected
+objects, empty stderr, natural0/positiveguard/no signals. Elapsed seconds:
+0.139985/0.138996/0.142203/0.141941; sampled peaks3735552/3735552/3768320/
+3784704B. Root checks all physical stream counts/hashes and unchanged receipts,
+S exact complete objects/actual owned retirement, original caps, current PID/
+group absence,62fullpins after each call, and FD/thread/HEAD/clean caller.
+Audit40938B/SHA16bcba0dffdb4942fa64001942a7844ab76789208f8a1a8553fa4e94575363ae
+passes with errors[]. These are four inert actual caller groups, including
+late serialization and first/partial/retry/completed write paths. No C5sixgroup
+replay, actual capture/ELF/HTTP/API/browser/Engine/game actor or compatibility
+claim. Live capture remains separately unadmitted; no F1/B1 dependency.
+B1/F2/MU1 source/data workers continue independently. Full goal unchanged.

@@ -37,7 +37,7 @@ Parallel:
   D15 driver: eight pure groups PASS; no game credit
   D16 host: pure call FAILED at cleanup event; HOLD
   D14 diagnostic UI: HOLD4defects; not an F1 dependency
-  C7 caller: source qualified -> four pure checks admitted; no capture
+  C7 caller: four pure checks PASS; no capture/backend compatibility
   MU1:105body candidate data stage LIVE -> Root checks -> native load/draw
        (conditional water/effect requests stay open)
   full839spawn -> budget PASS; wrapper/profile/oracle choices still open

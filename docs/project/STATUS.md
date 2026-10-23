@@ -31,9 +31,9 @@ No replay/new diagnostic generation or native/browser/game credit. D14 diagnosti
 not an automatic F1 prerequisite. F1 is held for sticky logout-wait failure
 and valid native backend responses being misclassified as faults. Root stages
 byte-identical private copies after an ambiguous worker path/mode handoff.
-C7 source qualifies49fullpins/two maps/22unchangedhelperhashes and a minimal
-bound entry; four separate pure G10group calls are admitted after checkpoint.
-No actual binary capture is admitted.
+C7 passes all four actual pure groups and Root complete62pin audit, each
+natural0/positive unchanged G10guard, clean streams/sourcepostpins/retirement.
+No actual binary capture or backend compatibility is established.
 No fresh game actor is admitted. Finish bounded scopes and prioritize real
 backend/gameplay/content work. All six C5 pure groups remain verified.
 B1 has its narrow UI backend-origin supplement. [MU1 exact105body data
