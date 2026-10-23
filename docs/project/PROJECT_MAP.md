@@ -54,10 +54,10 @@ Both resource candidates: 19/20. Hotkey plan: Grok18, Claude17.
 All four workers released. Seven direct asset copies + fresh fixture checked.
 Next: runtime binding and a separately justified changed quest test.
 Runtime files checked: 199 driver pins / 172 UI pins.
-Parallel: Claude hotkey-check draft saved/released; Grok continues.
+Parallel: 4 Grok + 3 Claude on lineage / early cleanup / postcheck / hotkey.
 Root: test6 failed before UI: process-identity sample + early Chrome cleanup.
 Read-only host snapshot PASS: normal pressure, 64 GiB physical RAM.
-Test6 pressure normal before/after; no memory-limit stop. Repair identity checks.
+Test6 pressure normal before/after; no memory-limit stop. Root reviews source.
 Content-contract preparation is preserved; its oracle is still unqualified.
 
 No decision is needed from you now. The full-game goal is unchanged.

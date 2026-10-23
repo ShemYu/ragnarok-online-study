@@ -181,7 +181,11 @@ early Chrome cleanup lacks CDP. G stops only owned Chrome after driver1.
 229complete wires/900audit-artifacts verify owned cleanup/original preservation;
 outer generic postcheck remains separately unqualified. No Node/UI/player
 case. Next qualified sampler/early-close repair and precise outer-postcheck
-diagnosis; no unchanged trial or further limit increase admitted. [Claude's inert image-capture
+diagnosis; no unchanged trial or further limit increase admitted.
+[Three independent repair pairs are now active](reviews/2026-10-23-T10.007.md#three-independent-startup-repair-pairs-run-with-four-grok-workers-total):
+Jlineage/KpreCDPcleanup/Pprecisepostcheck, same18-file packet, three Grok/
+three Claude plus the existing Grok webcap worker. All source-only; Root owns
+comparison/controls and any new game admission. [Claude's inert image-capture
 proposal is retained/released](reviews/2026-10-23-T10.007.md#webcap-claude-proposal-retained-and-worker-released);
 Grok continues that independent hotkey task. No actual API/image/service action
 is permitted in those proposals.
