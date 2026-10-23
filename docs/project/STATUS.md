@@ -55,8 +55,9 @@ No current game installation/draw claim. Provider comparison remains incomplete.
 The [full-spawn output-budget measurement passes](reviews/2026-10-24-T06-full-spawn-output-budget.md#actual-bounded-measurement-and-root-audit-pass):
 839sources/723206physical lines require172547908canonical JSONL bytes, below
 the512MiB virtual cap. Root verifies866fullpins and every source's byte/count
-join; no large JSONL is written. Typed expectations/profile/publication semantics
-remain prerequisites to the full wrapper. This is no spawn-inventory/game PASS.
+join; no large JSONL is written. Root now freezes the full selected839 profile/three typed expectation sets
+and qualified-publication semantics; independent Grok source implementation
+is admitted after the new checkpoint. No wrapper/test/game actor is admitted.
 
 Original app/saves/Chrome/profile/settings/mute/IME/network stay untouched.
 The consumed ninth trial is not retried. All Chinese overlays stay enabled;

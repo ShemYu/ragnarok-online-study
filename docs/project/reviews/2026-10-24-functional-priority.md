@@ -659,3 +659,15 @@ remains. Four actual sources, no artificial filler, no shared output edits,
 no native/browser/game actor or extra test framework. Expected4active/
 243released/6retained/0reclaimable. Root preserves finished workers by archive
 and releases them; only the four user-owned resources stay retained.
+
+
+## Full839 prior semantic preparation verified source task admitted
+
+[Root freezes the three expectation sets and source profile](2026-10-24-T06-full-spawn-output-budget.md#three-semantic-sets-verified-source-implementation-frozen):
+nine literal cases and all839ledger range/counter joins verified; publication/
+qualified1/fatal oracles adopted with independent review. A finite new export
+wrapper source task is admitted after checkpoint, separate from four live
+backend/map Grok sources. No new framework/lexer/native actor or full-run
+admission. Known cutoffs/gaps remain explicit tool limits, no missing native
+spawn claim. Four backend/map investigating/implementing heartbeats in
+deliveryc0691a661739 are processed before ACK; no worker question/settlement.

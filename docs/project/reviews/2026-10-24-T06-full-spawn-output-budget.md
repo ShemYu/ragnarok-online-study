@@ -107,3 +107,63 @@ qualified1 consumer remain source proposals. Three typed expectation sets
 consumer envelope) are not frozen, so wrapper is not dispatched/admitted.
 No new corpus/test execution or native-content/absence claim; backend/gameplay/
 Mu real-loading work keeps priority.
+
+
+## Three semantic sets verified source implementation frozen
+
+Root reads complete5942Bsemantic proposal/SHA
+e42660a197c3e8cdf6828c080d0329b52f5c49347a3465d0fafcf5a490078fbe
+and complete3990Bindependent review;26original and14independent inputs retain
+full SHA/C8. Typed expectations2198466B/SHA
+3242272779e85e8fec3107d2d6bec79b5f13b85761556c79a26c938320760a22
+close all839ordered source metadata/counters/states/suffix fault offsets and
+physical/event row+byte ranges against historical Root receipts/JSON. Reading
+that evidence is not a lexer replay, fresh source-body check or native oracle.
+Root personally derives all nine158Bfixture semantics/eleven projected slots,
+gaps/opaque/hazards/counters, checks their raw partitions and canonical hashes,
+and joins every839range/counter. Root review16404B/SHA
+fcca9f89dcfcca62531905503213167c6b62a7d7f01e8b69224e9319bbc04504.
+Independent review finds no semantic/type/error-code incompatibility; its pins
+SHAb4e99ec9e43ddf8b6fa70784cc63284f8c268a8acf0022a33f45489675b472e9
+and actual checked literals are personally joined by Root.
+
+Exact physical[0,723206)/[0,172547908B),event[0,35735)/[0,9748299B).
+Raw24222094=984788certified+23237306unknown;3384static=3074supported+310gaps.
+Source projection100complete/8gapped/731incomplete;310is declarations, not source
+count. Suffix694unsupported/35malformed/2bareCR; framing108complete/731cutoff.
+The nine give12rows/12events/92certified+66unknown,physical2234B/events3861B;
+valid/default/absent,projection gap,opaque and nonresuming suffix are explicit.
+Seven publication refusals/13finite cases/16FD ownership variants plus exact
+complete qualified1 stdout/fatal2/unknown/type/format refusals are frozen. Faults
+must reach new writer actual FDroles; old prefix-based injection is not portable.
+
+Root adopts selected839-only profile/static-spawn-raw-v1, one unchanged global
+scan/shared caps, current two locks691/772 and exclusive marker-last qualified1
+publication. The new marker binds complete physical export and qualified lexical
+state; it never means lexical/native/game completeness. Old pilot/reference/
+reader/admission remain unchanged. Four output leaves and closed manifest/marker
+field/type contract,256MiBphysical/32MiBevents/8192Bphysicalrow/32768Beventrow/
+4MiBmanifest/64KiBmarker/max306249728B remain fixed. No new public cap/pin mode.
+Semantic0complete/1qualified/2fatal; unchanged G/S still requires natural0.
+A separate Root-pinned actual-path caller may emit its full fixed object/natural0
+only after semantic1 plus independent complete source-ledger/publication/pin
+checks. Direct CLI1 is still failed guard. No positive receipt rewriting.
+
+Root adoption19993B/SHA
+f9208bd49412940b5fac55a98d51d6ccd768fc8d937ad47566b893bda0308b7d
+freezes the three semantic sets/source-authoring decision. Future wrapper/caller
+source+sealed argv and exact produced manifest/marker serialized pins remain
+unbound material dependencies for later qualification; they do not prohibit
+authoring that source. This checkpoint admits source authoring only, no test/
+wrapper execution or corpus replay. Runtime time/RSS/capture/retirement profile
+must still be chosen; measurementG45 is not publication admission.
+
+Frozen implementation packet:20copies/42fullpins; MANIFEST44965B/SHA
+0521d91fd3dc95ec2817772532733aab5e3ae41e7d80e8fc115ba8408187e30f,
+decision3518B/SHA3bbdb2b27e1fca24e53c654601a80b28440be4d291b5233bb58901882657c6d3,
+brief4577B/SHA23a0171e9427977cea3fd910aeddbb2775227f2b755df09825ce9e1268380167.
+After this Git checkpoint Grok may author only private new wrapper/caller/schema
+and seven unexecuted actual-path groups/finite recipe. No generic framework,
+lexer/reader/reference edit,839-body rescan or game coverage. Root verifies
+source/pins/finite controls before any one full-selected run. Backend/map four
+workers keep priority and remain independent. Full goal/4of14/all82gaps unchanged.

@@ -41,7 +41,7 @@ Parallel:
   MU1:105body stage PASS (Root checked/released)
   MU2: source HOLD -> MuC UI + MuD driver corrections -> one fresh scene
        (retained water geometry0; current scene still verifies it)
-  full839spawn -> budget PASS; wrapper/profile/oracle choices still open
+  full839spawn -> budget PASS; profile/oracles frozen -> source implementation
 
 Four Grok sources live: B2U UI / B2D native / MuC UI / MuD driver.
 Expected4active/243released/6retained/zero reclaimable.
