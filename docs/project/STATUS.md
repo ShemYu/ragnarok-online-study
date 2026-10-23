@@ -11,10 +11,15 @@ resource gaps remain open. No full-game scope change or new user decision.
 dispatched](reviews/2026-10-23-T07.006.002.md#actual-equal-implementation-pair-dispatched)
 from44afe8e with identical actual specs/BASE/task/profile and setup skipped.
 T07.006.002 adds request-local ordinary portals, hidden maintenance and
-stale-work fences. [Root checked the independent common test source](reviews/2026-10-23-T07.006.002.md#independent-common-control-source-qualifies):
-12pins/three actual source spans/53authored cases/eight groups. Tests remain
-unrun; preserve both submissions, qualify the same caller and personally
-execute both before selection. No patch is installed.
+stale-work fences. Both implementations are preserved and both settled
+workers released. [Claude raw run/full Root audit](reviews/2026-10-23-T07.006.002.md#claude-raw-own-checks-pass-but-common-fixture-comparisons-fail)
+records34/34own and42/53common; eleven strict comparisons expose a VM-array
+prototype observation defect. Original caller1/guardinvalid stay failed.
+[Exact shared fixture correction qualifies as source](reviews/2026-10-23-T07.006.002.md#exact-shared-observation-realm-correction-qualifies-as-source),
+with all cases/expected values unchanged. [Grok source/bindings qualify for
+one original-baseline call](reviews/2026-10-23-T07.006.002.md#grok-submission-preserved-and-exact-original-baseline-call-admitted).
+Run once under this clean introducing HEAD, fully audit, then use the corrected
+shared fixture equally in fresh runs. No candidate is accepted or installed.
 
 **Browser diagnostic:** [fresh normal-reader preflight and complete Root audit
 pass](reviews/2026-10-23-T10.005.md#fresh-same-world-preflight-and-complete-root-audit-pass):
@@ -51,18 +56,12 @@ product is source-predicted and must match the actual endpoint strictly.
 served winner, selected route and packet/runtime/story gates remain unknown.
 Original game/save/settings and internet connection stay preserved.
 
-[Claude's authored submission is preserved and its settled worker released](reviews/2026-10-23-T07.006.002.md#claude-authored-submission-preserved-and-settled-worker-released).
-Grok remains active. Neither candidate is executed or installed. Independent
-source review found one final-report deadline gap in the shared pure caller;
-[Root now qualifies its two-assertion correction and the shared runner](reviews/2026-10-23-T07.006.002.md#shared-pure-verifier-source-and-final-return-correction-qualify),
-29full pins/complete inverses. The profile expect_native metadata Boolean is
-explicitly corrected to false. [Claude full source/exact bindings now qualify;
-one pure call is admitted](reviews/2026-10-23-T07.006.002.md#claude-source-and-exact-pure-bindings-qualify-and-one-call-is-admitted).
-18host/one Worker hunk, six+one header groups/full inverses; no execution yet.
-The same Root policy notice is retained for the pair and sent to live Grok;
-settled Claude's mailbox correctly refuses inactive. Run Claude once under
-this exact introducing HEAD, audit fully, and later execute Grok under the
-same unchanged common/profile/runner policy. No patch is installed or selected.
+The shared runner's final-publication/return checks and explicit profile
+expect_native:false correction are committed. Both runs use the same runner
+policy/caps and corrected profile. The original Claude namespace is consumed
+and immutable; Grok's one original-baseline call is next. Source-only browser
+response-value/session/assembly proposals are prepared and await Root review;
+no browser execution is admitted.
 
 ## Recent verification history
 

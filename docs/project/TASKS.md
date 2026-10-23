@@ -59,6 +59,13 @@ candidate review/bindings/admission remain. Neither candidate has run or been se
 18host/one Worker hunk, six+one header groups/full inverses; actual run/full
 Root audit next. Grok remains independent; same profile/controls/runner/caps
 before selection. No candidate execution, installed patch or content gate yet.
+[Claude raw run/full Root audit](reviews/2026-10-23-T07.006.002.md#claude-raw-own-checks-pass-but-common-fixture-comparisons-fail)
+records34/34own,42/53common/caller1/guardinvalid; eleven VM-prototype fixture
+comparison failures. [Exact shared correction source qualifies](reviews/2026-10-23-T07.006.002.md#exact-shared-observation-realm-correction-qualifies-as-source),
+12pins/two one-slot full inverses/all cases unchanged. [Grok submitted,
+preserved/released and original-baseline call admitted](reviews/2026-10-23-T07.006.002.md#grok-submission-preserved-and-exact-original-baseline-call-admitted).
+Both workers released; run Grok once, audit, then fresh corrected common runs
+for both unchanged candidates. No acceptance/installation/content closure.
 
 Earlier T07.007.011.005 support gate: [corrected private extraction/full Root
 payload audit pass](reviews/2026-10-22-T07.007.011.005.md#corrected-private-extraction-and-complete-root-payload-audit-pass),

@@ -58,14 +58,16 @@ CURRENT (23 Oct):
   [V] Equal portal-routing implementation task frozen: 6 inputs / 8 groups.
       Hidden guidance, ordinary portals and stale-work fences are in scope.
   [>] Actual Claude/Grok pair dispatched on separate branches from 44afe8e.
-      Same task/profile/spec checked. Claude submitted; Grok is working.
-      Claude files/commit preserved, settled worker released. Tests pending.
-  [V] Independent test source checked: 53 cases / 8 groups, still unrun.
+      Both submitted and preserved; both settled workers released.
+  [V] Independent test source checked: 53 cases / 8 groups.
       Both implementations receive the same Root checks after submission.
   [V] Shared test-runner source and two-assertion final deadline fix checked.
       One execution-metadata Boolean corrected; same Root policy for both.
   [V] Claude full source and exact pure-run bindings checked; one call admitted.
-  [>] Run Claude once / audit results; test Grok with the same controls later.
+  [V] Claude raw test/audit: 34/34 own, 42/53 common; result stays failed.
+      11 common comparisons fail on VM-array prototypes. Fixture fix reviewed.
+  [>] Run Grok once with original controls / audit; then same fixture fix
+      and fresh runs for both. No candidate is selected or installed.
       No game design or milestone change. No user action is needed.
 
 Earlier checkpoints (their next actions can be superseded):
