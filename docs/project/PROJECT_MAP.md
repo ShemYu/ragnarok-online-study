@@ -57,7 +57,8 @@ Runtime files checked: 199 driver pins / 172 UI pins.
 Six own suites checked: Jboth/KGrok/PGrok pass; ClaudeK/P fail.
 Parallel: 2 Grok + 2 Claude correcting cleanup/postchecks.
 Root: fresh fixture4 + 59 client/resource/config copies PASS as data.
-Next: lineage edge checks and correction comparisons; no player PASS.
+Next: one 8-case lineage observation + correction comparisons.
+No player PASS; source-only image-capture correction remains independent.
 Fresh test data + corrected hotkey capture source prepared independently.
 Root: test6 failed before UI: process-identity sample + early Chrome cleanup.
 Read-only host snapshot PASS: normal pressure, 64 GiB physical RAM.

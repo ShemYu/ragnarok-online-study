@@ -202,7 +202,8 @@ Jboth/KGrok/PGrok pass their suites; ClaudeK/P fail. No game call.
 all four ready/input accepted. Root separately qualifies fresh preparation4
 with all19roles/33files/95audit-artifacts. [Fresh normal copies and normalization also qualify](reviews/2026-10-23-T10.007.md#fresh-normal-copies-and-fixture4-normalization-qualify):
 51client/sevenresource/oneConfig copies,125/109audit-artifacts. Ports/HEAD/
-lease/runtime stay unbound; next J checks plus K2/P2 comparisons.
+lease/runtime stay unbound. [Common full-ledger J source qualifies](reviews/2026-10-23-T10.007.md#common-full-ledger-lineage-control-source-qualifies):
+one eight-case pure observation call admitted; K2/P2 comparisons remain next.
 Source review finds cleanup-deadline/log-finalization gaps and a postcheck
 test-fixture defect. Fresh test data and corrected image-capture source are
 prepared independently; neither is admitted for runtime.
