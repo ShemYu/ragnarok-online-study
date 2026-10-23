@@ -91,9 +91,10 @@ attempt literal. No actor or game code runs in this source/data materialization.
 passed before the single4988c8d call. Its admission and actual-root-2 namespace
 are now consumed and immutable; the existing inputs/outputs are not fresh.
 
-**Next:** compare a bounded Lua-startup/CSP repair and preserve the original
-rejection details. The corrected actual trial has run once and its full failure
-audit passes; the quest diagnostic itself still fails at startLua-rejected. [The equal twelve-input/six-group plan comparison is
+**Next:** [compare bounded Lua-startup/CSP and original-error plans](tasks/T10.005.004.md)
+using the same twelve pinned inputs/six groups for real Claude/Grok. The corrected actual trial has run once and its full failure
+audit passes; the quest diagnostic itself still fails at startLua-rejected.
+[The earlier equal twelve-input/six-group Worker plan comparison is
 self_verified](reviews/2026-10-23-T10.005.003.md#both-plans-preserved-and-corrected-claude-direction-selected):
 Claude17/20 versus Grok15/20; both reports preserved and workers released.
 Root selects Claude's scoped startup pause and genuine-response join direction,

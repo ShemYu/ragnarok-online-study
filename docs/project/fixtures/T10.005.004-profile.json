@@ -1,0 +1,122 @@
+{
+  "aggregate_retained_text_bytes": 16777216,
+  "benchmark_type": "independent_source_and_retained_evidence_plan_only",
+  "groups": [
+    {
+      "criterion": "Exact retained failure, source-supported CSP conflict and unknown original rejection distinguished",
+      "id": "L01"
+    },
+    {
+      "criterion": "Complete startup/fetch/multiplicity and controller/proxy/publication boundaries traced",
+      "id": "L02"
+    },
+    {
+      "criterion": "One minimum complete closed repair or finite discriminator; compare data versus same-origin transport and concrete edit surface",
+      "id": "L03"
+    },
+    {
+      "criterion": "Bounded safely redacted original rejection, genuine event/full-byte provenance and no generalized URL or synthetic success",
+      "id": "L04"
+    },
+    {
+      "criterion": "Meaningful focused positive/refusal controls, actual runtime qualification and end-user gate limits",
+      "id": "L05"
+    },
+    {
+      "criterion": "Original clocks/caps/G/state preserved; complete honest source/model/research/unrun handoff",
+      "id": "L06"
+    }
+  ],
+  "inputs": [
+    {
+      "bytes": 47013,
+      "package_path": "controller.source",
+      "sha256": "2f1bbea7accd6e9d497ddd7f17679d7aa70f024d2fc3cebf29c160a5f4c241e2",
+      "source_execution_allowed": false
+    },
+    {
+      "bytes": 46202,
+      "package_path": "proxy.source",
+      "sha256": "90c3503804b047d5de437bf4598ce71dc580a4ce46bb052e57d011ccee505b7e",
+      "source_execution_allowed": false
+    },
+    {
+      "bytes": 15211,
+      "package_path": "tail.source",
+      "sha256": "0eb63300b03b9ed9fc49b18fbb329a80f4f2f3aee1439c98b20a89f2168d9508",
+      "source_execution_allowed": false
+    },
+    {
+      "bytes": 8519,
+      "package_path": "bootstrap.source",
+      "sha256": "ea7e3dee35a127fc6e91747bc1e812b1a14184753a7db19903610bfca455bf5b",
+      "source_execution_allowed": false
+    },
+    {
+      "bytes": 13191909,
+      "package_path": "online.source",
+      "sha256": "8e47a19f5fd32d6aa6056e8d047b1742ebe8c2536a5db37af2057b4fcc6bf728",
+      "source_execution_allowed": false
+    },
+    {
+      "bytes": 17352,
+      "package_path": "node.json",
+      "sha256": "64605e58ae0d5cc0cc4519f419a97842b4a0ec0ac14be84c06a4c8b027f01f72",
+      "source_execution_allowed": false
+    },
+    {
+      "bytes": 17658,
+      "package_path": "proxy.json",
+      "sha256": "331ff340330d1635dfbc8eac0ae228618959380ec46ccab2239559d42e6b4207",
+      "source_execution_allowed": false
+    },
+    {
+      "bytes": 2997,
+      "package_path": "capture.json",
+      "sha256": "1678c1dee25d4f374dff73f4cffb0bca9fc5ee9f8def5d7558381a78c3bfd853",
+      "source_execution_allowed": false
+    },
+    {
+      "bytes": 31034,
+      "package_path": "caller.json",
+      "sha256": "9e40028455fe8da0fa969a16511c65458a1a3a596ae7a02777c2f37052a19023",
+      "source_execution_allowed": false
+    },
+    {
+      "bytes": 70214,
+      "package_path": "root-failure-audit.json",
+      "sha256": "291b04d7d6e3cb9e2ac83874956ff26784d22c9aa4385882ccb58717923ff219",
+      "source_execution_allowed": false
+    },
+    {
+      "bytes": 148,
+      "package_path": "failure.json",
+      "sha256": "f54e3f8f65a9b04ed183a2570c1a923d8be928c50c4f26d9cc40ad101492a8fd",
+      "source_execution_allowed": false
+    },
+    {
+      "bytes": 3291,
+      "package_path": "shared-advice.md",
+      "sha256": "bf7b6642610bb3352222e767136f01dda6025d1f4dd6197369ac5cdbc90cc4d1",
+      "source_execution_allowed": false
+    }
+  ],
+  "manifest": {
+    "bytes": 2445,
+    "sha256": "ce4ba441c9201a563eb35fae53f6ca6eb35ac5ca18a780c0391dd5b77b231b2c"
+  },
+  "official_requests": 6,
+  "original_G_and_120s_schedule_unchanged": true,
+  "per_response_bytes": 4194304,
+  "primary_source_urls": [
+    "https://www.w3.org/TR/CSP3/#directive-connect-src",
+    "https://www.w3.org/TR/CSP3/#match-url-to-source-expression",
+    "https://fetch.spec.whatwg.org/#scheme-fetch"
+  ],
+  "report_bytes": 8192,
+  "research_minutes": 20,
+  "root_scoring": "WORKFLOW.md five dimensions0-4; plan-only, not runtime acceptance",
+  "runtime_allowed": false,
+  "schema": "T10.005.004-lua-startup-plan-profile.v1",
+  "source_execution_allowed": false
+}
