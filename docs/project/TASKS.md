@@ -41,6 +41,9 @@ live admission remain; no scope/content acceptance changes.
 23pins/16spans. [Finite body acquisition source/return correction qualify](reviews/2026-10-23-T10.005.md#nine-body-acquisition-source-and-observed-return-correction-qualify):
 26actor groups/two caller edits/full inverses; actual return<48s required.
 Bind fresh copies and commit separate data-only admission next; no GET/browser.
+[Exact nine-body bindings qualify; one data call is admitted](reviews/2026-10-23-T10.005.md#exact-nine-body-bindings-qualify-and-one-data-acquisition-is-admitted),
+12actor/13caller headers/full inverses; original G45s/512MiB/3s, actualreturn<48s.
+Run once and fully audit under exact introducing HEAD; no browser/content PASS.
 
 Earlier T07.007.011.005 support gate: [corrected private extraction/full Root
 payload audit pass](reviews/2026-10-22-T07.007.011.005.md#corrected-private-extraction-and-complete-root-payload-audit-pass),

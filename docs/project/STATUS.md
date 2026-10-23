@@ -31,8 +31,11 @@ Source candidates and missing loose files cannot prove current200/404.
 [The exact source projection/request set now qualifies](reviews/2026-10-23-T10.005.md#exact-diagnostic-projection-and-nine-request-source-set-qualify),
 23pins/16spans. [The finite acquisition actor and corrected return check also
 qualify](reviews/2026-10-23-T10.005.md#nine-body-acquisition-source-and-observed-return-correction-qualify):
-26actor groups/two caller edits/full inverses. Bind fresh exact copies and
-commit a separate one-shot data admission before any GET; no request yet.
+26actor groups/two caller edits/full inverses.
+[Exact fresh bindings qualify; one data acquisition is now admitted](reviews/2026-10-23-T10.005.md#exact-nine-body-bindings-qualify-and-one-data-acquisition-is-admitted):
+12actor/13caller headers/full inverses. Run once under this exact clean
+introducing HEAD, then audit every body/effect/guard before further bindings.
+No request has run yet; no browser is admitted.
 Finish source-bound diagnostic configuration/assembly, proxy/parent bindings
 and protected original-world checks, then commit one separate live admission.
 This is a fixed-ID quest-loader diagnostic with no map/render/ordinary

@@ -47,7 +47,8 @@ CURRENT (23 Oct):
   [V] Final launcher/controller copies checked; only bindings change.
   [V] Exact nine-resource source set and finite reader source checked.
       Actual return-time check corrected; no resource request yet.
-  [>] Bind/admit one resource read; finish proxy/parent inputs after audit.
+  [>] Exact resource bindings checked; one data acquisition admitted.
+      Run once and audit all responses/effects, then finish proxy/parent.
       Then separately admit one quest-loader test.
       No map/render gate in that test. No test browser has launched.
   [V] On-disk navigation table read/audit pass: empty table, 22 bytes.
