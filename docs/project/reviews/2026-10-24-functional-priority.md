@@ -428,3 +428,17 @@ late serialization and first/partial/retry/completed write paths. No C5sixgroup
 replay, actual capture/ELF/HTTP/API/browser/Engine/game actor or compatibility
 claim. Live capture remains separately unadmitted; no F1/B1 dependency.
 B1/F2/MU1 source/data workers continue independently. Full goal unchanged.
+
+
+## MU1 all105copies verified MU2 native scene source frozen
+
+[Full map checkpoint](2026-10-24-T07-mu-data-stage.md#root-verifies-all105copies-worker-released):
+Root276pin audit passes all105fullbyte copies/27149083B/110closedfiles/private
+modes/source stability. Worker released/archive captured before deliveryACK;
+expected2activeB1/F2/239released/6retained/0reclaimable. No served/draw credit.
+[MU2source handoff](2026-10-24-T07-mu-data-stage.md#mu2-fresh-native-render-source-task-frozen)
+selects genuine existing normal loader/render scene on direct fresh native
+origin, within original outer lifecycle/caps; no old-reader proxy or newframework.
+Mu-specific leaf/bounded responsebody observation profile is explicit/separate
+from F1 game policy; Chinese production files retained, no gameUI/travel credit.
+ActualGrok source work can start after checkpoint; Root verifies before actors.

@@ -38,12 +38,13 @@ Parallel:
   D16 host: pure call FAILED at cleanup event; HOLD
   D14 diagnostic UI: HOLD4defects; not an F1 dependency
   C7 caller: four pure checks PASS; no capture/backend compatibility
-  MU1:105body candidate data stage LIVE -> Root checks -> native load/draw
+  MU1:105body stage PASS (Root checked/released)
+  MU2: native load/draw source frozen -> Root checks -> one fresh scene
        (conditional water/effect requests stay open)
   full839spawn -> budget PASS; wrapper/profile/oracle choices still open
 
-Six Grok workers ran at peak. B1 + F2 + MU1 are now live.
-Expected after MU1launch:3active/238released/6retained/zero reclaimable.
+Six Grok workers ran at peak. B1 + F2 live; MU1 verified/released; MU2frozen for launch.
+Expected after MU1release:2active/239released/6retained/zero reclaimable.
 Four actual user-retained resources stay;2transferred records have none.
 Trial9 stays failed; known faults stay failed. No new actor admitted.
 4/14 is parent-check progress, not percentage of playable content.
