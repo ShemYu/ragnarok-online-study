@@ -165,6 +165,8 @@ CURRENT (23 Oct):
   [>] Grok writes corrected source + unrun controls in an isolated branch.
       Root checks 10 sources / 20 excerpts for affected validation checks.
       Refresh embedded Worker hash; test actual error + ACK handlers.
+      First draft byte composition matches; parallel audits find fixable gaps.
+      Correct stream shapes, inverse and witness/shutdown ordering before tests.
       Admission consumed; failed namespace immutable; no retry admitted.
       No game patch is installed. Parent progress stays 4/14.
       No game design or milestone change. No user action is needed.
