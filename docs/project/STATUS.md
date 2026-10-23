@@ -22,9 +22,10 @@ provider comparison is claimed for the new corrections.
 [Fresh trial recipe and selected runtime closure pass Root byte qualification](reviews/2026-10-23-T10.007.md#fresh-trial-recipe-and-component-dependency-inventory-root-qualified).
 [Both data writers qualify; one fresh-fixture data call is admitted](reviews/2026-10-23-T10.007.md#fresh-data-writers-qualified-and-one-fixture-data-call-admitted).
 [Fresh fixture actual verification passes; normal/runtime data call admitted](reviews/2026-10-23-T10.007.md#fresh-fixture-actual-pass-and-normalruntime-data-call-admitted).
-C4 has two concrete source defects; a frozen C5 repair task is ready for Grok.
-D10/D11 remain active:2active/4retained/228released/0reclaimable.
-No new game/browser/Engine capture admission. Normal9 data is exact/unbound.
+[Normal/runtime data actual verification passes; C5 starts](reviews/2026-10-23-T10.007.md#normalruntime-data-actual-pass-and-third-grok-correction-starts).
+C5/D10/D11 are active:3active/4retained/228released/0reclaimable.
+Fresh metadata normalization and final game binding are being prepared.
+No new game/browser/Engine capture admission. Fresh normal10/runtime data is exact/unbound.
 Dictionary abort, actual resource routes and NPC dialogue remain open.
 
 **Prior native parser checkpoint:** [All three isolated native parser cases now pass Root verification](reviews/2026-10-23-T10.007.md#actual-three-case-native-parser-trial-and-complete-root-audit-pass):
