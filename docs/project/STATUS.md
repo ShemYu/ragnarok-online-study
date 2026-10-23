@@ -23,10 +23,11 @@ provider comparison is claimed for the new corrections.
 [Both data writers qualify; one fresh-fixture data call is admitted](reviews/2026-10-23-T10.007.md#fresh-data-writers-qualified-and-one-fixture-data-call-admitted).
 [Fresh fixture actual verification passes; normal/runtime data call admitted](reviews/2026-10-23-T10.007.md#fresh-fixture-actual-pass-and-normalruntime-data-call-admitted).
 [Normal/runtime data actual verification passes; C5 starts](reviews/2026-10-23-T10.007.md#normalruntime-data-actual-pass-and-third-grok-correction-starts).
-C5/D10/D11 are active:3active/4retained/228released/0reclaimable.
+C5/D10 remain active; D11 source submitted/released:2active/4retained/229released/0reclaimable.
+D12 narrow driver repair packet is ready after Root/Astra confirm four defects.
 [Normalizer source qualifies; final binder needs a narrow closure fix](reviews/2026-10-23-T10.007.md#metadata-normalizer-qualified-final-binder-dependency-gap-found).
-One metadata-only normalization call is admitted after this checkpoint;
-no game binding or actor call is admitted.
+[Normalization actual PASS; final dependency fix and data binding admitted](reviews/2026-10-23-T10.007.md#normalization-actual-pass-final-binder-corrected-d11-source-held).
+One final-data binding call is admitted; game/browser/Engine actors remain unadmitted.
 No new game/browser/Engine capture admission. Fresh normal10/runtime data is exact/unbound.
 Dictionary abort, actual resource routes and NPC dialogue remain open.
 
