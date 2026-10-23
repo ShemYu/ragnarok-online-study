@@ -20,10 +20,11 @@ S8Claude's17B disabled-host data proposal is selected as source/data (19vs16);
 actual serving/login behavior remains unverified. No file is installed.
 [Normal9 now passes Root data checks](reviews/2026-10-23-T10.007.md#n9-pair-running-normal9-data-and-compact-capture-caller-source-qualify):64bodies/82662519B, including selected R8/S8
 copies; all copied configuration remains stale/unbound.
-C2 cursor, all5 real FileStore groups and the full source correction chain
-pass; compact caller source/syntax also qualifies. [Current-world preflight
-source now qualifies and one read-only call is admitted](reviews/2026-10-23-T10.007.md#existing-read-only-world-preflight-source-qualifies-one-call-admitted).
-Root next binds/runs/audits it. No container mutation/capture is admitted.
+C2 cursor, all5 FileStore groups, full source chain and compact caller qualify.
+[Actual read-only world preflight passes Root audit; one fixed stopped-image
+capture is admitted](reviews/2026-10-23-T10.007.md#actual-world-preflight-passes-complete-root-audit-one-stopped-image-capture-admitted).
+Root next binds the current HEAD/lease/authority and invokes once, then audits
+all raw wires/files/cleanup. It starts no service or browser/game process.
 Trial8 reached the map but no NPC dialogue; complete cleanup/original-state
 preservation pass. All old one-shot admissions are consumed. Dictionary abort
 remains open; request and ready node are not joined to the same initializer.
