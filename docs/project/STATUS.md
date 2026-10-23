@@ -99,12 +99,17 @@ Three source/control files only; Root owns later verification/commit/integration
 ten full sources/twenty excerpts, embedded Worker prefix claim, real error/ACK
 test hooks and unchanged launcher/parent vetoes. Same source worker continues;
 no new launcher protocol or tail-only regression repeat is required.
-In parallel, [both T10.006 entry-story researchers are live](reviews/2026-10-23-T10.006.md#actual-independent-research-pair-dispatched)
-from exacta41da72:Claude task_f8a1a2159ba3/ctx_bf84b2d00994 and Grok
-task_fcc48247e1ca/ctx_c36f5ab5ada6, configured defaults. Same ten inputs/six
-groups, three typed records/two personally viewed official Taiwan panels;
-disjoint ignored reports. Observable mechanics/rewards/save rules remain
-unknown. Root reads/verifies both before contract selection; no script exists.
+In parallel, [T10.006 research is personally checked](reviews/2026-10-23-T10.006.md#both-reports-checked-and-corrected-research-basis-selected):
+Claude16/20 provides the corrected research basis versus Grok13/20. Both reports/
+all evidence are preserved and both workers released;37full comparison pins pass.
+Root refutes Grok's missing-coordinate claim using complete typed records.
+Neither raw contract is implementation-ready; transport, consequential state
+triggers and rewards remain unresolved. [Goal-fidelity correction](reviews/2026-10-23-T10.006.md#goal-fidelity-and-next-functional-implementation):
+exact Taiwan parity is not an added user gate. Next prepare bounded persistent
+entry progression under a declared coherent kRO-compatible/rAthena baseline
+with existing Chinese resources, resolving route/rule bindings before integration.
+No invented rewards or false chain completion. This source lane is independent
+of T10.005. No story script/play acceptance or parent percentage change.
 [Both independent T10.005.005 plans are personally checked](reviews/2026-10-23-T10.005.005.md#both-plans-checked-and-corrected-combined-direction-selected):
 Claude15/20 and Grok15/20, plan only; neither raw fix is accepted. Both complete
 reports are preserved and workers released;169released/four retained/zero

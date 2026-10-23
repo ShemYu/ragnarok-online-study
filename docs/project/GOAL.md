@@ -10,6 +10,15 @@ After documentation checkpoint `35ad527`, the user instructed “follow the stra
 
 The user selected Renewal rather than classic/pre-renewal. T06/T07 must identify the actual version/edition, build a complete content manifest and expose missing content against the full-game goal. A version/manifest is a verification boundary, not permission to declare only the easiest shipped subset complete. The current evidence does not establish parity with the latest Taiwan or Korean service. Root will provide a concrete coverage recommendation; no new user answer is needed to continue the inventory.
 
+[Goal-fidelity check,2026-10-23](reviews/2026-10-23-T10.006.md#goal-fidelity-and-next-functional-implementation):
+exact Taiwan-service parity is not a user requirement. A declared coherent
+kRO-compatible/rAthena mechanics baseline with Traditional Chinese resources
+can support the existing goal. Official internal flags, verbatim refusal wording
+and an observed official relog protocol are not prerequisites for writing local
+persistent progression. Supported story objectives, consequential rules, rewards
+and viable routes still need verification; this is no permission to invent them,
+omit content or declare a partial story complete.
+
 Traditional Chinese means menus, item/skill/monster names and descriptions, quest log, NPC dialogue, story text and system messages. Launcher/settings localization is tracked separately so it cannot be mistaken for game localization. Font rendering, text encoding and macOS input must work as well as translations.
 
 **Current execution order: functionality first.** The user clarified on2026-10-19 that translation may be a large job and asked to prioritize gameplay. Next verify full-world maps, monsters, combat, jobs, items, quest progression and persistence, then resolve remaining localization/input work. Existing Taiwan client tables/dictionaries and installed Chinese overlays stay in use; assess reusable resources before translating gaps. This changes work order, not the final Traditional Chinese requirement. Remaining T05 language checks do not block functional inventory/repairs. See the [priority record](reviews/2026-10-19-functionality-first.md).

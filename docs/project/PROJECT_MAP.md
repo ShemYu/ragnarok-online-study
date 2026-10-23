@@ -19,7 +19,8 @@ Fruit presentation     [OPEN: browser test failed before scene loading]
 Quest file inventory   [PASS: all 3 files checked]
 Server + file binding  [PASS: current owner and 21 file checks]
 Active quest records   [Lua loads data; full diagnostic needs two repairs]
-Story entry rules      [Claude + Grok check sources in parallel]
+Story entry research   [CHECKED: Claude basis; mechanics still incomplete]
+Story implementation   [NEXT: persistent entry under declared Renewal rules]
 Existing text recovery [PASS: fixed 152-record tool integrated + checked]
 Missing story scripts  [OPEN: largest content risk]
 Full game test         [LATER: 82 functional resource gaps remain]
@@ -167,6 +168,11 @@ CURRENT (23 Oct):
       Admission consumed; failed namespace immutable; no retry admitted.
       No game patch is installed. Parent progress stays 4/14.
       No game design or milestone change. No user action is needed.
+  [V] T10.006 research: Claude16/20 versus Grok13/20; both workers released.
+      Root confirms typed NPC coordinates; no complete story contract yet.
+      Exact Taiwan parity is not an added requirement for personal Renewal play.
+  [>] Prepare persistent entry progression with existing Chinese text.
+      Resolve real route/reward/transition rules before integration and play.
 
 Earlier checkpoints (their next actions can be superseded):
   [V] Browser integration plan checked; strict ownership/clocks stay.
