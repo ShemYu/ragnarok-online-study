@@ -461,3 +461,33 @@ all cleanup/postchecks and one scoped Mu scene. Current zero-water source
 finding does not waive fresh scene verification or unexpected-path failure.
 G390/4GiB/grace3/twoPGIDs, driver385/Engine300+60/UI240+Node243/parent60
 remain fixed. No login/travel/save/Chinese-UI/fullgame credit from this leaf.
+
+## Actual two frozen MuD focused calls pass Root audit
+
+Root verifies both actual fixed calls on the exact qualified frozen source
+copies, natural0/positive unchanged G10s/512MiB/grace3/no-native/1MiB, no
+signals; elapsed0.185492/0.177275s,3735552B sampled owned RSS. Complete
+independent typed/raw stdout169B/94B and empty stderr, streams/receipts/
+limits, original S retirement/current PID+group absence,65full pre/post
+pins, FD/thread/HEAD/clean caller context all pass. stage group-run is absent
+before/after and the six staged source/entry/qualification files remain
+closed, with no pycache/extra fixture. Audit37303B/
+bbc276e61bdcc7b44c54b87b515f1a00c066ac432f952d5140b2d7af3cf2a07d
+is PASS/errors[]. No replay, failed guard rewrite or active-output edit.
+
+Root fully reads the second independent5139B oracle report/
+0b82f66f68bd56d220754932bc8cc9501ce71823957b2fe7630d8e2dcadeaf08,
+verifies17stable input pins/17closed outputs and typed agreement of all
+7postscene/4cleanup/5signal/1sentinel records. Complete raw return oracles
+4607B/9c087ad5946999a91148003a675620c449b7f9f33a9f55c012720510c213a932
+match Root's previously fixed full objects. No passed field is invented.
+
+This verifies the two helper groups/selected frozen fixes, under the stated
+exclusive private0700 ownership assumption; no hostile concurrent-rename
+or actual native retirement proof. The still-live Grok worker has NOT
+submitted/settled and final bytes/modes/pins remain unjoined. No source
+submission/lifecycle or native/map/game/parent-check credit is inferred.
+
+MuC6+MuD2 focused checks now pass on selected Root source copies. Fresh
+dedicated fixture/19-role projection, normal runtime closure/lease and one
+actual scene remain next; no new actor is admitted.

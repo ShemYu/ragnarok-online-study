@@ -27,8 +27,8 @@ is ready after2ad53c6. All82functional resource gaps remain open.
 [All six actual MuC focused calls pass complete Root223pin verification](reviews/2026-10-24-T07-mu-data-stage.md#actual-six-muc-focused-calls-pass-complete-root-audit).
 Three source fixes qualify; no fresh map actor/render result yet. MU1 exact105body private
 stage remains verified; retained water geometry0 requires no extra assets.
-[MuD frozen source qualifies for two focused calls](reviews/2026-10-24-T07-mu-data-stage.md#mud-frozen-source-qualified-two-focused-calls-admitted),
-not yet executed; final worker submission is still pending. Actual scene
+[Both frozen MuD focused calls pass complete Root65pin verification](reviews/2026-10-24-T07-mu-data-stage.md#actual-two-frozen-mud-focused-calls-pass-root-audit);
+final worker submission is still pending. Actual scene
 load/draw waits for fresh fixture/runtime/lease bindings.
 [Dedicated Mu19 data view preserves the native contract](reviews/2026-10-24-T07-mu-data-stage.md#fresh-mu19-view-recommended-without-changing-native-engine-contract);
 this is a reviewed plan, no generated data/actor.

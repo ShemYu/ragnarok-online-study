@@ -50,7 +50,7 @@ B4:existing64body source actual Grok ready after8171b27.
 MuC/MuD:submitted+released, HOLD5findings -> finite UI/driver fixes ready.
 MuC:three fixes + all six actual focused calls PASS/223pins.
 MuDfix/B4/F839/B3fix:four live, all provider500 retries; starts held.
-MuD:frozen source qualified -> two focused calls admitted, not run.
+MuD:both frozen-copy focused calls PASS/65pins; worker final pending.
 Mu19:dedicated freshB3+fixed19view plan reviewed; no data/actor.
 Current4active/249released/6retained/0reclaimable across259records.
 MuC/B3 prior owners released/archive beforeACK; no cleanup debt.

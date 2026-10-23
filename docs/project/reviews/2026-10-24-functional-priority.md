@@ -1075,3 +1075,10 @@ Root qualifies immutable copies independently; no active worker output is
 edited and no final submission/settlement or actor is inferred.
 [Mu's next finite fixture/binding route is reviewed](2026-10-24-T07-mu-data-stage.md#fresh-mu19-view-recommended-without-changing-native-engine-contract).
 No generated data or native/map/game actor is admitted. Full goal unchanged.
+
+## Actual two frozen MuD checks verified during Grok provider retry
+
+[Both original focused MuD calls pass Root65pin audit](2026-10-24-T07-mu-data-stage.md#actual-two-frozen-mud-focused-calls-pass-root-audit).
+These are immutable Root-captured sources, not a final Grok settlement;
+all four live source owners still retry provider500. No duplicate editor
+or extra Grok start, source/native/map/game acceptance or goal change.
