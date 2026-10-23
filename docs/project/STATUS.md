@@ -103,9 +103,14 @@ full source/artifact pins and independently streams100source/protected pins
 The c03396d admission is consumed once; root6 is immutable, no retry admitted.
 
 **Next:** [T10.007 equal source brief/inputs are personally qualified and frozen](reviews/2026-10-23-T10.007.md#equal-source-task-prepared-and-personally-qualified);
-both actual Claude/Grok NPC implementations are assigned in separate branches
-from common ee23e4e; [dispatch receipts are retained](reviews/2026-10-23-T10.007.md#both-actual-independent-implementations-dispatched).
-Supervise/verify both before selection and user evaluation. Thirty input files/78full Root pins, collision/import and
+both actual Claude/Grok NPC implementations are submitted on separate branches
+from common ee23e4e; [submissions, preserved evidence and releases are checked](reviews/2026-10-23-T10.007.md#both-submissions-preserved-and-source-review-findings-confirmed).
+Root reads both complete candidates and confirms fixable source/handoff issues:
+Grok's test copies full recovered descriptions; Claude's rollback advice can
+discard earned progress, and its three-definition proof is insufficient.
+Neither raw candidate is selected or installed. Repeat applicable own-source
+checks, correct the chosen source/handoff, then verify isolated server loading
+and persistence before user evaluation. Thirty input files/78full Root pins, collision/import and
 reference-state boundaries qualify. [Fresh installed quest DB source capture/audit
 passes](reviews/2026-10-23-T10.007.md#current-installed-quest-db-source-closure-verified-read-only):
 six GETs, three exact source files/4848declarations/no target collision, original
