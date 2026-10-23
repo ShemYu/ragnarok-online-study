@@ -32,8 +32,9 @@ one explicit common CLOCK_UPTIME_RAW domain for the three Python sources plus
 the existing transfer helper's clock keyword. Actual parent-child witnessing
 is still required; source advice alone is not a runtime fix.
 [T10.005.001](tasks/T10.005.001.md) freezes an equal independent Claude/Grok
-source comparison, six readonly inputs/five groups. Dispatch both from its
-introducing common BASE, then Root verifies/selects before any fresh binding
+source comparison, six readonly inputs/five groups. [Both actual isolated
+workers now run](reviews/2026-10-23-T10.005.001.md#actual-isolated-pair-dispatched)
+from9cebae1 with the same frozen spec/inputs. Root verifies/selects before any fresh binding
 or separate live admission. The existing observer implementation, five inert
 served files, actual response/effect data and previous source qualification
 remain preserved. No map/render/ordinary story/play/save gate closes.
