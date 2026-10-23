@@ -95,7 +95,10 @@ are now consumed and immutable; the existing inputs/outputs are not fresh.
 under T10.005. Actual Grok task_1349907b83b4/ctx_6ae8a3b701b9 is live on
 ShemYu/t10-negative-lifecycle-grok-1 from exact9d2d4d7; no setup or tests run.
 Three source/control files only; Root owns later verification/commit/integration.
-Native downstream-validator review runs independently in parallel.
+[Independent downstream-validator review is now personally checked](reviews/2026-10-23-T10.005.md#independent-downstream-closure-review-personally-checked):
+ten full sources/twenty excerpts, embedded Worker prefix claim, real error/ACK
+test hooks and unchanged launcher/parent vetoes. Same source worker continues;
+no new launcher protocol or tail-only regression repeat is required.
 [Both independent T10.005.005 plans are personally checked](reviews/2026-10-23-T10.005.005.md#both-plans-checked-and-corrected-combined-direction-selected):
 Claude15/20 and Grok15/20, plan only; neither raw fix is accepted. Both complete
 reports are preserved and workers released;169released/four retained/zero
