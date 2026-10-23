@@ -117,9 +117,10 @@ CURRENT (23 Oct):
       Original 3 worlds / 18 effects / 7 parents unchanged. Admission consumed.
   [V] Equal Worker-bootstrap plans checked: Claude17/20 vs Grok15/20.
       Both preserved/released; Root74-pin audit and18primary responses checked.
-  [>] Implement corrected Claude startup pause and one genuine-response join.
-      Fix waiting evidence, resume/readiness race and late-event fence.
-      Existing24 controls + focused startup controls, then fresh actual trial.
+  [V] Corrected startup/real-response source materializes: 12 closed edits.
+      Full inverse and9-pin Root audit pass; first inert token-reuse gap fixed.
+  [>] Existing24 controls + 8 focused startup/join groups, then fresh trial.
+      Controls have not run; no new live call is admitted yet.
       No game patch is installed. Parent progress stays 4/14.
       No game design or milestone change. No user action is needed.
 

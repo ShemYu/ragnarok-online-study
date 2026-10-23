@@ -91,8 +91,8 @@ attempt literal. No actor or game code runs in this source/data materialization.
 passed before the single4988c8d call. Its admission and actual-root-2 namespace
 are now consumed and immutable; the existing inputs/outputs are not fresh.
 
-**Next:** implement and qualify the corrected controller policy, then prepare a
-fresh bounded trial. [The equal twelve-input/six-group plan comparison is
+**Next:** qualify focused controller controls, then prepare a fresh bounded
+trial. [The equal twelve-input/six-group plan comparison is
 self_verified](reviews/2026-10-23-T10.005.003.md#both-plans-preserved-and-corrected-claude-direction-selected):
 Claude17/20 versus Grok15/20; both reports preserved and workers released.
 Root selects Claude's scoped startup pause and genuine-response join direction,
@@ -102,7 +102,15 @@ Root's74pin comparison audit and18independent primary responses support the
 normal page-renderer startup path conditionally; installed ACK/response delivery
 still needs controls and a real trial. Preserve the existing24controls and add
 focused startup/error/deadline/join cases. This completes plan comparison only;
-no controller implementation, runtime success or content closure is claimed.
+no runtime success or content closure is claimed.
+[Root's pure source correction now materializes and passes its independent
+inverse/source audit](reviews/2026-10-23-T10.005.md#corrected-worker-bootstrap-source-materialization-qualifies).
+It changes12closed spans and preserves all other bytes. Independent review finds
+and Root fixes a reserved-token request-reuse gap before any test or actor runs;
+the first inert revision is retained as superseded. Controls remain unrun. Keep
+the existing24case bodies and add eight focused startup/join groups, including
+real protocol-error replies and token reuse before/after association. No browser
+trial is admitted by this source-only checkpoint.
 No general orphan/duplicate-event acceptance, timing/cap growth,
 guard change or unchanged retry. All actual-root-3 inputs/outputs/admission are
 consumed and immutable. The single test-keychain argument is relevant to this
