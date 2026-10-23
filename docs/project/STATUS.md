@@ -91,7 +91,15 @@ attempt literal. No actor or game code runs in this source/data materialization.
 passed before the single4988c8d call. Its admission and actual-root-2 namespace
 are now consumed and immutable; the existing inputs/outputs are not fresh.
 
-**Next:** Root corrects the [submitted source that failed review](reviews/2026-10-23-T10.005.md#source-submission-retained-and-coordinator-repair-owns-next-action)
+**Next:** finish the [qualified source integration and required regressions](reviews/2026-10-23-T10.005.md#all-corrected-source-controls-and-complete-root-audit-pass).
+Corrected candidate26343ef passes10/10Python+37/37Node, zero skips; complete19-pin
+Root audit and two executable pins pass, with positive test-process/group absence.
+Three exact files are copied into the coordination worktree. Checkpoint them,
+then verify the actual integrated paths, rebind/run the existing40controller
+groups and prepare fresh Root5-based source/parent bindings. No live trial is
+admitted, and tail-only suites need no repeat for this change.
+
+Earlier source repair history: [submitted source failed review](reviews/2026-10-23-T10.005.md#source-submission-retained-and-coordinator-repair-owns-next-action)
 under T10.005. Grok task_1349907b83b4/ctx_6ae8a3b701b9 settled with the unchanged
 reviewed draft, then was preserved/released. Raw candidate2affd6b is isolated on
 ShemYu/t10-negative-lifecycle-grok-1 from9d2d4d7; no selected integration.

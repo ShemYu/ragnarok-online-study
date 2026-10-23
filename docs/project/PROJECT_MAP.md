@@ -169,6 +169,10 @@ CURRENT (23 Oct):
       Correct stream shapes, inverse and witness/shutdown ordering before tests.
       Grok submission stays needs_fix; raw2affd6b kept and worker released.
       Root repairs with disjoint native proposals and Astra support.
+  [V] Corrected26343ef: all10Python / all37Node pass; full19-pin audit passes.
+      Exact test births/groups gone, no signals, source/FD/thread checks pass.
+  [>] Check integrated paths, then rebind required40controller regressions.
+      Fresh actor/parent bindings and a separate live admission remain.
       Admission consumed; failed namespace immutable; no retry admitted.
       No game patch is installed. Parent progress stays 4/14.
       No game design or milestone change. No user action is needed.
