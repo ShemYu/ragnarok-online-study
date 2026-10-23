@@ -22,9 +22,10 @@ pass](reviews/2026-10-23-T10.005.md#fresh-same-world-preflight-and-complete-root
 one caller0/valid original guard/4.951s, complete typed outputs/17pins/five
 archives/current owner and positive test-process closure.
 [Final launcher/controller copies now qualify](reviews/2026-10-23-T10.005.md#final-launcher-and-controller-source-copies-qualify):
-16+1header groups/full donor inverses, clocks/ownership unchanged. Only those
-two private source files exist in the fresh actual namespace; no role inputs,
-outputs, guards, profile, READY or browser execution.
+16+1header groups/full donor inverses, clocks/ownership unchanged. At that
+source-copy checkpoint only those two files existed; the later five-file
+assembly is recorded below. No role inputs, outputs, guards, profile, READY
+or browser execution exists.
 
 The [one nine-resource acquisition and complete Root audit now pass](reviews/2026-10-23-T10.005.md#one-nine-resource-acquisition-and-complete-root-audit-pass):
 caller0/original guardvalid/11.849s,59full pins plus exact Python/seam supplement.
@@ -46,10 +47,12 @@ All five served-file byte predictions match. The two review-script schema
 failures remain preserved; no acquisition or runtime replay occurred. Root chose
 page-only policies for the optional favicon/PathFindingWorker routes and the
 shared nonsecret attempt ID; actual CDP sessions remain unknown.
-Next materialize and independently pin the five inert served files, bind
-proxy/parent inputs, refresh protected original-world checks, then commit one
-separate live admission. Only the two bound source files currently exist in the
-actual namespace; no served files, actor inputs/outputs or test browser exist.
+[All five inert served files now match](reviews/2026-10-23-T10.005.md#five-inert-served-files-materialize-and-match):
+13856768B total/18full pins, exact stored-file donor inverses and preserved
+ordinary prefix. The actual namespace contains the two bound sources and
+five-file www directory; no actor inputs/outputs/guards, profile, READY or test
+browser exists. Next bind proxy/parent inputs, refresh protected original-world
+checks, then commit one separate live admission.
 This is a fixed-ID quest-loader diagnostic with no map/render/ordinary
 story/play/save gate; passing it cannot close the full-game goal.
 

@@ -53,7 +53,9 @@ CURRENT (23 Oct):
   [V] Diagnostic data/configuration/session and served-byte recipes checked.
       68 full pins / 57 source spans / 8 exact edits + full inverses pass.
       Nine retained bodies / 18 leaves / 7 parents match. No live test yet.
-  [>] Create and check inert served files, then finish proxy/parent bindings.
+  [V] All five inert test files created and checked: 13.21MiB / 18 full pins.
+      Actual stored bytes match predictions and restore the exact donors.
+  [>] Finish proxy/parent bindings.
       Refresh original-world checks; separately admit one quest-loader test.
       No map/render gate in that test. No test browser has launched.
   [V] On-disk navigation table read/audit pass: empty table, 22 bytes.
@@ -78,7 +80,7 @@ CURRENT (23 Oct):
   [V] Unchanged Claude source integrated as 88577ae; three full blobs match.
   [V] Actual tracked-source verification/audit: 34 own + 53 common pass.
       Source-tool task self_verified; 28 pins / test cleanup checked.
-  [>] Final served files and remaining live bindings for the quest test.
+  [>] Remaining live bindings and original-world checks for the quest test.
       No game patch is installed. Parent progress stays 4/14.
       No game design or milestone change. No user action is needed.
 

@@ -89,9 +89,10 @@ closure. T07.006.002 source tool self_verified; ordinary runtime/game gates
 remain. [Browser response/session/assembly recipes now qualify](reviews/2026-10-23-T10.005.md#diagnostic-configuration-session-policy-and-served-byte-recipes-qualify):
 68full pins/57spans/eight substitutions/full inverses, nine bodies/18leaves/
 seven parents and all five served-byte predictions match. Two source-review
-schema failures remain preserved. Next inert served-file materialization,
-proxy/parent binding, fresh protected-world witnesses and separate live admission;
-no browser, installed patch or parent/content gate closes.
+schema failures remain preserved. [Five inert served files now match](reviews/2026-10-23-T10.005.md#five-inert-served-files-materialize-and-match),
+13856768B/18full pins/stored-byte donor inverses. Next proxy/parent binding,
+fresh protected-world witnesses and separate live admission; no browser,
+installed patch or parent/content gate closes.
 
 Earlier T07.007.011.005 support gate: [corrected private extraction/full Root
 payload audit pass](reviews/2026-10-22-T07.007.011.005.md#corrected-private-extraction-and-complete-root-payload-audit-pass),
