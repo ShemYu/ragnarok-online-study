@@ -155,13 +155,14 @@ three natural exit0 calls, original guards,27audit-artifacts and unchanged
 source/FD/thread state. This verifies synthetic boundaries, with no game
 admission. Independent source
 locators find genuine BGM/navigation donors and web-service route sources.
-[Two new independent provider pairs are active](reviews/2026-10-23-T10.007.md#resource-material-and-web-service-pairs-dispatched-in-parallel):
-Rprepares seven exact loose resources and an unbound driver correction;
-Udefines the real service/capability plan. Same51-file packet per provider,
-both Claude reports are submitted/released and both Grok attempts remain active.
-No shared runtime actions. Root controls proceed alongside. The resource review
-flags Root's data-prefix layout mistake; preserve raw equal-input attempts and
-correct the resolver layout after comparison, before any serving.
+[Both new pairs are reviewed/released](reviews/2026-10-23-T10.007.md#resource-and-service-comparisons-complete-simpler-loose-route-selected):
+RClaude19/Grok19 both qualify data; Ucorrected Grok18 over Claude17 is the
+source-only capture direction. Root resolves its layout error with the existing
+LocalFile route: copy the seven bodies directly to fresh server/data/... and
+server/BGM/01.mp3. Adopt neither extra directory/env driver patch; the tested
+driver/empty override remain sufficient. No assets served yet. Corrected fresh
+fixture3 is prepared after Root refuses fixture2's policy mismatches; Root
+qualification and runtime/config bindings are next. No service recipe admitted.
 No higher allowance or
 unchanged retry is admitted.
 Physical footprint/headroom remain unknown. Independent

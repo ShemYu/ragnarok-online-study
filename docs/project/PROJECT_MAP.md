@@ -50,8 +50,8 @@ Next: resolve request lifecycle + client resources; assess a bounded memory step
 Both client pairs reviewed/released: D Claude17/Grok16; S Claude18/Grok17.
 Small request ledger + failed-case evidence: syntax + all 12 controls PASS.
 All failures stay visible; no new player case or larger game allowance.
-Parallel now: both Claude reports submitted/released; both Grok still active.
-Root verifies the changed evidence collector alongside those tasks.
+Both resource candidates: 19/20. Hotkey plan: Grok18, Claude17.
+All four workers released. Root copies assets through the simpler loose route.
 Read-only host snapshot PASS: normal pressure, 64 GiB physical RAM.
 Available headroom is not guaranteed; game memory limit stays 3 GiB.
 Content-contract preparation is preserved; its oracle is still unqualified.
