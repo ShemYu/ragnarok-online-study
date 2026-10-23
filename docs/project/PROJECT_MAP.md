@@ -47,7 +47,8 @@ Root verified both NPC metadata proposals; Grok selected20/20 vs19/20.
 The name hypothesis needs source-fixture and actual game verification.
 Full cleanup/original-state preservation PASS. No quest/player case PASS.
 Independent web capture: prior attempt refused before create; originals PASS.
-GET-only binary source pair next; NPC/caller finite checks in parallel.
+GET-only binary source pair active; NPC finite checks admitted once.
+Caller-postcheck source review continues independently.
 No new browser, game or Engine action admitted. No user decision needed.
 
 ```

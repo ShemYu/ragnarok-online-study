@@ -7,12 +7,12 @@ Updated: 2026-10-24 JST. Coordinator: Codex. Active scope: **execute the documen
 Functionality remains first; **4/14 parent checks, about29%**. All82functional
 resource gaps remain open. No full-game scope change or new user decision.
 
-**Live next action:** [Read-only runtime-binary route; independent C4 source pair](reviews/2026-10-23-T10.007.md#runtime-binary-readonly-route-qualified-for-independent-source-pair).
-Root dispatches equal Claude/Grok proposals for one GET-only binary capture.
+**Live next action:** [C4 pair active; N9 source controls admitted](reviews/2026-10-23-T10.007.md#c4-pair-active-and-n9-finite-source-controls-admitted).
+Both C4 providers are active on equal GET-only binary source proposals.
 The earlier stopped-image attempt remains failed/consumed; no retry or
 image-volume normalization. No original mount shadows the proposed leaf.
-This source-only pair has no runtime admission. Root next verifies the N9
-raw-name fixtures and independent caller-postcheck correction; D9Grok remains
+This source-only pair has no runtime admission. Root admits one bounded N9
+finite source-fixture check and reviews the caller-postcheck correction; D9Grok remains
 fresh/live on the dictionary component. Other settled workers are released.
 Normal9 exact64body copies pass as data; ports/paths remain stale/unbound.
 N8Grok metadata and R8Grok/S8Claude data selections keep their narrow limits.
