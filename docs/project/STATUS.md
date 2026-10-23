@@ -17,7 +17,9 @@ still needs a fresh game trial; trial8 cause is unknown. Both raw D9 sources
 are refused before actors for concrete identity/fault-retention/lifecycle
 gaps. They remain retained; both workers released. No complete paired
 provider comparison is claimed for the new corrections.
-[Root integrates the strict driver UI pin; fresh isolated trial preparation next](reviews/2026-10-23-T10.007.md#changed-npc-driver-strict-content-pin-integrated-without-actor-authority).
+[Strict driver pin is integrated](reviews/2026-10-23-T10.007.md#changed-npc-driver-strict-content-pin-integrated-without-actor-authority).
+[Fresh trial recipe and selected runtime closure pass Root byte qualification](reviews/2026-10-23-T10.007.md#fresh-trial-recipe-and-component-dependency-inventory-root-qualified).
+Source-only fresh fixture/materializer writers are being prepared.
 No new game/browser/Engine capture admission. Normal9 data is exact/unbound.
 Dictionary abort, actual resource routes and NPC dialogue remain open.
 

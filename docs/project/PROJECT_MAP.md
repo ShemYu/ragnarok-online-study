@@ -45,7 +45,8 @@ Current path:
 
 Root verified both NPC metadata proposals; Grok selected20/20 vs19/20.
 Name-binding shared controls PASS for both; Grok narrow repair selected.
-UI integration/syntax and strict driver pin PASS; fresh binding/game test next.
+UI integration/syntax, strict driver pin and runtime inventory PASS.
+Fresh fixture/materializer source preparation -> data binding -> game test.
 Full cleanup/original-state preservation PASS. No quest/player case PASS.
 Independent web capture: prior attempt refused before create; originals PASS.
 GET-only binary: Grok active; Claude failed/no output, quota reported.
