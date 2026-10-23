@@ -51,7 +51,9 @@ MuC/MuD:submitted+released, HOLD5findings -> finite UI/driver fixes ready.
 MuC:three fixes + all six actual focused calls PASS/223pins.
 B4/F839/B3fix:three live; partial tool progress between500 retries.
 MuD:both calls PASS/65pins; final source joined/released beforeACK.
-Mu19:fixed projector prepared; one mismatch corrected, final review next.
+Mu19:corrected source qualified conditionally; fresh dedicated data next.
+Mu client:metadata joined; full body/package closure runs in parallel.
+Mu Remote:13-copy source audit frozen; fourth Grok task ready.
 Mu Web:four bodies staged/full verified;105body stage unchanged; no actor.
 Current3active/250released/6retained/0reclaimable across259records.
 MuC/B3 prior owners released/archive beforeACK; no cleanup debt.

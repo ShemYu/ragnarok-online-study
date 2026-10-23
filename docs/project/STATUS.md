@@ -14,7 +14,7 @@ complete failure/preservation audit passes; no B200assignment/reconnection or
 parent-check credit. 4/14 is a check count, not measured full-content coverage.
 
 **Parallel work:** [B4 actual Grok ready; B3 bounded source repair frozen](reviews/2026-10-24-functional-priority.md#b4-actual-ready-b3-finite-repair-and-muc-six-calls-admitted).
-Current259record/3page fleet13:3active/250released/6retained/0reclaimable.
+Current259record/3page fleet14:3active/250released/6retained/0reclaimable.
 Actual live Grok tasks are F839 exporter, B4 runtime materializer
 and B3 bounded server-fixture repair. MuD final source is now joined/released.
 MuC and B3 prior owners are released/archive captured before acknowledgment.
@@ -32,8 +32,11 @@ stage remains verified; retained water geometry0 requires no extra assets.
 final three source bodies are joined byte-exact and owner released. Actual scene
 load/draw waits for fresh fixture/runtime/lease bindings.
 [Dedicated Mu19 data view preserves the native contract](reviews/2026-10-24-T07-mu-data-stage.md#fresh-mu19-view-recommended-without-changing-native-engine-contract);
-the finite projector is prepared/one mismatch corrected, final review and
-fresh dedicated B3 data remain next. Four web bodies are staged/verified;
+the corrected finite projector is conditionally source-qualified; fresh
+dedicated B3 data remain next. Client metadata is joined; current full client
+closure checks run independently. [Root qualification and next Grok source
+audit](reviews/2026-10-24-T07-mu-data-stage.md#mu19-corrected-source-qualified-and-client-inventory-joined).
+Four web bodies are staged/verified;
 existing105body stage stays unchanged. No render/game actor.
 
 [B2U/B2D eight selected focused backend checks pass Root verification](reviews/2026-10-24-functional-priority.md#eight-backend-focused-checks-verified-fresh21-fixture-source-frozen);

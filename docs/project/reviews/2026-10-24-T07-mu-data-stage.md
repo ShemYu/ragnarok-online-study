@@ -549,3 +549,35 @@ records no source execution/data call/actor admission; independent final
 source review/future bindings still qualify separately. Empty Root1 remains
 after Root mistook boolean selfExcluded for a list; Root2 explicitly checks
 the two excluded filenames, with no candidate invocation/replay.
+
+## Mu19 corrected source qualified and client inventory joined
+
+Root fully reads the independent final5617B source report/recipe and joins
+all25 stable opened full SHA+C8 pins and all8 closed private review files.
+The corrected19779B projector has no remaining mandatory source finding
+within this finite contract. Its one-edit inverse and prior Root byte proof
+remain unchanged. Qualification is conditional on the exact future repaired
+B3 schema/current36 leaves/full independent dedicated-data audit and binding;
+no invocation or data/runtime actor is admitted. Original source stays HOLD.
+
+Root also fully reads the5759B client inventory report/5303B recipe, joins
+all21closed private outputs and all39 stable authority inputs. Two mutable
+navigation docs changed during preparation; their old/new pins are retained,
+never called equal or used as content authority. Proposed P251/345990090B
+and UI119/27369372B fit the existing caps; current full body/package/app
+verification is a separate read-only task now underway, using stream hashes
+for the large framework. Top binaries/UI/Engine/G remain outside P and must
+join independently. No new105-body copy or cap change. Root combined review
+50382B/8384bdeca3b3c21bbf5022aca057f5db6ecbd6371bae7f1daacd09b240cef16d
+records96fullpins, conditional source qualification and metadata-only scope.
+
+An additional independent Grok SOURCE task is concretely prepared for Remote
+configuration/resource lookup:13 byte-exact private source/metadata copies.
+Manifest14585B/82a6b1e460ea31d1a429452a02379264d4c95b53fd3908178da2d740a583de7f
+and brief1969B/897979e9f95ec62f72d250fc28d0df7c3c93b43c97c5688a726dd87583cc3d47
+freeze unmanaged .env/config.ini/env precedence/absolute DATA.INI/static and
+loose routing/empty-resource validation questions. No binaries/credentials,
+actor or test execution is authorized by this source task. Do not manufacture
+config.ini or an env key from a checklist. Source-commit text agrees at
+66ba94e2b84c4092e4b9cc9d0dcc805313438f53; reproducible source-to-binary identity
+is not thereby proved. Root will personally check conclusions before use.
