@@ -59,16 +59,22 @@ and confirms its import is missing; bind that full closure before retrying.
 All four workers are preserved/released:186released/four user-retained/zero
 reclaimable. No schema migration or goal change is supported.
 
-**Changed trial source qualified:** [Root checks the Engine correction and fresh
-material](reviews/2026-10-23-T10.007.md#repaired-engine-and-fresh-material-source-qualified-one-changed-player-trial-admitted).
-Nine exact source changes add the storage YAML closure, sequential native
-readiness, nonzero failure cleanup and DB dependency hold. Unchanged driver/UI/
-parent mechanisms are retained. Fresh material has19roles and all12runtime
-placeholders; private credentials fit the protocol. No game action yet.
+**Second actual startup test:** [Storage/clan repair works; another missing
+table default is found](reviews/2026-10-23-T10.007.md#second-player-attempt-verifies-partial-repair-and-cleanup-complete-table-closure-corrected).
+The12.460746s trial loads both storage files and all four clans, then char exits1
+on another empty table name. Map/browser are never started. Root audits all138
+complete Engine wires/561audit/artifact pins. All three test containers and
+network are absent, volume retained, originals match, cleanup has zero errors.
+Root enumerates all40required table fields: elemental_db is the remaining
+uninitialized default. Adding its stock setting closes the source table-name
+set against all58pinned SQL tables. Both earlier config proposals missed it;
+their current revised score is16/20 each. No schema migration is needed.
 
-**Next:** bind the committed head/lease/inputs and invoke the single admitted
-changed fresh trial, then personally audit its complete outcome. A199 refusal,
-B200 cancel/dialogue grant/repeat and genuine relog remain
+**Next:** bind and execute the single admitted third changed fresh trial after
+the new fixture's49pin/source-artifact qualification. Engine/UI/runtime bodies
+stay unchanged; the credential-free template adds elemental_db once, with new
+credentials/account/characters/volume. Personally audit the complete outcome.
+A199 refusal, B200 cancel/dialogue grant/repeat and genuine relog remain
 unverified. Restart, inactive/later-ID guards, installed4848+3assembly/ordinary
 route and normal Chinese journal stay open. No unchanged trial, parser or
 source-test rerun. T10.007/T10.008 and all82functional gaps remain open.
