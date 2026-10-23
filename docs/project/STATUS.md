@@ -83,8 +83,10 @@ owned-process metadata evidence. Astra finds no evidence for a threading rewrite
 keychain/OS-crypt interaction is only an unproved hypothesis, and no test-keychain
 flag is qualified. Do not change flags, limits, guard policy or retry unchanged.
 Any next discriminator needs a concrete reviewed scope and fresh admission.
-[Independent twelve-input diagnosis task](tasks/T10.005.002.md) is frozen for
-Claude/Grok; Root will verify both reports before any measurement or repair.
+[The independent twelve-input diagnosis pair is live](reviews/2026-10-23-T10.005.002.md#actual-independent-pair-dispatched):
+Claude requested/effective launch option Opus5.5high and default Grok, both
+observed working; this is plan-only. Root verifies both before any measurement
+or repair. No live game retry has started.
 
 The navigation and clock source-test/witness/integrated namespaces and both
 quest live namespaces are consumed and immutable. The test browser is absent

@@ -79,6 +79,8 @@ CURRENT (23 Oct):
       Caller1 / no quest data / original guard retires its registered browser.
   [V] Full failure audit: 128 pins / all 16 retained test PIDs gone.
       Original 3 worlds / 18 effects / 7 parents unchanged. Trial stays failed.
+  [>] Claude/Grok diagnosis plans running on the same 12 saved inputs.
+      Requested Claude Opus5.5 high; Root verifies both before another test.
   [V] On-disk navigation table read/audit pass: empty table, 22 bytes.
       Served table/browser winner and actual route still unknown.
   [V] Equal portal-routing implementation task frozen: 6 inputs / 8 groups.
