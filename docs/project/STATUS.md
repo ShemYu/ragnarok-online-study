@@ -210,9 +210,13 @@ lease/runtime stay unbound. [Common full-ledger J source qualifies](reviews/2026
 [The corrected K2 fixture actually passes all seven groups plus the final-deadline case](reviews/2026-10-23-T10.007.md#corrected-k2-fixture-passes-provisional-combined-source-prepared).
 Provisional J+K2 source is prepared unselected/unbound; no integrated controls
 or runtime are admitted. The driver gate is unchanged.
-Both Claude workers are
-retained/released; K2Grok/P2Grok continue,212released/four retained/two active.
-No paired K2/P2 selection or game admission.
+Both Grok corrections are now submitted, read, preserved and released:
+214released/four user-retained/zero active or reclaimable. Root qualifies
+[their two own diagnostic wrappers](reviews/2026-10-23-T10.007.md#both-grok-corrections-preserved-own-diagnostic-sources-qualified).
+Cleanup lacks explicit controller exclusion and individual retained-read
+deadline checks; postchecks accept incomplete pin descriptors and can stop
+on an unprintable exception. These are source findings pending actual common
+controls. No paired K2/P2 selection or game admission.
 Source review finds cleanup-deadline/log-finalization gaps and a postcheck
 test-fixture defect. Fresh test data and corrected image-capture source are
 prepared independently; neither is admitted for runtime.

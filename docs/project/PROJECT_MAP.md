@@ -55,14 +55,14 @@ All four workers released. Seven direct asset copies + fresh fixture checked.
 Next: runtime binding and a separately justified changed quest test.
 Runtime files checked: 199 driver pins / 172 UI pins.
 Six own suites checked: Jboth/KGrok/PGrok pass; ClaudeK/P fail.
-Parallel: 2 Grok correcting cleanup/postchecks; both Claude drafts saved/released.
+Both Grok corrections submitted, reviewed and released; no active Orca worker.
 Root: fresh fixture4 + 59 client/resource/config copies PASS as data.
 Lineage edge observations audited; corrected Claude basis selected (17 vs 15).
 Corrected lineage: all 7 own + 4 common cases PASS.
 Postcheck Claude: all 7 own groups PASS.
 Cleanup: all 7 groups + final deadline PASS after test-fixture correction.
 Provisional combined source prepared, unselected/unbound.
-Next: Grok comparisons -> final integration checks -> changed game trial.
+Next: own/common Grok comparisons -> integration checks -> changed game trial.
 No player PASS; source-only image-capture correction remains independent.
 Fresh test data + corrected hotkey capture source prepared independently.
 Root: test6 failed before UI: process-identity sample + early Chrome cleanup.
