@@ -166,8 +166,10 @@ Original51normal files remain exact; Config copy/normalized fixture qualify.
 No assets served yet. [The199runtime/172UI file set now qualifies](reviews/2026-10-23-T10.007.md#expanded-player-runtime-qualifies-and-independent-webcap-pair-starts):
 new bound-flag-only driver,216audit-artifacts; current-world/HEAD/lease and
 game admission remain next. Astra confirms a4GiB parameter is composable but
-finds a missing exact receipt-policy check; corrected parent/control draft is
-being prepared. No larger allowance is admitted yet. An independent Grok/
+finds a missing exact receipt-policy check. [Corrected parent/control source now
+qualifies; one pure control call is admitted](reviews/2026-10-23-T10.007.md#four-gib-parent-source-qualifies-one-pure-policy-call-admitted).
+Actual seven-group/27variant policy checks are next; no larger game allowance
+is admitted yet. An independent Grok/
 Claude pair prepares an inert bounded image-file capture adapter for hotkeys;
 no actual API/image/service action is permitted in that pair.
 No higher allowance or

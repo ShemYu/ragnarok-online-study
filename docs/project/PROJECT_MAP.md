@@ -55,6 +55,7 @@ All four workers released. Seven direct asset copies + fresh fixture checked.
 Next: runtime binding and a separately justified changed quest test.
 Runtime files checked: 199 driver pins / 172 UI pins.
 Parallel: Grok + Claude prepare the hotkey binary check; no live API actions.
+Root: verify the proposed 4 GiB parent's exact receipt-policy checks.
 Read-only host snapshot PASS: normal pressure, 64 GiB physical RAM.
 Available headroom is not guaranteed; game memory limit stays 3 GiB.
 Content-contract preparation is preserved; its oracle is still unqualified.
