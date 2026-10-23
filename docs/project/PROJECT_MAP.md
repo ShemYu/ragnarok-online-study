@@ -63,11 +63,12 @@ CURRENT (23 Oct):
       18 effects / 7 parents unchanged; both test drivers and caller gone.
   [V] Claude clock source: 24 own + 27 common checks and full Root audit pass.
       25 pins / caller0 / valid original guard; test driver group is gone.
-  [>] Grok clock repair remains active on its independent branch.
-      Same 9cebae1 BASE / 6 inputs / 5 groups; same corrected common checks.
+  [!] Grok clock source rejects the valid input: 7/31 own, 4/27 common.
+      Failure/full audit kept; both providers released. No repair retry needed.
+  [V] Claude 20/20 selected over Grok 9/20 for this source task.
   [V] Actual clock proof: two fresh processes, both startup/transfer seams pass.
       Full Root audit passes: 24 pins / 5 samples each / all test PIDs gone.
-      Finish comparison/integration, then a fresh separately admitted game test.
+      Integrate/verify tracked source, then a fresh separately admitted game test.
   [V] On-disk navigation table read/audit pass: empty table, 22 bytes.
       Served table/browser winner and actual route still unknown.
   [V] Equal portal-routing implementation task frozen: 6 inputs / 8 groups.

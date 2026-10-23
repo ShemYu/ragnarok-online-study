@@ -63,9 +63,10 @@ stated scopes. No test browser has launched; the remaining Grok comparison,
 selection/integration and fresh full-actor clock binding are next. No goal change or
 user decision is needed.
 
-Grok is now [preserved/released and one equal pure call is admitted](reviews/2026-10-23-T10.005.001.md#grok-preserved-and-released-one-equal-pure-call-admitted).
-Root finds a positive token-count defect in source; actual verification and
-comparison remain. Both Claude source-test and actual-clock admissions are consumed and
+Both providers are now [fully audited and Claude20/20 selected over Grok9/20](reviews/2026-10-23-T10.005.001.md#equal-results-audited-and-claude-selected).
+Grok's actual valid input raises call count;7/31own and4/27common pass, result
+stays failed. Both workers are released. Integrate only unchanged Claude and
+verify actual tracked source next. All source-test/clock admissions are consumed and
 fully audited. No game retry follows from these results.
 
 ## Recent verification history
