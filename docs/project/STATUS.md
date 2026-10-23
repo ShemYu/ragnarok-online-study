@@ -92,7 +92,11 @@ passed before the single4988c8d call. Its admission and actual-root-2 namespace
 are now consumed and immutable; the existing inputs/outputs are not fresh.
 
 **Next:** prepare fresh full-actor/current-world bindings, then separately
-admit one browser trial. [All40Lua-route/error groups and the full Root audit pass](reviews/2026-10-23-T10.005.md#all-forty-lua-route-groups-and-complete-root-audit-pass):
+admit one browser trial. [The fresh parent binder draft qualifies](reviews/2026-10-23-T10.005.md#fresh-lua-route-parent-draft-qualifies):
+12metadata/proof groups/14sites fully invert; six served leaves/new private tail/
+Wasm joins retain the same parent body, nine protected and seven Node roles.
+The separate inert materializer draft remains under review. No root-5 exists.
+[All40Lua-route/error groups and the full Root audit pass](reviews/2026-10-23-T10.005.md#all-forty-lua-route-groups-and-complete-root-audit-pass):
 caller0/driver0/valid original guard,22full pins, complete40rows/streams and
 positive cleanup. Admission03418b1 is consumed once. No browser admission exists. [All three corrected-tail regressions and the full Root audit now pass](reviews/2026-10-23-T10.005.md#corrected-tail-regressions-and-complete-root-audit-pass):
 15own/75shared/one-pending, all caller0/driver0/valid original guards, no skips,

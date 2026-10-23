@@ -144,7 +144,9 @@ CURRENT (23 Oct):
       Three caller0/driver0/valid guards; complete streams and cleanup checked.
   [V] New40group source/caller qualifies: 13pins / 21fragments / full inverses.
   [V] All40groups pass; Root22-pin audit / complete streams / cleanup pass.
-  [>] Fresh actor/current-world binding, then separate one-shot browser trial.
+  [V] Fresh parent binder draft qualifies: 12groups/14sites/full inverse.
+      Six static leaves; parent body / nine protected / seven Node roles kept.
+  [>] Review inert source materializer, fresh binding, then one browser trial.
       Source CSP conflicts with embedded Wasm fetch; actual cause not retained.
       Admission consumed; failed namespace immutable; no retry admitted.
       No game patch is installed. Parent progress stays 4/14.
