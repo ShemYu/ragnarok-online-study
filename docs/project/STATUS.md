@@ -25,7 +25,9 @@ optional host-status pair; Astra checks the unresolved dictionary cancellation.
 [Both R8 datasets now qualify; Grok selected; both NPC drafts retained](reviews/2026-10-23-T10.007.md#loose-pair-qualified-grok-data-selected-npc-pair-retained-local-filestore-control-admitted).
 S8Claude's unbound proposal is retained/released; Grok S8 is the only active
 Orca worker (221released/four retained). Root next runs the qualified one-shot
-local FileStore diagnostic. Shared NPC prefix checks are being prepared.
+local FileStore diagnostic: [all5 actual groups/full audit pass](reviews/2026-10-23-T10.007.md#actual-local-filestore-five-groups-and-complete-root-audit-pass).
+Next unbound capture caller/current-world qualification; no Engine admission.
+Shared NPC prefix checks are being prepared.
 Dictionary fault remains open: ready node and request initializer are not joined.
 
 **Latest:** [All three isolated native parser cases now pass Root verification](reviews/2026-10-23-T10.007.md#actual-three-case-native-parser-trial-and-complete-root-audit-pass):

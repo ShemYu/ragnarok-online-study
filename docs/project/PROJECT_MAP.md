@@ -80,9 +80,10 @@ Fleet: 221 released / 4 user-retained / 1 Grok S8 active / 0 reclaimable.
 R8 both Root data PASS; Grok copies selected (20/20 tie).
 N8 both drafts retained/released; shared prefix verification next.
 C2 both own5 + reference10 PASS after fixture correction.
-Select explicit cursor: Claude20 / Grok19; local FileStore proof next.
+Select explicit cursor: Claude20 / Grok19; real FileStore5 PASS.
 S8 Claude draft retained; Grok source review active.
-Local FileStore source checked; one real-file test admitted.
+Local-file admission consumed; no Engine capture admitted.
+Next capture-caller/source/world qualification, parallel NPC checks.
 Dictionary failure stays open; initializer/request association missing.
 No player PASS; source-only image-capture correction remains independent.
 Fresh test data + corrected hotkey capture source prepared independently.
