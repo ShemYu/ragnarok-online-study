@@ -55,9 +55,9 @@ All four workers released. Seven direct asset copies + fresh fixture checked.
 Next: runtime binding and a separately justified changed quest test.
 Runtime files checked: 199 driver pins / 172 UI pins.
 Parallel: Claude hotkey-check draft saved/released; Grok continues.
-Root: policy + pressure controls PASS; check failure-preserving runner next.
+Root: runner controls PASS; one changed quest test admitted after fresh binding.
 Read-only host snapshot PASS: normal pressure, 64 GiB physical RAM.
-Available headroom is not guaranteed; game memory limit stays 3 GiB.
+Headroom is not guaranteed; one 4 GiB test needs fresh normal pressure.
 Content-contract preparation is preserved; its oracle is still unqualified.
 
 No decision is needed from you now. The full-game goal is unchanged.

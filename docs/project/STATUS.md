@@ -173,12 +173,14 @@ natural exit0/full15audit-artifacts; no real parent/game call or larger game
 allowance yet. [New parent linkage and pressure composition source qualify](reviews/2026-10-23-T10.007.md#pressure-composition-source-qualifies-one-pure-call-admitted);
 [Actual eight-group/27check pure pressure controls pass; outer runner source
 qualifies](reviews/2026-10-23-T10.007.md#actual-pressure-fragments-pass-outer-runner-source-qualifies).
-One four-group/eight-case runner control is next; current-world/HEAD/lease
-joins and separate game admission remain. [Claude's inert image-capture
+[Actual four-group/eight-case runner controls pass; one changed4GiB Stage1
+experiment is admitted](reviews/2026-10-23-T10.007.md#runner-controls-pass-one-changed-four-gib-player-experiment-admitted).
+Next bind fresh HEAD/lease/ports, require complete fresh before pressure1,
+run once, then independently audit raw results/cleanup/after pressure. [Claude's inert image-capture
 proposal is retained/released](reviews/2026-10-23-T10.007.md#webcap-claude-proposal-retained-and-worker-released);
 Grok continues that independent hotkey task. No actual API/image/service action
 is permitted in those proposals.
-No higher allowance or
+Only that one changed experiment is admitted; no automatic increase or
 unchanged retry is admitted.
 Physical footprint/headroom remain unknown. Independent
 full-spawn preparation is unadopted; main player repair first.
