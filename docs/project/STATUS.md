@@ -193,7 +193,13 @@ Claude9/10own groups; Grok class-loading error; equal common checks find
 different concrete defects. Select corrected Claude14/20 over Grok10/20 as
 source basis only. No actual API/image/service action is admitted. [All three Claude startup
 drafts are retained/released](reviews/2026-10-23-T10.007.md#all-three-claude-startup-drafts-retained-and-released);
-their Grok counterparts continue, with Root source/controls verification next.
+their Grok counterparts have also submitted and been released. All six drafts
+are preserved; fleet210released/four retained/zero active or reclaimable.
+[Root checks all six source inverses and prepares own-control diagnostics](reviews/2026-10-23-T10.007.md#all-six-startup-drafts-settle-own-control-source-qualifies).
+Six pure fake-boundary calls are admitted after this checkpoint; no game call.
+Source review finds cleanup-deadline/log-finalization gaps and a postcheck
+test-fixture defect. Fresh test data and corrected image-capture source are
+prepared independently; neither is admitted for runtime.
 That one-shot experiment is consumed; no automatic increase or unchanged
 retry is admitted.
 Physical footprint/headroom remain unknown. Independent

@@ -20,7 +20,7 @@ Quest file inventory   [PASS: all 3 files checked]
 Server + file binding  [PASS: current owner and 21 file checks]
 Active quest records   [PASS: fixed loading/shutdown diagnostic; session open]
 Story entry research   [CHECKED: Claude basis; mechanics still incomplete]
-Story implementation   [PLAYER BLOCKED: memory fence + client faults]
+Story implementation   [PLAYER BLOCKED: startup identity + cleanup checks]
 Isolated server test   [PASS: 3 cases, SQL checks and cleanup verified]
 Chinese quest text     [SOURCE PASS: 28 tests + common checks; install is next]
 Existing text recovery [PASS: fixed 152-record tool integrated + checked]
@@ -30,7 +30,7 @@ Full game test         [LATER: 82 functional resource gaps remain]
 Current path:
   Native parser PASS -> servers/client ready -> login/char/map WS traffic
                                                         |
-                          NOW: memory measure + client fault diagnosis
+                          NOW: startup repair + finite verification
                                                         |
                                        real NPC grant -> relog -> restart
 
@@ -54,7 +54,8 @@ Both resource candidates: 19/20. Hotkey plan: Grok18, Claude17.
 All four workers released. Seven direct asset copies + fresh fixture checked.
 Next: runtime binding and a separately justified changed quest test.
 Runtime files checked: 199 driver pins / 172 UI pins.
-Parallel: 3 Grok repair drafts active; all Claude + hotkey pair saved/released.
+Parallel repair drafts: all 6 saved/released; Root checks own controls next.
+Fresh test data + corrected hotkey capture source prepared independently.
 Root: test6 failed before UI: process-identity sample + early Chrome cleanup.
 Read-only host snapshot PASS: normal pressure, 64 GiB physical RAM.
 Test6 pressure normal. Hotkey pure tests find defects; corrected Claude basis.
