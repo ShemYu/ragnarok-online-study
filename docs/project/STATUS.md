@@ -27,16 +27,19 @@ stop semantics and two-character case order. Both workers are preserved/released
 
 **Engine actor source qualified:** [Root checks the unexecuted lifecycle adapter](reviews/2026-10-23-T10.007.md#player-engine-source-qualified-parallel-future-gates-prepared):
 12full pins, exact helper/source comparisons and four narrow corrections.
-No new resource, player interaction or persistence PASS. The UI draft is under
-review; the first grant/relog check will keep the Chinese journal gate separate.
+No new resource, player interaction or persistence PASS.
+[The staged UI adapter and nine material templates now qualify as source](reviews/2026-10-23-T10.007.md#first-stage-ui-and-configsql-materials-source-qualified):
+87full pins, exact13-group UI derivation, three unused config keys removed.
+The first grant/relog check keeps the Chinese journal gate separate.
 
-**Next:** qualify the small UI actor, bind fresh endpoints and
+**Next:** qualify the composed driver/parent, bind fresh endpoints and
 admit one bounded real-player trial: A199 refusal, B200 cancel/dialogue grant/
 repeat with A untouched, then genuine relog. Restart, inactive/later-ID guards,
 installed4848+3assembly/ordinary route and normal Chinese journal stay explicit
-gates. [Two independent future-gate plan pairs are prepared](tasks/T10.007-next-gates.md)
+gates. [Two actual future-gate plan pairs are dispatched](reviews/2026-10-23-T10.007.md#two-independent-future-gate-pairs-dispatched-with-qualified-common-inputs)
 for full quest imports and owned restart, following the user's request for
-more qualified Grok parallelism. Dispatch/results are not yet recorded.
+more qualified Grok parallelism. Both Claude proposals are preserved/released;
+both Grok workers remain active. No proposal selection/runtime credit yet.
 No unchanged parser/source reruns. T10.007/T10.008 remain open.
 
 **Portal guidance:** [actual equal comparison selects Claude20/20 over
