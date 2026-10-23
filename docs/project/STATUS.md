@@ -91,8 +91,11 @@ attempt literal. No actor or game code runs in this source/data materialization.
 passed before the single4988c8d call. Its admission and actual-root-2 namespace
 are now consumed and immutable; the existing inputs/outputs are not fresh.
 
-**Next:** qualify fresh compact Root5-based source/parent/current-owner bindings,
-then separately admit and run the actual browser diagnostic. [Actual integrated5e96cf6 and full Root audit pass](reviews/2026-10-23-T10.005.md#actual-integrated-source-and-complete-control-audit-pass):
+**Next:** bind/qualify the current original worlds, protected effects and final
+parent, then separately admit and run the actual browser diagnostic.
+[Fresh compact source composition and43-pin Root audit pass](reviews/2026-10-23-T10.005.md#fresh-compact-source-composition-and-full-root-audit-qualify):
+root6 has six served leaves/three actor sources and an UNBOUND derivative binder.
+No actors or historical assembly rerun; no runtime fields/live admission yet. [Actual integrated5e96cf6 and full Root audit pass](reviews/2026-10-23-T10.005.md#actual-integrated-source-and-complete-control-audit-pass):
 10/10Python+37/37Node, zero skips;18full audit pins/two executable pins, both
 valid original guards and fresh positive test-process/group absence. Candidate
 26343ef had independently passed the same controls/19-pin audit before integration.
