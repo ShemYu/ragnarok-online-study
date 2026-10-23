@@ -63,12 +63,16 @@ three exact patched donors, three bound actor sources and five served files,
 42full Root audit pins, complete clock/header inverses and only the new bootstrap
 attempt literal. No actor or game code runs in this source/data materialization.
 
-**Next:** bind the final parent/templates to these fresh descriptors and perform
-the existing current-world owner/file/effect checks. The reviewed binder remains
-unbound until its exact source-proof/HEAD literals are supplied. Commit those
-concrete results and a separate one-shot game-trial admission before launching.
-Reuse the qualified algorithms and limits; old receipts alone do not establish
-current-world freshness. The previous observer/response/effect evidence stays.
+[Final parent/current-world binding now passes](reviews/2026-10-23-T10.005.md#fresh-parent-and-current-world-binding-qualify-one-live-clock-fixed-trial-admitted):
+Root actual binder0,82full pins,18effect leaves/seven parents, all three original
+owner/listener pairs and closed template/source joins. Parent has only its
+admission HEAD unresolved; generated clocks/endpoints stay null.
+
+**Next:** this checkpoint admits one fresh root2 quest-loader diagnostic under
+the unchanged120s schedule. Apply the reviewed one-HEAD literal substitution,
+invoke that exact parent once, preserve its actual outcome and audit complete
+guards/streams/quest states/worlds/effects/process closure before any conclusion.
+No unchanged retry, original-world lifecycle authority or full-game acceptance.
 
 The navigation and clock source-test/witness/integrated namespaces and the first
 quest live namespace are consumed and immutable. No test browser has launched.

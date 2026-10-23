@@ -73,6 +73,8 @@ CURRENT (23 Oct):
       Source task self_verified; fresh actor bindings and game test remain.
   [V] Fresh clock-patched actors and five served files materialized and checked.
       42 full audit pins / exact source inverses. No actor has run yet.
+  [V] Final parent and current-game checks pass: 82 pins / all 3 owners.
+      18 effects / 7 parents / fresh templates match. One game test admitted.
   [V] On-disk navigation table read/audit pass: empty table, 22 bytes.
       Served table/browser winner and actual route still unknown.
   [V] Equal portal-routing implementation task frozen: 6 inputs / 8 groups.
@@ -95,7 +97,7 @@ CURRENT (23 Oct):
   [V] Unchanged Claude source integrated as 88577ae; three full blobs match.
   [V] Actual tracked-source verification/audit: 34 own + 53 common pass.
       Source-tool task self_verified; 28 pins / test cleanup checked.
-  [>] Final parent/current-game checks before the new quest game test.
+  [>] Run the new clock-fixed quest diagnostic once, then audit its result.
       No game patch is installed. Parent progress stays 4/14.
       No game design or milestone change. No user action is needed.
 
