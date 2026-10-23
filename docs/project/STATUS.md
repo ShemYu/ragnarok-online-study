@@ -168,8 +168,10 @@ new bound-flag-only driver,216audit-artifacts; current-world/HEAD/lease and
 game admission remain next. Astra confirms a4GiB parameter is composable but
 finds a missing exact receipt-policy check. [Corrected parent/control source now
 qualifies; one pure control call is admitted](reviews/2026-10-23-T10.007.md#four-gib-parent-source-qualifies-one-pure-policy-call-admitted).
-Actual seven-group/27variant policy checks are next; no larger game allowance
-is admitted yet. An independent Grok/
+[Actual seven-group/27variant policy checks pass](reviews/2026-10-23-T10.007.md#actual-four-gib-receipt-policy-controls-pass):
+natural exit0/full15audit-artifacts; no real parent/game call or larger game
+allowance yet. Next new parent linkage, fresh pressure finalization and
+current-world/HEAD/lease joins before separate admission. An independent Grok/
 Claude pair prepares an inert bounded image-file capture adapter for hotkeys;
 no actual API/image/service action is permitted in that pair.
 No higher allowance or
