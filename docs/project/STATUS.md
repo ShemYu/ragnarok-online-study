@@ -205,9 +205,10 @@ with all19roles/33files/95audit-artifacts. [Fresh normal copies and normalizatio
 lease/runtime stay unbound. [Common full-ledger J source qualifies](reviews/2026-10-23-T10.007.md#common-full-ledger-lineage-control-source-qualifies):
 [The eight observations are audited; corrected Claude J basis qualifies](reviews/2026-10-23-T10.007.md#common-lineage-observations-audited-corrected-claude-basis-qualifies).
 [Corrected J actually passes all seven own/four common cases](reviews/2026-10-23-T10.007.md#corrected-lineage-actual-controls-pass-p2-claude-controls-source-qualifies).
-ClaudeP2 own-control source qualifies; one seven-group pure diagnostic admitted.
-ClaudeP2 is retained/released;
-K2both/P2Grok continue,211released/four retained/three active. No game admission.
+[ClaudeP2 actually passes all seven groups; ClaudeK2 control source qualifies](reviews/2026-10-23-T10.007.md#p2-claude-actual-controls-pass-k2-claude-control-source-qualifies).
+One K2 own7+Root final-deadline pure call admitted. Both Claude workers are
+retained/released; K2Grok/P2Grok continue,212released/four retained/two active.
+No paired K2/P2 selection or game admission.
 Source review finds cleanup-deadline/log-finalization gaps and a postcheck
 test-fixture defect. Fresh test data and corrected image-capture source are
 prepared independently; neither is admitted for runtime.
