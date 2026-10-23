@@ -188,8 +188,10 @@ three Claude plus the existing Grok webcap worker. All source-only; Root owns
 comparison/controls and any new game admission. [Claude's inert image-capture
 proposal is retained/released](reviews/2026-10-23-T10.007.md#webcap-claude-proposal-retained-and-worker-released);
 [Grok C is also retained/released; both pure control sources qualify](reviews/2026-10-23-T10.007.md#webcap-pair-retained-pure-comparisons-qualified-three-calls-admitted).
-Root next runs two own-control wrappers and one common eight-case harness;
-no actual API/image/service action is admitted. [All three Claude startup
+[Actual own/common checks expose both raw failures](reviews/2026-10-23-T10.007.md#actual-webcap-pure-checks-expose-both-raw-failures-corrected-claude-basis-selected):
+Claude9/10own groups; Grok class-loading error; equal common checks find
+different concrete defects. Select corrected Claude14/20 over Grok10/20 as
+source basis only. No actual API/image/service action is admitted. [All three Claude startup
 drafts are retained/released](reviews/2026-10-23-T10.007.md#all-three-claude-startup-drafts-retained-and-released);
 their Grok counterparts continue, with Root source/controls verification next.
 That one-shot experiment is consumed; no automatic increase or unchanged

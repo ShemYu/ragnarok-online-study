@@ -57,7 +57,7 @@ Runtime files checked: 199 driver pins / 172 UI pins.
 Parallel: 3 Grok repair drafts active; all Claude + hotkey pair saved/released.
 Root: test6 failed before UI: process-identity sample + early Chrome cleanup.
 Read-only host snapshot PASS: normal pressure, 64 GiB physical RAM.
-Test6 pressure normal; no memory stop. Root tests hotkey helpers in memory.
+Test6 pressure normal. Hotkey pure tests find defects; corrected Claude basis.
 Content-contract preparation is preserved; its oracle is still unqualified.
 
 No decision is needed from you now. The full-game goal is unchanged.
