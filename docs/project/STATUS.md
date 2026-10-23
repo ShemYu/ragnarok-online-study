@@ -96,7 +96,11 @@ using the retained source/witness and exact-revision primary evidence. Define a
 closed correction or discriminator with independent Claude/Grok proposals and
 Root checks. [The twelve-input/six-group pair is now live](reviews/2026-10-23-T10.005.003.md#actual-independent-pair-dispatched),
 with four shared exact-revision sources: Claude Opus5.5high launch options and
-configured default Grok, both confirmed working. This remains plan-only.
+configured default Grok. [Claude is preserved/released and Root checks the
+response path](reviews/2026-10-23-T10.005.003.md#claude-submitted-and-root-response-path-evidence-checked);
+Grok is still working. Root's51pin source/evidence audit passes, but throttle/
+renderer-enable dependencies remain unresolved and no correction is selected.
+This remains plan-only.
 No general orphan/duplicate-event acceptance, timing/cap growth,
 guard change or unchanged retry. All actual-root-3 inputs/outputs/admission are
 consumed and immutable. The single test-keychain argument is relevant to this
