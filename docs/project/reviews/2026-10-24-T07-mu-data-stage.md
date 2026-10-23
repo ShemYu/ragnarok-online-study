@@ -491,3 +491,61 @@ submission/lifecycle or native/map/game/parent-check credit is inferred.
 MuC6+MuD2 focused checks now pass on selected Root source copies. Fresh
 dedicated fixture/19-role projection, normal runtime closure/lease and one
 actual scene remain next; no new actor is admitted.
+
+## MuD final source joined and four web bodies staged
+
+Grok partially recovers and MuD emits valid succeeded worker_done. Root
+fully reads final3715B report, verifies all14closed private outputs/full
+input PRE/POST pins, and joins final driver/GROUPS/EXPECTATIONS to the
+exact byte-identical copies already verified by the two actual controls.
+No replay is needed. Settlement76533B/
+4e2550d3dc5a96cc64590a3bd67e230ea39801a96f353a0eb14f729dd6a54a4a
+records the source/control join and exclusive-private-directory assumption.
+Release455B/ac92ccfe00d759c35528603e8f293d068d13ba881b0564baafe6335b3784f5e3
+captures archive BEFORE deliverya27ba9ddd2a4 acknowledgment. Final selected
+MuC/MuD sources and6+2 helper calls now qualify; no native render actor.
+
+Root personally reads full viewer/bootstrap and checks their exact finite
+derivation from frozen Chapter1 donors: seven unique bootstrap and five
+viewer substitutions, complete forward/reverse reconstruction and all
+worker-declared unchanged copies. Only fixed Mu target/route/source scope/
+admission wrapper changes; no hidden normal-game acceptance. Root creates
+one new private Web directory with exactly four leaves. Viewer/bootstrap
+False-to-True flags invert exactly; this is data preparation, not execution.
+The two already sealed client/worker bodies are copied unchanged with new
+inodes/full EOF/readback. All source postpins, private modes and directory
+fsync pass. Root material17651B/
+90400943053b639a1188a4bc93886a1583e92970dd3136f4ce7e26cfeb6ca564
+records four files/13846590B. Existing105-body/27149083B data stage stays
+unmodified; no unnecessary recopy. Actual native serving/load/draw/Chinese
+UI/game/persistence and current-world lease remain unverified.
+
+## Fixed Mu19 projector prepared and one source mismatch corrected
+
+Astra prepares one UNBOUND project_mu19(read,put) function,36source leaves
+to33destination leaves, no CLI/framework/controls/data execution. Failure
+retains private partial outputs, never deletes/rolls back or grants authority.
+Root supplied I/O/fresh pure G/S child owns complete result/failure/FD
+retirement; no new I/O repair prerequisite or universal-close claim. Future
+B3 full data audit/schema/current source/empty destination bindings remain
+explicitly unbound until repaired B3 is qualified and separately generated
+for Mu. The B4 quest fixture must not be shared.
+
+Root personally reads original19761B/e95ed37c114f4cae6ed38c0afc31fee880eff3466bc118af9e380c4af42bdd2c
+source/report. Independent review and Root find one concrete metadata
+mismatch: fixed oracle stores four nonempty nonruntime roles; B3's exact
+writer map also has web_conf:{}. The original projection refuses at its
+equality gate, or later KeyError if forced to four keys. Correct only the
+fixed expectation to oracle-four plus explicit empty web_conf; the existing
+identity inverse then checks that unchanged379B body. No B3/oracle edit or
+tolerant adapter. Corrected19779B/
+095fd95d680731a632100642d7e75f5ae964b5cecb5001d8d0b1ecceb01120c3
+is an exact one-edit forward/inverse; Python compile-only succeeds.
+
+Root verifies original9/corrected8closed private files and all8/11opened
+input full SHA+C8 pre/post pins. Root byte review14223B/
+c28889f674de9367bec82b6af5dfd119e31d01d0ba911e1c5b5901f3ad339b0a
+records no source execution/data call/actor admission; independent final
+source review/future bindings still qualify separately. Empty Root1 remains
+after Root mistook boolean selfExcluded for a list; Root2 explicitly checks
+the two excluded filenames, with no candidate invocation/replay.

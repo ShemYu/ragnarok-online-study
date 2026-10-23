@@ -212,3 +212,21 @@ missing-final defects. DirectCLI semantic1 stays failedguard; separate
 qualified caller needs complete independent publication proof. Root later
 checks final submission/source/control/profile and full publication before
 any export/game credit. This provisional source is HOLD, not final accepted.
+
+## Second frozen F839 review preserves same three findings
+
+During provider500 Root freezes11current source files, snapshot22556B/
+7f0d7dfa8b8f2b9ef9dc489393800199f784071725c785f0a21f8ad9311f0924.
+Root fully reads independent followup report, verifies17stable opened pins/
+closed outputs and personally checks all three actual paths. Root12964B/
+c2da40e52ce88e4ebcdbf63f7d465e494213085267d0d47174952a8c096bea8c
+keeps HOLD on the SAME three findings, zero new requirements/generation:
+independent remaining-owned closes, full839 closed-ledger/current-C8/four-
+leaf receipt validation, and final file postpins for all consumed code/
+metadata as well as839bodies. New groups5-7 do not cover those missing paths.
+Absent final metadata is not a defect. No calls/export admitted.
+
+Writer later resumes tool activity between provider errors; this report
+describes only its frozen snapshot, not eventual output. Existing guidance
+msg2300a9e249ed remains the same finite correction scope. Root awaits final
+bytes/pins and will qualify actual adoption before tests/full publication.

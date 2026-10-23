@@ -1082,3 +1082,25 @@ No generated data or native/map/game actor is admitted. Full goal unchanged.
 These are immutable Root-captured sources, not a final Grok settlement;
 all four live source owners still retry provider500. No duplicate editor
 or extra Grok start, source/native/map/game acceptance or goal change.
+
+## Grok partial recovery MuD released and Mu web stage verified
+
+MuD completes after provider retries. [Root joins final source to both
+verified calls, releases/archive captures before acknowledgment and stages
+the four Mu web bodies](2026-10-24-T07-mu-data-stage.md#mud-final-source-joined-and-four-web-bodies-staged).
+No native actor or parent credit. [One fixed Mu19 source projection is
+prepared and its single mismatch corrected](2026-10-24-T07-mu-data-stage.md#fixed-mu19-projector-prepared-and-one-source-mismatch-corrected);
+no data execution. The existing105body stage is retained unchanged.
+
+Full259record/3page fleet13 is3active/250released/6retained/0reclaimable,
+10626B/a29d1261a54a69b157b2d53bc1a08fd05b25a34021ea7806a5bd8f5edc12937e.
+B3fix/B4/F839 remain actual live Grok; fresh bounded observations show
+new tool activity between500 retries, not complete service recovery. All
+nine historical attention flags still have nextAction:none with retained
+user ownership preserved. No stopped/replaced/duplicated editor. The async
+Claude fallback choice remains pending and now applies only to remaining
+live workers; no approval is inferred from elapsed time. Local verification
+continues. Full goal/progress unchanged.
+
+[F839 second frozen source snapshot still has the same three findings](2026-10-24-T06-full-spawn-output-budget.md#second-frozen-f839-review-preserves-same-three-findings).
+The now-active writer has not yet submitted/adopted a final verified fix.

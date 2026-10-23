@@ -49,10 +49,11 @@ B3:submitted/released; HOLD4findings/modes -> finite repair admitted.
 B4:existing64body source actual Grok ready after8171b27.
 MuC/MuD:submitted+released, HOLD5findings -> finite UI/driver fixes ready.
 MuC:three fixes + all six actual focused calls PASS/223pins.
-MuDfix/B4/F839/B3fix:four live, all provider500 retries; starts held.
-MuD:both frozen-copy focused calls PASS/65pins; worker final pending.
-Mu19:dedicated freshB3+fixed19view plan reviewed; no data/actor.
-Current4active/249released/6retained/0reclaimable across259records.
+B4/F839/B3fix:three live; partial tool progress between500 retries.
+MuD:both calls PASS/65pins; final source joined/released beforeACK.
+Mu19:fixed projector prepared; one mismatch corrected, final review next.
+Mu Web:four bodies staged/full verified;105body stage unchanged; no actor.
+Current3active/250released/6retained/0reclaimable across259records.
 MuC/B3 prior owners released/archive beforeACK; no cleanup debt.
 Four actual user-retained resources stay;2transferred records have none.
 Trial9 stays failed; known faults stay failed. No new actor admitted.
