@@ -91,8 +91,9 @@ attempt literal. No actor or game code runs in this source/data materialization.
 passed before the single4988c8d call. Its admission and actual-root-2 namespace
 are now consumed and immutable; the existing inputs/outputs are not fresh.
 
-**Next:** execute the single fresh admitted browser trial, then audit its actual
-outcome. [The equal twelve-input/six-group plan comparison is
+**Next:** compare a bounded Lua-startup/CSP repair and preserve the original
+rejection details. The corrected actual trial has run once and its full failure
+audit passes; the quest diagnostic itself still fails at startLua-rejected. [The equal twelve-input/six-group plan comparison is
 self_verified](reviews/2026-10-23-T10.005.003.md#both-plans-preserved-and-corrected-claude-direction-selected):
 Claude17/20 versus Grok15/20; both reports preserved and workers released.
 Root selects Claude's scoped startup pause and genuine-response join direction,
@@ -100,7 +101,7 @@ with explicit corrections to retained waiting evidence, request readiness around
 the resume ACK, and the late-event fence. Neither raw procedure executes unchanged.
 Root's74pin comparison audit and18independent primary responses support the
 normal page-renderer startup path conditionally; installed ACK/response delivery
-still needs a real trial. The focused controls now pass as recorded below.
+is now confirmed by the real trial below. The focused controls also pass.
 The comparison itself establishes plans only;
 no runtime success or content closure is claimed.
 [Root's pure source correction now materializes and passes its independent
@@ -114,22 +115,34 @@ including real reply-handler protocol errors and token reuse before/after join.
 Caller0/driver0/valid original guard, no signals, complete streams and22full
 Root audit pins agree. Driver/caller PIDs and the registered group are absent;
 FD/thread boundaries match. The9d84fe7pure admission is consumed once; no repeat
-is needed. Actual installed Worker startup/response behavior is still unknown.
+is needed. Actual installed Worker startup/response behavior now qualifies below.
 [Fresh corrected actors/served files now materialize and pass Root's66pin
 audit](reviews/2026-10-23-T10.005.md#fresh-worker-corrected-actors-and-served-files-materialize-and-qualify).
-Three full actor sources and five served files occupy unused actual-root-4;
-no actor/game code, runtime inputs/outputs/profile/READY/grant or parent exists.
+Three actor sources and five served files were qualified before root-4 ran.
 The controller fully inverts its four bound fields and12policy edits; launcher/
 proxy differ from qualified root-3 only by fresh namespace fields.
-[Current-world/effect/parent binding and Root metadata audit now pass; this checkpoint
-admits one corrected quest trial](reviews/2026-10-23-T10.005.md#fresh-worker-corrected-parent-binding-and-one-shot-live-admission).
-The binder fully rehashes86entries; Root checks79unique current C8 descriptors,
-all13parent-header inverses, seven Node source joins, all three original owner/
-listener pairs and18effect leaves/seven parents. The source preview still has
-ADMISSION_HEAD=None. Run only the qualified one-header late binder with this
-introducing HEAD, then its exact final parent once in actual-root-4 under the
-unchanged schedule/guards/caps. Actual startup/quest outcome remains unverified;
-preserve and audit the complete real outcome before advancing.
+[Current-world/effect/parent binding and Root metadata audit
+pass](reviews/2026-10-23-T10.005.md#fresh-worker-corrected-parent-binding-and-one-shot-live-admission):
+86binder full-hash entries/79unique C8,13header inverses and all original
+owners/effects agree.
+[Actual corrected trial and complete134pin failure audit now
+qualify](reviews/2026-10-23-T10.005.md#actual-worker-response-repair-qualifies-but-lua-startup-fails):
+e081ff4 admission consumed once; caller1 in12.442s. The owned paused Worker
+acknowledges Network.enable then resume; its genuine response200 and finish join
+the exact page bootstrap request while preserving the raw Worker session.
+Worker startup transport is repaired. Chrome0/valid original G retires naturally;
+Node/proxy remain1/invalid because the diagnostic publishes startLua-rejected.
+Eight parsed requests include one148B failure publication; zero native asset GETs
+or successful quest reports. All15retained test PIDs/four groups are absent,
+original3owner/listener pairs and18effect leaves/seven parents unchanged.
+Root checks complete sources, outputs, guard receipts/streams and FD/thread
+boundaries. The failed namespace is immutable and no retry is admitted.
+Astra and Root source review identify a likely CSP conflict: the five Lua states
+fetch an embedded application/wasm data URI, while connect-src permits only self.
+The original rejection was discarded, so this is not yet a proven runtime cause.
+A CSP-only change may expose another controller gate for non-HTTP events;
+compare narrow repair/evidence plans before implementation. No user action or
+goal change is currently required.
 No general orphan/duplicate-event acceptance, timing/cap growth,
 guard change or unchanged retry. All actual-root-3 inputs/outputs/admission are
 consumed and immutable. The single test-keychain argument is relevant to this

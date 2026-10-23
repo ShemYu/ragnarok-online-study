@@ -125,12 +125,19 @@ CURRENT (23 Oct):
       Root22-pin/full-stream audit passes; caller/driver/group are gone.
   [V] Fresh3 actor sources + 5 served files materialize; Root66-pin audit passes.
       Four Node fields + 12 policy edits invert; other actor behavior unchanged.
-      No actor/game code has run; actual-root-4 contains source/data only.
+      Source checkpoint precedes the single root-4 trial below.
   [V] Current-world/effect and13-header parent binding pass.
       Binder86 full-hash entries; Root79 unique C8 / exact13-header inverse.
       Original3 owners/listeners and18effects/7parents unchanged.
-  [>] One corrected actual quest call admitted; late-bind this HEAD, run once.
-      Installed startup/response and quest result are still unverified.
+  [V] One corrected root-4 trial runs once: real Worker response200 + finish.
+      Owned pause/enable/resume ACKs and raw/canonical session evidence pass.
+  [!] Lua startup rejects before native assets; quest diagnostic stays failed.
+      Caller1 / Chrome0 valid guard / one preserved failure / zero native GETs.
+  [V] Full134-pin failure audit: 15 retained test PIDs / 4 groups are gone.
+      Original3 owners/listeners,18effects/7parents and FD/threads unchanged.
+  [>] Compare narrow Lua/CSP repair and bounded original-error preservation.
+      Source CSP conflicts with embedded Wasm fetch; actual cause not retained.
+      Admission consumed; failed namespace immutable; no retry admitted.
       No game patch is installed. Parent progress stays 4/14.
       No game design or milestone change. No user action is needed.
 
