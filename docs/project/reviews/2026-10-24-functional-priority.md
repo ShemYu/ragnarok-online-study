@@ -960,3 +960,46 @@ inventory4active/247released/6retained/0reclaimable,
 10096B/efdc3e82370027dd78c441d1d05b60497eb690cb00289877c87160bc32c0874c.
 All nine historical attention flags have literal nextAction:none; existing
 retention/release authority is preserved. Full goal/progress unchanged.
+
+## MuC and B3 submissions settled and B4 finite source scope admitted
+
+Root accepts MuC finite-fix source submission only:17closed files, full
+opened-copy pre/post pins, six unexecuted groups, UI49801B/
+0a7b813eae6b0419ef72b4ae5848d8c60898e2c1e43d705d33989e70b9658885.
+Settlement75013B/49f22b909593922c38be5e6ec455f3bf574e0017fc17eb8b43f35237a68fc2f7;
+release455B/cb24c6cca28f838cb5481082c584e9ac9067230b7b25a249364094ff3855d152,
+archive captured BEFORE delivery956a8080303d acknowledgment. Independent
+production/source/control review is next; no map/game or six-call PASS.
+
+B3 final writer28179B/6f652d253faf54e1b7ad9bed0e5d0b55969bbe71a7063b8bafce55cfec646d1b
+is byte-identical to the provisional snapshot. Root fully reads report/recipe
+and verifies67author-opened input pins and six closed outputs. All four
+provisional findings therefore remain: inode-owned rollback/independent
+cleanup, owned-FD close-error release, active10template metadata with stale
+historical flags removed, and full56+7=63 future input closure. Root confirms
+the source paths and enqueues msg4446cf2de97a; the final submission does not
+adopt them. Actual21role/token/port/CORS changes are present, not generated.
+Review6375B/9577b12b6b84db4dc50af116f1d06ca3e5d19f6e930291d5d4f40cfe55095f66.
+The source directory0755/files0644 also fail the required private modes.
+No credential/runtime data was generated. Root preserves these bytes and
+requires corrected private outputs; no chmod is used to conceal history.
+An empty Root1 settlement remains after its mode assertion; authoritative
+Root2 settlement37728B/13285f17b7e75ce87559f5fb42318741ca5ba1e89b23f529891fc0c100d6b21f
+records HOLD. Release455B/d6a3ac8f7aa349528f7e0dd68b01b0668c7ebf0aa9ef29f78a1230cf3a9af8ee
+captures archive BEFORE delivery46f6591470d7 acknowledgment. A finite repair
+packet is being prepared; no generator call is admitted.
+
+Root personally reads B4 report/brief/decision/closed future contract and
+verifies17byte-identical payloads/1030881B, all full source/copy SHA+C8 and
+32closed private files. Manifest46572B/
+71b487c6f4667b3261700fa7beaeb4f77f483bf62301b0aaf81c4a6873bb8429.
+Root admission25169B/f5e664f84a5b3e4932bf37ed3f16fd097790b3ed2b6503eac6c50b18e09265d4
+admits only one derivative of the existing64-body materializer for actual
+Grok source authoring after this Git checkpoint. Native B3 origin/remote/
+config remain null; endpoint data goes in exact closed backendBinding,
+top source aliases stay four-field descriptors. Actual composed driver/UI/
+Engine, selected64normal bodies/Chinese overlays, exactly two client URL
+spans and three Config edits, all full inverses and256/192 pin caps remain
+required. B3 final data/schema pins stay unbound until separately qualified.
+No original asset/credential/native-role body or actor is read/run now.
+No framework/diagnostic generation, full-game scope change or parent credit.

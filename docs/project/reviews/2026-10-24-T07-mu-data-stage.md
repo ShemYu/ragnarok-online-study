@@ -324,3 +324,11 @@ B3 fresh native fixture writer and F839. They own separate ignored output
 trees; previous source candidates and evidence remain preserved/released.
 Root later verifies the fixed eight finite groups and production caller
 changes. No new map/game/browser/Engine actor is admitted.
+
+## MuC finite source submitted and released before acknowledgment
+
+[Root verifies all17 closed source files and full opened-input pins](2026-10-24-functional-priority.md#muc-and-b3-submissions-settled-and-b4-finite-source-scope-admitted),
+accepts source submission only and releases/archive captures the actual
+Grok owner before acknowledgment. The same six controls remain unexecuted;
+independent source/oracle review precedes Root qualification and calls.
+MuD finite driver fix continues independently. No fresh map actor/credit.

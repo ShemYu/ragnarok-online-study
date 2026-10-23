@@ -31,10 +31,19 @@ Live response dispatch still has source review only; no production change.
 actual fresh data/runtime/native verification remains next.
 [MuC/MuD sources are submitted, pinned and released, HOLD for five finite
 source findings](reviews/2026-10-24-T07-mu-data-stage.md#muc-mud-submitted-held-five-finite-corrections-frozen).
-[Disjoint UI/driver fixes and a fresh21role backend fixture writer are actual\nGrok ready](reviews/2026-10-24-functional-priority.md#four-qualified-scope-grok-sources-actual-ready)\nalongside F839. Current all257record/3page inventory:\n4active/247released/6retained/0reclaimable. Four user-retained resources
+[Disjoint UI/driver fixes and a fresh21role backend fixture writer are actual
+Grok ready](reviews/2026-10-24-functional-priority.md#four-qualified-scope-grok-sources-actual-ready)
+alongside F839. Current all257record/3page inventory:
+4active/247released/6retained/0reclaimable. Four user-retained resources
 stay; two transferred records have none. No missing-status lifecycle action
 is inferred. No new actor admitted. Effective model/cost/provider comparison
 remain unknown.
+
+[MuC and B3 source submissions are settled and released; B4 scope admitted](reviews/2026-10-24-functional-priority.md#muc-and-b3-submissions-settled-and-b4-finite-source-scope-admitted).
+MuC six-call source/oracle verification is next. B3 remains HOLD for four
+verified source findings and private-mode failure; bounded repair preparation
+continues. B4 source launch follows this checkpoint, no data/actor admission.
+The four-live inventory above is historical; MuC/B3 owners are now released.
 
 D15 passes all eight pure groups and Root's complete183pin audit: unchanged
 G10s/512MiB/grace3, natural0/positiveguard/0.229156s/24068096B sampled peak,
