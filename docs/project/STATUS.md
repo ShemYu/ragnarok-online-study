@@ -25,8 +25,8 @@ current map/worker/GND join; no extra water deployment is justified. B2U/B2D sou
 [All eight selected focused backend checks now pass Root verification](reviews/2026-10-24-functional-priority.md#eight-backend-focused-checks-verified-fresh21-fixture-source-frozen).
 The failed original Root caller remains preserved. UI composition is byte-
 qualified; actual native runtime bindings/HTTP/auth/SQL/game remain open.
-[One finite actual pending-producer poll check](reviews/2026-10-24-functional-priority.md#one-actual-pending-backend-control-admitted)
-is source-qualified and admitted after this checkpoint; no production change.
+[The actual pending-producer poll check passes Root116pin verification](reviews/2026-10-24-functional-priority.md#actual-pending-backend-control-passes-root-verification).
+Live response dispatch still has source review only; no production change.
 [MuC/MuD sources are submitted, pinned and released, HOLD for five finite
 source findings](reviews/2026-10-24-T07-mu-data-stage.md#muc-mud-submitted-held-five-finite-corrections-frozen).
 [Disjoint UI/driver fixes and a fresh21role backend fixture writer are actual\nGrok ready](reviews/2026-10-24-functional-priority.md#four-qualified-scope-grok-sources-actual-ready)\nalongside F839. Current all257record/3page inventory:\n4active/247released/6retained/0reclaimable. Four user-retained resources

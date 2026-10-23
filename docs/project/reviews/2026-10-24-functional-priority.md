@@ -897,3 +897,22 @@ checkpoint admit exactly one original G10s/512MiB/grace3/no-native/1MiB
 call, full stream/receipt/guard/source/retirement/context checks. No actor.
 The actual live response dispatcher remains source-inspected only; this
 single helper check cannot establish native backend/auth/SQL/game/save.
+
+## Actual pending backend control passes Root verification
+
+The one fixed actual producer pending-to-completion call returns natural0,
+positive unchanged original G10s/512MiB/grace3/no-native/1MiB,0.167851s,
+1130496B sampled RSS. Root verifies complete independent literal stdout,
+empty stderr, complete streams/receipt/limits, original S retirement,
+current PID/group absence,116full pre/post source/executable/artifact pins,
+FD/thread/HEAD/clean caller context. Audit59062B/
+0e66c2b3b0150ff4e465a97432e7f29b0189b7e7088aecd6b1816f38b9d72d42
+has errors[]. Sampled RSS is not an unsampled peak claim.
+
+This dynamically exercises the actual producer polling loop with same-
+Request completion after settlement starts, one canonical event and no
+sticky fault/republication. It resolves that specific earlier helper
+coverage limit. Actual live response dispatcher remains source-inspected
+only. No replay of prior eight, changed production, native backend/auth/
+SQL/browser/game/save credit or new actor. Four independent Grok sources
+continue while Root prepares exact fresh native data bindings.
