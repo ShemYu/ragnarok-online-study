@@ -108,15 +108,20 @@ from common ee23e4e; [submissions, preserved evidence and releases are checked](
 Root reads both complete candidates and confirms fixable source/handoff issues:
 Grok's test copies full recovered descriptions; Claude's rollback advice can
 discard earned progress, and its three-definition proof is insufficient.
-Neither raw candidate is selected or installed. Repeat applicable own-source
-checks, correct the chosen source/handoff, then verify isolated server loading
+Neither raw candidate is installed. [Root repeats both actual own-source checks
+and selects Claude15/20 as the correction basis over Grok13/20](reviews/2026-10-23-T10.007.md#root-repeats-both-actual-source-checks-and-selects-correction-basis).
+Claude21tests/Grok16reported groups pass with valid original guards and full37pin
+audit. Correct the selected source/handoff, then verify isolated server loading
 and persistence before user evaluation. Thirty input files/78full Root pins, collision/import and
 reference-state boundaries qualify. [Fresh installed quest DB source capture/audit
 passes](reviews/2026-10-23-T10.007.md#current-installed-quest-db-source-closure-verified-read-only):
 six GETs, three exact source files/4848declarations/no target collision, original
 container/owners preserved, valid original G/clean retirement. Actual parser/DB
-fixture, character ownership and persistence stay unrun. In parallel, qualify
-the supported Chinese System-table overlay task and normal-session bindings. This successful
+fixture, character ownership and persistence stay unrun. In parallel,
+[T10.008 supported Chinese System-table tool is frozen and Root-qualified](reviews/2026-10-23-T10.008.md#equal-source-task-personally-qualified-and-frozen):
+16real input files/36full pins/12source joins, no module/config patch. Start the
+actual independent Claude/Grok generator/test/runbook pair from its introducing
+commit while Root corrects the NPC handoff and prepares isolated SQL/map proof. This successful
 fixed diagnostic uses reproduced private-loader routing:0→5520own keys, only
 16912/21001inspected, original lazyInit not executed; no ordinary session,
 effective winner, MainQuest/story or full-content acceptance. Functionality

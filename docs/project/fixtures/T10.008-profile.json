@@ -1,0 +1,25 @@
+{
+  "schema": "T10.008-equal-true-text-generator-profile.v1",
+  "task": "T10.008",
+  "packet": {"files": 16, "bytes": 2901930, "manifest_bytes": 4713, "manifest_sha256": "80b30e532f24a2abbe7b4908a8c8eb07201958ce388499d449f73f0a9e4de58e"},
+  "input": {"file": "OngoingQuestInfoList_True.lub", "bytes": 2248204, "sha256": "49264cdd9b30ecad3416c721d153f91688455daa243e6af6ae04ad49bb805c00"},
+  "mod_manifest": {"name": "tc-true-quest-text", "version": "0.1.0", "author": "RO solo project", "description": "Traditional Chinese True quest-text overlay", "requires": {"app": ">=1.6.3", "era": "renewal"}},
+  "receipt": {
+    "schema": "ro-solo-true-quest-text-mod.v1",
+    "status": "ok",
+    "slug": "tc-true-quest-text",
+    "input": {"bytes": 2248204, "sha256": "49264cdd9b30ecad3416c721d153f91688455daa243e6af6ae04ad49bb805c00"},
+    "files": "exactly two objects, each with path/bytes/sha256; paths are relative POSIX paths to mod.json and the table, in that order"
+  },
+  "groups": [
+    {"id": "A", "requires": "real retained positive input, exact three-file fresh output, exact manifest/receipt schema, independent output readback,0700/0600"},
+    {"id": "B", "requires": "second fresh actual-input run produces identical two mod files; no parse/transcode/Lua/module/Config code"},
+    {"id": "C", "requires": "wrong size and same-size wrong hash refuse; missing/directory/FIFO/symlink source refuses without blocking or creating output"},
+    {"id": "D", "requires": "existing directory/file/symlink output and symlink path components refuse without overwriting; induced write/readback failure produces no successful receipt"},
+    {"id": "E", "requires": "production-code controls, packet unchanged, truthful source-only report; supported order/collision/config/decoder/normal-journal/rollback runbook"}
+  ],
+  "score_dimensions": ["correctness and evidence", "task coverage", "verification design/results", "handoff clarity", "Git/state discipline"],
+  "points_per_dimension": 4,
+  "unit_command_seconds_max": 120,
+  "source_tool_pass_is_runtime_or_story_acceptance": false
+}
