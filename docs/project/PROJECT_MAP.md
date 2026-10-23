@@ -46,10 +46,10 @@ Current path:
 Root verified both NPC metadata proposals; Grok selected20/20 vs19/20.
 Name-binding shared controls PASS for both; Grok narrow repair selected.
 UI integration/syntax, strict driver pin and runtime inventory PASS.
-Fresh fixture/materializer source PASS -> one fresh data call -> game test.
+Fresh fixture data PASS -> normal/runtime data call -> game binding/test.
 Full cleanup/original-state preservation PASS. No quest/player case PASS.
 Independent web capture: prior attempt refused before create; originals PASS.
-GET-only binary: Grok source submitted; review pending. Claude no output.
+GET-only binary: two source defects found; bounded C5 repair ready.
 NPC36 source controls + caller5 controls + integrated syntax PASS.
 Dictionary raw proposals refused; controller/driver corrections now active.
 Two independent Grok source workers active; C4 released after submission.
