@@ -110,16 +110,21 @@ active; no candidate is qualified yet. Root separately copies/checks51unchanged
 normal-client files/72936301B into a fresh namespace, with a new Config copy and
 two empty private directories. No actor or existing save is touched.
 
-**Next:** correct and qualify the small observability draft before a separate
-changed diagnostic admission. Root's11pin provenance audit/15exact inverses and
-Python AST pass; JS syntax/behavior are unrun, console meaning was dropped and
-loader DOM code stays unknown. Resolve those limits, keep G/parent/3GiB and all
-fault gates unchanged. No new live call, OS probe or higher allowance is admitted.
-Physical footprint, pressure, headroom and dictionary failure cause remain
-unknown. Astra confirms the loader code must be projected from its fixed status
-text, with only one bounded observation and no late result mutation. The new
-draft remains unqualified. Independent full-spawn preparation is unadopted;
-main player repair first.
+**Corrected diagnostics qualify:** [Root checks the source, actual syntax and
+nine finite behavior groups](reviews/2026-10-23-T10.007.md#corrected-metadata-source-and-nine-finite-controls-pass).
+Recognized console templates retain meaning; the one-shot dictionary observation
+returns only whitelisted state/code, with timestamps and no late writes. Both
+actual Node calls exit0 under valid original guards. These synthetic checks do
+not establish real CDP behavior or the dictionary failure cause. New runtime
+closure qualifies192files/165UI pins; G/parent/3GiB and all fault gates remain.
+Claude's new19-role fixture passes Root's69pin audit and is released; Grok is
+still active. No fixture is selected and no new game call is admitted yet.
+
+**Next:** finish the equal fixture comparison, normalize the selected data and
+perform fresh HEAD/lease/current-world binding before one separately admitted
+changed diagnostic. Physical footprint, pressure/headroom and failure cause
+remain unknown. No OS probe or higher allowance is admitted. Independent
+full-spawn preparation is unadopted; main player repair first.
 A199 refusal, B200 cancel/grant/repeat and genuine relog remain unverified.
 Restart, inactive/later-ID guards, installed4848+3assembly/ordinary route and
 normal Chinese journal stay open. No unchanged trial, syntax or parser rerun.
