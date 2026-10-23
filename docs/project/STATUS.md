@@ -24,7 +24,9 @@ provider comparison is claimed for the new corrections.
 [Fresh fixture actual verification passes; normal/runtime data call admitted](reviews/2026-10-23-T10.007.md#fresh-fixture-actual-pass-and-normalruntime-data-call-admitted).
 [Normal/runtime data actual verification passes; C5 starts](reviews/2026-10-23-T10.007.md#normalruntime-data-actual-pass-and-third-grok-correction-starts).
 C5/D10/D11 are active:3active/4retained/228released/0reclaimable.
-Fresh metadata normalization and final game binding are being prepared.
+[Normalizer source qualifies; final binder needs a narrow closure fix](reviews/2026-10-23-T10.007.md#metadata-normalizer-qualified-final-binder-dependency-gap-found).
+One metadata-only normalization call is admitted after this checkpoint;
+no game binding or actor call is admitted.
 No new game/browser/Engine capture admission. Fresh normal10/runtime data is exact/unbound.
 Dictionary abort, actual resource routes and NPC dialogue remain open.
 
