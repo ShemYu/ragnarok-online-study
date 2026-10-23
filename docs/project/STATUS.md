@@ -78,14 +78,22 @@ directory are missing. No browser or player case runs. Root checks232complete
 Engine wires/692audit-artifact pins. All four test containers/network are absent,
 volume retained, originals/parent boundaries match. The trial stays failed.
 
-**Next:** review the actual equal Grok/Claude normal-client correction pair,
-then qualify the smallest source/material correction before a separately
-admitted changed trial. Both receive25identical frozen files/BASE b86e714;
-their work is source-only. Independent full-spawn contract preparation also
-proceeds without game actions; its typed oracle still needs Root qualification.
+**Client correction qualified:** [Both actual provider reports are checked and
+released; one changed trial is admitted](reviews/2026-10-23-T10.007.md#normal-client-correction-pair-reviewed-source-qualified-fourth-trial-admitted).
+Claude18/20/Grok17/20 are source-only scores. Root verifies293source/artifact
+pins and selects corrected early directory refusal plus the existing UI origin
+for CLIENT_PUBLIC_URL. Fresh51-file normal copies, two empty private directories
+and a new19-role fixture qualify; Engine/UI/parent bodies remain unchanged.
+Fleet188released/four user-retained/zero active or reclaimable.
+
+**Next:** final head/input/lease/current-world binding, then invoke the single
+admitted fourth changed fresh Stage1 call and audit the full outcome personally.
+No old fixture volume is adopted. Independent full-spawn contract preparation
+is preserved/metadata-checked, but not adopted or dispatched: its typed oracle
+and common controls still need Root qualification. Main player test comes first.
 A199 refusal, B200 cancel/grant/repeat and genuine relog remain unverified.
 Restart, inactive/later-ID guards, installed4848+3assembly/ordinary route and
-normal Chinese journal stay open. No unchanged trial or parser rerun.
+normal Chinese journal stay open. No unchanged trial, syntax or parser rerun.
 T10.007/T10.008 and all82functional gaps remain open; no user decision.
 
 **Portal guidance:** [actual equal comparison selects Claude20/20 over
