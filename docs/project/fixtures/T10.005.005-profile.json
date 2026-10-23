@@ -1,0 +1,135 @@
+{
+  "aggregate_retained_text_bytes": 16777216,
+  "benchmark_type": "independent_source_and_retained_evidence_plan_only",
+  "groups": [
+    {
+      "criterion": "All14chains, sole optional404 terminal gap, authentic report and separate shutdown error reconstructed without causal overclaim",
+      "id": "N01"
+    },
+    {
+      "criterion": "Minimum complete negative-body EOF/callback plan with bounded reads and timing, unchanged successful handling",
+      "id": "N02"
+    },
+    {
+      "criterion": "Exact owned shutdown ACK/order/cleanup/deadline policy retains real transport errors and refuses unexpected cases",
+      "id": "N03"
+    },
+    {
+      "criterion": "Full source derivation/inverses/changed pins and compact incomplete-chain witness; no synthetic acceptance",
+      "id": "N04"
+    },
+    {
+      "criterion": "Meaningful positive/refusal controls, real runtime evidence and full-goal limits",
+      "id": "N05"
+    },
+    {
+      "criterion": "Original G/clocks/caps/state and honest research/model/cost/unrun handoff preserved",
+      "id": "N06"
+    }
+  ],
+  "inputs": [
+    {
+      "bytes": 47815,
+      "package_path": "controller.source",
+      "sha256": "3bd0902fc264d35c0bf64fe1a82f76bfd4456512f6a9f494fdbc7886b782925d",
+      "source_execution_allowed": false
+    },
+    {
+      "bytes": 650825,
+      "package_path": "worker.source",
+      "sha256": "db6f0ed37c40fea30c2e513e31468ca657d5b3dca5570837375d66fd5ba205ba",
+      "source_execution_allowed": false
+    },
+    {
+      "bytes": 46357,
+      "package_path": "proxy.source",
+      "sha256": "7131a115ceb5a677680354e4c0ceb24584227fa7db17f20baf2768c4a96d06a4",
+      "source_execution_allowed": false
+    },
+    {
+      "bytes": 8519,
+      "package_path": "bootstrap.source",
+      "sha256": "866b5761f93b053323b272503328c2c2f071a697252b10caabdc202e8ca760b5",
+      "source_execution_allowed": false
+    },
+    {
+      "bytes": 48129,
+      "package_path": "node.json",
+      "sha256": "ba3c99cd2545f6e72c5bf54101c4794f2d65510296d6a3584a09624a3d0dd858",
+      "source_execution_allowed": false
+    },
+    {
+      "bytes": 24636,
+      "package_path": "proxy.json",
+      "sha256": "8f519a5fd28581b8b7af67ac9465ee2ccbaa8d3d390d59f731ce25749eedd659",
+      "source_execution_allowed": false
+    },
+    {
+      "bytes": 5535,
+      "package_path": "capture.json",
+      "sha256": "3cbe707c926346b15fe5cd7fd7af59a0ad025fe1da1577b6d6f44f1b104eb4cc",
+      "source_execution_allowed": false
+    },
+    {
+      "bytes": 31035,
+      "package_path": "caller.json",
+      "sha256": "353f10eb5fa6f37de64b9073ec51b5b0313a8c5cbd4e051d3c5292fddcde0bb6",
+      "source_execution_allowed": false
+    },
+    {
+      "bytes": 75704,
+      "package_path": "root-failure-audit.json",
+      "sha256": "e7518805530e34c87a67fe09f88468a090b9d3baebc95eb4c88fed65e60bdc96",
+      "source_execution_allowed": false
+    },
+    {
+      "bytes": 3531,
+      "package_path": "report.json",
+      "sha256": "f910cf3dc56ba78799a8651ef7c407d28d1bdb9d3c70f2a98eb6dd342a1a1d0c",
+      "source_execution_allowed": false
+    },
+    {
+      "bytes": 3442,
+      "package_path": "chrome.json",
+      "sha256": "1ccbfa3e37dde24cc3c563407a7947d5c29840c46130fea3ca2a67b31d65741d",
+      "source_execution_allowed": false
+    },
+    {
+      "bytes": 2902,
+      "package_path": "node-input.json",
+      "sha256": "f1f9fab0df1c6e930985e8db3090d21cf584cf36627f2fb1060af0d2ed60f442",
+      "source_execution_allowed": false
+    },
+    {
+      "bytes": 14,
+      "package_path": "negative-body.txt",
+      "sha256": "3521021a2e875fbc52ae82e2a3fea5024d507bbc919f504ca8521292c3fe14d3",
+      "source_execution_allowed": false
+    },
+    {
+      "bytes": 3732,
+      "package_path": "shared-advice.md",
+      "sha256": "4fcb5b7a1fcb7fd4919e9862a00fc1da28a51c3b700c97c237b9dd05d1ac2d80",
+      "source_execution_allowed": false
+    }
+  ],
+  "manifest": {
+    "bytes": 2905,
+    "sha256": "29ba68695994559be40daf5203b44b62ef87a18a5d65df5b62e6761a5a741476"
+  },
+  "official_requests": 6,
+  "original_G_and_120s_schedule_unchanged": true,
+  "per_response_bytes": 4194304,
+  "primary_source_urls": [
+    "https://fetch.spec.whatwg.org/#concept-body-consume-body",
+    "https://streams.spec.whatwg.org/#rs-default-reader-read",
+    "https://chromedevtools.github.io/devtools-protocol/tot/Browser/#method-close",
+    "https://nodejs.org/docs/latest-v24.x/api/globals.html#class-websocket"
+  ],
+  "report_bytes": 8192,
+  "research_minutes": 20,
+  "root_scoring": "WORKFLOW.md five dimensions0-4; plan-only, not implementation/runtime acceptance",
+  "runtime_allowed": false,
+  "schema": "T10.005.005-negative-body-shutdown-plan-profile.v1",
+  "source_execution_allowed": false
+}

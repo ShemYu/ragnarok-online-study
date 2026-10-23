@@ -155,7 +155,8 @@ CURRENT (23 Oct):
   [!] Optional Worker404 has no terminal; full diagnostic reaches cutoff.
       Separate shutdown socket error also remains. No content acceptance.
   [V] Root144-pin audit / 15test PIDs / 4groups / original worlds pass.
-  [>] Compare equal C/G negative-body/shutdown plans, then bounded correction.
+  [V] T10.005.005 freezes14equal inputs / six groups / readonly source plans.
+  [>] Dispatch both real C/G plans, compare, then bounded correction.
       Admission consumed; failed namespace immutable; no retry admitted.
       No game patch is installed. Parent progress stays 4/14.
       No game design or milestone change. No user action is needed.
