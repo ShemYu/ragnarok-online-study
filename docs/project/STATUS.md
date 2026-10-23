@@ -13,21 +13,27 @@ dictionary abort/load405/map-connection settlement stop later cases. Root's
 complete failure/preservation audit passes; no B200assignment/reconnection or
 parent-check credit. 4/14 is a check count, not measured full-content coverage.
 
-**Parallel work:** B1 genuine backend, D16 host, D14 UI, F1 game-test
-continuation and C7 caller are the five expected live Grok sources. D15 source
-is submitted/pinned and its worker released; independent preparation of its
-eight pure groups is active, no source/runtime PASS yet.
-CLEAN1 two-file cleanup is checked and released. Fleet5active/6retainedrecords/
-234released after D15 release; prior zero-reclaimable inventory is being refreshed; four actual user-retained resources plus two old
-transferred records. All six C5 pure-control groups remain Root-verified.
-No binary capture or fresh game actor is admitted. Finish the frozen scopes;
-additional diagnostics need a concrete question that selects a real repair.
-F1 does not automatically wait for all dictionary repairs. Its known faults
-remain failed; genuine native logout/all3WSclosure/fresh SQL gate continuation.
-New save405 or uncertain state stops. B1 genuine isolated backend
-source worker is ready, with a narrow UI backend-origin supplement frozen; Root separately freezes the
-mu_fild01 client/resource binding for actual content work.
-Provider comparison remains incomplete; effective model/cost unknown.
+**Parallel work:** B1 genuine isolated backend is the remaining live Grok
+source worker. D15,D16,D14,F1,C7 are submitted and their workers released;
+Root verifies each before any user evaluation. The next qualified parallel
+task is F2, limited to two actual quest/logout defects found in F1.
+Fleet245records/1active/238released/6retained/0reclaimable, all three pages
+checked. Four actual user-retained resources stay; two transferred records
+have no resource. Six Grok sources ran at the peak; exact model/cost unknown.
+
+D15 source qualifies with exact maps/39spans and179fullpins. Only the controls
+copy is bound; the component remains unchangedfalse. One existing G/S
+eight-group pure run is admitted after this Git checkpoint, not a game actor.
+D16 source review finds no concrete new blocker; seven groups are prepared
+but unexecuted. D14 diagnostic UI is held for four concrete defects; it is
+not an automatic F1 prerequisite. F1 is held for sticky logout-wait failure
+and valid native backend responses being misclassified as faults. Root stages
+byte-identical private copies after an ambiguous worker path/mode handoff.
+C7 source is submitted/pinned/released; no actual binary capture is admitted.
+No fresh game actor is admitted. Finish bounded scopes and prioritize real
+backend/gameplay/content work. All six C5 pure groups remain verified.
+B1 has its narrow UI backend-origin supplement; Root separately freezes the
+mu_fild01 client/resource binding. Provider comparison remains incomplete.
 
 The [full-spawn output-budget measurement passes](reviews/2026-10-24-T06-full-spawn-output-budget.md#actual-bounded-measurement-and-root-audit-pass):
 839sources/723206physical lines require172547908canonical JSONL bytes, below

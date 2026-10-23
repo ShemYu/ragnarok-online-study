@@ -200,3 +200,80 @@ UI donor40108B unchanged79d21e7518eb0685d8371c8c9c2d32a8ab2ea3d2755be49795c9ac0c
 The original B1packet stays immutable. After checkpoint send concrete source
 scope guidance to the active B1dispatch; enqueue is not proof of adoption.
 No actor/native/backend/game PASS. Keep fixed budgets/goal/overlays unchanged.
+
+## Source settlements and bounded correction decisions
+
+Root processes the complete D16,D14,F1 delivery and B1 heartbeat, with each
+accepted source submission released/archive captured and lifecycle persisted
+before deliveryaac74ba566bcACK. This accepts submissions, not their correctness.
+D16 settlement99776B/SHA47ab93fe08c541df722958848618566468531f442e0d5abedcfdf3263d25c8d9;
+lifecycle1101B/SHA4751d083601ac84a4f78569f32dfb5876217760b266d34bb91bd9c742730be96.
+D14 settlement73634B/SHAe2cee6f17a54abb3247ccae4f91f6b60e52cbd2cfffc3df4778a9d28c98d8784;
+lifecycle1101B/SHA50554cfc506e45a377404413478d0741fe5a173d0f70583cf8e73a2e0e19603d.
+F1 settlement35920B/SHA4d446a05016b2275570d9612a51b691dcaf8537155c51d8b8eaff69407e3b329;
+lifecycle1100B/SHA11d69a6f9693a041b2273a0a840ecdcad69acde356dac18cf9fed448b480bee0.
+
+Root's dispatch ambiguously joined permission text and output paths. D16 output
+is preserved at literal D16-host-outcome-bound-grok-10700/files0600; F1 output
+is preserved under functional-evidence-grok-1/0700/0600 with metadata0644.
+Root makes private0700/0600 byte-identical F1 staging copies, without changing
+the originals. Staging manifest30885B/SHAe3f507d4a88e1731b08b9c13c5d4df21f4f805c6360dc4095b07e16d2bf723b2;
+copies[].copy carries current identity; old worker pins remain provenance.
+
+Actual Astra F1 review5991B/SHAea753f947b74d7b3e682b05d9b143c7dfb9ed0f343f3743428cb31944b91816a
+and38fullpre/postpins find two blockers, personally confirmed by Root.
+A rejected logout wait can still pass after later positive packets because
+classification ignores waitError. Also the blanket save-path veto and broad
+load-status veto reject legitimate native HTTP200 responses, while the old
+observer never records their success. F2 is limited to sticky wait refusal
+and exact owned backend response metadata, preserving legacy dictionary/load405
+matching, new-fault stops, all3WS closure, SQL/identity/native/clock gates and
+eight groups. Groups01/02/03 need these changed paths;04–08 are focused helpers,
+not eight full Engine scenarios. Backend HTTP success is transport evidence,
+not parsed JSON/auth/save persistence proof. No F2 actor/source task is admitted
+until its exact common B1 interface is frozen. No extra socket is preauthorized.
+
+D14 independent report4993B verifies76inputpins/maps/six unchanged spans.
+Root reads actual call paths and confirms four blockers: a browser-evaluate
+closure captures a Node constant; RESULT opens write-only then reads it;
+a valid before-snapshot prefix is lost when disposal fails; Playwright event
+rows are retained/serialized twice outside the shared event count.
+Controls mask these paths. This diagnostic UI stays HOLD; no automatic D17
+or new framework is launched. It does not block F1 by default.
+
+D16 independent report4890B/SHA5bbe31b630aca8ae7b03f223e0cb863305bce6f3898080b4baa5afe84eddfed8,
+pins5207B/SHAbc14672183a7e73968f91d2b3bd7c5de037016346787e20380aeef5844a417e7,
+closes99fullpre/postpins and exact maps/13declared/10whole spans, with no concrete
+new blocker. Root accepts the additive snapshot fields prospectively: D14
+does not require exact keys or consume these counters, accepts null pageMs,
+and observer/overflow faults remain fatal. This is source compatibility only.
+Seven actual-function groups and a minimal entry are unexecuted; Chromium
+sourceURL exposure is unknown. No native diagnostic/parent credit.
+
+C7 completes next. Root reads the full3877Breport, verifies packet/source/output
+pins, accepts the source submission and releases/archive captures before
+delivery6145d23894c3ACK. Settlement30771B/SHA7c9fff89a281cd77795d7cbb38c46dc2f6bbcc739dc4aca54c535af8310b4ac8;
+lifecycle640B/SHAddbc09a9f3836715d19d5a87178c5ad9c9c43a4f85754a0c7af194ae9a1af33a.
+No capture is admitted. Caller/controls24568/28202B remain unexecuted.
+Fresh245row/three-page inventory has1activeB1/238released/6retained/0reclaimable,
+no actionable nextAction. Four actual user-retained resources plus two
+transferred/null-resource records are preserved. Fleet evaluation4532B/SHA
+4054775ce7b6383d8add69dc0a3d4e0deb2f0bec98e5d68f5d6e25e2fbb24b57.
+Six actual Grok sources ran at the peak; effective models/cost remain unknown.
+
+## D15 source qualification and one pure run admission
+
+Root verifies four full forward/inverse maps,39declared span hashes/36unchanged,
+the5609B Node body, actual final same-birth lookup/deadline join before signal,
+and exact reserved-publication accounting. First preparation stopped before
+writing bound files: Root incorrectly required an uncommented driver binding
+line; the actual line includes its safety comment. The empty root1 directory
+is retained. Root2 verifies that exact commented false line and changes only
+the controls boolean to true. Component63819B remains byte-identicalfalse;
+controls26955B/SHA655e5245ed5bfb0052113f076a71c62c930da7b4b460574e0c6d1b2942983742.
+Both compile only; no execution yet. Qualification94194B/SHA
+c1e82a4f23156ee130ba6ef3aea9f077e5d22c453c5ecbab1b6783faaea5e02c
+closes179fullpins. After this checkpoint Root admits one existing unchanged
+G/S call at10s/512MiB/grace3/no-native/1MiB to the eight pure groups.
+Full streams, natural0/positiveguard, retirement, postpins and caller context
+are mandatory. No browser/Engine/native actor or game acceptance is admitted.

@@ -71,3 +71,8 @@ expectations, qualified publication semantics and finite wrapper controls
 before actual Grok implementation. Existing two-file reference stays locked.
 This is not lexer/full-inventory/native monster/quest/save/full-game acceptance;
 4of14/all82functional gaps and the full Renewal scope remain unchanged.
+
+
+## Functionality priority at source-wave settlement
+
+[Current source decisions](2026-10-24-functional-priority.md#source-settlements-and-bounded-correction-decisions) keep the full839wrapper unadmitted. B1 backend and a narrow two-defect F2 quest/logout correction take priority. No new spawn execution or content credit.
