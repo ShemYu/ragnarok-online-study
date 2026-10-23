@@ -135,7 +135,9 @@ CURRENT (23 Oct):
       Caller1 / Chrome0 valid guard / one preserved failure / zero native GETs.
   [V] Full134-pin failure audit: 15 retained test PIDs / 4 groups are gone.
       Original3 owners/listeners,18effects/7parents and FD/threads unchanged.
-  [>] Compare narrow Lua/CSP repair and bounded original-error preservation.
+  [V] Equal Lua-startup plans checked: Claude13/20 versus Grok14/20.
+      Both preserved/released; Root25-pin audit. Corrected shared HTTP route chosen.
+  [>] Implement protected local Wasm route and bounded original-error summary.
       Source CSP conflicts with embedded Wasm fetch; actual cause not retained.
       Admission consumed; failed namespace immutable; no retry admitted.
       No game patch is installed. Parent progress stays 4/14.
