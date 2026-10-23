@@ -27,9 +27,11 @@ serving, build inputs, browser winner and route remain unknown.
 [T07.006.002 now freezes the equal implementation contract](reviews/2026-10-23-T07.006.002.md#frozen-implementation-contract):
 six readonly inputs/eight pure groups, request-local type200 policy, hidden
 maintenance and stale-work fencing. Root resolves the two independently found
-deadline/removal ambiguities. Commit this introducing BASE, then dispatch both
-actual isolated Claude/Grok implementations. Workers author tests; Root executes
-both and independent controls after submission. No patch is installed.
+deadline/removal ambiguities.
+[Both actual isolated Claude/Grok implementations are now dispatched](reviews/2026-10-23-T07.006.002.md#actual-equal-implementation-pair-dispatched)
+from44afe8e: identical actual specs/BASE/task/profile, setup skipped, both live.
+Workers author tests; Root executes both and independent controls after
+submission. No patch is installed.
 
 Functionality remains first; **4/14 parent checks, about29%**. All82functional
 resource gaps remain open. No full-game scope change or new user decision.

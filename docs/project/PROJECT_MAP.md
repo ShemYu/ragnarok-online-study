@@ -46,7 +46,8 @@ CURRENT (23 Oct):
       Served table/browser winner and actual route still unknown.
   [V] Equal portal-routing implementation task frozen: 6 inputs / 8 groups.
       Hidden guidance, ordinary portals and stale-work fences are in scope.
-  [>] Dispatch actual Claude/Grok pair; Root verifies both submissions.
+  [>] Actual Claude/Grok pair dispatched on separate branches from 44afe8e.
+      Same task/profile/spec checked; both live. Root verifies submissions.
 
 Earlier checkpoints (their next actions can be superseded):
   [V] Browser integration plan checked; strict ownership/clocks stay.
