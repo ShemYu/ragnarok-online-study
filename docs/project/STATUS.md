@@ -91,8 +91,10 @@ attempt literal. No actor or game code runs in this source/data materialization.
 passed before the single4988c8d call. Its admission and actual-root-2 namespace
 are now consumed and immutable; the existing inputs/outputs are not fresh.
 
-**Next:** prepare the existing one-header late binder, commit a separate one-shot
-admission, then run/audit the actual browser diagnostic.
+**Next:** [one fresh root6 browser diagnostic is admitted](reviews/2026-10-23-T10.005.md#one-fresh-negative-lifecycle-browser-diagnostic-is-admitted).
+Late-bind only ADMISSION_HEAD to that introducing commit, invoke the exact
+parent once, then personally audit complete results/closure. Preserve failure;
+no unchanged retry. All original guard/clock/cap/ownership rules remain.
 [Fresh parent/current-world bindings and Root audit pass](reviews/2026-10-23-T10.005.md#fresh-parent-and-current-original-world-bindings-qualify):
 84full-hash entries/77unique current C8/20independent complete source reads;
 three original worlds/effects unchanged,13-header/canonical clock inverses pass.
