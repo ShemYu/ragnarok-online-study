@@ -140,8 +140,9 @@ CURRENT (23 Oct):
   [V] Lua-route source materializes: 12 spans / 2 joins / full inverses pass.
       Root12 source/output pins; produced JS/Wasm/actors have not run.
   [V] Exact new-tail regression bindings qualify; old test bodies unchanged.
-  [>] Run15own/75shared/one-pending in parallel once; audit complete results.
-      New40group route/real-completion/error draft continues independently.
+  [V] All15own/75shared/one-pending pass in parallel; full53-pin audit passes.
+      Three caller0/driver0/valid guards; complete streams and cleanup checked.
+  [>] Review/bind40group route/real-completion/error controls, then run once.
       Source CSP conflicts with embedded Wasm fetch; actual cause not retained.
       Admission consumed; failed namespace immutable; no retry admitted.
       No game patch is installed. Parent progress stays 4/14.
