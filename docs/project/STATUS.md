@@ -27,10 +27,7 @@ The failed original Root caller remains preserved. UI composition is byte-
 qualified; actual native runtime bindings/HTTP/auth/SQL/game remain open.
 [MuC/MuD sources are submitted, pinned and released, HOLD for five finite
 source findings](reviews/2026-10-24-T07-mu-data-stage.md#muc-mud-submitted-held-five-finite-corrections-frozen).
-Root freezes disjoint UI/driver fixes and a fresh21role backend fixture
-writer source task, ready after this checkpoint. Existing F839 Grok source
-remains live. Current all254record inventory before starts:
-1active/247released/6retained/0reclaimable. Four user-retained resources
+[Disjoint UI/driver fixes and a fresh21role backend fixture writer are actual\nGrok ready](reviews/2026-10-24-functional-priority.md#four-qualified-scope-grok-sources-actual-ready)\nalongside F839. Current all257record/3page inventory:\n4active/247released/6retained/0reclaimable. Four user-retained resources
 stay; two transferred records have none. No missing-status lifecycle action
 is inferred. No new actor admitted. Effective model/cost/provider comparison
 remain unknown.

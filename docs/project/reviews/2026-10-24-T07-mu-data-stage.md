@@ -314,3 +314,13 @@ preserved after a review pin-schema mismatch; Root2 is authoritative, no
 candidate execution or actor. Admit these source tasks after this Git
 checkpoint; Root later personally qualifies all relevant changes/controls.
 No new native render/game actor, no full105body loading or gameplay claim.
+
+## Mu finite correction workers actual ready
+
+[Fresh all-page fleet and receipts](2026-10-24-functional-priority.md#four-qualified-scope-grok-sources-actual-ready)
+confirm MuC taskbc32b6a22213/ctxe6da1f5a7b3b and MuD taskbe91e92ef190/
+ctx020a02115c7a are actual live Grok source workers after91a49db, alongside
+B3 fresh native fixture writer and F839. They own separate ignored output
+trees; previous source candidates and evidence remain preserved/released.
+Root later verifies the fixed eight finite groups and production caller
+changes. No new map/game/browser/Engine actor is admitted.
