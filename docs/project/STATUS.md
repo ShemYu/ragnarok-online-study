@@ -99,10 +99,12 @@ Three source/control files only; Root owns later verification/commit/integration
 ten full sources/twenty excerpts, embedded Worker prefix claim, real error/ACK
 test hooks and unchanged launcher/parent vetoes. Same source worker continues;
 no new launcher protocol or tail-only regression repeat is required.
-In parallel, [T10.006 freezes the entry-story interaction evidence task](reviews/2026-10-23-T10.006.md#root-preparation-and-equal-contract-frozen):
-ten equal inputs/six groups, three typed client records and two personally viewed
-official Taiwan panels. Observable mechanics/rewards/save rules remain unknown;
-real independent Claude/Grok research dispatch is next. No script is implemented.
+In parallel, [both T10.006 entry-story researchers are live](reviews/2026-10-23-T10.006.md#actual-independent-research-pair-dispatched)
+from exacta41da72:Claude task_f8a1a2159ba3/ctx_bf84b2d00994 and Grok
+task_fcc48247e1ca/ctx_c36f5ab5ada6, configured defaults. Same ten inputs/six
+groups, three typed records/two personally viewed official Taiwan panels;
+disjoint ignored reports. Observable mechanics/rewards/save rules remain
+unknown. Root reads/verifies both before contract selection; no script exists.
 [Both independent T10.005.005 plans are personally checked](reviews/2026-10-23-T10.005.005.md#both-plans-checked-and-corrected-combined-direction-selected):
 Claude15/20 and Grok15/20, plan only; neither raw fix is accepted. Both complete
 reports are preserved and workers released;169released/four retained/zero
