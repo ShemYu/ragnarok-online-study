@@ -1103,3 +1103,25 @@ Latest: first capture stops on omitted image volume field BEFORE any creation.
 All13GET wires/original preservation audited; no file capability PASS.
 Both N9 and D9Claude source submissions retained/released; only D9Grok active.
 Next Root controls + API contract and narrow caller failure-path checks.
+
+
+## Fresh Mu3 caller returns and passes whole-source structural review
+
+Grok taskdddc284cf372/ctx7f5c46355887 returns a source-only26436-byte
+caller, SHA0e105ad4a0aae1a7d117e3fb75bc077c62586b434f8dc5b3047340d379b7e5f8.
+Root verifies all13 opened current pins, nine original/copy byte joins,
+eight closed outputs, and exact whole-source forward/inverse reconstruction:
+six admission/destination/qualification metadata replacements plus two
+closed prior-identity insertions. Writer,63 inputs,21 roles/36 leaves,
+15 runtime tokens and originalG10/512MiB/no-native limits are unchanged.
+Structure15781/583e8f5d5f944ecf324f2b6d501e7d93ad6ab728c4234864f47a0367d69da87c.
+Independent semantic review remains pending; no new data or actor admitted.
+
+The original Root checker assumed a seal sidecar and41 insertion lines;
+both assumptions were corrected by inspecting the sealed eight-file set
+and36-line insertion before any publication or actor. Source was unchanged.
+Author explicitly releases with closed_agent_terminal/captured archive
+before deliveryd53e6164885b ACK. Current fleet2active/277released/7retained,
+zero reclaimable. B4 header and FD formatter corrections remain independent
+live Grok work. Current map-step estimate stays75%; overall4/14/about29%
+major checks, with no full-content coverage claim or goal-changing blocker.

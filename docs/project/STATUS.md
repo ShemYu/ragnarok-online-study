@@ -38,8 +38,9 @@ all111 body joins/1285 placements load; one animated model has864NaNs
 only in its first retained frame. Complete Root776checks/771pins/all252
 Engine wires pass failure/preservation audit; the scene remains failed.
 The finite sampler patch now qualifies and passes all22 focused Root tests.
-The new isolated four-file Web stage verifies. Three Grok tasks are active:
-fresh-fixture caller, B4 header correction and FD diagnostic retention.
+The new isolated four-file Web stage verifies. The fresh-fixture caller returns
+and passes Root whole-source structural verification; semantic review remains.
+Two Grok corrections remain active: B4 header and FD diagnostic retention.
 One finished sampler terminal is retained under Orca user_takeover;
 other settled authors are released with captured archives.
 Current map-render verification estimate75%; overall4/14/about29% checks.
