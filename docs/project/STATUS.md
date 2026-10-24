@@ -15,8 +15,10 @@ Root verifies all34exact terrain-name records/42relations across63catalogs;
 Claude20/20selected after full actual/oracle comparison, Grok16/20has a
 reproduced strict-JSON source defect and remains actual-held. Both sources/
 tests are personally checked and workers preserved/released; zero reclaimable.
-Next34terrain bodies through existing decoder/normal-reader architecture,
-after fixed source/reference admission. No body/gameplay or82gap closure yet.
+All34terrain bodies already exist in prior qualified native-reader evidence;
+[reuse them before new recovery](reviews/2026-10-24-remaining-map-bodies.md#existing-native-terrain-bodies-avoid-a-duplicate-recovery-pass).
+Next current full34body reconciliation/fixed allowlist, then fresh normal
+delivery admission. No new body/gameplay or82gap closure yet.
 Ordinary playtest remains blocked by the freshly confirmed native-pipe failure.
 
 **Latest playable-integration result:** [Settled re-entry and bounded normal integration pass](reviews/2026-10-24-normal-integration.md#settled-re-entry-and-bounded-normal-integration-pass).

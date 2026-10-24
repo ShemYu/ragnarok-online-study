@@ -821,3 +821,33 @@ Ordinary quest/travel/save verification remains held by the native-pipe failure.
 No installed asset, game/save/SQL/server state changes in this metadata task;
 Git rollback covers documentation, not ignored private evidence or earlier
 installed assets. Full Modern/Renewal scope remains unchanged.
+
+## Existing native terrain bodies avoid a duplicate recovery pass
+
+Before starting a new decoder job, independent metadata review finds all34
+declared terrain names already captured by the qualified current-five native
+reader. Root personally reads that [complete acquisition qualification](2026-10-24-T07-mu-data-stage.md#current-five-native-acquisition-passes-the-complete-root-audit)
+and both complete audit metadata files. The prior job has26literal map chains,
+70distinct map bodies,71asset requests plus health,137902535retained bytes;
+complete Root audit111checks/103pins passes. Its body/headers are qualified,
+but constructors/rendering/ordinary gameplay remain unproved.
+
+Exact metadata: current-five-actual-domain-review-1/HTTP_BODY_AUDIT.json32931B/
+SHA256f53e02475f820a39be6622fca4cab4e6882e50e136d0f9bf3381191d234d388b;
+current-five-complete-audit-root-1/AUDIT_ROOT.json119327B/SHA256
+4e04f89b6ef52465edefd50182078d64693e47f071d70ad42f86b1e48dd845ab.
+Prefixes are private `.tools/renewal/`. Every selected query joins one retained
+native logical name/percent-decoded target,200/complete/declared length/full
+SHA/storage verification and its retainedBodyPins descriptor. All34sizes equal
+the selected record real_size:97037820B total. The old protected full pins bind
+both selected archives and the same five-archive stack. This does not prove
+which archive won or exact archive-range equality from matching length alone.
+
+Root corrects the next action: reuse this qualified native body evidence,
+instead of decoding/reacquiring the same34files again. This checkpoint admits
+one read-only complete current34body hash/identity/header reconciliation and
+private fixed allowlist preparation. No archive read/decoder/native process,
+HTTP request, installed file/save/server action is admitted here. Next normal
+delivery uses retained exact bytes, fresh live preflight and a bounded projection
+of the already-qualified four-GET source. Full constructors/dependency/loading
+remain subsequent gates. No parent percentage or82gap closure follows.
