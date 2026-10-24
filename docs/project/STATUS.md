@@ -13,18 +13,20 @@ dictionary abort/load405/map-connection settlement stop later cases. Root's
 complete failure/preservation audit passes; no B200assignment/reconnection or
 parent-check credit. 4/14 is a check count, not measured full-content coverage.
 
-**Parallel work:** [Mu runtime C/Engine and existing parent reuse pass full
-Root qualification; three actual Grok source tasks run](reviews/2026-10-24-functional-priority.md#mu-runtime-configuration-qualified-while-three-grok-source-tasks-run).
-Root independently reconstructs the whole24-field C/10-field Engine,
-all19 roles/P251/UI119/513slots; current original world/images checked.
-Next after checkpoint: current HEAD/lease/fourports/output/header bindings,
-then one owned synthetic scene via unchanged G390/4GiB/3/native.
-No scene result yet. Mu19 data remain PASS112checks/85pins/33leaves.
-Combined-nine finite export PASS63checks/44pins/all4pre-call files; full839 open.
-Live Grok: B4 caller fe6df2b4cd87/ctxdc84619e0299; world source repair
-6f34a7a0b17f/ctx4f84c4376600; ten existing finite controls
-d8c9b9b293e4/ctx78b8b9408528. All are source-only and independent.
-Settled template owner released/archive; no completed cleanup debt.
+**Parallel work:** [Owned Mu scene FAILED; complete Root failure audit passes;
+two independent finite Grok repairs ready](reviews/2026-10-24-functional-priority.md#owned-mu-scene-failed-source-repair-scopes-independently-verified).
+One actualG24.819s/about2.82GiB sampled: partial rendering/105exact bodies,
+but6unpinned startup resources and numeric evidence fail. Root verifies
+825checks/754pins/all245Engine wires/current cleanup/original preservation.
+BrowserACK/natural0, SQL/native afterfailure passes, owned resources absent,
+dedicated volume retained. No replay/PASS/game credit. Astra diagnosis next.
+B4 outer HOLD2(systemPython nlink,metadata triples) and world observer
+HOLD2(alias error propagation,raw-byte proof) are source-only and released.
+Root verifies all independent reviews; new97copy/35copy source-fix packets
+ready after checkpoint. Ten existing finite controls Grok taskd8c9b9b293e4/
+ctx78b8b9408528 live independently. Fleet24:268records/3pages,
+1active/261released/6retained/0reclaimable. No completed cleanup debt.
+Combined-nine finite PASS63checks/44pins/all4expected files; full839 open.
 No parent/gap/game credit;4/14/about29%, all82gaps and full goal unchanged.
 
 [All six actual MuC focused calls pass complete Root223pin verification](reviews/2026-10-24-T07-mu-data-stage.md#actual-six-muc-focused-calls-pass-complete-root-audit).

@@ -49,8 +49,9 @@ B3:one actual Mu21 data run PASS/36files/126checks/112pins.
 B4:six source fixes qualified; separate36file data PASS/127checks.
 MuC/MuD:submitted+released, HOLD5findings -> finite UI/driver fixes ready.
 MuC:three fixes + all six actual focused calls PASS/223pins.
-B4caller/world-source repair/ten existing controls:three actual Grok live.
-Mu C/Engine +existingparent reuse Root-qualified -> bind -> one scene next.
+B4caller HOLD2 +world source HOLD2 -> finite repairs ready aftercheckpoint.
+Ten existing controls:actual Grok live; Mu numeric source diagnosis:Astra.
+Mu oneactualscene FAILED;105bodies+partialdraw;Root825failurechecks PASS.
 MuD:both calls PASS/65pins; final source joined/released beforeACK.
 Mu19:actual33leaf projection PASS/112checks/85pins -> runtime C next.
 Mu client:259selected files +five archives Root verified; two dirs added.

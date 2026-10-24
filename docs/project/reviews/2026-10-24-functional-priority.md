@@ -1524,3 +1524,40 @@ existing finite controls](2026-10-24-T06-full-spawn-output-budget.md#third-indep
 B4 caller and world repair continue independently. All settled owners are
 released/archive captured. Full goal remains unchanged;4/14/about29% and
 all82functional resource gaps remain open.
+
+## Owned Mu scene failed source repair scopes independently verified
+
+[One actual owned Mu scene fails; Root verifies full failure/preservation
+evidence825checks/754pins, all245Engine responses and current cleanup](2026-10-24-T07-mu-data-stage.md#actual-owned-mu-scene-fails-complete-failure-and-preservation-audit-passes).
+Partial rendering and105matching bodies are real; the six unpinned startup
+resources/numeric evidence and group observation remain open. No replay,
+scene PASS or parent/game credit. Originals are preserved.
+
+[B4 outer is held for two deterministic pre-G defects;97-copy finite fix
+packet is ready](2026-10-23-T10.007.md#submitted-b4-outer-held-for-two-pre-g-source-defects).
+Its actual source owner is released/archive beforeACK. The source-only
+world derivative also settles/releases beforeACK: candidate37596 bytes/
+bce5536119e8fd93289d829b764f1397c3cf5e7511719b6b2cc4c7c7b90cedad;
+settlement14847/b997187b...,release455/4fa3a4d4....
+Root verifies18author input pins/eight closed outputs, then Astra's26stable
+inputs/11raw spans/eight closed outputs. HOLD2: a per-request alias protocol/
+transport error can become a clean-unavailable result; submitted partitions
+use character slices with byte offsets and fail both byte roundtrips.
+All17 unchanged helpers and the actual narrow delta join. No observer runs.
+
+Root personally verifies both counterpaths, all review pins/anchors/closure,
+the Mu driver-group source review3pins/7spans and final-binding16pins/8spans:
+decision82469 bytes/
+673c6f502479f40867c28ef83682952c5f8263c2dac6fd0a022df3a36ec0b769.
+World finite-fix packet35copies/38696 bytes/
+3e528f0b136dcfded15b9ea3f386fd8142ee5b5741e6e87c09dcb1da4b179829,
+brief2670/f7226198.... Only new alias error propagation and regenerated raw
+byte proof are next. Original G/S/HTTP helpers/caps and all82gaps stay intact.
+
+After this checkpoint start those two independent actual Grok source repairs
+while the ten-existing-control author continues. Mu evidence diagnosis is
+independent and uses Astra. Fleet24 enumerates all268records/3pages:
+1active Grok,261released,6retained,0reclaimable. Four actual user-retained
+resources stay; two transferred records have none. Historical attention
+rows have literal nextAction none; they do not authorize speculative cleanup.
+Full Modern/Renewal goal remains;4/14/about29% and all82gaps OPEN.

@@ -969,3 +969,67 @@ check full inverse bindings, current pins, input caps, positive closure,
 all Mu result/SQL/native/cleanup and original-world evidence personally.
 Failure and partial evidence remain failure, no replay or goal reduction.
 This synthetic scene gives no normal-game/Chinese/story/save credit.
+
+## Actual owned Mu scene fails complete failure and preservation audit passes
+
+At admission HEAD c092f9abc6e54c645e7fbb0572cc843589b186d9 Root fills only
+pending C/Engine authority and the existing three parent/outer headers.
+Full inverses pass; bound C215232 bytes; closed outer projection398<=1024.
+Binding194122 bytes /
+33b2784a65e0508f124800d1dfb261e4d322da8037bfbc653cbac9cb1acb78cb.
+Root rehashes all five archives/4,608,553,685 bytes in64KiB chunks before use.
+Independent final-binding review5459 bytes/f8a334a8...,16stable inputs,
+eight raw spans/closed outputs, finds no source binding blocker.
+
+The first shell invocation uses a relative config argument. P2 refuses at
+line14 before config read, pressure, output creation, parent or G. Root
+verifies all four outputs absent and preserves that pre-G refusal568 bytes/
+bcb1f7f625be53c0bb9a00e242519e56d90975afeb24901ea688e82c19ce125d.
+The intended invocation record had absolute arguments; Root separately
+records the actual relative mistake and then supplies absolute arguments.
+This is not a scene replay: the original G call was still unconsumed.
+
+The one actual G call then runs and FAILS: natural driver1, driver_nonzero,
+guard false, signals empty, both owned groups empty. Unchanged390s/4GiB/
+grace3/native/1MiB capture. Actual24.819254s, sampled peak3,022,946,304B
+(about2.82GiB; sampling is not OS containment). No replay is admitted.
+
+Three retained frame observations show93/186/837 draw calls, WebGL0,
+no lost context, zero pending textures,1285placements accounted, no null
+models and zero water geometry. This is partial rendering evidence.
+The complete UI verdict remains false: conditional_unknown/sha_mismatch/
+finite_uploads/worker_data/case_failed. All105 expected bodies match their
+exact pinned hashes and27,149,083decoded bytes. Six extra startup resources
+all return200 with385,942decoded bytes; they are unpinned, not evidence
+that any of the105 known bodies changed. Total111/27,535,025.
+Worker numeric/upload evidence was not published before the fatal check.
+No whole-scene, normal-game, Chinese, story, save, gap or parent PASS.
+
+Browser.close has positive ACK, natural Chrome0, EOF, reaped leader and
+absent browser group/endpoint. Remote0 and close-controller0; scene Node1
+is preserved. The postscene SQL/native read runs exactly once after UI
+failure: both scoped characters offline/unchanged, both quest snapshots
+empty, preservation bytes unchanged, four native logs quiet.
+Engine records callback failure, no cleanup/work-exit error,245 complete
+HTTP wires/579246bytes. All four new containers and the owned network are
+API-absent; the dedicated SQL volume is retained. Original five containers,
+owners, mounts/backings/listeners/socket remain unchanged. All retained
+test PIDs and both groups are currently absent.
+
+Root complete failure/preservation audit418767 bytes /
+076e3a6fab6096619cd249cf4dd7cbe423fdb8edb087bf78a427663b793b44da:
+825checks/all true/errors empty,754full pins, all245 response frames joined,
+six fresh owned-resource API checks. A first read-only audit used ordinary
+BytesIO, which HTTPResponse closes; Root uses the existing retained-buffer
+pattern and repeats only the artifact audit. The game/guard is not replayed.
+Fresh current world32119 bytes/
+eddabc8606c4dd4a598532fda673a24736c28e3a51d5c4454d293e879f6648e7.
+
+Source review identifies a separate possible false driver-group refusal:
+G.snapshot synchronously spawns/reaps ps, but the driver trusts its stale
+same-group rows. The actual offending row was not retained, so historical
+causation is unproven. Minimal DRIVER-only current kernel recheck is the
+next source correction; original G stays unchanged and live/unknown rows
+still refuse. The UI/Engine failures stay independently fatal.
+Astra is checking the numeric/upload evidence and finite six-resource
+source provenance; no broad scan exemption or new diagnostic framework.
