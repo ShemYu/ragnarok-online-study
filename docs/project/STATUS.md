@@ -42,6 +42,10 @@ geometry execution is admitted and no goal-changing issue/user decision appears.
 Root's independent mesh comparator now passes350checks/10authored positives/
 170corruptions after two advisory faults reproduce and are fixed. Exact full
 expected model702 bytes are projected from the consumed reference, without replay.
+[Rounded-column admission preparation passes Root review and controls](reviews/2026-10-24-direct-dependencies.md#rounded-column-admission-preparation-passes-root-review):
+178helper assertions and eight Root boundary cases; no observer integration or
+acquired execution. It detects rotated subnormal collapse without a new arbitrary
+scale floor or mesh-comparison tolerance.
 [Unbound caller V3 passes the67Root controls plus four creation regressions](reviews/2026-10-24-direct-dependencies.md#unbound-caller-creation-authority-is-corrected-before-binding);
 Root reproduces provisional-namespace failure writes in V2, then separates
 unqualified creation checks from trusted ownership. Continuity starts at the

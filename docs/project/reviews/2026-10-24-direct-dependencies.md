@@ -5002,3 +5002,34 @@ preserved. The first red-script draft had a wrong-mode test neutralized by
 umask077; Root corrects that authored injection with explicit chmod before
 claiming the reproduced hold. No completed actual call is replayed. Grok's
 original remains live and independent; no correction basis is selected yet.
+
+## Rounded-column admission preparation passes Root review
+
+Astra prepares independently authored three-column arithmetic for the strict
+static2.3 identity-local-matrix subset. Root personally reads the complete
+3235B helper,3588B qualifier and5048B report, then reruns the unchanged qualifier:
+178assertions/36refusals/22admissions pass, natural0/no stderr,0.038036s observed
+outer time. All five full helper-file SHA/C8 pins remain equal. This is a
+pre-VM admission check; no body, mesh oracle or acquired code executes.
+
+The helper applies ZXY rotations and scale with Float32 destination writes,
+retaining binary64 operands, then requires finite nonzero column squared
+lengths and finite rounded normalizations. No arbitrary scale floor or epsilon.
+Root independently checks eight signed rounding boundaries: exact half of the
+minimum Float32 subnormal refuses at identity, its next chosen binary64 neighbor
+passes; rotated0.70/0.71times the minimum subnormal respectively refuse/pass.
+The latter two scales have equal scalar Float32 rounding, discriminating this
+guard from a scalar-only check. Refusals leave the fake call counter unchanged.
+All eight cases pass. The helper is qualified preparation only, not integrated
+observer behavior, actual admission, geometry or rendering evidence. Both
+originals must still be reviewed before choosing their correction basis.
+
+Private t07-014-023-rounded-columns-helper-1/ROUNDED_COLUMNS.mjs3235B/SHA
+648dfd4b8487c5c197facf8a53af7670e695d563442e88ad9eece41aa78c7244.
+Private t07-014-023-rounded-columns-review-root-1/:
+
+| File | Bytes | SHA256 |
+|---|---:|---|
+| AUTHOR_RERUN_ROOT.json |2053|8127dd51225d0eb44b7bb70837ef903ebbde404423df4df19a8b71cec2597324|
+| ROOT_BOUNDARY_CONTROLS.mjs |1534|048009612239dd878b6569e21c218dfcf604c3e93df3323c20f54654652711df|
+| ROOT_BOUNDARY_CONTROLS_ROOT.json |1219|6b4d2ee4ec17cb1145114ee8b1e280e43b540376d43e2cc65e2032b26672746b|
