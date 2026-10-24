@@ -41,7 +41,10 @@ observations; multiple holds reproduce. Raw Claude13/20 versus Grok10/20;
 both held. [Finite correction brief](tasks/T07.007.014.023.001.md) freezes the
 required repairs. [Correction434e264 is fully preserved/released; Root50tests
 pass but three independent regressions hold it](reviews/2026-10-24-direct-dependencies.md#geometry-correction-is-preserved-and-three-root-regressions-hold-it).
-Root owns the narrow publication/retirement/deadline follow-up before integration.
+[Root C201778b1now qualifies53author/66independent controls and exact integration](reviews/2026-10-24-direct-dependencies.md#root-geometry-follow-up-qualifies-and-exact-integration-passes).
+The three holds are corrected on a separate branch; focused integrated CLI/
+authored checks pass. Next: bind/requalify the caller and separately admit one
+actual compile. No actual execution yet.
 [Full936geometry planning metadata passes16293Root checks; equal .024brief frozen](reviews/2026-10-24-direct-dependencies.md#full-geometry-planning-metadata-qualifies-and-the-extension-brief-is-frozen).
 [Both plans now start fromd70abcd on reused separate branches](reviews/2026-10-24-direct-dependencies.md#independent-geometry-extension-source-plan-wave-starts).
 They plan the next NONE/FLAT subset and all59broader frontiers independently of

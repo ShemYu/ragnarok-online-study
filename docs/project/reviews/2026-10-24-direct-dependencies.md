@@ -5309,3 +5309,76 @@ Private t07-014-024-launch-root-1/:
 | GROK_SPEC_ROOT.txt |15261|001cf160bf7da3c27126e4ab87c0553be7f71f81d0a191a893692aa24fc918cd|
 | CLAUDE_START_ROOT.json |2297|5b67d29e0895a998622d0f3004bc563bdde2674a0b2071249f4260c25e2c42f1|
 | GROK_START_ROOT.json |2277|e7756cf501e8e6aa4fef1f64309f0a877c47ca2749cb121ea39b950e42dfef3d|
+
+
+## Root geometry follow-up qualifies and exact integration passes
+
+Separate Root correction01778b16ab5eaffc73ab98160a72145d64d655f9, branch
+ShemYu/t07-014-023-root-c2 from preserved434e264, fixes only the three reproduced
+publication/retirement/cleanup-deadline paths. Same three owned files; source
+methods, grammar, outer/tiny caps, transform arithmetic and comparison remain
+unchanged. Both original raw scores and C1 evidence stay preserved. Astra's
+complete read-only diff review finds no new material issue; Root executes the
+checks personally. This is Root rework, not provider benchmark credit.
+
+Root fully reads the40144B independently prepared66-control harness and adapts
+only its output/self paths and current task-instruction document pin. Against
+preserved C1 it returns63/66, exactly the three independently reproduced holds,
+with all15input rows equal and no postcheck errors. Changing only module path/
+pin and output/self paths to C2, the unchanged66control logic passes66/66 with
+all15rows equal and zero postcheck errors. Full26fixture outcomes/complete
+meshes and real post-call pre-VM counters pass, plus creation/foreign ownership,
+exclusive occupied evidence, all-close/sticky combined faults, retained mesh/
+body metadata, structure-before-lifecycle, sparse lanes and rounded columns.
+The three targeted controls now pass; no broader threat model is introduced.
+
+The expanded author suite passes53/53/zero failures/skips/cancelled, natural0/
+no stderr in1.491631s observed outer time, with bounded1MiB streams and30s
+external alarm. Its15input/source rows stay equal. The precommit report's
+candidate field names the C1 base; complete tested source/test pins identify
+the uncommitted C2 bytes, then checkpoint01778b1preserves them. The final
+source report is written after testing and records that distinction explicitly.
+The original V3 caller/mesh comparator remain unchanged and not yet bound.
+
+Root preserves named ref refs/ro-task-archive/T07.007.014.023.001/root-c2 and a
+verified rollback bundle. It integrates all three files byte-for-byte from
+01778b1on the coordination branch, with exact Git-blob/checkout/full-SHA joins.
+A focused integrated check passes: silent import exits0; default CLI exits2/
+REFUSED usage; one tiny authored runObserver PASS has exact four-key stdout
+shape and complete expected108B mesh; an independent negative fixture creates
+zero realms. Three subprocesses use10s alarms/64KiB bounded streams. All seven
+complete integrated input/source SHA/C8 rows stay equal. No actual body/mode or
+consumed parser/reference is replayed. Source qualifies; separate bound caller
+qualification/admission still precedes the real model702compile. The complete
+link check finds an inherited C1 section-anchor typo; documentation-only
+038ffc0corrects it on the source branch and its report integrates unchanged.
+Qualified observer/test bytes remain identical; no code rerun is needed.
+
+User evaluation at this internal source gate is review of
+[the selected runbook](T07.007.014.023-model-geometry-observer.md#root-follow-up-c2-source-qualification)
+and the retained authored checks. It does not prove visible map objects or
+close any82functional gap. Full Renewal goal/parent4of14 remain unchanged.
+Rollback the forthcoming integration checkpoint to remove only integrated
+source/docs; task branch/ref/bundle preserve the qualified source. No game/save/
+network changes occur. Root next binds/requalifies the finite caller, then
+records a separate one-call admission and full expected-mesh comparison.
+
+Private t07-014-023-root-c2/:
+
+| File | Bytes | SHA256 |
+|---|---:|---|
+| RERUN_ROOT.py |4964|5982a4f1e5cd8b4e8c53e520cfd42490e97f6f09344dadbdc88c48f0d083441d|
+| AUTHOR_TESTS_ROOT.json |7601|1428883776ce48ee0323e126e3bcd313054223ff76808801afc3b380ab9102be|
+| ROOT_CONTROLS_C2_ROOT.mjs |40048|6b65dc244d44a55e4664204a920248514811e1c42eec990ac8b76e28ea5aa059|
+| HARNESS_ADAPTER_ROOT.json |1283|4127514a06410feb5aa8b15c38296b0348926212d8366a79a1e1b808159ec8f8|
+| root-run-c2/CONTROLS_ROOT.json |93927|ae87dc962694d07ea3f304b5695aa0c1bf78f213187f315042772ad2bb424520|
+| root-run-c2/OUTPUT_PINS_ROOT.json |37632|178333ba969e0093ee2321f588a1400686f9d51c951b1e208c2ec50d2d46d1c6|
+
+Private t07-014-023-integrated-root-1/:
+
+| File | Bytes | SHA256 |
+|---|---:|---|
+| EXACT_SOURCE_ROOT.json |870|c4b3e905684745cd8f3ddcb115cd55c0cb25b11b7539bc47aacf07a58efcf127|
+| FOCUSED_ROOT.mjs |3778|384c917146f3713a3c3f52029b9fc880e67f5223da59d5e3f20f528982c6fe36|
+| INTEGRATED_CHECK_ROOT.json |5095|f8d7c072f2f848f98028e79fd00b55ddab2dedbdedadb8bddd2c5b4fdfc21bc4|
+| root-c2.bundle |4975|de3370c9bd0f7b2dd359bf5b1874c103eddd752cf8141646f8c863ba89fe9731|
