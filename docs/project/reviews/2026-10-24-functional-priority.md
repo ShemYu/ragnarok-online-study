@@ -1344,3 +1344,31 @@ ownership/real downstream dependencies. No completed worker waits for cleanup.
 Historical retention/attention rules unchanged. Auxiliary independent native
 reviews are complete. No financial/capacity blocker or goal change.
 4/14parent checks/about29%; all82functional resource gaps stay open.
+
+## Parallel source reviews and current-archive observer reuse preparation
+
+[Six-fix exporter source arrives and its settled Grok worker is released
+before ACK](2026-10-24-T06-full-spawn-output-budget.md#six-fix-exporter-submission-verified-and-owner-released).
+[Mu19 child/outer preliminary source reviews pass Root's full pin/anchor
+verification](2026-10-24-T07-mu-data-stage.md#mu19-provisional-source-reviews-independently-verified-before-final-handoff).
+Two actual Grok caller tasks remain live; independent producer/consumer
+reviews run in parallel. Neither path has new actor or parent-check credit.
+
+Root fully reads the existing tracked observe_cache_map_cores.py and joins
+the frozen82gap metadata/current five-archive audit. The old observer binds
+three April archives, old alias proof/SHA, fixed1296 roots and an exact4
+native-input postcount. It cannot be run unchanged to establish current
+five-archive coverage. Existing26 RSW-name candidates remain names only;
+all82 functional gaps stay open. This is routine version integration, not
+evidence that the full-game goal must change.
+
+Root freezes seven exact source/metadata copies for a separate bounded Grok
+reuse assessment; implementation/target execution are not requested.
+Packet8039B/4282a1dc28ebe5aca04610cc72641495e765fa7775899e8357a01202e23b30b9;
+brief3189B/7f4b3b67c2e6db999fb4412b347d8d01c64b0da37aeb61a48fc0fef2f407866c.
+Next worker identifies the minimal existing-tool changes and first actual
+observation, including the current resnametable/alias prerequisite. No new
+diagnostic framework, cap increase, guessed alias hash, name-to-playability
+promotion or new asset acquisition. The real Mu scene and separate B4
+quest/runtime routes retain priority. Full scope/functionality-first/Chinese
+and original app/saves/Chrome/profile/settings/network remain unchanged.

@@ -13,18 +13,20 @@ dictionary abort/load405/map-connection settlement stop later cases. Root's
 complete failure/preservation audit passes; no B200assignment/reconnection or
 parent-check credit. 4/14 is a check count, not measured full-content coverage.
 
-**Parallel work:** [Separate B4 fresh data pass Root actual verification](reviews/2026-10-24-functional-priority.md#actual-separate-b4-data-verified-three-useful-grok-owners-live).
-B4:36leaves/127checks/113pins/natural0positiveG; all six materializer source
-fixes also qualify. Mu:36leaves/126checks/112pins already verified. Fixtures
-and observed identity/name sets stay separate. No actor or parent credit.
-Three actual Grok source tasks are live: Mu19 projection caller
-(taskd6f11569da2b/ctx3f0cd4c6b0ec), B4 materializer caller/full71leaf audit
-(taskfe6df2b4cd87/ctxdc84619e0299), exporter six-fix source
-(taskcd17d267cb42/ctx317ffea9a1ae). Root verifies each before invocation.
-[Root verifies25final Mu runtime field groups/16source anchors](reviews/2026-10-24-T07-mu-data-stage.md#root-verifies-final-runtime-field-map-with-precise-remote-wording);
-actual Mu19data/current world/HEAD/lease/four ports remain next.
-Fleet19:264records/3pages,3active/255released/6retained/0reclaimable.
-Full goal/Chinese/caps unchanged; all82functional resource gaps remain open.
+**Parallel work:** [Six-fix exporter source submitted and released; Mu19
+preliminary source reviews pass Root verification](reviews/2026-10-24-functional-priority.md#parallel-source-reviews-and-current-archive-observer-reuse-preparation).
+Both dedicated B3 fixtures remain verified and separate: Mu36leaves/
+126checks/112pins; B4 36leaves/127checks/113pins. No actor or parent credit.
+Actual Grok Mu19 caller(taskd6f11569da2b/ctx3f0cd4c6b0ec) and B4 caller
+(taskfe6df2b4cd87/ctxdc84619e0299) remain live. Exporter producer/consumer
+source reviews run independently; selected receipt-optional alternate
+acceptance is excluded. Root final source qualification/admission is next.
+A seven-copy bounded Grok existing-world-observer reuse task is prepared.
+Old observer's three-archive/alias assumptions require explicit integration
+before current five-archive resource observation. All82 gaps remain open.
+Mu final runtime25field groups/16anchors remain Root-verified; actual
+Mu19data/current world/HEAD/lease/four ports still follow the final handoff.
+No financial blocker or goal change;4/14parent checks/about29% unchanged.
 
 [All six actual MuC focused calls pass complete Root223pin verification](reviews/2026-10-24-T07-mu-data-stage.md#actual-six-muc-focused-calls-pass-complete-root-audit).
 Three source fixes qualify; no fresh map actor/render result yet. MU1 exact105body private

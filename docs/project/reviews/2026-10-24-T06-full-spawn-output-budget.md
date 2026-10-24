@@ -316,3 +316,25 @@ target execution, tests or full publication. Preserve existing seven groups,
 unchanged lexer/shared caps/streaming846postpins/marker-last/owned revocation;
 no new framework or broad concurrency guarantee. All prior failed/HOLD
 source evidence remains preserved. No full-game gap or native credit.
+
+## Six-fix exporter submission verified and owner released
+
+Actual Grok taskcd17d267cb42/ctx317ffea9a1ae settles successfully as source
+only. Root reads the complete report/recipe and full-rereads57 unchanged
+copy inputs plus18 closed private outputs. Producer64243B/
+80ad59e466b6c53aa1859be18403d094b5728e5bf2efcf71c385e9734aa20a01;
+consumer42274B/73a60a5466358f61a12439b0ce271173627adada83ed9621be4c5520d3edb126;
+group06 10344B/2d633bcae8a4ea27afee023b782eddb51639fa9f2dea930e23f1a87661b794bc.
+Schema and groups01–05/07 are reported unchanged; independent source
+reviews are now running. No source qualification or target execution yet.
+
+Root settlement38301B/
+2ade1bb6cc83233d4b95c3b6edce090a30523d9bac97efc740938b8d93423de9.
+Release455B/216d30ff1cb87dddb01592a4fd6646dc6f09641d0fa31abbaa57ea5dd39efd5f
+closes only the settled worker and captures its transcript before ACK of
+deliverye54db1436082. No completed worker is kept merely for later inspection.
+The selected future publication entry remains Root-owned: exact returned
+receipt, independent full839ledger/current846pins, original G/S and a fixed
+typed whole-object acceptance are required. Alternate receipt-optional
+assessment helpers cannot supply the admitted natural-zero route.
+No finite checks, full publication, actor or gap credit.
