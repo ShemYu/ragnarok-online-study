@@ -16,7 +16,7 @@ Current84direct children include the two released review children and the two
 refs, two verified rollback bundles and private evidence survive; the running
 character/quiet audio remain. Three examined children stay held for incomplete
 private preservation; user-retained children remain excluded.
-Latest settled fleet:311released/ten retained/zero reclaimable.
+Latest settled fleet:312released/ten retained/zero reclaimable.
 Two .012implementation attempts reuse existing released checkouts; no new
 child folders or setup hooks. Both .012candidates are preserved/released after
 matched settlements. [Root full review and eight behavioral groups per original are complete](reviews/2026-10-24-direct-dependencies.md#both-constructor-originals-are-personally-checked-and-held).
@@ -57,9 +57,12 @@ next [implement tiny authored controls](tasks/T07.007.014.016.md) in an owned Or
 No runtime PASS. [Nested948metadata source-review brief](tasks/T07.007.014.015.md)
 is frozen independently; [Root's complete174960metadata checks and nine authored
 control groups pass](reviews/2026-10-24-direct-dependencies.md#nested-profile-and-authored-fixture-pass-roots-independent-checks).
-Its private prototype retains actual admission false. Four independent workers
-are live: Claude/Grok .015reviews in this checkout with disjoint private outputs,
-and Claude/Grok .016implementations in reused separate branches/checkouts at5ae4031.
+Its private prototype retains actual admission false. [Claude .015review is
+preserved/released and Root reproduces47source/96control checks](reviews/2026-10-24-direct-dependencies.md#claude-nested-review-is-preserved-and-root-reproduces-the-controls).
+Three independent workers remain live: Grok .015review and Claude/Grok .016
+implementations in reused separate branches/checkouts at5ae4031. Root's independent
+oracle source/current65metadata file checks pass; finite multi-map relation audit
+projection and both review submissions still precede any actual catalog scan.
 Private-only proposal ownership
 in this checkout. Root owns tracked docs; authors may not mutate Git/source or
 open images/runtime/browser/game. Trace of286delivered image consumers does not

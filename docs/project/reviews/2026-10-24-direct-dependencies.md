@@ -2168,3 +2168,59 @@ whole source/inverse and current metadata closure before one actual scan.
 Read-only Orca tab inventory confirms the existing game page still registered;
 no browser inputs/new tab/installed image or settings/save/service change. Full
 Renewal/4of14/about29%/82gaps and user decision boundaries remain unchanged.
+
+
+## Claude nested review is preserved and Root reproduces the controls
+
+Matched .015Claude task_ada373f40e56/ctx_2eadef4b3565 settles succeeded. Root
+preserves all27private files/123258B, verifies complete copied hashes, releases
+the settled terminal/transcript and acknowledges delivery474f0e393cae. Private
+claude-packet-root-1/PRESERVATION_ROOT.json is4540B/SHA256
+1fd4db52aee1ff74469b1105ef57071c44ac70fb973c3f3eb900923725d87922.
+Current312released/ten retained/three live workers, no new child/setup. Grok's
+matching .015reviewing heartbeat remains live; .016pair continues independently.
+
+Root personally reads the entire Claude report and both14910B source-audit/
+22707B control scripts, then reruns the complete47source checks and96control
+assertions. Control rerun changes only its literal private output prefix with
+full inverse verified, preserving original outputs. All explicit PASS lines
+and positive summaries agree; empty stderr/natural0 for both. Root's own complete
+174960metadata/895authored checks remain independent of this review reproduction.
+No target-source correction or actual selection is inferred before Grok settles.
+
+Raw reviewer harness limits are retained: both scripts print FAIL without a
+nonzero exit, so Root explicitly rejects any FAIL line and requires full positive
+summaries. A chained model-pointer inequality can miss one unequal leg and the
+numeric-followup defaultFalse getter is not a positive field check. Root's
+independently reconstructed whole typed relations/pointers and explicit false
+scope checks cover actual supplied data; do not promote the review scripts into
+general mutation-proof validators. No supplied profile mismatch is found.
+
+Private claude-rerun-root-1/ROOT_RERUN.json is1704B/SHA256
+2972fede37b4fa659715b78b6b4612ba9bbede16faa7b244f46d43f258e8bcb3.
+Actual-path/cap behavior remains unexercised; inherited failure-publication/
+seven-field identity limits stay disclosed and externally checked.
+
+Root separately verifies complete EOF/hash/currentC8/ancestors/released-FD for
+all65saved metadata authorities/catalog files:308305525B/0.186287s. This reads
+file bytes for pinning only, without parsing/matching any catalog row. Private
+current-metadata-root-1/CURRENT_METADATA_ROOT.json is28649B/SHA256
+2fba04ec72e4e50a79a15f4b978cd225e49440752a257f3862770f51f1686578.
+Historical descriptor identities are not substituted for these current pins.
+
+Independent oracle draft source12227B/ccc724ef1ed607b820420186d0e9653688b0901f6db7ca8dd650e66ce02e2a1a
+passes Root's full read and239data-only source checks:14literal edits/15unchanged
+spans/full inverse, six current input pins and one exact virtual role projection
+of the unchanged28162B oracle. No oracle evaluation/actual scan. Private
+oracle-source-root-audit-1/ROOT_AUDIT.json is4579B/SHA256
+0d6e6fdf2456295123ebca6684eb1962875f71942953302b212242967bfbde5a.
+
+Actual launch/audit preparation reuses the old qualified mechanisms. One
+necessary semantic audit projection is explicit: old direct relations have one
+map_index, whereas new complete declaration uses have2750multi-map source links.
+Root/Astra review that finite loop against the pinned full aggregate; never add
+legacy aliases or drop fanout to force old code through. All guard/read/close/
+publication machinery otherwise stays unchanged. This routine verification
+adaptation does not change the goal or constitute a critical blocker. No actual
+lookup/decoded image/render/story/save/content acceptance. Full4of14/about29%
+and all82functional gaps remain; quiet game/Chrome/IME/internet remain untouched.
