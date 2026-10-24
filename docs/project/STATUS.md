@@ -8,7 +8,7 @@ Functionality remains first. **4/14 parent checks, about 29%**; this counts
 major checks, not full-content coverage. All 82 functional resource gaps remain
 open. Full Modern/Renewal scope is unchanged; no new user decision is required.
 
-**Latest verified result:** [Ordinary tutorial travel and quest marker pass](reviews/2026-10-24-normal-integration.md#ordinary-tutorial-travel-and-quest-marker-pass).
+**Latest verified result:** [Ordinary earned character-select and logout re-entry pass](reviews/2026-10-24-normal-integration.md#ordinary-earned-character-select-and-logout-re-entry-pass).
 After the supported baseline backup, normal re-login returns the same Novice.
 Root verifies18,26→18,29→21,29→the authored portal→51,30 through normal keyboard
 input. Two authored NPC stages and normal Next/Close pages earn the visible
@@ -17,8 +17,11 @@ seven movement requests/acks, closed dialogue and normal input. Root personally
 views the retained scenes; five service identities/starts/images/mounts/ports,
 native ownership, Chinese overlay and quiet audio stay intact. **Normal
 integration4/5checks,80% by gate count**. The verified pre-earn export/inspection
-is not restore-tested recovery. Earned character-select/logout re-entry and
-cold restart remain unverified in ro4; no saved quest-row claim yet.
+is not restore-tested recovery. The earned position/quest now survive normal
+character-select re-entry and full Exit/login re-entry without service restart
+or another backup first. Root views both scenes and verifies current identity/
+input/tracker/quiet audio and unchanged services. Cold restart remains open;
+no saved quest-row or native Quit acknowledgement is claimed yet.
 
 **Previous renderer result:** [Fresh Mu3 isolated map-render scene passes](reviews/2026-10-24-T07-mu-data-stage.md#fresh-mu3-synthetic-scene-and-complete-root-audit-pass).
 All 1,285 placements load, all 29 retained Float32 arrays are finite, and all
@@ -42,10 +45,10 @@ Supported ordinary account creation and its expected service restart now pass.
 Normal login, human Novice creation and game entry now pass. The
 [supported baseline backup and fresh restart pass](reviews/2026-10-24-normal-integration.md#supported-pre-earn-baseline-backup-and-restart-pass).
 Normal same-character re-login, walking/tutorial portal/NPC/quest earning now
-pass. After checkpoint test ordinary character-select re-entry and logout
-re-entry against the earned position/quest marker. Do not force a service save
-or take another backup first. Then preserve a new post-earn backup/reference
-and verify the supported owned cold restart to finish gate5.
+pass. Both ordinary earned character-select and logout/login re-entry now pass.
+After checkpoint preserve a new supported post-earn backup/reference, verify
+its actual saved marker and expected restart, then the supported owned cold
+restart and normal re-entry finish gate5.
 Keep retained app/engine/private streams monitored. ro3 earned progress
 stays untouched. Continue [quest/logout work](reviews/2026-10-24-functional-priority.md#priority-and-stop-criteria)
 separately; do not replay failed B4 or consumed Mu scenes.

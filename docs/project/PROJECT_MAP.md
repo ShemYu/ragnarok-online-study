@@ -32,8 +32,9 @@ Map repair:
        -> character + game entry [PASS: 4 of 5 gates = 80%; CURRENT]
        -> baseline backup        [PASS: export/inspection + fresh restart]
        -> normal travel + quest [PASS: portal/NPC/earned tutorial marker]
-       -> earned save + re-entry [NEXT: normal character-select/logout]
-       -> owned cold restart    [OPEN: gate5 remains incomplete]
+       -> earned save + re-entry [PASS: character-select + Exit/login]
+       -> post-earn backup       [NEXT: preserve earned state]
+       -> owned cold restart    [OPEN: final gate5 check]
 
 Other active work:
   Ordinary quest/logout        [OPEN: A199 seen; later cases fail]

@@ -829,3 +829,40 @@ separate supported post-earn backup/reference and verify owned cold restart.
 Gate5 remains open, integration4/5/80%, parent4/14/about29%, all82gaps open.
 Tutorial quest assignment is not full-story completion, an inventory/reward
 test, ordinary Mu access or a full-game save claim. No goal change is needed.
+
+## Ordinary earned character-select and logout re-entry pass
+
+Root acts after ebd3093f82f427b1d6f1fa26d766759d388f2772. Before another
+backup or service restart, normal Escape → character selection → Enter returns
+Ro4Novice1024/character150000 to iz_int.gat at51,30 with the exact visible
+逃離失事輪/與船長對話 tracker. A separate normal Escape → Exit → login →
+same-character Enter also preserves those markers. The password is inserted
+privately into the ordinary login field; no direct packet, GM command, seeded
+quest state or character coordinate write is used.
+
+Root personally views both retained re-entry PNGs. Separate read-only audit
+confirms the same character/location/visible tracker, normal input and quiet
+audio; all five service IDs/starts/images/mounts/ports, authenticated native
+ownership, current app/engine/VZ and four old listener owners remain unchanged.
+The pre-earn backup hash remains exact. Fourteen original UI receipts and
+their full manifest are retained privately. ROOT_REENTRY_AUDIT.json passes.
+
+Private persistence-source-root-1/ and persistence-actual-root-1/ evidence:
+
+| Artifact | Bytes | SHA256 |
+| --- | ---: | --- |
+| Source REENTRY_AUDIT_ROOT.py | 7002 | ee3832a28b1f9aa11a3c30b72358f2e9850e1234631ab516ee4c7f81e0bcfd9b |
+| Actual UI_REENTRY_RECEIPTS/PINS.json,14receipts | 3720 | 4465f1deb8c4a604f646f3867ddab99ffaba181184d8b7e31116bc22e7e7312a |
+| Actual EARNED_CHARACTER_SELECT_REENTRY.png,Root viewed | 1690239 | d680916887583800629ac38e7f416d4be7ccfeb7eb6d69f0832d343b2a71a71d |
+| Actual EARNED_LOGOUT_REENTRY.png,Root viewed | 1698350 | 0279121c35973202ce7c11ac2a81a766af27d014b85114796588dca09c438eee |
+| Actual ROOT_REENTRY_AUDIT.json | 21499 | 3ec411608adccb843698110349a1127f7e5ec10b028dd89b41efd4859b9e9b98 |
+
+This verifies user-visible ordinary re-entry and retained earned markers.
+It does not establish native Quit acknowledgement or the broader F1 socket
+cleanup requirement. No persisted numeric quest row is read yet, no post-earn
+backup has been taken, and no ro4 cold restart is tested. After this Git
+checkpoint, preserve a separate supported post-earn backup/reference, verify
+its saved marker and expected service restart, then test the supported owned
+cold shutdown/start and ordinary re-entry. Gate5 remains open: integration
+4/5/80% by count, parent4/14/about29%, all82functional gaps open. Full
+Modern/Renewal scope and functionality-first priority remain unchanged.
