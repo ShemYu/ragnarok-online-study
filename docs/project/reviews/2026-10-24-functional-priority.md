@@ -38,6 +38,13 @@ Next inspect quest21008/inventory, preserve the tutorial and check normal field
 travel/encounter/return. No new F1 repair, install or synthetic retry. The former
 25% map-preparation estimate is retired; parent progress remains4/14/about29%.
 
+[The later normal111-resource pass qualifies](2026-10-24-normal-map-prerequisites.md#normal111-resource-pass-and-independent-confirmation):
+111 exact200 bodies/27,535,025B;107 normal extracted files and four old files
+match. Root independently rehashes111 retained/111 current loose bodies and
+339full pins, with owners/archive/prior-file continuity. No asset query retry
+is needed. Ordinary field travel waits for current UI access; independent
+full-content inventory may continue. No Mu travel or gap closure is inferred.
+
 ## Priority and stop criteria
 
 Marginal effort has become too focused on test infrastructure. Finish the

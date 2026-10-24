@@ -39,6 +39,7 @@ Map repair:
        -> session continuity    [PASS: bounded 72s; limits recorded]
        -> normal integration    [5 / 5 PASS; user progress preserved]
        -> Mu route/config check [HELD: newer Guide absent from installation]
+       -> normal Mu asset set   [PASS:111 responses +111 loose files verified]
        -> ordinary field route  [SOURCE VERIFIED: island -> Izlude -> field]
        -> quest state + play    [BLOCKED: computer-control connection unavailable]
 
@@ -57,7 +58,7 @@ Shadow pilot (1-3 real tasks, alongside main work):
 
 Other active work:
   Ordinary quest/logout        [HELD: B6 save/quit evidence failure]
-  mu_fild01 normal route       [HELD: access unproved; 107 archive joins open]
+  mu_fild01 normal route       [HELD: access unproved;111 asset bodies verified]
   Ordinary field route         [NEXT: quest state -> travel/encounter/return]
   Full839 data + entry         [PASS: 4,226 checks / 947 pins]
   Full839 entry FD closure     [PASS: explicit setup; exact comparison kept]

@@ -20,7 +20,7 @@ The former25% map-preparation figure was a rough estimate; retire it.
 | Check | Current evidence |
 |---|---|
 | Installed Mu entry | Newer Guide absent; ordinary route unproved, held |
-|111 Mu resources | Four loose matches;107 archive/served winners unresolved |
+|111 Mu resources | PASS:111 normal responses and111 current loose bodies match |
 | Accessible alternative | Current source candidate verified; quest state pending |
 | Ordinary travel, encounter and return | Not performed |
 
@@ -40,7 +40,7 @@ declarations. No world_sync import. Native npc/re/scripts_world_sync.conf and
 npc/re/world_sync/transports.txt both return404. Mu/Yggdrasil maps are listed;
 that alone proves no connected route or successfully executed script.
 
-Root independently full-hashes the111-row allowlist/27,535,025B. Selected
+Before the GET pass, Root full-hashes the111-row allowlist/27,535,025B. Selected
 SERVER_ROOT has four exact loose matches/14,066,636B: Mu GAT/GND/RSW and
 BACKSIDE.BMP. No mismatch. The107 absent loose files remain archive-unresolved,
 not missing assets. None is present in the selected translation override.
@@ -118,3 +118,40 @@ hash preservation; new files must settle to expected hashes. Syntax compiles
 without execution; the source review finds no remaining concrete blocker.
 The next call is the single admitted normal asset pass, not an invented CLI.
 Another UI inventory request still reports the same native pipe startup error.
+
+## Normal111-resource pass and independent confirmation
+
+After5d8a402, Root runs the reviewed observer once. Natural exit0;
+111/111 responses are200 with full EOF and exact expected length/SHA256,
+27,535,025B total. Observation takes2.332859792s. The current normal resolver
+materializes107 previously absent files through its admitted extraction path.
+All four prior files, existing directory identities, four native owners and
+five archive identities remain unchanged. No game input, configuration change,
+restart or progression grant occurs. Cache/log effects remain ordinary runtime
+effects; asynchronous server tasks are not independently enumerated.
+
+Root then separately rehashes every111 retained response body and every111
+current loose file, checks all111 per-response receipts, four prior exact
+file identities, original parent identities, archive continuity and current
+native owner births/executables. All pass:339 complete pins. No request or
+actor is repeated. This closes normal served/current loose byte parity for
+this111-body set. Archive-winner provenance, rendering, conditional resources,
+Mu access, story, monsters and earned save are separate unproved claims.
+
+Private results under `.tools/renewal/t07-mu-normal-served-111-root-1/`:
+
+| Receipt | Bytes | SHA256 |
+|---|---:|---|
+| RESULT_ROOT.json |63195|293e3d5df3ff3aec3ef82dd7df16c810f6d163d1f281ee091c268f82d8979c9a|
+| ROOT_CONFIRMATION.json |151142|7f16022591f717e971f66c1a47ef32e8e8b56e4979e837ec5162cb8538964b75|
+
+Git rolls back documentation only. RESULT lists the107 new extraction paths;
+BEFORE/AFTER and retained response bodies record exact bytes and identity.
+Any later file rollback must target only these still-matching new files after
+the relevant asset owner retires. Do not remove the four original files or
+restart the user's game now. No rollback is requested or needed.
+
+Next: UI quest/inventory observation and ordinary field travel when computer
+control returns. No further111-path asset pass, fresh Mu scene or archive scan
+is needed without changed inputs or a new failure. Independent full-content
+inventory can continue. Full goal,4/14 parent checks and82 open gaps stay intact.

@@ -57,9 +57,12 @@ All owned processes/groups and5containers/network are gone; SQL volume retained.
 **Latest map finding and next action:** [Root checks installed map prerequisites](reviews/2026-10-24-normal-map-prerequisites.md).
 Current Renewal closure:14configs/839NPC declarations, no world_sync import;
 the newer Guide/config files return404. Mu stays held: ordinary entry unproved.
-Four of111 loose resources match;107 archive/served winners remain unverified,
-not missing assets. Retire the former25% estimate; use separate checks in the
-linked review.
+The [normal111-resource pass now qualifies](reviews/2026-10-24-normal-map-prerequisites.md#normal111-resource-pass-and-independent-confirmation):
+111 exact200 responses/27,535,025B in2.332860s;107 normal extracted files and
+four existing files all match. Root separately rehashes111 retained responses
+and111 current loose bodies,339full pins; owners/archives/prior files preserved.
+Asset availability is complete for this set; Mu travel remains unverified.
+Retire the former25% estimate; use separate checks in the linked review.
 
 Root verifies three current source bodies for **int_land → Izlude →
 prt_fild08 → Izlude**. Next inspect quest21008/inventory through the ordinary
@@ -75,12 +78,10 @@ closed the game: native server ownership checks above pass. Quest/inventory
 inspection and ordinary playtest wait for UI availability; independent source/
 asset checks may continue. No game restart or user decision is required.
 
-**Independent asset next action:** the selected normal resolver has
-CLIENT_AUTOEXTRACT=true and no inspect-only CLI. Root/Astra select one
-[bounded111-path normal asset pass](reviews/2026-10-24-normal-map-prerequisites.md#bounded-normal-asset-requests-selected),
-explicitly admitting normal auto-extraction/cache/log effects. Record prior
-paths/owners and compare complete served bytes; no new server, direct install,
-alias, game input or restart. No asset or gameplay PASS is claimed yet.
+**Independent work:** the admitted asset pass is complete. Do not repeat it,
+build another decoder/server or reopen completed rendering. Continue useful
+full-content inventory while UI is unavailable. Normal field travel waits for
+current quest/inventory observation. No gameplay PASS follows from asset bytes.
 
 ### Historical preparation — follow the next action above
 
