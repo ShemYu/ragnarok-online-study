@@ -4693,3 +4693,28 @@ Private t07-014-023-preparation-root-1/:
 | PREPARE_ROOT.py |11101|b4132074196977818e2c5205c9eb8d6fa43673b99adbe898b51c070ccecdd26d|
 | PREPARATION_AUDIT_ROOT.json |15784|ba9ec7e7f3ced276f9d11aaade45b8ba8bbdb241becd55bbc8cca3ebff225d62|
 | PROFILE_ROOT.json |5839|1b80888abc5123ba73fb402f92f75e662a82aee4fffdc207ec62fa4c0d25b8c6|
+
+## Equal geometry observer implementations start on reused branches
+
+Root confirms both .022dispatches are positively settled/released/exited and
+both checkouts clean at their preserved original commits. New isolated .023
+branches start from the same d052101b8d9b5ea39df617a5045732ef592bb8be freeze.
+Both workers start before waiting; no child creation/setup hooks. The ownership,
+seven frozen inputs,26authored cases and20point rubric are identical.
+
+| Provider | Task | Dispatch | Terminal |
+|---|---|---|---|
+| Claude |task_4ba7cd971644|ctx_a65d6b6788e1|term_ce5a36b4-c957-4d54-8f94-b175cfae63c5|
+| Grok |task_0dd910580589|ctx_16fd13ee03e8|term_ec6f3182-0edb-4bc2-a4f2-955f0ced0144|
+
+Both receipts report ready/input_accepted with no residual resources. Claude
+turn start is observed; Grok turn-start observation is unsupported, not failed.
+Requested/effective model and effort remain null: exact models/tokens/cost are
+unknown. Full receipts/specs remain privately preserved. Latest fleet329released/
+ten retained/two active/zero reclaimable;84direct child folders unchanged.
+
+Root prepares a separate finite caller in parallel with a native advisory helper;
+it must refuse while source binding is UNBOUND. The helper is not either Orca
+benchmark original. No actual body/constructor/compile or consumed independent
+parser/reference run is admitted. Root full-source/independent controls remain
+required before selection. No new user decision or goal-changing blocker.

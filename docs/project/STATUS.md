@@ -25,9 +25,11 @@ intermediates are retained. Both independent calls are consumed; no replay.
 [.023equal tiny-authored geometry observer task is frozen](tasks/T07.007.014.023.md).
 Root reproduces the complete26case corpus:97 authored gates/172Root checks pass,
 including nonuniform normals and cross-node texture bucket order. The exact
-model702 profile is metadata only; no acquired execution is admitted. Next
-launch both implementations on reused clean branches and personally qualify
-both originals before any actual model compile. Browser/render,
+model702 profile is metadata only; no acquired execution is admitted. Both
+independent implementations now run from d052101 on existing clean checkouts:
+Claude task_4ba7cd971644/ctx_a65d6b6788e1; Grok task_0dd910580589/ctx_16fd13ee03e8.
+Root prepares the independent finite caller in parallel, then personally
+qualifies both originals before any actual model compile. Browser/render,
 normal game/story/full content and all82functional gaps remain open. No acquired
 geometry execution is admitted and no goal-changing issue/user decision appears.
 
@@ -37,7 +39,7 @@ Current84direct children include the two released review children and the two
 refs, two verified rollback bundles and private evidence survive; the running
 character/quiet audio remain. Three examined children stay held for incomplete
 private preservation; user-retained children remain excluded.
-Latest fleet:329released/ten retained/zero active or reclaimable.
+Latest fleet:329released/ten retained/two active/zero reclaimable.
 Two .012implementation attempts reuse existing released checkouts; no new
 child folders or setup hooks. Both .012candidates are preserved/released after
 matched settlements. [Root full review and eight behavioral groups per original are complete](reviews/2026-10-24-direct-dependencies.md#both-constructor-originals-are-personally-checked-and-held).
