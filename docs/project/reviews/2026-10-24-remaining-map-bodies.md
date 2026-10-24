@@ -759,3 +759,65 @@ fixture/CLI cases and three equal pure JSON controls on each candidate: reject
 vertical-tab/NBSP trailers, accept ordinary leading JSON whitespace. No actual
 Grok catalog scan is admitted. Root will reproduce the source finding before
 selection; author363assertions remain an unverified claim until the suite runs.
+
+## Both providers personally checked and terrain metadata task is ready
+
+Root repeats Grok's complete source/fixture suite:363assertions return0 in
+0.49s, reported maximum resident21577728B, with eleven unraisable unclosed-file
+ResourceWarnings. These are test-source warnings, retained in full; a zero
+exit does not make the run warning-clean. Its private temporary directory is
+empty after the suite, and all eleven preserved packet files still match.
+The identical common checker passes all39checks/seven calls for Grok as for
+Claude. Root separately rehashes all48published common evidence files and
+verifies their complete identity/hash pins, every call/EOF/exit and no forced
+cleanup. Grok common RESULT_ROOT.json33789B/SHA256
+9014dfa384328abe8168b6495d0054e8462c573a55f1e8f9b33dfa3a538d385d
+and source TESTS_ROOT.json4920B/SHA256
+1ab83a57280d60eaf73c817671534d819f09fac4be72e90b58b88597fb83fad9
+retain the observations. An auxiliary Root confirmation initially stopped on
+generic stat equality including access time; Root corrects it to explicit
+dev/inode/size/mtime/ctime/mode/link/owner continuity and full hashes. No tests
+or actual candidate scan are rerun for that verifier correction.
+
+The six equal pure JSON calls reproduce all three source-gate differences:
+Claude rejects vertical-tab/NBSP trailers and accepts ordinary leading JSON
+whitespace; Grok accepts both invalid trailers and rejects the valid input.
+Root checks expectations with the standard strict JSON decoder and confirms
+both method pins unchanged. JSON_CONTROLS_ROOT.json1994B/SHA256
+a7344d45f04cb4d6d53d714c9cd3a2b6151e51443cdb26b17e4c852695ea5296
+binds the exact literals/results. No production file is changed. Grok's whole
+input pins remain protective, but its source contract fails; no actual Grok
+scan is admitted or needed to select the already-qualified Claude observation.
+
+| Bounded score | Claude | Grok | Root basis |
+|---|---:|---:|---|
+| Matching and typed output |8/8|7/8| Complete fixture agrees; Grok strict-JSON counterexamples fail |
+| Preservation |4/4|3/4| Claude full actual/hash/time identity pass; Grok identity omits times/mode |
+| Meaningful controls |4/4|3/4| Both common39pass; Grok363miss the reproduced gate defect and emit warnings |
+| Handoff |2/2|2/2| Exact owned commits, complete preserved sources/logs and settled releases |
+| Resources and closure |2/2|1/2| Claude actual positive guard/closure; Grok fixture only, actual held |
+| Total |20/20|16/20| Selected Claude for this fixed metadata task |
+
+This is a task-specific comparison, not a general provider ranking. Provider
+model versions/tokens/billing were not observed. Grok's actual performance is
+unknown; do not compare its fixture time with Claude's full catalog scan.
+Neither method is being introduced as a generic product scanner. Claude's
+FIFO/zero-write limits remain documented and externally guarded.
+
+**T07.007.014.007 is ready_for_user for the bounded metadata deliverable.**
+The selected exact private source and complete actual result are preserved;
+Root personally verifies all34exact eligible witnesses and42relations against
+its earlier independent complete oracle. No rerun is needed. Both dispatches
+are settled/preserved/released before acknowledgment; fresh fleet has zero
+reclaimable workers, ten user-retained and293released. User acceptance remains
+pending. The parent board stays4/14; none of82functional gaps closes here.
+
+Next recover the34actual declared GND/GAT bodies (26patch records/eight GRF
+records) and qualify normal reader/loading, reusing the existing decoder/native
+reader architecture and exact metadata observations. Freeze source/profile/
+reference/admission before body execution; do not infer same-stem filenames,
+invent a new generic parser, repeat completed RSW jobs or claim map playability.
+Ordinary quest/travel/save verification remains held by the native-pipe failure.
+No installed asset, game/save/SQL/server state changes in this metadata task;
+Git rollback covers documentation, not ignored private evidence or earlier
+installed assets. Full Modern/Renewal scope remains unchanged.

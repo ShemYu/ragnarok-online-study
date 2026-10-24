@@ -10,7 +10,16 @@ open. Full Modern/Renewal scope is unchanged; no new user decision is required.
 The board includes later-phase party taskT11, so this is not a percentage of
 first-milestone content or remaining effort. Do not relabel it as such.
 
-**Latest verified result:** [Settled re-entry and bounded normal integration pass](reviews/2026-10-24-normal-integration.md#settled-re-entry-and-bounded-normal-integration-pass).
+**Current asset checkpoint:** [T07.007.014.007 terrain metadata is ready_for_user](reviews/2026-10-24-remaining-map-bodies.md#both-providers-personally-checked-and-terrain-metadata-task-is-ready).
+Root verifies all34exact terrain-name records/42relations across63catalogs;
+Claude20/20selected after full actual/oracle comparison, Grok16/20has a
+reproduced strict-JSON source defect and remains actual-held. Both sources/
+tests are personally checked and workers preserved/released; zero reclaimable.
+Next34terrain bodies through existing decoder/normal-reader architecture,
+after fixed source/reference admission. No body/gameplay or82gap closure yet.
+Ordinary playtest remains blocked by the freshly confirmed native-pipe failure.
+
+**Latest playable-integration result:** [Settled re-entry and bounded normal integration pass](reviews/2026-10-24-normal-integration.md#settled-re-entry-and-bounded-normal-integration-pass).
 **T07.007.012.009 is5/5checks,100% of that bounded integration task** and
 ready_for_user after its checkpoint. Ordinary creation/travel/NPC earning,
 character-select/Exit re-entry, supported earned backup, one owned cold cycle,
@@ -187,6 +196,12 @@ Both provider lifecycles are settled and released. Root reads all Grok source/
 tests; a strict-JSON source defect needs the admitted equal pure controls.
 Next Grok own/common source cases, then score/select. Grok actual stays held;
 no body/loading/gameplay or82gap closure follows from metadata.
+
+[Both terrain candidates are now personally checked and .007 is ready_for_user](reviews/2026-10-24-remaining-map-bodies.md#both-providers-personally-checked-and-terrain-metadata-task-is-ready).
+Claude20/20selected, Grok16/20source-contract failure reproduced; both common39
+pass, own suites reproduced with eleven Grok test ResourceWarnings retained.
+No Grok actual scan is admitted. All worker lifecycle/cleanup decisions settle;
+next fixed34body reference/normal delivery, no repeat metadata or RSW jobs.
 
 ### Historical preparation — follow the next action above
 
