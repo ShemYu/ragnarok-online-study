@@ -93,7 +93,12 @@ item611 and DEL_QUEST21008 is received. The same character reaches base2/job3/
 Root receives izlude.gat196,209, checks the settled UI and personally views
 the textured dock. Ordinary Enter completes the fresh dialogue within36s;
 the earlier slow attempt remains failed and its timeout cause is likely,
-not proved. No game patch is required. Next ordinary field/return/save;
+not proved. No game patch is required. [Ordinary field entry now qualifies](reviews/2026-10-24-normal-map-prerequisites.md#ordinary-izlude-to-field-entry-independently-verified):
+received prt_fild08.gat367,212, settled UI and Root-viewed textured bridge.
+A bridge helper's key-release fails through global const redeclaration;
+Root's scoped release succeeds and independently checks the arrival. The
+helper stays FAILED; future inputs use timed within-call release. Next field
+encounter/return/save;
 new progress is not yet relogged/backed up. English/Unknown Item
 tooltip remains deferred; no new gameplay coverage percentage.
 The compiled run still proves no ordinary travel/story/save or82gap closure.
@@ -165,7 +170,8 @@ Retire the former25% estimate; use separate checks in the linked review.
 Root verifies three current source bodies for **int_land → Izlude →
 prt_fild08 → Izlude**. Root now completes ordinary quest21008: two lumber,
 Sailor turn-in, five magnifiers and job3/17%EXP, then reaches Izlude196,209
-through the ordinary departure. Next field encounter/return and save/re-entry;
+through the ordinary departure and continues normally to prt_fild08 367,212.
+Next field encounter/return and save/re-entry;
 preserve the earned character.
 Do not warp or grant progression to speed verification. Hold the failed F1 quest path; no new
 quest actor/repair, Mu install or synthetic retry. Full goal stays unchanged.
@@ -173,8 +179,8 @@ quest actor/repair, Mu install or synthetic retry. Full goal stays unchanged.
 **Current UI route:** [User-requested Orca browser re-entry passes](reviews/2026-10-24-orca-browser-resume.md).
 Native computer inventory still fails with `Sky Computer Use native pipe startup
 failed`; it is not a global UI blocker now. Use the privately recorded Orca page,
-not a duplicate game session. Latest verified state is Izlude196,209/base2/job3/
-17%EXP after21008turn-in and ordinary departure; inspect before movement/quest choices. No network cut
+not a duplicate game session. Latest verified state is prt_fild08 367,212/base2/job3/
+17%EXP after21008turn-in and ordinary field entry; inspect before movement/quest choices. No network cut
 or original Chrome operation is required.
 
 **Independent work:** the admitted asset pass is complete. Do not repeat it,

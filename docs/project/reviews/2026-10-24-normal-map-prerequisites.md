@@ -22,7 +22,7 @@ The former25% map-preparation figure was a rough estimate; retire it.
 |---|---|
 | Installed Mu entry | Newer Guide absent; ordinary route unproved, held |
 |111 Mu resources | PASS:111 normal responses and111 current loose bodies match |
-| Accessible alternative | Tutorial combat/crew complete; ordinary Izlude arrival verified |
+| Accessible alternative | Tutorial combat/crew, Izlude and ordinary field entry verified |
 | Ordinary field encounter and return | Next; not performed |
 
 Parent progress stays4/14/about29%, not full-content coverage. All82 gaps
@@ -166,6 +166,44 @@ and a current earned-progress backup. New tutorial progress is not yet
 relogged/backed up. This arrival does not close a parent check, story coverage
 or any of the82functional resource gaps. Earlier isolated F1 save failure
 remains held; full Renewal scope is unchanged and no user decision is needed.
+
+## Ordinary Izlude to field entry independently verified
+
+After43945f2, Root uses the ordinary chat command `/navi izlude 20/98`.
+Root views the target/path, minimizes Navigation
+without clearing it, then follows its arrows using native ground clicks and
+existing WASD controls. Several straight key holds stop at ordinary obstacles;
+ground pathfinding moves around them. No game movement source is modified.
+
+An attempted bounded feedback helper fails its release: a top-level const b
+declared in the key-down eval persists, so the key-up eval refuses with
+Identifier already declared. Its23visible snapshots show93,99→51,99; the
+finally failure prevents its aggregate trace publication. The helper is FAILED,
+and movement continues beyond the intended observation bound. A corrected
+scoped-IIFE release succeeds. Its preceding snapshot finds the character at
+the field entrance367,212, so it sends no new key-down. Future movement uses
+scoped, timed within-call try/finally release; do not reuse the failed helper.
+
+Root independently checks the resulting live state: received
+ZC_NPCACK_MAPMOVE names prt_fild08.gat367,212, a later settled snapshot shows
+the same coordinates/base2/job3/17%EXP/HP45/SP12, and Root personally views the
+textured bridge, character, terrain and field minimap. The exact portal time
+and every intermediate step after51,99 are unobserved. The helper failure is
+not relabeled PASS by this independent arrival evidence. Quiet BGM/Sound remain
+off/volume0; existing Chinese overlay stays enabled. No callbacks, GM command,
+packet injection, SQL, warp/grant or position/progression edit is used.
+
+Private t07-orca-ordinary-field-root-5/ROOT_CONFIRMATION.json65971B/SHA256
+3183a37e4bba05cc120062131ebfe5376a09fa0ceec7d7a30f471931e9fabc65
+seals150full leaves,24lossless screenshot reconstructions,23failed-helper
+snapshots and the exact received map-move preview. All captures stay private;
+console login fields are not published. This prefix is closed.
+
+The ordinary field-entry result qualifies only this route for this character.
+Next inspect a suitable field monster/encounter, return through the ordinary
+portal, then save/re-entry and current backup. New earned tutorial progress
+remains unrelogged/unbacked-up. Parent4/14 and all82resource gaps stay unchanged;
+the held isolated F1 save case is not replayed.
 
 ## Root verification
 

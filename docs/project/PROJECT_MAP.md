@@ -46,7 +46,8 @@ Map repair:
        -> combat + lumber       [PASS:two natural fights; inventory stack2]
        -> crew turn-in          [PASS:21008removed; five magnifiers;job3/17%]
        -> island departure      [PASS:normal Izlude196,209; Root image checked]
-       -> field + return + save [NEXT:preserve earned character]
+       -> ordinary field entry  [PASS:prt_fild08 367,212; Root image checked]
+       -> field/return/save      [NEXT:encounter; bridge helper FAILED/released]
 
 Quest check:
   Finite startup repair        [PASS: listener seen in 3 checks]

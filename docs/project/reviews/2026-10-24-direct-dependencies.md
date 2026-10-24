@@ -416,8 +416,13 @@ bytes, genuine stdlib HTTP parsing and the candidate's actual fetch loop:
 
 Private t07-014-011-claude-root-controls-1/RESULT_ROOT.json3261B/SHA256
 004fbb57cba3b154987184f96eee208f00415f640123219185b2618903cdacc5
-records the three actual reproductions and unchanged candidate source. Thus
-this original candidate is held from live delivery. Default no-I/O admission
+records the three actual reproductions and unchanged candidate source.
+The inline probe source is retained as CONTROL_SOURCE_ROOT.py4739B/SHA
+104ba6b7eceafbad75456385d3223293ca417ee92ad18ab5a1e676cef29a3125,
+syntax checked without re-execution. Its default output prefix is consumed;
+read its fixed cases rather than replaying that path.
+
+These reproductions hold the original candidate from live delivery. Default no-I/O admission
 remains false. No actual source projection, live request, restart, game repair
 or cache/file replacement occurs.
 
