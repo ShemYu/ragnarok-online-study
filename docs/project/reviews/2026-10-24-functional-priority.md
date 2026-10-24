@@ -1158,3 +1158,64 @@ msg_48618c0e05d9; its source conclusion remains unsubmitted.
 This completes the read-only prerequisite without parsing/indexing, extra
 copies or expanding P. B3 fresh test-data source remains the dependency for
 both the quest and dedicated Mu paths. No actor or parent-check credit.
+
+## B3 finite source qualifies B4 contract repair frozen
+
+Three actual Grok sources settle: B3 finite repair, Remote config audit and
+B4 materializer. Root fully reads each report, verifies current full opened
+source pins/private closed outputs, then releases/archive captures BEFORE
+each delivery acknowledgment. B3 settlement53787B/
+468067a142b9629582c2b2851b2078000ea33d3c9e7b8572137f73cac5a72320
+joins98stable opened pins/six outputs. Release455B/
+ebd33341081db4015f0ea7d4c0f1cfdbccc00c3613d1a8222993a31eb97aab70.
+
+Root personally reads all33001B B3 source. Independent I/O review5611B
+and metadata review2907B find no remaining mandatory finding in their
+selected slices. Root joins all5+9stable inputs, closed9+8outputs and exact
+source spans; all50author map spans reconstruct both full sources, including
+26516equal bytes. Source and two-header-bound copy compile only. Actual
+full63source copy pins are verified. Root qualification81872B/
+a6118995058fcdca0015631d179eb6f2f896c1ac5f3cf2c69e5a94259afb8cc2
+selects bound33388B writer/aab74e92e566b8f3c3ff4ba287fb6d73a7807c0ed1fc30d1c16a2720caa539ff.
+
+Qualification is for a fresh serialized pure child with no custom reopening
+handlers/threads/actors. Same-number/same-inode reopening is a real generic
+counterexample, but no intervening allocation path exists in this selected
+caller; no universal FD/path-atomicity guarantee or new framework is claimed.
+One dedicated Mu21 data call is prepared at original10s/512MiB/grace3/
+no-native/1MiB capture, with five UNPROBED proposals. A fixed complete Root
+caller/data audit is being prepared before admission. No generator call or
+actor has run. Quest and Mu fixtures remain separate; no actor lease/world/
+live ports are required for pure data preparation.
+
+B4 submitted40577B source/403db23ccffcbb44589d44bd6a88ee8513a04f3e29862eb0b51d3d35da49d496
+is HOLD. Root joins29current opened pins/seven private outputs and exact
+5548B donor prefix; settlement20344B/
+fd0455b8cad7b2a71c695f214d4d646bba629aa5c4b98434e3d04fa251fcbc90,
+release455B/fa8dbd0009ecc038dd3186dd54042d80ef077dbd80b3f4706b1b70fb41942698.
+Root personally reads four refusing predicates and the complete independent
+4828B contract report: wrong Material ports; aggregate versus token counts;
+a demanded Engine schema and runtimeAdmitted that both do not exist in B3.
+These are B4-only fixes. Actual Engine has exactly13keys. Two related joins
+are also required: exact engine metadata aliases/name and metadata excluded
+ports. No B3 schema/data change or actor workaround.
+
+Independent5132B client/runtime review finds no mandatory defect in its
+slice. Root joins both reviews'14+31stable inputs/7+10closed outputs and
+9+15exact source spans. Client2-span inverse/complement,64body partition/
+Chinese5/source aliases and caps stay unchanged. Finite source expectations:
+P204/385548804..809B, UI177/94036065..070B, driver total206/
+398772909..914B including2outside donors, all original limits. No data call.
+
+Root freezes61exact private copies for six narrow B4 admission corrections:
+manifest68601B/
+1ed9ddf7e3c80f6ff8a06aa6202f65dbf4c126aa28b3ae68e7b29309747252c5;
+brief3474B/66df9857e44fd83c40209938fa99031cb5b339a1d2ca02a1a6045e7825704b09.
+SOURCE ONLY, zero new controls/framework/caps, client/runtime slice unchanged.
+A new actual Grok repair is ready after this checkpoint.
+
+Fleet17 enumerates260records/3pages:1active/253released/6retained/
+0reclaimable,9922B/
+b16cd1382b29b9c24ce76542ed1fe70d43dec661dff86183e9aca0da3c396df5.
+Only F839 remains live before the new B4 repair. Historical user-retained
+resources remain preserved. Full goal/4of14/all82open remain unchanged.

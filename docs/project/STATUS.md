@@ -13,18 +13,18 @@ dictionary abort/load405/map-connection settlement stop later cases. Root's
 complete failure/preservation audit passes; no B200assignment/reconnection or
 parent-check credit. 4/14 is a check count, not measured full-content coverage.
 
-**Parallel work:** [B4 actual Grok ready; B3 bounded source repair frozen](reviews/2026-10-24-functional-priority.md#b4-actual-ready-b3-finite-repair-and-muc-six-calls-admitted).
-Current260record/3page fleet15:4active/250released/6retained/0reclaimable.
-Actual live Grok tasks are F839 exporter, B4 runtime materializer
-B3 bounded server-fixture repair and an independent Mu Remote config audit.
-MuD final source is now joined/released.
-MuC and B3 prior owners are released/archive captured before acknowledgment.
-[Grok partially recovers; MuD final submission and Mu web stage qualify](reviews/2026-10-24-functional-priority.md#grok-partial-recovery-mud-released-and-mu-web-stage-verified).
-Workers make tool progress between500 retries; no complete
-service-recovery or final-source-adoption claim. No duplicate editors.
-The optional Claude fallback choice is still pending for remaining workers.
-B3 four source defects/private modes remain HOLD; actual Grok finite repair
-is ready after2ad53c6. All82functional resource gaps remain open.
+**Parallel work:** [B3 finite source qualifies; B4 narrow contract repair is frozen](reviews/2026-10-24-functional-priority.md#b3-finite-source-qualifies-b4-contract-repair-frozen).
+Current260record/3page fleet17:1active/253released/6retained/0reclaimable.
+B3/Remote/B4 source owners are released/archive captured beforeACK. Only
+F839 is still live before the next B4 Grok source repair. F839 has two
+remaining consumer/postpin findings; no final export admission.
+B3 all four source fixes qualify for the selected fresh serialized child;
+one dedicated Mu21 pure-data call and complete Root audit are being prepared.
+No actual generator run yet. B4 is HOLD on four genuine metadata mismatches
+plus two related input joins;61copied source inputs freeze a bounded repair.
+Client/runtime slice has no mandatory finding; Chinese overlays/caps stay.
+Optional provider fallback choice remains pending for still-live F839 only;
+no stopped/duplicated owner. All82functional resource gaps remain open.
 
 [All six actual MuC focused calls pass complete Root223pin verification](reviews/2026-10-24-T07-mu-data-stage.md#actual-six-muc-focused-calls-pass-complete-root-audit).
 Three source fixes qualify; no fresh map actor/render result yet. MU1 exact105body private

@@ -45,17 +45,17 @@ Parallel:
 
 B2D/B2U:all8 selected focused checks PASS; original Root error preserved.
 Root:actual pending-producer poll PASS/116pins; native game still open.
-B3:submitted/released; HOLD4findings/modes -> finite repair admitted.
-B4:existing64body source actual Grok ready after8171b27.
+B3:finite33001B source qualified; pure Mu21 data call being prepared.
+B4:submitted/released; metadata HOLD -> six narrow corrections frozen.
 MuC/MuD:submitted+released, HOLD5findings -> finite UI/driver fixes ready.
 MuC:three fixes + all six actual focused calls PASS/223pins.
-B4/F839/B3fix/Remote:four actual live Grok, separate owned scopes.
+B3/Remote/B4:completed sources released; F839 live; B4 repair next.
 MuD:both calls PASS/65pins; final source joined/released beforeACK.
 Mu19:corrected source qualified conditionally; fresh dedicated data next.
 Mu client:259selected files +five archives Root verified; two dirs added.
-Mu Remote:13-copy source audit actual Grok ready after030432b.
+Mu Remote:source and current config joins verified; owner released.
 Mu Web:four bodies staged/full verified;105body stage unchanged; no actor.
-Current4active/250released/6retained/0reclaimable across260records.
+Current1active/253released/6retained/0reclaimable across260records.
 MuC/B3 prior owners released/archive beforeACK; no cleanup debt.
 Four actual user-retained resources stay;2transferred records have none.
 Trial9 stays failed; known faults stay failed. No new actor admitted.

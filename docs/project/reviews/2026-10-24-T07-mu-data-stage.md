@@ -643,3 +643,29 @@ Remote validation still opens/indexes them. No archive parse/index/native
 run occurred, no copy or P/cap growth. Current frontend/support/archives are
 verified prerequisites. Fresh dedicated fixture and current actual source/
 config/world/lease/actor checks remain next. Full game credit unchanged.
+
+## Remote source audit settled current filesystem joins pass
+
+Actual Grok config task completes. Root reads the5686B report, joins15opened
+full source pins and all4private closed outputs, verifies77exact source
+anchors, and releases/archive captures before acknowledgment. Settlement
+10522B/3a991bae63a646a747ace97765b9d7c5837fdb16ed5bb8bebd1b67d80505c1b0;
+release455B/5088cd5e9f7509262081ee7189c87981e5858a4823a138f18f5e44f68222923b.
+Unmanaged startup reads SERVER_ROOT/.env/environment; no config.ini is
+supplied/read by this source path. Existing env wins; unset optional keys
+could come from .env. Absolute DATA.INI selects the INI; its absolute five
+archive entries bypass the empty resources root. Static Web precedes loose
+data, then override/archives. No invented config.ini/env flag or copy.
+
+Root verifies literal .env ABSENT, resources/translation still empty0700/
+currentUID, four-leaf Web exists, current selected Remote full SHA/C8/X_OK
+matches, and all five already full-hashed archives retain current C8.
+Current config audit4807B/
+8fcfc95e9deae20c4254cdbdfba077bb18890286a76a5a2627c0249fc70994d1.
+Source-commit agreement is not reproducible binary provenance; actual serving/
+startup/index/memory behavior remains for the one future actor. Original
+network/settings remain untouched. No map/game/parent credit.
+
+[B3 finite generator source now qualifies for a serialized pure child](2026-10-24-functional-priority.md#b3-finite-source-qualifies-b4-contract-repair-frozen).
+Dedicated fresh Mu21 data/full Root audit and Mu19projection stay next;
+the actual actor still needs fresh config/world/lease/ports and final binding.
