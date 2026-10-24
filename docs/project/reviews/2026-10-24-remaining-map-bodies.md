@@ -1452,3 +1452,35 @@ postchecks are incomplete. Guidance msg_41dc0f3027fb is durably queued, not
 claimed read. Original Grok remains live, with no sibling source disclosed.
 This early review is not its submitted-candidate score. Both final candidates
 and comparison still gate .009 readiness; the pilot is not a provider winner.
+
+
+## Real pilot matches the complete browser oracle
+
+Root performs exactly one admitted pilot with the committed corrected Claude
+host; no source/body/prefix/suffix modification, HTTP call or game action.
+The original outer observer reports natural0, no signals/action,0.408318s,
+4samples/330661888B sampled peak, maximum gap0.135061s and no registered
+process/group residue. Stdout291B and empty stderr are fully retained; this
+is sampled RSS, not containment. The complete fresh worker records one prefix
+ready, distinct changed suffix handler, one core dispatch/result, fulfilled
+handler, exact three constructor buffers, close and positive0exit plus both
+stream ends. Its launch-through-drain185.479667ms stays below55000ms.
+
+Root personally reads the complete map host report and manifest, rehashes all
+inputs/outputs and joins every artifact/constructor binding. Complete stable
+core JSON equals the prior241913B browser oracle after removing exactly the
+single top-level elapsedMilliseconds field. The actual field is133.020292ms;
+no performance comparison is inferred across these environments. All typed
+array hashes/lengths/numeric scans,57600GATcells,370placements,27modelgroups,
+7textures/remaps and0water requests match. Zero numeric anomalies/error;
+unchanged historical qualification:false is not treated as failure or acceptance.
+
+Private `.tools/renewal/t07-014-009-claude-pilot-preparation-root-1/ROOT_CONFIRMATION.json`
+is40906B/SHA256676762f5ab642504e86d77659d9ba838ec3e98f29a18b50bde2dfb48e4af4a9d:
+127checks/18full pins, all canonical input identities unchanged, exact three
+0700/0600output files and no RUN_DEADLINE.json. The normalized full stable
+result SHA256 is599d50db3b98de2bcf27fcc5b91e68943b1c5877922e7ef7306719aa6482bcd0.
+This qualifies this host's single compiled-core pilot. Checkpoint before a
+separately admitted21-map call; do not repeat the pilot. Grok remains independent
+and active; both submissions/comparison still gate task readiness. This closes
+no production rendering/travel/story/save or82gap claim.
