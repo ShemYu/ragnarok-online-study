@@ -1569,3 +1569,92 @@ slices/286metadata joins before scoring or using the trace. Candidate source
 claims do not establish image decoding, WebGL appearance or any82gap closure.
 Constructor source integration1aa7e67 remains qualified; next Root caller/full
 936profile/exact11pilot gate is unchanged. No new user decision or goal change.
+
+
+## Image consumer source trace passes complete Root comparison
+
+Both equal-source .013attempts are personally read, including the complete
+retained consumer/producer closure and Grok's additional FileManager/GND/RSW/
+shader blocks. Root independently re-extracts all15Claude/25Grok slices by
+byte offset and raw LF ranges, checking complete bytes and SHA256 against the
+three fixed original inputs. All source/input pins match. Root recomputes
+the complete286metadata joins:222texture-role BMPs/15344314B (220lowercase/
+two uppercase extensions),64water-role JPGs/1310165B, all recorded body/loose
+lengths and hashes equal, no referenced paths followed. Both independent row
+digests match their explicit serialization recipes. The first Root audit
+incorrectly compares whole PRE/POST records, including different diagnostic
+fields; the retained V1 fails. Corrected Root compares exact path/bytes/SHA
+projections and verifies both against the frozen/current inputs.747checks pass.
+Private t07-014-013-root-audit-1/ROOT_AUDIT.json is4249B/SHA256
+53a56b7592ff51fde9ee4d65b31cb33ba03215ac8987f057cb26b6cf39e3c6da.
+
+Verified saved-source mechanism: worker FileManager wraps BMP/JPG bodies in
+Blob URLs without decoding; MAP_WORLD is posted before MAP_GROUND. The page
+uses native Image/onload via Texture.load, copies decoded pixels to canvas and
+removes magenta. Ground rescales into256/258cells and uploads one atlas; water
+rescales each frame to power-of-two dimensions and uploads separately. No image
+onerror exists in that consumer. A decode lacking onload can stall the entire
+ground atlas; missing null inputs instead complete false/count toward it.
+Revoke occurs only onload; free does not revoke outstanding URLs. Water's shader
+overwrites sampled alpha with opacity, then multiplies it again. These are source
+facts/conditional consequences, not proof that any delivered image fails.
+
+Raw source-only scores tie17/20; neither future runtime proposal is admitted.
+
+| Candidate | Correctness8 | Preservation4 | Source checks4 | Handoff2 | Limits2 | Total |
+|---|---:|---:|---:|---:|---:|---:|
+| Claude |6|4|4|2|1|17|
+| Grok |7|4|4|1|1|17|
+
+Claude's two water filename groups do not establish two maps. Its proposed
+Texture.load check omits the ground atlas upload and its proposed dimension
+check before any getImageData is too late: removeMagenta already reads full
+pixels before callback. Grok more completely traces request mapping, shader
+alpha and286rows, but labels three Core/FileManager slices as Loaders and
+ends the setMap callback slice one line before closure; Claude supplies the
+complete block. Grok's callback/non-null texture success does not verify upload
+errors, and its post-callback dimension test likewise cannot bound earlier
+allocations. Its private initTextures exposure remains unspecified. Source
+interpretations combine useful verified facts with those explicit corrections.
+Astra's independent advisory materially supports these distinctions; Root
+personally confirms them in actual primary slices and metadata.
+
+T07.007.014.013 is ready_for_user for this bounded saved-source trace only.
+Next freeze a finite isolated-browser closure/exposure/resource/teardown plan:
+separate decode, upload, pixel and worker-to-page Blob URL outcomes; ordinary
+callback completion alone is insufficient. Native browser allocation requires
+an owned external boundary, since compressed length and callback-time dimension
+checks do not cap it. No browser implementation/execution, actual body/header,
+codec or installed-current-client proof follows. Both workers released; fresh
+fleet reports309released/ten retained/zero reclaimable. No child folders added.
+Costs/tokens/model revisions not observed; provider start-to-settlement time is
+not a measured active-effort comparison. Full Renewal goal/4of14/82open unchanged.
+
+
+## Finite constructor caller passes Root source controls
+
+Root reads the complete311line/21017B unbound caller draft and its contract,
+then the reused unchanged .011preservation helper and entire root005guard.
+The guard's external_guard_valid requires no guard_action, natural0 and no
+registered group residue; its return implication is sufficient for the caller's
+validity/exit/no-signal check. It samples, rather than contains, memory.
+Root executes five authored groups: four default/malformed modes refuse before
+bootstrap; prepare uses one exact source replacement/inverse and orders final
+host before admission before plan; prepin failure invokes no guard; guard
+exception and independent post-world exception preserve whole-pin/HEAD/self
+postchecks and false acceptance. No genuine model/world observation occurs.
+Private t07-014-012-caller-root-qualification-1/RESULT_ROOT.json is693B/SHA256
+3569021606ccd4f18d028c52e6a828b97111261a8f0efb6c98f531d61510ac27.
+
+Astra's independent source advisory agrees with two mandatory outer duties:
+1380s elapsed checks alone cannot interrupt a blocked caller, and the caller's
+own inventory precedes its final output publications. Root must use the same
+qualified two-group guard externally for the entire caller, with its registered
+inner Node child, and independently seal/hash the complete final output set and
+combined256MiB artifact accounting after exit. No caller rewrite is needed for
+these explicit outer duties. Final pilot audit still owns all semantics. The
+Node guard1260s/host1240s/wholecaller1380s/3s cleanup/1.5GiB sampled limits are
+explicit finite Root binding proposals; actual resource fit remains unmeasured.
+Next assemble/freshly pin one full936profile, bind current world/HEAD and the
+exact11pilot, inspect whole source inverses then call once. No constructor has
+run, no925remainder or content closure is admitted.

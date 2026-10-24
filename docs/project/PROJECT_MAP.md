@@ -1,6 +1,6 @@
 # Supervision, plan and current position
 
-Date: **2026-10-24 JST**. Functionality comes first.
+Date: **2026-10-25 JST**. Functionality comes first.
 [Fresh Mu3 isolated rendering now passes](reviews/2026-10-24-T07-mu-data-stage.md#fresh-mu3-synthetic-scene-and-complete-root-audit-pass):
 all 1,285 placements load; all retained Float32 arrays are finite; Root
 visually checks the image and completes the 767-check / 735-pin audit.
@@ -85,8 +85,9 @@ Other active work:
   Model/declaration preparation [BOTH HELD14/20vs9/20; Root full reviews/controls DONE]
   Constructor correction       [INTEGRATED1aa7e67; Root23tests/own regressions/CLI PASS]
   All936model body files       [ROOT FRESH HASH/IDENTITY + COMPLETE JOIN PASS]
-  Genuine constructor pilot    [11PROPOSED; actual caller/full profile binding next]
-  Image consumer source trace  [CLAUDE + GROK LIVE; independent of model fix]
+  Genuine constructor pilot    [CALLER SOURCE PASS; full936profile/11binding next]
+  Image consumer source trace  [ROOT PASS:40slices/286joins; both17/20/released]
+  Browser image decoding       [NEXT:finite closure/resource/upload plan; no run]
   Remaining direct assets      [DELIVERY DONE; construction/nested textures OPEN]
   Claude/Grok FD plan pair      [BOTH VERIFIED + RELEASED; control PASS]
   Chapter 1 first transition   [SOURCE +6retained assets/9cells VERIFIED; play OPEN]

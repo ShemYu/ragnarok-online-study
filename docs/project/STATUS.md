@@ -28,14 +28,17 @@ complete:19tests pass, but two Root combined faults hold it.
 [Finite follow-up9cdf352](tasks/T07.007.014.012.001.001.md) is preserved/released;
 [Root full diff/23tests/own two regressions pass; corrected source selected19/20](reviews/2026-10-24-direct-dependencies.md#corrected-constructor-source-qualifies-for-integration).
 [Exact integration1aa7e67 and focused authored CLI check pass](reviews/2026-10-24-direct-dependencies.md#selected-constructor-source-integrated-unchanged-and-interface-rechecked).
-Next Root caller/full936profile/exact11pilot binding. No new child/setup. A parallel metadata-only helper
+[Root caller source/five authored controls pass](reviews/2026-10-24-direct-dependencies.md#finite-constructor-caller-passes-root-source-controls).
+Next full936profile/exact11pilot/current-world binding plus whole-caller guard
+and final independent output seal. No new child/setup. A parallel metadata-only helper
 has completed the936body join; [Root independently verifies all records and fresh body files](reviews/2026-10-24-direct-dependencies.md#complete936body-join-and-fresh-root-file-audit-pass).
 237771checks/950pins pass. Proposed11pilot/925remainder stay unbound. Root
 must qualify the repair and exact actual caller before real construction.
 
 **Independent parallel lane:** [.013browser image-consumer source trace](tasks/T07.007.014.013.md)
-uses equal Claude/Grok frozen source/metadata: both reports preserved/released;
-Root full source/metadata comparison is in progress. Private-only ownership
+[Root complete source/286metadata comparison passes](reviews/2026-10-24-direct-dependencies.md#image-consumer-source-trace-passes-complete-root-comparison):
+both17/20 for saved-source trace, both preserved/released. No decode/admission.
+Next finite browser closure/resource/upload/teardown plan. Private-only ownership
 in this checkout. Root owns tracked docs; authors may not mutate Git/source or
 open images/runtime/browser/game. Trace of286delivered image consumers does not
 wait for .012models. Root compares exact source closures/metadata before use.
