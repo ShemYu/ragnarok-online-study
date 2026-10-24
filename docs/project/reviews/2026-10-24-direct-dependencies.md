@@ -2741,3 +2741,23 @@ from0c7eed8; same four files/inputs and unchanged production slices. First
 correction remains held, not selected/integrated/ready. Rework score follows
 qualification, separate from raw originals12/20vs10/20. .017pair continues
 independently. No critical goal-changing issue or user action.
+
+
+## Combined-fault fixture follow-up starts
+
+After checkpointe10fcb8, Root verifies the released correction checkout is clean
+at0c7eed8 and creates separate branch ShemYu/t07-014-016-claude-followup-a1.
+New task_3832ffe21c6b/ctx_1e4a95917059 in that same registered checkout owns
+the finite follow-up; fresh term_3ff1c418-d9cb-427f-9c21-ef3f83186d3a input
+is accepted/turn start observed/no residual resources. No child folder/setup.
+Configured default Claude is used; model/effort requested/effective remain null.
+Original9b3a119/first correction0c7eed8 and both archived packets/bundles remain.
+
+The .017Claude/Grok source wave remains independent. A read-only Orca
+worker-read confirms Grok ctx_dd8e5f76545d live/working on its frozen metadata
+and source, no action required. Its transcript is clipped and is used only for
+that liveness/current activity checkpoint, not full preservation or validation.
+Both .017authors have matching investigating/implementing evidence. Root's
+next .016action is personally review the settled follow-up, reproduce own
+regressions and build/verify exact fixture before any owned-browser admission.
+No actual image/browser/server/network/game call or new user decision.

@@ -66,7 +66,8 @@ Both .016originals are preserved/released: Claude9b3a119 and Grok345d328.
 original is held. A [finite five-issue correction](tasks/T07.007.014.016.001.md)
 [is preserved/released at0c7eed8; Root20tests/zero skips/fresh complete spans pass](reviews/2026-10-24-direct-dependencies.md#first-fixture-correction-is-preserved-but-combined-faults-hold-it).
 Four additional combined-fault controls hold it. A [narrow follow-up](tasks/T07.007.014.016.001.001.md)
-is frozen from that correction, same source/input boundaries. Both originals
+is live from that correction as task_3832ffe21c6b/ctx_1e4a95917059, reused
+checkout/own follow-up branch/same source/input boundaries. Both originals
 are personally checked/held12/20vs10/20; no fixture source is integrated or
 browser-admitted. The two .017implementations remain independent. Root's independent
 oracle source/current65metadata file checks pass; [finite multi-map audit projection

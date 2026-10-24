@@ -94,7 +94,7 @@ Other active work:
   Image consumer source trace  [ROOT PASS:40slices/286joins; both17/20/released]
   Browser image fixture        [BOTH ROOT VERIFIED/HELD12vs10; pair released]
   Claude fixture correction    [ROOT20tests PASS; four combined faults HELD]
-  Fixture finite follow-up     [BRIEF FROZEN; no browser admission]
+  Fixture finite follow-up     [COMBINED-FAULT FIX LIVE; no browser admission]
   Remaining direct assets      [DELIVERY/CONSTRUCTION DONE; nested bodies OPEN]
   Claude/Grok FD plan pair      [BOTH VERIFIED + RELEASED; control PASS]
   Chapter 1 first transition   [SOURCE +6retained assets/9cells VERIFIED; play OPEN]
