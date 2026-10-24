@@ -345,3 +345,36 @@ Source defaults refuse before live I/O; actual Root binding/execution comes
 after personal source/control qualification. No claim that the full remainder
 fits60s has been verified. Next construct the derivative; delivery, decoding,
 rendering, ordinary field/save and all82gap closures remain open.
+
+## Equal direct-delivery implementation wave starts
+
+Common base dddb08c151b5db70e2b5216b57f38a109bfbf5ab contains the frozen brief.
+Root verifies both child HEADs descend from that base. Both starts exit0 with
+setup explicitly skipped; no repo hook runs. Exact same task text and seven
+frozen inputs apply. Provider defaults are inherited; effective model/billing
+are unobserved. Private launch receipts/common spec remain under
+t07-014-011-launch-root-1/. Current workers:
+
+| Provider | Orca task | Active dispatch | Checkout |
+|---|---|---|---|
+| Claude |task_b5a12ccf105b|ctx_a72aba87f6d7|t07-014-011-claude-a1|
+| Grok |task_3709df1ea5bd|ctx_26c35e954ea5|t07-014-011-grok-a1|
+
+Claude's launch proves turn_started. Grok's launch cannot observe that stage;
+a subsequent fresh transcript/read reports actual working activity and live
+agent status for both. No prompt is resent on that unsupported observation.
+Three matching investigation/implementation heartbeats are processed/ACKed;
+both active workers remain owned, with no settlement/release yet.
+
+Initial Grok transcript also shows two provider-memory file reads outside the
+seven permitted additional private inputs. Root sends both candidates the same
+scope reminder and requires explicit disclosure of any extra reads/influence.
+Do not claim strict information isolation or a provider winner. The scope
+deviation and implementation quality must be evaluated separately. No extra
+runtime authority or implementation advice is supplied. Candidates remain
+unqualified until Root personally reads their source and runs equal controls.
+
+Next Root owner: keep ordinary gameplay independent, consume each matched
+worker_done, preserve every source/report/private artifact and Git ref, verify
+the candidates, then reuse/retain/release before acknowledging settlement.
+The live .011 pair accounts for two new children; current direct count84.

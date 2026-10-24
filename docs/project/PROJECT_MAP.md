@@ -78,7 +78,7 @@ Other active work:
   Host source comparison       [DONE:Claude correction SELECTED; both VERIFIED/released]
   Direct dependency lookup     [DONE:both actuals +Root full equality; all1222found]
   Direct asset preparation     [PASS:115retained bodies +1222exact mappings]
-  Normal delivery derivative   [NEXT:equal Claude/Grok implementations]
+  Normal delivery derivative   [ACTIVE:Claude/Grok separate branches; Root checks next]
   Remaining direct assets      [OPEN:1107new; normal1222delivery unproved]
   Claude/Grok FD plan pair      [BOTH VERIFIED + RELEASED; control PASS]
   Chapter 1 first transition   [SOURCE +6retained assets/9cells VERIFIED; play OPEN]

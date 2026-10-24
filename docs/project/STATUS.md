@@ -11,7 +11,8 @@ The board includes later-phase party taskT11, so this is not a percentage of
 first-milestone content or remaining effort. Do not relabel it as such.
 
 **Child cleanup:** [Root verifies removal of20completed children](reviews/2026-10-24-orca-children-cleanup.md#second-twelve-removals-personally-verified).
-Current82direct children include the two new, now-released review children. Exact Git archive
+Current84direct children include the two released review children and the two
+active .011implementation children. Exact Git archive
 refs, two verified rollback bundles and private evidence survive; the running
 character/quiet audio remain. Three examined children stay held for incomplete
 private preservation; user-retained children remain excluded.
@@ -57,8 +58,10 @@ mapping;1107new hashes remain unknown. Three private same-device case fixtures
 confirm alias behavior there, not actual asset paths. Native source preserves
 requested spelling and can serve cached bodies without extraction. Normal
 delivery and loose-file materialization are therefore separate outcomes.
-Equal Claude/Grok implementations use seven fixed inputs from the brief
-checkpoint, no actual worker I/O. Pilot8/612703B, disjoint remainder1214/
+Equal Claude/Grok implementations use seven fixed inputs from dddb08c;
+[both actual workers are live](reviews/2026-10-24-direct-dependencies.md#equal-direct-delivery-implementation-wave-starts), no actual worker I/O.
+Grok's extra provider-memory reads are recorded as a scope deviation; strict
+information isolation is not claimed. Pilot8/612703B, disjoint remainder1214/
 24101056B; no live GET is admitted yet. Next Root source/common-control
 verification and fresh runtime binding; genuine decoders/rendering follow.
 
