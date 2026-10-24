@@ -53,7 +53,9 @@ both17/20 for saved-source trace, both preserved/released. No decode/admission.
 Both preserved/released; [Root verifies all41slices and286metadata rows](reviews/2026-10-24-direct-dependencies.md#browser-closure-proposals-pass-root-source-comparison-with-corrections).
 Raw source-plan scores Claude16/20/Grok15/20; both need corrections before execution.
 Use Claude's finite copied closure with Root's explicit observation/failure corrections;
-next implement tiny authored controls in an owned Orca fixture page. No runtime PASS.
+next [implement tiny authored controls](tasks/T07.007.014.016.md) in an owned Orca fixture page.
+No runtime PASS. [Nested948metadata source-review brief](tasks/T07.007.014.015.md)
+is frozen independently; its private prototype retains actual admission false.
 Private-only proposal ownership
 in this checkout. Root owns tracked docs; authors may not mutate Git/source or
 open images/runtime/browser/game. Trace of286delivered image consumers does not

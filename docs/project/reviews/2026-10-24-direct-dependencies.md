@@ -2075,3 +2075,26 @@ decision or goal change is needed. Overall4/14/about29% and all82gaps unchanged.
 Independent .015source-only feasibility finds exact .010wrapper/.007Collector
 reuse for948nested targets feasible; prototype preparation may proceed privately,
 with equal source reviews and Root verification before any actual catalog stream.
+
+
+## Independent nested metadata and authored image briefs are frozen
+
+[.015](../tasks/T07.007.014.015.md) freezes the smallest12literal-edit derivative
+of the qualified .010wrapper, unchanged .007Collector and a948query/1546relation
+profile. Private preparation-draft-helper-1 source12714B/SHA256
+132f54ba50af4609115fdd9abbf89b71a947f6e4abdb18bd9b42f3e8c3e13add;
+profile3413334B/d2f4397b456b47b84bcabb9897a4e7c5b3e7118c4b441fcd7424725f5b44f127;
+seed4803B/d07b68a799d7dd92996aaae53f66430f03173eabc45a3197c0dc7837c0aae8c7.
+Root reads the complete new wrapper and complete12edit/13unchanged-span proposal;
+complete independent derivation/fixture checks and paired source reviews remain
+before selection/actual admission. Source-only helper preserves five full PRE/
+POST inputs and does not execute/compile/import either donor or wrapper.
+
+[.016](../tasks/T07.007.014.016.md) freezes four owned implementation paths,
+the exact .014source/metadata inputs and all common Root corrections. Tiny
+authored-only controls can proceed independently of .015's catalog availability.
+Root will review both candidates and personally drive the owned Orca fixture;
+workers may not launch browsers/servers or read actual game images/headers.
+Reuse two settled clean implementation checkouts on fresh same-base branches;
+no new child/setup or installed/game/profile/storage/network change. Launch
+receipts and actual controls are pending; this checkpoint claims neither.
