@@ -24,6 +24,7 @@ B4 caller taskfe6df2b4cd87/ctxdc84619e0299 and minimal world-source repair
 task6f34a7a0b17f/ctx4f84c4376600 continue as independent actual Grok tasks.
 B4 child preliminary15input/9anchor review passes Root verification; final
 outer/hash/full71 remain pending. No new game actor or completed cleanup debt.
+[Ten existing finite controls are prepared for a third independent Grok source task](reviews/2026-10-24-T06-full-spawn-output-budget.md#ten-existing-finite-controls-prepared-for-independent-grok-source-work).
 No parent/gap/game credit;4/14/about29%, all82gaps and full goal unchanged.
 
 [All six actual MuC focused calls pass complete Root223pin verification](reviews/2026-10-24-T07-mu-data-stage.md#actual-six-muc-focused-calls-pass-complete-root-audit).

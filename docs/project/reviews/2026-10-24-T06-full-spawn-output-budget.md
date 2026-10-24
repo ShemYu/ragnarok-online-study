@@ -458,3 +458,21 @@ This is a nine-literal, 158-byte finite fixture, not a full839 publication.
 Producer ROOT_BOUND remains false. Other bounded controls and the one
 selected full839 consumer route remain unadmitted. No native, game, story,
 Chinese, map-gap or parent-check credit is added.
+
+## Ten existing finite controls prepared for independent Grok source work
+
+Root selects only the existing six group04 stream/range controls and four
+group06 refusal controls from the reviewed finite recipe. These cover exact
+stream caps, cap refusal, all nine ranges, gap/tamper/ledger and producer
+postpin refusal. They need no production corpus/native/game actor and do
+not block the isolated scene test. The prior combined-nine call is not
+replayed. The other 37 recipe calls are not automatically required.
+
+A 17-copy source/metadata packet is frozen: manifest 18733 bytes /
+2595d83439fa06d83db450054fcc128c71443cedb84f0b2d09e40325a3c0103d;
+brief 4437 bytes /
+5e226a7933625e1ecdf33d052276c57988a87a7ba3d2e8e62a00795f0debfa46.
+The next actual Grok source task prepares two minimal unbound entries for
+those existing calls. No new test family, outer monitor, source mutation,
+839 corpus read, target execution or actor authority. Root independently
+reviews the full delivered sources and decides original G admission later.
