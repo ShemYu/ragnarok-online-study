@@ -15,7 +15,7 @@ are Root-qualified in their bounded scopes. [.020both originals pass all32
 handwritten outcomes, with harness holds](reviews/2026-10-24-direct-dependencies.md#both-authored-decoder-originals-pass-root-pixels-with-finite-harness-holds):
 Claude15/20/Grok14/20; both preserved/released. Next Root corrects the Claude
 basis and reruns guards. [.021retained decoder observer brief is frozen](tasks/T07.007.014.021.md)
-for an independent source-only pair; no actual body read/decode admitted.
+[with both source-only authors now dispatched](reviews/2026-10-24-direct-dependencies.md#independent-retained-decoder-observer-source-pair-starts); no actual body read/decode admitted.
 Decode/geometry/render and all82functional gaps remain open.
 
 **Child cleanup:** [Root verifies removal of20completed children](reviews/2026-10-24-orca-children-cleanup.md#second-twelve-removals-personally-verified).
@@ -24,7 +24,7 @@ Current84direct children include the two released review children and the two
 refs, two verified rollback bundles and private evidence survive; the running
 character/quiet audio remain. Three examined children stay held for incomplete
 private preservation; user-retained children remain excluded.
-Latest fleet:325released/ten retained/zero active or reclaimable.
+Latest fleet:325released/ten retained/two active .021authors/zero reclaimable.
 Two .012implementation attempts reuse existing released checkouts; no new
 child folders or setup hooks. Both .012candidates are preserved/released after
 matched settlements. [Root full review and eight behavioral groups per original are complete](reviews/2026-10-24-direct-dependencies.md#both-constructor-originals-are-personally-checked-and-held).

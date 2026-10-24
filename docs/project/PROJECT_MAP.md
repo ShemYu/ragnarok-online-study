@@ -96,7 +96,7 @@ Other active work:
   TGA page source              [ROOT19300checks PASS; raw15/20each HELD/corrected]
   TGA Worker path              [ROOT BOTH FULL CHECKS PASS; corrected source only]
   TGA tiny decoder fixture     [BOTH32/32 ROOT PASS; HARNESS REPAIR NEXT]
-  Retained decoder observer   [BRIEF FROZEN; SOURCE PAIR NEXT; NO ACTUAL DECODE]
+  Retained decoder observer   [BOTH AUTHORS LIVE; NO ACTUAL DECODE]
   Real25TGA header resource    [ROOT969checks PASS; max1024x1024; no decode]
   Model702node bounds           [SENTINEL PRESERVED; geometry impact OPEN]
   Image consumer source trace  [ROOT PASS:40slices/286joins; both17/20/released]

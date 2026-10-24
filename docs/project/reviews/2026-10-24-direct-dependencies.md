@@ -3749,3 +3749,22 @@ Private Root receipts:
 | t07-014-020-grok-review-root-1/ROOT_MATRIX.json |25842|0d8588cb41c94b31ab8503aab810d399b6e4e9f8d2316166be3faa441b0e05e3|
 | t07-014-021-preparation-root-1/PROFILE_ROOT.json |37776|91006dc3379de4341858e804297d382a9af95cbb10e1515b21556265963961fe|
 | t07-014-021-preparation-root-1/PROFILE_CONFIRMATION_ROOT.json |404|a604128cd3e82d2fcc5abc23bad0bcdb04233c90ec63eac0d9745f5d3f18cef4|
+
+
+## Independent retained decoder observer source pair starts
+
+Both .021implementations start from exact36736fcbaec964eaf436ccb4e5332e712b9fb68e
+after the same frozen brief/profile/corpus/source. Claude task_99e30fbd7806/
+ctx_3a56387ddd50 and Grok task_d90604e96666/ctx_443fba4a0549 are ready and
+input_accepted. Claude turn start is observed; Grok observation is unsupported,
+not failure. Existing released .020checkouts are clean and reused on separate
+ShemYu/t07-014-021-{claude,grok}-a1 branches. No new child/setup. Model/effort
+requested/effective are null; actual models and token costs remain unknown.
+
+Root owns .020harness correction in parallel. Authors own only their .021three
+paths/private prefix and may execute only tiny authored copied-decoder cases;
+all25actual body paths stay closed. Root personally reviews and tests both
+originals before selection; actual pixels still wait for independent oracle and
+source qualification. Both starts precede the first wait. Receipts/specs and
+full placement record remain in ignored t07-014-021-launch-root-1/. Current
+fleet325released/ten retained/two active/zero reclaimable.
