@@ -4,39 +4,28 @@ Updated: 2026-10-25 JST. Coordinator: Codex. Active scope: **execute the documen
 
 ## Current checkpoint
 
-**Main next action:** full-health identified Poring encounter, normal return
-and earned-state re-entry, then
-the [authentic Chapter1 route](reviews/2026-10-24-direct-dependencies.md#next-player-gate-resumes-ordinary-play-and-the-real-chapter1-route).
-[Current earned-state ordinary reentries pass](reviews/2026-10-24-normal-map-prerequisites.md#current-earned-state-character-selection-and-full-logout-reentries-pass):
-same character at textured Izlude128,142, HP45/SP12/base2/job3/displayed17%,
-visible consume quantities1/5 and Chinese overlay. Root personally views both
-returns; fresh authenticated native ownership and all five service metadata
-remain unchanged. First fill/Enter login attempt failed; verified form input
-and Connect succeed, original cause unresolved.
-[Fresh supported backup/readiness/saved progress/post-backup reentry pass](reviews/2026-10-24-normal-map-prerequisites.md#current-earned-backup-saved-progress-and-post-backup-reentry-pass).
-One100908B export preserves completed21001/21008, base2/job3/raw EXP152/17,
-four inventory rows and Izlude128,142. Only expected login/char/map restart;
-five identities/mounts/ports, DB/web starts/volume and current/four old owners
-stay preserved. Root18pin saved-data audit and both viewed return/inventory
-images pass; backup is not restore-tested. Character stays idle safely in town.
-[Fresh Fabre attempt fails survival; autoattack does continue](reviews/2026-10-24-normal-map-prerequisites.md#second-field-attempt-has-continued-attacks-and-mutual-death).
-One Space produces six player attack packets and targetHP59→0; player dies
-before Fabre. Skill185is Earth Attribute Attack in shipped data; no suicide or
-new client defect is established. Fabre is shipped level6versus player2.
-Root77pins/59captures/14viewed lossless images/five source pins pass. Normal
-respawn returns safely to Izlude128,142; HP45/SP12regenerate, services/owners
-unchanged. Next inspect actual stats/equipment and choose Poring1002, then first
-Chapter1 selection/traversal/persistence. Independent CPU qualification
-of all936is not a prerequisite for normal play. .024broader source plans remain
-parallel: [both .024plans are preserved/released](reviews/2026-10-24-direct-dependencies.md#both-geometry-extension-plans-are-preserved-and-released);
-Root comparison pending. New backup call and Root8captures are consumed;
-use a fresh UI prefix, no backup replay or cold cycle.
-[Ordinary equipment and existing stat-point allocation pass](reviews/2026-10-24-normal-map-prerequisites.md#ordinary-equipment-and-existing-stat-point-allocation-pass):
-51existing points/all base stats1;25native clicks produce STR9/AGI9/DEX9/VIT2,
-INT1/LUK1and1point left. Short sword/cotton shirt equipped. Root130pins/
-123captures/four viewed lossless images; closed windows, idle fullHP45/SP12
-in town. No grant/source/balance change. Root9closed; allocation persistence
-and successful field fight/return remain next on a fresh UI prefix.
+**Main next action:** freeze the first Chapter1 source extension of the existing
+starter, compare independent Claude/Grok implementations, then verify its real
+assembly/eligible interaction/rendering/traversal/persistence.
+[The ordinary field encounter, normal return and earned re-entry now pass](reviews/2026-10-24-normal-map-prerequisites.md#ordinary-little-poring-encounter-return-and-earned-reentry-pass).
+One Space selects Little Poring2398, not proposed1002; two player attacks,
+HP40→0and EXP18base/10job, player survives fullHP45/SP12. Ordinary portal
+returns to Izlude24,98. Character selection reports raw baseEXP170(previous152)
+and stats9/9/2/1/9/1; re-entry/status preserve them and1point left.
+Root114pins/90captures/20lossless images/17viewed critical images pass;
+fresh native/current+four-old ownership and all five service metadata preserved.
+Final character is idle in town, Chinese overlay ON and audio quiet.
+Drops909/507observed; no pickup/saved inventory addition or full animation
+claim. Two earlier Fabre survival failures remain failed.
+[Ordinary equipment/50existing-point allocation](reviews/2026-10-24-normal-map-prerequisites.md#ordinary-equipment-and-existing-stat-point-allocation-pass)
+is committed and now survives re-entry. No source/balance change or grant.
+[The100908B backup](reviews/2026-10-24-normal-map-prerequisites.md#current-earned-backup-saved-progress-and-post-backup-reentry-pass)
+predates these stats/EXP and stays preserved; no backup/cold/restore replay.
+Root10captures are closed. Base2is not eligible for fresh level200Chapter1
+registration; actual eligible story play remains a separate gate.
+[Both .024geometry plans remain preserved/released](reviews/2026-10-24-direct-dependencies.md#both-geometry-extension-plans-are-preserved-and-released),
+Root comparison pending. Broader CPU qualification is independent of ordinary
+play and route-specific investigation.
 
 
 Functionality remains first. **4/14 parent checks, about 29%**; this counts

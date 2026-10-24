@@ -627,3 +627,66 @@ and4/14parent count remain unchanged; broader CPU geometry is independent.
 The pre-allocation100908B backup remains preserved and was not restored;
 Git reverts this report only, not the test character's allocated stats. No GM,
 SQL edit, balance change, new backup call, restore or cold cycle occurred.
+
+
+## Ordinary Little Poring encounter return and earned reentry pass
+
+T07.007.011,2026-10-25 JST; Root uses fresh private Root10on clean coordination
+base33e0403, after the stat checkpoint. Normal ground clicks/WASD take the
+same character from Izlude128,142 across the bridge/portal to
+prt_fild08,367,212at fullHP45/SP12. Root views the textured field. Two clicks
+at a moving pink monster miss and move on the ground; readbacks show no target
+or attack. A later ground click aimed above the bridge also sends no movement.
+These are input/targeting observations, not demonstrated client defects.
+
+One ordinary Space press selects **Little Poring2398**, GID110029097. It is
+not the originally proposed Poring1002; the actual class/name are retained.
+The shipped reference mob row57388–57420identifies this variant as level1,
+HP40/Defense2/BaseExp18/JobExp10, consistent with observed HP and EXP; current
+effective server/source equality is not established. Root's finite console
+window shows one action7request at971, two player attacks974/977, targetHP1/40
+then0/40at975/980, and monster death989. EXP packets983/984award18base and10job.
+The player stays alive/fullHP45. Root views the damage/finished scenes; foliage
+partly occludes the sprites, so no full animation-timing claim follows.
+
+Drop packets987/988report items909/507. No pickup or saved inventory addition
+is claimed. The earlier two Fabre encounters remain failed survival tests;
+this suitable low-level variant establishes the new successful field sample.
+No balance/source change, GM action or progression grant is used.
+
+Ordinary movement returns through the field portal: move acknowledgement
+361,211→370,212is followed by Izlude24,98. Root personally views the normal town
+arrival and19%display, HP45/SP12. Escape→character selection loads the same
+character with raw baseEXP170(previous backup152) and base stats9/9/2/1/9/1.
+Enter re-enters at Izlude24,98. Root views both character selection and re-entry,
+then opens ordinary status: STR9/AGI9/VIT2/INT1/DEX9/LUK1and1point left persist.
+The status window is closed, character idle/targetless, Chinese overlay on and
+both audio play flags false/volumes0. No new full logout/cold/restore is claimed.
+
+The narrow authenticated continuity observer is reused with exactly three
+binding edits: fresh Root10destination, current HEAD and POST_PLAYlabel.
+Its fresh16318B receipt SHA
+f770ca9caccc9b3d1026981ff2bd13add72a06863a702ac408cda96b56c8719b
+checks all five post-backup container metadata unchanged, current native owner
+and four old owners preserved, fresh HMAC identity and loopback listeners.
+No administrative or lifecycle action occurs.
+
+Root's ROOT_PLAY_VERIFIED.json24659B/SHA
+cf3def660e812f599199d5006aabf67a7b081285b8fb9ae9b58311d38bc3f640
+passes114full pins,90capture receipts,20lossless image reconstructions and
+17personally viewed critical images, exact packet sequence, ordinary return,
+received EXP, saved character/status readbacks and final owners/quiet scene.
+The console API returns1000messages despite limit40; the complete finite
+window is retained privately. Overflow attack previews omit exact damage;
+Root does not infer missing fields or call packet previews complete packets.
+Root10is now closed; reuse its evidence, not its UI input sequence.
+
+This finishes the current ordinary field/return/earned-reentry substep.
+Next freeze/compare the first Chapter1 source extension of the existing
+starter, with actual eligibility, assembly, rendering, traversal and persistence
+as later explicit gates. This base2character is not eligible for fresh level200
+registration; do not grant it progress or present a diagnostic fixture as
+legitimately earned story play. Full Chapter1/full Renewal, all82resource gaps
+and parent4/14remain open. The100908B pre-allocation backup is preserved and
+predates these stats/EXP; no new backup call or restore occurs. Git reverts
+this report, not saved progress. This is Root verification, not user acceptance.
