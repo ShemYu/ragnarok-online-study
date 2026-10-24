@@ -25,7 +25,7 @@ Current84direct children include the two released review children and the two
 refs, two verified rollback bundles and private evidence survive; the running
 character/quiet audio remain. Three examined children stay held for incomplete
 private preservation; user-retained children remain excluded.
-Latest fleet:325released/ten retained/two active .021authors/zero reclaimable.
+Latest fleet:326released/ten retained/one active .021Grok/zero reclaimable.
 Two .012implementation attempts reuse existing released checkouts; no new
 child folders or setup hooks. Both .012candidates are preserved/released after
 matched settlements. [Root full review and eight behavioral groups per original are complete](reviews/2026-10-24-direct-dependencies.md#both-constructor-originals-are-personally-checked-and-held).
@@ -2207,3 +2207,8 @@ hashes/current full pins. No acquired decoder or actual observer action admitted
 [The ONE independent25file reference and complete Root audit pass](reviews/2026-10-24-direct-dependencies.md#actual25independent-reference-and-complete-retained-audit-pass):
 25complete RGBA hashes/17842176output bytes,28current full pins all preserved.
 Next review .021paired source candidates; no actual Targa/Worker/canvas/GL admission.
+
+
+[Claude .021original2ac966f is preserved/released](reviews/2026-10-24-direct-dependencies.md#claude-retained-decoder-observer-original-is-preserved-and-released).
+Next Root full code/test review and equal controls; Grok remains live. No actual
+Targa body execution is admitted. All real reference hashes are retained.

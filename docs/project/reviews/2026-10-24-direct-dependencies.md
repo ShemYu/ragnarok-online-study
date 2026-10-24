@@ -3900,3 +3900,26 @@ Private reference and audit receipts:
 | t07-014-021-reference-root-1/RESULT_ROOT.json |22998|faf3701bdc04151528ad52796f9089e1ea14cac8ed259e7f24bbe2365e827388|
 | t07-014-021-preparation-root-1/ACTUAL_REFERENCE_CALL_ROOT.json |457|e0348478c938941a69e890b2f94f7551f9f0e01b071da215951930a236b915d6|
 | t07-014-021-preparation-root-1/ACTUAL_REFERENCE_AUDIT_ROOT.json |420|03255f051b35a952af29c33f6760db0f334998f8e250b6cbeabff45951c9b293|
+
+
+## Claude retained decoder observer original is preserved and released
+
+Matched .021Claude task_99e30fbd7806/ctx_3a56387ddd50 settles successfully as
+2ac966fd2516ba7bc86b5376c69e14f738af608b from36736fcbaec964eaf436ccb4e5332e712b9fb68e.
+Root verifies clean expected branch/HEAD/exact parent and three owned paths,
+then preserves1224full regular-file copies/3427472B and complete tree metadata
+(1221private regular files,126directories,11owned symlinks). An initial
+single-link-only copier refuses valid authored link fault fixtures; Root retains
+that error and completes a no-follow inventory. All hardlink peers are proven
+inside the owned prefix and copied as full independent bytes; symlink literals
+are kept inert in metadata, never traversed. Source/evidence stay unchanged.
+
+Root archives the exact Git ref and verifies26220B rollback bundle SHA
+e8829d185756c1bbdb372432485ee12c974fa20ecba6ec9db2fa38a1240991c2.
+The settled worker is released/transcript captured before deliverybea05425c3c8
+ACK. Fleet326released/ten retained/one active Grok, no new child/setup.
+Claude reports18authored tests, but Root has not yet read/rerun/accepted this
+new implementation. Actual body mode is unrun and remains unadmitted.
+Root next reviews full source/tests and adds equal independent faults; Grok
+continues independently. The qualified25file independent reference remains
+retained, no GET or reference-call replay. No percentage or goal change.
