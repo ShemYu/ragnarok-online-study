@@ -1522,3 +1522,33 @@ Private receipts:
 Full Renewal goal/parent4/14/about29%/all82gaps unchanged. No image decode,
 model compile/render/travel/monsters/story/save or full Chinese proof. Existing
 quiet game/save/network remain untouched; all source decisions are checkpointed.
+
+
+## Selected constructor source integrated unchanged and interface rechecked
+
+Root copies exactly the four selected9cdf352blobs; every full byte/hash matches
+before source integration1aa7e67. No original .009/prefix/summary or unrelated
+source changes. Full23author tests and own two regressions already passed on
+these same bytes, so Root does not replay them broadly for a mechanical copy.
+One focused integrated authored private-source-bound CLI positive plus tamper
+refusal passes:1test/zero fail/zero skip, natural0/0.626510s/404275200B sampled
+RSS, existing guard valid/no signal/action/residue/empty stderr. The same real
+CLI path is exercised with authored prefix/summary/body pins; genuine acquired
+bytes remain unexecuted. All public bindings remain null/default refusal intact.
+
+Private integrated-root-1/ receipts:
+
+| File | Bytes | SHA256 |
+|---|---:|---|
+| SOURCE_CONFIRMATION_ROOT.json |836|15129aa8670b1575431721b6f521d49fa77fa7c1628e74ecd06870359ef230b8|
+| RESULT_ROOT.json |2341|3a9c230cd0b2bf2175b0de457a71336fc20bcd63311b372f5de53fcd07ccc800|
+
+T07.007.014.012.001 and .001.001 are ready_for_user for their bounded source
+repairs only. Parent .012remains in_progress: no actual model construction,
+texture availability, compile/render/travel/monsters/story/save/Chinese or82gap
+closure. Next qualify the finite Root caller and assemble one all936runtime
+profile from the already verified body projection, exact current Node/suffix/
+unchanged prefix+summary, then freeze11pilot and independent audit before925
+remainder. No successful actual delivery may replay. The independent image
+source trace remains source-only (Claude released/Grok live), no image decode.
+Full goal/4of14/about29%/quiet running game/internet stay unchanged.

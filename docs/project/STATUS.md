@@ -27,7 +27,8 @@ verified5597copied hashes/rollback bundle. Root correction review/controls are
 complete:19tests pass, but two Root combined faults hold it.
 [Finite follow-up9cdf352](tasks/T07.007.014.012.001.001.md) is preserved/released;
 [Root full diff/23tests/own two regressions pass; corrected source selected19/20](reviews/2026-10-24-direct-dependencies.md#corrected-constructor-source-qualifies-for-integration).
-Exact integration/focused CLI check next. No new child/setup. A parallel metadata-only helper
+[Exact integration1aa7e67 and focused authored CLI check pass](reviews/2026-10-24-direct-dependencies.md#selected-constructor-source-integrated-unchanged-and-interface-rechecked).
+Next Root caller/full936profile/exact11pilot binding. No new child/setup. A parallel metadata-only helper
 has completed the936body join; [Root independently verifies all records and fresh body files](reviews/2026-10-24-direct-dependencies.md#complete936body-join-and-fresh-root-file-audit-pass).
 237771checks/950pins pass. Proposed11pilot/925remainder stay unbound. Root
 must qualify the repair and exact actual caller before real construction.
@@ -137,11 +138,13 @@ raw Claude14/20/Grok9/20 both held. Grok additionally lacks a Root-bindable real
 execution path. [Separate correction .012.001](tasks/T07.007.014.012.001.md) is
 preserved/released atcf03024; Root19tests pass but two combined faults hold it.
 Follow-up9cdf352 now qualifies after Root23tests/own regression controls;
-selected19/20 for source integration. Original comparison
+selected19/20 and integrated unchanged1aa7e67; focused authored CLI passes.
+Original comparison
 is complete and correction effort remains separate.
 The independent936body metadata join/fresh files now pass237771Root checks.
 Next Root checks repaired source and the exact eleven-job actual caller,
-then freezes actual caller/profile/Node/guard/pilot authority. No integration.
+then freezes actual caller/profile/Node/guard/pilot authority. Source integrated;
+actual construction remains unadmitted.
 No actual constructors or runtime body/Node/guard admission yet.
 
 [Normal delivery of all34terrain bodies is already complete](reviews/2026-10-24-remaining-map-bodies.md#normal34delivery-and-complete-root-audit-pass),
