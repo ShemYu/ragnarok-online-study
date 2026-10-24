@@ -1437,3 +1437,43 @@ replay. The original scene remains failed. All82 functional gaps stay open.
 Current map-step estimate is about70 percent: dependencies/body joins and
 failure capture are verified; numeric source repair and a positive fresh
 retest remain. This is an estimate of that step, not full-content coverage.
+
+## Actual model keyframes prove the leading-endpoint cause
+
+Astra traces the pinned production animated model/Float32 attributes and
+the single actual RSM2 asset. Root personally verifies the same full source
+and asset SHA/C8, independently walks all3338 binary bytes to exact EOF and
+joins the actual MAP_EVIDENCE/body ledger. Model v2.3 has two nodes,24faces
+each. Root has20 rotation keys at5,10,...,100; its child inherits the root
+and has no keys. No position/scale keys exist in this particular asset.
+
+Captured frame2 precedes the first rotation key5. The existing sampler
+selects the first key as both previous and next, dividing(-3)by0. That
+nonfinite quaternion reaches both node transforms. Their144 vertices each
+write six position/normal FLOAT values and three UV/alpha FLOAT values:
+864NaNs/432finite matches the actual recorded census. This is genuine
+float transform data; packed integer reinterpretation is inapplicable.
+Later44/52 frames are within the key range and remain finite.
+
+Root cause record31194/
+ccc88fc8127fee56b6fa89ff53e3737d6aa4495ab42a2f3a5d85c2faff073d1a
+contains the whole binary walk, current pins and seven literal source
+anchors. The actual asset3338/
+d0809be3773918dbc927639740b5992b6869e7fe6d71f58b63876da295977731
+is unchanged. No actor, asset or archive is modified/replayed.
+
+A six-copy finite Grok repair packet is ready after checkpoint:
+6991/f8c9816a5812f95bb1647583d976ec75a1ed566cf1f28927d3baf89c4204dfe2;
+brief2157/ef185bd829073f1079b4c3f81e5cb1929cdb1b881896195accd2bfb034dc9ea1.
+It permits exactly one strictly-before-first endpoint return in each
+existing position/rotation/scale sampler. Rotation fixes the observed
+trigger; the other two share the identical leading-key defect. Preserve
+equal/inside/after-key behavior and all finite/render checks; no first-frame
+skip, time delay, NaN replacement, asset change or model removal.
+Root will reconstruct complete forward/inverse bytes and verify meaningful
+sampler boundaries before a later isolated integration/fresh scene.
+
+The first unpublished packet copy hit the helper's4MiB readback ceiling on
+the13MiB client. Root retains that incomplete directory, uses a new packet
+namespace and explicitly increases only its source-copy readback to32MiB.
+No actor/runtime/guard cap changes or incomplete packet dispatch occurs.

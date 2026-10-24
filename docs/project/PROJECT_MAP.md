@@ -60,7 +60,8 @@ Grok:driver + logout UI source PASS/released; dictionary unknown/released.
 Full839 data:Root4225checks/910pins PASS; entryFD check FAILED.
 Grok live:finite FD observation fix + combined B4 source observations.
 Fresh Mu:one scene FAILED -> first-frame light_s_03 NaNs localized.
-Root776failure checks PASS;111body joins/1285placements load; source repair next.
+Root776failure checks PASS;111body joins/1285placements load.
+Actual keyframes prove divide-by-zero; finite sampler source repair ready.
 Current-five reader:actual PASS111 checks/103 pins;26 literal core chains.
 Changed alias proof withheld; normal render/travel/story remain open.
 Mu oneactualscene FAILED;105bodies+partialdraw;Root825failurechecks PASS.

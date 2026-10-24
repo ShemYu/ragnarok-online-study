@@ -38,11 +38,12 @@ all111 body joins/1285 placements load; one animated model has864NaNs
 only in its first retained frame. Complete Root776checks/771pins/all252
 Engine wires pass failure/preservation audit; the scene remains failed.
 Two actual Grok source tasks run independently: finite FD repair and
-combined B4 repairs/dictionary observations. Astra traces the numeric cause.
+combined B4 repairs/dictionary observations. [Actual keyframes prove the sampler divide-by-zero](reviews/2026-10-24-T07-mu-data-stage.md#actual-model-keyframes-prove-the-leading-endpoint-cause).
+A third finite Grok source repair packet is ready after checkpoint.
 Current map-step estimate70%; overall4/14/about29% checks unchanged.
 
 **Current blocker:** the animated first-frame numeric-data failure is
-localized but not resolved. All six startup bodies now match independent archive decodes
+proved at leading-key interpolation; its repair and fresh retest remain. All six startup bodies now match independent archive decodes
 and the 111-body allowlist qualifies. Corrected UI captures map evidence
 before fatal assertions for the next fresh scene. The prior scene remains
 failed; Root's full 825-check failure/preservation audit passes. Missing

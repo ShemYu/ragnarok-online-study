@@ -1771,3 +1771,12 @@ Two independent actual Grok source tasks now run:
 and [combined B4 source observations](2026-10-23-T10.007.md#combined-b4-source-observations-start-independently).
 Fleet has2active/274released/6retained/zero reclaimable. No new goal-changing
 blocker or user decision is required; all82 functional gaps remain open.
+
+## Modern animated-model cause is proved and repair packet is ready
+
+[Actual keyframes prove the first-frame divide-by-zero](2026-10-24-T07-mu-data-stage.md#actual-model-keyframes-prove-the-leading-endpoint-cause).
+Root independently walks the unchanged3338-byte model and joins frame2,
+first rotation key5 and the exact864NaN position/normal words. A six-copy
+source-only Grok task is ready after checkpoint. It fixes leading endpoint
+sampling, preserves the strict finite gate and leaves all previous failures.
+Fresh positive rendering and complete gameplay/story coverage remain open.
