@@ -30,6 +30,10 @@ Original Claude15/20/Grok11/20 both held; corrected Claude20/20 integrates
 unchanged as af0d59c. All18integrated controls pass; genuine pilot/full21batch
 are already qualified. Both providers are preserved/released, no pending worker.
 Next is the1222direct dependency closure; do not replay successful actual calls.
+[T07.007.014.010 preparation passes Root's personal synthetic checks](reviews/2026-10-24-direct-dependencies.md):
+9groups/82assertions, complete fixture publication and fail-before-load actual
+refusal. The real63catalog lookup remains held; next equal Claude/Grok source
+reviews from the frozen brief, then separately bound actual execution.
 
 [Normal delivery of all34terrain bodies is already complete](reviews/2026-10-24-remaining-map-bodies.md#normal34delivery-and-complete-root-audit-pass),
 T07.007.014.008 `ready_for_user`:34exact200responses/97037820B, all34new loose
