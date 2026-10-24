@@ -2781,3 +2781,61 @@ the existing roBrowserLegacy game page; no navigation/input/new page/server
 is performed. A45s worker_done/escalation/question wait times out empty once,
 not a failure or retry/release basis. All three attempts remain active. Root
 continues the same supervised run; no critical goal-changing issue.
+
+
+## Finite fixture follow-up qualifies after Root regressions
+
+Matched task_3832ffe21c6b/ctx_1e4a95917059 settles at
+2de7d7726ab8ae5400cd44ff2718691544325a24, exact0c7eed8parent/clean branch/four
+owned files. Root preserves all66files/684222B and every copied hash. Archive
+refs/ro-task-archive/T07.007.014.016/claude-followup-a1 plus verified9005B bundle/
+SHA7bc4141bf6f7cf430616688166fbf145787b748b2bf83cd8b8b2596f0e28a044
+retain rollback. Private followup-packet-root-1/PRESERVATION_ROOT.json is14532B/
+601a7a42d22f3f5d1ca8cf067e02a45cf2b07de54671c3a05621f278edd913d3.
+Terminal released/transcript captured, settlement deliveryeef8b6944e42 ACKED
+before review. .017Claude5024e19 is also preserved/released/ACKED; Root's25tests
+pass, full independent source/behavior checks and Grok comparison remain. Grok
+ctx_dd8e5f76545d stays live. Fresh reclaimable query confirms318released/ten
+retained/one active/zero reclaimable; no settled review terminal is kept idle.
+
+Root personally reads the complete four-file follow-up diff and report, reruns
+all24tests/zero skips, and independently reproduces nine control groups. All
+four previously failing combined-fault groups now pass: unexpected diagnostic
+failures reject C6b while ordinary C6b passes; a throwing texture accessor does
+not skip other textures/context/observers/timers/realm; each timer release is
+attempted with truthful remaining ownership; setup resolves/rejects once despite
+timer-release failure. Earlier canonical gate/blank-read/forwarding/setup
+ownership controls remain passing. Author runner tests additionally cover both
+C8cconsumers and make/revoke timeouts/terminate failure. Astra's independent
+read-only source advisory finds no material defect within this finite scope.
+
+The initial Root result parser expected TAP prefixes; Node emitted its spec
+reporter. Root corrects the parser against the same retained successful capture,
+without replaying tests or hiding a candidate failure. Actual test process exits0
+with empty stderr in3.184803s. Own controls exit0/empty stderr in0.127212s.
+These authored fault/DOM/GL doubles are not measured browser/driver behavior.
+
+Root builds a fresh fixture and independently checks every output file, complete
+contiguous assembly, all eight source slices and whole source/metadata PRE/POST
+identity. Production remains42333B/ce75a7d734a082ebe1e4795bcc8fe8ee30958f79d9cfe71e3713b45899372775;
+manifest11047B/2e260d24dc4f896cf58f60eb82e3701e3a28eb98f494d4272bf99420b268ac84.
+Driver51040B/77c9ec52a34c28db83089256d3958662ad7707962aaae630e7c673e5689cbc3c.
+Fixture pixels, production slices and normal image behavior stay unchanged.
+
+Private followup-root-review-1/ receipts:
+
+| File | Bytes | SHA256 |
+|---|---:|---|
+| AUTHOR_TESTS_ROOT.json |5203|8b9bfc80e224cd5cad42996cc38b7bec0f9b7ccc89681234072c34df7941f9bd|
+| ROOT_CONTROLS.mjs |12304|d105a823501df48213bb0734a3e38d55f99c4bfe67ec54a1b6f884caeef1cfc6|
+| ROOT_CONTROLS.json |5725|205f7b90f24ef07434e845090a1568c69f2714a011e5eff6a6e71ab6cf9dffc7|
+
+Select the final four source/test/report paths unchanged for integration.
+Separate rework score19/20: correctness7/8, preservation4/4, checks4/4,
+handoff2/2, limits2/2. Original Claude12/20/Grok10/20 remain held; their scores
+are not overwritten by rework. Source qualification does not establish actual
+native image/GPU/Worker cleanup or parent readiness. Disclosed unchanged
+sleepUntil/workerRequest timer-release paths are not generalized into arbitrary
+host-fault coverage. Next Root action is an owned Orca tiny-fixture page on its
+own loopback origin, bounded controls, complete result/pin/cleanup audit. No
+running-game/save/audio/internet action or goal-changing blocker.

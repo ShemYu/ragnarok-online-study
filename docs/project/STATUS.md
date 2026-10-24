@@ -16,7 +16,7 @@ Current84direct children include the two released review children and the two
 refs, two verified rollback bundles and private evidence survive; the running
 character/quiet audio remain. Three examined children stay held for incomplete
 private preservation; user-retained children remain excluded.
-Latest settled fleet:316released/ten retained/zero reclaimable.
+Latest fleet:318released/ten retained/one active .017Grok/zero reclaimable.
 Two .012implementation attempts reuse existing released checkouts; no new
 child folders or setup hooks. Both .012candidates are preserved/released after
 matched settlements. [Root full review and eight behavioral groups per original are complete](reviews/2026-10-24-direct-dependencies.md#both-constructor-originals-are-personally-checked-and-held).
@@ -65,11 +65,13 @@ Both .016originals are preserved/released: Claude9b3a119 and Grok345d328.
 [Root reruns all13Claude tests/fresh build and reproduces four fault groups](reviews/2026-10-24-direct-dependencies.md#claude-fixture-tests-pass-but-root-controls-hold-execution);
 original is held. A [finite five-issue correction](tasks/T07.007.014.016.001.md)
 [is preserved/released at0c7eed8; Root20tests/zero skips/fresh complete spans pass](reviews/2026-10-24-direct-dependencies.md#first-fixture-correction-is-preserved-but-combined-faults-hold-it).
-Four additional combined-fault controls hold it. A [narrow follow-up](tasks/T07.007.014.016.001.001.md)
-is live from that correction as task_3832ffe21c6b/ctx_1e4a95917059, reused
-checkout/own follow-up branch/same source/input boundaries. Both originals
-are personally checked/held12/20vs10/20; no fixture source is integrated or
-browser-admitted. The two .017implementations remain independent. Root's independent
+Four additional combined-fault controls held it. The [narrow follow-up](tasks/T07.007.014.016.001.001.md)
+[is preserved/released at2de7d77 and now passes Root's24tests/nine independent groups/fresh full-span build](reviews/2026-10-24-direct-dependencies.md#finite-fixture-follow-up-qualifies-after-root-regressions).
+Corrected source is selected19/20 and copied unchanged for integration; actual
+Orca tiny-fixture qualification follows. Both originals remain held12/20vs10/20.
+.017Claude5024e19 is preserved/released with Root25tests passing; complete
+source/own controls and comparison remain. Grok ctx_dd8e5f76545d stays live.
+No actual fixture or nested-body request is admitted. Root's independent
 oracle source/current65metadata file checks pass; [finite multi-map audit projection
 passes Root's positive/eight negative controls](reviews/2026-10-24-direct-dependencies.md#finite-launch-audit-derivatives-and-multi-map-controls-qualify).
 [Concrete bindings for ONE independent oracle are verified/admitted](reviews/2026-10-24-direct-dependencies.md#one-actual-nested-oracle-is-admitted).
@@ -86,9 +88,10 @@ texture bodies; image decoding, geometry, rendering and content remain open.
 Old byte budgets cannot fit75large bodies; explicit finite increases and
 BMP/TGA delivery-only policy are documented. [Equal source implementations are
 now live fromd9b8194](reviews/2026-10-24-direct-dependencies.md#equal-nested-delivery-implementations-start):
-Claude task_8cab3a219812/ctx_93998892668c and Grok task_3695d6723248/ctx_dd8e5f76545d,
-two reused clean checkouts/separate branches, no new child/setup. Root
-independently verifies both before actual calls; .016correction remains parallel.
+Claude task_8cab3a219812/ctx_93998892668c is now preserved/released; Grok
+task_3695d6723248/ctx_dd8e5f76545d remains live. Two reused checkouts/separate
+branches, no new child/setup. Root independently verifies both before actual calls;
+.016browser qualification remains parallel.
 No actual request is admitted.
 Private-only proposal ownership
 in this checkout. Root owns tracked docs; authors may not mutate Git/source or
