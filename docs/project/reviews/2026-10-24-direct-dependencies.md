@@ -4260,3 +4260,22 @@ geometry oracle/control plan. No body read or acquired-source evaluation, no
 new child/setup. Root can prepare the independent binary preflight alongside
 these plans; actual compile still waits separate implementation/qualification
 and purpose admission. Full content scope, all82gaps and parent4/14 are unchanged.
+
+
+## Independent geometry source plans start from the same frozen base
+
+Both .022source-only workers are ready/input_accepted from
+8e6dc3957d01ed0803ea6e0d80a18aebaf1b3944, separate branches in the same two
+released checkouts. No new child or setup. Claude task_0b21aef33ea6/
+ctx_806f8ceb1ce1 has observed turn start; Grok task_531688019543/
+ctx_80072b967de7 reports turnStart unsupported, which is not an exit/failure.
+Requested/effective provider labels match, model/effort null; exact model identity
+is unknown. No invented model/token/cost comparisons. Claude's first matched
+investigating heartbeat is processed. Both work independently from the same four
+pinned inputs and two owned report paths. No actual model/body/compile admission.
+
+Root next independently prepares the finite binary preflight/oracle while the
+source plans run, then preserves/releases each on settlement before personal
+comparison. Current fleet327released/ten older retained/two active source plans,
+no new direct-child count. Full Renewal/functionality-first scope and all82gaps
+remain unchanged; .021retained output is complete and consumed, no replay.
