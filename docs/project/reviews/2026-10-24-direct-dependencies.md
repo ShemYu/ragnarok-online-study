@@ -5033,3 +5033,31 @@ Private t07-014-023-rounded-columns-review-root-1/:
 | AUTHOR_RERUN_ROOT.json |2053|8127dd51225d0eb44b7bb70837ef903ebbde404423df4df19a8b71cec2597324|
 | ROOT_BOUNDARY_CONTROLS.mjs |1534|048009612239dd878b6569e21c218dfcf604c3e93df3323c20f54654652711df|
 | ROOT_BOUNDARY_CONTROLS_ROOT.json |1219|6b4d2ee4ec17cb1145114ee8b1e280e43b540376d43e2cc65e2032b26672746b|
+
+## Grok geometry original is completely preserved and released
+
+The exact task_0dd910580589/ctx_16fd13ee03e8 succeeds at21:20:01UTC with
+candidate23f0316b39c28b2fd61c539473d98458ca373b0e, common based052101.
+Root verifies its clean isolated branch and exactly three owned changed files,
+then preserves197regular files/4676337B,105directories and11inert symlink
+records. Every copied regular file passes complete SHA/C8 rechecks; the full
+namespace remains unchanged. The named archive ref and35946B rollback bundle
+verify before release. Fresh worker-show proves released/exited and transcript
+captured. Only then Root acknowledges delivery_c244fc75fcca; returned inbox empty.
+No original is retained merely for review and no new child/setup is created.
+
+This is preservation, not source qualification. Author reports17/17tests,
+10exact mesh positives/16pre-VM refusals; Root's full source/test/report read,
+personal rerun, independent controls and comparison still precede selection.
+No acquired actual call, rendering or functional-content acceptance occurs.
+
+Private t07-014-023-grok-packet-root-1/ contains the complete repository packet:
+
+| File | Bytes | SHA256 |
+|---|---:|---|
+| repo/tools/renewal/observe_model_geometry.mjs |72486|2ee5c88b97dac73eb0241794834a92b2b436187a51b6b20fdd7c02d1bef29f20|
+| repo/tests/model_geometry_observer.test.mjs |37673|77f30ce8ef928ce3875ae08dc32e0e7addd3cf859e04c55ada8f7a092b6281c5|
+| repo/docs/project/reviews/T07.007.014.023-model-geometry-observer.md |13738|5bd397528258b5554c7e3c33ee18cf6bd2f5cde3d41daf3b9212b558ef21e10b|
+| PRESERVATION_ROOT.json |214123|066451f54a8577d633002d74d4928f0e61fdd8b75cefb76d1e50b880e35723ee|
+| RELEASE_SHOW_ROOT.json |7546|bfdaedc0922529f6047cd7c5c300b3180908978d5f86b199577d4a207dd1dc0c|
+| submission.bundle |35946|a427c153e7af8edfe5345e1adeac862d9f468adf1e033b1595a9a759fe00285d|

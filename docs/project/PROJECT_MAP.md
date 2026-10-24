@@ -102,7 +102,7 @@ Other active work:
   Geometry source plan pair    [ROOT CORRECTED PLAN PASS; raw16/20vs13/20]
   Independent binary preflight [ROOT47CONTROLS +4226ACTUAL AUDIT PASS]
   Independent geometry oracle  [ROOT42CONTROLS +7975SAVED AUDIT PASS]
-  Tiny geometry observer       [CLAUDE HELD:33TESTS/11ROOT FAULTS; GROK WORKING]
+  Tiny geometry observer       [CLAUDE HELD:33TESTS/11ROOT FAULTS; GROK ROOT REVIEW]
   Actual model compile         [WAIT:paired implementation + Root checks first]
   Model702node bounds           [SENTINEL PRESERVED; geometry impact OPEN]
   Image consumer source trace  [ROOT PASS:40slices/286joins; both17/20/released]

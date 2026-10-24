@@ -34,9 +34,8 @@ f8eb477 is now completely preserved/released after matched settlement; its33
 author tests pass Root's full-source/test/report review and personal rerun.
 [Root's40independent checks reproduce11hold rows](reviews/2026-10-24-direct-dependencies.md#claude-geometry-original-passes-root-meshes-but-independent-faults-hold-it)
 in nine groups, including a creation-namespace returned-PASS fault. The original
-is held before actual use. Grok
-task_0dd910580589/ctx_16fd13ee03e8 remains live. Root next reviews its settled
-original and compares both before choosing a correction basis. Browser/render,
+is held before actual use. [Grok23f0316 is completely preserved and released](reviews/2026-10-24-direct-dependencies.md#grok-geometry-original-is-completely-preserved-and-released). Root next personally reviews its
+full settled original and compares both before choosing a correction basis. Browser/render,
 normal game/story/full content and all82functional gaps remain open. No acquired
 geometry execution is admitted and no goal-changing issue/user decision appears.
 Root's independent mesh comparator now passes350checks/10authored positives/
@@ -61,8 +60,8 @@ Current84direct children include the two released review children and the two
 refs, two verified rollback bundles and private evidence survive; the running
 character/quiet audio remain. Three examined children stay held for incomplete
 private preservation; user-retained children remain excluded.
-Latest full341row fleet plus verified Claude release:330released/eight user-owned/
-two absent/one active. Grok remains live; zero reclaimable. Earlier user-owned
+Latest full341row fleet plus both verified original releases:331released/eight user-owned/
+two absent/zero active. Zero reclaimable in the fresh post-release check. Earlier user-owned
 rows remain untouched.
 Two .012implementation attempts reuse existing released checkouts; no new
 child folders or setup hooks. Both .012candidates are preserved/released after
