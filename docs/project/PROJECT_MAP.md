@@ -1264,3 +1264,9 @@ integration. Eligible play, rendering and persistence stay unverified.
 T10.009actual Claude/Grok source authors both ready/input accepted from2187b31.
 Separate reused branches, no new child/setup, same23inputs. Root receives,
 preserves and tests both before integration; no runtime/story credit at startup.
+
+
+Broader geometry source-plan comparison is complete:Claude17/20corrected basis,
+Grok14/20. Root reproduces all936members/59groups/215anchors;35next metadata
+candidates include7known excess/28UNKNOWNcap-fit, none admitted. Required
+source/oracle/resource corrections are recorded. Chapter1 stays the main lane.

@@ -5611,3 +5611,91 @@ Private t07-014-024-grok-packet-root-1/:
 Archive ref: refs/ro-task-archive/T07.007.014.024/grok-a1. Earlier Claude
 preservation remains unchanged. No model/version, token cost or general
 provider superiority is inferred from this source-plan settlement.
+
+
+## Both geometry extension plans pass Root comparison with required corrections
+
+T07.007.014.024,2026-10-25 JST, Root at9ed231f. Both raw plans were already
+preserved/released before their workspaces were reused for the independent
+Chapter1 source pair. Root reads the complete Markdown plans and relevant
+primary Worker clauses; a separate Astra full-JSON advisory is reproduced by
+Root's own inert-data audit. No acquired model/Worker/compiler or runtime is
+executed for this source-plan comparison.
+
+Private review-root-1/ROOT_PLAN_AUDIT.json3010B/SHA
+9a3220738f0c450651463362e4d3ea8ec5f529c4e6f1d23c00eb4a59edb67641
+checks both complete JSONs with duplicate/nonfinite rejection, all59original
+groups/936unique ordered memberships, every model-to-dimension join, frontier
+references/dependency acyclicity, exception subsets and all215exact source
+anchor occurrences (Claude107/Grok108). All anchor LF ranges, offsets, lengths
+and SHA256match the624463B frozen Worker. Claude10frontiers/26exception records
+and Grok11/58remain alternative overlapping plans, not a new936partition.
+Whitespace word counts2992/2974and both JSON byte limits pass. No exception
+membership is lost. The advisory's preliminary model702hierarchy mismatch was
+its checker mistake; the corrected frozen literal is MULTIPLE_UNPARENTED_ROOTS,
+so this is not charged against either candidate.
+
+Root independently recomputes the next metadata cohort:35models in original
+groups40/41/45,30NONE/5FLAT. Known excess is117–121/270/272; the other28remain
+UNKNOWNcap-fit, not admitted or proven within limits. There are1306node rows.
+Missing key fields remain UNKNOWN; all936traceability is retained. Metadata
+and source-anchor equality are not geometry execution or rendering proof.
+
+| Raw source-plan category | Max | Claude | Grok |
+| --- | ---: | ---: | ---: |
+| Source grammar/transforms |8|6|5|
+| All936traceability/UNKNOWN handling |4|4|4|
+| Independent oracle/control design |4|3|2|
+| Minimal reuse/API contract |2|2|1|
+| Limits/actionable handoff |2|2|2|
+| Total |20|17|14|
+
+Choose **Claude as the corrected planning basis**, with Grok's useful explicit
+per-model excess/frontier details. Neither raw is an unchanged implementation
+contract. These scores evaluate source plans only; no general provider winner,
+implementation speed, tokens or billing are established. Mandatory corrections:
+
+1. Grok's header prose reverses animLen/shade order. Worker17459–17462reads
+   version, animLen, shade. Its hand triangle's A/B Y=-0is also wrong: the full
+   affine sum17172–17174includes+0terms/translation and yields+0. Root's own
+   IEEE arithmetic check independently produces binary32hex00000000. Do not turn
+   the incorrect sign into an exact-byte oracle. Zero rotation still invokes
+   rotateZ/X/Y17556–17558and sin/cos; exact zero-angle values do not mean no calls.
+2. Both accounting contracts need distinct surviving/cumulative/live quantities.
+   Worker17177–17180allocates a bucket for every declared texture slot, including
+   duplicate remapped keys. For bucket face countF_kand slot multiplicitym_k,
+   surviving mesh is108sum(F_k), while cumulative bucket allocation is
+   108sum(m_k*F_k). Count vertex12Vand face-normal12Fseparately. Two duplicate
+   slots/one face/three vertices give264B across those three accounted groups
+   while replacement is live, versus156B from120F+12V. Do not assume eager GC
+   or call this principal-buffer subtotal whole-process memory. Future limits
+   must bound repeated allocations/work without silently enlarging caps; no
+   actual first-cohort cap failure is established by this counterexample.
+3. Claude's general hierarchy boundary >=1.6must be >=2.2. Worker17468–17487
+   still reads/selects mainNodeName for versions<2.2, falling back to nodes0;
+   >=2.2uses nodes0without that name. Supplied group membership is unaffected,
+   but future older-grammar reuse must use the actual boundary.
+4. Claude's TEXTURE_KEY_GROUPS_NONZERO:105names model105, not105models; the
+   complete nonzero texture-group IDs are105/254/256/267. Grok's group53label
+   is an existential warning: its member809has zero groups, and the exception
+   correctly narrows to105. Keep per-model exceptions instead of multiplying
+   an overlapping warning by group size. Conceptual/templated provenance paths
+   need explicit schema expansion before any automated pointer consumer.
+5. Freeze captured-intrinsic Float32Array brand, exact byteOffset/backing extent
+   and copied input byte/hash equality. Claude names these more explicitly;
+   Grok's caller-mutation control alone does not establish them. Include every
+   named math helper in the eventual exact closure/anchor inventory. Strengthen
+   hand-computable vertices/sign lanes before accepting an independent oracle.
+
+Root reads face parsing17006–17031: Claude's24/28/32..64consumed-record contract
+matches the stated source interpretation. Grok's24-onlyproposal is explicitly
+narrower; it is not proof that28/32-byte records are malformed and is not scored
+as a partition defect. Saved metadata cannot count exclusions by those records.
+No raw planner or corrected direction admits any actual body or compiler call.
+
+This source comparison is **self_verified** with the corrections above. Future
+implementation and authored controls need their own frozen task/admission.
+The one previously qualified702static CPU output remains reusable; no replay.
+Broader geometry/animation/full content and all82resource gaps remain open.
+The main lane stays the Chapter1 first edge; all936CPUqualification is not a
+prerequisite for ordinary play or route-specific rendering investigation.

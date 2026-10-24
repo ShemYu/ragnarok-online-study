@@ -26,9 +26,11 @@ is committed and now survives re-entry. No source/balance change or grant.
 predates these stats/EXP and stays preserved; no backup/cold/restore replay.
 Root10captures are closed. Base2is not eligible for fresh level200Chapter1
 registration; actual eligible story play remains a separate gate.
-[Both .024geometry plans remain preserved/released](reviews/2026-10-24-direct-dependencies.md#both-geometry-extension-plans-are-preserved-and-released),
-Root comparison pending. Broader CPU qualification is independent of ordinary
-play and route-specific investigation.
+[Both .024plans now pass Root source comparison with required corrections](reviews/2026-10-24-direct-dependencies.md#both-geometry-extension-plans-pass-root-comparison-with-required-corrections):
+Claude17/20corrected basis vs Grok14/20; all59groups/936members/215anchors and
+35/7/28cohort reproduced. Header/sign/duplicate-allocation/root-version/API
+corrections recorded; no actual body admitted or CPU call replayed. Broader
+CPU qualification remains independent of ordinary play and Chapter1.
 
 
 Functionality remains first. **4/14 parent checks, about 29%**; this counts
