@@ -33,8 +33,8 @@ Map repair:
        -> baseline backup        [PASS: export/inspection + fresh restart]
        -> normal travel + quest [PASS: portal/NPC/earned tutorial marker]
        -> earned save + re-entry [PASS: character-select + Exit/login]
-       -> post-earn backup       [NEXT: preserve earned state]
-       -> owned cold restart    [OPEN: final gate5 check]
+       -> post-earn backup       [PASS: saved position + quest21001]
+       -> owned cold restart    [NEXT: final gate5 check]
 
 Other active work:
   Ordinary quest/logout        [OPEN: A199 seen; later cases fail]

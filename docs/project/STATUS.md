@@ -8,20 +8,19 @@ Functionality remains first. **4/14 parent checks, about 29%**; this counts
 major checks, not full-content coverage. All 82 functional resource gaps remain
 open. Full Modern/Renewal scope is unchanged; no new user decision is required.
 
-**Latest verified result:** [Ordinary earned character-select and logout re-entry pass](reviews/2026-10-24-normal-integration.md#ordinary-earned-character-select-and-logout-re-entry-pass).
-After the supported baseline backup, normal re-login returns the same Novice.
-Root verifies18,26→18,29→21,29→the authored portal→51,30 through normal keyboard
-input. Two authored NPC stages and normal Next/Close pages earn the visible
-逃離失事輪/與船長對話 marker. Actual character150000 is at iz_int51,30 with
-seven movement requests/acks, closed dialogue and normal input. Root personally
-views the retained scenes; five service identities/starts/images/mounts/ports,
-native ownership, Chinese overlay and quiet audio stay intact. **Normal
-integration4/5checks,80% by gate count**. The verified pre-earn export/inspection
-is not restore-tested recovery. The earned position/quest now survive normal
-character-select re-entry and full Exit/login re-entry without service restart
-or another backup first. Root views both scenes and verifies current identity/
-input/tracker/quiet audio and unchanged services. Cold restart remains open;
-no saved quest-row or native Quit acknowledgement is claimed yet.
+**Latest verified result:** [Supported post-earn backup and saved marker pass](reviews/2026-10-24-normal-integration.md#supported-post-earn-backup-and-saved-marker-pass).
+One fresh supported export/inspection captures98860B of Renewal state. Root's
+finite offline check confirms character150000/Ro4Novice1024 at iz_int51,30 and
+quest21001/state1; the pre-earn reference instead has18,26 and no21001. No SQL
+is executed. Same five containers/images/mounts/ports remain, only the three
+game-service starts change as expected, DB/web/volume stay intact. Fresh1265
+map completion/exact five known diagnostics,16served bodies and1117baseline
+files pass again. Before this backup, ordinary travel/NPC quest earning and
+both character-select and Exit/login re-entry pass through normal UI. The
+separate backup preserves that earned state before cold shutdown; it is not
+restore-tested recovery. **Normal integration4/5checks,80% by gate count**.
+Cold shutdown/start/re-entry remains open; native Quit acknowledgement and
+broader F1 socket cleanup remain unclaimed.
 
 **Previous renderer result:** [Fresh Mu3 isolated map-render scene passes](reviews/2026-10-24-T07-mu-data-stage.md#fresh-mu3-synthetic-scene-and-complete-root-audit-pass).
 All 1,285 placements load, all 29 retained Float32 arrays are finite, and all
@@ -46,9 +45,10 @@ Normal login, human Novice creation and game entry now pass. The
 [supported baseline backup and fresh restart pass](reviews/2026-10-24-normal-integration.md#supported-pre-earn-baseline-backup-and-restart-pass).
 Normal same-character re-login, walking/tutorial portal/NPC/quest earning now
 pass. Both ordinary earned character-select and logout/login re-entry now pass.
-After checkpoint preserve a new supported post-earn backup/reference, verify
-its actual saved marker and expected restart, then the supported owned cold
-restart and normal re-entry finish gate5.
+Supported post-earn export/inspection, selected saved-marker comparison and
+fresh service readiness now pass. After this checkpoint normally re-enter the
+same character, capture a current owned pre-stop reference, then verify the
+supported full cold shutdown/start and ordinary re-entry to finish gate5.
 Keep retained app/engine/private streams monitored. ro3 earned progress
 stays untouched. Continue [quest/logout work](reviews/2026-10-24-functional-priority.md#priority-and-stop-criteria)
 separately; do not replay failed B4 or consumed Mu scenes.

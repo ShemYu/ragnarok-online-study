@@ -866,3 +866,56 @@ its saved marker and expected service restart, then test the supported owned
 cold shutdown/start and ordinary re-entry. Gate5 remains open: integration
 4/5/80% by count, parent4/14/about29%, all82functional gaps open. Full
 Modern/Renewal scope and functionality-first priority remain unchanged.
+
+## Supported post-earn backup and saved marker pass
+
+After820bfdaad2f96be1721799470d6f15b18f19a32d, Root derives a fresh one-shot
+backup actor from the qualified pre-earn source. Changes bind the current Git
+checkpoint, fresh exclusive evidence/destination namespace, post-baseline
+service reference and post-earn receipt wording. Added read-only admission
+pins the two normal re-entry PASS and unchanged pre-earn backup. Root reviews
+the complete delta, then invokes supported db_backup once and db_inspect once.
+No restore is admitted and neither previous export nor actor is overwritten.
+
+The98860B export is regular/single-link/0600 in a0700private directory and
+fully read back/hashed. Inspection is1.6.3/packet20221005/Renewal/two player
+accounts/one character. Account metadata is unchanged. All five container IDs,
+images/mounts/ports stay the same; only login/char/map starts change, while DB/
+web starts and the persistent volume remain unchanged. Root's independent
+fresh-start auditor passes:1265maps/loading complete, exactly the five retained
+diagnostics,16complete served bodies/44247224B and1117baseline files preserved.
+Current app/native/engine/VZ/four old listener owners remain positively owned.
+
+The earlier ro3 saved-row caller could not be located as retained Python.
+An independent read-only source lookup identifies the existing finite T05
+quote-aware parser instead. Root reuses its unchanged definitions and header
+controls in a small separately reviewed offline caller. It binds the actual
+dump hashes and exact observed80-column char/7-column quest order, selects
+character150000 and emits only the six named character fields and seven quest
+fields. Login credential values are not tokenized. The pre-earn reference is
+Ro4Novice1024/account2000001 at iz_int18,26 without quest21001; the new export
+is the same character at iz_int51,30 with21001/state1/time0/counts0,0,0. This
+establishes the selected persisted marker, with no live SQL query/execution.
+
+Private persistence-post-earn-source-root-1/ and
+persistence-post-earn-actual-root-1/ evidence:
+
+| Artifact | Bytes | SHA256 |
+| --- | ---: | --- |
+| Source POST_EARN_BACKUP_ONCE_ROOT.py | 7901 | 64b2bc22b3f4613f228f7165ec838359db05450bf2689e5039ce9699c9a88507 |
+| Actual ROOT_POST_EARN_OPERATION.json | 15009 | d0ef424927a692ea8439ee51988ac3588fadcd7e1d9730cd4de5e3a7ecad210a |
+| Actual post-earn-1.sql,private only | 98860 | 41cb92a352787463d410b991589bcbb91d68222d7fb3ca76adc9e022ec4d309a |
+| Source POST_EARN_AUDIT_ROOT.py | 8491 | 985a264d0b0b22c403969c31e7d15677bc77a18f1aa4d53ddc186984172fafb3 |
+| Actual POST_EARN_AUDIT_1/ROOT_AUDIT.json | 567341 | 90bdb6f7cecb69c5c18c364bb456eedc43808f7908d686bd77c24aa6695cd4b9 |
+| Source SAVED_MARKER_ROOT.py | 4641 | 59c3037ae98b6a53d9bc4ed20b8bc70acfcfb1f43dfcd111202c82aee76e9a93 |
+| Actual ROOT_SAVED_MARKER.json | 5751 | 47eccd006ffa32265a9485f6da6c539da912f524ec141caf8c549db3d8a54126 |
+
+The auditor's scope fields now explicitly say post-backup re-entry untested
+and gate5 false; this does not revoke gate4 or the earlier ordinary re-entries.
+The supported backup causes a game disconnect/restart. After this checkpoint,
+normally re-enter, capture a current pre-stop reference and perform one
+supported owned full shutdown/cold start followed by normal earned re-entry.
+The post-earn backup is preserved but not restore-tested. No cold persistence,
+inventory/reward/full-story or broader F1 Quit/socket-cleanup PASS is claimed.
+Integration stays4/5/80%, parent4/14/about29%, all82functional gaps open. No
+goal change or user decision is required.
