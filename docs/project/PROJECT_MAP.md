@@ -54,10 +54,11 @@ B4 data:actual321checks/306pins/71outputs PASS -> runtime binding next.
 Ten controls:both parallel groups actualPASS (6+4cases).
 Six records:actual independent decode PASS ->111allowlist qualified.
 Fresh Mu21 -> fresh Mu19 actual PASS:112 checks/85 pins/33 leaves.
-B4 templates:Root590 checks + independent review PASS; author released.
-Grok LIVE:fresh Mu templates; full839 submitted/released -> source review.
-B4 corrected finite binder + supervisor reuse PASS -> fresh bindings
-  -> one ordinary refusal/cancel/grant-repeat/reconnect trial admitted.
+B4 actual quest trial FAILED: A199 refusal shown; logout selector fails.
+Root688 failure/preservation checks PASS; later cases remain open.
+Next Grok:logout selector + driver group + dictionary research (independent).
+Full839 source PASS -> one original G30 publication admitted.
+Fresh Mu templates submitted/released; final Root qualification next.
 Current-five reader:actual PASS111 checks/103 pins;26 literal core chains.
 Changed alias proof withheld; normal render/travel/story remain open.
 Mu oneactualscene FAILED;105bodies+partialdraw;Root825failurechecks PASS.

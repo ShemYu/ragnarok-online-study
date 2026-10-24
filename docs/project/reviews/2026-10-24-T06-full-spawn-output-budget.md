@@ -598,3 +598,33 @@ deviation separately; it provides no runtime proof. No selected NPC body,
 target module execution, publication or actor is reported. Root still must
 personally qualify the entry and complete expectation joins. Full839 remains
 unrun and unadmitted; the previous finite groups are not repeated.
+
+## Full839 sole entry qualifies for one original guarded publication
+
+Root personally reviews the complete21654-byte entry and joins all eight
+source/oracle/seam descriptors, complete independent910-byte stdout, all
+three frozen expectation sets and839 historical ledger rows. Independent
+review39 inputs/eleven expanded closed outputs and40 raw anchors also pass.
+Qualification31518/
+b1046b2fa2ada1c97c56eddb79f80e26e0f5da72aa7e16b5f7ae30a0be9da086.
+Only existing group06.run_qualified_accept is selected; internal mandatory
+15-field receipt remains inside the consumer. No optional receipt route.
+
+Preserve two authoring disclosures: own-entry syntax parsing and seven
+idiom/nine original source or metadata reads beyond the frozen copies.
+No selected NPC-body read or publication was performed in source authoring.
+A host exception in child FD enumeration refuses success but can skip
+later child thread/path checks. Root explicitly selects the independent
+outer context/source/receipt/full-publication audit; no false-success
+path is found and no new test family or repair generation is required.
+
+After this checkpoint bind only ROOT_ADMITTED and REQUIRED_HEAD, verify
+the complete inverse, create the private absent publication parent, and
+admit one existing entry under originalG30s/512MiB/grace3/no-native/1MiB,
+Python-I-B. The30s ceiling is prospective, not a timing guarantee.
+Root must verify complete910-byte stdout with originalS, natural0/positive
+guard/current PID+group absence and all four whole publication leaves,
+including streamed172547908-byte physical and9748299-byte event outputs,
+complete manifest/839source-ledger joins and sourcepost/context checks.
+Failure keeps partial evidence; no replay or automatic48-control loop.
+No monster runtime/whole-game acceptance follows from static publication.

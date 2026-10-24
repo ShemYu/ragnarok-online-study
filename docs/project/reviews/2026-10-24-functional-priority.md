@@ -1716,3 +1716,22 @@ Root settlement passes and independent source review continues. Fresh Mu
 runtime template work is the sole remaining live Grok dispatch. No full839
 publication is admitted. Numeric Mu rendering failure, authentic missing
 story and all82functional gaps remain open; parent4/14/about29%.
+
+## Actual B4 failure is fully audited and finite repairs are ready
+
+[The fresh ordinary B4 trial fails before normal logout](2026-10-23-T10.007.md#fresh-b4-ordinary-trial-fails-and-complete-preservation-audit-passes).
+Root verifies688 conditions/747pins/all281 Engine wires/current cleanup/
+original preservation. The first Chinese A199 refusal is visible; later
+B200 cases and post-logout SQL remain unverified. The consumed trial stays
+failed; its owned volume is retained. No original game state is changed.
+
+[Source-proven logout and driver repair packets plus separate dictionary
+research are ready](2026-10-23-T10.007.md#b4-failure-source-is-localized-and-three-independent-packets-are-ready)
+for three independent actual Grok tasks after this checkpoint. Do not waive
+the unresolved dictionary abort or weaken five-case/ownership checks.
+
+[One full839 publication is now admitted](2026-10-24-T06-full-spawn-output-budget.md#full839-sole-entry-qualifies-for-one-original-guarded-publication)
+under unchanged30s/512MiB guard and complete independent Root audit.
+Fresh Mu templates are submitted/released; independent source review has
+no blocker, Root qualification pending. All three preceding Grok workers
+are released/archive beforeACK. Parent4/14/about29% and all82 gaps remain.

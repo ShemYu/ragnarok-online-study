@@ -1340,3 +1340,15 @@ Replace the allowlist at exactly three existing positions; retain P251,
 UI119 and ordered entry identities. No six resource entries are appended.
 Fresh world, lease, ports, output paths and final admission remain Root
 bindings. No browser, backend or game actor is admitted here.
+
+## Fresh Mu runtime template source is submitted and author released
+
+Grok taskc718487f03bd/ctxe5e2c253f8e1 submits only the two refreshed unbound
+templates,513-slot map and source evidence. Root checks33 frozen copies,
+two envelopes, worker pre/post joins and nine closed leaves, then releases/
+archives beforeACK. Settlement21785/
+f0d7e5e51963e06a7c0fbe9e78df42ee13ccd3dc8fc295eb32da539bd35ce490;
+release455/49715f01711fa65b367601a4ac6ab7fca0c4b3ea1c034c91605d3f171503f88e.
+Independent whole C/E review finds no mandatory source blocker and is
+sealing evidence. Root whole projection/slot/inverse qualification remains
+next; no new Mu scene or numeric/render PASS is admitted.
