@@ -32,8 +32,8 @@ author tests pass Root's full-source/test/report review and personal rerun.
 [Root's40independent checks reproduce11hold rows](reviews/2026-10-24-direct-dependencies.md#claude-geometry-original-passes-root-meshes-but-independent-faults-hold-it)
 in nine groups, including a creation-namespace returned-PASS fault. The original
 is held before actual use. Grok
-task_0dd910580589/ctx_16fd13ee03e8 remains live. Root now reviews Claude while
-Grok continues, then qualifies both originals before any actual compile. Browser/render,
+task_0dd910580589/ctx_16fd13ee03e8 remains live. Root next reviews its settled
+original and compares both before choosing a correction basis. Browser/render,
 normal game/story/full content and all82functional gaps remain open. No acquired
 geometry execution is admitted and no goal-changing issue/user decision appears.
 Root's independent mesh comparator now passes350checks/10authored positives/
