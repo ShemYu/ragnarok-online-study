@@ -953,3 +953,33 @@ are therefore available; real map/alias/route binding, coherent integration and
 event/state persistence remain the unknowns. No new actor, F1 retry, installed
 script, gameplay claim, scope reduction or user decision follows. This refines
 the next useful story action instead of repeating inventories or starter work.
+
+## Claude normal-terrain review is checked, preserved and released
+
+Matched msg_e550c7dd2e12 settles task_f0952db8e4d1/ctx_f43c5fbd2939.
+Candidateb1c7c462cf4deecc251be21509af05ab1c1caee5 has one clean owned-report
+commit from the exact common base. Root preserves the15464B report/full pin
+table and all seven exact review inputs plus the frozen task brief: nine full
+mirrors. Private claude-packet-root-1/SETTLEMENT_ROOT.json3559B/SHA256
+bb7b1802ccdcac76edc56733a170bd4ca718370c84bff816dec58f40ab49f638
+binds them; positive release confirms closed terminal/captured transcript.
+Prefix is `.tools/renewal/t07-014-008-`. No private worker notes were created.
+
+Root personally reads the entire report and checks its cited source clauses.
+Its complete inverse/pin/allowlist review agrees with Root. Two reporting
+defects do not authorize runtime PASS: httpEOF is a hardcoded label, and failed
+unsteady snapshots can inflate createdFiles. Root must instead check actual
+entity length/full hash, natural exit, exact artifacts and all34real loose
+files. Per-socket timeouts do not impose a hard wall-clock bound on a slow-drip
+read; the established external75s direct caller remains mandatory. Never signal
+the existing game/server group based on a generic cleanup recommendation.
+
+The source intentionally leaves full owner/profile/native/INI pins and all34
+override absences to Root's complete before/after caller audit. Preserve those
+checks. Root corrects one report claim: same process birth does not prove an
+immutable environment (exec or internal mutation can retain a birth). Recheck
+the six selected fields rather than relying on that claim. Full dumps remain
+prohibited. No source change or goal change is needed for these caller limits.
+
+This settles the Claude review lifecycle, not actual delivery. Grok remains
+active; compare its independent report before any actual normal34GET admission.

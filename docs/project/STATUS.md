@@ -42,6 +42,12 @@ as donor behavior; Root reads the actual starter/Messenger/arrival/room clauses.
 Map/alias/route binding and guarded persistent integration remain, not another
 generic entry-source absence search. Existing T10.007 cancel contract stays.
 
+[Claude normal34review is personally checked, preserved and released](reviews/2026-10-24-remaining-map-bodies.md#claude-normal-terrain-review-is-checked-preserved-and-released).
+No fixed-source blocker; reporting labels are not runtime evidence. External
+75s caller/full pin/override/body/loose-file checks and fresh selected ENV checks
+remain mandatory. Root corrects its immutable-environment claim. Grok remains
+active; actual34requests stay held pending independent review/comparison.
+
 **Latest playable-integration result:** [Settled re-entry and bounded normal integration pass](reviews/2026-10-24-normal-integration.md#settled-re-entry-and-bounded-normal-integration-pass).
 **T07.007.012.009 is5/5checks,100% of that bounded integration task** and
 ready_for_user after its checkpoint. Ordinary creation/travel/NPC earning,
