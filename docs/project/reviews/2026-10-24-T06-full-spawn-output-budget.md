@@ -864,3 +864,15 @@ stdlib-only control/fix plan. Workers cannot execute targets/controls or
 implement; Root verification/admission remains separate. Packet preparation
 continues after correcting an unsupported upstream Copyright-text assumption;
 all12existing copies are read back unchanged before completion. No actor retry.
+
+
+## Equal Claude and Grok source-plan tasks start
+
+After7491f4d, shared15158-byte manifest and all14frozen copies verify.
+Claude taskec1f5e5884ef/ctx8ad9c1d43500 starts, receipt2325/
+22d70c0c196300dc4f02b21b8fa42c7f434a077fac12fa310ef3f1daa9b67d05.
+Grok task0aacdb5d3c3c/ctxae021dea355b starts, receipt2307/
+4e0b84d29bd4dd68303101fd4a7fd0f39297c9976a9c4e4bd5238aefe5d2504e.
+Only provider output suffix differs. Both use observed provider defaults;
+exact model/effort and billing are not observed. This is a plan-only comparison,
+not a proven implementation winner. No target/control/actor execution granted.

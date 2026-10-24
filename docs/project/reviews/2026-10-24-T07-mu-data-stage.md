@@ -1743,3 +1743,12 @@ Q23954/3d8126397dbb74fe2159c76cc440cffd0ab5e3e81fa029c7c092ba5931026372.
 Whole forward/inverse and source syntax pass; all archives/manual streaming,
 parent/outer/G390/4GiB/caps remain unchanged. Admission false/None/None.
 Fresh current-world evidence and three-header admission are still required.
+
+
+Independent final-binder review confirms exact six metadata edits/inverse and
+all three unbound admission headers. New templateQ has42fullPins, each<=4MiB,
+maximum320058bytes. Existing final256MiB closure still opens every new Web
+body, with selected maximum251507056bytes. No cap increase or waiver.
+After checkpoint, Root collects fresh14GET world/image evidence and binds
+the three admitted headers for one fresh synthetic scene. ExistingG390/4GiB,
+source/parent/outer caps and original-state preservation remain required.
