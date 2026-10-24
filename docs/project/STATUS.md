@@ -20,17 +20,17 @@ but6unpinned startup resources and numeric evidence fail. Root verifies
 825checks/754pins/all245Engine wires/current cleanup/original preservation.
 BrowserACK/natural0, SQL/native afterfailure passes, owned resources absent,
 dedicated volume retained. No replay/PASS/game credit. Astra diagnosis next.
-[Four Grok repairs settle; three sources and fresh data pass Root checks](reviews/2026-10-24-functional-priority.md#parallel-repairs-reach-source-review-while-fresh-data-passes):
-UI50094/driver68853/world38008 source qualifies; B4 source review pending.
-All four owners released/archive beforeACK. Exact-three-return source task
-18f4757be71e/ctx74b1eb667d40 is live. Fresh Mu21 data actualPASS126checks/
-112pins/36leaves plus explicit prior identity noncollision. Fresh Mu19
-24-copy source binding packet ready; no projection yet. Six-body source
-qualifies; one fixed data-only decode admitted after3headers: originalG30/
-512MiB/grace3/nonative/1MiB, all5fullarchive hashes then6bounded ranges.
-Whole8output/postpin/retirement audit required before111allowlist; current
-independent six decoded hashes unestablished. Numeric cause unknown.
-No failed-fixture/scene replay or actor admission; strict verdicts remain.
+[Six resource bodies and111allowlist pass; one B4 data call admitted](reviews/2026-10-24-functional-priority.md#six-resource-body-authority-closes-and-b4-data-call-is-admitted).
+UI/driver/world source qualifies; B4 whole-source review now RootPASS
+111pins/eightanchors/two exact fixes. One existing B4 materializer G10/
+512MiB data call admitted after six headers/full71 audit, no actor.
+All four source owners released/archive beforeACK. Actual Grok Mu19binding
+task169c84b6c54b/ctxad4983663adf and three-return task18f4757be71e/
+ctx74b1eb667d40 continue independently. Fresh Mu21 actualPASS126checks/
+112pins/36leaves plus prior identity noncollision. Six-body actualPASS:
+38checks/24pins/eight files; all independent hashes match. Root111-row
+allowlist27535025B keeps original105 rows and P251/UI119. Numeric cause
+unknown; fresh Mu19 projection/runtime/scene remain. No actor admitted.
 Combined-nine finite PASS63checks/44pins/all4expected files; full839 open.
 No parent/gap/game credit;4/14/about29%, all82gaps and full goal unchanged.
 

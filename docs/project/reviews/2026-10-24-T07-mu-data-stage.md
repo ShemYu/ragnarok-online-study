@@ -1184,3 +1184,36 @@ Root qualification26286/
 651b96cb936eae5944465a63efec8894bddd9fb9830aae14d4fa1b27654d5683.
 Numeric cause remains unknown and historical offending group PID unproven.
 B4 whole-source review is still pending; no materializer call admitted.
+
+## Six archive-backed startup bodies pass independent decode and comparison
+
+After de25416, Root binds only the three admitted child headers; exact
+inverse restores the6768-byte source. Saved caller7044/
+5da29f5ce4d711b9cc8cf47a05d4466896d6ec56215b4b7eafb5a1a89b342021
+precedes its one actual originalG30/512MiB/grace3/no-native/1MiB call.
+Natural0/positiveguard/no signals,2.577034s,19578880B sampled peak;
+21samples/maxgap0.131351s. All five4.608GB archive full hashes/C8 and252
+existing cipher answers pass before the six bounded decode reads.
+
+Root actual audit15473 bytes/
+5ec9ce7b4c41bb2695be98b91b5ac21f6378d5dee4e54a9baf37326341e710a8:
+38true checks/24fullpins/errors empty, all8 output files/strict stdout/
+guard receipt/current driver/group absence/FD+thread+HEAD/source postpins.
+All six independently decoded lengths/SHA match the historical browser
+transfers; decoded385942B total. No body hash from the observation was
+provided to the decoder. No native reader, game, install or fixture replay.
+
+Root constructs111-row allowlist79401/
+019a9510175006c36fe2e24fb77ef166015762b6bcb52eccae659baea4a79441,
+total27535025B, preserving every original105 row object and serialized
+contents. Six appended rows reference independent proof bodies outside P;
+no six new staged P/UI entries. Qualification14881/
+7d50da21952bd1cf7f03d6d8ecd017d2f19bba63c61a6f07190fb051f24f12ca.
+Replace the existing allowlist descriptor in later bindings; P251/UI119
+and all caps remain. This resolves source allowlist authority only.
+Numeric upload failure and actual fresh scene verification remain open.
+
+Actual Grok fresh-Mu19 binding source task starts after de25416:
+task_169c84b6c54b/ctx_ad4983663adf; receipt2307/
+f69ecc489829294b94c666f9e9543f0dbb4d9c3b1f38f7b4ab3e7cf225c9efa2.
+No actor or projection invocation is authorized to that worker.

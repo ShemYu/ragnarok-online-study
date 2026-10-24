@@ -1600,3 +1600,13 @@ the one fixed six-body read is admitted](2026-10-24-T07-mu-data-stage.md#fresh-m
 Fresh Mu19 source binding packet is ready as independent Grok work; B4
 caller review is separate. No game/native renderer replay, new acceptance
 credit or full839 publication. All82 functional gaps and parent4/14 remain.
+
+## Six resource body authority closes and B4 data call is admitted
+
+[All six independent archive-body comparisons and111allowlist pass](2026-10-24-T07-mu-data-stage.md#six-archive-backed-startup-bodies-pass-independent-decode-and-comparison).
+Missing allowlist authority is resolved for later fresh bindings; actual
+numeric/render verdict is still open. [B4 corrected caller qualifies for
+one existing materializer invocation](2026-10-23-T10.007.md#b4-two-fix-caller-qualifies-for-one-materialization-call).
+Fresh-Mu19 binding and exact-three-return tasks are independent actual Grok
+work. All four settled repair workers were released, no goal change/user
+decision/game acceptance. Parent4/14/about29% and all82gaps unchanged.

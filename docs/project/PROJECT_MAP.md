@@ -50,10 +50,10 @@ B4:six source fixes qualified; separate36file data PASS/127checks.
 MuC/MuD:submitted+released, HOLD5findings -> finite UI/driver fixes ready.
 MuC:three fixes + all six actual focused calls PASS/223pins.
 B4/world/UI/driver:four delivered+released; UI/driver/world source PASS.
-B4 caller:independent whole-source review pending.
+B4 caller:Root source PASS -> one existing materialization admitted.
 Ten controls:HOLD3returns -> exact Grok repair live.
-Six records:source/profile PASS -> one fixed body decode admitted.
-Fresh Mu21:data126checks/36leaves PASS -> Mu19 binding packet ready.
+Six records:actual independent decode PASS ->111allowlist qualified.
+Fresh Mu21:data126checks/36leaves PASS -> Mu19 binding Grok live.
 Mu oneactualscene FAILED;105bodies+partialdraw;Root825failurechecks PASS.
 MuD:both calls PASS/65pins; final source joined/released beforeACK.
 Mu19:actual33leaf projection PASS/112checks/85pins -> runtime C next.
