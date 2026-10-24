@@ -5282,3 +5282,30 @@ Private t07-014-024-preparation-helper-1/projection-2/:
 |---|---:|---|
 | PLAN_INPUT_ROOT.json |1147625|810543c74cc771b2a7e04dc7fb304db79f5af16686c6bf5e58b2bf0ac49bcd32|
 | GROUPS_ROOT.json |22773|eac4259f8df1d84e1143eb4feda8c98c4a88e822dd58396eeefd2cd9e05d0529|
+
+
+## Independent geometry extension source-plan wave starts
+
+Common frozen based70abcd starts equal .024plans on existing released/clean
+.010Claude/Grok checkouts, separate new branches. Both exact prior dispatches
+are freshly released/exited/transcript captured; scoped terminal lists are empty
+and original commits remain reachable. All three full frozen input pins recheck.
+No new child/setup is created. Both launches report ready/input_accepted. Claude
+turnStart is observed; Grok turnStart telemetry is unsupported, not a failure or
+a reason to resend. Defaults are inherited; actual model/effort is not observed.
+
+Claude task_8154e8001d7b/ctx_e1ffb143cdc8 and Grok
+task_3842c963cfc3/ctx_5014518214cb own only the two plan files. Root independently
+repairs .023C1 while the plans run. No actual source/model/runtime admission.
+Root will preserve/release settled workers before personal full source/group
+review. No plan is implementation or content acceptance.
+
+Private t07-014-024-launch-root-1/:
+
+| File | Bytes | SHA256 |
+|---|---:|---|
+| LAUNCH_ROOT.py |4127|792f76382a76923110678c2607fc03c3f01fa5dce68791702932db1a1ebcd95e|
+| CLAUDE_SPEC_ROOT.txt |15265|3087147253eb2beff6df8f409befa0c7778560f6c2ba033331b0c51743036266|
+| GROK_SPEC_ROOT.txt |15261|001cf160bf7da3c27126e4ab87c0553be7f71f81d0a191a893692aa24fc918cd|
+| CLAUDE_START_ROOT.json |2297|5b67d29e0895a998622d0f3004bc563bdde2674a0b2071249f4260c25e2c42f1|
+| GROK_START_ROOT.json |2277|e7756cf501e8e6aa4fef1f64309f0a877c47ca2749cb121ea39b950e42dfef3d|

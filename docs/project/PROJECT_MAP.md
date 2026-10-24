@@ -105,7 +105,7 @@ Other active work:
   Independent geometry oracle  [ROOT42CONTROLS +7975SAVED AUDIT PASS]
   Tiny geometry originals      [BOTH ROOT VERIFIED/HELD:13vs10; pair released]
   Finite geometry correction   [ROOT50TESTS PASS; 3edge regressions HELD; worker released]
-  Next geometry frontier plan  [936METADATA ROOT PASS; .024equal brief FROZEN]
+  Next geometry frontier plan  [936METADATA ROOT PASS; .024CLAUDE/GROK ACTIVE]
   Actual model compile         [WAIT:small correction + Root checks + admission]
   Model702node bounds           [SENTINEL PRESERVED; geometry impact OPEN]
   Image consumer source trace  [ROOT PASS:40slices/286joins; both17/20/released]

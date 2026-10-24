@@ -43,7 +43,8 @@ required repairs. [Correction434e264 is fully preserved/released; Root50tests
 pass but three independent regressions hold it](reviews/2026-10-24-direct-dependencies.md#geometry-correction-is-preserved-and-three-root-regressions-hold-it).
 Root owns the narrow publication/retirement/deadline follow-up before integration.
 [Full936geometry planning metadata passes16293Root checks; equal .024brief frozen](reviews/2026-10-24-direct-dependencies.md#full-geometry-planning-metadata-qualifies-and-the-extension-brief-is-frozen).
-It plans the next NONE/FLAT subset and all59broader frontiers independently of
+[Both plans now start fromd70abcd on reused separate branches](reviews/2026-10-24-direct-dependencies.md#independent-geometry-extension-source-plan-wave-starts).
+They plan the next NONE/FLAT subset and all59broader frontiers independently of
 actual .023execution. Browser/render,
 normal game/story/full content and all82functional gaps remain open. No acquired
 geometry execution is admitted and no goal-changing issue/user decision appears.
@@ -70,8 +71,8 @@ archive refs/verified rollback bundle survive. All other workspace IDs remain.
 Both original review workers are released; the .011Claude checkout is kept for
 the .023.001Root follow-up. User-owned workspaces stay excluded.
 The .023.001worker is now released/exited and fully preserved. Historical342row
-fleet now has332released/eight user-owned/two absent; no expected active worker
-before the next source wave. Fresh reclaimable list is empty. No new child/setup. No game/save/network action in cleanup.
+fleet has332released/eight user-owned/two absent, plus the two new .024source
+plan dispatches recorded above. Fresh reclaimable list is empty. No new child/setup. No game/save/network action in cleanup.
 Two .012implementation attempts reuse existing released checkouts; no new
 child folders or setup hooks. Both .012candidates are preserved/released after
 matched settlements. [Root full review and eight behavioral groups per original are complete](reviews/2026-10-24-direct-dependencies.md#both-constructor-originals-are-personally-checked-and-held).
