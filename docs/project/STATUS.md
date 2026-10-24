@@ -32,6 +32,9 @@ Root prepares the independent finite caller in parallel, then personally
 qualifies both originals before any actual model compile. Browser/render,
 normal game/story/full content and all82functional gaps remain open. No acquired
 geometry execution is admitted and no goal-changing issue/user decision appears.
+Root's independent mesh comparator now passes350checks/10authored positives/
+170corruptions after two advisory faults reproduce and are fixed. Exact full
+expected model702 bytes are projected from the consumed reference, without replay.
 
 **Child cleanup:** [Root verifies removal of20completed children](reviews/2026-10-24-orca-children-cleanup.md#second-twelve-removals-personally-verified).
 Current84direct children include the two released review children and the two

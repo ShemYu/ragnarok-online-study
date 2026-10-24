@@ -4718,3 +4718,48 @@ it must refuse while source binding is UNBOUND. The helper is not either Orca
 benchmark original. No actual body/constructor/compile or consumed independent
 parser/reference run is admitted. Root full-source/independent controls remain
 required before selection. No new user decision or goal-changing blocker.
+
+## Independent mesh comparator qualifies with two Root regressions
+
+In parallel with implementation, Root authors an import-safe saved-byte
+comparator. It checks complete ordered texture/node/key domains, every finite
+Float32 mesh byte including signed zero, full hash/concat, and emitted bounds
+recomputed from every position. It does not infer observed local arrays or
+rendering from expected values. Observer-specific record adaptation and actual
+artifact provenance remain separate Root audit duties.
+
+Initial339checks/10authored positives/160corruptions pass. Astra source review
+finds two additional faults, and Root personally reproduces both on authored
+objects: optimized Python removes assertions and can return false PASS; reported
+binary64 bounds can round to the correct Float32 value despite being inexact.
+Root preserves V1/red evidence, explicitly refuses optimized execution before
+definitions/IO and requires bounds already equal their Float32 round-trip.
+The same regressions turn green. V2 passes350checks/10positives/170corruptions,
+including self-consistent changed alpha/last byte/hash, signed zero/corner order,
+NaN/Inf, bad domains and non-Float32 reported bounds. Corrections get no Claude/
+Grok benchmark credit. Future caller must also refuse optimized Python.
+
+Root projects full expected42876mesh bytes from already-retained independent
+reference arrays; no geometry/parser/client function is rerun. Both saved
+expected projections are byte-identical88322B/SHA
+a24d20bf1415de203ceca40c34ecf4e238f7d832351c6357f58e937ec39e1916,
+with the previously frozen per-mesh and concatenated hashes. Complete reference/
+profile/source/fixture PRE/POST pins match. These expected bytes remain Root-only
+and never come from compiler output. No actual acquired compile is admitted.
+
+Root also notices a public donor test-file read in Claude's live transcript,
+outside the seven frozen implementation inputs. Both workers receive the same
+scope reminder and must disclose any unlisted reads in handoff. There is no
+observed private candidate/actual-body contamination; exact comparison purity
+and any score consequence will be assessed from full settled evidence.
+
+Private t07-014-023-preparation-root-1/:
+
+| File | Bytes | SHA256 |
+|---|---:|---|
+| MESH_COMPARE_ROOT.py |4638|5fc14f772e870e019600028870b9294b6f5e69f99d2306efc0096c0603f8d33b|
+| QUALIFY_MESH_COMPARE_V2_ROOT.py |8119|dd5df59600eb561ac078db018f5c0708d2844c26db737162b2b77dcbe5987172|
+| MESH_COMPARATOR_AUDIT_V2_ROOT.json |20006|36af0056a070a5b47d793810ab94f2c3b083adb75d75d306d28fb6a9beee63d0|
+| COMPARATOR_REDGREEN_ROOT.py |2466|cf4f6c372698593df48c8c3b6908e9979811c30fb442f36069e615c2cab729a1|
+| COMPARATOR_RED_ROOT.json |325|4c7539886556ccdd8f38e948e5cd05fb9b45b6b1dfc219489bd1c0ac42f9ca62|
+| COMPARATOR_GREEN_ROOT.json |328|ff892481fa70a6992a28abbd41e0805495c72fe2a10094eda2a5c519e3dc0e9b|
