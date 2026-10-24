@@ -30,8 +30,8 @@ Map repair:
        -> normal routes/mounts   [PASS: before login]
        -> ordinary account      [PASS: group0/state0 + fresh restart checks]
        -> character + game entry [PASS: 4 of 5 gates = 80%; CURRENT]
-       -> baseline backup        [NEXT: before earning]
-       -> normal travel + quest [OPEN]
+       -> baseline backup        [PASS: export/inspection + fresh restart]
+       -> normal travel + quest [NEXT: normal re-login, then earning]
        -> story + earned save   [OPEN]
 
 Other active work:

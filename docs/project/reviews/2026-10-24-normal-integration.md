@@ -713,3 +713,58 @@ untested. Preserve new character/account/private credentials and original
 worlds/Chrome/mute/IME/network. All82functional gaps and parent4/14/about29%
 remain unchanged; all-map/story/Chinese completeness and ordinary Mu access
 are not claimed. No user decision or goal change is needed at this checkpoint.
+
+## Supported pre-earn baseline backup and restart pass
+
+Root executes once at12fc92a5dae871e0a0f1871752667876d29019ca using the supported
+db_backup handler and a fresh absent absolute baseline-1.sql destination in a
+new0700 ignored evidence directory. Current five service identities match the
+normal-entry checkpoint before the call. No old backup is copied or restored.
+The successful response identifies the newly written destination. Complete
+EOF/readback SHA256 of the regular UID501/single-link/0600 export qualifies:
+98174B/aee874b01e9b88eedd1e3e50682fb855c1c7d24666817bf53053cb1f1f22b663.
+
+Supported db_inspect returns kind:databases, app_version:1.6.3,
+packetver:20221005, running_era:renewal, settings:false/mods:[], one stamped
+Renewal database with2player accounts/1character, created2026-10-24T05:36:32Z.
+The account count matches the supported current list; before/after account
+metadata is unchanged. Counts do not identify character fields or prove a
+restore. Export/inspection is a baseline reference, not restore-tested recovery.
+
+Backup intentionally stops/starts the same map/char/login containers. Root
+verifies only those three have new start times; DB/web IDs/starts, all five
+IDs/images/mounts/loopback ports and named-volume metadata remain unchanged.
+The separately executed post-backup audit reuses the qualified timestamp
+selection: new1265-map completion/exact five existing diagnostics/five ready
+services, all16complete served bodies44247224B and1117baseline full hashes/C8
+pass again. Current authenticated native/app/engine/VZ/four old listener owners
+remain exact; private streams stay below1MiB. Its login/gate4 false fields
+describe that auditor's unassessed UI scope, not revocation of the prior
+normal-entry gate. Normal post-backup re-entry has not yet been tested.
+
+The owned browser displays the expected Traditional Chinese forced-disconnect
+notice after the supported service stop. No movement/quest input is sent and
+the visible position remains18 26. Next dismiss that notice and log in
+normally to the same character; then earn the gate5 markers. No backup,
+account-create or game action is retried. Existing worlds/Chrome/mute/IME/
+network remain untouched. The extra Root peer source review confirms successful
+restart precedes final export and warns that parent-fsync failure after rename
+can leave a completed destination; those failure paths were not triggered.
+This is selected .012 architecture reuse, not a new provider benchmark.
+
+Private persistence-source-root-1/ and persistence-actual-root-1/ artifacts:
+
+| Artifact | Bytes | SHA256 |
+| --- | ---: | --- |
+| Source BASELINE_BACKUP_ONCE_ROOT.py | 7337 | 4774cc76ab2d5c265cec99bc7b7a25eb03cbf6f5cc2bc461c34f6f3db332079e |
+| Actual ROOT_BASELINE_OPERATION.json | 13922 | b3bf99ace2332f7d6022d537a79b0df21a7be8f97885c6d04db4c9fa0c9a0409 |
+| Source POST_BASELINE_AUDIT_ROOT.py | 8403 | 76f94f2717166f9e69d9aeb58c36d22a800cbe662ba7c1ffc9f636060a94adae |
+| Actual POST_BASELINE_AUDIT_1/ROOT_AUDIT.json | 567031 | a4bf54aa7a291771252396d2304fd7749eb9f7e71d9698f78336fd48f892ff2b |
+| Actual POST_BASELINE_BROWSER_SNAPSHOT.json | 6421 | 07ca91be761f28ca455bdbd5ee6b09841e37f4e9c1b18e382d4f5f2d6933d92b |
+
+Gate5 remains open; integration count stays4/5/80%, parent4/14/about29% and
+all82functional gaps remain unchanged. After this checkpoint normal re-login,
+ordinary walking/tutorial portal/NPC/quest earning and save/re-entry/cold
+restart are the next actual end-user checks. Preserve this baseline and take
+a separate post-earn backup before any later risky state change; the pre-earn
+reference does not contain future progress. Git does not roll back SQL state.

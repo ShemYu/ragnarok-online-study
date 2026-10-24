@@ -15,8 +15,10 @@ shows Ro4Novice1024/Novice/level1. Normal Start Game enters the tutorial room at
 visible18 26. Root personally views the retained rendered PNG and checks live
 UI/audio/current ownership; all five service identities/starts/images/mounts/
 ports remain unchanged. **Normal integration4/5checks,80% by gate count**.
-Walking/quest earning, baseline backup, save/re-entry/cold restart in ro4 are
-not yet verified. Existing Chinese overlays stay enabled and sound stays off.
+The supported pre-earn baseline backup/export/inspection and fresh service
+restart now pass; this is not restore-tested recovery. Walking/quest earning,
+normal post-backup re-entry and save/cold restart remain unverified in ro4.
+Existing Chinese overlays stay enabled and sound stays off.
 
 **Previous renderer result:** [Fresh Mu3 isolated map-render scene passes](reviews/2026-10-24-T07-mu-data-stage.md#fresh-mu3-synthetic-scene-and-complete-root-audit-pass).
 All 1,285 placements load, all 29 retained Float32 arrays are finite, and all
@@ -37,9 +39,10 @@ checks pass. The repaired normal bundle and unchanged worker are actually
 served by the new owned app/native service with exact complete hashes.
 Gate3 live images/DB/mounts/routes/served files/positive map logs now pass.
 Supported ordinary account creation and its expected service restart now pass.
-Normal login, human Novice creation and game entry now pass. After checkpoint
-take a supported fresh baseline backup/reference before ordinary earning;
-verify its expected service restart and normal re-login. Then ordinary
+Normal login, human Novice creation and game entry now pass. The
+[supported baseline backup and fresh restart pass](reviews/2026-10-24-normal-integration.md#supported-pre-earn-baseline-backup-and-restart-pass).
+After checkpoint dismiss the expected backup disconnect notice normally and
+log into the same character again. Then ordinary
 walking/tutorial portal/NPC/quest/save/re-entry/cold restart form gate5.
 Keep retained app/engine/private streams monitored. ro3 earned progress
 stays untouched. Continue [quest/logout work](reviews/2026-10-24-functional-priority.md#priority-and-stop-criteria)
