@@ -63,6 +63,7 @@ Shadow pilot (1-3 real tasks, alongside main work):
   One Kimi trial remains       [capacity check first; off critical path]
 
 Other active work:
+  Old workspace cleanup       [23REMOVED;81DIRECT CHILDREN; all rollback preserved]
   Ordinary quest/logout        [HELD: B6 save/quit evidence failure]
   mu_fild01 normal route       [HELD: access unproved;111 asset bodies verified]
   Ordinary field route         [ENTRY PASS; fight FAILED; respawn PASS; save next]

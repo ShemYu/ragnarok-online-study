@@ -58,17 +58,15 @@ coverage rows pass Root's full metadata audit](reviews/2026-10-24-direct-depende
 142structural candidates/794outside the current narrow harness; none thereby
 qualifies for actual execution. Broader versions/hierarchies remain later work.
 
-**Child cleanup:** [Root verifies removal of20completed children](reviews/2026-10-24-orca-children-cleanup.md#second-twelve-removals-personally-verified).
-Current84direct children include the two released review children and the two
-.011implementation children (both originals and Claude repair released). Exact Git archive
-refs, two verified rollback bundles and private evidence survive; the running
-character/quiet audio remain. Three examined children stay held for incomplete
-private preservation; user-retained children remain excluded.
-Last full341row fleet plus both original releases settles that wave:331released/
-eight user-owned/two absent. The new finite correction now adds one active
-task_ffaafa66fe56/ctx_bf67cecd82f0 on the reused Claude checkout; no new child/setup.
-Zero reclaimable in the fresh pre-launch check. Earlier user-owned
-rows remain untouched.
+**Child cleanup:** [Root verifies23completed children removed](reviews/2026-10-24-orca-children-cleanup.md#three-further-removals-and-final-preservation-pass).
+Fresh catalog:83workspaces/81direct children. The three prior preservation holds
+are resolved with full28file/28922452B copies and inert symlink metadata; exact
+archive refs/verified rollback bundle survive. All other workspace IDs remain.
+Both original review workers are released; the .011Claude checkout is kept for
+the active .023.001repair. User-owned workspaces stay excluded.
+Fresh full342row fleet:331released/eight user-owned/two absent/one active
+correction task_ffaafa66fe56/ctx_bf67cecd82f0. No new child/setup; zero reclaimable
+at the latest post-original-release check. No game/save/network action in cleanup.
 Two .012implementation attempts reuse existing released checkouts; no new
 child folders or setup hooks. Both .012candidates are preserved/released after
 matched settlements. [Root full review and eight behavioral groups per original are complete](reviews/2026-10-24-direct-dependencies.md#both-constructor-originals-are-personally-checked-and-held).

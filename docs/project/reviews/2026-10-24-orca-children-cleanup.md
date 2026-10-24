@@ -150,3 +150,33 @@ Private orca-children-cleanup-2026-10-25-root-1/:
 | ARCHIVE_ROOT.json |1268|4a1b8ded95e06fad739c109056d11680b9a75cec7ddb21a09102d54f2566e6bd|
 | RUNTIME_FENCES_ROOT.json |2213|0c68e689086ab79a4b7fe593f73fd41be4a752d7cf9619c5ad4ed374510f39ed|
 | ADMISSION_ROOT.json |1968|314a265ddf22cabd12d57f630502d7717f9b60974d92bd3881eeff17299f4ade|
+
+## Three further removals and final preservation pass
+
+After checkpoint523aa6f, Root repeats all immediate source/private-byte,
+head/status/lineage, exact released-worker, empty terminal/tab and scoped-open-
+file checks. The supported removals affect exactly the three admitted children.
+Each source path and Git worktree entry is absent afterward; all three archive
+refs still match. Final supported catalog is83workspaces/81direct children,
+exactly the original86IDs minus those three. Every other workspace survives,
+including active .011Claude repair, Root and all excluded user-owned workspaces.
+
+The first CLI reply says removed:true/removing:true. Root's initial immediate
+absence assertion stops while that asynchronous deletion is still settling.
+Root positively confirms path/Git absence and the preserved ref, without
+repeating that removal. A separate continuation handles only the remaining two
+and polls completion of each accepted request before claiming success. All
+receipts and the initial stopped script survive. No raw deletion or process
+kill is used. Final bundle verification and complete rehash of34sealed packet
+contents, including all28private files, pass. The two inert link records and
+four empty-directory records remain. Total completed children removed is23;
+this counts workspaces, not live OS processes. No game/save/network action.
+
+Private orca-children-cleanup-2026-10-25-root-1/:
+
+| File | Bytes | SHA256 |
+|---|---:|---|
+| REMOVE_ROOT.py |6191|bf5c2a719f8952d75ecdaa205f055d1449153a59cb362d973e8d92c88c3f0018|
+| REMOVE_REMAINING_ROOT.py |7365|8f19f0a0df0249931400dc0d0e889d669a626da60b6e9a0ff74ce1ce8bf7e663|
+| REMOVAL_RESULT_ROOT.json |1629|7c52cfef7b1089c7e77f9fd63faf122c7d846f47500c3f8febbc0dba47217455|
+| FINAL_PRESERVATION_ROOT.json |466|3808b2a8b09358442e447d3c6fbaa0a65751fad916fea559db4822d5739fde8a|
