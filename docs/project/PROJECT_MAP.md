@@ -49,8 +49,10 @@ B3:one actual Mu21 data run PASS/36files/126checks/112pins.
 B4:six source fixes qualified; separate36file data PASS/127checks.
 MuC/MuD:submitted+released, HOLD5findings -> finite UI/driver fixes ready.
 MuC:three fixes + all six actual focused calls PASS/223pins.
-B4/world two-fix +ten controls:three actual Grok source tasks live.
-Mu UI/driver finite source fixes ready; six-resource metadata scout separate.
+B4/world/UI/driver:four actual Grok source repairs live.
+Ten controls:HOLD3missing returns -> exact mechanical fix ready.
+Six records:current catalog joins PASS -> independent body decode next.
+Fresh Mu fixture:existing writer/caller reuse qualifies -> one pure call.
 Mu oneactualscene FAILED;105bodies+partialdraw;Root825failurechecks PASS.
 MuD:both calls PASS/65pins; final source joined/released beforeACK.
 Mu19:actual33leaf projection PASS/112checks/85pins -> runtime C next.

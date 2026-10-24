@@ -485,3 +485,27 @@ task_d8c9b9b293e4 / ctx_78b8b9408528. Start2307 bytes /
 Provider Grok is confirmed; model/effort inherit configured defaults.
 Together with B4 caller and world-source repair, this is three independent
 actual Grok tasks. No target execution or full839 admission is granted.
+
+## Ten-control source review catches three missing success returns
+
+The source-only Grok author settles task_d8c9b9b293e4/ctx_78b8b9408528.
+Root verifies all nine private outputs and releases/archives the owner before
+acknowledgment. Settlement23207 bytes/
+83d49ca8a336535611dcca856f65dea9a42f028c9635935f3d41d679114163c9;
+release455/8ede627729c426941bb4f31546bf46d82a1bc2fc14d4779fd63ba2aa6322f523.
+
+Astra finds three assertion helpers that fall through to None while their
+callers demand True: group04 closed_positive and prewrite_absent, group06
+contained. Both entries would reject a correct first case. Root personally
+verifies all29 opened pins/13 raw anchors/seven closed review files.
+Decision17907 bytes/
+a973f5186104e8f998493c486e4f4b919be8350d5ccc583c6b18ca338e83fbd5.
+No ten-control execution occurred; the earlier combined-nine PASS is unchanged.
+
+A separate qualified mechanical Grok task is ready: insert exactly three
+return True statements at successful helper ends, preserve all other bytes,
+keep ROOT_ADMITTED false/HEAD null, and deliver complete inverses/pins.
+Frozen34-copy manifest37718 bytes/
+8d60377df6e2103e41170c0b60e7e8e1abd63b6b1252ee22c23bfe23b453eac0;
+brief1713/ac94f6d7412f5f6117e94b19d2a12ab69e7160971eddd5b7c3aaf38d4876d0d5.
+No new tests/framework, full839 publication or actor is authorized.

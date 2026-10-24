@@ -20,14 +20,17 @@ but6unpinned startup resources and numeric evidence fail. Root verifies
 825checks/754pins/all245Engine wires/current cleanup/original preservation.
 BrowserACK/natural0, SQL/native afterfailure passes, owned resources absent,
 dedicated volume retained. No replay/PASS/game credit. Astra diagnosis next.
-[Three actual Grok tasks live; two Mu source fixes ready after checkpoint](reviews/2026-10-24-functional-priority.md#three-actual-grok-tasks-live-and-two-mu-source-tasks-prepared):
-B4 two-fix task050bfcd6e081/ctxa68a3c92f1db; world two-fix
-taskb18b4ab3e5f6/ctx70348dad1903; ten-control
-taskd8c9b9b293e4/ctx78b8b9408528. UI evidence/count and driver current-group/
-count fixes have independent30copy packets. Six-body current-archive metadata
-scout is independent. Numeric cause remains unknown; no scan exemption,
-second trace or replay. All new scopes are source/metadata only.
-Prior source owners released/archive; no completed cleanup debt.
+[Four qualified Grok repairs live; fifth mechanical source fix ready](reviews/2026-10-24-functional-priority.md#four-qualified-grok-repairs-live-and-fifth-finite-source-fix-ready):
+B4 task050bfcd6e081/ctxa68a3c92f1db; world taskb18b4ab3e5f6/
+ctx70348dad1903; UI taske9aaacc52d89/ctxa52901cf6896; driver
+taskac38b4e04f79/ctx21f69f1dd9ca. Ten-control author settled/released;
+Root/Astra catch three missing returns before execution; exact fix ready.
+Six-resource current catalog provenance and existing fresh-fixture reuse
+pass Root review. Independent six decoded hashes remain unestablished.
+One fresh existing-generator pure-data call is admitted after exact binding,
+whole36 audit and prior Mu/B4 identity comparison before projection/actor.
+No scan exemption, second trace or failed-fixture replay. Prior source
+owners released/archive; no completed cleanup debt. Numeric cause unknown.
 Combined-nine finite PASS63checks/44pins/all4expected files; full839 open.
 No parent/gap/game credit;4/14/about29%, all82gaps and full goal unchanged.
 

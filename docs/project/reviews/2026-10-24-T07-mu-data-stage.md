@@ -1072,3 +1072,39 @@ same-group snapshot rows with existing kernel.get; live/unknown remains fatal.
 No G/S/Engine/caps change, new runner, second trace or actor. Source candidates
 stay unbound. Future actual functional attempt needs a fresh audited fixture;
 the consumed failed attempt and volume are preserved.
+
+## Independent Mu source tasks start and next fixture reuse qualifies
+
+After723402d, actual Grok UI task_e9aaacc52d89/ctx_a52901cf6896
+starts; receipt2307 bytes/
+cfa5f53e6f25789fd3f5ebb94228ef81d4adf104fa707eb1af353f926a61e6a3.
+Actual Grok driver task_ac38b4e04f79/ctx_21f69f1dd9ca starts separately;
+receipt2307/20f622efc0b8265b27a56b894ae0290ba9534456a2dc2de368f5ac829a7fc8f9.
+Both own only fresh private unbound sources; B4/world repairs continue
+independently. Provider is Grok; configured model/effort defaults are inherited.
+
+Root verifies current six-resource provenance scout40 full input pins,
+13 raw anchors and14 closed files. Exact current catalog winners/ranges
+exist for all six; loading comes from priority patch9298, grid from data.grf,
+four sprites/actions from data0.grf. Independent decoded hashes are still
+unknown; no asset body/decode/native reader ran. Existing decoder CLI's two
+terrain routes do not admit these assets. Root will separately qualify a
+bounded six-record use of its existing strict decrypt/frame primitives.
+Six already travel through the archive reader; no six new P entries.
+
+Fresh-fixture reuse advice also passes Root: seven full inputs,24 raw
+anchors,eight closed files. Existing immutable33388-byte writer and22146-byte
+Mu21 caller can be reused with only fresh HEAD/Python/D/DATA/Q-load bindings;
+new Q changes only pureCall.output and gets its own path/bytes/SHA.
+The exact caller inverse must restore every original byte. Root admits one
+fresh pure-data G10s/512MiB/grace3/no-native/capture1MiB invocation after this
+checkpoint and concrete binding; current36-leaf/receipt/retirement audit and
+explicit prior-Mu/B4 attempt/account/character/name noncollision must pass
+before any Mu19 projection or actor. Old trees/failed volume stay preserved.
+No new writer/audit family, runtime lease or game acceptance is implied.
+
+Combined Root review decision32358 bytes/
+ead7ce7f720a9389fcbca2e00430e4c10582d80eeecf2944dd4a33bc24670a85,
+65 unique complete input/output pins. First read-only bookkeeping compared
+extra stream annotations; corrected comparison uses full file identity,
+length/SHA and FD/EOF stability, without replaying any target.

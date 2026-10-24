@@ -1579,3 +1579,14 @@ parallel. Source changes retain evidence/strict false verdicts and future
 111-body admission; six-body provenance and a fresh fixture remain separate.
 Independent metadata-only scouting locates existing matching archive records
 without reading/extracting bodies. No user decision or goal change is needed.
+
+## Four qualified Grok repairs live and fifth finite source fix ready
+
+Actual independent B4/world/UI/driver repair dispatches are live. The
+ten-control author is settled/released before acknowledgment; Astra/Root
+catch three missing success returns and freeze the separate mechanical fix.
+[Mu source starts, verified provenance and fresh-fixture reuse](2026-10-24-T07-mu-data-stage.md#independent-mu-source-tasks-start-and-next-fixture-reuse-qualifies)
+and [ten-control hold/fix packet](2026-10-24-T06-full-spawn-output-budget.md#ten-control-source-review-catches-three-missing-success-returns)
+are current. No settled worker is kept only for possible future repair.
+No new game actor is admitted; failed numeric assertions remain strict.
+Parent4/14/about29% and all82 functional gaps remain unchanged.
