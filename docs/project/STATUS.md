@@ -13,17 +13,19 @@ dictionary abort/load405/map-connection settlement stop later cases. Root's
 complete failure/preservation audit passes; no B200assignment/reconnection or
 parent-check credit. 4/14 is a check count, not measured full-content coverage.
 
-**Parallel work:** [Actual Mu19 pure projection passes Root112checks/
-85pins/33leaves and complete current confirmation](reviews/2026-10-24-T07-mu-data-stage.md#actual-mu19-pure-projection-passes-complete-root-audit).
-One original G10/512MiB call, natural0/positiveguard,0.186515s/21.3MiB sample.
-Next: final C/current world/HEAD/lease/4protectedports, then one owned scene.
-A23copy Grok unbound C/Engine JSON-template-only task is prepared; no runner
-or authority expansion. B4 caller/taskfe6df2b4cd87 and current-world-observer
-assessment/task8d3af9d13741 remain actual Grok live. Mu19 owner is released.
-Exporter selected source qualifies; finite entry source correction preserved,
-no test run yet. Last complete fleet21:265records/3pages,
-2activeGrok/257released/6retained/0reclaimable. No actor/parent credit or goal
-change. All82gaps open;4/14/about29% unchanged. Both fixtures stay separate.
+**Parallel work:** [Mu runtime templates live, B4 child source reviewed,
+minimal current-world observer patch ready](reviews/2026-10-24-functional-priority.md#runtime-templates-live-b4-child-reviewed-and-world-source-patch-prepared).
+Actual Mu19data pass112checks/85pins/33leaves; final C/current world/HEAD/
+lease/4protectedports then one owned scene remain next. Grok template task
+a7be8ee491e3/ctxb602a6114750 and B4 callerfe6df2b4cd87/ctxdc84619e0299 live.
+B4 child preliminary15input/9anchor review passes Root verification; outer/
+final hash/full71 still pending. World assessment settled/released, corrected
+plan/15copy source-patch packet ready after checkpoint; no actor.
+[One existing combined-nine finite call admitted](reviews/2026-10-24-T06-full-spawn-output-budget.md#one-existing-combined-nine-finite-call-admitted-after-independent-byte-expectations):
+Root independent complete four leaves/whole receipt/transport fixed BEFORE
+target execution; full839 still unadmitted. Last fleet22reclaimable world
+worker is now released/archive captured; no completed cleanup debt.
+No parent/gap/game credit;4/14/about29%, all82gaps and full goal unchanged.
 
 [All six actual MuC focused calls pass complete Root223pin verification](reviews/2026-10-24-T07-mu-data-stage.md#actual-six-muc-focused-calls-pass-complete-root-audit).
 Three source fixes qualify; no fresh map actor/render result yet. MU1 exact105body private

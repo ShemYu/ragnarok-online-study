@@ -387,3 +387,37 @@ finds no mandatory selected-source blocker; Root full report/pins review,
 exact two-header admission and independent complete four-file audit remain.
 No test execution/admission yet. Root prioritizes the independent Mu19 data
 projection before expanding these existing finite batches. No new framework.
+
+## One existing combined-nine finite call admitted after independent byte expectations
+
+Root reads the complete corrected entry4001B independent source report and
+4075B independent expectation report. Root verifies the latter's ten initial
+plus one supplemental full input pin, all recorded fd/path C8/EOF,77metadata
+comparisons/no mismatch, closed nine outputs and source byte anchors.
+An initial Root shape assertion expected one eleven-entry initial array;
+Root corrects that metadata inspection before any target execution. Both
+initial/supplement ordering and the original serialized-entry HOLD remain.
+
+Root independently authors all four exact expected leaves before target
+execution from the frozen2198466B oracle/current producer+core pins:
+physical2234B/211b9f1b..., events3861B/2f644ed6..., full nine-source manifest
+10862B/48b411ed..., marker1001B/d88de212.... Counts158raw bytes/12physical/
+12events; all nine ledger entries/kinds/counters/suffix/ranges match.
+Expected object1470B/550e5e50... is storage; exact stdout transport1214B/
+75e3b5ffe3524a3845f091752ea452a1b383fde2221d771933aaabeda38df344.
+Root compares both whole typed object and those transport bytes.
+
+Root qualification21142B/
+15c011947eb22e068246c218e7d0c2b3092f73b653765810b7c27214644be00e
+admits next ONLY one group01.run_combined_nine call after this checkpoint,
+binding only ROOT_ADMITTED/REQUIRED_HEAD in the5023B raw-source entry.
+Original G10s/512MiB/grace3/no-native/1MiBcapture and S unchanged. Require
+complete four-file byte equality/whole manifest-marker/nine-ledger/15-field
+receipt, current source postpins, full guard/streams/positive retirement/
+FD/thread/HEAD audit. Preserve nonzero/partials; no replay or extra groups.
+
+Finite publication returns semantic1 explicitly as an observed test value;
+this does not admit the full839 qualified-export success route or convert
+a failed direct CLI guard into success. Producer ROOT_BOUND staysFalse.
+No NPC corpus/production/full839/native/game authority. Other finite batches
+and one later full publication remain separate, unadmitted work.

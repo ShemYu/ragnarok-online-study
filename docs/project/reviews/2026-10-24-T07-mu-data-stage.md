@@ -897,3 +897,11 @@ packet24807B/07e499581255abb22bc966609209ffb8c5e34089ae35a31fd43eb899fe082cbb;
 brief3932B/f73787545a1514ff65c159f549b27ab517dc6e6d44aa078d3618e53afd9b435d.
 Unknown runtime authority stays null; existing MuD/MuC/Engine contract/caps
 and selectedP251/UI119/CfT27+five links stay fixed. No extra archive assets.
+
+## Grok runtime template source task starts after actual data checkpoint
+
+[Actual Grok taska7be8ee491e3/ctxb602a6114750 prepares exact unbound JSON
+templates from23frozen copies](2026-10-24-functional-priority.md#runtime-templates-live-b4-child-reviewed-and-world-source-patch-prepared).
+No new runner or actor authority. Root actual Mu19data stay verified and
+separate; final C/current-world/HEAD/lease/four-port binding and owned scene
+remain next. B4 child review and broader world source prep run independently.

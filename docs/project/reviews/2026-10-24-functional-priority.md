@@ -1428,3 +1428,48 @@ framework, diagnostic or test family. Root retains final current-world/
 HEAD/lease/four-port admission and personal complete verification. Existing
 B4 caller and world-observer assessment continue independently.
 4/14/about29% remains parent checks only; all82functional gaps stay open.
+
+## Runtime templates live B4 child reviewed and world source patch prepared
+
+Actual Grok runtime-template taska7be8ee491e3/ctxb602a6114750 starts after
+cab6868. Start2307B/3be0f1989b2e73f452d4011c2856c76f6286d2b5e5886c71453c2d9272d0ea37.
+It prepares only exact unbound JSON C/Engine templates from23copies;
+no runner/test/actor. Root supplies final world/HEAD/lease/four ports later.
+
+B4 child's5628B/355fd61f... private snapshot receives independent15input/
+9anchor review and Root full verification12044B/
+e609e5feaea4320bc6b097f6b8c8e8fcf85acc3f9d4e3003f6335d9626956abc.
+No mandatory shim blocker found. It calls the qualified44116B materializer
+once with nine exact arguments/five fixed B4 proposals/two metadata pins/
+13returned fields; final SHA/currentB4audit/full71outer remain required.
+Author still owns the unfinished outer source; no actual materialization.
+
+World reuse assessment is source/metadata only: report36788B/
+d5938090a9caf43f710c362467853f12a434fc2631a6bd04f318e93c941f1446.
+Root verifies nine current frozen inputs/two private outputs, then releases
+ctx7e3f01695eb7/archive before ACK. Settlement7887B/
+199fde7b9b2855029624ba8acc0b553d4541810ed00efb94576cea912caa0f8b.
+Release455B/896ff1508a5fd28bb669c7abe17c4de332785c05c72cd7bcf8e074faa59f2b5e.
+Requested structured pins/byte anchors were embedded MD instead; no source
+qualification is inferred. Independent Astra plan report6087B/
+dbb0463f5489c9839889d4b2437a38d8f4e5d8342a3de507c9113360b376bb63
+has11stable inputs/17raw spans/seven closed outputs, all Root-verified.
+
+Root adopts the finite reuse plan with explicit corrections: mismatching
+complete alias body continues26 literal diagnostic probes; only unavailable
+body returns zero attempts; propagate diagnostic flags to every edge; preserve
+all intentional skipped reasons in finish; conditional completed-negative
+acceptance never clears halt/error; alias body is retained/unparsed, not
+discarded. Same1296world/82open-gap denominators; no new alias hash/parser.
+Root prepares15source/metadata copies for the minimal existing-tool patch:
+packet17202B/063d6804a7d791833a9b3dde7a945ead3c26174c8035b2c9eb6a068fb8f11b20;
+decision17669B/32d06d552205a6d39507935a0433dcad7783b694c2245bf62e7c6b405d6fa135;
+brief4092B/59e7fb442ae34887c04e3d03bd119234e40f130f46058ae66867eb7436c9b8ce.
+New source task is ready after checkpoint, no observer actor/execution.
+Existing G automatically discovers its one direct new-session native child;
+no registration framework or G edit is requested. Future Root admission stays
+separate. All82gaps/4of14parent checks/about29% unchanged.
+
+[One existing combined-nine finite call is independently qualified/admitted
+after checkpoint](2026-10-24-T06-full-spawn-output-budget.md#one-existing-combined-nine-finite-call-admitted-after-independent-byte-expectations).
+This is finite-only; full839/native/game credit is not admitted.
