@@ -471,3 +471,117 @@ test('classification: worker PASS-like fields cannot override host evidence', ()
   const tampered = classifyMap({ lifecycle, closing: { ...closing, buffers: [{ url: '/body/rsw', ok: false }] }, anomalies: [], worker_errors: [], encoded: null }, job);
   assert.ok(tampered.host_failure_reasons.some((x) => /constructor buffer/.test(x)));
 });
+
+// ---------------------------------------------------------------- actual-time deadlines (deadline correction)
+
+// A complete otherwise-successful record; only the recorded timing varies.
+function timedRecord(timing) {
+  const inputs = ['rsw', 'gat', 'gnd'].map((kind) => ({ kind, url: `/body/${kind}`, bytes: 1, sha256: 'a'.repeat(64) }));
+  const core = { schema: 'root014004-compiled-core-1', inputs, inputPostchecks: inputs.map(({ kind, bytes, sha256: s }) => ({ kind, bytes, sha256: s })), error: null, observationComplete: true };
+  const lifecycle = { spawned: true, suffix_installed: true, terminal_results: 1, closing_summary: true, exit_code: 0, positive_exit: true, deadline_expired: false, terminate_requested: false, ...timing };
+  for (const [k, v] of Object.entries(timing)) if (v === undefined) delete lifecycle[k];
+  const closing = { post_terminal_script_messages: 0, fetch: { unknown: [], repeated: [], bad_options: [] }, buffers: inputs.map((i) => ({ url: i.url, ok: true })), handler_rejections: [] };
+  return [{ lifecycle, closing, anomalies: [], worker_errors: [], encoded: JSON.stringify(core) }, { inputs }];
+}
+
+test('worker deadline: actual elapsed through exit and drain is checked without a delivered timer', () => {
+  const limit = LIMITS.worker_deadline_ms;
+  const onTime = classifyMap(...timedRecord({ effective_deadline_ms: limit, exit_elapsed_ms: limit - 2, elapsed_ms: limit - 1, streams_drained: true }));
+  assert.equal(onTime.status, 'observed', JSON.stringify(onTime.host_failure_reasons));
+  for (const [timing, pattern] of [
+    [{ effective_deadline_ms: limit, exit_elapsed_ms: limit - 1, elapsed_ms: limit + 1, streams_drained: true }, /exceeds effective deadline/],
+    [{ effective_deadline_ms: limit, exit_elapsed_ms: limit + 1, elapsed_ms: limit + 2, streams_drained: true }, /exceeds effective deadline/],
+    [{ effective_deadline_ms: 400, exit_elapsed_ms: 300, elapsed_ms: 401, streams_drained: true }, /exceeds effective deadline 400ms/],
+    [{ effective_deadline_ms: limit, elapsed_ms: undefined, streams_drained: true }, /not recorded/],
+    [{ effective_deadline_ms: undefined, elapsed_ms: 1, streams_drained: true }, /not recorded/],
+    [{ effective_deadline_ms: limit, elapsed_ms: Number.NaN, streams_drained: true }, /not recorded/],
+    [{ effective_deadline_ms: limit, elapsed_ms: 1, streams_drained: false }, /not drained/],
+    [{ effective_deadline_ms: limit, elapsed_ms: 1, streams_drained: undefined }, /not drained/]
+  ]) {
+    const v = classifyMap(...timedRecord(timing));
+    assert.equal(v.status, 'failed', JSON.stringify(timing));
+    assert.equal(v.failure_class, 'host');
+    assert.ok(v.host_failure_reasons.some((x) => pattern.test(x)), `${JSON.stringify(timing)}: ${v.host_failure_reasons}`);
+  }
+});
+
+test('worker deadline: a real synthetic worker records launch-to-drain time under the effective deadline', async () => {
+  const fx = makeFixture();
+  const s = stage(fx, { workerDeadline: 5000 });
+  const result = await runHost(s.args, s.testing);
+  assert.equal(result.status, 'observed', JSON.stringify(result));
+  const lc = report(s.outputPath, 'pilot').lifecycle;
+  assert.equal(lc.effective_deadline_ms, 5000);
+  assert.equal(lc.streams_drained, true);
+  assert.ok(lc.exit_elapsed_ms > 0 && lc.elapsed_ms >= lc.exit_elapsed_ms && lc.elapsed_ms <= lc.effective_deadline_ms, JSON.stringify(lc));
+  const manifest = readJson(path.join(s.outputPath, 'MANIFEST.json'));
+  assert.equal(manifest.run_deadline.after_postchecks.ok, true);
+  assert.ok(!fs.existsSync(path.join(s.outputPath, 'RUN_DEADLINE.json')), 'on-time success adds no deadline record');
+  // The remaining whole-run budget bounds the per-worker effective deadline.
+  const short = stage(fx, { workerDeadline: 5000 });
+  short.testing.limits.all_run_deadline_ms = 3000;
+  assert.equal((await runHost(short.args, short.testing)).status, 'observed');
+  const shortLc = report(short.outputPath, 'pilot').lifecycle;
+  assert.ok(shortLc.effective_deadline_ms < 3000 && shortLc.effective_deadline_ms > 0, JSON.stringify(shortLc));
+});
+
+// Busy-waits synchronously inside one fs call chosen by `match`.
+async function withSyncDelay(hook, match, delayMs, run) {
+  const original = fs[hook];
+  let delayed = 0;
+  fs[hook] = function (...args) {
+    if (match(...args)) { delayed++; const end = performance.now() + delayMs; while (performance.now() < end) { /* synchronous stall */ } }
+    return original.apply(fs, args);
+  };
+  try { return { result: await run(), delayed }; } finally { fs[hook] = original; }
+}
+
+test('run deadline: a late final synchronous posthash fails with retained deadline evidence', async () => {
+  const fx = makeFixture();
+  const s = stage(fx);
+  const limit = 1500;
+  s.testing.limits.all_run_deadline_ms = limit;
+  const target = fs.statSync(s.args.profile, { bigint: true });
+  let profileReads = 0;
+  // The second full read of the profile is its final posthash reread.
+  const isProfilePostRead = (fd, buf, off, len, pos) => {
+    const st = fs.fstatSync(fd, { bigint: true });
+    return st.ino === target.ino && st.dev === target.dev && pos === 0 && ++profileReads === 2;
+  };
+  const { result, delayed } = await withSyncDelay('readSync', isProfilePostRead, limit + 500, () => runHost(s.args, s.testing));
+  assert.equal(delayed, 1);
+  assert.equal(result.counts.observed, 1, 'the pilot itself completed before the late posthash');
+  assert.equal(result.status, 'failed');
+  assert.ok(result.errors.some((m) => /exceeds 1500ms after final postchecks/.test(m)), JSON.stringify(result.errors));
+  const manifest = readJson(path.join(s.outputPath, 'MANIFEST.json'));
+  assert.equal(manifest.status, 'failed');
+  assert.equal(manifest.run_deadline.after_postchecks.ok, false);
+  assert.ok(manifest.elapsed_ms > limit);
+  assert.ok(manifest.source_postchecks.every((p) => p.ok), 'the late posthash itself still matched');
+  const record = readJson(path.join(s.outputPath, 'RUN_DEADLINE.json'));
+  assert.equal(record.status, 'failed');
+  assert.equal(record.check.phase, 'after manifest publication');
+});
+
+test('run deadline: a late manifest publication fails without rewriting the exclusive manifest', async () => {
+  const fx = makeFixture();
+  const s = stage(fx);
+  const limit = 1500;
+  s.testing.limits.all_run_deadline_ms = limit;
+  const manifestPath = path.join(s.outputPath, 'MANIFEST.json');
+  const isManifestSync = (fd) => {
+    try { const st = fs.fstatSync(fd, { bigint: true }), m = fs.statSync(manifestPath, { bigint: true }); return st.ino === m.ino && st.dev === m.dev; } catch { return false; }
+  };
+  const { result, delayed } = await withSyncDelay('fsyncSync', isManifestSync, limit + 500, () => runHost(s.args, s.testing));
+  assert.equal(delayed, 1);
+  assert.equal(result.status, 'failed', 'publication finished after the whole-run deadline');
+  assert.equal(result.counts.observed, 1);
+  assert.ok(result.errors.some((m) => /after manifest publication/.test(m)), JSON.stringify(result.errors));
+  const manifest = readJson(manifestPath);
+  assert.equal(manifest.status, 'observed', 'the manifest was complete and on time when written; it is never rewritten');
+  assert.equal(manifest.run_deadline.after_postchecks.ok, true);
+  const record = readJson(path.join(s.outputPath, 'RUN_DEADLINE.json'));
+  assert.deepEqual([record.status, record.manifest_status, record.check.ok], ['failed', 'observed', false]);
+  assert.ok(record.check.elapsed_ms > limit);
+  assert.equal(fs.statSync(path.join(s.outputPath, 'RUN_DEADLINE.json')).mode & 0o777, 0o600);
+});

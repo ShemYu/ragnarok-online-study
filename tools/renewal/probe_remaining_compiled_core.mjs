@@ -380,13 +380,18 @@ function runMapWorker(job, ctx) {
     lifecycle: {
       spawned: false, online: false, thread_ready: 0, suffix_installed: false, core_sent: false,
       terminal_results: 0, close_sent: false, closing_summary: false, deadline_expired: false,
-      terminate_requested: false, terminate_reason: null, exit_code: null, positive_exit: false
+      terminate_requested: false, terminate_reason: null, exit_code: null, positive_exit: false,
+      effective_deadline_ms: null, exit_elapsed_ms: null, elapsed_ms: null, streams_drained: false
     },
     bootstrap: null, closing: null, handler: [], script_messages: [], anomalies: [], worker_errors: [],
     streams: { stdout: '', stderr: '', stdout_overflow: false, stderr_overflow: false }, encoded: null
   };
   return new Promise((resolve) => {
+    // Actual time is measured from launch through exit and stream drain against
+    // the effective deadline fixed here; a delivered timer is not required.
     const started = performance.now();
+    const deadline = Math.min(ctx.limits.worker_deadline_ms, Math.max(0, ctx.runDeadlineAt - started));
+    rec.lifecycle.effective_deadline_ms = deadline;
     let worker;
     try {
       worker = new Worker(new URL(import.meta.url), {
@@ -411,14 +416,29 @@ function runMapWorker(job, ctx) {
       rec.lifecycle.terminate_reason = reason;
       worker.terminate().catch((e) => rec.worker_errors.push(errorRecord(e, 'terminate')));
     };
-    const deadline = Math.min(ctx.limits.worker_deadline_ms, Math.max(0, ctx.runDeadlineAt - performance.now()));
-    const timer = setTimeout(() => { rec.lifecycle.deadline_expired = true; terminate('worker deadline'); }, deadline);
+    const ended = { stdout: false, stderr: false };
+    let exited = false, settled = false;
+    // Resolves once: after exit plus both stream ends, or when the deadline
+    // passes after exit with a stream still open (recorded as undrained).
+    const settle = () => {
+      if (settled) return;
+      settled = true;
+      clearTimeout(timer);
+      rec.lifecycle.streams_drained = ended.stdout && ended.stderr;
+      rec.lifecycle.elapsed_ms = performance.now() - started;
+      resolve(rec);
+    };
+    const timer = setTimeout(() => {
+      rec.lifecycle.deadline_expired = true;
+      if (exited) settle(); else terminate('worker deadline');
+    }, deadline);
     for (const stream of ['stdout', 'stderr']) {
       worker[stream].on('data', (chunk) => {
         const kept = ctx.streams.admit(stream, chunk);
         rec.streams[stream] += kept.toString('utf8');
         if (kept.length < chunk.length) { rec.streams[`${stream}_overflow`] = true; rec.anomalies.push(`worker ${stream} exceeded the ${stream} cap`); }
       });
+      worker[stream].on('end', () => { ended[stream] = true; if (exited && ended.stdout && ended.stderr) settle(); });
     }
     worker.on('online', () => { rec.lifecycle.online = true; });
     worker.on('error', (e) => rec.worker_errors.push(errorRecord(e, 'worker-error')));
@@ -468,13 +488,14 @@ function runMapWorker(job, ctx) {
       } else rec.anomalies.push('message outside the bridge channels');
     });
     worker.on('exit', (code) => {
-      clearTimeout(timer);
+      exited = true;
       ctx.current = null;
       rec.lifecycle.exit_code = code;
-      rec.lifecycle.elapsed_ms = performance.now() - started;
+      rec.lifecycle.exit_elapsed_ms = performance.now() - started;
       rec.lifecycle.positive_exit = code === 0 && !rec.lifecycle.terminate_requested && rec.lifecycle.closing_summary && rec.worker_errors.length === 0;
-      // Let the stream readers drain their last chunks before resolving.
-      setImmediate(() => resolve(rec));
+      // The deadline timer keeps running until both streams have drained.
+      if (ended.stdout && ended.stderr) settle();
+      else if (rec.lifecycle.deadline_expired) setImmediate(settle);
     });
   });
 }
@@ -493,6 +514,11 @@ export function classifyMap(rec, job) {
   if (!lc.closing_summary) reasons.push('closing summary not observed');
   if (lc.exit_code !== 0) reasons.push(`worker exit code ${lc.exit_code}`);
   if (!lc.positive_exit) reasons.push('no positive worker exit');
+  // Timely completion needs recorded actual time through exit and drain.
+  const elapsed = lc.elapsed_ms, limit = lc.effective_deadline_ms;
+  if (!Number.isFinite(elapsed) || !Number.isFinite(limit) || elapsed < 0 || limit < 0) reasons.push('actual worker elapsed time or effective deadline not recorded');
+  else if (elapsed > limit) reasons.push(`worker actual elapsed ${elapsed}ms exceeds effective deadline ${limit}ms`);
+  if (lc.streams_drained !== true) reasons.push('worker stdout/stderr not drained');
   const closing = rec.closing;
   if (closing) {
     if (closing.post_terminal_script_messages) reasons.push(`${closing.post_terminal_script_messages} script message(s) after the terminal result`);
@@ -670,6 +696,15 @@ async function execute({ profile, bound, admission, host, retained, held, limits
     const hostAfter = describeFile(host.path, 'host');
     manifest.source_postchecks.push({ label: 'host', path: host.path, ok: hostAfter.sha256 === host.sha256 && sameIdentity(hostAfter.identity, host.identity), failures: [] });
   } catch (e) { manifest.source_postchecks.push({ label: 'host', path: host.path, ok: false, failures: [e.message] }); }
+  // Actual whole-run time after the final synchronous postchecks; the run timer
+  // only interrupts a running worker and is not evidence of timely completion.
+  const runCheck = (phase) => {
+    const elapsed = performance.now() - runStarted;
+    const check = { phase, elapsed_ms: elapsed, limit_ms: limits.all_run_deadline_ms, ok: elapsed <= limits.all_run_deadline_ms };
+    if (!check.ok) manifest.errors.push({ phase: 'run-deadline', name: 'Deadline', message: `entire host elapsed ${elapsed}ms exceeds ${limits.all_run_deadline_ms}ms ${phase}`, code: null, stack: null });
+    return check;
+  };
+  manifest.run_deadline = { limit_ms: limits.all_run_deadline_ms, run_timer_expired: ctx.runExpired === true, after_postchecks: runCheck('after final postchecks') };
   const allObserved = manifest.maps.every((m) => m.status === 'observed');
   const postOk = manifest.source_postchecks.every((p) => p.ok) && manifest.source_prechecks.length === staged.length && staged.length > 0;
   manifest.streams = { used: ctx.streams.used, overflow: ctx.streams.overflow };
@@ -678,7 +713,17 @@ async function execute({ profile, bound, admission, host, retained, held, limits
   manifest.elapsed_ms = performance.now() - runStarted;
   manifest.retained_bytes_before_manifest = retained.total;
   retained.write('MANIFEST.json', `${JSON.stringify(manifest, null, 1)}\n`);
-  return { status: manifest.status, output_path: admission.output_path, counts: manifest.counts, stopped_reason: manifest.stopped_reason, errors: manifest.errors.map((e) => e.message) };
+  // Publication itself must also finish in time. The manifest is exclusive and
+  // never rewritten, so a late publication adds one exclusive deadline record.
+  let status = manifest.status;
+  const published = runCheck('after manifest publication');
+  if (!published.ok) {
+    status = 'failed';
+    try {
+      retained.write('RUN_DEADLINE.json', `${JSON.stringify({ schema: MANIFEST_SCHEMA, record: 'run-deadline', status, manifest_status: manifest.status, check: published }, null, 1)}\n`);
+    } catch (e) { manifest.errors.push(errorRecord(e, 'run-deadline-retention')); }
+  }
+  return { status, output_path: admission.output_path, counts: manifest.counts, stopped_reason: manifest.stopped_reason, errors: manifest.errors.map((e) => e.message) };
 }
 
 // ---------------------------------------------------------------- worker side
