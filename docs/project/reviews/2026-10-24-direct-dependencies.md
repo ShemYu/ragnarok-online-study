@@ -4440,3 +4440,50 @@ render grant. Private t07-014-022-preparation-root-1/:
 | GEOMETRY_REFERENCE_UNBOUND_ROOT.py |6097|c9aad3267604dfd22dd497ae2883bb8e70a2a3ccff22634bbb2b940d3e83d38d|
 | QUALIFY_GEOMETRY_REFERENCE_V3_ROOT.py |6235|f0575aa00bb0a3f372761db44e4d6fd86367ca24ea44f98cfdd15a00a7e5a406|
 | GEOMETRY_REFERENCE_QUALIFICATION_V3_ROOT.json |563|b6c26e1c439c4d801566f2d1103b32a473511449e49b61e81bd09d196d3c0eec|
+
+
+## Claude geometry spans pass full Root reproduction with adapter holds
+
+Root personally reads the full report, inventory and static recomputation script.
+In a separate review prefix Root reruns the unchanged author script with a fresh
+output argument: natural0,0.270526s, all submitted span fields exactly equal;
+all four whole input C8/SHA pins remain unchanged. Root's independent300checks
+recompute every48span (five whole executable regions/38anchors/five provenance
+regions), whole LF offsets/lengths/SHA, dependencies/containment/non-overlap,
+four preparation joins and complete expected output lengths. Closure122567B/
+SHAa69e2472aa5103c7c976fd5eaf9bd5600d1cf2838fb906e57c25b6f28e2c66e0
+is entirely ASCII, so the proposed Latin1 text path adds no non-ASCII ambiguity
+for these exact spans. No acquired code or model data evaluates in these checks.
+
+The raw plan is still held for correction before implementation/execution:
+
+- It proposes vm.createContext({}) while forbidding host mutable objects in the
+  realm. Root's handwritten control personally shows the empty host sandbox's
+  constructor chain reaching the host Function and returning only the string
+  `typeof process` as object, despite strings/wasm generation disabled. No
+  machine data or source/model action is taken. The same control refuses under
+  vm.constants.DONT_CONTEXTIFY. Use realm-owned globals/intrinsics and primitive
+  or validated intrinsic-copy bridging in the corrected adapter.
+- Its oracle B allows two Float32 ULP for a one-double-ULP sin/cos difference
+  without a propagated condition/error bound; near-cancelling smooth sums can
+  amplify errors. Root's independent oracle freezes exact Float32 first and
+  holds discrepancies. No blanket or output-derived tolerance is adopted.
+- The structural hash sentence conflates mesh/concatenation hashes with the
+  encoded body pin. Corrected acceptance must compare mesh values/bytes to the
+  independent geometry reference; only body-copy bytes compare to the body SHA.
+  Effective heap also needs measurement rather than treating flags as its value.
+
+The source-level explanation of the skipped second root and the finite copied
+closure are useful. Source-plan scores/selection wait Grok's equal full review;
+this is no runtime or implementation qualification. Grok's matched implementing
+heartbeat is processed; no findings are shared across authors. No new child/setup
+or goal decision; actual compile remains unadmitted.
+
+Private t07-014-022-claude-review-root-1/:
+
+| File | Bytes | SHA256 |
+|---|---:|---|
+| AUTHOR_TESTS_ROOT.json |2733|d86f9a228700b66fa49fb92d87320c2803e4e78254e4133a648257cff61daf27|
+| ROOT_CONTROLS_ROOT.json |412|316e162f844c48ec1835ada398bf5ee09aa826f859365b40f6bfa6743429c91f|
+| ROOT_CONTROLS.mjs |987|451fa42aec3eb849a8b26fbf999718d226c51e5ed793d50e75073dfcf0e3a53e|
+| AUTHORED_VM_CONTROL_ROOT.json |289|e2d6f2a04f908eabbfce2a56e33f8c5b34d53770cf194f4149eb00c85183a96c|

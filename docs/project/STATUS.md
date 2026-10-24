@@ -31,7 +31,9 @@ all indices/finite data valid, exact mesh output42876B. Parse consumed; reuse
 retained arrays for the independent Float32 geometry oracle.
 [Root40authored geometry-reference controls pass](reviews/2026-10-24-direct-dependencies.md#independent-geometry-reference-passes-authored-source-controls),
 actual reference unrun. [Claude2d55d16preserved/released, bundle recovery complete](reviews/2026-10-24-direct-dependencies.md#claude-geometry-plan-is-preserved-and-released-with-bundle-recovery);
-Root full review next, Grok independent. No acquired
+[Root full review/static reproduction/300span controls now pass with adapter
+and oracle holds](reviews/2026-10-24-direct-dependencies.md#claude-geometry-spans-pass-full-root-reproduction-with-adapter-holds);
+Grok independent, no selection or compile grant. No acquired
 constructor/compile/render execution; all82functional gaps remain open.
 
 **Child cleanup:** [Root verifies removal of20completed children](reviews/2026-10-24-orca-children-cleanup.md#second-twelve-removals-personally-verified).
