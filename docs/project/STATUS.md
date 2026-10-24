@@ -10,50 +10,29 @@ open. Full Modern/Renewal scope is unchanged; no new user decision is required.
 The board includes later-phase party taskT11, so this is not a percentage of
 first-milestone content or remaining effort. Do not relabel it as such.
 
-**Current asset checkpoint:** [T07.007.014.007 terrain metadata is ready_for_user](reviews/2026-10-24-remaining-map-bodies.md#both-providers-personally-checked-and-terrain-metadata-task-is-ready).
-Root verifies all34exact terrain-name records/42relations across63catalogs;
-Claude20/20selected after full actual/oracle comparison, Grok16/20has a
-reproduced strict-JSON source defect and remains actual-held. Both sources/
-tests are personally checked and workers preserved/released; zero reclaimable.
-All34terrain bodies already exist in prior qualified native-reader evidence;
-[reuse them before new recovery](reviews/2026-10-24-remaining-map-bodies.md#existing-native-terrain-bodies-avoid-a-duplicate-recovery-pass).
-Next current full34body reconciliation/fixed allowlist, then fresh normal
-delivery admission. No new body/gameplay or82gap closure yet.
-Ordinary playtest remains blocked by the freshly confirmed native-pipe failure.
+**Current asset checkpoint:** [Normal delivery of all34terrain bodies passes
+the complete Root audit](reviews/2026-10-24-remaining-map-bodies.md#normal34delivery-and-complete-root-audit-pass).
+[T07.007.014.008](tasks/T07.007.014.008.md) is `ready_for_user` after this
+checkpoint:34exact200responses/97037820B, all34new loose files and all51full
+inputs verified. Root's complete audit passes2891checks/161full pins. The one
+bounded call exits0 in2.835863s; there is no repeat acquisition or GET run.
+Both independent source reviews are personally checked/preserved/released:
+Grok19/20, Claude18/20 for this source-review task only. The unchanged Root
+observer is retained; no provider implementation/runtime benchmark is claimed.
+Four game owners/listener/native/INI/archive identities and selected environment
+remain exact. Keep all extracted files and retained reference bodies.
 
-[All34retained bodies now pass complete current reconciliation](reviews/2026-10-24-remaining-map-bodies.md#complete-retained-terrain-body-reconciliation-passes):
-97037820B/all old full hashes/eight-field identities/17paired dimensions.
-[T07.007.014.008](tasks/T07.007.014.008.md) freezes normal delivery; next finite
-source/fresh preflight/equal Claude-Grok source review. No new recovery/HTTP/
-native/game action, no82gap closure. Keep the retained34expected bodies.
+Next qualify the genuine compiled core for the21remaining maps using55retained
+bodies. A metadata-only profile and source consultation exist; Root must verify
+all bindings and freeze the finite Node-worker host before equal implementation
+work. No constructor/rendering/travel or82gap closure follows from delivery.
+Ordinary playtest is separately blocked by the native-pipe startup failure;
+no game restart, network cut or alternative browser-control bypass is admitted.
 
-[Fresh normal34preflight and fixed source projection pass](reviews/2026-10-24-remaining-map-bodies.md#fresh-normal-terrain-preflight-and-fixed-source-projection-pass):
-four owners/listener/native/INI/five archive identities match;34loose/34override
-targets absent. Source complete inverse/two fresh ENV bindings/syntax pass.
-Next equal isolated Claude/Grok source reviews from this checkpoint; actual
-normal34GETs remain held until Root source/report qualification/admission.
-
-[Equal normal34source reviews are active](reviews/2026-10-24-remaining-map-bodies.md#equal-normal-terrain-source-reviews-are-active):
-Claude task_f0952db8e4d1/ctx_f43c5fbd2939 andGrok task_fc49e174e17d/
-ctx_c8f9eb1adf18, same f78ad94base, both fresh fleet live/working. Root verified
-both child HEADs; no actual GET run. Collect/preserve/release/verify next.
-[Primary source now defines the first story transition](reviews/2026-10-24-remaining-map-bodies.md#primary-donor-source-defines-the-first-chapter1-progression-edge)
-as donor behavior; Root reads the actual starter/Messenger/arrival/room clauses.
-Map/alias/route binding and guarded persistent integration remain, not another
-generic entry-source absence search. Existing T10.007 cancel contract stays.
-
-[Claude normal34review is personally checked, preserved and released](reviews/2026-10-24-remaining-map-bodies.md#claude-normal-terrain-review-is-checked-preserved-and-released).
-No fixed-source blocker; reporting labels are not runtime evidence. External
-75s caller/full pin/override/body/loose-file checks and fresh selected ENV checks
-remain mandatory. Root corrects its immutable-environment claim. Grok remains
-active; actual34requests stay held pending independent review/comparison.
-
-[One normal34delivery call is admitted in parallel with Grok's review](reviews/2026-10-24-remaining-map-bodies.md#one-normal34delivery-call-is-admitted-while-the-second-review-continues).
-Root source/inverse/binding checks and the settled independent review have no
-fixed-source blocker. Keep unchanged source/limits, fresh before/after caller
-checks and external75s bound. Both reviews/full audit still gate readiness;
-no worker restart or goal/acceptance reduction. Next execute once and preserve
-all evidence; no automatic retry. Ordinary playtest remains UI-blocked.
+[Primary source defines the first story transition](reviews/2026-10-24-remaining-map-bodies.md#primary-donor-source-defines-the-first-chapter1-progression-edge)
+as donor behavior. Map/alias/route binding and guarded persistent integration
+remain; existing T10.007 cancel/idempotence contracts stay. No new actor or F1
+retry is admitted. No goal-changing blocker or new user decision is identified.
 
 **Latest playable-integration result:** [Settled re-entry and bounded normal integration pass](reviews/2026-10-24-normal-integration.md#settled-re-entry-and-bounded-normal-integration-pass).
 **T07.007.012.009 is5/5checks,100% of that bounded integration task** and

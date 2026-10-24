@@ -1007,3 +1007,93 @@ normally extracted files; no automatic retry or broad cleanup is admitted.
 The source's httpEOF/createdFiles/constants remain non-authoritative. Success
 still needs the complete Root audit plus the final independent review. No
 constructor/rendering/travel/story/save/gap credit follows from delivery alone.
+
+## Normal34delivery and complete Root audit pass
+
+One unchanged bound GET34call runs after the73902e0admission checkpoint.
+The actual caller freshly verifies all51whole inputs, four owner births/
+executables, asset listener, native/INI pins, five archive identities, parents,
+six selected environment fields and68target absences before requesting any
+body. Full environment is never printed/stored. The natural0call completes
+in2.835863292seconds, below the external75s bound, with complete455B stdout,
+empty stderr and reported child maximum RSS95617024B. This RSS observation is
+not OS containment. The inner observer reports2.594928875seconds.
+
+All34normal200responses carry exactly97037820B and match the frozen expected
+full hashes. Normal auto-extraction creates all34previously absent loose
+files. Root independently reopens/full-hashes every response body and every
+current loose file, requiring exact byte/hash equality and the observer's
+after-file eight-field identity. No extra GET, decoder or recovery pass occurs.
+All34override targets remain absent; extracted files stay in place.
+
+Root's complete audit passes **2891checks /161unique full pins**: all51input
+descriptors, exact71private output files, current34loose files and caller/
+preflight/receipt authorities. Reads require regular single-link current-owner
+files, nonsymlink parents and full EOF with stable open-FD/path identities.
+Output directory/files require0700/0600. Complete stdout joins the result and
+response count; all34response metadata records join their body/allowlist rows.
+Fresh owner births/executables, listener, native/INI content pins, nine parent
+identities and all five archive identities remain exact. A fresh in-memory
+process read confirms the six selected environment fields; same process birth
+alone is not the basis. Archive content hashes remain historical; no archive
+range/provenance or future asynchronous-task stability claim is made.
+
+Private prefix `.tools/renewal/t07-remaining-terrain-normal-get-preparation-root-1/`:
+
+| Receipt | Bytes | SHA256 |
+|---|---:|---|
+| CALL_ROOT.json |2446|f2ba10ef0ab06757e56d2dddcb5a14f2208ce9d4d95a47cb77b34dfb2e592368|
+| ROOT_CONFIRMATION.json |532547|884f98be2ccee2c1b773eb0c4280bd1f5aa276af0605e674fef9fb1f8752b2ee|
+
+The immutable call receipt's `complete_root_audit_pending` describes the state
+at call completion; the later complete confirmation resolves it. Do not edit
+that original receipt or treat either observer policy constant as proof.
+
+### Both independent source reviews are checked and settled
+
+Matched msg_2ff89509e46e settles Grok task_fc49e174e17d/ctx_c8f9eb1adf18
+at candidatee32e71510970f89621f2040de4f1be2efc0946af. Root personally reads
+the complete17241B report, checks its source claims and preserves the exact
+report/seven inputs/frozen brief, nine full mirrors. Private
+`.tools/renewal/t07-014-008-grok-packet-root-1/SETTLEMENT_ROOT.json` is3555B/
+SHA256196d730d612592555242ff4c6ca8758e48965b2d73bd939ad969e1a2b930a730;
+the report SHA is32990ffc7abd8d55ced3890c022b0d5f61f68b3f51546dbb820e4bef84c78be6.
+Positive post-release observation records released ownership, closed exact
+terminal and captured transcript. RELEASE_OBSERVATION_ROOT.json is7977B/
+SHA256c46fc06c4c4f4fabccb09bfad1d10807392f1539604db8dd328ff6cdade722a3.
+No restart/retry or duplicate release occurs. Fresh reclaimable fleet is empty,
+with10user-retained and295released resources.
+
+Both review the same frozen f78ad94base/seven inputs/six concerns. This is a
+source-review comparison of the unchanged Root observer, not two implementations
+or a provider runtime benchmark. Root uses the published20point rubric:
+
+| Review | Correctness8 | Preservation4 | Controls4 | Handoff2 | Limits2 | Total |
+|---|---:|---:|---:|---:|---:|---:|
+| Claude |7|3|4|2|2|18/20|
+| Grok |8|4|3|2|2|19/20|
+
+Claude identifies the slow-drip read limitation and need for an external
+deadline. Root deducts for the incorrect immutable-environment claim and a
+generic child-process-group cleanup recommendation that is not qualified for
+this caller. The existing direct caller may kill only its owned Python child;
+never the existing asset/game process group. Grok correctly separates current
+identity evidence, hardcoded labels, per-body equality, settling and complete
+caller authority, but does not identify how a slow-drip `resp.read()` can
+outlast per-I/O/inner-deadline checks. Root therefore retains the external75s
+caller plus fresh selected-environment checks from its own merged assessment.
+Both reports correctly leave actual acceptance to Root. Neither finds a fixed
+source blocker under those controls. No code selection/integration is needed.
+
+Grok's original proposed serial scheduling is superseded by73902e0: the one
+call ran while its review continued, after Root and the first independent
+review qualified the fixed source. Both complete reviews are checked before
+readiness. No claim is made that Grok approved before actual execution.
+
+After this Git checkpoint, **T07.007.014.008 is ready_for_user,100% of this
+bounded delivery task**. User acceptance remains separate. Parent4/14/about29%
+major checks, all82functional gaps and full Modern/Renewal scope are unchanged.
+Next: verify the metadata-only21-map/55-body compiled-core preparation and
+qualify a fixed genuine Node-worker host before actual constructors/compile.
+The ordinary playtest remains separately blocked by the CUA native-pipe failure.
+No source/runtime issue found here requires changing the goal.
