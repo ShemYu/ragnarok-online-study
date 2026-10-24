@@ -2315,3 +2315,48 @@ that separately generated expectation. Any nonzero/timeout/partial/late failure
 stops without automatic replay. Older successful scans/models stay retained.
 No actual948scan, body/winner/codec/geometry/render/story/save/full-content claim
 or new user decision. Full4of14/about29%/82gaps and running quiet game remain.
+
+
+## One actual nested oracle is admitted
+
+At clean source-review checkpoint79488c5, Root binds the reviewed oracle and
+selected wrapper with exactly one False-to-True admission literal each; full
+inverse to both original complete sources verifies. Original profile, seed,
+wrappers/oracle/guard remain unchanged. No actual caller has run at this point.
+Both final driver sizes match independently computed12226B/12713B. All71initial
+files/311805637B have fresh complete EOF/SHA/currentC8 identity checks with no
+symlink ancestors; the unchanged guard is separately full-pinned. Four future
+actual/guard output directories are absent. Same63catalogs/all948queries and
+1546relations, caps and false body/render/content claims remain.
+
+Private actual-preparation-root-1/CALL_PLAN_ROOT.json is81195B/SHA256
+8db81cb95cf9df6b9ee77b7cd630681682a3d46b48cc9165b5c0b0a5e8ca2749;
+BINDING_ROOT.json is4417B/5763d23ec0287e5071a09e20bade0bb380c87b4a71eed367fc7bbdb130781bb7.
+Caller5030B/860548698415bee6a0cf45f10dac75e06f0032b5d0761548e9e596972ca94331
+and oracle audit19536B/b82d460f452ded3fdc9dca2db97aab76185ab5812bc3a4eb8020a976c85a39ba
+have only concrete plan/PREP pin slots substituted from the Root-qualified
+drafts, with full inverse. Driver oracle12226B/42c36152b12a14b59c87d5c3abe71f74b4031d56c000b0e5bc95dfadd41513f7;
+selected12713B/6837b37cc2f5a03767d2cb4d462a44b6b90fcd9f8cc58ca6544c7156a2b919f9.
+
+Root's first preparation check rejected a broad UNBOUND substring that also
+occurs in the deliberately preserved original-source provenance filename. It
+stops before any caller/guard/scan. The existing two flag-only driver copies and
+plan are retained, not regenerated; explicit failure record and corrected
+pin-slot-only check remain. Every full source inverse and current pin then passes.
+This does not relax an actual source/pin mismatch or replay any successful call.
+
+After committing this checkpoint, Root admits exactly ONE independent oracle
+call via the fixed caller/unchanged guard:130s work limit,1.5GiB sampled owned
+RSS,8s cleanup grace,1MiB complete captures, no native child. Original oracle
+127s work+3s evidence reserve and64MiB result/65MiB artifacts/512MiB unique input
+limits remain unchanged. Sampling is not OS containment. The source-review
+head is retained as the code checkpoint; later clean Root documentation-only
+descendants are permitted after explicit branch/diff checks. Driver/input hashes
+and C8 remain exact, so mutable HEAD is not substituted for source qualification.
+
+Root must inspect actual exit/captures/output even on failure, never automatically
+retry. A positive driver/receipt requires full Root physical408794row audit and
+all68oracle input/123expected closes before any candidate call. The selected
+caller/audit remain unbound to the future oracle proof; their call is conditional,
+not admitted merely by the prepared flag-only source file. No game/Chrome/audio/
+IME/network or actual image/geometry/story/save change. .016pair stays independent.

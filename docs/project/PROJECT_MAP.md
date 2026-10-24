@@ -88,7 +88,7 @@ Other active work:
   Genuine constructor pilot    [11/11PASS; Root253583checks/1097pins; no replay]
   Genuine925remainder          [925/925PASS; Root1253179checks/8407pins]
   All936constructor closure     [ROOT PASS;1546declarations/948targets; no replay]
-  Nested texture availability  [ROOT PROFILE/SEED PASS; paired reviews LIVE]
+  Nested texture availability  [BOTH REVIEWS QUALIFIED; actual oracle NEXT]
   Model702node bounds           [SENTINEL PRESERVED; geometry impact OPEN]
   Image consumer source trace  [ROOT PASS:40slices/286joins; both17/20/released]
   Browser image decoding       [PAIRED authored fixture implementations LIVE]

@@ -65,7 +65,8 @@ Two independent .016implementation workers remain live in reused separate
 branches/checkouts at5ae4031. Root's independent
 oracle source/current65metadata file checks pass; [finite multi-map audit projection
 passes Root's positive/eight negative controls](reviews/2026-10-24-direct-dependencies.md#finite-launch-audit-derivatives-and-multi-map-controls-qualify).
-Concrete final bindings and ONE guarded independent oracle/audit precede the
+[Concrete bindings for ONE independent oracle are verified/admitted](reviews/2026-10-24-direct-dependencies.md#one-actual-nested-oracle-is-admitted).
+Run it after this documentation checkpoint, then fully audit it before the
 selected actual catalog lookup. No actual scan or new runtime claim yet.
 Private-only proposal ownership
 in this checkout. Root owns tracked docs; authors may not mutate Git/source or
