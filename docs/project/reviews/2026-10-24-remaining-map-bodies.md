@@ -983,3 +983,27 @@ prohibited. No source change or goal change is needed for these caller limits.
 
 This settles the Claude review lifecycle, not actual delivery. Grok remains
 active; compare its independent report before any actual normal34GET admission.
+
+## One normal34delivery call is admitted while the second review continues
+
+Root removes an unnecessary serial wait: its complete source/inverse/binding
+verification and settled Claude review identify no fixed-source blocker. The
+Grok review remains live and independent, and its comparison is still required
+before this task becomes ready_for_user. Its source-only scope and frozen input
+bytes do not change. This revises Root's prior scheduling choice, not the full
+goal, source, limits or user acceptance criteria. No worker is stopped/retried.
+
+This checkpoint admits ONE unchanged9767B/6b233b39 GET34call in the exact
+coordinator cwd, explicit -I/-B/ResourceWarning errors, private umask, complete
+stdout/stderr and the established75s bounded direct caller. Timeout may kill
+only that owned Python child; never signal the existing asset/game group.
+Require fresh before-call owner/executable/listener/native/INI/five-archive
+identity/six selected ENV/68target-absence checks and all full input pins. Root
+must separately check natural0, exact71private files,34responses/97037820B,
+all34new loose files, complete input/native/INI/parent/archive preservation,
+override absences and fresh selected ENV after the call. Keep failed output and
+normally extracted files; no automatic retry or broad cleanup is admitted.
+
+The source's httpEOF/createdFiles/constants remain non-authoritative. Success
+still needs the complete Root audit plus the final independent review. No
+constructor/rendering/travel/story/save/gap credit follows from delivery alone.

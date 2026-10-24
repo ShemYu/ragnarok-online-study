@@ -48,6 +48,13 @@ No fixed-source blocker; reporting labels are not runtime evidence. External
 remain mandatory. Root corrects its immutable-environment claim. Grok remains
 active; actual34requests stay held pending independent review/comparison.
 
+[One normal34delivery call is admitted in parallel with Grok's review](reviews/2026-10-24-remaining-map-bodies.md#one-normal34delivery-call-is-admitted-while-the-second-review-continues).
+Root source/inverse/binding checks and the settled independent review have no
+fixed-source blocker. Keep unchanged source/limits, fresh before/after caller
+checks and external75s bound. Both reviews/full audit still gate readiness;
+no worker restart or goal/acceptance reduction. Next execute once and preserve
+all evidence; no automatic retry. Ordinary playtest remains UI-blocked.
+
 **Latest playable-integration result:** [Settled re-entry and bounded normal integration pass](reviews/2026-10-24-normal-integration.md#settled-re-entry-and-bounded-normal-integration-pass).
 **T07.007.012.009 is5/5checks,100% of that bounded integration task** and
 ready_for_user after its checkpoint. Ordinary creation/travel/NPC earning,
