@@ -8,7 +8,12 @@ Functionality remains first. **4/14 parent checks, about 29%**; this counts
 major checks, not full-content coverage. All 82 functional resource gaps remain
 open. Full Modern/Renewal scope is unchanged; no new user decision is required.
 
-**Latest verified result:** [Fresh Mu3 isolated map-render scene passes](reviews/2026-10-24-T07-mu-data-stage.md#fresh-mu3-synthetic-scene-and-complete-root-audit-pass).
+**Latest verified result:** [Four fresh configuration files and complete preservation pass](reviews/2026-10-24-normal-integration.md#actual-four-file-configuration-and-complete-preservation-pass).
+One bounded call and Root40checks/1145full pins pass; all1114 prior files and
+212directory keys/modes remain exact, with exactly1118files after four additions.
+No image, engine, app or game has started in ro4.
+
+**Previous renderer result:** [Fresh Mu3 isolated map-render scene passes](reviews/2026-10-24-T07-mu-data-stage.md#fresh-mu3-synthetic-scene-and-complete-root-audit-pass).
 All 1,285 placements load, all 29 retained Float32 arrays are finite, and all
 three retained frames have no graphics error. Root personally inspects the
 1280x800 screenshot. The formerly failing animated model is finite in all
@@ -24,12 +29,12 @@ UI, story or earned-save behavior. Prior failed trials remain failed.
 **Next action:** [Normal integration T07.007.012.009: full copy audit passes](reviews/2026-10-24-normal-integration.md#actual-complete-ro4-copy-and-independent-full-audit-pass).
 The fresh ro4 tree contains the repaired normal Online and unchanged worker.
 One copy and separate full audit pass all1135source files/1114destinations/
-212directories; Root's outer41checks/25pins also pass. Profile and engine
-folders are empty. The reused four-file configuration source now qualifies with only two
-metadata edits; after this checkpoint, bind five existing headers and run it,
-then separately qualify images/engine/routes before ordinary login/travel/
-save. No engine/app/browser/game actor has run; ro3 earned progress stays
-untouched. Continue [quest/logout work](reviews/2026-10-24-functional-priority.md#priority-and-stop-criteria)
+212directories; Root's outer41checks/25pins also pass. Four configuration files
+now pass actual execution and complete preservation. Profile is empty; engine
+contains only config.toml. Next freeze the1118-file baseline and prepare the
+local image installer with fresh paths/environment, then verify complete image
+bytes before engine/routes/ordinary login/travel/save. No image/engine/app/
+browser/game actor has run; ro3 earned progress stays untouched. Continue [quest/logout work](reviews/2026-10-24-functional-priority.md#priority-and-stop-criteria)
 separately; do not replay failed B4 or consumed Mu scenes.
 
 **Full839 inventory entry now passes:** [Fresh root3 entry and full Root audit](reviews/2026-10-24-T06-full-spawn-output-budget.md#fresh-root3-entry-and-complete-publication-audit-pass).

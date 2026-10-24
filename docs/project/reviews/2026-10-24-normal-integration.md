@@ -178,3 +178,39 @@ file membership and original212directories. Only client.json, state/settings,
 ordered five-archive list and unchanged4096MiB/4CPU/16GiB/private Nebula
 template are written. No auth/detection/save copy, image install, daemon,
 VM/app/browser or game action is admitted by this configuration gate.
+
+## Actual four-file configuration and complete preservation pass
+
+Actual introducing basis4f8d5c3a513501f3f7712aa64b29fe67f18e7540. Root binds
+only the five qualified headers: admission/procedure/copy-audit acceptance,
+the actual independent audit descriptor and three actual parent keys. Whole
+inverse exact. Bound8896/a2651526ff2e20bc65fd835ad8edf1ba35ac51f9fe0e22bd5e198d2762fe79c3
+remains in private config-binding-root-1/. Corrected binding-root-2/
+BINDING_ROOT.json13106/7888abe91805d2b4b41d5156ba702bcb47d1ac91df3d9852dda8a055052e6679
+pins the actual caller8699/23ed001d1f5cd83477c71ca69a96ff16c86cdf45de9d1de122d1c3dede477781.
+
+Preparation correction: Root first passed a Python string to a helper that
+JSON-encodes non-byte values. That first caller file was only a module string
+literal; its natural0 performed no work. Root positively verifies no actual
+evidence directory, no four outputs and no guard execution, retains that
+artifact/binding, then writes the correct UTF-8 bytes in a fresh binding
+namespace. The selected binder is unchanged. This is not a configuration retry.
+
+One actual G60s/512MiB/grace3/noNative/1MiB call exits naturally0 in0.160193s,
+sampled known-process peak4177920B. Complete stdout, empty stderr, valid guard,
+no intervention/signals/native child and exact retired group pass. Sampling is
+not an exhaustive memory peak. Root's independent complete audit passes all
+40checks/1145full pins: all1114 original full hashes/C8/modes, all212 directory
+keys/modes and exactly1118 files. Both JSON objects have exact types/values,
+the archive list has five real LF-terminated paths in the qualified order,
+and Nebula is byte-identical4096MiB/4CPU/16GiB/private configuration. All four
+new files are0600. Chinese overlays remain exact; profile empty, guest/era
+markers absent, engine directory contains only config.toml.
+
+Private t07-normal-integration-config-actual-root-1/AUDIT_ROOT.json:
+551953/627d4044c4b9a8fe539df6b62612d54078cd95bda5d73bc04e131a312738af34.
+No image install, engine/VM/app/browser/game action occurred. Existing worlds/
+earned saves, Chrome/mute/IME/network remain untouched. Next freeze the actual
+1118-file baseline and reuse the local image installer with fresh environment/
+paths/pins, then independently verify all decompressed/installed bytes. No
+help probe/download is needed. Images/engine/routes/play remain unpassed.
