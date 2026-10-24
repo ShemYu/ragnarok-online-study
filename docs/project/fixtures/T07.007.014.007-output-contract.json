@@ -1,0 +1,101 @@
+{
+  "actual_fixed": {
+    "catalogs": 63,
+    "input_stream_bytes": 300967118,
+    "rows_scanned": 408794
+  },
+  "authority_inputs": "actual: exact three profile descriptors; fixture: []",
+  "catalogs": "actual: exact complete63parent.catalogs typed dictionaries; fixture: exact three fixture.catalogs dictionaries",
+  "claims": {
+    "aliases_applied": false,
+    "body_availability_established": false,
+    "functional_gaps_closed": 0,
+    "raw_declarations_only": true,
+    "request_winner_established": false,
+    "terrain_or_runtime_verified": false
+  },
+  "counts": {
+    "exact_keys": [
+      "catalogs",
+      "rows_scanned",
+      "full_path_occurrences",
+      "full_path_file_candidates",
+      "basename_only_occurrences",
+      "basename_only_file_candidates",
+      "role_totals"
+    ],
+    "fixture_fixed": {
+      "catalogs": 3,
+      "rows_scanned": 15
+    },
+    "four_occurrence_counters": "34-element arrays of exact nonnegative ints indexed by query_index, derived from complete query arrays",
+    "role_totals": "gnd/gat objects each with the four occurrence counter keys and integer sums across matching role query_indices; never overwrite repeated roles"
+  },
+  "exact_root_keys": [
+    "schema",
+    "task",
+    "input_kind",
+    "profile_pin",
+    "authority_inputs",
+    "catalogs",
+    "scan",
+    "queries",
+    "relations",
+    "counts",
+    "claims"
+  ],
+  "input_kind": [
+    "fixture",
+    "actual"
+  ],
+  "json": "strict UTF-8+LF; unique keys; reject NaN/Infinity and exponent-overflow nonfinite floats, trailing data; preserve finite opaque numeric types including int/float/bool/null",
+  "not_claimed": [
+    "archive winner",
+    "body availability",
+    "normal request",
+    "terrain loading",
+    "rendering",
+    "ordinary entry",
+    "story",
+    "save",
+    "any82functional gap closed"
+  ],
+  "occurrence": {
+    "exact_keys": [
+      "catalog_index",
+      "record_ordinal",
+      "jsonl_line",
+      "match",
+      "file_candidate",
+      "record"
+    ],
+    "file_candidate": "exact bool, fixed family rule",
+    "jsonl_line": "ordinal+1 exact int",
+    "match": [
+      "raw_exact",
+      "ascii_slash_casefold",
+      "basename_only"
+    ],
+    "record": "complete unchanged typed raw dictionary; no coercion/field dropping",
+    "record_ordinal": "exact int equal physical zero-based line and raw row.ordinal"
+  },
+  "preservation": "pinned profile/fixture/contract and actual3authorities+63records nofollow singlelink stable descriptor/path identity/EOF/full hash pre and post; including empty matches",
+  "profile_pin": "exact path/bytes/sha256 of frozen .007 profile, supplied in dispatch",
+  "publication": "fresh700directory,600single-link exclusive files, refuse collisions; result.json plus preserved exact method/tests/report; retain failed evidence",
+  "query": {
+    "empty_arrays_required": true,
+    "exact_keys": [
+      "query",
+      "full_path_occurrences",
+      "basename_only_occurrences"
+    ],
+    "query": "complete unchanged profile.queries element;34in query_index order in either mode",
+    "sort": "catalog_index/record_ordinal, all physical multiplicity retained"
+  },
+  "relations": "exact complete profile.relations42 in either mode",
+  "scan": "ordered objects with exact keys catalog_index/rows_scanned; actual all63, fixture11/47/58",
+  "schema": "remaining-declared-terrain-output-contract/1",
+  "schema_value": "root-remaining-declared-terrain-lookup/1",
+  "source_stage": "only exact frozen profile/contract/fixture plus pinned three authorities and prior selected source may be read; actual63streams remain inert until Root admission",
+  "task": "T07.007.014.007"
+}

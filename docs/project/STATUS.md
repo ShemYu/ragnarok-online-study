@@ -136,7 +136,11 @@ unchanged owners/archives/config/native/sources/parents/override absences;
 natural0 in2.271178s. No game input/restart/progress grant; no functional gap
 closes. Do not repeat this set. Next freeze the21map/42field/34query terrain
 profile, literal fixture and equal Claude/Grok metadata brief before catalog
-reads. Ordinary play verification remains held by the native-pipe connection.
+reads. [T07.007.014.007 now has exact Root-reconstructed queries and fixture](reviews/2026-10-24-remaining-map-bodies.md#remaining-terrain-query-set-independently-reconstructed):
+21maps/42relations/34keys and15authored rows with per-query counters. Root's
+literal expected output is frozen before candidate inspection. Next equal
+source+synthetic-only implementation pair; actual63streams stay unread until
+separate Root admission. Ordinary play remains held by the native-pipe connection.
 
 ### Historical preparation — follow the next action above
 

@@ -460,3 +460,49 @@ entry, story and save are not established. The2s asynchronous observation does
 not enumerate outstanding server tasks. Do not rerun this completed set.
 Next freeze the34declared terrain queries/42map-field relations, shared literal
 fixture and equal Claude/Grok metadata brief before reading63catalog streams.
+
+## Remaining terrain query set independently reconstructed
+
+Root independently reads both positive header receipts, reconstructs every raw
+GND/GAT declaration from its captured131-byte prefix and fixed field, and
+derives21maps/42relationships/34unique keys. The entire ordered query set and
+every relation field match the independently prepared private QUERIES_ROOT.json
+99980B/SHA256be294459b8c7e7b5a17f4f5fe847c6b029231fc164ff5081924391db6b3d405e.
+No source bodies or catalog streams are read in this preparation.
+
+Root freezes [T07.007.014.007](../tasks/T07.007.014.007.md) as one fixed metadata
+job using the same63catalog descriptors/408794rows/300967118stream bytes.
+The [profile](../fixtures/T07.007.014.007-profile.json) is33123B/SHA256
+02633a62d83a5041a9586dfca43da07d4dd8f0ad707ca43642e6328a10ed97b9;
+the [output contract](../fixtures/T07.007.014.007-output-contract.json) is3652B/
+65602aa27ee9d39eb95a21497db358de388213c0a408afde7840ba7ffdd52ccc;
+the [shared fixture](../fixtures/T07.007.014.007-fixture.json) is26904B/
+75ac1371367a13b636b6f65915470c5491f085f6db11003acc2a6b2c5717bc89.
+The public data includes names/relations, not binary padding or host identities.
+
+The literal fixture has34queries,15physical rows in three non-dense catalogs,
+same-name duplicates, normalized filtered rows, RGZ file/directory records,
+basename-only/dot/empty-segment/non-ASCII negatives and opaque numeric types.
+The second GND query has a separate positive witness, exposing old role-counter
+overwrites. Literal expected memberships are six full/five basename witnesses
+for query0, one full witness for query2, all other arrays empty; eligible counts
+are4/3/1 respectively. Root's private fixture golden, frozen before candidates,
+is37734B/SHA2567e5a148abb55f24409e15036e26ca62f03d2a4e326bac1de26328b2fe204bf7d
+under `t07-remaining-terrain-query-preparation-root-1/FIXTURE_GOLDEN_ROOT.json`.
+Counter arrays use query_index; gnd role totals are7full/5eligible full/
+5basename/3eligible basename and gat totals allzero.
+
+Worker scope is source plus shared synthetic fixture only. Actual catalog
+execution remains a separate Root admission after source/common qualification.
+Do not promote the prior private two-query method to a reusable qualified tool.
+No arbitrary query/discovery/framework or runtime action is requested. Root
+compares both independent implementations before adoption; all82gaps stay open.
+
+Independent source/fixture-only review reconstructs the entire private literal
+golden byte-for-byte, including all34counter entries,42relations and opaque
+bool/int/float/signed-zero distinctions. Its authored in-memory checks report
+1103assertions, six strict-JSON and five literal-hex refusals; no actual streams,
+target code or candidates are read/executed. All three public fixture/profile/
+contract pins remain exact. No concrete fixture/contract blocker is found.
+This introducing checkpoint authorizes equal isolated source+synthetic-only
+Claude/Grok dispatches; actual streams remain held for later Root admission.

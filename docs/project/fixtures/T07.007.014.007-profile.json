@@ -1,0 +1,1256 @@
+{
+  "authority_inputs": [
+    {
+      "bytes": 39436,
+      "path": ".tools/renewal/t07-014-006-actual-root-1/ROOT_AUDIT.json",
+      "sha256": "aac9bf3223a8cc57a98d43d7b8e9412715542be0b5279f5e98ba74b920dfee98"
+    },
+    {
+      "bytes": 11977,
+      "path": ".tools/renewal/t07-remaining-four-grf-reference-root-1/EXPECTED_BODIES_ROOT.json",
+      "sha256": "e4cd16b057ef01fbfb66ad0e6ecd7489f182c1fe4fe1a2085f579880b83698cf"
+    },
+    {
+      "bytes": 164526,
+      "path": "docs/project/fixtures/T07.007.014-profile.json",
+      "sha256": "6105ef0acefa97cea81da2b90eab0e71c1151ca1867be4792efb9f29c514703c"
+    }
+  ],
+  "catalog_authority": {
+    "catalog_count": 63,
+    "catalog_indices": "exact0through62",
+    "embedded_archive_metadata_body_paths_inert": true,
+    "profile_path": "docs/project/fixtures/T07.007.014-profile.json",
+    "record_bytes_total": 300967118,
+    "rows_total": 408794,
+    "selector": "/catalogs"
+  },
+  "claims": {
+    "aliases_applied": false,
+    "body_availability_established": false,
+    "functional_gaps_closed": 0,
+    "raw_declarations_only": true,
+    "request_winner_established": false,
+    "terrain_or_runtime_verified": false
+  },
+  "limits": {
+    "actual_json_max_bytes": 4194304,
+    "artifacts_total_bytes": 8388608,
+    "fixture_json_max_bytes": 262144,
+    "input_file_max_bytes": 134217728,
+    "input_total_max_bytes": 536870912,
+    "jsonl_row_max_bytes": 1048576,
+    "private_method_source_max_bytes": 32768,
+    "sampled_rss_bytes": 2147483648,
+    "seconds_per_job": 130,
+    "stderr_max_bytes": 1048576,
+    "stdout_max_bytes": 4096
+  },
+  "maps": [
+    {
+      "fields": {
+        "gat": {
+          "query_index": 1,
+          "relation_index": 1
+        },
+        "gnd": {
+          "query_index": 0,
+          "relation_index": 0
+        }
+      },
+      "header_source_index": 0,
+      "map_index": 0,
+      "map_name": "1@ch1a",
+      "source_entry_index": 0
+    },
+    {
+      "fields": {
+        "gat": {
+          "query_index": 1,
+          "relation_index": 3
+        },
+        "gnd": {
+          "query_index": 0,
+          "relation_index": 2
+        }
+      },
+      "header_source_index": 0,
+      "map_index": 1,
+      "map_name": "1@ch1b",
+      "source_entry_index": 1
+    },
+    {
+      "fields": {
+        "gat": {
+          "query_index": 1,
+          "relation_index": 5
+        },
+        "gnd": {
+          "query_index": 0,
+          "relation_index": 4
+        }
+      },
+      "header_source_index": 0,
+      "map_index": 2,
+      "map_name": "ch1_dw",
+      "source_entry_index": 2
+    },
+    {
+      "fields": {
+        "gat": {
+          "query_index": 3,
+          "relation_index": 7
+        },
+        "gnd": {
+          "query_index": 2,
+          "relation_index": 6
+        }
+      },
+      "header_source_index": 0,
+      "map_index": 3,
+      "map_name": "ch1_geffen",
+      "source_entry_index": 3
+    },
+    {
+      "fields": {
+        "gat": {
+          "query_index": 5,
+          "relation_index": 9
+        },
+        "gnd": {
+          "query_index": 4,
+          "relation_index": 8
+        }
+      },
+      "header_source_index": 0,
+      "map_index": 4,
+      "map_name": "ch1_gef_in",
+      "source_entry_index": 4
+    },
+    {
+      "fields": {
+        "gat": {
+          "query_index": 7,
+          "relation_index": 11
+        },
+        "gnd": {
+          "query_index": 6,
+          "relation_index": 10
+        }
+      },
+      "header_source_index": 0,
+      "map_index": 5,
+      "map_name": "ch1_gfn01",
+      "source_entry_index": 5
+    },
+    {
+      "fields": {
+        "gat": {
+          "query_index": 9,
+          "relation_index": 13
+        },
+        "gnd": {
+          "query_index": 8,
+          "relation_index": 12
+        }
+      },
+      "header_source_index": 0,
+      "map_index": 6,
+      "map_name": "ch1_gfn03",
+      "source_entry_index": 6
+    },
+    {
+      "fields": {
+        "gat": {
+          "query_index": 11,
+          "relation_index": 15
+        },
+        "gnd": {
+          "query_index": 10,
+          "relation_index": 14
+        }
+      },
+      "header_source_index": 0,
+      "map_index": 7,
+      "map_name": "ch1_sf01",
+      "source_entry_index": 7
+    },
+    {
+      "fields": {
+        "gat": {
+          "query_index": 13,
+          "relation_index": 17
+        },
+        "gnd": {
+          "query_index": 12,
+          "relation_index": 16
+        }
+      },
+      "header_source_index": 0,
+      "map_index": 8,
+      "map_name": "ch1_sf02",
+      "source_entry_index": 8
+    },
+    {
+      "fields": {
+        "gat": {
+          "query_index": 15,
+          "relation_index": 19
+        },
+        "gnd": {
+          "query_index": 14,
+          "relation_index": 18
+        }
+      },
+      "header_source_index": 0,
+      "map_index": 9,
+      "map_name": "ch1_sf03",
+      "source_entry_index": 9
+    },
+    {
+      "fields": {
+        "gat": {
+          "query_index": 5,
+          "relation_index": 21
+        },
+        "gnd": {
+          "query_index": 4,
+          "relation_index": 20
+        }
+      },
+      "header_source_index": 0,
+      "map_index": 10,
+      "map_name": "ch1_vrgef1",
+      "source_entry_index": 10
+    },
+    {
+      "fields": {
+        "gat": {
+          "query_index": 3,
+          "relation_index": 23
+        },
+        "gnd": {
+          "query_index": 2,
+          "relation_index": 22
+        }
+      },
+      "header_source_index": 0,
+      "map_index": 11,
+      "map_name": "ch1_vrgef2",
+      "source_entry_index": 11
+    },
+    {
+      "fields": {
+        "gat": {
+          "query_index": 17,
+          "relation_index": 25
+        },
+        "gnd": {
+          "query_index": 16,
+          "relation_index": 24
+        }
+      },
+      "header_source_index": 0,
+      "map_index": 12,
+      "map_name": "hem_dun01",
+      "source_entry_index": 12
+    },
+    {
+      "fields": {
+        "gat": {
+          "query_index": 19,
+          "relation_index": 27
+        },
+        "gnd": {
+          "query_index": 18,
+          "relation_index": 26
+        }
+      },
+      "header_source_index": 0,
+      "map_index": 13,
+      "map_name": "hem_dun02",
+      "source_entry_index": 13
+    },
+    {
+      "fields": {
+        "gat": {
+          "query_index": 21,
+          "relation_index": 29
+        },
+        "gnd": {
+          "query_index": 20,
+          "relation_index": 28
+        }
+      },
+      "header_source_index": 0,
+      "map_index": 14,
+      "map_name": "hem_fild",
+      "source_entry_index": 14
+    },
+    {
+      "fields": {
+        "gat": {
+          "query_index": 23,
+          "relation_index": 31
+        },
+        "gnd": {
+          "query_index": 22,
+          "relation_index": 30
+        }
+      },
+      "header_source_index": 0,
+      "map_index": 15,
+      "map_name": "uknw_ruin",
+      "source_entry_index": 15
+    },
+    {
+      "fields": {
+        "gat": {
+          "query_index": 25,
+          "relation_index": 33
+        },
+        "gnd": {
+          "query_index": 24,
+          "relation_index": 32
+        }
+      },
+      "header_source_index": 0,
+      "map_index": 16,
+      "map_name": "uknw_ruin2",
+      "source_entry_index": 16
+    },
+    {
+      "fields": {
+        "gat": {
+          "query_index": 27,
+          "relation_index": 35
+        },
+        "gnd": {
+          "query_index": 26,
+          "relation_index": 34
+        }
+      },
+      "header_source_index": 1,
+      "map_index": 17,
+      "map_name": "1@vrpop",
+      "source_entry_index": 0
+    },
+    {
+      "fields": {
+        "gat": {
+          "query_index": 29,
+          "relation_index": 37
+        },
+        "gnd": {
+          "query_index": 28,
+          "relation_index": 36
+        }
+      },
+      "header_source_index": 1,
+      "map_index": 18,
+      "map_name": "2@vrpop",
+      "source_entry_index": 1
+    },
+    {
+      "fields": {
+        "gat": {
+          "query_index": 31,
+          "relation_index": 39
+        },
+        "gnd": {
+          "query_index": 30,
+          "relation_index": 38
+        }
+      },
+      "header_source_index": 1,
+      "map_index": 19,
+      "map_name": "3@vrpop",
+      "source_entry_index": 2
+    },
+    {
+      "fields": {
+        "gat": {
+          "query_index": 33,
+          "relation_index": 41
+        },
+        "gnd": {
+          "query_index": 32,
+          "relation_index": 40
+        }
+      },
+      "header_source_index": 1,
+      "map_index": 20,
+      "map_name": "cmd_bhole",
+      "source_entry_index": 3
+    }
+  ],
+  "matching": {
+    "ascii_slash_casefold": "full keys equal but raw bytes unequal",
+    "basename_only": "full keys unequal but final normalized slash component equal; diagnostic only",
+    "file_candidate": {
+      "gpf": "metadata_filter == eligible",
+      "grf": "metadata_filter == eligible",
+      "rgz": "opcode == f"
+    },
+    "full_key": "replace byte0x5c with0x2f then ASCII A-Z only to a-z; preserve every other byte/segment",
+    "raw_exact": "complete raw source name bytes equal expected_name_hex bytes",
+    "retain": "every physical-source row, duplicates and filtered/non-file included; shared view memberships do not multiply rows",
+    "source_name": {
+      "gpf": "name_hex",
+      "grf": "name_hex",
+      "rgz": "bounded_name_hex"
+    }
+  },
+  "metadata_only": true,
+  "queries": [
+    {
+      "declared_raw_hex": "3140636831612e676e64",
+      "expected_name_hex": "646174615c3140636831612e676e64",
+      "first_relation_index": 0,
+      "prefix_raw_hex": "646174615c",
+      "query_index": 0,
+      "relation_indices": [
+        0,
+        2,
+        4
+      ],
+      "role": "gnd"
+    },
+    {
+      "declared_raw_hex": "3140636831612e676174",
+      "expected_name_hex": "646174615c3140636831612e676174",
+      "first_relation_index": 1,
+      "prefix_raw_hex": "646174615c",
+      "query_index": 1,
+      "relation_indices": [
+        1,
+        3,
+        5
+      ],
+      "role": "gat"
+    },
+    {
+      "declared_raw_hex": "6368315f67656666656e2e676e64",
+      "expected_name_hex": "646174615c6368315f67656666656e2e676e64",
+      "first_relation_index": 6,
+      "prefix_raw_hex": "646174615c",
+      "query_index": 2,
+      "relation_indices": [
+        6,
+        22
+      ],
+      "role": "gnd"
+    },
+    {
+      "declared_raw_hex": "6368315f67656666656e2e676174",
+      "expected_name_hex": "646174615c6368315f67656666656e2e676174",
+      "first_relation_index": 7,
+      "prefix_raw_hex": "646174615c",
+      "query_index": 3,
+      "relation_indices": [
+        7,
+        23
+      ],
+      "role": "gat"
+    },
+    {
+      "declared_raw_hex": "6368315f6765665f696e2e676e64",
+      "expected_name_hex": "646174615c6368315f6765665f696e2e676e64",
+      "first_relation_index": 8,
+      "prefix_raw_hex": "646174615c",
+      "query_index": 4,
+      "relation_indices": [
+        8,
+        20
+      ],
+      "role": "gnd"
+    },
+    {
+      "declared_raw_hex": "6368315f6765665f696e2e676174",
+      "expected_name_hex": "646174615c6368315f6765665f696e2e676174",
+      "first_relation_index": 9,
+      "prefix_raw_hex": "646174615c",
+      "query_index": 5,
+      "relation_indices": [
+        9,
+        21
+      ],
+      "role": "gat"
+    },
+    {
+      "declared_raw_hex": "6368315f67666e30312e676e64",
+      "expected_name_hex": "646174615c6368315f67666e30312e676e64",
+      "first_relation_index": 10,
+      "prefix_raw_hex": "646174615c",
+      "query_index": 6,
+      "relation_indices": [
+        10
+      ],
+      "role": "gnd"
+    },
+    {
+      "declared_raw_hex": "6368315f67666e30312e676174",
+      "expected_name_hex": "646174615c6368315f67666e30312e676174",
+      "first_relation_index": 11,
+      "prefix_raw_hex": "646174615c",
+      "query_index": 7,
+      "relation_indices": [
+        11
+      ],
+      "role": "gat"
+    },
+    {
+      "declared_raw_hex": "6368315f67666e30332e676e64",
+      "expected_name_hex": "646174615c6368315f67666e30332e676e64",
+      "first_relation_index": 12,
+      "prefix_raw_hex": "646174615c",
+      "query_index": 8,
+      "relation_indices": [
+        12
+      ],
+      "role": "gnd"
+    },
+    {
+      "declared_raw_hex": "6368315f67666e30332e676174",
+      "expected_name_hex": "646174615c6368315f67666e30332e676174",
+      "first_relation_index": 13,
+      "prefix_raw_hex": "646174615c",
+      "query_index": 9,
+      "relation_indices": [
+        13
+      ],
+      "role": "gat"
+    },
+    {
+      "declared_raw_hex": "6368315f736630312e676e64",
+      "expected_name_hex": "646174615c6368315f736630312e676e64",
+      "first_relation_index": 14,
+      "prefix_raw_hex": "646174615c",
+      "query_index": 10,
+      "relation_indices": [
+        14
+      ],
+      "role": "gnd"
+    },
+    {
+      "declared_raw_hex": "6368315f736630312e676174",
+      "expected_name_hex": "646174615c6368315f736630312e676174",
+      "first_relation_index": 15,
+      "prefix_raw_hex": "646174615c",
+      "query_index": 11,
+      "relation_indices": [
+        15
+      ],
+      "role": "gat"
+    },
+    {
+      "declared_raw_hex": "6368315f736630322e676e64",
+      "expected_name_hex": "646174615c6368315f736630322e676e64",
+      "first_relation_index": 16,
+      "prefix_raw_hex": "646174615c",
+      "query_index": 12,
+      "relation_indices": [
+        16
+      ],
+      "role": "gnd"
+    },
+    {
+      "declared_raw_hex": "6368315f736630322e676174",
+      "expected_name_hex": "646174615c6368315f736630322e676174",
+      "first_relation_index": 17,
+      "prefix_raw_hex": "646174615c",
+      "query_index": 13,
+      "relation_indices": [
+        17
+      ],
+      "role": "gat"
+    },
+    {
+      "declared_raw_hex": "6368315f736630332e676e64",
+      "expected_name_hex": "646174615c6368315f736630332e676e64",
+      "first_relation_index": 18,
+      "prefix_raw_hex": "646174615c",
+      "query_index": 14,
+      "relation_indices": [
+        18
+      ],
+      "role": "gnd"
+    },
+    {
+      "declared_raw_hex": "6368315f736630332e676174",
+      "expected_name_hex": "646174615c6368315f736630332e676174",
+      "first_relation_index": 19,
+      "prefix_raw_hex": "646174615c",
+      "query_index": 15,
+      "relation_indices": [
+        19
+      ],
+      "role": "gat"
+    },
+    {
+      "declared_raw_hex": "68656d5f64756e30312e676e64",
+      "expected_name_hex": "646174615c68656d5f64756e30312e676e64",
+      "first_relation_index": 24,
+      "prefix_raw_hex": "646174615c",
+      "query_index": 16,
+      "relation_indices": [
+        24
+      ],
+      "role": "gnd"
+    },
+    {
+      "declared_raw_hex": "68656d5f64756e30312e676174",
+      "expected_name_hex": "646174615c68656d5f64756e30312e676174",
+      "first_relation_index": 25,
+      "prefix_raw_hex": "646174615c",
+      "query_index": 17,
+      "relation_indices": [
+        25
+      ],
+      "role": "gat"
+    },
+    {
+      "declared_raw_hex": "68656d5f64756e30322e676e64",
+      "expected_name_hex": "646174615c68656d5f64756e30322e676e64",
+      "first_relation_index": 26,
+      "prefix_raw_hex": "646174615c",
+      "query_index": 18,
+      "relation_indices": [
+        26
+      ],
+      "role": "gnd"
+    },
+    {
+      "declared_raw_hex": "68656d5f64756e30322e676174",
+      "expected_name_hex": "646174615c68656d5f64756e30322e676174",
+      "first_relation_index": 27,
+      "prefix_raw_hex": "646174615c",
+      "query_index": 19,
+      "relation_indices": [
+        27
+      ],
+      "role": "gat"
+    },
+    {
+      "declared_raw_hex": "68656d5f66696c642e676e64",
+      "expected_name_hex": "646174615c68656d5f66696c642e676e64",
+      "first_relation_index": 28,
+      "prefix_raw_hex": "646174615c",
+      "query_index": 20,
+      "relation_indices": [
+        28
+      ],
+      "role": "gnd"
+    },
+    {
+      "declared_raw_hex": "68656d5f66696c642e676174",
+      "expected_name_hex": "646174615c68656d5f66696c642e676174",
+      "first_relation_index": 29,
+      "prefix_raw_hex": "646174615c",
+      "query_index": 21,
+      "relation_indices": [
+        29
+      ],
+      "role": "gat"
+    },
+    {
+      "declared_raw_hex": "756b6e775f7275696e2e676e64",
+      "expected_name_hex": "646174615c756b6e775f7275696e2e676e64",
+      "first_relation_index": 30,
+      "prefix_raw_hex": "646174615c",
+      "query_index": 22,
+      "relation_indices": [
+        30
+      ],
+      "role": "gnd"
+    },
+    {
+      "declared_raw_hex": "756b6e775f7275696e2e676174",
+      "expected_name_hex": "646174615c756b6e775f7275696e2e676174",
+      "first_relation_index": 31,
+      "prefix_raw_hex": "646174615c",
+      "query_index": 23,
+      "relation_indices": [
+        31
+      ],
+      "role": "gat"
+    },
+    {
+      "declared_raw_hex": "756b6e775f7275696e322e676e64",
+      "expected_name_hex": "646174615c756b6e775f7275696e322e676e64",
+      "first_relation_index": 32,
+      "prefix_raw_hex": "646174615c",
+      "query_index": 24,
+      "relation_indices": [
+        32
+      ],
+      "role": "gnd"
+    },
+    {
+      "declared_raw_hex": "756b6e775f7275696e322e676174",
+      "expected_name_hex": "646174615c756b6e775f7275696e322e676174",
+      "first_relation_index": 33,
+      "prefix_raw_hex": "646174615c",
+      "query_index": 25,
+      "relation_indices": [
+        33
+      ],
+      "role": "gat"
+    },
+    {
+      "declared_raw_hex": "31407672706f702e676e64",
+      "expected_name_hex": "646174615c31407672706f702e676e64",
+      "first_relation_index": 34,
+      "prefix_raw_hex": "646174615c",
+      "query_index": 26,
+      "relation_indices": [
+        34
+      ],
+      "role": "gnd"
+    },
+    {
+      "declared_raw_hex": "31407672706f702e676174",
+      "expected_name_hex": "646174615c31407672706f702e676174",
+      "first_relation_index": 35,
+      "prefix_raw_hex": "646174615c",
+      "query_index": 27,
+      "relation_indices": [
+        35
+      ],
+      "role": "gat"
+    },
+    {
+      "declared_raw_hex": "32407672706f702e676e64",
+      "expected_name_hex": "646174615c32407672706f702e676e64",
+      "first_relation_index": 36,
+      "prefix_raw_hex": "646174615c",
+      "query_index": 28,
+      "relation_indices": [
+        36
+      ],
+      "role": "gnd"
+    },
+    {
+      "declared_raw_hex": "32407672706f702e676174",
+      "expected_name_hex": "646174615c32407672706f702e676174",
+      "first_relation_index": 37,
+      "prefix_raw_hex": "646174615c",
+      "query_index": 29,
+      "relation_indices": [
+        37
+      ],
+      "role": "gat"
+    },
+    {
+      "declared_raw_hex": "33407672706f702e676e64",
+      "expected_name_hex": "646174615c33407672706f702e676e64",
+      "first_relation_index": 38,
+      "prefix_raw_hex": "646174615c",
+      "query_index": 30,
+      "relation_indices": [
+        38
+      ],
+      "role": "gnd"
+    },
+    {
+      "declared_raw_hex": "33407672706f702e676174",
+      "expected_name_hex": "646174615c33407672706f702e676174",
+      "first_relation_index": 39,
+      "prefix_raw_hex": "646174615c",
+      "query_index": 31,
+      "relation_indices": [
+        39
+      ],
+      "role": "gat"
+    },
+    {
+      "declared_raw_hex": "636d645f62686f6c652e676e64",
+      "expected_name_hex": "646174615c636d645f62686f6c652e676e64",
+      "first_relation_index": 40,
+      "prefix_raw_hex": "646174615c",
+      "query_index": 32,
+      "relation_indices": [
+        40
+      ],
+      "role": "gnd"
+    },
+    {
+      "declared_raw_hex": "636d645f62686f6c652e676174",
+      "expected_name_hex": "646174615c636d645f62686f6c652e676174",
+      "first_relation_index": 41,
+      "prefix_raw_hex": "646174615c",
+      "query_index": 33,
+      "relation_indices": [
+        41
+      ],
+      "role": "gat"
+    }
+  ],
+  "relations": [
+    {
+      "declared_raw_hex": "3140636831612e676e64",
+      "header_source_index": 0,
+      "map_index": 0,
+      "map_name": "1@ch1a",
+      "query_index": 0,
+      "relation_index": 0,
+      "role": "gnd",
+      "source_entry_index": 0,
+      "source_field_pointer": "/targets/0/header/fields/gnd"
+    },
+    {
+      "declared_raw_hex": "3140636831612e676174",
+      "header_source_index": 0,
+      "map_index": 0,
+      "map_name": "1@ch1a",
+      "query_index": 1,
+      "relation_index": 1,
+      "role": "gat",
+      "source_entry_index": 0,
+      "source_field_pointer": "/targets/0/header/fields/gat"
+    },
+    {
+      "declared_raw_hex": "3140636831612e676e64",
+      "header_source_index": 0,
+      "map_index": 1,
+      "map_name": "1@ch1b",
+      "query_index": 0,
+      "relation_index": 2,
+      "role": "gnd",
+      "source_entry_index": 1,
+      "source_field_pointer": "/targets/1/header/fields/gnd"
+    },
+    {
+      "declared_raw_hex": "3140636831612e676174",
+      "header_source_index": 0,
+      "map_index": 1,
+      "map_name": "1@ch1b",
+      "query_index": 1,
+      "relation_index": 3,
+      "role": "gat",
+      "source_entry_index": 1,
+      "source_field_pointer": "/targets/1/header/fields/gat"
+    },
+    {
+      "declared_raw_hex": "3140636831612e676e64",
+      "header_source_index": 0,
+      "map_index": 2,
+      "map_name": "ch1_dw",
+      "query_index": 0,
+      "relation_index": 4,
+      "role": "gnd",
+      "source_entry_index": 2,
+      "source_field_pointer": "/targets/2/header/fields/gnd"
+    },
+    {
+      "declared_raw_hex": "3140636831612e676174",
+      "header_source_index": 0,
+      "map_index": 2,
+      "map_name": "ch1_dw",
+      "query_index": 1,
+      "relation_index": 5,
+      "role": "gat",
+      "source_entry_index": 2,
+      "source_field_pointer": "/targets/2/header/fields/gat"
+    },
+    {
+      "declared_raw_hex": "6368315f67656666656e2e676e64",
+      "header_source_index": 0,
+      "map_index": 3,
+      "map_name": "ch1_geffen",
+      "query_index": 2,
+      "relation_index": 6,
+      "role": "gnd",
+      "source_entry_index": 3,
+      "source_field_pointer": "/targets/3/header/fields/gnd"
+    },
+    {
+      "declared_raw_hex": "6368315f67656666656e2e676174",
+      "header_source_index": 0,
+      "map_index": 3,
+      "map_name": "ch1_geffen",
+      "query_index": 3,
+      "relation_index": 7,
+      "role": "gat",
+      "source_entry_index": 3,
+      "source_field_pointer": "/targets/3/header/fields/gat"
+    },
+    {
+      "declared_raw_hex": "6368315f6765665f696e2e676e64",
+      "header_source_index": 0,
+      "map_index": 4,
+      "map_name": "ch1_gef_in",
+      "query_index": 4,
+      "relation_index": 8,
+      "role": "gnd",
+      "source_entry_index": 4,
+      "source_field_pointer": "/targets/4/header/fields/gnd"
+    },
+    {
+      "declared_raw_hex": "6368315f6765665f696e2e676174",
+      "header_source_index": 0,
+      "map_index": 4,
+      "map_name": "ch1_gef_in",
+      "query_index": 5,
+      "relation_index": 9,
+      "role": "gat",
+      "source_entry_index": 4,
+      "source_field_pointer": "/targets/4/header/fields/gat"
+    },
+    {
+      "declared_raw_hex": "6368315f67666e30312e676e64",
+      "header_source_index": 0,
+      "map_index": 5,
+      "map_name": "ch1_gfn01",
+      "query_index": 6,
+      "relation_index": 10,
+      "role": "gnd",
+      "source_entry_index": 5,
+      "source_field_pointer": "/targets/5/header/fields/gnd"
+    },
+    {
+      "declared_raw_hex": "6368315f67666e30312e676174",
+      "header_source_index": 0,
+      "map_index": 5,
+      "map_name": "ch1_gfn01",
+      "query_index": 7,
+      "relation_index": 11,
+      "role": "gat",
+      "source_entry_index": 5,
+      "source_field_pointer": "/targets/5/header/fields/gat"
+    },
+    {
+      "declared_raw_hex": "6368315f67666e30332e676e64",
+      "header_source_index": 0,
+      "map_index": 6,
+      "map_name": "ch1_gfn03",
+      "query_index": 8,
+      "relation_index": 12,
+      "role": "gnd",
+      "source_entry_index": 6,
+      "source_field_pointer": "/targets/6/header/fields/gnd"
+    },
+    {
+      "declared_raw_hex": "6368315f67666e30332e676174",
+      "header_source_index": 0,
+      "map_index": 6,
+      "map_name": "ch1_gfn03",
+      "query_index": 9,
+      "relation_index": 13,
+      "role": "gat",
+      "source_entry_index": 6,
+      "source_field_pointer": "/targets/6/header/fields/gat"
+    },
+    {
+      "declared_raw_hex": "6368315f736630312e676e64",
+      "header_source_index": 0,
+      "map_index": 7,
+      "map_name": "ch1_sf01",
+      "query_index": 10,
+      "relation_index": 14,
+      "role": "gnd",
+      "source_entry_index": 7,
+      "source_field_pointer": "/targets/7/header/fields/gnd"
+    },
+    {
+      "declared_raw_hex": "6368315f736630312e676174",
+      "header_source_index": 0,
+      "map_index": 7,
+      "map_name": "ch1_sf01",
+      "query_index": 11,
+      "relation_index": 15,
+      "role": "gat",
+      "source_entry_index": 7,
+      "source_field_pointer": "/targets/7/header/fields/gat"
+    },
+    {
+      "declared_raw_hex": "6368315f736630322e676e64",
+      "header_source_index": 0,
+      "map_index": 8,
+      "map_name": "ch1_sf02",
+      "query_index": 12,
+      "relation_index": 16,
+      "role": "gnd",
+      "source_entry_index": 8,
+      "source_field_pointer": "/targets/8/header/fields/gnd"
+    },
+    {
+      "declared_raw_hex": "6368315f736630322e676174",
+      "header_source_index": 0,
+      "map_index": 8,
+      "map_name": "ch1_sf02",
+      "query_index": 13,
+      "relation_index": 17,
+      "role": "gat",
+      "source_entry_index": 8,
+      "source_field_pointer": "/targets/8/header/fields/gat"
+    },
+    {
+      "declared_raw_hex": "6368315f736630332e676e64",
+      "header_source_index": 0,
+      "map_index": 9,
+      "map_name": "ch1_sf03",
+      "query_index": 14,
+      "relation_index": 18,
+      "role": "gnd",
+      "source_entry_index": 9,
+      "source_field_pointer": "/targets/9/header/fields/gnd"
+    },
+    {
+      "declared_raw_hex": "6368315f736630332e676174",
+      "header_source_index": 0,
+      "map_index": 9,
+      "map_name": "ch1_sf03",
+      "query_index": 15,
+      "relation_index": 19,
+      "role": "gat",
+      "source_entry_index": 9,
+      "source_field_pointer": "/targets/9/header/fields/gat"
+    },
+    {
+      "declared_raw_hex": "6368315f6765665f696e2e676e64",
+      "header_source_index": 0,
+      "map_index": 10,
+      "map_name": "ch1_vrgef1",
+      "query_index": 4,
+      "relation_index": 20,
+      "role": "gnd",
+      "source_entry_index": 10,
+      "source_field_pointer": "/targets/10/header/fields/gnd"
+    },
+    {
+      "declared_raw_hex": "6368315f6765665f696e2e676174",
+      "header_source_index": 0,
+      "map_index": 10,
+      "map_name": "ch1_vrgef1",
+      "query_index": 5,
+      "relation_index": 21,
+      "role": "gat",
+      "source_entry_index": 10,
+      "source_field_pointer": "/targets/10/header/fields/gat"
+    },
+    {
+      "declared_raw_hex": "6368315f67656666656e2e676e64",
+      "header_source_index": 0,
+      "map_index": 11,
+      "map_name": "ch1_vrgef2",
+      "query_index": 2,
+      "relation_index": 22,
+      "role": "gnd",
+      "source_entry_index": 11,
+      "source_field_pointer": "/targets/11/header/fields/gnd"
+    },
+    {
+      "declared_raw_hex": "6368315f67656666656e2e676174",
+      "header_source_index": 0,
+      "map_index": 11,
+      "map_name": "ch1_vrgef2",
+      "query_index": 3,
+      "relation_index": 23,
+      "role": "gat",
+      "source_entry_index": 11,
+      "source_field_pointer": "/targets/11/header/fields/gat"
+    },
+    {
+      "declared_raw_hex": "68656d5f64756e30312e676e64",
+      "header_source_index": 0,
+      "map_index": 12,
+      "map_name": "hem_dun01",
+      "query_index": 16,
+      "relation_index": 24,
+      "role": "gnd",
+      "source_entry_index": 12,
+      "source_field_pointer": "/targets/12/header/fields/gnd"
+    },
+    {
+      "declared_raw_hex": "68656d5f64756e30312e676174",
+      "header_source_index": 0,
+      "map_index": 12,
+      "map_name": "hem_dun01",
+      "query_index": 17,
+      "relation_index": 25,
+      "role": "gat",
+      "source_entry_index": 12,
+      "source_field_pointer": "/targets/12/header/fields/gat"
+    },
+    {
+      "declared_raw_hex": "68656d5f64756e30322e676e64",
+      "header_source_index": 0,
+      "map_index": 13,
+      "map_name": "hem_dun02",
+      "query_index": 18,
+      "relation_index": 26,
+      "role": "gnd",
+      "source_entry_index": 13,
+      "source_field_pointer": "/targets/13/header/fields/gnd"
+    },
+    {
+      "declared_raw_hex": "68656d5f64756e30322e676174",
+      "header_source_index": 0,
+      "map_index": 13,
+      "map_name": "hem_dun02",
+      "query_index": 19,
+      "relation_index": 27,
+      "role": "gat",
+      "source_entry_index": 13,
+      "source_field_pointer": "/targets/13/header/fields/gat"
+    },
+    {
+      "declared_raw_hex": "68656d5f66696c642e676e64",
+      "header_source_index": 0,
+      "map_index": 14,
+      "map_name": "hem_fild",
+      "query_index": 20,
+      "relation_index": 28,
+      "role": "gnd",
+      "source_entry_index": 14,
+      "source_field_pointer": "/targets/14/header/fields/gnd"
+    },
+    {
+      "declared_raw_hex": "68656d5f66696c642e676174",
+      "header_source_index": 0,
+      "map_index": 14,
+      "map_name": "hem_fild",
+      "query_index": 21,
+      "relation_index": 29,
+      "role": "gat",
+      "source_entry_index": 14,
+      "source_field_pointer": "/targets/14/header/fields/gat"
+    },
+    {
+      "declared_raw_hex": "756b6e775f7275696e2e676e64",
+      "header_source_index": 0,
+      "map_index": 15,
+      "map_name": "uknw_ruin",
+      "query_index": 22,
+      "relation_index": 30,
+      "role": "gnd",
+      "source_entry_index": 15,
+      "source_field_pointer": "/targets/15/header/fields/gnd"
+    },
+    {
+      "declared_raw_hex": "756b6e775f7275696e2e676174",
+      "header_source_index": 0,
+      "map_index": 15,
+      "map_name": "uknw_ruin",
+      "query_index": 23,
+      "relation_index": 31,
+      "role": "gat",
+      "source_entry_index": 15,
+      "source_field_pointer": "/targets/15/header/fields/gat"
+    },
+    {
+      "declared_raw_hex": "756b6e775f7275696e322e676e64",
+      "header_source_index": 0,
+      "map_index": 16,
+      "map_name": "uknw_ruin2",
+      "query_index": 24,
+      "relation_index": 32,
+      "role": "gnd",
+      "source_entry_index": 16,
+      "source_field_pointer": "/targets/16/header/fields/gnd"
+    },
+    {
+      "declared_raw_hex": "756b6e775f7275696e322e676174",
+      "header_source_index": 0,
+      "map_index": 16,
+      "map_name": "uknw_ruin2",
+      "query_index": 25,
+      "relation_index": 33,
+      "role": "gat",
+      "source_entry_index": 16,
+      "source_field_pointer": "/targets/16/header/fields/gat"
+    },
+    {
+      "declared_raw_hex": "31407672706f702e676e64",
+      "header_source_index": 1,
+      "map_index": 17,
+      "map_name": "1@vrpop",
+      "query_index": 26,
+      "relation_index": 34,
+      "role": "gnd",
+      "source_entry_index": 0,
+      "source_field_pointer": "/rows/0/header/fields/gnd"
+    },
+    {
+      "declared_raw_hex": "31407672706f702e676174",
+      "header_source_index": 1,
+      "map_index": 17,
+      "map_name": "1@vrpop",
+      "query_index": 27,
+      "relation_index": 35,
+      "role": "gat",
+      "source_entry_index": 0,
+      "source_field_pointer": "/rows/0/header/fields/gat"
+    },
+    {
+      "declared_raw_hex": "32407672706f702e676e64",
+      "header_source_index": 1,
+      "map_index": 18,
+      "map_name": "2@vrpop",
+      "query_index": 28,
+      "relation_index": 36,
+      "role": "gnd",
+      "source_entry_index": 1,
+      "source_field_pointer": "/rows/1/header/fields/gnd"
+    },
+    {
+      "declared_raw_hex": "32407672706f702e676174",
+      "header_source_index": 1,
+      "map_index": 18,
+      "map_name": "2@vrpop",
+      "query_index": 29,
+      "relation_index": 37,
+      "role": "gat",
+      "source_entry_index": 1,
+      "source_field_pointer": "/rows/1/header/fields/gat"
+    },
+    {
+      "declared_raw_hex": "33407672706f702e676e64",
+      "header_source_index": 1,
+      "map_index": 19,
+      "map_name": "3@vrpop",
+      "query_index": 30,
+      "relation_index": 38,
+      "role": "gnd",
+      "source_entry_index": 2,
+      "source_field_pointer": "/rows/2/header/fields/gnd"
+    },
+    {
+      "declared_raw_hex": "33407672706f702e676174",
+      "header_source_index": 1,
+      "map_index": 19,
+      "map_name": "3@vrpop",
+      "query_index": 31,
+      "relation_index": 39,
+      "role": "gat",
+      "source_entry_index": 2,
+      "source_field_pointer": "/rows/2/header/fields/gat"
+    },
+    {
+      "declared_raw_hex": "636d645f62686f6c652e676e64",
+      "header_source_index": 1,
+      "map_index": 20,
+      "map_name": "cmd_bhole",
+      "query_index": 32,
+      "relation_index": 40,
+      "role": "gnd",
+      "source_entry_index": 3,
+      "source_field_pointer": "/rows/3/header/fields/gnd"
+    },
+    {
+      "declared_raw_hex": "636d645f62686f6c652e676174",
+      "header_source_index": 1,
+      "map_index": 20,
+      "map_name": "cmd_bhole",
+      "query_index": 33,
+      "relation_index": 41,
+      "role": "gat",
+      "source_entry_index": 3,
+      "source_field_pointer": "/rows/3/header/fields/gat"
+    }
+  ],
+  "schema": "remaining-declared-terrain-profile/1",
+  "task": "T07.007.014.007",
+  "worker_stage": "source_and_shared_synthetic_fixture_only; no actual catalog streams until Root admission"
+}
