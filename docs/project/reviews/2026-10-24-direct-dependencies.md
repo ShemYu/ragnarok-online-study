@@ -1863,3 +1863,88 @@ is not failure. Matching investigating heartbeats prove both live. No duplicate/
 restart. Root compare full closure/dependency/exposure/resource/teardown proposals
 and exact source slices before future implementation. This work is independent
 of925model construction; no provider verdict or browser admission yet.
+
+
+## Actual925remainder and complete Root observation audit pass
+
+At clean8abffa4e73ff5d4be8c6880b7eb4663ce92e4dd8 Root freshly binds the
+exact925complement and consumed pilot/independent acceptance to the SAME full
+c36e551b runtime profile. Whole private host/caller inverses and complete
+seed/plan/admission/profile/Node/current proof pins pass. Final host88765B/
+82d2b9e95806157382b0f5fbb5bf13bbdeb3b2e9da6140dbd28828326b77716d;
+caller25121B/c257a8976c158e4612334c20c1aed2da2c8530bbb4ac8d6edb831eaf955c5b1d.
+Fresh prepare is natural0/0.255988s/no action/residue.
+
+The ONE actual925call returns every925constructor with11outside_batch, no
+failed/not_started jobs and no replay. Inner Nodeguard natural0/40.698113s/
+286113792B sampled RSS; outer caller natural0/42.162187s/359219200B, both valid,
+no action/signals/residue/empty stderr/complete captures. Every925Worker exits
+positively with complete result/handler/body-buffer/source/stream evidence, no
+fetch attempt or forced termination. All953caller full PRE/POST pins match and
+Root freshly rehashes them. Full world BEFORE/AFTER projections are typed equal
+for the same explicit1222files/four owners/six ENV/native/INI/five archive
+identity/listener/six Engine GET scope. No SQL/save-content proof is inferred.
+
+Root complete observation audit passes1253179checks/8407full pins in1.533796s.
+All1852model artifacts/13433835B and final caller publications are independently
+sealed; combined15780880B accounting. All output/source/body full hashes/modes/
+open-close and eight held close outcomes pass. One staged body/two overlapping
+read FDs/zero close failures. All936job pointers, retained full graph/profile,
+selected925source records, complete summaries/numeric markers/versions/slots/
+declarations and exact transformed texture strings/HTTP/source links verify.
+1287nodes/1529declarations/1761slots/436956UTF16string-value units produce946exact
+HTTP targets; no unknown selected model. Caps remain unchanged and measured fit.
+
+Private remainder-root-audit-1/ROOT_AUDIT.json is5429725B/SHA256
+67fbeab035fdd850241bf2ab37de8e21311e6ced25095e8b2f745fc20fbf13ba.
+Actual remainder manifest is848150B/SHA256
+c56259d5dd5b968f2a0ee336f7f04ce25675c2af64009e91d191c11098cc5961.
+Together the disjoint11+925prove one genuine construction/complete-summary/
+declaration observation for all936logical models, retaining all1649relations/
+21maps/six case rows. Next combine both complete declaration datasets without
+executing constructors again, then qualify nested texture availability and
+separately placement-aware compile/image decoding/rendering.
+
+**Material numeric finding, preserved:** model702 campfire_j_01.rsm2 for map17
+1@vrpop/group37 has six infinite bounds on node1. The first Root remainder
+audit inherits the pilot's all-finite assertion and stops; source/result V1 and
+explicit correction remain. The frozen .012contract requires unchanged numeric
+markers, not an invented all-finite constructor claim. Root separately verifies
+exactly three+Infinity minima/three-Infinity maxima, six exact locations/no
+omissions; all other inspected numerical statistics have no nonfinite values.
+Observation PASS therefore preserves this issue and explicitly keeps geometry
+unaccepted. It is not a sanitized all-finite/model-render PASS. No source/assets
+are changed and no successful constructor is replayed.
+
+Astra's hard-issue source consultation and Root's personal primary-source/
+retained-result checks identify why: v2.3falls back to nodes[0], bounding traversal
+follows matching parent names, and the second root's empty parent cannot match
+campfire_j_01. It retains Box's initial sentinel; model box equals node0. Node1
+has177vertices/265faces with finite reported vertex/face statistics; its texture
+declaration remains linked. Static compile visits every node and does not read
+node.box, so missing geometry or visible failure cannot be inferred. Practical
+bounds/placement/appearance remain a separate actual geometry check. This
+material source finding needs no goal change and no parser patch on assumption.
+Root confirms all three complete saved slices by byte/LF/hash and computes exact
+reachability{0}/unvisited{1};1845B ROOT_CONFIRMATION.json SHA256
+cedfd78e7d18679ac81398875e8c8f850452dd5b37b4240661afdc3aba9c4c80
+under model702-root-audit-1. Consultation REPORT8797B/
+4bd24d94b7426a5597d95e53e2a253bbbd7523c11d01f6ec4af231007e6a90b9.
+
+Full Renewal/4of14/about29%/all82functional gaps remain. Construction and
+metadata closure are distinct from texture availability, placed geometry,
+rendering, ordinary gameplay/story/save and full Traditional Chinese. Running
+quiet game/Chrome/IME/internet remain untouched.
+
+
+## Claude browser closure proposal preserved and released
+
+Matched .014task_6010e6e3b90a/Dispatchctx_ec9bb81a5a28 settles source-only.
+Root mirrors all20private files/79554B and verifies every copied complete hash.
+Private claude-packet-root-1/PRESERVATION_ROOT.json is3598B/SHA256
+191d329648444e024060e14fc021b19248138feb6da90c5a20e8913615c6e1ab.
+Release accepted: only worker terminal closes/transcript captured. Full report/
+16primary slices/proposal remain candidate evidence pending Root comparison
+with independent Grokctx_f4d9e43cd1f0, whose matching implementing heartbeat
+remains live. No sibling findings sent, no selection, browser implementation
+or actual image/codec/render execution. Root's model/metadata lane continues.
