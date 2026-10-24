@@ -22,8 +22,9 @@ child folders or setup hooks. Both .012candidates are preserved/released after
 matched settlements. [Root full review and eight behavioral groups per original are complete](reviews/2026-10-24-direct-dependencies.md#both-constructor-originals-are-personally-checked-and-held).
 Raw Claude14/20/Grok9/20 are both held; each11author tests passes. Close-error
 false successes and distinct failure-evidence/lifecycle defects reproduce.
-Separate Claude .012.001 correction is live from79488b6 on a fresh branch in
-the released checkout; no new child/setup. A parallel metadata-only helper
+[Separate correction cf03024 is preserved and released](reviews/2026-10-24-direct-dependencies.md#separate-constructor-correction-preserved-and-worker-released),
+verified5597copied hashes/rollback bundle. Root correction review/controls are
+next; author19/19 is not Root acceptance. No new child/setup. A parallel metadata-only helper
 has completed the936body join; [Root independently verifies all records and fresh body files](reviews/2026-10-24-direct-dependencies.md#complete936body-join-and-fresh-root-file-audit-pass).
 237771checks/950pins pass. Proposed11pilot/925remainder stay unbound. Root
 must qualify the repair and exact actual caller before real construction.
@@ -124,7 +125,8 @@ all839copied hashes and verified rollback bundle. [Grok bf369fd is also preserve
 [Root personally checks both complete sources/suites and eight behavioral groups each](reviews/2026-10-24-direct-dependencies.md#both-constructor-originals-are-personally-checked-and-held):
 raw Claude14/20/Grok9/20 both held. Grok additionally lacks a Root-bindable real
 execution path. [Separate correction .012.001](tasks/T07.007.014.012.001.md) is
-live; original comparison is complete and correction effort remains separate.
+preserved/released atcf03024; Root review/controls next. Original comparison
+is complete and correction effort remains separate.
 The independent936body metadata join/fresh files now pass237771Root checks.
 Next Root checks repaired source and the exact eleven-job actual caller,
 then freezes actual caller/profile/Node/guard/pilot authority. No integration.

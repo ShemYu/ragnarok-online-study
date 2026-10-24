@@ -1268,3 +1268,51 @@ No actual prefix/model/summary evaluation or native/Engine/browser/game/SQL/
 network-disconnection action occurs here. Parent4/14/about29%, all82gaps and
 full Renewal/Traditional Chinese goal remain unchanged. This metadata/integrity
 prerequisite is complete; genuine constructor and end-user gates remain open.
+
+
+## Separate constructor correction preserved and worker released
+
+Matched task_f3ae41f3680d/Dispatchctx_70ec76f5cdd2 settles candidate
+cf030246718f34c5658e9b97033d20501ea34156 from exact79488b6 on the assigned
+repair branch. Root confirms clean HEAD/exact parent/exactly four owned paths,
+current bytes equal their Git blobs and reported full pins. This is candidate
+settlement, not source acceptance. Author19/19 remains an author claim until
+Root repeats applicable controls.
+
+Root preserves four tracked files plus5593private authored files/459541843B,
+verifying5597copied full hashes. First traversal stops at unreadable authored
+permission-test fixtures. Root narrowly adds read/search access to three owned
+private fixture entries, copies their evidence, then restores every original
+mode in finally; original modes/identities and this access intervention are
+recorded. No source bytes or fixed inputs change; the private fixture metadata
+ctime can change from that explicit access action. No special file/symlink is
+followed. Mirror directories/files use0700/0600. Partial initial copies were
+verified equal before reuse rather than silently replaced.
+
+Archive refs/archive/t07-014-012-001/claude/cf03024 and verified20798B rollback
+bundle require preserved base79488b6. Full candidate diff103541B is retained.
+Release is accepted: terminal closed, transcript captured. Both original authors
+and this correction worker are released; assigned checkouts remain available
+for finite reuse. Two bounded source advisories review corrected lifecycle/
+authority and summary/retention changes while Root reads the actual diff/tests/
+report and repeats meaningful controls. No new child/setup or real constructor.
+
+Private t07-014-012-claude-repair-packet-root-1/PRESERVATION_ROOT.json:
+2198901B/SHA256
+0422f0d0439cb28b91bd8b62ffe218197c960b20ea602ed4029f9dbd0edfc91e.
+All936current body files and the proposed11pilot/925complement are separately
+qualified/prepared but not runtime-admitted. Public source still unintegrated;
+Root actual caller/pilot audit remains next after correction qualification.
+
+A separate [source advisory](../tasks/T07.007.014.012.md) identifies an independent
+image lane: the pinned compiled worker packages222BMP/64JPG into Blob/object
+URLs; it does not decode them. No Node packaging replay may count as image
+validity. Before a bounded browser-owned decode check, pin the exact main-client
+MAP_GROUND/MAP_WORLD image consumer. No image task/runtime call is admitted here.
+Private t07-014-image-decode-lane-consult-helper-1/REPORT.md6897B/SHA256
+2dfa8197b022219e785a46a70dc25246eb9135c86327f4089546f25c78b4b5b0.
+Root source-reads the quoted FileManager/MapLoader sections next before adopting
+the advisory. This is a future independent source lead, not decoded-image proof.
+
+Full goal/parent4/14/about29%/all82gaps remain unchanged. Game/save/quiet audio/
+Chrome/internet are untouched. No critical goal-changing issue is established.
