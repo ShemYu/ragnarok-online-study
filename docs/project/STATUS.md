@@ -22,7 +22,8 @@ child folders or setup hooks. Both .012candidates are preserved/released after
 matched settlements. Root has read Claude's complete source/tests/report,
 repeated11tests and reproduced four authored negative controls; raw candidate
 is held. Grok's complete source/independent controls are under review. A separate
-Claude correction brief is frozen; this is not an equal raw-provider rerun.
+Claude correction is now live in the same released checkout on a fresh branch;
+this is not an equal raw-provider rerun.
 
 **Current map checkpoint:** [All21remaining compiled cores pass Root's complete audit](reviews/2026-10-24-remaining-map-bodies.md#remaining21-actual-compiled-cores-and-complete-root-audit-pass).
 One unchanged qualified host call exits0 in4.807445s, about800MiB sampled RSS,

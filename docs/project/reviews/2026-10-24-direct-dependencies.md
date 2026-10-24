@@ -1070,3 +1070,23 @@ Private t07-014-012-grok-packet-root-1/PRESERVATION_ROOT.json:
 Parent4/14/about29% and all82functional gaps stay unchanged. Delivery of the
 1222direct bodies is already qualified; never replay successful delivery calls.
 Full Renewal scope/quiet running game/save/internet remain preserved.
+
+
+## Separate constructor correction starts
+
+After frozen checkpointf44ca24, full four-page fleet inspection records315rows;
+Root confirms the released Claude checkout is clean at79488b6, then creates
+ShemYu/t07-014-012-claude-repair-a1 from that exact candidate. No setup/new child.
+A fresh Claude terminal starts matched task_f3ae41f3680d/Dispatchctx_70ec76f5cdd2,
+terminalterm_b3ee953c-79a4-49b5-8475-7f15f3c8435f. Receipt is ready/input accepted/
+turn observed/no residual resources. Provider model/effort inherit configured
+defaults; no particular underlying model is claimed.
+
+Frozen repair spec2102B/SHA256
+d87c76527623ceb88f98eb7864d0acc17ef86399d8e878abc78f140e1b858636
+and complete prelaunch fleet/old HEAD/clean check/branch/start receipts are
+private under t07-014-012-repair-wave-root-1. Four tracked files and fresh own
+private repair prefix only; five pinned Root/Astra reports supplement the same
+ten original inputs. No sibling evidence is supplied. Root independently reads
+Grok's original host/suffix/tests and two advisory reports in parallel; no final
+selection/integration/runtime admission. No prior successful I/O call replays.
