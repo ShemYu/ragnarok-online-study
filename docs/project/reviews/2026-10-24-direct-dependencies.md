@@ -4279,3 +4279,52 @@ source plans run, then preserves/releases each on settlement before personal
 comparison. Current fleet327released/ten older retained/two active source plans,
 no new direct-child count. Full Renewal/functionality-first scope and all82gaps
 remain unchanged; .021retained output is complete and consumed, no replay.
+
+
+## Independent static model preflight qualifies and one binary parse is admitted
+
+While both .022source plans run, Root writes a no-IO independent Python reader
+for a deliberately strict static RSM2.3 subset. It bounds file/count/string/face
+intervals before lists, checks finite floats and vertex/UV/texture/smooth-group
+indices, preserves raw attributes and performs independently specified Float32
+color/UV conversions. Four zero keyframe counts and zero/absent volume count
+are explicit subset constraints, not repairs to the acquired loader.
+
+Root personally runs47authored controls: asymmetric triangle/positions/UVs,
+color endpoints, two roots, face24/28/32/36/64byte intervals, embedded NUL with
+suffix consumed, caps/negative counts/short intervals/version/index/group/NaN/
+animation/duplicate-key/trailing failures and optional exact EOF. Astra source
+review finds no material grammar mismatch within the declared subset. Texture
+names still require a global deduplication/index join before mesh comparison;
+this reader is not a compiled-position/normal oracle or general RO parser.
+No real body is read and no acquired JavaScript evaluates in qualification.
+
+The finite caller's syntax, default refusal before data/output and byte-identical
+inherited held-input/output helper functions pass Root checks. Helpers come from
+the qualified .021caller; new main is personally read, not claimed to inherit
+all159control outcomes. It holds five inputs (reader, placement, retained summary,
+inert Worker, exact model body), publishes under a pending name and seals all
+input/namespace/deadline authorities through close/publication. Errors dequalify
+only its positively identified output; failure writes require original namespace.
+
+**Admit ONE independent Python binary-preflight call**, not acquired construction
+or compile. Fixed caller6877B/SHA94f2507db424fcf897de736edf69c411ca837474edf5cd54f916e3160cc4c634,
+mode `--execute-qualified-binary-preflight`, absent output prefix
+`.tools/renewal/t07-014-022-binary-preflight-root-1`. Reader4016B/SHA
+de2219ee0bfbd09a5343366b52a58fa60010080db2a6d23983df7b54f97d83d5;
+body19113B/SHA3a84cdc3c4923f605ec5f5c48a68baf71408b3438e35afb2a61972bf0b00054d
+and full frozen C8. Strict caps64KiB/four nodes/512vertices,UVs,faces per node/
+eight texture strings/256B strings/64B face/32primary smooth groups,1MiB output,
+5seconds inner/10seconds real outer process guard. Failure does not permit retry.
+Retain/audit parsed arrays and joins without rerunning the client constructor.
+No request/reference/decoder replay, model compile, browser/game or goal change.
+
+Private t07-014-022-preparation-root-1/ pins:
+
+| File | Bytes | SHA256 |
+|---|---:|---|
+| RSM23_PREFLIGHT_UNBOUND_ROOT.py |4016|de2219ee0bfbd09a5343366b52a58fa60010080db2a6d23983df7b54f97d83d5|
+| QUALIFY_PREFLIGHT_V2_ROOT.py |4101|dd2c250ba79c823ef21e6986cf75bd29da2c8bd795ee48b52c008f9dfdd704fb|
+| PREFLIGHT_QUALIFICATION_V2_ROOT.json |549|c47a331b40c17522433ec92e243667be79647055012bc9a0916b1824d8a4b8a1|
+| CALL_PREFLIGHT_ROOT.py |6877|94f2507db424fcf897de736edf69c411ca837474edf5cd54f916e3160cc4c634|
+| CALLER_SOURCE_ROOT.json |329|9bc777f0bae0715d1cc30dd73ef85f153175784cda616e5f2cc80b8d649a63ef|

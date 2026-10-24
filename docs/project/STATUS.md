@@ -24,7 +24,10 @@ qualified in their bounded scopes. [Next .022exact-placement geometry source pla
 Root verifies model702/map17/group37/placement50/ground200x200. Independent
 Claude/Grok source plans and Root binary preflight precede compile, then
 browser/render qualification.
-No new execution is admitted by this result; all82functional gaps remain open.
+[Root47authored binary-preflight controls and finite caller checks pass; ONE
+independent Python parse is admitted](reviews/2026-10-24-direct-dependencies.md#independent-static-model-preflight-qualifies-and-one-binary-parse-is-admitted).
+This grants no acquired constructor/compile/render execution; all82functional
+gaps remain open.
 
 **Child cleanup:** [Root verifies removal of20completed children](reviews/2026-10-24-orca-children-cleanup.md#second-twelve-removals-personally-verified).
 Current84direct children include the two released review children and the two
