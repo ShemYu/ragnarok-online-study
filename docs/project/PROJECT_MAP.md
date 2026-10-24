@@ -45,7 +45,8 @@ Map repair:
        -> captain dialogue      [PASS:21001complete;21008earned]
        -> combat + lumber       [PASS:two natural fights; inventory stack2]
        -> crew turn-in          [PASS:21008removed; five magnifiers;job3/17%]
-       -> field + return + save [NEXT:ordinary departure; preserve68,78]
+       -> island departure      [PASS:normal Izlude196,209; Root image checked]
+       -> field + return + save [NEXT:preserve earned character]
 
 Quest check:
   Finite startup repair        [PASS: listener seen in 3 checks]
@@ -63,7 +64,7 @@ Shadow pilot (1-3 real tasks, alongside main work):
 Other active work:
   Ordinary quest/logout        [HELD: B6 save/quit evidence failure]
   mu_fild01 normal route       [HELD: access unproved;111 asset bodies verified]
-  Ordinary field route         [NEXT: quest state -> travel/encounter/return]
+  Ordinary field route         [NEXT: Izlude -> field encounter/return/save]
   Full839 data + entry         [PASS: 4,226 checks / 947 pins]
   Full839 entry FD closure     [PASS: explicit setup; exact comparison kept]
   Full839 map/monster joins    [DONE: Claude integrated; Root verified; pair released]

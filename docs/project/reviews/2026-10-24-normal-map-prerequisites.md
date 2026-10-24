@@ -1,6 +1,7 @@
 # Normal map prerequisites — installed route checked
 
-2026-10-24 JST. Root source/configuration checkpoint; no gameplay result.
+2026-10-24 JST. Initial source checkpoint, followed by the bounded ordinary
+gameplay results below. These results do not establish full-content coverage.
 
 ## Decision and next action
 
@@ -21,8 +22,8 @@ The former25% map-preparation figure was a rough estimate; retire it.
 |---|---|
 | Installed Mu entry | Newer Guide absent; ordinary route unproved, held |
 |111 Mu resources | PASS:111 normal responses and111 current loose bodies match |
-| Accessible alternative | Current source candidate verified; quest state pending |
-| Ordinary travel, encounter and return | Not performed |
+| Accessible alternative | Tutorial combat/crew complete; ordinary Izlude arrival verified |
+| Ordinary field encounter and return | Next; not performed |
 
 Parent progress stays4/14/about29%, not full-content coverage. All82 gaps
 remain open. Full Renewal scope and existing Chinese overlays stay unchanged.
@@ -125,6 +126,46 @@ The new progress is not yet relogged or backed up. Next ordinary island exit,
 Izlude/field/return and saved-progress verification; no early-departure choice,
 full-story claim or82gap closure. Earlier failed isolated F1 save evidence stays
 held and is not replayed.
+
+## Ordinary island departure and Izlude arrival pass
+
+After checkpoint d0a2b65, Root uses ordinary native mouse movement/clicks
+through Orca to reach the island departure trigger. The earlier slow dialogue
+attempt closes without observed travel and remains failed. Read-only Engine
+inspection/log requests preserve the current map container and four native
+owner identities; no relevant continuation error is identified. An initial
+request uses the wrong management route and returns404; subsequent reads use
+the qualified Engine socket. No restart or game repair follows.
+
+Root reads the retained secure-NPC source: Next/Menu timeout60s, with timeout
+closing the active script. Earlier dialogue actions were more than60s apart.
+This suggests an observation-delay cause, but does not prove the running
+binary's compile-time setting. Root steps off the trigger and approaches it
+again. Fresh snapshot shows the Sailor's Chinese departure sentence. Two
+guarded DOM attempts refuse before clicking: the first does not traverse
+shadow roots; the second finds two visible NpcBox containers. Ordinary Enter
+then operates the offered dialogue control,35.474s after the mouse-up record.
+These record-end times are observations, not server timestamps.
+
+The received ZC_NPCACK_MAPMOVE preview names izlude.gat at196,209. A later
+settled snapshot independently shows196,209, base2/job3/17%EXP and HP45/SP12.
+Root personally views the textured Izlude dock, character, NPCs and minimap.
+The initial post-transition frame is still loading and its old coordinate
+display is not used as arrival proof. Quiet BGM/Sound preferences remain off,
+volume0. No callbacks, packet injection, GM commands, grants or settings
+changes are used. The successful ordinary transition needs no game patch.
+
+Private t07-orca-ordinary-field-root-4/ROOT_CONFIRMATION.json31510B/SHA256
+53b3d811b83f1cb99c238bcf698479df675864f320172a9ac0998f1a1646e5c6
+seals72full capture/source/image pins, including eleven lossless screenshot
+reconstructions and the exact received map-move preview. Console data stays
+private0600; no credentials are published. This prefix is closed.
+
+Next: ordinary Izlude → prt_fild08 encounter → Izlude return, then save/re-entry
+and a current earned-progress backup. New tutorial progress is not yet
+relogged/backed up. This arrival does not close a parent check, story coverage
+or any of the82functional resource gaps. Earlier isolated F1 save failure
+remains held; full Renewal scope is unchanged and no user decision is needed.
 
 ## Root verification
 
