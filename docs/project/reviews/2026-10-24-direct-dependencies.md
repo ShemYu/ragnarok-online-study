@@ -4846,3 +4846,43 @@ All82functional gaps and parent4/14/about29% remain unchanged.
 | t07-014-023-coverage-review-root-1/AUDIT_ROOT.py |9824|1caa1f561f5ebc4c641a5d59e1b6e52cca34d55273008e33322d37c2ee5b214e|
 | t07-014-023-coverage-review-root-1/COVERAGE_AUDIT_ROOT.json |5277|8b27490876c948ec915bb1347992da9d4bbc5cbde14ffaee66fec2943f9b484b|
 | t07-014-023-coverage-review-root-1/CURRENT_FIELDS_SUPPLEMENT_ROOT.json |449|5463af28e08514d663a993c40cd227c0458ec4f6ad95f7a9f2985c32cd1d407d|
+
+## Claude geometry original is completely preserved and released
+
+Matched Claude task_4ba7cd971644/ctx_a65d6b6788e1 settles succeeded at candidate
+f8eb47722d525156440aa7b0b0c1399bf6eb1e8e from d052101. Exactly three owned
+files change; the checkout is clean. It reports33/33authored tests twice and
+all10tiny byte-exact returns/16pre-VM refusals; these remain author claims until
+Root's full-source review/reproduction. No actual body/mode is claimed.
+
+Root preserves all529regular files12841847B (three tracked and526private),
+the complete283directory/18symlink namespace, and every source full SHA/C8.
+Regular paths are independently copied/readback verified, including source
+hardlink peers; symlink targets remain inert metadata and are never followed.
+Every copied/source byte pin and complete source namespace rechecks. Named Git
+archive ref refs/ro-task-archive/T07.007.014.023/claude-a1 and42794B verified
+rollback bundle SHA3f7187017f9e9c7b7bdcb61fef4c026862be6424586ce7a1917f0d7a5190aee7
+are complete before release. The preservation command exits0; only then Root
+releases. Fresh worker-show confirms released/exited and transcript captured;
+only then delivery_9562873bc639 is acknowledged, returning empty.
+
+Claude candidly discloses the previously noticed extra public donor test read:
+tests/tga_decode_observer.test.mjs lines1–60/348–547 and test-name list; it reused
+fault patterns. It also read provenance-only Worker lines19193–19273, within
+the already frozen full Worker input. Root will retain the unlisted-test
+deviation when comparing originals; this is not a strictly clean equal-input
+benchmark. No private original/actual-body contamination is observed. Correctness
+and source suitability still require independent Root verification.
+
+| Candidate file | Bytes | SHA256 |
+|---|---:|---|
+| observe_model_geometry.mjs |65097|eb1ca036bc4817e961f9da4c3a1fdf976ea34090d316cebc2399ad3e065aec27|
+| model_geometry_observer.test.mjs |53169|6ded29958d9fe0ef18f53691c9ee0812ec578633b43dca3cc239699d4834ea62|
+| T07.007.014.023-model-geometry-observer.md |17455|ad090080095e8235acdd67f9c968dd44310aaf78c35388795aca453d38f78828|
+
+Private t07-014-023-claude-packet-root-1/PRESERVATION_ROOT.json581555B/SHA
+4202f7831577e7f03d0137f19888d52ed5e6f0ae83ad57f72b091fdb78c7fecd;
+RELEASE_SHOW_ROOT.json7463B/SHA7e106e3b101f4385a0966918bf964722f52f208df20a842a4f195cd021332c55.
+Grok continues live. Latest330released/eight user-owned/two absent/one active;
+84child folders unchanged. Root next reads all Claude source/tests/report and
+runs independent checks; no actual acquired compile admission or goal change.

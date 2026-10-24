@@ -26,10 +26,11 @@ intermediates are retained. Both independent calls are consumed; no replay.
 Root reproduces the complete26case corpus:97 authored gates/172Root checks pass,
 including nonuniform normals and cross-node texture bucket order. The exact
 model702 profile is metadata only; no acquired execution is admitted. Both
-independent implementations now run from d052101 on existing clean checkouts:
-Claude task_4ba7cd971644/ctx_a65d6b6788e1; Grok task_0dd910580589/ctx_16fd13ee03e8.
-Root prepares the independent finite caller in parallel, then personally
-qualifies both originals before any actual model compile. Browser/render,
+implementations start from d052101 on existing clean checkouts. Claude
+f8eb477 is now completely preserved/released after matched settlement; its33
+author tests and full source await Root verification. Grok
+task_0dd910580589/ctx_16fd13ee03e8 remains live. Root now reviews Claude while
+Grok continues, then qualifies both originals before any actual compile. Browser/render,
 normal game/story/full content and all82functional gaps remain open. No acquired
 geometry execution is admitted and no goal-changing issue/user decision appears.
 Root's independent mesh comparator now passes350checks/10authored positives/
@@ -47,8 +48,9 @@ Current84direct children include the two released review children and the two
 refs, two verified rollback bundles and private evidence survive; the running
 character/quiet audio remain. Three examined children stay held for incomplete
 private preservation; user-retained children remain excluded.
-Latest full341row fleet:329released/eight user-owned/two absent/two active;
-no lifecycle action advertised and zero reclaimable. Both active workers are live.
+Latest full341row fleet plus verified Claude release:330released/eight user-owned/
+two absent/one active. Grok remains live; zero reclaimable. Earlier user-owned
+rows remain untouched.
 Two .012implementation attempts reuse existing released checkouts; no new
 child folders or setup hooks. Both .012candidates are preserved/released after
 matched settlements. [Root full review and eight behavioral groups per original are complete](reviews/2026-10-24-direct-dependencies.md#both-constructor-originals-are-personally-checked-and-held).
