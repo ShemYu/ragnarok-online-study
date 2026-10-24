@@ -4,6 +4,16 @@ Updated: 2026-10-25 JST. Coordinator: Codex. Active scope: **execute the documen
 
 ## Current checkpoint
 
+**Main next action:** [Resume ordinary-play and authentic Chapter1 route checks](reviews/2026-10-24-direct-dependencies.md#next-player-gate-resumes-ordinary-play-and-the-real-chapter1-route).
+Fresh read-only Orca snapshot/image still shows normal textured Izlude128,142,
+HP45/SP12/base2/job3/17% and Chinese overlay. No game input is sent. Next new
+current-state reentry/backup purpose, observed field fight/normal return, then
+first Chapter1 selection/traversal/persistence. Independent CPU qualification
+of all936is not a prerequisite for normal play. .024broader source plans remain
+parallel: [Claude92c7ef9fully preserved/released](reviews/2026-10-24-direct-dependencies.md#claude-geometry-extension-plan-is-preserved-and-released),
+Grok active; Root comparison pending. No restart/backup admitted yet.
+
+
 Functionality remains first. **4/14 parent checks, about 29%**; this counts
 major checks, not full-content coverage. All 82 functional resource gaps remain
 open. Full Modern/Renewal scope is unchanged; no new user decision is required.
@@ -52,7 +62,7 @@ reuse outputs without replay. One static CPU model only; visible rendering and
 broader geometry/content remain open. Next compare .024plans and select the
 next end-user gate.
 [Full936geometry planning metadata passes16293Root checks; equal .024brief frozen](reviews/2026-10-24-direct-dependencies.md#full-geometry-planning-metadata-qualifies-and-the-extension-brief-is-frozen).
-[Both plans now start fromd70abcd on reused separate branches](reviews/2026-10-24-direct-dependencies.md#independent-geometry-extension-source-plan-wave-starts).
+[Both plans started fromd70abcd on reused separate branches](reviews/2026-10-24-direct-dependencies.md#independent-geometry-extension-source-plan-wave-starts).
 They plan the next NONE/FLAT subset and all59broader frontiers independently of
 actual .023execution. Browser/render,
 normal game/story/full content and all82functional gaps remain open. No further
@@ -81,7 +91,7 @@ Both original review workers are released; the .011Claude checkout is kept for
 the preserved .023.001Root C2 source branch/rollback. User-owned workspaces stay excluded.
 The .023.001worker is now released/exited and fully preserved. Historical342row
 fleet has332released/eight user-owned/two absent, plus the two new .024source
-plan dispatches recorded above. Fresh reclaimable list is empty. No new child/setup. No game/save/network action in cleanup.
+plan dispatches recorded above (Claude now released; Grok active). Latest reclaimable check was empty. No new child/setup. No game/save/network action in cleanup.
 Two .012implementation attempts reuse existing released checkouts; no new
 child folders or setup hooks. Both .012candidates are preserved/released after
 matched settlements. [Root full review and eight behavioral groups per original are complete](reviews/2026-10-24-direct-dependencies.md#both-constructor-originals-are-personally-checked-and-held).

@@ -14,6 +14,9 @@ Update this map after each important change. Keep the dated evidence.
 NOW: 4 / 14 parent checks complete (about 29%)
      This is a check count, not playable-content coverage.
 
+MAIN: ordinary save/reentry -> observed field fight + return -> Chapter1 route
+      Broader CPU geometry remains parallel diagnostic preparation.
+
 Map repair:
   Reproduce numeric fault       [DONE]
        -> fix + 22 focused cases [DONE]
@@ -105,7 +108,7 @@ Other active work:
   Independent geometry oracle  [ROOT42CONTROLS +7975SAVED AUDIT PASS]
   Tiny geometry originals      [BOTH ROOT VERIFIED/HELD:13vs10; pair released]
   Finite geometry correction   [ROOT C2QUALIFIED:53TESTS/66CONTROLS; exact integration PASS]
-  Next geometry frontier plan  [936METADATA ROOT PASS; .024CLAUDE/GROK ACTIVE]
+  Next geometry frontier plan  [CLAUDE PRESERVED/RELEASED; GROK ACTIVE; compare next]
   Actual model compile         [ONE PASS; ROOT3143CHECKS/17PINS; exact42876B; no replay]
   Broader geometry + rendering [NEXT:compare .024plans; end-user gate still open]
   Model702node bounds           [SENTINEL PRESERVED; geometry impact OPEN]

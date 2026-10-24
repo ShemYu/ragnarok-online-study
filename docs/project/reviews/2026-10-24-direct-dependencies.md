@@ -5510,3 +5510,69 @@ Private t07-014-023-call-root-1/ and consumed actual audit:
 | t07-014-023-call-root-1/CALLER_STDOUT_ROOT.bin |686|fc65e508471de937b73e445bbf97c9936258949c6588e782b157cca0b97b0ab7|
 | t07-014-023-actual-audit-helper-1/AUDIT_ROOT.py |15932|1efc7e26ae9faf3f99895d0c6356e7d2229f72155ffd084b4a0193e5705eec7f|
 | root-audit-1/AUDIT_ROOT.json |9373|da8707bb7f5bce749445270bef1140a02535322ac81d234360691ce19b496485|
+
+
+## Claude geometry extension plan is preserved and released
+
+Matched task_8154e8001d7b/ctx_e1ffb143cdc8 succeeds at22:07:04UTC on clean
+92c7ef94baf5fefe3f3e1fcd39c1965235d9a9fc from commond70abcd. Root preserves
+all three regular files/101035B (two owned outputs plus private verification),
+full namespace/current SHA/C8, named archive ref and verified23873B bundle.
+Release is positively released/exited/transcript captured before acknowledging
+delivery_58b163c91ea2to an empty inbox. No terminal stays live for review.
+
+Author reports2994words/66025B JSON, all59groups/936indices and35/7/28next
+cohort joins. These are candidate source-plan claims, not Root qualification;
+Root will fully read/recompute both originals after Grok's still-active plan.
+No implementation/runtime/content acceptance or model/cost inference follows.
+
+Private t07-014-024-claude-packet-root-1/:
+
+| File | Bytes | SHA256 |
+|---|---:|---|
+| repo/docs/project/reviews/T07.007.014.024-geometry-extension-source-plan.md |22043|70c7d61e2951088ed71e10c56fb061fffb5a0c3453d76eda72aa9f7ef884a7e9|
+| repo/docs/project/reviews/T07.007.014.024-geometry-frontiers.json |66025|6a3c39bb42009a1887075111b271d91877c0de02cbdedcf0bb84ff38bc49a75b|
+| PRESERVATION_ROOT.json |3621|13a6179bd299479fdf2606f20dd8e8f6ee8e8f370a1e7080c2906b9eca52d191|
+| RELEASE_SHOW_ROOT.json |7427|24636f763839b0a758c458658fbf846599b886cac431882496eb8aef0f31c40c|
+| submission.bundle |23873|1c3e60636d3217f08672d17936031ad6c74d91bb8dc4306d21baa2ab575a6c92|
+
+## Next player gate resumes ordinary play and the real Chapter1 route
+
+Astra recommends using the completed one-model CPU discriminator without
+making936independent CPU checks a prerequisite for ordinary play. Root personally
+reads the existing [normal integration](2026-10-24-normal-integration.md#selected-reuse-and-source-preservation),
+[failed field encounter/current next action](2026-10-24-normal-map-prerequisites.md#field-encounter-fails-and-normal-respawn-preserves-visible-progress),
+[first progression edge](2026-10-24-remaining-map-bodies.md#primary-donor-source-defines-the-first-chapter1-progression-edge)
+and [six retained destinations/nine sampled cells](2026-10-24-remaining-map-bodies.md#first-story-edge-retained-destinations-and-cells-qualify).
+The evidence supports that order. Harness exclusions do not prove normal-client
+render failure; ygg_edge/ygg_fruit are outside the21-map/936-model corpus.
+Batching its142static structural candidates would not directly verify that route.
+
+Root resumes with read-only Orca inventory/snapshot and personally viewed fresh
+image of the existing normal page. It still shows the textured town at128,142,
+base2/job3/17%EXP, HP45/45,SP12/12 and Chinese overlay. No input, reload, service,
+backup or save change is sent. This is a current scene observation, not fresh
+persistence proof. The first direct screenshot prints oversized encoded output;
+Root instead captures a new bounded16MiB CLI receipt, decodes it locally and
+views the preserved PNG. Only the latter capture supplies the visual evidence.
+
+Next finish the existing ordinary-play check: current earned-state reentry and
+supported backup under fresh ownership, then one closely monitored suitable
+field encounter, normal return portal and earned-state reentry. Keep the failed
+fight failed; no blind attack loop or gameplay-rule change. The supported backup
+can restart game services, so its existing consumed actor cannot be replayed;
+Root must first verify current ownership and bind a new finite export purpose.
+No restart/backup is admitted by this read-only checkpoint itself.
+
+Then verify/repair the authentic first Chapter1 transition: settle actual starter
+eligibility/installed selection/server-client route, then ordinary interaction
+and rendered traversal through ygg_edge to ygg_fruit,18368→18369 and persistent
+reentry. Diagnose only observed route/render failures against retained evidence.
+The .024plan comparison stays parallel preparation. Full versions/animation/
+content/Chinese and all82gaps stay open; no reduced milestone or user decision.
+This is a verification continuation under the existing normal-game task and
+T10.007first-story work, not a new implementation benchmark or gate-count credit.
+
+Private t07-orca-ordinary-field-root-7/INITIAL_IMAGE_ROOT.png6383608B/SHA
+1a3f474eaf646ab56a33e07eeaa595cf17f0b5debdf850a099b95144a6aeeaac.
+Complete bounded snapshot/image receipts and capture facts remain local.
