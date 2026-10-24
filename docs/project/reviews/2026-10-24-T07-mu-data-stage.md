@@ -1276,3 +1276,67 @@ original-world preservation. Clean unavailable alias may yield valid zero
 attempts; complete alias permits exactly26, mismatch only literal diagnostics.
 Transport/protocol errors stay fatal.1296enumerated/1265configured/26selected/
 82functional gaps remain separate; no all-map/game/parent credit inferred.
+
+## Current-five native acquisition passes the complete Root audit
+
+The single admitted native reader finishes naturally in 12.425566 seconds,
+with 312950784 bytes of sampled peak memory. The original guard is positive;
+driver and native child exit with code 0, both process groups and the owned
+port are absent afterward. All seven protected files pass complete post-read
+hash and current identity checks. The original five containers, owners,
+mounts, listeners, socket and image identities match before and after.
+
+Root independently audits all 1296 rows and the 26 selected literal map
+chains. All 26 return complete RSW, GAT and GND core files: 78 dependency
+edges share 70 distinct map bodies. Together with the alias file, 71 asset
+requests and one health request retain 137902535 bytes. All 72 bodies have
+complete matching lengths, status and full hashes. The exact private artifact
+set has 76 files. Root checks raw RSW names, versions and all paired terrain
+dimensions; no constructor or renderer execution is inferred.
+
+The current alias body differs from the prior frozen alias hash. The reader
+correctly withholds that prior proof and reports literal-name diagnostics
+only. New alias qualification, full geometry, normal travel and gameplay
+remain open. All 82 functional gaps remain open; no parent-check credit.
+Complete Root audit: 111 passing checks, 103 full pins, errors empty;
+119327 bytes, SHA256
+4e04f89b6ef52465edefd50182078d64693e47f071d70ad42f86b1e48dd845ab.
+The native call is consumed and will not be replayed.
+
+## Fresh Mu19 projection passes and runtime source refresh is ready
+
+After 5bb88c8, Root binds the existing child flag first and then the four
+caller headers. Both complete inverses restore the qualified unbound
+sources. The unchanged projector runs exactly once under the original
+10-second, 512 MiB, no-native guard: natural exit 0, positive guard,
+0.190475 seconds and 22446080 bytes of sampled memory.
+
+Root independently verifies all 33 leaves, all 19 roles, the exact Engine
+contract, inter1538 bytes, the fresh fixture identity and prior identity
+exclusions. The audit passes 112 checks and 85 full pins, with no errors:
+78691 bytes, SHA256
+20a0376918db4e76acb09fa934ea5208f8607c2f3a3dda7772ce06d88c771fbc.
+Current confirmation rechecks all pins, outputs and process retirement:
+41686 bytes, SHA256
+38d513187d1a00cd5f193b65640f524903a66a95283322a1df243ce981da19f3.
+This grants no rendering, gameplay or save credit.
+
+Three runtime sources are staged: corrected driver 68852 bytes/
+53e03a62337800eddebfef965689e471e9db6ee493e5c4e98348b80380c585cd;
+UI 50094 bytes/
+cd164a975d39c1b0b9742fed075edc7e86089d382b1ff8bf273ad4963c2f21db;
+Engine 35587 bytes/
+e9d5b70659da8b53bf8c851c75e936e21253e4da70a4e425a0204404ee8f294d.
+The driver's sole staged admission line does not admit a game actor.
+
+Root verifies the existing finite runtime reuse map and freezes a 33-copy,
+source-only Grok packet. Manifest: 36868 bytes, SHA256
+61aed87e4c33078307b12358ac2cd437b7ddd012318ea279aec373ca5bf4e6b8.
+Qualification: 13709 bytes, SHA256
+ad034536c6ae20213dffceb09e585d9a06c8e21a26736d6c12f95b82d61d86e9.
+After this checkpoint, start one independent Grok task to refresh only the
+two unbound runtime JSON templates and exhaustive typed binding slots.
+Replace the allowlist at exactly three existing positions; retain P251,
+UI119 and ordered entry identities. No six resource entries are appended.
+Fresh world, lease, ports, output paths and final admission remain Root
+bindings. No browser, backend or game actor is admitted here.

@@ -13,27 +13,27 @@ dictionary abort/load405/map-connection settlement stop later cases. Root's
 complete failure/preservation audit passes; no B200assignment/reconnection or
 parent-check credit. 4/14 is a check count, not measured full-content coverage.
 
-**Parallel work:** [Owned Mu scene FAILED; complete Root failure audit passes;
-two independent finite Grok repairs ready](reviews/2026-10-24-functional-priority.md#owned-mu-scene-failed-source-repair-scopes-independently-verified).
-One actualG24.819s/about2.82GiB sampled: partial rendering/105exact bodies,
-but6unpinned startup resources and numeric evidence fail. Root verifies
-825checks/754pins/all245Engine wires/current cleanup/original preservation.
-BrowserACK/natural0, SQL/native afterfailure passes, owned resources absent,
-dedicated volume retained. No replay/PASS/game credit. Astra diagnosis next.
-[Ten existing controls pass in parallel; two next source packets ready](reviews/2026-10-24-functional-priority.md#verified-parallel-controls-and-two-next-grok-source-packets).
-B4data PASS321checks/306pins/71outputs. Fresh Mu19 sources qualify:
-one existing pure projection admitted after child/caller bindings/full33
-audit. [One fixed26-map current-five reader call admitted](reviews/2026-10-24-T07-mu-data-stage.md#one-fixed-current-five-native-reader-call-is-admitted):
-originalG1300/4GiB/native, full7current input pins/world checks; whole native/
-artifact/retirement audit required. No browser/game actor admitted.
-Next actual Grok work: unbound B4 C/Engine templates and sole full839
-qualified entry, independent source-only scopes/frozen29-copy packets.
-Six earlier Grok source tasks settled/released/archive; fleet274records/
-268released/six retained/zero reclaimable before new starts.
-UI/driver/111allowlist qualify; numeric cause still unknown.
-No full839 export, renderer, backend/auth/quest/save acceptance yet.
-Combined-nine finite PASS63checks/44pins/all4expected files; full839 open.
-No parent/gap/game credit;4/14/about29%, all82gaps and full goal unchanged.
+**Parallel work:** [Current native map evidence and fresh Mu19 pass](reviews/2026-10-24-functional-priority.md#native-map-evidence-and-fresh-mu19-pass-while-two-grok-tasks-run).
+The single current-five reader call passes Root's complete 111-check,
+103-pin audit: all 26 selected literal RSW/GAT/GND chains are available.
+This includes Chapter 1 core map files. The changed alias body withholds
+old alias proof; rendering, normal travel and story remain open.
+Fresh Mu19 passes 112 checks, 85 pins and all 33 leaves; current confirmation
+also passes. A 33-copy source packet is ready for Grok to refresh its two
+unbound runtime templates after this checkpoint.
+
+Two actual Grok workers are live: B4 quest runtime templates and the sole
+qualified full839 entry source. Both own independent source-only scopes.
+B4 data already pass 321 checks/306 pins/71 outputs; ten finite controls
+pass two parallel guards. No full839 publication or new game actor yet.
+
+**Current blocker:** the prior Mu scene's genuine numeric-data failure is
+not resolved. All six startup bodies now match independent archive decodes
+and the 111-body allowlist qualifies. Corrected UI captures map evidence
+before fatal assertions for the next fresh scene. The prior scene remains
+failed; Root's full 825-check failure/preservation audit passes. Missing
+authentic Chapter 1 scripts remain the largest content risk. No goal
+change or user decision is required. All 82 functional gaps remain open.
 
 [All six actual MuC focused calls pass complete Root223pin verification](reviews/2026-10-24-T07-mu-data-stage.md#actual-six-muc-focused-calls-pass-complete-root-audit).
 Three source fixes qualify; no fresh map actor/render result yet. MU1 exact105body private

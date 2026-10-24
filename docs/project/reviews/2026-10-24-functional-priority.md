@@ -1646,3 +1646,30 @@ literal nextAction none; no speculative kill/retry. Fleet9551/
 ac0f39cd3c1c9aaf8531f699bbd00a81edf24a7e62a7d712e2f93578d14caf6e.
 Start the two qualified independent source packets after this checkpoint.
 No full839 publication or B4/Mu game actor is admitted;4/14/all82 unchanged.
+
+## Native map evidence and fresh Mu19 pass while two Grok tasks run
+
+[The current-five native acquisition passes all 111 Root checks](2026-10-24-T07-mu-data-stage.md#current-five-native-acquisition-passes-the-complete-root-audit).
+All 26 selected literal map core chains are present, including Chapter 1.
+The changed alias hash correctly withholds old proof. Rendering, story,
+normal entry and all 82 functional gaps remain open.
+
+[Fresh Mu19 projection and current confirmation pass](2026-10-24-T07-mu-data-stage.md#fresh-mu19-projection-passes-and-runtime-source-refresh-is-ready):
+112 checks, 85 full pins and 33 leaves. The new runtime source stage and
+33-copy finite template-refresh packet are ready for an independent Grok
+task after this checkpoint. Runtime templates remain unbound.
+
+Two actual Grok dispatches started from checkpoint 5bb88c8, each with its
+own frozen 29-copy source packet and exclusive output directory:
+B4 runtime templates task21d071257e78/ctxcf2736f69e31, and full839 qualified
+entry task4b35dffc5c71/ctx3200d7b92b7d. Current Orca observations show both
+live, in progress, with no attention request or error. Neither has submitted
+a result. No actor is admitted and no full839 publication has run.
+
+The remaining immediate blocker is the genuine numeric-data failure in the
+rendered Mu scene. All six previously unpinned startup resources now have
+independent body authority; this does not resolve the numeric failure.
+The corrected UI retains map evidence before fatal assertions for the next
+fresh admitted scene. Authentic missing Chapter 1 scripts remain the
+largest content risk. No goal change or user decision is required now.
+Parent progress remains 4/14, about 29 percent, not content coverage.
