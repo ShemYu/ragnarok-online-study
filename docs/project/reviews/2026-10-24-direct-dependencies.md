@@ -4183,3 +4183,54 @@ Private t07-014-021-preparation-root-1/ pins:
 | CALLER_QUALIFICATION_V3_ROOT.json |441|5863aa438e19ded0f9bcbb3f8db4c4bb3e421b723d9f6a648b6da66b31203b4b|
 | CALLER_PUBLICATION_FINAL_ROOT.json |580|15307c9464fcea7406fbb2a0e3bf65811e41107167da13f831027b54253880b3|
 | CALLER_PUBLICATION_HELPER_RED_ROOT.json |195|4b2335ebb4d6f6ebc2702144430b9c34a771930a53ee499708b01e57062ef84b|
+
+
+## Actual25retained TGA decoder and complete independent comparison pass
+
+The ONE call admitted at0b9eecb is consumed successfully. Integrated observer
+3e1c4be returns all25rows, natural0/no stderr. Node outer elapsed0.184042s,
+terminal command140.292708ms; enclosing caller process0.272570s. Measured V8
+heap134217728B and observed child peak RSS119619584B (114.078125MiB) stay within
+their respective meanings: heap is the enforced limit; RSS is an observation,
+not a hard cap. Maximum observed per-row decode4.523292ms. No timeout/retry,
+request replay, reference rerun, Worker/canvas/GPU, browser or game action.
+
+Root personally reads/audits the saved result against the already committed
+independent Python oracle. Every25query/wire/encoded pin, dimension/depth/origin/
+alpha, complete RGBA length and full-output SHA agrees. Totals17695820encodedB/
+17842176RGBA B. All25reported input/realm retirement facts, finite timings,
+profile/source whole C8/SHA, complete copied spans/scaffold, actual heap and
+terminal deadline pass. No observer-learned hash becomes the independent oracle.
+
+Complete Root574checks/35fresh full pins/31086973B pass, including all30inputs
+and all five capture files. Exact owned output leaves,0700directories,0600files,
+FD/literal/ancestor checks, both linked result names/same inode and the explicit
+two-link transition pass. All30start/PRE/POST authorities stay equal. The first
+saved-result audit covered34pins/569checks; Root adds the start-capture full pin
+and reaudits saved files only, never reexecutes the decoder. Both audit receipts
+are retained; the35pin audit is authoritative.
+
+.021 is **ready_for_user for pure retained TGA output only**, not accepted by the
+user and not a Worker/routing/canvas/upload/render or all-content proof. The
+actual call/prefix is consumed; reuse the retained result, do not replay it.
+Raw model scores remain15/20versus11/20; Root correction and caller faults are
+separate rework, not added to either model's original score. The exact source,
+qualification/admission/result checkpoints are version controlled.
+
+Private output: t07-014-021-decode-root-1/
+run-2026-10-24T200958525Z-52280-135c194f/result.json:33915B/SHA
+19c487670a64ba016d1e27fa5718952eae50497c7fdbdd02c290c59fbd764f66.
+CALL_ROOT.json:1576B/SHAa4fadeaab5aa64998cb497bf96ea4407922fdeef265a4928cc9fad7c777ac6dc.
+Private t07-014-021-preparation-root-1/:
+
+| File | Bytes | SHA256 |
+|---|---:|---|
+| ACTUAL_DECODE_CALL_ROOT.json |240|476ed4aa325fe0202cc9c2466213f0189247bf8ec9be1f4d270bfe66bd826339|
+| AUDIT_ACTUAL_DECODE_V2_ROOT.py |9838|9cfc3cdc40216100c31477df0f3a9b09c9401127f0065552a17decde903ecc58|
+| ACTUAL_DECODE_AUDIT_V2_ROOT.json |869|95db26edcd4a6708f84e4edebac41500245d002f380feb1b99967db8ee350425|
+| ACTUAL_DECODE_AUDIT_PINS_V2_ROOT.json |16974|d87fb102378d45dcb67b35a823e8a615e070e6eec09d9c7aa19fc586167fd760|
+
+Next Root freezes the distinct one-model/one-map-placement CPU compile purpose
+and its independent geometry checks. No constructor replay, parser patch, model
+compile or browser image action is admitted by this TGA result. All82functional
+gaps remain open; parent4/14/about29% and full Modern/Renewal goal unchanged.

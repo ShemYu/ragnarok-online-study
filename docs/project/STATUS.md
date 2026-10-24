@@ -10,21 +10,19 @@ open. Full Modern/Renewal scope is unchanged; no new user decision is required.
 The board includes later-phase party taskT11, so this is not a percentage of
 first-milestone content or remaining effort. Do not relabel it as such.
 
-**Latest:** [.020corrected authored decoder is Root-qualified](reviews/2026-10-24-direct-dependencies.md#root-corrected-authored-decoder-harness-and-complete-capture-audit-pass):
-20tests/515independent controls/675saved-capture audit checks pass all32tiny
-cases and repaired harness faults. Both originals are preserved/released, raw
-Claude15/20/Grok14/20; Root correction credited separately. Copied decoder on retained real images
-remains unverified. [.021both originals now pass Root comparison with holds](reviews/2026-10-24-direct-dependencies.md#grok-retained-observer-is-preserved-and-both-originals-are-personally-compared):
-Claude18tests/114controls, Grok10tests/592controls, raw15/20versus11/20.
-Both preserved/released; [Root repair now integrates with22tests/113independent
-controls and a red-to-green directory regression](reviews/2026-10-24-direct-dependencies.md#root-retained-observer-correction-passes-and-integrates).
-[Root159caller controls/30full input pins now pass; ONE actual25decoder call
-is admitted](reviews/2026-10-24-direct-dependencies.md#retained25decoder-caller-qualifies-and-one-actual-call-is-admitted).
-Next execute once, then compare every full output hash to the retained Python
-oracle; no actual copied-decoder execution yet. [.021paired observer source wave](reviews/2026-10-24-direct-dependencies.md#independent-retained-decoder-observer-source-pair-starts)
-and [Root completes its independent25file raw reference and397check audit](reviews/2026-10-24-direct-dependencies.md#actual25independent-reference-and-complete-retained-audit-pass). No body requests repeat.
-.017all948delivery and corrected .019conditional Worker facts remain qualified
-in their bounded scopes. Geometry/render and all82functional gaps remain open.
+**Latest:** [.021all25retained TGA decoder outputs now match the independent
+reference](reviews/2026-10-24-direct-dependencies.md#actual25retained-tga-decoder-and-complete-independent-comparison-pass).
+ONE actual call, natural0/no stderr, Node0.184042s; Root574checks/35full pins
+pass. Observed peak RSS114.078125MiB; effective V8 heap128MiB. The call is
+consumed; reuse its saved results. Source/caller qualification, admission and
+result checkpoints are committed. Both original workers are preserved/released;
+raw Claude15/20/Grok11/20, Root repairs credited separately.
+.021is ready_for_user only for pure retained TGA output, not user acceptance.
+[.020all32tiny authored outcomes](reviews/2026-10-24-direct-dependencies.md#root-corrected-authored-decoder-harness-and-complete-capture-audit-pass),
+.017all948deliveries and corrected .019conditional Worker source facts remain
+qualified in their bounded scopes. Next Root prepares the distinct exact-placement
+model geometry task and independent checks, then browser/render qualification.
+No new execution is admitted by this result; all82functional gaps remain open.
 
 **Child cleanup:** [Root verifies removal of20completed children](reviews/2026-10-24-orca-children-cleanup.md#second-twelve-removals-personally-verified).
 Current84direct children include the two released review children and the two
