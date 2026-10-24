@@ -62,3 +62,21 @@ It binds13,095,722expected row bytes/SHA256
 All839source indices and terminal source spans match. Both joins remain
 independent, every unjoined event is retained. This is the comparison oracle,
 not a candidate acceptance or replacement for the actual CLI/code checks.
+
+## Shared authored controls prepared before candidate review
+
+An auxiliary source reviewer prepares a private core-only checker. Root reads
+the whole source and actual ten-event authored fixture, confirms its single
+source/terminal202 arrangement, and corrects standard module registration for
+legitimate decorated-module imports. Root verifies the one-line inverse to the
+original checker, full current hash, syntax without execution and private modes.
+
+`.tools/renewal/t06-full839-common-controls-root-1/common_controls.py` is13344B/
+SHA256d99684b07df079f80506990f67e79126a25ff5d1d522b910b59b87cce1d79eec.
+Five groups cover whole typed authored rows at source838, source/type/order/
+suffix boundaries, exact limit accounting, independent map/history joins and
+copying, full event defaults and pilot isolation. It imports a Root-supplied
+candidate only when subsequently executed. No candidate has been read/imported
+or run by this checker. Production admission/publication and transient global
+monkeypatching still require Root code/CLI review; these controls do not claim
+to cover them. No project production source is changed by checker preparation.
