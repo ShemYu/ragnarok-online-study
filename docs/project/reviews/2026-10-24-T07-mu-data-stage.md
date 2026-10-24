@@ -1391,3 +1391,49 @@ absolute-argv outer/parent call: G390s/4GiB/grace3/native/1MiB. Corrected UI
 publishes MAP_EVIDENCE before fatal assertions; numeric validity stays strict.
 This is one synthetic map diagnosis, with no normal-game/Chinese/story/
 save acceptance. Old Mu and B4 attempts/volumes are not replayed.
+
+## Fresh Mu scene captures one animated first-frame numeric fault
+
+After0bb5937, Root verifies fresh read-only original-world/images/socket
+evidence, binds exactly three binder headers and checks the whole inverse.
+Pure final binding passes:198332/
+4444cc7563ec1c08ead40759fa11c7c94f67e5695b4368886d27bf44a403a290.
+All five archives are full-byte rechecked separately, current selected
+sources/browser links remain exact, four ports are held together then
+released, config215220 and final outer closure406 remain in bounds.
+
+One original outer/parent scene call consumes the fresh namespace. Guard
+G390s/4GiB/grace3/native/1MiB runs27.041398s, sampled3144892416B,
+natural driver1, no signals, both owned groups empty. Original failure is
+finite_uploads; do not replay this namespace or promote the run to passed.
+The caller source is saved before invocation,2116/
+4cbaef7f9ee5e60eca66ed1ac3ba4ffcd1de645c44b8121c5a2635f5b4b6cafc.
+
+Corrected UI now publishes the complete MAP_EVIDENCE before the fatal check:
+1455979/38b808caa6d1c52f8c2013e3ec466e9e615cc73098912a7756d4ac2df0f3b0c4.
+All111 required transfers join the exact111-body/27535025-byte contract,
+zero unknown/unjoined transfers. All1285 placements load with zero null
+models. Three retained frames advance; textures are ready, GL errors0 and
+no context loss. There is no screenshot or successful complete scene.
+
+Of33 array hashes,29 are Float32 and four are explicitly integer arrays.
+Exactly one floating record is nonfinite: first-frame animated
+graywolf/light_s_03.rsm2,5184B/1296words,432 finite/864NaN/no infinities.
+The same model is finite in both later frames. Root keeps the numeric gate
+strict and asks Astra to trace the actual transform/attribute path; this
+observation alone does not prove the repair or permit skipping frame one.
+
+Complete Root failure/preservation audit passes776checks/771fullpins,
+all252 Engine HTTP response wires/618075B, both scoped SQL snapshots,
+all retained PID/current group absence and six current read-only Engine
+checks. Four owned containers and their network are absent; dedicated SQL
+volume is retained. All original five containers/owners/listeners/mounts
+and socket/images remain unchanged. Audit423869/
+229fe43c89a4b5590d67ce9a8354212f4db3a3179f13dd811924110dd9c81587.
+The initial read-only audit assumed every hash had numericScan and stopped
+at an integer array; Root corrects that type distinction without actor
+replay. The original scene remains failed. All82 functional gaps stay open.
+
+Current map-step estimate is about70 percent: dependencies/body joins and
+failure capture are verified; numeric source repair and a positive fresh
+retest remain. This is an estimate of that step, not full-content coverage.

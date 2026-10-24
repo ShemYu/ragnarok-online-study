@@ -58,8 +58,9 @@ B4 actual quest trial FAILED: A199 refusal shown; logout selector fails.
 Root688 failure/preservation checks PASS; later cases remain open.
 Grok:driver + logout UI source PASS/released; dictionary unknown/released.
 Full839 data:Root4225checks/910pins PASS; entryFD check FAILED.
-Next Grok:finite FD observation fix (independent source packet ready).
-Fresh Mu templates:Root609checks PASS -> finite bindings -> one fresh scene.
+Grok live:finite FD observation fix + combined B4 source observations.
+Fresh Mu:one scene FAILED -> first-frame light_s_03 NaNs localized.
+Root776failure checks PASS;111body joins/1285placements load; source repair next.
 Current-five reader:actual PASS111 checks/103 pins;26 literal core chains.
 Changed alias proof withheld; normal render/travel/story remain open.
 Mu oneactualscene FAILED;105bodies+partialdraw;Root825failurechecks PASS.

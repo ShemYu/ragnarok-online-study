@@ -33,15 +33,16 @@ all839 current selected bodies/723206 physical rows/35735 events/four files.
 The entry still fails its FD selfcheck; no runtime or entry acceptance.
 A qualified finite FD source packet is ready for Grok after checkpoint.
 [Fresh Mu templates pass whole609-check Root qualification](reviews/2026-10-24-T07-mu-data-stage.md#fresh-mu-runtime-whole-projection-and-binding-reuse-qualify).
-The next synthetic scene diagnosis requires fresh authority bindings and the
-finite binder source review, now independently confirmed by Root.
-B4 driver and logout UI repair sources qualify; dictionary cause stays unknown.
-All three authors are released. One UI delivery was acknowledged before its
-corrected metadata verification/release; the ordering exception is recorded.
-Next independent work is the finite FD repair and combined B4 source update.
+[One fresh Mu scene now captures its first-frame fault](reviews/2026-10-24-T07-mu-data-stage.md#fresh-mu-scene-captures-one-animated-first-frame-numeric-fault):
+all111 body joins/1285 placements load; one animated model has864NaNs
+only in its first retained frame. Complete Root776checks/771pins/all252
+Engine wires pass failure/preservation audit; the scene remains failed.
+Two actual Grok source tasks run independently: finite FD repair and
+combined B4 repairs/dictionary observations. Astra traces the numeric cause.
+Current map-step estimate70%; overall4/14/about29% checks unchanged.
 
-**Current blocker:** the prior Mu scene's genuine numeric-data failure is
-not resolved. All six startup bodies now match independent archive decodes
+**Current blocker:** the animated first-frame numeric-data failure is
+localized but not resolved. All six startup bodies now match independent archive decodes
 and the 111-body allowlist qualifies. Corrected UI captures map evidence
 before fatal assertions for the next fresh scene. The prior scene remains
 failed; Root's full 825-check failure/preservation audit passes. Missing

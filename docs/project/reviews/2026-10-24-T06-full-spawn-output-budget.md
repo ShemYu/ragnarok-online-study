@@ -681,3 +681,11 @@ Twelve-copy packet14166/
 a2b6f143ccea57d41ffdcf83b5196a5f7e0fbc74fe72423d356141dfc5707b7d,
 brief2689/e1dabbe44d7d554dda2b2f460416159f8b48cda6448ac68ac7bba3dc1155dfd8.
 No new control family, native call or publication is admitted now.
+
+## Full839 finite FD repair is actual Grok work
+
+After0bb5937, all12 frozen copies are rechecked and Grok starts
+taskbcd8a3a3d3b3/ctx9551df1232d5. Start2307/
+7dfff2422db5b08c7a37e2405776f919cc14d1ff3221e789551ca0571aee4758.
+Only finite source output is authorized. Original published data and
+failed root1 guard remain unchanged; no new publication is run.

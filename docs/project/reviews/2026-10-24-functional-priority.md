@@ -1755,3 +1755,19 @@ and evidence-limited dictionary hypothesis are explicitly recorded in the
 After checkpoint add the qualified independent FD source task. No old
 attempt is replayed. Parent4/14/about29%,82functional gaps and full scope
 remain unchanged; no new user decision or goal change is required.
+
+## Fresh scene narrows numeric failure while two Grok repairs run
+
+[The new one-shot Mu scene captures its first-frame fault](2026-10-24-T07-mu-data-stage.md#fresh-mu-scene-captures-one-animated-first-frame-numeric-fault).
+Root776checks/771pins/all252 Engine wires pass failure/preservation audit.
+All111 body joins/1285 placements load; one animated model has864NaNs
+only in the first retained frame. Source cause/repair is under Astra review;
+the original failed scene is not replayed and its numeric gate stays strict.
+Current map-step estimate70 percent; parent4/14/about29% remains a count
+of major checks, not modern-game content coverage.
+
+Two independent actual Grok source tasks now run:
+[finite FD identity repair](2026-10-24-T06-full-spawn-output-budget.md#full839-finite-fd-repair-is-actual-grok-work)
+and [combined B4 source observations](2026-10-23-T10.007.md#combined-b4-source-observations-start-independently).
+Fleet has2active/274released/6retained/zero reclaimable. No new goal-changing
+blocker or user decision is required; all82 functional gaps remain open.
