@@ -391,3 +391,9 @@ Three independent Grok source tasks are active; no data or game actor.
 The next Mu19/runtime reuse plan is independently reviewed without new
 actor authority. Root freezes20 header and4 FD-formatting cases before
 acceptance; three source workers remain live. No new data or scene result.
+
+
+B4 header correction now passes Root whole-source qualification9679/
+2a765bb9d5ecdc99a2c1848f8eba8d93c8c621c792c9941eb51fb57863593474;
+20frozen helper cases remain next. Its author is released/archived beforeACK.
+Caller rename and FD formatter remain live. No data/scene/parent credit.

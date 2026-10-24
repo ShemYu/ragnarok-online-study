@@ -1660,3 +1660,9 @@ identity slots,eight existing Web descriptors and one remote Web-root string.
 Retain513typed slots/P251/UI119/17C-null/12E-null/three false flags/111allowlist.
 New aggregate P/UI bytes346000354/27379636 are old values plus276. No future
 identity,source pin or actor authority is invented; actual audit remains required.
+
+
+B4 header correction now passes Root whole-source qualification9679/
+2a765bb9d5ecdc99a2c1848f8eba8d93c8c621c792c9941eb51fb57863593474;
+20frozen helper cases remain next. Its author is released/archived beforeACK.
+Caller rename and FD formatter remain live. No data/scene/parent credit.

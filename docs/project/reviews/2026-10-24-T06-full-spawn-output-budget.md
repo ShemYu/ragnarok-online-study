@@ -779,3 +779,9 @@ cabc9e8afbe7a0d68d9460ac4c49b651d018ab8fc1c7938733ac2c20f26f2480.
 Every result must remain a failure,whole JSON/newline within1024bytes; retain
 all known FD evidence,sticky FD and full error count/canonical sequence SHA
 when detail truncates. No formatter or publication candidate is executed yet.
+
+
+B4 header correction now passes Root whole-source qualification9679/
+2a765bb9d5ecdc99a2c1848f8eba8d93c8c621c792c9941eb51fb57863593474;
+20frozen helper cases remain next. Its author is released/archived beforeACK.
+Caller rename and FD formatter remain live. No data/scene/parent credit.
