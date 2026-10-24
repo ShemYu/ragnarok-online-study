@@ -1179,3 +1179,55 @@ Next collect both complete sources/tests, personally qualify focused controls,
 preserve/release settlements and select one source before separate Root pilot
 admission. Worker development remains source/synthetic-only; no real prefix/
 body execution, network/browser/game/save action or coverage credit is granted.
+
+## First story-edge retained destinations and cells qualify
+
+While the independent host implementations run, Astra narrows the first-edge
+map binding from existing source/metadata. Root personally reads the primary
+alias parser/forwarding/MapLoader clauses, fully checks both retained alias
+tables, previous ordered proof, native report/complete audit, donor, parser
+sources and all six destination bodies with original eight-field identities.
+The complete Root receipt passes315checks/18full pins; no endpoint is replayed.
+
+The newer135411B alias response has SHA256
+e8302c639da3a6056285529efc0cac098127c9f763a5fa7f9e23351a17d0b070.
+It differs globally from the old frozen table. Neither full table contains the
+ASCII ygg_edge/ygg_fruit names. The qualified decoder/comment/group/trim/ordered
+assignment rules cannot synthesize these six missing literal keys. This
+narrows only ygg_edge/ygg_fruit with .rsw/.gat/.gnd suffixes; it does not qualify
+global changed-table parity or the current ordinary game's effective table.
+New ch1_dw/1@ch1b-to1@ch1a declarations are unrelated; no ygg-toch1rename is
+supported or needed. Keep the original native reader's global warning intact.
+
+Retained native root1268/1269records and request62–67join literal200complete
+bodies, with RSW2.7same-name embedded GAT/GND, GAT1.3andGND1.9. Root rehashes
+every complete body against the earlier independently qualified native audit:
+
+| Resource | Bytes | SHA256 |
+|---|---:|---|
+| ygg_edge.rsw |417025|b72cd96943ec3c5e989f7eb2dcb9b9b04692d8ec16388c39a67d289195dec17c|
+| ygg_edge.gat |1800014|dbd16863a355ff86e2b90b29bae1c7dcfda63a0d0188f5a5f0e22b93a740a89d|
+| ygg_edge.gnd |630102|169e7efa2c86a5b5c1dda50924d2c81d4cd5656f9d29c995ede849bfea28ac21|
+| ygg_fruit.rsw |206828|29575dd4ca0d03dc35e4a230bea3cefd8283c37206fa31d5caa865acf240d572|
+| ygg_fruit.gat |1152014|b2ea2dd3cebefe1dca4b5e3efb07d949a6eb9f18b5e81dcc6bffe8eff0f89d0f|
+| ygg_fruit.gnd |1225734|a85514b89f5b8710d72beb48ad919fdc8da154ce37b7c5dcd391a57904a3f53e|
+
+Root checks the primary compiled GAT16801–16885mapping/layout and directly
+reads the fixed cells from the retained bodies; no acquired constructor or
+second generic parser is executed. ygg_edge300x300contains first landing255,240,
+revisits212,95/194,97, Messenger253,246, portal164,140 and return168,139.
+ygg_fruit240x240contains landing/arrival73,117, next NPC80,122 and return
+portal71,114. All nine are within bounds, have finite four-corner heights and
+raw type0 (the fixed client mapping includes WALKABLE). This proves sampled
+client-body flags only, not server walkability, connected routes or interactions.
+
+Private `.tools/renewal/t10-first-edge-map-binding-root-1/BINDING_ROOT.json`
+is72362B/SHA2560c3e30a493a8c9bb8bcac5087797679149dcddbe9ead75acf89bedd0c811d133.
+It binds source pins, exact six resources, two map records and all nine raw cell
+observations. The smallest later integration uses these unchanged literal
+paths/donor cells, preserving the existing guarded quest semantics. Current
+ordinary alias/resource selection, server/client route coherence, genuine
+compiled/dependency/render results and persistent transition remain open.
+These two maps are outside the frozen21-map host corpus; do not silently add
+them to that active task or claim it will verify them. No new actor, installed
+script, alias, archive, SQL/save/config/network change or82gap closure occurs.

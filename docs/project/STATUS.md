@@ -38,8 +38,11 @@ no game restart, network cut or alternative browser-control bypass is admitted.
 
 [Primary source defines the first story transition](reviews/2026-10-24-remaining-map-bodies.md#primary-donor-source-defines-the-first-chapter1-progression-edge)
 as donor behavior. Map/alias/route binding and guarded persistent integration
-remain; existing T10.007 cancel/idempotence contracts stay. No new actor or F1
-retry is admitted. No goal-changing blocker or new user decision is identified.
+remain; [six retained destination bindings and nine client cells now qualify](reviews/2026-10-24-remaining-map-bodies.md#first-story-edge-retained-destinations-and-cells-qualify).
+ygg_edge/ygg_fruit use their own literal resources, not ch1 substitutions.
+Current ordinary selection/server traversal/persistence remain unverified;
+existing T10.007 cancel/idempotence contracts stay. No new actor or F1 retry is
+admitted. No goal-changing blocker or new user decision is identified.
 
 **Latest playable-integration result:** [Settled re-entry and bounded normal integration pass](reviews/2026-10-24-normal-integration.md#settled-re-entry-and-bounded-normal-integration-pass).
 **T07.007.012.009 is5/5checks,100% of that bounded integration task** and

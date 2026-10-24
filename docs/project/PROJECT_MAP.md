@@ -71,7 +71,7 @@ Other active work:
   Normal terrain delivery      [DONE:34responses/files; Root full audit PASS]
   Remaining compiled core      [ACTIVE:Claude/Grok host pair; inputs VERIFIED]
   Claude/Grok FD plan pair      [BOTH VERIFIED + RELEASED; control PASS]
-  Chapter 1 first transition   [SOURCE FOUND: donor edge; route/integration OPEN]
+  Chapter 1 first transition   [SOURCE +6retained assets/9cells VERIFIED; play OPEN]
   Full Chapter 1 story         [OPEN: largest content risk]
   All 82 functional gaps       [OPEN]
   Full Traditional Chinese     [LATER: existing overlays stay enabled]
