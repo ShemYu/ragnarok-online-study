@@ -64,7 +64,13 @@ released; [source qualifies unchanged](reviews/2026-10-24-direct-dependencies.md
 Both .016originals are preserved/released: Claude9b3a119 and Grok345d328.
 [Root reruns all13Claude tests/fresh build and reproduces four fault groups](reviews/2026-10-24-direct-dependencies.md#claude-fixture-tests-pass-but-root-controls-hold-execution);
 original is held. A [finite five-issue correction](tasks/T07.007.014.016.001.md)
-is frozen separately; Grok full Root source/test review proceeds independently. Root's independent
+is now live separately as task_6e34135c3abd/ctx_fbb5361b97ba in the reused
+Claude checkout on its own correction branch; no setup/new child. The fresh
+terminal term_3db82762-fd56-40ba-af82-3c091cfb4a8a has observed turn start;
+configured model/effort remain unknown (receipt fields null). Grok full Root
+[complete source/test review now passes12author tests but seven Root fault groups hold the original](reviews/2026-10-24-direct-dependencies.md#both-fixture-originals-are-personally-checked-and-held).
+Raw comparison Claude12/20/Grok10/20, neither execution-qualified. Claude is the
+finite correction basis; separate rework remains unqualified. Root's independent
 oracle source/current65metadata file checks pass; [finite multi-map audit projection
 passes Root's positive/eight negative controls](reviews/2026-10-24-direct-dependencies.md#finite-launch-audit-derivatives-and-multi-map-controls-qualify).
 [Concrete bindings for ONE independent oracle are verified/admitted](reviews/2026-10-24-direct-dependencies.md#one-actual-nested-oracle-is-admitted).

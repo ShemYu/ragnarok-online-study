@@ -2526,3 +2526,81 @@ authorization. Worker reports12Node tests; full Root source/test verification
 remains. Settled terminal is released/transcript captured before ACKdelivery
 093b8da5c290. Fresh reclaimable list is empty:315released/ten retained. No idle
 worker is kept for later review. No game/Chrome/internet/settings changes.
+
+
+## Separate five-issue fixture correction starts
+
+After frozen checkpoint25e49b5, Root verifies the released Claude checkout is
+clean at9b3a119 and creates separate branch
+ShemYu/t07-014-016-claude-correction-a1 without changing originals or evidence.
+Orca reuses that exact registered checkout; no new child/setup. New
+task_6e34135c3abd/ctx_fbb5361b97ba owns the four-file correction; fresh
+term_3db82762-fd56-40ba-af82-3c091cfb4a8a input is accepted and turn start
+observed, no residual launch resources. Configured default Claude is requested;
+requested/effective model and effort are null, so actual model is unknown.
+Root concurrently reads/reproduces the preserved Grok original; no sibling
+output is given to the correction worker. No actual browser/image/game call.
+
+
+## Both fixture originals are personally checked and held
+
+Root reads the complete Grok report,525line builder,1499line driver and489line
+tests. In a fresh Root copy all12unchanged author tests pass/zero skips/empty
+stderr in0.651399s. TMPDIR is confined to the private review namespace and all
+author temp directories are removed. An explicitly authored exists-only .git
+boundary marker models the builder's checkout path policy; no Git process reads
+it and no real worktree is inferred. Fresh built consumer44442B/SHA
+4fb539f26901674cfac4692ce93632b8c6e73e3c9ad52ea5badbdd6189cdc432
+and10499B manifest/ad6692a5d72b25ccdc1690b2ec717862702026e311a99ed5552b0aa09d1fea09
+match the candidate. Root independently checks every contiguous assembled span,
+all eight exact acquired-source slices and both full PRE/POST saved input hashes.
+No acquired definition, browser, native image or GPU is executed.
+
+Root's separate authored controls reproduce seven Grok holds:
+
+- Unmodified factory has no lexical root binding. runControl rejects with
+  ReferenceError before its try/catch even when the normal global consumer
+  exists. The outer wrapper parameter is not captured by the factory argument.
+- Authored readPixels errors leave zero buffers. Diagnostic errors and a false
+  FBO observation do not prevent uploadSuccess or null-ground expected PASS.
+- An actually thrown forwarded completion exception is retained in session,
+  then omitted from the observation/judgment; a valid-looking record still PASS.
+- Worker URL control PASS requires only distinct URL and false installed-broker
+  claim: unknown decode/zero callbacks/zero uploads still PASS.
+- Injected-error classifier PASS accepts uploadSuccess=true and no upload
+  errors when supplied a checker boolean. Source creates that boolean from a
+  separate asserted injectedFault, rather than feeding observed GL codes.
+- An authored restoreTex exception aborts cleanup before URL revocation and
+  Worker termination. A readPixels throw also skips immediate FBO release;
+  session tracks the FBO, but earlier cleanup failure can prevent later release.
+
+The last bullet comprises two separately reproduced fault groups. Full original
+source remains unchanged. Private export-only diagnostic projection fully
+inverts. Other source holds include observer sampling before transparent
+forwarding, missing native-load/revoke evidence, malformed gate remaining open
+after terminal timeout, judgment before cleanup and nondiscriminating NPOT
+258/256probes. Astra independently source-reviews and agrees; it neither runs
+the controls nor replaces Root's personal verification. These additional source
+holds are not mislabeled as actual browser outcomes.
+
+Private grok-root-review-1/AUTHOR_TESTS_ROOT.json2222B/SHA
+806e9ff9048516981c3ed012f5deefbc4439f7b8c5a09a5cb622f2ccb736fa48;
+ROOT_CONTROLS.mjs9735B/d1b8d278333ad147b1bf3865ea89ec4d0b4b33d35d14c26b3b6ea2b884fb7ca7;
+ROOT_CONTROLS.json4278B/9abdd32b85610fd626349801dbcd5c43a2486e13291d09fdb4fd10b8168aa143.
+
+| Original | Correctness /8 | Preservation /4 | Checks /4 | Handoff /2 | Limits /2 | Total |
+|---|---:|---:|---:|---:|---:|---:|
+| Claude9b3a119 |3|4|1|2|2|12/20|
+| Grok345d328 |3|2|1|2|2|10/20|
+
+Both builders preserve the finite acquired closure and their author tests pass,
+but both browser runners fail the core integration/evidence contract; neither
+original qualifies. Node tests cover helpers yet miss actual runner-to-judgment
+integration. Grok's explicitly recorded native/outside-prefix authoring step
+reduces preservation credit. This is one task's original-source comparison,
+not a broad model ranking or browser performance score; token/cost totals and
+actual model identities remain unknown. Claude is the finite correction basis;
+.016.001rework remains separately scored and unqualified until Root checks it.
+No source is integrated or browser fixture admitted. All315settled workers
+remain released, ten older retained; only the separately dispatched correction
+is live. No new child/setup or critical goal-changing issue.
