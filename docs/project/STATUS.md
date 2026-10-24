@@ -58,8 +58,9 @@ at its single host-listener check. Binding passes; zero quest cases complete.
 Root's1022checks/685pins/all263Engine wires and current cleanup/preservation
 audit pass, including separate ro4 before/after. No browser launches; no quest,
 SQL or logout credit. A two-second asynchronous host-forwarder loop supports
-a readiness gap; the actual race is not proved. Next compare Claude/Grok on
-one finite12s/48observation wait for the same strict listener predicate, with
+a readiness gap; the actual race is not proved. [Both actual Claude/Grok source workers are live on isolated branches](reviews/2026-10-23-T10.007.md#equal-finite-readiness-source-tasks-start-on-isolated-branches)
+from0c06238, preparing one finite12s/48observation wait for the same strict
+listener predicate. Root next compares source and focused controls, with
 bounded evidence and unchanged limits, before any further fresh actor.
 Reuse the fixed F1/B4
 sequence on a fresh disposable fixture; keep the current ro4 character intact.
