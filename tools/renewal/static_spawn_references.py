@@ -16,6 +16,13 @@ already-qualified history stream. Nothing is scanned, parsed from YAML, executed
 or decoded beyond the pinned JSON. Not native membership, effective population,
 map cells, world coverage, localisation or story/solo evidence.
 
+`--full839` (T06.002.003.005.003, profile static-spawn-declared-reference-full839-v1)
+applies the same row semantics to all 35,735 framed events of the pinned 839-source
+raw publication (physical coverage complete, lexical state qualified) with its own
+fixed pins and limits. Its 172 MB physical line stream is hashed and LF-counted per
+source range only. Lexically qualified sources stay qualified: suffix, gap and
+opaque events remain unjoined; publication completion is not full parsing.
+
 Exit 0 after a complete private publication, 2 on any failure (no usable owned
 manifest or completion record). Standard library only. Output directories are
 never overwritten. The CLI has no environment, pin, limit or config override.
@@ -108,6 +115,57 @@ LIMITS = {"completion_bytes": 65536, "events": 8192, "history_references": 20000
           "history_rows": 10000, "input_total_bytes": 67108864, "jsonl_bytes": 16777216,
           "manifest_bytes": 1048576, "map_candidates": 10000, "map_reverse_rows": 2000}
 
+# --- Full 839-source mode (T06.002.003.005.003). Separate pins/limits; the pilot
+# constants above are never modified to emulate it.
+FULL_TASK = "T06.002.003.005.003"
+FULL_PROFILE_NAME = "static-spawn-declared-reference-full839-v1"
+FULL_RAW_TASK = "T06.002.003.005"
+FULL_RAW_PROFILE = "static-spawn-full-selection-v1"
+FULL_RAW_ADMISSION = "pinned-stock-selection-839-v1"
+FULL_RAW_PRODUCER = {"bytes": 64243,
+                     "sha256": "80ad59e466b6c53aa1859be18403d094b5728e5bf2efcf71c385e9734aa20a01"}
+FULL_SOURCES = 839
+FULL_LOCKED_INDICES = [691, 772]
+FULL_RAW_COUNTS = {"certified_bytes": 984788, "framing_events": 35735, "opaque_blocks": 19,
+                   "raw_bytes": 24222094, "raw_lines": 723206, "static_declared": 3384,
+                   "static_gap": 310, "static_supported": 3074, "suffix_events": 731,
+                   "unknown_bytes": 23237306}
+FULL_RAW_LINES = RAW_LINES
+FULL_RAW_EVENTS = "static-spawn-events.jsonl"
+FULL_RAW_MANIFEST = "static-spawn-inventory-manifest.json"
+FULL_RAW_PUBLISHED = "static-spawn-inventory-published.json"
+FULL_PINS = {
+    "raw": {
+        FULL_RAW_LINES: {"bytes": 172547908,
+                         "sha256": "e4108fa16182173e515fcd07a4cf5fa296dea59584b2d17062b6cbff3ed27f61"},
+        FULL_RAW_EVENTS: {"bytes": 9748299,
+                          "sha256": "caa2b149042a0015f2238394e2e13e59bf5fc64dcff740e1c4b6c8e29ce4c024"},
+        FULL_RAW_MANIFEST: {"bytes": 1468784,
+                            "sha256": "ce7cf1d537d61fda32db5129b19764da29675ed143d616222ff6afa9f9f75627"},
+        FULL_RAW_PUBLISHED: {"bytes": 1025,
+                             "sha256": "076f10887007467485deaf5771e0442355ef6041e974eb98f54652c76e3786ad"},
+    },
+    "map": copy.deepcopy(PINS["map"]),
+    "monster": copy.deepcopy(PINS["monster"]),
+}
+FULL_LIMITS = dict(LIMITS, events=65536, input_total_bytes=256 << 20, jsonl_bytes=192 << 20,
+                   manifest_bytes=4 << 20)
+FULL_RAW_MANIFEST_KEYS = frozenset((
+    "admission", "core", "counters", "deferred_joins", "input_pins", "lexical_profile",
+    "lexical_state", "limits", "outputs", "physical_coverage", "producer", "profile", "reader",
+    "reference", "schema", "sources", "task", "unscanned", "verification"))
+FULL_RAW_MARKER_KEYS = frozenset((
+    "admission", "lexical_state", "manifest", "output_pins", "physical_coverage", "producer",
+    "profile", "publication_verified", "schema", "semantic_return", "source_postpins_verified",
+    "task"))
+FULL_SOURCE_KEYS = frozenset((
+    "bytes", "certified_offset", "counters", "event_byte_range", "event_row_range",
+    "event_stream_sha256", "framing", "kind_counts", "line_byte_range", "line_row_range",
+    "manifest_key", "physical_stream_sha256", "projection", "reconstructed_sha256",
+    "selection_entry", "selection_index", "sha256", "source_index", "source_path", "source_pin",
+    "suffix"))
+EVENT_KINDS = ("block_comment", "line_comment", "opaque", "static", "suffix", "whitespace")
+
 OUTPUT_ROWS = "static-spawn-references.jsonl"
 OUTPUT_MANIFEST = "static-spawn-references-manifest.json"
 OUTPUT_COMPLETE = "static-spawn-references-complete.json"
@@ -120,6 +178,7 @@ COUNTER_KEYS = ("events", "map_candidate_none", "map_candidate_occurrences",
 CLAIMS = {"map_cells": "not_checked", "native_membership": "not_checked",
           "effective_population": "not_checked", "world_coverage": "not_checked",
           "localisation": "not_checked", "story_solo": "not_checked"}
+FULL_CLAIMS = dict(CLAIMS, lexical_completeness="not_checked")
 
 EVENT_KEYS = frozenset(("schema", "source_index", "event_index", "span", "sha256", "kind",
                         "detail"))
@@ -219,15 +278,15 @@ def _need(condition, message):
 
 # --- Core: limits and normalisation ---------------------------------------------------
 
-def _check_limits(limits):
+def _check_limits(limits, defaults=LIMITS):
     """Validate a whole exact limit mapping (None selects the defaults)."""
     if limits is None:
-        return dict(LIMITS)
+        return dict(defaults)
     _need(type(limits) is dict, "limits must be a dict")
-    _need(set(limits) == set(LIMITS), "limits must have exactly the LIMITS keys")
+    _need(set(limits) == set(defaults), "limits must have exactly the LIMITS keys")
     for key, value in limits.items():
-        _need(_is_u(value) and value <= LIMITS[key],
-              f"limit {key} must be a nonnegative integer no greater than {LIMITS[key]}")
+        _need(_is_u(value) and value <= defaults[key],
+              f"limit {key} must be a nonnegative integer no greater than {defaults[key]}")
     return dict(limits)
 
 
@@ -450,7 +509,8 @@ def _classify(event, start, end):
 class _Order:
     """Global contiguity, nondecreasing sources, adjacent spans and suffix finality."""
 
-    def __init__(self):
+    def __init__(self, sources=2):
+        self.sources = sources
         self.source = None
         self.cursor = 0
         self.closed = False
@@ -461,7 +521,9 @@ class _Order:
         _need(_is_u(event["event_index"]) and event["event_index"] == position,
               "event_index must be globally contiguous from 0")
         source = event["source_index"]
-        _need(type(source) is int and source in (0, 1), "source_index must be 0 or 1")
+        _need(type(source) is int and 0 <= source < self.sources,
+              f"source_index must be 0..{self.sources - 1}" if self.sources != 2 else
+              "source_index must be 0 or 1")
         _need(self.source is None or source >= self.source, "source_index must not decrease")
         if source != self.source:
             self.source, self.cursor, self.closed = source, 0, False
@@ -512,14 +574,23 @@ UNJOINED_COUNTER = {"static_projection_gap": "static_gap", "opaque_script": "opa
 
 def join_events(events, reverse, candidates, histories, limits=None):
     """Annotate every raw event; return exactly {rows, counters}. Inputs are not mutated."""
-    limits = _check_limits(limits)
+    return _join(events, reverse, candidates, histories, _check_limits(limits), 2)
+
+
+def join_full_events(events, reverse, candidates, histories, limits=None):
+    """join_events for the 839-source publication: source indices 0..838, FULL_LIMITS."""
+    return _join(events, reverse, candidates, histories,
+                 _check_limits(limits, FULL_LIMITS), FULL_SOURCES)
+
+
+def _join(events, reverse, candidates, histories, limits, sources):
     _need(type(events) is list, "events must be a list")
     _need(len(events) <= limits["events"], "raw events exceed the events limit")
     names = _reverse_table(reverse, limits)
     by_id = _candidate_table(candidates, limits)
     by_sprite = _history_table(histories, limits)
     counters = dict.fromkeys(COUNTER_KEYS, 0)
-    order, rows, used = _Order(), [], 0
+    order, rows, used = _Order(sources), [], 0
     for position, event in enumerate(events):
         start, end = order.admit(event, position)
         result = _classify(event, start, end)
@@ -675,9 +746,9 @@ def _linked(path):
     return os.path.realpath(path) != os.path.normpath(path)
 
 
-def read_bundle(root, bundle):
+def read_bundle(root, bundle, pins=PINS):
     """Read exactly the pinned regular files of one bundle; verify bytes before decoding."""
-    expected = PINS[bundle]
+    expected = pins[bundle]
     _need(os.path.isabs(root), f"{bundle} root must be an absolute path")
     try:
         info = os.lstat(root)
@@ -909,29 +980,218 @@ def _admit_monster(datas):
     return manifest, histories
 
 
-def admit(raw_dir, map_dir, monster_dir):
-    """Read and admit the ten artifacts; return the admitted context."""
-    roots = {"raw": raw_dir, "map": map_dir, "monster": monster_dir}
+def _subset_binding(actual, expected):
+    """Compare only the expected keys of a binding that also carries descriptive fields."""
+    return type(actual) is dict and all(k in actual and _same_binding(actual[k], v)
+                                        for k, v in expected.items())
+
+
+def _event_offsets(data, count):
+    """Byte offset of each JSONL row start, plus the end offset."""
+    offsets, position = [0], 0
+    for _ in range(count):
+        position = data.index(b"\n", position) + 1
+        offsets.append(position)
+    return offsets
+
+
+def _check_range(value, start, what):
+    _need(_is_span(value) and value[0] == start, f"{what} is not contiguous")
+    return value[1]
+
+
+def _admit_full_source(position, source, mine, cursors, datas):
+    """Cross-check one bound Source against its event rows and stream byte ranges."""
+    what = f"raw source {position}"
+    _need(type(source) is dict and set(source) == FULL_SOURCE_KEYS,
+          f"{what} keys are not the qualified schema")
+    _need(source["source_index"] == position and type(source["source_index"]) is int
+          and source["selection_index"] == position and type(source["selection_index"]) is int,
+          f"{what} source/selection index is not contiguous")
+    size, certified = source["bytes"], source["certified_offset"]
+    _need(_is_u(size) and _is_u(certified) and certified <= size,
+          f"{what} bytes/certified_offset invalid")
+    _need(_is_sha(source["sha256"]) and _is_sha(source["reconstructed_sha256"]),
+          f"{what} identity hashes invalid")
+    source_pin = source["source_pin"]
+    _need(type(source_pin) is dict and source_pin.get("bytes") == size
+          and type(source_pin.get("bytes")) is int and source_pin.get("sha256") == source["sha256"],
+          f"{what} source_pin does not bind its identity")
+    entry = source["selection_entry"]
+    _need(type(entry) is dict and entry.get("bytes") == size and type(entry.get("bytes")) is int
+          and entry.get("sha256") == source["sha256"],
+          f"{what} selection_entry does not bind its identity")
+    rows = source["event_row_range"]
+    cursors["rows"] = _check_range(rows, cursors["rows"], f"{what} event_row_range")
+    _need(rows[1] - rows[0] == len(mine), f"{what} event_row_range differs from its events")
+    a = cursors["event_bytes"]
+    b = _check_range(source["event_byte_range"], a, f"{what} event_byte_range")
+    _need(b == cursors["offsets"][rows[1]] and a == cursors["offsets"][rows[0]],
+          f"{what} event_byte_range is not its event rows")
+    events_view = memoryview(datas[FULL_RAW_EVENTS])
+    _need(sha256(events_view[a:b]) == source["event_stream_sha256"],
+          f"{what} event_stream_sha256 does not bind its rows")
+    cursors["event_bytes"] = b
+    # Physical line stream: hash/LF-count bridge only, never decoded.
+    a = cursors["line_bytes"]
+    b = _check_range(source["line_byte_range"], a, f"{what} line_byte_range")
+    lines = datas[FULL_RAW_LINES]
+    _need(b <= len(lines) and (a == b or lines[b - 1:b] == b"\n"),
+          f"{what} line_byte_range does not end at a row boundary")
+    line_rows = source["line_row_range"]
+    cursors["line_rows"] = _check_range(line_rows, cursors["line_rows"],
+                                        f"{what} line_row_range")
+    _need(lines.count(b"\n", a, b) == line_rows[1] - line_rows[0],
+          f"{what} line_row_range differs from its LF count")
+    _need(sha256(memoryview(lines)[a:b]) == source["physical_stream_sha256"],
+          f"{what} physical_stream_sha256 does not bind its lines")
+    cursors["line_bytes"] = b
+    kinds = dict.fromkeys(EVENT_KINDS, 0)
+    for event in mine:
+        _need(type(event.get("kind")) is str and event["kind"] in kinds,
+              f"{what} has an unknown event kind")
+        kinds[event["kind"]] += 1
+    _need(_same_binding(source["kind_counts"], kinds), f"{what} kind_counts differ from its events")
+    statics = [e["detail"] for e in mine if e["kind"] == "static"]
+    _need(all(type(d) is dict for d in statics), f"{what} static detail must be an object")
+    supported = sum(d.get("projection_state") == "supported" for d in statics)
+    gap = sum(d.get("projection_state") == "gap" for d in statics)
+    counters = {"certified_bytes": certified, "framing_events": len(mine),
+                "opaque_blocks": kinds["opaque"], "raw_bytes": size,
+                "raw_lines": line_rows[1] - line_rows[0], "static_declared": len(statics),
+                "static_gap": gap, "static_supported": supported,
+                "suffix_events": kinds["suffix"], "unknown_bytes": size - certified}
+    _need(_same_binding(source["counters"], counters), f"{what} counters differ from its events")
+    last = mine[-1] if mine else None
+    _need((last is None and size == 0) or (last is not None and last["span"][1] == size),
+          f"{what} terminal offset differs from its bytes")
+    if source["framing"] == "complete":
+        _need(certified == size and source["suffix"] is None and kinds["suffix"] == 0
+              and source["projection"] == ("gapped" if gap else "complete"),
+              f"{what} complete framing is not certified to its end")
+    else:
+        _need(source["framing"] == "cutoff" and source["projection"] == "incomplete",
+              f"{what} framing/projection is not complete or cutoff/incomplete")
+        suffix = source["suffix"]
+        _need(type(suffix) is dict and set(suffix) == {"fault_offset", "reason", "span"}
+              and _is_u(suffix["fault_offset"]) and certified <= suffix["fault_offset"] <= size
+              and _same_binding(suffix["span"], [certified, size]) and _is_str(suffix["reason"]),
+              f"{what} suffix does not bind its uncertified bytes")
+        _need(kinds["suffix"] == 1 and last["kind"] == "suffix"
+              and _same_binding(last["span"], [certified, size])
+              and _same_binding(last["detail"], {"fault_offset": suffix["fault_offset"],
+                                                 "reason": suffix["reason"]}),
+              f"{what} terminal suffix event differs from its bound suffix")
+    return counters
+
+
+def _admit_full_raw(datas):
+    """Admit the pinned 839-source publication: complete physical, qualified lexical."""
+    manifest = strict_json(datas[FULL_RAW_MANIFEST], "raw manifest")
+    marker = strict_json(datas[FULL_RAW_PUBLISHED], "raw publication marker")
+    _need(type(manifest) is dict and type(marker) is dict, "raw manifest/marker must be objects")
+    _need(set(manifest) == FULL_RAW_MANIFEST_KEYS, "raw manifest keys are not the qualified schema")
+    _need(set(marker) == FULL_RAW_MARKER_KEYS, "raw marker keys are not the qualified schema")
+    for obj, what in ((manifest, "raw manifest"), (marker, "raw publication marker")):
+        _need(obj["schema"] == 1 and type(obj["schema"]) is int
+              and obj["task"] == FULL_RAW_TASK and obj["profile"] == FULL_RAW_PROFILE
+              and obj["admission"] == FULL_RAW_ADMISSION
+              and obj["physical_coverage"] == "complete" and obj["lexical_state"] == "qualified",
+              f"{what} is not the pinned complete-physical/qualified-lexical publication")
+        _need(_subset_binding(obj["producer"], FULL_RAW_PRODUCER),
+              f"{what} producer is not the qualified full inventory")
+    _need(marker["semantic_return"] == 1 and type(marker["semantic_return"]) is int
+          and marker["publication_verified"] is True and marker["source_postpins_verified"] is True,
+          "raw publication marker does not record a verified publication")
+    _binds(marker["manifest"], datas[FULL_RAW_MANIFEST], "raw marker manifest")
+    events = strict_jsonl(datas[FULL_RAW_EVENTS], "raw events")
+    lines = jsonl_count(datas[FULL_RAW_LINES], "raw source lines")
+    outputs = {FULL_RAW_LINES: {"bytes": len(datas[FULL_RAW_LINES]), "rows": lines,
+                                "sha256": sha256(datas[FULL_RAW_LINES])},
+               FULL_RAW_EVENTS: {"bytes": len(datas[FULL_RAW_EVENTS]), "rows": len(events),
+                                 "sha256": sha256(datas[FULL_RAW_EVENTS])}}
+    _need(_same_binding(marker["output_pins"], outputs)
+          and _same_binding(manifest["outputs"], outputs),
+          "raw marker/manifest outputs do not bind both actual streams")
+    _need(manifest["lexical_profile"] == RAW_PROFILE, "raw lexical profile differs")
+    _need(_subset_binding(manifest["core"], {k: RAW_PRODUCER[k] for k in ("bytes", "sha256")}),
+          "raw core is not the qualified pilot core")
+    _need(_subset_binding(manifest["reader"], {"sha256": READER_SHA}),
+          "raw reader is not the selected snapshot reader")
+    pins = manifest["input_pins"]
+    _need(type(pins) is dict
+          and _subset_binding(pins.get("snapshot_manifest"), {"sha256": SNAPSHOT_MANIFEST_SHA})
+          and _subset_binding(pins.get("selection_manifest"), SELECTION_MANIFEST)
+          and _subset_binding(pins.get("selection_complete"), SELECTION_COMPLETE),
+          "raw snapshot/selection identity differs")
+    _need(manifest["deferred_joins"] == {"map_cache": "not_performed",
+                                         "monster_history": "not_performed"},
+          "raw deferred joins are not both not_performed")
+    verification = manifest["verification"]
+    _need(type(verification) is dict and verification.get("selected_bodies") == FULL_SOURCES
+          and type(verification.get("selected_bodies")) is int
+          and _same_binding(verification.get("locked_reference_selection_indices"),
+                            FULL_LOCKED_INDICES)
+          and verification.get("native_acceptance") is False,
+          "raw verification does not cover the 839 selected bodies")
+    _need(manifest["unscanned"] == [], "raw full publication must leave no unscanned source")
+    _need(_same_binding(manifest["counters"], FULL_RAW_COUNTS),
+          "raw counters are not the pinned full publication")
+    _need(lines == FULL_RAW_COUNTS["raw_lines"]
+          and len(events) == FULL_RAW_COUNTS["framing_events"],
+          "raw stream row counts differ from the pinned full publication")
+    sources = manifest["sources"]
+    _need(type(sources) is list and len(sources) == FULL_SOURCES,
+          f"raw manifest must have {FULL_SOURCES} sources")
+    by_source = [[] for _ in range(FULL_SOURCES)]
+    for event in events:
+        index = event.get("source_index")
+        _need(type(index) is int and 0 <= index < FULL_SOURCES and type(event.get("span")) is list
+              and len(event["span"]) == 2, "raw event source/span shape invalid")
+        by_source[index].append(event)
+    cursors = {"rows": 0, "event_bytes": 0, "line_bytes": 0, "line_rows": 0,
+               "offsets": _event_offsets(datas[FULL_RAW_EVENTS], len(events))}
+    totals = dict.fromkeys(FULL_RAW_COUNTS, 0)
+    for position, source in enumerate(sources):
+        counted = _admit_full_source(position, source, by_source[position], cursors, datas)
+        for key, value in counted.items():
+            totals[key] += value
+    _need(cursors["rows"] == len(events) and cursors["event_bytes"] == len(datas[FULL_RAW_EVENTS])
+          and cursors["line_bytes"] == len(datas[FULL_RAW_LINES]) and cursors["line_rows"] == lines,
+          "raw source ranges do not cover both whole streams")
+    _need(totals == FULL_RAW_COUNTS, "raw per-source counters do not sum to the totals")
+    return manifest, events
+
+
+def _read_inputs(roots, pins, limits):
     for bundle in BUNDLES:
         _need(os.path.isabs(roots[bundle]), f"{bundle} root must be an absolute path")
     real = [os.path.realpath(roots[b]) for b in BUNDLES]
     _need(len(set(real)) == 3, "the three bundle roots must be distinct")
     total = 0
     for bundle in BUNDLES:
-        for name in PINS[bundle]:
+        for name in pins[bundle]:
             try:
                 total += os.lstat(os.path.join(roots[bundle], name)).st_size
             except OSError:
                 pass  # a missing entry is refused by the exact bundle check
-    _need(total <= LIMITS["input_total_bytes"], "input artifacts exceed input_total_bytes")
-    datas = {bundle: read_bundle(roots[bundle], bundle) for bundle in BUNDLES}
+    _need(total <= limits["input_total_bytes"], "input artifacts exceed input_total_bytes")
+    datas = {bundle: read_bundle(roots[bundle], bundle, pins) for bundle in BUNDLES}
     actual_total = sum(len(d) for bundle in BUNDLES for d in datas[bundle].values())
-    _need(actual_total <= LIMITS["input_total_bytes"], "input artifacts exceed input_total_bytes")
-    raw_manifest, events = _admit_raw(datas["raw"])
+    _need(actual_total <= limits["input_total_bytes"], "input artifacts exceed input_total_bytes")
+    return datas
+
+
+def admit(raw_dir, map_dir, monster_dir, full839=False):
+    """Read and admit the ten artifacts; return the admitted context."""
+    roots = {"raw": raw_dir, "map": map_dir, "monster": monster_dir}
+    pins = FULL_PINS if full839 else PINS
+    datas = _read_inputs(roots, pins, FULL_LIMITS if full839 else LIMITS)
+    raw_manifest, events = (_admit_full_raw if full839 else _admit_raw)(datas["raw"])
     _, reverse, candidates = _admit_map(datas["map"])
     _, histories = _admit_monster(datas["monster"])
     inputs = {f"{bundle}/{name}": pin(datas[bundle][name])
-              for bundle in BUNDLES for name in sorted(PINS[bundle])}
+              for bundle in BUNDLES for name in sorted(pins[bundle])}
     return {"inputs": inputs, "raw_manifest": raw_manifest, "events": events,
             "reverse": reverse, "candidates": candidates, "histories": histories}
 
@@ -973,8 +1233,53 @@ def build(context, producer):
     return {"stream": stream, "manifest": manifest, "manifest_bytes": manifest_bytes}
 
 
-def completion_record(manifest_bytes, output):
-    return {"schema": 1, "task": TASK, "profile": PROFILE_NAME, "state": "complete",
+def _full_source(source):
+    """Original Source object without the producer-local source_pin path/identity."""
+    copied = copy.deepcopy(source)
+    copied["source_pin"] = {"bytes": source["source_pin"]["bytes"],
+                            "sha256": source["source_pin"]["sha256"]}
+    return copied
+
+
+def build_full(context, producer):
+    """--full839 build: same rows, full pins/limits/metadata, cross-checked raw counters."""
+    result = join_full_events(context["events"], context["reverse"], context["candidates"],
+                              context["histories"], FULL_LIMITS)
+    raw = context["raw_manifest"]
+    counters, totals = result["counters"], FULL_RAW_COUNTS
+    _need(counters["events"] == totals["framing_events"]
+          and counters["static_supported"] == totals["static_supported"]
+          and counters["static_gap"] == totals["static_gap"]
+          and counters["suffix"] == totals["suffix_events"]
+          and counters["opaque"] == totals["opaque_blocks"],
+          "joined counters disagree with the bound raw counters")
+    stream = b"".join(render(row) for row in result["rows"])
+    manifest = {
+        "schema": 1, "task": FULL_TASK, "profile": FULL_PROFILE_NAME, "state": "complete",
+        "producer": producer, "dependencies": [], "inputs": context["inputs"],
+        "provenance": {"rathena_revision": RATHENA_REVISION,
+                       "snapshot_manifest_sha256": SNAPSHOT_MANIFEST_SHA,
+                       "selection_manifest_sha256": SELECTION_MANIFEST["sha256"],
+                       "raw_producer_sha256": FULL_RAW_PRODUCER["sha256"],
+                       "raw_core_sha256": RAW_PRODUCER["sha256"],
+                       "map_producer_sha256": MAP_GENERATOR["source_sha256"],
+                       "monster_producer_sha256": MONSTER_GENERATOR["source_sha256"]},
+        "raw_scope": {"admission": raw["admission"], "lexical_state": raw["lexical_state"],
+                      "physical_coverage": raw["physical_coverage"],
+                      "raw_counters": dict(raw["counters"]),
+                      "sources": [_full_source(source) for source in raw["sources"]],
+                      "unscanned_selection_indices": list(raw["unscanned"])},
+        "output": {"file": OUTPUT_ROWS, "bytes": len(stream), "sha256": sha256(stream),
+                   "rows": len(result["rows"])},
+        "counters": counters, "limits": dict(FULL_LIMITS), "claims": dict(FULL_CLAIMS),
+    }
+    manifest_bytes = render(manifest)
+    _need(len(manifest_bytes) <= FULL_LIMITS["manifest_bytes"], "manifest exceeds manifest_bytes")
+    return {"stream": stream, "manifest": manifest, "manifest_bytes": manifest_bytes}
+
+
+def completion_record(manifest_bytes, output, task=TASK, profile=PROFILE_NAME):
+    return {"schema": 1, "task": task, "profile": profile, "state": "complete",
             "manifest": pin(manifest_bytes), "output": output}
 
 
@@ -1086,7 +1391,7 @@ def _revoke(dir_fd, owned, names):
     return problems
 
 
-def publish(target, built):
+def publish(target, built, task=TASK, profile=PROFILE_NAME):
     """Write rows, manifest and the completion record last into a fresh `target`."""
     try:
         _os_mkdir(target, 0o700)
@@ -1112,7 +1417,8 @@ def publish(target, built):
         _read_back(dir_fd, OUTPUT_ROWS, built["stream"], owned)
         _write_new(dir_fd, OUTPUT_MANIFEST, built["manifest_bytes"], owned)
         manifest_back = _read_back(dir_fd, OUTPUT_MANIFEST, built["manifest_bytes"], owned)
-        marker = render(completion_record(manifest_back, built["manifest"]["output"]))
+        marker = render(completion_record(manifest_back, built["manifest"]["output"],
+                                          task, profile))
         _need(len(marker) <= LIMITS["completion_bytes"], "completion exceeds completion_bytes")
         _write_new(dir_fd, OUTPUT_COMPLETE, marker, owned)
         _read_back(dir_fd, OUTPUT_COMPLETE, marker, owned)
@@ -1172,13 +1478,17 @@ def publish(target, built):
     raise ReferenceError(f"publication failed: {failure}{note}")
 
 
-def run(raw_dir, map_dir, monster_dir, output):
+def run(raw_dir, map_dir, monster_dir, output, full839=False):
     """Admit, join and publish; return the built manifest."""
     roots = (raw_dir, map_dir, monster_dir)
     target = output_target(output, roots)
-    context = admit(raw_dir, map_dir, monster_dir)
-    built = build(context, producer_pin())
-    publish(target, built)
+    context = admit(raw_dir, map_dir, monster_dir, full839)
+    if full839:
+        built = build_full(context, producer_pin())
+        publish(target, built, FULL_TASK, FULL_PROFILE_NAME)
+    else:
+        built = build(context, producer_pin())
+        publish(target, built)
     return built["manifest"]
 
 
@@ -1199,10 +1509,12 @@ def main(argv=None):
     parser.add_argument("--map-dir", required=True, help="absolute map inventory bundle")
     parser.add_argument("--monster-dir", required=True, help="absolute monster projection bundle")
     parser.add_argument("--output", required=True, help="fresh private output directory")
+    parser.add_argument("--full839", action="store_true",
+                        help="admit the fixed 839-source raw publication instead of the pilot")
     args = parser.parse_args(argv)
     roots = (args.raw_dir, args.map_dir, args.monster_dir, args.output)
     try:
-        manifest = run(args.raw_dir, args.map_dir, args.monster_dir, args.output)
+        manifest = run(args.raw_dir, args.map_dir, args.monster_dir, args.output, args.full839)
     except ReferenceError as exc:
         print(f"error: {_redact(str(exc), roots)}", file=sys.stderr)
         return 2

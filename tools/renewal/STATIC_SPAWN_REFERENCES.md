@@ -1,5 +1,8 @@
 # Declared-reference sidecar for the raw spawn pilot (T06.002.003.005.002)
 
+The explicit `--full839` mode (T06.002.003.005.003) extends the same rows to the
+pinned 839-source publication; see [Full 839-source mode](#full-839-source-mode---full839-t060020030050003).
+
 `static_spawn_references.py` annotates **every** framed event of the qualified
 two-file raw spawn pilot (AntHell, Prontera; 354 events) with its declared map
 and monster references. Profile `static-spawn-declared-reference-v1`; the frozen
@@ -214,6 +217,111 @@ functions (base lowercasing, last-candidate, retained-only, latest declaration,
 span deduplication, gap and opaque recovery, sprite-0 sentinel, a counter fault)
 and require the golden or conservation check to fail, then pass again.
 
+## Full 839-source mode (`--full839`, T06.002.003.005.003)
+
+```sh
+python3 -I -B tools/renewal/static_spawn_references.py --full839 \
+  --raw-dir /abs/full839/publication --map-dir /abs/frozen/map \
+  --monster-dir /abs/frozen/monster --output /abs/private/new-output
+STATIC_SPAWN_REFERENCE_FROZEN_ROOT=/abs/pilot-frozen-root \
+STATIC_SPAWN_REFERENCE_FULL839_MANIFEST=/abs/full839-inputs/MANIFEST_ROOT.json \
+  python3 -I -B tools/renewal/test_static_spawn_references.py
+```
+
+The flag is the only difference; without it the pilot path, pins, limits, API,
+rows, manifest schema and claims are unchanged (its `producer` pin is the actual
+current source, as before). Full mode has its own constants (`FULL_PINS`,
+`FULL_LIMITS`, `FULL_TASK`, `FULL_PROFILE_NAME`); nothing in the pilot globals is
+patched. `join_full_events(events, reverse, candidates, histories, limits=None)`
+is `join_events` with source indices `0..838` and `FULL_LIMITS` as the ceiling.
+Its ordering rules and row semantics are the pilot ones; map and monster joins
+stay independent.
+
+Raw bundle (map/monster bundles and pins are the pilot ones; 228765912 bytes total):
+
+| raw/file | Bytes | SHA256 |
+| --- | ---: | --- |
+| source-lines.jsonl | 172547908 | `e4108fa16182173e515fcd07a4cf5fa296dea59584b2d17062b6cbff3ed27f61` |
+| static-spawn-events.jsonl | 9748299 | `caa2b149042a0015f2238394e2e13e59bf5fc64dcff740e1c4b6c8e29ce4c024` |
+| static-spawn-inventory-manifest.json | 1468784 | `ce7cf1d537d61fda32db5129b19764da29675ed143d616222ff6afa9f9f75627` |
+| static-spawn-inventory-published.json | 1025 | `076f10887007467485deaf5771e0442355ef6041e974eb98f54652c76e3786ad` |
+
+Full limits: `events` 65536, `input_total_bytes` 256 MiB, `jsonl_bytes`
+192 MiB, `manifest_bytes` 4 MiB; all other keys are the pilot values. They admit
+these pinned files, not arbitrary upstream data or extra sources.
+
+Raw admission (after all ten byte pins, before any derivation):
+
+- Manifest and published marker have their exact qualified key sets, schema 1,
+  task `T06.002.003.005`, profile `static-spawn-full-selection-v1`, admission
+  `pinned-stock-selection-839-v1`, `physical_coverage complete` and
+  `lexical_state qualified`. The qualified lexical state is accepted as is and
+  never promoted. The marker needs integer `semantic_return 1` and
+  `publication_verified`/`source_postpins_verified` `true`. It binds the actual
+  manifest; marker `output_pins` and manifest `outputs` bind both streams'
+  bytes/hash/rows (723206/35735). Producer is 64243/`80ad59e4…0a01`; core is
+  the pilot raw core 46367/`14690614…81cbd`. Reader, snapshot and selection
+  identities are the pilot ones. Only their bytes/SHA are compared: producer
+  `path`/`identity` and `source_pin.path` are never followed.
+- `deferred_joins` are both `not_performed`, `unscanned` is empty, and
+  `verification` has 839 selected bodies, locked indices `[691, 772]` and
+  `native_acceptance false`. Totals are exactly 35735 events, 3384 static
+  (3074 supported, 310 gap), 19 opaque, 731 suffixes, 723206 lines and
+  23237306 unknown bytes.
+- Each of the 839 sources must have its exact key set and
+  `source_index == selection_index ==` its position. `event_row_range`,
+  `event_byte_range`, `line_row_range` and `line_byte_range` must be contiguous
+  and together cover both whole streams. The event byte range is exactly its
+  rows and hashes to `event_stream_sha256`. The physical line range ends on an
+  LF, its LF count equals its row range, and it hashes to
+  `physical_stream_sha256`. This is a hash/count bridge only: line rows are
+  never decoded. `kind_counts` and all ten per-source counters must match its
+  events. `source_pin` and `selection_entry` must bind its bytes/SHA. The last
+  event must end at `bytes`. A `complete` source is certified to its end, has
+  no suffix, and its projection is `gapped` exactly when it has gaps. A
+  `cutoff` source is `incomplete`. Its suffix span is
+  `[certified_offset, bytes]`, with the fault offset inside that span
+  (`bare_cr` faults lie after the cut). Its single terminal suffix event
+  repeats that span, fault offset and reason. Per-source sums equal the totals.
+- Map and monster admission is unchanged. The 40 MB declaration stream remains a
+  hash/LF-count bridge.
+
+Publication uses the same three filenames, the same row schema and the same
+failure semantics. The manifest keeps the pilot key set, with task/profile
+`T06.002.003.005.003`/`static-spawn-declared-reference-full839-v1` and
+`FULL_LIMITS`. Provenance adds `raw_core_sha256`, and `raw_producer_sha256` is
+the full inventory producer. `raw_scope` carries `admission`, `lexical_state`,
+`physical_coverage`, the raw counters, all 839 original Source objects and
+`unscanned_selection_indices: []`. Each source's `source_pin` is reduced to
+`{bytes, sha256}` so that no absolute path or inode identity reaches
+deterministic output. Claims add `lexical_completeness: not_checked`. The build
+cross-checks the joined counters against the raw totals.
+
+The full run published 35735 rows: 3074 supported, 310 `static_projection_gap`,
+19 `opaque_script`, 731 `uncertified_suffix` and 31601 `not_static`. All 3074
+supported lookups were nonzero with candidates present (3074 candidate
+occurrences) and found a declared history (3074 declaration occurrences). These
+are occurrence counts, not population. Rows for sources 691/772 equal the pilot's
+rows apart from source/event index. **Publication completeness is not full
+parsing:** 731 sources are lexically cut off, and their 23237306 suffix bytes
+stay unannotated beyond the suffix row.
+
+Full-mode tests (F11 core, F12 real input): row equality with the pilot core on
+a mixed authored stream; the source 838/839 boundary; ordering and
+suffix-finality; full versus pilot limits; immutability; and `--help` exposing
+no override. Two negative controls (suffix recovery and gap recovery in a high
+source) must break the golden. With the full manifest variable set, the tests
+run the full CLI twice (byte-identical), compare all 35735 rows with an
+independent recomputation, and compare the exact manifest and marker. They also
+check that every input root entry is unchanged (content, inode, mode, size,
+mtime, link count), cross-check pilot sources and refuse cross-mode input. A
+late directory-fsync fault and a rows-readback fault leave no completion. There
+are 35 manifest mutations and 9 marker mutations, all authored post-admission
+bridge mutations that are not a production byte-pin bypass. One stream change is
+unbound, and a negative control shows the physical-line hash bridge is load
+bearing. On private copies, same-length flips in six artifacts and an
+extra/existing/inside output all exit 2.
+
 ## Corrected integration and historical trial
 
 This correction originated in a separate internal trial based on unchanged
@@ -258,7 +366,10 @@ install or runtime state is touched by this source task.
 
 ## Not established
 
-Two raw sources only; the other 837 selected sources, script-created/opaque
+The default mode covers two raw sources only. `--full839` annotates every framed
+event of the 839 selected sources but inherits their qualified lexical state:
+cut-off suffixes, projection gaps and opaque blocks remain unjoined, and
+script-created/opaque
 spawns (AntHell's opaque block is unjoined), native map/database membership,
 effective population or respawn, map-cell eligibility, rendered or Traditional
 Chinese names, story, solo feasibility, world/episode coverage and user

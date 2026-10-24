@@ -1,11 +1,13 @@
 #!/usr/bin/env python3
-"""Authored tests for static_spawn_references.py (T06.002.003.005.002).
+"""Authored tests for static_spawn_references.py (T06.002.003.005.002 and .003).
 
 Run: python3 -I -B tools/renewal/test_static_spawn_references.py
 Optional real-input checks: set STATIC_SPAWN_REFERENCE_FROZEN_ROOT to the immutable
-frozen input root (with raw/, map/ and monster/ beneath it); they are skipped, and
-reported as skipped, without it. That variable is read only by these tests, never
-by the production CLI.
+pilot frozen input root (with raw/, map/ and monster/ beneath it) and/or
+STATIC_SPAWN_REFERENCE_FULL839_MANIFEST to the frozen full839 MANIFEST_ROOT.json
+(pinned by size/SHA here; it names the three full-mode roots). Each real-input class
+is skipped, and reported as skipped, without its variable. Both variables are read
+only by these tests, never by the production CLI.
 
 Families F01-F10 from the frozen brief. Core tests call the real join_events on
 the checked-in authored fixture and small in-memory events; these are
@@ -35,6 +37,9 @@ P = importlib.util.module_from_spec(SPEC)
 SPEC.loader.exec_module(P)
 
 FROZEN = os.environ.get("STATIC_SPAWN_REFERENCE_FROZEN_ROOT")
+FULL_MANIFEST = os.environ.get("STATIC_SPAWN_REFERENCE_FULL839_MANIFEST")
+FULL_MANIFEST_PIN = {"bytes": 4989,
+                     "sha256": "78365202020ae6b876eb9c4b7afeca587af2fe8f9165bddb36deefd82552d07e"}
 FIXTURE_PATH = HERE.parent.parent / "docs/project/fixtures/T06.002.003.005.002-authored.json"
 FIXTURE_PIN = {"bytes": 38291,
                "sha256": "8af733caa674c9e950ca27bd906bb279f0752fff2a4c0fff93d3226ca1ae6f72"}
@@ -1762,6 +1767,634 @@ class F10NegativeControls(unittest.TestCase):
                 return ref
             return map_ref
         self.control("_map_reference", fault, check)
+
+
+# --- T06.002.003.005.003: --full839 mode -------------------------------------------------
+
+def mixed_stream(sources):
+    """One authored two-source stream: every event family appears, both end in suffixes."""
+    s = Stream()
+    first, last = sources
+    s.static(b"Foo", 1002, source=first)
+    s.gap(b"Foo", source=first)
+    s.opaque(source=first)
+    s.simple("line_comment", b"//Foo\tmonster\tN\t1002,1\n", source=first)
+    s.static(b"Bar.gat", 0, source=first)
+    s.suffix(source=first)
+    s.static(b"Missing", 7, source=last)
+    s.simple("whitespace", b"\n", source=last)
+    s.suffix(b"Foo\tmonster\tN\t1002,1\r junk", source=last, reason="bare_cr")
+    return s.events
+
+
+MIXED_TABLES = (reverse_rows(Foo=7, Bar=0), [candidate(0, "Foo", 7), candidate(1, "Foo", 7,
+                                                                                "discarded_not_found")],
+                [history(0, [reference(0)]), history(1002, [reference(1), reference(2, visit=5)])])
+
+
+def without_source_index(rows):
+    return [{k: v for k, v in r.items() if k != "source_index"} for r in rows]
+
+
+class F11FullCore(unittest.TestCase):
+    """Full-mode core: same row semantics, 839 source indices and its own limits."""
+
+    def test_api_pins_and_limits_are_separate(self):
+        self.assertEqual(P.LIMITS, {"completion_bytes": 65536, "events": 8192,
+                                    "history_references": 20000, "history_rows": 10000,
+                                    "input_total_bytes": 67108864, "jsonl_bytes": 16777216,
+                                    "manifest_bytes": 1048576, "map_candidates": 10000,
+                                    "map_reverse_rows": 2000})
+        self.assertEqual(P.FULL_LIMITS, dict(P.LIMITS, events=65536, input_total_bytes=268435456,
+                                             jsonl_bytes=201326592, manifest_bytes=4194304))
+        self.assertEqual((P.TASK, P.PROFILE_NAME),
+                         ("T06.002.003.005.002", "static-spawn-declared-reference-v1"))
+        self.assertEqual((P.FULL_TASK, P.FULL_PROFILE_NAME),
+                         ("T06.002.003.005.003", "static-spawn-declared-reference-full839-v1"))
+        self.assertEqual(sorted(P.PINS["raw"]), sorted([P.RAW_LINES, P.RAW_EVENTS,
+                                                         P.RAW_MANIFEST, P.RAW_COMPLETE]))
+        self.assertEqual(P.FULL_PINS["raw"], {
+            "source-lines.jsonl": {"bytes": 172547908, "sha256":
+                                   "e4108fa16182173e515fcd07a4cf5fa296dea59584b2d17062b6cbff3ed27f61"},
+            "static-spawn-events.jsonl": {"bytes": 9748299, "sha256":
+                                          "caa2b149042a0015f2238394e2e13e59bf5fc64dcff740e1c4b6c8e29ce4c024"},
+            "static-spawn-inventory-manifest.json": {"bytes": 1468784, "sha256":
+                                                     "ce7cf1d537d61fda32db5129b19764da29675ed143d616222ff6afa9f9f75627"},
+            "static-spawn-inventory-published.json": {"bytes": 1025, "sha256":
+                                                      "076f10887007467485deaf5771e0442355ef6041e974eb98f54652c76e3786ad"}})
+        for bundle in ("map", "monster"):
+            self.assertEqual(P.FULL_PINS[bundle], P.PINS[bundle])
+            self.assertIsNot(P.FULL_PINS[bundle], P.PINS[bundle])
+        total = sum(v["bytes"] for b in P.BUNDLES for v in P.FULL_PINS[b].values())
+        self.assertEqual(total, 228765912)
+        self.assertLessEqual(total, P.FULL_LIMITS["input_total_bytes"])
+
+    def test_same_rows_as_pilot_core_apart_from_source_index(self):
+        pilot = P.join_events(mixed_stream((0, 1)), *MIXED_TABLES)
+        full = P.join_full_events(mixed_stream((417, 838)), *MIXED_TABLES)
+        self.assertEqual(typed(without_source_index(full["rows"])),
+                         typed(without_source_index(pilot["rows"])))
+        self.assertEqual(typed(full["counters"]), typed(pilot["counters"]))
+        self.assertEqual([r["source_index"] for r in full["rows"]],
+                         [417] * 6 + [838] * 3)
+        conservation(self, full)
+        reasons = [r["unjoined"] and r["unjoined"]["code"] for r in full["rows"]]
+        self.assertEqual(reasons, [None, "static_projection_gap", "opaque_script", "not_static",
+                                   None, "uncertified_suffix", None, "not_static",
+                                   "uncertified_suffix"])
+        self.assertEqual(full["rows"][8]["unjoined"]["detail"]["reason"], "bare_cr")
+        # Map and monster stay independent: zero map index keeps sprite 0 history,
+        # missing map keeps its own missing history.
+        self.assertEqual(full["rows"][4]["map"]["index"], {"state": "zero", "id": 0})
+        self.assertEqual(full["rows"][4]["monster"]["state"], "declared_history")
+        self.assertEqual(full["rows"][6]["map"]["index"], {"state": "missing", "id": None})
+        self.assertEqual(full["rows"][6]["monster"]["state"], "no_declared_history")
+        self.assertEqual(len(full["rows"][0]["map"]["candidates"]), 2)
+        self.assertEqual(len(full["rows"][0]["monster"]["history"]["declarations"]), 2)
+
+    def test_source_838_839_boundary(self):
+        s = Stream()
+        s.simple(source=0)
+        s.simple(source=838)
+        self.assertEqual(len(P.join_full_events(s.events, [], [], [])["rows"]), 2)
+        with self.assertRaises(P.ReferenceError):  # the pilot API keeps 0/1 only
+            P.join_events(s.events, [], [], [])
+        for bad in (839, -1, True, 838.0):
+            events = copy.deepcopy(s.events)
+            events[1]["source_index"] = bad
+            with self.subTest(bad), self.assertRaises(P.ReferenceError):
+                P.join_full_events(events, [], [], [])
+
+    def test_full_ordering_and_suffix_finality(self):
+        def stream():
+            s = Stream()
+            s.simple(source=3)
+            s.suffix(source=3)
+            s.simple(source=10)
+            return s.events
+        P.join_full_events(stream(), [], [], [])
+        cases = {
+            "after_suffix": lambda e: e[2].update(source_index=3, span=[e[1]["span"][1],
+                                                                        e[1]["span"][1] + 1]),
+            "decreasing": lambda e: e[2].update(source_index=2),
+            "index_gap": lambda e: e[2].update(event_index=3),
+            "not_adjacent": lambda e: e[1].update(span=[e[1]["span"][0] + 1, e[1]["span"][1]]),
+            "new_source_not_zero": lambda e: e[2].update(span=[1, 2]),
+        }
+        for name, fn in cases.items():
+            events = stream()
+            fn(events)
+            with self.subTest(name), self.assertRaises(P.ReferenceError):
+                P.join_full_events(events, [], [], [])
+
+    def test_full_limits(self):
+        s = Stream()
+        for _ in range(P.LIMITS["events"] + 1):
+            s.simple(source=838)
+        self.assertEqual(len(P.join_full_events(s.events, [], [], [])["rows"]), 8193)
+        with self.assertRaises(P.ReferenceError):  # pilot events limit unchanged
+            P.join_events([dict(e, source_index=0) for e in s.events], [], [], [])
+        with self.assertRaises(P.ReferenceError):
+            P.join_full_events(s.events, [], [], [], dict(P.FULL_LIMITS, events=8192))
+        with self.assertRaises(P.ReferenceError):  # FULL_LIMITS exceed pilot ceilings
+            P.join_events([], [], [], [], dict(P.FULL_LIMITS))
+        for bad in (dict(P.FULL_LIMITS, events=65537), dict(P.FULL_LIMITS, map_candidates=10001),
+                    {k: v for k, v in P.FULL_LIMITS.items() if k != "events"}):
+            with self.assertRaises(P.ReferenceError):
+                P.join_full_events([], [], [], [], bad)
+        self.assertEqual(typed(P.join_full_events(CASE["events"], CASE["reverse"],
+                                                  CASE["candidates"], CASE["histories"])),
+                         typed(CASE["expected"]))
+
+    def test_full_inputs_not_mutated(self):
+        events, tables = mixed_stream((5, 838)), copy.deepcopy(MIXED_TABLES)
+        before = copy.deepcopy((events, tables))
+        result = P.join_full_events(events, *tables)
+        self.assertEqual(typed((events, tables)), typed(before))
+        result["rows"][0]["map"]["candidates"][0]["name"] = "changed"
+        self.assertEqual(tables[1][0]["name"], "Foo")
+
+    def test_cli_flag_has_no_override(self):
+        proc = subprocess.run([sys.executable, "-I", "-B", str(HERE / "static_spawn_references.py"),
+                               "--help"], capture_output=True, text=True, timeout=60)
+        self.assertIn("--full839", proc.stdout)
+        for flag in ("--limit", "--pin", "--config", "--manifest-root", "--events"):
+            self.assertNotIn(flag, proc.stdout)
+        self.assertEqual(P.main(["--full839", "--raw-dir", "raw", "--map-dir", "/m",
+                                 "--monster-dir", "/x", "--output", "/nonexistent/o"]), 2)
+
+
+class F11FullNegativeControls(unittest.TestCase):
+    """Faults injected into real producer functions must break the full-mode golden."""
+
+    def golden(self):
+        full = P.join_full_events(mixed_stream((417, 838)), *MIXED_TABLES)
+        pilot_events = mixed_stream((0, 1))
+        expected = without_source_index(P.join_events(pilot_events, *MIXED_TABLES)["rows"])
+        self.assertEqual(typed(without_source_index(full["rows"])), typed(expected))
+        self.assertEqual(full["counters"]["suffix"], 2)
+
+    def control(self, attr, fault):
+        self.golden()
+        original = getattr(P, attr)
+        setattr(P, attr, fault(original))
+        try:
+            with self.assertRaises((AssertionError, P.ReferenceError)):
+                full = P.join_full_events(mixed_stream((417, 838)), *MIXED_TABLES)
+                self.assertEqual(full["counters"]["suffix"], 2)
+                self.assertEqual(full["counters"]["static_gap"], 1)
+                self.assertEqual(full["counters"]["static_supported"], 3)
+        finally:
+            setattr(P, attr, original)
+        self.golden()
+
+    def test_suffix_recovery(self):
+        def fault(orig):
+            def classify(event, start, end):
+                if event["kind"] == "suffix" and event["source_index"] > 1:
+                    return "supported", "466f6f", 1002
+                return orig(event, start, end)
+            return classify
+        self.control("_classify", fault)
+
+    def test_gap_recovery_in_high_source(self):
+        def fault(orig):
+            def classify(event, start, end):
+                if event["kind"] == "static" and event["detail"]["projection_state"] == "gap":
+                    return "supported", event["detail"]["fields"][0]["raw_hex"], 1002
+                return orig(event, start, end)
+            return classify
+        self.control("_classify", fault)
+
+
+def full_inputs():
+    data = Path(FULL_MANIFEST).read_bytes()
+    assert {"bytes": len(data), "sha256": sha(data)} == FULL_MANIFEST_PIN, "full manifest pin"
+    manifest = strict_load(data)
+    roots = [manifest["roots"][b] for b in P.BUNDLES]
+    for entry in manifest["files"]:
+        assert entry["path"] == os.path.join(manifest["roots"][entry["bundle"]], entry["name"])
+        assert P.FULL_PINS[entry["bundle"]][entry["name"]] == {"bytes": entry["bytes"],
+                                                               "sha256": entry["sha256"]}
+    assert len(manifest["files"]) == 10
+    return manifest, roots
+
+
+def full_datas(roots):
+    return {b: {n: Path(r, n).read_bytes() for n in P.FULL_PINS[b]}
+            for b, r in zip(P.BUNDLES, roots)}
+
+
+def input_state(roots):
+    """Content and metadata of every entry in the input roots (to prove no writes)."""
+    state = {}
+    for root in roots:
+        info = os.lstat(root)
+        state[root] = (info.st_ino, info.st_mode, info.st_mtime_ns, sorted(os.listdir(root)))
+        for name in sorted(os.listdir(root)):
+            path = os.path.join(root, name)
+            info = os.lstat(path)
+            state[path] = (info.st_ino, info.st_mode, info.st_size, info.st_mtime_ns,
+                           info.st_nlink, sha(Path(path).read_bytes()))
+    return state
+
+
+def independent_full_rows(datas):
+    """Expected rows recomputed from the full artifacts without producer functions."""
+    events = [json.loads(l) for l in datas["raw"][P.FULL_RAW_EVENTS].splitlines()]
+    mapm = json.loads(datas["map"][P.MAP_MANIFEST])
+    reverse = {r["name"]: r["id"] for r in mapm["index"]["state"]["reverse"]}
+    hist = {json.loads(l)["id"]: json.loads(l)
+            for l in datas["monster"][P.MON_HISTORY].splitlines()}
+    rows = []
+    for e in events:
+        row = {"schema": 1, "source_index": e["source_index"], "event_index": e["event_index"],
+               "raw": {"kind": e["kind"], "span": e["span"], "sha256": e["sha256"]},
+               "map": None, "monster": None, "unjoined": None}
+        detail = e["detail"]
+        if e["kind"] == "static" and detail["projection_state"] == "supported":
+            raw_hex = detail["values"]["map"]["value"]
+            name = bytes.fromhex(raw_hex).decode()
+            if name.lower().endswith(".gat"):
+                name = name[:-4]
+            idx = reverse.get(name)
+            if idx is None:
+                index, cs, cands = {"state": "missing", "id": None}, "not_applicable", []
+            elif idx == 0:
+                index, cs, cands = {"state": "zero", "id": 0}, "not_applicable", []
+            else:
+                cands = [c for c in mapm["candidates"] if c["index_lookup"]["id"] == idx]
+                index, cs = {"state": "nonzero", "id": idx}, ("present" if cands else "none")
+            row["map"] = {"raw_hex": raw_hex, "normalised": name, "index": index,
+                          "candidate_state": cs, "candidates": cands}
+            sprite = detail["values"]["sprite"]["value"]
+            h = hist.get(sprite)
+            row["monster"] = {"sprite": sprite,
+                              "state": "declared_history" if h else "no_declared_history",
+                              "history": h}
+        elif e["kind"] == "static":
+            row["unjoined"] = {"code": "static_projection_gap", "detail": detail["gaps"]}
+        elif e["kind"] == "suffix":
+            row["unjoined"] = {"code": "uncertified_suffix", "detail": detail}
+        elif e["kind"] == "opaque":
+            row["unjoined"] = {"code": "opaque_script", "detail": None}
+        else:
+            row["unjoined"] = {"code": "not_static", "detail": None}
+        rows.append(row)
+    return rows
+
+
+def run_full_cli(raw, map_dir, monster, output):
+    return subprocess.run([sys.executable, "-I", "-B", str(HERE / "static_spawn_references.py"),
+                           "--full839", "--raw-dir", raw, "--map-dir", map_dir,
+                           "--monster-dir", monster, "--output", output],
+                          capture_output=True, text=True, timeout=600)
+
+
+@unittest.skipUnless(FULL_MANIFEST, "STATIC_SPAWN_REFERENCE_FULL839_MANIFEST not set")
+class F12FullRealInputs(TempCase):
+    @classmethod
+    def setUpClass(cls):
+        cls.frozen, cls.roots = full_inputs()
+        cls.datas = full_datas(cls.roots)
+
+    def test_full_cli_publication(self):
+        before = input_state(self.roots)
+        target = self.target()
+        proc = run_full_cli(*self.roots, target)
+        self.assertEqual(proc.returncode, 0, proc.stderr)
+        for root in self.roots:
+            self.assertNotIn(root, proc.stdout + proc.stderr)
+        self.assertEqual(stat.S_IMODE(os.lstat(target).st_mode), 0o700)
+        names = sorted(os.listdir(target))
+        self.assertEqual(names, sorted([P.OUTPUT_ROWS, P.OUTPUT_MANIFEST, P.OUTPUT_COMPLETE]))
+        for name in names:
+            info = os.lstat(os.path.join(target, name))
+            self.assertTrue(stat.S_ISREG(info.st_mode))
+            self.assertEqual(stat.S_IMODE(info.st_mode), 0o600)
+        stream = Path(target, P.OUTPUT_ROWS).read_bytes()
+        manifest_bytes = Path(target, P.OUTPUT_MANIFEST).read_bytes()
+        manifest = strict_load(manifest_bytes)
+        marker = strict_load(Path(target, P.OUTPUT_COMPLETE).read_bytes())
+        rows = [strict_load(l) for l in stream.splitlines()]
+        self.assertEqual(len(rows), 35735)
+        self.assertEqual(stream, b"".join(P.render(r) for r in rows))
+        self.assertEqual(manifest_bytes, P.render(manifest))
+        self.assertEqual(typed(rows), typed(independent_full_rows(self.datas)))
+        conservation(self, {"rows": rows, "counters": manifest["counters"]})
+        c = manifest["counters"]
+        self.assertEqual((c["events"], c["static_supported"], c["static_gap"], c["suffix"],
+                          c["opaque"], c["not_static"]), (35735, 3074, 310, 731, 19, 31601))
+        self.assertEqual([r["source_index"] for r in rows][-1], 838)
+        self.assertEqual(sorted({r["source_index"] for r in rows}), list(range(839)))
+        raw = json.loads(self.datas["raw"][P.FULL_RAW_MANIFEST])
+        sources = copy.deepcopy(raw["sources"])
+        for source in sources:
+            source["source_pin"] = {"bytes": source["source_pin"]["bytes"],
+                                    "sha256": source["source_pin"]["sha256"]}
+        producer = (HERE / "static_spawn_references.py").read_bytes()
+        expected = {
+            "schema": 1, "task": "T06.002.003.005.003",
+            "profile": "static-spawn-declared-reference-full839-v1", "state": "complete",
+            "producer": {"file": "tools/renewal/static_spawn_references.py",
+                         "bytes": len(producer), "sha256": sha(producer)},
+            "dependencies": [],
+            "inputs": {f"{b}/{n}": {"bytes": len(d), "sha256": sha(d)}
+                       for b in self.datas for n, d in self.datas[b].items()},
+            "provenance": {
+                "rathena_revision": "0693b8c69911d5ca42269684aa036b67d67f4d3e",
+                "snapshot_manifest_sha256":
+                    "79ee4eff2ed1621aa3be6247d0aedefc5f44abd65025617de652f41644c1dbd0",
+                "selection_manifest_sha256":
+                    "d62e31fd601a879a9020eb0cbc79273cdaa38f11d6119af056b36727631aec9a",
+                "raw_producer_sha256":
+                    "80ad59e466b6c53aa1859be18403d094b5728e5bf2efcf71c385e9734aa20a01",
+                "raw_core_sha256":
+                    "14690614311ee805c3aa2906a15a77efe6885d51bf68a9cea50bc6bd5b581cbd",
+                "map_producer_sha256":
+                    "996a0cb8c6001150931b4cfa7e4e098fc4f2b7f10551b7ed428b98d51f08b56d",
+                "monster_producer_sha256":
+                    "45272a3660ff459a56b8f0ea7d30b0facef0e9f83fed13e981655dcc758e64d9"},
+            "raw_scope": {"admission": "pinned-stock-selection-839-v1",
+                          "lexical_state": "qualified", "physical_coverage": "complete",
+                          "raw_counters": raw["counters"], "sources": sources,
+                          "unscanned_selection_indices": []},
+            "output": {"file": "static-spawn-references.jsonl", "bytes": len(stream),
+                       "sha256": sha(stream), "rows": 35735},
+            "counters": c, "limits": P.FULL_LIMITS,
+            "claims": {"map_cells": "not_checked", "native_membership": "not_checked",
+                       "effective_population": "not_checked", "world_coverage": "not_checked",
+                       "localisation": "not_checked", "story_solo": "not_checked",
+                       "lexical_completeness": "not_checked"}}
+        self.assertEqual(typed(manifest), typed(expected))
+        self.assertEqual(sum(v["bytes"] for v in manifest["inputs"].values()),
+                         self.frozen["totalBytes"])
+        self.assertEqual(typed(marker), typed({
+            "schema": 1, "task": "T06.002.003.005.003",
+            "profile": "static-spawn-declared-reference-full839-v1", "state": "complete",
+            "manifest": {"bytes": len(manifest_bytes), "sha256": sha(manifest_bytes)},
+            "output": manifest["output"]}))
+        text = (stream + manifest_bytes).decode("ascii")
+        self.assertNotIn(os.path.expanduser("~"), text)
+        self.assertNotIn('"/', text)  # no absolute path values
+        again = self.target("again")
+        self.assertEqual(run_full_cli(*self.roots, again).returncode, 0)
+        for name in names:
+            self.assertEqual(Path(target, name).read_bytes(), Path(again, name).read_bytes())
+        self.assertEqual(input_state(self.roots), before)
+
+    @unittest.skipUnless(FROZEN, "STATIC_SPAWN_REFERENCE_FROZEN_ROOT not set")
+    def test_pilot_sources_annotate_identically(self):
+        pilot = P.admit(*[os.path.join(FROZEN, b) for b in P.BUNDLES])
+        pilot_rows = P.join_events(pilot["events"], pilot["reverse"], pilot["candidates"],
+                                   pilot["histories"])["rows"]
+        full = P.admit(*self.roots, full839=True)
+        full_rows = P.join_full_events(full["events"], full["reverse"], full["candidates"],
+                                       full["histories"])["rows"]
+        for pilot_index, full_index in enumerate((691, 772)):
+            mine = [{k: v for k, v in r.items() if k not in ("source_index", "event_index")}
+                    for r in full_rows if r["source_index"] == full_index]
+            theirs = [{k: v for k, v in r.items() if k not in ("source_index", "event_index")}
+                      for r in pilot_rows if r["source_index"] == pilot_index]
+            self.assertTrue(theirs)
+            self.assertEqual(typed(mine), typed(theirs))
+        with self.assertRaises(P.ReferenceError):  # modes do not cross-admit
+            P.admit(os.path.join(FROZEN, "raw"), *self.roots[1:], full839=True)
+
+    def test_pilot_mode_refuses_full_raw(self):
+        proc = run_cli(*self.roots, self.target("pilot"))
+        self.assertEqual(proc.returncode, 2)
+        # The pilot's own 64 MiB input bound (shared source-lines name) refuses it
+        # before any read; otherwise its exact pilot entry set would.
+        self.assertRegex(proc.stderr, "exceed input_total_bytes|entries differ")
+        self.assertFalse(os.path.exists(self.target("pilot")))
+
+    def test_late_failure_leaves_no_completion(self):
+        def fsync(fd):
+            REAL["fsync"](fd)
+            if stat.S_ISDIR(os.fstat(fd).st_mode):
+                raise OSError(errno.EIO, "injected")
+        P._os_fsync = fsync
+        target = self.target()
+        with self.assertRaises(P.ReferenceError):
+            P.run(*self.roots, target, full839=True)
+        self.assert_owned_closed()
+        self.assert_failed_publication(target)
+        self.assertEqual(os.listdir(target), [P.OUTPUT_ROWS])
+
+    def test_failed_rows_readback_leaves_no_completion(self):
+        built = P.build_full(P.admit(*self.roots, full839=True), P.producer_pin())
+        original = P._read_back
+
+        def read_back(dir_fd, name, expect, owned):
+            if name == P.OUTPUT_ROWS:
+                raise P.ReferenceError("injected rows readback fault")
+            return original(dir_fd, name, expect, owned)
+        P._read_back = read_back
+        target = self.target()
+        try:
+            with self.assertRaises(P.ReferenceError):
+                P.publish(target, built, P.FULL_TASK, P.FULL_PROFILE_NAME)
+        finally:
+            P._read_back = original
+        self.assert_owned_closed()
+        self.assert_failed_publication(target)
+
+
+def rebind_full(datas):
+    manifest = datas["raw"][P.FULL_RAW_MANIFEST]
+    marker = json.loads(datas["raw"][P.FULL_RAW_PUBLISHED])
+    marker["manifest"] = {"bytes": len(manifest), "sha256": sha(manifest)}
+    datas["raw"][P.FULL_RAW_PUBLISHED] = json.dumps(marker).encode()
+
+
+@unittest.skipUnless(FULL_MANIFEST, "STATIC_SPAWN_REFERENCE_FULL839_MANIFEST not set")
+class F12FullPostAdmissionBridgeMutations(unittest.TestCase):
+    """AUTHORED POST-ADMISSION BRIDGE MUTATIONS of the real full raw publication. The
+    manifest/marker are mutated in memory and rebound, then passed to _admit_full_raw.
+    NOT a production byte-pin bypass: the CLI refuses all of these at the pin check."""
+
+    @classmethod
+    def setUpClass(cls):
+        _, roots = full_inputs()
+        cls.raw = full_datas(roots)["raw"]
+        cls.manifest = json.loads(cls.raw[P.FULL_RAW_MANIFEST])
+        cls.marker = json.loads(cls.raw[P.FULL_RAW_PUBLISHED])
+
+    def mutated(self, manifest_fn=None, marker_fn=None):
+        datas = {"raw": dict(self.raw)}
+        if manifest_fn:
+            obj = copy.deepcopy(self.manifest)
+            manifest_fn(obj)
+            datas["raw"][P.FULL_RAW_MANIFEST] = json.dumps(obj).encode()
+            rebind_full(datas)
+        if marker_fn:
+            obj = json.loads(datas["raw"][P.FULL_RAW_PUBLISHED])
+            marker_fn(obj)
+            datas["raw"][P.FULL_RAW_PUBLISHED] = json.dumps(obj).encode()
+        return datas["raw"]
+
+    def test_baseline_admits_all_events(self):
+        manifest, events = P._admit_full_raw(dict(self.raw))
+        self.assertEqual(len(events), 35735)
+        self.assertEqual(manifest["lexical_state"], "qualified")
+        self.assertEqual(sum(s["framing"] == "cutoff" for s in manifest["sources"]), 731)
+        self.assertEqual(manifest["sources"][608]["suffix"]["reason"], "bare_cr")
+        # Rebinding alone (different serializer, same content) stays admissible.
+        P._admit_full_raw(self.mutated(lambda m: None))
+
+    def test_manifest_mutations(self):
+        def source(i, **changes):
+            return lambda m: m["sources"][i].update(**changes)
+        cases = {
+            "lexical_promoted": lambda m: m.update(lexical_state="complete"),
+            "physical_partial": lambda m: m.update(physical_coverage="partial"),
+            "admission": lambda m: m.update(admission="other"),
+            "task": lambda m: m.update(task="T06.002.003.005.001"),
+            "profile_pilot": lambda m: m.update(profile="static-spawn-raw-v1"),
+            "schema_bool": lambda m: m.update(schema=True),
+            "lexical_profile": lambda m: m.update(lexical_profile="other"),
+            "producer_sha": lambda m: m["producer"].update(sha256="0" * 64),
+            "core_sha": lambda m: m["core"].update(sha256="0" * 64),
+            "reader_sha": lambda m: m["reader"].update(sha256="0" * 64),
+            "selection_bytes_float": lambda m: m["input_pins"]["selection_manifest"].update(
+                bytes=953299.0),
+            "deferred_join_done": lambda m: m["deferred_joins"].update(map_cache="performed"),
+            "selected_bodies": lambda m: m["verification"].update(selected_bodies=838),
+            "native_acceptance": lambda m: m["verification"].update(native_acceptance=True),
+            "unscanned": lambda m: m.update(unscanned=[5]),
+            "counter_gap": lambda m: m["counters"].update(static_gap=309),
+            "counter_unknown": lambda m: m["counters"].update(unknown_bytes=0),
+            "extra_key": lambda m: m.update(state="complete"),
+            "source_dropped": lambda m: m["sources"].pop(),
+            "source_swapped": lambda m: m["sources"].__setitem__(
+                slice(0, 2), [m["sources"][1], m["sources"][0]]),
+            "selection_index": source(838, selection_index=837),
+            "source_pin_sha": lambda m: m["sources"][5]["source_pin"].update(sha256="0" * 64),
+            "suffix_reason": lambda m: m["sources"][608]["suffix"].update(reason="other"),
+            "suffix_fault_beyond": lambda m: m["sources"][608]["suffix"].update(
+                fault_offset=40047),
+            "suffix_span": lambda m: m["sources"][838]["suffix"].update(span=[704, 3520]),
+            "cutoff_called_complete": source(838, framing="complete"),
+            "complete_projection": source(691, projection="gapped"),
+            "kind_counts": lambda m: m["sources"][0]["kind_counts"].update(whitespace=53),
+            "source_counter": lambda m: m["sources"][0]["counters"].update(static_gap=1),
+            "event_rows": source(0, event_row_range=[0, 108]),
+            "event_sha": source(1, event_stream_sha256="0" * 64),
+            "line_sha": source(838, physical_stream_sha256="0" * 64),
+            "line_rows": source(838, line_row_range=[723129, 723205]),
+            "line_bytes": source(838, line_byte_range=[172527994, 172547907]),
+            "bytes": source(0, bytes=27017),
+        }
+        for name, fn in cases.items():
+            with self.subTest(name), self.assertRaises(P.ReferenceError):
+                P._admit_full_raw(self.mutated(fn))
+
+    def test_marker_mutations(self):
+        cases = {
+            "semantic_return_zero": lambda m: m.update(semantic_return=0),
+            "semantic_return_bool": lambda m: m.update(semantic_return=True),
+            "publication_unverified": lambda m: m.update(publication_verified=False),
+            "postpins_unverified": lambda m: m.update(source_postpins_verified=1),
+            "lexical_promoted": lambda m: m.update(lexical_state="complete"),
+            "rows_float": lambda m: m["output_pins"]["static-spawn-events.jsonl"].update(
+                rows=35735.0),
+            "producer_bytes": lambda m: m["producer"].update(bytes=64244),
+            "manifest_unbound": lambda m: m["manifest"].update(sha256="0" * 64),
+            "extra_key": lambda m: m.update(state="complete"),
+        }
+        for name, fn in cases.items():
+            with self.subTest(name), self.assertRaises(P.ReferenceError):
+                P._admit_full_raw(self.mutated(marker_fn=fn))
+
+    def test_unbound_stream_change(self):
+        raw = dict(self.raw)
+        events = bytearray(raw[P.FULL_RAW_EVENTS])
+        events[len(events) // 2] ^= 1
+        raw[P.FULL_RAW_EVENTS] = bytes(events)
+        with self.assertRaises(P.ReferenceError):
+            P._admit_full_raw(raw)
+
+    def test_negative_control_physical_bridge_is_load_bearing(self):
+        """Replacing the producer's per-source hash with a no-op admits a broken line hash."""
+        bad = self.mutated(lambda m: m["sources"][838].update(physical_stream_sha256="0" * 64))
+        with self.assertRaises(P.ReferenceError):
+            P._admit_full_raw(bad)
+        original = P.sha256
+        P.sha256 = lambda data: "0" * 64 if len(data) == 19914 else original(data)
+        try:
+            P._admit_full_raw(bad)  # the fault hides the broken bridge
+        finally:
+            P.sha256 = original
+        with self.assertRaises(P.ReferenceError):
+            P._admit_full_raw(bad)
+
+
+@unittest.skipUnless(FULL_MANIFEST, "STATIC_SPAWN_REFERENCE_FULL839_MANIFEST not set")
+class F12FullCopiedAdmission(TempCase):
+    @classmethod
+    def setUpClass(cls):
+        _, roots = full_inputs()
+        cls.copy_root = private_tmp()
+        for bundle, root in zip(P.BUNDLES, roots):
+            os.mkdir(os.path.join(cls.copy_root, bundle), 0o700)
+            for name in P.FULL_PINS[bundle]:
+                dest = os.path.join(cls.copy_root, bundle, name)
+                shutil.copyfile(os.path.join(root, name), dest)
+                os.chmod(dest, 0o600)
+
+    @classmethod
+    def tearDownClass(cls):
+        shutil.rmtree(cls.copy_root, ignore_errors=True)
+
+    def roots(self):
+        return [os.path.join(self.copy_root, b) for b in P.BUNDLES]
+
+    def flip(self, bundle, name, offset):
+        with open(os.path.join(self.copy_root, bundle, name), "r+b") as handle:
+            handle.seek(offset)
+            byte = handle.read(1)
+            handle.seek(offset)
+            handle.write(bytes([byte[0] ^ 1]))
+
+    def test_copy_is_admitted(self):
+        self.assertEqual(len(P.admit(*self.roots(), full839=True)["events"]), 35735)
+
+    def test_same_length_mutations_refused_by_pins(self):
+        for bundle, name in (("raw", P.FULL_RAW_LINES), ("raw", P.FULL_RAW_EVENTS),
+                             ("raw", P.FULL_RAW_MANIFEST), ("raw", P.FULL_RAW_PUBLISHED),
+                             ("map", P.MAP_MANIFEST), ("monster", P.MON_HISTORY)):
+            offset = P.FULL_PINS[bundle][name]["bytes"] // 2
+            self.flip(bundle, name, offset)
+            try:
+                target = self.target(f"out-{bundle}-{name}")
+                proc = run_full_cli(*self.roots(), target)
+                with self.subTest(bundle=bundle, name=name):
+                    self.assertEqual(proc.returncode, 2)
+                    self.assertIn("is not the pinned", proc.stderr)
+                    self.assertFalse(os.path.exists(target))
+            finally:
+                self.flip(bundle, name, offset)
+        self.assertEqual(len(P.admit(*self.roots(), full839=True)["events"]), 35735)
+
+    def test_extra_missing_and_existing_output(self):
+        raw = os.path.join(self.copy_root, "raw")
+        extra = os.path.join(raw, P.RAW_COMPLETE)
+        Path(extra).write_bytes(b"{}")
+        try:
+            proc = run_full_cli(*self.roots(), self.target("extra"))
+            self.assertEqual(proc.returncode, 2)
+            self.assertIn("entries differ", proc.stderr)
+        finally:
+            os.unlink(extra)
+        existing = self.target("existing")
+        os.mkdir(existing, 0o700)
+        Path(existing, "sentinel").write_bytes(b"keep")
+        self.assertEqual(run_full_cli(*self.roots(), existing).returncode, 2)
+        self.assertEqual(os.listdir(existing), ["sentinel"])
+        inside = os.path.join(raw, "out")
+        self.assertEqual(run_full_cli(*self.roots(), inside).returncode, 2)
+        self.assertEqual(sorted(os.listdir(raw)), sorted(P.FULL_PINS["raw"]))
 
 
 if __name__ == "__main__":
