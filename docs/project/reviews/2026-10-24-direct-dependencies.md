@@ -4590,3 +4590,63 @@ Private t07-014-022-preparation-root-1/:
 | ACTUAL_GEOMETRY_REFERENCE_CALL_ROOT.json |252|e0ed5bae3040bf1734cd19a3db0c86138b29f419a345d290fcc29f0ac81523b6|
 | AUDIT_GEOMETRY_REFERENCE_ROOT.py |6180|9e7a8cfca832ba51c8214631a6175709e25a2372d2b9bb6c5eb5b5b100d65d47|
 | ACTUAL_GEOMETRY_REFERENCE_AUDIT_ROOT.json |2282|b5a565108a40a63cb960396608612801059974ccc76edd01de9b21cece0a78b2|
+
+
+## Both geometry source plans pass Root comparison with a corrected direction
+
+Root reads Grok's complete31812B report,14605B inventory and full static log,
+then independently recomputes161checks/all22spans (thirteen copy units/four
+method pins/five provenance spans), all four full C8/SHA inputs, dependencies,
+whole LF/concat/non-overlap and four preparation joins. All byte facts pass;
+closure92740B/SHAc7cbcf3942b9b1410a5052a818daca3d862c683b463ca2abd2efaf599f33f858.
+No acquired source or model runs. Grok supplies only a command shape/static log,
+not a replayable check script; Root's independent recomputation is explicit.
+
+Raw Grok holds before use: realm SHA has no supplied dependency; direct
+all-vertex bounds claim refers to an unreturned local vert array; hypothetical
+second-root visit is incorrectly said to leave the aggregate box unchanged;
+measured effective heap is absent and sampled RSS is mislabeled an address-space
+ceiling. Root's handwritten owned-realm controls confirm crypto/require absent
+and a local transformed array not visible through the returned mesh/textures.
+They also show default console exists: both originals need explicit deletion
+if unexpected int64 warnings are meant to fail as UNBOUND. No source/model data
+is used by these controls. Retained independent raw bounds show visiting node1
+can expand the aggregate model box. Its matrix identity alone does not establish
+identical output or visible displacement. Correct variant controls each use
+their own expected box/geometry; no automatic equality assertion.
+
+| Raw source plan | Correctness /8 | Preservation /4 | Checks /4 | Handoff /2 | Limits /2 | Total /20 |
+|---|---:|---:|---:|---:|---:|---:|
+| Claude2d55d16 |6|3|3|2|2|16|
+| Grokc0fde99 |5|4|2|1|1|13|
+
+Claude provides a rerunnable static script but records partial identities;
+Grok records full lossless C8 but omits exact runnable commands. Both receive
+credit for correct source bytes, structure/resources and full-goal boundaries.
+473.268/907.991s is dispatch-to-settlement wall time only. Active model time,
+tokens/dollar cost/model/effort are unobserved. These are plan-only scores;
+Root changes/independent references do not raise either original score.
+
+Root selects the Claude five-whole-region inventory as the smaller assembly
+boundary, with Grok's exact comparison/collision facts and Root's correction
+of all material holds. [Canonical corrected plan](T07.007.014.022-geometry-plan.md)
+and [canonical inventory](T07.007.014.022-geometry-spans.json) integrate; Root
+rechecks154controls/all48spans/four complete input pins. Inventory24463B/SHA
+d613403980de902611a83815ef56ccd040aadfdab0475c8e25348b7dd4687007.
+No host sandbox, realm SHA dependency or unexplained ULP pass; hashes stay host
+side, all-vertex expectations are separated from observed emitted bounds,
+heap is measured, and terminal publication/close/input seals are required.
+
+.022 is **ready_for_user for the corrected source execution plan only**. No
+acquired constructor/createInstance/compile runs or is admitted. Next freeze
+an equal tiny-authored implementation task and personally qualify it, then a
+separate actual caller. Both independent originals/rollback bundles stay intact;
+all workers released, zero reclaimable. All82gaps and parent4/14 unchanged.
+
+Private t07-014-022-grok-review-root-1/:
+
+| File | Bytes | SHA256 |
+|---|---:|---|
+| ROOT_CONTROLS_ROOT.json |3266|21a6aee50faedc4351d981cf1e1e845da6ac18620e5e09cbc8491e182449343a|
+| ROOT_AUTHORED_REALM_CONTROL.mjs |1336|46d8e1ef41f73018c4ace34c35c394379a1dd34fb6e1719756827df0e8be22ce|
+| AUTHORED_REALM_CONTROL_ROOT.json |488|316f3cf18392d553c26b2e74c06a1a239dc14390cd93ef5a56413fd9ecfbd1e3|

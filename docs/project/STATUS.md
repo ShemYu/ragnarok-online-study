@@ -10,31 +10,22 @@ open. Full Modern/Renewal scope is unchanged; no new user decision is required.
 The board includes later-phase party taskT11, so this is not a percentage of
 first-milestone content or remaining effort. Do not relabel it as such.
 
-**Latest:** [.021all25retained TGA decoder outputs now match the independent
-reference](reviews/2026-10-24-direct-dependencies.md#actual25retained-tga-decoder-and-complete-independent-comparison-pass).
-ONE actual call, natural0/no stderr, Node0.184042s; Root574checks/35full pins
-pass. Observed peak RSS114.078125MiB; effective V8 heap128MiB. The call is
-consumed; reuse its saved results. Source/caller qualification, admission and
-result checkpoints are committed. Both original workers are preserved/released;
-raw Claude15/20/Grok11/20, Root repairs credited separately.
-.021is ready_for_user only for pure retained TGA output, not user acceptance.
-[.020all32tiny authored outcomes](reviews/2026-10-24-direct-dependencies.md#root-corrected-authored-decoder-harness-and-complete-capture-audit-pass),
-.017all948deliveries and corrected .019conditional Worker source facts remain
-qualified in their bounded scopes. [Next .022exact-placement geometry source plan is frozen](tasks/T07.007.014.022.md):
-Root verifies model702/map17/group37/placement50/ground200x200. Independent
-Claude/Grok source plans and Root binary preflight precede compile, then
-browser/render qualification.
-[Root47authored binary-preflight controls and finite caller checks pass; ONE
-independent Python parse is admitted](reviews/2026-10-24-direct-dependencies.md#independent-static-model-preflight-qualifies-and-one-binary-parse-is-admitted).
-[ONE independent parse/full4226check saved-array audit now passes](reviews/2026-10-24-direct-dependencies.md#independent-actual-static-model-preflight-and-full-saved-array-audit-pass):
-all indices/finite data valid, exact mesh output42876B. Parse consumed; reuse
-retained arrays for the independent Float32 geometry oracle.
-[Root42authored geometry-reference controls and finite caller pass; ONE reference admitted](reviews/2026-10-24-direct-dependencies.md#independent-geometry-reference-passes-authored-source-controls),
-[ONE independent reference/full7975check saved-output audit now passes](reviews/2026-10-24-direct-dependencies.md#actual-independent-geometry-reference-and-saved-output-audit-pass); call consumed, reuse full values. [Admission](reviews/2026-10-24-direct-dependencies.md#independent-geometry-reference-caller-qualifies-and-one-reference-is-admitted). [Claude2d55d16preserved/released, bundle recovery complete](reviews/2026-10-24-direct-dependencies.md#claude-geometry-plan-is-preserved-and-released-with-bundle-recovery);
-[Root full review/static reproduction/300span controls now pass with adapter
-and oracle holds](reviews/2026-10-24-direct-dependencies.md#claude-geometry-spans-pass-full-root-reproduction-with-adapter-holds);
-[Grokc0fde99also preserved/released](reviews/2026-10-24-direct-dependencies.md#grok-geometry-original-is-preserved-and-released); Root full review next, no selection or compile grant. No acquired
-constructor/compile/render execution; all82functional gaps remain open.
+**Latest:** [.021all25retained TGA outputs match the independent pixel oracle](reviews/2026-10-24-direct-dependencies.md#actual25retained-tga-decoder-and-complete-independent-comparison-pass).
+ONE call, Node0.184042s/observed peak RSS114.078125MiB; Root574checks/35pins pass.
+It is ready_for_user for pure CPU output only. Reuse retained results, no replay.
+
+[.022corrected geometry source plan is now Root-qualified](reviews/2026-10-24-direct-dependencies.md#both-geometry-source-plans-pass-root-comparison-with-a-corrected-direction):
+both originals fully reviewed/preserved/released, raw Claude16/20/Grok13/20.
+Root selects the five-whole-region closure with explicit adapter/oracle/resource
+corrections; canonical154checks/48spans pass. [Independent binary preflight](reviews/2026-10-24-direct-dependencies.md#independent-actual-static-model-preflight-and-full-saved-array-audit-pass)
+passes47authored controls/4226saved-array checks. [Independent geometry reference](reviews/2026-10-24-direct-dependencies.md#actual-independent-geometry-reference-and-saved-output-audit-pass)
+passes42authored controls/7975saved-output checks; full expected mesh bytes and
+intermediates are retained. Both independent calls are consumed; no replay.
+
+Next Root freezes a tiny-authored geometry observer implementation task, then
+qualifies both originals before any actual model compile. Browser/render,
+normal game/story/full content and all82functional gaps remain open. No acquired
+geometry execution is admitted and no goal-changing issue/user decision appears.
 
 **Child cleanup:** [Root verifies removal of20completed children](reviews/2026-10-24-orca-children-cleanup.md#second-twelve-removals-personally-verified).
 Current84direct children include the two released review children and the two

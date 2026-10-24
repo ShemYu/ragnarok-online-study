@@ -1,0 +1,784 @@
+{
+  "schema": "t07-007-014-022-root-qualified-geometry-spans/1",
+  "task": "T07.007.014.022",
+  "base_commit": "8e6dc3957d01ed0803ea6e0d80a18aebaf1b3944",
+  "status": "Root source-qualified corrected execution plan; no acquired model compile executed or admitted",
+  "frozen_inputs_relative_to_root": [
+    {
+      "path": ".tools/renewal/t07-007-011-002-integrated-qualification-1/generated/ThreadEventHandler.js",
+      "bytes": 624463,
+      "sha256": "1501ca10336d91e4f8a0301101c43e5ca1a0ef1aa81212bbffb5690c68c13325",
+      "dev_ino": "16777229:20430727",
+      "identity_decimal": [
+        "16777229",
+        "20430727",
+        "624463",
+        "1792636173900005846",
+        "1792636173900005846",
+        "33152",
+        "1",
+        "501"
+      ]
+    },
+    {
+      "path": ".tools/renewal/t07-014-012-remainder-binding-root-1/actual-models/model-0702.result.json",
+      "bytes": 4164,
+      "sha256": "8aa8677947d5c887170e8716e4e8618b86788cb3fbd2a7610b06aeaefb1769b0",
+      "dev_ino": "16777229:21799438",
+      "identity_decimal": [
+        "16777229",
+        "21799438",
+        "4164",
+        "1792860644343164783",
+        "1792860644343164783",
+        "33152",
+        "1",
+        "501"
+      ]
+    },
+    {
+      "path": ".tools/renewal/t07-014-022-preparation-root-1/PLACEMENT_ROOT.json",
+      "bytes": 6581,
+      "sha256": "173a29b1fbce986a0fbc86061b4c07bee1250d261eff398b634c611a4077add0",
+      "dev_ino": "16777229:21887135",
+      "identity_decimal": [
+        "16777229",
+        "21887135",
+        "6581",
+        "1792872749461436880",
+        "1792872749461505547",
+        "33152",
+        "1",
+        "501"
+      ]
+    },
+    {
+      "path": ".tools/renewal/t07-014-022-preparation-root-1/SOURCE_RESOURCE_ROOT.json",
+      "bytes": 3159,
+      "sha256": "937081dc06ac18231616ea729d85766865b39df110eef1cd0df1218d6e790fe7",
+      "dev_ino": "16777229:21880034",
+      "identity_decimal": [
+        "16777229",
+        "21880034",
+        "3159",
+        "1792871461380073960",
+        "1792871461380073960",
+        "33188",
+        "1",
+        "501"
+      ]
+    }
+  ],
+  "worker": {
+    "path_relative_to_root": ".tools/renewal/t07-007-011-002-integrated-qualification-1/generated/ThreadEventHandler.js",
+    "bytes": 624463,
+    "sha256": "1501ca10336d91e4f8a0301101c43e5ca1a0ef1aa81212bbffb5690c68c13325",
+    "LF_count": 19549
+  },
+  "line_convention": "LF_start/LF_end are 1-based inclusive line numbers; offset/bytes cover whole lines including the final LF of LF_end; sha256 over exactly those bytes",
+  "executable_closure_order": [
+    "X01_global_seek",
+    "X02_BinaryReader",
+    "X03_glmatrix_vendor",
+    "X04_glmatrix_utils",
+    "X05_model_region"
+  ],
+  "closure_executable_bytes": 122567,
+  "closure_sha256_concat_in_order": "a69e2472aa5103c7c976fd5eaf9bd5600d1cf2838fb906e57c25b6f28e2c66e0",
+  "executable_closure": [
+    {
+      "id": "X01_global_seek",
+      "LF_start": 11254,
+      "LF_end": 11257,
+      "offset": 410946,
+      "bytes": 125,
+      "sha256": "b61f2979872651475fd521fe6e6ab19d329d4c251b17377e3bc2fde9a309d950",
+      "first_line_anchor": "var _global = typeof self",
+      "status": "executable_closure",
+      "deps": [
+        "UNBOUND:self"
+      ]
+    },
+    {
+      "id": "X02_BinaryReader",
+      "LF_start": 11258,
+      "LF_end": 11488,
+      "offset": 411071,
+      "bytes": 6550,
+      "sha256": "938d4538c4706ee29641355f4ef2e876dfb543f602995f7cc89fc2a5dfb4c2fb",
+      "first_line_anchor": "/**",
+      "status": "executable_closure",
+      "deps": [
+        "X01_global_seek",
+        "UNBOUND:CodepageManager",
+        "UNBOUND:Struct",
+        "UNBOUND:console"
+      ],
+      "note": "whole region body incl. unused readString/getStruct/readInt64/getPos/getPos2"
+    },
+    {
+      "id": "X03_glmatrix_vendor",
+      "LF_start": 12551,
+      "LF_end": 15752,
+      "offset": 437664,
+      "bytes": 82079,
+      "sha256": "131ed85ee2aa5018d754fd0846cf70167548dd8304c16f3c7f599c3a7379f083",
+      "first_line_anchor": "/**",
+      "status": "executable_closure",
+      "deps": [],
+      "note": "whole gl-matrix 2.2.0 region; defines var exports and GLMAT_* globals"
+    },
+    {
+      "id": "X04_glmatrix_utils",
+      "LF_start": 15755,
+      "LF_end": 16088,
+      "offset": 519789,
+      "bytes": 7502,
+      "sha256": "2bdd7682f40a7e3f112ff526dacd10e207783e6871fa8c4f028799d92002aec3",
+      "first_line_anchor": "/**",
+      "status": "executable_closure",
+      "deps": [
+        "X03_glmatrix_vendor"
+      ],
+      "note": "ends with var gl_matrix_default = exports;"
+    },
+    {
+      "id": "X05_model_region",
+      "LF_start": 16877,
+      "LF_end": 17771,
+      "offset": 550770,
+      "bytes": 26311,
+      "sha256": "6ea0385b3cfb5212a96bb0f98f6fd464f8ba281d3bc755454b30930e2e4950d9",
+      "first_line_anchor": "/**",
+      "status": "executable_closure",
+      "deps": [
+        "X02_BinaryReader",
+        "X01_global_seek",
+        "X04_glmatrix_utils"
+      ],
+      "note": "whole Loaders/Model.js region incl. unused compileAtFrame and keyframe helpers"
+    }
+  ],
+  "anchors": [
+    {
+      "id": "A_Box",
+      "LF_start": 16892,
+      "LF_end": 16900,
+      "offset": 551062,
+      "bytes": 256,
+      "sha256": "de7987a3e15eaa3f92848ebbba20f0fd4ad57a477addf80954c20170b2822ff5",
+      "first_line_anchor": "var Box = class",
+      "status": "anchor_within_closure",
+      "deps": [],
+      "contained_in": "X05_model_region"
+    },
+    {
+      "id": "A_Node_class",
+      "LF_start": 16901,
+      "LF_end": 17423,
+      "offset": 551318,
+      "bytes": 16086,
+      "sha256": "7efa73514eeca0e1f7013f93046607235e8e1e3fe5c8440bd90514629eff3d02",
+      "first_line_anchor": "var Node = class",
+      "status": "anchor_within_closure",
+      "deps": [],
+      "contained_in": "X05_model_region"
+    },
+    {
+      "id": "A_Node_calcBoundingBox",
+      "LF_start": 17103,
+      "LF_end": 17138,
+      "offset": 556121,
+      "bytes": 1523,
+      "sha256": "1a97972af121e369dfce2464da9469da351f76f55a9c3e4356464754b26ad9c9",
+      "first_line_anchor": "calcBoundingBox(_matrix)",
+      "status": "anchor_within_closure",
+      "deps": [],
+      "contained_in": "X05_model_region"
+    },
+    {
+      "id": "Node_compile",
+      "LF_start": 17144,
+      "LF_end": 17197,
+      "offset": 557705,
+      "bytes": 2217,
+      "sha256": "4b0d30cd6b912789972244987f8d3d39e62a5d03bf6912d19aba5f2e018332a2",
+      "first_line_anchor": "compile(instance_matrix)",
+      "status": "anchor_within_closure",
+      "deps": [],
+      "contained_in": "X05_model_region"
+    },
+    {
+      "id": "A_Node_calcNormal_NONE",
+      "LF_start": 17276,
+      "LF_end": 17279,
+      "offset": 563208,
+      "bytes": 109,
+      "sha256": "82e667026143bc27f8a80671fe501a78d185ce65033bf204f66834da48ee9ed1",
+      "first_line_anchor": "calcNormal_NONE",
+      "status": "anchor_within_closure",
+      "deps": [],
+      "contained_in": "X05_model_region"
+    },
+    {
+      "id": "A_Node_calcNormal_FLAT",
+      "LF_start": 17287,
+      "LF_end": 17301,
+      "offset": 563440,
+      "bytes": 770,
+      "sha256": "253c782e62d893dc5d950e1a2ea21800104bb2c4a7cc6a08e0a4dfea36cc469e",
+      "first_line_anchor": "calcNormal_FLAT",
+      "status": "anchor_within_closure",
+      "deps": [],
+      "contained_in": "X05_model_region"
+    },
+    {
+      "id": "Node_smooth",
+      "LF_start": 17309,
+      "LF_end": 17343,
+      "offset": 564335,
+      "bytes": 929,
+      "sha256": "53c131938b9a358fef55884ceb970c97109253b89756fb66244285e7b51023fb",
+      "first_line_anchor": "calcNormal_SMOOTH",
+      "status": "anchor_within_closure",
+      "deps": [],
+      "contained_in": "X05_model_region"
+    },
+    {
+      "id": "A_Node_generate_mesh_FLAT",
+      "LF_start": 17351,
+      "LF_end": 17382,
+      "offset": 565405,
+      "bytes": 910,
+      "sha256": "0f37b86cca73c3aa79c6cb7b95bd545cf9faa3a948ec95b019a781a92dd8fffe",
+      "first_line_anchor": "generate_mesh_FLAT",
+      "status": "anchor_within_closure",
+      "deps": [],
+      "contained_in": "X05_model_region"
+    },
+    {
+      "id": "A_Node_generate_mesh_SMOOTH",
+      "LF_start": 17390,
+      "LF_end": 17422,
+      "offset": 566455,
+      "bytes": 946,
+      "sha256": "941b34438a7602594d8bc49556cf835a8e040d176f931592d4254030f42528ec",
+      "first_line_anchor": "generate_mesh_SMOOTH",
+      "status": "anchor_within_closure",
+      "deps": [],
+      "contained_in": "X05_model_region"
+    },
+    {
+      "id": "A_RSM_class",
+      "LF_start": 17429,
+      "LF_end": 17646,
+      "offset": 567473,
+      "bytes": 6405,
+      "sha256": "de5cd78d0b110a0a73e7439e58f171d1eb6a948426f0bdabddcce636cb7a81cb",
+      "first_line_anchor": "var RSM = class RSM",
+      "status": "anchor_within_closure",
+      "deps": [],
+      "contained_in": "X05_model_region"
+    },
+    {
+      "id": "A_RSM_load",
+      "LF_start": 17450,
+      "LF_end": 17540,
+      "offset": 567742,
+      "bytes": 3101,
+      "sha256": "a8e70d3a82de5c7604177fc88daf1fd52ff49231e57971b9cec0a58ef562369b",
+      "first_line_anchor": "load(data)",
+      "status": "anchor_within_closure",
+      "deps": [],
+      "contained_in": "X05_model_region"
+    },
+    {
+      "id": "RSM_createInstance",
+      "LF_start": 17548,
+      "LF_end": 17571,
+      "offset": 570958,
+      "bytes": 787,
+      "sha256": "865d7a425eedc1a29351357f5f5e84c5859d34e524f2594a35379762edea2127",
+      "first_line_anchor": "createInstance(model, width, height)",
+      "status": "anchor_within_closure",
+      "deps": [],
+      "contained_in": "X05_model_region"
+    },
+    {
+      "id": "A_RSM_calcBoundingBox",
+      "LF_start": 17575,
+      "LF_end": 17593,
+      "offset": 571786,
+      "bytes": 582,
+      "sha256": "d97a5b9e2c3c0ca126572b143cc9617ede66a91d0eb85dac73eee56298acf74a",
+      "first_line_anchor": "calcBoundingBox()",
+      "status": "anchor_within_closure",
+      "deps": [],
+      "contained_in": "X05_model_region"
+    },
+    {
+      "id": "RSM_compile",
+      "LF_start": 17597,
+      "LF_end": 17609,
+      "offset": 572394,
+      "bytes": 412,
+      "sha256": "f94282e44e0daae58901960733f19c4b3ea7634b274679e4ba629c9df512434c",
+      "first_line_anchor": "compile()",
+      "status": "anchor_within_closure",
+      "deps": [],
+      "contained_in": "X05_model_region"
+    },
+    {
+      "id": "A_RSM_hasAnimation",
+      "LF_start": 17615,
+      "LF_end": 17625,
+      "offset": 572886,
+      "bytes": 382,
+      "sha256": "6b04c23fb0049f47d96b8be8c38bb1e7bd6eb23266099f76f2a11f379104cd0d",
+      "first_line_anchor": "hasAnimation()",
+      "status": "anchor_within_closure",
+      "deps": [],
+      "contained_in": "X05_model_region"
+    },
+    {
+      "id": "A_Model_imports",
+      "LF_start": 16889,
+      "LF_end": 16891,
+      "offset": 550957,
+      "bytes": 105,
+      "sha256": "af4ad159067ceeb30aa14c11fabe9b606fb3acb89eb9ddc587d35eac5b6c1781",
+      "first_line_anchor": "var vec3 = gl_matrix_default.vec3",
+      "status": "anchor_within_closure",
+      "deps": [],
+      "contained_in": "X05_model_region"
+    },
+    {
+      "id": "A_BinaryReader_ctor",
+      "LF_start": 11265,
+      "LF_end": 11279,
+      "offset": 411181,
+      "bytes": 603,
+      "sha256": "6378b2e689750fae95a72d234fc598ccff24af29f4e95e70f3bc699b1ba328b8",
+      "first_line_anchor": "function BinaryReader",
+      "status": "anchor_within_closure",
+      "deps": [],
+      "contained_in": "X02_BinaryReader"
+    },
+    {
+      "id": "A_BinaryReader_readBinaryString",
+      "LF_start": 11398,
+      "LF_end": 11408,
+      "offset": 415195,
+      "bytes": 420,
+      "sha256": "4abb2c6dfc3f71fe7c4c451ee8bc748e48cf85a60f1c47453eba703c7d626311",
+      "first_line_anchor": "BinaryReader.prototype.getBinaryString",
+      "status": "anchor_within_closure",
+      "deps": [],
+      "contained_in": "X02_BinaryReader"
+    },
+    {
+      "id": "A_BinaryReader_seek",
+      "LF_start": 11439,
+      "LF_end": 11442,
+      "offset": 416396,
+      "bytes": 173,
+      "sha256": "c2ad53453aefa8fc1e117af72a43cd4880ee71d9bf480650483d8a1b93ba60bc",
+      "first_line_anchor": "BinaryReader.prototype.seek",
+      "status": "anchor_within_closure",
+      "deps": [],
+      "contained_in": "X02_BinaryReader"
+    },
+    {
+      "id": "A_vec3_create",
+      "LF_start": 13015,
+      "LF_end": 13021,
+      "offset": 448509,
+      "bytes": 120,
+      "sha256": "deb85d7994cfc3c10700c73de83ee4801dd517f6f78056a2c95d37b0360263ea",
+      "first_line_anchor": "vec3$2.create",
+      "status": "anchor_within_closure",
+      "deps": [],
+      "contained_in": "X03_glmatrix_vendor"
+    },
+    {
+      "id": "A_vec3_fromValues",
+      "LF_start": 13043,
+      "LF_end": 13049,
+      "offset": 449098,
+      "bytes": 131,
+      "sha256": "624d54b89ac60c392837a540d52cef2285c8d5ea18f377839a72cc13c3042c75",
+      "first_line_anchor": "vec3$2.fromValues",
+      "status": "anchor_within_closure",
+      "deps": [],
+      "contained_in": "X03_glmatrix_vendor"
+    },
+    {
+      "id": "A_vec3_length",
+      "LF_start": 13244,
+      "LF_end": 13247,
+      "offset": 453561,
+      "bytes": 110,
+      "sha256": "8248f694e408448f0bee24305e1e42a694d4318c12417df137286b0f1fd78423",
+      "first_line_anchor": "vec3$2.length",
+      "status": "anchor_within_closure",
+      "deps": [],
+      "contained_in": "X03_glmatrix_vendor"
+    },
+    {
+      "id": "A_mat3_create",
+      "LF_start": 14266,
+      "LF_end": 14278,
+      "offset": 478256,
+      "bytes": 198,
+      "sha256": "4672f780df4f08ff80af90a1489cdd077c10c66f5245ce3dace075d61837842c",
+      "first_line_anchor": "mat3$1.create",
+      "status": "anchor_within_closure",
+      "deps": [],
+      "contained_in": "X03_glmatrix_vendor"
+    },
+    {
+      "id": "A_mat4_create",
+      "LF_start": 14607,
+      "LF_end": 14626,
+      "offset": 487607,
+      "bytes": 296,
+      "sha256": "6f3dc092d51894ab3bb7ca3af136181258a1ebd89375b78fd0324f88205b2ca7",
+      "first_line_anchor": "mat4$1.create",
+      "status": "anchor_within_closure",
+      "deps": [],
+      "contained_in": "X03_glmatrix_vendor"
+    },
+    {
+      "id": "A_mat4_copy",
+      "LF_start": 14660,
+      "LF_end": 14678,
+      "offset": 488551,
+      "bytes": 317,
+      "sha256": "9215bfae8572323a739793e2f9740552255b069682564951f604dddbeec017ef",
+      "first_line_anchor": "mat4$1.copy",
+      "status": "anchor_within_closure",
+      "deps": [],
+      "contained_in": "X03_glmatrix_vendor"
+    },
+    {
+      "id": "A_mat4_identity",
+      "LF_start": 14685,
+      "LF_end": 14703,
+      "offset": 488976,
+      "bytes": 264,
+      "sha256": "e5b9abdac7828a7f61f68933833f7cacb4c7048863a00120a9a590bee98b0cd4",
+      "first_line_anchor": "mat4$1.identity",
+      "status": "anchor_within_closure",
+      "deps": [],
+      "contained_in": "X03_glmatrix_vendor"
+    },
+    {
+      "id": "A_mat4_multiply",
+      "LF_start": 14820,
+      "LF_end": 14852,
+      "offset": 494790,
+      "bytes": 1312,
+      "sha256": "e35207f7eefa0c9042cd3445a2311790e6cad050d733f45d0a6c991af97c66e8",
+      "first_line_anchor": "mat4$1.multiply",
+      "status": "anchor_within_closure",
+      "deps": [],
+      "contained_in": "X03_glmatrix_vendor"
+    },
+    {
+      "id": "A_mat4_translate",
+      "LF_start": 14866,
+      "LF_end": 14904,
+      "offset": 496379,
+      "bytes": 953,
+      "sha256": "a80bc1fcbd1bca890fabcc1fdfea9e431f097c74890a8992c5aed3c2d2b3b855",
+      "first_line_anchor": "mat4$1.translate",
+      "status": "anchor_within_closure",
+      "deps": [],
+      "contained_in": "X03_glmatrix_vendor"
+    },
+    {
+      "id": "A_mat4_scale",
+      "LF_start": 14913,
+      "LF_end": 14932,
+      "offset": 497547,
+      "bytes": 404,
+      "sha256": "2c40d6ad09b64394e9f18591121f23f72a300489608aa6b019bf5c725c2f164d",
+      "first_line_anchor": "mat4$1.scale",
+      "status": "anchor_within_closure",
+      "deps": [],
+      "contained_in": "X03_glmatrix_vendor"
+    },
+    {
+      "id": "A_mat4_rotate",
+      "LF_start": 14942,
+      "LF_end": 14992,
+      "offset": 498201,
+      "bytes": 1429,
+      "sha256": "135f2bdf713d072ccb7b86a827117609cadb334cf3da2f54d917548f899dba74",
+      "first_line_anchor": "mat4$1.rotate",
+      "status": "anchor_within_closure",
+      "deps": [],
+      "contained_in": "X03_glmatrix_vendor"
+    },
+    {
+      "id": "A_mat4_rotateX",
+      "LF_start": 15001,
+      "LF_end": 15022,
+      "offset": 499853,
+      "bytes": 597,
+      "sha256": "261a2d76a6e3fe7308d789106416aa7385024470c1e3c24d7552c9ad07210342",
+      "first_line_anchor": "mat4$1.rotateX",
+      "status": "anchor_within_closure",
+      "deps": [],
+      "contained_in": "X03_glmatrix_vendor"
+    },
+    {
+      "id": "A_mat4_rotateY",
+      "LF_start": 15031,
+      "LF_end": 15052,
+      "offset": 500673,
+      "bytes": 597,
+      "sha256": "a334bf47d7507bbcd26ef4db56b2c67158131bdf17dbae6f9ede66d57655ba23",
+      "first_line_anchor": "mat4$1.rotateY",
+      "status": "anchor_within_closure",
+      "deps": [],
+      "contained_in": "X03_glmatrix_vendor"
+    },
+    {
+      "id": "A_mat4_rotateZ",
+      "LF_start": 15061,
+      "LF_end": 15082,
+      "offset": 501493,
+      "bytes": 597,
+      "sha256": "2a8a94e04cedfaaac52a5b63265d49bf8405feb7f54298cd0dd51fe8833a5492",
+      "first_line_anchor": "mat4$1.rotateZ",
+      "status": "anchor_within_closure",
+      "deps": [],
+      "contained_in": "X03_glmatrix_vendor"
+    },
+    {
+      "id": "A_vec3_calcNormal",
+      "LF_start": 15774,
+      "LF_end": 15797,
+      "offset": 520089,
+      "bytes": 509,
+      "sha256": "967656018a7fb61718d749cb68d8426b761c38d7a20aa945ab9cf723673ef6b6",
+      "first_line_anchor": "exports.vec3.calcNormal",
+      "status": "anchor_within_closure",
+      "deps": [],
+      "contained_in": "X04_glmatrix_utils"
+    },
+    {
+      "id": "A_mat4_rotateQuat",
+      "LF_start": 15916,
+      "LF_end": 15945,
+      "offset": 522976,
+      "bytes": 516,
+      "sha256": "fcccaab6f2b0409405f30a78e62163a69f4a5c85b6ae9dd216eca59d558fac22",
+      "first_line_anchor": "exports.mat4.rotateQuat",
+      "status": "anchor_within_closure",
+      "deps": [],
+      "contained_in": "X04_glmatrix_utils"
+    },
+    {
+      "id": "A_mat4_extractRotation",
+      "LF_start": 15954,
+      "LF_end": 15980,
+      "offset": 523593,
+      "bytes": 548,
+      "sha256": "dc09bc4417eddebd6f993f4011cc80d2ffa0736d42e640d5c96cf55c1dff9319",
+      "first_line_anchor": "exports.mat4.extractRotation",
+      "status": "anchor_within_closure",
+      "deps": [],
+      "contained_in": "X04_glmatrix_utils"
+    },
+    {
+      "id": "A_mat3_toMat4",
+      "LF_start": 15989,
+      "LF_end": 16008,
+      "offset": 524383,
+      "bytes": 378,
+      "sha256": "6366d2df2536c2e2969a37d41b00674deaa60ae9fbd7c40b554f765fadd1889f",
+      "first_line_anchor": "exports.mat3.toMat4",
+      "status": "anchor_within_closure",
+      "deps": [],
+      "contained_in": "X04_glmatrix_utils"
+    },
+    {
+      "id": "A_gl_matrix_default",
+      "LF_start": 16088,
+      "LF_end": 16088,
+      "offset": 527258,
+      "bytes": 33,
+      "sha256": "b195ee67b18059f8165080a6df8117c37b900ed0aedf54de15d9395b75dc3e54",
+      "first_line_anchor": "var gl_matrix_default = exports;",
+      "status": "anchor_within_closure",
+      "deps": [],
+      "contained_in": "X04_glmatrix_utils"
+    }
+  ],
+  "provenance_only": [
+    {
+      "id": "P_FileManager_rsm_case",
+      "LF_start": 18974,
+      "LF_end": 18977,
+      "offset": 609284,
+      "bytes": 80,
+      "sha256": "a4db9ae953c073fa5d55e428dccda2e834136cedcc4cc353f59e521dee09b516",
+      "first_line_anchor": "case \"rsm\":",
+      "status": "provenance_only_not_executed",
+      "deps": []
+    },
+    {
+      "id": "P_Ground_compile",
+      "LF_start": 16684,
+      "LF_end": 16783,
+      "offset": 542909,
+      "bytes": 5480,
+      "sha256": "94a58d643e725bc0a116d9f4dfed12a647f97df0854a435feb1c7cd3382778a9",
+      "first_line_anchor": "compile(WATER_LEVEL, WATER_HEIGHT)",
+      "status": "provenance_only_not_executed",
+      "deps": []
+    },
+    {
+      "id": "P_MapLoader_loadModels",
+      "LF_start": 19193,
+      "LF_end": 19220,
+      "offset": 614871,
+      "bytes": 875,
+      "sha256": "6433ac28260c29673262268e67dd34b8c005987b0291936d8dfbd45d95ee9d39",
+      "first_line_anchor": "loadModels(models, ground)",
+      "status": "provenance_only_not_executed",
+      "deps": []
+    },
+    {
+      "id": "P_MapLoader_compileModels",
+      "LF_start": 19226,
+      "LF_end": 19273,
+      "offset": 615813,
+      "bytes": 1592,
+      "sha256": "df3924f158875ae6d2fd831bcc4b8a60e767cc31c8b9fdc8d1e4d4c3271d636d",
+      "first_line_anchor": "compileModels(objects)",
+      "status": "provenance_only_not_executed",
+      "deps": []
+    },
+    {
+      "id": "P_MapLoader_mergeMeshes",
+      "LF_start": 19280,
+      "LF_end": 19323,
+      "offset": 617536,
+      "bytes": 1305,
+      "sha256": "141b88b4b4abf169af6185f55eddfcd95d7228113f1774102a916bd51898082c",
+      "first_line_anchor": "mergeMeshes(objects, bufferSize)",
+      "status": "provenance_only_not_executed",
+      "deps": []
+    }
+  ],
+  "root_preparation_span_match": {
+    "Node_compile": true,
+    "Node_smooth": true,
+    "RSM_createInstance": true,
+    "RSM_compile": true
+  },
+  "unbound": [
+    {
+      "name": "self",
+      "used_by": "X01_global_seek",
+      "reached_on_path": true,
+      "plan": "adapter prelude binds realm-own alias `var self = globalThis;` (realm intrinsic, not a host object); without it X01 throws ReferenceError on `window`"
+    },
+    {
+      "name": "window",
+      "used_by": "X01_global_seek",
+      "reached_on_path": false,
+      "plan": "left UNBOUND; only evaluated if self is undefined"
+    },
+    {
+      "name": "CodepageManager",
+      "used_by": "X02 readString",
+      "reached_on_path": false,
+      "plan": "left UNBOUND; RSM path uses readBinaryString only; any call fails ReferenceError -> sticky failure"
+    },
+    {
+      "name": "Struct",
+      "used_by": "X02 getStruct",
+      "reached_on_path": false,
+      "plan": "left UNBOUND; any call fails ReferenceError -> sticky failure"
+    },
+    {
+      "name": "console",
+      "used_by": "X02 readInt64/readUInt64",
+      "reached_on_path": false,
+      "plan": "Authored realm prelude deletes the default realm console. No host console is installed; unused int64 reader calls then refuse."
+    }
+  ],
+  "outside_toplevel_names_referenced_in_closure": {
+    "CodepageManager": 1,
+    "Struct": 2
+  },
+  "realm_intrinsics_required": [
+    "Math",
+    "DataView",
+    "ArrayBuffer",
+    "Float32Array",
+    "Uint8Array",
+    "Int8Array",
+    "Int32Array",
+    "String",
+    "Number",
+    "Error",
+    "Array",
+    "Object",
+    "globalThis"
+  ],
+  "expected_compile_output": {
+    "meshes_length": 2,
+    "mesh_keys": [
+      [
+        "0"
+      ],
+      [
+        "1"
+      ]
+    ],
+    "float_lengths": [
+      3564,
+      7155
+    ],
+    "total_floats": 10719,
+    "total_bytes": 42876,
+    "vertex_stride_floats": 9,
+    "layout": [
+      "px",
+      "py",
+      "pz",
+      "nx",
+      "ny",
+      "nz",
+      "u",
+      "v",
+      "alpha"
+    ],
+    "textures_latin1": [
+      "graywolf\\gray_j_05.bmp",
+      "graywolf\\gray_j_08.bmp"
+    ],
+    "basis": "Root summary counts (faces 132/265, keys 0/1); raw values unknown until Root binary preflight"
+  },
+  "provenance": {
+    "common_base": "8e6dc3957d01ed0803ea6e0d80a18aebaf1b3944",
+    "claude_candidate": "2d55d169deac892a1c559f58000f0b4076830c4c",
+    "grok_candidate": "c0fde995f5ca66f4e81f6792e51d8230c2eb6879",
+    "selected_source_inventory": "Claude five whole regions; Root adapter/oracle/resource corrections separate"
+  },
+  "root_adapter_rules": {
+    "context": "vm.constants.DONT_CONTEXTIFY; strings/wasm generation disabled",
+    "input_copy": "Realm-owned typed array; captured host intrinsic setter; no host object/function/buffer installed",
+    "hashes": "Host computes all hashes over validated primitive-returned mesh/body bytes; no realm crypto dependency",
+    "all_vertex_bounds": "Independent reference expectation; unchanged compile returns meshes, not its local vert array",
+    "comparison": "Exact Float32 first, including zero signs; discrepancies held, no automatic ULP allowance",
+    "effective_heap": "Measure v8.getHeapStatistics().heap_size_limit; flag membership is insufficient",
+    "RSS": "Observed/polled RSS is not a hard address-space cap",
+    "model_box": "Hypothetical second-root visit can change aggregate box; compare each variant to its own independent reference"
+  }
+}
