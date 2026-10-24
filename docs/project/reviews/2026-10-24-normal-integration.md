@@ -333,3 +333,34 @@ architecture; engine/storage separation is not filesystem confinement. Existing
 worlds stay untouched. After actual boot Root separately verifies actual
 daemon/listeners/VZ backing files and empty Docker/DB volume state before normal
 main/routes. No boot or engine PASS follows from this source checkpoint.
+
+## Actual fresh engine boot and current ownership pass
+
+Actual basisc0de1da3615ba9ed6446c8a66b592576ba0ee501. One fixed up call passes:
+natural0, reason null, no signals, native window1.688999834s/12samples/
+36913152B peak known CLI/daemon RSS, complete125B stdout/empty stderr.
+This excludes full VM/host footprint. Source first full-verifies1118baseline/
+three images and exact membership; all seven ports bind at preflight only.
+The normal-stack fingerprint is created exclusively after image proof.
+
+Root verifies the complete result, streams and a fresh current kernel/process/
+instance observation. The positively new daemon has the actual ro4 home,
+version0.2.7, current birth/UID/group/exact ro4 nebulad executable and owned
+control socket. Four old TCP3338/13338/23338/23339 listener owners retain
+exact birth/executable before/after and at Root's current audit. The CLI has
+exited; new daemon intentionally remains. Profile is empty and fingerprint
+matches. No second up/down/retry/global kill, normal main/account/login/game.
+
+Private engine-source-root-1/attempt-1/RESULT.json:
+3965/a8c5d89bfa3e17815e0865442791569e81bfc57181504b5ab74c0fb84008598b;
+PRE.json1483/4481c5073d25a3babc0513fa5921a4bf74bf70acb6675348e244d0096d167de5.
+Root's separate ROOT_BOOT_AUDIT.json:
+4676/c5c22ebf4613157ff14e08901552985c0e5a924f275d1f573e53284e132f71bf.
+Observed daemon PID/birth stays private. Internal auto-conflict port choices
+must be read from this new instance, not copied from ro3. Current ownership
+does not yet prove actual VM backing/listener/empty Docker/volume state.
+
+After this checkpoint Root performs bounded readonly status/stats/new-socket
+Docker and backing-file/full1118baseline preservation checks. Gate2 remains
+open; normal main/routes are not yet admitted. Existing worlds/earned saves
+and user Chrome/mute/IME/network stay untouched; parent4/14/all82gaps unchanged.
