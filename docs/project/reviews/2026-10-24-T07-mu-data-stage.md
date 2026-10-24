@@ -1538,3 +1538,13 @@ not new generation or runtime authority. OriginalG10/512MiB/grace3/
 no-native/1MiB,63 inputs/21roles/36leaves/15tokens and no retry remain.
 Root independently qualifies the new inert caller before any one pure-
 data call; later Mu19 projection/runtime/client staging need own joins.
+
+## Fresh fixture caller repair is the fourth actual parallel task
+
+Aftercfd20aa, all nine copies/closed denials are current. Grok starts
+taskdddc284cf372/ctx7f5c46355887; receipt2307/
+1d56bb3bb22cd66aab5c332a2632b16be484bac8838ba9a2aabc181776ab92f5.
+It owns only the inert fresh caller source. No generation or runtime
+authority is granted. Current fleet4active/274released/6retained,
+zero settled/reclaimable terminals. Root remains next verifier for all
+four source tasks; public main checks stay4/14 and map-step estimate70%.

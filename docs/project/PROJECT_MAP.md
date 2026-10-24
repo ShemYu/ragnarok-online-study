@@ -58,7 +58,7 @@ B4 actual quest trial FAILED: A199 refusal shown; logout selector fails.
 Root688 failure/preservation checks PASS; later cases remain open.
 Grok:driver + logout UI source PASS/released; dictionary unknown/released.
 Full839 data:Root4225checks/910pins PASS; entryFD check FAILED.
-Grok live:FD fix + B4 observations + finite sampler repair.
+Grok live:FD fix + B4 observations + sampler repair + fresh fixture caller.
 Fresh Mu:one scene FAILED -> first-frame light_s_03 NaNs localized.
 Root776failure checks PASS;111body joins/1285placements load.
 Actual keyframes prove divide-by-zero; sampler repair Grok live.
