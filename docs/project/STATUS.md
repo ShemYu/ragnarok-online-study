@@ -44,9 +44,11 @@ UI, story or earned-save behavior. Prior failed trials remain failed.
 from current user progress; preserve the completed normal integration and its
 backups. [Fresh B5 fixture data and Root confirmation pass](reviews/2026-10-23-T10.007.md#fresh-b5-fixture-data-and-independent-confirmation-pass):
 one pure call,130checks/116full pins/all36private leaves/21roles/15tokens and
-current retirement. [Fresh baseline materializer copies qualify](reviews/2026-10-23-T10.007.md#fresh-b5-baseline-materializer-copies-qualify)
-for one pure call after checkpoint: three child/ten outer metadata edits,
-unchanged materializer/authorities/caps and exact new schema/scope/counts.
+current retirement. [Fresh baseline materialization and Root confirmation pass](reviews/2026-10-23-T10.007.md#fresh-b5-baseline-materialization-and-root-confirmation-pass):
+321checks/306full pins/all71outputs, natural0/valid original guard/current
+retirement. The baseline82393Bdriver/62401BUI receipts remain honest. Next
+select the corrected92679Bdriver/65619BUI in a separate finite runtime-source
+projection before fresh current-world/port/lease/actor bindings.
 Reuse the fixed F1/B4
 sequence on a fresh disposable fixture; keep the current ro4 character intact.
 Baseline materialization and corrected runtime-source projection remain

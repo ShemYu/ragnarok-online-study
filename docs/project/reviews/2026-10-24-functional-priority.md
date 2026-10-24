@@ -9,8 +9,9 @@ Current continuation: [normal ro4 integration now passes5/5](2026-10-24-normal-i
 Root verifies [fresh B5 fixture data for the fixed F1/B4 quest sequence](2026-10-23-T10.007.md#fresh-b5-fixture-data-and-independent-confirmation-pass),
 reusing verified sources/guards and preserving the user's current character.
 This is the existing functional check, not another diagnostic framework or
-Kimi benchmark dependency. The130check/116pin data pass alone admits no actor; baseline materialization
-and corrected runtime-source projection are next.
+Kimi benchmark dependency. The130check/116pin data pass and [321check/306pin baseline materialization](2026-10-23-T10.007.md#fresh-b5-baseline-materialization-and-root-confirmation-pass)
+admit no actor; corrected runtime-source projection/current authority and the
+fixed sequence are next.
 
 ## Priority and stop criteria
 
