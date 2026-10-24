@@ -4,12 +4,15 @@ Updated: 2026-10-25 JST. Coordinator: Codex. Active scope: **execute the documen
 
 ## Current checkpoint
 
-**Main next action:** review/test the [actual independent Chapter1 source pair](reviews/2026-10-25-T10.009.md#actual-independent-source-pair-starts-on-reused-branches)
-after matched submissions. Claude task_52a49dceca20/ctx_be2d13aa0696and Grok
-task_5f35ddf46fe4/ctx_11f79a65ffe0both ready/input accepted on separate reused
-branches from2187b31; no new child/setup or runtime installation. Same23source
-inputs; exact models not observed, Grok turn observation unsupported. Then
-verify changed assembly/eligible interaction/rendering/traversal/persistence.
+**Main next action:** receive/review Grok's independent Chapter1 submission,
+then compare both raw sources before selecting a correction basis.
+[Claude8c2be4a is preserved/released and Root's46tests pass](reviews/2026-10-25-T10.009.md#claude-source-is-preserved-and-root-reproduces-a-diagnostic-hold),
+but three independent fault controls reproduce false unchanged-state wording
+after registration; two more show debugmes/OnInit model coverage limits.
+Candidate is held before promotion. Grok task_5f35ddf46fe4/ctx_11f79a65ffe0
+is live/working on its separate reused branch from2187b31; no new child/setup
+or runtime installation. Same23source inputs; launch defaults inherited.
+Then verify changed assembly/eligible interaction/rendering/traversal/persistence.
 [The ordinary field encounter, normal return and earned re-entry now pass](reviews/2026-10-24-normal-map-prerequisites.md#ordinary-little-poring-encounter-return-and-earned-reentry-pass).
 One Space selects Little Poring2398, not proposed1002; two player attacks,
 HP40→0and EXP18base/10job, player survives fullHP45/SP12. Ordinary portal
