@@ -710,3 +710,75 @@ Exactly ten fixed inputs/four owned files, no actual runtime or body access.
 Root now reviews the finite live-delivery caller while both source candidates
 work independently. No .011GET, real constructor, new content or gap closure
 is claimed at this checkpoint.
+
+
+## Root caller and read-only preflight qualify
+
+2026-10-25JST. Root personally reads the complete31514B helper caller, its
+report and the independent13202B Astra review. The draft stays held until a
+complete seed-to-binding join, canonical preparation leaf paths and a whole-
+caller outer bound are supplied. Root's separate private derivative adds the
+shared exact binding constructor/equality, five canonical leaves, strict integer
+zero attempt count and observer ResourceWarning flag. The selected47892B
+observer and14021B guard remain byte-identical; no provider score is changed.
+
+First actual read-only preparation exits2 in0.591022s with no signal/residue:
+preflight_errors. A separately bounded diagnostic snapshot exits0 in0.548047s
+and retains the full failure: only environment:KERN_PROCARGS2 fails; all other
+snapshot parts pass. No normal asset GET occurs. Root then queries the current
+KERN_ARGMAX=1048576 and successfully reads PROCARGS2 into that exact capacity
+(return0/2756B). The prior draft used2MiB. Root records the accommodation, not
+an unobserved errno: query/check bounded argmax4KiB..2MiB before allocation,
+positive argc, same selected-only parsing and buffer zeroing. Full ENV/argv are
+never printed or retained. Failed preflight publication is also retained in the
+Root derivative. All original failed evidence stays; no successful asset query
+is retried.
+
+Root's final caller source controls pass32checks: default two-mode no-I/O
+refusal, authored selected-ENV padding/empty-argument/duplicate/missing/truncated/
+wrong-value/argc cases, exact INI order, literal full binding and seven altered
+security fields, full seven-slot inverse, gate ordering and ResourceWarning flag.
+Binding mutation behavior and source ordering are checked; this is not a complete
+hostile-plan end-to-end suite. Real environment/world checks follow below.
+
+The second fresh read-only preparation passes: natural0/0.553093s, about57.7MiB
+sampled RSS, external guard valid/no action/no owned residue. Root independently
+checks22complete joins: all1222ordered target pairs, all plan artifact pins,
+complete seed binding, actual source projection and retained edit record, current
+four full owner identities/executables, selected ENV, native binary/INI full
+hashes, five archive order/identities and historical hashes, exact current six-
+GET Engine projection versus the preserved B6 baseline, listener and source/HEAD.
+All153prior-present loose paths total3991477B; zero override paths are present.
+Of115known-response descriptors,51are currently loose and all match independent
+expected hashes;64remain absent.102other prior-present loose paths have observed
+hashes only. All must stay preserved. Stable absence remains a separate outcome.
+
+Private t07-014-011-pilot-caller-root-1/ pins:
+
+| File | Bytes | SHA256 |
+|---|---:|---|
+| PILOT_V2_UNBOUND_ROOT.py |32363|7f84c6549753d2e9005a0bbd31272bc1f678e6b37eb5bf491207d77860df5e57|
+| CONTROLS_V2_ROOT.py |5965|0ff0f4c7fe41fb337a6649130ea1dc02175234b618defb007c18209e812b2e6e|
+| CONTROLS_V2_RESULT_ROOT.json |1165|b9ab791ec8ab62a9265a46306511c69c177d68c8afae1f234c289d7d07f54521|
+| SYSCTL_DIAGNOSIS_ROOT.json |330|bcd7179bfa086bb26fe8716534393112f23eaa7d8b9b308727091555fa477558|
+| SNAPSHOT_1_ROOT.json |213574|0481197c16a4e51fea2a6638e08a4023edabb442874f035b92dcfc6a11bffae5|
+| preparation-2/PLAN_ROOT.json |3313|16e6d13d5f25987c5c15100531d36830cbc01cafe95dc639c1bc8d28f79c44c1|
+| preparation-2/PREFLIGHT_ROOT.json |214388|bda7fc2585d051bcfe8b11b4c609e92848f073395719a509a8b93c7427348cb2|
+| PREPARE_2_CONFIRMATION_ROOT.json |1329|d08787b610788e59987c2fba8553bd816cc1079554f1ae37dbcf86aac6976ebf|
+
+This checkpoint conditionally admits exactly one normal8-request pilot
+[124,402,439,483,564,672,1075,1158],612703B expected metadata total. No request
+has run yet. Root must bind the resulting commit HEAD in a fresh seed/preparation,
+personally verify its whole binding/projection and unchanged preservation joins,
+then invoke the selected observer once. No successful query replay or remainder
+admission. Independent Root response/current-file/alias/1222ledger audit follows.
+
+Use the unchanged guard around the whole caller:120swork for preparation and
+240swork for call,768MiB sampled RSS,8s cleanup grace,4096B capture and no required
+native child. Nested observer retains75swork/512MiB/grace3. Outer guard may register
+the newly owned nested observer session; all signals remain limited to fresh
+registered PIDs. Existing game/app/asset/Engine/VM owners are never signal targets.
+The work limit excludes explicit cleanup/drain overhead; RSS sampling and post-run
+128MiB artifact accounting are not containment/quotas. No SQL, save, app restart,
+game input, setting change or network disconnection is authorized by this pilot.
+No render/play/story/save or82gap closure is claimed.

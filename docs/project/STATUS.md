@@ -86,7 +86,11 @@ source diff/tests/report and [selects it after personal checks](reviews/2026-10-
 metadata checks pass. Raw Claude12/20/Grok11/20 stay held; separate correction
 18/20 is selected for guarded pilot preparation with explicit timing/evidence
 limits. [Exact source integration95bee15 passes36tests](reviews/2026-10-24-direct-dependencies.md#selected-direct-delivery-source-integrated-unchanged).
-Next fresh current binding and guarded8-request pilot; no actual GET yet.
+[Root caller and read-only preflight now qualify](reviews/2026-10-24-direct-dependencies.md#root-caller-and-read-only-preflight-qualify):
+32source checks/22full joins/all1222pairs, current owners/Engine/native/archive/
+ENV preservation pass. First environment-read failure is retained and corrected
+through bounded KERN_ARGMAX. One8-request pilot is conditionally admitted after
+a fresh HEAD-bound preparation; no actual asset GET yet. Remainder stays held.
 
 **Independent next source lane:** [.012model-constructor brief is frozen](tasks/T07.007.014.012.md)
 after [Root's complete metadata audit](reviews/2026-10-24-direct-dependencies.md#model-constructor-inputs-pass-root-complete-metadata-audit):
