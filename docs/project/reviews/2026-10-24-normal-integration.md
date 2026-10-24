@@ -297,3 +297,39 @@ environment/baseline/image-audit pins and proposed ports, then verify actual
 daemon/VZ/socket/empty-storage ownership before normal main/routes. Preserve
 original/W/ro3 ownership; no blind up/down/retry/global kill. Gate2 remains
 open until the engine checks pass. No full-content gap or parent count changes.
+
+## Fresh one-shot engine source qualifies
+
+Root reuses the complete9685-byte selected engine source with seven literal
+metadata/read-scope changes: ro4 root, fresh source folder, actual ENV/baseline/
+image-audit pins, seven proposed game/admin ports and old-listener census
+expanded to include ro3 TCP23338/23339 alongside original/W3338/13338. Whole
+forward/inverse exact; source9725/
+5533f478668cd4b4906d73189f954e03531c60064b21cb36f632c96fba34c665.
+Private engine-source-root-1/QUALIFICATION_ROOT.json:
+7944/5ecbc900a0c3c33404d078e251fe129229bf85075cce62307e61f0959408f936.
+
+All actual image/audit/environment/baseline source pins and passing audit
+semantics qualify; profile empty, markers/run/logs/data-disk/MAC absent,
+owned0700 root/engine. Syntax is checked without execution. Source behavior/
+limits/marker/owner/failure logic is unchanged apart from the stated metadata.
+Listener preservation still covers only the exact four TCP endpoints and
+observed births/executables; it does not establish every old-world database/
+service byte. Actual new mounts/empty storage remain separate required checks.
+
+After this checkpoint Root runs exactly one fixed up source with its actual
+SHA. It fully verifies1118baseline files plus all three current image bytes/
+identities, requires exact membership and seven bindable proposed ports, then
+creates only the exclusive normal-stack fingerprint marker and calls fresh
+nebula up. No download/help/contexts/autostart/game/main is requested. Native
+window remains75s/6GiB sampled known-PID RSS/1MiBstreams; full preflight hashing/
+fingerprint precedes that window. Positively new daemon identity, instance
+home/version/birth/UID/group/executable/control socket and current ownership
+must qualify. Intentional daemon retention has no all-groups-gone condition.
+On uncertainty preserve evidence/new state and do not blind retry/down/kill.
+
+Normal HOME remains unchanged and shared read-write by the established guest
+architecture; engine/storage separation is not filesystem confinement. Existing
+worlds stay untouched. After actual boot Root separately verifies actual
+daemon/listeners/VZ backing files and empty Docker/DB volume state before normal
+main/routes. No boot or engine PASS follows from this source checkpoint.

@@ -33,9 +33,10 @@ One copy and separate full audit pass all1135source files/1114destinations/
 212directories; Root's outer41checks/25pins also pass. Four configuration files
 now pass actual execution and complete preservation. Local image installation
 and complete gzip/file readback also pass. Profile is empty; engine has its
-config plus three qualified images. Next prepare the existing one-shot engine
-launcher with fresh pins/ports, then verify actual engine/socket/VZ/empty
-storage before normal main/routes/ordinary login/travel/save. No engine/app/
+config plus three qualified images. The reused one-shot engine source now
+qualifies with fresh pins/ports and expanded ro3 listener preservation. After
+this checkpoint run it once, then verify actual engine/socket/VZ/empty storage
+before normal main/routes/ordinary login/travel/save. No engine/app/
 browser/game actor has run; ro3 earned progress stays untouched. Continue [quest/logout work](reviews/2026-10-24-functional-priority.md#priority-and-stop-criteria)
 separately; do not replay failed B4 or consumed Mu scenes.
 
