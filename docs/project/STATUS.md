@@ -31,7 +31,8 @@ Original Claude15/20/Grok11/20 both held; corrected Claude20/20 integrates
 unchanged as af0d59c. All18integrated controls pass; genuine pilot/full21batch
 are already qualified. Both providers are preserved/released, no pending worker.
 Next is the1222direct dependency closure; do not replay successful actual calls.
-[T07.007.014.010 preparation passes Root's personal synthetic checks](reviews/2026-10-24-direct-dependencies.md):
+[T07.007.014.010 is ready_for_user for metadata only](reviews/2026-10-24-direct-dependencies.md#selected-actual-lookup-and-complete-independent-equality-pass).
+Its preparation passes Root's personal synthetic checks:
 9groups/82assertions, complete fixture publication and fail-before-load actual
 refusal. [Both actual reviews are personally checked/preserved/released](reviews/2026-10-24-direct-dependencies.md#both-reviews-preserved-personally-checked-and-workers-released):
 source-review tie19/20each; Root14701internal profile checks and three expected
@@ -41,8 +42,12 @@ complete Root audit now pass](reviews/2026-10-24-direct-dependencies.md#independ
 natural0/7.767788s, about32.8MiB sampled RSS; Root1661939checks/98full pins and
 all408794physical rows/1972typed occurrences qualify. All1222queries have
 full-path candidates, with no basename-only dependency or zero-candidate query.
-After this checkpoint run the fixed selected candidate once under the unchanged
-guard, then independently audit its full output/provenance and typed equality.
+The selected actual lookup also passes: natural0/7.98472s/about56MiB sampled RSS;
+Root254339checks verify every seven-field typed payload value against the oracle,
+all89current full input hashes and88recorded pre/post identities. Both calls
+remain preserved; do not replay. Exactly174keys have two full-path candidates.
+Next resolve client archive precedence, reuse retained bodies and qualify actual
+model/texture/water bodies and model texture dependencies before rendering.
 Metadata candidates do not prove body/render/travel/story/save availability.
 
 [Normal delivery of all34terrain bodies is already complete](reviews/2026-10-24-remaining-map-bodies.md#normal34delivery-and-complete-root-audit-pass),

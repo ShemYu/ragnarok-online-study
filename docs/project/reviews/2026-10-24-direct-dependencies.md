@@ -244,3 +244,45 @@ natural0/final explicit success, complete captures/output/closure/provenance,
 and typed equality of every seven-field payload value with this qualified oracle.
 Preserve any failure/partial result without automatic retry. No body acquisition,
 game/native/save/network action or functional-gap closure is admitted.
+
+## Selected actual lookup and complete independent equality pass
+
+From checkpointf24d629, the one fixed selected call exits0 naturally in7.98472s.
+The unchanged external guard is positive, with58753024B peak sampled RSS, no
+signals/native child or registered-group residue. Complete stdout contains the
+expected actual-kind/query/relation/catalog/row/role summary and the result pin;
+stderr is empty. The exact single success leaf is result.json4085116B/SHA
+c51d69fdb713770e5e942dbbc5f5805b64c29b5eb257b0b7cf5356e3ebde2b79.
+No failure marker exists. Success requires the combined natural exit, guard,
+complete captures, fixed source and full Root audit; stdout has no passed flag.
+
+Root recursively compares every maps/catalogs/scan/queries/relations/counts/claims
+value with the qualified independent oracle, including exact types and floating
+point signed zero. All seven payloads are equal. All15result fields qualify;
+the different profile/seed/module provenance is independently bound. Every88
+recorded pre/post input record is equal and joins its correct execution order,
+fixed pin and current seven-field identity. The separately loaded module makes
+89unique inputs/312944919B; Root rehashes all89whole files, independently joining
+their current nine-field observations with initial C8. Bound wrapper/guard
+contents and C8 join the launch record. Input records are not mislabeled C8.
+Private directory/file modes, closed leaf sets, full captures and source/helper
+pins qualify. Root254339checks pass in0.317770375s with89input pins plus11artifact/
+source pins; no actual call is replayed.
+
+Private t07-014-010-candidate-audit-root-1/ROOT_CONFIRMATION.json is48095B/SHA
+740e43ef8cba7e20a151fa9fd7e7b0dea060d82052c4330d0e230e0e2a749d71.
+Candidate guard receipt1750B/SHA24199a40cb8b7e37ea1690ee3619ef5dd0a91da5f825bd0ca04c7a6fee44cb4c;
+launch29629B/SHAf16f6d70200d27bb9688a6c5fd4f263ece97aea91c4608170e5c461ca6dacdc9.
+Root's audit source9669B/SHA8f7376a7a2562f448b94dd43bc0031793c81ca0d954847bb116a41ae7c1b5894
+and fixed caller5322B/SHA80005549fb607f81dc998d402966e10ecda0720c872ad98ee2983bf5c4e45ad7
+remain private and unchanged.
+
+**T07.007.014.010 is ready_for_user for metadata only.** All1222queries have
+full-path candidates. Exactly174queries have two full-path file candidates:
+28model,114texture and32water keys. The next task must resolve actual client
+archive precedence, reuse already retained bodies, acquire only needed bodies,
+then qualify model texture dependencies/decoders/rendering. Basename rows stay
+evidence only. No body availability, full content, ordinary story/save gate or
+82functional-gap closure follows. Translation remains deferred; the agreed
+full-game goal is unchanged. Both provider workers remain settled/released;
+the current Run has no pending delivery or reclaimable worker terminal.
