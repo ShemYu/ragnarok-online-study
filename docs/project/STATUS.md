@@ -30,17 +30,15 @@ saves, Chrome/profile/settings/mute/IME and network. The next user-facing
 acceptance is normal entry/travel and saved progress, not another synthetic
 scene counted as gameplay.
 
-**Parallel source investigation:** [Both FD plans are verified and settled](reviews/2026-10-24-T06-full-spawn-output-budget.md#both-fd-plans-verified-and-root-control-prepared).
-Root selects a corrected Claude plan basis with Astra's separate Path/reuse
-checkpoints; Grok independently supports the same conditional source chain.
-Both authors are released with captured archives. The full839 entry stays
-failed; no FD exception is granted. The one stdlib-only G30/512MiB control now passes Root27checks/14pins: counts
-3/3/4/4, no Path change, exact recorded descriptor added at first tempfile,
-unchanged reuse. Explicit dependency setup before the workload baseline is
-now supported. A fresh root3 entry with exactly two source changes passes
-Root whole-source qualification and independent review. After this checkpoint,
-bind two admission headers for one original-G30/512MiB call and full publication
-audit. Original root1/root2 stay failed; no entry has run yet.
+**Full839 inventory entry now passes:** [Fresh root3 entry and full Root audit](reviews/2026-10-24-T06-full-spawn-output-budget.md#fresh-root3-entry-and-complete-publication-audit-pass).
+The explicit stdlib dependency setup is separately verified; the unchanged
+exact workload FD comparison passes. OriginalG30/512MiB returns natural0 in
+12.387451s. Root verifies all 839 current source bodies, 723,206 physical rows,
+35,735 events and four publication files: **4,226 checks / 947 full pins**.
+Original root1/root2 stay failed; no old attempt is replayed or waived.
+This is a physical/lexical inventory result, with 310 declared gaps and
+731 cutoff-source suffixes still explicit; native/effective spawns and
+monster gameplay remain unverified. Both plan authors are released.
 
 [The normal client sampler projection is source-qualified](reviews/2026-10-24-T07-mu-data-stage.md#normal-client-three-guard-projection-qualifies).
 Only the same three guards/276bytes are added to the current normal Chinese
@@ -50,7 +48,7 @@ identify its authentic portal/NPC/prerequisite chain separately.
 
 **Main remaining challenges:** authentic missing Chapter 1 story scripts,
 ordinary quest/logout verification, normal-game integration of the map
-repair, and the full839 FD attribution. Animation timing remains unverified.
+repair, and native/effective spawn coverage. Animation timing remains unverified.
 No current evidence requires changing the agreed full-game goal.
 
 Original app/saves/Chrome/profile/settings/mute/IME/network stay untouched.

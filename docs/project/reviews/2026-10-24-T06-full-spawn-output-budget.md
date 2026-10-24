@@ -1040,3 +1040,52 @@ admits exactly one fresh originalG30/512MiB/grace3/no-native/1MiB entry and
 complete current publication/streams/retirement audit. This is a corrected
 fresh attempt with separately proven setup, not a replay or FD waiver.
 Root1/root2 remain historical FAILED; no new entry/runtime/game acceptance yet.
+
+
+## Fresh root3 entry and complete publication audit pass
+
+After47be4f8, Root saves caller6306/
+b49ff42026d63c519a77306e56b3398cbb152a616e8be453bbf1ca375fdda612.
+Only two admission headers are bound, whole inverse exact, in a new source
+30817/67bcf8cc1d4ffbe62351da7c79cf4d8dc9891dc68ab74328f8a943ebff5360cd.
+The new root3 parent is exclusive/private; no prior output is reused.
+Exactly one originalG30/512MiB/grace3/no-native/1MiB entry returns natural0
+in12.387451s; sampled peak249,446,400bytes, valid guard, no action/signals.
+Stdout is the exact frozen910bytes and stderr empty. All114Root caller
+checks/100pins pass, including current process/group absence and parent
+FD/thread closure. Guard audit58973/
+c6148f91da261e03a55f0e3d1fcb0fea4f5f9c3da595c6fd401d2626fcf20065.
+
+The explicit tempfile setup runs after admission/HEAD and before preparation;
+the original workload FD baseline and full tuple comparison are unchanged.
+No descriptor filter, manual close, GC or baseline-after-target workaround.
+The separate stdlib control supports this setup decision; the successful
+fresh workload still had to satisfy the original exact closure contract.
+
+Root then independently audits the full current publication: all839source
+bodies/24,222,094bytes are reconstructed from every physical row; all723,206
+physical rows and35,735events have exact canonical bytes/spans/hashes/ranges.
+Both complete JSONL outputs match the frozen expected172,547,908 and9,748,299
+bytes/hashes. All source manifests/counter sums/profile/limits/marker typed
+semantics and four file bytes/identities pass. Fresh manifest1468784/
+ce7cf1d537d61fda32db5129b19764da29675ed143d616222ff6afa9f9f75627;
+marker1025/076f10887007467485deaf5771e0442355ef6041e974eb98f54652c76e3786ad.
+No historical output identity or assumed cross-attempt marker hash is used.
+
+Complete positive audit1191425/
+7720777025db44441f0bfc75fec1c2e6a954e832a12d7a80f3ab1d121bfcef1f,
+.tools/renewal/t06-full-spawn-full839-publication-audit-root-3/AUDIT_ROOT.json:
+all4,226checks/947fullPins true; bounded data/entry/original-guard/publication
+checks pass. User acceptance remains open. Full receipt/streams,
+all current source closures, source stability, process/group retirement and
+same clean introducing HEAD pass. Root3 is consumed and is not replayed.
+Root1/root2 retain their historical FAILED outcomes.
+
+This closes the full839 physical/lexical publication and its FD blocker.
+It is not native/effective spawn or full-monster gameplay acceptance.
+3,074supported/310gap declarations and731cutoff-source suffixes remain explicit;
+23,237,306unknown bytes are retained, not silently called parsed or missing.
+Map/monster-history joins and native loading/effective coverage remain open.
+Overall4/14/about29% and all82functional resource gaps are unchanged.
+Next: ordinary client integration/travel and native/content work; no further
+successful FD/control repetitions are needed absent a new source change/fault.
