@@ -58,16 +58,19 @@ at its single host-listener check. Binding passes; zero quest cases complete.
 Root's1022checks/685pins/all263Engine wires and current cleanup/preservation
 audit pass, including separate ro4 before/after. No browser launches; no quest,
 SQL or logout credit. A two-second asynchronous host-forwarder loop supports
-a readiness gap; the actual race is not proved. [Both actual Claude/Grok source workers are live on isolated branches](reviews/2026-10-23-T10.007.md#equal-finite-readiness-source-tasks-start-on-isolated-branches)
-from0c06238, preparing one finite12s/48observation wait for the same strict
-listener predicate. Root next compares source and focused controls, with
+a readiness gap; the actual race is not proved. [Equal Claude/Grok source tasks start on isolated branches](reviews/2026-10-23-T10.007.md#equal-finite-readiness-source-tasks-start-on-isolated-branches)
+from0c06238. [Claude submits but Root proves two late-success counterexamples](reviews/2026-10-23-T10.007.md#claude-readiness-source-submits-and-root-proves-a-deadline-hold):
+its source remains unqualified; Orca retains its terminal as user_takeover.
+Grok continues independently. Root compares source and focused controls, with
 bounded evidence and unchanged limits, before any further fresh actor.
 [Fresh B6 pure-data caller source also qualifies](reviews/2026-10-23-T10.007.md#fresh-b6-pure-data-source-qualifies-independently-of-the-readiness-authors)
 in parallel: seven metadata/denial edits, complete inverse, unchanged writer
 and caps. [One actual B6 data call and Root confirmation pass](reviews/2026-10-23-T10.007.md#fresh-b6-data-and-independent-root-confirmation-pass):
 133checks/119full pins/all36leaves/current retirement, no actor. [Finite baseline materializer copies now qualify](reviews/2026-10-23-T10.007.md#fresh-b6-baseline-materializer-copies-qualify):
 3child/10outer metadata groups, complete inverses,8full pins and independent
-Astra review. One pure materialization is next while the authors finish.
+Astra review. [One actual baseline materialization and Root confirmation pass](reviews/2026-10-23-T10.007.md#fresh-b6-baseline-materialization-and-root-confirmation-pass):
+321checks/306pins/all71outputs/current retirement, no actor. Corrected runtime
+selection waits for the qualified readiness source.
 Reuse the fixed F1/B4
 sequence on a fresh disposable fixture; keep the current ro4 character intact.
 Baseline materialization and corrected runtime-source projection remain
