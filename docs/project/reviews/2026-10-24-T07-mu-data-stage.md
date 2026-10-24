@@ -1500,3 +1500,41 @@ Confirmation5026/
 This is selected-fragment evidence, no game/render credit. An initial
 Root call used positional arguments for keyword-only guard options and
 refused before launch; Root uses a new output namespace for the sole call.
+
+## Astra separates numeric compatibility from animation timing
+
+An explicit gpt-6-astra/high source review confirms the narrow leading-
+endpoint repair matches existing loader samplers, which already return
+their first value for that interval. Separate RsmEffect wrapping belongs
+to an effect-renderer path; it does not establish the ordinary map policy.
+Root personally full-hashes the same source/asset and checks eight raw
+source anchors. Confirmation12695/
+acafe0be641912a49fe3517e9d3de438c56aaae7708befaa0fe1f0f8926cef2a.
+This supports finite three-guard qualification, not authentic loop fidelity.
+
+A separate ordinary-map timing concern stays open: Date.now milliseconds
+reach the sampler modulo100 directly for this v2.3/100/30fps asset.
+No version-aware frame conversion is established. Finiteness and partial
+drawing cannot close animation-fidelity scope. Keep the current finite
+patch separate; no new integration/scene is admitted by this review.
+
+## Next fresh Mu fixture caller source packet is ready
+
+The consumed fresh scene cannot be reused. A nine-copy finite caller-
+reuse packet is ready for a fourth independent Grok source task after
+checkpoint:11621/022051099eee23d56180a363939c24763576930b7d4f11ffa4d6f0f4bfde4c4e;
+brief2489/9f94fa451f7db764e8135bf47830a2aafe6e9293bfc083ebf115add7e547c118.
+It reuses the unchanged qualified33388-byte writer and Mu21 caller,
+updating only unbound admission/context/namespace metadata and a closed
+prior-public-identity refusal/join block. Explicitly refuse all old Mu,
+B4 and current Mu attempt/account/character/public-name overlaps; current
+Mu19 and Mu21 prior views must agree. No old secret bodies are compared.
+
+Root rechecks every source-qualification pin and prepares a whole-exact
+qualification copy with only pureCall.output rebound to the new destination:
+81872/6a57c7b511e389c3904f1103d5d38e034c43cbd4f95b035141f824773b393f55.
+This is unchanged-writer source evidence and a future destination proposal,
+not new generation or runtime authority. OriginalG10/512MiB/grace3/
+no-native/1MiB,63 inputs/21roles/36leaves/15tokens and no retry remain.
+Root independently qualifies the new inert caller before any one pure-
+data call; later Mu19 projection/runtime/client staging need own joins.
