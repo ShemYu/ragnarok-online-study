@@ -589,3 +589,70 @@ Start Game. Before movement/quest earning take a supported baseline backup.
 No SQL seed/direct packets/GM warps. Gates4–5 and all82functional gaps remain;
 parent4/14/about29% unchanged. App/engine/new SQL volume stay owned/retained;
 keep private streams monitored and old worlds/Chrome/mute/IME/network intact.
+
+## Supported ordinary account and fresh restart checks pass
+
+Root executes at70e8e4486b63133b965961333f784e09e8463743 using the supported
+Accounts create/list handler only. Before the single create, the fresh username
+is absent, private random credentials are saved0600 in a new0700 ignored
+directory, and all five container identities match gate3. Create returns outer
+ok:true, updated:true/changed:1; refreshed list confirms new decimal-string
+account2000001, numeric group0/state0. Every prior account metadata row is
+unchanged. No password/admin token/raw account response enters Git or stdout.
+
+The supported path stops then starts existing map/char/login containers; it
+does not recreate them. Root confirms same IDs/images/mounts/loopback ports
+with new StartedAt values for those three only. DB/web IDs/starts and the named
+volume metadata stay unchanged. Current app/native/daemon/VZ and all four old
+listener owners remain exact; authenticated native status passes again.
+Sixteen complete served bodies44247224B retain their exact gate3 hashes;
+all1117 other baseline files retain full hashes/C8, and the expected74-byte
+generated endpoint remains correct. Private streams stay below1MiB.
+
+One readonly post-account audit refuses stale timestamps: the logs API returns
+pre-restart records despite its since query. Root preserves that failed
+namespace/wire/text and changes only the new output namespace and explicit
+record selection. The corrected audit inherits each timestamp across a
+multiline record and selects only records at/after the actual current
+per-service StartedAt. New char loading-complete and1265-map registration
+are positive; exact same four map/one char diagnostics remain, no extra
+Error/Fatal/Critical/panic/corruption/segmentation-fault entry. Base317
+atcommands/one storage entry and all five ready messages remain positive.
+No account-create, app-launch or service-action retry occurs.
+
+A fresh isolated Orca browser profile and explicitly owned page open only
+the new asset origin's endpoint.json. Before game navigation, Root sets and
+reads back this profile/origin's Audio preference: BGM/Sound play:false,
+volume:0, version1. Original Chrome profiles/tabs/mute/IME/network are
+untouched. No normal login, character creation or game entry is claimed yet.
+
+This is mechanical execution of the selected paired .012 architecture, not
+a new provider comparison. An extra Root peer source review confirms
+stop/start order, same-ID/new-start expectations, no-blind-retry semantics
+and source support for normal human Novice creation; it is not runtime
+acceptance or an additional Claude/Grok benchmark. Current source/response/
+readiness observations are personally verified by Root.
+
+Private artifacts below use
+.tools/renewal/t07-normal-integration-account-source-root-1/ for source and
+.tools/renewal/t07-normal-integration-account-actual-root-1/ for actual evidence:
+
+| Artifact | Bytes | SHA256 |
+| --- | ---: | --- |
+| Source ACCOUNT_ONCE_ROOT.py | 6606 | 5f84a1813f6ae5b7edb65998005ece5623954e0d9d7fe2af550e4f5c0a87752b |
+| Source ROOT_SOURCE_ADMISSION.json | 1516 | 7429e80c9c924c6b23bd33b20f130a97185f64f8ac3e92f18ac1661af3047df9 |
+| Actual ROOT_ACCOUNT_OPERATION.json | 12958 | 5aed614b46ea00234c07b6cd5e82315ee20223dc017eb70dbe5f4e82d30f1b26 |
+| Source POST_ACCOUNT_AUDIT_ROOT.py, refused | 7995 | d462d2d47da9c0e42e95039bc94c4c6f1fc1e01258f5ff46916c56f2a98f5737 |
+| Actual POST_ACCOUNT_AUDIT/REFUSAL_ROOT.json | 432 | cd3df921ff590ed777c84d5928492aa1cbfe39aba95fbfbfdcbb3e9da58a2176 |
+| Source POST_ACCOUNT_AUDIT_CORRECTED_ROOT.py | 8308 | b6b89ac224bda01f35d1ff28c92fc5685c4bc108a323289c1716056bdff23f97 |
+| Actual POST_ACCOUNT_AUDIT_2/ROOT_AUDIT.json | 565567 | 8a2bad0af99b938c60ddc2692c2d252319462123558c564996ebf96973441801 |
+| Actual Normal_ro4_browser_audio_quiet_receipt.json | 709 | 1155adcd02c4416a48a60c740ed68b3196f60c01c98e99b3f2241970c2d55b86 |
+
+Gates1–3 remain3/5/60% by count; supported account creation is a partial gate4
+result. After this checkpoint Root uses normal login, empty slot, human
+Novice, Make once, visible returned character and Start Game. Take a supported
+fresh baseline backup before ordinary earning, then verify travel/quest/
+save/re-entry and owned cold restart. No seeded character/direct packet/GM
+travel. All82functional gaps and parent4/14/about29% remain unchanged. No new
+goal-changing issue is established. Git rollback restores this evidence/source,
+not the new account/database; retain its private credentials and state.

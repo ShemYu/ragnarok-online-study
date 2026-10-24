@@ -28,7 +28,8 @@ Map repair:
        -> empty storage/backing [PASS: new VM / empty DB / all prior files]
        -> normal main ownership [PASS: authenticated]
        -> normal routes/mounts   [PASS: 3 of 5 gates = 60%]
-       -> account + character   [NEXT: ordinary UI]
+       -> ordinary account      [PASS: group0/state0 + fresh restart checks]
+       -> character + game entry [NEXT: ordinary UI; integration still 60%]
        -> normal game + travel  [OPEN]
        -> story + earned save   [OPEN]
 

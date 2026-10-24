@@ -8,12 +8,15 @@ Functionality remains first. **4/14 parent checks, about 29%**; this counts
 major checks, not full-content coverage. All 82 functional resource gaps remain
 open. Full Modern/Renewal scope is unchanged; no new user decision is required.
 
-**Latest verified result:** [Normal services/routes/mounts and classified logs pass](reviews/2026-10-24-normal-integration.md#actual-normal-services-routes-mounts-and-classified-logs-pass).
-Root12checks/1201full pins pass: five fresh services/DB/mounts, sixteen complete
-served bodies, new routes/digest joins and positive1265-map registration.
-Five known startup errors are specifically reconciled; real logging/recruiter
-defects remain explicit. **Normal integration3/5checks,60% by gate count**.
-No account/browser/login/character/play has occurred in ro4.
+**Latest verified result:** [Supported ordinary account and fresh restart checks pass](reviews/2026-10-24-normal-integration.md#supported-ordinary-account-and-fresh-restart-checks-pass).
+One supported create returns updated/changed1; new account2000001 is group0/
+state0 and prior account metadata is unchanged. Same map/char/login containers
+have new start times; DB/web starts, five IDs/images/mounts/ports and the DB
+volume stay unchanged. Root verifies fresh1265-map completion, exact five
+known errors, all16served bodies and1117baseline files again. A separate test
+browser profile has both game sound channels disabled before game navigation.
+**Normal integration3/5checks,60% by gate count**; gate4 remains open until
+ordinary login, visible human Novice creation and Start Game. No login/play yet.
 
 **Previous renderer result:** [Fresh Mu3 isolated map-render scene passes](reviews/2026-10-24-T07-mu-data-stage.md#fresh-mu3-synthetic-scene-and-complete-root-audit-pass).
 All 1,285 placements load, all 29 retained Float32 arrays are finite, and all
@@ -33,11 +36,11 @@ The fresh ro4 copy/config/images/engine/storage and normal-app ownership
 checks pass. The repaired normal bundle and unchanged worker are actually
 served by the new owned app/native service with exact complete hashes.
 Gate3 live images/DB/mounts/routes/served files/positive map logs now pass.
-After checkpoint use supported Accounts create/list for one ordinary group0
-account, verify its expected game-service restart, then use a new quiet
-isolated browser for normal human Novice creation/Start Game. Take a supported
+Supported ordinary account creation and its expected service restart now pass.
+After checkpoint use the owned quiet isolated browser for normal login,
+empty-slot human Novice creation and Start Game. Take a supported
 baseline backup before ordinary earning. Keep retained app/engine/private
-streams monitored. No browser/game actor has run in ro4; ro3 earned progress
+streams monitored. No login/gameplay actor has run in ro4; ro3 earned progress
 stays untouched. Continue [quest/logout work](reviews/2026-10-24-functional-priority.md#priority-and-stop-criteria)
 separately; do not replay failed B4 or consumed Mu scenes.
 
