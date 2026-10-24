@@ -30,14 +30,14 @@ finite Node-worker host for equal independent Claude/Grok implementations,
 then Root source/pure controls and one pilot before the21-map actual batch.
 No constructor is executed by preparation and no rendering/travel/82gap closes.
 Both implementations start from the [same verified frozen base](reviews/2026-10-24-remaining-map-bodies.md#equal-compiled-core-host-implementations-are-active).
-[Claude d39a23f is submitted/preserved and Root reproduces two deadline failures](reviews/2026-10-24-remaining-map-bodies.md#submitted-claude-host-passes-its-suite-but-fails-two-root-deadline-controls):
-14authored controls pass, both Root completion-time controls fail. Raw source is
-actual-held; [bounded correction](tasks/T07.007.014.009-claude-deadline-correction.md)
-is now [active in a fresh Claude worker](reviews/2026-10-24-remaining-map-bodies.md#deadline-correction-resumes-after-orca-reconnect)
-(task_2c53879e53c7/ctx_f2ffffc4c62c). The preserved original worker is released.
-Grok task_1166063748f6/ctx_aa9287fa50a3 remains live/working. No actual target execution is admitted. After qualification one
-candidate may run its separately admitted pilot while the other continues;
-both candidates/comparison still gate task readiness.
+[Claude's original host fails two Root deadline controls](reviews/2026-10-24-remaining-map-bodies.md#submitted-claude-host-passes-its-suite-but-fails-two-root-deadline-controls).
+The [bounded correction now qualifies for one pilot](reviews/2026-10-24-remaining-map-bodies.md#corrected-claude-host-passes-root-controls-and-one-pilot-is-admitted):
+b2be17b, Root18authored/16common pass; independent Astra review concurs.
+Both Claude workers are preserved/released. Next run the separately bound
+single pilot under the original outer guard and compare its complete oracle
+except elapsedMilliseconds. No real execution has occurred at this checkpoint.
+Grok task_1166063748f6/ctx_aa9287fa50a3 remains live/working; Root's provisional
+source guidance is queued. Both candidates/comparison still gate task readiness.
 [Root's independent terrain numeric reference is ready](reviews/2026-10-24-remaining-map-bodies.md#independent-remaining-terrain-numeric-reference-is-prepared):
 all17GATs/1653256raw cells, no unknown type or expected numeric anomaly.
 [Early host review reproduces a deadline hold](reviews/2026-10-24-remaining-map-bodies.md#provisional-host-deadline-gap-is-reproduced-before-execution).

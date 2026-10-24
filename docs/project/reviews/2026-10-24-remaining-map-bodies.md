@@ -1381,3 +1381,74 @@ refreshed tool documentation. It again returns no apps/browsers and
 selection attempts also failed earlier. No game input is sent. Ordinary UI
 verification stays pending while both source tasks continue; no goal change,
 network cut, browser-control bypass or new user decision is required.
+
+
+## Corrected Claude host passes Root controls and one pilot is admitted
+
+Matched msg_b774215ae3a4 settles task_2c53879e53c7/ctx_f2ffffc4c62c at
+b2be17b324b0543bd23a81871631bc90e2c63b6e. Root verifies the clean checkout,
+exact d39a23f correction basis and only three owned changes. Host56407B/SHA256
+b84a9b71cd75b5515b6ace1996120b74d095a2883a030138291f397cd478c7e3
+and tests37361B/fbdb181796fc3036111b8d5924606eadeed0aca4e2d99ece8053b6829270d775
+are personally reviewed against the original complete source/suite. The full
+8662B correction report/a0f79f3d93970d1f9820fb615c2258895ec3ca29e6cef3b3f9e979ef4f8cc531
+is read, including its limits. Original report/history remain unchanged.
+
+Worker elapsed now covers construction through exit and both stream ends;
+missing/nonfinite/overrun timing or undrained output fails independently of a
+delivered timer. Whole-run elapsed is checked after final synchronous posthashes
+and again after manifest publication. Late publication returns failed/nonzero
+and attempts one exclusive RUN_DEADLINE.json; that record always overrides an
+older observed manifest. Post-publication cleanup/stdout/exit remain under the
+outer guard. Classifier-only starvation/never-ended-stream rows are not promoted
+to end-to-end observations. Independent Astra personally reviews the correction
+and finds no remaining mandatory blocker for a separately guarded single pilot.
+
+Root personally repeats both suites against unchanged submitted bytes:
+
+| Suite | Actual result | Elapsed | Root receipt SHA256 |
+|---|---|---|---|
+| Complete authored suite |18/18pass, natural0, empty stderr |11.249139875s |f84f755cc0fd87b85a1545052fd125da4cb51a96708461d19b26de4a91703b81 |
+| Original common suite plus two independent controls |16/16pass, natural0, empty stderr |9.383308875s |1c4054d4c6b6f5221a4ec7a9e77234e8b69bec37da1ccfd9ad8673354e7262a9 |
+
+The only Root fixture adaptation adds `streams_drained:true` to the otherwise
+successful55001ms/55000ms record. The32187B program SHA256
+f9d3c71272c32a02bc8487ed5a16794bf677ef5169093748a4c05a047c37fd9f
+therefore isolates the actual elapsed rejection. The real synthetic final
+posthash stalls to2627.900333ms under2000ms and now returns failed while its
+pilot and all posthashes pass. Late publication also passes its authored failure
+control. These are synthetic host controls, not acquired-parser qualification.
+
+Private `.tools/renewal/t07-014-009-claude-correction-packet-root-1/`
+SETTLEMENT_ROOT.json is8907B/SHA256
+1cbc966aa3835b19d5bb29858df0c9ee955625d132a075e3d9ac4df69fa4044a:
+all11source/input/report/brief mirrors qualify. The bounded transcript discloses
+six scratchpad control programs/captures; Root additionally mirrors all six
+before release. PRIVATE_SUPPLEMENT_ROOT.json is3322B/SHA256
+ba57e50e91124646614fa4af45224b8da84bc2038582cd6d6492269e574bef64.
+The transcript read is clipped, not claimed complete. Exact new Claude terminal
+is positively released/captured and its matched Delivery acknowledged.
+
+Root freezes one pilot admission only, still using the unchanged profile/prefix/
+suffix and prior browser oracle. Private
+`.tools/renewal/t07-014-009-claude-pilot-preparation-root-1/CALL_PLAN_ROOT.json`
+is11575B/SHA25658f8132b5124424e9ae0981aec1dcd426cf4a86a0af2e03e42aa954966093c5a.
+It records11fresh full input/control pins, exact committed host, Node, original
+observer, fixed argv and fresh exclusive output. Separate admission SHA256 is
+92539d5490c2a480335a73f35168e66e7d187f74b598cbdf6262f7385a410395.
+The unchanged14021B observer/c74f86a2f7f41aa5d468fe10c21cc4a837eea4b5684c4d12fef74d26f3a97a00
+is personally reread; it samples this direct Node process/threaded workers only,
+with1240seconds,1610612736B RSS,1MiB streams and8s cleanup grace. It cannot
+signal an existing game process. Success requires natural0, full closure,
+no deadline sidecar, complete oracle equality except elapsedMilliseconds and
+full source/input postchecks. No real constructor has run before this checkpoint.
+
+In parallel Root personally reads Grok's provisional50657B source/SHA256
+7b7c8c04f6e8d8452b1bbf6e653f130f3f138e61f90b139b9946c1b1ef5d3b07,
+after independent Astra review, and confirms finite source gaps: elapsed clocks
+omit acquisition/final work; file postchecks omit full identity fields/current
+parent binding; a failed target open can leak the parent FD; final control-input
+postchecks are incomplete. Guidance msg_41dc0f3027fb is durably queued, not
+claimed read. Original Grok remains live, with no sibling source disclosed.
+This early review is not its submitted-candidate score. Both final candidates
+and comparison still gate .009 readiness; the pilot is not a provider winner.
