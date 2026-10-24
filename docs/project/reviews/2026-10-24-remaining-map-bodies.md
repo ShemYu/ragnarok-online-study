@@ -1547,3 +1547,76 @@ gaps stay open. The diagnostic RSW.compile-before-textures order still differs
 from production MapLoader. Grok's independent source/tests/comparison remain
 active and gate .009 readiness; corrected Claude's earlier usable output is not
 an overall provider winner. Do not repeat the successful actual calls.
+
+
+## Both compiled host candidates are checked and corrected Claude is integrated
+
+Matched msg_7168d6317e21 settles Grok task_1166063748f6/ctx_aa9287fa50a3
+at0e643c18a54f00c52198f3da74fc6115f9c2e508 from the same ab3aebabase.
+Root personally reads the complete50657B host,27521B tests and14090B report;
+the final host is identical to the earlier reviewed7b7c8c04f6e8d8452b1bbf6e653f130f3f138e61f90b139b9946c1b1ef5d3b07.
+All ten source/input/brief mirrors are retained before release. Private
+`.tools/renewal/t07-014-009-grok-packet-root-1/SETTLEMENT_ROOT.json`
+is7838B/SHA2561fa896adb9feba30ef39ef16d612af0ab7d112cdefde0eeb5b5ff4e825b93b1c.
+The declared development folder has no remaining files; temporary fixtures were
+removed by the authored suite. Exact terminal is released/captured before ACK.
+
+Root personally repeats all12Grok authored controls:12pass/natural0/empty
+stderr in1.123811792s. The1868B GROK_AUTHORED_ROOT.json receipt SHA256 is
+7ea01332ac0220f53d9789b1910f0c81eb0461a73f90e464ed35420142081113.
+This suite reads/hashes/syntax-checks the fixed prefix but never evaluates it;
+the Root-authored diagnostic suffix runs with fake constructors only.
+
+Independent Astra and Root source review agree on mandatory gaps. Root personally
+repeats three synthetic counterexamples against an exact copy: a pinned file
+changed0600→0400 during reading is accepted; a failed target open leaks its
+already-open parent descriptor (closed by the test); and a100ms whole-run cap
+accepts219.948209ms after a200ms final-posthash delay. The latter uses one
+simulated worker and zero real workers. No acquired game parser/body runs.
+Private ROOT_REPRODUCTION.json is1410B/SHA256
+c45f8d2e0d94392a226331c16df31a02cded76cd1b4352a3c3181cdd012e3645.
+Full path/current-parent joins and control-input final postchecks are also
+incomplete; worker completion lacks actual launch-through-drain timing.
+The original Grok source is not admitted for a genuine run.
+
+Root also applies exactly the same two filesystem failure controls through
+thin API adapters to corrected Claude and original Grok. Claude refuses the
+identity change and leaks0FDs; Grok accepts it and leaks1FD. The2642B program
+SHA2565fb841e34c635a24042d15ec8e13e531657bd132cf4c4f9fa3495260d5407c62
+and1220B COMMON_PRESERVATION_ROOT.json/SHA256
+8e5b8e9caa3dc2c8f725a450bd68fb965be2acc40f88b30767885aa65f93fe28
+are retained under `.tools/renewal/t07-014-009-root-pure-controls-1/`.
+Actual-time boundaries are compared through the respective synthetic fixtures;
+authored suite counts and elapsed time are not a normalized speed benchmark.
+
+| Candidate | Correctness /8 | Preservation /4 | Controls /4 | Handoff /2 | Limits /2 | Total /20 |
+|---|---:|---:|---:|---:|---:|---:|
+| Claude original d39a23f |5|4|3|2|1|15|
+| Grok original0e643c1 |4|1|3|2|1|11|
+| Claude corrected b2be17b |8|4|4|2|2|20|
+
+Both original hosts lose deadline credit. Grok additionally loses preservation
+credit for the reproduced identity/leak defects and absent control-input joins.
+Its genuine-suffix fake-constructor numeric/sparse-water tests are useful and
+receive controls credit. Corrected Claude fixes its reproduced defects and
+qualifies under the original outer guard, complete browser oracle and all21
+actual map audits. This selects a host for this task only, not an overall model
+ranking; tokens/billing remain unobserved. No further Grok repair is needed for
+the selected implementation.
+
+Root integrates the exact Claude source/test/report history as f3f94e6 then
+af0d59c3666ce90643281a6b19efd554d9542108. Both source/test hashes remain
+identical to the actually qualified child. Root repeats all18synthetic controls
+from the integrated path, including its worker import path:18pass/natural0,
+empty stderr in11.102346667s. The328B ROOT_INTEGRATED_AUTHORED.json SHA256 is
+5ff342e8c9bf6ffd5ba03b8b302ef22133480b468384dd9049b22a2ed24988fb.
+No successful genuine pilot/batch is replayed. All expected workers are settled,
+preserved/released;0reclaimable remains,298released/10previously user-retained.
+
+T07.007.014.009 is ready_for_user for its bounded compiled-core scope after
+this checkpoint. All82functional gaps and ordinary rendering/story/save remain
+separate. Next is the1222direct dependency metadata/body/model-texture closure.
+An independent result review also confirms all21projections/252descriptors and
+ledger counts. Thirteen GAT bounds use mathematically equal Python10.0 versus
+JavaScript10 spelling; full hashes/lengths/shapes/counts and finite values agree.
+This is not a constructor defect or permission to weaken opaque catalog typing.

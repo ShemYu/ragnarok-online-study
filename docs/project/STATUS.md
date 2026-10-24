@@ -19,14 +19,12 @@ remain complete. The next asset work is the1222unique direct dependencies
 (936models/222textures/64water images), then model texture/compile and rendering
 closure. These dependencies are not yet acquired or qualified by this result.
 
-[T07.007.014.009](tasks/T07.007.014.009.md) remains `in_progress` for the paired
-source comparison. [Corrected Claude b2be17b qualifies](reviews/2026-10-24-remaining-map-bodies.md#corrected-claude-host-passes-root-controls-and-one-pilot-is-admitted):
-Root18authored/16common controls pass, Astra concurs, both Claude workers are
-preserved/released. The [real pilot matches the complete browser oracle](reviews/2026-10-24-remaining-map-bodies.md#real-pilot-matches-the-complete-browser-oracle)
-excluding only elapsed time. Grok task_1166063748f6/ctx_aa9287fa50a3 remains
-live and is writing synthetic controls; Root's provisional source guidance is
-queued. Review its final source/tests under the same contract before scoring.
-No provider winner or task readiness is inferred from early completion.
+[T07.007.014.009](tasks/T07.007.014.009.md) is now `ready_for_user`:
+[both original sources and corrected Claude are personally checked](reviews/2026-10-24-remaining-map-bodies.md#both-compiled-host-candidates-are-checked-and-corrected-claude-is-integrated).
+Original Claude15/20/Grok11/20 both held; corrected Claude20/20 integrates
+unchanged as af0d59c. All18integrated controls pass; genuine pilot/full21batch
+are already qualified. Both providers are preserved/released, no pending worker.
+Next is the1222direct dependency closure; do not replay successful actual calls.
 
 [Normal delivery of all34terrain bodies is already complete](reviews/2026-10-24-remaining-map-bodies.md#normal34delivery-and-complete-root-audit-pass),
 T07.007.014.008 `ready_for_user`:34exact200responses/97037820B, all34new loose
