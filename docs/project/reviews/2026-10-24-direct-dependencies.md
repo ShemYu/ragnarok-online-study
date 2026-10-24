@@ -1798,3 +1798,68 @@ is not extrapolated, limits cannot rise silently. All82gaps/4of14/about29% remai
 no nested texture availability, image decode, placed compile/render, normal
 travel/monsters/story/save/full Chinese or full-game acceptance follows.
 No game/browser/service/audio/Chrome/IME/internet change was made.
+
+
+## Finite925caller qualifies; one disjoint remainder is admitted
+
+Root reads the complete23305B remainder derivative and entire15edit diff,
+independently reconstructs every forward byte and complete inverse to the
+qualified21017B pilot caller. Candidate SHA256
+b5575cb3a45d9895dfa23526d4aea52c1a38b62d338fb144c11fbfeaf45a2d17.
+Only complement/consumed-pilot metadata/plan label/finite output count differ;
+all actual host/source/time/RSS/stream/byte/summary/reducer/preservation limits
+stay unchanged. Same .011helper/root005guard; no new generic runner.
+
+Root's seven authored groups pass: exact15forward/inverse edits;925complement/
+four default refusals; invalid/replayed consumed slots refuse before I/O; valid
+consumption plus seven wrong-profile/status/returned-job/audit/hash/index/schema
+refusals;1853model bound with caller64unchanged; exact remainder source projection;
+925terminal positive versus missing/extra/deadline success-set refusal. Both
+consumed descriptors must join whole pre/post pin checks. No real constructor
+/world call is used by these controls. Independent Astra source advisory agrees;
+Root personally reads/tests primary source. Private remainder-caller-root-controls-1/
+RESULT_ROOT.json is659B/SHA256
+3a6af610e4605a5ba4b8bd9c80861fe6072f4e8db0cc0f7c61d12dcf293ec56c.
+
+Root admits fresh preparation and ONE925call after this clean documentation
+checkpoint: sorted range936minus the exact consumed11, union936/intersection0.
+Use SAME3043046B/c36e551b whole runtime profile, pinned pilot manifest7801fde6
+and independent PILOT_ACCEPTANCE_V2_ROOT413e1b33. Root must freshly verify exact
+full descriptors and proof, current HEAD/world/Node/all936bodies/source, personal
+private host/caller inverses and output absence before launch. No successful
+pilot or previous delivery may replay.1852successful model artifacts plus at
+most one failure/deadline marker; no partial set establishes success.
+
+Pilot measured19nodes/17declarations/5526UTF16summary-string units and small
+retained results fit the frozen caps;925fit remains unknown and must be measured.
+The observed roughly0.63s host time for11does not guarantee925time/memory fit.
+A failing bound keeps truthful retained evidence and stops later starts; no
+silent cap raise, split, retry or goal change. Inner1260s/outer1380s/host1240s,
+3s cleanup,1.5GiB sampled RSS,1MiB streams,512MiB input closure,256MiB combined
+artifact accounting and185597952B host retained remain. Both qualified guards
+and independent complete final output/preservation/summary/declaration audit
+are mandatory. Full Renewal/4of14/about29%/all82open stay unchanged.
+
+
+## Independent browser closure planning wave starts
+
+Frozen .014brief5116B/SHA256
+b57fab3828626035a10f79ea9169931197bfadc7d9e4bb6bb1fb25e23bd5d447 at
+2b81382, common1637B/SHA256
+f8046d47f41b1bc7a6c7cd9e1fe9ab46466071b3831de2decdc19701a294dcef.
+Only the same three pinned saved source/metadata inputs plus equal Root
+corrections/context; distinct private report prefixes in coordination checkout.
+No source/body/header/browser/runtime execution, no tracked/Git writes, no new
+child/setup. Root owns concurrent progress edits. Both start before waiting,
+with configured defaults/no hidden model/effort/cost claim:
+
+| Provider | Task | Dispatch | Terminal |
+|---|---|---|---|
+| Claude |task_6010e6e3b90a|ctx_ec9bb81a5a28|term_1f7e95d6-eab9-4736-bffa-f6eb9425d592|
+| Grok |task_bbaa08d99ee7|ctx_f4d9e43cd1f0|term_937ae2bb-5ddf-405f-af60-fd5e8579f222|
+
+Both ready/input_accepted. Claude start observed; Grok observation unsupported
+is not failure. Matching investigating heartbeats prove both live. No duplicate/
+restart. Root compare full closure/dependency/exposure/resource/teardown proposals
+and exact source slices before future implementation. This work is independent
+of925model construction; no provider verdict or browser admission yet.

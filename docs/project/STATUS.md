@@ -33,8 +33,9 @@ complete:19tests pass, but two Root combined faults hold it.
 [ONE actual11pilot and complete Root audit pass](reviews/2026-10-24-direct-dependencies.md#actual-eleven-model-constructors-and-complete-root-pilot-audit-pass):
 all11returned;253583checks/1097pins/24model files;19nodes/17declarations/
 12nested targets, no unknown selected model or unresolved slot. Both guards
-natural0/no residue; complete world PRE/POST equal. Next minimal finite925caller
-derivative and binding to consumed pilot/SAME full profile;925unadmitted. No new child/setup. A parallel metadata-only helper
+natural0/no residue; complete world PRE/POST equal. [Finite925caller/7Root authored groups pass](reviews/2026-10-24-direct-dependencies.md#finite925caller-qualifies-one-disjoint-remainder-is-admitted).
+One conditional disjoint925call is admitted after fresh consumed-pilot/SAME
+profile/current-world/HEAD/source binding. No925actual result yet. No new child/setup. A parallel metadata-only helper
 has completed the936body join; [Root independently verifies all records and fresh body files](reviews/2026-10-24-direct-dependencies.md#complete936body-join-and-fresh-root-file-audit-pass).
 237771checks/950pins pass. Exact11pilot is now qualified;925remainder stays unadmitted until its finite
 caller/source/consumed-pilot binding gate passes.
@@ -42,7 +43,8 @@ caller/source/consumed-pilot binding gate passes.
 **Independent parallel lane:** [.013browser image-consumer source trace](tasks/T07.007.014.013.md)
 [Root complete source/286metadata comparison passes](reviews/2026-10-24-direct-dependencies.md#image-consumer-source-trace-passes-complete-root-comparison):
 both17/20 for saved-source trace, both preserved/released. No decode/admission.
-Next finite browser closure/resource/upload/teardown plan. Private-only ownership
+[Equal .014closure/resource/teardown proposals are live](tasks/T07.007.014.014.md),
+independent of925models. Private-only ownership
 in this checkout. Root owns tracked docs; authors may not mutate Git/source or
 open images/runtime/browser/game. Trace of286delivered image consumers does not
 wait for .012models. Root compares exact source closures/metadata before use.
