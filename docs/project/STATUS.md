@@ -39,7 +39,12 @@ is held before actual use. [Grok23f0316 is completely preserved and released](re
 Grok17tests/49Root checks and26equal paired control rows pass their stated
 observations; multiple holds reproduce. Raw Claude13/20 versus Grok10/20;
 both held. [Finite correction brief](tasks/T07.007.014.023.001.md) freezes the
-required repairs. Browser/render,
+required repairs. [Correction434e264 is fully preserved/released; Root50tests
+pass but three independent regressions hold it](reviews/2026-10-24-direct-dependencies.md#geometry-correction-is-preserved-and-three-root-regressions-hold-it).
+Root owns the narrow publication/retirement/deadline follow-up before integration.
+[Full936geometry planning metadata passes16293Root checks; equal .024brief frozen](reviews/2026-10-24-direct-dependencies.md#full-geometry-planning-metadata-qualifies-and-the-extension-brief-is-frozen).
+It plans the next NONE/FLAT subset and all59broader frontiers independently of
+actual .023execution. Browser/render,
 normal game/story/full content and all82functional gaps remain open. No acquired
 geometry execution is admitted and no goal-changing issue/user decision appears.
 Root's independent mesh comparator now passes350checks/10authored positives/
@@ -63,10 +68,10 @@ Fresh catalog:83workspaces/81direct children. The three prior preservation holds
 are resolved with full28file/28922452B copies and inert symlink metadata; exact
 archive refs/verified rollback bundle survive. All other workspace IDs remain.
 Both original review workers are released; the .011Claude checkout is kept for
-the active .023.001repair. User-owned workspaces stay excluded.
-Fresh full342row fleet:331released/eight user-owned/two absent/one active
-correction task_ffaafa66fe56/ctx_bf67cecd82f0. No new child/setup; zero reclaimable
-at the latest post-original-release check. No game/save/network action in cleanup.
+the .023.001Root follow-up. User-owned workspaces stay excluded.
+The .023.001worker is now released/exited and fully preserved. Historical342row
+fleet now has332released/eight user-owned/two absent; no expected active worker
+before the next source wave. Fresh reclaimable list is empty. No new child/setup. No game/save/network action in cleanup.
 Two .012implementation attempts reuse existing released checkouts; no new
 child folders or setup hooks. Both .012candidates are preserved/released after
 matched settlements. [Root full review and eight behavioral groups per original are complete](reviews/2026-10-24-direct-dependencies.md#both-constructor-originals-are-personally-checked-and-held).

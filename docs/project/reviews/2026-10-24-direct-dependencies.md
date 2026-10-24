@@ -5177,3 +5177,108 @@ Private t07-014-023-001-launch-root-1/:
 | CLAUDE_START_ROOT.json |2300|9229f9a02a027c56e8caa4ae99dc40338132d240b695bdb6e624ab0b5f9e2cab|
 | LAUNCH_ROOT.py |2848|cdfb252588ddb3a890168c4ae63a44095b50d192dbb7508de2b3ec13ded429c8|
 | PRESERVE_ROOT.py |5379|769b9adb92c613e93670db2e2f14ab093ac305445798a820c50c334613dde281|
+
+
+## Geometry correction is preserved and three Root regressions hold it
+
+Claude C1 settles successfully at21:41:48UTC as434e264c6c1aa07c25dcb6883b8c61162ead894b,
+basef8eb477, task_ffaafa66fe56/ctx_bf67cecd82f0. Root verifies the clean branch,
+three owned files and complete1501regular-file/38341972B packet,826directories
+and40inert symlink records. Full source/private copies and rollback ref/bundle
+verify before release. Fresh show proves released/exited/transcript captured;
+delivery_ed6db30bcd83 is then acknowledged to an empty inbox. No idle terminal
+is kept for review. A fresh reclaimable list is empty;332dispatches released.
+
+Root personally reads the complete correction diff, tests and report against
+the fully reviewed original. The unchanged author suite passes50/50, zero
+failures/skips/cancelled, natural0/no stderr in1.328998s outer time, under a
+30s Perl alarm and bounded1MiB-per-stream collection. All15recorded source/
+input SHA/C8 authorities remain equal. The wrapper initially expects TAP #
+markers, but Node emits the spec reporter. Complete streams and PRE/POST were
+already saved; a separate assessment verifies those retained50passing results
+without repeating execution. No actual body/mode is used.
+
+C1 resolves the requested dense placement/rounded columns, held fixture,
+creation join, original failure ownership and observed structure-before-call
+checks. Root independently reproduces three narrow remaining failures:
+
+- Initial profile refusal plus failure.json write ENOSPC and close EIO: both
+  injections run, but the final external failure_summary drops close EIO.
+- Late failure plus preservation-link EIO: the error is retained, but cleanup
+  continues and reports retirement.status=retired, contradicting the failure.
+- A successful direct-helper cleanup crosses its deadline and still returns
+  its observation. Later runObserver checks already prevent an actual CLI PASS.
+
+All three controls use tiny frozen authored data or a handwritten matching
+stub. Both diagnostics/injections are explicitly asserted. They establish no
+wrong real geometry and do not expand the documented first-stat/check-open
+race boundary. C1 remains held. Root owns a separate finite follow-up on a
+new correction branch, preserving C1 and raw original13/20versus10/20scores.
+Before integration Root will run the full independently prepared regression
+harness and author suite on the corrected source. No actual compile is admitted.
+
+Private t07-014-023-001-claude-packet-root-1/:
+
+| File | Bytes | SHA256 |
+|---|---:|---|
+| repo/tools/renewal/observe_model_geometry.mjs |80635|dee3bfd73534dd02df70a9754503dad5b713bee4d231e21467e19e63ac8d7f50|
+| repo/tests/model_geometry_observer.test.mjs |79068|cbaa152dcf8b0208373825eafda8282d9d9bc14916931a7468dc522a5521f696|
+| repo/docs/project/reviews/T07.007.014.023-model-geometry-observer.md |28996|be520d36e361b71e2ae0008312c6a34edc2374f2f5dadec05a7d9f85d08cbf8d|
+| PRESERVATION_ROOT.json |1648096|155c2435e5a8172b98f1cc19c0d4b849c7cbf6c1d9853f154dcd63576ef3169a|
+| RELEASE_SHOW_ROOT.json |7497|05bc4216b72e11b21aeb109b27870e82354b4613ae0c8c260bf10da0398d354c|
+| submission.bundle |21170|bf5c56057ef1b4247983256541ff7c1f594ea69052b75e7587f6e6cc2e617d5b|
+
+Private t07-014-023-001-review-root-1/:
+
+| File | Bytes | SHA256 |
+|---|---:|---|
+| RERUN_ROOT.py |4844|4c43ff3fa898f8367bf11cb3aab9def85c518ff2a19ba3b357bcf636ec17b461|
+| AUTHOR_TESTS_ROOT.json |7598|58d6f26b26ef7e03c3421227c13d95b09c7fed1ab6b21c2e7ce9ef2f64b79f23|
+| AUTHOR_ASSESSMENT_ROOT.json |1088|d5651b5fe1b40fedf61388f861606a0b967306e3f13998378ac5f9204a7e8042|
+| NARROW_RED_ROOT.mjs |7246|3c9c41d9c59ca411c422e148ef8cec894f3f5cc22620f77245c279cb21d5d5ca|
+| narrow-red-1/NARROW_RED_ROOT.json |2013|73ffc9a86d667a315b71efafd31b816d3ab5ed126279518f5ec5e58a26fe8db5|
+
+## Full geometry planning metadata qualifies and the extension brief is frozen
+
+Root personally reads the16257B projection helper,4942B report and9196B draft,
+then independently audits every936model/1306node join and all59disjoint groups.
+16293Root checks pass. Complete canonical lossless rows reconstruct the saved
+coverage exactly, every planning field/pin joins, and all three projection
+outputs reproduce byte-for-byte without source/client/body execution. All
+complete input/helper SHA/C8 authorities remain equal. This is qualified saved
+metadata preparation, not a new constructor observation or execution selection.
+
+The fixed version partition is559/46/46/285 for1.4/1.5/2.2/2.3. All-four-node-key
+zero is observed for278;43have some known nonzero, including36with missing
+fields;615are UNKNOWN without a known nonzero.651have missing fields.105exceed
+a listed count/formula ceiling;831have no listed excess but remain UNKNOWN for
+other cap gates. False hasAnimation alone is not enough:254/256/267have nonzero
+texture-key groups. Local identity/zero metadata does not supply older missing
+pos/rotation/scale values. No metadata absence is converted to zero.
+
+The [equal .024source-plan brief](../tasks/T07.007.014.024.md) uses exactly two
+inert planning JSONs and the pinned Worker text. Root fully reviews the tightened
+brief and source shading/allocation anchors. Map existing59groups to frontiers
+and explicit exceptions, retaining all936indices once. The detailed next grammar
+is single-node2.3/static explicit-zero keys/identity local matrix/zero offset,
+shade NONE or FLAT under unchanged outer ceilings.35metadata candidates include
+seven listed excess and28UNKNOWNcap-fit; they are not35ready models. Parallel
+older-version grammar discovery, local transforms before ordinary hierarchy,
+and separate geometry/texture/global-key paths keep broader work visible.
+No .023candidate or actual call is an input/dependency. Future implementation
+reuse waits for Root-qualified source. Full goal and all82functional gaps stay
+open; no critical goal-changing blocker or new user decision appears.
+
+Private t07-014-024-preparation-review-root-1/:
+
+| File | Bytes | SHA256 |
+|---|---:|---|
+| AUDIT_ROOT.py |8451|8c9aceb33dd6fff0f32c81086385c4c87c0d2d34a77c968b81e0378f754784ee|
+| PREPARATION_AUDIT_ROOT.json |8071|35873695f425aed84267179fce1d41be118eb0c25322ad8149f9131a97335a98|
+
+Private t07-014-024-preparation-helper-1/projection-2/:
+
+| File | Bytes | SHA256 |
+|---|---:|---|
+| PLAN_INPUT_ROOT.json |1147625|810543c74cc771b2a7e04dc7fb304db79f5af16686c6bf5e58b2bf0ac49bcd32|
+| GROUPS_ROOT.json |22773|eac4259f8df1d84e1143eb4feda8c98c4a88e822dd58396eeefd2cd9e05d0529|
