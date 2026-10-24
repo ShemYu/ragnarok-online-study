@@ -41,7 +41,8 @@ Map repair:
        -> Mu route/config check [HELD: newer Guide absent from installation]
        -> normal Mu asset set   [PASS:111 responses +111 loose files verified]
        -> ordinary field route  [SOURCE VERIFIED: island -> Izlude -> field]
-       -> quest state + play    [BLOCKED: computer-control connection unavailable]
+       -> Orca browser re-entry [PASS: saved90,111 + Chinese tracker + quiet audio]
+       -> quest state + play    [NEXT: inspect before tutorial/field route]
 
 Quest check:
   Finite startup repair        [PASS: listener seen in 3 checks]

@@ -33,11 +33,14 @@ T07.007.014.008 `ready_for_user`:34exact200responses/97037820B, all34new loose
 files and source/current-world preservation verified. Do not repeat acquisition,
 GETs or the successful pilot/batch. Keep the extracted files/reference bodies.
 
-Ordinary playtest is separately blocked by repeated `Sky Computer Use native
-pipe startup failed`, including the user's wake/retry. No apps/browsers are
-available through computer control. No game restart, network cut or browser-
-control bypass is admitted. The compiled run proves no rendering/travel/story/
-save or82gap closure. Full scope and acceptance remain unchanged.
+**Ordinary UI access is restored through the user-requested Orca browser.**
+[Root verifies normal login and existing-character entry](reviews/2026-10-24-orca-browser-resume.md),
+with the same90,111/Chinese boat-captain tracker, personally viewed textured
+scene and quiet BGM/Sound preferences. Keep this game tab running. Native
+computer control remains unavailable; use the supported Orca browser page
+recorded privately. Next inspect current quest/inventory before ordinary travel,
+preserving the tutorial and earned progress. No movement/new progression ran.
+The compiled run still proves no ordinary travel/story/save or82gap closure.
 
 [Primary source defines the first story transition](reviews/2026-10-24-remaining-map-bodies.md#primary-donor-source-defines-the-first-chapter1-progression-edge)
 as donor behavior. Map/alias/route binding and guarded persistent integration
@@ -110,13 +113,11 @@ Do not choose early departure, warp or grant progression to speed verification.
 No gameplay ran in this checkpoint. Hold the failed F1 quest path; no new
 quest actor/repair, Mu install or synthetic retry. Full goal stays unchanged.
 
-**Current UI blocker:** inventory fails with `Sky Computer Use native pipe
-startup failed`, including the user-requested wake/retry, a tool-session reset,
-direct Chrome selection and a fresh inventory retry. No apps or browsers are
-available through that connection. Do not infer the user
-closed the game: native server ownership checks above pass. Quest/inventory
-inspection and ordinary playtest wait for UI availability; independent source/
-asset checks may continue. No game restart or user decision is required.
+**Current UI route:** [User-requested Orca browser re-entry passes](reviews/2026-10-24-orca-browser-resume.md).
+Native computer inventory still fails with `Sky Computer Use native pipe startup
+failed`; it is not a global UI blocker now. Use the privately recorded Orca page,
+not a duplicate game session. Preserve90,111 and the21001tracker; inspect before
+movement/quest choices. No network cut or original Chrome operation is required.
 
 **Independent work:** the admitted asset pass is complete. Do not repeat it,
 build another decoder/server or reopen completed rendering. Continue useful
