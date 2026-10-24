@@ -1686,3 +1686,33 @@ accepted and no game actor is admitted. Fleet returns three active,
 six retained, 268 released, zero reclaimable and no additional pages.
 The new full839 heartbeat is processed as liveness only. Parent 4/14,
 all 82 functional gaps, numeric rendering failure and full goal unchanged.
+
+## B4 templates qualify and their settled author is released
+
+[Root and independent full-object B4 verification pass](2026-10-23-T10.007.md#b4-runtime-templates-pass-independent-whole-object-verification).
+The exact C26/Engine13 projections, all endpoint and player joins, ordered
+pin lists and Root slot census match. Root verifies590 comparisons; a
+separate source review has no blocker and its complete input/output/raw
+anchor closure is verified. The author is released/archive beforeACK.
+A single driver header is staged, with full inverse; no actor admission.
+
+Two actual Grok workers continue on the full839 entry and fresh Mu runtime
+templates. Astra reviews the unchanged supervisor/outer reuse and finite
+B4 binder. Next is a fresh current-world binding and the existing ordinary
+four-case quest/logout sequence, after source/admission checkpoint.
+The numeric Mu renderer failure, missing authentic story,4/14parent checks
+and all82functional gaps remain open.
+
+## One fresh ordinary quest trial is admitted after finite bindings
+
+[Root and Astra qualify the corrected finite B4 binder and existing supervisors](2026-10-23-T10.007.md#corrected-finite-b4-binder-qualifies-for-one-ordinary-quest-trial).
+Two preflight defects are corrected before execution, without changing
+parent/outer/guard limits. Fresh world, five fixed ports, current full71
+material/pins/archives and shared HEAD/lease must pass before the one ordinary
+four-case quest/logout/reconnect call. Any failure keeps its full evidence.
+
+[Full839 entry is submitted and released](2026-10-24-T06-full-spawn-output-budget.md#full839-entry-is-submitted-and-its-source-owner-is-released);
+Root settlement passes and independent source review continues. Fresh Mu
+runtime template work is the sole remaining live Grok dispatch. No full839
+publication is admitted. Numeric Mu rendering failure, authentic missing
+story and all82functional gaps remain open; parent4/14/about29%.

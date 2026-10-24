@@ -22,9 +22,13 @@ Fresh Mu19 passes 112 checks, 85 pins and all 33 leaves; current confirmation
 also passes. A 33-copy source packet is ready for Grok to refresh its two
 unbound runtime templates after this checkpoint.
 
-Three actual Grok workers are live: B4 quest runtime templates, the sole
-qualified full839 entry source, and fresh Mu runtime template refresh.
-Each owns an independent source-only scope.
+[B4 quest runtime templates now qualify](reviews/2026-10-23-T10.007.md#b4-runtime-templates-pass-independent-whole-object-verification):
+Root590 comparisons pass; independent review and closure pass. Its settled
+author is released. Full839 entry is submitted/released and under independent source review.
+Fresh Mu runtime templates remain live Grok work. [The corrected finite B4
+binder and existing supervisors qualify](reviews/2026-10-23-T10.007.md#corrected-finite-b4-binder-qualifies-for-one-ordinary-quest-trial):
+one ordinary four-case quest/logout sequence is admitted only after fresh
+world, full material/archive/pin, fixed-port and shared-lease bindings pass.
 B4 data already pass 321 checks/306 pins/71 outputs; ten finite controls
 pass two parallel guards. No full839 publication or new game actor yet.
 

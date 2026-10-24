@@ -581,3 +581,20 @@ replay. Frozen29-copy packet32969/
 a170ec32a3e2ffc3bea03e6182cd1ff4a4fe463c5ac16d2494796f5f2563f9f9;
 brief4917/684f73f748ee9b372288c7128915cdaca5e802bb5d30899c0780b382ea1ac527.
 Source-only authoring after checkpoint; no full839 publication admitted.
+
+## Full839 entry is submitted and its source owner is released
+
+Grok task4b35dffc5c71/ctx3200d7b92b7d submits the unbound full839 entry:
+21654 bytes/02b90b4eebb2d051d18c5960f718777cab1292896626905eb39aebd160da853b.
+Root verifies the29 frozen copies,31 opened packet files,nine launch
+originals,seven idiom inputs and seven closed output leaves. Source
+settlement41537/5c5144cf2e56df70c40ba17f1877ee3a1b9b62855fb641bc5cc0e22818bc9389;
+release455/4372fef821fd4a3adfe7a40af871c23ab0a516aa7495bd528eaaa638465cd06d.
+Release/archive completes beforeACK. Independent source review is active.
+
+The author discloses parsing its own new entry for syntax despite the
+source-only task's target parse/import restriction. Preserve that scope
+deviation separately; it provides no runtime proof. No selected NPC body,
+target module execution, publication or actor is reported. Root still must
+personally qualify the entry and complete expectation joins. Full839 remains
+unrun and unadmitted; the previous finite groups are not repeated.
