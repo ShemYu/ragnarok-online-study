@@ -1090,3 +1090,109 @@ private repair prefix only; five pinned Root/Astra reports supplement the same
 ten original inputs. No sibling evidence is supplied. Root independently reads
 Grok's original host/suffix/tests and two advisory reports in parallel; no final
 selection/integration/runtime admission. No prior successful I/O call replays.
+
+
+## Both constructor originals are personally checked and held
+
+Root personally reads complete Grok host76528B/suffix3986B/tests36242B/report
+11156B, alongside the already-complete Claude review and both bounded Astra
+consultations. All six unchanged source/test copies and all ten original input
+full hashes are rechecked. Both candidates validate the unchanged actual936/
+1649/21/three-case metadata without mutating it; no acquired body, prefix or
+summary evaluates. Neither source is selected/integrated or admitted.
+
+Grok's unchanged11author tests repeat with11pass/zero fail/zero skip under the
+same Node --test-isolation=none mode and existing guard. Natural0/1.497486s/
+116736000B sampled RSS, guard valid/no signal/action/residue. Root redirects
+authored os.tmpdir fixtures using private TMPDIR without changing source/test
+bytes. Suite durations use different authored fixtures and are not a general
+provider-speed comparison. Both passing suites missed material boundary defects.
+
+Root then executes eight bounded behavioral groups per original under one
+existing guard: natural0/1.347813s/402423808B sampled RSS, zero stderr and no
+signal/action/residue. Seven use actual candidate reducer/suffix/host paths on
+authored tiny data. For unsettled-handler comparison, Grok is exercised through
+an integrated authored Worker; Claude's exported production classifier receives
+independent literal lifecycle facts so its finite suffix validator is not
+bypassed. This interface difference is explicit, not falsely equal integrated
+execution. Results:
+
+| Root control | Claude79488b6 | Grokbf369fd |
+|---|---|---|
+| Two600k node strings | accepts, string total0 | rejects total1200000 |
+| Constructor returns after deadline | false constructor_returned; summary stops | true return, but summary still runs; expiry becomes postcheck |
+| Body close EIO leaves owned FD open | false observed success/fd_closed:true | aggregate fails/stops; row/report observed and open count0 are misleading |
+| Final held-profile close EIO | false observed success | false observed success |
+| Complete nested summary sentinel | exact deep equality | exact deep equality |
+| First constructor throw/unknown closure | failed; targets/totals null | failed, but reducer emits empty arrays/zero totals |
+| Constructor mutates its private copy | failed result/postcheck diagnostic retained | fails, but bounded encoded result and postcheck reason disappear |
+| Handler never settles | classifier rejects | Worker exits positively and reports observed with no settlement |
+
+Both injected FDs are Root-owned authored fixtures. Hooks are restored and only
+those surviving FDs are closed by Root. No process/game owner is targeted.
+The string domain was ambiguous in the original brief: credit Grok's useful
+all-summary accounting, but do not retroactively subtract raw correctness for
+Claude under the separately frozen refinement. The sentinel includes explicit
+numeric markers, transforms/boxes, animation/keyframes and cursor metadata;
+Root deep-compares the entire retained summary, not selected fields.
+
+Separate metadata-only mutations show both validators accept inconsistent
+source_relation_indices. Claude rejects a map-model omission; Grok accepts it.
+The exact complete profile pin protects Claude's original input despite the
+missing validator condition; no actual metadata drift is observed. Root sends
+only Claude's own finding to its correction author, never sibling evidence.
+Complete profile-plus-pointers must be an explicit retained artifact contract.
+
+Grok has no Root-bindable production path: module import rejects any filled
+BINDINGS; runHost requires testing.syntheticUnbound; admission requires Node/
+guard/HEAD null; execute explicitly rejects genuine prefix/summary hashes; CLI
+always refuses. With frozen counts, validation requires pins execute rejects.
+Default refusal is safe and passes, but this is incomplete real-constructor
+source rather than a binding-only remaining step. Its consumed-pilot hash is
+self-asserted and remainder accepts an arbitrary disjoint subset without an
+independent pilot-file join or exact complement. No actual unsafe call occurs.
+
+Root independently verifies Grok's four unique ordered donor anchors/full
+forward/inverse. They retain317of56407donor bytes;56090donor bytes are replaced.
+This algebraic reconstruction does not prove unchanged lifecycle behavior or
+satisfy the requested minimal interface-only derivative by itself. Claude's
+six-slice46410B complement and closer existing production route make it the
+repair basis; the original remains held. Broader source replacement is not
+approved on the strength of gap hashes.
+
+Same original20point rubric, Root judgment for these artifacts only:
+
+| Category | Claude | Grok | Reason for withheld credit |
+|---|---:|---:|---|
+| Correctness8 |6|3| Claude authority/late-return holds; Grok additionally lacks actual route, handler settlement and complete joins |
+| Preservation4 |2|1| Both final-close false success; Grok also drops bounded failed-result diagnostics/unknown closure |
+| Meaningful controls4 |3|3| Both11tests substantive; neither covers the reproduced close/admission/whole-summary seams sufficiently |
+| Handoff2 |2|1| Grok's disclosed temporary-fixture ownership deviation; both exact candidates preserved |
+| Limits2 |1|1| Literal body-FD count claims are not actual descriptor concurrency; actual resource fit unknown |
+| Total20 |14|9| Both held; separate correction effort is not included |
+
+No generic model winner is claimed. Separate Claude .012.001 remains live;
+Root reviews/repeats its changes before any production source selection. A
+parallel data-only helper prepares full936body descriptors from already qualified
+retained response metadata. It may not open actual bodies/runtime/Engine/game,
+execute source functions, fill runtime authority or reacquire any successful GET.
+Root owns later complete data verification and actual binding/pilot audit.
+
+Private receipts (all source-only/authored-control evidence):
+
+| File | Bytes | SHA256 |
+|---|---:|---|
+| t07-014-012-grok-suite-root-1/RESULT_ROOT.json |2932|21a9d6dcfbec9a2021a47e0a8dcb808aa690d0e40c4cca605d5494f04977c94a|
+| t07-014-012-equal-root-controls-1/RESULT_ROOT.json |4440|0a8f9751ff708aeed9a3ca87b771e4a7b188b36bf6d4b596c234b332c4d1b672|
+| t07-014-012-equal-root-controls-1/METADATA_RESULT_ROOT.json |1068|6da33bf9f261bac613993977db919f5125322d3382746b3ac70c15415522cbc6|
+| t07-014-012-equal-root-controls-1/PINS_CONFIRMATION_ROOT.json |1500|86093cecf737f65ef382ad95c7823b1bfb4d359bbf58bf2da8ea1a921aaa92c4|
+| t07-014-012-equal-root-controls-1/GROK_DONOR_CONFIRMATION_ROOT.json |617|4ca0631da3bff4ca109023c6e939cb001033fe16551c734e59583e7c2e2b40fc|
+| t07-014-012-grok-lifecycle-consult-helper-1/REPORT.md |13560|9d70003bfade3229d1ad877758c119f15c8b38e74da8998a0fbd9e1e543a1a3b|
+| t07-014-012-grok-reducer-consult-helper-1/REPORT.md |15412|0b9e135ba21bcd42f4f14bf1b63663cb331bf2728366160a8292a17293a3f5ae|
+
+Parent4/14/about29% and all82functional gaps remain unchanged. The bounded
+1222delivery prerequisite is complete. Genuine936construction, nested texture
+availability and placement-aware rendering still require actual qualification;
+no full-game/episode/story/save/localization coverage is inferred. No critical
+goal-changing blocker or new user decision is established. Running game/quiet
+audio/internet are untouched; source/docs rollback uses committed checkpoints.

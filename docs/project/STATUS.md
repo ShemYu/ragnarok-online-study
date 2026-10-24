@@ -19,11 +19,12 @@ private preservation; user-retained children remain excluded.
 Latest full prelaunch fleet:303released/ten retained/zero reclaimable.
 Two .012implementation attempts reuse existing released checkouts; no new
 child folders or setup hooks. Both .012candidates are preserved/released after
-matched settlements. Root has read Claude's complete source/tests/report,
-repeated11tests and reproduced four authored negative controls; raw candidate
-is held. Grok's complete source/independent controls are under review. A separate
-Claude correction is now live in the same released checkout on a fresh branch;
-this is not an equal raw-provider rerun.
+matched settlements. [Root full review and eight behavioral groups per original are complete](reviews/2026-10-24-direct-dependencies.md#both-constructor-originals-are-personally-checked-and-held).
+Raw Claude14/20/Grok9/20 are both held; each11author tests passes. Close-error
+false successes and distinct failure-evidence/lifecycle defects reproduce.
+Separate Claude .012.001 correction is live from79488b6 on a fresh branch in
+the released checkout; no new child/setup. A parallel metadata-only helper
+prepares936retained body descriptors. Root must verify both before actual use.
 
 **Current map checkpoint:** [All21remaining compiled cores pass Root's complete audit](reviews/2026-10-24-remaining-map-bodies.md#remaining21-actual-compiled-cores-and-complete-root-audit-pass).
 One unchanged qualified host call exits0 in4.807445s, about800MiB sampled RSS,
@@ -118,11 +119,12 @@ indices are potential metadata only. Ten fixed inputs/four owned paths;
 both from42f52ce on separate branches, independent of .011live delivery.
 [Claude79488b6 is now preserved/released](reviews/2026-10-24-direct-dependencies.md#claude-model-constructor-candidate-preserved-and-released),
 all839copied hashes and verified rollback bundle. [Grok bf369fd is also preserved/released](reviews/2026-10-24-direct-dependencies.md#grok-constructor-candidate-preserved-and-released).
-[Root holds Claude after complete review and independent controls](reviews/2026-10-24-direct-dependencies.md#claude-constructor-source-review-and-root-negative-controls):
-its11tests pass, but two FD-close false successes and a constructor-return
-misclassification reproduce. String accounting needs an explicit domain refinement.
-[Separate correction .012.001](tasks/T07.007.014.012.001.md) is frozen while
-Grok review continues independently. No candidate selected or integrated.
+[Root personally checks both complete sources/suites and eight behavioral groups each](reviews/2026-10-24-direct-dependencies.md#both-constructor-originals-are-personally-checked-and-held):
+raw Claude14/20/Grok9/20 both held. Grok additionally lacks a Root-bindable real
+execution path. [Separate correction .012.001](tasks/T07.007.014.012.001.md) is
+live; original comparison is complete and correction effort remains separate.
+Next Root checks repaired source and the independent936body metadata join,
+then freezes actual caller/profile/Node/guard/pilot authority. No integration.
 No actual constructors or runtime body/Node/guard admission yet.
 
 [Normal delivery of all34terrain bodies is already complete](reviews/2026-10-24-remaining-map-bodies.md#normal34delivery-and-complete-root-audit-pass),
