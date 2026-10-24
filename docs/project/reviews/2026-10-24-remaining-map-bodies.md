@@ -907,3 +907,49 @@ The frozen task now names all exact source/preflight inputs for equal isolated
 Claude/Grok source reviews. Dispatch from this introducing checkpoint next;
 no actual normal34GET admission yet. Root still requires fresh final preservation
 and full response/loose-body audit after any later admitted call.
+
+## Equal normal-terrain source reviews are active
+
+Introducing checkpointf78ad94df36ceede27a5c503785c6501e3fae872 freezes the
+brief and every source/preflight pin. Root verifies both separate child HEADs
+equal that exact base before review. Claude task_f0952db8e4d1 /
+ctx_f43c5fbd2939 and Grok task_fc49e174e17d /ctx_c8f9eb1adf18 receive the
+same seven private source/metadata inputs and six-concern acceptance criteria.
+Both launches return ready/input_accepted with no residual resource; fresh fleet
+is two live/working, ten user-retained and293released. Grok's provider turn
+observation is unsupported, so current fleet evidence is the liveness basis.
+No model/effort override or unobserved implementation/runtime claim is made.
+
+This is a source-review pair, not two decoder implementations. Both own the
+same report path on separate branches; all asset/live paths remain inert.
+Next collect, personally verify, preserve/release each matched submission and
+compare findings before any normal34GET admission. No actual GET has run.
+
+## Primary donor source defines the first Chapter1 progression edge
+
+In parallel, Astra's bounded hard-uncertainty consultation and Root's personal
+read of the cited primary source identify concrete donor behavior beyond the
+already-implemented starter. The634359B retained source's full SHA is
+8ac8c8de78e54e574450f78e49d423ad8d1c494e27378db71d92ee93b033ee55;
+its attribution is a community author, not established official authorship/
+license/installed selection. It is not executed or integrated.
+
+Source lines9–85register18368 before a later defer-travel menu and first warp
+to ygg_edge255,240; revisit destinations differ by starter suffix. Lines99–114
+place a Messenger at ygg_edge253,246: active18368 completes and18369 starts,
+then navigation points to ygg_fruit80,122; this block does not warp. The ordinary
+room connection at17751leads ygg_edge164,140 to ygg_fruit73,117, with return
+at17791. Lines124–136have a fallback arrival trigger at that destination,
+completing active18368/starting18369 and adjusting character NPC visibility.
+Lines155–156place the next interaction at ygg_fruit80,122 with active18369.
+No explicit item/EXP/zeny reward or consumption appears in these first-edge
+blocks; that is donor behavior, not proof of official zero rewards.
+
+Root also reads T10.007's actual contract: its pre-registration cancel changes
+no state, unlike the donor's later defer-travel choice. Preserve that distinction
+and the existing idempotence/later-ID conflict/postcondition rules; do not copy
+unguarded donor completion/setquest blocks verbatim. First-edge source rules
+are therefore available; real map/alias/route binding, coherent integration and
+event/state persistence remain the unknowns. No new actor, F1 retry, installed
+script, gameplay claim, scope reduction or user decision follows. This refines
+the next useful story action instead of repeating inventories or starter work.

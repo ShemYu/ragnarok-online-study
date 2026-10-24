@@ -68,9 +68,10 @@ Other active work:
   Remaining terrain names      [DONE:Claude selected; Root full actual/oracle PASS]
   Terrain metadata oracle      [PASS:34/34 exact eligible records; Root full audit]
   Remaining terrain bodies     [REUSE:all34already in qualified native capture]
-  Normal terrain delivery      [NEXT:full34body reconciliation +fresh preflight]
+  Normal terrain delivery      [ACTIVE:34body/preflight PASS; Claude/Grok source review]
   Claude/Grok FD plan pair      [BOTH VERIFIED + RELEASED; control PASS]
-  Authentic Chapter 1 scripts  [OPEN: largest content risk]
+  Chapter 1 first transition   [SOURCE FOUND: donor edge; route/integration OPEN]
+  Full Chapter 1 story         [OPEN: largest content risk]
   All 82 functional gaps       [OPEN]
   Full Traditional Chinese     [LATER: existing overlays stay enabled]
 

@@ -33,6 +33,15 @@ targets absent. Source complete inverse/two fresh ENV bindings/syntax pass.
 Next equal isolated Claude/Grok source reviews from this checkpoint; actual
 normal34GETs remain held until Root source/report qualification/admission.
 
+[Equal normal34source reviews are active](reviews/2026-10-24-remaining-map-bodies.md#equal-normal-terrain-source-reviews-are-active):
+Claude task_f0952db8e4d1/ctx_f43c5fbd2939 andGrok task_fc49e174e17d/
+ctx_c8f9eb1adf18, same f78ad94base, both fresh fleet live/working. Root verified
+both child HEADs; no actual GET run. Collect/preserve/release/verify next.
+[Primary source now defines the first story transition](reviews/2026-10-24-remaining-map-bodies.md#primary-donor-source-defines-the-first-chapter1-progression-edge)
+as donor behavior; Root reads the actual starter/Messenger/arrival/room clauses.
+Map/alias/route binding and guarded persistent integration remain, not another
+generic entry-source absence search. Existing T10.007 cancel contract stays.
+
 **Latest playable-integration result:** [Settled re-entry and bounded normal integration pass](reviews/2026-10-24-normal-integration.md#settled-re-entry-and-bounded-normal-integration-pass).
 **T07.007.012.009 is5/5checks,100% of that bounded integration task** and
 ready_for_user after its checkpoint. Ordinary creation/travel/NPC earning,
