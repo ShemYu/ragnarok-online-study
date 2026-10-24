@@ -83,7 +83,7 @@ Other active work:
   Claude delivery repair       [INTEGRATED95bee15;36tests PASS; actual delivery DONE]
   Direct delivery [ALL1222 + ROOT COMPLETE AUDIT PASS; no replay]
   Model/declaration preparation [BOTH HELD14/20vs9/20; Root full reviews/controls DONE]
-  Constructor correction       [cf03024PRESERVED/released; Root checks next]
+  Constructor correction       [Root19tests PASS; two combined faults HELD; narrow follow-up]
   All936model body files       [ROOT FRESH HASH/IDENTITY + COMPLETE JOIN PASS]
   Genuine constructor pilot    [11PROPOSED; source/caller qualification next]
   Remaining direct assets      [DELIVERY DONE; construction/nested textures OPEN]

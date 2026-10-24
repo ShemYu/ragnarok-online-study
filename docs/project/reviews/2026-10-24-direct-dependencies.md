@@ -1316,3 +1316,61 @@ the advisory. This is a future independent source lead, not decoded-image proof.
 
 Full goal/parent4/14/about29%/all82gaps remain unchanged. Game/save/quiet audio/
 Chrome/internet are untouched. No critical goal-changing issue is established.
+
+
+## Correction19tests pass but two Root combined faults still hold it
+
+Root personally reads the complete host/suffix correction diff, every changed
+test and the complete new report section. The unchanged original report/source
+were already read. All17author PRE/POST inputs are byte-identical and freshly
+full-hash matched by Root. Semantic source authority, all936body requirement,
+exact complement/same-profile joins, full-summary/string-value accounting,
+relation-index checks and pinned-profile-plus-pointer reconstruction are
+supported by the read source and applicable controls. The late return fact and
+ordinary body/final-held close false-success defects are repaired.
+
+Root repeats19unchanged author tests:19pass/zero fail/zero skip, natural0 in
+7.955569s/754302976B sampled RSS. Existing guard valid/no action/signal/residue;
+stdout totals/stderr/exit agree. This includes an authored private source-bound
+CLI success and tamper refusal, full sentinel, exact string96/192boundaries,
+consumed-pilot/exact-complement and prior-constructor-plus-close controls.
+No genuine prefix/summary/body evaluates; caps and actual runtime stay unbound.
+
+Two independent bounded Root controls then reproduce remaining issues under
+the existing guard: natural0/0.386623s/318046208B sampled RSS/no action/residue.
+
+- A returned model's body close throws EIO before reduction. A later declaration
+  overflow becomes first_failure:limit; body-close is incorrectly listed later.
+  Reduction must not run after a known preservation/close failure.
+- A body read throws EIO after opening, then cleanup close throws EIO and leaves
+  that owned FD open. Final reread yields actual two simultaneous body FDs, but
+  manifest max_open_body_fds reports1 and close_failures0. Both errors survive in
+  the staging failure message; counters do not cover the partial-open path.
+
+Both batches already fail and later jobs never start. These are ordering/
+accounting defects, not new false successes or evidence that real game files
+fail. Root restores hooks and closes only its injected owned descriptors.
+Both Astra source advisories independently identify the ordering issue; the
+lifecycle advisory also identifies partial-open accounting. Raw scores14vs9
+remain unchanged; no correction score/selection/integration/runtime admission.
+
+[A finite two-issue follow-up](../tasks/T07.007.014.012.001.001.md) is frozen
+fromcf03024. It preserves already-verified semantics/caps and permits minimal
+complete accounting or explicit unknowns, without a new framework or silent
+retry. Root repeats only applicable changed controls afterward. The proposed
+11-model actual pilot remains after source/caller qualification, not before it.
+
+Private receipts:
+
+| File | Bytes | SHA256 |
+|---|---:|---|
+| t07-014-012-claude-repair-suite-root-1/RESULT_ROOT.json |2513|7d11021355cb1db288b2aaa5a0524dce1881791ad93eb896378a6086a71ab91c|
+| t07-014-012-repair-root-controls-1/RESULT_ROOT.json |1646|1edad492523e387a0aefb2a20f225d044a6b16b8c116063354b93b5c843a44fa|
+| t07-014-012-repair-root-controls-1/INPUTS_CONFIRMATION_ROOT.json |3230|a6e155af5d4dead019299cca24f7cbf5f0422c1b93f53e765103caaf2e7ebc4c|
+| t07-014-012-repair-lifecycle-consult-helper-1/REPORT.md |10107|abf74d6295ac52a38c56246d0965799e79f93aa00a7a42ebb0103b3d53b6b03e|
+| t07-014-012-repair-reducer-consult-helper-1/REPORT.md |12394|fe2400be76f76cfe8f91173cfb4149832d5f1942af1a6e01fd535a406fc650cd|
+
+All936fresh body files/complete joins remain qualified, no delivery replay.
+No goal-changing blocker is established; full Renewal/party-later/functionality-
+first/Traditional Chinese intent and running quiet game/internet are unchanged.
+Parent4/14/about29% and all82functional gaps stay open.
