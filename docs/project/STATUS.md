@@ -10,13 +10,14 @@ open. Full Modern/Renewal scope is unchanged; no new user decision is required.
 The board includes later-phase party taskT11, so this is not a percentage of
 first-milestone content or remaining effort. Do not relabel it as such.
 
-**Latest:** .017all948nested deliveries and corrected .019Worker source facts
-are Root-qualified in their bounded scopes. [.020both originals pass all32
-handwritten outcomes, with harness holds](reviews/2026-10-24-direct-dependencies.md#both-authored-decoder-originals-pass-root-pixels-with-finite-harness-holds):
-Claude15/20/Grok14/20; both preserved/released. Next Root corrects the Claude
-basis and reruns guards. [.021retained decoder observer brief is frozen](tasks/T07.007.014.021.md)
-[with both source-only authors now dispatched](reviews/2026-10-24-direct-dependencies.md#independent-retained-decoder-observer-source-pair-starts); no actual body read/decode admitted.
-Decode/geometry/render and all82functional gaps remain open.
+**Latest:** [.020corrected authored decoder is Root-qualified](reviews/2026-10-24-direct-dependencies.md#root-corrected-authored-decoder-harness-and-complete-capture-audit-pass):
+20tests/515independent controls/675saved-capture audit checks pass all32tiny
+cases and repaired harness faults. Both originals are preserved/released, raw
+Claude15/20/Grok14/20; Root correction credited separately. Actual real-image
+decoding remains unverified. [.021two independent source authors are live](reviews/2026-10-24-direct-dependencies.md#independent-retained-decoder-observer-source-pair-starts)
+while Root prepares its larger independent oracle. No body requests repeat.
+.017all948delivery and corrected .019conditional Worker facts remain qualified
+in their bounded scopes. Geometry/render and all82functional gaps remain open.
 
 **Child cleanup:** [Root verifies removal of20completed children](reviews/2026-10-24-orca-children-cleanup.md#second-twelve-removals-personally-verified).
 Current84direct children include the two released review children and the two

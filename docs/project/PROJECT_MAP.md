@@ -95,7 +95,7 @@ Other active work:
   Nested923remainder            [923/923PASS; Root54317checks/4073pins; no replay]
   TGA page source              [ROOT19300checks PASS; raw15/20each HELD/corrected]
   TGA Worker path              [ROOT BOTH FULL CHECKS PASS; corrected source only]
-  TGA tiny decoder fixture     [BOTH32/32 ROOT PASS; HARNESS REPAIR NEXT]
+  TGA tiny decoder fixture     [ROOT CORRECTED PASS:20TESTS/515+675CHECKS]
   Retained decoder observer   [BOTH AUTHORS LIVE; NO ACTUAL DECODE]
   Real25TGA header resource    [ROOT969checks PASS; max1024x1024; no decode]
   Model702node bounds           [SENTINEL PRESERVED; geometry impact OPEN]

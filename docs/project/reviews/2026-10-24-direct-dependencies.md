@@ -3768,3 +3768,59 @@ originals before selection; actual pixels still wait for independent oracle and
 source qualification. Both starts precede the first wait. Receipts/specs and
 full placement record remain in ignored t07-014-021-launch-root-1/. Current
 fleet325released/ten retained/two active/zero reclaimable.
+
+
+## Root corrected authored decoder harness and complete capture audit pass
+
+Root integrates the selected Claude basis with a separately credited finite
+correction: actual effective heap gates at each execution entry, direct case
+admission/100ms clamps before realm creation, one bounded held-FD source/corpus
+read, complete BigInt C8 and literal/parent identity checks through publication
+and close, command-wide10000ms deadline and exclusive read-back output captures.
+The acquired decoder/spans, frozen32case oracle and all permissive behavior stay
+unchanged. No real bodies/Worker/canvas/GL or game action occurs.
+
+Astra finds one additional concrete output-close seam. Root reproduces it as a
+failing regression before fixing it: replacement of an owned extracted span
+while closing its descriptor still yielded success. Root now retains output
+FD-derived C8/parent authority and joins literal paths after close and before
+terminal success. Output replacement is a sticky failure; fresh failure captures
+preserve evidence and rename any current RESULT unqualified. Existing runs stay
+byte-identical. No merely advisory finding is treated as runtime proof.
+
+Final20tests/zero skips pass in1.489350s outer/1450.850ms suite, comprising the
+11originals and nine meaningful Root regressions. A high-heap child loads only
+our definitions and refuses before source IO/evaluation. Root's separate515
+controls pass all32full handwritten outcomes, all3spans and the corrected
+bounds/timeout/path-mutation regressions, effectiveheap134217728B. Then an
+explicit bounded authored CLI exits0 in0.266648s outer/226.756667ms complete
+command with no signal. Root reads/audits its full saved five-file capsule:
+675checks, complete32outcomes/every pixel, exact spans, current full C8/SHA of
+source/fixture and0700/0600permissions all pass.
+
+The first Python auditor used strict zip unsupported by installed Python. It
+fails after the successful command; Root preserves the error, corrects only the
+auditor with explicit lengths/index joins, and reuses saved CLI/capsule without
+replay. This is an auditor compatibility correction, not a failed decoder run.
+
+[Runner](../../../tools/renewal/run_tga_decoder_fixture.mjs),
+[20tests](../../../tests/tga_decoder_fixture.test.mjs) and
+[Root-qualified runbook](T07.007.014.020-tga-decoder-fixture.md) are the only
+implementation paths. .020is ready_for_user for authored tiny behavior only,
+not user accepted and not actual texture proof. Raw model scores remain15/20
+and14/20; Root repair is not provider credit. .021source pair continues in
+parallel; next qualify its mechanism and independent actual25oracle before any
+retained real-image execution. All82functional gaps and4/14/about29% unchanged.
+No critical goal change, network interruption or user decision.
+
+Private t07-014-020-correction-root-1/ and exact implementation receipts:
+
+| File | Bytes | SHA256 |
+|---|---:|---|
+| renewal/run_tga_decoder_fixture.mjs |29108|7e8ed109f0cae0803d60bc28a7acd416ce55fef203a6da1ad0ea05997298b720|
+| tests/tga_decoder_fixture.test.mjs |22830|4ef3dfe8db42289ebcccf29f99b7aa8cdca2c41952a068a2806c4726600addb4|
+| t07-014-020-correction-root-1/FINAL_TESTS_ROOT.json |3620|3beb04b7dad90a2e58372381dfbe0a4e3f46119e9eebd625d427d21c42f5a57f|
+| t07-014-020-correction-root-1/ROOT_CONTROLS.mjs |5185|534493c8a040cf3a2818c18cfb79f520ac224d9c0472071cac78e8afd43cd56b|
+| t07-014-020-correction-root-1/ROOT_CONTROLS.json |603|1c236b8cb2f2e4a20fe03cd9c8acdd125bd8e4f1ba9ae9888b2290e7771b192e|
+| t07-014-020-correction-root-1/CLI_ROOT.json |1188|14393fb35a2d441fe19c91dc97f841a7196012d17501040cb70bd8225e2c7b20|
+| t07-014-020-correction-root-1/AUDIT_CAPTURE_ROOT.py |2496|3a76b89b980f6decfa130e22802d018e2bde4dfb407818c15762df9bcecb15ca|
