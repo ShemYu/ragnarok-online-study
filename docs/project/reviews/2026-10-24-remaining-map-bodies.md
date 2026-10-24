@@ -1097,3 +1097,59 @@ Next: verify the metadata-only21-map/55-body compiled-core preparation and
 qualify a fixed genuine Node-worker host before actual constructors/compile.
 The ordinary playtest remains separately blocked by the CUA native-pipe failure.
 No source/runtime issue found here requires changing the goal.
+
+## Remaining21compiled-core inputs and fixed host task qualify
+
+Astra's source consultation identifies a fixed Node worker_threads route without
+browser control. Root reads the actual compiled bootstrap/handler/MapLoader
+clauses and complete existing diagnostic suffix; the complete624463B prefix
+must stay unchanged. Define self/onmessage, explicit required globals and a
+parentPort bridge, then distinguish suffix-installed readiness from the prefix's
+immediate THREAD_READY. A fixed in-memory fetch adapter preserves the pilot's
+unchanged suffix. Remaining maps need only recorded input-literal/embedded-name
+assertion projections. Production file/dependency/LOAD_MAP paths remain unused.
+Synchronous compile needs a parent Worker timeout plus the external owned-Node
+guard; an inner timer cannot interrupt it.
+
+D13 prepares metadata only; Astra independently checks all joins without body/
+archive/live reads. Root then personally performs the complete metadata/source/
+body audit, not just the consultant conclusions: all eight metadata input pins,
+21typed maps/34queries/42relations, every metadata pointer/source descriptor/
+header/witness, and all21RSW-to-terrain joins. Four alias maps preserve declared
+shared terrain with no filename rewriting. There are55distinct main body paths
+but51hashes; identical bytes at distinct RSW paths stay distinct. All55full
+bodies total103067388B; all three separate pilot bodies total4255734B. Root
+fully hashes the unchanged compiled prefix/suffix, prior241913B browser core
+oracle and resolved Node24.20.0 executable. No target code is imported/evaluated,
+no archive is read and no native/browser/game/network/save/config action occurs.
+
+The original descriptors use three different field-order/mode conventions.
+Root checks each using its declared convention before producing a separate
+canonical runtime profile: full mode, standard eight fields and exact decimal
+strings, suitable for Node bigint stats. This prevents JavaScript nanosecond
+rounding from becoming a false equality. Original metadata remains unchanged.
+The normal34complete confirmation is joined as its own authority. All input
+metadata receives another full posthash/identity check.
+
+Private prefix `.tools/renewal/t07-remaining-compiled-core-preparation-root-1/`:
+
+| Artifact | Bytes | SHA256 |
+|---|---:|---|
+| PROFILE_ROOT.json |200002|07f4fe453cbb4739a0f0ea67cbb34e957b88d8fd44c70fa8155143da28cfe62d|
+| PREPARATION_ROOT.json |9882|a19b9eb566c41557fcad75874ed553aaf0ff2e4e6f01fac77b6e47ebae4d2609|
+| RUNTIME_PROFILE_ROOT.json |51941|c4cb8628fa565cded251fe32b6dcfeb90a74ff25c72c8b01938451d7b73aa620|
+| INPUT_CONFIRMATION_ROOT.json |268469|d997ae079fcd9aedc5673eafc6be72ce74c457163e38d3c374de25f137918001|
+
+The complete Root confirmation passes1545checks/74unique full pins. Its58body
+count includes the separately qualified old pilot; do not inflate the new55
+scope. The maximum main input10369878B exceeds the old8MiB server cap, so the
+new fixed host separates16MiB body allowance from8MiB per-map report allowance.
+Full array scans/byte hashes are retained, not literal whole typed-array bytes.
+
+[T07.007.014.009](../tasks/T07.007.014.009.md) freezes equal Claude/Grok
+implementation scope, exact source/input pins, the unchanged pilot/finite21-map
+projection, separate Root admission and resource/lifecycle limits. Next launch
+both isolated implementations from this introducing checkpoint. Root will
+review/test both, select one, and qualify the pilot against the complete prior
+browser oracle before any21-map batch. No new generic decoder/framework, actual
+constructor/host compatibility, rendering, gameplay or82gap closure is claimed.

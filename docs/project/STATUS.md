@@ -23,9 +23,12 @@ Four game owners/listener/native/INI/archive identities and selected environment
 remain exact. Keep all extracted files and retained reference bodies.
 
 Next qualify the genuine compiled core for the21remaining maps using55retained
-bodies. A metadata-only profile and source consultation exist; Root must verify
-all bindings and freeze the finite Node-worker host before equal implementation
-work. No constructor/rendering/travel or82gap closure follows from delivery.
+bodies. [Root's complete input/binding audit now passes](reviews/2026-10-24-remaining-map-bodies.md#remaining21compiled-core-inputs-and-fixed-host-task-qualify)
+1545checks/74full pins, including the separate three-body pilot and unchanged
+compiled prefix/suffix. [T07.007.014.009](tasks/T07.007.014.009.md) freezes the
+finite Node-worker host: equal independent Claude/Grok implementations next,
+then Root source/pure controls and one pilot before the21-map actual batch.
+No constructor is executed by preparation and no rendering/travel/82gap closes.
 Ordinary playtest is separately blocked by the native-pipe startup failure;
 no game restart, network cut or alternative browser-control bypass is admitted.
 
