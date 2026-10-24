@@ -22,7 +22,8 @@ Map repair:
        -> Git checkpoint        [THIS CHECKPOINT]
        -> normal source repair  [QUALIFIED: startup + Chinese preserved]
        -> fresh complete ro4    [PASS: 1,135 inputs / 1,114 files audited]
-       -> config/engine/routes  [NEXT]
+       -> four-file config      [SOURCE QUALIFIED: actual call next]
+       -> engine + routes       [OPEN]
        -> normal game + travel  [OPEN]
        -> story + earned save   [OPEN]
 

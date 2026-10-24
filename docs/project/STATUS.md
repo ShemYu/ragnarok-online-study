@@ -25,7 +25,8 @@ UI, story or earned-save behavior. Prior failed trials remain failed.
 The fresh ro4 tree contains the repaired normal Online and unchanged worker.
 One copy and separate full audit pass all1135source files/1114destinations/
 212directories; Root's outer41checks/25pins also pass. Profile and engine
-folders are empty. After this checkpoint, bind four fresh configuration files,
+folders are empty. The reused four-file configuration source now qualifies with only two
+metadata edits; after this checkpoint, bind five existing headers and run it,
 then separately qualify images/engine/routes before ordinary login/travel/
 save. No engine/app/browser/game actor has run; ro3 earned progress stays
 untouched. Continue [quest/logout work](reviews/2026-10-24-functional-priority.md#priority-and-stop-criteria)

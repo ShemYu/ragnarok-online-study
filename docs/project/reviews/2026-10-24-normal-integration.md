@@ -152,3 +152,29 @@ target JS or gameplay has run. Original/W/ro3 worlds, earned saves, Chrome/
 mute/IME/network are untouched. Next after this checkpoint: reuse the four-file
 configuration binder with actual new audit/parent identities, then separately
 qualify guest images/engine/normal routes and ordinary play.
+
+
+## Fresh four-file configuration source qualifies
+
+Root reuses the existing8369-byte .012.006 binder with only two metadata
+edits: ro3→ro4 target and COPY_CHECKPOINT set to actual4cc2bd6 copy execution.
+Whole inverse is exact; all settings/output/create/readback/preservation logic
+is unchanged. Source8369/
+2684c780c9e9459c9ca29156b6d46d697a57792a9b6592c03fcdd69939043449;
+RootQ10430/ca60f041194d65444b1618272b75bac23d5317be3df5db2996458a8d1d1e2f11,
+private t07-normal-integration-config-source-root-1/.
+
+All11 existing source pins/modes and copied Nebula template pass current
+full reads. Actual independent copy audit remains1778823/ee0e4140...;
+source1135/destination1114/runtime304084409/same copy checkpoint pass.
+The actual ro4/state/nebula parent inode/mode/UID keys are captured; all four
+outputs/era/guest markers are absent and profile/engine directories empty.
+Five existing admission/audit/parent/procedure headers remain unbound.
+
+After this checkpoint Root binds only those five headers and makes one
+existingG60s/512MiB/grace3/noNative/1MiB pure configuration call, then verifies
+all four exact outputs and all1114 old files/modes/identities plus exact1118
+file membership and original212directories. Only client.json, state/settings,
+ordered five-archive list and unchanged4096MiB/4CPU/16GiB/private Nebula
+template are written. No auth/detection/save copy, image install, daemon,
+VM/app/browser or game action is admitted by this configuration gate.
