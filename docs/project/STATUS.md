@@ -8,12 +8,12 @@ Functionality remains first. **4/14 parent checks, about 29%**; this counts
 major checks, not full-content coverage. All 82 functional resource gaps remain
 open. Full Modern/Renewal scope is unchanged; no new user decision is required.
 
-**Latest verified result:** [Empty engine, actual backings and full preservation pass](reviews/2026-10-24-normal-integration.md#actual-empty-engine-and-full-preservation-pass).
-Four parallel readonly native guards pass; Root's separate22checks/1126full pins
-prove fresh owned sockets/listeners/VZ backing files, empty containers/volumes/
-game DB and complete1118-file preservation. All four old listener owners stay
-exact; profile empty. The new daemon/VM remains for normal-main preparation.
-No normal app or game has started.
+**Latest verified result:** [Normal app and authenticated ownership pass](reviews/2026-10-24-normal-integration.md#actual-normal-app-and-authenticated-ownership-pass).
+One normal startup finishes in49.56s. Root separately verifies current app/
+native/daemon/VZ ownership, fresh native HMAC challenge and authenticated admin
+readiness. Taiwan detection and six ON/eleven OFF mods pass; all four old
+listener owners remain exact. **Normal integration2/5checks,40% by gate count**.
+No account/login/character/play has occurred in ro4.
 
 **Previous renderer result:** [Fresh Mu3 isolated map-render scene passes](reviews/2026-10-24-T07-mu-data-stage.md#fresh-mu3-synthetic-scene-and-complete-root-audit-pass).
 All 1,285 placements load, all 29 retained Float32 arrays are finite, and all
@@ -29,19 +29,14 @@ T07.007.011 map task or prove normal-game travel, animation timing, Chinese
 UI, story or earned-save behavior. Prior failed trials remain failed.
 
 **Next action:** [Normal integration T07.007.012.009: full copy audit passes](reviews/2026-10-24-normal-integration.md#actual-complete-ro4-copy-and-independent-full-audit-pass).
-The fresh ro4 tree contains the repaired normal Online and unchanged worker.
-One copy and separate full audit pass all1135source files/1114destinations/
-212directories; Root's outer41checks/25pins also pass. Four configuration files
-now pass actual execution and complete preservation. Local image installation
-and complete gzip/file readback also pass. Profile is empty; engine has its
-config plus three qualified images and one positively owned running engine.
-Empty storage/backings/full1118baseline preservation pass. Normal-main
-source with six metadata edits and fresh full app/archives/ASAR/Chinese/
-engine/owner admission now pass. After this checkpoint bind five existing
-headers and launch once, then verify live routes/mounts/detection before
-ordinary login/travel/save. No normal app/browser/game actor
-has run in ro4;
-ro3 earned progress stays untouched. Continue [quest/logout work](reviews/2026-10-24-functional-priority.md#priority-and-stop-criteria)
+The fresh ro4 copy/config/images/engine/storage and normal-app ownership
+checks pass. The repaired normal bundle and unchanged worker are in use by
+the new owned app/native service; actual served bytes remain to be checked.
+Next gate3 verifies new Docker images/DB/writable mounts, generated/served
+endpoints/Online/worker/archive fingerprints and positive map registration/
+logs before ordinary login/travel/save. Keep the retained app/engine/private
+streams monitored. No browser/game actor has run in ro4; ro3 earned progress
+stays untouched. Continue [quest/logout work](reviews/2026-10-24-functional-priority.md#priority-and-stop-criteria)
 separately; do not replay failed B4 or consumed Mu scenes.
 
 **Full839 inventory entry now passes:** [Fresh root3 entry and full Root audit](reviews/2026-10-24-T06-full-spawn-output-budget.md#fresh-root3-entry-and-complete-publication-audit-pass).

@@ -469,3 +469,51 @@ remain. Normal main autoqueues start_stack; no second start. No account/login
 until Root verifies real routes/mounts/detection/served repaired bytes and map
 registration. Engine separation is not HOME confinement; old worlds stay
 untouched. Normal main has not started. Gate2 app ownership remains open.
+
+## Actual normal app and authenticated ownership pass
+
+Actual introducing basis9f2d8812e9e328cb041c18f641147d3a74641e08. Root binds
+only the five admitted headers, whole inverse exact. Bound launcher13970/
+4501551ad58de74b24a92cb66f0ea3303ac0a950ac183aee3c5fab61a875e263;
+binding6865/6131d722c78d848c1874826ea98f2de224e1c3db99c60f369655e0ae28aa1250
+remain private in main-binding-root-1/. One normal launch exits0 after
+49.559776542s/363samples, peak446611456B for the sampled app group plus daemon.
+VZ/separate groups/full game memory are excluded. No second start_stack or
+startup retry. Normal app/managed native child/engine remain running.
+
+Original immutable startup RESULT13485/
+12b03737075adcb25d5de5d67014b16b8755f95c5cfe40a08da680bf4e8a48b7
+has candidate_observed:true, no error, exact eight source pins before/after,
+and runtime_verified:false; that latter field is retained honestly because
+the launcher is an observer. Root separately verifies current app/native/
+daemon/VZ births/executables, direct native parent and each loopback app admin/
+asset HTTP/private control listener. The native executable full digest matches
+its current ownership record.
+
+Root sends a fresh32-byte challenge with action=status to the native TCP
+control port, using the private hex-decoded secret. Raw response-payload HMAC
+is verified before parsing; challenge/action and complete native identity match.
+Separate public HTTP health is live/matching service/version but is not used
+as authentication. Fresh private admin Bearer invokes return HTTP200/ok:true,
+assets_ready:true and host/local/Taiwan/20221005/Renewal settings. Tokens and
+secrets are never printed or committed. All four old listener owners remain
+current; private startup streams remain below1MiB (handoff1439B/0B).
+
+The same authenticated reads positively detect twRO/code-tw/from-data.grf/
+2026-10-02 with no fallback. Exactly six mods are enabled, eleven disabled,
+zero refused/problem entries; Chinese overlays and WASD remain enabled.
+These are useful gate3 observations, not a served-route/mount/map-log PASS.
+
+Private main-source-root-1/AUTH_AUDIT_ROOT.py:
+7951/1e9a79e04a46dada4e5610c17c17e764c61e38bacd572a82ad7b13a3d3215a02.
+Private main-actual-root-1/attempt-1/ROOT_AUTHENTICATED_OWNERSHIP.json:
+31235/a6d43821458a6b1e41afed508652e7d9fcc0f488a185229939147113e445a753.
+
+Gates1 and2 now pass: **2/5 observable integration checks,40% by gate count**.
+This is not equal effort/time or full-game content coverage. Next gate3:
+actual new Docker images/DB/bind mounts, generated/served local endpoints/
+Online/worker/archive fingerprints and positive map registration/log review.
+No login/account/character/gameplay/save yet. Keep app/engine/private streams
+owned and monitored. Parent4/14/about29% and all82functional gaps remain open;
+full Modern/Renewal scope, old earned worlds and user Chrome/mute/IME/network
+are unchanged.

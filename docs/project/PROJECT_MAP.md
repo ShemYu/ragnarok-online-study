@@ -26,8 +26,8 @@ Map repair:
        -> local guest images    [PASS: every byte / prior files unchanged]
        -> fresh engine boot     [PASS: new ownership / 4 old owners preserved]
        -> empty storage/backing [PASS: new VM / empty DB / all prior files]
-       -> normal main ownership [ADMISSION PASS: one launch next]
-       -> normal routes         [OPEN]
+       -> normal main ownership [PASS: authenticated / 2 of 5 gates = 40%]
+       -> normal routes/mounts   [NEXT: before login]
        -> normal game + travel  [OPEN]
        -> story + earned save   [OPEN]
 
