@@ -25,7 +25,8 @@ false successes and distinct failure-evidence/lifecycle defects reproduce.
 [Separate correction cf03024 is preserved and released](reviews/2026-10-24-direct-dependencies.md#separate-constructor-correction-preserved-and-worker-released),
 verified5597copied hashes/rollback bundle. Root correction review/controls are
 complete:19tests pass, but two Root combined faults hold it.
-[Finite follow-up](tasks/T07.007.014.012.001.001.md) is now live in reused checkout/repair-a2; no new child/setup. A parallel metadata-only helper
+[Finite follow-up9cdf352](tasks/T07.007.014.012.001.001.md) is preserved/released;
+Root full diff/23tests/combined controls next. No new child/setup. A parallel metadata-only helper
 has completed the936body join; [Root independently verifies all records and fresh body files](reviews/2026-10-24-direct-dependencies.md#complete936body-join-and-fresh-root-file-audit-pass).
 237771checks/950pins pass. Proposed11pilot/925remainder stay unbound. Root
 must qualify the repair and exact actual caller before real construction.
@@ -133,7 +134,7 @@ all839copied hashes and verified rollback bundle. [Grok bf369fd is also preserve
 raw Claude14/20/Grok9/20 both held. Grok additionally lacks a Root-bindable real
 execution path. [Separate correction .012.001](tasks/T07.007.014.012.001.md) is
 preserved/released atcf03024; Root19tests pass but two combined faults hold it.
-A finite follow-up is live fromcf03024. Original comparison
+Follow-up9cdf352 is now preserved/released; Root23tests next. Original comparison
 is complete and correction effort remains separate.
 The independent936body metadata join/fresh files now pass237771Root checks.
 Next Root checks repaired source and the exact eleven-job actual caller,

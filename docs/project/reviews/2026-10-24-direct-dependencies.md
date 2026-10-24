@@ -1426,3 +1426,24 @@ no sibling or repair output is supplied. Both start before waiting. .012's
 separate two-issue correction remains independent. Root personal source-slice/
 286membership comparison and per-settlement preservation/release remain next.
 No actual images/codec/browser/render/game/network/runtime evaluation admitted.
+
+
+## Two-issue follow-up preserved and released
+
+Matched task_5255f5d3caac/Dispatchctx_3cf50da2a8ec settles9cdf352655f0cf024fa72fdaa95e2af8c36fd985
+from exactcf03024 on repair-a2. Root verifies clean branch/parent and exactly
+three changed owned files (host/tests/report); suffix remains02dd05cb unchanged.
+The complete four-file source set plus4469private authored files/409276727B are
+mirrored and4473full copied hashes verified. No unreadable fixture/access
+intervention is required this time. Archive
+refs/archive/t07-014-012-001-001/claude/9cdf352 and verified8253B rollback bundle
+requirecf03024. Full29286B diff is retained. Worker release accepted: terminal
+closed/transcript captured. Root reads complete changed host/tests next to its
+prior complete source review; own23tests/combined controls remain next.
+
+Private t07-014-012-claude-repair2-packet-root-1/PRESERVATION_ROOT.json:
+1016834B/SHA2563185dd40b20847e4d1db25153d32245d320980e95d9d22fa925f24fed85c89d1.
+Author23/23 and prior-candidate regression results remain author evidence;
+no integration or actual constructor admission yet. Both image-consumer source
+workers remain independent/live; their matched heartbeats were processed with
+this settlement. All936current bodies/11pilot preparation remain separate.
