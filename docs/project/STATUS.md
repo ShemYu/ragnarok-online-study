@@ -22,8 +22,12 @@ passes47authored controls/4226saved-array checks. [Independent geometry referenc
 passes42authored controls/7975saved-output checks; full expected mesh bytes and
 intermediates are retained. Both independent calls are consumed; no replay.
 
-Next Root freezes a tiny-authored geometry observer implementation task, then
-qualifies both originals before any actual model compile. Browser/render,
+[.023equal tiny-authored geometry observer task is frozen](tasks/T07.007.014.023.md).
+Root reproduces the complete26case corpus:97 authored gates/172Root checks pass,
+including nonuniform normals and cross-node texture bucket order. The exact
+model702 profile is metadata only; no acquired execution is admitted. Next
+launch both implementations on reused clean branches and personally qualify
+both originals before any actual model compile. Browser/render,
 normal game/story/full content and all82functional gaps remain open. No acquired
 geometry execution is admitted and no goal-changing issue/user decision appears.
 

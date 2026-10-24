@@ -4650,3 +4650,46 @@ Private t07-014-022-grok-review-root-1/:
 | ROOT_CONTROLS_ROOT.json |3266|21a6aee50faedc4351d981cf1e1e845da6ac18620e5e09cbc8491e182449343a|
 | ROOT_AUTHORED_REALM_CONTROL.mjs |1336|46d8e1ef41f73018c4ace34c35c394379a1dd34fb6e1719756827df0e8be22ce|
 | AUTHORED_REALM_CONTROL_ROOT.json |488|316f3cf18392d553c26b2e74c06a1a239dc14390cd93ef5a56413fd9ecfbd1e3|
+
+## Tiny geometry corpus and finite observer task are frozen
+
+Root reads the complete authored corpus generator and its bounded V2 diff.
+An independent Astra source review finds no incorrect golden and identifies
+two useful discriminators: shared normals under nonuniform scale and cross-node
+texture reuse with interleaved face buckets. Both are added before freeze.
+The reference-entry counter now increments before invocation, so a throwing
+geometry function cannot be mistaken for a pre-geometry refusal. V1 stays intact.
+
+Root personally reproduces unchanged V2 on authored bytes only: all97hand/
+reference gates pass and the entire159908B candidate JSON reproduces exactly.
+Root adds172checks of every26body pin, full Float32 mesh byte/SHA/stride/count,
+finite values, emitted bounds, literal triangle/normal/alpha/unused-vertex and
+texture-bucket expectations, plus seven fresh input PRE/POST authorities. Ten
+expected returns/16pre-VM refusals are frozen. Max body500B/mesh432B; no acquired
+source/model runs. The public [authored fixture](../fixtures/T07.007.014.023-cases.json)
+is148023B/SHA c3ad8c64e43fca88d0ec01971a910940ddc612cbe2ca9902afc6b3d9fe99f838.
+Private machine input identities are omitted from this authored public corpus.
+
+The actual profile joins retained parsed metadata, exact placement/ground,
+Worker/inventory and retained body full pins. Root freshly hashes the19113B
+body without parsing or client execution; complete retained C8 matches.
+Profile5839B/SHA1b80888abc5123ba73fb402f92f75e662a82aee4fffdc207ec62fa4c0d25b8c6
+retains profile_admits_execution:false. It binds exact static structure and
+finite caps, not the independent expected actual mesh output. No consumed
+actual reader/reference is rerun. The independent actual oracle remains Root-owned.
+
+[Equal .023brief](../tasks/T07.007.014.023.md) freezes seven inputs/three owned
+files. The qualified .021observer supplies held-input/publication/cleanup code;
+the independent Python reader supplies bounded grammar. Authors execute only
+tiny models, including direct-helper preflight, and never actual mode. Root
+will personally qualify both originals before a finite actual caller/admission.
+No new child/setup, game/browser/settings/internet action or goal change.
+Parent4/14/about29% and all82functional gaps remain unchanged.
+
+Private t07-014-023-preparation-root-1/:
+
+| File | Bytes | SHA256 |
+|---|---:|---|
+| PREPARE_ROOT.py |11101|b4132074196977818e2c5205c9eb8d6fa43673b99adbe898b51c070ccecdd26d|
+| PREPARATION_AUDIT_ROOT.json |15784|ba9ec7e7f3ced276f9d11aaade45b8ba8bbdb241becd55bbc8cca3ebff225d62|
+| PROFILE_ROOT.json |5839|1b80888abc5123ba73fb402f92f75e662a82aee4fffdc207ec62fa4c0d25b8c6|
