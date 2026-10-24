@@ -12,7 +12,7 @@ first-milestone content or remaining effort. Do not relabel it as such.
 
 **Child cleanup:** [Root verifies removal of20completed children](reviews/2026-10-24-orca-children-cleanup.md#second-twelve-removals-personally-verified).
 Current84direct children include the two released review children and the two
-.011implementation children (Claude released, Grok active). Exact Git archive
+.011implementation children (both originals released; Claude repair active). Exact Git archive
 refs, two verified rollback bundles and private evidence survive; the running
 character/quiet audio remain. Three examined children stay held for incomplete
 private preservation; user-retained children remain excluded.
@@ -66,12 +66,15 @@ information isolation is not claimed. Pilot8/612703B, disjoint remainder1214/
 verification and fresh runtime binding; genuine decoders/rendering follow.
 [Claude's submission is preserved/released and held by Root counterexamples](reviews/2026-10-24-direct-dependencies.md#claude-submission-and-root-counterexamples):
 c36d08a, complete source/report read, three synthetic defects reproduced,
-including normal complete-response socket-close rejection. Grok remains active.
+including normal complete-response socket-close rejection. [Grok now submits
+e77fdaee and is preserved/released](reviews/2026-10-24-direct-dependencies.md#grok-submission-preserved-and-separate-claude-repair-starts);
+its14reported controls still need Root's repetition and full source review.
 No live GET is admitted; compare both before source selection/repair. Root also
 [checks the next constructor/declaration source seams](reviews/2026-10-24-direct-dependencies.md#next-constructor-stage-source-review);
 genuine placement-aware compile and browser decoding remain separate gates.
-[A separate Claude correction is frozen](tasks/T07.007.014.011.001.md) from
-c36d08a in its existing checkout/new branch, independent of Grok's original.
+[A separate Claude correction is active](tasks/T07.007.014.011.001.md) from
+c36d08a in its existing checkout/new branch. Task task_37b5d9fcabce,
+dispatch ctx_aa14367230d5; the new launch positively proves turn_started.
 Ten fixed source/metadata inputs; no live request authority or source selection.
 
 [Normal delivery of all34terrain bodies is already complete](reviews/2026-10-24-remaining-map-bodies.md#normal34delivery-and-complete-root-audit-pass),

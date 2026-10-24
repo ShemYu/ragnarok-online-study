@@ -459,3 +459,41 @@ candidate preparation, pending Root's full audit and frozen task. Actual model
 execution depends on qualified delivered model bytes; source preparation can
 proceed independently. No constructor, decode/render, travel/story/save or82gap
 closure follows from this source review.
+
+## Grok submission preserved and separate Claude repair starts
+
+Grok's matched success report settles task_3709df1ea5bd/ctx_26c35e954ea5 at
+e77fdaee49863721d7670394ef73576813b17033. Root verifies the exact common-base
+ancestry, clean checkout, exactly three changed owned files and complete
+committed/source byte equality. Source64964B/SHA256
+3e19cf4df59eea36688660187602d04656a67f0d2b1cbdfd5f8be9efd4554ca9;
+tests43674B/SHA256
+cc9429a49637e3e70053616727208424573eae8a2f9497d1df0786c3c2470016;
+report10967B/SHA256
+d68e662e35f286882a64c588b15a4f9262b309e3b357c0c04887d2b0664ff168.
+Its14reported author controls are submission evidence; Root has not yet
+repeated the suite or completed its full personal source audit.
+
+All three complete files survive in private t07-014-011-grok-packet-root-1/,
+with archive ref refs/archive/t07-014-011/grok/e77fdaee and a verified31178B
+incremental bundle requiring the common base. The permitted candidate private
+prefix is absent. A first release call is locally rejected for unsupported
+flags without mutation; its receipt remains. The corrected exact-dispatch
+release succeeds: state released, closed_agent_terminal, transcript captured.
+Only after preservation/release does Root acknowledge delivery_ba173fff9f25.
+
+Root starts the separately attributed [Claude correction](../tasks/T07.007.014.011.001.md)
+from c36d08a on ShemYu/t07-014-011-claude-correction-a1 in the existing checkout.
+Actual task task_37b5d9fcabce/dispatch ctx_aa14367230d5 uses a fresh terminal
+and ten fixed source/metadata inputs; no additional child folder or setup
+hook is created. Start exits0, effective agent Claude, with positively observed
+turn_started. Private spec, brief hash and complete launch receipt remain in
+t07-014-011-correction-launch-root-1/. No model override is requested.
+
+A fresh fleet read shows one active repair, ten retained,302released and
+zero reclaimable workers. Independent Astra source consultation of Grok is
+advisory and does not establish Root-executed defects. Next Root personally
+reads/repeats both original candidates and common behavioral controls, then
+checks the separate repair before any selection or actual binding. Live
+requests, delivery, decoding/rendering and full-content acceptance remain open.
+No goal-changing blocker or new user decision is identified.
