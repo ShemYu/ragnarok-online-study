@@ -6,10 +6,11 @@ Chinese remain the goal. Existing Chinese overlays stay enabled. Party-only
 content remains later. No goal change or new user approval is required.
 
 Current continuation: [normal ro4 integration now passes5/5](2026-10-24-normal-integration.md#settled-re-entry-and-bounded-normal-integration-pass).
-Root next prepares [fresh B5 fixture data for the fixed F1/B4 quest sequence](2026-10-23-T10.007.md#fresh-b5-fixture-data-source-qualifies),
+Root verifies [fresh B5 fixture data for the fixed F1/B4 quest sequence](2026-10-23-T10.007.md#fresh-b5-fixture-data-and-independent-confirmation-pass),
 reusing verified sources/guards and preserving the user's current character.
 This is the existing functional check, not another diagnostic framework or
-Kimi benchmark dependency. The prospective data call alone admits no actor.
+Kimi benchmark dependency. The130check/116pin data pass alone admits no actor; baseline materialization
+and corrected runtime-source projection are next.
 
 ## Priority and stop criteria
 

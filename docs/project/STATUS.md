@@ -42,8 +42,10 @@ UI, story or earned-save behavior. Prior failed trials remain failed.
 
 **Next action:** continue [ordinary quest/logout and full-world functionality](reviews/2026-10-24-functional-priority.md#priority-and-stop-criteria)
 from current user progress; preserve the completed normal integration and its
-backups. The [fresh B5 pure-fixture source qualifies](reviews/2026-10-23-T10.007.md#fresh-b5-fixture-data-source-qualifies)
-for one new data call after its checkpoint. Reuse the verified fixed F1/B4
+backups. [Fresh B5 fixture data and Root confirmation pass](reviews/2026-10-23-T10.007.md#fresh-b5-fixture-data-and-independent-confirmation-pass):
+one pure call,130checks/116full pins/all36private leaves/21roles/15tokens and
+current retirement. Next qualify baseline materializer copies for the new
+destinations and exact updated schema/scope/counts. Reuse the fixed F1/B4
 sequence on a fresh disposable fixture; keep the current ro4 character intact.
 Baseline materialization and corrected runtime-source projection remain
 separate; no actor is admitted yet. Do not repeat the cold cycle, failed B4
