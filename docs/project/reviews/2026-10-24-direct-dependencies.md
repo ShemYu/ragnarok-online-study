@@ -2839,3 +2839,94 @@ sleepUntil/workerRequest timer-release paths are not generalized into arbitrary
 host-fault coverage. Next Root action is an owned Orca tiny-fixture page on its
 own loopback origin, bounded controls, complete result/pin/cleanup audit. No
 running-game/save/audio/internet action or goal-changing blocker.
+
+
+## Actual tiny Orca fixture and complete Root audit pass
+
+Exact four-file integrationa41644d matches preserved2de7d77 byte-for-byte.
+Root runs the integrated builder into a fresh private actual-root-1/fixture;
+natural0/0.100699s/empty stderr. All six outputs equal the separately qualified
+fresh build, every source/input PRE/POST pin remains exact. No prior actual
+control is replayed. The owned service binds a new127.0.0.1port and serves
+only six pinned in-memory fixture files; it cannot serve game assets.
+
+Root creates one new Orca page on that origin and observes manifest readiness
+before clicking Run all controls once. All24exact ordered ground/water records
+complete expected-control PASS in21098ms under the60000ms matrix budget;
+external Root collection takes27.771563s. Known tiny authored BMP/JPEG inputs,
+null/malformed/closed controls, native lose-context and separately labelled
+injected GL error, mipmap false/true and Worker-created URL paths are covered.
+Observed UA is Chrome/150.0.7871.250 with Chromium150client hints in Orca's
+browser; this is engine evidence, not certification of a separately installed
+Google Chrome binary. No OS-hard RSS/native/GPU containment claim.
+
+Root independently audits every record/source/fixture pin, completion and
+callback count, actual upload dimensions/receiver, atlas258/256draw order,
+all fixed completion/source/GPU pixel probes, GL/error/context outcomes,
+late-event refusal, deadlines and cleanup:1912checks/0.012388s pass. A finite
+Root RGB24 byte reader independently reconstructs every BMP completion pixel
+and magenta threshold; all JPEG completion pixels meet the fixed authored
+solid-color tolerance. Positive controls require complete FBO/readback evidence;
+C6a/C6b do not turn their expected rejection into upload success. Malformed
+native error remains timeout_unknown_decode because production lacks onerror;
+closed-late completes natively but never forwards/uploads. Both remain bounded
+below2s, with no fabricated decode-success claim.
+
+Three Root auditor assumptions initially fail against retained data: malformed
+dimensions are explicitly null, lost-context water skips its user callback,
+and the manifest fetch adds one realm.html request. Each earlier auditor/failure
+capture is preserved; Root corrects only these predicates from already reviewed
+source/fixtures and rechecks the same complete actual capture. No actual control
+is replayed or candidate source modified to satisfy the auditor.
+
+All24realm removals/observer restores/zero unreleased timers and appropriate
+texture/context/URL release pass; both Worker cases retain revoke ACK/terminate/
+script-revoke facts. Final page has zero iframes and enabled controls. One
+expected context-loss warning, no other captured console diagnostic. All60owned
+HTTP responses match their finite allowed file pins. Root closes only its new
+page, verifies both original page IDs/URLs/titles/profile remain, and waits for
+its service's automatic180s shutdown. Natural0, exact owner PID absent and
+owned port has no listener; cleanup receipt passes. The fixture issues no game
+input/relogin/restart/save/audio/profile-setting/internet operation; a fresh
+saved-state audit is not claimed.
+
+Private t07-014-016-actual-root-1/ receipts:
+
+| File | Bytes | SHA256 |
+|---|---:|---|
+| INTEGRATION_ROOT.json |6216|eae9345c339aa8bebfd368b4083a53497cf4df58218f8791e3f3f8f2430a4b3f|
+| ACTUAL_RECORDS_ROOT.json |341879|7b9f4df4ec4f81e02f131ce0cb078229589a6314d427961da00ec157e404535e|
+| audit_actual.py |14421|e294b0d8a9e7e337b4a040ea3c61a0ef48ff0cdaf493f1262c7f576ba063e4b4|
+| ROOT_ACTUAL_AUDIT.json |5079|906e8234df10b1156bbf16d038cfa61698e29e80ecbc7457c6ebb6c9c04738c6|
+| CLEANUP_ROOT.json |335|46913d96b0fae0a48b0e5e5203cbc109322ed44b24a72911ee48cdc16feebafa|
+
+T07.007.014.016 and its finite source corrections are ready_for_user within
+this authored-fixture scope only. Separate rework score stays19/20; arbitrary
+real images, actual installed broker, model texture/scene rendering and full
+content remain open. Next Root qualifies both .017delivery originals before
+fresh actual binding; nested933new bodies are still unrequested.
+
+
+## Both nested delivery originals are preserved and released
+
+Matched Grok task_3695d6723248/ctx_dd8e5f76545d settles succeeded at
+55bac48a288f13f49f94755e1541d7760165348c, exactd9b8194parent/clean branch/three
+owned tracked files. Root preserves all four delivered files/137588B, every
+copied hash, archive refs/ro-task-archive/T07.007.014.017/grok-a1 and verified
+39221B bundle/03f350704c0321f4f712fcc94d636e0eb4ed5868225f2ca202f9e2d3fcc14a34.
+Private grok-packet-root-1/PRESERVATION_ROOT.json is1325B/
+3fb456d546e44a33ec562b6dfe1064cd185b2e458882a942079b52f445207f17.
+Protected direct source/tests remain exact. Settled terminal released/transcript
+captured before ACKdelivery87082f84b64b; no idle author kept for Root review.
+
+Earlier Claude5024e19, exact same common base, is likewise preserved/released:
+eight files/145772B, archive refs/ro-task-archive/T07.007.014.017/claude-a1,
+verified34146B bundle/3a85ed1cd47ff2244ef3b036a4cbcb76be3b4bf998e45639f31ca3f5bfb0f386.
+Claude preservation2113B/4c806e0a51eb77883f4cf6b265f8dbe29cbefcf8b8a7f7206c8730d7eca0d3a8.
+Root25tests pass; full final source-diff proof and independent controls remain.
+A stale private derivative.diff is disclosed; Root uses the actual final file.
+Grok's full report is read; authored39tests/full source/own controls are next.
+Read-only advisory flags a TGA stored-body readback branch gap for Root to
+personally reproduce. No candidate selection, correction or actual call admitted.
+Fresh fleet319released/ten older retained/zero active/zero reclaimable. Overall
+parent4/14/about29%, all82functional gaps and full-game goal remain unchanged.
