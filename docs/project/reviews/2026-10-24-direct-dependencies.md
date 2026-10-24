@@ -1390,3 +1390,18 @@ Same four owned paths/fresh repair-2 private prefix, original ten fixed inputs
 and three own Root/advisory reports only. Two narrow ordering/accounting fixes;
 no actual source/body/runtime acquisition/evaluation, cap or goal change.
 Root continues independent caller/image-source preparation while it runs.
+
+
+## Independent browser-image consumer source task is frozen
+
+Root personally reads the pinned FileManager/MapLoader source spans and confirms
+image branches package BMP/JPG into object URLs, not decoded pixels. Fresh full
+saved Online.js13174290B/50b724b708393d7bb6d71b4f5102e62b16e340eb1bb54f05b1c8613af4116418
+contains one MAP_WORLD and one MAP_GROUND hook. [Task .013](../tasks/T07.007.014.013.md)
+freezes those two source files plus the qualified delivery metadata for an equal
+Claude/Grok source trace. It is independent of .012and has distinct private-only
+ownership in the coordination checkout, no source implementation or tracked
+worker edits. Source freshness versus installed current-client binding stays
+explicit. No Node packaging replay will be mislabeled image validity. Root owns
+full source-slice/286membership verification and version-controlled comparison.
+No image/header/browser/native/Engine/game/network or source evaluation admitted.
