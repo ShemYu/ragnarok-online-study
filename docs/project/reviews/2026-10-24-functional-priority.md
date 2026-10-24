@@ -1894,3 +1894,12 @@ Two independent Claude/Grok FD source-plan tasks start after7491f4d on the
 identical14copy packet. Final Mu3 binder review finds no mandatory blocker;
 current-world/final binding and one existing-policy synthetic scene are next.
 No data/scene acceptance is inferred from the FD plans.
+
+
+The fresh Mu3 synthetic render now passes Root's complete767-check/735-pin
+audit and personal image review: all1,285placements and29retained Float32
+arrays pass. This closes that isolated render check only; normal-game
+travel/story/earned-save and animation timing stay open. See the
+[complete scene checkpoint](2026-10-24-T07-mu-data-stage.md#fresh-mu3-synthetic-scene-and-complete-root-audit-pass).
+Overall4/14/about29% and all82open functional gaps are unchanged. Next is
+ordinary-game integration/route verification; failed prior trials stay failed.

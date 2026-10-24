@@ -876,3 +876,12 @@ Grok task0aacdb5d3c3c/ctxae021dea355b starts, receipt2307/
 Only provider output suffix differs. Both use observed provider defaults;
 exact model/effort and billing are not observed. This is a plan-only comparison,
 not a proven implementation winner. No target/control/actor execution granted.
+
+
+The fresh Mu3 synthetic render now passes Root's complete767-check/735-pin
+audit and personal image review: all1,285placements and29retained Float32
+arrays pass. This closes that isolated render check only; normal-game
+travel/story/earned-save and animation timing stay open. See the
+[complete scene checkpoint](2026-10-24-T07-mu-data-stage.md#fresh-mu3-synthetic-scene-and-complete-root-audit-pass).
+Overall4/14/about29% and all82open functional gaps are unchanged. Next is
+ordinary-game integration/route verification; failed prior trials stay failed.

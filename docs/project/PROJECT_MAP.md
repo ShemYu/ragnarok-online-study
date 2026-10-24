@@ -1,10 +1,10 @@
 # Supervision, plan and current position
 
-Date: **2026-10-24 JST**. Functionality comes first. Normal tutorial/city reward and save checks pass. The trial character reaches [Eden through normal Officer dialogue](reviews/2026-10-20-T06.006.003.md#normal-eden-arrival-verified-next-save-check-interrupted). Its save check waits for browser reconnection.
-
-[Chapter1 source review](reviews/2026-10-20-T07.006.md#corrected-comparison-and-bounded-readiness) is ready: Claude14/20, Grok12/20. Root corrects the helper diagnosis. Neither proposal is installed. [October acquisition](reviews/2026-10-21-T07.007.md) passes extraction and hash checks for all 4,976 files. All three archive headers pass. The [corrected inventory tool](reviews/2026-10-21-T07.007.001.md#root-corrected-integration-qualified) is qualified at9153d27. All 248,908 records and April parity checks pass.
-
-All 59 candidate patch files are acquired, including 57 new files. No patch is installed. The base package lacks the four target map names. An official August patch has all 12 terrain-name entries. Root has [independently decoded and checked those 12 bodies](reviews/2026-10-21-T07.007.003.md#root-independent-twelve-body-reference-qualified). The [corrected decoder tool](reviews/2026-10-21-T07.007.003.md#root-corrected-integration-qualified) now passes root52tests, all12shared refusal controls, full bodies and complete typed artifacts. Both providers are compared and released. The [integrated loader tool](reviews/2026-10-21-T07.007.004.md#integrated-qualification-and-bounded-readiness) passes33tests and all12full summaries. Grok is selected for this task; both workers are released. The [exact native reader](reviews/2026-10-21-T07.007.002.md#exact-native-twelve-body-gate-independently-qualified) also returns all12matching bodies. It uses a sampled peak of194.4MiB. One map has two invalid flag lookups; they remain recorded. The bounded model/texture checks now pass. Next: actual map loading/rendering and the scoped normal entry/save test. Full story/maps/Chinese and safe migration remain open.
+Date: **2026-10-24 JST**. Functionality comes first.
+[Fresh Mu3 isolated rendering now passes](reviews/2026-10-24-T07-mu-data-stage.md#fresh-mu3-synthetic-scene-and-complete-root-audit-pass):
+all 1,285 placements load; all retained Float32 arrays are finite; Root
+visually checks the image and completes the 767-check / 735-pin audit.
+Normal-game entry/travel/story and full content remain open.
 
 Use this map for a short view of [Status](STATUS.md), [Tasks](TASKS.md) and
 [Phases](PHASES.md). Status gives the current next action.
@@ -12,75 +12,30 @@ Update this map after each important change. Keep the dated evidence.
 
 ```text
 NOW: 4 / 14 parent checks complete (about 29%)
+     This is a check count, not playable-content coverage.
 
-Basic play + save       [PASS for the checked normal route]
-Map loading            [Chapter 1 test passes; fruit test is open]
-Fruit presentation     [OPEN: browser test failed before scene loading]
-Quest file inventory   [PASS: all 3 files checked]
-Server + file binding  [PASS: current owner and 21 file checks]
-Active quest records   [PASS: fixed loading/shutdown diagnostic; session open]
-Story entry research   [CHECKED: Claude basis; mechanics still incomplete]
-Story implementation   [PARTIAL: A199 Chinese dialogue reached; later cases open]
-Isolated server test   [PASS: 3 cases, SQL checks and cleanup verified]
-Chinese quest text     [SOURCE PASS: 28 tests + common checks; install is next]
-Existing text recovery [PASS: fixed 152-record tool integrated + checked]
-Missing story scripts  [OPEN: largest content risk]
-Full game test         [LATER: 82 functional resource gaps remain]
+Map repair:
+  Reproduce numeric fault       [DONE]
+       -> fix + 22 focused cases [DONE]
+       -> fresh isolated render [PASS: 1,285 placements]
+       -> Root audit + image    [PASS: 767 checks / 735 pins]
+       -> Git checkpoint        [THIS CHECKPOINT]
+       -> normal game + travel  [NEXT]
+       -> story + earned save   [OPEN]
 
-Current priority:
-  F1 two defects -> F2 source + fixture checked -> eight pure groups PASS
-                         -> one fresh fixed quest/logout sequence
-                         ^
-  B1 backend HOLD -> B2U/B2D submitted + released -> Root checks
+Other active work:
+  Ordinary quest/logout        [OPEN: A199 seen; later cases fail]
+  Full839 data publication     [PASS: 4,227 checks / 910 pins]
+  Full839 entry FD closure     [FAILED: attribution under review]
+  Claude/Grok FD plan pair      [Claude submitted; Grok not yet complete]
+  Authentic Chapter 1 scripts  [OPEN: largest content risk]
+  All 82 functional gaps       [OPEN]
+  Full Traditional Chinese     [LATER: existing overlays stay enabled]
 
-Parallel:
-  D15 driver: eight pure groups PASS; no game credit
-  D16 host: pure call FAILED at cleanup event; HOLD
-  D14 diagnostic UI: HOLD4defects; not an F1 dependency
-  C7 caller: four pure checks PASS; no capture/backend compatibility
-  MU1:105body stage PASS (Root checked/released)
-  MU2 -> MuC/MuD: HOLD5findings -> finite fixes -> one fresh scene
-       (retained water geometry0; current scene still verifies it)
-  full839spawn -> source qualifies -> combined-nine finite PASS -> full839 open
-
-B2D/B2U:all8 selected focused checks PASS; original Root error preserved.
-Root:actual pending-producer poll PASS/116pins; native game still open.
-B3:one actual Mu21 data run PASS/36files/126checks/112pins.
-B4:six source fixes qualified; separate36file data PASS/127checks.
-MuC/MuD:submitted+released, HOLD5findings -> finite UI/driver fixes ready.
-MuC:three fixes + all six actual focused calls PASS/223pins.
-B4/world/UI/driver:four delivered+released; UI/driver/world source PASS.
-B4 data:actual321checks/306pins/71outputs PASS -> runtime binding next.
-Ten controls:both parallel groups actualPASS (6+4cases).
-Six records:actual independent decode PASS ->111allowlist qualified.
-Fresh Mu21 -> fresh Mu19 actual PASS:112 checks/85 pins/33 leaves.
-B4 actual quest trial FAILED: A199 refusal shown; logout selector fails.
-Root688 failure/preservation checks PASS; later cases remain open.
-Grok:driver + logout UI source PASS/released; dictionary unknown/released.
-Full839 data:Root4225checks/910pins PASS; entryFD check FAILED.
-Grok live:fresh fixture caller + header guard + FD formatter fixes.
-Fresh Mu:one scene FAILED -> first-frame light_s_03 NaNs localized.
-Root776failure checks PASS;111body joins/1285placements load.
-Actual keyframes prove divide-by-zero; sampler repair source +all22 focused tests PASS.
-Root baseline4leading failures -> candidate22/22PASS; fresh scene pending.
-New four-body Web stage verified; one user-owned sampler terminal retained.
-Current-five reader:actual PASS111 checks/103 pins;26 literal core chains.
-Changed alias proof withheld; normal render/travel/story remain open.
-Mu oneactualscene FAILED;105bodies+partialdraw;Root825failurechecks PASS.
-MuD:both calls PASS/65pins; final source joined/released beforeACK.
-Mu19:actual33leaf projection PASS/112checks/85pins -> runtime C next.
-Mu client:259selected files +five archives Root verified; two dirs added.
-Mu Remote:source and current config joins verified; owner released.
-Mu Web:four bodies staged/full verified;105body stage unchanged; no actor.
-Mu19/world-assessment/runtime-template owners released/archive.
-Combined-nine finite:63checks/44pins/all4independent files PASS.
-MuC/B3 prior owners released/archive beforeACK; no cleanup debt.
-Four actual user-retained resources stay;2transferred records have none.
-Trial9 stays failed; known faults stay failed. No new actor admitted.
-4/14 is parent-check progress, not percentage of playable content.
-All82functional resource gaps remain open. Full Renewal goal unchanged.
-Original saves/Chrome/profile/network stay untouched.
-
+The render pass uses a synthetic viewer; it does not close the parent map
+task or prove normal gameplay, animation timing or full-content coverage.
+Prior failed trials stay failed. Full Renewal goal stays unchanged.
+Original saves/Chrome/profile/settings/mute/IME/network stay untouched.
 ```
 
 The sections below keep the dated history. [Status](STATUS.md) gives the live

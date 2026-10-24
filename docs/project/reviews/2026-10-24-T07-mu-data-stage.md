@@ -1752,3 +1752,53 @@ body, with selected maximum251507056bytes. No cap increase or waiver.
 After checkpoint, Root collects fresh14GET world/image evidence and binds
 the three admitted headers for one fresh synthetic scene. ExistingG390/4GiB,
 source/parent/outer caps and original-state preservation remain required.
+
+
+## Fresh Mu3 synthetic scene and complete Root audit pass
+
+After961aad1, Root collects the fresh14-GET pre-world observation, binds only
+the three admitted headers, and verifies the existing full source closure.
+Final binding183410/66dc2a749c81fd3f42659f142c7d7d653c7aba2188514e496643c05cbeb58add
+passes353fullPins, including all five archives/4,608,553,685bytes and all
+selected client/Web bodies. Existing256MiB file limits remain unchanged.
+The one saved Root caller2116/
+838713e32b4a1c10048a17e3613b44e4f3d2e7660a3eb6523ae28dcf7e7d6f8c
+runs one fresh synthetic Mu3 scene under originalG390/4GiB/grace3/1MiB.
+No prior consumed scene is replayed.
+
+Outer returns natural0 in29.473089s. Parent driver returns natural0 in
+26.027069s, original guard accepted, no action/signals; sampled peak is
+3,148,742,656bytes (sampling can miss peaks, not an OS containment claim).
+All1,285placements are accounted for with zero null models; all111bodyjoins
+and the complete3,227-event worker trace pass. All29retained Float32 arrays
+are finite; the formerly faulting light_s_03 has1,296finite values and zero
+NaNs in each of its three captures. Three frames advance with drawcalls
+93/217/837, no GL error/context loss or pending textures.
+
+Map evidence1456169/
+dbcf111e0850f9f9fd4edc2503dfbd4a3c8a01a270fda3eb7581b7d080f48e70
+joins all33array hashes. Root personally views the1280x800 final PNG:
+lava/rock terrain and fiery trees are visible, with loaded/errors0 status;
+no blank/corrupt geometry is seen. This is not an official visual-parity claim.
+PNG2096279/5bbb77fefceb8a2e06eaac4d74d2f8ed28fb3132f54510fce7a3e1da5d070875.
+
+Root's complete positive audit is405631bytes/
+634b2d799d88539f4cdb56cb7712a45fcc3f5aa24c534eb74b334a1bdbb67b38,
+private .tools/renewal/t07-mu-fresh3-owned-scene-complete-audit-root-1/AUDIT_ROOT.json.
+All767checks/735fullPins pass: complete source closure and typed result,
+all248Engine wires/604,906bytes, native auth, initial/post-scene SQL
+preservation, Chrome positive close acknowledgment/natural retirement,
+all retained owned PIDs/groups absent, four containers/network absent,
+durable SQL volume retained, and original-five-world equality. Fresh
+14-GET post-world evidence matches pre-world and parent preservation proof.
+
+The isolated loader/render verification is complete at this checkpoint.
+Broader T07.007.011 remains in_progress. The viewer skips normal game init
+and uses a synthetic entity; game/Chinese/acceptance/journal/restart credits
+remain false. Water geometry is zero, so conditional water is untested.
+Capture timing is not the previous frame2 boundary; the separate22focused
+cases establish that leading-key behavior. Authentic animation timing,
+normal-game integration/travel/story and earned saves remain OPEN.
+Overall4/14/about29% is unchanged; all82functional resource gaps remain open.
+Next: inspect the ordinary integration path and verify a separately admitted
+fresh normal route, while independent FD source-plan work continues.

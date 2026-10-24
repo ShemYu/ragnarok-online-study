@@ -4,126 +4,47 @@ Updated: 2026-10-24 JST. Coordinator: Codex. Active scope: **execute the documen
 
 ## Current checkpoint
 
-Functionality remains first; **4/14 parent checks, about29%**. All82functional
-resource gaps remain open. No full-game scope change or new user decision.
+Functionality remains first. **4/14 parent checks, about 29%**; this counts
+major checks, not full-content coverage. All 82 functional resource gaps remain
+open. Full Modern/Renewal scope is unchanged; no new user decision is required.
 
-**Live next action:** [Prioritize F1 quest/logout verification and a genuine isolated backend](reviews/2026-10-24-functional-priority.md#priority-and-stop-criteria).
-The ninth game trial remains failed. Expected A199 Chinese refusal is observed;
-dictionary abort/load405/map-connection settlement stop later cases. Root's
-complete failure/preservation audit passes; no B200assignment/reconnection or
-parent-check credit. 4/14 is a check count, not measured full-content coverage.
+**Latest verified result:** [Fresh Mu3 isolated map-render scene passes](reviews/2026-10-24-T07-mu-data-stage.md#fresh-mu3-synthetic-scene-and-complete-root-audit-pass).
+All 1,285 placements load, all 29 retained Float32 arrays are finite, and all
+three retained frames have no graphics error. Root personally inspects the
+1280x800 screenshot. The formerly failing animated model is finite in all
+three captures. Root's complete audit passes **767 checks / 735 full pins**,
+including 111 body joins, all 248 Engine responses, SQL preservation, owned
+process/container/network retirement and the original world.
 
-**Parallel work:** [Current native map evidence and fresh Mu19 pass](reviews/2026-10-24-functional-priority.md#native-map-evidence-and-fresh-mu19-pass-while-two-grok-tasks-run).
-The single current-five reader call passes Root's complete 111-check,
-103-pin audit: all 26 selected literal RSW/GAT/GND chains are available.
-This includes Chapter 1 core map files. The changed alias body withholds
-old alias proof; rendering, normal travel and story remain open.
-Fresh Mu19 passes 112 checks, 85 pins and all 33 leaves; current confirmation
-also passes. A 33-copy source packet is ready for Grok to refresh its two
-unbound runtime templates after this checkpoint.
+The isolated synthetic scene verification is complete; the Git checkpoint
+records it before further execution. This does not close the broader
+T07.007.011 map task or prove normal-game travel, animation timing, Chinese
+UI, story or earned-save behavior. Prior failed trials remain failed.
 
-[Fresh ordinary B4 quest trial FAILED; complete Root preservation audit passes](reviews/2026-10-23-T10.007.md#fresh-b4-ordinary-trial-fails-and-complete-preservation-audit-passes).
-Root688checks/747pins/all281 Engine wires/current cleanup/original world.
-Chinese A199 refusal is observed and visually checked; ambiguous Escape
-selector stops logout. Dictionary request200/abort cause remains unresolved.
-No B200 or post-logout SQL pass. Consumed trial is not replayed; volume retained.
-All three independent Grok source/research tasks now settle and are released.
-[Full839 published data passes complete Root4225-check/910-pin audit](reviews/2026-10-24-T06-full-spawn-output-budget.md#full839-data-passes-complete-root-audit-but-its-entry-remains-failed):
-all839 current selected bodies/723206 physical rows/35735 events/four files.
-The entry still fails its FD selfcheck; no runtime or entry acceptance.
-A qualified finite FD source packet is ready for Grok after checkpoint.
-[Fresh Mu templates pass whole609-check Root qualification](reviews/2026-10-24-T07-mu-data-stage.md#fresh-mu-runtime-whole-projection-and-binding-reuse-qualify).
-[One fresh Mu scene now captures its first-frame fault](reviews/2026-10-24-T07-mu-data-stage.md#fresh-mu-scene-captures-one-animated-first-frame-numeric-fault):
-all111 body joins/1285 placements load; one animated model has864NaNs
-only in its first retained frame. Complete Root776checks/771pins/all252
-Engine wires pass failure/preservation audit; the scene remains failed.
-The finite sampler patch now qualifies and passes all22 focused Root tests.
-The new isolated four-file Web stage verifies. The fresh-fixture caller's
-one-region variable correction now passes whole-source Root qualification
-and independent semantic review. Header correction passes all20 focused
-cases. FD formatter also passes all4 focused cases. All latest Grok workers
-are released/archived. Fresh Mu3 data now pass130checks/116pins/36leaves,
-with Root current confirmation; no actor. Mu19 metadata reuse source qualifies.
-Fresh Mu19 now passes112checks/85pins/33leaves and Root confirmation.
-New runtime templates qualify all513slots/57exact data deltas; binder reuses
-six metadata edits only. Next: current-world/final binding and fresh scene.
-Full839 root2 still fails FD closure; complete4227-check data audit passes.
-Astra finds a conditional late-tempfile/random initialization mechanism;
-identical Claude/Grok source-plan tasks now run, with no FD waiver.
-Final binder independent review confirms all six metadata edits and unchanged
-full body closure/caps. Root next collects current world and binds one scene.
-One finished sampler terminal is retained under Orca user_takeover;
-other settled authors are released with captured archives.
-Current map-render verification estimate75%; overall4/14/about29% checks.
-Next Mu19/runtime reuse recipe is independently reviewed. Root freezes20
-header and4 FD-formatting boundary cases. Header20pass; no new scene yet.
+**Next action:** inspect the ordinary-game integration path for the qualified
+sampler repair and verify a fresh normal route, while continuing the
+[quest/logout work](reviews/2026-10-24-functional-priority.md#priority-and-stop-criteria).
+Do not replay the consumed Mu3 scene or the failed B4 quest trial. Use fresh
+identities for any separately admitted live trial; preserve the original app,
+saves, Chrome/profile/settings/mute/IME and network. The next user-facing
+acceptance is normal entry/travel and saved progress, not another synthetic
+scene counted as gameplay.
 
-**Current blocker:** the animated first-frame numeric-data failure is
-proved at leading-key interpolation; its source repair passes, fresh scene
-integration/retest remain. All six startup bodies now match independent archive decodes
-and the 111-body allowlist qualifies. Corrected UI captures map evidence
-before fatal assertions for the next fresh scene. The prior scene remains
-failed; Root's full 825-check failure/preservation audit passes. Missing
-authentic Chapter 1 scripts remain the largest content risk. No goal
-change or user decision is required. All 82 functional gaps remain open.
+**Parallel source investigation:** [Full839 root2 data pass, entry still fails
+FD closure](reviews/2026-10-24-T06-full-spawn-output-budget.md#equal-claude-and-grok-source-plan-tasks-start).
+Its complete data audit passes 4,227 checks / 910 pins; one added descriptor
+still fails the entry. Claude has submitted a plan-only report pending Root
+verification and lifecycle settlement; Grok has no completion observed in
+this checkpoint. Neither plan grants execution or an FD exception.
 
-[All six actual MuC focused calls pass complete Root223pin verification](reviews/2026-10-24-T07-mu-data-stage.md#actual-six-muc-focused-calls-pass-complete-root-audit).
-Three source fixes qualify; no fresh map actor/render result yet. MU1 exact105body private
-stage remains verified; retained water geometry0 requires no extra assets.
-[Both frozen MuD focused calls pass complete Root65pin verification](reviews/2026-10-24-T07-mu-data-stage.md#actual-two-frozen-mud-focused-calls-pass-root-audit);
-final three source bodies are joined byte-exact and owner released. Actual scene
-load/draw waits for fresh fixture/runtime/lease bindings.
-[Dedicated Mu19 data view preserves the native contract](reviews/2026-10-24-T07-mu-data-stage.md#fresh-mu19-view-recommended-without-changing-native-engine-contract);
-the corrected finite projector and final caller now pass the actual
-one-call/full33leaf audit. Final runtime C/current-world binding are next. All259 selected current client files are now
-Root-verified; two missing empty directories added. Three runtime sources are
-staged. Selected browser containment qualifies without a whole-app claim.
-[All five configured archives pass Root full-byte/current-identity checks](reviews/2026-10-24-T07-mu-data-stage.md#five-configured-archives-pass-current-root-full-byte-verification); no archive index/runtime result. [Root qualification and next Grok source
-audit](reviews/2026-10-24-T07-mu-data-stage.md#mu19-corrected-source-qualified-and-client-inventory-joined).
-Four web bodies are staged/verified;
-existing105body stage stays unchanged. No render/game actor.
-
-[B2U/B2D eight selected focused backend checks pass Root verification](reviews/2026-10-24-functional-priority.md#eight-backend-focused-checks-verified-fresh21-fixture-source-frozen);
-[one actual pending-producer poll also passes](reviews/2026-10-24-functional-priority.md#actual-pending-backend-control-passes-root-verification).
-Original failed Root caller preserved; live response dispatch remains source-
-inspected only. Separate B4 fresh21-role data now pass;64-body runtime,actual backend/auth/SQL/
-fixed four game cases remain next. Both dedicated B3 data sets pass; B4 materializer source qualifies, no actor authority.
-
-D15 passes all eight pure groups and Root's complete183pin audit: unchanged
-G10s/512MiB/grace3, natural0/positiveguard/0.229156s/24068096B sampled peak,
-full streams, source stability, PID/group retirement and caller context checked.
-D16 actual pure call fails at group6 cleanup_event, natural1/failedguard.
-Root verifies full failure streams/receipt,125pins and clean retirement.
-The host overwrites its event kind with cleanup subtype; diagnostic stays HOLD.
-No replay/new diagnostic generation or native/browser/game credit. D14 diagnostic UI is held for four concrete defects; it is
-not an automatic F1 prerequisite. F2 corrects the two F1 blockers in source;
-Root checks10maps/15unchangedhelpers/125pins and compiles Python only.
-Its eight focused groups pass; B1 composition stays unadmitted. Root stages
-byte-identical private copies after an ambiguous worker path/mode handoff.
-C7 passes all four actual pure groups and Root complete62pin audit, each
-natural0/positive unchanged G10guard, clean streams/sourcepostpins/retirement.
-No actual binary capture or backend compatibility is established.
-No fresh game actor is admitted. Finish bounded scopes and prioritize real
-backend/gameplay/content work. All six C5 pure groups remain verified.
-B1 has its narrow UI backend-origin supplement. [MU1 exact105body data
-deployment](reviews/2026-10-24-T07-mu-data-stage.md#selected-target-and-acceptance)
-passes Root full276pin audit/all105fullbyte comparisons and is released.
-[MU2native load/draw source handoff](reviews/2026-10-24-T07-mu-data-stage.md#mu2-fresh-native-render-source-task-frozen)
-is actual Grok taskc43e0ea0c969/ctxea500e7e658a, independent of B1/F2.
-No current game installation/draw claim. Provider comparison remains incomplete.
-
-The [full-spawn output-budget measurement passes](reviews/2026-10-24-T06-full-spawn-output-budget.md#actual-bounded-measurement-and-root-audit-pass):
-839sources/723206physical lines require172547908canonical JSONL bytes, below
-the512MiB virtual cap. Root verifies866fullpins and every source's byte/count
-join; no large JSONL is written. Root now freezes the full selected839 profile/three typed expectation sets
-and qualified-publication semantics; independent Grok source implementation
-is actual Grok ready after4425a98. No wrapper/test/game actor is admitted.
-[Final exporter source is submitted, full pins match and owner is released](reviews/2026-10-24-T06-full-spawn-output-budget.md#final-exporter-source-submitted-owner-released-before-acknowledgment).
-Root confirms six finite source corrections; no test/export admission.
+**Main remaining challenges:** authentic missing Chapter 1 story scripts,
+ordinary quest/logout verification, normal-game integration of the map
+repair, and the full839 FD attribution. Animation timing remains unverified.
+No current evidence requires changing the agreed full-game goal.
 
 Original app/saves/Chrome/profile/settings/mute/IME/network stay untouched.
-The consumed ninth trial is not retried. All Chinese overlays stay enabled;
-translator isolation remains an unused source proposal. Full goal unchanged.
+The test's durable SQL volume is retained; its four containers and network
+are removed, and all retained owned processes/groups are gone.
 
 **Prior native parser checkpoint:** [All three isolated native parser cases now pass Root verification](reviews/2026-10-23-T10.007.md#actual-three-case-native-parser-trial-and-complete-root-audit-pass):
 134 requests/231 full pins, valid original guard/13.231s, real NPC and three
