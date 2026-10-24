@@ -13,9 +13,9 @@ first-milestone content or remaining effort. Do not relabel it as such.
 **Latest:** [.020corrected authored decoder is Root-qualified](reviews/2026-10-24-direct-dependencies.md#root-corrected-authored-decoder-harness-and-complete-capture-audit-pass):
 20tests/515independent controls/675saved-capture audit checks pass all32tiny
 cases and repaired harness faults. Both originals are preserved/released, raw
-Claude15/20/Grok14/20; Root correction credited separately. Actual real-image
-decoding remains unverified. [.021two independent source authors are live](reviews/2026-10-24-direct-dependencies.md#independent-retained-decoder-observer-source-pair-starts)
-while Root prepares its larger independent oracle. No body requests repeat.
+Claude15/20/Grok14/20; Root correction credited separately. Copied decoder on retained real images
+remains unverified. [.021two independent source authors are live](reviews/2026-10-24-direct-dependencies.md#independent-retained-decoder-observer-source-pair-starts)
+and [Root completes its independent25file raw reference and397check audit](reviews/2026-10-24-direct-dependencies.md#actual25independent-reference-and-complete-retained-audit-pass). No body requests repeat.
 .017all948delivery and corrected .019conditional Worker facts remain qualified
 in their bounded scopes. Geometry/render and all82functional gaps remain open.
 
@@ -2202,3 +2202,8 @@ actual-output oracle while .020Grok continues; source repair/selection stays nex
 Next execute the reviewed fixed25Python reference call once and audit its retained
 hashes/current full pins. No acquired decoder or actual observer action admitted.
 .021Claude/Grok remain source/tiny-authored only; no request replay.
+
+
+[The ONE independent25file reference and complete Root audit pass](reviews/2026-10-24-direct-dependencies.md#actual25independent-reference-and-complete-retained-audit-pass):
+25complete RGBA hashes/17842176output bytes,28current full pins all preserved.
+Next review .021paired source candidates; no actual Targa/Worker/canvas/GL admission.

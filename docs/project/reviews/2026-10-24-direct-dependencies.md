@@ -3866,3 +3866,37 @@ Private t07-014-021-preparation-root-1/ receipts:
 | RAW_REFERENCE_1024_CONTROLS_ROOT.json |2046|a8839119f82e23796b0d3f513aea8e97668e12b626a82339f301ca9951415056|
 | CALL_REFERENCE_ROOT.py |7058|3c35b8fa07df65f954b7ee45224b817c8fe601c4ae1f0aa5e7043fe58015cf63|
 | REFERENCE_DEFAULT_REFUSAL_ROOT.json |704|da6ea4436a1f16b1ed83d12270acdf43a6c93e061e8e96b08921bcf97ba0235a|
+
+
+## Actual25independent reference and complete retained audit pass
+
+At clean admission17dca31ffd7a62ed1fad2a179df3fbb1d5c627c3, the exact qualified
+Root Python caller runs once and exits0 naturally:2.736209s outer/2.700897s
+complete internal, observed Python ru_maxrss58441728B. All25retained raw24/32
+bodies/17695820encodedB yield complete17842176RGBA bytes via the independent
+row/column/channel loop. Only hashes/metadata are retained; no acquired JavaScript,
+Worker/canvas/GL, request, game/save/settings or native codec action occurs.
+Do not replay this consumed reference call or any .017GET.
+
+The22998B result contains all25query/wire/dimensions/depth/origin/full encoded
+and RGBA hashes; SHA faf3701bdc04151528ad52796f9089e1ea14cac8ed259e7f24bbe2365e827388.
+Root personally audits its entire saved result:397checks, exact25row/profile
+joins and totals,28current full input pins/30909787B (all25body files plus
+profile/reference/inert source), complete C8/SHA preservation and fresh0700/0600
+output scope all pass. Caller reports647bounded checks. No pixel-reference
+replay is used for this retained audit. This is the independent whole-output
+oracle needed to judge an actual copied-decoder observation later.
+
+.021Claude/Grok are still implementing on tiny authored inputs only. Next
+preserve/release their settled originals, read full code/tests, run equal Root
+guards and select/repair; actual Targa execution on these25files is still not
+admitted. No real-client upload/render/content claim or parent percentage
+increase follows. All82functional gaps remain, full Renewal intent unchanged.
+
+Private reference and audit receipts:
+
+| File | Bytes | SHA256 |
+|---|---:|---|
+| t07-014-021-reference-root-1/RESULT_ROOT.json |22998|faf3701bdc04151528ad52796f9089e1ea14cac8ed259e7f24bbe2365e827388|
+| t07-014-021-preparation-root-1/ACTUAL_REFERENCE_CALL_ROOT.json |457|e0348478c938941a69e890b2f94f7551f9f0e01b071da215951930a236b915d6|
+| t07-014-021-preparation-root-1/ACTUAL_REFERENCE_AUDIT_ROOT.json |420|03255f051b35a952af29c33f6760db0f334998f8e250b6cbeabff45951c9b293|
