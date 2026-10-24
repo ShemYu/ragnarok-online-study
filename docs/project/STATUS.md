@@ -87,8 +87,15 @@ Root freezes [the full839 map/monster reference extension](tasks/T06.002.003.005
 reuse the completed35,735-event publication and six existing map/history files,
 228,765,912bytes freshly hashed. Add explicit full mode to the existing pilot
 sidecar; preserve3074supported/310gap/731suffix outcomes and default pilot.
-Next launch equal Claude/Grok implementations from the common brief checkpoint.
+The common brief checkpoint binds equal Claude/Grok implementations.
 No producer rerun, new generic framework or game-state action is needed.
+
+[Both actual implementations are now running](reviews/2026-10-24-full839-references.md#equal-implementation-pair-starts)
+on separate task branches from b8c6f5d, with matched live heartbeats. Root
+independently builds the complete35,735-row expectation before candidate review;
+13,095,722bytes match separate Astra data analysis. No worker completion or
+adoption yet. Next collect/verify each actual candidate, compare on the frozen
+scorecard and settle/release each worker. UI-dependent travel stays blocked.
 
 ### Historical preparation — follow the next action above
 
