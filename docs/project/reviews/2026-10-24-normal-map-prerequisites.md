@@ -93,6 +93,39 @@ Private t07-orca-ordinary-field-root-2/ROOT_CONFIRMATION.json8182B/SHA
 pins23UI/action/image captures. Combat, loot, crew turn-in and the planned
 field/return/save gates remain next. No early departure or progress replay.
 
+## Ordinary combat, lumber and crew turn-in pass
+
+Root resumes the same character at int_land72,96, base2/job2/5.8%EXP. Two
+separate ordinary Space press/release actions use the existing nearest-monster
+control. The first automatically approaches the target; moving AX78,88 and
+later image74,84 are separate observations. Root views the Poring scene and
+subsequent settled positions. Received monster-HP previews reach0. Each fight
+produces one visible Chinese lumber message and one received item6008/count1
+preview. The ordinary Other inventory tab shows a stack of2 before turn-in.
+Combat damage and natural recovery occur; Root uses normal inputs throughout.
+
+At68,78 Root views the crew sprite with the normal talk cursor before clicking.
+The Chinese Sailor dialogue accepts the delivery. Visible Next produces five
+magnifiers, base2/job3/17%EXP and an empty tracker. Received previews independently
+show item611/count5 and DEL_QUEST21008. A Close selector initially refuses
+because only Next is visible; no click is dispatched. Fresh DOM inspection,
+another visible Next and then visible Close finish the dialogue normally.
+Final observed position68,78, HP45/45/SP12/12; no panel remains open.
+
+Private t07-orca-ordinary-field-root-3/ROOT_CONFIRMATION.json23478B/SHA
+06aa0393e05f0454b42d10d99dfc93394a134b9be7d85d9c05918dc076a3fd80
+pins all39capture/image leaves and17selected received-message previews. Root
+personally views the retained scene/loot/inventory/crew images. Overflowing
+console previews support only the visible named fields; raw logs stay0600.
+Only ordinary DOM controls/UI and supported Orca observations are used, with
+no game callback, packet injection, SQL, GM warp/grant or settings change.
+
+This completes the live tutorial combat/lumber/crew gate for this character.
+The new progress is not yet relogged or backed up. Next ordinary island exit,
+Izlude/field/return and saved-progress verification; no early-departure choice,
+full-story claim or82gap closure. Earlier failed isolated F1 save evidence stays
+held and is not replayed.
+
 ## Root verification
 
 Read-only native Engine GETs match the map container's identity/image/mounts

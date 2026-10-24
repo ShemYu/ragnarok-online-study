@@ -42,8 +42,10 @@ Map repair:
        -> normal Mu asset set   [PASS:111 responses +111 loose files verified]
        -> ordinary field route  [SOURCE VERIFIED: island -> Izlude -> field]
        -> Orca browser re-entry [PASS: saved90,111 + Chinese tracker + quiet audio]
-       -> captain dialogue      [PASS: earned Lv2/job2;21008two-lumber quest ACTIVE]
-       -> combat + crew + field [NEXT: equipment/loot before ordinary departure]
+       -> captain dialogue      [PASS:21001complete;21008earned]
+       -> combat + lumber       [PASS:two natural fights; inventory stack2]
+       -> crew turn-in          [PASS:21008removed; five magnifiers;job3/17%]
+       -> field + return + save [NEXT:ordinary departure; preserve68,78]
 
 Quest check:
   Finite startup repair        [PASS: listener seen in 3 checks]

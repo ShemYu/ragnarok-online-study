@@ -63,12 +63,14 @@ computer control remains unavailable; use the supported Orca browser page
 recorded privately. [Ordinary captain progression now qualifies](reviews/2026-10-24-normal-map-prerequisites.md#ordinary-captain-quest-advances-through-orca):
 the same character walks to int_land70,103, completes visible21001 dialogue and
 starts21008, reaching level2/job2/5.8% with the Chinese two-lumber tracker. Root
-views TALK/name feedback and checks the actual quest messages. Next ordinary
-combat/loot and crew turn-in before travel; no early departure. Some
-English dialogue/Unknown Item tooltip remain; new progress has not been relogged.
-Root now sees the worn dagger/cotton shirt and verifies existing keyboard
-controls without changing settings. A normal KeyS hold reaches72,96. Next
-ordinary combat/loot and crew turn-in; no new gameplay coverage percentage.
+views TALK/name feedback and checks the actual quest messages. Root sees worn
+dagger/cotton shirt and verifies existing keyboard controls without settings
+changes. [Ordinary combat/lumber/crew turn-in now pass](reviews/2026-10-24-normal-map-prerequisites.md#ordinary-combat-lumber-and-crew-turn-in-pass):
+two natural fights earn two item6008; inventory shows2, the Sailor grants five
+item611 and DEL_QUEST21008 is received. The same character reaches base2/job3/
+17%EXP at68,78, fullHP/SP and closed dialogue. Next ordinary departure/field/
+return/save; new progress is not yet relogged/backed up. English/Unknown Item
+tooltip remains deferred; no new gameplay coverage percentage.
 The compiled run still proves no ordinary travel/story/save or82gap closure.
 
 [Primary source defines the first story transition](reviews/2026-10-24-remaining-map-bodies.md#primary-donor-source-defines-the-first-chapter1-progression-edge)
@@ -136,22 +138,23 @@ Asset availability is complete for this set; Mu travel remains unverified.
 Retire the former25% estimate; use separate checks in the linked review.
 
 Root verifies three current source bodies for **int_land → Izlude →
-prt_fild08 → Izlude**. Next inspect quest21008/inventory through the ordinary
-UI, preserving the tutorial opportunity, before normal travel/field/return.
-Do not choose early departure, warp or grant progression to speed verification.
-No gameplay ran in this checkpoint. Hold the failed F1 quest path; no new
+prt_fild08 → Izlude**. Root now completes ordinary quest21008: two lumber,
+Sailor turn-in, five magnifiers and job3/17%EXP. Next ordinary departure,
+field encounter/return and save/re-entry; preserve the earned character.
+Do not warp or grant progression to speed verification. Hold the failed F1 quest path; no new
 quest actor/repair, Mu install or synthetic retry. Full goal stays unchanged.
 
 **Current UI route:** [User-requested Orca browser re-entry passes](reviews/2026-10-24-orca-browser-resume.md).
 Native computer inventory still fails with `Sky Computer Use native pipe startup
 failed`; it is not a global UI blocker now. Use the privately recorded Orca page,
-not a duplicate game session. Preserve90,111 and the21001tracker; inspect before
-movement/quest choices. No network cut or original Chrome operation is required.
+not a duplicate game session. Latest verified state is int_land68,78/base2/job3/
+17%EXP after21008turn-in; inspect before movement/quest choices. No network cut
+or original Chrome operation is required.
 
 **Independent work:** the admitted asset pass is complete. Do not repeat it,
 build another decoder/server or reopen completed rendering. Continue useful
-full-content inventory while UI is unavailable. Normal field travel waits for
-current quest/inventory observation. No gameplay PASS follows from asset bytes.
+full-content asset work while ordinary travel proceeds through Orca. No gameplay
+PASS follows from asset bytes.
 
 Root freezes [the full839 map/monster reference extension](tasks/T06.002.003.005.003.md):
 reuse the completed35,735-event publication and six existing map/history files,
@@ -169,7 +172,8 @@ expose Grok's incomplete per-source binding; actual fixed pins remain protective
 Both workers are preserved/released; zero active/reclaimable in the fresh fleet.
 Next prioritize existing resource/content gaps using these qualified references;
 no producer rerun or synthetic scene. No new parent completion follows.
-UI-dependent travel stays blocked; independent inventory work continues.
+Ordinary travel now uses the restored Orca route above; independent asset work
+continues.
 
 [Remaining map-body recovery now qualifies](reviews/2026-10-24-remaining-map-bodies.md).
 The26exact RSW candidates split into5previously qualified,17new patch9298
