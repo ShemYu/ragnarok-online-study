@@ -2930,3 +2930,84 @@ Read-only advisory flags a TGA stored-body readback branch gap for Root to
 personally reproduce. No candidate selection, correction or actual call admitted.
 Fresh fleet319released/ten older retained/zero active/zero reclaimable. Overall
 parent4/14/about29%, all82functional gaps and full-game goal remain unchanged.
+
+
+## Nested delivery originals pass Root comparison with one Grok hold
+
+Root personally reads both full reports/test suites and complete final-source
+diffs against the protected qualified direct donor. Both retain42unchanged
+function/class definitions. Claude changes only load_domain/preflight/
+signature_state/fetch/execute, no definitions added/removed. Grok changes
+wire_from_raw/load_domain/signature_state/fetch, adds its finite profile-batch
+checker and inlines override_relative. Whole final-source diffs, AST joins and
+all top-level schema/domain/budget changes are checked; protected direct source/
+tests remain unchanged. Claude private derivative.diff is stale only by an
+equivalent copy_groups helper removal/inlining; Root generates a fresh365line
+actual-file diff. This is a handoff defect, not a hidden production change.
+
+Root independently reruns all25Claude and39Grok authored tests/zero skips:
+natural0,1.281640s and1.803008s respectively. All temporary test trees are
+removed under explicitly private TMPDIR; complete captures/pins retained.
+The protected donor36tests already pass separately. Author steady fake-stream
+coverage is not proof of real multi-MiB network fragmentation.
+
+Root's own equal controls use actual stdlib HTTPResponse over independently
+authored finite positive-fragment streams, not either author's FakeRaw/SteadyRaw.
+All948complete query/record/mapping/policy joins and full graph identities are
+checked for each provider without opening embedded paths. All15reuse rows,
+933new indices and disjoint10/923batches remain exact. Fourteen independent
+transport cases per provider cover >1MiB BMP, largest4194348B TGA, fragmented/
+chunked/EOF success, stored-body corruption, short/encoded/conflicting/over-cap
+responses, cumulative boundary including consumed pilot, close failure and
+bytes returned at the deadline.11117Root checks pass in0.470571s, including
+expected reproduction of the candidate defect. No listening socket, native
+image, actual asset request or environment binding is used. All owned authored
+channel resources close; original sources and full profile stay exact.
+
+The mandatory Grok defect is personally reproduced: its successful
+not_checked_tga branch bypasses sibling stored_body EOF/length/SHA readback.
+Root changes one stored byte without changing4194348B length after channel
+close. Grok still reports classification=new_observed/hash_scope=complete with
+no error and zero readback calls, although stored SHA differs from observed
+SHA. Claude calls full stored_body readback and returns stored_body_mismatch/
+classification=failed/prefix evidence. Both reject the same BMP corruption.
+All25new TGA rows would use the defective Grok branch. Read-only advisory finds
+the same path, but Root's own execution is the deciding evidence. TGA's lack of
+a magic check never waives full storage verification. Grok original is held.
+
+| Source-only original | Correctness /8 | Preservation /4 | Checks /4 | Handoff /2 | Limits /2 | Total |
+|---|---:|---:|---:|---:|---:|---:|
+| Claude5024e19 |8|4|4|1|2|19/20|
+| Grok55bac48 |5|4|4|2|2|17/20; held|
+
+Select Claude unchanged; no source correction is required. Scores describe
+these finite delivered sources, not general provider ability. Claude's stale
+private patch costs one handoff point. Grok's additional profile validation/
+provenance and39controls are credited, but cannot overcome a mandatory readback
+hold. Actual models/effort/cost/tokens and active provider work time remain not
+observed; configured provider harness names are not model-version evidence.
+
+Private receipts:
+
+| Prefix / file | Bytes | SHA256 |
+|---|---:|---|
+| claude-root-review-1/AUTHOR_TESTS_ROOT.json |2889|eeae61fb37fbf8f18ea62648098d4f7d21b2c4ba1ee4f4cb8689675009868713|
+| claude-root-review-1/FINAL_SOURCE_DIFF_ROOT.diff |22490|d3410757974d9568af597f63bfe87a7bfc895de8c4373bbfa7f332dd767e6f71|
+| grok-root-review-1/AUTHOR_TESTS_ROOT.json |4357|2bd51ecaae1604bbed426d53da89d48b2e8fd942df3e92d9b7eaf864b699103b|
+| grok-root-review-1/FINAL_SOURCE_DIFF_ROOT.diff |23855|1903bf8254529696e662872d38cdf40f78042bf6b9524fda842c1cdd27d1c6b9|
+| common-root-1/ROOT_CONTROLS.py |12500|71798aad192364f0c3201631ed30b10a9d672c041bc450fcfcb93944d8d46935|
+| common-root-1/ROOT_CONTROLS.json |15333|166a8d997dafc3a32a09d5934ba9eb7328493c40e9b8629a229f47804fd60829|
+
+Prefixes above are under private .tools/renewal/t07-014-017-. Root copies the
+selected three source/test/report paths byte-identically into the task branch;
+source52970B/eb244173c2b02c584b60626e834fdbc75f092611cc65d90a39ae4ef60f67b50a.
+Fresh integrated actual CLI checks default/no-argument unbound and --admit
+refusal both exit2/empty stderr with no runtime admission. Private
+integration-root-1/INTEGRATION_ROOT.json is1744B/
+bbea7d2664a894af91311789269e570e0857c341914534749153691559ccda55.
+
+Next Root prepares the existing preservation caller for the exact2155wire union,
+full current bindings/budgets and its finite controls. No actual .017GET is
+admitted and parent readiness remains open. Both original worker terminals are
+already released; rollback refs/bundles/full packets survive. No critical
+goal-changing blocker or user decision.

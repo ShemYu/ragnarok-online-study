@@ -74,8 +74,11 @@ facts checked; own page/server closed, original game page preserved. .016is
 ready_for_user only for authored controls, no real game-image/render claim.
 Both original scores stay12/20vs10/20; rework19/20 is separate.
 [Both .017originals are preserved/released](reviews/2026-10-24-direct-dependencies.md#both-nested-delivery-originals-are-preserved-and-released):
-Claude5024e19 (Root25tests pass) and Grok55bac48; Root full final-source/own
-controls and comparison remain before any actual nested body. Root's independent
+Claude5024e19 and Grok55bac48. [Root full-source/25vs39tests/11117equal checks
+select Claude19/20; Grok17/20 is held for TGA stored-body readback](reviews/2026-10-24-direct-dependencies.md#nested-delivery-originals-pass-root-comparison-with-one-grok-hold).
+Selected source is copied unchanged; integrated CLI unbound/admission-switch
+refusals pass. Next prepare Root's2155wire preservation caller/bindings before
+any actual nested body. Root's independent
 oracle source/current65metadata file checks pass; [finite multi-map audit projection
 passes Root's positive/eight negative controls](reviews/2026-10-24-direct-dependencies.md#finite-launch-audit-derivatives-and-multi-map-controls-qualify).
 [Concrete bindings for ONE independent oracle are verified/admitted](reviews/2026-10-24-direct-dependencies.md#one-actual-nested-oracle-is-admitted).
@@ -94,8 +97,9 @@ BMP/TGA delivery-only policy are documented. [Equal source implementations launc
 fromd9b8194](reviews/2026-10-24-direct-dependencies.md#equal-nested-delivery-implementations-start):
 Both Claude task_8cab3a219812/ctx_93998892668c and Grok
 task_3695d6723248/ctx_dd8e5f76545d are now preserved/released. Two reused
-checkouts/separate branches, no new child/setup. Root source/own-control comparison
-is next; no idle terminal kept for review. .016authored browser controls pass.
+checkouts/separate branches, no new child/setup. Root comparison selects unchanged
+Claude19/20 versus Grok17/20 held; no idle terminal kept for review. The exact
+2155wire Root caller/fresh binding follows. .016authored browser controls pass.
 No actual request is admitted.
 Private-only proposal ownership
 in this checkout. Root owns tracked docs; authors may not mutate Git/source or
