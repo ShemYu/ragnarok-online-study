@@ -175,6 +175,11 @@ Fresh computer inventory still has no surfaces/native-pipe startup failure.
 Story research/starter are already done; next useful source delta is the first
 consequential18368-to-village/18369 transition, not another entry inventory.
 
+[Claude passes all39common checks and one guarded actual observation is admitted](reviews/2026-10-24-remaining-map-bodies.md#claude-common-fixture-passes-and-one-actual-observation-is-admitted).
+Next execute unchanged source against all63catalogs and compare the complete
+typed result to Root's frozen oracle, preserving all inputs. Grok source remains
+active and separately gated. No provider selection or gameplay credit yet.
+
 ### Historical preparation — follow the next action above
 
 The following retains earlier decisions. Former next-action instructions

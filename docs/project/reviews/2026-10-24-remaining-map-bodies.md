@@ -692,3 +692,27 @@ repeat completed work. The useful next source delta is exactly what completes
 18368, transports to the first village interaction and starts18369, with each
 unsupported consequential field explicit. No new task, actor or goal change
 is introduced by this planning clarification.
+
+## Claude common fixture passes and one actual observation is admitted
+
+The corrected common checker returns0 with all39checks passing across all
+seven cases. Root reads every check/call: full typed fixture equality, exact
+collision preservation, all five natural nonzero CLI refusals without fresh
+output, complete EOF captures and full source/frozen-input identity/hash
+postchecks. No forced cleanup occurs. Private claude-common-root-1/
+RESULT_ROOT.json33919B/SHA256
+494e76e7d74fd3b4cb566bab123f3a30dccc792a6515e1373a7c6dddbac67b9d
+retains the complete evidence, not a sampled fixture comparison.
+
+Claude's fixed source/fixture stage now qualifies. This checkpoint admits ONE
+actual observation of its unchanged28874B/532bddf4 method from the preserved
+normal-layout repository, with exact `actual INPUT_ROOT FRESH_OUTPUT` arguments.
+Reuse the unchanged Root005 external guard with expect_native false,130s/2GiB
+sampled RSS/4KiB captures and fresh private output/guard directories. Require
+natural0/no signals/no residual group, exact private result-only publication,
+full typed equality to the independently frozen0da7775f oracle and complete
+Root pre/post hash/identity checks of all66authorities/catalog streams plus
+candidate/public/oracle/guard/checker evidence. Retain failure without retry.
+
+This is independent of Grok's still-active source attempt; it neither selects
+a winner nor admits Grok's actual execution. No body/native/game/save action.
