@@ -1,91 +1,135 @@
-# Chapter 1 starter branch mod (T10.007)
+# Chapter 1 starter branch and first story edge (T10.007, T10.009)
 
 `chapter1_entry/ro-solo-ch1-entry/` is a small rAthena mod for the retained
-Ragnarok Offline v1.6.3 mod layout. One NPC on `prt_fild05` lets a BaseLevel
-200+ character register, cancel or resume quest **18368** 「天地樹的召喚(1)」.
-It adds QUEST_DB definitions for 18368, 18369 and 18370 so the server knows the
-IDs the client quest log already describes. It is one functional step toward
-the full Modern/Renewal game, not Chapter 1: no route to the village, no
-18368 → 18369 → 18370 transition, no rewards.
+Ragnarok Offline v1.6.3 mod layout. A BaseLevel 200+ character registers
+quest **18368** 「天地樹的召喚(1)」 at a branch on `prt_fild05`, travels to
+`ygg_edge`, and a Messenger there completes 18368 and starts **18369**
+「天地樹的召喚(2)」. Two ordinary warps link `ygg_edge` and `ygg_fruit`, and a
+gate returns to `prt_fild05`. QUEST_DB definitions for 18368, 18369 and 18370
+let the server know the IDs the client quest log already describes.
+
+This is the first story edge, one functional step toward the full
+Modern/Renewal game. It is not Chapter 1: no 18369 → 18370 transition, no
+`ygg_fruit` arrival event or next-room NPCs, no rewards.
 
 ```
 ro-solo-ch1-entry/
-├── mod.json           name = folder, requires app >=1.6.3, era renewal
-├── npc/entry.txt      the NPC; assembled as npc/mods/ro-solo-ch1-entry/entry.txt
-└── db/quest_db.yml    QUEST_DB v3, three Id/Title rows; assembled into db/import/quest_db.yml
+├── mod.json             name = folder, requires app >=1.6.3, era renewal
+├── npc/entry.txt        starter branch; assembled as npc/mods/ro-solo-ch1-entry/entry.txt
+├── npc/first_edge.txt   Messenger + three connections; npc/mods/ro-solo-ch1-entry/first_edge.txt
+└── db/quest_db.yml      QUEST_DB v3, three Id/Title rows (unchanged since T10.007)
 ```
 
-All three files are UTF-8 without BOM, LF line ends. No regional client is
-required: the dialogue is plain UTF-8 Traditional Chinese, as in the existing
+All files are UTF-8 without BOM, LF line ends. No regional client is
+required: dialogue is plain UTF-8 Traditional Chinese, as in the existing
 `tw-carocc-pilot` mod, and the quest log text comes from the client's own
-18368 row by ID.
+rows by ID. The app assembler emits one `npc:` line per `.txt` under the mod's
+`npc/` folder, so `first_edge.txt` is a second script file, not a duplicate.
 
-## The NPC
-
-`梧桐枝#ROSOLO_CH1`, sprite `4_CH1_BRANCH`, at `prt_fild05,353,252` facing 4:
-the client log target of 18368 and the A01 entry guide. Whether that cell is
-walkable and reachable for an ordinary player is a Root check, not proved here.
-The `ROSOLO_CH1` identity was absent from the retained 1,185-file NPC corpus
-(literal search; not live memory). The 20-byte UTF-8 full name fits rAthena's
-24-byte `NAME_LENGTH`.
+## Quest state
 
 State is read only with default `checkquest` (HAVEQUEST). On the pinned
 rAthena 0693b8c `quest_check` returns -1 absent, **1 for active and for
-inactive**, 2 complete. `doc/script_commands.txt` says inactive is 0; the
-script follows the code and compares only against -1, 1 and 2. Any other
-value is unknown.
+inactive**, 2 complete. `doc/script_commands.txt` says inactive is 0; both
+scripts follow the code and compare only against -1, 1 and 2. Any other value
+is unknown and refused. Tuples below are (18368, 18369, 18370).
 
-Evaluate this table from top to bottom; the first matching row applies.
+Durable state is the character's quest log only. No permanent character,
+account (`#`, `##`), global (`$`) or NPC (`.`) variable is declared; `.@`
+scope variables die with the dialog, so "registered in this invocation" is
+not a stored flag. No other quest, item, EXP, zeny or skill is touched;
+18370 is never written.
 
-| 18368 | 18369 | 18370 | Class | What the NPC does |
-| --- | --- | --- | --- | --- |
-| any unknown value in any guarded ID | | | conflict | refuse, server `debugmes`, no write |
-| -1 | -1 | -1 | fresh | Level < 200: refuse, no menu. 200+: continue/cancel menu |
-| 1 (active or inactive) | -1 | -1 | in progress | Show title and objective; no write, any level |
-| 1 | either later ID present | | conflict | refuse, server `debugmes`, no write |
-| any | 1 | present | conflict | refuse, server `debugmes`, no write |
-| 2 | any of -1/1/2 | any of -1/1/2 | preserved | "already answered"; no write |
-| -1 | either later ID present | | preserved | same (a later script may use changequest) |
+## Starter branch `梧桐枝#ROSOLO_CH1`
 
-Continue path: after `select` yields to the client the script re-reads all
-three quests and BaseLevel. Only if the character is still fresh and 200+ does
-it run `setquest 18368` — the only write in the file, reached once per
-interaction. `setquest` returns script success even when `quest_add` fails (DB
-row missing, already present), so the script reads 18368 back: 1 with both
-later IDs absent is success; -1 is a reported failure ("任務沒有被記錄",
-`ROSOLO_CH1: setquest 18368 was not recorded` in the map-server log) and a
-later visit retries cleanly; anything else is the conflict diagnostic.
+Sprite `4_CH1_BRANCH`, `prt_fild05,353,252` facing 4. First matching row:
 
-Cancel, closing the dialog, refusal and every non-fresh class write nothing.
-Repeating any action is idempotent: a registered character always lands in
-"in progress". The script uses no `completequest`, `erasequest`, `changequest`,
-warp, item, EXP or zeny command and never reads or writes 18371, 24069 or any
-other quest.
+| Tuple | Class | What the NPC does |
+| --- | --- | --- |
+| any unknown value | conflict | refuse, `debugmes`, no write |
+| (-1,-1,-1) | fresh | < 200: refuse, no menu. 200+: continue/cancel menu |
+| (1,-1,-1) | in progress | title and objective, any level; 200+: travel menu → 212,95 |
+| 1 with a later ID present | conflict | refuse, `debugmes`, no write (incl. active/active) |
+| (any,1,present) | conflict | refuse, `debugmes`, no write |
+| (2,1,-1) | edge done | 18369 in progress; 200+: travel menu → 212,95 |
+| (2,-1,-1) | interrupted | hold, `debugmes`, no write, no travel, no repair |
+| other recognised | preserved | "already answered"; no write, no travel |
 
-Durable state is the character's quest log only. The script declares no
-permanent character, account (`#`, `##`), global (`$`) or NPC (`.`) variable;
-`.@` scope variables die with the dialog. With one record per character there
-is no multi-write to tear and nothing to recover beyond the quest row itself.
-The referenced schema keys quest rows by `char_id`; actual two-character
-isolation is still an integration check below.
+Fresh path: after the registration `select` yields, the script re-reads all
+three IDs and BaseLevel. Only if still fresh and 200+ does it run
+`setquest 18368`. If another interaction registered 18368 meanwhile, it takes
+the in-progress row (repeat destination), not the new-registration one.
+`setquest` returns success even when `quest_add` fails, so all three IDs are
+read back once: (1,-1,-1) is success; exactly (-1,-1,-1) is a reported,
+retryable registration failure. Any other tuple gets a post-write hold that
+says no further changes, without claiming the log is unchanged. Cancel
+before registration writes nothing.
 
-`OnInit` adds a yellow quest bubble while the character is 200+ and all three
-IDs are absent; `setquest` refreshes bubbles. It writes nothing.
+After a verified registration in this invocation the travel menu offers
+「前往天地樹」/「稍後再去」. Deferring keeps 18368; it is not cancellation.
+Travelling now goes to `ygg_edge,255,240`. Any later visit uses the repeat
+destination `ygg_edge,212,95`. There is no Payon branch and no 194,97 route.
 
-Text: the NPC uses only short original wording, the 18368 title and its
-objective 「前往梧桐村」 (bytes match the audited client row). The long client
-description, 18369/18370 objectives and village dialogue are not copied. The
-menu shows 「回應呼喚」/「先離開」, no IDs or jargon.
+Every travel path re-reads the full tuple and BaseLevel after the travel
+`select`, then again after `close2` (which waits for the button and lets the
+script continue). The tuple class must still equal the one that offered
+travel and the level must still be 200+; otherwise no warp (a `dispbottom`
+line after `close2`). `warp` is the ordinary script command for the attached
+player, immediately followed by `end`. A `warp` call is not proof of arrival.
 
-## QUEST_DB rows
+`OnInit` adds a yellow bubble while 200+ and all three IDs are absent.
 
-`Header: Type QUEST_DB, Version 3`, then `Body:` with exactly 18368, 18369 and
-18370, each `Id` and audited `Title` only. No `Clear`, no `Footer`, no
-targets, time limit or rewards. The file name must be `db/quest_db.yml`: the
-app copies a mod's `db/` over the seeded `db/import` stubs and, when a second
-mod ships the same table, merges bodies (`merge_tables`, which carries a
-`Clear: true` across, so the merged table must be checked). 18369/18370 are
-defined only so a later owner can use them; no script here reaches them.
+## Messenger `信使#ROSOLO_CH1_MSG`
+
+Sprite `4_CH1_DELEGACY02`, `ygg_edge,253,246` facing 4. No level gate is
+added; only the exact tuple (1,-1,-1), including inactive 18368, starts the
+edge. After the one `next`:
+
+1. read all three; require (1,-1,-1), else "changed", no write;
+2. `completequest 18368` once; read all three; (1,-1,-1) → reported failure,
+   18369 not set, later retry is clean; anything except (2,-1,-1) → hold;
+3. `setquest 18369` once; read all three; (2,-1,-1) → interrupted partial,
+   reported and held; anything except (2,1,-1) → hold; (2,1,-1) → success
+   text and a direction toward the fruit (`ygg_fruit,80,122` objective).
+
+No yield, helper, timer or warp sits between step 1's read and step 3's
+read. No `changequest`, `erasequest`, reset, compensation or rollback; 18369
+is never added first. Revisits: (2,1,-1) is a read-only "in progress" reply;
+(2,-1,-1) is refused for every automatic write, at the Messenger and the
+starter, and is not taken as proof this component completed it. Active/active,
+later 18370 and unknown values are preserved and logged. No `navigateto` is
+used: its availability depends on the server's `PACKETVER`, which the
+supplied seam does not pin.
+
+This is a checked, non-yielding, fail-closed sequence, **not** a transaction
+or crash-atomic save. Quest changes are saved by separate operations; a
+partial tuple must be reviewed by Root, never overwritten or replaced by an
+older save.
+
+## Connections
+
+Unconditional, as the reference declarations are; none reads or writes a quest:
+
+| Identity | From | Trigger | To |
+| --- | --- | --- | --- |
+| `ROSOLO_CH1_EDGE_IN` warp | `ygg_edge,164,140` | 1,1 | `ygg_fruit,73,117` |
+| `ROSOLO_CH1_FRUIT_OUT` warp | `ygg_fruit,71,114` | 1,1 | `ygg_edge,168,139` |
+| `回程#ROSOLO_CH1_RET` `GATE_SKYBLUE` OnTouch | `ygg_edge,216,91` | 1,1 | `prt_fild05,353,248` |
+
+Walking past the Messenger is allowed; arrival never completes or sets a
+quest. The `ygg_fruit,73,117` fallback touch event, its `cloaknpc` helpers
+and the Maysel/Est/Debris graph are intentionally omitted: they belong to a
+later next-room task. The nine-cell client GAT metadata covers the landing,
+repeat, Messenger and first-room cells only; `216,91` and
+`prt_fild05,353,248` are new unqualified cells.
+
+## Text and rights
+
+Short original Traditional Chinese wording only, plus the audited 18368/18369
+titles and the 18368 objective 「前往梧桐村」. The donor script is an inert
+semantics reference whose README forbids redistribution: no donor prose,
+script bodies, helpers, cutins or assets are copied. No publication right is
+inferred.
 
 ## Checks run in the task worktree (source only)
 
@@ -93,89 +137,66 @@ defined only so a later owner can use them; no script here reaches them.
 python3 -I -B tools/renewal/test_chapter1_entry.py
 ```
 
-21 standard-library tests, under a second. Static: exact package files,
-mod.json fields, UTF-8/LF/no BOM, NPC header and name length, brace balance,
-QUEST_DB shape and title hashes, short-text reuse and no copied prose, plain
-menu, forbidden command/word checks, guarded IDs only, `.@`-only variables, explicit
-`checkquest` comparisons, recheck between menu and `setquest`, read-back.
-Modeled: an authored interpreter for the script subset the real `entry.txt`
-uses runs the actual file against a modeled quest log (pinned `quest_check`
-and `quest_add` behaviour): 199/200/201, cancel/retry, state changes during
-the menu, failed `setquest`, active/inactive resume, every combination of
-absent/inactive/active/complete/unknown for the three IDs at three levels and
-both choices, two characters. The model is not the rAthena parser and proves
-nothing about persistence, the client or real play.
+Standard library only, under two seconds. Static: package files, mod.json,
+UTF-8/LF, declaration lines/coordinates/triggers, unique `ROSOLO_CH1` names
+under 24 bytes, unchanged DB bytes and title hashes, short text, no Latin text
+or donor words, owned writes only, warps only to the three destinations,
+`.@`-only variables, explicit `checkquest` comparisons, recheck before
+`setquest`, recheck after `close2` before each `warp` + `end`, three
+readbacks after each Messenger step and no yield inside that window.
+Modeled: an authored interpreter runs the real script bodies against a
+modeled quest log with no-op and interference hooks (levels 199/200/201,
+cancel, defer, first/repeat destination, every yield, all 216 stored
+combinations incl. inactive and unknown 0/7, both write no-ops, interference
+after each write, return gate for every tuple, unrelated sentinels).
+Mutation controls show the checks fail if a readback or a full-tuple check is
+removed. Executed unmodeled commands fail the test; debugmes is checked
+against the supported literal/checkquest/scope-variable concatenation form.
+OnInit is not executed: a static check accepts only one questinfo statement
+and end, rejects extra commands or missing terminators, and leaves the quoted
+bubble condition's native meaning to the parser gate. The model is not the
+rAthena parser and proves nothing about persistence, cells, arrival or the client.
 
 ## Root verification recipe (all UNRUN by the worker)
 
-Use a disposable server, never the installed app's database. Keep a tested
-external-state backup of the target characters' `quest` and `char_reg_num`
-rows and the app state `mods/`, `enabled.txt`, `disabled.txt` before any
-installed step.
+Use disposable state, never the installed app's database, with a tested
+external backup of target `quest`/`char_reg_num` rows and the app's `mods/`,
+`enabled.txt`, `disabled.txt`.
 
-1. **Assembly.** Copy `ro-solo-ch1-entry/` into the disposable state `mods/`.
-   After assembly expect `npc: npc/mods/ro-solo-ch1-entry/entry.txt` in the
-   generated map conf import and the three rows in the assembled
-   `db/import/quest_db.yml`, with every other mod's rows kept and no inherited
-   `Clear: true`. The app must not report the mod as refused.
-2. **Isolated parser and definitions.** `map-server --run-once` initializes
-   SQL and NPC OnInit; it is not a pure syntax check. Use a newly owned SQL
-   container/data volume and one-shot map container on a fresh private network,
-   no published ports or live DB mounts. Pin same-image SQL/config/import
-   inputs. Replace the Renewal NPC selector with an owned selector: map config
-   `npc: clear` alone is followed by the stock `npc/re/scripts_main.conf` load.
-   Preserve required nonquest import stubs if mounting a whole import directory.
-   Confirm no causal error/warning and positively prove the owned NPC loaded,
-   e.g. an isolated audit OnInit resolves its exact name with `getnpcid`.
-   Independently establish all three quest definitions. Registration of18368
-   or `checkquest` for absent later IDs cannot prove18369/18370 definitions.
-   A source-qualified per-file accepted count of3 over exactly the three unique
-   pinned nodes, with no later import/override, is insertion inference; retain
-   that distinction. On disposable attached characters later, register each
-   ID through an audit-only fixture and verify per-ID success/readback and SQL
-   rows. Such fixture grants are not earned story progression.
-   Use separate fresh negative fixtures: remove the exact semicolon from
-   `setquest 18368;` and require a causal parser diagnostic for that file; use
-   a noninteger quest Id and require a causal YAML/DB refusal. Do not assume a
-   particular diagnostic prefix or count log silence/exit0 as a pass. Also
-   remove18368 from a separate DB fixture before the failed-registration case:
-   Continue must report failure, with the native quest-add diagnostic and
-   `ROSOLO_CH1` log line, leaving no saved quest row. No real parser case has
-   been run for this component yet.
-3. **Interaction**, fresh disposable characters, levels set with GM commands:
-   199 refuses with no menu; 200 and 201 show the menu; cancel leaves no row;
-   continue adds one 18368 row (`SELECT char_id, quest_id, state FROM quest
-   WHERE quest_id IN (18368,18369,18370)`) and the client log shows the TC
-   title/description/objective; talking again resumes; toggle 18368 inactive
-   in the quest window and talk — still resume, state stays inactive.
-4. **Guards.** With the character offline, insert 18368 complete, then
-   separately 18369/18370 rows, into the disposable DB: the NPC must leave
-   every row byte-identical. Plant 18368 active + 18369 to see the conflict
-   text and `debugmes`. Confirm `char_reg_num` has no `rosolo_ch1%` key.
-5. **Persistence.** Relog and restart the map and char servers; rows and
-   resume behaviour persist. A second character on the same account is still
-   fresh.
-6. **Ordinary play.** Reach the NPC without GM warp. Reaching it by GM command
-   is a fixture, not earned play. The village, transitions and rewards stay
-   open work.
+1. **Assembly.** Current import/owner checks; both `npc:` lines generated;
+   no duplicate route or NPC at the five declared cells; the three unchanged
+   DB rows merged without an inherited `Clear: true`; mod not refused.
+2. **Parser.** Exact parser load of both changed files plus focused malformed
+   controls (e.g. drop the `;` from `completequest 18368;` in a copy) with a
+   causal diagnostic, reusing the qualified T10.007 isolated lifecycle; prove
+   both NPCs and both warps loaded. No unchanged full cold/backup replay.
+3. **Cells and routes.** Effective map/collision for `ygg_edge`/`ygg_fruit`;
+   server adjacency and actual first (255,240) and repeat (212,95) arrivals;
+   both warps both ways; new cells `216,91` and `prt_fild05,353,248`.
+4. **Client.** Chinese quest log for 18368/18369, visible scene, Messenger
+   and gate sprites/textures.
+5. **Ordinary play.** A legitimately eligible level 200+ character: cancel,
+   defer, first travel, Messenger edge, repeat travel and return. Do not
+   bypass eligibility with level/quest edits or fixture substitution; the
+   current low-level character's missing eligibility is a later gate, not a
+   source defect or authorization to grant it.
+6. **Persistence.** Normal earned-state save/logout/re-entry; tuple (2,1,-1)
+   durable; unrelated quests, items, EXP, zeny and skills unchanged.
 
 ## Install and rollback
 
-This component is not installed or ready for user evaluation. After the gates
-above pass, the supported installation is the enabled folder in the app's user
-`mods/`, followed by the normal rebuild/restart; folder name is its identity.
+Not installed or ready for user evaluation. After the gates pass, install as
+the enabled folder in the app's user `mods/`, then the normal rebuild/restart.
 
-Source rollback uses `git revert` on the integration commit. It does not restore
-or safely migrate installed definitions, saves, settings or merged imports.
-Do not automatically deploy that revert to an app that has earned these quests.
+`git revert` rolls back source only; it does not restore installed
+definitions, saves, settings or merged imports, and must not be deployed
+automatically over earned progress.
 
-For an installed operational rollback, first verify an NPC-withdrawal revision
-on isolated state: keep the mod enabled with the same compatible DB definitions
-and metadata, withdraw only its NPC source/directive, rebuild and restart.
-Require positive NPC absence, retained definitions and unchanged earned quest
-records/unrelated progress. Keep that separately verified retention revision
-available before installation. Disabling/removing the entire mod would remove
-its definitions and is not this progress-preserving procedure. Do not delete
-quest rows or restore an older character snapshot merely to undo this NPC.
-Undefined-ID behavior and any future definition migration require their own
-tested recovery plan. Actual operational rollback is still UNRUN.
+Operational rollback keeps the mod enabled with the same DB definitions,
+earned quest records and the usable exit connections from both destinations
+(the two warps and the return gate). Withdraw the starter and Messenger NPCs
+separately (remove their declarations; keep `first_edge.txt`'s connection
+lines), rebuild and restart. Removing every NPC/portal can strand a character
+on `ygg_edge` or `ygg_fruit`. Do not delete quest rows or restore an older
+save. Root verifies an actual retention/withdrawal revision on isolated state
+before installation; actual operational rollback is UNRUN.

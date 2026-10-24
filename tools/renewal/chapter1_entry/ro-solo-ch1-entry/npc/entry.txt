@@ -1,20 +1,24 @@
-//===== ro-solo-ch1-entry 0.1.0 (T10.007) ======================================
-//= Chapter 1 starter branch: registers, cancels or resumes quest 18368 only.
+//===== ro-solo-ch1-entry 0.2.0 (T10.007, T10.009) =============================
+//= Chapter 1 starter branch: registers, cancels or resumes quest 18368 and
+//=   offers ordinary transport to ygg_edge for BaseLevel 200+.
 //= Encoding: UTF-8 (Traditional Chinese dialogue).
 //= Durable state is the character's quest log alone. This script defines no
 //=   permanent character, account, global or NPC variable; .@ scope only.
 //= Quest state uses default checkquest (HAVEQUEST) as implemented in rAthena
 //=   0693b8c quest_check: -1 absent, 1 active OR inactive (Q_INACTIVE is
 //=   reported as 1), 2 complete. Any other value is treated as unknown.
-//= Out of scope: 18368 -> 18369 -> 18370 transitions, completequest,
-//=   erasequest, changequest, warps, transport and rewards. 18369/18370 are
-//=   only read, never written.
+//= Transport: a registration verified in THIS invocation may travel to
+//=   ygg_edge 255,240. Existing (1,-1,-1) and edge-done (2,1,-1) travel to
+//=   ygg_edge 212,95. Every other tuple stays where it is. 18369/18370 are
+//=   only read here; the Messenger in first_edge.txt owns 18368 -> 18369.
 //==============================================================================
 
 prt_fild05,353,252,4	script	梧桐枝#ROSOLO_CH1	4_CH1_BRANCH,{
 	.@state = callsub(L_State);
 	if (.@state == 1) goto L_Resume;
 	if (.@state == 2) goto L_Done;
+	if (.@state == 4) goto L_EdgeDone;
+	if (.@state == 5) goto L_Interrupted;
 	if (.@state != 0) goto L_Conflict;
 	if (BaseLevel < 200) goto L_TooLow;
 
@@ -30,30 +34,45 @@ prt_fild05,353,252,4	script	梧桐枝#ROSOLO_CH1	4_CH1_BRANCH,{
 	}
 
 	// The menu yielded to the client: recheck level and every quest before writing.
+	// Progress recorded meanwhile by another interaction takes its own path.
 	.@state = callsub(L_State);
 	if (.@state == 1) goto L_Resume;
 	if (.@state == 2) goto L_Done;
+	if (.@state == 4) goto L_EdgeDone;
+	if (.@state == 5) goto L_Interrupted;
 	if (.@state != 0) goto L_Conflict;
 	if (BaseLevel < 200) goto L_TooLow;
 
 	setquest 18368;
 	// setquest reports success even when quest_add fails, so read the log back.
 	.@a = checkquest(18368);
-	if (.@a == 1 && checkquest(18369) == -1 && checkquest(18370) == -1) {
+	.@b = checkquest(18369);
+	.@c = checkquest(18370);
+	if (.@a == 1 && .@b == -1 && .@c == -1) {
 		mes "[梧桐枝]";
 		mes "樹枝的光芒輕輕包圍了你。";
 		mes "任務「天地樹的召喚(1)」已記錄。";
 		mes "目標：前往梧桐村";
-		close;
+		// Registered by this invocation: the first trip lands at 255,240.
+		.@want = 1;
+		.@first = 1;
+		goto L_Offer;
 	}
-	if (.@a == -1) {
-		debugmes "ROSOLO_CH1: setquest 18368 was not recorded; quest log unchanged.";
+	if (.@a == -1 && .@b == -1 && .@c == -1) {
+		debugmes "ROSOLO_CH1: setquest 18368 was not recorded; guarded tuple remains (-1,-1,-1).";
 		mes "[梧桐枝]";
 		mes "呼喚中斷了，任務沒有被記錄。";
-		mes "你的任務清單沒有變更，可以稍後再試一次。";
+		mes "這段任務仍未建立，可稍後再試。";
 		close;
 	}
-	goto L_Conflict;
+	goto L_RegistrationHold;
+
+L_RegistrationHold:
+	debugmes "ROSOLO_CH1: unexpected registration readback 18368=" + .@a + " 18369=" + .@b + " 18370=" + .@c + "; stopped, no further change.";
+	mes "[梧桐枝]";
+	mes "任務紀錄出現無法確認的變化。";
+	mes "已經停止，不會再做其他變更。";
+	close;
 
 L_TooLow:
 	mes "[梧桐枝]";
@@ -67,12 +86,70 @@ L_Resume:
 	mes "任務「天地樹的召喚(1)」仍在進行中。";
 	mes "目標：前往梧桐村";
 	mes "詳細內容可以在任務清單中查看。";
+	if (BaseLevel < 200) goto L_NoTravel;
+	.@want = 1;
+	goto L_Offer;
+
+L_EdgeDone:
+	mes "[梧桐枝]";
+	mes "樹枝記得你走過的路。";
+	mes "任務「天地樹的召喚(2)」仍在進行中。";
+	if (BaseLevel < 200) goto L_NoTravel;
+	.@want = 4;
+	goto L_Offer;
+
+L_NoTravel:
+	mes "（傳送需要基本等級 200 以上）";
 	close;
+
+// Travel menu. .@want is the state code that must still hold after each yield.
+L_Offer:
+	next;
+	if (select("前往天地樹:稍後再去") != 1) {
+		mes "[梧桐枝]";
+		mes "任務紀錄會保留著。";
+		mes "準備好了再來碰觸樹枝。";
+		close;
+	}
+	// select yielded: recheck the full tuple and level before travelling.
+	.@state = callsub(L_State);
+	if (.@state != .@want) goto L_Changed;
+	if (BaseLevel < 200) goto L_Changed;
+	mes "[梧桐枝]";
+	mes "握住樹枝，前往天地樹。";
+	close2;
+	// close2 waited for the button: recheck once more, then warp and stop.
+	.@state = callsub(L_State);
+	if (.@state != .@want) goto L_Stale;
+	if (BaseLevel < 200) goto L_Stale;
+	if (.@first == 1) {
+		warp "ygg_edge",255,240;
+		end;
+	}
+	warp "ygg_edge",212,95;
+	end;
+
+L_Changed:
+	mes "[梧桐枝]";
+	mes "任務紀錄剛剛有了變化。";
+	mes "這次不會傳送，請再碰觸一次。";
+	close;
+
+L_Stale:
+	dispbottom "任務紀錄有了變化，這次不會傳送。";
+	end;
 
 L_Done:
 	mes "[梧桐枝]";
 	mes "樹枝已經安靜下來，";
 	mes "這裡的呼喚已經結束了。";
+	close;
+
+L_Interrupted:
+	debugmes "ROSOLO_CH1: 18368 complete without 18369 (2,-1,-1); holding, no automatic repair.";
+	mes "[梧桐枝]";
+	mes "這段任務紀錄停在中途。";
+	mes "為了保護紀錄，這裡不會自動修復。";
 	close;
 
 L_Conflict:
@@ -83,9 +160,10 @@ L_Conflict:
 	close;
 
 // 0 fresh (all three absent), 1 entry in progress (18368 active or inactive,
-// nothing later), 2 entry finished or a later quest present without conflict,
-// 3 anything else. Later quests may exist without 18368 if a future script
-// moves on with changequest, so absent 18368 plus later progress is legal.
+// nothing later), 4 first edge done (2,1,-1), 5 interrupted edge (2,-1,-1),
+// 2 other later progress without conflict, 3 anything else. Later quests may
+// exist without 18368 if a future script uses changequest, so absent 18368
+// plus later progress is legal and preserved.
 L_State:
 	.@a = checkquest(18368);
 	.@b = checkquest(18369);
@@ -99,6 +177,8 @@ L_State:
 		return 3; // 18368 still open alongside a later quest
 	}
 	if (.@b == 1 && .@c != -1) return 3; // 18369 still open alongside 18370
+	if (.@a == 2 && .@b == 1 && .@c == -1) return 4;
+	if (.@a == 2 && .@b == -1 && .@c == -1) return 5;
 	return 2;
 
 OnInit:

@@ -4,16 +4,21 @@ Updated: 2026-10-25 JST. Coordinator: Codex. Active scope: **execute the documen
 
 ## Current checkpoint
 
-**Main next action:** correct the selected Chapter1 source on a separate Root
-repair branch, then verify exact integration and changed native loading.
+**Main next action:** qualify changed Chapter1 native loading/assembly and the
+finite current-town asset read, then verify eligible interaction/render/save.
+[Root correction b6299ac and exact source integration pass](reviews/2026-10-25-T10.009.md#root-correction-and-exact-source-integration-pass):
+50corrected tests plus seven Root regressions, integrated50tests, all six
+source bytes and30original candidate payload pins match. Registration now
+classifies the full post-write tuple and reports holds accurately; malformed
+debugmes/extra OnInit commands refuse. No new runtime install or game input.
 [Both raw candidates are personally compared and held](reviews/2026-10-25-T10.009.md#both-raw-sources-pass-their-suites-but-need-correction):
 Claude8c2be4a18/20correction basis versus Grokb30534b16/20. Root46/36author
 tests and56common observations pass their stated results; both have false
 registration no-change wording and model-coverage limits, Grok also has
 Messenger post-write wording. No extra unsafe write is reproduced.
 Both complete candidates/rollback bundles are preserved and workers released.
-No new child/setup or runtime installation. Then changed assembly/current
-cells/eligible interaction/rendering/traversal/persistence remain.
+The corrected source is checked on a separate Root branch; native loading,
+current cells/eligible interaction/rendering/traversal/persistence remain.
 [Retained ygg_edge return-trigger216,91 passes Root's finite client GAT check](reviews/2026-10-25-T10.009.md#retained-return-trigger-cell-passes-a-finite-client-check);
 all nine named first-edge/fruit cells are connected in the retained client
 walkable grids. Town destination353,248 and current server/arrival remain unqualified.
