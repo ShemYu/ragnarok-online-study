@@ -364,3 +364,54 @@ After this checkpoint Root performs bounded readonly status/stats/new-socket
 Docker and backing-file/full1118baseline preservation checks. Gate2 remains
 open; normal main/routes are not yet admitted. Existing worlds/earned saves
 and user Chrome/mute/IME/network stay untouched; parent4/14/all82gaps unchanged.
+
+## Actual empty engine and full preservation pass
+
+Root's independent source peer review confirms all seven engine-source
+substitutions/whole inverse and unchanged ownership/budget/failure behavior;
+it performs no runtime action. Root separately executes four independent
+readonly commands in parallel using the selected1585-byte wrapper with five
+ro4 path substitutions and the fresh ENV pin. Whole inverse exact; source
+1585/4ad3b699d132fe15b08ec5df1eedc9cf7559edf75c9f131312bcf9f51b2f335b.
+Its qualified30s/512MiB/grace3/noNative/1MiB guard remains unchanged. All four
+return natural0 in0.159–0.441s with complete outputs/empty stderr, no
+intervention/signals/residue and unchanged current daemon. Fifteen aggregate
+checks pass. Current status is VZ/four CPUs/4096MiB, healthy0.2.7agent/kernel
+6.12.94, three healthy bound listeners and actual fresh internal ports
+127.0.0.1:7465/DNS42065/k8s6465. These are ro4 observations, not copied ro3 ports.
+
+Root's separate full engine/storage audit passes all22checks/1126full pins.
+PID-targeted socket/listener ownership joins the fresh daemon to its control,
+Docker/containerd sockets and actual internal TCP/UDP listeners. Bounded
+new-socket GET responses independently prove containers[], volumes[] and the
+specific ragnarokmac-db404/no-such-volume response; owned API healthz is200/
+{ok:true}. A new Apple Virtualization service has current birth/UID/system
+executable and exactly the three opened path/inode records for new kernel,
+writable rootfs and newly created16GiB logical data disk. The pristine and
+kernel still match complete original hashes/C8; live disks are identified
+through metadata/ownership without hashing actively written content.
+
+All1118 original full hashes/C8, all212 original directory keys/modes and no
+new files outside the engine tree pass. All four original/W/ro3 listener
+owners remain current with exact birth/executable. Profile empty, Renewal
+marker absent, guest fingerprint exact; daemon and VZ retain their owned
+identities. No game/app/account/login, second boot/retry or old-world changes.
+
+Private engine-inspect-source-root-1/CALL_ROOT.py:
+5777/188a7a3bddbd072ea083733af6536f801c74699076affc5b93d43bb90df85a67;
+ROOT_INSPECT_GUARD.json20408/
+a098f8274056d2458d75b859a50ebf3fb15f988c471d382e8456b2e8563e7332.
+Finite full-audit transcription EMPTY_ENGINE_AUDIT_ROOT.py:
+12340/3d0d3dd5d27bb52245b223718d1360b5c3b3deef97f38d84b92786ede869eb5b.
+Private engine-source-root-1/ROOT_EMPTY_ENGINE_AUDIT.json:
+542903/73fe4e49d7464f2da22e7fb97650d306ce71a8d225779d82ce4d6cde382370d6.
+
+One native stats point reports guest149MiB used, balloon2419MiB of4096 and
+host footprint4631MiB. This is an empty-engine point observation, not a full
+game/host peak or resource estimate. Pure full-audit RSS is unmeasured.
+
+Next qualify the existing normal-main launcher's six fresh metadata values
+(including managed asset httpPort33338) and five admission headers from current
+bundle/archives/Chinese/empty engine/owners. The installed main automatically
+queues start_stack; no second start. Gate2 still includes normal-app ownership
+and remains open; served routes/mounts/detection are gate3 before login.

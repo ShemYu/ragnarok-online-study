@@ -8,11 +8,12 @@ Functionality remains first. **4/14 parent checks, about 29%**; this counts
 major checks, not full-content coverage. All 82 functional resource gaps remain
 open. Full Modern/Renewal scope is unchanged; no new user decision is required.
 
-**Latest verified result:** [Fresh engine boot and current ownership pass](reviews/2026-10-24-normal-integration.md#actual-fresh-engine-boot-and-current-ownership-pass).
-One fresh engine starts; Root verifies its current daemon/instance/executable/
-control ownership and all four old listener owners unchanged. The owned
-daemon remains for readonly empty-storage/backing checks. No normal main or
-game has started. The preceding [complete image comparison](reviews/2026-10-24-normal-integration.md#actual-local-image-install-and-complete-byte-comparison-pass) and [configuration audit](reviews/2026-10-24-normal-integration.md#actual-four-file-configuration-and-complete-preservation-pass) pass.
+**Latest verified result:** [Empty engine, actual backings and full preservation pass](reviews/2026-10-24-normal-integration.md#actual-empty-engine-and-full-preservation-pass).
+Four parallel readonly native guards pass; Root's separate22checks/1126full pins
+prove fresh owned sockets/listeners/VZ backing files, empty containers/volumes/
+game DB and complete1118-file preservation. All four old listener owners stay
+exact; profile empty. The new daemon/VM remains for normal-main preparation.
+No normal app or game has started.
 
 **Previous renderer result:** [Fresh Mu3 isolated map-render scene passes](reviews/2026-10-24-T07-mu-data-stage.md#fresh-mu3-synthetic-scene-and-complete-root-audit-pass).
 All 1,285 placements load, all 29 retained Float32 arrays are finite, and all
@@ -34,9 +35,11 @@ One copy and separate full audit pass all1135source files/1114destinations/
 now pass actual execution and complete preservation. Local image installation
 and complete gzip/file readback also pass. Profile is empty; engine has its
 config plus three qualified images and one positively owned running engine.
-Next bounded readonly status/stats/new-socket Docker/volume observations and
-actual VZ backing/full1118baseline preservation before normal main/routes/
-ordinary login/travel/save. No normal app/browser/game actor has run in ro4;
+Empty storage/backings/full1118baseline preservation now pass. Next refresh
+the existing normal-main launcher/admission using current bundle/archives/
+Chinese/engine/owners, then one supported startup and live routes/mounts/
+detection before ordinary login/travel/save. No normal app/browser/game actor
+has run in ro4;
 ro3 earned progress stays untouched. Continue [quest/logout work](reviews/2026-10-24-functional-priority.md#priority-and-stop-criteria)
 separately; do not replay failed B4 or consumed Mu scenes.
 
@@ -51,8 +54,10 @@ This is a physical/lexical inventory result, with 310 declared gaps and
 monster gameplay remain unverified. Both plan authors are released.
 
 [The normal client sampler projection is source-qualified](reviews/2026-10-24-T07-mu-data-stage.md#normal-client-three-guard-projection-qualifies).
-Only the same three guards/276bytes are added to the current normal Chinese
-Online bundle; normal startup and worker remain intact. No installation yet.
+Only the same three guards/276bytes are added to the normal Chinese Online
+bundle; startup and worker remain intact. The candidate is copied and fully
+verified in fresh ro4, whose empty engine now passes. Normal main/game checks
+remain open.
 Ordinary access to Mu is not established by the existing tutorial route;
 identify its authentic portal/NPC/prerequisite chain separately.
 
