@@ -86,6 +86,7 @@ Other active work:
   Constructor correction       [Root19tests PASS; two combined faults HELD; narrow follow-up]
   All936model body files       [ROOT FRESH HASH/IDENTITY + COMPLETE JOIN PASS]
   Genuine constructor pilot    [11PROPOSED; source/caller qualification next]
+  Image consumer source trace  [CLAUDE + GROK LIVE; independent of model fix]
   Remaining direct assets      [DELIVERY DONE; construction/nested textures OPEN]
   Claude/Grok FD plan pair      [BOTH VERIFIED + RELEASED; control PASS]
   Chapter 1 first transition   [SOURCE +6retained assets/9cells VERIFIED; play OPEN]

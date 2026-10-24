@@ -1405,3 +1405,24 @@ worker edits. Source freshness versus installed current-client binding stays
 explicit. No Node packaging replay will be mislabeled image validity. Root owns
 full source-slice/286membership verification and version-controlled comparison.
 No image/header/browser/native/Engine/game/network or source evaluation admitted.
+
+
+## Equal image-consumer trace wave starts independently
+
+Common frozen base042f953e13538d87bd54dd9e51da01952c1b7a40. Claude
+(task_290da19dd1ff/ctx_70f1a0f1c713/term_0d8f472a-e4a3-4804-8367-d13adeb2ea79)
+and Grok(task_e6905091405d/ctx_6e8b4ff553a3/term_7a245d98-aea8-4078-9010-a7bc4a6ab2df)
+start ready/input accepted in the existing coordination checkout. This is
+read-only source work with distinct private prefixes; Root owns tracked docs.
+No branch/source/Git mutations are granted to authors, no new child/setup.
+Claude turn start is observed; Grok start observation is unsupported, not proof
+of death or authorization to duplicate. Both use configured provider defaults.
+
+Common spec1699B/SHA256
+881604fa3a62b902239a2a6f5e8933507b21b627ce26377d41b1da092c54ec3b,
+provider-owned-prefix variants and full receipts are private
+ t07-014-013-wave-root-1. Same three fixed inputs/source questions/20rubric;
+no sibling or repair output is supplied. Both start before waiting. .012's
+separate two-issue correction remains independent. Root personal source-slice/
+286membership comparison and per-settlement preservation/release remain next.
+No actual images/codec/browser/render/game/network/runtime evaluation admitted.

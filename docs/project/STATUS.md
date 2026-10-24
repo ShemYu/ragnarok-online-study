@@ -30,6 +30,12 @@ has completed the936body join; [Root independently verifies all records and fres
 237771checks/950pins pass. Proposed11pilot/925remainder stay unbound. Root
 must qualify the repair and exact actual caller before real construction.
 
+**Independent parallel lane:** [.013browser image-consumer source trace](tasks/T07.007.014.013.md)
+is live with equal Claude/Grok frozen source/metadata and private-only ownership
+in this checkout. Root owns tracked docs; authors may not mutate Git/source or
+open images/runtime/browser/game. Trace of286delivered image consumers does not
+wait for .012models. Root compares exact source closures/metadata before use.
+
 **Current map checkpoint:** [All21remaining compiled cores pass Root's complete audit](reviews/2026-10-24-remaining-map-bodies.md#remaining21-actual-compiled-cores-and-complete-root-audit-pass).
 One unchanged qualified host call exits0 in4.807445s, about800MiB sampled RSS,
 with21positive worker exits/no residue. Root checks all64artifacts and55body
