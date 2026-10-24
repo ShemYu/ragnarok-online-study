@@ -20,12 +20,14 @@ but6unpinned startup resources and numeric evidence fail. Root verifies
 825checks/754pins/all245Engine wires/current cleanup/original preservation.
 BrowserACK/natural0, SQL/native afterfailure passes, owned resources absent,
 dedicated volume retained. No replay/PASS/game credit. Astra diagnosis next.
-B4 outer HOLD2(systemPython nlink,metadata triples) and world observer
-HOLD2(alias error propagation,raw-byte proof) are source-only and released.
-Root verifies all independent reviews; new97copy/35copy source-fix packets
-ready after checkpoint. Ten existing finite controls Grok taskd8c9b9b293e4/
-ctx78b8b9408528 live independently. Fleet24:268records/3pages,
-1active/261released/6retained/0reclaimable. No completed cleanup debt.
+[Three actual Grok tasks live; two Mu source fixes ready after checkpoint](reviews/2026-10-24-functional-priority.md#three-actual-grok-tasks-live-and-two-mu-source-tasks-prepared):
+B4 two-fix task050bfcd6e081/ctxa68a3c92f1db; world two-fix
+taskb18b4ab3e5f6/ctx70348dad1903; ten-control
+taskd8c9b9b293e4/ctx78b8b9408528. UI evidence/count and driver current-group/
+count fixes have independent30copy packets. Six-body current-archive metadata
+scout is independent. Numeric cause remains unknown; no scan exemption,
+second trace or replay. All new scopes are source/metadata only.
+Prior source owners released/archive; no completed cleanup debt.
 Combined-nine finite PASS63checks/44pins/all4expected files; full839 open.
 No parent/gap/game credit;4/14/about29%, all82gaps and full goal unchanged.
 

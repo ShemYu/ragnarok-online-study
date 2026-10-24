@@ -1033,3 +1033,42 @@ next source correction; original G stays unchanged and live/unknown rows
 still refuse. The UI/Engine failures stay independently fatal.
 Astra is checking the numeric/upload evidence and finite six-resource
 source provenance; no broad scan exemption or new diagnostic framework.
+
+## Astra separates six missing pins from unretained numeric evidence
+
+Root verifies the complete Astra source/evidence diagnosis:13 unchanged
+inputs,26 raw anchors,nine closed outputs; two source bundles are full-hashed
+and only14662bytes of relevant source excerpts retained. Report6596 bytes/
+1f03b8881abf5e91fc30df0e43ec02f01b20072863d73803db3ad6fbd4ce905d.
+Root decision11406 bytes/
+be6f41a853a029cf71b25a7364ae2b54aeb69d355e3f53b0ca37d298c6c88a68.
+
+worker_data is the six missing startup allowlist pins. Same-request identity,
+trace, completion/no-redirect hold for all111 transfers; all105 original
+bytes match. Source identifies loading background, grid and four damage
+sprite/animation requests. Keep that scene behavior and normal Chinese;
+do not disable assets to avoid requests. Root must independently join the
+six bodies to current archive provenance before a future finite111-row/
+27535025-byte allowlist. Preserve all original105 rows; observed transfer
+hashes alone are not authority. The six already use the archive reader,
+so no automatic expansion of P251 to257 against the unchanged256 cap.
+
+finite_uploads remains a valid failed assertion with no localized cause.
+Actual scan rows/workerTrace are lost because UI throws before publishing
+existing MAP_EVIDENCE. Genuine model vertices are all floats; no packed-word
+exemption applies. The historical zero-sum normal repair already exists.
+No numerical patch, scan removal, hidden fault or diagnostic replay is
+justified from the retained evidence.
+
+Root prepares two independent30-copy source-fix packets:
+UI32402 bytes/ef228289e3f406a95675403ec1382a1f312582a1ee67b029089ddd24b852e4f4,
+brief3469/f4fcd8f7...; driver32530 bytes/
+63f10066feb1feb9a3505943fad6f39c0b13f33f0c9bf794661fb35fd149523b,
+brief3276/42c098cd....
+UI moves the same bounded12MiB CDP evidence publication before fatal checks,
+keeps false/nonzero and all strict finite assertions, and declares the future
+111-body contract. Driver declares the same exact contract and resamples
+same-group snapshot rows with existing kernel.get; live/unknown remains fatal.
+No G/S/Engine/caps change, new runner, second trace or actor. Source candidates
+stay unbound. Future actual functional attempt needs a fresh audited fixture;
+the consumed failed attempt and volume are preserved.
