@@ -27,10 +27,18 @@ Root688checks/747pins/all281 Engine wires/current cleanup/original world.
 Chinese A199 refusal is observed and visually checked; ambiguous Escape
 selector stops logout. Dictionary request200/abort cause remains unresolved.
 No B200 or post-logout SQL pass. Consumed trial is not replayed; volume retained.
-Three independent Grok source/research packets are ready after checkpoint.
-[Full839 source qualifies for one guarded publication](reviews/2026-10-24-T06-full-spawn-output-budget.md#full839-sole-entry-qualifies-for-one-original-guarded-publication).
-Fresh Mu templates are submitted/released and under final Root qualification.
-All three preceding Grok authors are released/archive beforeACK.
+All three independent Grok source/research tasks now settle and are released.
+[Full839 published data passes complete Root4225-check/910-pin audit](reviews/2026-10-24-T06-full-spawn-output-budget.md#full839-data-passes-complete-root-audit-but-its-entry-remains-failed):
+all839 current selected bodies/723206 physical rows/35735 events/four files.
+The entry still fails its FD selfcheck; no runtime or entry acceptance.
+A qualified finite FD source packet is ready for Grok after checkpoint.
+[Fresh Mu templates pass whole609-check Root qualification](reviews/2026-10-24-T07-mu-data-stage.md#fresh-mu-runtime-whole-projection-and-binding-reuse-qualify).
+The next synthetic scene diagnosis requires fresh authority bindings and the
+finite binder source review, now independently confirmed by Root.
+B4 driver and logout UI repair sources qualify; dictionary cause stays unknown.
+All three authors are released. One UI delivery was acknowledged before its
+corrected metadata verification/release; the ordering exception is recorded.
+Next independent work is the finite FD repair and combined B4 source update.
 
 **Current blocker:** the prior Mu scene's genuine numeric-data failure is
 not resolved. All six startup bodies now match independent archive decodes

@@ -1735,3 +1735,23 @@ under unchanged30s/512MiB guard and complete independent Root audit.
 Fresh Mu templates are submitted/released; independent source review has
 no blocker, Root qualification pending. All three preceding Grok workers
 are released/archive beforeACK. Parent4/14/about29% and all82 gaps remain.
+
+## Full spawn data verifies and fresh Mu binding is the next actor
+
+[The complete full839 data audit passes4225 checks](2026-10-24-T06-full-spawn-output-budget.md#full839-data-passes-complete-root-audit-but-its-entry-remains-failed);
+the entry remains failed at its FD selfcheck. A separately qualified finite
+FD observation repair packet is ready for Grok after this checkpoint.
+[Fresh Mu complete runtime templates pass609 Root checks](2026-10-24-T07-mu-data-stage.md#fresh-mu-runtime-whole-projection-and-binding-reuse-qualify);
+the finite binder reuse and independent78-input/14-anchor review are
+personally confirmed by Root.
+One fresh synthetic scene diagnosis is admitted only after those reviews and
+fresh authority/material bindings. Numeric/render acceptance remains open.
+
+[B4 driver repair source qualifies and its author is released](2026-10-23-T10.007.md#three-actual-grok-failure-tasks-start-and-driver-fix-qualifies).
+Logout UI source also qualifies; dictionary research settles with cause
+unknown. All three authors are released. The UI delivery ACK-order exception
+and evidence-limited dictionary hypothesis are explicitly recorded in the
+[latest B4 review](2026-10-23-T10.007.md#logout-source-qualifies-and-dictionary-research-remains-uncertain).
+After checkpoint add the qualified independent FD source task. No old
+attempt is replayed. Parent4/14/about29%,82functional gaps and full scope
+remain unchanged; no new user decision or goal change is required.

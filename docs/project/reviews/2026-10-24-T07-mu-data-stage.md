@@ -1352,3 +1352,42 @@ release455/49715f01711fa65b367601a4ac6ab7fca0c4b3ea1c034c91605d3f171503f88e.
 Independent whole C/E review finds no mandatory source blocker and is
 sealing evidence. Root whole projection/slot/inverse qualification remains
 next; no new Mu scene or numeric/render PASS is admitted.
+
+## Fresh Mu runtime whole projection and binding reuse qualify
+
+Root independently reconstructs the entire refreshed C24/Engine10 and exact
+canonical bytes from the prior templates, fresh Mu19 map, original Root3
+source descriptors and111 allowlist. All513 walked values/55 changed values,
+the complete stage1 inverse, ordered P251/UI119 and346000078/27379360-byte
+sums match. Exactly17 C and12 Engine null authority slots and three false
+flags remain unbound. No six body entries are appended.
+
+Independent review44 inputs/23 raw anchors also passes. Root personally
+rechecks the seal, all opened pins/anchors and candidate bytes. Whole source
+qualification609 checks/52fullpins:
+296736/daf8c5875a9de91b780c4c9f56bbd7e7c25716efa055ef1c6c72adb71fb46511.
+C212696/60d89d5baefd46033159f79c612ecb9a3553a778e23f76a24f8936cb53ece03a;
+Engine9923/a993a7832af3a3801aaff62080434c1dc80bee9f08fe9553e6da6e1133b1947c.
+One legacy slot reason mentioning a newer attempt is not authority for an
+attempt-only edit; use only the complete audited fixture projection.
+
+Root refreshes the existing10770-byte finite binder through nine exact data/
+context substitutions plus three new unbound admission headers. Complete
+forward/inverse restores the original source; parent/P2 helpers, all caps,
+four-port selection and separate manual archive streaming stay unchanged.
+New inert source10886/e540afd6506b4f84fb2cf73e898ba913af94e7a12453f5872cf8e916c90678b3;
+Root qualification28753/d7c9eea83614d47362fcc3ea9022596d36ab8f658e65203829358bcd4f67f8d6.
+The independent finite source review has no blocker. Root personally
+confirms all78 current inputs,14 raw anchors and nine closed outputs:
+43080/e3a1693b4d1340f5a6e54cf5067043dd858a38b063759a847d8bbb42bfc6b8eb.
+Its complete forward/inverse and current C/E/parent joins agree. No source
+was executed here.
+
+After this checkpoint and source review, admit one fresh current-world/
+image/socket/HEAD/lease/four-held-port binding for the unused fresh Mu19
+attempt, with current selected pins/known browser links/five full archives
+and the existing complete inverses. A positive binding admits one unchanged
+absolute-argv outer/parent call: G390s/4GiB/grace3/native/1MiB. Corrected UI
+publishes MAP_EVIDENCE before fatal assertions; numeric validity stays strict.
+This is one synthetic map diagnosis, with no normal-game/Chinese/story/
+save acceptance. Old Mu and B4 attempts/volumes are not replayed.

@@ -56,9 +56,10 @@ Six records:actual independent decode PASS ->111allowlist qualified.
 Fresh Mu21 -> fresh Mu19 actual PASS:112 checks/85 pins/33 leaves.
 B4 actual quest trial FAILED: A199 refusal shown; logout selector fails.
 Root688 failure/preservation checks PASS; later cases remain open.
-Next Grok:logout selector + driver group + dictionary research (independent).
-Full839 source PASS -> one original G30 publication admitted.
-Fresh Mu templates submitted/released; final Root qualification next.
+Grok:driver + logout UI source PASS/released; dictionary unknown/released.
+Full839 data:Root4225checks/910pins PASS; entryFD check FAILED.
+Next Grok:finite FD observation fix (independent source packet ready).
+Fresh Mu templates:Root609checks PASS -> finite bindings -> one fresh scene.
 Current-five reader:actual PASS111 checks/103 pins;26 literal core chains.
 Changed alias proof withheld; normal render/travel/story remain open.
 Mu oneactualscene FAILED;105bodies+partialdraw;Root825failurechecks PASS.

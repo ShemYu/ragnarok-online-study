@@ -628,3 +628,56 @@ including streamed172547908-byte physical and9748299-byte event outputs,
 complete manifest/839source-ledger joins and sourcepost/context checks.
 Failure keeps partial evidence; no replay or automatic48-control loop.
 No monster runtime/whole-game acceptance follows from static publication.
+
+## Full839 data passes complete Root audit but its entry remains failed
+
+After35a88bf, Root binds exactly two entry headers and checks the complete
+inverse. One originalG30s/512MiB/grace3/no-native/1MiB call runs12.537614s,
+sampled253214720 bytes, natural1/driver_nonzero/failedguard/no signals.
+All four files are published. The entry emits no success stdout and exact
+stderr errors=['fd']; its final descriptor comparison fails. The original
+run stays failed and is not replayed. Guard audit41057/
+a0ad2c6d12cbe12e44ba562aefe017228c1c3702829ad5598c4c60e16f9c9374.
+
+Root independently reads every one of839 current selected source bodies,
+every723206 physical JSONL row and35735 event row. Complete raw bytes are
+reconstructed source by source; all per-line and event-span hashes, canonical
+row shapes, ranges, counters and all839 whole manifest rows match frozen
+expectations. Complete physical172547908/e4108fa16182173e515fcd07a4cf5fa296dea59584b2d17062b6cbff3ed27f61
+and event9748299/caa2b149042a0015f2238394e2e13e59bf5fc64dcff740e1c4b6c8e29ce4c024
+streams match. Exact canonical manifest1468784/ce7cf1d537d61fda32db5129b19764da29675ed143d616222ff6afa9f9f75627
+and marker1025/076f10887007467485deaf5771e0442355ef6041e974eb98f54652c76e3786ad
+join all metadata and four-leaf membership. Metadata hashes are observed
+canonical joins, not falsely described as pre-frozen serialized hashes.
+No full1683-body freshness or native monster acceptance is claimed.
+
+Complete Root audit passes4225 checks/910fullpins:
+1173324 bytes/525572e3aafe90bf86da91276fd7b38c4a959a7fe9780c109be03fba5c54040c.
+All selected source pins remain current, original driver/group are absent,
+Root context/sourcepost checks pass and the original failed guard is retained.
+A separate independent data review also finds zero mismatches; no consumer
+reassessment or target replay is used. Data validity and entry acceptance
+remain separate. Static3074 supported declarations/310 static gaps are
+inventory results, not the number of monsters playable in the game.
+
+## Evidence-limited full839 FD fix packet is ready
+
+The child records no before/after FD numbers or identities. Source review
+finds raw listdir('/dev/fd') includes its temporary directory descriptor;
+it finds no concrete unmatched handle on the successful producer/consumer
+path. Neither a leak nor harmlessness is proved. Root checks17 current
+review inputs, eight closed outputs and20 raw anchors. Qualification12608/
+cf6579aa2e6a7ec136593025ace0c691e0af74fb13dbf079a2dd57403b98db64.
+
+After this checkpoint start one source-only Grok finite repair. Preserve
+the FD gate and all original producer/consumer/G/S rules; observe complete
+live fstat identities after enumeration, exclude only authoritative EBADF,
+retain bounded count/hash/delta diagnostics and independently collect later
+postchecks after errors. Root explicitly chooses a prospective256-live-FD
+refusal cap; this is new policy, not the outer's old diagnostic retention
+limit. Keep stderr1024 and exact success stdout910. The only future output
+namespace is unused root2; root1 artifacts remain unchanged.
+Twelve-copy packet14166/
+a2b6f143ccea57d41ffdcf83b5196a5f7e0fbc74fe72423d356141dfc5707b7d,
+brief2689/e1dabbe44d7d554dda2b2f460416159f8b48cda6448ac68ac7bba3dc1155dfd8.
+No new control family, native call or publication is admitted now.
