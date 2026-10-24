@@ -5576,3 +5576,38 @@ T10.007first-story work, not a new implementation benchmark or gate-count credit
 Private t07-orca-ordinary-field-root-7/INITIAL_IMAGE_ROOT.png6383608B/SHA
 1a3f474eaf646ab56a33e07eeaa595cf17f0b5debdf850a099b95144a6aeeaac.
 Complete bounded snapshot/image receipts and capture facts remain local.
+
+
+## Both geometry extension plans are preserved and released
+
+Grok task_3842c963cfc3/ctx_5014518214cb settles succeeded at22:19:16UTC,
+clean070f6c773541be3fe58b7f8e2a3425079ceb624b from commond70abcd. Root
+preserves both regular files/115619B, full namespace/SHA/C8, the named archive
+ref and verified23283B bundle. No extra private worker namespace exists.
+Supported release confirms terminal closure and transcript capture; matched
+delivery_1ac7e4b4e00eis acknowledged to an empty inbox. A subsequent fresh
+worker-show confirms resource released/exited/archive captured. Root's first
+post-release assertion incorrectly expects worker.state to change to released;
+it remains succeeded while terminalResource.releaseState is released. This
+read-check refusal is not a release failure; no second release is sent.
+Fresh reclaimable list is empty. Both originals are now inert preserved inputs
+for Root review; no idle terminal is retained for that review.
+
+Grok claims2974words, all59groups/936indices and35/7/28cohort accounting.
+These stay author claims until Root personally reads/recomputes both plans.
+No plan is implementation/runtime qualification. Ordinary play remains the
+main path; no geometry replay or new body/model execution is admitted.
+
+Private t07-014-024-grok-packet-root-1/:
+
+| File | Bytes | SHA256 |
+|---|---:|---|
+| repo/docs/project/reviews/T07.007.014.024-geometry-extension-source-plan.md |20621|fd36f9eb339419146315f097b61d94e17c7aa5734e54dfba0064917b4958e87d|
+| repo/docs/project/reviews/T07.007.014.024-geometry-frontiers.json |94998|ac1e63cd4f3031934b3e3ac64e598139bd5da5bf760f530a16ad6d3294d73457|
+| PRESERVATION_ROOT.json |2587|300a11f5fb202f27c0c11139fd5a788a4063f5a202df5144aad01add98d27e2c|
+| RELEASE_SHOW_ROOT.json |7546|094039d8f0b228f770006d828db698c47a632470b17a8d878a4c10c0930d2baa|
+| submission.bundle |23283|50d566105c6b35fbd20ec9a53fb5ecc85ce7f7f81c656e2526bc96502c4d3bfb|
+
+Archive ref: refs/ro-task-archive/T07.007.014.024/grok-a1. Earlier Claude
+preservation remains unchanged. No model/version, token cost or general
+provider superiority is inferred from this source-plan settlement.

@@ -108,7 +108,7 @@ Other active work:
   Independent geometry oracle  [ROOT42CONTROLS +7975SAVED AUDIT PASS]
   Tiny geometry originals      [BOTH ROOT VERIFIED/HELD:13vs10; pair released]
   Finite geometry correction   [ROOT C2QUALIFIED:53TESTS/66CONTROLS; exact integration PASS]
-  Next geometry frontier plan  [CLAUDE PRESERVED/RELEASED; GROK ACTIVE; compare next]
+  Next geometry frontier plan  [BOTH PRESERVED/RELEASED; Root compare pending]
   Actual model compile         [ONE PASS; ROOT3143CHECKS/17PINS; exact42876B; no replay]
   Broader geometry + rendering [NEXT:compare .024plans; end-user gate still open]
   Model702node bounds           [SENTINEL PRESERVED; geometry impact OPEN]

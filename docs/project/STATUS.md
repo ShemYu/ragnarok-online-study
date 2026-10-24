@@ -15,8 +15,8 @@ and Connect succeed, original cause unresolved. No fresh backup/restart yet.
 Next fresh supported backup, observed field fight/normal return, then first
 Chapter1 selection/traversal/persistence. Independent CPU qualification
 of all936is not a prerequisite for normal play. .024broader source plans remain
-parallel: [Claude92c7ef9fully preserved/released](reviews/2026-10-24-direct-dependencies.md#claude-geometry-extension-plan-is-preserved-and-released),
-Grok active; Root comparison pending. No restart/backup admitted yet.
+parallel: [both .024plans are preserved/released](reviews/2026-10-24-direct-dependencies.md#both-geometry-extension-plans-are-preserved-and-released);
+Root comparison pending. No restart/backup admitted yet.
 
 
 Functionality remains first. **4/14 parent checks, about 29%**; this counts
@@ -96,7 +96,7 @@ Both original review workers are released; the .011Claude checkout is kept for
 the preserved .023.001Root C2 source branch/rollback. User-owned workspaces stay excluded.
 The .023.001worker is now released/exited and fully preserved. Historical342row
 fleet has332released/eight user-owned/two absent, plus the two new .024source
-plan dispatches recorded above (Claude now released; Grok active). Latest reclaimable check was empty. No new child/setup. No game/save/network action in cleanup.
+plan dispatches recorded above (both now released). Latest reclaimable check was empty. No new child/setup. No game/save/network action in cleanup.
 Two .012implementation attempts reuse existing released checkouts; no new
 child folders or setup hooks. Both .012candidates are preserved/released after
 matched settlements. [Root full review and eight behavioral groups per original are complete](reviews/2026-10-24-direct-dependencies.md#both-constructor-originals-are-personally-checked-and-held).
