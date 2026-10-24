@@ -92,13 +92,15 @@ sidecar; preserve3074supported/310gap/731suffix outcomes and default pilot.
 The common brief checkpoint binds equal Claude/Grok implementations.
 No producer rerun, new generic framework or game-state action is needed.
 
-[Both full839 candidates are Root-verified; Claude selected20/20 versus16/20](reviews/2026-10-24-full839-references.md#both-root-runs-verified-and-claude-selected).
-Each passes178common controls and a fresh CLI/all35,735expected rows/typed
-metadata/input preservation; author suites96/86 pass without skips. Six common
-semantic-layer controls expose Grok's incomplete per-source range/hash binding;
-fixed whole-input pins still protect its actual CLI. Both submissions/workers
-are preserved/released. Next adopt the exact qualified Claude source and record
-the integrated-file checkpoint. No new parent completion follows.
+[Full839 reference extension is integrated and ready_for_user](reviews/2026-10-24-full839-references.md#qualified-source-integrated-and-child-complete).
+Claude's selected module/test are exact qualified bytes in8033a0d; Root corrects
+one documentation link. Final comparison19/20 versusGrok16/20. Each passes178
+common controls and a fresh CLI/all35,735expected rows/typed metadata/input
+preservation; suites96/86 pass without skips. Six common semantic controls
+expose Grok's incomplete per-source binding; actual fixed pins remain protective.
+Both workers are preserved/released; zero active/reclaimable in the fresh fleet.
+Next prioritize existing resource/content gaps using these qualified references;
+no producer rerun or synthetic scene. No new parent completion follows.
 UI-dependent travel stays blocked; independent inventory work continues.
 
 ### Historical preparation — follow the next action above

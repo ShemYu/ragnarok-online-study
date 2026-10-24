@@ -62,7 +62,7 @@ Other active work:
   Ordinary field route         [NEXT: quest state -> travel/encounter/return]
   Full839 data + entry         [PASS: 4,226 checks / 947 pins]
   Full839 entry FD closure     [PASS: explicit setup; exact comparison kept]
-  Full839 map/monster joins    [BOTH Root checked; Claude selected; adoption next]
+  Full839 map/monster joins    [DONE: Claude integrated; Root verified; pair released]
   Claude/Grok FD plan pair      [BOTH VERIFIED + RELEASED; control PASS]
   Authentic Chapter 1 scripts  [OPEN: largest content risk]
   All 82 functional gaps       [OPEN]

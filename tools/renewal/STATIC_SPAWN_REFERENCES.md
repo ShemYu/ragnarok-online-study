@@ -1,7 +1,7 @@
 # Declared-reference sidecar for the raw spawn pilot (T06.002.003.005.002)
 
 The explicit `--full839` mode (T06.002.003.005.003) extends the same rows to the
-pinned 839-source publication; see [Full 839-source mode](#full-839-source-mode---full839-t060020030050003).
+pinned 839-source publication; see [Full 839-source mode](#full-839-source-mode---full839-t06002003005003).
 
 `static_spawn_references.py` annotates **every** framed event of the qualified
 two-file raw spawn pilot (AntHell, Prontera; 354 events) with its declared map

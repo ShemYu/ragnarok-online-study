@@ -22,8 +22,8 @@ No provider model/version/token/money claim is made from a harness label.
 
 Current: both candidates have complete Root frozen-run verification and are
 preserved/released. Six common semantic controls confirm Grok's per-source
-admission weakness. Claude is selected20/20 versus16/20; source adoption and
-its exact-file checkpoint are next. Root's expected rows predate either review.
+admission weakness. Claude is integrated with one documentation link correction;
+final score19/20 versus16/20. Root's expected rows predate either review.
 No new parent completion follows. The goal/gameplay boundaries stay intact.
 
 ## Equal implementation pair starts
@@ -205,12 +205,44 @@ bbc28a1e31ba8770ca13fbfb375573d7ffb0dabef51aaf9e1c7060a194e3a187.
 | Admission/reference semantics /8 |8|6|Both actual rows exact; six per-source semantic controls distinguish validation |
 | Pilot preservation /4 |4|4|74 unchanged methods, existing pilot tests and shared default/isolation controls |
 | Artifacts/meaningful controls /4 |4|3|Both fresh runs verified; Claude's admission/publication mutations and retained logs are stronger |
-| Clear patch/documentation /2 |2|1|Claude's full scope metadata and relocatable test input; Grok hardcodes a personal absolute test path |
+| Clear patch/documentation /2 |1|1|Claude has fuller scope metadata/relocatable test input but one broken link; Grok hardcodes a personal absolute test path |
 | Resources/closure evidence /2 |2|2|Both bounded runs measured; inherited fault/descriptor tests pass with ResourceWarning errors |
-| Total /20 |20|16|Select unchanged Claude606dffa for adoption |
+| Total /20 |19|16|Select Claude606dffa; correct its single documentation link |
 
-Scores apply to this bounded task only. Single CLI timings are observations,
+The initial source comparison scored Claude20; integrated documentation checking
+then finds one broken section link. The final score deducts that documentation
+point. Scores apply to this bounded task only. Single CLI timings are observations,
 not a general provider-speed benchmark. No exact model version, token count or
 billing is observed. Root adopts the qualified source next; no provider repair,
 new producer run or runtime operation is required. Both workers are released.
 The full world/story goal,82functional gaps and UI travel blocker stay open.
+
+## Qualified source integrated and child complete
+
+Source commit8033a0dcd4fbd149aa89d9e15cf2e48efb4e15d9 adopts the selected
+three-file candidate. Root compares every byte to606dffa and compiles both
+Python sources without executing them; the Root fixture remains exact.
+The first integrated documentation check refuses one mistyped section-link
+target. Root corrects that one link, verifies the complete inverse and reruns
+the document check successfully. Module and tests remain byte-identical to
+the96test/178common/six semantic-control qualified candidate; no runtime test
+or producer is repeated just for copying those exact files.
+
+Private integrated packet RESULT_ROOT.json1122B/SHA256
+24b4cce12561490e597026ea8ca53898fb6ed46700338c6a731b4d7b4369abf8
+records the initial exact copy. FINAL_ROOT.json1220B/SHA256
+7bcfebab6573e4544351a353fab2be9112d8abbd61d5b5bd9c1a4a2d2012d626
+records the final source/test equality and sole documentation correction.
+Final documentation is23545B/SHA256
+478029ae4483eea3bd619deda3efad34e64f9c80e907d2303e1bf2a1dbb4e88c.
+
+T06.002.003.005.003 is ready_for_user as a bounded inventory tool. Its Root
+publication remains under the Claude execution directory above. Native content,
+full lexical parsing, story and82resource gaps remain open. Both current
+workers are released; a fresh fleet check has zero active/reclaimable workers,
+289released and10explicitly retained. No new user-owned terminal is closed.
+Latest UI inventory still has no apps/browsers and the native pipe startup error;
+no game input, restart or save change occurs. Next use these existing references
+to prioritize the existing resource/content gaps; resume the current ordinary
+island/Izlude/field route when UI observation returns. Do not rerun completed
+producers or start another synthetic scene to substitute for normal gameplay.
