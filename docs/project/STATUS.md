@@ -36,7 +36,8 @@ b2be17b, Root18authored/16common pass; independent Astra review concurs.
 Both Claude workers are preserved/released. The separately bound
 [single pilot has passed with complete browser-oracle equality](reviews/2026-10-24-remaining-map-bodies.md#real-pilot-matches-the-complete-browser-oracle).
 Root127checks/18full pins, clean natural0/owned closure. Next separately bind
-the21-map batch with this unchanged qualified host; both final provider
+[the21-map batch](reviews/2026-10-24-remaining-map-bodies.md#remaining21-actual-batch-is-separately-bound)
+with this unchanged qualified host; both final provider
 submissions/comparison still gate task readiness.
 Grok task_1166063748f6/ctx_aa9287fa50a3 remains live/working; Root's provisional
 source guidance is queued. Both candidates/comparison still gate task readiness.

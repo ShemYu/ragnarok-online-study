@@ -1484,3 +1484,21 @@ This qualifies this host's single compiled-core pilot. Checkpoint before a
 separately admitted21-map call; do not repeat the pilot. Grok remains independent
 and active; both submissions/comparison still gate task readiness. This closes
 no production rendering/travel/story/save or82gap claim.
+
+
+## Remaining21 actual batch is separately bound
+
+After the complete pilot checkpointe0fc648, Root rehashes64selected input/control
+files and binds one unchanged-host call for all21maps/55distinct source paths,
+51distinct body hashes and103067388B. No pilot repetition or real execution
+occurs during this preflight. Every runtime canonical identity still matches.
+The separate admission does not edit the frozen profile's historical false flag.
+Private `.tools/renewal/t07-014-009-main-preparation-root-1/CALL_PLAN_ROOT.json`
+is36516B/SHA2564e743a4a8a6b20d26917528bbf1f92bc5587a956e35a1dfe3eba773a4d5c4b3e;
+admission SHA256597168e50fee4486c1129e219b0fadaf016d208c2cf4c0ce227355591d2e3d42.
+Use the same b2be17b host, exact Node/prefix/suffix, original observer and caps,
+fresh exclusive output, and independent17GAT numeric reference. Root will audit
+all per-map projections/inverses, whole results, constructor bindings/exits,
+source/posthashes and genuine errors/anomalies. This checkpoint authorizes one
+call, not automatic retry or task readiness. Grok remains live and is writing
+its authored synthetic controls; both submissions/comparison still gate readiness.
