@@ -33,6 +33,8 @@ Both implementations are now [live from the same frozen base](reviews/2026-10-24
 Claude task_e7b3da100a67/ctx_1f9a6ed816bf andGrok task_1166063748f6/
 ctx_aa9287fa50a3, exact ab3aebaHEADs verified. Preserve/release and personally
 qualify their source/tests next; no actual target execution is admitted.
+[Root's independent terrain numeric reference is ready](reviews/2026-10-24-remaining-map-bodies.md#independent-remaining-terrain-numeric-reference-is-prepared):
+all17GATs/1653256raw cells, no unknown type or expected numeric anomaly.
 Ordinary playtest is separately blocked by the native-pipe startup failure;
 no game restart, network cut or alternative browser-control bypass is admitted.
 

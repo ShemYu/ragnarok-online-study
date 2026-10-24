@@ -1231,3 +1231,25 @@ compiled/dependency/render results and persistent transition remain open.
 These two maps are outside the frozen21-map host corpus; do not silently add
 them to that active task or claim it will verify them. No new actor, installed
 script, alias, archive, SQL/save/config/network change or82gap closure occurs.
+
+## Independent remaining-terrain numeric reference is prepared
+
+While both host workers remain live, Root reuses the prior .004auditor's fixed
+GAT struct reconstruction and the personally read compiled TYPE_TABLE. All17
+retained GAT1.3bodies are opened nofollow, checked against the runtime profile's
+exact decimal-string identities/full lengths/SHA, and held/path identity checked
+through full EOF. This executes no acquired parser/constructor.
+
+The fixed reconstruction covers all1653256raw cells/8266280expected Float32
+elements, including height scaling/rounding and every type mapping. No unknown
+raw type or expected nonfinite element is found. Each complete expected array
+has an independent byte hash, length, finite min/max, negative-zero and anomaly
+counts, joined by exact body index/path/dimensions/raw-type histogram. Shared
+terrain aliases still get their separate map-level results later.
+
+Private compiled-core preparation GAT_ORACLE_ROOT.json is22278B/SHA256
+f874897438aafb5e69a2e3420774fbe285002299bdc77569cecef54589c61fdf.
+Use all17descriptors to check the eventual real host results, not just its
+PASS/summary. This is an independent verification reference, not another game
+parser, full GND/RSW validation or actual compiled-runtime acceptance. It does
+not change either worker's frozen input/implementation task or permit execution.
