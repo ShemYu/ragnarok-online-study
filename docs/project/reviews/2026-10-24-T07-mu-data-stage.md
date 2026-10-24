@@ -1569,10 +1569,30 @@ da1e151fdfe4e675b426de53e86b43ef74b9879d04af5cd7e9826c1e9b6a7f1f.
 A Root wrapper whitespace typo refused during Python parsing before any
 call; the corrected sole probe call produces this result.
 
-Author releases/archive before deliverya4b0839d393f ACK; release409/
+Release request before deliverya4b0839d393f ACK returns retained/user_takeover,
+processAction none and archive null. Root preserves that user-owned terminal;
+bounded transcript read is retained, with no archived-output claim. Receipt409/
 c74c899d3d817fd5e95b1cfb6ba13fd7accd2084af5243b2c0e78f7e411f8ec0.
 The patch can next be copied into a new isolated four-file Web stage after
 this checkpoint; preserve the existing stage/client/guard/world. Fresh
 fixture/canonical runtime bindings and one fresh scene remain later
 admissions. Focused tests do not prove a render or full animation timing.
 Current map-render verification estimate75 percent, parent4/14 unchanged.
+
+## Repaired four-file Web stage verifies without runtime installation
+
+After92c6877, Root copies the qualified Online13174959-byte candidate and
+three byte-identical existing Web bodies into new private Web root2.
+All four files,13846866 total bytes, pass full readback SHA/C8 and original
+four-body preservation. Material20778/
+e970d2d192dd8193f839abe5a364f7368e32bc3fc198d9d95237fca91e818dce.
+This is isolated staging only: no runtime configuration, original client,
+browser, archive, save, network or container is changed. Fresh fixture/
+Mu19/runtime binding and positive scene still remain.
+
+The earlier release-response summary was wrong: HTTP/CLI success does not
+mean terminal closure. Sampler author ctxe3928eb51466 has a positive Orca
+user_takeover/user_owned retention receipt; it is preserved. Other two
+settled B4/FD authors have explicit released/closed_agent_terminal/captured
+archive receipts. Current fleet3active/276released/7retained, zero
+reclaimable; retain old ownership boundaries and no manual terminal close.

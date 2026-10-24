@@ -1801,5 +1801,13 @@ Map-step estimate75 percent; positive fresh rendering remains unverified.
 [FD census structure verifies, held for known diagnostic count/hash retention](2026-10-24-T06-full-spawn-output-budget.md#live-fd-census-structure-passes-but-diagnostic-evidence-retention-holds).
 Both finite correction packets are ready for parallel Grok after checkpoint.
 Fresh Mu caller source continues independently; all settled source authors
-are released/archive beforeACK. No actor or old namespace is replayed,
+have cleanup decisions recorded beforeACK. The sampler author is
+retained by positive user_takeover ownership; B4/FD authors are released
+with captured archives. No actor or old namespace is replayed,
 no known failure is waived and no goal change is required.
+
+After92c6877, both finite diagnostic corrections are actual Grok work,
+alongside the existing fresh Mu fixture-caller source task. Root also
+verifies the new isolated four-file Web client stage; no scene is run.
+Current fleet3active/276released/7retained/zero reclaimable. One sampler
+terminal is user-owned; an earlier generic released claim is corrected.

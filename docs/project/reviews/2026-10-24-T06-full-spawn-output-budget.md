@@ -715,3 +715,11 @@ brief2022/e6357867eb26038f7b043cee2c08102e006e64d6d141ac7eff4d1ced6bf1adc1.
 Change only fail() formatting, preserve every other source byte and all
 admission/census/route/caps. Author releases/archive before delivery4edb6d
 ACK; release455/f044e0e19ff6bb68d4028392a0f0bdb3211382869803a5587db02600d18e6130.
+
+## FD diagnostic-retention correction starts independently
+
+After92c6877, all three frozen copies/HOLD proof are current. Grok
+taske9e22a97b952/ctx564b36f472fb starts; receipt2307/
+6e079c81ec4449b922a3fc2292846137ac09321757950188f5f556e820c1b7e9.
+Only failure formatting may change; no publication or control call.
+This task runs independently of header correction and fresh Mu caller.
