@@ -586,3 +586,38 @@ quest IDs/text, primary mechanics/donor quest18376 and actual NPC producers/
 consumers, recording the first missing authentic transition. Do not substitute
 another generic loader search, create a quest actor, grant progression or reduce
 Chapter1 scope. Ordinary tutorial/field travel remains next when UI returns.
+
+## Independent actual terrain oracle and complete Root confirmation pass
+
+The one admitted oracle returns natural0 under the unchanged Root005guard in
+5.997301s, sampled owned RSS22904832B, no guard action/signals/residual group.
+All63streams/408794rows/300967118bytes scan under their fixed pins. The69input
+set totals301247994bytes including source/profile/contract/three authorities.
+All inputs have matching complete pre/post hashes, EOF and held identities;
+all123recorded input/ancestor closures and63stream-duplicate closures pass.
+The successful stdout separately confirms final publisher descriptor closure.
+
+**All34queries have exactly one raw_exact eligible full-path occurrence**:
+26patch9298terrain records in catalog4 and eight October GRF records in
+catalog3. All34basename-only arrays are empty. GND and GAT role totals are17
+eligible full occurrences each, zero basename occurrences. All42relationships
+remain exact. This is physical metadata presence, not archive winner/body access.
+
+Root's separate confirmation rehashes all69complete inputs against exact
+receipt identities and frozen pins, checks the complete result/receipt/guard/
+stdout/stderr, all34query arrays/counters and42relations, and independently
+rejoins every34full typed witness to its physical source JSONL line. The exact
+private two-file output set/modes and positive caller/final closure all match.
+No provider candidate is inspected before these actual expectations are frozen.
+
+| Private receipt | Bytes | SHA256 |
+|---|---:|---|
+| oracle-root-1/result.json |110893|0da7775f56028d67865bb9bf5677edbec500aa08a5ad4dd5a1f675afe4cb8b5b|
+| oracle-root-1/RECEIPT_ROOT.json |76015|fa9da4a509bd873d28beaf5f1c338a40fdf7741bd643835a7385069842451ead|
+| query-preparation-root-1/ORACLE_GUARD_ROOT_1/receipt.json |1755|a4a6a6571435cfaaee5455b846dbfe290ea0b216ba101037410e8309d669897d|
+| query-preparation-root-1/ORACLE_CONFIRM_ROOT.json |2148|672e0ad471931ffa5ca2ae3ae3dbfd35d309b1286e5c8b0942cf1f47a128fed1|
+
+Prefixes use `.tools/renewal/t07-remaining-terrain-`. Provider source/fixture
+comparison remains active. Candidate actual execution is still held until its
+source/common qualification and a separate admission. No terrain body, normal
+HTTP, renderer, story, game input or any82gap closure follows from this lookup.

@@ -148,8 +148,14 @@ by the native-pipe connection.
 
 [Independent actual terrain oracle is source-qualified and admitted](reviews/2026-10-24-remaining-map-bodies.md#independent-actual-terrain-oracle-source-qualified-and-admitted):
 one fixed69input metadata job with existing Root005guard/130s/2GiB, before
-candidate inspection; candidate actual runs remain held. Root execution/full
-confirmation is next. [Astra source review clarifies the known story gap](reviews/2026-10-24-remaining-map-bodies.md#astra-clarifies-the-remaining-story-risk-without-a-goal-change)
+candidate inspection; candidate actual runs remain held.
+[The actual oracle and complete Root confirmation now pass](reviews/2026-10-24-remaining-map-bodies.md#independent-actual-terrain-oracle-and-complete-root-confirmation-pass):
+all63streams/408794rows/300967118B, one exact eligible occurrence for each of34
+terrain queries, zero basename-only witnesses. Root rehashes all69inputs and
+rejoins all34complete typed records to physical source lines. Natural0/valid
+guard/closures/no residue in5.997301s/~22.9MB sampled RSS. Provider source/
+fixture verification is next; no body/runtime/gap acceptance follows.
+[Astra source review clarifies the known story gap](reviews/2026-10-24-remaining-map-bodies.md#astra-clarifies-the-remaining-story-risk-without-a-goal-change)
 and explicit loader/computed-command boundaries; no new goal decision. Next
 story task should reconcile authentic entry-to-Mu quest transitions, not repeat
 a generic absence search or create a quest actor.
