@@ -2217,3 +2217,9 @@ Targa body execution is admitted. All real reference hashes are retained.
 [Claude .021Root18tests/114independent controls pass authored outputs with four reproduced holds](reviews/2026-10-24-direct-dependencies.md#claude-retained-observer-passes-root-authored-outputs-with-publication-holds):
 late PASS, unverified published bytes, close-error cleanup and input ancestors.
 Grok remains independent/live; score/selection/actual Targa admission wait.
+
+
+[Next single-model geometry resource basis is source-checked](reviews/2026-10-24-direct-dependencies.md#next-finite-model-geometry-resource-basis-is-checked-without-execution);
+no model runtime admitted. Full337row fleet audit finds only .021Grok active
+(live/fresh),326released/ten retained/zero reclaimable. Grok is correcting its
+own authored tests; frozen criteria stay unchanged, no retry or cancellation.

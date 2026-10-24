@@ -3969,3 +3969,41 @@ Private t07-014-021-claude-review-root-1/ receipts:
 | ROOT_CONTROLS.mjs |8351|9c4e4d0c20e0ff991903b8c53e8d8ed73034757d44040b37659ba3241291eee2|
 | ROOT_CONTROLS.json |583|c214e8b2c4d3b75473320070f84760f1edc893260335e5967e15fd00d21e518a|
 | ROOT_MATRIX.json |37965|fd5f2245ca8ab15a17a19e72f6aad81c8da6769abac56d6307a54b216f1047fb|
+
+
+## Next finite model geometry resource basis is checked without execution
+
+While Grok .021continues independently, Root/Astra inspect the already qualified
+model702metadata and saved Worker source. Root personally rehashes both full
+inputs and checks the exact four complete method spans. Both nodes have default
+TRS/offset/mat3/matrix; there is no new evidence of lost nontrivial transforms.
+The known unvisited node-box sentinel remains a bounded geometry question, not
+a proven visible failure or reason to patch the parser.
+
+The smallest useful future test is one model/one exact qualified map17/group37
+placement with matching ground dimensions, unchanged createInstance then compile,
+below MapLoader merge/texture loading. Source-derived output lengths for the
+two nodes are3564/7155floats,14256/28620B, total42876B per instance. For valid
+face/texture indices and unique node texture keys, principal typed allocations
+per node are108Foutput+12Fface normals+12Vtransformed vertices+12GVsmooth
+normals, G<=32. Maximum principal typed budgets are53856/101892B, excluding
+source/model storage, matrices, JS containers, duplicate-key overwritten
+allocations, GC retention and the later merge copy. These are conditional source
+formulas, not observed memory or geometry correctness.
+
+A global compile() marker initially matches five unrelated methods; Root retains
+that extraction refusal and narrows it to the previously whole-pinned RSM class.
+Current four complete spans/full inputs are checked unchanged. No actual model
+body read, constructor replay, instance/compile execution or image/render action
+is admitted. Future purpose/placement/caller qualification remains explicit.
+Private t07-014-022-preparation-root-1/SOURCE_RESOURCE_ROOT.json:3159B/SHA
+937081dc06ac18231616ea729d85766865b39df110eef1cd0df1218d6e790fe7.
+
+After three empty waits, Root enumerates all337fleet rows/four pages: one live/
+fresh Grok with nextAction none,326released/ten retained/zero reclaimable or
+other lifecycle actions. Root asks only for a bounded status checkpoint, then
+reminds the unchanged three-input read scope after the exact worker transcript
+shows an unrelated public model_constructor_worker.mjs read. Development tests
+are still being corrected; no timeout is treated as exit, no retry/cancel and
+no other candidate's findings are sent. Worker settlement/Root comparison remain
+next; no actual decoder or goal/percentage change.
