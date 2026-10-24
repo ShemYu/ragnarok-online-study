@@ -2270,3 +2270,48 @@ UNBOUND; no automatic execution or scope expansion. Wait for the independent
 Grok review, personally reproduce it, compare both, then bind one guarded oracle
 and qualify its complete output before the selected lookup. Successful older
 .010or .012calls remain retained and are not replayed.
+
+
+## Both nested source reviews are personally verified and qualify
+
+Matched Grok task_6dab81f1561d/ctx_471706c47694 settles succeeded. Root preserves
+all14private files/119635B, full copied hashes, releases only the settled worker
+terminal/transcript and acknowledges deliverya4d64598a028 (two matching live .016
+heartbeats also processed). Private grok-packet-root-1/PRESERVATION_ROOT.json
+is2358B/SHA256659123ed386823771a68dd1d9359ce89b8b7b9926de4b45d2a4622bd79442ffd.
+Fresh four-page fleet enumeration covers325rows:313released/ten retained/two
+current .016implementations; user-owned/older retained absent or stale rows are
+not inferred dead and are not acted on. No new child/setup or idle review worker.
+
+Root reads the complete Grok report and all950lines/47164B control source.
+Independent rerun changes only the exact private output-prefix literal, with
+full inverse verified. Natural0/1.671034s/empty stderr: all46profile derivation
+checks,11fault groups, fresh fixture publication, actual refusal and nine current
+input pins pass. Complete typed fixture matches the frozen literal payload;
+13057B result/SHA10c6ea82... matches other authored runs. Root's own174960full
+metadata reconstruction/895authored checks remain the independent check.
+
+Private grok-rerun-root-1/ROOT_RERUN.json is1206B/SHA256
+8e1b4c4ce2215bad7ac7c67c9db860568e3281d753dd076733408541999be0e6.
+Retained limitations: Grok's helper-level late checks omit full-main result+
+failure publication (covered by Root/Claude controls); its retained-fixture
+branch reconstructs stdout, so Root explicitly requires and observes a fresh
+publication. Its independent-fixture structure closely resembles the donor;
+Root's separate brute-force/literal oracle and independent actual oracle remain
+mandatory. The supplied source/profile show no correctness defect.
+
+Root rubric correctness8/preservation4/checks4/handoff2/limits2: both19/20
+(8+4+3+2+2). Claude's checker defects and Grok's weaker failure/independence
+coverage reduce review-check credit; neither changes the qualified target.
+This is a source-review tie, not a coding/runtime/provider-quality score.
+Select the unchanged12714B/132f54ba... wrapper and3413334B/d2f4397b... profile;
+no correction/new parser/framework is needed. Full source pins/caps remain.
+
+Next bind only the reviewed flag/source/plan/current-input slots. One independent
+oracle runs first under unchanged130s/1.5GiB sampled RSS/grace8/noNative guard;
+Root must qualify all output/captures/closures/physical rows and complete current
+inputs before the selected lookup. Then compare every typed semantic field to
+that separately generated expectation. Any nonzero/timeout/partial/late failure
+stops without automatic replay. Older successful scans/models stay retained.
+No actual948scan, body/winner/codec/geometry/render/story/save/full-content claim
+or new user decision. Full4of14/about29%/82gaps and running quiet game remain.
