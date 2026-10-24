@@ -91,3 +91,63 @@ Next collect/verify both sources and equal controls, then separately admit the
 concrete seventeen-body recovery and embedded-name observation. Exact provider
 model/version/effort/tokens/billing are unobserved. Kimi stays off this critical
 path; its final shadow slot is not consumed without capacity confirmation.
+
+## Shared source controls qualify before candidate execution
+
+An auxiliary reviewer prepares a small private checker without candidate access.
+Root reads the whole10063B source and verifies its hash, syntax and private modes.
+It binds all three actual fixed profile/route contracts, preserves old constants,
+checks CLI routing, and runs seventeen explicit134B stored/zlib synthetic bodies
+through producer/consumer. Cross-route/missing/extra-output and an observed late
+callback refusal test failure completion. Expected bodies are literal authored
+data; synthetic contracts cannot enter the public production consumers.
+
+Private common-controls-root-1/common_controls.py, with the common
+t07-007-014-006- prefix, has SHA256
+eb6e398ebcbb064b473d9806217f2ed0a6963f28b9ba993b5c3a2f92e2469984.
+No checker execution or candidate inspection yet. These controls use plain
+synthetic kind1; inherited cipher/lifecycle tests and Root source review remain
+necessary. Actual archives/bodies/header/gameplay are outside this checker.
+
+## Independent four-GRF reference admitted
+
+Root/Astra source review confirms all four remaining October records have
+original/effective kind1, no promotion and aligned length equal to compressed
+length. The qualified native reader skips crypto for them. A fixed private
+range reader can reuse the existing bounded stdlib frame function; no new GRF
+table, name, codec or crypto parser is needed. Normal availability will reuse
+the previously paired native-reader architecture, separately from patch-source
+implementation. Source reviews identify the exact four ranges and declared
+total208210compressed/1223209decoded bytes.
+
+Private `.tools/renewal/t07-remaining-four-grf-preparation-root-1/PROFILE_ROOT.json`
+is5732B/SHA256a85faa17a2d17f913d639d2f49647c4cfebf3bd38562724b150a430c6678c372.
+It pins the existing2172616301B archive/SHA256
+0565853edc5ad4b70e8ad705f5bc88c1af5624ee1b7a252fa81030d2ea813cc6,
+four exact ledger ranges, retained file identity and five current source pins.
+No archive/body is read during preparation.
+
+Root reads the full reference source; independent Astra confirms exact ranges,
+plain-kind framing and self-contained extracted frame/header definitions.
+Before admission Root adds final deadline checks. A success-looking staged JSON
+is explicitly insufficient if final fsync/close/readback or process exit fails.
+All partial evidence stays retained on failure; no automatic retry or deletion.
+Final REFERENCE_ROOT.py is8647B/SHA256
+76fcad966668b86f17aa389cd70514ffab369f11d45b9f791f54d4968835beab.
+Root verifies the complete inverse of its two deadline/consumption edits to
+the8272B source reviewed by Astra, then syntax compiles without execution.
+
+This checkpoint admits ONE owned Python reference process with an external60s
+timeout. Forced termination fails. It verifies the complete archive hash/identity
+before and after reading the four literal ranges, reuses the unchanged qualified
+frame/header definitions, and stores four private full bodies/raw header fields.
+No HTTP, extraction, game/native/VM/SQL/save or configuration action is admitted.
+The next consumer requires natural exit0 within60s plus Root independent complete
+body/receipt/source readback before treating the hashes as expected normal-GET
+hashes. The worker source pair remains independent and active.
+
+Normal four-GET acquisition is NOT admitted yet: it still needs fresh current
+owner/listener/native/config/archive and target/parent/override checks, then a
+separately pinned projection of the already-qualified111-request observer.
+Normal asynchronous extraction/cache/log effects must be intentional and exact.
+No archive-winner, renderer, route or functional-gap conclusion follows.

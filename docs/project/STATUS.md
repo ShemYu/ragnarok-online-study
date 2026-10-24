@@ -113,6 +113,11 @@ on separate branches fromc6b853d, with matching task/dispatch heartbeats and
 frozen baseline source. Next collect/verify both and equal controls, then Root
 separately admits actual recovery/header observation.
 Reuse existing bodies/terrain evidence; do not repeat the general gap ledger.
+In parallel, [one independent four-GRF reference is source-qualified/admitted](reviews/2026-10-24-remaining-map-bodies.md#independent-four-grf-reference-admitted):
+four plain-zlib ranges/1223209decoded bytes using existing frame/header code,
+full archive preservation and external60s limit. Root actual reference/audit is
+next. No HTTP/extraction/runtime action is admitted by that source checkpoint;
+normal four-GET verification still requires fresh live-state preflight.
 
 ### Historical preparation — follow the next action above
 

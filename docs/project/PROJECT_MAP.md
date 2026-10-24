@@ -64,7 +64,7 @@ Other active work:
   Full839 entry FD closure     [PASS: explicit setup; exact comparison kept]
   Full839 map/monster joins    [DONE: Claude integrated; Root verified; pair released]
   Remaining patch map bodies  [ACTIVE:17 exact RSWs; isolated Claude/Grok pair]
-  Remaining October bodies    [4 RSWs; distinct GRF admission pending]
+  Remaining October bodies    [4 RSWs; fixed reference admitted; normal GETs pending]
   Claude/Grok FD plan pair      [BOTH VERIFIED + RELEASED; control PASS]
   Authentic Chapter 1 scripts  [OPEN: largest content risk]
   All 82 functional gaps       [OPEN]
