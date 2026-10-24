@@ -51,9 +51,11 @@ MuC/MuD:submitted+released, HOLD5findings -> finite UI/driver fixes ready.
 MuC:three fixes + all six actual focused calls PASS/223pins.
 B4/world/UI/driver:four delivered+released; UI/driver/world source PASS.
 B4 data:actual321checks/306pins/71outputs PASS -> runtime binding next.
-Ten controls:3return fixes qualified -> two existing groups admitted.
+Ten controls:both parallel groups actualPASS (6+4cases).
 Six records:actual independent decode PASS ->111allowlist qualified.
-Fresh Mu21:data126checks/36leaves PASS -> Mu19 binding Grok live.
+Fresh Mu21:dataPASS -> Mu19 sources PASS/owner released -> purecall admitted.
+Next Grok:B4unbound runtime templates + solefull839 entry, independent.
+Current-five reader:one26selected native call admitted; fullaudit required.
 Mu oneactualscene FAILED;105bodies+partialdraw;Root825failurechecks PASS.
 MuD:both calls PASS/65pins; final source joined/released beforeACK.
 Mu19:actual33leaf projection PASS/112checks/85pins -> runtime C next.

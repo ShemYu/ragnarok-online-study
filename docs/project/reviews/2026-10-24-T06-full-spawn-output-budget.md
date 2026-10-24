@@ -545,3 +545,39 @@ one group06/four-call invocation, each originalG10/512MiB/grace3/no-native/
 stdout/guard/retirement/sourcepostpins/private scoped artifact audit are
 required. Distinct fresh workspaces, no replay or target839 corpus read.
 Full839 producer remains unbound; no full publication/native/game credit.
+
+## Ten selected finite controls pass in two parallel original guards
+
+After4dbfa19, the two independent groups run in parallel, each exactly once
+under originalG10s/512MiB/grace3/no-native/1MiB and two exact entry headers.
+Group04/six calls: natural0/positiveguard,0.275656s/20414464B sampled;
+Root audit20075/a40791b7b84fbc6d512355495407e5e7711f2e651de471020bdc332e089b3a32,
+40true checks/25fullpins/eight complete private artifact leaves/errors empty.
+Group06/four calls: natural0/positiveguard,0.264049s/20348928B sampled;
+audit27815/fb20ba4812c0beb2a3ac4930352cfa3bb85e064127eca35de1cfe5bb31239966,
+48true checks/33fullpins/fifteen complete private leaves/errors empty.
+Both complete typed/raw stdout match the previously frozen2832/916byte
+expectations; guard receipts/streams/sourcepostpins/current PID+group
+absence/FD+thread+HEAD and scoped artifact modes all pass. Earlier
+combined-nine is not replayed. Producer ROOT_BOUND remains false.
+
+Root's first6304-byte verification launcher had missing spaces in two
+conditional expressions; both Python invocations stopped at syntax parsing,
+before imports, directories, G or controls. All four actual/bound directories
+were verified absent, corrected6306-byte source compiled before invocation,
+SHA5f421b6e9a43099e63eb73b73cfd06815428675a121e66024ea7f8f6a13fdea7.
+Private refusal record is preserved; these were not extra control calls.
+
+Next actual Grok source task is frozen for only existing
+group06.run_qualified_accept full839 route. Root/Astra review17full inputs/
+16raw anchors/ten closed files; qualification45316/
+f413ebb0aedcb6aacde404fd66b3fe05cfdcdaff27db6a121aeec9381fee10fd.
+Three entire frozen expectation sets and all839 metadata rows remain
+authority; exact canonical stdout910/65abd42403272400eba4a2db945e82b53bf7e60716f1a57acf7cc3a9a69e4957.
+The15-field producer receipt is internal to the consumer; outer Root must
+independently audit all four whole leaves without claiming to observe it.
+No optional-receipt/group07/directmain-thenassess route or automatic48-call
+replay. Frozen29-copy packet32969/
+a170ec32a3e2ffc3bea03e6182cd1ff4a4fe463c5ac16d2494796f5f2563f9f9;
+brief4917/684f73f748ee9b372288c7128915cdaca5e802bb5d30899c0780b382ea1ac527.
+Source-only authoring after checkpoint; no full839 publication admitted.

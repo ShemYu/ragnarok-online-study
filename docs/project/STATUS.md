@@ -20,18 +20,18 @@ but6unpinned startup resources and numeric evidence fail. Root verifies
 825checks/754pins/all245Engine wires/current cleanup/original preservation.
 BrowserACK/natural0, SQL/native afterfailure passes, owned resources absent,
 dedicated volume retained. No replay/PASS/game credit. Astra diagnosis next.
-[B4 data passes; ten existing finite controls admitted after bindings](reviews/2026-10-24-functional-priority.md#b4-data-preparation-passes-and-finite-control-calls-are-ready):
-B4actualPASS321checks/306fullpins/71outputs; current complete confirmation
-passes. Runtime C/Engine/current-world/ports/lease remain unbound.
-UI/driver/world corrected sources and111allowlist qualify; numeric cause
-unknown, no fresh renderer actor admitted. Exact-three-return task settled,
-released/archive beforeACK; source inverse/frozen stdout pass. Admit one
-group04/six calls and one group06/four calls, each originalG10/512MiB/
-grace3/nonative/1MiB, fresh workspaces/full audit. Full839 remains unbound.
-Actual Grok Mu19binding task169c84b6c54b/ctxad4983663adf continues.
-Fresh Mu21 and six independent startup bodies/111allowlist remain PASS.
-Parallel source reuse work prepares fresh B4/Mu runtime and26-map reader.
-No new native/game acceptance or parent/gap credit.
+[Ten existing controls pass in parallel; two next source packets ready](reviews/2026-10-24-functional-priority.md#verified-parallel-controls-and-two-next-grok-source-packets).
+B4data PASS321checks/306pins/71outputs. Fresh Mu19 sources qualify:
+one existing pure projection admitted after child/caller bindings/full33
+audit. [One fixed26-map current-five reader call admitted](reviews/2026-10-24-T07-mu-data-stage.md#one-fixed-current-five-native-reader-call-is-admitted):
+originalG1300/4GiB/native, full7current input pins/world checks; whole native/
+artifact/retirement audit required. No browser/game actor admitted.
+Next actual Grok work: unbound B4 C/Engine templates and sole full839
+qualified entry, independent source-only scopes/frozen29-copy packets.
+Six earlier Grok source tasks settled/released/archive; fleet274records/
+268released/six retained/zero reclaimable before new starts.
+UI/driver/111allowlist qualify; numeric cause still unknown.
+No full839 export, renderer, backend/auth/quest/save acceptance yet.
 Combined-nine finite PASS63checks/44pins/all4expected files; full839 open.
 No parent/gap/game credit;4/14/about29%, all82gaps and full goal unchanged.
 

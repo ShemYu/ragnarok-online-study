@@ -1217,3 +1217,62 @@ Actual Grok fresh-Mu19 binding source task starts after de25416:
 task_169c84b6c54b/ctx_ad4983663adf; receipt2307/
 f69ecc489829294b94c666f9e9543f0dbb4d9c3b1f38f7b4ab3e7cf225c9efa2.
 No actor or projection invocation is authorized to that worker.
+
+## Fresh Mu19 literal bindings qualify for one pure projection
+
+Actual Grok169c84b6c54b/ctxad4983663adf settles source only. Root verifies
+26 inputs/nine outputs and releases/archive beforeACK. Settlement17025/
+817293fdf621995b828ebf21196d21355ae9be69b844efba8a77e22444856377,
+release455/7c9d0150f675c0bc28d51bdc9fa5716ae6c19ee05af7e653b3542d828afaeffd.
+Caller93090/36222c8646e72796056115678dd3ac5587858fa2394ea55178a855b0e3b3cc93;
+child74164/c47990222bdd16e52d9222acbb57e49a22bbe5331c04dd710a556d97e433d688.
+
+Root independently checks exact11caller/7child changed lines (the10/6
+mapped values plus both false admission flags), full source inverses,
+whole actual126/112/36 audit literals and original Root C8 pins, both
+repeated equality guards, scoped fresh paths and syntax. Immutable19779
+projector full SHA remains unchanged. Root qualification6150/
+25e2e7087edf306d7635e1e7da739d146533683dbc16a7b96f2b62de09c6f90c.
+Independent source review additionally finds no mandatory blocker.
+
+After this checkpoint admit one existing pure projection under original
+G10/512MiB/grace3/no-native/1MiB: bind child's sole flag, then caller flag/
+currentHEAD/Python/newsealedchild pin. Whole33-leaf/receipt/current source
+and prior identity join/retirement audit required. No new identity,
+projector body, role contract, inter1538 change or game actor.
+Fresh runtime source/list field reuse is also mapped; new111 descriptor
+replaces the three existing allowlist references, preserving P251/UI119.
+New runtime world/HEAD/lease/ports and source header/self pins are later
+Root bindings; historical C/Q/world are not fresh authority.
+
+## One fixed current-five native reader call is admitted
+
+Root/Astra qualify the exact current observer source for one isolated file
+reader; no browser/database/save writes. Sole ROOT header bound38080/
+6eb3756c5720a45b26f731c52ff410273b368c4f7b4ab0e5bd714b44284825b9,
+inverse restores qualified38008source. Root verifies eight opened inputs/
+14raw anchors/seven closed review files and eighteen metadata/source pins.
+Qualification26182/
+1d83273ae98abc0721d429e735276b64cf0050c284d8fa776a17ab89bf6106e3.
+Fresh read-only original-world14GETs preserve five original containers/
+owners/mounts/listeners/socket; world32131/
+fa31a86c62a327920797c751d0a122e2f82176ca627e16226ce77680b1593b5f.
+Root full-streams seven protected inputs including all five4.608GB archives,
+INI868/exact stack and selected Remote binary, with current full C8.
+Preparation23939/821c3c9f65c119609e964396a2de690ff3cddb78970cac620f1413438eeb721a.
+Private output base is absent; no preliminary native/preflight replay.
+
+After this checkpoint admit one originalG1300s/4GiB/grace3/nativeTrue/1MiB
+call, exact bound SHA/--execute. Source retains readiness25/acquisition1200/
+cleanup8+8 and16MiB/body/8GiB/3889GET/5s IO caps. Ceiling is failclosed,
+sampled RSS is not OS containment. Run serially versus future Mu Chrome.
+
+Root requires original native two-group receipt/event/birth/source/current
+PID+group+port absence and exact empty streams. The no-native S retirement/
+JSON-stdout seams do not apply and will not be modified. Independently
+audit whole report/all1296 metadata joins/counters/exact artifact membership,
+all full/partial body lengths/hash/headers, protected full posthash+C8 and
+original-world preservation. Clean unavailable alias may yield valid zero
+attempts; complete alias permits exactly26, mismatch only literal diagnostics.
+Transport/protocol errors stay fatal.1296enumerated/1265configured/26selected/
+82functional gaps remain separate; no all-map/game/parent credit inferred.
