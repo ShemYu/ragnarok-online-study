@@ -4328,3 +4328,49 @@ Private t07-014-022-preparation-root-1/ pins:
 | PREFLIGHT_QUALIFICATION_V2_ROOT.json |549|c47a331b40c17522433ec92e243667be79647055012bc9a0916b1824d8a4b8a1|
 | CALL_PREFLIGHT_ROOT.py |6877|94f2507db424fcf897de736edf69c411ca837474edf5cd54f916e3160cc4c634|
 | CALLER_SOURCE_ROOT.json |329|9bc777f0bae0715d1cc30dd73ef85f153175784cda616e5f2cc80b8d649a63ef|
+
+
+## Independent actual static model preflight and full saved-array audit pass
+
+The ONE Python-only binary parse admitted at8a8e061 is consumed, natural0/no
+stderr,0.055932s enclosing process/0.020487s caller. All19113bytes are consumed
+within the strict subset; no acquired JS/constructor/compile or request executes.
+Retained PARSED_ROOT.json is353543B/SHA
+fe18ec2d7a198c6d80993b2e5377a54bd729f03cb1ab839638da1e0291fedf8f.
+The output prefix now exists: retain it and do not repeat this parse.
+
+Root independently audits the saved arrays/old summary/current inputs without
+calling the reader again:4226checks/six fresh full pins/1011880B pass,0.007932s.
+All five input C8/SHA authorities stay equal. Every vertex and UV float is
+finite, all face vertex/UV/texture/primary smoothing indices are valid, record
+intervals fit, and independently deduplicated global texture names/keys match
+the retained constructor summary. Raw node0bounds match its summary; node1's
+unvisited constructor sentinels are preserved separately from its finite raw
+vertex bounds. No compiled-displacement finding follows.
+
+| Node | Vertices / UVs / faces | Used primary groups | Mesh floats / bytes | Conditional principal typed bytes |
+|---|---|---|---|---:|
+|0|96 /146 /132|1–5|3564 /14256|22752|
+|1|177 /222 /265|1–8|7155 /28620|50916|
+
+All vertices are face-referenced in this model. One-instance mesh output is
+42876B; conditional principal typed total73668B, plus matrices/parsed data/JS
+containers/VM/GC/later merge allocations. Smooth face-visit bounds63360/375240
+apply to the actual used groups, not measured time or an RSS cap. All-node raw
+local union is min[-19.71739959716797,-1.1023999452590942,-17.358699798583984],
+max[19.521900177001953,4.002200126647949,18.119800567626953]. These are local
+binary coordinates; world positions/normals/compiled UVs remain unobserved.
+
+Root next prepares a distinct independent Float32-aware position/normal/UV
+oracle from these retained arrays while both source-plan authors continue with
+their unchanged four frozen inputs. No raw model data or new findings are sent
+to either author. Actual compile still waits source plan comparison, finite
+implementation/qualification and explicit admission. No goal/progress change.
+
+Private t07-014-022-preparation-root-1/:
+
+| File | Bytes | SHA256 |
+|---|---:|---|
+| ACTUAL_PREFLIGHT_CALL_ROOT.json |271|59a0f314511eea7cfccae9a8caf8cd960e5ad940d5c479d48377bd0dec9926cb|
+| AUDIT_PREFLIGHT_ROOT.py |6450|3d21e1afc42389686a4796636fbfc467d9452fee33de8da89d9993963b69d77d|
+| ACTUAL_PREFLIGHT_AUDIT_ROOT.json |3037|6fa0d6d211b4b6d49b98714f889e9598197d79df3cc83d2d154bcd6f6ab43c2e|

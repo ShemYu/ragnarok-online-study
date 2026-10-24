@@ -26,8 +26,10 @@ Claude/Grok source plans and Root binary preflight precede compile, then
 browser/render qualification.
 [Root47authored binary-preflight controls and finite caller checks pass; ONE
 independent Python parse is admitted](reviews/2026-10-24-direct-dependencies.md#independent-static-model-preflight-qualifies-and-one-binary-parse-is-admitted).
-This grants no acquired constructor/compile/render execution; all82functional
-gaps remain open.
+[ONE independent parse/full4226check saved-array audit now passes](reviews/2026-10-24-direct-dependencies.md#independent-actual-static-model-preflight-and-full-saved-array-audit-pass):
+all indices/finite data valid, exact mesh output42876B. Parse consumed; reuse
+retained arrays for the independent Float32 geometry oracle. No acquired
+constructor/compile/render execution; all82functional gaps remain open.
 
 **Child cleanup:** [Root verifies removal of20completed children](reviews/2026-10-24-orca-children-cleanup.md#second-twelve-removals-personally-verified).
 Current84direct children include the two released review children and the two
