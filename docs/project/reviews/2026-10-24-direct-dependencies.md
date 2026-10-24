@@ -378,3 +378,79 @@ Next Root owner: keep ordinary gameplay independent, consume each matched
 worker_done, preserve every source/report/private artifact and Git ref, verify
 the candidates, then reuse/retain/release before acknowledging settlement.
 The live .011 pair accounts for two new children; current direct count84.
+
+## Claude submission and Root counterexamples
+
+Claude submits c36d08a8d2eb5871e8462b516337aafc018b94bb, a single commit with
+exactly the three owned files and a clean working tree. Root reads the complete
+1040-line source and the complete report; the44785B source SHA is
+f330ddeb266afd591848b2247f582435daad238b89024096959404cabb648872.
+The40878B authored tests and18932B report match the worker's message hashes.
+The reported26passing author controls are not yet Root's repeated suite.
+
+Root preserves all three files, exact archive ref
+refs/archive/t07-014-011/claude/c36d08a and a verified32824B incremental Git
+bundle requiring the common base. The allowed private candidate directory is
+absent; no private candidate files are omitted. Private packet
+t07-014-011-claude-packet-root-1/PRESERVATION_ROOT.json2372B/SHA256
+a83dc9ae633355f4df9322daee418e783db10eeb63a7c1affdabb846724a16c1
+records complete source identities/bytes/hashes and bundle. Matched success
+settlement qualifies submission only. Release completes with the agent terminal
+closed and Orca transcript captured; no inspection-only sleeping worker is kept.
+
+Astra's independent source consultation identifies concrete error/evidence/
+preservation concerns. Root independently reproduces three using tiny authored
+bytes, genuine stdlib HTTP parsing and the candidate's actual fetch loop:
+
+1. A truncated chunked response exposes16bytes in IncompleteRead.partial;
+   candidate catches the exception but retains/counts0bytes.
+2. A successful read returns16bytes as the deadline expires; the subsequent
+   remaining-time check drops those returned bytes before hashing/storage/
+   accounting, again recording0.
+3. A complete200/Content-Length16/Connection:close response is rejected as
+   transport failure. HTTPResponse closes its file/socket after the complete
+   body; the next loop iteration calls settimeout on the closed channel before
+   observing EOF. The qualified GET34 had an isclosed loop guard. Root proves
+   this with an owned in-process AF_UNIX socketpair, no TCP/listening server or
+   game request; all owned sockets close. The full16body bytes remain retained.
+
+Private t07-014-011-claude-root-controls-1/RESULT_ROOT.json3261B/SHA256
+004fbb57cba3b154987184f96eee208f00415f640123219185b2618903cdacc5
+records the three actual reproductions and unchanged candidate source. Thus
+this original candidate is held from live delivery. Default no-I/O admission
+remains false. No actual source projection, live request, restart, game repair
+or cache/file replacement occurs.
+
+Root also directly verifies an output-contract defect: load_domain retains
+only map/relation counts, and RESULT declares maps_unchanged/relations_unchanged
+as integers, contrary to the brief's complete unchanged arrays. Further
+source-consult concerns about pre-request unsafe paths, prior-present unknown
+body mismatch and native-probe exception handling await Root reproductions.
+Do not label unexecuted recipes as passed/failing controls or infer Grok quality
+from these findings. Grok remains active; next compare both on equal behavioral
+cases, then select or separately repair. No runtime or provider winner claim.
+
+## Next constructor stage source review
+
+While .011implementations run, Root/Astra inspect existing compiled-prefix,
+model-worker, summary and texture-declaration seams. Root separately full-hashes
+all ten named sources and personally reads the constructor/summary, actual RSM
+createInstance/compile and MapLoader image/static/animated branches. Private
+t07-014-012-root-source-review-1/ROOT_REVIEW.json5251B/SHA256
+b6222142defb693182f422b8bc9c5d95025c1ca0683636e6e18fa4b93d7d4c7b
+retains those pins and exact source regions. No project code is executed.
+
+Construction/summary does not establish compile. RSM.compile allocates
+node_count*instance_count meshes; zero instances yields empty geometry.
+Production uses actual placement/ground dimensions, with separate animated
+handling. Its BMP/JPEG branch creates Blob URLs; genuine image decoding/upload
+belongs to the later browser renderer. Reuse the existing compiled prefix for
+model construction and nested declarations, then placement-aware actual render
+checks; do not build another parser or accept empty compile/Blob creation.
+
+An independent metadata preparation now exists for936logical models/1649group
+relations/21maps, with93retained descriptors and843pending new body pins. It is
+candidate preparation, pending Root's full audit and frozen task. Actual model
+execution depends on qualified delivered model bytes; source preparation can
+proceed independently. No constructor, decode/render, travel/story/save or82gap
+closure follows from this source review.

@@ -12,7 +12,7 @@ first-milestone content or remaining effort. Do not relabel it as such.
 
 **Child cleanup:** [Root verifies removal of20completed children](reviews/2026-10-24-orca-children-cleanup.md#second-twelve-removals-personally-verified).
 Current84direct children include the two released review children and the two
-active .011implementation children. Exact Git archive
+.011implementation children (Claude released, Grok active). Exact Git archive
 refs, two verified rollback bundles and private evidence survive; the running
 character/quiet audio remain. Three examined children stay held for incomplete
 private preservation; user-retained children remain excluded.
@@ -59,11 +59,17 @@ confirm alias behavior there, not actual asset paths. Native source preserves
 requested spelling and can serve cached bodies without extraction. Normal
 delivery and loose-file materialization are therefore separate outcomes.
 Equal Claude/Grok implementations use seven fixed inputs from dddb08c;
-[both actual workers are live](reviews/2026-10-24-direct-dependencies.md#equal-direct-delivery-implementation-wave-starts), no actual worker I/O.
+[actual independent worker wave](reviews/2026-10-24-direct-dependencies.md#equal-direct-delivery-implementation-wave-starts), no actual worker I/O.
 Grok's extra provider-memory reads are recorded as a scope deviation; strict
 information isolation is not claimed. Pilot8/612703B, disjoint remainder1214/
 24101056B; no live GET is admitted yet. Next Root source/common-control
 verification and fresh runtime binding; genuine decoders/rendering follow.
+[Claude's submission is preserved/released and held by Root counterexamples](reviews/2026-10-24-direct-dependencies.md#claude-submission-and-root-counterexamples):
+c36d08a, complete source/report read, three synthetic defects reproduced,
+including normal complete-response socket-close rejection. Grok remains active.
+No live GET is admitted; compare both before source selection/repair. Root also
+[checks the next constructor/declaration source seams](reviews/2026-10-24-direct-dependencies.md#next-constructor-stage-source-review);
+genuine placement-aware compile and browser decoding remain separate gates.
 
 [Normal delivery of all34terrain bodies is already complete](reviews/2026-10-24-remaining-map-bodies.md#normal34delivery-and-complete-root-audit-pass),
 T07.007.014.008 `ready_for_user`:34exact200responses/97037820B, all34new loose
