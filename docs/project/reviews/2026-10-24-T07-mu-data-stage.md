@@ -1712,3 +1712,34 @@ Independent review confirms exact metadata reuse and no mandatory blocker.
 This reuses the selected implementation; it is not a new model benchmark.
 After checkpoint, Root can bind six outer/three child headers for one
 fresh33-leaf Mu19 projection; no new identity, fixture generation or game actor.
+
+
+## Fresh Mu19 actual and repaired runtime templates qualify
+
+After05b53f9, only six outer/three child admission headers are bound for one
+originalG10/512MiB/no-native projection. Natural0 in0.192204s; all112checks,
+85fullPins and33leaves pass. Audit78691/
+7adb9f09f2b5b6e2391572022be20255896e5b935ababdce9331f17b44518065.
+Root current confirmation42872/
+4bc74892e3c01f7be807b04c64caf0d422949a3b4111efb7d244ef8bb19dcecf
+joins every current pin/whole receipt/streams, confirms owned process/group
+absence, exact Mu3 public identity,18otherrole body hashes and inter1538.
+No new identity, actor or save proof. This projection namespace is consumed.
+
+Root mechanically projects exact old C/E through57permitted typed-slot
+changes, verifies all513leaves, exact whole-byte inverse, schemas24/10,
+P251/UI119,17C-null/12E-null/three false flags and111allowlist.
+Q258493/cd32c37034397dfb7d355b0c58ddd0f6dcf5cb86dbe36f9d7a038e1fa165e3a2.
+C212696/86d5abf2533f62ca30848b7c386711610cde1174c010cefbc4f989f919d73298;
+E9923/1e52cd8bd039dfbbbf9bce0a25e7dd955dabef958df60c1d16e57bb3a9d721ed.
+The four repaired Web descriptors replace existing slots, not append entries.
+Their C8continuity joins the prior full stage; all actual bodies remain
+subject to the existing final256MiB source closure before any actor.
+
+The unbound final binder changes only six metadata regions from prior10886:
+new Q pin/two template paths/Mu19root/final destination/source-Q record.
+Source10906/a87226b8e6d1d60bb7c0f4cb306d925e524683bb731596064f48291ee929c16b;
+Q23954/3d8126397dbb74fe2159c76cc440cffd0ab5e3e81fa029c7c092ba5931026372.
+Whole forward/inverse and source syntax pass; all archives/manual streaming,
+parent/outer/G390/4GiB/caps remain unchanged. Admission false/None/None.
+Fresh current-world evidence and three-header admission are still required.

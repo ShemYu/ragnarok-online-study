@@ -44,7 +44,12 @@ and independent semantic review. Header correction passes all20 focused
 cases. FD formatter also passes all4 focused cases. All latest Grok workers
 are released/archived. Fresh Mu3 data now pass130checks/116pins/36leaves,
 with Root current confirmation; no actor. Mu19 metadata reuse source qualifies.
-Next: Mu19 data projection and independent full839 root2 entry, then runtime binding.
+Fresh Mu19 now passes112checks/85pins/33leaves and Root confirmation.
+New runtime templates qualify all513slots/57exact data deltas; binder reuses
+six metadata edits only. Next: current-world/final binding and fresh scene.
+Full839 root2 still fails FD closure; complete4227-check data audit passes.
+Astra finds a conditional late-tempfile/random initialization mechanism;
+identical Claude/Grok source-plan packet is ready, with no FD waiver.
 One finished sampler terminal is retained under Orca user_takeover;
 other settled authors are released with captured archives.
 Current map-render verification estimate75%; overall4/14/about29% checks.

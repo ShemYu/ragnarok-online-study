@@ -825,3 +825,42 @@ Root rechecks the current original qualification/910-byte expectation and
 new closed-path source proof. Three root2 destinations remain absent.
 After checkpoint, bind only ROOT_ADMITTED/REQUIRED_HEAD for one original
 full839G30/512MiB/no-native publication; original failed root1 is preserved.
+
+
+## Full839 root2 still refuses one added character-device descriptor
+
+After05b53f9, Root makes one originalG30/512MiB/no-native root2 publication.
+Natural1 in12.466118s, sampled owned RSS249479168bytes, no signals; all owned
+groups are gone. Guard51560/
+9f77fdc719a6788a19eec3c8daad98e0795cf7f62dbf00e31662c40f26f19dcd.
+Only fd refuses: complete counts3before/4after and full fingerprints are
+retained, one added character-device row, no removed/truncated/unknown rows.
+A separate read-only device stat matches the added tuple to /dev/urandom.
+Matching device metadata does not prove harmlessness or authorize a waiver.
+
+Root completely audits all four published files, all839current source bodies,
+723206physical rows/35735events/whole manifest/marker, current retirement and
+all other checks. Audit1173422/
+6f1ad8b647f0400747c72bda24d02db1d5ebebddb67cbcc9db604974d916341c:
+4227truechecks/910pins. Data pass; entry/guard/trial remain FAILED.
+Neither root1 nor root2 is replayed. No native or monster-playability credit.
+
+Astra's bounded read-only consultation finds this literal candidate chain:
+baseline393 precedes late reader execution; reader30 imports tempfile,
+installed tempfile45 imports random, whose module instance seeds on import.
+Installed Python is3.9.6; frozen local stdlib hashes and matching upstream
+C source support a cached entropy-FD mechanism. Whether the Apple binary
+takes that fallback still requires dynamic attribution; no control was run.
+[CPython3.9.6 random seed](https://github.com/python/cpython/blob/v3.9.6/Modules/_randommodule.c)
+and [entropy cache](https://github.com/python/cpython/blob/v3.9.6/Python/bootstrap_hash.c)
+show the conditional retained descriptor and finalization behavior.
+No manual FDclose/GC/exception, moved workload baseline or scope change.
+
+Identical Claude/Grok plan-only packet15158/
+29fcab342fe15fb3a5c1de99472cf2bdbc45ae47aeefb30a59b385066c54926e
+contains14frozen source/evidence copies, official fixed-tag C and observations.
+Request independent source attribution and the minimum distinguishing
+stdlib-only control/fix plan. Workers cannot execute targets/controls or
+implement; Root verification/admission remains separate. Packet preparation
+continues after correcting an unsupported upstream Copyright-text assumption;
+all12existing copies are read back unchanged before completion. No actor retry.
