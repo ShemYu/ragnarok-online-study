@@ -680,3 +680,33 @@ and slot links remain complete. Source work is independent of .011delivery.
 All actual body/Node/pilot/remainder/guard bindings stay Root-only and unbound.
 The proposed finite limits are not runtime admission. No map/render/story/save,
 Chinese or82gap closure follows from this metadata/source-task checkpoint.
+
+
+## Equal model-constructor source wave starts
+
+2026-10-25JST: Root confirms clean main HEAD42f52ced4702c67446c3e4f07ebb14953a10256f,
+clean preserved Claude751aefe/Groke77fdaee checkout heads and all four fleet pages.
+All attempts in both selected checkouts are released before reuse. No folder is
+created and no setup hook runs. Root creates separate .012branches at the same
+42f52ce common base and sends the identical frozen task specification.
+
+| Provider | Branch | Task | Dispatch | Fresh terminal |
+|---|---|---|---|---|
+| Claude | ShemYu/t07-014-012-claude-a1 | task_216ea9a96908 | ctx_cad5132e64d2 | term_565a1ab8-006b-44a8-9d59-624f163d9500 |
+| Grok | ShemYu/t07-014-012-grok-a1 | task_db2f5f123c42 | ctx_9d748803721a | term_535a4908-dade-4e56-88a1-1be38586df48 |
+
+Both start receipts report ready/input_accepted with default provider model and
+effort. Claude has observed turn_started; Grok's launch observer does not support
+that event. A subsequent read independently reports Grok live/working; this is
+liveness evidence, not completion or successful implementation. No duplicate
+prompt/restart is sent. Full prelaunch fleet counts303released/ten retained,
+zero active/reclaimable; these two new source attempts are now active.
+
+Private t07-014-012-wave-root-1/ retains all four fleet pages, old clean status/
+HEAD proofs, branch switches and both complete launch receipts. Identical SPEC.txt
+is2279B/SHA256
+914a473b39ac2a0fe63041ced0a4b139f44b2f00f1e67230e15444b921be32eb.
+Exactly ten fixed inputs/four owned files, no actual runtime or body access.
+Root now reviews the finite live-delivery caller while both source candidates
+work independently. No .011GET, real constructor, new content or gap closure
+is claimed at this checkpoint.

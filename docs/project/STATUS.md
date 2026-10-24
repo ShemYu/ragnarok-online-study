@@ -1,6 +1,6 @@
 # Current status — resume here
 
-Updated: 2026-10-24 JST. Coordinator: Codex. Active scope: **execute the documented strategy through the full milestone**.
+Updated: 2026-10-25 JST. Coordinator: Codex. Active scope: **execute the documented strategy through the full milestone**.
 
 ## Current checkpoint
 
@@ -16,8 +16,9 @@ Current84direct children include the two released review children and the two
 refs, two verified rollback bundles and private evidence survive; the running
 character/quiet audio remain. Three examined children stay held for incomplete
 private preservation; user-retained children remain excluded.
-Latest fleet:303released/ten retained/zero reclaimable, no active implementation
-worker. Existing candidate checkouts can be reused for the next pair.
+Latest full prelaunch fleet:303released/ten retained/zero reclaimable.
+Two fresh .012implementation attempts now reuse existing released checkouts;
+no new child folders or setup hooks. Both are live, pending Root review.
 
 **Current map checkpoint:** [All21remaining compiled cores pass Root's complete audit](reviews/2026-10-24-remaining-map-bodies.md#remaining21-actual-compiled-cores-and-complete-root-audit-pass).
 One unchanged qualified host call exits0 in4.807445s, about800MiB sampled RSS,
@@ -92,7 +93,8 @@ after [Root's complete metadata audit](reviews/2026-10-24-direct-dependencies.md
 936whole model rows/1649relations/21maps,3913checks/21full pins and complete
 count equality pass.93known/843pending descriptors stay distinct; case-group
 indices are potential metadata only. Ten fixed inputs/four owned paths;
-equal Claude/Grok source starts are next, independent of .011live delivery.
+[Equal Claude/Grok source attempts are now live](reviews/2026-10-24-direct-dependencies.md#equal-model-constructor-source-wave-starts),
+both from42f52ce on separate branches, independent of .011live delivery.
 No actual constructors or runtime body/Node/guard admission yet.
 
 [Normal delivery of all34terrain bodies is already complete](reviews/2026-10-24-remaining-map-bodies.md#normal34delivery-and-complete-root-audit-pass),
