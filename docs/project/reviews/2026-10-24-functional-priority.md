@@ -1509,3 +1509,18 @@ authority null. Historical binding and proposal ports are not authority.
 Keep the dedicated audited attempt with its matching roles/player IDs;
 changing attempt requires a wholly new audited fixture. No actor executes.
 Overall remains 4/14 parent checks, about29%; all82 gaps remain open.
+
+## Mu runtime configuration qualified while three Grok source tasks run
+
+[Root fully reconstructs and qualifies Mu C/Engine, verifies both independent
+reviews, fresh read-only original world and unchanged parent/outer reuse](2026-10-24-T07-mu-data-stage.md#runtime-templates-and-existing-parent-reuse-pass-root-qualification).
+The next admitted action after checkpoint is exact current binding and one
+owned synthetic scene call. Original G and all clocks/caps stay unchanged;
+outer entry requires more than450 seconds on the common lease.
+No scene or gameplay result exists yet.
+
+[Third independent Grok taskd8c9b9b293e4/ctx78b8b9408528 starts for ten
+existing finite controls](2026-10-24-T06-full-spawn-output-budget.md#third-independent-grok-source-task-starts).
+B4 caller and world repair continue independently. All settled owners are
+released/archive captured. Full goal remains unchanged;4/14/about29% and
+all82functional resource gaps remain open.

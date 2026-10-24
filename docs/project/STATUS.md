@@ -13,18 +13,18 @@ dictionary abort/load405/map-connection settlement stop later cases. Root's
 complete failure/preservation audit passes; no B200assignment/reconnection or
 parent-check credit. 4/14 is a check count, not measured full-content coverage.
 
-**Parallel work:** [Combined-nine export passes; Mu templates submitted and
-released; world repair is live](reviews/2026-10-24-functional-priority.md#finite-export-verified-runtime-templates-settled-and-world-repair-live).
-One actual finite export passes all63checks/44recorded pins and all4whole
-independent pre-call files. Full839 publication is still unadmitted.
-Actual Mu19 data pass112checks/85pins/33leaves. Grok's unbound runtime JSON
-is in independent Engine/client review; current world/HEAD/lease/4ports
-then one owned scene remain next. Template owner released/archive beforeACK.
-B4 caller taskfe6df2b4cd87/ctxdc84619e0299 and minimal world-source repair
-task6f34a7a0b17f/ctx4f84c4376600 continue as independent actual Grok tasks.
-B4 child preliminary15input/9anchor review passes Root verification; final
-outer/hash/full71 remain pending. No new game actor or completed cleanup debt.
-[Ten existing finite controls are prepared for a third independent Grok source task](reviews/2026-10-24-T06-full-spawn-output-budget.md#ten-existing-finite-controls-prepared-for-independent-grok-source-work).
+**Parallel work:** [Mu runtime C/Engine and existing parent reuse pass full
+Root qualification; three actual Grok source tasks run](reviews/2026-10-24-functional-priority.md#mu-runtime-configuration-qualified-while-three-grok-source-tasks-run).
+Root independently reconstructs the whole24-field C/10-field Engine,
+all19 roles/P251/UI119/513slots; current original world/images checked.
+Next after checkpoint: current HEAD/lease/fourports/output/header bindings,
+then one owned synthetic scene via unchanged G390/4GiB/3/native.
+No scene result yet. Mu19 data remain PASS112checks/85pins/33leaves.
+Combined-nine finite export PASS63checks/44pins/all4pre-call files; full839 open.
+Live Grok: B4 caller fe6df2b4cd87/ctxdc84619e0299; world source repair
+6f34a7a0b17f/ctx4f84c4376600; ten existing finite controls
+d8c9b9b293e4/ctx78b8b9408528. All are source-only and independent.
+Settled template owner released/archive; no completed cleanup debt.
 No parent/gap/game credit;4/14/about29%, all82gaps and full goal unchanged.
 
 [All six actual MuC focused calls pass complete Root223pin verification](reviews/2026-10-24-T07-mu-data-stage.md#actual-six-muc-focused-calls-pass-complete-root-audit).

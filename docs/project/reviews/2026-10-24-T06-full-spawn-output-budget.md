@@ -476,3 +476,12 @@ The next actual Grok source task prepares two minimal unbound entries for
 those existing calls. No new test family, outer monitor, source mutation,
 839 corpus read, target execution or actor authority. Root independently
 reviews the full delivered sources and decides original G admission later.
+
+## Third independent Grok source task starts
+
+The scoped ten-existing-control source task starts after3673f0b:
+task_d8c9b9b293e4 / ctx_78b8b9408528. Start2307 bytes /
+650eb2b8acff80a1cd5bab886ea5adfb0e092527d593da6a934a1e254d7447a3.
+Provider Grok is confirmed; model/effort inherit configured defaults.
+Together with B4 caller and world-source repair, this is three independent
+actual Grok tasks. No target execution or full839 admission is granted.

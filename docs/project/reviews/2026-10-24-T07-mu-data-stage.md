@@ -914,3 +914,58 @@ The complete driver object remains unbound and below its current 262144-byte
 input cap. Fresh world/image/ownership/HEAD/lease/four-port/output binding
 and the one actual scene test remain next. Existing Mu19 data and original
 sources stay unchanged. No normal-game, Chinese, story, save or gap credit.
+
+## Runtime templates and existing parent reuse pass Root qualification
+
+Root personally reconstructs the entire typed 24-field C from the qualified
+source-stage pins, audited Mu19 metadata, exact selected client inventory
+and policy literals. Both C and the whole ten-field Engine equal that
+independent reconstruction; its serialized C is byte-identical to Grok's
+212708-byte submission. All19 role descriptors, complete ordered P251/UI119,
+projected players and all513 binding-map values join. All29 future-authority
+slots remain null. All259 current selected file identities still join the
+previous full-body audit; this identity check is not a new body-hash claim.
+
+Root verifies both independent reviews: Engine6387 bytes/daa787d0...,
+32 inputs/15 raw spans/seven closed outputs; client4817 bytes/f16e1e9c...,
+32 inputs/16 raw spans/eight closed outputs,1957 metadata comparisons.
+Root's initial metadata inspection is corrected before any target: compare
+full file pins and fd/path EOF identities, not concurrently changing ancestor
+directory timestamps; embedded projector spans have no frozen-copy path,
+so Root also joins their original reviewed source. Failed private inspection
+directories remain. No target or guard call was made by these inspections.
+The client's prose mentions candidate serialized spans; its actual anchor
+file contains16 source/embedded spans. Root relies on the complete independent
+C reconstruction and actual anchors, without inferring extra sealed spans.
+Root qualification167081 bytes /
+094caf8daf030b17dc76cb47b6c1eaffae4b02a8603f2f914fb86104d209620d.
+
+A fresh read-only world observation verifies unchanged original owners,
+executables, backings, listeners, socket and all five containers, with no
+extras. Both required image IDs join current API receipts. Fourteen GETs,
+no actor/change. WORLD_ROOT32118 bytes /
+14e5bf9e4797f567b4e06352eeabfb802d40e1687dc4125a934f59b723a83e69.
+An earlier wrong size assertion stops before any API request; Root then
+reads the exact existing baseline and source and reruns only that read-only
+preparation. The actor trial has not been attempted.
+
+Existing parent4G16435/b7ce61a1... and P2 outer14303/6dee37b8... can be reused
+with their three header values each; no new runner or source-body patch.
+Independent reuse review7371 bytes/3c83c758..., eight unchanged inputs,
+16 raw spans/eight closed outputs; Root qualification9192 bytes /
+db58bfded6cf0553f80a9ed9d4e98d02eb1d72c519929c92074ad79fe74d7342.
+The old normal-player final binder is only a finite binding pattern.
+Keep this audited attempt and its complete roles/player IDs together.
+Preserve original G390 seconds/4GiB sampled limit/grace3/native/1MiB capture,
+Engine300+60, driver385, UI240, Node243, close15/20 and durable SQL volume.
+Outer lease must exceed450 seconds at entry, not merely the driver's390.
+Existing output prefixes, exact five archive/five link continuity and
+closed outer namespace <=1024 remain unchanged.
+
+After this checkpoint Root admits only binding the pending current authority,
+four distinct protected ports, fresh output paths and headers, then ONE
+original owned Mu scene call through that unchanged parent/outer. Root must
+check full inverse bindings, current pins, input caps, positive closure,
+all Mu result/SQL/native/cleanup and original-world evidence personally.
+Failure and partial evidence remain failure, no replay or goal reduction.
+This synthetic scene gives no normal-game/Chinese/story/save credit.
