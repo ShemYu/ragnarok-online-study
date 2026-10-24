@@ -1460,3 +1460,65 @@ review. Release accepted: only this worker terminal closes, transcript captured;
 Root coordination checkout/game remain. Grokctx_6e8b4ff553a3 remains independent/
 live. No peer findings are sent to it, no provider selection or actual decode.
 Private t07-014-013-claude-packet-root-1/PRESERVATION_ROOT.json pins all members.
+
+
+## Corrected constructor source qualifies for integration
+
+Root reads the complete follow-up host/tests diff and full new report section;
+unchanged source/report were already read. Complete two-file reverse and forward
+application restores exactcf03024and9cdf352bytes. Root's first git-apply attempt
+inside a nested repo directory skipped out-of-prefix patches despite exit0;
+whole-file comparison catches it. Root retains that gate correction, uses
+/usr/bin/patch only in the owned scratch directory, then independently compares
+every complete byte in both directions. Actual project/candidate source never
+changes during this audit.
+
+Author20input PRE/POST records are equal; Root currently verifies19of20, including
+all ten frozen source/metadata inputs. The only current difference is coordinator-
+owned STATUS progress, explicitly expected while independent tasks run. Root's
+first suffix-string check mistakenly assumes absolute paths; normalization fixes
+that Root check. No candidate input/source pin is weakened or changed.
+
+Root repeats the unchanged23tests:23pass/zero fail/zero skip, natural0 in9.067932s,
+759021568B sampled RSS, valid existing guard/no signal/action/residue/empty stderr.
+Then Root reruns its same two independent fault recipes with corrected expected
+outcomes: natural0/0.390350s/317915136B sampled RSS, no action/residue. A close EIO
+now stays primary before a potential reducer overflow; reducer is skipped and
+bounded returned evidence remains. Partial-read plus close EIO now reports the
+observed two-FD overlap and one close failure; later jobs never start. Hooks are
+restored and only Root-owned injected FDs cleaned. Ordinary Error/scalar partial
+paths, postcheck/final-reread and earlier-constructor cases are also covered by
+the applicable author suite repeated by Root.
+
+Source9cdf352 is selected as the finite constructor component, separately from
+raw Claude14/20/Grok9/20. Corrected source19/20 for its bounded source gate:
+correctness8/preservation4/controls4/handoff1/limits2. One handoff point remains
+withheld: the report overstates frozen-throw support; Object.assign on a frozen
+thrown object can itself throw. Tested standard Node Error/scalar paths are not
+a proof for arbitrary frozen JavaScript throwables. This exceptional limitation,
+plus retained donor postMessage/stream/terminate/write behavior, stays explicit;
+any failed actual run holds content closure and requires outer audit. No genuine
+parser result/resource fit is inferred from source tests or this score.
+
+Semantic source approval/all936body pins/exact complement/same full profile,
+truthful ordinary close outcomes, constructor return fact, full summary sentinel,
+explicit per-invocation UTF16 string values, exact relation joins and declared
+pinned-profile-plus-pointers output contract qualify for the admitted interface.
+Root will copy only the four exact selected source/test/report blobs to the
+coordination branch, verify full hashes and run one focused integrated authored
+CLI/interface check. Actual full936profile/Node/guard/HEAD/output/pilot binding
+remains a separate Root gate; the eleven real constructors have not run.
+
+Private receipts:
+
+| File | Bytes | SHA256 |
+|---|---:|---|
+| t07-014-012-claude-repair2-suite-root-1/RESULT_ROOT.json |2508|bfab41e92df80dc7f3ecfd9820591c1069596e2f67c0b5fead1d69bf40afb7f4|
+| t07-014-012-repair2-root-controls-1/RESULT_ROOT.json |1545|94879cb9bd04c4d14812a68ce12062a74d1f949e9eb81875a10142040eb60e3c|
+| t07-014-012-repair2-root-controls-1/INPUTS_CONFIRMATION_ROOT.json |6531|d0ad3bae245b7e2b104d7ce1cb2729464f2fb35d45cbee15aae6ba986860a57a|
+| t07-014-012-repair2-root-controls-1/INVERSE_CONFIRMATION_ROOT.json |413|25d2cfc930ae7f156566ed729434274f018bdacf8bfcd0c20788c1ff23e34192|
+| t07-014-012-repair2-root-controls-1/ROOT_INVERSE_ASSUMPTION_CORRECTION.json |566|1fe37a208f0e5bb70874c5495f2631144a6b0f2235fe31f6d2a1c30ecfbe6dc7|
+
+Full Renewal goal/parent4/14/about29%/all82gaps unchanged. No image decode,
+model compile/render/travel/monsters/story/save or full Chinese proof. Existing
+quiet game/save/network remain untouched; all source decisions are checkpointed.

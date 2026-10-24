@@ -83,7 +83,7 @@ Other active work:
   Claude delivery repair       [INTEGRATED95bee15;36tests PASS; actual delivery DONE]
   Direct delivery [ALL1222 + ROOT COMPLETE AUDIT PASS; no replay]
   Model/declaration preparation [BOTH HELD14/20vs9/20; Root full reviews/controls DONE]
-  Constructor correction       [Root19tests PASS; two combined faults HELD; narrow follow-up]
+  Constructor correction       [9cdf352SELECTED19/20; Root23tests + own regressions PASS]
   All936model body files       [ROOT FRESH HASH/IDENTITY + COMPLETE JOIN PASS]
   Genuine constructor pilot    [11PROPOSED; source/caller qualification next]
   Image consumer source trace  [CLAUDE + GROK LIVE; independent of model fix]
