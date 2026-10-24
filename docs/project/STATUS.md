@@ -11,7 +11,7 @@ The board includes later-phase party taskT11, so this is not a percentage of
 first-milestone content or remaining effort. Do not relabel it as such.
 
 **Latest:** .017all948nested texture deliveries are Root-qualified. Next resolve
-external Worker routing and prepare tiny authored decoder controls before real
+[external Worker routing with live equal .019authors](reviews/2026-10-24-direct-dependencies.md#matching-external-worker-source-wave-starts) and prepare tiny authored decoder controls before real
 image decoding. Both .018originals are preserved/released; Root19300checks
 qualify conditional page facts and corrected25row fanout, raw15/20each held. Decode/geometry/render and all82functional gaps remain open.
 
@@ -21,7 +21,7 @@ Current84direct children include the two released review children and the two
 refs, two verified rollback bundles and private evidence survive; the running
 character/quiet audio remain. Three examined children stay held for incomplete
 private preservation; user-retained children remain excluded.
-Latest fleet:321released/ten retained/zero active/reclaimable.
+Latest fleet:321released/ten retained/two active .019source traces/zero reclaimable.
 Two .012implementation attempts reuse existing released checkouts; no new
 child folders or setup hooks. Both .012candidates are preserved/released after
 matched settlements. [Root full review and eight behavioral groups per original are complete](reviews/2026-10-24-direct-dependencies.md#both-constructor-originals-are-personally-checked-and-held).
@@ -2165,3 +2165,7 @@ acquisition/runtime or process-authority relaxation admitted by this checkpoint.
 all73source spans/full25query-relation records match, but raw map fans are wrong
 (Claude18/Grok23rows). Use Root complete source-link join. Worker routing is
 external to the frozen page input; next source-only follow-up, no decoder admission.
+
+**Current independent lanes:** .019Claude/Grok source traces are live fromc378a43,
+three pinned inputs/report-only scope; Root prepares a tiny authored pure decoder
+fixture boundary. .017all948delivery is committed ready_for_user; no replay.

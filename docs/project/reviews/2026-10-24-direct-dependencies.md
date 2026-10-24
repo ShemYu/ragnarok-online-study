@@ -3352,3 +3352,34 @@ Private t07-014-018-root-review-1/ receipts:
 
 No bundle execution/body/codec/browser/network/native/Engine action in .018.
 No critical goal change. Full4/14/about29%,82functional gaps remain open.
+
+
+## Matching external Worker source wave starts
+
+Root locates and whole-pins the matching saved ThreadEventHandler.js:
+624463B/1501ca10336d91e4f8a0301101c43e5ca1a0ef1aa81212bbffb5690c68c13325,
+19549LF/zeroCR. The existing qualification manifest names exactly this Worker
+output alongside pinned Online.js and its already-qualified smooth-normal
+zero-sum repair. No bundle code is executed and no installed-source identity
+claim is made. The .018missing Worker boundary is recoverable source scope,
+not missing game content or a critical goal-changing blocker.
+
+Frozen .019brief/common basec378a4393d1977562f9c37b753594e2e0f2827ae names
+three explicit inputs, report-only ownership, exact source-link fanout domains,
+no body/runtime/network/Worker/codec execution and a finite source-only proposal.
+Root verifies both released .018checkouts clean at preserved originals, creates
+separate .019branches from the frozen base, and starts both before any wait.
+
+| Provider | Task / Dispatch | Terminal | Branch |
+|---|---|---|---|
+| claude |task_f2618a5d7629 / ctx_7263e24992ed|term_8e9b595f-1546-426b-8a45-271aecaf4231|ShemYu/t07-014-019-claude-a1|
+| grok |task_5026cd767526 / ctx_8fe2b8e0171c|term_7766279b-c9ed-4b7f-8a14-f2fce024633a|ShemYu/t07-014-019-grok-a1|
+
+Both ready/input accepted/setup not applicable/no residual. Claude turn start
+observed; Grok observation unsupported, not retry/failure authority. Requested/
+effective model and effort null, exact models unknown. Private
+.tools/renewal/t07-014-019-launch-root-1/WAVE_ROOT.json preserves full receipts/
+specs. Two existing checkouts reused, no new child/setup;84direct children stay.
+Fleet321released/ten retained/two active .019/zero reclaimable. Root prepares
+independent tiny authored decoder controls while source authors trace routing.
+No actual decoding/body replay or new user decision.

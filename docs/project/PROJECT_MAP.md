@@ -94,7 +94,7 @@ Other active work:
   Nested10pilot                [10/10PASS; Root25541checks/1400pins; no replay]
   Nested923remainder            [923/923PASS; Root54317checks/4073pins; no replay]
   TGA page source              [ROOT19300checks PASS; raw15/20each HELD/corrected]
-  TGA Worker path              [NEXT:external saved Worker source trace]
+  TGA Worker path              [EQUAL CLAUDE/GROK .019TRACES LIVE; no execution]
   Model702node bounds           [SENTINEL PRESERVED; geometry impact OPEN]
   Image consumer source trace  [ROOT PASS:40slices/286joins; both17/20/released]
   Browser image fixture        [BOTH ROOT VERIFIED/HELD12vs10; pair released]
