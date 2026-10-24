@@ -967,3 +967,40 @@ defect. After this Git checkpoint Root admits exactly one prepared source2
 stdlib-only call under the unchanged original guard, followed by full receipt,
 streams, census and owned-process retirement verification. The control grants
 no full839 retry, source-fix execution, normal-game action or FD waiver.
+
+
+## One stdlib control supports late initialization and exact reuse
+
+Afterdeaed9d, Root saves/pins caller5374/
+023314e77dcccb0b00755c2e16ebef5a46cef29490effbd5da4db7c0918ab555
+and executes exactly one selected source2 control, no target/project/assets.
+OriginalG30/512MiB/grace3/no-native/1MiB returns natural0 in0.180003s,
+valid guard, no action/signals, complete stdout/empty stderr, known owned
+process/group retirement. Two samples record3,735,552B peak; this short
+sample is not a reliable peak-memory estimate or OS containment claim.
+
+All seven control checks pass. Full censuses: prelude3, Path3, first
+tempfile4, reuse4. Initial random/_random/tempfile are absent and remain
+absent after Path. First tempfile adds exactly the root2 observed five-tuple,
+with no removals; second import/one Random()/one os.urandom32 retain the
+entire census exactly. Both differences are known/untruncated.
+Control SHA values differ from root2 because process standard-stream
+identities differ; Root compares whole tuples/deltas within this process.
+
+Root complete audit14392/
+6ccd1459d262b16bd47dee7721c63c9c0a2e19c8bb105f347fad829ac3360b85,
+.tools/renewal/t06-full-spawn-stdlib-late-init-control-actual-root-1/AUDIT_ROOT.json:
+27truechecks/14fullPins, all stream bytes/SHA/receipt, source stability,
+same clean introducing HEAD, parent FD/thread closure and current owned
+PID/group absence. The control namespace is consumed and is not replayed.
+
+This dynamically reproduces the specific initialization and reuse effect
+with only stdlib dependencies in the installed interpreter. It supports
+explicit tempfile dependency setup before the unchanged workload baseline.
+It does not independently prove the exact Apple C branch, exclude every
+other potential workload leak, or pass full839/gameplay. Root1/root2 remain
+FAILED. Next qualify a new root3 entry with only explicit dependency setup
+and necessary fresh namespace/admission metadata; exact baseline-before-call,
+full tuple equality, noFDclose/allowlist/GC/retry and all existing caps remain.
+The setup effect must stay separately documented. No entry call or repair is
+admitted by this control result alone.

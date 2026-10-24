@@ -34,9 +34,11 @@ scene counted as gameplay.
 Root selects a corrected Claude plan basis with Astra's separate Path/reuse
 checkpoints; Grok independently supports the same conditional source chain.
 Both authors are released with captured archives. The full839 entry stays
-failed; no FD exception is granted. One stdlib-only G30/512MiB control is
-source-reviewed, including its unknown-classification correction. This Git
-checkpoint admits its one actual call; no control has run yet.
+failed; no FD exception is granted. The one stdlib-only G30/512MiB control now passes Root27checks/14pins: counts
+3/3/4/4, no Path change, exact recorded descriptor added at first tempfile,
+unchanged reuse. Explicit dependency setup before the workload baseline is
+now supported as a candidate; fresh full839 entry source qualification and
+actual execution remain next. The original entry is still failed.
 
 [The normal client sampler projection is source-qualified](reviews/2026-10-24-T07-mu-data-stage.md#normal-client-three-guard-projection-qualifies).
 Only the same three guards/276bytes are added to the current normal Chinese

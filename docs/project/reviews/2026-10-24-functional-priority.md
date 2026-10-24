@@ -1911,3 +1911,10 @@ are Root-verified and released; a corrected stdlib-only control is prepared,
 not run. See [normal source projection](2026-10-24-T07-mu-data-stage.md#normal-client-three-guard-projection-qualifies)
 and [FD comparison/control](2026-10-24-T06-full-spawn-output-budget.md#both-fd-plans-verified-and-root-control-prepared).
 No normal-game/FD-entry/parent or gap completion credit is added.
+
+
+The single Root stdlib FD control passes27checks/14pins:3/3/4/4 descriptors,
+no Path change, exact prior tuple added on first tempfile, then unchanged
+reuse. [Full control evidence](2026-10-24-T06-full-spawn-output-budget.md#one-stdlib-control-supports-late-initialization-and-exact-reuse).
+Fresh entry dependency-setup source qualification is next; old entries stay
+failed. No normal-game/parent/gap credit; original world remains untouched.

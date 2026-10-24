@@ -1844,3 +1844,10 @@ Existing tutorial actions establish iz_int portal movement, not ordinary Mu
 access. Locate a real Mu portal/NPC/prerequisite chain separately; no GM warp
 or SQL seeding is a substitute. Normal runtime behavior, timing fidelity,
 story and earned saves stay open. Overall4/14/all82gaps unchanged.
+
+
+The single Root stdlib FD control passes27checks/14pins:3/3/4/4 descriptors,
+no Path change, exact prior tuple added on first tempfile, then unchanged
+reuse. [Full control evidence](2026-10-24-T06-full-spawn-output-budget.md#one-stdlib-control-supports-late-initialization-and-exact-reuse).
+Fresh entry dependency-setup source qualification is next; old entries stay
+failed. No normal-game/parent/gap credit; original world remains untouched.
