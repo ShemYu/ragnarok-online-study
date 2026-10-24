@@ -1262,9 +1262,10 @@ integration. Eligible play, rendering and persistence stay unverified.
 
 
 T10.009actual Claude/Grok source authors both ready/input accepted from2187b31.
-Claude8c2be4a now preserved/released; Root46tests pass, but registration
-diagnostics and two model-coverage claims need correction (five Root controls).
-Grok remains live/working; compare both originals before source selection.
+Both candidates now preserved/released: Claude8c2be4a18/20correction basis;
+Grokb30534b16/20. Root46/36tests plus56common observations; both need repairs.
+Next separate Root correction, source qualification and changed integration.
+Retained client first-edge/fruit grid routes connect; town/server/arrival open.
 Separate reused branches, no new child/setup, same23inputs. Root receives,
 preserves and tests both before integration; no runtime/story credit at startup.
 

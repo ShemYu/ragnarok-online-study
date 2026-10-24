@@ -4,17 +4,19 @@ Updated: 2026-10-25 JST. Coordinator: Codex. Active scope: **execute the documen
 
 ## Current checkpoint
 
-**Main next action:** receive/review Grok's independent Chapter1 submission,
-then compare both raw sources before selecting a correction basis.
-[Claude8c2be4a is preserved/released and Root's46tests pass](reviews/2026-10-25-T10.009.md#claude-source-is-preserved-and-root-reproduces-a-diagnostic-hold),
-but three independent fault controls reproduce false unchanged-state wording
-after registration; two more show debugmes/OnInit model coverage limits.
-Candidate is held before promotion. Grok task_5f35ddf46fe4/ctx_11f79a65ffe0
-is live/working on its separate reused branch from2187b31; no new child/setup
-or runtime installation. Same23source inputs; launch defaults inherited.
-Then verify changed assembly/eligible interaction/rendering/traversal/persistence.
+**Main next action:** correct the selected Chapter1 source on a separate Root
+repair branch, then verify exact integration and changed native loading.
+[Both raw candidates are personally compared and held](reviews/2026-10-25-T10.009.md#both-raw-sources-pass-their-suites-but-need-correction):
+Claude8c2be4a18/20correction basis versus Grokb30534b16/20. Root46/36author
+tests and56common observations pass their stated results; both have false
+registration no-change wording and model-coverage limits, Grok also has
+Messenger post-write wording. No extra unsafe write is reproduced.
+Both complete candidates/rollback bundles are preserved and workers released.
+No new child/setup or runtime installation. Then changed assembly/current
+cells/eligible interaction/rendering/traversal/persistence remain.
 [Retained ygg_edge return-trigger216,91 passes Root's finite client GAT check](reviews/2026-10-25-T10.009.md#retained-return-trigger-cell-passes-a-finite-client-check);
-town destination353,248 and current server/arrival remain unqualified.
+all nine named first-edge/fruit cells are connected in the retained client
+walkable grids. Town destination353,248 and current server/arrival remain unqualified.
 [The ordinary field encounter, normal return and earned re-entry now pass](reviews/2026-10-24-normal-map-prerequisites.md#ordinary-little-poring-encounter-return-and-earned-reentry-pass).
 One Space selects Little Poring2398, not proposed1002; two player attacks,
 HP40→0and EXP18base/10job, player survives fullHP45/SP12. Ordinary portal
