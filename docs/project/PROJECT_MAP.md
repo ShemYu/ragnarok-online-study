@@ -21,7 +21,8 @@ Map repair:
        -> Root audit + image    [PASS: 767 checks / 735 pins]
        -> Git checkpoint        [THIS CHECKPOINT]
        -> normal source repair  [QUALIFIED: startup + Chinese preserved]
-       -> normal game + travel  [NEXT: not yet installed]
+       -> fresh complete ro4    [SOURCE QUALIFIED: copy + full audit next]
+       -> normal game + travel  [OPEN: config/engine/routes first]
        -> story + earned save   [OPEN]
 
 Other active work:

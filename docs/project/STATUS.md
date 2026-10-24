@@ -21,14 +21,15 @@ records it before further execution. This does not close the broader
 T07.007.011 map task or prove normal-game travel, animation timing, Chinese
 UI, story or earned-save behavior. Prior failed trials remain failed.
 
-**Next action:** inspect the ordinary-game integration path for the qualified
-sampler repair and verify a fresh normal route, while continuing the
-[quest/logout work](reviews/2026-10-24-functional-priority.md#priority-and-stop-criteria).
-Do not replay the consumed Mu3 scene or the failed B4 quest trial. Use fresh
-identities for any separately admitted live trial; preserve the original app,
-saves, Chrome/profile/settings/mute/IME and network. The next user-facing
-acceptance is normal entry/travel and saved progress, not another synthetic
-scene counted as gameplay.
+**Next action:** [Fresh normal integration task T07.007.012.009](reviews/2026-10-24-normal-integration.md#one-file-copy-admission-and-next-action).
+The full-copy source, repaired normal pair and guard transport are qualified
+and independently reviewed. Root verifies1094 current source files/195
+directories/31 Chinese snapshot files with no drift. After this checkpoint,
+bind and run one file-copy into fresh ro4, then independently audit all1135
+inputs/1114 outputs. Configuration/engine/routes and ordinary play follow;
+no copy or app/game actor has run yet. Existing ro3 earned progress stays
+untouched. Continue [quest/logout work](reviews/2026-10-24-functional-priority.md#priority-and-stop-criteria)
+separately; do not replay failed B4 or consumed Mu scenes.
 
 **Full839 inventory entry now passes:** [Fresh root3 entry and full Root audit](reviews/2026-10-24-T06-full-spawn-output-budget.md#fresh-root3-entry-and-complete-publication-audit-pass).
 The explicit stdlib dependency setup is separately verified; the unchanged
