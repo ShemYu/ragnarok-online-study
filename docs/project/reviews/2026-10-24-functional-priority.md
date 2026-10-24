@@ -1372,3 +1372,28 @@ diagnostic framework, cap increase, guessed alias hash, name-to-playability
 promotion or new asset acquisition. The real Mu scene and separate B4
 quest/runtime routes retain priority. Full scope/functionality-first/Chinese
 and original app/saves/Chrome/profile/settings/network remain unchanged.
+
+## Three actual Grok tasks active and exporter source qualified
+
+The independent world-observer reuse assessment starts after cd2a229 as
+actual Grok task8d3af9d13741/ctx7e3f01695eb7. Start2307B/
+abe81d1d7f5df99fc3d7dc31d5bf503aa6a83a0c5c15433ee9a0323ecce72370.
+Transcript directly observes the seven frozen source/metadata copies being
+read; launch defaults leave backend model/effort unconfirmed. No source
+implementation, native/resource observation or gap closure claimed.
+
+Fleet20 enumerates all265records/3pages:3liveGrok/256released/6retained/
+0reclaimable. Evidence10626B/
+f11d79c6fe244c289e3aa5a8147fd24b67b4b9b36166194ba15aa3ad17ac1b50.
+Mu19 caller, separate B4 caller and world-observer reuse have distinct
+ownership; completed exporter is released/archive-captured. The same nine
+historical attention rows have literal nextAction none; no speculative
+stop/delete. Four actual user-retained resources and two transferred records
+with no owned resources remain preserved.
+
+[Root qualifies the exporter source only for its receipt-bound selected
+entry](2026-10-24-T06-full-spawn-output-budget.md#six-fix-source-qualifies-for-the-single-receipt-bound-entry).
+Finite tests and one full publication still require separately sealed Root
+bindings/admission. Mu19 final handoff/one actual33leaf projection, B4 one
+actual71leaf materialization and later owned scene/quest remain next.
+No actor or parent-check credit;4/14/about29% and all82open stay unchanged.

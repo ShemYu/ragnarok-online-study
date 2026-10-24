@@ -338,3 +338,33 @@ receipt, independent full839ledger/current846pins, original G/S and a fixed
 typed whole-object acceptance are required. Alternate receipt-optional
 assessment helpers cannot supply the admitted natural-zero route.
 No finite checks, full publication, actor or gap credit.
+
+## Six-fix source qualifies for the single receipt-bound entry
+
+Root personally reads the complete42274B consumer/10344B group06 and
+changed producer paths, both full independent reports and author recipe.
+Producer35stable inputs/15anchors/8closed files; consumer78stable inputs/
+14anchors/12closed files all rejoin. Root verifies all six complete
+forward/inverse maps (consumer77, producer11, group06 11partitions each
+direction) and seven unchanged schema/groups. Nine Python bodies compile
+without import/execution. External independent expected whole stdout and
+all ten839ledger counter sums match by type and value.
+
+Root qualification54989B/
+e060151d8d625764b2df8bdbca735451718270f5e023110697d4fe91c7ea4380
+qualifies ONLY group06.run_qualified_accept -> consumer.accept_qualified.
+It checks the fixed whole expected object before the one producer call;
+every selected natural-zero path joins the actual exact15-key receipt,
+all four publication files, ordered839ledger and all846current source pins.
+
+The real unused alternate assess_existing_publication omits the returned
+producer receipt. It and recipe's group07/direct-main-then-assessment
+success alternatives are explicitly excluded, not silently repaired or
+accepted. Direct semantic1 remains failed G. No selected path calls that
+alternate. No extra framework, cap increase or broad hostile-rename claim.
+
+Both ROOT_BOUND flags/code/ledger bindings remain unset. No finite call,
+full publication or actor is admitted by this source qualification alone.
+Root is selecting bounded existing finite batches before one sealed full
+publication. No NPC corpus or current game/generated role body read here.
+All82functional gaps remain open.

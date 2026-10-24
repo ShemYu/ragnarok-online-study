@@ -20,12 +20,13 @@ Both dedicated B3 fixtures remain verified and separate: Mu36leaves/
 Actual Grok Mu19 caller(taskd6f11569da2b/ctx3f0cd4c6b0ec) and B4 caller
 (taskfe6df2b4cd87/ctxdc84619e0299) remain live. Exporter producer/consumer
 source reviews run independently; selected receipt-optional alternate
-acceptance is excluded. Root final source qualification/admission is next.
-A seven-copy bounded Grok existing-world-observer reuse task is prepared.
+acceptance is excluded. [Root qualifies exporter source only for its receipt-bound selected entry](reviews/2026-10-24-T06-full-spawn-output-budget.md#six-fix-source-qualifies-for-the-single-receipt-bound-entry); finite-call bindings/admission are next.
+A seven-copy bounded Grok existing-world-observer reuse task is now live.
 Old observer's three-archive/alias assumptions require explicit integration
 before current five-archive resource observation. All82 gaps remain open.
 Mu final runtime25field groups/16anchors remain Root-verified; actual
 Mu19data/current world/HEAD/lease/four ports still follow the final handoff.
+[Fleet20:265records/3pages,3activeGrok/256released/6retained/0reclaimable](reviews/2026-10-24-functional-priority.md#three-actual-grok-tasks-active-and-exporter-source-qualified).
 No financial blocker or goal change;4/14parent checks/about29% unchanged.
 
 [All six actual MuC focused calls pass complete Root223pin verification](reviews/2026-10-24-T07-mu-data-stage.md#actual-six-muc-focused-calls-pass-complete-root-audit).
