@@ -506,3 +506,30 @@ target code or candidates are read/executed. All three public fixture/profile/
 contract pins remain exact. No concrete fixture/contract blocker is found.
 This introducing checkpoint authorizes equal isolated source+synthetic-only
 Claude/Grok dispatches; actual streams remain held for later Root admission.
+
+## Equal terrain-source implementation pair is active
+
+Introducing checkpointfdcd3d718f11819840e1b37a4b62f38ed7719c0a contains the
+complete frozen brief/profile/contract/fixture. Root verifies both child HEADs
+equal this base before candidate inspection. Independent source+synthetic-only
+attempts are accepted on separate branches because the owned report path is the
+same; setup is skipped, no app/data workspace is copied or restarted.
+
+| Provider | Task | Dispatch | Terminal |
+|---|---|---|---|
+|Claude|task_48560bd7a1a6|ctx_cd769a653d20|term_231f6316-36df-4ee5-9f2b-777d99d4a093|
+|Grok|task_4ba9ad0a3be4|ctx_c904920a2f4c|term_f9199953-5ceb-44c4-a838-e45e1855a566|
+
+Both launches positively return ready/input_accepted. Claude's turn start is
+observed; Grok's turn-start observer is unsupported. Fresh fleet state instead
+confirms both live/working and no attention action. Do not treat unsupported
+observation as failure or restart. Requested/effective model/effort are null
+configured defaults; no exact backend/token/billing claim is made.
+
+Private WAVE_ROOT.json under `t07-remaining-terrain-query-preparation-root-1/`
+is2772B/SHA256dd70497e0dd0e1cf680c75ea03994f67a1f1780dabf4efe8e4892fa52d653c1b;
+it pins both actual launch receipts/specs and matching initial Git bases. Next
+collect each matched submission, preserve full source/tests/fixture/logs before
+release/ACK, personally review and run equal fixture/common controls. Root's
+independent actual oracle source is prepared separately without candidate or
+actual stream access. No actual catalog/body/runtime acceptance follows yet.
