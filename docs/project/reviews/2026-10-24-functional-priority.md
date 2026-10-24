@@ -1850,3 +1850,9 @@ HOLD1253/966e4208c03fec29d95d0adf872dc5df1f267e9f87938099303c4849047814a4.
 The new separate Grok correction is ready after this checkpoint. Existing
 header/FD tasks continue. No goal change or user decision; estimate75%
 for current map step, overall4/14/about29% major checks unchanged.
+
+
+After2ea22a2, actual Grok one-region correction task2d990628f864/
+ctx22fe26e5ed21 starts. Receipt2307/
+31c17bdca89d717c9fcc008dcd6e7e854d2dc57fc73a3cae65f878969572dbb2.
+Three independent Grok source tasks are active; no data or game actor.

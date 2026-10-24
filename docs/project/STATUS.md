@@ -41,8 +41,8 @@ The finite sampler patch now qualifies and passes all22 focused Root tests.
 The new isolated four-file Web stage verifies. The fresh-fixture caller returns
 and passes Root whole-source structural verification. Semantic review then
 finds a reused loop variable that would fail the audit after generation;
-Root confirms it and holds the caller. One-region correction packet is ready.
-Two Grok corrections remain active: B4 header and FD diagnostic retention.
+Root confirms it and holds the caller. A one-region Grok correction is active
+alongside the independent B4 header and FD diagnostic-retention tasks.
 One finished sampler terminal is retained under Orca user_takeover;
 other settled authors are released with captured archives.
 Current map-render verification estimate75%; overall4/14/about29% checks.
