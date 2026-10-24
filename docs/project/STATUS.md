@@ -30,12 +30,19 @@ saves, Chrome/profile/settings/mute/IME and network. The next user-facing
 acceptance is normal entry/travel and saved progress, not another synthetic
 scene counted as gameplay.
 
-**Parallel source investigation:** [Full839 root2 data pass, entry still fails
-FD closure](reviews/2026-10-24-T06-full-spawn-output-budget.md#equal-claude-and-grok-source-plan-tasks-start).
-Its complete data audit passes 4,227 checks / 910 pins; one added descriptor
-still fails the entry. Claude has submitted a plan-only report pending Root
-verification and lifecycle settlement; Grok has no completion observed in
-this checkpoint. Neither plan grants execution or an FD exception.
+**Parallel source investigation:** [Both FD plans are verified and settled](reviews/2026-10-24-T06-full-spawn-output-budget.md#both-fd-plans-verified-and-root-control-prepared).
+Root selects a corrected Claude plan basis with Astra's separate Path/reuse
+checkpoints; Grok independently supports the same conditional source chain.
+Both authors are released with captured archives. The full839 entry stays
+failed; no FD exception is granted. One stdlib-only G30/512MiB control is
+source-reviewed, including its unknown-classification correction. This Git
+checkpoint admits its one actual call; no control has run yet.
+
+[The normal client sampler projection is source-qualified](reviews/2026-10-24-T07-mu-data-stage.md#normal-client-three-guard-projection-qualifies).
+Only the same three guards/276bytes are added to the current normal Chinese
+Online bundle; normal startup and worker remain intact. No installation yet.
+Ordinary access to Mu is not established by the existing tutorial route;
+identify its authentic portal/NPC/prerequisite chain separately.
 
 **Main remaining challenges:** authentic missing Chapter 1 story scripts,
 ordinary quest/logout verification, normal-game integration of the map

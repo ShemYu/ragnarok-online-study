@@ -885,3 +885,85 @@ travel/story/earned-save and animation timing stay open. See the
 [complete scene checkpoint](2026-10-24-T07-mu-data-stage.md#fresh-mu3-synthetic-scene-and-complete-root-audit-pass).
 Overall4/14/about29% and all82open functional gaps are unchanged. Next is
 ordinary-game integration/route verification; failed prior trials stay failed.
+
+
+## Both FD plans verified and Root control prepared
+
+Same frozen15158-byte manifest/14copies/brief/observations; actual Claude
+taskec1f5e5884ef/ctx8ad9c1d43500 and Grok task0aacdb5d3c3c/ctxae021dea355b
+settle independently. Root reads both complete reports, verifies17opened
+full SHAs each,16pre-dispatch input C8 identities plus the recorded manifest
+SHA, all20raw byte/line anchors each and five closed output files each.
+Actual dispatch-to-settlement wall time is approximately235s Claude and760s
+Grok; this is not active compute time or billing. Exact model/effort/cost are
+not observed.
+
+| Dimension, each0–4 | Claude | Grok | Root finding |
+| --- | ---: | ---: | --- |
+| Correctness/evidence | 3 | 3 | Conditional C cache is supported in source, not Apple branch proof |
+| Task coverage | 4 | 4 | Both cover order, hypothesis, facts/unknowns, control and prospective fix |
+| Verification design | 3 | 2 | Claude includes reuse; Grok first-import-only test lacks reuse evidence |
+| Handoff clarity | 2 | 4 | Claude calls SHA-prefix C8; Grok supplies actual eight-field identities |
+| Git/state discipline | 4 | 1 | Claude respects owned folder; Grok writes a different new private folder |
+| Total | 16/20 | 14/20 | Plan-only comparison; no implementation winner |
+
+Claude report10386/7b19fc71e57e9f57c9d7fc1812fc9b44fb5ca56f8e050bdefc0bdda079eaef91;
+its four-file sealSHA d645f4f63569a4a5e901af386d65bd212134ab32e6bd9621e5acc2d27a1dd02c.
+Its C8 columns are only first-eight SHA characters; Root rejects that C8
+claim and supplies independent full identity checks. Also, a quiet first
+import would weaken the candidate, not prove getentropy use.
+Root qualification26150/
+73323163f198b0c1201b6063c294bd9e3fb0a93e3df7f8453d31b252a9b3ba05.
+
+Grok report9662/a46766af45c6f7bac308b5243e6a2ebdcef2fa3e6dfde60d86ec4952ba5befc8;
+closed sealSHA39a57d29ad4a6c778ef63f5931ecb2a98f0c85f97dfdca51ae6f1d4e732fdf76.
+It writes t06-full-spawn-fd-late-init-root-1 instead of the expressly assigned
+grok-1 folder. No Claude overlap is observed; preserve its actual artifacts
+and provenance, but do not select the raw handoff. Root verifies all its
+actual SHA/C8 claims and exact anchors.
+Root qualification39362/
+b16d08816b9aaab89c0e9d4e53d7706806b5f142ffe151af3bb9b809aa1a9cb3.
+
+Both accepted settlements are released/closed_agent_terminal with captured
+archives before respective delivery ACKs. Post-release records: Claude7673/
+68422539a4354df293f31650a1143215b23b6eb24996fe4c009e15e841e4c699;
+Grok7759/64730fe10ee9d1aa1e56ce82dfd412265cc6357f9fbdd7027fa14bc4e0939f47.
+Seven existing user/transferred retained resources stay untouched.
+
+Select Root-corrected Claude control direction, using Astra's separate Path
+checkpoint and subsequent reuse. One prepared5193-byte stdlib-only control
+SHA9d7f22a8e026abd33cbcdf83379eb1d90aa9bde75c0ab5924711c94e8a372bc1
+copies the existing Check and full census/difference functions byte-exact.
+Stages: matching prelude plus pre-baseline argparse, Path import, first
+tempfile import, then second import/one Random()/one os.urandom(32).
+Expected counts3/3/4/4, only the recorded five-tuple added at first tempfile,
+exact census on reuse, no removal/unknown/truncation; absent random/tempfile
+is required initially and after Path. Any mismatch fails/unknown, no retry.
+
+Preparation4713/9ef62e8e283728fef26b920ccd2c8d338c60c4263bc1c6d37dfab7562f860720.
+Same pinned /usr/bin/python3 -I -B, originalG30/512MiB/grace3/no-native/1MiB.
+No target/project/asset import or read, explicit device open/probe, manual FDclose,
+GC, prewarm, source fix or game action. Independent source review and Git
+checkpoint precede its one actual call. An observed transition supports
+setup attribution; full839 root2 remains failed and is not replayed.
+
+
+Independent Astra source review confirms the exact111-byte Check and2202-byte
+census blocks and meaningful stages, but finds one mandatory diagnostic
+classification defect: nested truncated/unknown diff could leave top-level
+unknown false. Root preserves the first source and creates a fresh source2
+with only one outcome-block correction, full forward/inverse exact.
+Selected control5347/
+0a7675cc00620f6059f55d43c2227ed912ac8d5005018fbb5f7065f4ccb8b42d;
+selected preparation6409/
+6f2ea15b4d9e0f44f7037b894dc84c720b0cc34277962c6ddea6e7fe1aa0e2cd.
+Nested unknown now propagates to top-level unknown and its outcome; no census,
+stage, check, guard or failure rule changes. Final review/checkpoint precedes
+any one actual control; no control has run at this checkpoint.
+
+Final independent Astra read-only review confirms source2 hashes, exact
+whole inverse and closure of the sole mandatory issue; no further mandatory
+defect. After this Git checkpoint Root admits exactly one prepared source2
+stdlib-only call under the unchanged original guard, followed by full receipt,
+streams, census and owned-process retirement verification. The control grants
+no full839 retry, source-fix execution, normal-game action or FD waiver.

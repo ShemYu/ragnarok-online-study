@@ -20,14 +20,15 @@ Map repair:
        -> fresh isolated render [PASS: 1,285 placements]
        -> Root audit + image    [PASS: 767 checks / 735 pins]
        -> Git checkpoint        [THIS CHECKPOINT]
-       -> normal game + travel  [NEXT]
+       -> normal source repair  [QUALIFIED: startup + Chinese preserved]
+       -> normal game + travel  [NEXT: not yet installed]
        -> story + earned save   [OPEN]
 
 Other active work:
   Ordinary quest/logout        [OPEN: A199 seen; later cases fail]
   Full839 data publication     [PASS: 4,227 checks / 910 pins]
   Full839 entry FD closure     [FAILED: attribution under review]
-  Claude/Grok FD plan pair      [Claude submitted; Grok not yet complete]
+  Claude/Grok FD plan pair      [BOTH VERIFIED + RELEASED; control next]
   Authentic Chapter 1 scripts  [OPEN: largest content risk]
   All 82 functional gaps       [OPEN]
   Full Traditional Chinese     [LATER: existing overlays stay enabled]

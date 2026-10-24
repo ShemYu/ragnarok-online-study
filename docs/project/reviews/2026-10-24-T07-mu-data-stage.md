@@ -1802,3 +1802,45 @@ normal-game integration/travel/story and earned saves remain OPEN.
 Overall4/14/about29% is unchanged; all82functional resource gaps remain open.
 Next: inspect the ordinary integration path and verify a separately admitted
 fresh normal route, while independent FD source-plan work continues.
+
+
+## Normal client three-guard projection qualifies
+
+Independent source review identifies that the passing Mu viewer removes
+the normal21-byte init tail and adds a414-byte diagnostic export tail.
+Its worker also has diagnostic additions; do not install that pair as the
+normal client. Root reads the exact current normal served-file source and
+unchanged worker, plus the qualified three-guard record and complete Mu
+source qualification closure.
+
+Normal Online is13174290/
+50b724b708393d7bb6d71b4f5102e62b16e340eb1bb54f05b1c8613af4116418.
+Normal worker remains624463/
+1501ca10336d91e4f8a0301101c43e5ca1a0ef1aa81212bbffb5690c68c13325.
+Root applies only the existing three guards/276bytes, proves whole inverse
+to the normal baseline, all three complete sampler functions equal the
+already22-tested Mu candidate, and exact normal init-tail preservation.
+Replacing only that tail with the known diagnostic export reconstructs
+the entire Mu candidate458365... exactly. All Chinese/Navigation/Quest and
+zero-sum normal repair bytes remain unchanged outside the three guards.
+
+Private normal candidate13174566/
+f81e23ae64642920b27da257f0d2e125d5e9ca58be6c76d114a0d50a63922301;
+Root qualification13486/
+303e16ed6bc9b606fd7609213ea0a135ce2a53963c215ac0f4be4c3f26fa66c5,
+.tools/renewal/t07-normal-leading-sampler-source-root-1/QUALIFICATION_ROOT.json.
+Initial source-copy helper used its4MiB default readback after the13MiB
+file was closed/fsynced; Root's complete32MiB source-only readback verifies
+every byte. Runtime/source closure caps are unchanged. No file is installed
+into the existing runtime, no JS executes, no app/game actor runs.
+This mechanically reuses the selected implementation; no new model benchmark.
+
+The existing paired normal architecture uses RAGNAROKMAC_ROOT plus separate
+state/profile/engine storage. Its override skips packaged materialization,
+so later integration must reuse the full payload/materializer, not a Web-only
+tree. Recheck actual served Online/worker, all Chinese choices and fresh
+world ownership before a separately admitted ordinary entry/travel/save test.
+Existing tutorial actions establish iz_int portal movement, not ordinary Mu
+access. Locate a real Mu portal/NPC/prerequisite chain separately; no GM warp
+or SQL seeding is a substitute. Normal runtime behavior, timing fidelity,
+story and earned saves stay open. Overall4/14/all82gaps unchanged.

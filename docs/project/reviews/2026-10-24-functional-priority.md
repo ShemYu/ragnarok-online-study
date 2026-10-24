@@ -1903,3 +1903,11 @@ travel/story/earned-save and animation timing stay open. See the
 [complete scene checkpoint](2026-10-24-T07-mu-data-stage.md#fresh-mu3-synthetic-scene-and-complete-root-audit-pass).
 Overall4/14/about29% and all82open functional gaps are unchanged. Next is
 ordinary-game integration/route verification; failed prior trials stay failed.
+
+
+Fresh normal Online sampler projection is now source-qualified with normal
+startup/Chinese preserved; it is not installed. Both independent FD plans
+are Root-verified and released; a corrected stdlib-only control is prepared,
+not run. See [normal source projection](2026-10-24-T07-mu-data-stage.md#normal-client-three-guard-projection-qualifies)
+and [FD comparison/control](2026-10-24-T06-full-spawn-output-budget.md#both-fd-plans-verified-and-root-control-prepared).
+No normal-game/FD-entry/parent or gap completion credit is added.
