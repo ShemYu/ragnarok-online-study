@@ -26,9 +26,13 @@ Next qualify the genuine compiled core for the21remaining maps using55retained
 bodies. [Root's complete input/binding audit now passes](reviews/2026-10-24-remaining-map-bodies.md#remaining21compiled-core-inputs-and-fixed-host-task-qualify)
 1545checks/74full pins, including the separate three-body pilot and unchanged
 compiled prefix/suffix. [T07.007.014.009](tasks/T07.007.014.009.md) freezes the
-finite Node-worker host: equal independent Claude/Grok implementations next,
+finite Node-worker host for equal independent Claude/Grok implementations,
 then Root source/pure controls and one pilot before the21-map actual batch.
 No constructor is executed by preparation and no rendering/travel/82gap closes.
+Both implementations are now [live from the same frozen base](reviews/2026-10-24-remaining-map-bodies.md#equal-compiled-core-host-implementations-are-active):
+Claude task_e7b3da100a67/ctx_1f9a6ed816bf andGrok task_1166063748f6/
+ctx_aa9287fa50a3, exact ab3aebaHEADs verified. Preserve/release and personally
+qualify their source/tests next; no actual target execution is admitted.
 Ordinary playtest is separately blocked by the native-pipe startup failure;
 no game restart, network cut or alternative browser-control bypass is admitted.
 

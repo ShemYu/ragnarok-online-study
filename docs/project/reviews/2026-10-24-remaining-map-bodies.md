@@ -1153,3 +1153,29 @@ both isolated implementations from this introducing checkpoint. Root will
 review/test both, select one, and qualify the pilot against the complete prior
 browser oracle before any21-map batch. No new generic decoder/framework, actual
 constructor/host compatibility, rendering, gameplay or82gap closure is claimed.
+
+## Equal compiled-core host implementations are active
+
+Introducing checkpointab3aeba51f7cb38c2ddc9bbacd75d96b6c08e3f9 freezes
+the exact six inputs, host contract, caps and same20point rubric. Root verifies
+both independent child HEADs equal it. Claude task_e7b3da100a67 /
+ctx_1f9a6ed816bf andGrok task_1166063748f6 /ctx_aa9287fa50a3 both return
+ready/input_accepted with no residual resource. Fresh fleet confirms both
+live/working,10user-retained and295released. Grok provider turn observation is
+unsupported; fresh fleet evidence supplies its liveness. No model override or
+unobserved model/token/billing claim is made. Launch receipts/shared prompt
+are private under `.tools/renewal/t07-014-009-launch-root-1/`.
+
+Root separately reads the primary compiled source for the consultation details:
+BinaryReader11265–11278uses realm-sensitive ArrayBuffer checks; prefix12557/
+18677declare exports/fs;19436assigns bare onmessage and19548emits early ready.
+RSW16137–16149has sparse32-slot water.images; later GND water substitution
+must not synthesize it. Both workers receive the same advisory, with no change
+to their frozen scope. Preserve classic lexical scope, current handler and
+exact per-realm body buffers. Source suggests successful content determinism
+except elapsed time; the actual pilot must prove browser/Node equality.
+
+Next collect both complete sources/tests, personally qualify focused controls,
+preserve/release settlements and select one source before separate Root pilot
+admission. Worker development remains source/synthetic-only; no real prefix/
+body execution, network/browser/game/save action or coverage credit is granted.
