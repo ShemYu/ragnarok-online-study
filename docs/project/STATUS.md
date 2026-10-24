@@ -75,6 +75,13 @@ closed the game: native server ownership checks above pass. Quest/inventory
 inspection and ordinary playtest wait for UI availability; independent source/
 asset checks may continue. No game restart or user decision is required.
 
+**Independent asset next action:** the selected normal resolver has
+CLIENT_AUTOEXTRACT=true and no inspect-only CLI. Root/Astra select one
+[bounded111-path normal asset pass](reviews/2026-10-24-normal-map-prerequisites.md#bounded-normal-asset-requests-selected),
+explicitly admitting normal auto-extraction/cache/log effects. Record prior
+paths/owners and compare complete served bytes; no new server, direct install,
+alias, game input or restart. No asset or gameplay PASS is claimed yet.
+
 ### Historical preparation — follow the next action above
 
 The following retains earlier decisions. Former next-action instructions

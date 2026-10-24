@@ -87,3 +87,34 @@ error. This resets no user app and sends no game input. Current quest/inventory
 cannot yet be inspected; no ordinary route action or gameplay PASS is claimed.
 Continue independent source/asset resolution while UI control is unavailable.
 Do not restart the user's game or replace the observation with a stale marker.
+
+## Bounded normal asset requests selected
+
+Current selected asset-process fields match the retained roots/port and show
+CLIENT_AUTOEXTRACT=true. ENV_SELECTION_ROOT.json828B/SHA256
+6342c7f114325a7aaf4d0cb8d301dd0ee6c296eabb07e43d68fd7da1c0d5fd74
+retains only six selected fields, never the full environment. Root/Astra read
+the actual source: no inspect CLI exists; unknown flags start the server.
+Do not invoke an invented inspect command or build another diagnostic server.
+
+Prospectively admit one pass of the111 existing literal allowlist paths through
+the current owned normal asset route. Normal auto-extraction/cache/log changes
+are intentional here; no direct install, config change, actor/restart, aliases
+or progress grant. Record all111 prior paths and existing parents, reject
+symlinks/hard links, verify four owners/listener and archive identity continuity.
+Use UTF-8 percent encoding once, identity transfer, no redirects/conditions,
+at most11MiB per body/32MiB aggregate and60s wall time; stop on first refusal
+or mismatch. These are receiver limits, not server CPU/RSS/extraction limits.
+Verify response EOF/length/SHA and any newly materialized file's settled bytes;
+cache hits need not create files. Existing files must remain unchanged.
+Record partial/mismatching writes and stop; no speculative deletion/retry.
+This checks served-byte parity, not archive provenance, rendering or travel.
+
+Root/Astra review the actual private GET111_ROOT.py8782B/SHA256
+524642c24485395c30fed3d2c778f52796396d1398dc0ce2142ea3f070a95ad0.
+Before execution, they correct closed-socket EOF handling, unsteady extraction
+sampling and final deadline acceptance. Existing files require exact identity/
+hash preservation; new files must settle to expected hashes. Syntax compiles
+without execution; the source review finds no remaining concrete blocker.
+The next call is the single admitted normal asset pass, not an invented CLI.
+Another UI inventory request still reports the same native pipe startup error.
