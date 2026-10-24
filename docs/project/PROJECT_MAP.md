@@ -41,21 +41,21 @@ Parallel:
   MU1:105body stage PASS (Root checked/released)
   MU2 -> MuC/MuD: HOLD5findings -> finite fixes -> one fresh scene
        (retained water geometry0; current scene still verifies it)
-  full839spawn -> budget PASS; close source fix checked;2findings remain
+  full839spawn -> final source submitted/released -> independent reviews
 
 B2D/B2U:all8 selected focused checks PASS; original Root error preserved.
 Root:actual pending-producer poll PASS/116pins; native game still open.
-B3:finite33001B source qualified; pure Mu21 data call being prepared.
+B3:writer +Mu21 caller source qualified; one data run admitted next.
 B4:submitted/released; metadata HOLD -> six narrow corrections frozen.
 MuC/MuD:submitted+released, HOLD5findings -> finite UI/driver fixes ready.
 MuC:three fixes + all six actual focused calls PASS/223pins.
-B3/Remote/B4:completed sources released; F839 live; B4 repair next.
+Prior four-source wave all submitted/released; B4 finite repair live.
 MuD:both calls PASS/65pins; final source joined/released beforeACK.
-Mu19:corrected source qualified conditionally; fresh dedicated data next.
+Mu19:corrected projector qualified;26copy caller prep ready for Grok.
 Mu client:259selected files +five archives Root verified; two dirs added.
 Mu Remote:source and current config joins verified; owner released.
 Mu Web:four bodies staged/full verified;105body stage unchanged; no actor.
-Current1active/253released/6retained/0reclaimable across260records.
+Fleet17 historical:260records; new B4 live, final F839 now released.
 MuC/B3 prior owners released/archive beforeACK; no cleanup debt.
 Four actual user-retained resources stay;2transferred records have none.
 Trial9 stays failed; known faults stay failed. No new actor admitted.

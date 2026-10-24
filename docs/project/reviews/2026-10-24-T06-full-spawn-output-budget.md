@@ -256,3 +256,23 @@ Root's initial equality assertion refuses, preserves all15captured copies,
 then records the mismatch honestly. No overwritten capture/target invocation,
 final settlement or complete author-pin verification is claimed. Final
 source/pins/review remain required before focused checks/publication.
+
+## Final exporter source submitted owner released before acknowledgment
+
+Actual Grok task0f7229050153/ctxef5e2f8a249b settles. Final producer62987B/
+7985828b4420aab27e958a6ea9412312d438ec497723581dd00a25c5bec735e2,
+consumer27789B/9dd3f47f2e79d953b319611445559299c6818043e3e486c31419d79fb2af238a.
+Root reads the complete report/recipe, joins23stable full opened input pins
+and all15closed private files; final author outputpins now match. Settlement
+20461B/b3b3779b1c5a040b26376a35134322408182491e48350065f550afd18a0eb529.
+Release455B/7b85f9163803c99d663df5597c07e85ced29b3e7573b6dea27fb91e1eb03572e
+captures transcript and closes only this settled agent before delivery ACK.
+
+Author claims expanded ordered-ledger/current-pin/receipt checks; Root
+qualification is still pending. Independent producer and consumer source
+reviews are now parallel. No old provisional pin mismatch is attributed
+to this final submission. No import/execution, controls or839publication
+is admitted. Root must verify final exact paths and remaining findings
+before finite checks and one full publication. Fixed external oracle stays
+unbound in submitted source; no success object is accepted from candidate
+stdout. All82functional resource gaps remain open.

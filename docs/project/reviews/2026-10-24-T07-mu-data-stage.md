@@ -669,3 +669,41 @@ network/settings remain untouched. No map/game/parent credit.
 [B3 finite generator source now qualifies for a serialized pure child](2026-10-24-functional-priority.md#b3-finite-source-qualifies-b4-contract-repair-frozen).
 Dedicated fresh Mu21 data/full Root audit and Mu19projection stay next;
 the actual actor still needs fresh config/world/lease/ports and final binding.
+
+## Dedicated Mu21 fixed caller source qualifies for one data call
+
+Root personally reads all21947B prepared caller/66300e3e7432447e08e86fc585883b64fbb342a751e4c24dc0231b57e77539e3,
+full report and exact unexecuted recipe. All9full source input pre/post
+pins match;8private closed files and22exact source anchors join. Compile
+only passes. Root source qualification9969B/
+6d433c4e2538bb5ff7ed138f46d2a54f0e01cae60a273529d888b37aa8e06f69.
+A Root bookkeeping lookup initially assumed all preparation pins use c8;
+one uses identity. The read-only qualification stopped before any call,
+then all9were explicitly normalized and fully joined. No candidate change,
+failed guard or generator run.
+
+This checkpoint admits one future dedicated Mu21 pure-data call using
+qualified writer33388B/aab74e92..., unchanged G10s/512MiB/grace3/no-native/
+1MiB capture, exact five unprobed proposals and absent private destinations.
+After this commit, Root binds only admission flag, current clean committed
+HEAD and full current Python pin in a separate private source copy; exact
+inverse/compile/pins are recorded before invocation. No actor lease, world,
+network/port probe or browser authority is needed for this pure data step.
+
+The fixed caller audits the closed36leaves:13immutable+8generated roles,
+10template archives and5metadata/credentials. Direct bodies/pins reconstruct
+all active Engine13keys, complete Material and23-key SOURCE_PINS, ordered
+63source observations and the whole10-field stdout. Each applicable outer
+stream/guard/retirement/limit/source-output postpin/FD/thread/HEAD check is
+attempted separately after failure; no failed flag is laundered. Dedicated
+Mu data remains separate from B4. No actual generator or map run yet.
+
+Root also freezes26source/metadata/placeholder copies for a parallel Grok
+preparation of the next fixed Mu19 projection caller: manifest28662B/
+6524c3ccf719baaf079bab666ab587ca4039741c9422e9931cc21ddc680988e0,
+brief4084B/8814fe4ae9dfbd459dbe041e810b56cc56329ccf766db730c15319bb411cd149.
+It may prepare unbound source only while Mu21 runs. It must wait for actual
+complete Root Mu21 audit and36current leaves before binding or invocation.
+Existing corrected19779B projector/helper/G/S and caps remain fixed.
+This is auxiliary source preparation, not a new Claude/Grok benchmark or
+game/content credit. Full33leaf Root audit remains required.

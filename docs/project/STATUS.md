@@ -13,18 +13,17 @@ dictionary abort/load405/map-connection settlement stop later cases. Root's
 complete failure/preservation audit passes; no B200assignment/reconnection or
 parent-check credit. 4/14 is a check count, not measured full-content coverage.
 
-**Parallel work:** [B3 finite source qualifies; B4 narrow contract repair is frozen](reviews/2026-10-24-functional-priority.md#b3-finite-source-qualifies-b4-contract-repair-frozen).
-Current260record/3page fleet17:1active/253released/6retained/0reclaimable.
-B3/Remote/B4 source owners are released/archive captured beforeACK. Only
-F839 is still live before the next B4 Grok source repair. F839 has two
-remaining consumer/postpin findings; no final export admission.
-B3 all four source fixes qualify for the selected fresh serialized child;
-one dedicated Mu21 pure-data call and complete Root audit are being prepared.
-No actual generator run yet. B4 is HOLD on four genuine metadata mismatches
-plus two related input joins;61copied source inputs freeze a bounded repair.
-Client/runtime slice has no mandatory finding; Chinese overlays/caps stay.
-Optional provider fallback choice remains pending for still-live F839 only;
-no stopped/duplicated owner. All82functional resource gaps remain open.
+**Parallel work:** [Mu21 fixed caller source qualifies; B4 repair is live](reviews/2026-10-24-functional-priority.md#mu21-caller-source-qualifies-while-two-useful-grok-tasks-are-prepared).
+Root has qualified the fixed once-only Mu21 pure-data caller; its admitted
+10s/512MiB run/full36leaf audit are next after current HEAD/Python binding.
+No generator call yet. B4 six finite metadata corrections are actual Grok
+task3a994d4e0125/ctx02dd52643961. Source-only Mu19 projection caller
+preparation is ready from26frozen copies, independent of that repair.
+F839 final source is submitted; owner released/archive captured beforeACK.
+Two independent final producer/consumer source reviews run in parallel;
+no final export qualification/controls/publication yet. Previous four-source
+wave has all submitted; prior optional fallback question is no longer needed.
+Chinese overlays/caps and full goal stay unchanged. All82gaps remain open.
 
 [All six actual MuC focused calls pass complete Root223pin verification](reviews/2026-10-24-T07-mu-data-stage.md#actual-six-muc-focused-calls-pass-complete-root-audit).
 Three source fixes qualify; no fresh map actor/render result yet. MU1 exact105body private
@@ -77,9 +76,8 @@ the512MiB virtual cap. Root verifies866fullpins and every source's byte/count
 join; no large JSONL is written. Root now freezes the full selected839 profile/three typed expectation sets
 and qualified-publication semantics; independent Grok source implementation
 is actual Grok ready after4425a98. No wrapper/test/game actor is admitted.
-[Current exporter source addresses the known close finding; two mandatory
-validation/postpin findings remain](reviews/2026-10-24-T06-full-spawn-output-budget.md#current-source-addresses-known-close-finding-two-findings-remain).
-Active author pins remain stale; no final submission/test/export admission.
+[Final exporter source is submitted, full pins match and owner is released](reviews/2026-10-24-T06-full-spawn-output-budget.md#final-exporter-source-submitted-owner-released-before-acknowledgment).
+Independent source reviews/Root qualification remain; no test/export admission.
 
 Original app/saves/Chrome/profile/settings/mute/IME/network stay untouched.
 The consumed ninth trial is not retried. All Chinese overlays stay enabled;
