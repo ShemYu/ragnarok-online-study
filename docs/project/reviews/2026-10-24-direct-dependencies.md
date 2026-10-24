@@ -3416,3 +3416,29 @@ and ten older retained resources remain. No new child/setup is needed. Next
 start the equal .020implementation wave from this frozen checkpoint; Root must
 personally review/reproduce/attack each original before selection. Overall
 4/14/about29% and82functional gaps unchanged, no user decision.
+
+
+## Independent authored decoder implementation wave starts
+
+From frozen38fcb2dc1725ae0838b7cbfbfccd4ffa78e5fbc6, Root verifies the other
+two released clean checkouts have no active/retained/pending/unknown resource
+owner, preserves their existing branches and creates separate .020branches.
+No child folder/setup or existing worker interruption. Equal32case corpus,
+source spans, three-file ownership and authored-only execution bounds stay.
+Both implementation starts precede any wait; both .019source authors continue
+independently in their own checkouts.
+
+| Provider | Task / Dispatch | Terminal | Branch |
+|---|---|---|---|
+| claude |task_2bd54d5595c4 / ctx_16bfe24d5ccb|term_076c832f-cfe8-4cb6-8713-4cddaa6d07d8|ShemYu/t07-014-020-claude-a1|
+| grok |task_477d89538908 / ctx_c210af119bc8|term_d0172dc6-1631-4697-b11e-5649bf153411|ShemYu/t07-014-020-grok-a1|
+
+Both ready/input accepted/setup not applicable/no residual. Claude turn start
+observed, Grok unsupported; requested/effective models/effort null, exact models
+unknown. Private .tools/renewal/t07-014-020-launch-root-1/WAVE_ROOT.json preserves
+complete specs/receipts and five ownership-state receipts. Root read-only checks
+show zero reclaimable/pending/unknown, ten retained, four active across the two
+independent waves;321past releases/84direct children unchanged. There is no
+Root-verified candidate implementation or copied decoder result yet. Next
+preserve/release matched settlements, then personally verify all originals.
+No real-body/Worker/browser/GL execution, replay or critical goal change.
