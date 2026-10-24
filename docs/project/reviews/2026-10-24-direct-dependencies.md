@@ -3202,3 +3202,73 @@ independently confirms all bindings/preservation, then may admit ONE disjoint
 consumed10pilot and15reuse must never be replayed. .017stays in_progress;
 TGA decode/render/gameplay/full-content claims remain open. No critical
 scope-changing blocker or user decision.
+
+
+## Actual923nested remainder and complete Root audit pass
+
+At checkpoint e8c0737, Root binds a fresh seed and exactly five preparation
+slots; the full inverse restores37732B/73de2a83... unbound caller. One guarded
+read-only preparation naturally exits0 in0.795850s with81264640B sampled peak
+owned RSS/no signals/residue. Root personally checks17022assertions/1397full
+pins/79046902B, all2155preservation rows/948binding targets,1353present fresh
+leaf reads/2957absences, all15retained body pins, the separate consumed-pilot
+Root audit and complete caller/observer source inverses. Current owner births,
+six ENV values/listener/six-route Engine/native/INI/archive identities hold.
+The first confirmation omitted the Engine helper's deadline argument and stops
+before that observation; failed script/capture remain preserved. Only the Root
+confirmation is corrected; preparation is not replayed, no texture GET occurs.
+
+Root then binds exactly eight call slots, PREPARE false, same checkpoint/seed/
+plan, for ONE disjoint923remainder. All923normal200/identity/EOF/full stored-hash
+responses pass:152966112B, cumulative933new requests/162741712B including the
+consumed10pilot. Candidate2.953370s/final post-publication3.173552s; inner75s
+guard natural0/3.627990s/115458048B sampled peak owned RSS. Outer225s caller
+natural0/5.037587s/201195520B sampled peak owned RSS. No signals/residue or
+codec child; outer registered child is the nested Python observer. Samples do
+not establish hard containment of the running server/native/GPU/extraction.
+
+Root's complete audit passes54317checks in1.529250s,4073full pins/397069857B.
+All948typed queries/profile records/maps/relations/provenance, every923response
+and full body, exact1849private output leaves, all2155literal preservation rows,
+2155present fresh leaf reads/2155absences and all owner/ENV/Engine/source/parent
+rules pass.802matched_new and121unchanged normal loose copies all match their
+returned bodies; zero missing/unsteady/mismatch. Every override and prior
+existing loose identity/hash stays equal. All23old pilot artifacts and15reuse
+body pins are freshly checked without HTTP replay. Complete candidate/final
+counts and eight-slot caller inverse hold. No actual call or source is changed
+to satisfy the Root auditor. Both actual batches are consumed, never replay.
+
+Private t07-014-017-remainder-caller-root-1/ receipts:
+
+| File | Bytes | SHA256 |
+|---|---:|---|
+| PREPARE_1_ROOT.py |37992|b66df509965646399962b9c505d92398dbffbdaf41323bd960a48d4d0c3cf9f4|
+| PREPARE_1_CONFIRMATION_ROOT.json |566128|615a02bd6aab4fa48a404014920e520449b56cc0afa382a55d3362ab275a3f03|
+| CALL_1_ROOT.py |38226|57e331b356c79235c536c091c549b4f257f8eae97236dc9f0dfbb97ef0abb448|
+| actual-remainder-1/RESULT_ROOT.json |9581310|2d4627ae55bb64858f8bcd3d5738d7c96f6687eaf36d26a65834ba19ab278b88|
+| AUDIT_REMAINDER_ROOT.py |16031|8be6122f6df5d0d8e4def4403bd553b944be86fb6e1fa2be907b2cc4109c75a0|
+| REMAINDER_CONFIRMATION_ROOT.json |1815888|496485792f8285d6e55aea482fad43dd80f65b9f8ad65a181e861e07260a2415|
+
+Bounded .017is ready_for_user for all948nested texture deliveries:15prior exact
+wire reuses plus933new disjoint responses, preserving all21maps/1546relations.
+This is delivery/materialization evidence only.25TGA bodies still require an
+unchanged decoder closure/fixture; BMP and whole-game image decoding, geometry,
+rendering, quests, saves, exact episode/full content and all82functional gaps
+remain open. Full parent4/14/about29% is unchanged. No critical goal-changing
+blocker, new user decision, game input/relogin/restart/audio/internet action.
+
+
+## Claude TGA source original is preserved and released
+
+Matched .018Claude settlement task_554eba2f18b9/ctx_20b39bf8269f has clean
+candidate440587cc76ed29a3c19b4eea4a54439710b78614, direct frozen parent4c16f91.
+Only the owned report path changes. Root preserves49complete private/report
+files/361212B, verifies every copied byte/hash, archives Git ref
+refs/ro-task-archive/T07.007.014.018/claude-a1 and verifies15514B rollback bundle
+045a66e0dea7e7e532cfccc437905ea0bf4a6540ed68c4d3ccbe936d90efc565.
+The settled terminal is released/transcript captured before ACKdelivery653292cf514f;
+no idle session remains for Root review. No source-trace acceptance yet.
+Raw report claims34source spans/all25TGA joins and an unresolved Worker half;
+Root/Astra now review that source uncertainty independently while Grok remains
+live. Fleet320released/ten older retained/one active .018/zero reclaimable.
+No new child/setup. No decoder execution or current-world mutation authorized.

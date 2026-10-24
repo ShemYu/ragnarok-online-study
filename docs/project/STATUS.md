@@ -10,13 +10,18 @@ open. Full Modern/Renewal scope is unchanged; no new user decision is required.
 The board includes later-phase party taskT11, so this is not a percentage of
 first-milestone content or remaining effort. Do not relabel it as such.
 
+**Latest:** .017all948nested texture deliveries are Root-qualified. Next complete
+.018TGA source comparison/Worker-path uncertainty, then a tiny authored decoder
+closure before real image decoding. Claude source original is preserved/released;
+Grok is live. Decode/geometry/render and all82functional gaps remain open.
+
 **Child cleanup:** [Root verifies removal of20completed children](reviews/2026-10-24-orca-children-cleanup.md#second-twelve-removals-personally-verified).
 Current84direct children include the two released review children and the two
 .011implementation children (both originals and Claude repair released). Exact Git archive
 refs, two verified rollback bundles and private evidence survive; the running
 character/quiet audio remain. Three examined children stay held for incomplete
 private preservation; user-retained children remain excluded.
-Latest fleet:319released/ten retained/two active .018source traces/zero reclaimable.
+Latest fleet:320released/ten retained/one active .018source trace/zero reclaimable.
 Two .012implementation attempts reuse existing released checkouts; no new
 child folders or setup hooks. Both .012candidates are preserved/released after
 matched settlements. [Root full review and eight behavioral groups per original are complete](reviews/2026-10-24-direct-dependencies.md#both-constructor-originals-are-personally-checked-and-held).
@@ -82,7 +87,9 @@ including full prepared-to-call preservation. The unbound donor stays unadmitted
 [ONE actual10pilot and complete25541check Root audit now pass](reviews/2026-10-24-direct-dependencies.md#actual-ten-nested-texture-pilot-and-complete-root-audit-pass):
 9775600B, all2155preservation rows,1400full file pins/current sources hold.
 Retain10successful responses and15reuse without replay. [Finite923remainder caller passes Root32+997+16controls](reviews/2026-10-24-direct-dependencies.md#finite923remainder-caller-passes-root-source-controls),
-including exact1849leaves and consumed pilot-audit preservation. Next fresh binding; TGA decode remains separate. Root's independent
+including exact1849leaves and consumed pilot-audit preservation.
+[ONE923remainder/full54317check Root audit passes](reviews/2026-10-24-direct-dependencies.md#actual923nested-remainder-and-complete-root-audit-pass):
+152966112B/4073full pins; all948deliveries qualified (15reuse+933new). No replay; TGA decode remains separate. Root's independent
 oracle source/current65metadata file checks pass; [finite multi-map audit projection
 passes Root's positive/eight negative controls](reviews/2026-10-24-direct-dependencies.md#finite-launch-audit-derivatives-and-multi-map-controls-qualify).
 [Concrete bindings for ONE independent oracle are verified/admitted](reviews/2026-10-24-direct-dependencies.md#one-actual-nested-oracle-is-admitted).
@@ -104,9 +111,9 @@ task_3695d6723248/ctx_dd8e5f76545d are now preserved/released. Two reused
 checkouts/separate branches, no new child/setup. Root comparison selects unchanged
 Claude19/20 versus Grok17/20 held; no idle terminal kept for review. The exact
 2155wire Root caller passes32+1001controls; ONE10pilot/full25541Root audit passes.
-Finite923remainder caller qualifies32+997+16Root controls; next fresh preparation/one disjoint923remainder, no replay of10pilot or15reuse.
+Finite923remainder caller qualifies32+997+16Root controls; ONE923remainder/full54317Root audit passes. All948nested deliveries ready_for_user; no replay of933new or15reuse.
 .016authored browser controls pass.
-No remainder request is admitted.
+The923remainder is consumed and audited; no future request or decoding admitted.
 Private-only proposal ownership
 in this checkout. Root owns tracked docs; authors may not mutate Git/source or
 open images/runtime/browser/game. Trace of286delivered image consumers does not
