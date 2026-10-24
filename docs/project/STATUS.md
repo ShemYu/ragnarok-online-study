@@ -113,11 +113,13 @@ on separate branches fromc6b853d, with matching task/dispatch heartbeats and
 frozen baseline source. Next collect/verify both and equal controls, then Root
 separately admits actual recovery/header observation.
 Reuse existing bodies/terrain evidence; do not repeat the general gap ledger.
-In parallel, [one independent four-GRF reference is source-qualified/admitted](reviews/2026-10-24-remaining-map-bodies.md#independent-four-grf-reference-admitted):
-four plain-zlib ranges/1223209decoded bytes using existing frame/header code,
-full archive preservation and external60s limit. Root actual reference/audit is
-next. No HTTP/extraction/runtime action is admitted by that source checkpoint;
-normal four-GET verification still requires fresh live-state preflight.
+[Claude370028f submits; Root source review passes](reviews/2026-10-24-remaining-map-bodies.md#claude-seventeen-route-submission-preserved-source-review-passes).
+Its complete source/logs are preserved and worker released before ACK. Root
+common controls/suite are next; Grok remains active. No adoption/17body run yet.
+In parallel, [all four GRF reference bodies and Root confirmation pass](reviews/2026-10-24-remaining-map-bodies.md#four-actual-reference-bodies-and-complete-root-confirmation-pass):
+1223209decoded bytes/actual embedded GND/GAT declarations; natural0 in2.344735s,
+full archive/source/body/header preservation verified. Next fresh live preflight
+and source-reviewed four-GET projection. No HTTP/extraction/runtime action yet.
 
 ### Historical preparation — follow the next action above
 

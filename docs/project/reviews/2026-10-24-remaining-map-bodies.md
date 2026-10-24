@@ -151,3 +151,70 @@ owner/listener/native/config/archive and target/parent/override checks, then a
 separately pinned projection of the already-qualified111-request observer.
 Normal asynchronous extraction/cache/log effects must be intentional and exact.
 No archive-winner, renderer, route or functional-gap conclusion follows.
+
+## Four actual reference bodies and complete Root confirmation pass
+
+The one admitted reference returns natural0 with no forced cleanup in2.344735s,
+observed child maximum RSS28016640B. Both complete2172616301B archive hashes
+and exact identity match;208210compressed bytes yield1223209decoded bytes.
+Root independently rehashes every complete private body, checks all raw header
+fields/prefixes against fresh byte slices, rechecks five source pins/current
+archive identity and verifies the successful caller before accepting the receipt.
+The artifact's passed flag is never used without this positive caller/audit.
+
+| Map | Full decoded bytes | RSW version | Embedded GND / GAT |
+|---|---:|---:|---|
+|1@vrpop|217447|2.6|1@vrpop.gnd / 1@vrpop.gat|
+|2@vrpop|298702|2.6|2@vrpop.gnd / 2@vrpop.gat|
+|3@vrpop|313787|2.6|3@vrpop.gnd / 3@vrpop.gat|
+|cmd_bhole|393273|2.7|cmd_bhole.gnd / cmd_bhole.gat|
+
+These are observed binary declarations for these four bodies, not an assumption
+that other maps use same-stem terrain. No HTTP/extraction/runtime operation has
+run. All82functional gaps and ordinary-route/story requirements remain open.
+
+| Private receipt | Bytes | SHA256 |
+|---|---:|---|
+| reference-root-1/EXPECTED_BODIES_ROOT.json |11977|e4cd16b057ef01fbfb66ad0e6ecd7489f182c1fe4fe1a2085f579880b83698cf|
+| preparation-root-1/CONFIRM_ROOT.json |1498|c90b6973ca4aff7c2273a6ddc25f28743a68b489d72a6244f5cb64ca43be9903|
+| preparation-root-1/BODY_ALLOWLIST_ROOT.json |2559|7bdc7a2b7fa4d0c76bf4647aedfc510b5319f08c205640c93696debdf884622d|
+
+All paths use `.tools/renewal/t07-remaining-four-grf-` as their prefix. The
+allowlist supplies independent expected hashes for later normal GETs; no hash
+is learned from the native response itself. Next fresh live preflight and
+source-reviewed bounded observer projection precede any normal extraction.
+
+## Claude seventeen-route submission preserved; source review passes
+
+Claude task_2a28c7ed2fb1/ctx_df81133a4cba submits370028f67740c54d8b031a9fb7140fc709196db4
+from the commonc6b853d base. Root checks clean Git/exactly three owned changes,
+preserves13complete source/fixture/report/log copies and rehashes all14inputs.
+An initial stable-read comparison included access time and stopped before
+settlement/release/ACK; Root switches to the intended stable metadata fields
+and revalidates existing copies without overwrite. The original failing stat
+pair was not retained, so its precise changed field is not established.
+
+Root validates the matched worker_done and owned/reclaimable resource, then
+positively observes released/closed_agent_terminal/transcript captured before
+ACK. Private `.tools/renewal/t07-014-006-claude-packet-root-1/` retains:
+
+| File | Bytes | SHA256 |
+|---|---:|---|
+| SETTLEMENT_ROOT.json |14322|140a489bc8c596fa6f8cbc7a667189b7c5672215500ae5aab3a546633abae5a5|
+| RELEASE_ROOT.json |455|80cb7aeeaf5a2faf7353efbf46412b2befb995263844551a982a4d0b6ca22121|
+| repo/tools/renewal/decode_patch_targets.py |62401|3fda683891c771a0a456d7c7c2887cc300c611fb5b586808c8919a2b8f18d3fc|
+
+Root reads the complete decoder/test/document diffs; independent Astra confirms
+no concrete source blocker. Fixed descriptor/flag/consumer correctly bind all17
+targets, exact profile/caps/v2 schemas. Across49prior top-level functions/classes,
+only Route's docstring and main change; the sole new function is the consumer.
+All76original test methods remain AST-identical. Test scaffolding extends only
+the new-route fixture path. Crypto/framing/source/publication machinery is exact.
+
+Author reports93total tests with one explicit real-input skip under private
+umask077. It also retains a default022failure of an unchanged older test that
+expects a size refusal after recreating a0644body; privacy refuses first. This
+does not establish a production defect; Root source review keeps both facts.
+Next Root repeats the source-qualified common checker and candidate suite,
+with real-input environment variables absent. Grok remains independently active.
+No actual seventeen-body decode or provider adoption is claimed yet.
