@@ -446,3 +446,71 @@ shutdown or restore is needed. Then closely observe a suitable field encounter
 and normal return. The prior fight remains FAILED; no field kill/return PASS,
 new backup, saved quest/inventory row, Chapter1 or full-content acceptance is
 claimed. Full goal,4/14parent count and all82functional gaps stay unchanged.
+
+## Current earned backup saved progress and post-backup reentry pass
+
+Aftere2b31e5d4c524f76f2d987cd62beb93d7f4e082e, Root derives the already
+qualified one-shot backup actor for this current earned-state purpose: post-cold
+ownership source, current HEAD, Root7ordinary reentry/service receipts and a new
+exclusive private destination. The complete reviewed delta preserves one
+supported db_backup/one db_inspect, account metadata equality and the three
+expected service starts. Both earlier SQL backups are fully pinned before the
+call; no old export/actor is overwritten. No cold shutdown or restore is admitted.
+
+The single call succeeds. The100908B SQL is regular/single-link/owned0600 under
+0700, fully read back/hashed and inspected as1.6.3/packet20221005/Renewal/two
+player accounts/one character. All five IDs/images/mounts/ports stay the same;
+only login/char/map starts change. DB/web starts, persistent volume, account
+metadata, current app/asset/engine/VZ and four old owners remain unchanged.
+
+Root adapts the existing read-only post-backup auditor with current owner/HEAD/
+operation bindings. It passes current-start framing/timestamps,1265maps/loading
+completion, five ready services and exactly the retained five diagnostics, plus
+all16complete served body comparisons/44247224B and unchanged volume metadata.
+The inherited1117-file baseline reread is omitted for this readiness purpose;
+the receipt says so explicitly. Existing source/ownership pins remain checked.
+This is no full-world coverage claim or repair of the known diagnostics.
+
+Root reuses only the unchanged finite quote-aware SQL parser definitions and
+header controls offline. Explicit literal DDL orders match80char/7quest/
+33inventory columns in both the prior and new exports; login payloads are not
+tokenized. The selected character is unchanged, now at izlude128,142 with base2,
+job3, base_exp152,job_exp17,HP45/SP12. Prior21001/state1becomes21001/state2
+and21008/state2. Four complete selected inventory rows are retained, including
+item611/amount5; selected fields also show1201/amount1/equip2,2301/amount1/
+equip16and23484/amount1/equip0. This proves these saved rows, not all game state.
+
+The expected service disconnect is dismissed through normal UI. Root privately
+focuses/inserts/verifies the retained password, clicks Connect and enters the
+same character. Root personally views the settled textured Izlude return and
+normal inventory. Identity/location/fullHP45SP12/base2/job3/displayed17%,
+consume quantities1/5, Chinese overlay and quiet audio are retained. Inventory
+is then closed. A fresh authenticated native/service observation matches all
+post-backup five-container metadata. No GM/SQL execution/direct packet/state
+write, internet disconnect, credential reset or setting change is used.
+
+The separate saved-data/UI audit passes18full pins and lossless reconstruction
+of the two personally viewed PNG receipts. Two initial readback audits refuse
+the6.4MB PNG at the reused helper's4MiB cap, first at image read and then final
+all-pin reread. Their sources/refusals are retained. Root changes only those
+two caps to16MiB; V3passes without replaying any game or backup operation.
+
+Private t07-current-earned-backup-source-root-1/ and
+t07-current-earned-backup-actual-root-1/:
+
+| Artifact | Bytes | SHA256 |
+|---|---:|---|
+| Source BACKUP_ONCE_ROOT.py |8226|66a79e9bf78b50fab8212443f0313ceac3e8ab65b0a6f225bac2bbf75da677c3|
+| Actual ROOT_POST_EARN_OPERATION.json |16278|cddfdadf1ef0022f0668689c27cdd2761981e4a3b1a969a0e9979954098226e0|
+| Actual current-earned-1.sql,private only |100908|bfee4e2243b2b044eb9bed50ef9c71848f2f4caa038c99083610399a1491f235|
+| Source READINESS_ROOT.py |7825|15f34eb4043afb9b2d55ac221c27e0449e9f8342e14bcf2fc5169d996d8affeb|
+| Actual READINESS_ROOT_1/ROOT_AUDIT.json |33450|434eb41f7ed70ae28ef13fba914e7fae77019e4295d3c4d7250e08e6190a9f50|
+| Source SAVED_PROGRESS_AUDIT_ROOT_V3.py |7970|325b204a83982d10320eb95139e8be3f35e893b1dc49c0d5e51e76ffaa5974ec|
+| Actual ROOT_CURRENT_EARNED_BACKUP_VERIFIED.json |21216|6f67bf308365f72d5667eac5d33ce3c3e31104b52f4c2b080b7f2fe452a8fc2c|
+
+Root7 UI/owner receipts and PNGs remain private. The new SQL is preserved but
+not restore-tested; earlier isolated recovery evidence retains its own scope.
+The actor/call are consumed: do not rerun for another export. Next use a fresh
+UI capture namespace for a closely monitored suitable field fight, normal
+return portal and earned reentry. Prior failed fight stays FAILED. No new cold
+cycle, full content/story/render/animation or goal-count credit follows.

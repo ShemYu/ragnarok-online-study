@@ -4,19 +4,25 @@ Updated: 2026-10-25 JST. Coordinator: Codex. Active scope: **execute the documen
 
 ## Current checkpoint
 
-**Main next action:** fresh supported backup, then observed field fight/return
-and the [authentic Chapter1 route](reviews/2026-10-24-direct-dependencies.md#next-player-gate-resumes-ordinary-play-and-the-real-chapter1-route).
+**Main next action:** closely observed field fight/normal return, then
+the [authentic Chapter1 route](reviews/2026-10-24-direct-dependencies.md#next-player-gate-resumes-ordinary-play-and-the-real-chapter1-route).
 [Current earned-state ordinary reentries pass](reviews/2026-10-24-normal-map-prerequisites.md#current-earned-state-character-selection-and-full-logout-reentries-pass):
 same character at textured Izlude128,142, HP45/SP12/base2/job3/displayed17%,
 visible consume quantities1/5 and Chinese overlay. Root personally views both
 returns; fresh authenticated native ownership and all five service metadata
 remain unchanged. First fill/Enter login attempt failed; verified form input
-and Connect succeed, original cause unresolved. No fresh backup/restart yet.
-Next fresh supported backup, observed field fight/normal return, then first
+and Connect succeed, original cause unresolved.
+[Fresh supported backup/readiness/saved progress/post-backup reentry pass](reviews/2026-10-24-normal-map-prerequisites.md#current-earned-backup-saved-progress-and-post-backup-reentry-pass).
+One100908B export preserves completed21001/21008, base2/job3/raw EXP152/17,
+four inventory rows and Izlude128,142. Only expected login/char/map restart;
+five identities/mounts/ports, DB/web starts/volume and current/four old owners
+stay preserved. Root18pin saved-data audit and both viewed return/inventory
+images pass; backup is not restore-tested. Character stays idle safely in town.
+Next observed field fight/normal return, then first
 Chapter1 selection/traversal/persistence. Independent CPU qualification
 of all936is not a prerequisite for normal play. .024broader source plans remain
 parallel: [both .024plans are preserved/released](reviews/2026-10-24-direct-dependencies.md#both-geometry-extension-plans-are-preserved-and-released);
-Root comparison pending. No restart/backup admitted yet.
+Root comparison pending. New backup call is consumed; no replay or cold cycle.
 
 
 Functionality remains first. **4/14 parent checks, about 29%**; this counts
