@@ -214,3 +214,45 @@ earned saves, Chrome/mute/IME/network remain untouched. Next freeze the actual
 1118-file baseline and reuse the local image installer with fresh environment/
 paths/pins, then independently verify all decompressed/installed bytes. No
 help probe/download is needed. Images/engine/routes/play remain unpassed.
+
+## Fresh local-image source and complete baseline qualify
+
+Root reuses the1729-byte selected local installer with exactly six ro3→ro4
+path substitutions and its fresh environment hash; whole inverse exact.
+New source1729/eb98d9d648ed3413d5916f344c5d1d95b9203b043563bfb3d61d53ce33642d69.
+MAIN_ENV remains823B/17keys: seven root paths and seven distinct proposed
+game/admin ports change; HOME/PATH/loopback host and all other values remain.
+New ENV SHA912f48f590f66c1e57b6ac1383817e57c89d9cfcc803dd024d277da235ce48b8.
+Proposed ports33338/36900/36121/35121/38888/37490/33339 are not yet proven free.
+
+All1118 files are freshly full-hashed against actual copy/config identities;
+all212 directory keys/modes and exact membership pass. The complete baseline
+775431/d33c852dac63166aaca6bff1fa9b70c2ef7bb315bfbfff718c8009ebb37939f5
+uses the existing POST_HELP_BASELINE name/schema but no help was run. Engine
+contains only qualified config.toml; profile empty. Binary/compressed inputs
+retain their exact prior content/modes. The separate source review confirms
+the existing installer replaces itself with Nebula in the same driver PID;
+no separate native-child registration or help prerequisite is needed.
+
+No prior executable gzip auditor/caller exists in the retained source folder.
+Root therefore authors a finite9679-byte caller, SHA
+29d79f6eb59b9ccd0abcdae652c62876e9689a9a539d3b4acd5b9a2460c9c7f9,
+transcribing the established full-readback sequence; only the installer is
+byte-exact metadata reuse. All source is personally reviewed, with syntax
+checked without execution. It pins source/baseline, runs one existing
+G60s/512MiB/grace3/noNative/1MiB installer call, checks full receipt/streams/
+natural0/owned retirement, then streams each gzip through bounded decoded EOF/
+CRC and compares every decoded byte with all three installed image files.
+It requires exact decoded sizes/hashes, distinct pristine/live inodes, all1118
+old full hashes/C8, all212 original directory keys/modes and exactly three
+new files/three0755directories. Missing state/guest/era markers, empty profile,
+input preservation and clean HEAD remain required. Full audit RAM is not
+separately measured; the native command retains its existing guard contract.
+
+Private t07-normal-integration-image-source-root-1/QUALIFICATION_ROOT.json:
+609339/7ce065b138b685a0198425b6755a640937af92c6170535cb7b0363a169357660;
+1128full pins. After this source checkpoint Root admits one fixed local
+install only, then personally checks complete results before an actual-image
+checkpoint. No download, help, daemon/VM/app/browser/game, guest marker or
+existing-world action is admitted here. This is existing architecture reuse,
+not a new Claude/Grok implementation comparison.

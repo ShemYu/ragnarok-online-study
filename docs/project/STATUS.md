@@ -31,9 +31,10 @@ The fresh ro4 tree contains the repaired normal Online and unchanged worker.
 One copy and separate full audit pass all1135source files/1114destinations/
 212directories; Root's outer41checks/25pins also pass. Four configuration files
 now pass actual execution and complete preservation. Profile is empty; engine
-contains only config.toml. Next freeze the1118-file baseline and prepare the
-local image installer with fresh paths/environment, then verify complete image
-bytes before engine/routes/ordinary login/travel/save. No image/engine/app/
+contains only config.toml. The complete1118-file baseline and local-image
+installer/caller now qualify as source. After the source checkpoint, run one
+fixed local install and verify every decompressed/installed byte before
+engine/routes/ordinary login/travel/save. No image/engine/app/
 browser/game actor has run; ro3 earned progress stays untouched. Continue [quest/logout work](reviews/2026-10-24-functional-priority.md#priority-and-stop-criteria)
 separately; do not replay failed B4 or consumed Mu scenes.
 
