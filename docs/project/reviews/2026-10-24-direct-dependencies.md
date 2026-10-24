@@ -3940,14 +3940,14 @@ and direct oversized refusal with zero VM compilations. Coherent realm-owned
 input/intrinsic copy/typed-output brand/full-output hashing deserve credit.
 Root/Astra review finds four concrete holds, personally reproduced by Root:
 
--At the output hardlink, injected time20000ms still returns/publishes PASS.
--The owned candidate file replaced during close is linked as `{}` while the
+- At the output hardlink, injected time20000ms still returns/publishes PASS.
+- The owned candidate file replaced during close is linked as `{}` while the
  returned PASS hash still describes the original full report. No readback or
  final output-literal seal verifies the artifact.
--A profile close EIO after publication leaves PASS, propagates outside the
+- A profile close EIO after publication leaves PASS, propagates outside the
  failure handler and skips the remaining source close. Root identifies/closes
  only its exact still-open owned source descriptor afterward.
--A symlinked ancestor resolving to the pinned owned leaf is accepted by the
+- A symlinked ancestor resolving to the pinned owned leaf is accepted by the
  input reader. Only the leaf is checked; ancestor authority is absent.
 
 All injected files/source copies are owned synthetic controls; the real saved
