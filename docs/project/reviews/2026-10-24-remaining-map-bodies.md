@@ -1285,3 +1285,57 @@ Require checks after synchronous final work/publication as well as worker
 termination/exit, and repeat focused late-completion controls on final sources.
 Pilot full-oracle equality remains Root-owned; host observation alone cannot
 admit the21-map batch. No genuine target execution is admitted here.
+
+## Submitted Claude host passes its suite but fails two Root deadline controls
+
+Matched msg_f90b5a4969da settles task_e7b3da100a67/ctx_1f9a6ed816bf at
+d39a23fb77e4a4a99491f1d1b033127b8dd92587. Root verifies clean branch,
+exact ab3aebabase and only three owned files. The complete13709B report and
+29811B tests are personally read. Root checks the final host changes against
+the previously read source; the new runtime-helper captures do not correct the
+known deadline gap. The host is53513B/SHA256
+a01070eb66f0d39920cfe2cf7b5c0fbfe43d62992d78c2b79a2c1f9d84298474.
+All three owned files, six exact private inputs and frozen original task brief
+are fully mirrored before any immediate correction reuse. Private
+`.tools/renewal/t07-014-009-claude-packet-root-1/SETTLEMENT_ROOT.json`
+is7625B/SHA256de0b80bc5170c6d90d1986e827dab51e374798692a21e0ec7e4fd2a960066e0c.
+There are no declared worker-private notes; its synthetic fixtures are temporary.
+
+Root runs all14authored controls plus two independent controls using the same
+authored synthetic fixtures, with only module/host paths redirected to the
+unchanged submitted source. All14authored controls pass. Both Root controls
+reproduce the source gap: an otherwise successful55001ms/55000ms worker is
+observed; and a genuine synthetic pilot completes before a2500ms synchronous
+final profile-posthash delay, then returns observed at2614.793ms against a
+2000ms whole-run allowance. No timer has been delivered in either counterexample.
+This is actual pure-fixture execution, not a hypothetical source concern.
+
+The complete run exits1as expected for the two assertions,14pass/2fail,
+9.18084275seconds, empty stderr, source/test bytes unchanged. Under private
+`.tools/renewal/t07-014-009-root-pure-controls-1/` the full32166B test program
+has SHA256ecc7cc791b1db53d92a05c28e98fa56059d21161abaeed1e5dfc4885d7d4e10a;
+CLAUDE_FINAL_COMMON_ROOT.json is836B/SHA256
+6cb656d24fec23a2abee2924398604bb3fb1fa41670b2fbad1eebc06dae0a27c.
+Full4296B stdout/SHA2564ecb9da4428279467c8722eea79a996acf5a8ac621321d89f1c4b2a81e5d74c8
+retains both actual outcomes. No acquired parser/body is read or evaluated.
+
+The first source submission is accepted as a preserved lifecycle handoff only,
+not runtime qualification. Reuse its exact proven settled terminal for the
+[bounded deadline correction](../tasks/T07.007.014.009-claude-deadline-correction.md)
+after this checkpoint; preserve original report/history and run the applicable
+Root controls again. This is rework within the same paired host task, not a new
+unpaired corpus benchmark. Grok's original independent implementation remains
+live and is not stopped/retried or shown its sibling's source.
+
+The later advisory's enqueue receipt did not prove it was read: the worker's
+final read lists the first guidance message again. No ignored-instruction or
+message-loss cause is inferred. The self-contained correction Dispatch includes
+both defects directly and requires processing/acknowledging each worker inbox
+Delivery before reading later guidance. The project workflow records that rule.
+
+Root also removes an artificial serial dependency in the main task's scheduling:
+after personal source/controls qualification plus an independent source review,
+one corrected candidate may receive its separate pilot admission while the other
+implementation continues. Both complete candidates/comparison still gate task
+readiness; no early provider-winner claim, changed input/cap or acceptance waiver
+is made. The actual pilot and21-map batch are not yet admitted.

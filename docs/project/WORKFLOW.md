@@ -31,6 +31,13 @@ establish a general provider winner.
 7. Integrate only the selected change, rerun the required checks on the integrated revision, update tasks/status, and make a local checkpoint commit for that completed/verified step before advancing. This applies to research, no-change findings and gap-task children too: commit the redacted evidence even when no code changes. Only then mark `ready_for_user` and assemble a concise evaluation packet.
 8. Record the user's evaluation and any issue tasks. Close/release settled workers. Update the next action before ending the coordinator turn.
 
+For Orca worker follow-ups, process and acknowledge each delivered FIFO batch
+before checking for the next one. Repeatedly reading an unacknowledged delivery
+can hide later guidance behind the same first batch. A send receipt proves
+enqueue only; do not infer that the worker read or adopted it. Put required
+correction instructions directly in the next self-contained Dispatch when
+reusing a settled worker, with its new lifecycle IDs.
+
 While independent read-only plans run, the coordinator may perform independently verified, reversible preparation on immutable inputs or fresh isolated state. Record this explicitly; do not mutate candidate input artifacts, touch existing user progress, read a sibling answer on a worker's behalf, or claim both plans informed an action performed before submission. Read and evaluate both plans before the final verification checkpoint or user handoff. If the frozen brief promises a stricter serial order, follow it or record the deviation and its comparison limits; changing this workflow does not retroactively satisfy an earlier brief.
 
 The planning comparison is deliberately a read-only proposal comparison, not an implementation benchmark. Re-evaluate model fit as actual tasks generate evidence.

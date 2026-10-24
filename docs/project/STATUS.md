@@ -29,16 +29,21 @@ compiled prefix/suffix. [T07.007.014.009](tasks/T07.007.014.009.md) freezes the
 finite Node-worker host for equal independent Claude/Grok implementations,
 then Root source/pure controls and one pilot before the21-map actual batch.
 No constructor is executed by preparation and no rendering/travel/82gap closes.
-Both implementations are now [live from the same frozen base](reviews/2026-10-24-remaining-map-bodies.md#equal-compiled-core-host-implementations-are-active):
-Claude task_e7b3da100a67/ctx_1f9a6ed816bf andGrok task_1166063748f6/
-ctx_aa9287fa50a3, exact ab3aebaHEADs verified. Preserve/release and personally
-qualify their source/tests next; no actual target execution is admitted.
+Both implementations start from the [same verified frozen base](reviews/2026-10-24-remaining-map-bodies.md#equal-compiled-core-host-implementations-are-active).
+[Claude d39a23f is submitted/preserved and Root reproduces two deadline failures](reviews/2026-10-24-remaining-map-bodies.md#submitted-claude-host-passes-its-suite-but-fails-two-root-deadline-controls):
+14authored controls pass, both Root completion-time controls fail. Raw source is
+actual-held; [bounded correction](tasks/T07.007.014.009-claude-deadline-correction.md)
+is the immediate reuse action. Grok task_1166063748f6/ctx_aa9287fa50a3 remains
+live/working. No actual target execution is admitted. After qualification one
+candidate may run its separately admitted pilot while the other continues;
+both candidates/comparison still gate task readiness.
 [Root's independent terrain numeric reference is ready](reviews/2026-10-24-remaining-map-bodies.md#independent-remaining-terrain-numeric-reference-is-prepared):
 all17GATs/1653256raw cells, no unknown type or expected numeric anomaly.
 [Early host review reproduces a deadline hold](reviews/2026-10-24-remaining-map-bodies.md#provisional-host-deadline-gap-is-reproduced-before-execution).
-Claude's provisional source is not a settled submission; both providers receive
-the same actual-time deadline advisory. Require final corrected source/controls
-before real parser execution. This changes neither full scope nor acceptance.
+The provisional finding is now reproduced on its submitted revision. Both
+providers receive the same actual-time deadline advisory; enqueue alone does
+not prove it was read. Require corrected source/controls before real parser
+execution. This changes neither full scope nor acceptance.
 Ordinary playtest is separately blocked by the native-pipe startup failure;
 no game restart, network cut or alternative browser-control bypass is admitted.
 
