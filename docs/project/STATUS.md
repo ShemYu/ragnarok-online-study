@@ -63,7 +63,10 @@ from0c06238. [Claude submits but Root proves two late-success counterexamples](r
 its source remains unqualified; Orca retains its terminal as user_takeover.
 Grok continues independently. [A separate Claude deadline correction starts](reviews/2026-10-23-T10.007.md#separate-claude-deadline-correction-starts-and-original-evidence-is-mirrored)
 from9f33bfc, preserving the first submission and its user-owned terminal.
-Root compares source and focused controls, with
+[That correction now qualifies as source](reviews/2026-10-23-T10.007.md#claude-deadline-correction-passes-root-source-and-pure-controls):
+Root repeats65author controls and17independent controls, verifies both complete
+forward/inverse chains, and releases the worker. Grok comparison and selection
+remain pending. Root compares source and focused controls, with
 bounded evidence and unchanged limits, before any further fresh actor.
 [Fresh B6 pure-data caller source also qualifies](reviews/2026-10-23-T10.007.md#fresh-b6-pure-data-source-qualifies-independently-of-the-readiness-authors)
 in parallel: seven metadata/denial edits, complete inverse, unchanged writer
