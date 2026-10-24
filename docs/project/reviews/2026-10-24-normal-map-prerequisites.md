@@ -580,3 +580,50 @@ Then choose an identified Poring1002at full health, observe a suitable fight,
 normal return portal and earned reentry. Root should not repeat the stronger
 Fabre test blindly or change game rules to pass. The original failed encounter
 stays separate. Full scope, parent4/14and all82functional gaps stay unchanged.
+
+
+## Ordinary equipment and existing stat-point allocation pass
+
+T07.007.011,2026-10-25 JST; Root on coordination base2b125a3, tracked tree
+clean before these ordinary UI actions. Root inspects the same test character
+in Izlude128,142: base2/job3/display17%, fullHP45/SP12. The normal equipment
+window shows short sword1201 and cotton shirt2301 equipped; Root personally
+views the equipment/status image. All six base stats initially equal1 and
+51status points are unspent. These are existing points, not a progress grant.
+
+Root uses25native clicks on ordinary status arrows, with a fresh snapshot and
+before/after displayed-value check for every increment. Final base stats are
+STR9/AGI9/VIT2/INT1/DEX9/LUK1;50points spent,1left. Each successful click
+increments exactly one stat and reduces the points by2. Root personally views
+the resulting Chinese status/equipment window, closes both through ordinary
+controls, and views the final idle, fully healthy town scene. The read-only
+snapshot confirms no target, movement vector0/0 and connected map state.
+
+An earlier DOM click attempt explicitly fails its acknowledgement check with
+no stat change. Installed Online.js13174566B/SHA
+f81e23ae64642920b27da257f0d2e125d5e9ca58be6c76d114a0d50a63922301,
+physical lines232435–232440, listens on mousedown; the native click correctly
+provides that event. No callback/packet/state injection or client patch is
+used. A later read-only selector mistakenly assumes a host class and fails;
+the established direct-id selector verifies the same final state without
+replaying input.
+
+Private Root9receipt set is closed. ROOT_STATS_VERIFIED.json22963B/SHA
+bf7c39958a799129dd08ed9c1ad7c25b86f3f21a66cd962a5694d14df8cef063
+checks130full pins,123capture receipts,25successful native stat clicks and
+four losslessly reconstructed, Root-viewed images. The first offline audit
+uses Python splitlines, which also splits Unicode separators and misaddresses
+the physical source-line assertion; it refuses before writing a PASS.
+V2changes only that source-line splitting to literal newline and passes.
+Both audit sources and the original failed receipts remain private; no game
+input is repeated for that audit correction.
+
+This verifies ordinary stat/equipment functionality, not field survival or
+persistence of the allocation. Next use a fresh private UI prefix, identify a
+Poring1002at full health, observe survival/earned EXP or loot, return through
+the normal portal and verify the new earned state through ordinary re-entry.
+Then resume the first authentic Chapter1 route. All82functional resource gaps
+and4/14parent count remain unchanged; broader CPU geometry is independent.
+The pre-allocation100908B backup remains preserved and was not restored;
+Git reverts this report only, not the test character's allocated stats. No GM,
+SQL edit, balance change, new backup call, restore or cold cycle occurred.

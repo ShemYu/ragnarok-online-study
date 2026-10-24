@@ -4,8 +4,8 @@ Updated: 2026-10-25 JST. Coordinator: Codex. Active scope: **execute the documen
 
 ## Current checkpoint
 
-**Main next action:** ordinary status/equipment inspection, full-health identified
-Poring encounter and normal return, then
+**Main next action:** full-health identified Poring encounter, normal return
+and earned-state re-entry, then
 the [authentic Chapter1 route](reviews/2026-10-24-direct-dependencies.md#next-player-gate-resumes-ordinary-play-and-the-real-chapter1-route).
 [Current earned-state ordinary reentries pass](reviews/2026-10-24-normal-map-prerequisites.md#current-earned-state-character-selection-and-full-logout-reentries-pass):
 same character at textured Izlude128,142, HP45/SP12/base2/job3/displayed17%,
@@ -31,6 +31,12 @@ of all936is not a prerequisite for normal play. .024broader source plans remain
 parallel: [both .024plans are preserved/released](reviews/2026-10-24-direct-dependencies.md#both-geometry-extension-plans-are-preserved-and-released);
 Root comparison pending. New backup call and Root8captures are consumed;
 use a fresh UI prefix, no backup replay or cold cycle.
+[Ordinary equipment and existing stat-point allocation pass](reviews/2026-10-24-normal-map-prerequisites.md#ordinary-equipment-and-existing-stat-point-allocation-pass):
+51existing points/all base stats1;25native clicks produce STR9/AGI9/DEX9/VIT2,
+INT1/LUK1and1point left. Short sword/cotton shirt equipped. Root130pins/
+123captures/four viewed lossless images; closed windows, idle fullHP45/SP12
+in town. No grant/source/balance change. Root9closed; allocation persistence
+and successful field fight/return remain next on a fresh UI prefix.
 
 
 Functionality remains first. **4/14 parent checks, about 29%**; this counts

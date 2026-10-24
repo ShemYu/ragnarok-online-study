@@ -14,7 +14,7 @@ Update this map after each important change. Keep the dated evidence.
 NOW: 4 / 14 parent checks complete (about 29%)
      This is a check count, not playable-content coverage.
 
-MAIN: save PASS -> inspect stats/equip -> Poring fight + normal return -> Chapter1
+MAIN: save + stats/equip PASS -> Poring fight + return/save -> Chapter1
       Broader CPU geometry remains parallel diagnostic preparation.
 
 Map repair:
@@ -69,7 +69,7 @@ Other active work:
   Old workspace cleanup       [23REMOVED;81DIRECT CHILDREN; all rollback preserved]
   Ordinary quest/logout        [HELD: B6 save/quit evidence failure]
   mu_fild01 normal route       [HELD: access unproved;111 asset bodies verified]
-  Ordinary field route         [SAVE PASS; Fabre mutual death; Poring/return next]
+  Ordinary field route         [SAVE + STATS PASS; Poring survival/return next]
   Full839 data + entry         [PASS: 4,226 checks / 947 pins]
   Full839 entry FD closure     [PASS: explicit setup; exact comparison kept]
   Full839 map/monster joins    [DONE: Claude integrated; Root verified; pair released]
@@ -1237,3 +1237,10 @@ Two independent Claude/Grok FD source-plan tasks start after7491f4d on the
 identical14copy packet. Final Mu3 binder review finds no mandatory blocker;
 current-world/final binding and one existing-policy synthetic scene are next.
 No data/scene acceptance is inferred from the FD plans.
+
+
+Latest ordinary status/equipment check passes:25native stat clicks spend50of
+51existing points;STR9/AGI9/DEX9/VIT2,1point left. Sword/armor equipped.
+Root130pins/123captures/four viewed lossless images; idle fully healthy town.
+Next identified Poring, successful survival/earned progress, normal return and
+re-entry; then Chapter1. No grant/balance change or full-content credit.
