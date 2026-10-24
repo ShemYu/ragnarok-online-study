@@ -1151,3 +1151,10 @@ Empty resources does not imply missing archives. Existing five archive
 provenance/current-pin verification proceeds independently; no P/cap change,
 archive copy/extract or actor. Remote Grok receives this bounded fact as
 msg_48618c0e05d9; its source conclusion remains unsubmitted.
+
+## Mu configured archive prerequisite verified
+
+[Root personally verifies all five configured archives and current identities](2026-10-24-T07-mu-data-stage.md#five-configured-archives-pass-current-root-full-byte-verification).
+This completes the read-only prerequisite without parsing/indexing, extra
+copies or expanding P. B3 fresh test-data source remains the dependency for
+both the quest and dedicated Mu paths. No actor or parent-check credit.

@@ -36,7 +36,8 @@ load/draw waits for fresh fixture/runtime/lease bindings.
 the corrected finite projector is conditionally source-qualified; fresh
 dedicated B3 data remain next. All259 selected current client files are now
 Root-verified; two missing empty directories added. Three runtime sources are
-staged. Selected browser containment qualifies without a whole-app claim. [Root qualification and next Grok source
+staged. Selected browser containment qualifies without a whole-app claim.
+[All five configured archives pass Root full-byte/current-identity checks](reviews/2026-10-24-T07-mu-data-stage.md#five-configured-archives-pass-current-root-full-byte-verification); no archive index/runtime result. [Root qualification and next Grok source
 audit](reviews/2026-10-24-T07-mu-data-stage.md#mu19-corrected-source-qualified-and-client-inventory-joined).
 Four web bodies are staged/verified;
 existing105body stage stays unchanged. No render/game actor.

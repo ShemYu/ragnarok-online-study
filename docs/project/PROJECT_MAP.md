@@ -52,7 +52,7 @@ MuC:three fixes + all six actual focused calls PASS/223pins.
 B4/F839/B3fix/Remote:four actual live Grok, separate owned scopes.
 MuD:both calls PASS/65pins; final source joined/released beforeACK.
 Mu19:corrected source qualified conditionally; fresh dedicated data next.
-Mu client:all259selected files Root verified; two empty dirs added.
+Mu client:259selected files +five archives Root verified; two dirs added.
 Mu Remote:13-copy source audit actual Grok ready after030432b.
 Mu Web:four bodies staged/full verified;105body stage unchanged; no actor.
 Current4active/250released/6retained/0reclaimable across260records.

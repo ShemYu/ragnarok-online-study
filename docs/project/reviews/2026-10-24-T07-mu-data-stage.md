@@ -624,3 +624,22 @@ terminal term_9f3ab70f-25b9-4eaf-940c-e66d0c615b46. Start2307B/
 3f81dc90faa36e0bae2bd6c2f62f6290acb9e00f353c24f81b8384614a71a31a
 proves input accepted/configured Grok, not model/effort or source conclusion.
 No overlap with B3/B4/F839. Fresh dedicated server fixture remains next.
+
+## Five configured archives pass current Root full-byte verification
+
+Root fully reads the3325B independent report, verifies13closed private
+outputs and all9stable source/metadata pins, and personally joins the two
+acquisition receipts plus all three original manifest rows to the full
+qualified2387755B inner manifest. Exact0..4 DATA.INI bytes/order reconstruct.
+Historical records contain no full C8; no historical-identity claim is made.
+
+Root independently streams all five literal archive bodies once to EOF in
+64KiB chunks:4608553685B, all complete SHA/bytes and current pre/fd/post C8
+match; fixed0600/currentUID/single-link/no-X_OK checks pass. Root full audit
+13959B/2e9c776faa8d1adb358986ef62a1a073cb125586c636404a502146fe6fbdafa6
+also verifies six exact config/validator source spans and metadata postpins.
+These five absolute INI entries are outside the empty resources directory;
+Remote validation still opens/indexes them. No archive parse/index/native
+run occurred, no copy or P/cap growth. Current frontend/support/archives are
+verified prerequisites. Fresh dedicated fixture and current actual source/
+config/world/lease/actor checks remain next. Full game credit unchanged.
