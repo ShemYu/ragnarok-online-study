@@ -10,10 +10,13 @@ open. Full Modern/Renewal scope is unchanged; no new user decision is required.
 The board includes later-phase party taskT11, so this is not a percentage of
 first-milestone content or remaining effort. Do not relabel it as such.
 
-**Latest:** .017all948nested texture deliveries are Root-qualified. Next resolve
-[external Worker routing with live equal .019authors](reviews/2026-10-24-direct-dependencies.md#matching-external-worker-source-wave-starts) and prepare tiny authored decoder controls before real
-image decoding. Both .018originals are preserved/released; Root19300checks
-qualify conditional page facts and corrected25row fanout, raw15/20each held. Decode/geometry/render and all82functional gaps remain open.
+**Latest:** .017all948nested deliveries and corrected .019Worker source facts
+are Root-qualified in their bounded scopes. [.020both originals pass all32
+handwritten outcomes, with harness holds](reviews/2026-10-24-direct-dependencies.md#both-authored-decoder-originals-pass-root-pixels-with-finite-harness-holds):
+Claude15/20/Grok14/20; both preserved/released. Next Root corrects the Claude
+basis and reruns guards. [.021retained decoder observer brief is frozen](tasks/T07.007.014.021.md)
+for an independent source-only pair; no actual body read/decode admitted.
+Decode/geometry/render and all82functional gaps remain open.
 
 **Child cleanup:** [Root verifies removal of20completed children](reviews/2026-10-24-orca-children-cleanup.md#second-twelve-removals-personally-verified).
 Current84direct children include the two released review children and the two
@@ -21,7 +24,7 @@ Current84direct children include the two released review children and the two
 refs, two verified rollback bundles and private evidence survive; the running
 character/quiet audio remain. Three examined children stay held for incomplete
 private preservation; user-retained children remain excluded.
-Latest fleet:324released/ten retained/one active .020Grok/zero reclaimable.
+Latest fleet:325released/ten retained/zero active or reclaimable.
 Two .012implementation attempts reuse existing released checkouts; no new
 child folders or setup hooks. Both .012candidates are preserved/released after
 matched settlements. [Root full review and eight behavioral groups per original are complete](reviews/2026-10-24-direct-dependencies.md#both-constructor-originals-are-personally-checked-and-held).

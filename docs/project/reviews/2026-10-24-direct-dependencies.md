@@ -3676,3 +3676,76 @@ Private t07-014-021-preparation-root-1/ receipts:
 |---|---:|---|
 | RAW_REFERENCE_UNBOUND_ROOT.py |1879|3d74f2bb598a1796af31c8787f95fe648c651e8f3050c47d9b72709b405e393c|
 | RAW_REFERENCE_CONTROLS_ROOT.json |1896|6cff1e7d64518f791c7d3ac5f9ef57997c10a32b9574426c74e7a289549a884a|
+
+
+## Both authored decoder originals pass Root pixels with finite harness holds
+
+Grok48ac617d7a306b363472e693790d79ed1161d54b settles the exact .020task/dispatch
+from38fcb2d, clean with exactly three owned paths. Root preserves all9files/
+116375B, byte-compares source to Git, archives its ref and verifies20962B bundle
+SHA b41542b41e6c86e677065062d5dbef86e99437cd1f90fe15fc693d5173479a37.
+The worker is released with transcript captured before delivery1dcdc60e8258 ACK.
+No idle terminal remains for review. Fresh fleet325released/ten retained/zero
+active or reclaimable; no child folder or setup added.
+
+Root personally reads its complete698line source,406line tests and141line
+report. Unchanged author tests pass10/10, zero skips,0.528506s outer/491.951ms
+suite. Root's preload adds final old-space125/semi-space1 flags to test Node
+children; all eight recorded processes have effective V8 heap134217728B. This
+changes process configuration only, not author source/tests. Worker old128
+alone reports320MiB effective heap and is not accepted as128MiB.
+
+Root independently passes517controls: all32 IDs/order/categories, every
+handwritten RGBA byte/dimension/error,29fresh realms, three zero-source host
+refusals and all three full copied spans. Direct width9 and timeout150 reject
+before evaluation using only a handwritten stub. Content changes in an owned
+source copy are caught by POST hashing. Same-content mode/identity change is
+missed, however. Injecting10001ms at the POST source read returns PASS with
+reported10035.547ms duration. No ten-second blocking wait or altered acquired
+code was needed. All real source/fixture bytes remain unchanged.
+
+Grok's direct bounds/timeout gates improve on Claude. It still holds for
+flag-only effective heap, no full FD/path identity through use, repeated whole
+source reads, terminal deadline exclusion, ineffective same-thread timer, fixed
+overwritten publication/stale earlier PASS and symlink-sensitive output paths.
+Root/Astra source review agrees on these concrete holds. Claude's existing
+fresh exclusive captures, bounded one-read mechanism and documented external
+alarm make it the smaller repair basis; its direct admission/timeout, effective
+heap, identity and command-wide deadline holds remain explicit.
+
+Raw scores: Claude15/20 (6correctness+2preservation+3checks+2handoff+2limits);
+Grok14/20 (6+1+3+2+2). Both get credit for complete correct authored outputs;
+neither raw harness is ready unchanged. Select Claude as the correction basis,
+not as a qualified actual decoder runner. Root will make a separate finite
+correction and personally rerun the regression controls. No universal model or
+cost conclusion follows; requested/effective model fields remain null.
+
+## Retained decoder observer implementation boundary is frozen
+
+[.021equal brief](../tasks/T07.007.014.021.md) permits implementation and tiny
+authored tests only, independently beside .020Root harness correction. The
+37776B metadata profile rechecks26full file pins and preserves all C8 values as
+canonical decimal strings; no JavaScript Number rounding of nanoseconds. All25
+rows/17695820encodedB/17842176RGBAB are complete, max1024x1024/4MiB per RGBA.
+This is not execution admission or an RSS budget. No actual pixels are decoded.
+
+Authors may read the fixed profile metadata, saved source and .020tiny oracle
+only; all25 real body paths stay closed. A finite sequential binary realm-copy/
+whole-output-hash observer avoids huge pixel JSON and any Worker/canvas/GL or
+new transport. Root review, independent larger oracle and explicit actual call
+remain future steps. Frozen sources and tests do not wait for live game actions.
+No .021dispatch has started at this checkpoint. The32tiny decoder outputs are
+Root-proven, while harness correction and eventual25actual observations remain.
+All82functional gaps and4/14/about29% parent-check count are unchanged. No
+critical goal-changing issue or new user decision.
+
+Private Root receipts:
+
+| File | Bytes | SHA256 |
+|---|---:|---|
+| t07-014-020-grok-review-root-1/AUTHOR_TESTS_ROOT.json |7536|b539f617502b2f9072f3ed0cc5b08315a13dcce3acbb4e2ed7b5f5fd4237940e|
+| t07-014-020-grok-review-root-1/ROOT_CONTROLS.mjs |5502|6b6c48cbe82453cb9789c57a5e064d34a8add8ca2684ef01de150276cecd45f8|
+| t07-014-020-grok-review-root-1/ROOT_CONTROLS.json |655|7a4eaa2cb215300f7b349a6b97a0cbf1cde351b3c81af936281a5a05635bf245|
+| t07-014-020-grok-review-root-1/ROOT_MATRIX.json |25842|0d8588cb41c94b31ab8503aab810d399b6e4e9f8d2316166be3faa441b0e05e3|
+| t07-014-021-preparation-root-1/PROFILE_ROOT.json |37776|91006dc3379de4341858e804297d382a9af95cbb10e1515b21556265963961fe|
+| t07-014-021-preparation-root-1/PROFILE_CONFIRMATION_ROOT.json |404|a604128cd3e82d2fcc5abc23bad0bcdb04233c90ec63eac0d9745f5d3f18cef4|
