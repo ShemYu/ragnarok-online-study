@@ -27,7 +27,7 @@ Map repair:
 Other active work:
   Ordinary quest/logout        [OPEN: A199 seen; later cases fail]
   Full839 data publication     [PASS: 4,227 checks / 910 pins]
-  Full839 entry FD closure     [FAILED: setup cause supported; source fix next]
+  Full839 entry FD closure     [ROOT3 SOURCE QUALIFIED; fresh entry next]
   Claude/Grok FD plan pair      [BOTH VERIFIED + RELEASED; control PASS]
   Authentic Chapter 1 scripts  [OPEN: largest content risk]
   All 82 functional gaps       [OPEN]

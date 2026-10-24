@@ -37,8 +37,10 @@ Both authors are released with captured archives. The full839 entry stays
 failed; no FD exception is granted. The one stdlib-only G30/512MiB control now passes Root27checks/14pins: counts
 3/3/4/4, no Path change, exact recorded descriptor added at first tempfile,
 unchanged reuse. Explicit dependency setup before the workload baseline is
-now supported as a candidate; fresh full839 entry source qualification and
-actual execution remain next. The original entry is still failed.
+now supported. A fresh root3 entry with exactly two source changes passes
+Root whole-source qualification and independent review. After this checkpoint,
+bind two admission headers for one original-G30/512MiB call and full publication
+audit. Original root1/root2 stay failed; no entry has run yet.
 
 [The normal client sampler projection is source-qualified](reviews/2026-10-24-T07-mu-data-stage.md#normal-client-three-guard-projection-qualifies).
 Only the same three guards/276bytes are added to the current normal Chinese

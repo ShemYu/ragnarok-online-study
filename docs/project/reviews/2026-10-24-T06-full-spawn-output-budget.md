@@ -1004,3 +1004,39 @@ and necessary fresh namespace/admission metadata; exact baseline-before-call,
 full tuple equality, noFDclose/allowlist/GC/retry and all existing caps remain.
 The setup effect must stay separately documented. No entry call or repair is
 admitted by this control result alone.
+
+
+## Fresh root3 dependency setup source qualifies
+
+Root derives a fresh unbound entry from the exact30756-byte finite formatter
+source. Only two regions change: actual-root-2 output parent becomes the
+unused actual-root-3; one import tempfile is inserted immediately before
+prepare inside main's existing try. Admission and actual HEAD checks run
+first. Setup errors use the existing refusal path and postchecks. The
+baseline, binding, sole target call, exact FD tuples, all caps/eight target
+pins/locks/oracle/postchecks remain unchanged. No device exception, early
+project execution, FDclose, GC, moved baseline or old-entry replay.
+
+Candidate30780/
+9fad45c1e1516800a41c5073853c45413353a6dd8de3c812715c340d6fc95889;
+RootQ50392/ab19abca983221b5640e987b503270432cf5cf993576f8369028a50a1f18a12f,
+private .tools/renewal/t06-full-spawn-setup-entry-source-root-3/.
+Whole forward/inverse, all current predecessor/control/source qualification
+pins and Python syntax-only compile pass. ROOT_ADMITTED remains false and
+REQUIRED_HEAD None. Independent source review confirms exact two changes,
+admission/HEAD before setup, existing error handling and no mandatory blocker.
+The source-only review runs no target or import.
+
+Frozen910-byte stdout/oracle are output-path independent and stay byte-exact.
+Do not copy old publication file identities or assume whole manifest/marker
+hash equality across attempts; obtain fresh full pins and typed semantics
+for all four files/internal receipt. Existing selected source paths stay
+unchanged. The new parent must pass existing private/owned0700 predicates,
+and publication must be absent.
+
+After this checkpoint Root binds only ROOT_ADMITTED/REQUIRED_HEAD in a new
+private source and the new full source pin in the saved Root caller, then
+admits exactly one fresh originalG30/512MiB/grace3/no-native/1MiB entry and
+complete current publication/streams/retirement audit. This is a corrected
+fresh attempt with separately proven setup, not a replay or FD waiver.
+Root1/root2 remain historical FAILED; no new entry/runtime/game acceptance yet.
