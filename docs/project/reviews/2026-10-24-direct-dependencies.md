@@ -2420,3 +2420,38 @@ The settled terminal is released/transcript captured and delivery2dae15027c32
 acknowledged. Current314released/ten retained/one live Grok implementation, no
 new child/setup. Original frozen inputs/paired scorecard remain; no installed
 game/Chrome/profile/audio/IME/internet change or actual fixture execution yet.
+
+
+## Actual nested lookup and complete independent equality pass
+
+From clean checkpointd6daf45, ONE bound selected lookup exits natural0 in
+8.0232s with76431360B sampled owned RSS. The unchanged guard is valid; no
+action, signals, native process or residual group92221 member. No replay.
+Root runs the previously source-qualified complete audit:288003checks pass in
+0.350316375s. Every typed value in all seven semantic payload fields equals
+the independently generated and qualified oracle: maps, catalogs, scan, queries,
+relations, counts and claims. All68fresh full current inputs/311752536B,
+67recorded PRE/POST inputs, source pins, captures, receipt and read/publication
+closures pass. The admitted wrapper and selected donor are separately pinned.
+
+All948exact nested texture queries have eligible full-path candidates; zero
+basename-only or missing cases. Complete1546declaration-use relations,21maps,
+936models, three case groups and all source links remain. This proves catalog
+metadata availability; it does not select an archive winner or prove delivered
+bodies, decoding, geometry, rendering, gameplay, story or saves.
+
+| Private output | Bytes | SHA256 |
+|---|---:|---|
+| candidate-actual-root-1/result.json |4917480|9c7bff98a14b26785a558f8bf06e17ccbf978227e7c550a81baa0683e2418595|
+| candidate-audit-root-1/ROOT_CONFIRMATION.json |38788|3b126e1202edc81efbbeef9c5368356839d848f82f223e80a526a62e14785d17|
+
+.015is ready_for_user for metadata only. Preserve both successful actual results
+and do not replay them. Next prepare finite reuse of the qualified .011normal
+delivery mechanism, first joining exact wire paths to prior verified deliveries
+and retaining case/encoding distinctions. Source-only advisory inspection can
+run alongside Root's .016candidate review; no actual nested body call is admitted
+by this checkpoint. .016Grok sends a matching reviewing heartbeat; Claude's
+original remains preserved/released pending Root's behavioral controls.
+Full4of14/about29%/all82gaps and the agreed full Renewal goal remain unchanged.
+No critical goal-changing issue or new user decision; game, saves, Chrome, mute,
+IME and internet remain untouched.

@@ -38,8 +38,8 @@ natural0/no residue; complete world PRE/POST equal. [Finite925caller/7Root autho
 all925returned;1253179checks/8407pins/1852model files. All936models now have
 one disjoint constructor/summary/declaration observation; no replay. [Full936declaration aggregate passes389646Root checks](reviews/2026-10-24-direct-dependencies.md#complete936declaration-aggregate-passes-root-audit):
 1546declarations/1783resolved slots/948exact targets, no unknown model or
-unresolved slot; .012ready_for_user for construction/declarations only. Next
-.015nested texture catalog preparation/equal source review, plus separate geometry.
+unresolved slot; .012ready_for_user for construction/declarations only. The
+.015nested texture metadata check now passes; body delivery and geometry remain.
 Model702has six explicit infinite node-box sentinels: Root/Astra source
 reachability explains skipped second root; geometry impact remains unverified. No new child/setup. A parallel metadata-only helper
 has completed the936body join; [Root independently verifies all records and fresh body files](reviews/2026-10-24-direct-dependencies.md#complete936body-join-and-fresh-root-file-audit-pass).
@@ -67,9 +67,13 @@ oracle source/current65metadata file checks pass; [finite multi-map audit projec
 passes Root's positive/eight negative controls](reviews/2026-10-24-direct-dependencies.md#finite-launch-audit-derivatives-and-multi-map-controls-qualify).
 [Concrete bindings for ONE independent oracle are verified/admitted](reviews/2026-10-24-direct-dependencies.md#one-actual-nested-oracle-is-admitted).
 [ONE oracle and full1679664check physical-row audit now pass](reviews/2026-10-24-direct-dependencies.md#actual-nested-oracle-and-complete-root-audit-pass):
-all948have full-path file candidates, zero basename-only/empty cases. Metadata
-only. Selected caller/audit are concretely bound; ONE same-cap selected lookup
-is admitted after this checkpoint, then complete typed equality remains.
+all948have full-path file candidates, zero basename-only/empty cases.
+[ONE selected lookup and complete typed equality now pass](reviews/2026-10-24-direct-dependencies.md#actual-nested-lookup-and-complete-independent-equality-pass):
+natural0/8.0232s/76431360B sampled RSS; Root288003checks, all68current inputs,
+67recorded PRE/POST inputs and all seven semantic payload fields pass.
+.015is ready_for_user for metadata availability only. Retain both actual results
+without replay. Next reuse the qualified normal-delivery mechanism for nested
+texture bodies; image decoding, geometry, rendering and content remain open.
 Private-only proposal ownership
 in this checkout. Root owns tracked docs; authors may not mutate Git/source or
 open images/runtime/browser/game. Trace of286delivered image consumers does not
