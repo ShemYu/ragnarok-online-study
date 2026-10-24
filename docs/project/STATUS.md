@@ -49,8 +49,10 @@ current retirement. [Fresh baseline materialization and Root confirmation pass](
 retirement. The baseline82393Bdriver/62401BUI receipts remain honest.
 [The separate corrected source selection qualifies](reviews/2026-10-23-T10.007.md#fresh-b5-corrected-runtime-source-selection-qualifies):
 92679Bdriver/65619BUI, four descriptor replacements, complete object/inverse
-and23UI source edits verified. Next derive fresh unbound runtime templates
-before current-world/port/lease/actor bindings.
+and23UI source edits verified. [Fresh complete runtime templates qualify](reviews/2026-10-23-T10.007.md#fresh-b5-complete-runtime-templates-qualify):
+98Root checks/10full pins, complete C26/UI11/Engine13 and9C/4Engine whole
+inverses; Astra independently confirms. Next reuse the finite binder before
+fresh current-world/port/lease/actor bindings.
 Reuse the fixed F1/B4
 sequence on a fresh disposable fixture; keep the current ro4 character intact.
 Baseline materialization and corrected runtime-source projection remain
