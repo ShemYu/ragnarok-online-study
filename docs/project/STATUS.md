@@ -50,6 +50,18 @@ Next resolve client archive precedence, reuse retained bodies and qualify actual
 model/texture/water bodies and model texture dependencies before rendering.
 Metadata candidates do not prove body/render/travel/story/save availability.
 
+**Next asset implementation:** [T07.007.014.011 frozen brief](tasks/T07.007.014.011.md),
+[Root preparation/115body audit](reviews/2026-10-24-direct-dependencies.md#direct-delivery-preparation-and-retained-bodies-qualify).
+Root verifies157full pins,115retained bodies/2612013B and every1222request
+mapping;1107new hashes remain unknown. Three private same-device case fixtures
+confirm alias behavior there, not actual asset paths. Native source preserves
+requested spelling and can serve cached bodies without extraction. Normal
+delivery and loose-file materialization are therefore separate outcomes.
+Equal Claude/Grok implementations use seven fixed inputs from the brief
+checkpoint, no actual worker I/O. Pilot8/612703B, disjoint remainder1214/
+24101056B; no live GET is admitted yet. Next Root source/common-control
+verification and fresh runtime binding; genuine decoders/rendering follow.
+
 [Normal delivery of all34terrain bodies is already complete](reviews/2026-10-24-remaining-map-bodies.md#normal34delivery-and-complete-root-audit-pass),
 T07.007.014.008 `ready_for_user`:34exact200responses/97037820B, all34new loose
 files and source/current-world preservation verified. Do not repeat acquisition,

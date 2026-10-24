@@ -286,3 +286,62 @@ evidence only. No body availability, full content, ordinary story/save gate or
 82functional-gap closure follows. Translation remains deferred; the agreed
 full-game goal is unchanged. Both provider workers remain settled/released;
 the current Run has no pending delivery or reclaimable worker terminal.
+
+## Direct-delivery preparation and retained bodies qualify
+
+After43945f2, Root chooses the finite normal-delivery extension recommended by
+Astra. Do not duplicate all1107new bodies through an isolated native reader.
+Normal response evidence, archive provenance, genuine decoding/rendering and
+ordinary story/save remain different claims. A real discrepancy receives a
+targeted independent comparison, not an automatic full acquisition replay.
+
+Root personally verifies the three preparation/path-contract/retained-audit
+packet seals and closed memberships, all115retained body hashes and complete
+original response joins, all1222request mappings and2142unchanged relations.
+The115bodies total2612013B:93models/22textures. Historical per-body C8 was not
+recorded; current matching hashes do not invent historical inode continuity.
+The1107new body hashes remain unknown. All452non-ASCII raw keys use Latin1,
+slash normalization and exactly-once UTF8 percent encoding;64water keys already
+use forward slashes. None is interpreted as a raw UTF8 key or basename alias.
+
+Exact current-five archive filtering leaves1221single-candidate queries and
+one two-candidate query1158. This is metadata precedence, not an observed cache,
+loose-file or archive winner. All1396full-path candidates stay in the profile.
+Three case groups [483,672], [516,633], [522,632] stay as six logical requests.
+Root creates tiny marker fixtures only in the private preparation directory
+on the same device as the asset root. Each second spelling addresses the same
+inode and refuses O_EXCL creation. Actual asset paths remain unobserved.
+
+Root reads the native request/resolve/extract/path functions and rehashes all
+four qualified source files. Requested spelling is preserved; lowercase is a
+separate cache key. Cache hits return before extraction. Source build-to-binary
+reproduction and actual current roots still require their separate binding.
+The new .011delivery task explicitly reports materialization independently:
+stable absence is not extraction PASS and does not defeat complete delivery.
+Present wrong/unsteady bytes, unsafe sampling or existing-file mutation remain
+fatal. This does not waive .008's already completed strict34-file gate.
+
+Private t07-014-011-root-audit-1/ receipts:
+
+| Receipt | Bytes | SHA256 |
+|---|---:|---|
+| ROOT_AUDIT.json |166303|58e8bf06bfe68c304726c8946d3db96375dc2d151a7f3850fb718aba7c684552|
+| CASE_FIXTURE_ROOT.json |2423|ab98629dab180baec4efa6fd5c138360b3e2d6ad5f2adeb86443cce271842fb5|
+| PLAN_UNBOUND_ROOT.json |18968|10edef8d5ac4c27182db17e39e132498df62f6f48bfeace59625e2a91545825a|
+
+The Root audit records157full pins. No native/catalog/archive stream, asset
+request, actual extraction or game setting/state change is performed by this
+preparation. Its private case markers are not game assets. Earlier preparation
+assumptions about a backslash inverse/strict loose-file requirement stay
+historical; this frozen task defines the next action explicitly.
+
+Root freezes [T07.007.014.011](../tasks/T07.007.014.011.md) for equal independent
+Claude/Grok implementations from the brief checkpoint. Seven fixed inputs,
+one20point rubric, authored fake HTTP/clock/owner/file controls and separate
+branches; no worker runtime authority. Pilot8queries/612703metadata bytes
+includes reuse/new/model/image/water/non-ASCII/case-pair/ambiguity cases.
+Remainder1214queries/24101056B is disjoint and needs Root's pilot audit.
+Source defaults refuse before live I/O; actual Root binding/execution comes
+after personal source/control qualification. No claim that the full remainder
+fits60s has been verified. Next construct the derivative; delivery, decoding,
+rendering, ordinary field/save and all82gap closures remain open.
