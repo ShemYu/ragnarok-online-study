@@ -1,0 +1,125 @@
+{
+  "schema": "ro-provider-session-triage-profile.v1",
+  "task": "T07.007.012.010",
+  "documentationBase": "41315fd9ff9ea8c0d03110feb5e2fa0c7ce0bea7",
+  "benchmark": "source-only diagnostic plan; not implementation or game acceptance",
+  "providers": [
+    "claude",
+    "grok",
+    "kimi"
+  ],
+  "sources": [
+    {
+      "id": "electron-main",
+      "path": ".tools/renewal/upstream/electron/main.js",
+      "bytes": 200609,
+      "sha256": "9ff6bfe98497ca2e86965c9da4070f0ca102ff6a0c6490275e409f1b9666f75b"
+    },
+    {
+      "id": "electron-accounts",
+      "path": ".tools/renewal/upstream/electron/accounts.js",
+      "bytes": 3017,
+      "sha256": "e7d6608d4c1f8c74517abaf7fefd8c52406a8e968f5bb06e1679846e8f044b5d"
+    },
+    {
+      "id": "stack-accounts",
+      "path": ".tools/renewal/t07-007-012-stack-integration-preparation-1/stack/src/accounts.rs",
+      "bytes": 37490,
+      "sha256": "0ed067b34d1687e81502f9f12072ac19fbd10cc623f59357c188bd402f3d83fc"
+    },
+    {
+      "id": "stack-main",
+      "path": ".tools/renewal/t07-007-012-stack-integration-preparation-1/stack/src/main.rs",
+      "bytes": 14684,
+      "sha256": "393608c2b18f5f7b954220674781d57eb0769734cb0ba8654ada4a957c5e0fa7"
+    },
+    {
+      "id": "network",
+      "path": ".tools/renewal/client-source/src/Network/NetworkManager.js",
+      "bytes": 11229,
+      "sha256": "46629121b16b58727c905b0b5fd2ed26001a2d79f013cb739f87d5611e14d184"
+    },
+    {
+      "id": "map-engine",
+      "path": ".tools/renewal/client-source/src/Engine/MapEngine.js",
+      "bytes": 38006,
+      "sha256": "f3ead6ab364d7b392ba945afca1614584a7c6b9c7c62fbe5f318f72aa6e085cc"
+    },
+    {
+      "id": "login-engine",
+      "path": ".tools/renewal/client-source/src/Engine/LoginEngine.js",
+      "bytes": 25887,
+      "sha256": "233ae1ac9a658af239915f9a0b58c49dfa3217d96bb6ff6ee99c54471b67ad5a"
+    },
+    {
+      "id": "ui-manager",
+      "path": ".tools/renewal/client-source/src/UI/UIManager.js",
+      "bytes": 8376,
+      "sha256": "1d12b00065e76d98b4c592337991d81b22eae8e363ac7b7cc42da2d8dcda3173"
+    },
+    {
+      "id": "server-socket",
+      "path": ".tools/renewal/rathena-source/src/common/socket.cpp",
+      "bytes": 49120,
+      "sha256": "80712b971c4fe325ee0905e54422da4776e010a3f0bb34ce7971c662678d23ba"
+    },
+    {
+      "id": "root-failed-read-audit",
+      "path": ".tools/renewal/t07-normal-integration-cold-source-root-1/GATE5_AUDIT_ROOT.py",
+      "bytes": 7968,
+      "sha256": "3432c150781bae76845e4eb60a0b0fe2ee3096e3a6ce658a455d7d1d57811a05"
+    }
+  ],
+  "facts": {
+    "appVersion": "1.6.3",
+    "hostingMode": "host",
+    "hostingScope": "local",
+    "coldStopAndSingleColdLaunchObserved": true,
+    "newOwnersAndRetainedVolumeBackingVerified": true,
+    "fresh1265MapsAndExactFiveKnownDiagnosticsVerified": true,
+    "all16SelectedServedBodiesAndSixOnElevenOffVerified": true,
+    "ordinaryColdReentry": {
+      "character": 150000,
+      "map": "iz_int.gat",
+      "position": [
+        51,
+        30
+      ],
+      "quest": [
+        "逃離失事輪",
+        "與船長對話"
+      ],
+      "rootViewedPNG": true
+    },
+    "firstAccessibilitySnapshot": {
+      "characterAndQuestPresent": true,
+      "positionText": "0 0"
+    },
+    "laterSamePageAtLogin": true,
+    "allFiveIdsStartsAndStateUnchanged": true,
+    "serverMapLoginUTC": "2026-10-24T06:20:01.791738236Z",
+    "serverMapLogoutUTC": "2026-10-24T06:20:49.744276301Z",
+    "noDeliberateRootExitAfterEntered": true,
+    "otherInputOriginNotProven": true,
+    "accountListCalledDuringFinalAudit": true,
+    "accountListCausalityNotEstablished": true,
+    "initialOwnedTabAutomationTimedOut": true,
+    "replacementSameProfileTabSucceeded": true,
+    "deployedTimeoutAndClientTimerBehaviorNotVerified": true
+  },
+  "constraints": [
+    "No runtime/browser/network/process/SQL/auth/Git/source mutation.",
+    "Only named source inputs and this brief/profile may be read; no credentials, SQL dumps, raw login packets or sibling reports.",
+    "Write only the assigned private provider output directory.",
+    "Distinguish retained source mechanisms, observations and hypotheses. No source default is a proven deployed setting.",
+    "No forced re-login, repeated cold cycle, global browser reset, process kill, GM/SQL seed or goal reduction."
+  ],
+  "acceptance": [
+    "Classify accounts/list side effects with exact primary-source line references and uncertainty.",
+    "Explain what unchanged service metadata proves and does not prove.",
+    "Rank at most three source-backed explanations without selecting an unobserved diagnosis.",
+    "Give the smallest safe bounded observations for Root and explicit possible outcomes.",
+    "Separate the successful saved-marker/cold re-entry observation from final-audit snapshot mismatch and later session continuity.",
+    "State limitations and observable next handoff; do not claim a game fix or runtime PASS."
+  ]
+}

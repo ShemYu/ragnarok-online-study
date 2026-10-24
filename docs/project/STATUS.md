@@ -8,7 +8,7 @@ Functionality remains first. **4/14 parent checks, about 29%**; this counts
 major checks, not full-content coverage. All 82 functional resource gaps remain
 open. Full Modern/Renewal scope is unchanged; no new user decision is required.
 
-**Latest verified result:** [Post-backup re-entry and cold reference qualify](reviews/2026-10-24-normal-integration.md#post-backup-re-entry-and-cold-reference-qualify).
+**Latest verified result:** [Cold services and earned re-entry observed; session continuity open](reviews/2026-10-24-normal-integration.md#cold-services-and-earned-re-entry-observed-session-continuity-open).
 One fresh supported export/inspection captures98860B of Renewal state. Root's
 finite offline check confirms character150000/Ro4Novice1024 at iz_int51,30 and
 quest21001/state1; the pre-earn reference instead has18,26 and no21001. No SQL
@@ -19,8 +19,13 @@ files pass again. Before this backup, ordinary travel/NPC quest earning and
 both character-select and Exit/login re-entry pass through normal UI. The
 separate backup preserves that earned state before cold shutdown; it is not
 restore-tested recovery. **Normal integration4/5checks,80% by gate count**.
-Cold shutdown/start/re-entry remains open; native Quit acknowledgement and
-broader F1 socket cleanup remain unclaimed.
+One cold shutdown/new main, fresh owners/backings/volume/routes/readiness and
+normal earned re-entry are observed. A final read audit encounters a transient
+HUD-coordinate snapshot mismatch; the page later returns to Login while all
+five service IDs/starts/states remain unchanged. Root does not blame a service
+restart or account-list causality. Session continuity and corrected final
+evidence join remain open, so gate5/task stay4/5/80%. Native Quit acknowledgement
+and broader F1 socket cleanup remain unclaimed.
 
 **Previous renderer result:** [Fresh Mu3 isolated map-render scene passes](reviews/2026-10-24-T07-mu-data-stage.md#fresh-mu3-synthetic-scene-and-complete-root-audit-pass).
 All 1,285 placements load, all 29 retained Float32 arrays are finite, and all
@@ -46,13 +51,14 @@ Normal login, human Novice creation and game entry now pass. The
 Normal same-character re-login, walking/tutorial portal/NPC/quest earning now
 pass. Both ordinary earned character-select and logout/login re-entry now pass.
 Supported post-earn export/inspection, selected saved-marker comparison and
-fresh service readiness pass. Normal same-character post-backup re-entry and
-the fresh owned pre-stop reference also pass. Root reviews the ro4 stop/launch/
-post-cold source deltas. After this checkpoint bind one supported full cold
-cycle; close only the owned test page's game connection first, stop the exact
-owned stack/assets/app, then start normal main once and independently verify
-new ownership, persistent volume/routes and ordinary earned re-entry. Gate5
-stays open until those actual cold checks pass.
+fresh service readiness pass. The actual single cold cycle and ordinary earned
+re-entry are observed; do not repeat shutdown/start. Root next normally
+re-enters and observes a settled marker plus bounded session continuity,
+preserving the first unexpected dialog/transition before input. The current
+owned test page is at Login; backend ownership/readiness remain verified.
+Independent [Claude/Grok/Kimi source plans](tasks/T07.007.012.010.md) compare
+safe diagnosis while Root alone owns live checks. Kimi is newly requested by
+the user; availability/quality have no measured verdict yet. Gate5 stays open.
 Keep retained app/engine/private streams monitored. ro3 earned progress
 stays untouched. Continue [quest/logout work](reviews/2026-10-24-functional-priority.md#priority-and-stop-criteria)
 separately; do not replay failed B4 or consumed Mu scenes.

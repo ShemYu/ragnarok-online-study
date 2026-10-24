@@ -35,7 +35,9 @@ Map repair:
        -> earned save + re-entry [PASS: character-select + Exit/login]
        -> post-earn backup       [PASS: saved position + quest21001]
        -> current pre-stop ref   [PASS: re-entry / owners / full files]
-       -> owned cold restart    [NEXT: final gate5 check]
+       -> owned cold restart    [OBSERVED: fresh services + earned re-entry]
+       -> session continuity    [OPEN: later Login; no service restart]
+       -> provider trial        [NEXT: same-input Claude / Grok / Kimi]
 
 Other active work:
   Ordinary quest/logout        [OPEN: A199 seen; later cases fail]

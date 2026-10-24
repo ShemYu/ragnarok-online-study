@@ -8,6 +8,17 @@ Read root [AGENTS.md](../../AGENTS.md), [Status](STATUS.md), [Goal](GOAL.md), th
 
 Every task uses an independent Claude candidate and Grok candidate. This compares performance on that task type; no blanket model winner is assumed.
 
+From2026-10-24, the user also requests trials of the new **Kimi** coding
+harness through Orca when comparing services. Add Kimi to new comparisons
+with the same frozen inputs, acceptance criteria and scorecard. Observe the
+actual harness/model from launch evidence; inherit its configured default
+unless a supported override is explicitly selected. A launch/authentication
+failure is a harness-availability result, not a failed reasoning score. Keep
+historical Claude/Grok comparisons unchanged. Report task-specific usefulness,
+verified quality, elapsed time and coordinator rework; cost/tokens remain
+`not observed` unless authoritative usage evidence exists. One trial cannot
+establish a general provider winner.
+
 1. Freeze one task brief: ID, target, exact base commit/input hashes, deliverable, allowed mutations, constraints, dependencies, timebox, acceptance checks and user-visible outcome. Use the same brief and same input set for both providers. Record launch defaults/model identities as observed; do not invent hidden model or token-cost data.
 2. For documentation/research, collect isolated read-only proposals or separately owned draft files. Neither agent may read the sibling's answer before submitting. For code, use separate Orca-managed task worktrees/branches from the same commit and independent fixture outputs.
 3. For a live app/database task, two Git worktrees are insufficient isolation. Compare read-only plans or rehearsals first, label the benchmark **plan-only**, select one for serial execution, and have the coordinator verify it. Compare two actual executions only when separate app state or a tested restore procedure makes that safe. Never call a plan-only winner a proven better implementer.

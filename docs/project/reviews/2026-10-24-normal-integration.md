@@ -976,3 +976,82 @@ profile/ENV; no manual engine up or duplicate start_stack. Independently check
 new app/asset/daemon/VZ births, backing/volume lineage, fresh readiness, HMAC/
 admin/mods/detection/all16routes and normal earned re-entry before closing
 gate5. Until then integration4/5/80%, parent4/14/about29%, all82gaps stay open.
+
+## Cold services and earned re-entry observed; session continuity open
+
+Root acts at41315fd9ff9ea8c0d03110feb5e2fa0c7ce0bea7. One supported
+stack_down and assets_stop succeed, followed by exact owned app SIGTERM.
+All four old app/asset/daemon/VZ births positively depart. The final strict
+asset-port bind fails; the original stop result and external guard remain
+FAILED, with no guard signal or group residue. Inspection finds no listener
+but closed browser connection pairs still occupy33338. Empty navigation and
+one refused navigation do not clear them. Root closes only the owned test page;
+the port then binds. The matching existing read-only stopped reconciliation
+passes all seven simultaneous port binds, absent old births/new-home candidates,
+four old-world owners, state/profile/backing lineage and1128full immutable
+paths. No shutdown action is repeated. Its guard passes in3.067873s.
+
+Normal main launches once with the same17-key ENV/profile and no manual engine
+up/start_stack. The candidate appears after17.001569s. Root's independent
+post-cold guard/audit passes: new app/asset/daemon/VZ births, exact backing
+dev/inodes, loopback TCP/Unix descriptors, five images/mounts and retained
+volume Name/Mountpoint/CreatedAt,1118payload files/five archives/installed app/
+framework/kernel/earned backup and four served client bodies. No prior daemon
+is adopted. Fresh native HMAC/admin/settings pass. A separate readiness caller
+uses the existing framing/timestamp parser and all16body comparisons, verifies
+fresh1265map completion/exact five known errors and exact settings/twRO/sixON/
+elevenOFF/no refusals. All five new container starts remain stable. A first
+readiness caller fails before log comparison because a textual source boundary
+matched an earlier string literal; its failed guard/output stays preserved.
+The corrected boundary is checked and a fresh namespace passes under its guard.
+
+The first new test tab times out waiting for Login; the runtime remains ready
+and tab metadata has no load error. Root closes that exact stalled page and
+opens one fresh page in the same isolated profile. Disabled audio survives.
+Normal private login/selection/Enter returns character150000/Ro4Novice1024 to
+iz_int51,30 with逃離失事輪/與船長對話. Root checks the supported live marker
+and personally views the retained PNG. Server map logs confirm group0 login
+at06:20:01.791738236Z and logoff at06:20:49.744276301Z. No deliberate Root
+Exit is sent after entry; other input origin/timer behavior is not established.
+
+The final read-audit fails because its earlier AX snapshot still reports0,0
+while the subsequent rendered PNG and supported marker show51,30. No final
+gate5 audit receipt is produced. The page later shows Login. Root initially
+suspects the account-list check restarted services; a separate current Docker
+observation disproves that: all five IDs/StartedAt/State are identical. Root
+checks the retained list SELECT/early return and Electron dispatch. Account
+list causality is unproved, not a diagnosed restart. An Astra source-only
+consultation identifies possible client reload/dialog/inactivity paths; it
+does not establish the cause or deployed timeout. It remains separate from
+the new frozen provider comparison.
+
+Selected private cold-source-root-1/ and cold-actual-root-1/ pins:
+
+| Artifact | Bytes | SHA256 |
+| --- | ---: | --- |
+| Source STOP_ROOT.py | 18604 | 66e63a9f3b075d9dee2c539804ba86a4edecd9c70886590597854267730b600c |
+| Actual stop-1/RESULT.json,FAILED | 14810 | 70bbe375cbbff3185e30545d560e6c860f03f286effc2683ec91ee389c868d24 |
+| Source STOPPED_TAIL_ROOT.py | 7408 | 9e965dbac5f6b8059c10a2ec0a8c77ceb0795c7d8b3db68e9a6c1b6bf5d6a0ba |
+| Actual stopped-tail-1/RESULT.json | 5632 | 7b7b7ff3d9c4722b792d710776db74fc3b26d32bfbe6133da1ed8600be6c6d9a |
+| Actual stopped-tail-1/COLD_PREFLIGHT.json | 7116 | 4c81db4e8d722cf04d0dfa1f8bf244bbb67ff0b18d09733b19719f8a8d842d58 |
+| Source LAUNCH_ROOT.py | 18798 | 0fe3cec32ff16063f040e89e0f8851811e788930949ca469921c10abd8aa2dc0 |
+| Actual launch-1/RESULT.json | 14308 | 726a6001a178bdc5a0309532348b35df8b836e6e560aecdc547110cc98b79e36 |
+| Source AUDIT_ROOT.py | 19022 | 0e2dafb91820d7d21aee235e3f5d1807d5e8411823b959a1d12be92abe7c8879 |
+| Actual post-cold-1/RESULT.json | 19913 | 7e3dce946de623535e6601c0562d1f3f41c500571113e933c32960800145f543 |
+| Source AUTH_POST_COLD_ROOT.py | 8059 | 891939bc4e189d2d15f542e204166a9cadeaf8b0897d4edf1f3d65b7f23b775e |
+| Actual launch-1/ROOT_AUTHENTICATED_OWNERSHIP.json | 32211 | f6346e0f04d0b9478e5c3a08447d359fbb92ae025d1ad15005f482d23969094a |
+| Source FRESH_READINESS_BOUNDARY_ROOT.py | 6827 | c7ee4decbf67bf9404f132f02485ce3259f5c223bf6fac33a7ba53cebe0e07e3 |
+| Actual fresh-readiness-2/ROOT_AUDIT.json | 26913 | 664d68dbfab330d2dd3b433358243e6ef55664afb9d2d5dcbe8609b2687f02bc |
+| Actual COLD_EARNED_REENTRY.png,Root viewed | 1734349 | 6a35a8428d8989bfb89aa7ba4a59673ce5cf884e7ba7c7079b7f2fa3c0cf4d76 |
+| Source GATE5_AUDIT_ROOT.py,FAILED read join | 7968 | 3432c150781bae76845e4eb60a0b0fe2ee3096e3a6ce658a455d7d1d57811a05 |
+| Actual POST_FINAL_AUDIT_SERVICE_OBSERVATION.json | 1198 | f99d06b34c332bdbc707ac4783e420ba13be5a0b6cf14048dab785cf29709c1a |
+
+Next Root normally re-enters once, captures settled marker/visibility/rendered
+state, and observes roughly70seconds without game input, retaining the first
+unexpected dialog/transition. Do not repeat the cold cycle or account-list
+check as a speculative fix. Source-plan triage runs independently in
+[T07.007.012.010](../tasks/T07.007.012.010.md), including the user-requested Kimi
+trial on identical frozen inputs. No source-plan score is a runtime fix.
+Gate5/task remain open4/5/80%; parent4/14/about29%, all82gaps stay open. Saved
+markers/cold re-entry observations do not establish sustained session behavior,
+all-content/story coverage, restore recovery or native Quit acknowledgement.
