@@ -1726,3 +1726,75 @@ exit; elapsed checks/final caller inventory alone are insufficient.
 This checkpoint admits a bounded attempted observation, not a runtime PASS or
 source/content acceptance. Current major-check count stays4/14/about29%;82gaps
 open, full Renewal/Traditional Chinese/functionality-first scope unchanged.
+
+
+## Actual eleven model constructors and complete Root pilot audit pass
+
+Root privately binds the qualified caller and sole host source slot at clean
+fcf09d08d9dffc39a0515e8e91208bb19ef3d46f. Final host84374B/SHA256
+8b1d03a37657a187818eb4f1978d408f54194eeba6a64a57b674ec85fb3c18eb;
+caller21954B/aa345b553d23d2ba0152c69888abe0390b18c14de1630293b5235760fd3495d3.
+Root independently checks whole host/caller inverses, complete admission/plan/
+profile/seed/source joins, exact11indices/original queries/401761B and925outside.
+The same3043046B/c36e551b full936profile remains immutable for later remainder.
+
+Two Root preparation mistakes are retained/corrected before any actual model
+call: the first binder compared access-time-inclusive stat instead of the exact
+eight-field identity; the next prepare refused the0755renewal parent before
+creating output. Root uses C8 only and an owned0700parent. Corrected preparation
+is natural0/0.251267s/37715968B sampled RSS/no action/residue. Original failed
+source/guard/partial metadata remain; no constructor is replayed.
+
+The ONE genuine11pilot invocation passes: inner Nodeguard natural0/0.726279s/
+240238592B sampled RSS; outer Pythoncaller natural0/2.200780s/316735488B. Both
+valid, complete captures, empty stderr, no signals/action/process-group residue.
+The outer registered child equals the inner actual Node driver, with exact
+birth/parent joins. All11Workers positively exit0; no forced Worker termination,
+fetch attempt, rejected/unsettled handler or post-terminal script message.
+All11constructors return and complete summaries;925jobs stay outside_batch.
+
+Root independently audits all24model artifacts/287896B and final caller
+publications omitted by its own early inventory. Combined private call/evidence
+set1952740B, within256MiB accounting; full output byte/hash/readback/modes pass.
+253583checks/1097full pins/0.274597s pass. All951caller whole-pin PRE/POST
+records are equal and freshly rehashed; complete BEFORE/AFTER world projections
+are typed equal:1222loose/override pairs/parents, four births/executables, six
+selected ENV keys, explicit native/INI, five archive identities/historical pins,
+listener and six Engine metadata GETs. SQL/save content is outside this scope.
+
+Root checks every source-record pointer, all936job states, complete retained
+profile/graph links, summaries/result-message hashes/constructor buffer hashes/
+source/FD/lifecycle evidence, and independently rebuilds declarations from raw
+texture tables and every node slot.19nodes/17declarations/22slots produce12exact
+HTTP nested targets; zero unresolved slots/unknown selected models. All summary
+string VALUE occurrences total5526UTF16units for this invocation, not an
+extrapolated925guarantee. Raw six-byte header version joins and actual summaries
+cover1.4/1.5/2.2/2.3. Numeric statistics report no NaN/infinity/omitted exceptional
+locations. Optional undefined fields stay explicit; unchanged reader cursor
+remains unobservable. No placed compile is attempted; instances remain zero.
+
+Close evidence: one staged body, at most two overlapping body FDs during reread,
+zero close failures; all six held source/metadata closes succeed and every11body
+final reread matches. Summary/reducer/retained/deadline caps are unchanged and
+fit this pilot. Root's final independently sealed evidence is:
+
+| Private file | Bytes | SHA256 |
+|---|---:|---|
+| t07-014-012-pilot-root-audit-1/ROOT_AUDIT.json |591020|0fe3a5f711b0aac143ab1e268b52bbadff64d2dd98c938b654b12fe51d8a3b68|
+| t07-014-012-pilot-root-audit-1/PILOT_ACCEPTANCE_V2_ROOT.json |1826|413e1b338ece1720704aa5176e10c2ce5cca54c722c8e883bdf3dad8ad8c2f9c|
+| actual-models-2/MANIFEST.json under pilot-binding-root-1 |136527|7801fde64204e7168ba6e3562201da3dafc1a1494a801d9c57b92c61561c349e|
+
+V1 audit remains beside the expanded full source-domain/bootstrap/header audit.
+The small host-contract acceptance marker binds that complete Root evidence.
+Its first unconsumed metadata publication preceded final mode normalization,
+invalidating its C8; V2 freshly pins both proof and marker after final modes.
+No actual constructor replay or preservation weakening.
+
+The11pilot is qualified for construction/complete summary/declarations only.
+Do not replay it or prior1222delivery. Next qualify the minimal finite925caller
+derivative, then bind exact complement to this manifest/Root acceptance and
+the SAME whole profile.925remains unadmitted at this checkpoint; resource fit
+is not extrapolated, limits cannot rise silently. All82gaps/4of14/about29% remain;
+no nested texture availability, image decode, placed compile/render, normal
+travel/monsters/story/save/full Chinese or full-game acceptance follows.
+No game/browser/service/audio/Chrome/IME/internet change was made.

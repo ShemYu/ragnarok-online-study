@@ -30,12 +30,14 @@ complete:19tests pass, but two Root combined faults hold it.
 [Exact integration1aa7e67 and focused authored CLI check pass](reviews/2026-10-24-direct-dependencies.md#selected-constructor-source-integrated-unchanged-and-interface-rechecked).
 [Root caller source/five authored controls pass](reviews/2026-10-24-direct-dependencies.md#finite-constructor-caller-passes-root-source-controls).
 [Full936profile/195177Root checks and integrated metadata validation pass](reviews/2026-10-24-direct-dependencies.md#full936-runtime-profile-and-root-pilot-admission-checkpoint).
-One conditional11pilot is admitted after fresh current-world/HEAD/private source
-binding and inverses; no actual constructor result yet. Whole-caller guard/final
-independent output seal are mandatory. No new child/setup. A parallel metadata-only helper
+[ONE actual11pilot and complete Root audit pass](reviews/2026-10-24-direct-dependencies.md#actual-eleven-model-constructors-and-complete-root-pilot-audit-pass):
+all11returned;253583checks/1097pins/24model files;19nodes/17declarations/
+12nested targets, no unknown selected model or unresolved slot. Both guards
+natural0/no residue; complete world PRE/POST equal. Next minimal finite925caller
+derivative and binding to consumed pilot/SAME full profile;925unadmitted. No new child/setup. A parallel metadata-only helper
 has completed the936body join; [Root independently verifies all records and fresh body files](reviews/2026-10-24-direct-dependencies.md#complete936body-join-and-fresh-root-file-audit-pass).
-237771checks/950pins pass. Exact11pilot binding is next;925remainder stays
-unadmitted until complete actual pilot audit.
+237771checks/950pins pass. Exact11pilot is now qualified;925remainder stays unadmitted until its finite
+caller/source/consumed-pilot binding gate passes.
 
 **Independent parallel lane:** [.013browser image-consumer source trace](tasks/T07.007.014.013.md)
 [Root complete source/286metadata comparison passes](reviews/2026-10-24-direct-dependencies.md#image-consumer-source-trace-passes-complete-root-comparison):
