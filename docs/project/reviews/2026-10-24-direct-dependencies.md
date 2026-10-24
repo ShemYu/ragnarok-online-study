@@ -3272,3 +3272,83 @@ Raw report claims34source spans/all25TGA joins and an unresolved Worker half;
 Root/Astra now review that source uncertainty independently while Grok remains
 live. Fleet320released/ten older retained/one active .018/zero reclaimable.
 No new child/setup. No decoder execution or current-world mutation authorized.
+
+
+## Both TGA source originals pass Root identity checks with explicit holds
+
+Grok matched task_4fe235a6d17b/ctx_a4883fa672d7 settles clean at04d877efcc52119a5f389dac3103b1b7b11452e8,
+direct4c16f91parent, one owned report. Root preserves42files/353771B,
+verifies every copied byte/hash and refs/ro-task-archive/T07.007.014.018/grok-a1
+plus12002B verified bundle6f8aa9cb346551c92a4209362a2b7d90281222191a862bef062a996a9c6bc58f.
+Release/transcript capture precedes ACKdelivery4d37e5d8ea11. Both original
+packets/refs survive; fleet321released/ten older retained/zero active/reclaimable.
+
+Root personally reads both reports and material page decoder/transport/upload/
+consumer source. Independent audit passes19300typed/source checks: all34Claude
+and39Grok spans match exact LF offsets/lengths/whole hashes/copied text, with
+explicit different final-LF conventions. Every full25query record and relation
+record matches the pinned profile. Both full inputs remain unchanged. Root
+reproduces Claude's37positive/12negative source needles and Grok's nine explicit
+counts. An extra Grok symbolic27open-call label is a generic .open( count, not
+proof of Targa call reachability; not promoted. Initial Root code treats those
+symbolic labels as literal needles; failed script/capture remain, corrected
+label mapping changes no candidate/input and executes no source.
+
+Both raw fanout tables are wrong. They intersect aggregate declaration-use
+relation indices with per-map model/original relation indices, which are
+different domains. Root independently follows every query relation to
+relations[ri].complete_aggregate_use.source_links, validates each map identity
+and same-domain model/original memberships, and preserves the complete corrected
+25row join. Claude18/25map sets differ; Grok23/25differ. Query0also reaches
+ch1_dw. Query69reaches1@ch1a/1@ch1b/ch1_dw/1@vrpop, not uknw_ruin2.
+Grok additionally invents ch1_gfn01/ch1_gfn03/hem_dun02 fans from the wrong
+intersection. Complete retained query/relation records are exact; derived map
+sets must be replaced by Root's source-link join before use.
+
+Astra materially helps the hard callback/decoder review; Root personally checks
+its concrete findings in pinned source:
+
+- Texture.load prepends true before getCanvas. A later canvas exception calls
+  failure with (false,true,...originalArgs); a throwing success callback is
+  caught and invoked again. Both original summaries omit that distinction.
+- Thread.receive deletes the uid callback and invokes hooks only after normal
+  synchronous return. It does not await async onFileLoaded; a thrown callback
+  can retain the uid and skip the hook. No unconditional once-only guarantee.
+-16bit grey is intensity byte plus full alpha byte. Bit15alpha applies to
+ 16bit non-grey only (Claude's generic wording is wrong; Grok distinguishes).
+- Raw RLE overflow retains in-bounds writes and drops excess typed-array writes;
+  run-packet output.set overflow throws. Truncated raw pixels retain supplied
+  prefix pixels; missing pixels become zero. Claude's proposed malformed cases
+  require these corrections.
+- Raw ArrayBuffer decoding/callbacks are synchronous. A late control must
+  explicitly use an asynchronous path or declared injected callback, not claim
+  that unchanged TGA decoding itself becomes asynchronous.
+- WebGL.texture scales to POT canvas; it does not validate null createTexture
+  or GL error state. Callback arrival alone cannot prove upload success.
+
+Conditional page path is supported: only ArrayBuffer enters Targa; .tga/.TGA
+fall through the page's case-sensitive filename switch. Static models pass
+infos[i].texture directly; animated models use Client/cache; water shares
+WebGL.texture; ground uses Texture.load plus its own atlas. No decoded-size
+upper bound exists. Real payload type/worker routing/transfers/errors cannot
+be inferred from the page bundle or filenames. The Worker half is external to
+the frozen input, not proved absent from the installed app.
+
+Raw scores are tied15/20: Claude4correctness+4preservation+3checks+2handoff+2limits;
+Grok5+4+2+2+2. Neither raw report is selected unchanged. These are source-plan
+scores, not implementation/model/cost measurements; exact models remain unknown.
+Use only Root's corrected source facts/join as a conditional page-side basis.
+Bounded .018is ready_for_user for that saved-source boundary, not Worker/decode
+execution. Next freeze the already-local matching external Worker source for a
+narrow trace; tiny page-side authored pixel controls are independent preparation.
+
+Private t07-014-018-root-review-1/ receipts:
+
+| File | Bytes | SHA256 |
+|---|---:|---|
+| AUDIT_ROOT.py |6808|de243c2bd78742a4b888d3248f7bc0eb70442dfeb93e007f95cfbe65e39f0901|
+| ROOT_AUDIT.json |22414|8c31d6648f33bbb3210a8ae02f41af5154000268f177d2d6483ba4d3a546566f|
+| CORRECT25_TGA_JOINS_ROOT.json |251252|b44a786732db10e2c08d1252172beaa2c1c4407f4c553ac1985b1699e3a14a54|
+
+No bundle execution/body/codec/browser/network/native/Engine action in .018.
+No critical goal change. Full4/14/about29%,82functional gaps remain open.
