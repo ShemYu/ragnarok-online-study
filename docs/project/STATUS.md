@@ -10,6 +10,11 @@ open. Full Modern/Renewal scope is unchanged; no new user decision is required.
 The board includes later-phase party taskT11, so this is not a percentage of
 first-milestone content or remaining effort. Do not relabel it as such.
 
+**Child cleanup:** [Root verifies removal of eight completed children](reviews/2026-10-24-orca-children-cleanup.md#first-eight-removals-and-final-preservation-verified),
+reducing100direct children to92. Exact Git archive refs, verified rollback
+bundle and private evidence survive; the running character/quiet audio remain.
+Another12are audit candidates only; user-retained children stay excluded.
+
 **Current map checkpoint:** [All21remaining compiled cores pass Root's complete audit](reviews/2026-10-24-remaining-map-bodies.md#remaining21-actual-compiled-cores-and-complete-root-audit-pass).
 One unchanged qualified host call exits0 in4.807445s, about800MiB sampled RSS,
 with21positive worker exits/no residue. Root checks all64artifacts and55body

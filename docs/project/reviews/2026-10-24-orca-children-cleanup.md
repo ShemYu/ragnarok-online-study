@@ -45,3 +45,29 @@ all archive refs/bundle, Root packets and the running game page. No default
 branch merge/push, raw kill, main/coordinator removal or bulk unreviewed delete.
 Other92children are not yet qualified for removal. Cleanup result follows in
 a separate checkpoint; this section alone does not claim they are removed.
+
+## First eight removals and final preservation verified
+
+Root removes exactly the eight qualified children through supported Orca
+worktree commands. Removal is asynchronous: an accepted `removing:true` receipt
+does not establish filesystem absence. The initial immediate assertion refuses;
+Root inspects that accepted receipt, confirms actual filesystem/Git/Orca absence,
+then continues without repeating the accepted request. All eight removals finish.
+Fresh inventory contains94workspaces/92direct children, down from102/100.
+
+Root independently confirms all eight paths and Git worktree entries are absent,
+all eight archive refs still resolve to the recorded heads, and the bundle hash
+and `git bundle verify` pass. Root packets remain outside the removed children.
+A fresh supported browser snapshot retains the ordinary character at90,111,
+with the Chinese boat-captain quest; read-only Audio preferences retain both
+music and sound off. No gameplay input or process kill occurs in this check.
+
+| Private record | Bytes | SHA256 |
+|---|---:|---|
+| ROOT_REMOVAL_RESULT.json |3040|5de49e21b9d90fce80b5400e49e5dc68e067b34a64f77f1abf2c8040ab065268 |
+| ROOT_FINAL_PRESERVATION.json |1452|1d43cb46cb60073785ecdbdccfddbd43ee1207f98e8d1a4f9fbde8f2c4493f64 |
+
+An independent second audit recommends12more children, but Root has not yet
+qualified their preservation or removed them. Three other examined children
+remain held for unmatched private logs, authored symlinks or bytecode outside
+the mirrored scope. Unexamined and user-retained children remain untouched.
