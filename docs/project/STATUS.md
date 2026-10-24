@@ -18,8 +18,11 @@ character/quiet audio remain. Three examined children stay held for incomplete
 private preservation; user-retained children remain excluded.
 Latest full prelaunch fleet:303released/ten retained/zero reclaimable.
 Two .012implementation attempts reuse existing released checkouts; no new
-child folders or setup hooks. Claude is now preserved/released after settlement;
-Grok remains live. Root source review and equal controls are pending.
+child folders or setup hooks. Both .012candidates are preserved/released after
+matched settlements. Root has read Claude's complete source/tests/report,
+repeated11tests and reproduced four authored negative controls; raw candidate
+is held. Grok's complete source/independent controls are under review. A separate
+Claude correction brief is frozen; this is not an equal raw-provider rerun.
 
 **Current map checkpoint:** [All21remaining compiled cores pass Root's complete audit](reviews/2026-10-24-remaining-map-bodies.md#remaining21-actual-compiled-cores-and-complete-root-audit-pass).
 One unchanged qualified host call exits0 in4.807445s, about800MiB sampled RSS,
@@ -110,11 +113,15 @@ after [Root's complete metadata audit](reviews/2026-10-24-direct-dependencies.md
 936whole model rows/1649relations/21maps,3913checks/21full pins and complete
 count equality pass.93known/843pending descriptors stay distinct; case-group
 indices are potential metadata only. Ten fixed inputs/four owned paths;
-[Equal Claude/Grok source attempts are now live](reviews/2026-10-24-direct-dependencies.md#equal-model-constructor-source-wave-starts),
+[Equal Claude/Grok source attempts started](reviews/2026-10-24-direct-dependencies.md#equal-model-constructor-source-wave-starts),
 both from42f52ce on separate branches, independent of .011live delivery.
 [Claude79488b6 is now preserved/released](reviews/2026-10-24-direct-dependencies.md#claude-model-constructor-candidate-preserved-and-released),
-all839copied hashes and verified rollback bundle; Grok remains active. Root
-review/controls/selection are pending; author11/11 is not Root qualification.
+all839copied hashes and verified rollback bundle. [Grok bf369fd is also preserved/released](reviews/2026-10-24-direct-dependencies.md#grok-constructor-candidate-preserved-and-released).
+[Root holds Claude after complete review and independent controls](reviews/2026-10-24-direct-dependencies.md#claude-constructor-source-review-and-root-negative-controls):
+its11tests pass, but two FD-close false successes and a constructor-return
+misclassification reproduce. String accounting needs an explicit domain refinement.
+[Separate correction .012.001](tasks/T07.007.014.012.001.md) is frozen while
+Grok review continues independently. No candidate selected or integrated.
 No actual constructors or runtime body/Node/guard admission yet.
 
 [Normal delivery of all34terrain bodies is already complete](reviews/2026-10-24-remaining-map-bodies.md#normal34delivery-and-complete-root-audit-pass),

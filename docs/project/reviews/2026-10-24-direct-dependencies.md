@@ -989,3 +989,84 @@ gaps remain; this task does not prove render/travel/monsters/story/save/full
 Chinese coverage or full Modern/Renewal completeness. Next Root personally
 qualifies .012candidate sources and equal controls, then binds936actual model
 descriptors and a genuine constructor pilot. No .012runtime admission yet.
+
+
+## Claude constructor source review and Root negative controls
+
+Root personally reads the complete73114B host,4348B suffix,30084B tests and
+18425B report of raw79488b6. All ten frozen inputs match current full hashes.
+All936model/1649relation/21map/three case-group joins remain unchanged. Six
+verbatim donor slices and the46410B complement reconstruct the exact .009host.
+These are source/domain checks, not actual constructor execution.
+
+Root repeats the unchanged11author tests under the existing owned-process guard:
+11pass/zero fail/zero skip, natural0 in5.792871s,531496960B sampled RSS, no guard
+action/residue. Installed Node supports --test-isolation=none, used to keep the
+test file in one process. Reporter is spec; the first TAP-only totals filter was
+empty and a separate confirmation records actual totals. No acquired prefix,
+summary or model bytes execute. Passing submitted tests does not settle defects.
+
+Four separate Root authored controls reproduce:
+
+- Body-close EIO after a successful postcheck yields observed/null first failure,
+  fd_closed:true and a still-open own fixture FD.
+- Final held-profile close EIO also yields observed/null failure and a still-open
+  own fixture FD. Root restores hooks and closes only its injected descriptors.
+- An authored constructor returns after the48s deadline; timeout is correctly a
+  failure, but constructor_returned is incorrectly false.
+- Two600000-unit node-name values pass the reducer's1048576string cap with total0.
+  The original accounting domain was ambiguous; the separately frozen correction
+  explicitly defines all summary string values. Do not retroactively describe
+  that refinement as an unambiguous original all-summary requirement.
+
+Bounded Astra complete-source consultations support local lifecycle/reducer and
+admission repairs. Existing ROOT_BINDINGS is inert; source admission must enforce
+approved semantics while the later frozen Root caller pins complete final files
+and actual guard/HEAD facts. An admission self-hash inside its named host would
+be circular. Exact full remainder complement and one frozen all-body profile are
+required. Full summary sentinel coverage and explicit profile-plus-pointer output
+retention contract also need strengthening. These are source holds, not evidence
+that real assets fail. Raw candidate remains preserved/unselected.
+
+[Separate Claude correction .012.001](../tasks/T07.007.014.012.001.md) freezes
+these local repairs and the explicit per-invocation string-accounting refinement.
+Its work may run independently of Grok's original-candidate review. Raw comparison
+and correction effort remain separate; no generic provider winner is declared.
+
+Private Root receipts:
+
+| File | Bytes | SHA256 |
+|---|---:|---|
+| claude-root-controls-1/RESULT_ROOT.json |963|04ed89cfce1efbe5f443318d6eef0e3bfd327a12175d620743eb0483fc59dfac|
+| claude-root-controls-1/FD_RESULT_ROOT.json |825|f778dc93bf150662472f1cf74348325b5318159488cd9e97ceefc5710ee9d0c8|
+| claude-root-controls-1/SUITE_CONFIRMATION_ROOT.json |709|6255dee9787e36a00950ab5d6ce7b0377095f9a6c3e2eb7c2431737fb96f8f9e|
+| claude-root-controls-1/DONOR_CONFIRMATION_ROOT.json |1249|b86338936263fe308dff5ec2b0e7d89051189b6868c5f1c4bd3c278cb45fa324|
+| claude-root-controls-1/DOMAIN_CONFIRMATION_ROOT.json |235|419fb38be7487dacd780d7bd8ea02872939d82f081fe8f4c1c2cd93ac8ebe064|
+| claude-root-controls-1/INPUT_PINS_ROOT.json |4320|78bda40f24d85b427aa13baa85d0102f1f7bf94338178564ef3ba4fcb48b5e7d|
+
+No .012source is integrated, runtime-bound or admitted. No actual RSM/model/
+compiled prefix/summary evaluation or game/settings/network action occurs.
+
+## Grok constructor candidate preserved and released
+
+Matched Dispatchctx_9d748803721a settles candidatebf369fdf47e84ed61826181760c27449ed8313a2
+from common base42f52ced4702c67446c3e4f07ebb14953a10256f. Root verifies clean
+assigned branch, exact parent/four owned changed paths and all four copied full
+hashes. Archive refs/archive/t07-014-012/grok/bf369fd and verified36678B rollback
+bundle require that preserved common base. Worker release is accepted; terminal
+closed/transcript captured. No release decision is deferred to source acceptance.
+
+The report discloses fixture creation/removal using os.tmpdir rather than the
+permitted checkout-private prefix. Record this ownership-scope deviation; exact
+write-boundary adherence is not claimed. There are no remaining candidate-private
+files under the assigned prefix to mirror. Author11/11 and20/20 remain author
+claims. Root complete source/tests review and independent controls continue;
+two bounded Astra advisory reviews run in parallel. No sibling evidence was
+provided to the original author, no source selection or runtime admission.
+
+Private t07-014-012-grok-packet-root-1/PRESERVATION_ROOT.json:
+1393B/SHA256 724279c67c138da50e7156e573f007778ef46bb31bf02f06607353a5674d1804.
+
+Parent4/14/about29% and all82functional gaps stay unchanged. Delivery of the
+1222direct bodies is already qualified; never replay successful delivery calls.
+Full Renewal scope/quiet running game/save/internet remain preserved.
