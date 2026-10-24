@@ -120,7 +120,8 @@ Its complete source/logs are preserved and worker released before ACK.
 confirms the inherited default-permission test issue; both score20/20 for the
 bounded source task. Claude selected for exact old tests and broader late-fault
 coverage. Both workers preserved/released; no reclaimable terminal. Next exact
-source integration and separate actual17body/header admission; no body run yet.
+[source is now exact-integrated and one actual17body/header run admitted](reviews/2026-10-24-remaining-map-bodies.md#selected-source-integrated-one-actual-seventeen-body-run-admitted);
+Root execution/complete audit is next. No body result yet.
 In parallel, [all four GRF reference bodies and Root confirmation pass](reviews/2026-10-24-remaining-map-bodies.md#four-actual-reference-bodies-and-complete-root-confirmation-pass):
 1223209decoded bytes/actual embedded GND/GAT declarations; natural0 in2.344735s,
 full archive/source/body/header preservation verified. Next fresh live preflight

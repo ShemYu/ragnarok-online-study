@@ -274,3 +274,33 @@ three-file source, then separately admit one actual17body recovery/header gate.
 Four normal GRF GETs still await fresh live preflight/source admission. A fresh
 computer-use inventory again has no apps/browsers and the same native-pipe
 startup error; ordinary play verification remains held without game restart.
+
+## Selected source integrated; one actual seventeen-body run admitted
+
+Root integrates the exact three qualified Claude files, without merging its
+branch or changing its bytes: decoder62401B/3fda683891c771a0a456d7c7c2887cc300c611fb5b586808c8919a2b8f18d3fc,
+tests103966B/d226aba5df6f6eb32b5b1f8a9107c72a677878988e7eed6051c2e9d87ebe8226,
+document18987B/b9f7171e63dad759ded486008d4992df0fba8e36869fca9f7d9f7356bcb68398.
+Root verifies each exact hash and the document's local links. The packet's
+already successful common/suite results apply to these identical bytes; no
+unnecessary repeat of old real-body routes is planned.
+
+This checkpoint admits ONE direct isolated Python child running the integrated
+decoder with this checkout as SOURCE_ROOT, the retained patch9298 under
+`.tools/renewal/t07-007-patch-acquisition-root-1/`, a fresh private
+`.tools/renewal/t07-014-006-actual-root-1/payload` and the literal trailing
+`--remaining-rsw`. The existing fixed profile/patch/header/source/vector pins,
+17target ceilings and completion-last/consumer/preservation checks all apply.
+Use an external60s child timeout, private umask077, retained complete stdout/
+stderr, natural-exit/resource accounting and source/profile identity checks.
+Forced cleanup or nonzero exit fails; no automatic rerun or partial deletion.
+
+After natural0, Root independently checks all19private payload files, full
+body hashes/lengths/magic, every metadata row against the frozen profile and
+manifest/marker binding, then uses only unchanged qualified require/world_header
+definitions to observe actual binary terrain fields. The header source stays
+32153B/ef4f70c965cff19308741041a82bc54fa7d70c87b9069a7cacce7839f6bb7a4f.
+Raw fixed-field/prefix bytes must agree; public production consumer and complete
+source/output preservation are checked again. No full RSW parse, constructor,
+native request/extraction, game input, save, runtime restart or installed data
+change is admitted. No body result or functional-gap closure is claimed yet.

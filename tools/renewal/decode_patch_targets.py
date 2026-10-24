@@ -1,14 +1,16 @@
 #!/usr/bin/env python3
-"""Decode the admitted target payloads of official patch 9298 (T07.007.003, T07.007.014.001).
+"""Decode the admitted target payloads of official patch 9298 (T07.007.003, .014.001, .014.006).
 
-Usage: python3 tools/renewal/decode_patch_targets.py SOURCE_ROOT PATCH_9298 FRESH_OUTPUT [--chapter1-rsw]
+Usage: python3 tools/renewal/decode_patch_targets.py SOURCE_ROOT PATCH_9298 FRESH_OUTPUT [--chapter1-rsw|--remaining-rsw]
 
 Without a flag this is the twelve-target T07.007.003 route. The literal
 --chapter1-rsw after the three positional arguments selects the fixed one-record
 T07.007.014.001 route (profile docs/project/fixtures/T07.007.014.001-profile.json,
-one RSW body target-000.body, schema family ro-patch-payload-*/2). Each route is
-an immutable internal descriptor binding profile path/size/SHA, task, count,
-output set and schemas before the profile is parsed; no other flag, profile,
+one RSW body target-000.body, schema family ro-patch-payload-*/2). The literal
+--remaining-rsw selects the fixed seventeen-record T07.007.014.006 route (profile
+docs/project/fixtures/T07.007.014.006-profile.json, RSW bodies target-000.body
+through target-016.body, same schema family). Each route is an immutable
+internal descriptor binding profile path/size/SHA, task, count, output set and schemas before the profile is parsed; no other flag, profile,
 path, pin, count or limit can be selected.
 
 The fixed profile and authored known-answer vectors are read from this checkout
@@ -51,7 +53,8 @@ bytes are only observed.
 Output: the route's target-NNN.body files, payload-manifest.json and, last,
 payload-complete.json in a fresh 0700 directory of 0600 single-link files.
 payload-failed.json overrides completion. verify_payloads(output) (twelve
-targets) and verify_chapter1_rsw(output) (one RSW) are the read-only consumers. Nothing here claims native parity, dependency closure,
+targets), verify_chapter1_rsw(output) (one RSW) and verify_remaining_rsw(output)
+(seventeen RSW) are the read-only consumers. Nothing here claims native parity, dependency closure,
 supported terrain versions, constructor/render/travel/save success or game
 content acceptance.
 """
@@ -66,7 +69,7 @@ import stat
 import sys
 import zlib
 
-VERSION = "1.1.0"
+VERSION = "1.2.0"
 TASK = "T07.007.003"
 REPO = Path(__file__).resolve().parents[2]
 GENERATOR_PATH = "tools/renewal/decode_patch_targets.py"
@@ -112,7 +115,7 @@ MAGIC = {"gat": b"GRAT", "gnd": b"GRGN", "rsw": b"GRSW"}
 class Route(collections.namedtuple("Route", (
         "task", "profile_path", "profile_pin", "profile_schema", "manifest_schema",
         "complete_schema", "failed_schema", "body_names", "labels", "limit_caps"))):
-    """Immutable fixed route descriptor; only the two literal instances below are admitted."""
+    """Immutable fixed route descriptor; only the three literal instances below are admitted."""
 
     __slots__ = ()
 
@@ -136,8 +139,21 @@ CHAPTER1_RSW_ROUTE = Route(
     (("max_aligned_bytes_per_target", 65536), ("max_decoded_bytes_per_target", 262144),
      ("max_decoded_bytes_total", 262144), ("max_output_bytes", 1048576),
      ("read_chunk_bytes", 1048576)))
-_ROUTES = (LEGACY_ROUTE, CHAPTER1_RSW_ROUTE)
+# Seventeen remaining eligible patch RSW records (T07.007.014.006), same v2
+# schema family; count, output set and limit caps are repeated from the pinned profile.
+REMAINING_RSW_ROUTE = Route(
+    "T07.007.014.006", "docs/project/fixtures/T07.007.014.006-profile.json",
+    (10759, "286680e505da618f39f0ba53bd48e198ba6133f19c10774d34b4d38d29c8c19c"),
+    "ro-patch-payload-profile/2", "ro-patch-payload-manifest/2",
+    "ro-patch-payload-complete/2", "ro-patch-payload-failed/2",
+    tuple("target-%03d.body" % i for i in range(17)), ("rsw",),
+    (("max_aligned_bytes_per_target", 131072), ("max_decoded_bytes_per_target", 1048576),
+     ("max_decoded_bytes_total", 8388608), ("max_output_bytes", 16777216),
+     ("read_chunk_bytes", 1048576)))
+_ROUTES = (LEGACY_ROUTE, CHAPTER1_RSW_ROUTE, REMAINING_RSW_ROUTE)
 CHAPTER1_FLAG = "--chapter1-rsw"
+REMAINING_FLAG = "--remaining-rsw"
+_FLAG_ROUTES = ((CHAPTER1_FLAG, CHAPTER1_RSW_ROUTE), (REMAINING_FLAG, REMAINING_RSW_ROUTE))
 
 
 def _known_route(route):
@@ -1388,18 +1404,24 @@ def verify_chapter1_rsw(output):
     return _verify_payloads(output, _production_contract(CHAPTER1_RSW_ROUTE))
 
 
+def verify_remaining_rsw(output):
+    """Read-only fixed seventeen-RSW production consumer; raises Refusal unless complete."""
+    return _verify_payloads(output, _production_contract(REMAINING_RSW_ROUTE))
+
+
 # ---------------------------------------------------------------------------
 
 def main(argv=None):
     argv = sys.argv[1:] if argv is None else argv
     argv = list(argv)
-    # Only the literal flag, only after the three positionals; anything else is usage.
+    # Only one literal flag, only after the three positionals; anything else is usage.
+    route = None
     if len(argv) == 3:
         route = LEGACY_ROUTE
-    elif len(argv) == 4 and argv[3] == CHAPTER1_FLAG:
-        route = CHAPTER1_RSW_ROUTE
-    else:
-        route = None
+    elif len(argv) == 4:
+        for flag, flag_route in _FLAG_ROUTES:
+            if type(argv[3]) is str and argv[3] == flag:
+                route = flag_route
     if route is None or any(type(a) is not str or a.startswith("--") for a in argv[:3]):
         sys.stderr.write(json.dumps({"status": "usage", "reason": "expected 3 arguments"}) + "\n")
         return 64
