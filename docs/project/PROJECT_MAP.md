@@ -51,7 +51,7 @@ Map repair:
        -> island departure      [PASS:normal Izlude196,209; Root image checked]
        -> ordinary field entry  [PASS:prt_fild08 367,212; Root image checked]
        -> field/return/save      [PASS:Little Poring2398/EXP170/saved stats]
-       -> Chapter1 first edge    [NEXT:extend starter; eligible play unverified]
+       -> Chapter1 first edge    [BRIEF FROZEN:equal source pair next]
 
 Quest check:
   Finite startup repair        [PASS: listener seen in 3 checks]
@@ -1253,3 +1253,9 @@ allocated stats and1point left. Root114pins/90captures/17critical images viewed;
 all five service metadata/current+four old owners unchanged, audio quiet.
 Next first Chapter1 extension; base2is not eligible for fresh level200entry.
 No full-content/parent credit, source/balance change, grant or old actor replay.
+
+
+First Chapter1 extension brief is frozen (T10.009):23equal source inputs,
+checked registration/transport/Messenger edge and safe ordinary return paths.
+Next launch Claude/Grok on reused separate branches; Root tests both before
+integration. Eligible play, rendering and persistence stay unverified.

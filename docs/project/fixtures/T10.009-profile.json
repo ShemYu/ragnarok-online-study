@@ -1,0 +1,237 @@
+{
+  "all_integration_gates": "UNRUN; source/metadata preparation only",
+  "arrival_fallback_in_scope": false,
+  "checkquest_domain": [
+    -1,
+    1,
+    2
+  ],
+  "close2_yields": true,
+  "common_base_contract": "Both dispatches supply the identical introducing commit BASE; verify own clean HEAD before work.",
+  "connections": [
+    {
+      "from": [
+        "ygg_edge",
+        164,
+        140,
+        0
+      ],
+      "kind": "warp",
+      "quest_gate": null,
+      "to": [
+        "ygg_fruit",
+        73,
+        117
+      ],
+      "trigger": [
+        1,
+        1
+      ]
+    },
+    {
+      "from": [
+        "ygg_fruit",
+        71,
+        114,
+        0
+      ],
+      "kind": "warp",
+      "quest_gate": null,
+      "to": [
+        "ygg_edge",
+        168,
+        139
+      ],
+      "trigger": [
+        1,
+        1
+      ]
+    },
+    {
+      "from": [
+        "ygg_edge",
+        216,
+        91,
+        0
+      ],
+      "kind": "script_OnTouch",
+      "quest_gate": null,
+      "source_and_destination_cells_qualified": false,
+      "sprite": "GATE_SKYBLUE",
+      "to": [
+        "prt_fild05",
+        353,
+        248
+      ],
+      "trigger": [
+        1,
+        1
+      ]
+    }
+  ],
+  "draft_only": false,
+  "five_groups": [
+    {
+      "id": "G1",
+      "points": 4,
+      "scope": "Inherited registration/cancel/state preservation; fresh versus deferred versus repeat transport and post-yield gates."
+    },
+    {
+      "id": "G2",
+      "points": 4,
+      "scope": "Messenger exact checked write sequence, no-op/interference failures, protected partials and read-only terminal repeat; no atomicity overclaim."
+    },
+    {
+      "id": "G3",
+      "points": 4,
+      "scope": "Exact unique ordinary routes/return; no synthetic prerequisites or fallback graph; new-cell and rendering boundaries."
+    },
+    {
+      "id": "G4",
+      "points": 4,
+      "scope": "Meaningful actual-NPC authored tests, all recognized tuples plus unknowns, inactive and unrelated-state sentinels; no silent unsupported semantics."
+    },
+    {
+      "id": "G5",
+      "points": 4,
+      "scope": "Small supported mod reuse, original short TC/rights, source pins, accurate source-only limits and Root-only assembly/parser/eligible-player/save gates."
+    }
+  ],
+  "frozen_common_base": null,
+  "inherited_integration_commit": "2734d8f256df549534f5fc1848b08955b31768de",
+  "level": {
+    "existing_objective_resume_any_level": true,
+    "fresh_registration_min": 200,
+    "messenger_requires_exact_tuple_not_new_level_gate": true,
+    "starter_travel_min": 200
+  },
+  "messenger": {
+    "active_active_hold": [
+      1,
+      1,
+      -1
+    ],
+    "automatic_partial_recovery": false,
+    "before": [
+      1,
+      -1,
+      -1
+    ],
+    "commands": [
+      {
+        "call": "completequest",
+        "id": 18368,
+        "required_after": [
+          2,
+          -1,
+          -1
+        ]
+      },
+      {
+        "call": "setquest",
+        "id": 18369,
+        "required_after": [
+          2,
+          1,
+          -1
+        ]
+      }
+    ],
+    "failure_stops_further_commands": true,
+    "no_yield_between_pre_and_final_post": true,
+    "partial_completed_only_hold": [
+      2,
+      -1,
+      -1
+    ],
+    "permanent_marker": false,
+    "placement": [
+      "ygg_edge",
+      253,
+      246,
+      4
+    ],
+    "repeat_success_read_only": [
+      2,
+      1,
+      -1
+    ],
+    "sprite": "4_CH1_DELEGACY02",
+    "sql_crash_atomicity_claim": false
+  },
+  "next_objective": [
+    "ygg_fruit",
+    80,
+    122
+  ],
+  "observed_coordination_head": "33e0403caa0e199e9f01816250fa2f21d77010ab",
+  "operational_rollback": "Keep compatible definitions, earned progress and safe ordinary exit connections; withdraw starter/Messenger separately; no quest deletion or stale-save restore.",
+  "owned_existing_paths": [
+    "tools/renewal/chapter1_entry/ro-solo-ch1-entry/mod.json",
+    "tools/renewal/chapter1_entry/ro-solo-ch1-entry/npc/entry.txt",
+    "tools/renewal/chapter1_entry/ro-solo-ch1-entry/db/quest_db.yml",
+    "tools/renewal/test_chapter1_entry.py",
+    "tools/renewal/CHAPTER1_ENTRY.md"
+  ],
+  "owned_optional_new_path": "tools/renewal/chapter1_entry/ro-solo-ch1-entry/npc/first_edge.txt",
+  "preparation_namespace_note": "Directory t10-008-preparation-helper-1 was created before Root assigned T10.009; retained unchanged as a private preparation namespace, not task identity.",
+  "quest_ids": {
+    "A": 18368,
+    "B": 18369,
+    "C": 18370
+  },
+  "required_authored_control_categories": [
+    "199/200/201 registration",
+    "pre-registration cancel leaves all fields unchanged",
+    "post-registration travel defer retains A",
+    "first same-invocation warp255240",
+    "resumed/repeat warp21295 never19497",
+    "state/level changed at each yield prevents stale mutation/travel",
+    "stored inactive A and B distinctions",
+    "completequest no-op prevents setquest",
+    "setquest no-op leaves protected completed-only partial",
+    "interference/unknown after each command prevents success/further writes",
+    "Messenger: all27 recognized A/B/C tuples preserved unless exact admitted edge; unknown0/other values refused",
+    "completed-only and active/active never auto-repaired",
+    "successful repeated Messenger call makes zero writes",
+    "unrelated quest/inventory/EXP/currency sentinels preserved",
+    "one declaration per route; unconditional portal body does not mutate quests",
+    "no new permanent state/cutin/helper/DB row/reward/18370 write"
+  ],
+  "runtime_authorized": false,
+  "schema": "chapter1_first_edge_equal_profile_v1",
+  "source_authoring_authorized": true,
+  "source_input_base": "7afa40597d99e7649efb9b798813e27bcbba8e4a",
+  "starter_destinations": {
+    "eligible_repeat": [
+      "ygg_edge",
+      212,
+      95
+    ],
+    "forbidden_wrong_prontera_repeat": [
+      "ygg_edge",
+      194,
+      97
+    ],
+    "new_registration_this_invocation": [
+      "ygg_edge",
+      255,
+      240
+    ]
+  },
+  "starter_repeat_scope_boundary": "Only two tuples here is task scope, not a donor prerequisite; other later progress preserved.",
+  "starter_repeat_transport_tuples": [
+    [
+      1,
+      -1,
+      -1
+    ],
+    [
+      2,
+      1,
+      -1
+    ]
+  ],
+  "stored_inactive_maps_to": 1,
+  "task_id": "T10.009"
+}

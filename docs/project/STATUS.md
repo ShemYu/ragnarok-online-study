@@ -4,9 +4,11 @@ Updated: 2026-10-25 JST. Coordinator: Codex. Active scope: **execute the documen
 
 ## Current checkpoint
 
-**Main next action:** freeze the first Chapter1 source extension of the existing
-starter, compare independent Claude/Grok implementations, then verify its real
-assembly/eligible interaction/rendering/traversal/persistence.
+**Main next action:** launch the equal Chapter1 first-edge source pair from the
+[frozen Root-qualified23payload task](reviews/2026-10-25-T10.009.md#equal-source-task-is-personally-qualified-and-frozen).
+Compare independent Claude/Grok implementations, then verify actual changed
+assembly/eligible interaction/rendering/traversal/persistence. Reuse two clean
+released workspaces; no new child or runtime action is needed for authoring.
 [The ordinary field encounter, normal return and earned re-entry now pass](reviews/2026-10-24-normal-map-prerequisites.md#ordinary-little-poring-encounter-return-and-earned-reentry-pass).
 One Space selects Little Poring2398, not proposed1002; two player attacks,
 HP40→0and EXP18base/10job, player survives fullHP45/SP12. Ordinary portal
