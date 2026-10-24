@@ -1477,3 +1477,26 @@ The first unpublished packet copy hit the helper's4MiB readback ceiling on
 the13MiB client. Root retains that incomplete directory, uses a new packet
 namespace and explicitly increases only its source-copy readback to32MiB.
 No actor/runtime/guard cap changes or incomplete packet dispatch occurs.
+
+## Finite sampler repair starts and Root reproduces the boundary failures
+
+After0760e6e, all six packet copies are current. Actual Grok
+task485e6a1a8bc0/ctxe3928eb51466 starts; receipt2307/
+baf4622a9ad211e65f949e935811ea7af4b8e88be2b59f0faed0cb7ccc69eba0.
+This is source-only; no client installation or render retry is admitted.
+
+Before reading a repair candidate, Root freezes22 meaningful expectations:
+null/empty/single/leading/equal/interior/after for each existing sampler,
+plus the actual light model at frame2. Oracle10882/
+1f365c4e8494bee946391d37dcc67b0c3749ffc44ae3ceeb28b5ab84f0742c3f.
+A2697/f9943e922b7aef7b0efd9ef041a279ce5bf708461dd3f903b46011ba23d454c0
+bounded probe executes only selected literal samplers and their unchanged
+pinned vec3/quaternion math, never imports/initializes the full client.
+One originalG30s/512MiB/grace3/no-native call reproduces exactly four
+leading-endpoint failures; all18 other boundaries pass. Guard natural1/
+driver_nonzero is the expected negative result, no signals, group absent.
+Confirmation5026/
+84787fb0eaa71de2b22c305c3db50186f44224692c80a08d0fd823d99dfd116a.
+This is selected-fragment evidence, no game/render credit. An initial
+Root call used positional arguments for keyword-only guard options and
+refused before launch; Root uses a new output namespace for the sole call.

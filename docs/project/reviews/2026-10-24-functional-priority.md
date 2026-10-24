@@ -1780,3 +1780,9 @@ first rotation key5 and the exact864NaN position/normal words. A six-copy
 source-only Grok task is ready after checkpoint. It fixes leading endpoint
 sampling, preserves the strict finite gate and leaves all previous failures.
 Fresh positive rendering and complete gameplay/story coverage remain open.
+
+Three actual independent Grok source tasks are now active: finite export
+FD observation, B4 source composition/dictionary observations, and the
+proved leading-animation endpoint repair. Root separately reproduces all
+four selected-sampler leading counterexamples;18 other boundaries pass.
+All actors remain stopped, all prior game failures remain failed.

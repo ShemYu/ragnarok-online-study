@@ -37,9 +37,10 @@ A qualified finite FD source packet is ready for Grok after checkpoint.
 all111 body joins/1285 placements load; one animated model has864NaNs
 only in its first retained frame. Complete Root776checks/771pins/all252
 Engine wires pass failure/preservation audit; the scene remains failed.
-Two actual Grok source tasks run independently: finite FD repair and
-combined B4 repairs/dictionary observations. [Actual keyframes prove the sampler divide-by-zero](reviews/2026-10-24-T07-mu-data-stage.md#actual-model-keyframes-prove-the-leading-endpoint-cause).
-A third finite Grok source repair packet is ready after checkpoint.
+Three actual Grok source tasks run independently: finite FD repair,
+combined B4 repairs/dictionary observations and finite sampler repair. [Actual keyframes prove the sampler divide-by-zero](reviews/2026-10-24-T07-mu-data-stage.md#actual-model-keyframes-prove-the-leading-endpoint-cause).
+The third finite Grok sampler-repair task is now active. Root reproduces
+four leading-boundary counterexamples;18 other sampler boundaries pass.
 Current map-step estimate70%; overall4/14/about29% checks unchanged.
 
 **Current blocker:** the animated first-frame numeric-data failure is
