@@ -13,16 +13,17 @@ dictionary abort/load405/map-connection settlement stop later cases. Root's
 complete failure/preservation audit passes; no B200assignment/reconnection or
 parent-check credit. 4/14 is a check count, not measured full-content coverage.
 
-**Parallel work:** [B4 six-fix source qualifies; separate data call admitted next](reviews/2026-10-24-functional-priority.md#b4-finite-source-qualifies-dedicated-data-call-admitted-next).
-Root full44080B/source-map/78input/10output verification passes. Owner is
-released/archive captured beforeACK. One separate B4 data run/full36leaf
-audit is admitted after currentHEAD/Python binding; Mu fixture stays separate.
-Next fixed materializer caller/full71leaf audit is ready for Grok from79copies.
-[Actual Mu21 data remains verified](reviews/2026-10-24-T07-mu-data-stage.md#actual-dedicated-mu21-data-call-passes-complete-root-verification):
-36closed files/126checks/112pins/natural0positiveG; no actor/parent credit.
-Mu19 caller taskd6f11569da2b/ctx3f0cd4c6b0ec and exporter six-fix
-taskcd17d267cb42/ctx317ffea9a1ae are actual live Grok tasks, separate owners.
-Fleet18:263records/3pages,2active/255released/6retained/0reclaimable.
+**Parallel work:** [Separate B4 fresh data pass Root actual verification](reviews/2026-10-24-functional-priority.md#actual-separate-b4-data-verified-three-useful-grok-owners-live).
+B4:36leaves/127checks/113pins/natural0positiveG; all six materializer source
+fixes also qualify. Mu:36leaves/126checks/112pins already verified. Fixtures
+and observed identity/name sets stay separate. No actor or parent credit.
+Three actual Grok source tasks are live: Mu19 projection caller
+(taskd6f11569da2b/ctx3f0cd4c6b0ec), B4 materializer caller/full71leaf audit
+(taskfe6df2b4cd87/ctxdc84619e0299), exporter six-fix source
+(taskcd17d267cb42/ctx317ffea9a1ae). Root verifies each before invocation.
+[Root verifies25final Mu runtime field groups/16source anchors](reviews/2026-10-24-T07-mu-data-stage.md#root-verifies-final-runtime-field-map-with-precise-remote-wording);
+actual Mu19data/current world/HEAD/lease/four ports remain next.
+Fleet19:264records/3pages,3active/255released/6retained/0reclaimable.
 Full goal/Chinese/caps unchanged; all82functional resource gaps remain open.
 
 [All six actual MuC focused calls pass complete Root223pin verification](reviews/2026-10-24-T07-mu-data-stage.md#actual-six-muc-focused-calls-pass-complete-root-audit).
@@ -45,8 +46,8 @@ existing105body stage stays unchanged. No render/game actor.
 [B2U/B2D eight selected focused backend checks pass Root verification](reviews/2026-10-24-functional-priority.md#eight-backend-focused-checks-verified-fresh21-fixture-source-frozen);
 [one actual pending-producer poll also passes](reviews/2026-10-24-functional-priority.md#actual-pending-backend-control-passes-root-verification).
 Original failed Root caller preserved; live response dispatch remains source-
-inspected only. Separate B4 fresh21-role files,64-body runtime,actual backend/auth/SQL/
-fixed four game cases remain next. Dedicated Mu B3 data now pass; B4 remains source-only, no actor authority.
+inspected only. Separate B4 fresh21-role data now pass;64-body runtime,actual backend/auth/SQL/
+fixed four game cases remain next. Both dedicated B3 data sets pass; B4 materializer source qualifies, no actor authority.
 
 D15 passes all eight pure groups and Root's complete183pin audit: unchanged
 G10s/512MiB/grace3, natural0/positiveguard/0.229156s/24068096B sampled peak,

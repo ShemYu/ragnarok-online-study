@@ -1308,3 +1308,39 @@ Historical attention rows have literal nextAction none; preserve four actual
 user-retained resources and two transferred records without resources.
 No abandoned/duplicate live worker or cleanup debt. No game/parent credit,
 all82functional gaps stay open/full goal/Chinese/caps remain.
+
+## Actual separate B4 data verified three useful Grok owners live
+
+At clean admission HEAD2063265, Root binds only the three authorized caller
+header slots. B4 bound22876B/
+0a626bea9b5ddbb8de3aea43839c62fd6904036fe1c5a0ab15fcbc59c7f56156;
+binding38040B/5b811cbc518c18b9c4bb42326fd481d10765b9cce8c7c19e502caf02947d148c.
+One actual original guarded writer call passes: caller0/driver0/positiveG,
+0.220167s, sampled peak22888448B (about21.8MiB), no signals/native process.
+All127checks/errors[],113full current pins and36closed leaves pass. Actual
+audit79682B/9cec888ead011b9bd20adc00ceed6c465e37f97bafae744cab47cd9566da3923.
+Root subsequent confirmation59152B/
+31d94f87b12c31b4026cb93e2320e729e3280717f14d1d019f6477a01ce6745f
+rejoins all113pins/36leaves/full10-field stdout/original receipt/limits/
+current PID+group absence, and directly checks Mu/B4 attempt/account/
+character/name disjointness. Same G10s/512MiB/grace3/no-native/1MiBcapture.
+No replay/actor/normal-runtime or quest credit. Mu source stays unchanged.
+
+Actual Grok materializer caller source taskfe6df2b4cd87/ctxdc84619e0299
+starts after2063265. Start2307B/
+590b9eedfe0f1d4d6e4ed7884b56b839d5306a541d51808c89b51b6de46f59da.
+Five redacted actual B4 metadata copies supplement its79-source packet:
+manifest5785B/
+ea1da7a34a1f90687c40ca33b5753ce4d24441548c4c26d061c4113d0329dd52.
+Durable enqueue is observed; adoption not assumed. Worker may prepare source
+only; Root actual audit/current36pins binding and full71output verification
+remain required before any materializer result is usable.
+
+Fleet19 full264records/3pages:3activeGrok/255released/6retained/
+0reclaimable;10626B/
+69360e7e58406bc27039d96c2407ac1a23c4aee7e4ff859a452ea0396a8ea140.
+Mu19 caller, B4 materializer caller and six-fix exporter have separate source
+ownership/real downstream dependencies. No completed worker waits for cleanup.
+Historical retention/attention rules unchanged. Auxiliary independent native
+reviews are complete. No financial/capacity blocker or goal change.
+4/14parent checks/about29%; all82functional resource gaps stay open.

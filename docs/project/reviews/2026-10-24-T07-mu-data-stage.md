@@ -762,3 +762,31 @@ failed-trial9 recipe. Old credentials/roles/endpoint/head/lease are not copied
 or worker-authorized. These are policy literals, not current readiness or an
 actual browser version observation. Root still reviews the completed map
 before constructing final C after complete Mu19data audit; no actor/config.
+
+## Root verifies final runtime field map with precise Remote wording
+
+Root reads the full4613B report and all25field groups in59073B field map/
+f4462ac58a2b00e20ff6c364b2cc810bd1a0fc4975a7214951794bfef48bd21c.
+All16full opened input pins remain equal; sixprivate closed outputs and
+16exact raw source anchors join. Root review11883B/
+f652a173b1832d42110eb312d129ffee40c4e22990c6eb51be2da312afb861b2.
+
+The map supplies the finite C construction contract; no new schema blocker.
+C.players is a projection of fresh audited Material metadata into nested
+ui.accountId/characterId/name/map/playerCell plus outer slot/level, not a raw
+Material.players copy. Mu UI receives no credentials/F1 game-socket inputs.
+Use projected Engine10keys/19roles/two initSQL plus separate offline seed;
+P251/UI119 and selected27CfT/five links remain. No added313files/cap change.
+Current world/socket/images/original ownership, clean HEAD/fresh lease,
+four reserved protected ports and actual output/CDP remain Root-owned.
+
+One wording erratum is explicit: selected unmanaged RemoteClient does NOT
+read config.ini. Adopt the already qualified .env/environment/default route,
+.env absent, explicit flags and absolute DATA.INI/archive paths. The field
+map's config.ini wording is not adopted or actor authority. Sealed sources
+are preserved; no new helper, test family or artifact revision is needed.
+
+[Separate B4 data now pass their own Root full36leaf audit](2026-10-24-functional-priority.md#actual-separate-b4-data-verified-three-useful-grok-owners-live);
+they are never used for Mu. Next Mu dependency remains the live Grok fixed
+projection caller, Root source qualification, one actual projection/full33leaf
+audit, final C/current-world binding and one owned scene. No actor yet.
