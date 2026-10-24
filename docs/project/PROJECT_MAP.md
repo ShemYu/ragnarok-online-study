@@ -51,7 +51,7 @@ Map repair:
        -> island departure      [PASS:normal Izlude196,209; Root image checked]
        -> ordinary field entry  [PASS:prt_fild08 367,212; Root image checked]
        -> field/return/save      [PASS:Little Poring2398/EXP170/saved stats]
-       -> Chapter1 first edge    [BRIEF FROZEN:equal source pair next]
+       -> Chapter1 first edge    [TWO SOURCE AUTHORS:Root review/tests next]
 
 Quest check:
   Finite startup repair        [PASS: listener seen in 3 checks]
@@ -1259,3 +1259,8 @@ First Chapter1 extension brief is frozen (T10.009):23equal source inputs,
 checked registration/transport/Messenger edge and safe ordinary return paths.
 Next launch Claude/Grok on reused separate branches; Root tests both before
 integration. Eligible play, rendering and persistence stay unverified.
+
+
+T10.009actual Claude/Grok source authors both ready/input accepted from2187b31.
+Separate reused branches, no new child/setup, same23inputs. Root receives,
+preserves and tests both before integration; no runtime/story credit at startup.

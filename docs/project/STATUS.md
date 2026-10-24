@@ -4,11 +4,12 @@ Updated: 2026-10-25 JST. Coordinator: Codex. Active scope: **execute the documen
 
 ## Current checkpoint
 
-**Main next action:** launch the equal Chapter1 first-edge source pair from the
-[frozen Root-qualified23payload task](reviews/2026-10-25-T10.009.md#equal-source-task-is-personally-qualified-and-frozen).
-Compare independent Claude/Grok implementations, then verify actual changed
-assembly/eligible interaction/rendering/traversal/persistence. Reuse two clean
-released workspaces; no new child or runtime action is needed for authoring.
+**Main next action:** review/test the [actual independent Chapter1 source pair](reviews/2026-10-25-T10.009.md#actual-independent-source-pair-starts-on-reused-branches)
+after matched submissions. Claude task_52a49dceca20/ctx_be2d13aa0696and Grok
+task_5f35ddf46fe4/ctx_11f79a65ffe0both ready/input accepted on separate reused
+branches from2187b31; no new child/setup or runtime installation. Same23source
+inputs; exact models not observed, Grok turn observation unsupported. Then
+verify changed assembly/eligible interaction/rendering/traversal/persistence.
 [The ordinary field encounter, normal return and earned re-entry now pass](reviews/2026-10-24-normal-map-prerequisites.md#ordinary-little-poring-encounter-return-and-earned-reentry-pass).
 One Space selects Little Poring2398, not proposed1002; two player attacks,
 HP40→0and EXP18base/10job, player survives fullHP45/SP12. Ordinary portal
