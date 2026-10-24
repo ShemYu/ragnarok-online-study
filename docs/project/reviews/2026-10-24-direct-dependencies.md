@@ -201,3 +201,46 @@ with the independent oracle using typed equality; independently qualify its
 different provenance/source/seed/pre-post record fields. No archive/body/native,
 game/save/network action is admitted by either metadata call. All82functional
 gaps remain open. Actual execution and results follow this admission record.
+
+## Independent actual oracle and complete Root audit pass
+
+From checkpoint00c22ed, the one fixed oracle call exits0 naturally in7.767788s.
+The unchanged external guard is positive:60samples,34373632B peak sampled RSS,
+maximum sample gap0.133289s, no signals/native child or registered-group residue.
+Stdout1095B is fully drained, stderr is empty, final summary is explicitly
+positive. Exact output leaves are result.json3130006B and RECEIPT_ROOT.json170380B.
+Their SHA256 values are f4d5dfa2b644fccc5b0e568f6d59e39e42bf02d0e116c9dc3b72b92323da9a80
+and349f4f0e2950b9addaae2b695a8d29cdc2ff8dd19639b9e790a4fe487e064317.
+
+Root personally audits the complete output and rehashes all89whole inputs,
+joining their recorded pre/post identities with the original call-plan C8 and
+current nine-field observations. All144held-input/ancestor and63stream-duplicate
+closures plus publication/readback/final-publisher closures qualify. The separate
+Root audit physically parses all408794catalog rows and verifies every1972typed
+occurrence, including match bucket, complete original record, candidate boolean,
+order and negative coverage. All21maps/2142relations/1222queries and every count
+vector/role total join the fixed profile. Result:1661939checks,0violations,
+4.317557041s;98complete Root pins/read closures.
+
+All1222queries have full-path file candidates:936models,222textures and64water
+images. None depends only on a basename match, and none has zero candidates.
+There are1396full-path and576basename-only occurrences; no archive winner or
+body/render/story availability follows from metadata. The selected implementation
+has not run yet; its independent comparison remains required.
+
+Private t07-014-010-oracle-audit-root-1/ROOT_CONFIRMATION.json is56417B/SHA
+d1d6ae5590b376e03778009495f0e38d6cecddecb1705583aaec62081954c584.
+The fixed launch record is29096B/SHA3528b980eca88aa4e1f52f00d3845fad1c7f15cbf429be28baeb8db078475173;
+the external guard receipt is1755B/SHA8fdc96d1a3ec119fc3d066e63d068847fec36c364d1848a114c0d1cf8bbb2cf9.
+Root's standalone audit source is14479B/SHAed6a5b91254a4c95f394b75c6e03d902fa8a85b219033f77068a70b1b3cd1286.
+An independent read-only source challenge also confirms the92-path union,
+both sole-flag derivatives and the exact oracle-only caller; no material mismatch.
+
+After this checkpoint admit **one selected candidate call only**, using the
+unchanged CALL_PLAN_ROOT.json candidate argv/output, its12723B bound wrapper and
+the same unchanged130s/1.5GiB-sampled/8s-cleanup guard. Recheck fixed sources,
+initial identities and fresh candidate/guard output absence first. Require
+natural0/final explicit success, complete captures/output/closure/provenance,
+and typed equality of every seven-field payload value with this qualified oracle.
+Preserve any failure/partial result without automatic retry. No body acquisition,
+game/native/save/network action or functional-gap closure is admitted.

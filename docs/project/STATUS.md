@@ -36,11 +36,14 @@ Next is the1222direct dependency closure; do not replay successful actual calls.
 refusal. [Both actual reviews are personally checked/preserved/released](reviews/2026-10-24-direct-dependencies.md#both-reviews-preserved-personally-checked-and-workers-released):
 source-review tie19/20each; Root14701internal profile checks and three expected
 failure-path reproductions pass. No selected-source correction is required;
-partial outputs never establish success. Next reuse the qualified independent
-oracle. [Root qualifies its source/gate and freezes one actual oracle call](reviews/2026-10-24-direct-dependencies.md#qualified-independent-oracle-and-first-actual-call-admission).
-After this checkpoint run the fixed130s/1.5GiB-sampled guard once, then fully
-audit the oracle before separately admitting the selected candidate. Catalogs
-have only been statted in preparation; no actual lookup result exists yet.
+partial outputs never establish success. [The independent actual oracle and
+complete Root audit now pass](reviews/2026-10-24-direct-dependencies.md#independent-actual-oracle-and-complete-root-audit-pass):
+natural0/7.767788s, about32.8MiB sampled RSS; Root1661939checks/98full pins and
+all408794physical rows/1972typed occurrences qualify. All1222queries have
+full-path candidates, with no basename-only dependency or zero-candidate query.
+After this checkpoint run the fixed selected candidate once under the unchanged
+guard, then independently audit its full output/provenance and typed equality.
+Metadata candidates do not prove body/render/travel/story/save availability.
 
 [Normal delivery of all34terrain bodies is already complete](reviews/2026-10-24-remaining-map-bodies.md#normal34delivery-and-complete-root-audit-pass),
 T07.007.014.008 `ready_for_user`:34exact200responses/97037820B, all34new loose
