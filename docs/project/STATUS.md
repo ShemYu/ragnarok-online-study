@@ -26,9 +26,11 @@ One unchanged qualified host call exits0 in4.807445s, about800MiB sampled RSS,
 with21positive worker exits/no residue. Root checks all64artifacts and55body
 paths:252typed-array descriptors are finite, all17independent GAT references
 match, and16577placements/1649model groups/365ground textures/128water requests
-remain complete. The next asset work is the1222unique direct dependencies
-(936models/222textures/64water images), then model texture/compile and rendering
-closure. These dependencies are not yet acquired or qualified by this result.
+remain complete. [All1222direct dependencies now qualify for normal delivery/materialization](reviews/2026-10-24-direct-dependencies.md#remaining1214-normal-responses-and-complete-root-audit-pass):
+936models/222textures/64water,1222complete responses/24713759B, all logical
+loose paths present with three actual case aliases. Root verifies382666checks/
+3680full pins after the disjoint remainder. Genuine model construction, nested
+textures/placement-aware compile and production rendering remain next.
 
 [T07.007.014.009](tasks/T07.007.014.009.md) is now `ready_for_user`:
 [both original sources and corrected Claude are personally checked](reviews/2026-10-24-remaining-map-bodies.md#both-compiled-host-candidates-are-checked-and-corrected-claude-is-integrated).
@@ -96,8 +98,12 @@ rows/maps/relations and153prior loose paths preserved. Actual483/672share one
 loose inode/hash but remain two requests/records. No guard action/current-world
 drift. Root emits a separate pilot authorization; [the finite remainder caller
 now qualifies](reviews/2026-10-24-direct-dependencies.md#finite-remainder-caller-source-qualifies)
-with77Root checks/full18-edit inverse. Next fresh HEAD-bound preparation and
-complete current binding/world joins before the one exact1214remaining call. No successful pilot replay or remaining request yet.
+with77Root checks/full18-edit inverse. [The one actual1214remainder and full Root audit now pass](reviews/2026-10-24-direct-dependencies.md#remaining1214-normal-responses-and-complete-root-audit-pass):
+382666checks/3680pins/1214responses24101056B, all159prior paths preserved,
+all three case aliases/current world unchanged. Combined1222responses24713759B
+and all1222loose paths qualify. A separate complete input join passes8554checks.
+.011is ready_for_user for delivery/materialization; no successful actual call
+may replay. Next Root qualifies .012source and actual model-body projection.
 
 **Independent next source lane:** [.012model-constructor brief is frozen](tasks/T07.007.014.012.md)
 after [Root's complete metadata audit](reviews/2026-10-24-direct-dependencies.md#model-constructor-inputs-pass-root-complete-metadata-audit):

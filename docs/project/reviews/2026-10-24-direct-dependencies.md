@@ -918,3 +918,74 @@ Private t07-014-012-claude-packet-root-1/ receipts:
 No .012source is integrated or actually admitted. Existing body/Node/source/
 guard/HEAD/pilot authority remains unbound. Root continues the qualified .011
 remainder caller separately, with no actual body decoding/rendering claim.
+
+
+## Remaining1214 normal responses and complete Root audit pass
+
+After source/admission checkpointd1fd1a6, fresh read-only preparation passes
+natural0/0.592306s/about63.5MiB sampled RSS. Root's first comparison mistakenly
+requires complete Engine request-receipt equality with the prior pilot: raw
+list-response hashes can change with uptime text. This Root gate fails before
+any observer call. The complete seven-field five-container projection and all
+six read-only route/status facts are unchanged. Root retains the correction;
+only the receipt-comparison expectation changes, no target/candidate/input or
+world preservation field.43fresh Root source/binding/pilot/current-world checks
+and a full ten-slot caller inverse pass before the one remainder invocation.
+
+Exactly1214disjoint requests complete; none of the eight successful pilot
+queries replays. Selected observer reports complete in1.622948s. Inner guard
+exits naturally0 in2.203784s,76578816B sampled RSS,17samples/max0.136764s gap.
+Whole-caller guard exits naturally0 in3.11659s,139214848B sampled RSS,24samples/
+max0.135766s gap. Both guards valid/no signal/action/residue; final stdout/exit
+and empty stderr agree. Caller poststate/error record is complete. These are
+local warm-session measurements, not cold-start or full-game hardware estimates.
+
+Root's independent full audit passes382666checks/3680full pins. All2431canonical
+observer leaves are regular/private/single-link;1214complete200bodies total
+24101056B.113independent retained expectations match;1101new hashes remain
+observations. Full typed1222source/query records,21maps/2142relations, every
+wire/metadata/expected-pin join, exact counts, all headers/signatures, guard
+streams/current owned exits and fresh owner/ENV/Engine/native/archive/source
+preservation pass. All159prior-present logical loose paths and every override
+state remain unchanged;1063new logical loose paths match their responses.
+All1222logical loose paths are now present. All three case pairs share their
+actual respective inode/hash while preserving six requests/rows/body files.
+There are1219physical loose files, not a deduplicated logical request set.
+
+Combined pilot+remainder:1222complete bodies/24713759B, all936models/222ground
+textures/64water images.115known independent pins match;1107new observed hashes
+are not independent expected oracles. Root emits a complete current body-pin
+join and separately verifies8554typed joins/all1222roles/paths/pins, all115
+known expectations, distinct response-body paths and three physical aliases.
+This packet supplies the next .012body projection; no genuine constructor has
+run. BM/GRSM/GRSX/JPEG signature evidence does not establish full decoding,
+model texture closure or production rendering. Query1158's archive winner
+remains unproved; no redundant isolated acquisition is needed without a later
+disagreement/decoder failure.
+
+Private receipts:
+
+| File | Bytes | SHA256 |
+|---|---:|---|
+| remainder-audit-root-1/AUDIT_ROOT.py |14567|68772c7b1937f440554f242dfbec8d03f20a2f26c088ca02bd296aa569cf688d|
+| remainder-audit-root-1/ROOT_AUDIT.json |1533414|c9af4fc107985143077f1875ebea6ea19c43579b0b211debac8304e7528c58c0|
+| remainder-audit-root-1/DELIVERED_INPUTS_ROOT.json |1069662|6e0ed1f7084f0fb16bd77b9e62e47d7c2036a2efd98332333e77a3a6e4d3cb8e|
+| remainder-audit-root-1/INPUTS_CONFIRMATION_ROOT.json |367|4b5c6c5700beee9713849d3b7ef6cc2506e4c628cac3105a428e6d8cbb3c5749|
+| remainder-caller-root-1/ROOT_PREFLIGHT_ASSUMPTION_CORRECTION.json |469|689f0e1937a6f5d3dafed0525cb27b76396d7db604921c54f4ed41413951b789|
+| remainder-caller-root-1/PREPARE_1_CONFIRMATION_ROOT.json |1330|d2309d307c7cd0080ac181689696133786d4e3156688073115c1ad6f05b82168|
+| remainder-caller-root-1/CALL_1_PROJECTION_ROOT.json |2898|f85fa97830cc2171ec08d7b06a30903b51089d6ce5bea381d75aebc8daa024da|
+
+Selected preparation12leaves/1180160B and actual2431leaves/32310910B; complete
+remainder caller working tree33594277B/2457files stays below128MiB. Explicit
+limits are unchanged. All successful actual delivery calls are consumed: never
+replay the pilot, remainder, earlier34terrain GETs or older111-body calls.
+Retain their bodies and normal extracted files. Git rolls back source/docs,
+not live assets or saves. No existing game owner is signaled, no setting/input/
+save/SQL/restart/network-disconnection action occurs.
+
+T07.007.014.011 is ready_for_user for this bounded normal-delivery/materialization
+task. Source95bee15 remains unchanged. Parent4/14/about29% and all82functional
+gaps remain; this task does not prove render/travel/monsters/story/save/full
+Chinese coverage or full Modern/Renewal completeness. Next Root personally
+qualifies .012candidate sources and equal controls, then binds936actual model
+descriptors and a genuine constructor pilot. No .012runtime admission yet.
