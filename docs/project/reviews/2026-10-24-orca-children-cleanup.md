@@ -110,3 +110,43 @@ An initial read-only recheck stops on a nullable worker resource field. Root
 preserves that failure, corrects only the metadata filter and completes the
 fresh full recheck before any archive/removal. The three previously held
 children remain held; no unmirrored file or authored symlink is discarded.
+
+## Three held preservation gaps resolved before removal
+
+On2026-10-25JST an independent helper preserves the three previously held
+children: t07-014-001-grok-a1, t07-013-001-grok-a1 and t07-011-004-grok-a1.
+Root personally reads its complete19037B source/report and independently
+checks every28regular source/copied file,28922452B, plus complete67entry
+namespaces and all Git ignored/untracked leaves.998Root checks pass. The two
+outside-tools bytecode files and two missing logs are now retained. Two authored
+symlinks are retained as exact literal-target bytes/C8 metadata, without
+following or creating live links. Four empty directories remain represented.
+This explicit inert-link disposition resolves the prior preservation hold;
+it is not a claim of live symlink mirrors or historical actor identity.
+
+Fresh full342dispatch/4page enumeration shows all three exact prior workers
+released/exited/transcript captured; only the separate .023.001repair is owned.
+The eight user-owned and two absent rows remain excluded. Exact supported
+terminal inventories are covered/empty/untruncated, each browser tab list is
+empty, and scoped lsof finds no open file/cwd for the three target trees.
+Fresh86workspace catalog confirms84direct children; each target is a direct
+coordinator child with no descendants, clean expected head and no main role.
+Active repair/metadata work uses Root and .011Claude paths, outside these trees.
+
+Root creates three exact refs/archive/2026-10-25-cleanup-1/<child> and a
+self-contained3827295B rollback bundle, SHA
+4fff66dc810206f955ece22ffdc16735e91d1e24a28156d9cd59218bcf304ad2.
+Complete-history bundle verification and exact three listed heads pass.
+Source/private packets and named refs remain local. Removal is now admitted
+for only those three, subject to immediate fresh rechecks. No removal is
+claimed in this checkpoint; all other workspaces/user-owned state stay excluded.
+
+Private orca-children-cleanup-2026-10-25-root-1/:
+
+| File | Bytes | SHA256 |
+|---|---:|---|
+| VERIFY_PRIVATE_ROOT.py |5456|cca990196ea003b7f6e047ed9de761d658b2b3b3d22faf5b70165e8c70a61f61|
+| PRIVATE_VERIFICATION_ROOT.json |21055|2e55e5cb84185effee0b2def7254a5a65407e4d8fb71ed00cdd2cca2c772f5d5|
+| ARCHIVE_ROOT.json |1268|4a1b8ded95e06fad739c109056d11680b9a75cec7ddb21a09102d54f2566e6bd|
+| RUNTIME_FENCES_ROOT.json |2213|0c68e689086ab79a4b7fe593f73fd41be4a752d7cf9619c5ad4ed374510f39ed|
+| ADMISSION_ROOT.json |1968|314a265ddf22cabd12d57f630502d7717f9b60974d92bd3881eeff17299f4ade|
