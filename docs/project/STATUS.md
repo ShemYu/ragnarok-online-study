@@ -61,8 +61,10 @@ monitored, with original/W/ro3 worlds, internet, mute and IME preserved.
 The independent [Claude/Grok/Kimi source comparison](reviews/2026-10-24-T07.007.012.010.md#root-verification-and-bounded-comparison)
 is verified. Kimi is usable for source triage; trial1 supports continued shadow
 work, not a general provider or coding verdict. The user's pilot is1–3suitable
-real tasks total, alongside game progress. The second shadow task now reviews
-the fresh materializer copies independently; at most one further useful trial
+real tasks total, alongside game progress. The second shadow task hits the
+provider's five-hour quota and stops without a report; Root releases its
+terminal and verifies zero reclaimable resources. This is an availability
+result only. At most one further useful trial
 remains. Create no busywork or main-path dependency. Trial1 workers settled;
 Kimi released, while Orca retained Claude/Grok as user_takeover. Parent count
 remains4/14/about29%.
