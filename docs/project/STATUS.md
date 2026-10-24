@@ -21,7 +21,7 @@ Current84direct children include the two released review children and the two
 refs, two verified rollback bundles and private evidence survive; the running
 character/quiet audio remain. Three examined children stay held for incomplete
 private preservation; user-retained children remain excluded.
-Latest fleet:323released/ten retained/two active Grok originals (.019/.020)/zero reclaimable.
+Latest fleet:324released/ten retained/one active .020Grok/zero reclaimable.
 Two .012implementation attempts reuse existing released checkouts; no new
 child folders or setup hooks. Both .012candidates are preserved/released after
 matched settlements. [Root full review and eight behavioral groups per original are complete](reviews/2026-10-24-direct-dependencies.md#both-constructor-originals-are-personally-checked-and-held).
@@ -2182,3 +2182,9 @@ proposal. Grok and both .020implementations remain live; no decoding readiness.
 
 [Claude .020original preserved/released; Root11tests/32pixel cases/515checks pass with four harness holds](reviews/2026-10-24-direct-dependencies.md#claude-authored-decoder-original-is-preserved-and-passes-positives-with-root-holds).
 No integration/actual-body decoding admission. Both Grok originals remain live.
+
+[Both .019source originals now pass complete Root comparison with explicit corrections](reviews/2026-10-24-direct-dependencies.md#both-external-worker-source-traces-pass-root-comparison-with-corrections):
+Claude14050/Grok23930checks, all74spans/full25queries/37relations/91links;
+raw16/20each, both preserved/released. Conditional source synthesis ready_for_user.
+Current next action: finish .020Grok original/Root equal controls and dispatch
+any finite decoder-harness repair. No real image/Worker/render acceptance.

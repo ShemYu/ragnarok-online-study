@@ -94,7 +94,7 @@ Other active work:
   Nested10pilot                [10/10PASS; Root25541checks/1400pins; no replay]
   Nested923remainder            [923/923PASS; Root54317checks/4073pins; no replay]
   TGA page source              [ROOT19300checks PASS; raw15/20each HELD/corrected]
-  TGA Worker path              [CLAUDE PRESERVED/RELEASED; GROK LIVE; Root review]
+  TGA Worker path              [ROOT BOTH FULL CHECKS PASS; corrected source only]
   TGA tiny decoder fixture     [CLAUDE32/32 ROOT PASS/HELD; GROK LIVE]
   Real25TGA header resource    [ROOT969checks PASS; max1024x1024; no decode]
   Model702node bounds           [SENTINEL PRESERVED; geometry impact OPEN]

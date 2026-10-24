@@ -3592,3 +3592,59 @@ Private t07-014-020-claude-review-root-1/ receipts:
 | ROOT_CONTROLS.mjs |5630|40a2fbbc072ea776df55cbad731c07fe64983cf72fb8f298ee59d77958115b58|
 | ROOT_CONTROLS.json |1124|840fc8a03a35cb26da04bbfd100a8d04d88e2b3037b57a9f97d7b4c9d0494120|
 | ROOT_MATRIX.json |51234|ca74f92cbb9b7e6afcc2bd26adec6c265398fe8b25735b56e403f8006b620824|
+
+
+## Both external Worker source traces pass Root comparison with corrections
+
+Matched Grok .019task_5026cd767526/ctx_8fe2b8e0171c settles clean at
+79933bb8c7f0bb4cb6f846889ad5b005d668b8a9, directc378a439parent, one owned
+report. Root verifies all37copied files/699523B, archives
+refs/ro-task-archive/T07.007.014.019/grok-a1 and14748B verified bundle
+1475f7749451d4872b5409f5a30b094656d54a82b2e7f37ef343662ef5efbbfd.
+Release/transcript capture precedes ACKdeliverye5b38b2163de. Both source originals
+are fully preserved/released; no idle terminal kept. Fleet324released/ten older
+retained/one active .020Grok/zero reclaimable,84direct children unchanged.
+
+Root reads the full Grok report and source seams and independently passes23930
+checks/0.484062s: all28whole-pinned source ranges/LF offsets/copied bytes,
+all25complete query records/37relations, every field of91flattened source-link
+edges plus every per-query copy/candidate identity and complete map fanout.
+Both authors' fanouts now match Root's independent source-link truth. All three
+full input pins remain unchanged. Claude's earlier14050checks/46spans/full25/
+37/91domain remain qualified; different span granularity is not a performance
+comparison. No acquired code executes in this source task.
+
+The recovered Worker source supports the central conditional route: browser
+FileSystem/GRF/HTTP produces ArrayBuffer, case-lowered .tga/.TGA returns it
+unchanged, static models embed loaded values in MAP_MODELS and animated models
+send names before LOAD_FILE. Page type dispatch invokes Targa; Worker posts no
+transfer list. Preserve Electron loose-file exception/backend distinctions and
+never infer concrete model static/animated/replaced classification, installed
+source identity or actual clone/pixel/upload success from this metadata.
+
+Use the preliminary Root corrections above for fetch callback/cache-write
+re-entry, GRF catch scope, conditional FileSystem case folding, truthy error
+messages, sync throw versus async rejection/delete order, allocations and
+teardown. Grok also states an unconditional second-uid/no-callback rule; it
+requires normal synchronous return, not arbitrary throwing callbacks. Its
+message-shape proposal does not freeze exact copied/stub initializers or
+numerical resource ceilings. Neither raw proposal is admitted unchanged.
+Root's six supplemental animation/free spans establish deletion of current
+objects only, not cancellation of pending work.
+
+Raw source-plan scores tie16/20: Claude5correctness+4preservation+3checks+2handoff+
+2limits; Grok6+4+2+2+2. Both improve the metadata/source boundary over .018,
+but raw limits/corrections stay visible. No universal model/cost conclusion;
+exact provider models are unknown. Root-corrected conditional source synthesis
+is ready_for_user for bounded .019only. No Worker fixture or real decoding is
+admitted. .020authored decoder repair/selection and future separately bound
+real-image/canvas/GL/geometry/render/content remain; all82functional gaps and
+4/14/about29% unchanged. No critical goal change or user decision.
+
+Private t07-014-019-root-review-1/ receipts:
+
+| File | Bytes | SHA256 |
+|---|---:|---|
+| CLAUDE_ROOT.json |3127|f118327795da96ed4594e83d026c03b2f3340653cfe71b8fec39aa1f689f35f7|
+| GROK_ROOT.py |7064|5032ee0ee5d0cb3c67b24076ea988d8e4ec51a9118f8d29cab8355c6411481a9|
+| GROK_ROOT.json |1195|584769d5011d36ab5606cbc5de1e23a0f45fd8591391ed4d94f922bdbbf6ef89|
