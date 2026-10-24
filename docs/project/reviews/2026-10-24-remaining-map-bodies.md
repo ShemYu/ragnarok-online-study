@@ -533,3 +533,56 @@ collect each matched submission, preserve full source/tests/fixture/logs before
 release/ACK, personally review and run equal fixture/common controls. Root's
 independent actual oracle source is prepared separately without candidate or
 actual stream access. No actual catalog/body/runtime acceptance follows yet.
+
+## Independent actual terrain oracle source qualified and admitted
+
+Root reads the complete independently authored ORACLE_ROOT.py; separate source
+review confirms exact28162B/SHA256
+f3506d5071244ebd09b729e4d94073fad712555033e9951f51475224330cf3e4.
+It binds69unique inputs: itself, fixed profile/contract, three literal
+authorities and63exact catalog.records streams. Other embedded paths are inert.
+It independently reconstructs21maps/42relations/34queries, collects complete
+typed occurrences/negatives/duplicates and indexed counters with summed roles,
+and uses strict finite JSON/hex and bounded LF lines. It checks full pre/scan/
+post hashes, EOF, nofollow single-link held descriptor/path/ancestor continuity,
+all owned input closure, exclusive private publication/readback and fixed caps.
+Syntax compilation passes; no actual stream has been opened during preparation.
+
+This checkpoint admits ONE Root oracle job before provider candidate inspection,
+using the already-qualified14021B external Root005 guard (SHA256
+c74f86a2f7f41aa5d468fe10c21cc4a837eea4b5684c4d12fef74d26f3a97a00),
+expect_native false,130s/2GiB sampled RSS and4KiB stream capture caps. The stderr
+cap is deliberately stricter than the1MiB maximum. No new runner is introduced.
+The child reads only the69fixed source/metadata files and writes a fresh
+`.tools/renewal/t07-remaining-terrain-oracle-root-1/` result/receipt. Root must
+observe natural0, positive external guard/no signals/no groups, exact source/
+result/receipt/output set/full input pins and final publisher closure before
+freezing actual expectations. Candidate actual execution is still NOT admitted.
+
+An internal deadline can prevent revocation of a staged success-looking result.
+Such a file alone is never accepted: caller/guard/closure and complete Root
+confirmation are mandatory. Preserve failures without rerun/deletion. Serial
+identity checks are not an atomic filesystem snapshot; the sampled RSS guard
+can miss peaks. No archive/body/native/UI/SQL/game/save/config action occurs.
+
+## Astra clarifies the remaining story risk without a goal change
+
+Astra/high source-only consultation confirms a concrete installed-source gap,
+while retaining computed-route/live-memory uncertainty. Root separately reads
+the primary import/load code: map.cpp4261–4266 selects npc/delnpc/import;
+npc.cpp3674–3695 adds/parses an explicit existing path;3715–3721 iterates those
+selected paths. It is not a directory autoloader, so stored maps/client quest
+tables cannot activate missing story scripts. script.cpp15910–15912 accepts
+computed atcommand strings, so zero literal loadnpc hits cannot rule out every
+computed administrative loader or previously loaded live script.
+
+The839current Renewal declarations versus841older startup-selected sources are
+different closures: the older count includes two mod npc directives from
+conf/import/map_conf.txt. This is not evidence of two lost content files.
+No new proof of infeasibility or changed-scope decision appears; the existing
+[in-scope story risk](../GOAL.md#estimates-and-resource-budget) remains. Next high-value
+story work is a bounded entry-to-Mu progression reconciliation using recovered
+quest IDs/text, primary mechanics/donor quest18376 and actual NPC producers/
+consumers, recording the first missing authentic transition. Do not substitute
+another generic loader search, create a quest actor, grant progression or reduce
+Chapter1 scope. Ordinary tutorial/field travel remains next when UI returns.

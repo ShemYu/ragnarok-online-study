@@ -138,13 +138,21 @@ closes. Do not repeat this set. Next freeze the21map/42field/34query terrain
 profile, literal fixture and equal Claude/Grok metadata brief before catalog
 reads. [T07.007.014.007 now has exact Root-reconstructed queries and fixture](reviews/2026-10-24-remaining-map-bodies.md#remaining-terrain-query-set-independently-reconstructed):
 21maps/42relations/34keys and15authored rows with per-query counters. Root's
-literal expected output is frozen before candidate inspection. Next equal
+literal expected output is frozen before candidate inspection. Both independent
 [source+synthetic-only implementation pair is now live](reviews/2026-10-24-remaining-map-bodies.md#equal-terrain-source-implementation-pair-is-active)
 on separate matchingfdcd3d7branches: Claude task_48560bd7a1a6/ctx_cd769a653d20
 andGrok task_4ba9ad0a3be4/ctx_c904920a2f4c. Fresh fleet confirms live/working;
 next collect and personally verify equal fixture/source/controls. Actual63
 streams stay unread until separate Root admission. Ordinary play remains held
 by the native-pipe connection.
+
+[Independent actual terrain oracle is source-qualified and admitted](reviews/2026-10-24-remaining-map-bodies.md#independent-actual-terrain-oracle-source-qualified-and-admitted):
+one fixed69input metadata job with existing Root005guard/130s/2GiB, before
+candidate inspection; candidate actual runs remain held. Root execution/full
+confirmation is next. [Astra source review clarifies the known story gap](reviews/2026-10-24-remaining-map-bodies.md#astra-clarifies-the-remaining-story-risk-without-a-goal-change)
+and explicit loader/computed-command boundaries; no new goal decision. Next
+story task should reconcile authentic entry-to-Mu quest transitions, not repeat
+a generic absence search or create a quest actor.
 
 ### Historical preparation — follow the next action above
 
