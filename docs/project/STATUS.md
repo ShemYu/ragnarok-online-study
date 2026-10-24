@@ -168,6 +168,13 @@ and equal Grok collection are next. Grok remains live/working, one active worker
 ten user-retained and292released. Actual provider scans remain held. The Root
 oracle is already complete; do not repeat it or call metadata a gameplay pass.
 
+[Claude's full25-test suite now passes; common fixture verification is admitted](reviews/2026-10-24-remaining-map-bodies.md#claude-full-source-suite-passes-and-common-fixture-checks-are-admitted).
+Root confirms all22packet files/three authorities; corrected source-reviewed
+common checker runs seven bounded cases next. No provider actual scan yet.
+Fresh computer inventory still has no surfaces/native-pipe startup failure.
+Story research/starter are already done; next useful source delta is the first
+consequential18368-to-village/18369 transition, not another entry inventory.
+
 ### Historical preparation — follow the next action above
 
 The following retains earlier decisions. Former next-action instructions

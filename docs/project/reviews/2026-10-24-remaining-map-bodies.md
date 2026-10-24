@@ -656,3 +656,39 @@ Fresh Orca fleet is one live/working Grok dispatch, ten user-retained and292
 released workers. Grok's matched implementing heartbeat remains in progress;
 silence never authorizes replacement. Next run the admitted source suite,
 finish common-checker admission and collect the equal Grok submission.
+
+## Claude full source suite passes and common fixture checks are admitted
+
+Root's admitted run returns0: all25tests pass without skips or ResourceWarning,
+1.460s test time/1.62s wall time, maximum child resident25624576B reported by
+the system time utility. Complete stdout/stderr are retained. Root separately
+rehashes all22preserved packet files and three pinned authorities; every frozen
+content pin matches. Private TESTS_ROOT.json7496B/SHA256
+745472d21b647111f088de088f782fc35cd05bb71d3d495465f84596c8a47458
+records the observed exit, captures and25postpins. Author mutations were read
+but not rerun; no actual catalog stream is invoked by this test suite.
+
+Root personally reads the full independent common checker. Its corrected
+11942B/SHA256cdcfc9863065cb64a5f54955e4bf7ec4cf187719ea51bbde48c94eda9f7f813c
+passes in-memory syntax and an exact four-region inverse to the original
+11979B/80b371fd source. Both forced-cleanup sites now signal only the owned
+Popen child after poll is None and wait; no process-group signal remains.
+This is fixture-only, reviewed non-spawning candidate code. Descendant
+retirement and file-access containment are not proved; no actual mode or
+external game process is admitted through this checker.
+
+This checkpoint admits the same seven common source-stage cases per qualified
+candidate: exact fixture/full typed golden, collision preservation and five
+CLI refusals. Each has10s/4KiB per-stream and total8MiB private artifacts;
+complete capture, natural exit and full pre/post input/source pins are required.
+First execute on preserved Claude; Grok awaits its own complete source review.
+Actual provider scans remain held for separate guarded admission.
+
+A fresh read-only computer inventory again returns no apps/browsers and the
+same native-pipe startup failure. No user tab or game input was touched.
+Story planning is narrowed after Astra checks existing T10.002/.004/.006/.007:
+repeating entry-to-Mu inventory/decoding or the register/resume starter would
+repeat completed work. The useful next source delta is exactly what completes
+18368, transports to the first village interaction and starts18369, with each
+unsupported consequential field explicit. No new task, actor or goal change
+is introduced by this planning clarification.
