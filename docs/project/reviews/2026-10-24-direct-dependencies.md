@@ -4961,3 +4961,44 @@ before its first actual use. No goal change or user decision is required.
 
 Private t07-014-023-claude-review-root-1/DONOR_INHERITANCE_ROOT.json784B/SHA
 d14eb2eba3bc0a6640ec7c3887e7c3a184171daf5d6ffc525dc41c0b104cd36c.
+
+## Unbound caller creation authority is corrected before binding
+
+Root follows the independent source advice with authored fake files and a
+handwritten child. V2 rejects changed ancestry or wrong directory mode, but
+assigns run_ns before those checks finish. Its failure handler consequently
+writes CALL_FAILURE_ROOT.json into the rejected namespace. Both controls
+reproduce; earlier67controls cover later replacement, not this creation window.
+An additional replacement before the first post-create observation is adopted:
+plain path-only mkdir/lstat cannot exclude that interval. Do not claim a
+stronger guarantee than continuity from the first observation.
+
+Root makes a separate private V3. Capture the first post-create directory
+identity, compare a provisional complete namespace to it and the pre-create
+ancestors, recheck every row, and only then install run_ns/made as authority.
+Failed provisional checks leave no local failure publication. Default/refusal,
+UNBOUND source pin/stdout contract and all numerical/process limits remain.
+Root personally reviews the full small diff, reruns all67authored controls and
+adds four regressions: replacement after the first stat, changed pre-create
+parent, wrong mode and replacement after provisional capture. All four refuse
+with zero input/child/publication events; replacement markers remain untouched.
+No actual body/source/reference or acquired execution is used. Actual module
+binding, exact bound-copy qualification and separate admission still remain.
+
+Private packets and complete pins:
+
+| File | Bytes | SHA256 |
+|---|---:|---|
+| caller-helper-3/CALL_GEOMETRY_UNBOUND.py |19869|e68622feb0a3a8375c92fee84e358f09ec2e764815aab69e86005ce2e1731df6|
+| caller-review-root-3/CREATION_RED_ROOT.py |2825|fd35ebd0892e041106a1d41d3c2358cde94aade946a1c57fc6d5b9520c14801b|
+| caller-review-root-3/controls-v2/CREATION_RED_ROOT.json |1448|69fa9c18385727871575ba80571e97bf27d16978439549b6bd55dab86180a50a|
+| caller-review-root-3/QUALIFY_UNBOUND_V3_ROOT.py |12362|ccde053444bff572128f0ee808938ba543dd2cdd3cd3763f1a9ec2bed1fbaade|
+| caller-review-root-3/full-controls/UNBOUND_CONTROLS_ROOT.json |6102|57bfcdab0ac9e8d0fa2ef46f724d4d8db5b956a371182b3aff184f81c2f87a3c|
+| caller-review-root-3/CREATION_GREEN_ROOT.py |3257|8fc7cb4a29da6f4e39597a4e7a7493837487aeb60bf276a95b4184e5fdb5fab8|
+| caller-review-root-3/creation-controls/CREATION_GREEN_ROOT.json |1365|f7217a6edaabc77f8df61d1ceacd27dccff81d45039c826390f4db79f512e305|
+
+Paths above are under .tools/renewal/t07-014-023-. V2 and all red evidence are
+preserved. The first red-script draft had a wrong-mode test neutralized by
+umask077; Root corrects that authored injection with explicit chmod before
+claiming the reproduced hold. No completed actual call is replayed. Grok's
+original remains live and independent; no correction basis is selected yet.

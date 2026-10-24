@@ -42,8 +42,11 @@ geometry execution is admitted and no goal-changing issue/user decision appears.
 Root's independent mesh comparator now passes350checks/10authored positives/
 170corruptions after two advisory faults reproduce and are fixed. Exact full
 expected model702 bytes are projected from the consumed reference, without replay.
-[Unbound caller now passes67Root authored controls](reviews/2026-10-24-direct-dependencies.md#unbound-geometry-caller-passes-root-controls-after-bounded-cleanup-correction);
-future source/stdout binding and actual admission remain absent. [All936summary
+[Unbound caller V3 passes the67Root controls plus four creation regressions](reviews/2026-10-24-direct-dependencies.md#unbound-caller-creation-authority-is-corrected-before-binding);
+Root reproduces provisional-namespace failure writes in V2, then separates
+unqualified creation checks from trusted ownership. Continuity starts at the
+first post-create observation; no stronger path-only creation guarantee is
+claimed. Future source/stdout binding and actual admission remain absent. [All936summary
 coverage rows pass Root's full metadata audit](reviews/2026-10-24-direct-dependencies.md#all936saved-summary-coverage-rows-pass-independent-root-audit):
 142structural candidates/794outside the current narrow harness; none thereby
 qualifies for actual execution. Broader versions/hierarchies remain later work.
