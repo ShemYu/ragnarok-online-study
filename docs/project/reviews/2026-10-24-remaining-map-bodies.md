@@ -1502,3 +1502,48 @@ all per-map projections/inverses, whole results, constructor bindings/exits,
 source/posthashes and genuine errors/anomalies. This checkpoint authorizes one
 call, not automatic retry or task readiness. Grok remains live and is writing
 its authored synthetic controls; both submissions/comparison still gate readiness.
+
+
+## Remaining21 actual compiled cores and complete Root audit pass
+
+Root performs the single bound call after fc26aac. The original observer
+reports natural0/no signals/no guard action in4.807445s;37RSSsamples peak at
+839155712B (about800MiB), maximum gap0.133606s, no registered process/group
+residue. Stdout284B/empty stderr are fully retained. Each map uses a fresh
+sequential worker and records its changed suffix handshake, genuine core result,
+fulfilled handler, exact constructor buffers, close, positive0exit and both
+stream ends within55000ms. All21maps are observed; no pending/failing row,
+run-deadline sidecar, error or numeric anomaly is reported.
+
+Root personally audits every output and selected input, not a sample. Private
+`.tools/renewal/t07-014-009-main-preparation-root-1/ROOT_CONFIRMATION.json`
+is26724124B/SHA2566bbc8a4a7158fb5bf8f3cfe37777eed1a7a0566b81635216744437fa6a896d77.
+It records223536structural/scalar/descriptor checks and132full file pins, not
+223536independent playtests. All64exclusive0700/0600artifacts,63manifest file
+descriptors, full source/current canonical identities,57staged sources and60
+postchecks match. The complete two-region suffix projection and inverse are
+independently reconstructed for every map; unchanged prefix and expected raw
+world names match. Every input/postcheck and constructor-buffer hash is joined.
+All17independent GAT cell descriptors, widths and heights match across21maps
+including the four aliases. No second game parser or dependency fetch is used.
+
+All252typed-array descriptors have complete finite element counts, valid full
+byte hashes/lengths and min/max scans; they describe333809408bytes of numeric
+arrays. Those literal array bytes are not retained. Total map artifacts before
+the manifest are10886500B. All placements and first-seen group occurrence lists,
+texture names/requests/remaps and water-request counts are preserved and joined:
+
+| Ledger | Per-map rows summed | Unique direct requests |
+|---|---:|---:|
+| Model placements |16577|—|
+| Model groups |1649|936|
+| Ground textures/remaps |365/365|222|
+| Water images |128|64|
+
+The1222unique direct model/texture/water requests are the next dependency closure;
+this result does not acquire them or their model-internal textures, compile
+models, render maps or prove ordinary travel/story/persistence. All82functional
+gaps stay open. The diagnostic RSW.compile-before-textures order still differs
+from production MapLoader. Grok's independent source/tests/comparison remain
+active and gate .009 readiness; corrected Claude's earlier usable output is not
+an overall provider winner. Do not repeat the successful actual calls.

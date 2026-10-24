@@ -10,46 +10,34 @@ open. Full Modern/Renewal scope is unchanged; no new user decision is required.
 The board includes later-phase party taskT11, so this is not a percentage of
 first-milestone content or remaining effort. Do not relabel it as such.
 
-**Current asset checkpoint:** [Normal delivery of all34terrain bodies passes
-the complete Root audit](reviews/2026-10-24-remaining-map-bodies.md#normal34delivery-and-complete-root-audit-pass).
-[T07.007.014.008](tasks/T07.007.014.008.md) is `ready_for_user` after this
-checkpoint:34exact200responses/97037820B, all34new loose files and all51full
-inputs verified. Root's complete audit passes2891checks/161full pins. The one
-bounded call exits0 in2.835863s; there is no repeat acquisition or GET run.
-Both independent source reviews are personally checked/preserved/released:
-Grok19/20, Claude18/20 for this source-review task only. The unchanged Root
-observer is retained; no provider implementation/runtime benchmark is claimed.
-Four game owners/listener/native/INI/archive identities and selected environment
-remain exact. Keep all extracted files and retained reference bodies.
+**Current map checkpoint:** [All21remaining compiled cores pass Root's complete audit](reviews/2026-10-24-remaining-map-bodies.md#remaining21-actual-compiled-cores-and-complete-root-audit-pass).
+One unchanged qualified host call exits0 in4.807445s, about800MiB sampled RSS,
+with21positive worker exits/no residue. Root checks all64artifacts and55body
+paths:252typed-array descriptors are finite, all17independent GAT references
+match, and16577placements/1649model groups/365ground textures/128water requests
+remain complete. The next asset work is the1222unique direct dependencies
+(936models/222textures/64water images), then model texture/compile and rendering
+closure. These dependencies are not yet acquired or qualified by this result.
 
-Next qualify the genuine compiled core for the21remaining maps using55retained
-bodies. [Root's complete input/binding audit now passes](reviews/2026-10-24-remaining-map-bodies.md#remaining21compiled-core-inputs-and-fixed-host-task-qualify)
-1545checks/74full pins, including the separate three-body pilot and unchanged
-compiled prefix/suffix. [T07.007.014.009](tasks/T07.007.014.009.md) freezes the
-finite Node-worker host for equal independent Claude/Grok implementations,
-then Root source/pure controls and one pilot before the21-map actual batch.
-No constructor is executed by preparation and no rendering/travel/82gap closes.
-Both implementations start from the [same verified frozen base](reviews/2026-10-24-remaining-map-bodies.md#equal-compiled-core-host-implementations-are-active).
-[Claude's original host fails two Root deadline controls](reviews/2026-10-24-remaining-map-bodies.md#submitted-claude-host-passes-its-suite-but-fails-two-root-deadline-controls).
-The [bounded correction now qualifies for one pilot](reviews/2026-10-24-remaining-map-bodies.md#corrected-claude-host-passes-root-controls-and-one-pilot-is-admitted):
-b2be17b, Root18authored/16common pass; independent Astra review concurs.
-Both Claude workers are preserved/released. The separately bound
-[single pilot has passed with complete browser-oracle equality](reviews/2026-10-24-remaining-map-bodies.md#real-pilot-matches-the-complete-browser-oracle).
-Root127checks/18full pins, clean natural0/owned closure. Next separately bind
-[the21-map batch](reviews/2026-10-24-remaining-map-bodies.md#remaining21-actual-batch-is-separately-bound)
-with this unchanged qualified host; both final provider
-submissions/comparison still gate task readiness.
-Grok task_1166063748f6/ctx_aa9287fa50a3 remains live/working; Root's provisional
-source guidance is queued. Both candidates/comparison still gate task readiness.
-[Root's independent terrain numeric reference is ready](reviews/2026-10-24-remaining-map-bodies.md#independent-remaining-terrain-numeric-reference-is-prepared):
-all17GATs/1653256raw cells, no unknown type or expected numeric anomaly.
-[Early host review reproduces a deadline hold](reviews/2026-10-24-remaining-map-bodies.md#provisional-host-deadline-gap-is-reproduced-before-execution).
-The provisional finding is now reproduced on its submitted revision. Both
-providers receive the same actual-time deadline advisory; enqueue alone does
-not prove it was read. Require corrected source/controls before real parser
-execution. This changes neither full scope nor acceptance.
-Ordinary playtest is separately blocked by the native-pipe startup failure;
-no game restart, network cut or alternative browser-control bypass is admitted.
+[T07.007.014.009](tasks/T07.007.014.009.md) remains `in_progress` for the paired
+source comparison. [Corrected Claude b2be17b qualifies](reviews/2026-10-24-remaining-map-bodies.md#corrected-claude-host-passes-root-controls-and-one-pilot-is-admitted):
+Root18authored/16common controls pass, Astra concurs, both Claude workers are
+preserved/released. The [real pilot matches the complete browser oracle](reviews/2026-10-24-remaining-map-bodies.md#real-pilot-matches-the-complete-browser-oracle)
+excluding only elapsed time. Grok task_1166063748f6/ctx_aa9287fa50a3 remains
+live and is writing synthetic controls; Root's provisional source guidance is
+queued. Review its final source/tests under the same contract before scoring.
+No provider winner or task readiness is inferred from early completion.
+
+[Normal delivery of all34terrain bodies is already complete](reviews/2026-10-24-remaining-map-bodies.md#normal34delivery-and-complete-root-audit-pass),
+T07.007.014.008 `ready_for_user`:34exact200responses/97037820B, all34new loose
+files and source/current-world preservation verified. Do not repeat acquisition,
+GETs or the successful pilot/batch. Keep the extracted files/reference bodies.
+
+Ordinary playtest is separately blocked by repeated `Sky Computer Use native
+pipe startup failed`, including the user's wake/retry. No apps/browsers are
+available through computer control. No game restart, network cut or browser-
+control bypass is admitted. The compiled run proves no rendering/travel/story/
+save or82gap closure. Full scope and acceptance remain unchanged.
 
 [Primary source defines the first story transition](reviews/2026-10-24-remaining-map-bodies.md#primary-donor-source-defines-the-first-chapter1-progression-edge)
 as donor behavior. Map/alias/route binding and guarded persistent integration
