@@ -1374,3 +1374,19 @@ All936fresh body files/complete joins remain qualified, no delivery replay.
 No goal-changing blocker is established; full Renewal/party-later/functionality-
 first/Traditional Chinese intent and running quiet game/internet are unchanged.
 Parent4/14/about29% and all82functional gaps stay open.
+
+
+## Two-issue constructor follow-up starts
+
+After checkpoint0841e44, Root confirms the existing released Claude checkout
+clean atcf03024 and creates ShemYu/t07-014-012-claude-repair-a2 from that exact
+commit. Fresh task_5255f5d3caac/Dispatchctx_3cf50da2a8ec/terminal
+term_d3aa6406-3a44-4bbb-94f7-a5eff60da5c3 starts ready/input accepted/turn observed,
+no setup/new child/residual resource. Provider defaults inherited, no model/
+effort override. Exact1903B specSHA256
+0a2d77bbaee0888e3b38a346aa45db5448fe3c514f24a8db5f4521aff3efed29,
+clean/HEAD/branch/start receipts are private t07-014-012-repair2-wave-root-1.
+Same four owned paths/fresh repair-2 private prefix, original ten fixed inputs
+and three own Root/advisory reports only. Two narrow ordering/accounting fixes;
+no actual source/body/runtime acquisition/evaluation, cap or goal change.
+Root continues independent caller/image-source preparation while it runs.
