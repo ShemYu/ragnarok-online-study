@@ -3069,3 +3069,62 @@ Private t07-014-017-pilot-caller-root-1/ receipts:
 Both PREPARE_ADMITTED/CALL_ADMITTED remain false; all seed/plan slots unbound.
 Next Root binds a fresh explicit seed and qualifies current preservation before
 one pilot. No actual .017GET, acceptance, goal change or user action yet.
+
+
+## Actual ten nested texture pilot and complete Root audit pass
+
+At source checkpointa570bd8, Root binds one fresh seed from the last qualified
+world identities and exact new observer/profile pins. Five preparation-slot
+edits fully invert to the36093B unbound caller; the initial private projection
+label said six and is corrected without changing source or observations.
+CALL remains false. One guarded preparation exits naturally0 in0.983123s,
+80429056B sampled peak RSS/no signals/residue. Root independently checks17673
+assertions, all4310leaf states/1345present full reads/2965absences and1357full
+file pins/49343975B: complete2155union,948binding targets,15retained pins,
+all four owners/six ENV/native/INI/archive identities/Engine/parents and seven
+observer-slot exact inverse pass. No texture GET occurs during preparation.
+
+Root then binds exactly eight caller slots to ONE10pilot, PREPARE false, same
+HEAD/seed/pinned plan. Actual observer returns10/10normal200/identity/EOF/
+length/full stored-hash responses,9775600B. Candidate elapsed0.230832s,
+final post-publication0.419791s; inner75s guard natural0/0.857833s with
+103579648B sampled peak RSS/no signals/codec child. The225s outer caller guard
+natural0/2.094668s/188416000B sampled owned RSS, no signals/residue; its recorded
+child is the nested Python observer, not an image codec. These are measured
+samples, not hard server/native/GPU containment or a933request fit guarantee.
+
+Root personally audits the complete retained result and current world:
+25541checks/0.332642s,1400full file pins/90493418B, all948complete typed
+query/record/map/relation/provenance values,23exact output leaves,10complete
+bodies/responses and all2155preserved paths pass. Fresh poststate checks1353
+present files/2957absences. All existing loose/override paths, owners/ENV/native/
+INI/five archive identities/Engine/source/parent checks hold. Actual outcomes:
+six matched_new, two shared_alias, two unchanged. Case518/603remain distinct
+wires and now have observed equal inode/body pins. Parentheses542/543remain
+distinct;703winner is still unproved. TGA0/837/839are delivery-only, including
+both largest4194348B bodies, never signature/decode PASS. No texture request is
+replayed; all15old reuse rows stay unselected.
+
+The first Root auditor over-restricted the explicitly pinned system Python to
+single-link. Its failed script/capture is retained; Root permits only that
+executable's exact expected C8 link count, retaining single-link assets/evidence.
+A later audit adds six full schema/provenance/source-binding assertions against
+the same captured trial; prior successful report/script remain preserved.
+No actual call or candidate source is changed/replayed to satisfy the auditor.
+
+Private t07-014-017-pilot-caller-root-1/ receipts:
+
+| File | Bytes | SHA256 |
+|---|---:|---|
+| PREPARE_1_CONFIRMATION_ROOT.json |606|e04f69d5a0487d48ab1b9e14b75a05ac3a4500c57c39bed98ce6826b86a7f16e|
+| actual-pilot-1/RESULT_ROOT.json |8702442|d325772246713654b57642959b57613db52e3c9b51dddcb1264a2cc7e41ba83b|
+| AUDIT_PILOT_ROOT.py |14321|3474c32a046f74a495d77f5fd023d629bb49ee87d67fa2cd4e4b517ca330c726|
+| PILOT_CONFIRMATION_ROOT.json |568184|9ead89637bb26a30de415452326e23cb422e6edb8237614fd42a88b1b2170372|
+| PILOT_ROOT_AUDIT.json |430|96afae52f77762c2617c8f38b00c6f6392b35b94631b5260ceabbec1c7d460db|
+
+The separate Root pilot-audit schema/result pin/global indices/consumed bytes
+qualify a future disjoint923remainder; they do not run or accept it. Retain all
+10successful actual deliveries and15reuse rows without replay. Next derive the
+finite remainder caller with exact1849normal output leaves and full2155world
+preservation, then fresh binding. All82functional gaps and parent4/14/about29%
+remain; no decode/render/story/save/full-content claim or user decision.
