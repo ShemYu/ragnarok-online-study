@@ -18,8 +18,10 @@ remains unverified. [.021both originals now pass Root comparison with holds](rev
 Claude18tests/114controls, Grok10tests/592controls, raw15/20versus11/20.
 Both preserved/released; [Root repair now integrates with22tests/113independent
 controls and a red-to-green directory regression](reviews/2026-10-24-direct-dependencies.md#root-retained-observer-correction-passes-and-integrates).
-Next prepare/admit ONE retained25decoder caller; no actual copied-decoder
-execution yet. [.021paired observer source wave](reviews/2026-10-24-direct-dependencies.md#independent-retained-decoder-observer-source-pair-starts)
+[Root159caller controls/30full input pins now pass; ONE actual25decoder call
+is admitted](reviews/2026-10-24-direct-dependencies.md#retained25decoder-caller-qualifies-and-one-actual-call-is-admitted).
+Next execute once, then compare every full output hash to the retained Python
+oracle; no actual copied-decoder execution yet. [.021paired observer source wave](reviews/2026-10-24-direct-dependencies.md#independent-retained-decoder-observer-source-pair-starts)
 and [Root completes its independent25file raw reference and397check audit](reviews/2026-10-24-direct-dependencies.md#actual25independent-reference-and-complete-retained-audit-pass). No body requests repeat.
 .017all948delivery and corrected .019conditional Worker facts remain qualified
 in their bounded scopes. Geometry/render and all82functional gaps remain open.

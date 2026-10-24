@@ -4127,3 +4127,59 @@ Root next prepares a current full-pin caller and ONE retained25decoder purpose
 under a15second external Node guard. Reuse the existing independent Python
 result, no GET/reference replay. Source qualification changes no overall parent
 progress; geometry/render and all82functional gaps remain open.
+
+
+## Retained25decoder caller qualifies and one actual call is admitted
+
+After source integration3e1c4be, Root prepares a finite one-purpose caller for
+all25retained TGA bodies. The explicit mode refuses before data IO/captures by
+default. It holds30regular single-link no-follow inputs: integrated observer,
+profile, independent reference, tiny fixture, inert Online source and25bodies.
+Full SHA/C8/ancestor/header/footer and complete reference query/wire/encoded
+joins are checked before child start and all authorities rechecked afterward.
+No body request, independent-reference replay, Worker/canvas/GPU or game action.
+
+Root/Astra review catches caller failure-path defects before actual execution.
+Root personally reproduces late publication leaving a passed file, failure
+writing into a replaced output directory, and a helper failure after its full
+write. Corrected publication uses a nonqualified pending name; retained inode
+authority dequalifies only its owned final alias after later failure. Final
+input/directory/deadline seals follow publication. Lost directory authority
+refuses failure writes and reports externally. Red/green receipts are preserved.
+The child drain now bounds each stream during collection; floods/timeout kill
+and wait for only the owned child. Selector setup failure occurs before launch.
+
+Final Root159controls pass,0.222598s, with30current full pins. Both2MiB stdout
+and stderr floods reject at the1MiB stream cap; a timed-out authored child is
+killed/waited; all four observed children have exited. A throwing selector starts
+no child. Three publication fault controls leave no qualified PASS. These use
+handwritten child-result stubs only, zero actual decoder calls. Earlier caller
+variants/failed qualification evidence remain private and superseded.
+
+**Admit exactly ONE call** of the fixed10327B caller SHA
+b516c4e7a3b95689af6f246657fd103d0cb709caf206d50e0763e643c67c4a73,
+mode `--execute-qualified-decode`. It creates the absent owned0700 prefix
+`.tools/renewal/t07-014-021-decode-root-1`, then invokes integrated observer
+SHA5641b085862c03fc61a3f7a6cef9d5ef7b11970d89491777c176dcc68cabc0f4
+with old125/semi1 flags, measured heap at most128MiB, per-evaluation500ms and
+command10000ms. A real15second outer child deadline and1MiB per-stream drain
+apply; the parent also checks25seconds. Failure consumes no permission to retry:
+retain all evidence and diagnose without replay. The fixed caller output prefix
+prevents an accidental second invocation.
+
+The independent25file Python oracle remains retained SHA
+faf3701bdc04151528ad52796f9089e1ea14cac8ed259e7f24bbe2365e827388.
+After the call, Root must read/audit every output row against that oracle and
+fresh full input/output authority before .021ready_for_user. Actual decoding,
+timing and RSS are unobserved at this admission checkpoint. Effective V8 heap
+is not an RSS/external-memory cap. Full game scope/progress remain unchanged.
+
+Private t07-014-021-preparation-root-1/ pins:
+
+| File | Bytes | SHA256 |
+|---|---:|---|
+| CALL_DECODE_ROOT.py |10327|b516c4e7a3b95689af6f246657fd103d0cb709caf206d50e0763e643c67c4a73|
+| QUALIFY_CALL_DECODE_V3_ROOT.py |5826|26dc1670335656cbb15c45ac9ff204b25533836f4b204d3e61a21f2df86202c0|
+| CALLER_QUALIFICATION_V3_ROOT.json |441|5863aa438e19ded0f9bcbb3f8db4c4bb3e421b723d9f6a648b6da66b31203b4b|
+| CALLER_PUBLICATION_FINAL_ROOT.json |580|15307c9464fcea7406fbb2a0e3bf65811e41107167da13f831027b54253880b3|
+| CALLER_PUBLICATION_HELPER_RED_ROOT.json |195|4b2335ebb4d6f6ebc2702144430b9c34a771930a53ee499708b01e57062ef84b|
