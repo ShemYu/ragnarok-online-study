@@ -83,6 +83,13 @@ build another decoder/server or reopen completed rendering. Continue useful
 full-content inventory while UI is unavailable. Normal field travel waits for
 current quest/inventory observation. No gameplay PASS follows from asset bytes.
 
+Root freezes [the full839 map/monster reference extension](tasks/T06.002.003.005.003.md):
+reuse the completed35,735-event publication and six existing map/history files,
+228,765,912bytes freshly hashed. Add explicit full mode to the existing pilot
+sidecar; preserve3074supported/310gap/731suffix outcomes and default pilot.
+Next launch equal Claude/Grok implementations from the common brief checkpoint.
+No producer rerun, new generic framework or game-state action is needed.
+
 ### Historical preparation — follow the next action above
 
 The following retains earlier decisions. Former next-action instructions
