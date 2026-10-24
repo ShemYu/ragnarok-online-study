@@ -1125,3 +1125,20 @@ before deliveryd53e6164885b ACK. Current fleet2active/277released/7retained,
 zero reclaimable. B4 header and FD formatter corrections remain independent
 live Grok work. Current map-step estimate stays75%; overall4/14/about29%
 major checks, with no full-content coverage claim or goal-changing blocker.
+
+
+## Fresh caller semantic hold precedes any data generation
+
+Independent review finds one mandatory correction, confirmed by Root's
+literal source reads: new for-old-in-priors overwrites the historical
+material dictionary; unchanged old['attempt'] then raises TypeError.
+Whole-source reconstruction passing does not establish audit semantics.
+No data generation or actor occurred. The caller remains unqualified.
+Fix only that loop variable and four accesses, preserving every other byte.
+
+Frozen two-copy source packet3208/
+1ae18707c2a635c9802b322c2b465c013516a6147249b9e8543193bf28935086;
+HOLD1253/966e4208c03fec29d95d0adf872dc5df1f267e9f87938099303c4849047814a4.
+The new separate Grok correction is ready after this checkpoint. Existing
+header/FD tasks continue. No goal change or user decision; estimate75%
+for current map step, overall4/14/about29% major checks unchanged.
