@@ -21,13 +21,13 @@ records it before further execution. This does not close the broader
 T07.007.011 map task or prove normal-game travel, animation timing, Chinese
 UI, story or earned-save behavior. Prior failed trials remain failed.
 
-**Next action:** [Fresh normal integration task T07.007.012.009](reviews/2026-10-24-normal-integration.md#one-file-copy-admission-and-next-action).
-The full-copy source, repaired normal pair and guard transport are qualified
-and independently reviewed. Root verifies1094 current source files/195
-directories/31 Chinese snapshot files with no drift. After this checkpoint,
-bind and run one file-copy into fresh ro4, then independently audit all1135
-inputs/1114 outputs. Configuration/engine/routes and ordinary play follow;
-no copy or app/game actor has run yet. Existing ro3 earned progress stays
+**Next action:** [Normal integration T07.007.012.009: full copy audit passes](reviews/2026-10-24-normal-integration.md#actual-complete-ro4-copy-and-independent-full-audit-pass).
+The fresh ro4 tree contains the repaired normal Online and unchanged worker.
+One copy and separate full audit pass all1135source files/1114destinations/
+212directories; Root's outer41checks/25pins also pass. Profile and engine
+folders are empty. After this checkpoint, bind four fresh configuration files,
+then separately qualify images/engine/routes before ordinary login/travel/
+save. No engine/app/browser/game actor has run; ro3 earned progress stays
 untouched. Continue [quest/logout work](reviews/2026-10-24-functional-priority.md#priority-and-stop-criteria)
 separately; do not replay failed B4 or consumed Mu scenes.
 
