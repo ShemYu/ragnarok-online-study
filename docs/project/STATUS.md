@@ -61,7 +61,9 @@ SQL or logout credit. A two-second asynchronous host-forwarder loop supports
 a readiness gap; the actual race is not proved. [Equal Claude/Grok source tasks start on isolated branches](reviews/2026-10-23-T10.007.md#equal-finite-readiness-source-tasks-start-on-isolated-branches)
 from0c06238. [Claude submits but Root proves two late-success counterexamples](reviews/2026-10-23-T10.007.md#claude-readiness-source-submits-and-root-proves-a-deadline-hold):
 its source remains unqualified; Orca retains its terminal as user_takeover.
-Grok continues independently. Root compares source and focused controls, with
+Grok continues independently. [A separate Claude deadline correction starts](reviews/2026-10-23-T10.007.md#separate-claude-deadline-correction-starts-and-original-evidence-is-mirrored)
+from9f33bfc, preserving the first submission and its user-owned terminal.
+Root compares source and focused controls, with
 bounded evidence and unchanged limits, before any further fresh actor.
 [Fresh B6 pure-data caller source also qualifies](reviews/2026-10-23-T10.007.md#fresh-b6-pure-data-source-qualifies-independently-of-the-readiness-authors)
 in parallel: seven metadata/denial edits, complete inverse, unchanged writer
