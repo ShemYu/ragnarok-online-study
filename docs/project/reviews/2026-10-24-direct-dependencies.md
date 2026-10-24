@@ -2360,3 +2360,63 @@ all68oracle input/123expected closes before any candidate call. The selected
 caller/audit remain unbound to the future oracle proof; their call is conditional,
 not admitted merely by the prepared flag-only source file. No game/Chrome/audio/
 IME/network or actual image/geometry/story/save change. .016pair stays independent.
+
+
+## Actual nested oracle and complete Root audit pass
+
+After clean branch/source checkpoint/doc-only descendant verification, ONE fixed
+oracle call returns natural0/7.963012s/43302912B sampled owned RSS. Unchanged guard
+valid, no action/signals/native/residual group members. No automatic replay.
+Root executes the fully qualified bound oracle audit:1679664checks/4.534875s
+pass across all408794physical rows,1694complete physical occurrence joins,
+all68full current input pins, complete typed profile/maps/relations/claims,
+all948query memberships/2750source links/3189slot-source uses and123input/ancestor
+closes plus publisher/readback closures. Positive receipt/summary/complete
+captures and absent selected output agree. No actual lookup output was read to
+generate oracle expectations.
+
+All948queries have at least one eligible full-path candidate; zero have only
+basename candidates and zero have no candidate. This is metadata availability,
+not archive winner, body/hash, codec, geometry, rendering or gameplay proof.
+
+| Private output | Bytes | SHA256 |
+|---|---:|---|
+| independent-oracle-actual-root-1/result.json |3815784|9e237b65440879a3b36260fa47138e9c0a0b1097c639c20fb55f89c56e25ee44|
+| oracle-audit-root-1/ROOT_CONFIRMATION.json |45511|7bc4dc4e0df677bfe595b3634b52a9900447dfa33de737dede875f8e0a555021|
+| actual-preparation-root-1/CANDIDATE_BINDING_ROOT.json |4395|64bed5c20d471dab3e8067e8a4a529f7b6ccd6484edc21ab4d6596b8873ba1cb|
+
+Root now binds only reviewed PREP/plan/qualified-oracle/audit-helper literals in
+the selected caller5330B/bd2f9a0ace645b628688343400e56cdf76361f69d47e39b1d760368d09033c95
+and complete typed-comparison audit9661B/1a60fafd733c18e61440b41c6be95e5cad511c5d3ae3d27d34efd768553baa1c.
+Full inverse to both597check-qualified drafts passes, all71initial C8 remain,
+selected output/guard paths absent. Same immutable81195B/8db81cb9... call plan;
+no cap, row domain, source parser or mechanism changes.
+
+After this documentation checkpoint, admit ONE selected948metadata lookup under
+the identical130s/1.5GiB sampled RSS/grace8/noNative guard. Then Root must compare
+the full typed semantic payload to this qualified oracle, all67recorded PRE/
+POST inputs and68fresh full current inputs/guard/captures/source pins. Failure
+stops without replay or success inferred from a result leaf. No ready_for_user
+actual metadata claim until that audit passes. Full4of14/about29%/82gaps unchanged.
+
+
+## Claude authored browser candidate is preserved and released
+
+Matched .016task_ae2c6dfee767/ctx_257db1df1970 settles succeeded with candidate
+9b3a119f8cf0e8bf01898f6cc84053a237232830, exact5ae4031parent/clean tracked status/
+four owned changed paths only. Root copies all four source/report files and the
+complete own private candidate prefix:65files/526221B with every copied hash
+verified. Archive ref refs/ro-task-archive/T07.007.014.016/claude-a1 retains the
+commit; verified36995B rollback bundle SHA256
+0e539f9b94d95cf4ccf18a90fc29fe9536f3d0f1e142c754eb047a00cdb7c1b9.
+Private claude-packet-root-1/PRESERVATION_ROOT.json is14653B/SHA256
+e332dae5a450c47da4a303a6102664caefcd6b47541794b5a0f03a2321fb48d4.
+
+Worker reports13authored Node tests and a built fixture, with no browser/native
+decode/GL claim. Root reads the complete report; full source/tests/candidate
+comparison remain before selection. Astra independently reviews the difficult
+driver observation/GL/cleanup path as source advisory, never replacing Root.
+The settled terminal is released/transcript captured and delivery2dae15027c32
+acknowledged. Current314released/ten retained/one live Grok implementation, no
+new child/setup. Original frozen inputs/paired scorecard remain; no installed
+game/Chrome/profile/audio/IME/internet change or actual fixture execution yet.

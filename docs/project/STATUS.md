@@ -16,7 +16,7 @@ Current84direct children include the two released review children and the two
 refs, two verified rollback bundles and private evidence survive; the running
 character/quiet audio remain. Three examined children stay held for incomplete
 private preservation; user-retained children remain excluded.
-Latest settled fleet:313released/ten retained/zero reclaimable.
+Latest settled fleet:314released/ten retained/zero reclaimable.
 Two .012implementation attempts reuse existing released checkouts; no new
 child folders or setup hooks. Both .012candidates are preserved/released after
 matched settlements. [Root full review and eight behavioral groups per original are complete](reviews/2026-10-24-direct-dependencies.md#both-constructor-originals-are-personally-checked-and-held).
@@ -61,13 +61,15 @@ Its private prototype retains actual admission false. [Claude .015review is
 preserved/released and Root reproduces47source/96control checks](reviews/2026-10-24-direct-dependencies.md#claude-nested-review-is-preserved-and-root-reproduces-the-controls).
 Both .015reviews now pass Root reproduction/compare19/20each and are preserved/
 released; [source qualifies unchanged](reviews/2026-10-24-direct-dependencies.md#both-nested-source-reviews-are-personally-verified-and-qualify).
-Two independent .016implementation workers remain live in reused separate
-branches/checkouts at5ae4031. Root's independent
+Claude .016candidate9b3a119 is preserved/released; Grok implementation remains
+live in its reused separate branch/checkout at5ae4031. Root's independent
 oracle source/current65metadata file checks pass; [finite multi-map audit projection
 passes Root's positive/eight negative controls](reviews/2026-10-24-direct-dependencies.md#finite-launch-audit-derivatives-and-multi-map-controls-qualify).
 [Concrete bindings for ONE independent oracle are verified/admitted](reviews/2026-10-24-direct-dependencies.md#one-actual-nested-oracle-is-admitted).
-Run it after this documentation checkpoint, then fully audit it before the
-selected actual catalog lookup. No actual scan or new runtime claim yet.
+[ONE oracle and full1679664check physical-row audit now pass](reviews/2026-10-24-direct-dependencies.md#actual-nested-oracle-and-complete-root-audit-pass):
+all948have full-path file candidates, zero basename-only/empty cases. Metadata
+only. Selected caller/audit are concretely bound; ONE same-cap selected lookup
+is admitted after this checkpoint, then complete typed equality remains.
 Private-only proposal ownership
 in this checkout. Root owns tracked docs; authors may not mutate Git/source or
 open images/runtime/browser/game. Trace of286delivered image consumers does not
