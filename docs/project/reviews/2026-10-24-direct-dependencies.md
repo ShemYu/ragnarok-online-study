@@ -3530,3 +3530,65 @@ Private t07-014-019-root-review-1/ receipts:
 |---|---:|---|
 | CLAUDE_ROOT.py |6494|3a439c131238a524246198db7215726b56550f21ac27bb493baf01071c30d8f1|
 | CLAUDE_ROOT.json |3127|f118327795da96ed4594e83d026c03b2f3340653cfe71b8fec39aa1f689f35f7|
+
+
+## Claude authored decoder original is preserved and passes positives with Root holds
+
+Matched .020task_2bd54d5595c4/ctx_16bfe24d5ccb settles clean at
+69a2b29779e33b159ae90a7ba6e0d3cf76ad011b, direct38fcb2dparent, three owned
+runner/test/report paths. Root preserves20files/162008B and every copied full
+hash, refs/ro-task-archive/T07.007.014.020/claude-a1 and verified19346B bundle
+94bc9d39290d7001620c96797ae8c98876dd6eaa254271313f84c6bb1bb10eeb.
+Release/transcript capture precedes ACKdeliveryb9741245ec79. No idle terminal
+kept for verification. Fleet323released/ten retained/two active Grok originals
+(.019source/.020implementation), zero reclaimable;84children unchanged.
+
+Root reads the full23490B runner,15429B tests and report. Exact three-path
+addition is copied into a separate Root review mirror with the unchanged frozen
+corpus. Source c0d15501172ff42d14df1438c808ed4492fa0ed0d26f33839c322f97a8fe6969,
+tests a29f8a5d97b8414785c10ea759d0c9a397c21fbb5de02b56ec779c0cbb53352e.
+Root reruns11author tests/zero skips, all pass in0.621750s outer elapsed/
+545.7595ms reported suite. All source/fixture/runner/test full hashes/C8 pins
+stay equal. Root separately checks515independent assertions: all32closed IDs/
+categories/outcomes, every full handwritten RGBA byte/error, three complete
+copied source texts and116evaluations pass. Three host-refusal cases execute
+zero source through the normal whole-fixture path. No real TGA/Worker/canvas/GL.
+
+Astra identifies concrete guard/preservation/resource issues; Root personally
+reads the exact source and reproduces safe authored counterexamples:
+
+- Exported runCaseInRealm never calls admitCase. Direct width9F02with an
+  **authored recording stub**, never acquired Targa, returns pixels/4evaluations
+  instead of host refusal/zero. Its perVmMs override accepts150ms; an authored
+  loop stub times out after152.962584ms, exceeding the stated100ms ceiling.
+- readPinned does stat/open/read/close without FD/literal C8 preservation.
+  Root changes one byte of an owned source copy after it is read. Complete
+  main() still returns ok/32PASS and identical memory PRE/POST hashes, while
+  the live owned pathname's SHA differs. Executed retained bytes remain the
+  exact qualified source; original input is untouched. Restore only that owned
+  copy afterward. Sticky filesystem preservation is missing.
+- The CLI heap gate checks literal flag membership. Installed Node v24.20.0
+  --max-old-space-size=128 reports335544320B effective V8 heap (320MiB), not
+  the brief's128MiB. Root confirms125MiB old/1MiB semi-space yields exactly
+ 134217728B effective heap and runs all verification there. Deliberate duplicate
+  old-space flags demonstrate membership is not the effective budget; final
+  effective Root cap stays128MiB. Neither value is a process RSS/external-memory
+  cap. Worker disclosed the320MiB limitation; it still needs a guard correction.
+- The10s clock starts inside runFixture and excludes CLI reads/publication.
+  It cannot be called a complete-command bound. Source correction/clock control
+  must carry final deadline authority through the intended work/publication.
+
+No raw source is integrated or accepted. Positive decoded pixels qualify only
+these tiny authored cases. Await Grok's independent original for equal controls/
+selection, then dispatch any finite correction separately; do not silently
+relax the frozen bounds or overwrite raw scores. No critical goal-changing
+blocker, real-body replay, browser/game/save/audio/internet action.
+
+Private t07-014-020-claude-review-root-1/ receipts:
+
+| File | Bytes | SHA256 |
+|---|---:|---|
+| AUTHOR_TESTS_ROOT.json |6021|8bee63685f4573431f9814da296da1720ee0b0dbb78040ce06e98725dfccdc92|
+| ROOT_CONTROLS.mjs |5630|40a2fbbc072ea776df55cbad731c07fe64983cf72fb8f298ee59d77958115b58|
+| ROOT_CONTROLS.json |1124|840fc8a03a35cb26da04bbfd100a8d04d88e2b3037b57a9f97d7b4c9d0494120|
+| ROOT_MATRIX.json |51234|ca74f92cbb9b7e6afcc2bd26adec6c265398fe8b25735b56e403f8006b620824|
