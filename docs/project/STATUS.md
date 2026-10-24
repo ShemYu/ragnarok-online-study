@@ -34,8 +34,12 @@ f8eb477 is now completely preserved/released after matched settlement; its33
 author tests pass Root's full-source/test/report review and personal rerun.
 [Root's40independent checks reproduce11hold rows](reviews/2026-10-24-direct-dependencies.md#claude-geometry-original-passes-root-meshes-but-independent-faults-hold-it)
 in nine groups, including a creation-namespace returned-PASS fault. The original
-is held before actual use. [Grok23f0316 is completely preserved and released](reviews/2026-10-24-direct-dependencies.md#grok-geometry-original-is-completely-preserved-and-released). Root next personally reviews its
-full settled original and compares both before choosing a correction basis. Browser/render,
+is held before actual use. [Grok23f0316 is completely preserved and released](reviews/2026-10-24-direct-dependencies.md#grok-geometry-original-is-completely-preserved-and-released).
+[Root completes both full reviews and chooses Claude only as a repair basis](reviews/2026-10-24-direct-dependencies.md#both-geometry-originals-pass-root-fixtures-but-remain-held).
+Grok17tests/49Root checks and26equal paired control rows pass their stated
+observations; multiple holds reproduce. Raw Claude13/20 versus Grok10/20;
+both held. [Finite correction brief](tasks/T07.007.014.023.001.md) freezes the
+required repairs. Browser/render,
 normal game/story/full content and all82functional gaps remain open. No acquired
 geometry execution is admitted and no goal-changing issue/user decision appears.
 Root's independent mesh comparator now passes350checks/10authored positives/

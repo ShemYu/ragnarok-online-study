@@ -5061,3 +5061,93 @@ Private t07-014-023-grok-packet-root-1/ contains the complete repository packet:
 | PRESERVATION_ROOT.json |214123|066451f54a8577d633002d74d4928f0e61fdd8b75cefb76d1e50b880e35723ee|
 | RELEASE_SHOW_ROOT.json |7546|bfdaedc0922529f6047cd7c5c300b3180908978d5f86b199577d4a207dd1dc0c|
 | submission.bundle |35946|a427c153e7af8edfe5345e1adeac862d9f468adf1e033b1595a9a759fe00285d|
+
+## Both geometry originals pass Root fixtures but remain held
+
+Root personally reads all72486B of Grok source,37673B tests and13738B report,
+then reruns the unchanged author command:17/17/zero skips, natural0/no stderr,
+0.446499s outer time and383.603ms test-reported. Its96MiB-old-space/1MiB-semi
+flags differ from Claude's rerun; different suites and flags preclude treating
+these times as a provider speed comparison. An initial Root wrapper assumes
+TAP output and asserts before retaining stdout; that unretained result is not
+counted. The fresh authored-only rerun saves both streams before assessment.
+
+Root's49independent Grok checks reproduce all26fixture outcomes with a real
+post-call realm counter, plus19hold rows. Full10mesh bytes/keys/order/hashes/
+textures match;16negative bodies refuse before VM creation. Grok's author
+withoutVm helper snapshots created before invoking fn; its throwing direct
+cases bypass the later count assertion. Root's independent counter verifies
+these actual negative outcomes despite that weak author evidence.
+
+Root also executes26equal supplemental rows,13per original, against exactly
+the same authored inputs/faults. They cover the newly found differences and
+two shared primary/close diagnostic faults:
+
+| Control | Claude original | Grok original |
+|---|---|---|
+| Lost creation identity / failure namespace | Returned PASS / foreign failure write reproduce | Same two faults reproduce |
+| Occupied unqualified sentinel / directory | Overwrite / retained PASS alias | Same two defects |
+| Sparse triples / Float32 zero-column scale | Reaches realm | Reaches realm |
+| Wrong constructed primary group | Unobserved | Unobserved |
+| Wrong constructed face count | Reaches compile | Refuses before compile |
+| Primary VM timeout + body close EIO | Primary timeout lost | Both diagnostics retained |
+| Returned mesh + later body close EIO | Full mesh/body evidence retained | Returned evidence omitted |
+| Plain object with spoofed Float32 properties | Intrinsic brand refuses | Plain object accepted |
+| Corruption between host pre-copy hash and copy | Reported hash joins observed realm buffer | Reported hash remains old host hash |
+| Global numeric bucket order versus reversed local list | Valid body compiles with0/1numeric order | Valid body falsely refuses mesh_shape |
+| Two declared texture lists of5+4distinct names | Per-list domain permits union9 | Wrong union cap refuses |
+| Tightened24B face cap with28Brecord | Refuses | Cap bypassed |
+| Negative-zero object on rotation lanes1/2 | Pre-VM refusal | Reaches definitions |
+| Result cap1B | Pre-VM refusal | Reaches definitions |
+| Deadline crossed during bridge decoding | Helper refuses after validation | Helper returns past deadline; outer caller still separately checks |
+| Output primary deadline + output close EIO | Primary overwritten | Primary overwritten |
+| Held-read primary + close EIO | Primary overwritten | Close diagnostic discarded |
+| Wrong bytes at declared fixture path | PASS: fixture is never read | Full held read refuses |
+
+The first two rows are ownership/evidence faults on authored data, not wrong
+real geometry. Most direct-helper gaps are excluded by the exact dense actual
+profile, but violate the bounded interface and must be corrected. The fixture
+omission is a newly reproduced Claude hold; add the held fixture read rather
+than relying solely on the future outer caller. No real-body/client call is
+admitted. Both originals remain unchanged/preserved/released.
+
+The evidence controls' first draft uses an invalid authored body basename and
+correctly refuses; Root fixes only that fixture plumbing. Its second draft
+overcaptures the bootstrap return as the input-buffer spy; Root tightens the
+allocation match and asserts intrinsic view/byte extent. Only the third saved
+evidence packet supplies the copy-hash observation above. Earlier drafts remain
+private and are not promoted as accepted evidence. All12full candidate/input
+SHA/C8 authorities recheck after the final controls.
+
+Raw20point assessment, with explicit judgments:
+
+| Category | Claude | Grok | Basis |
+|---|---:|---:|---|
+| Correctness8 |6|5|Both exact corpora pass; both structure/admission gaps remain; Claude additionally preserves intrinsic brand and observed copy join |
+| Preservation4 |0|1|Both creation/failure/retirement paths fail; Grok reads all declared inputs, Claude omits fixture |
+| Checks4 |3|2|Both own suites pass; Claude's counter evidence is stronger; both miss material combined faults |
+| Handoff2 |2|1|Both reproducible/pinned; Grok overstates counter, copy and combined-fault evidence |
+| Limits2 |2|1|Both measured heap/VM limits; Claude also checks result estimate and post-validation deadline |
+| Total |13/20|10/20|Neither qualifies; score selects a repair basis only |
+
+Both authors disclose an unlisted public donor-test read. The equal frozen
+brief/common base remain, but this is not a strictly clean equal-input trial;
+neither actual model nor cost/token usage is inferred. No rework gets raw
+original credit. Choose Claude's better geometry/bridge/preflight as the basis
+for [a separate finite correction](../tasks/T07.007.014.023.001.md), incorporating
+the concrete lifecycle/fixture/structure/transform fixes. Root repeats full
+diff/tests and independent controls before integration or actual admission.
+Full Renewal goal/82functional gaps stay unchanged; no new user decision.
+
+Private t07-014-023-grok-review-root-1/:
+
+| File | Bytes | SHA256 |
+|---|---:|---|
+| AUTHOR_TESTS_ROOT.json |4984|133ea1b94b053c10c7870e2c75d3ca9956eb4ab771f5306968656eb3fcb75504|
+| ROOT_CONTROLS.mjs |15819|34ad3d6e207a2195226dbe86ab3f35bacb3bcf8103173d6135640feeb523f49f|
+| direct-controls-1/ROOT_CONTROLS_ROOT.json |5345|f76d919063d74ba1a1efcfc38eee4dbe251fb952d5733bda4d5835e8ffa46757|
+| PAIR_SUPPLEMENT_ROOT.mjs |6346|10bbc6901a5614f9cc0101d05af1fa0b17d126025996c8f9c79221e2a1b63046|
+| pair-supplement-1/PAIR_SUPPLEMENT_ROOT.json |2593|df329d237c77fe30beb3741ad4641409675590ae9fa79af2dd36bdf1264ae872|
+| PAIR_EVIDENCE_ROOT.mjs |6491|97c9a8896300ef12c5da035fa8f652db99dea5bd9bbce75f3bf069dfc4b2dce7|
+| pair-evidence-3/PAIR_EVIDENCE_ROOT.json |1494|366871aa1b3ecbce44e77b52d891a15d015f08da9a3560495d2ccf3e2401f0be|
+| ROOT_CONTROL_AUTHORITY_ROOT.json |6018|dac4ee2abcdda04e27ca5cb3849d645d72c80c7d520c9a507f757dcf63cc1351|
