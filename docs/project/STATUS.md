@@ -62,6 +62,9 @@ a readiness gap; the actual race is not proved. [Both actual Claude/Grok source 
 from0c06238, preparing one finite12s/48observation wait for the same strict
 listener predicate. Root next compares source and focused controls, with
 bounded evidence and unchanged limits, before any further fresh actor.
+[Fresh B6 pure-data caller source also qualifies](reviews/2026-10-23-T10.007.md#fresh-b6-pure-data-source-qualifies-independently-of-the-readiness-authors)
+in parallel: seven metadata/denial edits, complete inverse, unchanged writer
+and caps. Its one pure-data call may proceed independently; no actor authority.
 Reuse the fixed F1/B4
 sequence on a fresh disposable fixture; keep the current ro4 character intact.
 Baseline materialization and corrected runtime-source projection remain
