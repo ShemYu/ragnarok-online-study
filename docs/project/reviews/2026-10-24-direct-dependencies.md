@@ -2678,3 +2678,66 @@ This advisory does not substitute for the equal implementation comparison or
 Root source/behavioral verification. No actual body request/browser/game call
 is admitted. Current three independent workers are live;315settled released/
 ten older retained, no unused settled terminal kept for review.
+
+
+## First fixture correction is preserved but combined faults hold it
+
+Matched task_6e34135c3abd/ctx_fbb5361b97ba settles succeeded with
+0c7eed86852d847bc4e94b53aa1f98161e1c0f2e, exact9b3a119parent/clean branch/four
+owned files. Root preserves all144files/1188555B (four source/report plus
+complete140file own private prefix), every copied hash. Archive ref
+refs/ro-task-archive/T07.007.014.016/claude-correction-a1 plus verified20219B
+bundle/SHA b02cbab18bc66966364b941be14c27afd21b993e2c78ccbba9ef11dd0328a5f5
+retain rollback. Private claude-correction-packet-root-1/PRESERVATION_ROOT.json
+is31793B/6211ee860f5aabadd8150a744411ad22396d3b2b546bd5a07feb5bf7246c2798.
+Settled terminal is released/transcript captured before ACKdelivery6f8dc3972940;
+fleet316released/ten older retained/two .017implementations live.
+
+Root reads the full correction report, complete driver and all changed tests/
+builder. Only acquired scaffold accessor groundContext and driver pin change
+in the builder; all eight production slices remain exact. Root reruns20tests/
+zero skips/empty stderr in0.873931s, then independently builds a fresh fixture
+and checks every contiguous assembled span/source/input hash. Production
+42333B/ce75a7d734a082ebe1e4795bcc8fe8ee30958f79d9cfe71e3713b45899372775;
+manifest11047B/b8e4bccde2772dd218d4990a880f08c8d638ed08769fd97c80d936199ebaeb64.
+Original gate mismatch, untouched blank-read acceptance, forwarded-exception
+acceptance and setup-rejection ownership now pass Root's independent controls.
+Ground258/256observer/call evidence also passes author runner controls/source
+review alongside independent pixels; no actual browser proof.
+
+Four further Root-authored fault groups reproduce and hold this correction:
+
+- Intentional C6b GL negative control still PASSes with an unexpected readPixels,
+  FBO status or FBO deletion exception. These are retained as gpu_failures but
+  ignored by stickyFailures; upload_not_verified is already expected. Required
+  FBO-release failure cannot be hidden by an expected consumer GL error.
+- owned.textures() throws outside per-step protection and skips subsequent
+  context/observer/timer/realm release; outer catch only records the abort.
+- First clearTimeout throw skips the second timer while bookkeeping is already
+  cleared; realm removal continues but timer release reporting is incomplete.
+- createRealm.finish sets settled before clearing its timer; a throw prevents
+  promise resolution/rejection and subsequent finish calls refuse. Root's
+  authored synchronous DOM/timer case remains pending under an external15ms
+  observation. This is not a measured real-browser timeout.
+
+Astra independently source-identifies the same paths. Root personally executes
+all four fault groups with independently authored GL/record/ownership/DOM doubles;
+the C6b case uses exact runner storage/judge seams, not an actual browser run.
+No acquired definition/native image/GPU/game is executed. The private one-export
+source projection fully inverts to the unchanged49704B/b12a1068... driver.
+Worker reports C8cWorker path has no runner-double test; source shows no ordinary
+path defect, but its four finite lifecycle controls belong in the follow-up.
+
+Private claude-correction-root-review-1/ receipts:
+
+| File | Bytes | SHA256 |
+|---|---:|---|
+| AUTHOR_TESTS_ROOT.json |3431|4ee894a5feec75682690e7511df7f038fb12aac210b6b55dec62154652127ef5|
+| ROOT_CONTROLS.mjs |11289|17655bbb869e96514eed34c7fd572f3ffdef82c47f370349398d7b2125cf99cd|
+| ROOT_CONTROLS.json |3412|e51e748376d496402fa1eaf4c29f07c5749f5e0062293b725f6d520c3434ea43|
+
+Freeze a [narrow combined-fault follow-up](../tasks/T07.007.014.016.001.001.md)
+from0c7eed8; same four files/inputs and unchanged production slices. First
+correction remains held, not selected/integrated/ready. Rework score follows
+qualification, separate from raw originals12/20vs10/20. .017pair continues
+independently. No critical goal-changing issue or user action.

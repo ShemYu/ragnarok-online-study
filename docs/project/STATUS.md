@@ -16,7 +16,7 @@ Current84direct children include the two released review children and the two
 refs, two verified rollback bundles and private evidence survive; the running
 character/quiet audio remain. Three examined children stay held for incomplete
 private preservation; user-retained children remain excluded.
-Latest settled fleet:315released/ten retained/zero reclaimable.
+Latest settled fleet:316released/ten retained/zero reclaimable.
 Two .012implementation attempts reuse existing released checkouts; no new
 child folders or setup hooks. Both .012candidates are preserved/released after
 matched settlements. [Root full review and eight behavioral groups per original are complete](reviews/2026-10-24-direct-dependencies.md#both-constructor-originals-are-personally-checked-and-held).
@@ -64,13 +64,11 @@ released; [source qualifies unchanged](reviews/2026-10-24-direct-dependencies.md
 Both .016originals are preserved/released: Claude9b3a119 and Grok345d328.
 [Root reruns all13Claude tests/fresh build and reproduces four fault groups](reviews/2026-10-24-direct-dependencies.md#claude-fixture-tests-pass-but-root-controls-hold-execution);
 original is held. A [finite five-issue correction](tasks/T07.007.014.016.001.md)
-is now live separately as task_6e34135c3abd/ctx_fbb5361b97ba in the reused
-Claude checkout on its own correction branch; no setup/new child. The fresh
-terminal term_3db82762-fd56-40ba-af82-3c091cfb4a8a has observed turn start;
-configured model/effort remain unknown (receipt fields null). Grok full Root
-[complete source/test review now passes12author tests but seven Root fault groups hold the original](reviews/2026-10-24-direct-dependencies.md#both-fixture-originals-are-personally-checked-and-held).
-Raw comparison Claude12/20/Grok10/20, neither execution-qualified. Claude is the
-finite correction basis; separate rework remains unqualified. Root's independent
+[is preserved/released at0c7eed8; Root20tests/zero skips/fresh complete spans pass](reviews/2026-10-24-direct-dependencies.md#first-fixture-correction-is-preserved-but-combined-faults-hold-it).
+Four additional combined-fault controls hold it. A [narrow follow-up](tasks/T07.007.014.016.001.001.md)
+is frozen from that correction, same source/input boundaries. Both originals
+are personally checked/held12/20vs10/20; no fixture source is integrated or
+browser-admitted. The two .017implementations remain independent. Root's independent
 oracle source/current65metadata file checks pass; [finite multi-map audit projection
 passes Root's positive/eight negative controls](reviews/2026-10-24-direct-dependencies.md#finite-launch-audit-derivatives-and-multi-map-controls-qualify).
 [Concrete bindings for ONE independent oracle are verified/admitted](reviews/2026-10-24-direct-dependencies.md#one-actual-nested-oracle-is-admitted).
