@@ -37,16 +37,15 @@ A qualified finite FD source packet is ready for Grok after checkpoint.
 all111 body joins/1285 placements load; one animated model has864NaNs
 only in its first retained frame. Complete Root776checks/771pins/all252
 Engine wires pass failure/preservation audit; the scene remains failed.
-Four actual Grok source tasks run independently: finite FD repair,
-combined B4 observations, finite sampler repair and fresh-fixture caller. [Actual keyframes prove the sampler divide-by-zero](reviews/2026-10-24-T07-mu-data-stage.md#actual-model-keyframes-prove-the-leading-endpoint-cause).
-The third finite Grok sampler-repair task is now active. Root reproduces
-four leading-boundary counterexamples;18 other sampler boundaries pass.
-Astra supports this numeric compatibility repair; version-aware animation
-timing remains open. The fresh-fixture caller source task is now active independently. No new generator or scene is admitted.
-Current map-step estimate70%; overall4/14/about29% checks unchanged.
+The finite sampler patch now qualifies and passes all22 focused Root tests.
+A fresh-fixture caller Grok task remains active. B4 header classification
+and FD diagnostic retention need narrow source corrections; both packets
+are ready for parallel Grok after checkpoint. All settled authors released.
+Current map-render verification estimate75%; overall4/14/about29% checks.
 
 **Current blocker:** the animated first-frame numeric-data failure is
-proved at leading-key interpolation; its repair and fresh retest remain. All six startup bodies now match independent archive decodes
+proved at leading-key interpolation; its source repair passes, fresh scene
+integration/retest remain. All six startup bodies now match independent archive decodes
 and the 111-body allowlist qualifies. Corrected UI captures map evidence
 before fatal assertions for the next fresh scene. The prior scene remains
 failed; Root's full 825-check failure/preservation audit passes. Missing

@@ -689,3 +689,29 @@ taskbcd8a3a3d3b3/ctx9551df1232d5. Start2307/
 7dfff2422db5b08c7a37e2405776f919cc14d1ff3221e789551ca0571aee4758.
 Only finite source output is authorized. Original published data and
 failed root1 guard remain unchanged; no new publication is run.
+
+## Live FD census structure passes but diagnostic evidence retention holds
+
+Actual FD taskbcd8a3a3d3b3/ctx9551df1232d5 settles. Root verifies all14
+opened SHA/C8 inputs, ten closed outputs and all eight whole forward/
+inverse regions. Candidate27986/
+a1f290fba43865d9c57c5420e275fa60e56e522776e98e29daf044a960e009b0
+keeps False/None headers and unused root2 namespace. Structure13412/
+80347fe5e30d31552b561318f4821a540a1cea9eb7082cf0607b64f576909407.
+
+Independent review agrees the live census/EBADF-only exclusion/new256
+live cap/independent postchecks/sole qualified route/frozen910 success
+stdout are sound. One diagnostic-contract blocker remains: fail() drops
+known complete fingerprint hashes, then counts, to fit raw errors within
+1024B. Preserve every known FD count/full hash; bound raw error detail
+first and retain complete error count/hash plus explicit truncation when
+necessary. Dropping bounded delta rows is permitted, dropping known FD
+fingerprints/counts is not. The current source still fails safely; no
+publication or game actor is run, and the old failed run is not changed.
+
+Three-copy finite formatter correction packet is ready:
+4293/09367b1765f40b9c3757128afe0b50c79ab533d0eba233dc4c8333d7346cff60;
+brief2022/e6357867eb26038f7b043cee2c08102e006e64d6d141ac7eff4d1ced6bf1adc1.
+Change only fail() formatting, preserve every other source byte and all
+admission/census/route/caps. Author releases/archive before delivery4edb6d
+ACK; release455/f044e0e19ff6bb68d4028392a0f0bdb3211382869803a5587db02600d18e6130.

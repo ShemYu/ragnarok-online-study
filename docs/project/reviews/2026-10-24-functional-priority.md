@@ -1792,3 +1792,14 @@ as loader compatibility; version-aware timing stays separately open.
 [The next fresh fixture caller packet](2026-10-24-T07-mu-data-stage.md#next-fresh-mu-fixture-caller-source-packet-is-ready)
 is ready for independent Grok work, so fresh identity preparation can
 overlap the numeric and B4 source repairs. No generator or scene is started.
+
+## Numeric source repair verifies while two diagnostic corrections queue
+
+[The exact three-guard patch passes all22 Root sampler boundaries](2026-10-24-T07-mu-data-stage.md#three-guard-source-qualifies-and-all22-focused-boundaries-pass).
+Map-step estimate75 percent; positive fresh rendering remains unverified.
+[B4 composition roundtrips, held for malformed-header classification](2026-10-23-T10.007.md#combined-b4-source-roundtrips-but-header-classifier-needs-one-correction).
+[FD census structure verifies, held for known diagnostic count/hash retention](2026-10-24-T06-full-spawn-output-budget.md#live-fd-census-structure-passes-but-diagnostic-evidence-retention-holds).
+Both finite correction packets are ready for parallel Grok after checkpoint.
+Fresh Mu caller source continues independently; all settled source authors
+are released/archive beforeACK. No actor or old namespace is replayed,
+no known failure is waived and no goal change is required.

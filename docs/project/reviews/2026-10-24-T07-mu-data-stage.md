@@ -1548,3 +1548,31 @@ It owns only the inert fresh caller source. No generation or runtime
 authority is granted. Current fleet4active/274released/6retained,
 zero settled/reclaimable terminals. Root remains next verifier for all
 four source tasks; public main checks stay4/14 and map-step estimate70%.
+
+## Three-guard source qualifies and all22 focused boundaries pass
+
+Grok source task485e6a1a8bc0/ctxe3928eb51466 settles. Root checks all
+eight opened SHA/C8 inputs, nine closed outputs and reconstructs every
+byte of the13MiB forward/inverse independently. Candidate13174959/
+458365b00964f3f2f5a80026437e6007a5af38cfbdcedd4e873646dfa8ad618a
+is exactly276 added bytes in three finite sampler insertion regions.
+No other bundle, worker, matrix, asset, gate or clock byte changes.
+Root source qualification10009/
+270402d86db3e2b5952d2ceba836dca3bafbf4fb4968de752096cc06a7bca1ba.
+
+Root's unchanged pre-frozen22-case selected-sampler probe now passes all22
+under one originalG30/512MiB/grace3/no-native call, natural0/no signals/
+valid guard/empty owned group. The four prior leading failures are fixed;
+18 previously passing null/empty/single/equal/interior/suffix cases stay
+passed. Full confirmation5555/
+da1e151fdfe4e675b426de53e86b43ef74b9879d04af5cd7e9826c1e9b6a7f1f.
+A Root wrapper whitespace typo refused during Python parsing before any
+call; the corrected sole probe call produces this result.
+
+Author releases/archive before deliverya4b0839d393f ACK; release409/
+c74c899d3d817fd5e95b1cfb6ba13fd7accd2084af5243b2c0e78f7e411f8ec0.
+The patch can next be copied into a new isolated four-file Web stage after
+this checkpoint; preserve the existing stage/client/guard/world. Fresh
+fixture/canonical runtime bindings and one fresh scene remain later
+admissions. Focused tests do not prove a render or full animation timing.
+Current map-render verification estimate75 percent, parent4/14 unchanged.
