@@ -81,8 +81,8 @@ refusals pass. [Root2155wire pilot caller now passes32inherited/1001new controls
 including full prepared-to-call preservation. The unbound donor stays unadmitted.
 [ONE actual10pilot and complete25541check Root audit now pass](reviews/2026-10-24-direct-dependencies.md#actual-ten-nested-texture-pilot-and-complete-root-audit-pass):
 9775600B, all2155preservation rows,1400full file pins/current sources hold.
-Retain10successful responses and15reuse without replay. Next finite923remainder
-caller/exact1849leaf closure and fresh binding; TGA decode remains separate. Root's independent
+Retain10successful responses and15reuse without replay. [Finite923remainder caller passes Root32+997+16controls](reviews/2026-10-24-direct-dependencies.md#finite923remainder-caller-passes-root-source-controls),
+including exact1849leaves and consumed pilot-audit preservation. Next fresh binding; TGA decode remains separate. Root's independent
 oracle source/current65metadata file checks pass; [finite multi-map audit projection
 passes Root's positive/eight negative controls](reviews/2026-10-24-direct-dependencies.md#finite-launch-audit-derivatives-and-multi-map-controls-qualify).
 [Concrete bindings for ONE independent oracle are verified/admitted](reviews/2026-10-24-direct-dependencies.md#one-actual-nested-oracle-is-admitted).
@@ -104,7 +104,7 @@ task_3695d6723248/ctx_dd8e5f76545d are now preserved/released. Two reused
 checkouts/separate branches, no new child/setup. Root comparison selects unchanged
 Claude19/20 versus Grok17/20 held; no idle terminal kept for review. The exact
 2155wire Root caller passes32+1001controls; ONE10pilot/full25541Root audit passes.
-Next disjoint923remainder; no replay of10pilot or15reuse.
+Finite923remainder caller qualifies32+997+16Root controls; next fresh preparation/one disjoint923remainder, no replay of10pilot or15reuse.
 .016authored browser controls pass.
 No remainder request is admitted.
 Private-only proposal ownership

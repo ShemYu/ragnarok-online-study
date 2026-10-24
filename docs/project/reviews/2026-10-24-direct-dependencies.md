@@ -3151,3 +3151,54 @@ independently. .018authors cannot read its bodies or perform runtime/codec/
 process/network/browser actions. All319settled releases and ten older retained
 resources remain; two current trace authors owe later settlement/preservation/
 cleanup decisions. No critical goal-changing blocker.
+
+
+## Finite923remainder caller passes Root source controls
+
+Root derives a separate unbound remainder caller from the qualified .017pilot
+caller. The complete donor/final diff is personally read. It selects exactly
+923remaining new queries/152966112B, excludes all10consumed pilot and15reuse
+queries, requires the430B/96afae52... separate Root pilot audit and accounts for
+9775600B already consumed within the unchanged192MiB cumulative budget. Full
+2155wire preservation/948binding projection,75s observer guard/512MiB sampled
+RSS, existing owners/ENV/Engine/native/INI/archive identity rules stay intact.
+Both preparation/call admission flags remain false and source slots unbound.
+
+The observer output now has an exact flat1849leaf closure:923body/response
+pairs plus BEFORE/AFTER/RESULT. Only this explicit closed domain may exceed64;
+the caller's own generic64leaf limit remains unchanged. Root executes16finite
+artifact checks using1849owned empty files, then removes the complete owned
+fixture. Exact closure, missing/extra leaf, wrong modes, symlink, hardlink,
+subdirectory, unchanged generic64leaf ceiling and256MiB exact/one-over authored
+metadata boundaries pass. An initial authored test used the observer's normalized
+batch key against the raw profile; its KeyError occurs before fixture creation,
+is preserved and corrected to exact raw profile keys. No candidate change.
+
+Astra's independent source review identifies that the new pilot-audit pin needs
+snapshot/final preservation after consumption. Root preserves the37626B draft,
+adds exactly those two checks, and personally exercises actual call() with
+memory files/probes/guard. Mutation after consumption invokes one authored guard
+and falsely passes V1; V2 invokes one guard, reports sticky pilot_audit:ValueError,
+returns failure and still publishes attempted poststate. Existing prior-only
+loose/override/parent drift still prevents guard invocation; positive control
+invokes exactly one.32inherited and997full-domain/snapshot/post/call controls
+pass against V2, plus16artifact checks. No current-world or HTTP action occurs.
+
+Private t07-014-017-remainder-caller-root-1/ receipts:
+
+| File | Bytes | SHA256 |
+|---|---:|---|
+| REMAINDER_UNBOUND_ROOT.py |37732|73de2a83413f8974a718bdae64d95cccf53878115a595d9807be760e7c99ed4f|
+| DONOR_DIFF_V2_ROOT.patch |9532|450d699c97825fe1f2ace4235b8cada34108db30be9b91dd9ef218d31e11ad67|
+| INHERITED_CONTROLS_V2_ROOT.json |1165|ef831dcb1000babc95ecc42f04ef1087fc9eab954d1f03ee112d567314e23ed8|
+| UNION_CONTROLS_ROOT.py |13491|7701787263909b29270a730041e725c6b5c215cbc85f4a2e3e451def097ced10|
+| UNION_CONTROLS_V2_ROOT.json |24085|96983b9fd7e7bf1695fbcbe8cca79180b7b1d7ee2b90640e1b08dd1f1cd58095|
+| ARTIFACT_CONTROLS_ROOT.py |3840|8d7f8d1eb2dcba15a0bd5a7f2117ecbf7c0e96fac57e2aaa14ef691420aca8e9|
+| ARTIFACT_CONTROLS_ROOT.json |675|115ab8baa609ae1bf259d3fd05200de9fd6acc3c92a61adfbd47203f724e81d9|
+
+Next Root binds fresh current HEAD/seed, runs guarded read-only preparation,
+independently confirms all bindings/preservation, then may admit ONE disjoint
+923remainder. No remainder GET is admitted by this source checkpoint. The
+consumed10pilot and15reuse must never be replayed. .017stays in_progress;
+TGA decode/render/gameplay/full-content claims remain open. No critical
+scope-changing blocker or user decision.

@@ -92,7 +92,7 @@ Other active work:
   Nested delivery source       [CLAUDE19/20 SELECTED; GROK17/20 TGA READBACK HELD]
   Nested texture bodies        [SOURCE QUALIFIED; caller32+1001checks PASS]
   Nested10pilot                [10/10PASS; Root25541checks/1400pins; no replay]
-  Nested923remainder            [NEXT:finite caller/exact1849leaves/fresh binding]
+  Nested923remainder            [CALLER32+997+16 ROOT PASS; NEXT:fresh binding]
   TGA worker/consumer source   [EQUAL CLAUDE/GROK TRACES LIVE; independent lane]
   Model702node bounds           [SENTINEL PRESERVED; geometry impact OPEN]
   Image consumer source trace  [ROOT PASS:40slices/286joins; both17/20/released]
