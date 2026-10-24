@@ -768,3 +768,14 @@ After2ea22a2, actual Grok one-region correction task2d990628f864/
 ctx22fe26e5ed21 starts. Receipt2307/
 31c17bdca89d717c9fcc008dcd6e7e854d2dc57fc73a3cae65f878969572dbb2.
 Three independent Grok source tasks are active; no data or game actor.
+
+
+## FD failure-format boundary cases frozen
+
+Root freezes four selected-formatting cases before accepting the new source:
+known before/after counts+fullSHA with long errors; unknown after census;
+large delta details; non-FD long errors. Oracle23489/
+cabc9e8afbe7a0d68d9460ac4c49b651d018ab8fc1c7938733ac2c20f26f2480.
+Every result must remain a failure,whole JSON/newline within1024bytes; retain
+all known FD evidence,sticky FD and full error count/canonical sequence SHA
+when detail truncates. No formatter or publication candidate is executed yet.

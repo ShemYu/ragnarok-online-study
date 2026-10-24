@@ -46,6 +46,8 @@ alongside the independent B4 header and FD diagnostic-retention tasks.
 One finished sampler terminal is retained under Orca user_takeover;
 other settled authors are released with captured archives.
 Current map-render verification estimate75%; overall4/14/about29% checks.
+Next Mu19/runtime reuse recipe is independently reviewed. Root freezes20
+header and4 FD-formatting boundary cases; no candidate test or scene runs yet.
 
 **Current blocker:** the animated first-frame numeric-data failure is
 proved at leading-key interpolation; its source repair passes, fresh scene

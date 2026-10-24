@@ -386,3 +386,8 @@ After2ea22a2, actual Grok one-region correction task2d990628f864/
 ctx22fe26e5ed21 starts. Receipt2307/
 31c17bdca89d717c9fcc008dcd6e7e854d2dc57fc73a3cae65f878969572dbb2.
 Three independent Grok source tasks are active; no data or game actor.
+
+
+The next Mu19/runtime reuse plan is independently reviewed without new
+actor authority. Root freezes20 header and4 FD-formatting cases before
+acceptance; three source workers remain live. No new data or scene result.
