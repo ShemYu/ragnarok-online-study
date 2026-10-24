@@ -5458,3 +5458,55 @@ Private bound/helper and Root qualification packets:
 | t07-014-023-call-root-1/EXITED_LEADER_RED_ROOT.json |1524|b40d1b99e2dcb8da424c29b24c2fb0e4a7ffa98578c04e61a089d2ce473f28e8|
 | t07-014-023-call-root-1/PRELAUNCH_RED_ROOT.json |1160|0b796747976acc31873a9120228c2aaafe4bf5294ee94da78daf4121ddc85c77|
 | t07-014-023-call-root-1/PRELAUNCH_GREEN_ROOT.json |1026|55be1b8c12ca62010229930a530bb2d8a698f9e0ae75805c40ba757f4e23c662|
+
+
+## One actual static model compile and complete mesh comparison pass
+
+After admittede84fce5, Root invokes the fixed wrapper exactly once. Both caller
+and Node exit naturally0; outer group absence is positively confirmed, no
+cleanup error or remaining process. All16outer full SHA/C8 authorities remain
+equal. The consumed marker and actual output prefix now exist: this purpose
+is consumed and MUST NOT be retried unchanged. No prior constructor-only,
+binary-parser/reference or delivery purpose is replayed. This new constructor
+is solely a prerequisite of the new static compile.
+
+Root personally reads the complete15932B saved-output audit, then runs it under
+a20s external alarm. It audits all seven actual output paths and ten input/
+template paths,17full pins/3143recorded checks, plus final publication seals.
+Exact closed namespaces/private modes, complete candidate/final hardlink C8,
+source/template scaffold bytes, six caller input authorities, stream captures,
+all model/placement/structure/preflight/resource fields, observed copy SHA,
+structure-before-call gates and every timing/limit field pass. The audit uses
+only saved JSON/bytes and the already-qualified independent comparator; it
+runs no acquired geometry, body parser or reference producer.
+
+Both complete meshes match the independently frozen expectation:10719Float32
+lanes/42876B, exact texture/key order, full SHA and emitted bounds, including
+signed zeros. Ordered concat SHA
+ d92c842d5ab9bc031ade0cde8971b21c9830d0e32966a2585cb7021663172281.
+Node observer46.023625ms; caller-measured Node outer0.08820875s; observed child
+peak RSS66764800B/63.671875MiB. Effective V8 heap134217728B is measured separately;
+RSS is observed, not capped, and this one model does not estimate full-game RAM.
+The wrapper's Python-process outer elapsed0.13996475s includes caller setup.
+
+.023is ready_for_user for this one static CPU geometry observation. Reuse the
+retained full output and independent reference; no successful-call replay.
+This is one model/one placement, not936compiled models, visible rendering,
+animation/Worker/GL/texture display or full-map/story/persistence acceptance.
+The previously explained second-root box sentinels remain unchanged; matched
+emitted meshes do not claim observation of the unreturned transformed-vertex
+array. All82functional gaps and parent4of14/about29%remain open/unchanged.
+No user-game/save/network/browser/settings action occurs. Next Root compares
+the parallel .024plans and selects the next end-user-relevant geometry/render
+step without treating one-model CPU success as full-content coverage.
+
+Private t07-014-023-call-root-1/ and consumed actual audit:
+
+| Packet / File | Bytes | SHA256 |
+|---|---:|---|
+| t07-014-023-call-root-1/PRE_ROOT.json |8006|08dd38bd5efa25b660da11cc04392f5e329b2d3ff92ac14fe9efe3953e9c241d|
+| t07-014-023-call-root-1/CONSUMED_ROOT.json |129|12340e69158febe63d96b414360a3ba25d9b88d9f46b9d73425fcb8bea979692|
+| t07-014-023-call-root-1/EXECUTION_ROOT.json |17136|99f890837a31267ceac9315a6e009002f4f83285f9984ba31f6d5aabdc0dd30a|
+| t07-014-023-call-root-1/CALLER_STDOUT_ROOT.bin |686|fc65e508471de937b73e445bbf97c9936258949c6588e782b157cca0b97b0ab7|
+| t07-014-023-actual-audit-helper-1/AUDIT_ROOT.py |15932|1efc7e26ae9faf3f99895d0c6356e7d2229f72155ffd084b4a0193e5705eec7f|
+| root-audit-1/AUDIT_ROOT.json |9373|da8707bb7f5bce749445270bef1140a02535322ac81d234360691ce19b496485|

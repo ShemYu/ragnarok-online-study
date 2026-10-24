@@ -28,7 +28,7 @@ intermediates are retained. Both independent calls are consumed; no replay.
 [.023equal tiny-authored geometry observer task is frozen](tasks/T07.007.014.023.md).
 Root reproduces the complete26case corpus:97 authored gates/172Root checks pass,
 including nonuniform normals and cross-node texture bucket order. The exact
-model702 profile is metadata only; no acquired execution is admitted. Both
+model702 profile was metadata-only at the initial freeze. Both
 implementations start from d052101 on existing clean checkouts. Claude
 f8eb477 is now completely preserved/released after matched settlement; its33
 author tests pass Root's full-source/test/report review and personal rerun.
@@ -44,26 +44,31 @@ pass but three independent regressions hold it](reviews/2026-10-24-direct-depend
 [Root C201778b1now qualifies53author/66independent controls and exact integration](reviews/2026-10-24-direct-dependencies.md#root-geometry-follow-up-qualifies-and-exact-integration-passes).
 The three holds are corrected on a separate branch; focused integrated CLI/
 authored checks pass. [Bound caller68+4checks and outer nine regressions pass;
-ONE actual compile is now admitted](reviews/2026-10-24-direct-dependencies.md#bound-geometry-caller-qualifies-and-one-actual-compile-is-admitted).
-Next execute once and audit every retained mesh byte; no actual execution yet.
+ONE actual compile was admitted](reviews/2026-10-24-direct-dependencies.md#bound-geometry-caller-qualifies-and-one-actual-compile-is-admitted).
+[ONE actual compile and complete Root audit now pass](reviews/2026-10-24-direct-dependencies.md#one-actual-static-model-compile-and-complete-mesh-comparison-pass):
+3143recorded checks/17full pins, every42876mesh byte equals the independent
+reference. Node46.024ms/observed peak RSS63.672MiB. Actual purpose consumed;
+reuse outputs without replay. One static CPU model only; visible rendering and
+broader geometry/content remain open. Next compare .024plans and select the
+next end-user gate.
 [Full936geometry planning metadata passes16293Root checks; equal .024brief frozen](reviews/2026-10-24-direct-dependencies.md#full-geometry-planning-metadata-qualifies-and-the-extension-brief-is-frozen).
 [Both plans now start fromd70abcd on reused separate branches](reviews/2026-10-24-direct-dependencies.md#independent-geometry-extension-source-plan-wave-starts).
 They plan the next NONE/FLAT subset and all59broader frontiers independently of
 actual .023execution. Browser/render,
-normal game/story/full content and all82functional gaps remain open. No acquired
+normal game/story/full content and all82functional gaps remain open. No further
 geometry execution is admitted and no goal-changing issue/user decision appears.
 Root's independent mesh comparator now passes350checks/10authored positives/
 170corruptions after two advisory faults reproduce and are fixed. Exact full
 expected model702 bytes are projected from the consumed reference, without replay.
 [Rounded-column admission preparation passes Root review and controls](reviews/2026-10-24-direct-dependencies.md#rounded-column-admission-preparation-passes-root-review):
-178helper assertions and eight Root boundary cases; no observer integration or
-acquired execution. It detects rotated subnormal collapse without a new arbitrary
+178helper assertions and eight Root boundary cases at preparation; C2 now
+integrates the guard and the single actual result is recorded above. It detects rotated subnormal collapse without a new arbitrary
 scale floor or mesh-comparison tolerance.
 [Unbound caller V3 passes the67Root controls plus four creation regressions](reviews/2026-10-24-direct-dependencies.md#unbound-caller-creation-authority-is-corrected-before-binding);
 Root reproduces provisional-namespace failure writes in V2, then separates
 unqualified creation checks from trusted ownership. Continuity starts at the
 first post-create observation; no stronger path-only creation guarantee is
-claimed. Future source/stdout binding and actual admission remain absent. [All936summary
+claimed. Later source/stdout binding and the consumed actual result are above. [All936summary
 coverage rows pass Root's full metadata audit](reviews/2026-10-24-direct-dependencies.md#all936saved-summary-coverage-rows-pass-independent-root-audit):
 142structural candidates/794outside the current narrow harness; none thereby
 qualifies for actual execution. Broader versions/hierarchies remain later work.
@@ -73,7 +78,7 @@ Fresh catalog:83workspaces/81direct children. The three prior preservation holds
 are resolved with full28file/28922452B copies and inert symlink metadata; exact
 archive refs/verified rollback bundle survive. All other workspace IDs remain.
 Both original review workers are released; the .011Claude checkout is kept for
-the .023.001Root follow-up. User-owned workspaces stay excluded.
+the preserved .023.001Root C2 source branch/rollback. User-owned workspaces stay excluded.
 The .023.001worker is now released/exited and fully preserved. Historical342row
 fleet has332released/eight user-owned/two absent, plus the two new .024source
 plan dispatches recorded above. Fresh reclaimable list is empty. No new child/setup. No game/save/network action in cleanup.
