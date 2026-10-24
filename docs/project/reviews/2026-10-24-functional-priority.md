@@ -1137,3 +1137,17 @@ Root findings. Guidance msg_471c0e230068 is durably enqueued; adoption must
 be checked against actual final source. First two send attempts were refused
 for invalid type/address before enqueue; neither delivered guidance or
 changed source/lifecycle. Full scope and4/14 parent count stay unchanged.
+
+## F839 source close path advances two findings remain
+
+[Root checks changed producer source and corrects the finding count](2026-10-24-T06-full-spawn-output-budget.md#current-source-addresses-known-close-finding-two-findings-remain).
+Known close-path finding is source-addressed; consumer/full-consumed-file
+postpins remain HOLD. Author pins are still stale for this active source;
+no source-final/test/export/game credit. Root's overbroad three-unchanged
+message is corrected before future review.
+
+Root also reads actual selected DATA.INI: five absolute archive entries.
+Empty resources does not imply missing archives. Existing five archive
+provenance/current-pin verification proceeds independently; no P/cap change,
+archive copy/extract or actor. Remote Grok receives this bounded fact as
+msg_48618c0e05d9; its source conclusion remains unsubmitted.

@@ -76,8 +76,9 @@ the512MiB virtual cap. Root verifies866fullpins and every source's byte/count
 join; no large JSONL is written. Root now freezes the full selected839 profile/three typed expectation sets
 and qualified-publication semantics; independent Grok source implementation
 is actual Grok ready after4425a98. No wrapper/test/game actor is admitted.
-[Provisional exporter review finds three finite cleanup/validation gaps](reviews/2026-10-24-T06-full-spawn-output-budget.md#full839-provisional-implementation-reviewed-three-finite-fixes-routed);
-Root sends them to the active writer, no final submission/adoption claim.
+[Current exporter source addresses the known close finding; two mandatory
+validation/postpin findings remain](reviews/2026-10-24-T06-full-spawn-output-budget.md#current-source-addresses-known-close-finding-two-findings-remain).
+Active author pins remain stale; no final submission/test/export admission.
 
 Original app/saves/Chrome/profile/settings/mute/IME/network stay untouched.
 The consumed ninth trial is not retried. All Chinese overlays stay enabled;

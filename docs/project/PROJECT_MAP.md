@@ -41,7 +41,7 @@ Parallel:
   MU1:105body stage PASS (Root checked/released)
   MU2 -> MuC/MuD: HOLD5findings -> finite fixes -> one fresh scene
        (retained water geometry0; current scene still verifies it)
-  full839spawn -> budget PASS; source LIVE;3early fixes routed
+  full839spawn -> budget PASS; close source fix checked;2findings remain
 
 B2D/B2U:all8 selected focused checks PASS; original Root error preserved.
 Root:actual pending-producer poll PASS/116pins; native game still open.

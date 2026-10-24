@@ -230,3 +230,29 @@ Writer later resumes tool activity between provider errors; this report
 describes only its frozen snapshot, not eventual output. Existing guidance
 msg2300a9e249ed remains the same finite correction scope. Root awaits final
 bytes/pins and will qualify actual adoption before tests/full publication.
+
+## Current source addresses known close finding two findings remain
+
+Root personally reads the changed59668B producer and9944B consumer.
+The new _close_owned helper accumulates each converted OSError close failure
+and independently attempts remaining known descriptors. This addresses the
+first finding in source for the selected close paths; no execution or broader
+unknown-error guarantee is inferred. Root's earlier renewed message that all
+three paths were unchanged was too broad; correction msg_275fbfacf057 is
+durably enqueued. Do not introduce a generic unknown-error framework.
+
+Two mandatory findings remain: complete closed/typed ordered839-ledger,
+source/input current-C8 and four-leaf receipt validation before fixed0; and
+actual current full SHA+C8 postpins for producer/core/reader/reference plus
+three consumed metadata files, in addition to839bodies. The consumer and
+production postpin construction still show those omissions.
+
+Root captures all15 private current files, snapshot17313B/
+488eae6dae8e5ccb8f4011fbb2ffe2a1a69c6e708f33b6f47aa6b24144a302ae.
+Review1957B/db96aeef8d9af4aa3474d7383205fe57d3eb71604e3303ac3c19f41f740a20c5
+records three exact source anchors, two remaining findings and no admission.
+The active writer's OUTPUT_PINS still declares the older59981B producer;
+Root's initial equality assertion refuses, preserves all15captured copies,
+then records the mismatch honestly. No overwritten capture/target invocation,
+final settlement or complete author-pin verification is claimed. Final
+source/pins/review remain required before focused checks/publication.
