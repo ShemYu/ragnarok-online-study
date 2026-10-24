@@ -80,7 +80,7 @@ Other active work:
   Direct dependency lookup     [DONE:both actuals +Root full equality; all1222found]
   Direct asset preparation     [PASS:115retained bodies +1222exact mappings]
   Normal delivery derivative   [BOTH HELD:Root suites +8equal cases checked]
-  Claude delivery repair       [SUBMITTED751aefe/released; Root regressions next]
+  Claude delivery repair       [SOURCE VERIFIED751aefe; integrate/bind pilot next]
   Model/declaration preparation [SOURCE REVIEWED:actual bodies/Root audit next]
   Remaining direct assets      [OPEN:1107new; normal1222delivery unproved]
   Claude/Grok FD plan pair      [BOTH VERIFIED + RELEASED; control PASS]

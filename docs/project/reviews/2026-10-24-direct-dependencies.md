@@ -552,3 +552,72 @@ The reported36controls and the corrected behavioral cases still need Root's
 execution. No source is selected/integrated and no runtime binding or pilot
 is admitted at this checkpoint. Ordinary field encounter/return/save and all
 82resource gaps remain open.
+
+## Corrected Claude source passes Root controls and is selected
+
+Root reads the complete correction diff, new test code and report. The unchanged
+751aefe source is47892B/SHA256
+b7cb8276a30d7ccc818de47d67db48aa7790507192ac7989fbf3f7914bdd5fc4;
+tests53344B/SHA256
+43c12776ba1c7977b817dca72f8540402933c00ad3bcf44f52b115bd48fed02c.
+Root repeats all36tests with ResourceWarning as error: exit0/0skips in
+1.365487s, with source/test/report pins unchanged. Private own-suite receipt
+1344B/SHA256
+76557c2f4e978884f3aa47fbecda7273d6cc509c7850170bd9b4e2b5cf11a5fa
+is under t07-014-011-correction-own-suite-root-1/.
+
+Root applies the same eight behavioral cases through a correction-only copy
+of its already reviewed control source. Exactly four source/path/loop/pin
+replacements select the repaired candidate; the originals are not rerun.
+Complete CL+close now succeeds with16retained/counts; incomplete and late
+returned bytes retain/count16while failure stays sticky. Stable absence stays
+separate from delivery. Stable A/served B now fails mismatch. A final ordinary
+listener exception keeps the original transport failure, archive drift,
+AFTER/RESULT and preservation_complete=false. The late-publication control
+returns exit1 with authoritative stdout deadline_after_publication=true and
+final_elapsed61, even though earlier write-once RESULT remains a candidate.
+
+Root independently checks146assertions and every one of52retained artifact
+pins. All eight behavioral groups pass these synthetic expectations. Private
+t07-014-011-correction-controls-root-1/ records:
+
+| Receipt | Bytes | SHA256 |
+|---|---:|---|
+| CONTROL_ROOT.py |11794|4252de373ced8efe37fcba1bea97f0d7c6e2b428f931b724e01e0a8b4d29f4a2|
+| RESULT_ROOT.json |21643|1e3a1427d7cf28734c1de6eb99388c16e06c0cb8f2807b9adc2d951b93f03bc1|
+| VERDICT_ROOT.json |436|0d44ae9df06d15398fa327c2f649c6d93f5d55caea3588805a3590a70ba5e314|
+
+Root also imports all three unbound candidates and validates the complete
+fixed metadata profile, opening no embedded body/runtime path. Each original
+passes2444exact query/wire checks; repaired Claude passes3666including every
+whole outer profile record. Its complete21maps/2142relations equal the source
+arrays. Profile/source hashes stay exact. Private full-domain receipt1255B/SHA
+e2b704a2230e28fd676a6f1078493948d7144f3b0fd5effa257fc682e75b01ad
+is under t07-014-011-full-domain-root-1/.
+
+The20point rubric is a bounded source judgment, not a general model ranking:
+
+| Candidate | Correctness /8 | Preservation /4 | Controls /4 | Handoff /2 | Limits /2 | Total |
+|---|---:|---:|---:|---:|---:|---:|
+| Claude original c36d08a |4|2|2|2|2|12/20 held|
+| Grok original e77fdaee |5|1|2|2|1|11/20 held|
+| Claude separate correction751aefe |7|3|4|2|2|18/20 selected for guarded pilot preparation|
+
+Grok's original correctly handles more result/parity/late-byte cases, but its
+source discards bound archive identities in load_bound_job and hashes authority
+bytes separately from the reopened bytes it returns. Root directly reads those
+paths; these extra source findings are not claimed as executed race controls.
+The report's archive-hash-at-load claim is unsupported. Claude's stronger
+explicit binding/typed authority is the repair basis. Grok's earlier private
+memory deviation prevents claiming strict information isolation.
+
+Selection is the unchanged corrected Claude source, with explicit limits:
+socket inactivity timeout is not a hard total buffered-read bound; a failed
+partial write can retain fewer bytes than received-byte accounting; serial
+path samples are not atomic barriers; http_eof follows stdlib framing rather
+than transport EOF. Final stdout/exit/outer audit override the earlier RESULT.
+The existing75s guard and full independent current-file/artifact audit remain
+mandatory. The18/20 score does not waive a failed runtime audit or make broader
+fault paths proven. No live request, constructor, decoding/rendering or game
+coverage is qualified here. Next integrate exact source/test/report bytes,
+repeat repository checks, then prepare a fresh bound pilot. Full scope remains.

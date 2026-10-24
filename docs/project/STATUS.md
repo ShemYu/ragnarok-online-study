@@ -78,8 +78,11 @@ No live GET is admitted; compare both before source selection/repair. Root also
 genuine placement-aware compile and browser decoding remain separate gates.
 [A separate Claude correction submits751aefe](tasks/T07.007.014.011.001.md),
 preserved/released with a verified rollback bundle. Root reads its complete
-source diff/report;36reported author controls and Root regressions are next.
-Ten fixed source/metadata inputs; no live request authority or source selection.
+source diff/tests/report and [selects it after personal checks](reviews/2026-10-24-direct-dependencies.md#corrected-claude-source-passes-root-controls-and-is-selected):
+36author tests, eight Root groups/146assertions/52artifact pins and3666complete
+metadata checks pass. Raw Claude12/20/Grok11/20 stay held; separate correction
+18/20 is selected for guarded pilot preparation with explicit timing/evidence
+limits. Next exact integration and fresh current binding; no actual GET yet.
 
 [Normal delivery of all34terrain bodies is already complete](reviews/2026-10-24-remaining-map-bodies.md#normal34delivery-and-complete-root-audit-pass),
 T07.007.014.008 `ready_for_user`:34exact200responses/97037820B, all34new loose
