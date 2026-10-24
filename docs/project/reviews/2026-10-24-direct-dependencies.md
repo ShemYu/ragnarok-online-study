@@ -848,3 +848,73 @@ only remainder caller preparation is independent of both .012authors.
 T07.007.014.011 stays in_progress until the complete remainder/current-file/
 alias/domain/preservation audit. No .012constructor/render/play/story/save or
 82functional-gap closure is claimed. Full Modern/Renewal goal is unchanged.
+
+
+## Finite remainder caller source qualifies
+
+Root personally reads the complete18-edit diff/report from the qualified pilot
+V2caller to the35518B remainder derivative.77Root checks pass: all ten helper
+files/five PRE/POST input pins, complete forward/inverse and28unchanged spans,
+default two-mode no-I/O refusal, exact disjoint1214indices/24101056B/cumulative
+24713759B, real already-audited pilot authorization/result full-pin join and two
+fail-before-read authority mutations. No unchanged parser/guard suite is replayed.
+No remainder GET occurs during this source qualification.
+
+Both full pilot pins remain null in default source. Root later supplies exact
+path/bytes/SHA/C8 in source and seed; complete successful pilot RESULT pins and
+Root's separately authored closed-schema authorization are required before the
+remainder. The binding always selects remainder; all eight pilot indices remain
+outside and cannot replay. Both pilot pins are rechecked in every snapshot.
+
+The only necessary output-count change is explicit: successful1214delivery
+requires2431canonical observer leaves (3 +2per query), with no pilot-index leaf.
+The preparation64leaf bound,128MiB artifact bytes/reserve, inner75swork/512MiB/
+grace3 and separate whole-caller240swork/768MiB/grace8 stay unchanged. Full
+1222target/parent/world/source preservation and independent Root audit remain.
+No new parser/framework/provider benchmark or body format/render claim.
+
+Private source/Root receipts:
+
+| File | Bytes | SHA256 |
+|---|---:|---|
+| REMAINDER_UNBOUND_ROOT.py |35518|5944c5d4122736cd6142a8c5f94b0a62bba6d48440587a111ec49f852cde151c|
+| EDITS_ROOT.json |18088|661c5367b2f37ab8de4f1ae4b9c8ce7ce8d17bb39a1b9afcb12a2b6cda70bf89|
+| OUTPUT_PINS.json |4590|6296342e149e358467aa891055f2b8833a86416d55a3965e63e021952dc73632|
+| ROOT_SOURCE_REVIEW.json |3009|bd4c13a08f23ecc4c2914c0abbbd0d19a715be8125c9d5bac79f89bb03e99b5c|
+
+This source checkpoint advances the existing conditional remainder admission:
+Root now binds this commit HEAD in a fresh seed/preparation, personally verifies
+its complete source/binding/pilot/world joins, then admits the one exact1214
+call. No successful pilot replay, restart, game input or internet disconnection.
+Any failure holds that attempt with preserved partial evidence.
+
+
+## Claude model-constructor candidate preserved and released
+
+The expected .012Claude Dispatchctx_cad5132e64d2 sends one matched succeeded
+settlement for candidate79488b6fee623d88c414391adca8e3ff728f523c, common base
+42f52ced4702c67446c3e4f07ebb14953a10256f. Root confirms clean assigned branch,
+exact parent and exactly four owned changed paths, each current byte equal to
+its Git blob and reported full SHA. This is candidate settlement, not selection.
+
+Root mirrors all four tracked files and835private authored-fixture/evidence
+files. A separate post-copy read verifies all839full hashes and private600/
+single-link modes. Private provenance remains candidate evidence; no real model
+execution is inferred. Archive ref refs/archive/t07-014-012/claude/79488b6 and
+a verified40422B incremental rollback bundle require the preserved common base.
+Root then releases the worker: agent terminal closed, transcript captured. The
+Grok Dispatchctx_9d748803721a remains independently active; no sibling result
+is sent to it. Two bounded Astra source consultations examine lifecycle and
+whole-result/reducer seams in parallel. Root's complete source/test review and
+equal independent controls remain next; author-reported11/11 is not Root PASS.
+
+Private t07-014-012-claude-packet-root-1/ receipts:
+
+| File | Bytes | SHA256 |
+|---|---:|---|
+| PRESERVATION_ROOT.json |128918|a721564b94a53274119f914c5fac9de4fb44dceeb15ca1b1ac311b579b31305e|
+| CONFIRMATION_ROOT.json |337|2f4a84c23a618845f697c14731152db36b6d3db940b3a57379e0dffe9927b703|
+
+No .012source is integrated or actually admitted. Existing body/Node/source/
+guard/HEAD/pilot authority remains unbound. Root continues the qualified .011
+remainder caller separately, with no actual body decoding/rendering claim.

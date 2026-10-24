@@ -82,7 +82,7 @@ Other active work:
   Normal delivery derivative   [BOTH HELD:Root suites +8equal cases checked]
   Claude delivery repair       [INTEGRATED95bee15;36tests PASS; bind pilot next]
   Direct delivery [8-QUERY PILOT + ROOT AUDIT PASS; 1214remaining next]
-  Model/declaration preparation [ROOT INPUT AUDIT PASS; .012source pair LIVE]
+  Model/declaration preparation [ROOT INPUT AUDIT PASS; .012CLAUDE SUBMITTED; GROK LIVE]
   Remaining direct assets      [OPEN:1107new; normal1222delivery unproved]
   Claude/Grok FD plan pair      [BOTH VERIFIED + RELEASED; control PASS]
   Chapter 1 first transition   [SOURCE +6retained assets/9cells VERIFIED; play OPEN]

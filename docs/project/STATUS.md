@@ -17,8 +17,9 @@ refs, two verified rollback bundles and private evidence survive; the running
 character/quiet audio remain. Three examined children stay held for incomplete
 private preservation; user-retained children remain excluded.
 Latest full prelaunch fleet:303released/ten retained/zero reclaimable.
-Two fresh .012implementation attempts now reuse existing released checkouts;
-no new child folders or setup hooks. Both are live, pending Root review.
+Two .012implementation attempts reuse existing released checkouts; no new
+child folders or setup hooks. Claude is now preserved/released after settlement;
+Grok remains live. Root source review and equal controls are pending.
 
 **Current map checkpoint:** [All21remaining compiled cores pass Root's complete audit](reviews/2026-10-24-remaining-map-bodies.md#remaining21-actual-compiled-cores-and-complete-root-audit-pass).
 One unchanged qualified host call exits0 in4.807445s, about800MiB sampled RSS,
@@ -93,9 +94,10 @@ through bounded KERN_ARGMAX. [The actual eight-query pilot and complete Root aud
 270867checks/196full pins, eight200responses/612703B,19artifacts, all1222ledger
 rows/maps/relations and153prior loose paths preserved. Actual483/672share one
 loose inode/hash but remain two requests/records. No guard action/current-world
-drift. Root emits a separate pilot authorization; next qualify the finite
-remainder caller and fresh HEAD-bound preflight before exact1214remaining
-requests. No successful pilot replay or remaining request yet.
+drift. Root emits a separate pilot authorization; [the finite remainder caller
+now qualifies](reviews/2026-10-24-direct-dependencies.md#finite-remainder-caller-source-qualifies)
+with77Root checks/full18-edit inverse. Next fresh HEAD-bound preparation and
+complete current binding/world joins before the one exact1214remaining call. No successful pilot replay or remaining request yet.
 
 **Independent next source lane:** [.012model-constructor brief is frozen](tasks/T07.007.014.012.md)
 after [Root's complete metadata audit](reviews/2026-10-24-direct-dependencies.md#model-constructor-inputs-pass-root-complete-metadata-audit):
@@ -104,6 +106,9 @@ count equality pass.93known/843pending descriptors stay distinct; case-group
 indices are potential metadata only. Ten fixed inputs/four owned paths;
 [Equal Claude/Grok source attempts are now live](reviews/2026-10-24-direct-dependencies.md#equal-model-constructor-source-wave-starts),
 both from42f52ce on separate branches, independent of .011live delivery.
+[Claude79488b6 is now preserved/released](reviews/2026-10-24-direct-dependencies.md#claude-model-constructor-candidate-preserved-and-released),
+all839copied hashes and verified rollback bundle; Grok remains active. Root
+review/controls/selection are pending; author11/11 is not Root qualification.
 No actual constructors or runtime body/Node/guard admission yet.
 
 [Normal delivery of all34terrain bodies is already complete](reviews/2026-10-24-remaining-map-bodies.md#normal34delivery-and-complete-root-audit-pass),
