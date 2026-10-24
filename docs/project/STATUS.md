@@ -2175,3 +2175,7 @@ from38fcb2d,32frozen tiny cases/finite pure-VM boundary; Root verification pendi
 [Claude .019original is preserved/released](reviews/2026-10-24-direct-dependencies.md#claude-external-worker-source-original-is-preserved-and-released);
 Root/Astra review pending, Grok source author and both authored implementation
 authors continue. Actual .017responses stay consumed, never replay.
+
+[Claude .019preliminary Root full identity/join checks pass14050](reviews/2026-10-24-direct-dependencies.md#claude-worker-source-spans-and-complete25join-pass-preliminary-root-checks),
+with explicit callback/async/backend/teardown corrections holding its unchanged
+proposal. Grok and both .020implementations remain live; no decoding readiness.

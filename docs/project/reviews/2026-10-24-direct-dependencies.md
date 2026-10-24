@@ -3483,3 +3483,50 @@ Release/transcript capture precedes ACKdeliveryf254870811c0. Root/Astra source
 review is pending; worker-reported46spans/all25joins are candidate evidence only.
 Grok .019and both .020authors remain active. Fleet322released/ten older retained/
 three active/zero reclaimable. No idle session kept for review; no new child.
+
+
+## Claude Worker source spans and complete25join pass preliminary Root checks
+
+Root reads the full original report and source seams, then independently passes
+14050typed/source checks/0.830632s on all46exact spans,25complete query records,
+37complete relations/91complete source links, all same-domain memberships and
+complete map fanouts. All three full input pins stay unchanged. This validates
+the stored source/metadata, not the whole report's behavioral claims or execution.
+Root separately pins six animation/teardown spans available in the same sources;
+the first map-free supplement omitted its closing-brace line and is preserved,
+then extended through269241. Source stays unchanged; latest audit below governs.
+
+Astra points out concrete source issues; Root personally confirms the statements
+and actual source anchors before holding the unchanged proposal:
+
+- Worker fetch's callback and FileSystem.saveFile are inside the promise chain's
+  catch scope. A callback/cache-write throw can produce success then a null/error
+  callback; Loader has no once guard. XHR behavior is distinct.
+- GRF's callback(out.buffer) is inside its inflate try, so a downstream callback
+  exception is logged as decode failure without a separate failure callback.
+- FileSystem explicit case folding applies to its _files search; _fs.root.getFile
+  receives the case-preserved slash-normalized path.
+- Thread.receive does not await async onFileLoaded. Promise rejection is distinct
+  from a synchronous callback throw; the uid normally gets deleted in the former.
+- Empty/null data with a falsy error still returns the uid envelope but produces
+  no THREAD_ERROR. The original fixture expectation incorrectly requires both.
+- TGA pixel decoding is page-side, but Worker reading/inflation/cloning still
+  allocates. Electron loose-file Node Buffer is an exception to ArrayBuffer;
+  Electron GRF still yields out.buffer. Keep those conditions explicit.
+- Current map/Models/Ground/Water/AnimatedModels frees delete current GPU objects
+  and clear collections; source does not establish cancellation of pending
+  messages/images/callbacks. hasAnimation checks cached state or nonempty node
+  rotation/position/scale keyframes; concrete model values are not in this profile.
+
+The central source route is supported: FileSystem/GRF/HTTP ArrayBuffer is passed
+unchanged by Worker lowercased tga routing; static MAP_MODELS embeds it, animated
+models send names then LOAD_FILE; Worker posts no transfer list. No byte/decode/
+clone/upload/runtime observation is inferred. Grok original and final equal
+comparison are pending, so .019stays in_progress. No new task execution admitted.
+
+Private t07-014-019-root-review-1/ receipts:
+
+| File | Bytes | SHA256 |
+|---|---:|---|
+| CLAUDE_ROOT.py |6494|3a439c131238a524246198db7215726b56550f21ac27bb493baf01071c30d8f1|
+| CLAUDE_ROOT.json |3127|f118327795da96ed4594e83d026c03b2f3340653cfe71b8fec39aa1f689f35f7|
