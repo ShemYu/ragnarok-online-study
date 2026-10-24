@@ -421,3 +421,40 @@ this does not admit the full839 qualified-export success route or convert
 a failed direct CLI guard into success. Producer ROOT_BOUND staysFalse.
 No NPC corpus/production/full839/native/game authority. Other finite batches
 and one later full publication remain separate, unadmitted work.
+
+## Actual combined-nine finite export passes the full Root audit
+
+At clean admission HEAD ed430e427f40749d20ee9e8da6a62b1ab4e3423a, Root binds
+only two header values in the already-qualified 5023-byte entry. The bound
+entry is 5060 bytes / b820480d8e81c2120ce60a539e9fff89e8983a50a493c0d462dd8cfe1f873d45.
+One original G call runs the existing group01.run_combined_nine exactly once:
+natural exit 0, positive unchanged guard, no signals or native child,
+0.248571 seconds, 17,924,096-byte sampled process peak. Limits remain
+10 seconds / 512 MiB / 3-second grace / 1 MiB capture. Sampling is not
+OS memory containment.
+
+All four actual leaves equal the independently frozen pre-call raw bytes:
+physical 2234 bytes / 211b9f1b..., events 3861 bytes / 2f644ed6...,
+whole manifest 10862 bytes / 48b411ed..., marker 1001 bytes / d88de212....
+Whole typed stdout and exact 1214-byte transport match the fixed expectation.
+The complete nine-source ledger, 15-field receipt, counters, mode/closure,
+guard streams, FD/thread context, source postpins, HEAD and positive owned
+process/group retirement all pass. Current owned PID/group absence is checked.
+
+Root actual audit: 33539 bytes /
+052cebb35b32b3f4051aa314b3cc76649a01ce4ce772fee0b015d93ad517770d,
+63 checks, all true, errors empty, 44 recorded full pins, four outputs.
+The console's 45 includes the audit file after it is written; the audit's
+44 excludes itself. An extra confirmation assertion initially confused
+these counts. Root corrects that read-only bookkeeping without replay.
+Fresh confirmation: 25172 bytes /
+d788422bfe336255c6077bbc84c4ca6fc8440eadc9bf22b907862ffc8865ab40.
+It rejoins all 44 pins plus the actual audit, all four whole output files,
+stdout, guard and current process retirement. The saved 5671-byte audit
+source is preserved after execution for recovery, not claimed as prior
+admission evidence.
+
+This is a nine-literal, 158-byte finite fixture, not a full839 publication.
+Producer ROOT_BOUND remains false. Other bounded controls and the one
+selected full839 consumer route remain unadmitted. No native, game, story,
+Chinese, map-gap or parent-check credit is added.

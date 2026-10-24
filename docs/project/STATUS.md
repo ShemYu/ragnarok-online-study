@@ -13,18 +13,17 @@ dictionary abort/load405/map-connection settlement stop later cases. Root's
 complete failure/preservation audit passes; no B200assignment/reconnection or
 parent-check credit. 4/14 is a check count, not measured full-content coverage.
 
-**Parallel work:** [Mu runtime templates live, B4 child source reviewed,
-minimal current-world observer patch ready](reviews/2026-10-24-functional-priority.md#runtime-templates-live-b4-child-reviewed-and-world-source-patch-prepared).
-Actual Mu19data pass112checks/85pins/33leaves; final C/current world/HEAD/
-lease/4protectedports then one owned scene remain next. Grok template task
-a7be8ee491e3/ctxb602a6114750 and B4 callerfe6df2b4cd87/ctxdc84619e0299 live.
-B4 child preliminary15input/9anchor review passes Root verification; outer/
-final hash/full71 still pending. World assessment settled/released, corrected
-plan/15copy source-patch packet ready after checkpoint; no actor.
-[One existing combined-nine finite call admitted](reviews/2026-10-24-T06-full-spawn-output-budget.md#one-existing-combined-nine-finite-call-admitted-after-independent-byte-expectations):
-Root independent complete four leaves/whole receipt/transport fixed BEFORE
-target execution; full839 still unadmitted. Last fleet22reclaimable world
-worker is now released/archive captured; no completed cleanup debt.
+**Parallel work:** [Combined-nine export passes; Mu templates submitted and
+released; world repair is live](reviews/2026-10-24-functional-priority.md#finite-export-verified-runtime-templates-settled-and-world-repair-live).
+One actual finite export passes all63checks/44recorded pins and all4whole
+independent pre-call files. Full839 publication is still unadmitted.
+Actual Mu19 data pass112checks/85pins/33leaves. Grok's unbound runtime JSON
+is in independent Engine/client review; current world/HEAD/lease/4ports
+then one owned scene remain next. Template owner released/archive beforeACK.
+B4 caller taskfe6df2b4cd87/ctxdc84619e0299 and minimal world-source repair
+task6f34a7a0b17f/ctx4f84c4376600 continue as independent actual Grok tasks.
+B4 child preliminary15input/9anchor review passes Root verification; final
+outer/hash/full71 remain pending. No new game actor or completed cleanup debt.
 No parent/gap/game credit;4/14/about29%, all82gaps and full goal unchanged.
 
 [All six actual MuC focused calls pass complete Root223pin verification](reviews/2026-10-24-T07-mu-data-stage.md#actual-six-muc-focused-calls-pass-complete-root-audit).

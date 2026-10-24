@@ -905,3 +905,12 @@ templates from23frozen copies](2026-10-24-functional-priority.md#runtime-templat
 No new runner or actor authority. Root actual Mu19data stay verified and
 separate; final C/current-world/HEAD/lease/four-port binding and owned scene
 remain next. B4 child review and broader world source prep run independently.
+
+## Unbound runtime templates delivered source settlement verified
+
+[Root verifies and releases the actual Grok runtime-template source owner;
+Engine/client review runs independently](2026-10-24-functional-priority.md#finite-export-verified-runtime-templates-settled-and-world-repair-live).
+The complete driver object remains unbound and below its current 262144-byte
+input cap. Fresh world/image/ownership/HEAD/lease/four-port/output binding
+and the one actual scene test remain next. Existing Mu19 data and original
+sources stay unchanged. No normal-game, Chinese, story, save or gap credit.

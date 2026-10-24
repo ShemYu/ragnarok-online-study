@@ -1473,3 +1473,39 @@ separate. All82gaps/4of14parent checks/about29% unchanged.
 [One existing combined-nine finite call is independently qualified/admitted
 after checkpoint](2026-10-24-T06-full-spawn-output-budget.md#one-existing-combined-nine-finite-call-admitted-after-independent-byte-expectations).
 This is finite-only; full839/native/game credit is not admitted.
+
+## Finite export verified runtime templates settled and world repair live
+
+[The one actual combined-nine finite call passes all 63 Root checks and all
+four independent pre-call byte expectations](2026-10-24-T06-full-spawn-output-budget.md#actual-combined-nine-finite-export-passes-the-full-root-audit).
+It adds no full839 or game credit.
+
+Actual Grok world-source task task_6f34a7a0b17f / ctx_4f84c4376600 starts
+after ed430e4 from the corrected 15-copy packet. Start receipt 2307 bytes /
+ae710d2f317a81e75828131e635d2a5918ae9bf92931e304f8bcf3e8775dc62f.
+Its scope is the minimal unbound source patch of the existing observer,
+not a native observation. The B4 fixed-caller author continues independently.
+
+Actual Grok Mu-template task task_a7be8ee491e3 / ctx_b602a6114750 submits:
+driver JSON 212708 bytes /
+6d94dac7b9bee338b483cd0b8f2a6b95d69b3de0c61cf406d543997b9df59874;
+Engine JSON 9923 bytes /
+cb2ddd2ad7dee8d69cf9de6ab6aed86f82107c9d076151e35fce4ecc7f706187;
+513-leaf binding map 435814 bytes /
+b7a25615bb2cba006a9eb86900b61b32bab64368a90f0aebdc139adcfed09a3d.
+Root verifies all seven closed private outputs, 23 frozen copy pins plus
+brief/manifest, embedded PRE/POST identity rows, complete parsed unbound
+templates and Engine equality. This accepts a source-only settlement;
+independent Engine/client reviews and Root qualification remain pending.
+Report 11960 bytes / 10bf85f39bbf8d9beb43237d1032ebd45fdd7021eafe8c82add56a25bb6c898a.
+Settlement 17379 bytes /
+ad28c93d8e5586fecd11ebdbfc821f1dfc78b042750a9eced917633c0ae6fe40.
+Release 455 bytes /
+ef119c177b424643c7e6f25ba79e3b5ef5c19f500f31a89ccfa45abc4f7b5dc4
+captures the archive and closes the settled terminal before delivery ACK.
+
+Source template keeps current world/image proofs/HEAD/lease/ports/output
+authority null. Historical binding and proposal ports are not authority.
+Keep the dedicated audited attempt with its matching roles/player IDs;
+changing attempt requires a wholly new audited fixture. No actor executes.
+Overall remains 4/14 parent checks, about29%; all82 gaps remain open.

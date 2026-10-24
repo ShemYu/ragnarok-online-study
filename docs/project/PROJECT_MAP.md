@@ -41,7 +41,7 @@ Parallel:
   MU1:105body stage PASS (Root checked/released)
   MU2 -> MuC/MuD: HOLD5findings -> finite fixes -> one fresh scene
        (retained water geometry0; current scene still verifies it)
-  full839spawn -> selected source qualifies -> one combined-nine call next
+  full839spawn -> source qualifies -> combined-nine finite PASS -> full839 open
 
 B2D/B2U:all8 selected focused checks PASS; original Root error preserved.
 Root:actual pending-producer poll PASS/116pins; native game still open.
@@ -49,13 +49,15 @@ B3:one actual Mu21 data run PASS/36files/126checks/112pins.
 B4:six source fixes qualified; separate36file data PASS/127checks.
 MuC/MuD:submitted+released, HOLD5findings -> finite UI/driver fixes ready.
 MuC:three fixes + all six actual focused calls PASS/223pins.
-B4caller/Mu runtime templates live; corrected world source patch ready.
+B4caller/world-source repair:two independent actual Grok tasks live.
+Mu runtime JSON submitted/released; Engine/client reviews in parallel.
 MuD:both calls PASS/65pins; final source joined/released beforeACK.
 Mu19:actual33leaf projection PASS/112checks/85pins -> runtime C next.
 Mu client:259selected files +five archives Root verified; two dirs added.
 Mu Remote:source and current config joins verified; owner released.
 Mu Web:four bodies staged/full verified;105body stage unchanged; no actor.
-Mu19/world-assessment owners released/archive; no completed cleanup debt.
+Mu19/world-assessment/runtime-template owners released/archive.
+Combined-nine finite:63checks/44pins/all4independent files PASS.
 MuC/B3 prior owners released/archive beforeACK; no cleanup debt.
 Four actual user-retained resources stay;2transferred records have none.
 Trial9 stays failed; known faults stay failed. No new actor admitted.
