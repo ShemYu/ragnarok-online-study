@@ -14,7 +14,7 @@ first-milestone content or remaining effort. Do not relabel it as such.
 20tests/515independent controls/675saved-capture audit checks pass all32tiny
 cases and repaired harness faults. Both originals are preserved/released, raw
 Claude15/20/Grok14/20; Root correction credited separately. Copied decoder on retained real images
-remains unverified. [.021two independent source authors are live](reviews/2026-10-24-direct-dependencies.md#independent-retained-decoder-observer-source-pair-starts)
+remains unverified. [.021paired observer source wave](reviews/2026-10-24-direct-dependencies.md#independent-retained-decoder-observer-source-pair-starts)
 and [Root completes its independent25file raw reference and397check audit](reviews/2026-10-24-direct-dependencies.md#actual25independent-reference-and-complete-retained-audit-pass). No body requests repeat.
 .017all948delivery and corrected .019conditional Worker facts remain qualified
 in their bounded scopes. Geometry/render and all82functional gaps remain open.
@@ -2212,3 +2212,8 @@ Next review .021paired source candidates; no actual Targa/Worker/canvas/GL admis
 [Claude .021original2ac966f is preserved/released](reviews/2026-10-24-direct-dependencies.md#claude-retained-decoder-observer-original-is-preserved-and-released).
 Next Root full code/test review and equal controls; Grok remains live. No actual
 Targa body execution is admitted. All real reference hashes are retained.
+
+
+[Claude .021Root18tests/114independent controls pass authored outputs with four reproduced holds](reviews/2026-10-24-direct-dependencies.md#claude-retained-observer-passes-root-authored-outputs-with-publication-holds):
+late PASS, unverified published bytes, close-error cleanup and input ancestors.
+Grok remains independent/live; score/selection/actual Targa admission wait.

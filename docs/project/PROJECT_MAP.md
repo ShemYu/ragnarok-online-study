@@ -96,7 +96,7 @@ Other active work:
   TGA page source              [ROOT19300checks PASS; raw15/20each HELD/corrected]
   TGA Worker path              [ROOT BOTH FULL CHECKS PASS; corrected source only]
   TGA tiny decoder fixture     [ROOT CORRECTED PASS:20TESTS/515+675CHECKS]
-  Retained decoder observer   [CLAUDE PRESERVED/ROOT REVIEW; GROK LIVE]
+  Retained decoder observer   [CLAUDE18TESTS/114ROOT PASS-HELD; GROK LIVE]
   Independent25pixel oracle   [ROOT PASS:all25hashes/397checks; copied decoder NEXT]
   Real25TGA header resource    [ROOT969checks PASS; max1024x1024; no decode]
   Model702node bounds           [SENTINEL PRESERVED; geometry impact OPEN]

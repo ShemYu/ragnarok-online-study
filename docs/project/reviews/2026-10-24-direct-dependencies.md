@@ -3923,3 +3923,49 @@ new implementation. Actual body mode is unrun and remains unadmitted.
 Root next reviews full source/tests and adds equal independent faults; Grok
 continues independently. The qualified25file independent reference remains
 retained, no GET or reference-call replay. No percentage or goal change.
+
+
+## Claude retained observer passes Root authored outputs with publication holds
+
+Root personally reads all558source/458test lines and the full report, then runs
+the unchanged18tests in a separate review mirror/private prefix:18/18,zero
+skips,0.897855s outer/830.643ms suite. Root old125/semi1 gives effective V8
+heap134217728B; all five tested input/source full C8/SHA pins stay equal.
+Tests use fixed profile metadata/inert source/tiny authored bytes only; none of
+the25real body paths is opened or decoded. The original packet stays immutable.
+
+Root's independent114controls verify all25synthetic query/wire rows, complete
+dimensions/full handwritten RGBA hashes, all three exact copied spans, full C8
+and direct oversized refusal with zero VM compilations. Coherent realm-owned
+input/intrinsic copy/typed-output brand/full-output hashing deserve credit.
+Root/Astra review finds four concrete holds, personally reproduced by Root:
+
+-At the output hardlink, injected time20000ms still returns/publishes PASS.
+-The owned candidate file replaced during close is linked as `{}` while the
+ returned PASS hash still describes the original full report. No readback or
+ final output-literal seal verifies the artifact.
+-A profile close EIO after publication leaves PASS, propagates outside the
+ failure handler and skips the remaining source close. Root identifies/closes
+ only its exact still-open owned source descriptor afterward.
+-A symlinked ancestor resolving to the pinned owned leaf is accepted by the
+ input reader. Only the leaf is checked; ancestor authority is absent.
+
+All injected files/source copies are owned synthetic controls; the real saved
+source and actual body files remain untouched. The author's post-link late
+PASS expectation is explicit but conflicts with the frozen terminal deadline.
+The direct helper's absent separate heap check is not promoted to a new hold:
+the frozen .021brief requires CLI heap refusal, and that gate is present.
+
+No raw score/selection until Grok's same-scope Root controls. Claude remains
+held unchanged; actual Targa execution on25bodies stays unadmitted. Next preserve
+Grok on settlement, release immediately, personally review/test and choose the
+smallest finite repair. All82functional gaps and4/14/about29% unchanged.
+
+Private t07-014-021-claude-review-root-1/ receipts:
+
+| File | Bytes | SHA256 |
+|---|---:|---|
+| AUTHOR_TESTS_ROOT.json |3626|f638625e3ba1b565cfaab09301d6b64e031bed1050544cd7e592f3186de198bd|
+| ROOT_CONTROLS.mjs |8351|9c4e4d0c20e0ff991903b8c53e8d8ed73034757d44040b37659ba3241291eee2|
+| ROOT_CONTROLS.json |583|c214e8b2c4d3b75473320070f84760f1edc893260335e5967e15fd00d21e518a|
+| ROOT_MATRIX.json |37965|fd5f2245ca8ab15a17a19e72f6aad81c8da6769abac56d6307a54b216f1047fb|
