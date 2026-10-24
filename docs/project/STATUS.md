@@ -40,7 +40,27 @@ records it before further execution. This does not close the broader
 T07.007.011 map task or prove normal-game travel, animation timing, Chinese
 UI, story or earned-save behavior. Prior failed trials remain failed.
 
-**Next action:** continue [ordinary quest/logout and full-world functionality](reviews/2026-10-24-functional-priority.md#priority-and-stop-criteria)
+**Latest quest result:** [Fresh B6 reaches the browser and low-level dialogue but fails logout](reviews/2026-10-23-T10.007.md#fresh-b6-clears-readiness-reaches-low-dialog-and-stops-at-logout).
+Listener readiness passes in3observations/0.773631s; Root views the Chinese
+level199refusal. Initial SQL identity/offline/empty quest checks pass. Logout
+requests quit and closes all3sockets but does not prove a decoded ACK0 or save.
+Its marker infers fallback. A page tick error, dictionary abort and save-request
+abort remain failed. Genuine web load returns200; literal save405 is unproved.
+The UI hardcodes its decoded-result field false and infers fallback; these
+labels cannot prove a native result or fallback implementation path.
+Zero complete quest cases; cancel/grant-repeat/new-auth/post-logout SQL remain
+unverified. No further trial or repair is admitted before priority review.
+Root's complete failure/preservation audit passes1385checks/901full pins and
+all277Engine wires; independent901rehash and separate ro4before==after pass.
+All owned processes/groups and5containers/network are gone; SQL volume retained.
+
+**Next action:** perform the mandatory Astra/Root priority review of the new
+logout blocker, then choose the next player-value action under the existing
+[stop criteria](reviews/2026-10-24-functional-priority.md#priority-and-stop-criteria).
+No automatic retry or scope reduction. Preserve the user's current game and
+the completed normal integration. Earlier preparation history follows:
+
+Continue [ordinary quest/logout and full-world functionality](reviews/2026-10-24-functional-priority.md#priority-and-stop-criteria)
 from current user progress; preserve the completed normal integration and its
 backups. [Fresh B5 fixture data and Root confirmation pass](reviews/2026-10-23-T10.007.md#fresh-b5-fixture-data-and-independent-confirmation-pass):
 one pure call,130checks/116full pins/all36private leaves/21roles/15tokens and

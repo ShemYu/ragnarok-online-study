@@ -5,29 +5,26 @@ Full Modern/Renewal maps,monsters,solo story,persistence and eventual Traditiona
 Chinese remain the goal. Existing Chinese overlays stay enabled. Party-only
 content remains later. No goal change or new user approval is required.
 
-Current continuation: [normal ro4 integration now passes5/5](2026-10-24-normal-integration.md#settled-re-entry-and-bounded-normal-integration-pass).
-Root verifies [fresh B5 fixture data for the fixed F1/B4 quest sequence](2026-10-23-T10.007.md#fresh-b5-fixture-data-and-independent-confirmation-pass),
-reusing verified sources/guards and preserving the user's current character.
-This is the existing functional check, not another diagnostic framework or
-Kimi benchmark dependency. The130check/116pin data pass and [321check/306pin baseline materialization](2026-10-23-T10.007.md#fresh-b5-baseline-materialization-and-root-confirmation-pass)
-admit no actor alone. Corrected runtime selection/templates and fresh binding
-pass, then [the one fresh B5 trial fails before browser](2026-10-23-T10.007.md#fresh-b5-fails-before-browser-and-complete-preservation-audit-passes)
-at the one-shot host-listener predicate. Zero quest cases complete. Root's
-1022checks/685pins/263wires/current cleanup and separate ro4 preservation pass.
-The selected one narrow correction waits for the same listener under existing
-12s/48observation limits and retains finite evidence. Claude/Grok receive
-identical frozen inputs on isolated branches. No further actor is admitted
-until source and focused controls qualify; all existing limits/faults stay.
+Current continuation: [normal ro4 integration passes5/5](2026-10-24-normal-integration.md#settled-re-entry-and-bounded-normal-integration-pass).
+[Fresh B6 clears the repaired listener check and reaches the real Chinese
+level199refusal, then fails logout_save_unknown](2026-10-23-T10.007.md#fresh-b6-clears-readiness-reaches-low-dialog-and-stops-at-logout).
+The listener joins in3observations/0.773631s; initial SQL identity/offline/empty
+quest checks pass. Quit is requested and all3WS close, but no positive ACK0
+or save is proved. Page tick error, dictionary abort and save-request abort
+remain failures; genuine web load200 is not complete backend persistence.
+No literal save405 is established by the retained aborted-request evidence.
 
-Latest continuation: [fresh B6 data and baseline materialization pass](2026-10-23-T10.007.md#fresh-b6-baseline-materialization-and-root-confirmation-pass),
-with independent Root confirmation and no game actor. [Claude's narrow deadline
-correction passes65repeated author and17independent Root controls](2026-10-23-T10.007.md#claude-deadline-correction-passes-root-source-and-pure-controls).
-The original candidate's late-success failures remain failed. Its correction
-author is released; [both first independent sources are now compared](2026-10-23-T10.007.md#both-readiness-sources-compared-corrected-claude-selected).
-Both fail the frozen deadline property. Root selects the separately qualified
-Claude correction, then projects corrected B6 sources and freshly binds the
-one fixed quest sequence. The narrow correction allowance is already in use;
-a further actor blocker triggers the existing priority review.
+Root completes1385checks/901full pins/all277Engine wires, independent901rehash,
+current retirement/API cleanup and separate ro4 before==after. No user progress
+is changed. This trial remains failed with zero completed quest cases; later
+cancel/grant-repeat/new-auth and post-logout SQL are unverified.
+
+The one narrow readiness correction allowance is consumed. **Mandatory priority
+review is now active; no further quest actor, default diagnostic generation or
+repair is admitted.** Astra reviews compact actual/source evidence; Root will
+record the next player-value action, distinguishing a test seam from a real
+normal-game defect and considering independent content work. Full scope and
+4/14/about29% remain unchanged; no new user decision or scope change is required.
 
 ## Priority and stop criteria
 
