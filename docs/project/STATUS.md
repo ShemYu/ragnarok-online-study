@@ -103,25 +103,24 @@ Next prioritize existing resource/content gaps using these qualified references;
 no producer rerun or synthetic scene. No new parent completion follows.
 UI-dependent travel stays blocked; independent inventory work continues.
 
-[Remaining map-body recovery is the next independent action](reviews/2026-10-24-remaining-map-bodies.md).
-The qualified26RSW candidates split into5already decoded/header-qualified,
-17remaining patch9298 bodies and4October GRF bodies requiring separate admission.
-Root freezes T07.007.014.006 for the17patch bodies,666248aligned/4806359decoded
-bytes, using the existing decoder. Exact profile/14inputs are pinned; no archive
-or body read yet. [Both implementations are now live](reviews/2026-10-24-remaining-map-bodies.md#equal-isolated-implementation-pair-is-active)
-on separate branches fromc6b853d, with matching task/dispatch heartbeats and
-frozen baseline source. Next collect/verify both and equal controls, then Root
-separately admits actual recovery/header observation.
-Reuse existing bodies/terrain evidence; do not repeat the general gap ledger.
-[Claude370028f submits; Root source review passes](reviews/2026-10-24-remaining-map-bodies.md#claude-seventeen-route-submission-preserved-source-review-passes).
-Its complete source/logs are preserved and worker released before ACK.
+[Remaining map-body recovery now qualifies](reviews/2026-10-24-remaining-map-bodies.md).
+The26exact RSW candidates split into5previously qualified,17new patch9298
+bodies and4new October GRF references. Reuse old body/terrain evidence;
+do not repeat the general gap ledger or completed body jobs.
 [Both source candidates now qualify](reviews/2026-10-24-remaining-map-bodies.md#both-source-candidates-personally-verified-and-settled):
 63common checks each; full suites Claude92pass/1skip, Grok90pass/1skip. Root
 confirms the inherited default-permission test issue; both score20/20 for the
 bounded source task. Claude selected for exact old tests and broader late-fault
-coverage. Both workers preserved/released; no reclaimable terminal. Next exact
-[source is now exact-integrated and one actual17body/header run admitted](reviews/2026-10-24-remaining-map-bodies.md#selected-source-integrated-one-actual-seventeen-body-run-admitted);
-Root execution/complete audit is next. No body result yet.
+coverage. Both workers preserved/released; no active/reclaimable terminal.
+The exact selected source integrates in9d1d0fd.
+[Root actual17body/header execution and complete audit now pass](reviews/2026-10-24-remaining-map-bodies.md#actual-seventeen-bodies-and-complete-root-header-audit-pass):
+4806359decoded bytes, exact19private files, full patch/body/source/hash/metadata/
+consumer preservation;0.531099s/~28.4MB child RSS. All actual versions2.7;
+13distinct terrain pairs, including four non-same-stem aliases. T07.007.014.006
+is ready_for_user for the bounded deliverable. Across prior5/new17/fourGRF,
+26/26exact RSW candidates now have body/header evidence; this is not map/game
+coverage and closes none of82functional gaps. Next declared terrain lookup and
+normal four-GRF delivery after fresh preflight/binding; no game action here.
 In parallel, [all four GRF reference bodies and Root confirmation pass](reviews/2026-10-24-remaining-map-bodies.md#four-actual-reference-bodies-and-complete-root-confirmation-pass):
 1223209decoded bytes/actual embedded GND/GAT declarations; natural0 in2.344735s,
 full archive/source/body/header preservation verified. Next fresh live preflight

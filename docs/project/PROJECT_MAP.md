@@ -63,7 +63,7 @@ Other active work:
   Full839 data + entry         [PASS: 4,226 checks / 947 pins]
   Full839 entry FD closure     [PASS: explicit setup; exact comparison kept]
   Full839 map/monster joins    [DONE: Claude integrated; Root verified; pair released]
-  Remaining patch map bodies  [BOTH Root tests PASS; Claude selected;17 bodies next]
+  Remaining patch map bodies  [DONE:17 bodies/header names Root VERIFIED]
   Remaining October bodies    [4 bodies/header names Root VERIFIED; normal GETs next]
   Claude/Grok FD plan pair      [BOTH VERIFIED + RELEASED; control PASS]
   Authentic Chapter 1 scripts  [OPEN: largest content risk]

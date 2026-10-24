@@ -304,3 +304,61 @@ Raw fixed-field/prefix bytes must agree; public production consumer and complete
 source/output preservation are checked again. No full RSW parse, constructor,
 native request/extraction, game input, save, runtime restart or installed data
 change is admitted. No body result or functional-gap closure is claimed yet.
+
+## Actual seventeen bodies and complete Root header audit pass
+
+The one admitted integrated decoder exits naturally0 in0.531099s with observed
+child maximum RSS28442624B and no timeout/forced cleanup. All17bodies decode:
+666248aligned bytes become4806359decoded bytes. Exact integrated source,
+profile and five primary-source identities/full hashes remain unchanged; patch
+identity remains exact. The producer uses the fixed production route and emits
+the v2completion marker last.
+
+Root's separate audit rehashes the complete306097616B patch, all19private output
+files and all retained source pins. Every target metadata field/type matches
+the frozen profile. All17complete body hashes/lengths/magic/version prefixes,
+raw aligned-range/padding hashes and exact file membership/modes match the
+manifest; completion binds the complete24732B manifest. The public fixed
+production consumer passes again; output/source/patch identities stay exact.
+Only the unchanged qualified require/world_header definitions observe headers;
+Root independently checks every raw fixed-field and131-byte prefix slice.
+
+All17observed RSW versions are2.7. The actual declarations contain13distinct
+GND/GAT pairs. These four aliases are observed, not guessed:
+
+| RSW maps | Actual embedded terrain pair |
+|---|---|
+|1@ch1a,1@ch1b,ch1_dw|1@ch1a.gnd / 1@ch1a.gat|
+|ch1_vrgef1|ch1_gef_in.gnd / ch1_gef_in.gat|
+|ch1_vrgef2|ch1_geffen.gnd / ch1_geffen.gat|
+
+Other declarations use their observed same stem: ch1_geffen,ch1_gef_in,
+ch1_gfn01,ch1_gfn03,ch1_sf01,ch1_sf02,ch1_sf03,hem_dun01,hem_dun02,
+hem_fild,uknw_ruin,uknw_ruin2. The audit retains every full declaration/raw field.
+No terrain body is inferred from a name or decoded during this observation.
+
+| Private receipt under t07-014-006-actual-root-1 | Bytes | SHA256 |
+|---|---:|---|
+| CALL_ROOT.json |5696|d71ec08547d5c4fa478f08fd93dcbcf40e69ad5d609b7bd2db1ea2f323cf7314|
+| ROOT_AUDIT.json |39436|aac9bf3223a8cc57a98d43d7b8e9412715542be0b5279f5e98ba74b920dfee98|
+| payload/payload-manifest.json |24732|ac4d4a8068c0899286fcac92501f1df97ad91eaef3752e6208b1c9a978c6bfae|
+
+Paths are relative to `.tools/renewal/`. T07.007.014.006 is ready_for_user for
+this bounded source/body/header deliverable, with exact integration checkpoint
+9d1d0fd. This does not mean these maps are ready for ordinary play.
+Combined with the prior five qualified bodies and four new GRF references,
+**26/26identified exact RSW candidates now have body/header evidence**. That
+is100% of this candidate-body set, not100% of maps or the82functional gaps.
+The previous five actual jobs were reused, not rerun or freshly body-rehashed.
+All82functional gaps stay open; no parent completion or user acceptance follows.
+
+Next checkpoint the result, then verify normal four-GRF delivery and look up
+the newly observed terrain declarations in the existing qualified catalogs.
+The existing observer projection is prepared at
+`.tools/renewal/t07-remaining-four-normal-get-preparation-root-1/GET4_ROOT.py`,
+9556B/SHA25657f77293203b4d25667a69bb00bdf527ecaa47c8fe7b9a7c5f859a58c8167263.
+Root reads its full source. It deliberately refuses an unbound fresh environment
+pin before native queries; preparation is not execution/admission. Fresh current
+owners/listener/config/archive/static/override/target-parent checks and final
+source binding still precede normal GETs. No game input, installed data change,
+native request, restart, terrain construction or story advancement ran here.
