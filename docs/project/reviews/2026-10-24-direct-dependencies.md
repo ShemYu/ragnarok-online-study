@@ -2000,3 +2000,78 @@ operation. Equal Claude/Grok source review and Root personal verification preced
 any actual948lookup. Keep .014browser closure proposals independent. Full goal,
 4of14/about29% and82functional gaps remain; no scene/travel/story/save/Chinese
 acceptance or new user decision.
+
+
+## Browser closure proposals pass Root source comparison with corrections
+
+Matched Grok task_bbaa08d99ee7/ctx_f4d9e43cd1f0 settles succeeded. Root preserves
+all29private files/61857B under grok-packet-root-1, checks every complete copied
+hash, releases only that settled worker terminal and acknowledges delivery
+1952af26a837. PRESERVATION_ROOT.json is4972B/SHA256
+15c96f32670c93ec78c4011bd4991f334d1d551e9776a9fe2dadbcfdc96c0bc8.
+Fresh authoritative fleet:311released/ten retained/zero reclaimable; no active
+.014worker or new child folder. Both providers used the same frozen2b81382base,
+brief and three saved inputs. This is a source-plan comparison, not a coding or
+runtime benchmark. Configured launch defaults do not establish hidden model,
+effort, token or price facts; the terminal's Grok4.7(high) label is self-report.
+
+Root personally reads both complete reports, every executable Claude closure
+block (including complete Targa/libgif initializer dependencies), material
+caller/reference source and Grok's startup block. Independent byte/LF/offset/
+SHA re-extraction verifies all16Claude+25Grok slices. All286image metadata rows,
+roles/encoded bytes/loose hash equality and the canonical image-set hash agree.
+Three complete source/metadata PRE/POST C8/hash descriptors remain equal; embedded
+body paths are not followed. Root1484checks/0.254679s pass. Private
+t07-014-014-root-audit-1/ROOT_AUDIT.json is15763B/SHA256
+3a2aeff9dd2791847d3cde755f36b35b6810ffe6e678751ac58383bcc7bbf315.
+
+Raw rubric (correctness8/preservation4/source4/handoff2/limits2): Claude
+5+4+4+2+1=16/20, Grok4+4+3+2+2=15/20. Both raw proposals are held as executable
+specifications. Root selects Claude's exact finite copied closure skeleton,
+with these explicit corrections rather than silently accepting its claims:
+
+- procCanvas$3 records actual consumer canvas dimensions without a second
+  decode, but contains pre-magenta pixels. The modified getImageData copy is
+  written to the original completion canvas. Observe that actual canvas through
+  a transparent completion wrapper, preserve this/arguments and forward once;
+  inspect the atlas/actual upload and GPU pixels separately.
+- The shared canvas resizes whenever dimensions differ, including shrinking.
+  Its dimensions are observed after decode, never a pre-allocation bound.
+- Null/falsy input invokes false synchronously; ground still increments loaded
+  and can upload a blank atlas. Malformed nonempty URLs can omit onload and stall.
+  A ground atlas upload has no terminal callback of its own. Explicit decode,
+  upload, timeout/exception/lost-context states must remain separate.
+- The consumer revokes first inside onload. A later canvas exception can skip
+  completion after revocation; failure does not universally mean a live URL.
+- Observe an owned real context's forwarded texImage2D calls and canvas sizes,
+  then independently check GL errors, context, framebuffer completeness and
+  bounded pixels. Expected POT dimensions are not an observed upload size.
+  A non-null texture or callback alone remains insufficient.
+- Use discriminating NPOT/magenta/inset controls and a deterministic late gate;
+  preserve late observations without changing an already chosen terminal result.
+  Header rules must name supported BMP/JPEG variants; unsupported formats stay
+  held. Memory arithmetic and sampled RSS are not OS/native/GPU containment.
+
+Astra independently confirms these source issues and the finite closure route;
+Root's primary-source check, not consultation alone, supports the choice. Grok
+correctly separates null and malformed input and proposes useful completion
+observation, but its slice set omits required __esmMin/Targa/libgif/Texture-close
+and WebGL export dependencies. Its proposed full-bundle final-init guard leaves
+five top-level engine/plugin/UI/preloader initializers active. Do not run that
+fallback or enter init_Ground's unnecessary persistent dependency graph.
+
+Next implement a tiny authored-only fixture using unchanged selected source
+blocks plus separately pinned declaration/config/observation scaffolding. Prefer
+an owned Orca fixture page and explicit close/cleanup; prove available ownership
+before use. Dedicated OS-hard-RSS containment is a provider proposal, not a new
+user requirement or a reason to stall known tiny authored controls. No source
+claim establishes bounds for arbitrary delivered images; real-body header and
+runtime admission remain separate. Page/owned-Worker Blob controls do not prove
+the installed production broker. Existing game/Chrome/audio/IME/network remain.
+
+.014ready_for_user means the corrected source-plan finding is reviewable. No
+fixture has run, no delivered image/codec/render/content gap closes, and no user
+decision or goal change is needed. Overall4/14/about29% and all82gaps unchanged.
+Independent .015source-only feasibility finds exact .010wrapper/.007Collector
+reuse for948nested targets feasible; prototype preparation may proceed privately,
+with equal source reviews and Root verification before any actual catalog stream.

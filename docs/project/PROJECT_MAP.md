@@ -91,7 +91,7 @@ Other active work:
   Nested texture availability  [NEXT:948catalog lookup preparation]
   Model702node bounds           [SENTINEL PRESERVED; geometry impact OPEN]
   Image consumer source trace  [ROOT PASS:40slices/286joins; both17/20/released]
-  Browser image decoding       [CLAUDE RELEASED/GROK LIVE; plans only]
+  Browser image decoding       [ROOT SOURCE REVIEW DONE; authored fixture NEXT]
   Remaining direct assets      [DELIVERY DONE; construction/nested textures OPEN]
   Claude/Grok FD plan pair      [BOTH VERIFIED + RELEASED; control PASS]
   Chapter 1 first transition   [SOURCE +6retained assets/9cells VERIFIED; play OPEN]

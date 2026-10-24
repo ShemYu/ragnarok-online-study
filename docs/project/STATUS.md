@@ -16,7 +16,7 @@ Current84direct children include the two released review children and the two
 refs, two verified rollback bundles and private evidence survive; the running
 character/quiet audio remain. Three examined children stay held for incomplete
 private preservation; user-retained children remain excluded.
-Latest full prelaunch fleet:303released/ten retained/zero reclaimable.
+Latest settled fleet:311released/ten retained/zero reclaimable.
 Two .012implementation attempts reuse existing released checkouts; no new
 child folders or setup hooks. Both .012candidates are preserved/released after
 matched settlements. [Root full review and eight behavioral groups per original are complete](reviews/2026-10-24-direct-dependencies.md#both-constructor-originals-are-personally-checked-and-held).
@@ -43,14 +43,18 @@ unresolved slot; .012ready_for_user for construction/declarations only. Next
 Model702has six explicit infinite node-box sentinels: Root/Astra source
 reachability explains skipped second root; geometry impact remains unverified. No new child/setup. A parallel metadata-only helper
 has completed the936body join; [Root independently verifies all records and fresh body files](reviews/2026-10-24-direct-dependencies.md#complete936body-join-and-fresh-root-file-audit-pass).
-237771checks/950pins pass. Exact11pilot is now qualified;925remainder stays unadmitted until its finite
-caller/source/consumed-pilot binding gate passes.
+237771checks/950pins pass. Both actual disjoint constructor batches are qualified;
+reuse their retained results and do not replay them.
 
 **Independent parallel lane:** [.013browser image-consumer source trace](tasks/T07.007.014.013.md)
 [Root complete source/286metadata comparison passes](reviews/2026-10-24-direct-dependencies.md#image-consumer-source-trace-passes-complete-root-comparison):
 both17/20 for saved-source trace, both preserved/released. No decode/admission.
 [Equal .014closure/resource/teardown proposals](tasks/T07.007.014.014.md):
-Claude preserved/released, Grok live; Root comparison next, independent of models. Private-only ownership
+Both preserved/released; [Root verifies all41slices and286metadata rows](reviews/2026-10-24-direct-dependencies.md#browser-closure-proposals-pass-root-source-comparison-with-corrections).
+Raw source-plan scores Claude16/20/Grok15/20; both need corrections before execution.
+Use Claude's finite copied closure with Root's explicit observation/failure corrections;
+next implement tiny authored controls in an owned Orca fixture page. No runtime PASS.
+Private-only proposal ownership
 in this checkout. Root owns tracked docs; authors may not mutate Git/source or
 open images/runtime/browser/game. Trace of286delivered image consumers does not
 wait for .012models. Root compares exact source closures/metadata before use.
