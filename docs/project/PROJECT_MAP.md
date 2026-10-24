@@ -51,7 +51,7 @@ MuC/MuD:submitted+released, HOLD5findings -> finite UI/driver fixes ready.
 MuC:three fixes + all six actual focused calls PASS/223pins.
 B4caller/world-observer reuse:two actual Grok live; Mu19 owner released.
 MuD:both calls PASS/65pins; final source joined/released beforeACK.
-Mu19:final source qualifies -> one pure projection ->33leaf audit next.
+Mu19:actual33leaf projection PASS/112checks/85pins -> runtime C next.
 Mu client:259selected files +five archives Root verified; two dirs added.
 Mu Remote:source and current config joins verified; owner released.
 Mu Web:four bodies staged/full verified;105body stage unchanged; no actor.

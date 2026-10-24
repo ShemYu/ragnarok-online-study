@@ -855,3 +855,45 @@ Fleet21:265records/3pages,2activeGrok/257released/6retained/0reclaimable,
 10274B/ed3cb0de1d50a201db28420c861c981452e6a50a86fc80ba1b9dcac621c5c3b0.
 B4 caller and current-world-observer assessment remain independent/live.
 Actual Mu19 projection/full33audit is next; no map/game/parent credit yet.
+
+## Actual Mu19 pure projection passes complete Root audit
+
+At clean admission HEADac17b04c7fd405c469bf24ebd98ab194e1b64528 Root binds
+exactly three child/six caller header assignments with whole forward/inverse
+proof and identical complete actual Mu21audit literals. Source/projector/
+helper/G/S unchanged. Bound child74155B/
+94590177a8fbef97260ac6d121aaf2ef17a4e4a12c4dd4e458318876f75aadab;
+caller93722B/147f27c73b2b756dc3a38e7ad74461028a93fb4dcd1296df7e8cc14600f76691;
+binding92109B/723bca3416a7efb54205ba9b6ec9dafc475952fb6bf77831ef46e7047d78d5e0.
+
+One actual projection passes: caller0/driver0/positive original G, no
+signals/native. Guard0.186515s, sampled peak22298624B/about21.3MiB
+(not OS containment). Original G10s/512MiB/grace3/1MiBcapture unchanged.
+All112checks/errors[],85fullpins and33closed private output leaves pass.
+Actual audit78691B/
+053dd2468987aebcd9af5773bf2fbfe76308c2dc9446d023c144040079499866.
+
+Root subsequent confirmation60579B/
+e41d8dd8b88819a2edc1f7b8d6b7f0546f3dca3953ab079e1e9577b259b04243
+rereads all85current pins/33leaves, full ten-field whole stdout/original
+guard receipt/limits, source stability and current owned PID/group absence.
+Direct18retained role bodies stay byte-identical. Engine has10fields/19roles/
+three service ports/no web; inter1538; tokens12runtime/21nonruntime;
+SOURCE43inputs/32outputpins, Material31pins and no actor authority.
+
+An additional first Root confirmation mistakenly expected Engine.binding
+None. Immutable projector and source-qualified caller explicitly preserve
+the historical source binding. Root corrects only that extra assertion to
+direct source equality; output is unchanged and there is no target replay.
+The copied Engine binding/images are historical preparation, not current
+runtime authority. Final C must freshly replace that authority context.
+
+No map/server/browser/game/Chinese/story/save or parent-check credit.
+Next: construct final native Mu C/Engine config from actual19role metadata,
+Root-verified25field map/client inventory and current world/HEAD/lease/four
+protected ports, then admit one owned scene. Root freezes23exact source/
+metadata copies for a separate Grok JSON-template-only task (no new runner):
+packet24807B/07e499581255abb22bc966609209ffb8c5e34089ae35a31fd43eb899fe082cbb;
+brief3932B/f73787545a1514ff65c159f549b27ab517dc6e6d44aa078d3618e53afd9b435d.
+Unknown runtime authority stays null; existing MuD/MuC/Engine contract/caps
+and selectedP251/UI119/CfT27+five links stay fixed. No extra archive assets.

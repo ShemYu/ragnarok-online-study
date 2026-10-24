@@ -13,19 +13,17 @@ dictionary abort/load405/map-connection settlement stop later cases. Root's
 complete failure/preservation audit passes; no B200assignment/reconnection or
 parent-check credit. 4/14 is a check count, not measured full-content coverage.
 
-**Parallel work:** [Final Mu19 source qualifies; one bound pure projection
-is admitted next](reviews/2026-10-24-T07-mu-data-stage.md#final-mu19-source-qualifies-and-one-pure-projection-is-admitted-next).
-Child11668/outer30594 exactly rejoin reviewed snapshots; Root177fullpins
-include all current112Mu21audit pins/36closedsource leaves. Worker released.
-Next: exact Root3child/6caller header binding, one original G10/512MiB pure
-projection, whole33leaf audit, then final C/current world/HEAD/lease/4ports.
-B4 caller(taskfe6df2b4cd87/ctxdc84619e0299) and current-world-observer reuse
-assessment(task8d3af9d13741/ctx7e3f01695eb7) remain actual Grok live.
-Exporter source qualifies only its receipt-bound selected entry; existing
-nine-case finite entry source correction is preserved, no test run yet.
-Fleet21:265records/3pages,2activeGrok/257released/6retained/0reclaimable.
-No actor/parent credit, financial blocker or goal change. All82gaps open;
-4/14parent checks/about29% unchanged. Both B3 fixtures stay separate/verified.
+**Parallel work:** [Actual Mu19 pure projection passes Root112checks/
+85pins/33leaves and complete current confirmation](reviews/2026-10-24-T07-mu-data-stage.md#actual-mu19-pure-projection-passes-complete-root-audit).
+One original G10/512MiB call, natural0/positiveguard,0.186515s/21.3MiB sample.
+Next: final C/current world/HEAD/lease/4protectedports, then one owned scene.
+A23copy Grok unbound C/Engine JSON-template-only task is prepared; no runner
+or authority expansion. B4 caller/taskfe6df2b4cd87 and current-world-observer
+assessment/task8d3af9d13741 remain actual Grok live. Mu19 owner is released.
+Exporter selected source qualifies; finite entry source correction preserved,
+no test run yet. Last complete fleet21:265records/3pages,
+2activeGrok/257released/6retained/0reclaimable. No actor/parent credit or goal
+change. All82gaps open;4/14/about29% unchanged. Both fixtures stay separate.
 
 [All six actual MuC focused calls pass complete Root223pin verification](reviews/2026-10-24-T07-mu-data-stage.md#actual-six-muc-focused-calls-pass-complete-root-audit).
 Three source fixes qualify; no fresh map actor/render result yet. MU1 exact105body private
@@ -34,9 +32,8 @@ stage remains verified; retained water geometry0 requires no extra assets.
 final three source bodies are joined byte-exact and owner released. Actual scene
 load/draw waits for fresh fixture/runtime/lease bindings.
 [Dedicated Mu19 data view preserves the native contract](reviews/2026-10-24-T07-mu-data-stage.md#fresh-mu19-view-recommended-without-changing-native-engine-contract);
-the corrected finite projector is conditionally source-qualified; actual
-dedicated B3 data now pass. The fixed projection caller/full33leaf audit are
-next. All259 selected current client files are now
+the corrected finite projector and final caller now pass the actual
+one-call/full33leaf audit. Final runtime C/current-world binding are next. All259 selected current client files are now
 Root-verified; two missing empty directories added. Three runtime sources are
 staged. Selected browser containment qualifies without a whole-app claim.
 [All five configured archives pass Root full-byte/current-identity checks](reviews/2026-10-24-T07-mu-data-stage.md#five-configured-archives-pass-current-root-full-byte-verification); no archive index/runtime result. [Root qualification and next Grok source
