@@ -16,8 +16,10 @@ cases and repaired harness faults. Both originals are preserved/released, raw
 Claude15/20/Grok14/20; Root correction credited separately. Copied decoder on retained real images
 remains unverified. [.021both originals now pass Root comparison with holds](reviews/2026-10-24-direct-dependencies.md#grok-retained-observer-is-preserved-and-both-originals-are-personally-compared):
 Claude18tests/114controls, Grok10tests/592controls, raw15/20versus11/20.
-Both preserved/released; select the smaller Claude-derived Root repair for final
-qualification. No actual copied-decoder execution yet. [.021paired observer source wave](reviews/2026-10-24-direct-dependencies.md#independent-retained-decoder-observer-source-pair-starts)
+Both preserved/released; [Root repair now integrates with22tests/113independent
+controls and a red-to-green directory regression](reviews/2026-10-24-direct-dependencies.md#root-retained-observer-correction-passes-and-integrates).
+Next prepare/admit ONE retained25decoder caller; no actual copied-decoder
+execution yet. [.021paired observer source wave](reviews/2026-10-24-direct-dependencies.md#independent-retained-decoder-observer-source-pair-starts)
 and [Root completes its independent25file raw reference and397check audit](reviews/2026-10-24-direct-dependencies.md#actual25independent-reference-and-complete-retained-audit-pass). No body requests repeat.
 .017all948delivery and corrected .019conditional Worker facts remain qualified
 in their bounded scopes. Geometry/render and all82functional gaps remain open.

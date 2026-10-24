@@ -4073,3 +4073,57 @@ Private t07-014-021-grok-review-root-1/ receipts:
 
 Preservation receipt:18526B/SHA8b9f52c91091a311730bb09e2ee6f96876a1f32e494e5ee9b49f0669a03e3413.
 Release receipt:455B/SHA78d4fceafc6e75b86232df0f577ac065c96b0e4f77a6ea7c5001b7a089a20f62.
+
+
+## Root retained observer correction passes and integrates
+
+Root selects the Claude-derived finite repair after completing both original
+comparisons. Root personally reads the full corrected source, with Astra as
+read-only advisory. Input ancestor/literal seals, bounded reads, explicit body
+buffer retirement, all input-close attempts with sticky failures, exclusive
+output FD-derived C8/full readback, checked hardlink transitions and final
+artifact/deadline checks close the four raw holds. Failed terminal publication
+renames only the positively identified owned alias as unqualified; prior runs
+and the immutable candidate packets remain preserved.
+
+Astra identifies one remaining creation-time run-directory authority gap. Root
+personally reproduces replacement of the empty owned run directory during source
+open: the private proposal returns PASS and writes the scaffold to its replacement.
+Root retains directory/ancestor authority at creation and checks it before the
+first output. The same authored fault now returns FAIL/input_ancestor with no
+scaffold. Both old/new directories survive. This is Root repair, not model credit.
+The authored fixture's leaked descriptor is also closed.
+
+Final corrected source passes22tests/zero skips,1.129391s outer/1063.068ms suite,
+and113independent Root controls,0.326817s outer, at measured134217728B effective
+V8 heap. All five full source/input C8/SHA pins stay equal. Complete25tiny
+handwritten output hashes/three spans/direct guard refusals and all four original
+fault families pass; the directory regression is additional. Real body paths
+are not opened or decoded by these checks. An earlier controls rerun refused an
+existing owned test prefix before evaluation; its error is preserved and the
+successful rerun uses a new exclusive prefix.
+
+The qualified source/tests integrate byte-identically. Root also verifies the
+integrated no-argument CLI refuses usage and old128heap configuration refuses
+its measured335544320B heap before nonexistent profile/prefix IO. No actual run
+is admitted here. [Integrated runbook](T07.007.014.021-tga-decode-observer.md)
+states the finite mechanism/limits and next separate caller/admission boundary.
+No .021ready_for_user claim until the actual25result and independent comparison.
+
+Private t07-014-021-correction-preparation-root-1/ pins:
+
+| File | Bytes | SHA256 |
+|---|---:|---|
+| repo/tools/renewal/observe_tga_decode.mjs |38721|5641b085862c03fc61a3f7a6cef9d5ef7b11970d89491777c176dcc68cabc0f4|
+| repo/tests/tga_decode_observer.test.mjs |32573|af960a254495121b49a4f0c379f61fe70450e739c31363c998fbf5d9a12d05c9|
+| QUALIFICATION_TESTS_ROOT.json |5511|98ad7bb1810b136485e19620c6d4b05372680c8285c25fa765b3fb82a27400a3|
+| ROOT_CONTROLS_V3.mjs |8439|cea0b19c35aad1f7ba4b547d0bbd6ab109a1b90490198de40ecedc602b993592|
+| ROOT_CONTROLS_V3.json |607|46e715d637e3c35ca00e73a3e9942e9dcfa5c45144005a30a70af108720d1994|
+| ROOT_NAMESPACE.mjs |4154|50c2a921f6666c12b05dc00ce1e5ab44c69afa6bfba47723550e4e5b0e657972|
+| NAMESPACE_RED_ROOT.json |204|5f4cceb4646219022f292875735bda625841bc458963857218cfc9cd83b777bf|
+| NAMESPACE_GREEN_ROOT.json |219|ca527a022a4cc6c95b19154fe74d9be1b9d32aaf7aa83292c4821b10c438fec5|
+
+Root next prepares a current full-pin caller and ONE retained25decoder purpose
+under a15second external Node guard. Reuse the existing independent Python
+result, no GET/reference replay. Source qualification changes no overall parent
+progress; geometry/render and all82functional gaps remain open.
