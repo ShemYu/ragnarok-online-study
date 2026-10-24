@@ -80,12 +80,13 @@ CLASSIFICATIONS = ('expected_match', 'new_observed', 'failed')
 RESULT_TYPES = {
     'schema': str, 'task': str, 'batch': str, 'profile_pin': dict, 'binding_pin': dict,
     'pilot_audit_pin': (dict, type(None)), 'source_pin': dict, 'materialization_required': bool,
-    'maps_unchanged': int, 'relations_unchanged': int, 'query_ledger': list, 'counts': dict,
+    'maps_unchanged': list, 'relations_unchanged': list, 'domain_provenance': dict, 'query_ledger': list,
+    'counts': dict, 'verdict_authority': str,
     'delivery_complete': bool, 'materialization_complete': bool, 'preservation_complete': bool,
     'batch_complete': bool, 'first_error': (str, type(None)), 'postcheck_errors': list,
     'elapsed_seconds': float, 'ambiguous_archive_queries': list, 'archive_winner_claimed': bool,
 }
-LEDGER_KEYS = ('query', 'wire_target', 'selected', 'attempt_state', 'expected_pin', 'metadata_bytes',
+LEDGER_KEYS = ('query', 'profile_record', 'wire_target', 'selected', 'attempt_state', 'expected_pin', 'metadata_bytes',
                'observed', 'materialization', 'alias_group', 'error')
 
 
@@ -262,14 +263,17 @@ def load_domain(profile, spec):
             body = reuse.get('retained_body') if type(reuse) is dict else None
             require(type(body) is dict and is_int(body.get('bytes')) and body['bytes'] == rng[0]
                     and is_sha(body.get('sha256')) and reuse.get('qualified_wire_target') == wire, 'retained_join')
-            expected = {'bytes': body['bytes'], 'sha256': body['sha256']}
+            # Independent pin keeps its source join; a newly observed SHA never lands here.
+            expected = {'bytes': body['bytes'], 'sha256': body['sha256'],
+                        'qualified_wire_target': reuse['qualified_wire_target'],
+                        'source_pointer': '/queries/%d/reuse_expected/retained_body' % i}
             retained += 1
         if any(c >= 0x80 for c in raw):
             nonascii += 1
         if role == 'water' and b'/' in raw:
             slash_water += 1
         roles[role] = roles.get(role, 0) + 1
-        rows.append({'index': i, 'query': query, 'role': role, 'signature': ROLE_SIGNATURE[role], 'wire': wire,
+        rows.append({'index': i, 'query': query, 'record': q, 'role': role, 'signature': ROLE_SIGNATURE[role], 'wire': wire,
                      'loose_rel': rel, 'override_rel': orel, 'metadata_bytes': rng[0], 'expected': expected,
                      'current_candidates': len(current)})
     require(roles == spec['roles'], 'role_counts')
@@ -296,7 +300,7 @@ def load_domain(profile, spec):
     for r in rows:
         r['alias_group'] = alias.get(r['index'])
     return {'rows': rows, 'batches': {'pilot': list(pilot), 'remainder': remainder},
-            'maps': len(maps), 'relations': len(relations)}
+            'maps': maps, 'relations': relations}
 
 
 # ---- binding ----
@@ -624,6 +628,8 @@ def preflight(argv, io=None):
         io.listener_check()
     except Fail as e:
         raise Refusal(str(e))
+    except Exception as e:
+        raise Refusal('probe_error:%s' % type(e).__name__)
     parents, before = {}, {}
     for row in domain['rows']:
         loose, override = target_paths(b, row)
@@ -712,7 +718,21 @@ def fetch(run, row, out):
     prefix = b''
     error = None
     conn = None
+    resp = None
     fd = None
+
+    def take(b):
+        # Account, hash and store every returned byte before any later cap/deadline check.
+        nonlocal n, prefix
+        n += len(b)
+        run.total += len(b)
+        run.batch_bytes += len(b)
+        h.update(b)
+        if len(prefix) < PREFIX_KEEP:
+            prefix += b[:PREFIX_KEEP - len(prefix)]
+        view = memoryview(b)
+        while view:
+            view = view[os.write(fd, view):]
     try:
         conn = run.io.connect(run.ctx['binding']['host'], run.ctx['binding']['port'], run.remaining())
         conn.request('GET', row['wire'], headers=REQUEST_HEADERS)
@@ -744,25 +764,28 @@ def fetch(run, row, out):
         os.fchmod(fd, 0o600)
         ev['body_file'] = body_name
         while True:
-            channel.settimeout(run.remaining())
-            b = resp.read(min(READ_BYTES, BODY_CAP + 1 - n))
-            run.remaining()
-            if not b:
+            # http.client closes a Connection:close response (and its socket) itself once the
+            # declared length or final chunk is consumed; that is the complete end, not a fault.
+            if getattr(resp, 'isclosed', lambda: False)():
                 ev['http_eof'] = True
                 break
-            n += len(b)
-            run.total += len(b)
-            run.batch_bytes += len(b)
-            h.update(b)
-            if len(prefix) < PREFIX_KEEP:
-                prefix += b[:PREFIX_KEEP - len(prefix)]
-            view = memoryview(b)
-            while view:
-                view = view[os.write(fd, view):]
+            channel.settimeout(run.remaining())
+            want = min(READ_BYTES, BODY_CAP + 1 - n)
+            try:
+                b = resp.read(want)
+            except http.client.IncompleteRead as e:
+                take(bytes(e.partial)[:want])
+                raise
+            take(b)
+            if not b:
+                ev['http_eof'] = True
             if n > BODY_CAP:
                 raise Fail('body_over_cap')
             if run.total > AGGREGATE_CAP:
                 raise Fail('aggregate_cap')
+            run.remaining()
+            if not b:
+                break
     except Fail as e:
         error = str(e)
     except Deadline:
@@ -780,6 +803,11 @@ def fetch(run, row, out):
             try:
                 os.close(fd)
             except OSError:
+                error = error or 'close_failed'
+        if resp is not None and hasattr(resp, 'close'):
+            try:
+                resp.close()  # releases the socket the response still holds
+            except Exception:
                 error = error or 'close_failed'
         if conn is not None:
             try:
@@ -828,7 +856,13 @@ def classify(row, before, after, ev, partner_after):
     if after.get('unsafe') or after.get('sample_error'):
         return 'mismatch'
     if before['present']:
-        return 'unchanged' if after == before else 'mismatch'
+        if after != before:
+            return 'mismatch'
+        # Unchanged identity alone is not a match: stable bytes must equal the delivered response.
+        if ev is not None and ev['classification'] != 'failed' \
+                and (after['bytes'], after['sha256']) != (ev['bytes'], ev['sha256']):
+            return 'mismatch'
+        return 'unchanged'
     if not after['present']:
         return 'absent'
     if ev is None or ev['classification'] == 'failed':
@@ -878,8 +912,13 @@ def execute(ctx):
                 now = (observe(loose), observe(override))
                 if before[i][0]['present'] and now[0] != before[i][0] or now[1] != before[i][1]:
                     raise Fail('existing_mutation')
+                if any(k in now[0] for k in ('unsteady', 'unsafe', 'sample_error')):
+                    raise Fail('q%04d:unsafe_or_unsteady_target' % i)
             except Fail as e:
                 run.error(str(e))
+                break
+            except Exception as e:
+                run.error('owners_probe_error:%s' % type(e).__name__)
                 break
             ev, err = fetch(run, row, out)
             attempts[i] = 'failed' if err else 'succeeded'
@@ -922,11 +961,14 @@ def execute(ctx):
         if i not in attempts and after[i] != before[i] and (before[i][0]['present'] or before[i][1]['present']):
             run.error('q%04d:existing_mutation' % i, post=True)
     preserved = not any(m['state'] in FATAL_MATERIALIZATION for m in materialization.values())
-    for check in (io.owners_check, io.listener_check):
+    for name, check in (('owners', io.owners_check), ('listener', io.listener_check)):
         try:
             check()
         except Fail as e:
             run.error(str(e), post=True)
+            preserved = False
+        except Exception as e:  # e.g. TimeoutExpired/OSError: record, keep the remaining checks
+            run.error('%s_probe_error:%s' % (name, type(e).__name__), post=True)
             preserved = False
     for code in fixed_errors(b, fixed_identities(b)):
         run.error(code, post=True)
@@ -972,7 +1014,7 @@ def execute(ctx):
         if mat is None:
             mat = {'state': 'not_observed', 'before': before[i][0], 'after': None, 'override_before': before[i][1],
                    'override_after': None, 'polls': 0}
-        ledger.append({'query': row['query'], 'wire_target': row['wire'], 'selected': i in sel_set,
+        ledger.append({'query': row['query'], 'profile_record': row['record'], 'wire_target': row['wire'], 'selected': i in sel_set,
                        'attempt_state': state, 'expected_pin': row['expected'],
                        'metadata_bytes': row['metadata_bytes'], 'observed': evidence.get(i),
                        'materialization': mat, 'alias_group': row['alias_group'],
@@ -996,8 +1038,13 @@ def execute(ctx):
               'profile_pin': {'bytes': b['profile']['bytes'], 'sha256': b['profile']['sha256']},
               'binding_pin': {'bytes': BINDING_BYTES, 'sha256': BINDING_SHA256},
               'pilot_audit_pin': ctx['audit_pin'], 'source_pin': ctx['source'], 'materialization_required': False,
-              'maps_unchanged': domain['maps'], 'relations_unchanged': domain['relations'], 'query_ledger': ledger,
-              'counts': counts, 'delivery_complete': delivery, 'materialization_complete': materialized,
+              'maps_unchanged': domain['maps'], 'relations_unchanged': domain['relations'],
+              'domain_provenance': {'profile_schema': PROFILE_SCHEMA, 'profile_pin': {'bytes': b['profile']['bytes'],
+                                    'sha256': b['profile']['sha256']}, 'maps': '/maps', 'relations': '/relations',
+                                    'queries': '/queries', 'query_ledger_query': '/queries/<i>/query',
+                                    'query_ledger_profile_record': '/queries/<i>'},
+              'query_ledger': ledger, 'counts': counts,
+              'verdict_authority': 'candidate_before_publication; stdout, exit and Root outer audit are final', 'delivery_complete': delivery, 'materialization_complete': materialized,
               'preservation_complete': preserved, 'batch_complete': complete, 'first_error': run.first_error,
               'postcheck_errors': run.postcheck_errors, 'elapsed_seconds': elapsed,
               'ambiguous_archive_queries': list(SPEC['ambiguous_archive']), 'archive_winner_claimed': False}
@@ -1009,13 +1056,21 @@ def execute(ctx):
         complete = False
         if run.first_error is None:
             run.first_error = 'write_failed'
+    # Final deadline verdict after publication/closing: a late failure overrides the written candidate.
+    final_elapsed = float(io.clock() - run.started)
+    late = final_elapsed >= BATCH_SECONDS
+    if late:
+        complete = False
+        if run.first_error is None:
+            run.first_error = 'deadline_after_publication'
     code = 0 if complete else 1
     emit({'status': 'complete' if code == 0 else 'failed', 'task': TASK, 'batch': b['batch'], 'exit': code,
           'first_error': (run.first_error or '')[:200] or None, 'postcheck_errors': len(run.postcheck_errors),
           'delivery_complete': delivery, 'materialization_complete': materialized,
           'preservation_complete': preserved, 'batch_complete': complete,
           'counts': {k: v for k, v in counts.items() if k != 'materialization'},
-          'elapsed_seconds': round(elapsed, 6)})
+          'elapsed_seconds': round(elapsed, 6), 'final_elapsed_seconds': round(final_elapsed, 6),
+          'deadline_after_publication': late})
     return code
 
 

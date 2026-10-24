@@ -14,6 +14,7 @@ import io
 import json
 import os
 import shutil
+import socket
 import stat
 import tempfile
 import unittest
@@ -540,7 +541,10 @@ class Responses(Base):
         led = r['query_ledger']
         self.assertEqual(len(led), 12)
         self.assertEqual(led[0]['observed']['classification'], 'expected_match')
-        self.assertEqual(led[0]['expected_pin'], {'bytes': len(BODIES[0]), 'sha256': sha(BODIES[0])})
+        # Correction .001: the independent pin keeps its source join (was bytes/sha256 only).
+        self.assertEqual(led[0]['expected_pin'], {'bytes': len(BODIES[0]), 'sha256': sha(BODIES[0]),
+                                                  'qualified_wire_target': e.wire(0),
+                                                  'source_pointer': '/queries/0/reuse_expected/retained_body'})
         self.assertEqual(led[1]['observed']['classification'], 'new_observed')
         self.assertIsNone(led[1]['expected_pin'])
         self.assertEqual(led[1]['observed']['sha256'], sha(BODIES[1]))
@@ -913,6 +917,277 @@ class Authority(Base):
         self.assertEqual((rc, line['reason']), (2, 'output_exists'))
         self.assertEqual(os.listdir(e.out), ['keep.txt'])
         self.assertEqual(e.fio.requests, [])
+
+
+# ---- correction T07.007.014.011.001 (Root-executed defects and supplement cases) ----
+
+class PairIO(FakeIO):
+    """Real blocking stdlib HTTP over an owned in-process AF_UNIX socketpair; no TCP or listener.
+
+    The authored response for the requested wire is written on the peer end, which is then
+    closed (Connection: close), so http.client reads with ordinary socket buffering.
+    """
+
+    def __init__(self, env, wires, response_class=None):
+        super().__init__(env)
+        self.wires, self.response_class, self.owned = wires, response_class, []
+
+    def connect(self, host, port, timeout):
+        assert host == '127.0.0.1' and port == 33338
+        fio = self
+
+        class PairConn(http.client.HTTPConnection):
+            def connect(self):
+                raise AssertionError('no real connect')
+
+            def putrequest(self, method, url, **kw):
+                self._wire = url
+                fio.requests.append(url)
+                super().putrequest(method, url, **kw)
+
+            def getresponse(self):
+                fio.on_response(self._wire)
+                self._peer.sendall(fio.wires[self._wire])
+                self._peer.close()
+                return super().getresponse()
+
+        conn = PairConn(host, port, timeout=timeout)
+        if self.response_class is not None:
+            conn.response_class = self.response_class
+        left, right = socket.socketpair(socket.AF_UNIX, socket.SOCK_STREAM)
+        conn.sock, conn._peer = left, right
+        self.owned.append((left, right))
+        return conn
+
+
+def http_close(body, extra=b''):
+    return b'HTTP/1.1 200 OK\r\nContent-Length: %d\r\nConnection: close\r\n%s\r\n' % (len(body), extra) + body
+
+
+class Correction(Base):
+    def pair(self, e, wires=None, response_class=None):
+        wires = wires or {e.wire(i): http_close(BODIES[i]) for i in range(12)}
+        e.fio = PairIO(e, wires, response_class)
+        e.fio.responses = {}
+        self.addCleanup(lambda: [s.close() for pair in e.fio.owned for s in pair])
+        return e.fio
+
+    def assertOwnedClosed(self, fio):
+        self.assertTrue(fio.owned)
+        for left, right in fio.owned:
+            self.assertEqual((left.fileno(), right.fileno()), (-1, -1))
+            self.assertEqual(left._io_refs, 0)  # makefile reference released: real close happened
+
+    def test_complete_content_length_close_af_unix_accepted(self):
+        # Root defect 1: complete CL + Connection: close was rejected as transport.
+        e = self.env()
+        fio = self.pair(e)
+        for i in PILOT:
+            e.extract_on_response(i)
+        rc, line = e.run()
+        self.assertEqual(rc, 0, e.stdout)
+        self.assertOneLine(e)
+        r = e.result()
+        self.assertTrue(r['batch_complete'])
+        self.assertIsNone(r['first_error'])
+        for i in PILOT:
+            ev = e.response(i)
+            self.assertEqual((ev['bytes'], ev['sha256'], ev['hash_scope'], ev['http_eof'], ev['error']),
+                             (len(BODIES[i]), sha(BODIES[i]), 'complete', True, None))
+            self.assertEqual(e.body(i), BODIES[i])
+        self.assertEqual(r['counts']['batch_response_bytes'], sum(len(BODIES[i]) for i in PILOT))
+        self.assertEqual(fio.requests, [e.wire(i) for i in PILOT])
+        self.assertOwnedClosed(fio)
+
+    def test_chunked_complete_and_short_over_af_unix(self):
+        e = self.env()
+        body = BODIES[0]
+        chunked = (b'HTTP/1.1 200 OK\r\nTransfer-Encoding: chunked\r\nConnection: close\r\n\r\n'
+                   + b''.join(b'%x\r\n' % len(body[k:k + 16]) + body[k:k + 16] + b'\r\n'
+                              for k in range(0, len(body), 16)) + b'0\r\n\r\n')
+        wires = {e.wire(i): http_close(BODIES[i]) for i in range(12)}
+        wires[e.wire(0)] = chunked
+        wires[e.wire(1)] = http_close(BODIES[1])[:-5]  # declared length, peer closes early
+        fio = self.pair(e, wires)
+        rc, _ = e.run()
+        self.assertEqual(rc, 1)
+        self.assertEqual(e.response(0)['classification'], 'expected_match')
+        ev = e.response(1)
+        self.assertEqual(e.result()['first_error'], 'q0001:short_body')
+        self.assertEqual((ev['bytes'], ev['sha256'], ev['hash_scope']),
+                         (len(BODIES[1]) - 5, sha(BODIES[1][:-5]), 'prefix'))
+        self.assertEqual(e.body(1), BODIES[1][:-5])
+        self.assertEqual(fio.requests, [e.wire(0), e.wire(1)])
+        self.assertOwnedClosed(fio)
+
+    def test_incomplete_read_partial_bytes_retained(self):
+        # Root defect 2: IncompleteRead.partial exposed 16 bytes but evidence/storage kept 0.
+        e = self.env()
+        first = BODIES[1][:16]
+        wires = {e.wire(i): http_close(BODIES[i]) for i in range(12)}
+        wires[e.wire(1)] = (b'HTTP/1.1 200 OK\r\nTransfer-Encoding: chunked\r\nConnection: close\r\n\r\n'
+                            b'10\r\n' + first + b'\r\n20\r\ncut')
+        fio = self.pair(e, wires)
+        r, ev = self.assertFailedAt(e, 1, 'incomplete_read', 2)
+        self.assertEqual((ev['bytes'], ev['sha256'], ev['hash_scope'], ev['http_eof']),
+                         (16, sha(first), 'prefix', False))
+        self.assertEqual(ev['prefix_hex'], first.hex())
+        self.assertEqual(e.body(1), first)
+        self.assertEqual(r['counts']['batch_response_bytes'], len(BODIES[0]) + 16)
+        self.assertOwnedClosed(fio)
+
+    def test_bytes_returned_at_deadline_retained(self):
+        # Root defect 3: a read returned bytes, then the deadline check dropped them.
+        e = self.env()
+        fio = None
+
+        class LateResponse(http.client.HTTPResponse):
+            def read(self, amt=None):
+                b = super().read(amt)
+                fio.clock.t += e.mod.BATCH_SECONDS + 1
+                return b
+        fio = self.pair(e, response_class=LateResponse)
+        r, ev = self.assertFailedAt(e, 0, 'deadline', 1)
+        self.assertEqual((ev['bytes'], ev['sha256'], ev['hash_scope']), (len(BODIES[0]), sha(BODIES[0]), 'prefix'))
+        self.assertEqual(e.body(0), BODIES[0])
+        self.assertEqual(r['counts']['cumulative_response_bytes'], len(BODIES[0]))
+        self.assertIn('deadline', r['postcheck_errors'])
+        self.assertOwnedClosed(fio)
+
+    def test_unchanged_maps_relations_records_and_provenance(self):
+        e = self.env()
+        for i in PILOT:
+            e.extract_on_response(i)
+        rc, _ = e.run()
+        self.assertEqual(rc, 0, e.stdout)
+        r = e.result()
+        self.assertEqual(r['maps_unchanged'], e.profile_obj['maps'])
+        self.assertEqual(r['relations_unchanged'], e.profile_obj['relations'])
+        self.assertEqual([x['profile_record'] for x in r['query_ledger']], e.profile_obj['queries'])
+        self.assertEqual([x['query'] for x in r['query_ledger']], [q['query'] for q in e.profile_obj['queries']])
+        self.assertEqual(r['domain_provenance']['profile_pin'], r['profile_pin'])
+        self.assertEqual(r['query_ledger'][9]['profile_record']['current_five_candidate_refs'],
+                         ['/q/9/0', '/q/9/1'])
+        self.assertIs(r['archive_winner_claimed'], False)
+        led = r['query_ledger']
+        self.assertEqual(led[1]['observed']['sha256'], sha(BODIES[1]))
+        self.assertIsNone(led[1]['expected_pin'])
+
+    def test_absent_target_turns_unsafe_before_get_stops(self):
+        e = self.env()
+        e.fio.after_response.setdefault(e.wire(0), []).append(
+            lambda: (os.makedirs(os.path.dirname(e.loose(1)), exist_ok=True),
+                     os.symlink(e.p('in/guard.py'), e.loose(1))))
+        rc, _ = e.run()
+        self.assertEqual(rc, 1)
+        r = e.result()
+        self.assertEqual(e.fio.requests, [e.wire(0)])
+        self.assertEqual(r['first_error'], 'q0001:unsafe_or_unsteady_target')
+        self.assertEqual(r['query_ledger'][1]['attempt_state'], 'not_attempted')
+        self.assertTrue(os.path.exists(os.path.join(e.out, 'AFTER_ROOT.json')))
+
+    def test_stable_preexisting_new_row_differs_from_response(self):
+        a = BODIES[1][:2] + b'Z' * (len(BODIES[1]) - 2)  # same size, valid BM signature, other bytes
+        e = self.env(existing={1: a})
+        for i in PILOT:
+            if i != 1:
+                e.extract_on_response(i)
+        rc, _ = e.run()
+        self.assertEqual(rc, 1)
+        r = e.result()
+        m = r['query_ledger'][1]['materialization']
+        self.assertEqual(m['state'], 'mismatch')
+        self.assertEqual(r['query_ledger'][1]['observed']['classification'], 'new_observed')
+        self.assertTrue(r['delivery_complete'])
+        self.assertFalse(r['materialization_complete'] or r['batch_complete'])
+        self.assertIn('q0001:materialization_mismatch', r['postcheck_errors'])
+        with open(e.loose(1), 'rb') as f:
+            self.assertEqual(f.read(), a)
+        e = self.env(existing={1: BODIES[1]})  # control: stable bytes equal to the response
+        for i in PILOT:
+            if i != 1:
+                e.extract_on_response(i)
+        rc, _ = e.run()
+        self.assertEqual(rc, 0, e.stdout)
+        self.assertEqual(e.result()['query_ledger'][1]['materialization']['state'], 'unchanged')
+
+    def test_final_probe_exceptions_keep_final_evidence(self):
+        import subprocess
+        e = self.env()
+        e.fio.responses[e.wire(1)]['status'] = 404
+        calls = []
+
+        def listener():
+            calls.append(1)
+            if len(calls) > 1:
+                raise subprocess.TimeoutExpired(['lsof'], 3)
+        e.fio.listener_check = listener
+        e.fio.after_response.setdefault(e.wire(0), []).append(lambda: write(e.p('arch/a2.grf'), b'drifted'))
+        rc, _ = e.run()
+        self.assertEqual(rc, 1)
+        self.assertOneLine(e)
+        r = e.result()
+        self.assertEqual(r['first_error'], 'q0001:http_status')
+        self.assertIn('listener_probe_error:TimeoutExpired', r['postcheck_errors'])
+        self.assertIn('archive_drift', r['postcheck_errors'])  # later independent check still ran
+        self.assertEqual(len(r['query_ledger']), 12)
+        self.assertTrue(os.path.exists(os.path.join(e.out, 'AFTER_ROOT.json')))
+
+        e = self.env()
+        n = []
+
+        def owners():
+            n.append(1)
+            if len(n) == 3:  # preflight, q0, then q1 probe raises
+                raise OSError('probe')
+        e.fio.owners_check = owners
+        rc, _ = e.run()
+        self.assertEqual(rc, 1)
+        r = e.result()
+        self.assertEqual(r['first_error'], 'owners_probe_error:OSError')
+        self.assertEqual(e.fio.requests, [e.wire(0)])
+
+        e = self.env()
+        n = []
+
+        def interrupt():
+            n.append(1)
+            if len(n) == 2:
+                raise KeyboardInterrupt()
+        e.fio.owners_check = interrupt
+        with contextlib.redirect_stdout(io.StringIO()):
+            self.assertRaises(KeyboardInterrupt, e.mod.main, [], e.fio)
+
+    def test_deadline_after_publication_overrides_written_candidate(self):
+        e = self.env()
+        for i in PILOT:
+            e.extract_on_response(i)
+        real = e.mod.write_new
+
+        def slow_result(directory, name, data):
+            real(directory, name, data)
+            if name == 'RESULT_ROOT.json':
+                e.fio.clock.t += e.mod.BATCH_SECONDS
+        e.mod.write_new = slow_result
+        rc, line = e.run()
+        self.assertEqual(rc, 1)
+        self.assertOneLine(e)
+        self.assertEqual((line['status'], line['first_error'], line['deadline_after_publication'],
+                          line['batch_complete']), ('failed', 'deadline_after_publication', True, False))
+        r = e.result()
+        self.assertTrue(r['batch_complete'])  # earlier candidate JSON; stdout/exit are authoritative
+        self.assertIn('stdout, exit and Root outer audit are final', r['verdict_authority'])
+
+    def test_default_refusal_still_no_io(self):
+        mod = load()
+
+        class Trap:
+            def __getattr__(self, name):
+                raise AssertionError('io touched: ' + name)
+        out = io.StringIO()
+        with contextlib.redirect_stdout(out):
+            self.assertEqual(mod.main([], io=Trap()), 2)
+        self.assertEqual(json.loads(out.getvalue())['reason'], 'unbound')
 
 
 if __name__ == '__main__':
