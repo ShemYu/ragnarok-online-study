@@ -1948,3 +1948,55 @@ Release accepted: only worker terminal closes/transcript captured. Full report/
 with independent Grokctx_f4d9e43cd1f0, whose matching implementing heartbeat
 remains live. No sibling findings sent, no selection, browser implementation
 or actual image/codec/render execution. Root's model/metadata lane continues.
+
+
+## Complete936declaration aggregate passes Root audit
+
+Root independently recomputes the disjoint model merge and every exact nested
+HTTP target from both retained batches, without executing a constructor again.
+All936reduced model records remain typed-identical in model-index order; all
+1649original relations/21maps/three case groups/six rows remain unchanged. Full
+profile, two manifests/nested datasets and two Root proof receipts have current
+complete EOF/SHA/C8 PRE/POST equality. Embedded individual result/body/runtime
+paths are not followed in this metadata-only stage.
+
+Combined totals:1306nodes/1546declarations/1783resolved slots, zero unresolved
+slots or unlinked declarations;948exact HTTP targets/948exact raw names. All
+2750declaration/source uses and3189node-slot/source uses, complete declarations,
+model/group/map/proof pointers and original spelling/order survive. No basename,
+case/slash/percent/alias normalization is introduced by aggregation.923targets
+are BMP (893lowercase/30uppercase);25are TGA (23lowercase/twouppercase).438exact
+HTTP targets contain percent encoding; encoded strings confer no new path safety,
+body, catalog or codec qualification. TGA is outside the286ground/water BMP/JPG
+source-only lane and needs its own unchanged consumer path later.
+
+Root full metadata audit389646checks/0.302924s passes. This independently checks
+the actual merged data/provenance/flags/counts, not a replay of the helper's own
+author counters. The helper's first output seal attempted JSON serialization of
+sets; two exact sorted-list corrections seal already-created data without domain
+regeneration. That local authoring failure/correction remains in its packet.
+
+| Private file | Bytes | SHA256 |
+|---|---:|---|
+| combined-helper-1/ALL_MODEL_DECLARATIONS_UNBOUND_ROOT.json |7173881|357374b880de3a0f56f03ea77db415237fabe4b2d3a618bfa652a5394cea04d7|
+| combined-root-audit-1/ROOT_AUDIT.json |5718|0ef4064525dde2babdca9ef7c192d0499ad6149fa23817590259c22bd6ec239e|
+
+Runtime/admission/availability/geometry claims stay false, new body descriptors/
+bytes/decoded bytes unknown and runtime bindings null. Model702's six explicit
+bounds sentinels and geometry-unaccepted follow-up remain typed unchanged.
+
+T07.007.014.012 is ready_for_user for its bounded genuine-construction/complete-
+summary/declaration scope: raw provider scores14/20vs9/20 remain held; separately
+corrected Claude source19/20 is integrated and Root-verified, with all936actual
+observations and full aggregate now qualified. Frozen-throw source limitation
+remains disclosed; no general implementation/provider or all-finite/render PASS
+is inferred. All successful calls/retained outputs must be reused.
+
+Next T07.007.014.015preparation: smallest finite reuse of the existing .010
+lookup/.007Collector and independent oracle for948new exact nested requests
+against the same63saved catalogs. Source-only feasibility helper may read only
+its five explicit metadata/source inputs; no actual stream/body/archive/runtime
+operation. Equal Claude/Grok source review and Root personal verification precede
+any actual948lookup. Keep .014browser closure proposals independent. Full goal,
+4of14/about29% and82functional gaps remain; no scene/travel/story/save/Chinese
+acceptance or new user decision.

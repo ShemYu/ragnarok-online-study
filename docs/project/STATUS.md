@@ -36,8 +36,10 @@ all11returned;253583checks/1097pins/24model files;19nodes/17declarations/
 natural0/no residue; complete world PRE/POST equal. [Finite925caller/7Root authored groups pass](reviews/2026-10-24-direct-dependencies.md#finite925caller-qualifies-one-disjoint-remainder-is-admitted).
 [ONE925actual call/complete Root observation audit pass](reviews/2026-10-24-direct-dependencies.md#actual925remainder-and-complete-root-observation-audit-pass):
 all925returned;1253179checks/8407pins/1852model files. All936models now have
-one disjoint constructor/summary/declaration observation; no replay. Next
-combine full936declarations, nested texture availability and separate geometry.
+one disjoint constructor/summary/declaration observation; no replay. [Full936declaration aggregate passes389646Root checks](reviews/2026-10-24-direct-dependencies.md#complete936declaration-aggregate-passes-root-audit):
+1546declarations/1783resolved slots/948exact targets, no unknown model or
+unresolved slot; .012ready_for_user for construction/declarations only. Next
+.015nested texture catalog preparation/equal source review, plus separate geometry.
 Model702has six explicit infinite node-box sentinels: Root/Astra source
 reachability explains skipped second root; geometry impact remains unverified. No new child/setup. A parallel metadata-only helper
 has completed the936body join; [Root independently verifies all records and fresh body files](reviews/2026-10-24-direct-dependencies.md#complete936body-join-and-fresh-root-file-audit-pass).
