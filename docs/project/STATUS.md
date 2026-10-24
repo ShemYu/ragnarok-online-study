@@ -4,11 +4,16 @@ Updated: 2026-10-25 JST. Coordinator: Codex. Active scope: **execute the documen
 
 ## Current checkpoint
 
-**Main next action:** [Resume ordinary-play and authentic Chapter1 route checks](reviews/2026-10-24-direct-dependencies.md#next-player-gate-resumes-ordinary-play-and-the-real-chapter1-route).
-Fresh read-only Orca snapshot/image still shows normal textured Izlude128,142,
-HP45/SP12/base2/job3/17% and Chinese overlay. No game input is sent. Next new
-current-state reentry/backup purpose, observed field fight/normal return, then
-first Chapter1 selection/traversal/persistence. Independent CPU qualification
+**Main next action:** fresh supported backup, then observed field fight/return
+and the [authentic Chapter1 route](reviews/2026-10-24-direct-dependencies.md#next-player-gate-resumes-ordinary-play-and-the-real-chapter1-route).
+[Current earned-state ordinary reentries pass](reviews/2026-10-24-normal-map-prerequisites.md#current-earned-state-character-selection-and-full-logout-reentries-pass):
+same character at textured Izlude128,142, HP45/SP12/base2/job3/displayed17%,
+visible consume quantities1/5 and Chinese overlay. Root personally views both
+returns; fresh authenticated native ownership and all five service metadata
+remain unchanged. First fill/Enter login attempt failed; verified form input
+and Connect succeed, original cause unresolved. No fresh backup/restart yet.
+Next fresh supported backup, observed field fight/normal return, then first
+Chapter1 selection/traversal/persistence. Independent CPU qualification
 of all936is not a prerequisite for normal play. .024broader source plans remain
 parallel: [Claude92c7ef9fully preserved/released](reviews/2026-10-24-direct-dependencies.md#claude-geometry-extension-plan-is-preserved-and-released),
 Grok active; Root comparison pending. No restart/backup admitted yet.

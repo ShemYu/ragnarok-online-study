@@ -388,3 +388,61 @@ Space press or visible-target click can test stalled range recovery; do not
 run a blind held/repeated attack loop or change gameplay rules. Broader
 client/server repair requires its own bounded evidence and equal task if
 needed. Full scope and all82functional gaps remain unchanged.
+
+## Current earned-state character selection and full logout reentries pass
+
+Root continues T07.007.011 at79aa587f4160382b767474d089b9cde8d92ab372.
+A fresh read-only donor binding verifies the qualified post-cold app/asset/
+engine/VZ births and executables, asset parent, loopback listeners, fresh native
+HMAC identity and public health. GET-only safe metadata matches all five
+qualified post-cold containers, including starts/images/mounts/ports. No admin
+invocation, forced save or service action precedes the ordinary UI checks.
+This reuses the established integration procedure, not a new provider benchmark.
+
+Ordinary Escape → character selection → same-character Enter returns
+character150000/Ro4Novice1024 to Izlude128,142. Separately Escape → Exit reaches
+the normal login form. The first password fill/Enter receives an account/password
+error; Root preserves it and does not infer a server defect. A helper `focus`
+request is refused by the capture utility before browser IO. Using the supported
+focus/inserttext commands, Root verifies both form values privately against the
+retained credentials, clicks the visible Connect button and enters the same
+character. That second normal login/reentry succeeds. The first failure's cause
+remains unresolved; no credential reset, account creation or direct game callback
+is used. Source inspection finds the form's normal submit reads its input values;
+it does not independently establish what the first attempt submitted.
+
+Root personally views both settled textured-town returns. Supported read-only
+diagnostics show the same identity/location/full HP45/SP12, enabled normal input
+and unchanged BGM/Sound off/0. The HUD retains base2/job3/17%EXP;17%is a display,
+not raw saved base_exp. Normal inventory before/after full logout shows consume
+quantities1/5 and the magnifier icon5. No fresh typed item-ID or persisted-row
+claim follows. The pre-logout active quest list is empty after the earlier
+turn-in; completed quest state is not inferred from that empty list. Inventory
+is closed afterwards and the character remains safely idle in town.
+
+Three fresh ownership receipts, before/after character selection/after logout,
+all pass with identical five-container metadata and preserved current/four old
+owners. Root's separate saved-receipt audit passes79full pins and reconstructs
+eight personally viewed PNG receipts losslessly. Its first readback audit fails
+before publication because full stat equality included changing read-access
+time. Root preserves that source/refusal and changes only the read identity to
+the established C8 fields excluding access time; the saved-data audit then passes.
+No game action is repeated by either audit.
+
+Private t07-orca-ordinary-field-root-7/:
+
+| Artifact | Bytes | SHA256 |
+|---|---:|---|
+| OWNERS_PRE.json |16317|40c88bfdbb75bd6ad7649d77886da7858a36951e05131729fdd20704479bdeb1|
+| OWNERS_POST_CHARACTER.json |16328|abf97d3ff483872cc0b05b812a566a3d0a57f57a8eedf677eded6507c3b3d05d|
+| OWNERS_POST_LOGOUT.json |16325|487fa93263e739d3451ec97395a878a64164bf490067950e78b15978cbb68144|
+| REENTRY_AUDIT_ROOT_V2.py |4529|65b7b06d735b4cf5beab0b423e59b53a93373add88ac56e2824f810bfee463db|
+| ROOT_REENTRY_VERIFIED.json |14809|d13adce5a910d38a99308fddd380090162fa5c748410d2432295c0859ab76307|
+
+After this Git checkpoint, bind one fresh supported backup/inspection to the
+current owners and new exclusive destination. Its expected three-service
+restart needs fresh readiness and ordinary reentry verification. No new cold
+shutdown or restore is needed. Then closely observe a suitable field encounter
+and normal return. The prior fight remains FAILED; no field kill/return PASS,
+new backup, saved quest/inventory row, Chapter1 or full-content acceptance is
+claimed. Full goal,4/14parent count and all82functional gaps stay unchanged.
