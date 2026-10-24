@@ -77,8 +77,9 @@ Both original scores stay12/20vs10/20; rework19/20 is separate.
 Claude5024e19 and Grok55bac48. [Root full-source/25vs39tests/11117equal checks
 select Claude19/20; Grok17/20 is held for TGA stored-body readback](reviews/2026-10-24-direct-dependencies.md#nested-delivery-originals-pass-root-comparison-with-one-grok-hold).
 Selected source is copied unchanged; integrated CLI unbound/admission-switch
-refusals pass. Next prepare Root's2155wire preservation caller/bindings before
-any actual nested body. Root's independent
+refusals pass. [Root2155wire pilot caller now passes32inherited/1001new controls](reviews/2026-10-24-direct-dependencies.md#nested-pilot-preservation-caller-passes-root-source-controls),
+including full prepared-to-call preservation. Both admissions stay false. Fresh
+current seed/bindings and one10pilot follow before any remainder. Root's independent
 oracle source/current65metadata file checks pass; [finite multi-map audit projection
 passes Root's positive/eight negative controls](reviews/2026-10-24-direct-dependencies.md#finite-launch-audit-derivatives-and-multi-map-controls-qualify).
 [Concrete bindings for ONE independent oracle are verified/admitted](reviews/2026-10-24-direct-dependencies.md#one-actual-nested-oracle-is-admitted).
@@ -99,7 +100,8 @@ Both Claude task_8cab3a219812/ctx_93998892668c and Grok
 task_3695d6723248/ctx_dd8e5f76545d are now preserved/released. Two reused
 checkouts/separate branches, no new child/setup. Root comparison selects unchanged
 Claude19/20 versus Grok17/20 held; no idle terminal kept for review. The exact
-2155wire Root caller/fresh binding follows. .016authored browser controls pass.
+2155wire Root caller passes32+1001controls; fresh current seed/binding follows.
+.016authored browser controls pass.
 No actual request is admitted.
 Private-only proposal ownership
 in this checkout. Root owns tracked docs; authors may not mutate Git/source or

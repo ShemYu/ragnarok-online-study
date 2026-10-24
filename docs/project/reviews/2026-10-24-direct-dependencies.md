@@ -3011,3 +3011,61 @@ full current bindings/budgets and its finite controls. No actual .017GET is
 admitted and parent readiness remains open. Both original worker terminals are
 already released; rollback refs/bundles/full packets survive. No critical
 goal-changing blocker or user decision.
+
+
+## Nested pilot preservation caller passes Root source controls
+
+Root derives a finite pilot-only caller from qualified32363B/7f84c654... .011
+PILOT_V2_UNBOUND_ROOT.py. Complete donor/final diff is personally read.25existing
+definitions remain AST-identical, only bootstrap/snapshot/prepare/call adapt;
+union_domain/compare_union are the two finite pure helpers. Update exact
+selected observer/profile pins, .017schemas/10pilot indices,256MiB artifact cap
+and512MiB full sampling cap. Existing four-owner births/executables, six selected
+ENV values, native/INI/five ordered archive identity checks, explicit Engine
+socket/six GET routes, seven observer source slots and75s/512MiB guard stay.
+Historical archive hashes remain historical; no new archive hash claim.
+
+The pinned profile already carries the exact ordered2155wire preservation union:
+first1222qualified direct rows plus933nested-new rows. Root validates literal
+origins/indices/whole wire/path/override joins, all948nested mappings and15prior
+reuse joins. Snapshot samples all4310literal loose/override paths plus parents,
+without case/inode deduplication. It projects exact-wire states into the existing
+closed948observer binding targets; it never passes2155targets to that schema.
+Postchecks require complete ordered2155union equality before per-row checks,
+unchanged overrides/existing loose files and only selected new appearances;
+those appearances still require Root's independent actual-response joins.
+
+Astra finds a concrete first-draft gap before any current-world action: the
+additional1207prior-only wires are not compared between prepared and fresh
+pre-call states. Root preserves the35721B/c0c200c6... draft, fixes it by parsing
+the already-pinned PREFLIGHT and requiring complete2155union/parent equality
+before guard invocation. Root personally executes the actual call() flow with
+fully authored memory files/probes/guard. Prior-only loose drift, prior-only
+override drift and parent drift all incorrectly invoke one guard on V1. All
+three now invoke zero guards, return failed/fresh_prestate and still attempt/
+publish poststate. Positive control invokes exactly one authored guard with
+75s/512MiB/non-native arguments. No actual process or HTTP call is made.
+
+Root reruns32inherited source/sysctl-layout/binding/projection controls and
+1001new full-domain/snapshot/post/call-flow controls, all pass. Exact4310sample
+calls/2155union/948projection, case distinction,512MiB exact/one-over boundary,
+all later checks after sample failure, metadata omission/origin/duplicate/path/
+case/unknown fields and seven post-union mutation groups are covered. Earlier
+caller-control limits remain explicit; authored OS/syscall/Engine doubles do not
+prove current-world preservation. Pilot23normal observer leaves fit the existing
+64leaf ceiling; the923remainder's exact1849leaf closure is deferred until its
+consumed-pilot audit, not silently covered by this pilot caller.
+
+Private t07-014-017-pilot-caller-root-1/ receipts:
+
+| File | Bytes | SHA256 |
+|---|---:|---|
+| PILOT_UNBOUND_ROOT.py |36093|ca5b24174e209c889d1ff421b1366f57c77f145804a032d109681aeb31de9538|
+| DONOR_DIFF_V2_ROOT.patch |12963|439717ff6b9b1d30b240e63a6cb530a42cfe39633ad1c9a2bccbf9c1dc26cd23|
+| INHERITED_CONTROLS_ROOT.json |1165|ef831dcb1000babc95ecc42f04ef1087fc9eab954d1f03ee112d567314e23ed8|
+| UNION_CONTROLS_ROOT.py |12510|0d49cc76ff3c2f8ab9126259a4ae9f4e906500ab3276c6054f216ff85d27b166|
+| UNION_CONTROLS_ROOT.json |24194|1b49d9419715a5a33ed4df10c4542c32ba1afad1e6795741dabf9e8b81326b17|
+
+Both PREPARE_ADMITTED/CALL_ADMITTED remain false; all seed/plan slots unbound.
+Next Root binds a fresh explicit seed and qualifies current preservation before
+one pilot. No actual .017GET, acceptance, goal change or user action yet.
