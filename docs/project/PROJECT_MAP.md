@@ -103,7 +103,7 @@ Other active work:
   Independent binary preflight [ROOT47CONTROLS +4226ACTUAL AUDIT PASS]
   Independent geometry oracle  [ROOT42CONTROLS +7975SAVED AUDIT PASS]
   Tiny geometry originals      [BOTH ROOT VERIFIED/HELD:13vs10; pair released]
-  Finite geometry correction   [CLAUDE BASIS; creation/close/structure/fixture fixes]
+  Finite geometry correction   [CLAUDE ACTIVE; creation/close/structure/fixture fixes]
   Actual model compile         [WAIT:paired implementation + Root checks first]
   Model702node bounds           [SENTINEL PRESERVED; geometry impact OPEN]
   Image consumer source trace  [ROOT PASS:40slices/286joins; both17/20/released]

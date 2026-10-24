@@ -64,8 +64,10 @@ Current84direct children include the two released review children and the two
 refs, two verified rollback bundles and private evidence survive; the running
 character/quiet audio remain. Three examined children stay held for incomplete
 private preservation; user-retained children remain excluded.
-Latest full341row fleet plus both verified original releases:331released/eight user-owned/
-two absent/zero active. Zero reclaimable in the fresh post-release check. Earlier user-owned
+Last full341row fleet plus both original releases settles that wave:331released/
+eight user-owned/two absent. The new finite correction now adds one active
+task_ffaafa66fe56/ctx_bf67cecd82f0 on the reused Claude checkout; no new child/setup.
+Zero reclaimable in the fresh pre-launch check. Earlier user-owned
 rows remain untouched.
 Two .012implementation attempts reuse existing released checkouts; no new
 child folders or setup hooks. Both .012candidates are preserved/released after

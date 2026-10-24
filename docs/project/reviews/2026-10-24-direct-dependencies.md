@@ -5151,3 +5151,29 @@ Private t07-014-023-grok-review-root-1/:
 | PAIR_EVIDENCE_ROOT.mjs |6491|97c9a8896300ef12c5da035fa8f652db99dea5bd9bbce75f3bf069dfc4b2dce7|
 | pair-evidence-3/PAIR_EVIDENCE_ROOT.json |1494|366871aa1b3ecbce44e77b52d891a15d015f08da9a3560495d2ccf3e2401f0be|
 | ROOT_CONTROL_AUTHORITY_ROOT.json |6018|dac4ee2abcdda04e27ca5cb3849d645d72c80c7d520c9a507f757dcf63cc1351|
+
+## Finite geometry correction starts on the preserved Claude basis
+
+After comparison673c3ea, Root freshly verifies the old exact Claude dispatch
+is released/exited/transcript captured, original checkout clean atf8eb477 and
+complete preservation present. Root creates separate branch
+ShemYu/t07-014-023-claude-c1 from that original; no original history is changed.
+The supported exact-existing-workspace launch returns task_ffaafa66fe56/
+ctx_bf67cecd82f0, terminal term_ae77b772-9b0e-4f49-8f9d-5276d507244e,
+ready/input_accepted and turnStart observed. Setup not applicable; no new child.
+Provider default is Claude; actual model/effort not observed. Private prefix
+is .tools/renewal/t07-014-023-claude-c1. This repair receives no raw-score credit.
+
+Only the same three files may change. Root prepares exact post-settlement
+preservation separately; no actual-mode call or source integration is admitted.
+Next: process questions/checkpoints, preserve and release the settled worker,
+then Root personally reviews full diff/tests and reruns independent controls.
+
+Private t07-014-023-001-launch-root-1/:
+
+| File | Bytes | SHA256 |
+|---|---:|---|
+| CLAUDE_SPEC_ROOT.txt |17808|ae85b095e2e3504ee74f92ce427dd104386a1a5f9389656033daf17f61953a13|
+| CLAUDE_START_ROOT.json |2300|9229f9a02a027c56e8caa4ae99dc40338132d240b695bdb6e624ab0b5f9e2cab|
+| LAUNCH_ROOT.py |2848|cdfb252588ddb3a890168c4ae63a44095b50d192dbb7508de2b3ec13ded429c8|
+| PRESERVE_ROOT.py |5379|769b9adb92c613e93670db2e2f14ab093ac305445798a820c50c334613dde281|
