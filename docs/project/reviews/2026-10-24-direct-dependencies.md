@@ -2098,3 +2098,73 @@ workers may not launch browsers/servers or read actual game images/headers.
 Reuse two settled clean implementation checkouts on fresh same-base branches;
 no new child/setup or installed/game/profile/storage/network change. Launch
 receipts and actual controls are pending; this checkpoint claims neither.
+
+
+## Four independent workers start from the same frozen base
+
+All four dispatches use5ae4031bfe202f54b40085a7ba060e12e01989a4 and the two
+frozen briefs; complete waves start before waiting. Root uses configured defaults
+with model/effort null in requested/effective receipts, not inferred identities.
+
+| Task/provider | Orca task | Dispatch | Workspace/ownership |
+|---|---|---|---|
+| .015Claude |task_ada373f40e56|ctx_2eadef4b3565|current checkout/private claude-review-1 only|
+| .015Grok |task_6dab81f1561d|ctx_471706c47694|current checkout/private grok-review-1 only|
+| .016Claude |task_ae2c6dfee767|ctx_257db1df1970|reused t07-014-011-claude-a1; fresh ShemYu/t07-014-016-claude-a1|
+| .016Grok |task_12eeccacc381|ctx_afd98154abb6|reused t07-014-011-grok-a1; fresh ShemYu/t07-014-016-grok-a1|
+
+Root verifies exact prior9cdf352/bf369fd heads and clean tracked status before
+creating the two fresh same-base implementation branches; preserved original
+branches/private evidence remain. Both receipts say existing worktree/setup
+not_applicable/no hook. No new child folders. Four matched heartbeats confirm
+investigating/reviewing; Grok turn-start unsupported is not failure.311released/
+ten retained/four current workers. Source reviews own disjoint ignored outputs;
+Root alone owns concurrent coordination docs. No sibling answer transmission.
+
+
+## Nested profile and authored fixture pass Root's independent checks
+
+Root personally reads the full new wrapper, old qualified source's relevant
+strict-read/Collector mechanisms and complete literal edit proof. Its independent
+data-only audit reconstructs every948query and1546relation directly from the
+qualified aggregate, retaining all complete typed use/source objects, exact
+Latin1 bytes, once-encoded recorded URI and model/declaration pointers. All21map
+rows/63catalog descriptors/parent/limits are typed unchanged. Casepair518/603,
+parentheses542/543, nine two-query basename groups and full graph pointers agree.
+All12edited regions/13unchanged spans/full forward/inverse and twelve complete
+source/output EOF/SHA/currentC8 PRE/POST pins verify. No metadata stream/body
+paths followed. Root174960checks/0.120308s pass. Private preparation-root-audit-1/
+ROOT_AUDIT.json is5961B/SHA256
+5136367ecc35136c8742fc729b395d7d29b245dab7f95acfaaec72c040b8f97c.
+
+Root audit V1 initially compares the profile's extension-count dictionary to the
+aggregate's entire three-dictionary container, and fails at173587. V1 source and
+explicit failure record remain. The correction selects the exact unique-target
+extension dictionary, then reruns the complete independent audit. No domain data
+or source is regenerated/changed; the corrected comparison does not waive a
+target mismatch. Actual948lookup remains unadmitted.
+
+Root also independently recomputes every authored seed occurrence/candidate,
+typed opaque row, indexed count and literal expected payload before execution.
+ONE fixture-main call with -I -B returns natural0 in0.111724s,357B stdout/empty
+stderr, exactly result.json13057B/SHA256
+10c6ea82f285cb1f126e00d77a411db132438c76dd50e5c72b82f2bb63f1bf49.
+Complete typed payload and all source/document pre/post results agree. Root's
+nine authored groups/895checks pass: complete fixture/empty/repeated-role/fanout/
+Latin1 semantics, actual refusal before donor/output, existing output preserved,
+strict JSON/hex/ordinal/CRLF refusals, registered failed-read posthash, actual extra
+FD and elapsed errors, and three inherited publication limits reproduced with
+nonzero exits. A result leaf or absent failure marker alone remains insufficient.
+No new generic parser, actual catalog stream or game-source codec evaluation.
+
+Private root-fixture-1/CONTROLS_ROOT.json is4393B/SHA256
+7064e8eac75991477048212d433b89861bdba3c1796044bd87c9ee1af488508e.
+These Root controls run independently while the two frozen review attempts
+continue; no selection or source fix precedes both submissions. A finite
+independent actual oracle derivative is being prepared source-only from the
+qualified .010oracle adapter, with admission false. Root will read/qualify its
+whole source/inverse and current metadata closure before one actual scan.
+
+Read-only Orca tab inventory confirms the existing game page still registered;
+no browser inputs/new tab/installed image or settings/save/service change. Full
+Renewal/4of14/about29%/82gaps and user decision boundaries remain unchanged.
