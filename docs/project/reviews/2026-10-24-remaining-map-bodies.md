@@ -851,3 +851,26 @@ HTTP request, installed file/save/server action is admitted here. Next normal
 delivery uses retained exact bytes, fresh live preflight and a bounded projection
 of the already-qualified four-GET source. Full constructors/dependency/loading
 remain subsequent gates. No parent percentage or82gap closure follows.
+
+## Complete retained terrain-body reconciliation passes
+
+Root's admitted read-only reconciliation independently reconstructs every34
+query/logical-name/percent-decoded HTTP-target/retained-descriptor join. All
+34complete bodies/97037820B match the old full SHA and all eight identity
+fields, private0600/single-link regular files with no aliased ancestors.
+Every GND is1.9/GRGN, every GAT1.3/GRAT; all17paired dimensions match, GAT
+lengths equal14+20*width*height, GND scales are finite/positive. Four complete
+metadata inputs remain exact before/after. No decoder, archive, HTTP, native
+or game action occurs. This reuses existing body evidence, not new coverage.
+
+Private normal-get-preparation-root-1/BODY_ALLOWLIST_ROOT.json101359B/SHA256
+db4d586e16b4d123a60b1061ef6483588dbf4f8fa4a8fdd503c9a7855b74526c
+binds all34body/query/record/header joins and42relations. RECONCILE_ROOT.json
+2860B/SHA256ec1febb8c571b7b62519fa6f94d7877bf550983e634b3c5e1973308223279e62
+records complete current preservation. Prefix is
+`.tools/renewal/t07-remaining-terrain-`. No constructor/archive-winner proof.
+
+The new [T07.007.014.008 scope](../tasks/T07.007.014.008.md) freezes normal34
+delivery: reuse the four-GET observer, exact allowlist and fresh live preflight;
+compare equal Claude/Grok source reviews before Root actual admission. A finite
+unbound source projection is being prepared only; no runtime is admitted yet.

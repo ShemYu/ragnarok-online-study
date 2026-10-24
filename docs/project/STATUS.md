@@ -21,6 +21,12 @@ Next current full34body reconciliation/fixed allowlist, then fresh normal
 delivery admission. No new body/gameplay or82gap closure yet.
 Ordinary playtest remains blocked by the freshly confirmed native-pipe failure.
 
+[All34retained bodies now pass complete current reconciliation](reviews/2026-10-24-remaining-map-bodies.md#complete-retained-terrain-body-reconciliation-passes):
+97037820B/all old full hashes/eight-field identities/17paired dimensions.
+[T07.007.014.008](tasks/T07.007.014.008.md) freezes normal delivery; next finite
+source/fresh preflight/equal Claude-Grok source review. No new recovery/HTTP/
+native/game action, no82gap closure. Keep the retained34expected bodies.
+
 **Latest playable-integration result:** [Settled re-entry and bounded normal integration pass](reviews/2026-10-24-normal-integration.md#settled-re-entry-and-bounded-normal-integration-pass).
 **T07.007.012.009 is5/5checks,100% of that bounded integration task** and
 ready_for_user after its checkpoint. Ordinary creation/travel/NPC earning,
