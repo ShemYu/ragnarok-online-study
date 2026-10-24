@@ -716,3 +716,46 @@ candidate/public/oracle/guard/checker evidence. Retain failure without retry.
 
 This is independent of Grok's still-active source attempt; it neither selects
 a winner nor admits Grok's actual execution. No body/native/game/save action.
+
+## Claude actual observation passes and Grok source is preserved
+
+The admitted unchanged Claude method returns natural0 in7.710635s, sampled
+owned RSS27918336B; the existing guard is valid with no action/signals/group
+residue and complete captures. Its entire138141B result (SHA256
+3f9d9d02927088fcb69ca615ad66684411dc94b3dbe94d885934197ea29e103e)
+matches Root's independent oracle as a complete typed object. All34queries
+have one exact eligible occurrence, no basename-only matches; all42relations,
+63catalog descriptors/408794rows/counters/opaque records match. Root checks
+77complete input/evidence files before and after: all frozen content and full
+mode/link/owner/time/identity fields remain exact. The private result-only
+publication and total artifact budget also pass. CALL_ROOT.json6697B/SHA256
+65d4f77c93cc976fc0c94fd2303876701034330441539969ebd3997f595661ed
+binds the complete positive guard, output and pre/post receipts. This qualifies
+the bounded actual metadata observation, not body/loading/gameplay coverage.
+
+Matched Grok worker_done msg_e247486e020d settles task_4ba9ad0a3be4 /
+ctx_c904920a2f4c. Candidate8c1c58d1de4c1b689effcce07f4d4a8b4bd6a99e
+has the exact common base, one owned-report commit and clean checkout. Root
+preserves all six private files/92680B, report and four frozen public files:
+eleven complete mirrors. SETTLEMENT_ROOT.json6095B/SHA256
+e6a30e837e32494f38588a1a825f056860d37f7be0cb7eda8f7dd8455e946f41
+binds them. The positive release receipt confirms released/closed terminal and
+captured transcript, before inbox acknowledgment. No settled worker is kept
+for speculative repairs.
+
+Root personally reads the complete29399B method (SHA256
+1d93cf47c5022f768b2d07508c240390f031e3a6baf1f6034dc284d40a8cbeb4)
+and24643B test suite. Independent source review identifies a strict-JSON gap:
+raw_decode followed by unrestricted strip accepts non-JSON trailing whitespace,
+and rejects valid leading whitespace. Identity checks omit times/mode; growing
+stream bounds apply only at EOF, and FIFO open can wait before validation.
+Fixed whole-input pins remain protective; this is not proof of bad actual rows.
+
+This checkpoint admits Grok's existing source/fixture/helper suite under the
+same explicit -I/-B/ResourceWarning flags and private umask, with TMPDIR bound
+to an owned private directory. Its unclosed test-file reads may emit unraisable
+ResourceWarnings; retain them honestly. Also admit the unchanged common seven
+fixture/CLI cases and three equal pure JSON controls on each candidate: reject
+vertical-tab/NBSP trailers, accept ordinary leading JSON whitespace. No actual
+Grok catalog scan is admitted. Root will reproduce the source finding before
+selection; author363assertions remain an unverified claim until the suite runs.

@@ -180,6 +180,14 @@ Next execute unchanged source against all63catalogs and compare the complete
 typed result to Root's frozen oracle, preserving all inputs. Grok source remains
 active and separately gated. No provider selection or gameplay credit yet.
 
+[Claude actual metadata passes; Grok is preserved/released and under source review](reviews/2026-10-24-remaining-map-bodies.md#claude-actual-observation-passes-and-grok-source-is-preserved).
+Claude's complete result matches Root's independent oracle; all77full input/
+evidence pins remain exact, natural0/valid guard/no residue in7.710635s/~27.9MB.
+Both provider lifecycles are settled and released. Root reads all Grok source/
+tests; a strict-JSON source defect needs the admitted equal pure controls.
+Next Grok own/common source cases, then score/select. Grok actual stays held;
+no body/loading/gameplay or82gap closure follows from metadata.
+
 ### Historical preparation — follow the next action above
 
 The following retains earlier decisions. Former next-action instructions
