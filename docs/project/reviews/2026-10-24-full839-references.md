@@ -20,11 +20,11 @@ branches from the same brief commit, then Root verification and comparison.
 Kimi remains off the critical path; no remaining pilot slot is consumed here.
 No provider model/version/token/money claim is made from a harness label.
 
-Current: Claude passes Root execution and complete output confirmation. Grok
-also submits and is preserved/released; its Root execution is next. A per-source
-admission weakness needs a common counterexample before comparison. Root's
-expected rows predate either candidate review. No adoption or new parent
-completion follows yet. The goal and all gameplay boundaries stay intact.
+Current: both candidates have complete Root frozen-run verification and are
+preserved/released. Six common semantic controls confirm Grok's per-source
+admission weakness. Claude is selected20/20 versus16/20; source adoption and
+its exact-file checkpoint are next. Root's expected rows predate either review.
+No new parent completion follows. The goal/gameplay boundaries stay intact.
 
 ## Equal implementation pair starts
 
@@ -170,3 +170,47 @@ substituting such data through the actual CLI. This is a semantic-admission
 completeness finding, not evidence of wrong frozen-input rows or a pin bypass.
 Next repeat common controls/suite/fresh CLI and use the same finite in-memory
 range/hash mutations on both candidates before scoring. No game action occurs.
+
+## Both Root runs verified and Claude selected
+
+Grok also passes the same5groups/178common controls. Root repeats86author tests,
+no skips, ResourceWarning as error, natural0 in9.245545s. All74original test
+methods remain AST-identical. A fresh actual CLI returns0 in2.037184s; observed
+maximum RSS611,909,632B and peak footprint608,404,296B. Root compares every row
+to the independently frozen expectation and the whole typed manifest/marker
+to the Grok shape. Ten input bodies and identities remain unchanged. Its full
+scope manifest omits Claude's additional lexical qualification/core metadata;
+the actual input admission still requires qualified lexical state.
+
+Private `.tools/renewal/t06-full839-reference-grok-execution-root-1/`
+CONFIRMATION_ROOT.json1238B/SHA256
+fac0cde930dfe4a8dc17bf241ab5282405905a03cd241cc5ed3eb6bb441702cc.
+It explicitly qualifies the frozen run while holding source-admission
+completeness. The row hash equals Claude/Root oracle. Manifest1234369B/SHA256
+dcc075598d014b08a2ddf5d4c6629692c11825d93e9fbee5557c9154e890deef;
+completion377B/SHA2568876583b0afc63768e99359d558957c6f13634def731396cb872868bf53bc7c3.
+
+Root applies the same six in-memory post-admission controls to each exact
+candidate: redistribute adjacent event-row/event-byte/line-row/line-byte
+boundaries while preserving aggregate partitions, or alter one source's event/
+physical stream hash. Completion metadata is rebound in memory. Claude refuses
+all six; Grok accepts all six. Original valid admission succeeds first for each.
+These are semantic-layer counterexamples, not a production byte-pin bypass or
+evidence of wrong actual rows. No input or game file is modified.
+Private semantic-controls RESULT_ROOT.json1703B/SHA256
+bbc28a1e31ba8770ca13fbfb375573d7ffb0dabef51aaf9e1c7060a194e3a187.
+
+| Frozen category | Claude | Grok | Root evidence |
+|---|---:|---:|---|
+| Admission/reference semantics /8 |8|6|Both actual rows exact; six per-source semantic controls distinguish validation |
+| Pilot preservation /4 |4|4|74 unchanged methods, existing pilot tests and shared default/isolation controls |
+| Artifacts/meaningful controls /4 |4|3|Both fresh runs verified; Claude's admission/publication mutations and retained logs are stronger |
+| Clear patch/documentation /2 |2|1|Claude's full scope metadata and relocatable test input; Grok hardcodes a personal absolute test path |
+| Resources/closure evidence /2 |2|2|Both bounded runs measured; inherited fault/descriptor tests pass with ResourceWarning errors |
+| Total /20 |20|16|Select unchanged Claude606dffa for adoption |
+
+Scores apply to this bounded task only. Single CLI timings are observations,
+not a general provider-speed benchmark. No exact model version, token count or
+billing is observed. Root adopts the qualified source next; no provider repair,
+new producer run or runtime operation is required. Both workers are released.
+The full world/story goal,82functional gaps and UI travel blocker stay open.
