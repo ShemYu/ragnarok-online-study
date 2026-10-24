@@ -1610,3 +1610,13 @@ one existing materializer invocation](2026-10-23-T10.007.md#b4-two-fix-caller-qu
 Fresh-Mu19 binding and exact-three-return tasks are independent actual Grok
 work. All four settled repair workers were released, no goal change/user
 decision/game acceptance. Parent4/14/about29% and all82gaps unchanged.
+
+## B4 data preparation passes and finite control calls are ready
+
+[Root verifies the complete B4 materialization](2026-10-23-T10.007.md#b4-materialization-and-complete-current-confirmation-pass):
+321checks/306pins/71outputs/current confirmation; no actor authority.
+[The exact three-return repair now qualifies for two existing pure groups](2026-10-24-T06-full-spawn-output-budget.md#three-return-corrections-qualify-and-two-existing-groups-are-admitted).
+Its author is released/archive beforeACK. Grok's fresh-Mu19 source binding
+continues; independent source reuse work prepares B4/Mu runtime bindings
+and the fixed26-map current-five reader admission. No current native world
+or new renderer call is admitted yet. Parent4/14/all82 gaps unchanged.

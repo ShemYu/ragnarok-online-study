@@ -517,3 +517,31 @@ with the sealed34-copy packet. Start2307 bytes/
 72507151c4bb6d72da56ffa66bfdffcb010b9d16d809748a99e0a2d42fadecec.
 It owns only the two unbound finite entries and proof files. No focused
 controls/full839 export/native/game execution is authorized.
+
+## Three return corrections qualify and two existing groups are admitted
+
+Actual Grok task18f4757be71e/ctx74b1eb667d40 settles source only; Root
+verifies36 opened pins/twelve closed outputs, exact whole inverse and
+three16-byte return lines. Corrected group04 is18862/
+9e73b27f3ec3ba579654f44690dcbbf8faa6f4eabd62052aa706c8422f06a69a;
+group06 is13973/10b9d6c83a45acfd742773749516e3bee5ed5026a532734c82c18bfb28ae3f4f.
+Every other source byte/call/expectation/header is unchanged; syntax passes.
+Worker interpreted the permission notation as literal nested0700/0600
+directories. Root verifies every owned private mode, preserves the handoff
+and stages byte-identical copies in its qualified directory. This is a
+layout deviation only, not runtime proof.
+
+Settlement25312/ac1a291535da37977f27d158b81d2c1c4ab7b3c584bf41cbb2a278d4ea2ee768;
+release455/c6323b97bf3e9d66eae60c9609a9c6661f797ec723bd22b5e117e9ca38b882ba,
+archive captured before delivery acknowledgment.
+Root freezes both complete expected stdout bytes/typed objects; prior
+2832/8e7cd593... and916/69119382... whole hashes match.
+Qualification4606/
+a3dc513078dd57b797f006725bfc5182f4c21032628d9471e1138ebe7b3397d9.
+
+After this checkpoint admit exactly one group04/six-call invocation and
+one group06/four-call invocation, each originalG10/512MiB/grace3/no-native/
+1MiB, after only ROOT_ADMITTED/HEAD bindings. Full streams/typed expected
+stdout/guard/retirement/sourcepostpins/private scoped artifact audit are
+required. Distinct fresh workspaces, no replay or target839 corpus read.
+Full839 producer remains unbound; no full publication/native/game credit.

@@ -50,8 +50,8 @@ B4:six source fixes qualified; separate36file data PASS/127checks.
 MuC/MuD:submitted+released, HOLD5findings -> finite UI/driver fixes ready.
 MuC:three fixes + all six actual focused calls PASS/223pins.
 B4/world/UI/driver:four delivered+released; UI/driver/world source PASS.
-B4 caller:Root source PASS -> one existing materialization admitted.
-Ten controls:HOLD3returns -> exact Grok repair live.
+B4 data:actual321checks/306pins/71outputs PASS -> runtime binding next.
+Ten controls:3return fixes qualified -> two existing groups admitted.
 Six records:actual independent decode PASS ->111allowlist qualified.
 Fresh Mu21:data126checks/36leaves PASS -> Mu19 binding Grok live.
 Mu oneactualscene FAILED;105bodies+partialdraw;Root825failurechecks PASS.
