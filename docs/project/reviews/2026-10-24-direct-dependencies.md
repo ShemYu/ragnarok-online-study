@@ -640,3 +640,43 @@ child folders. .012metadata/helper audit is available but is not yet Root's
 complete personal audit or a frozen implementation task. Next Root fresh
 environment/owner/archive/path/world binding, guarded8-request pilot and
 independent artifact/current-file audit. No actual .011GET is performed yet.
+
+## Model constructor inputs pass Root complete metadata audit
+
+Root independently reconstructs all936complete model dictionaries,
+1649complete original model-group relation dictionaries and21map dictionaries
+from the qualified .011profile and Root's retained-body metadata audit. Exact
+types, raw strings, query/global/model/group indices, original pointers,
+candidate refs, order, all93known descriptors/843null pending descriptors and
+all six separate case rows agree. Root verifies closed9-file preparation
+membership, seven output pins, twelve PRE/POST input pins and unchanged full
+current source hashes/identities:3913checks/21unique complete pins pass.
+No referenced body/core/archive/catalog/runtime path is opened or statted.
+
+Root's first audit assumption expected every physical_input_alias_group=null;
+the six case rows instead carry potential group indices. Their actual alias
+flag stays false and shared SHA stays null. A second assumption expected
+node=null; it is the exact four-field all-null descriptor. Root corrects
+those audit assumptions, not the packet, and explicitly forbids using either
+as runtime authority. Failed probes remain recorded. A separate independent
+full count reconstruction also equals the profile/COUNTS_ROOT object.
+
+Private t07-014-012-root-audit-1/ receipts:
+
+| Receipt | Bytes | SHA256 |
+|---|---:|---|
+| AUDIT_ROOT.py |8214|be8e83a1196aca731eecd0ab6db2971baa21ad9ef38549eca0a14858ec1c58ef|
+| ROOT_AUDIT.json |11894|d17c3854a8098b2dd3d9b3e82bac275185d5ce8455e28d9a63d340003f1c4bfd|
+| COUNTS_CONFIRMATION_ROOT.json |1162|0aa494456fe4ca89e8a15ae930bd075efb8080cf462cc2a4369b3fb2c9f9d8d7|
+
+Root freezes [T07.007.014.012](../tasks/T07.007.014.012.md) for equal finite
+Claude/Grok source implementations from the next common checkpoint. Ten
+fixed source/metadata inputs, four owned paths, one20point rubric, default
+no-I/O refusal and tiny authored synthetic controls. Reuse the unchanged
+compiled prefix, existing summary and .009Worker lifecycle; no new parser,
+uninstanced compile, real prefix/body execution or actual acquisition by a
+worker. One fresh sequential model Worker/body FD at a time; exact declaration
+and slot links remain complete. Source work is independent of .011delivery.
+All actual body/Node/pilot/remainder/guard bindings stay Root-only and unbound.
+The proposed finite limits are not runtime admission. No map/render/story/save,
+Chinese or82gap closure follows from this metadata/source-task checkpoint.

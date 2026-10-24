@@ -87,6 +87,14 @@ metadata checks pass. Raw Claude12/20/Grok11/20 stay held; separate correction
 limits. [Exact source integration95bee15 passes36tests](reviews/2026-10-24-direct-dependencies.md#selected-direct-delivery-source-integrated-unchanged).
 Next fresh current binding and guarded8-request pilot; no actual GET yet.
 
+**Independent next source lane:** [.012model-constructor brief is frozen](tasks/T07.007.014.012.md)
+after [Root's complete metadata audit](reviews/2026-10-24-direct-dependencies.md#model-constructor-inputs-pass-root-complete-metadata-audit):
+936whole model rows/1649relations/21maps,3913checks/21full pins and complete
+count equality pass.93known/843pending descriptors stay distinct; case-group
+indices are potential metadata only. Ten fixed inputs/four owned paths;
+equal Claude/Grok source starts are next, independent of .011live delivery.
+No actual constructors or runtime body/Node/guard admission yet.
+
 [Normal delivery of all34terrain bodies is already complete](reviews/2026-10-24-remaining-map-bodies.md#normal34delivery-and-complete-root-audit-pass),
 T07.007.014.008 `ready_for_user`:34exact200responses/97037820B, all34new loose
 files and source/current-world preservation verified. Do not repeat acquisition,
