@@ -19,6 +19,15 @@ The selected one narrow correction waits for the same listener under existing
 identical frozen inputs on isolated branches. No further actor is admitted
 until source and focused controls qualify; all existing limits/faults stay.
 
+Latest continuation: [fresh B6 data and baseline materialization pass](2026-10-23-T10.007.md#fresh-b6-baseline-materialization-and-root-confirmation-pass),
+with independent Root confirmation and no game actor. [Claude's narrow deadline
+correction passes65repeated author and17independent Root controls](2026-10-23-T10.007.md#claude-deadline-correction-passes-root-source-and-pure-controls).
+The original candidate's late-success failures remain failed. Its correction
+author is released; Grok's first independent source task remains live. Select
+only after comparison, then project corrected B6 sources and freshly bind the
+one fixed quest sequence. The narrow correction allowance is already in use;
+a further actor blocker triggers the existing priority review.
+
 ## Priority and stop criteria
 
 Marginal effort has become too focused on test infrastructure. Finish the

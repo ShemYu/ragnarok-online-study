@@ -66,7 +66,10 @@ from9f33bfc, preserving the first submission and its user-owned terminal.
 [That correction now qualifies as source](reviews/2026-10-23-T10.007.md#claude-deadline-correction-passes-root-source-and-pure-controls):
 Root repeats65author controls and17independent controls, verifies both complete
 forward/inverse chains, and releases the worker. Grok comparison and selection
-remain pending. Root compares source and focused controls, with
+remain pending. [Fresh B6 complete unbound templates also qualify](reviews/2026-10-23-T10.007.md#fresh-b6-runtime-templates-qualify-independently-of-driver-selection):
+89recorded checks/9full pins, C26/UI11/Engine13, exact9C/4Engine inverses
+and independent Astra review. Driver source stays null; this preparation
+does not select a provider or admit an actor. Root compares source and focused controls, with
 bounded evidence and unchanged limits, before any further fresh actor.
 [Fresh B6 pure-data caller source also qualifies](reviews/2026-10-23-T10.007.md#fresh-b6-pure-data-source-qualifies-independently-of-the-readiness-authors)
 in parallel: seven metadata/denial edits, complete inverse, unchanged writer
