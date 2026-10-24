@@ -768,3 +768,64 @@ ordinary walking/tutorial portal/NPC/quest earning and save/re-entry/cold
 restart are the next actual end-user checks. Preserve this baseline and take
 a separate post-earn backup before any later risky state change; the pre-earn
 reference does not contain future progress. Git does not roll back SQL state.
+
+## Ordinary tutorial travel and quest marker pass
+
+Root acts after6553d2e267905eadf294addcd29230c780619e51. The normal backup
+disconnect notice is dismissed; the same ordinary account logs in with private
+password insertion and selects the surviving Ro4Novice1024/Novice1. Start Game
+returns the character/status to18 26. Root views the new baseline re-entry PNG.
+
+An instantaneous w tap leaves position unchanged; it is not a game-defect
+claim. Ordinary DOM keydown/keyup holds then move18,26→18,29→21,29 and through
+the authored portal to51,30. W/D holds are1.8s/1.8s/3s, with release in finally.
+No movement method, destination/character coordinate, cell flag or GM command
+is set. Current read-only supported roClientDiagnostics reports actual
+iz_int.gat, account2000001/character150000/nameRo4Novice1024/position51,30,
+seven movement requests/seven acknowledgements and inactive held vector[0,0].
+
+Root views the rendered room and NPC, then uses ordinary canvas mouse
+move/down/up events on that visible body. The first click changes the wounded
+NPC's pose; the second opens the authored dialogue. Normal Enter Next/Next/
+Close pages show Chinese injury/captain text and 已接受 NPC 任務。 The tracker
+shows 逃離失事輪/與船長對話; the final scene is personally viewed. Existing
+English NPC name/tips/information fragments remain and full translation is
+not claimed. Final live diagnostics confirms closed dialogue/canMove:true,
+same position/identity, quest tracker and quiet BGM/Sound.
+
+Root fetches the complete508418B academy.txt from the actual current map
+container archive API. Full bytes/SHA256 match the retained source, including
+both NPC stages and setquest21001. That establishes the current source rule;
+no persisted quest row is read yet. All five service IDs/starts/images/mounts/
+ports and authenticated app/native/engine/VZ/four old listener owners stay
+unchanged. The pre-earn backup hash remains exact. Root's separate earned-UI
+audit passes with53full pins.
+
+The first readonly earned-UI audit misses QuestWindow because its generic
+32-root traversal stops too early. Root preserves the refusal, locates the
+actual visible QuestWindow host, and narrows the selector to that exact
+component. The corrected audit reads its exact two-line text; no game actor is
+replayed. A too-large receipt transport is rejected before file writes;27small
+exclusive private writes plus complete manifest/readback preserve the original
+UI receipts. These are verification-collection issues, not failed NPC/quest
+actions or waivers of ordinary persistence.
+
+Private persistence-source-root-1/ and persistence-actual-root-1/ evidence:
+
+| Artifact | Bytes | SHA256 |
+| --- | ---: | --- |
+| Actual UI_PLAY_RECEIPTS/PINS.json,27receipts | 7082 | eb9683a83d717e07d5d0a76a4e046afdda655ba86645878c9227a95fc5ca3c56 |
+| Actual BASELINE_REENTRY.png,Root viewed | 953556 | c2d7a9a13ec8d4067603ffd7972713f84a74b2cf250d845b3244890e043f6030 |
+| Actual ORDINARY_EARNED_QUEST.png,Root viewed | 1688176 | eb2aeec8a0c97d9ddfbdc34399380bf974dc1644459bea7b475f97ccf1224c87 |
+| Actual ACTUAL_ACADEMY_SOURCE.txt | 508418 | b2ab5f7de7e1c36e4f58b8447a80d4cb089e8bf45aeade59953c6a70004f27fd |
+| Source EARNED_UI_AUDIT_ROOT.py,refused | 8600 | 991b33cca351ef5b611aa876c4ba0cec3cb78add1331b48f9f2b37f7572666da |
+| Actual EARNED_READBACK_REFUSAL_ROOT.json | 973 | f7a337e9b6d614e803a3cd86bccec1a6ed46140e3fa1090512e4e8d4370d84e9 |
+| Source EARNED_UI_AUDIT_CORRECTED_ROOT.py | 8718 | 2758c55842a6219094751f0897a8b2e48bd05176c68ce9eab76d26e5b19de6be |
+| Actual ROOT_EARNED_UI_AUDIT_2.json | 29650 | 8ffd3770d3c351fdcd04bc3eeb5e4e33a08b65472adbf3f711cce79b491e2fd3 |
+
+After this checkpoint, test ordinary character-select re-entry and logout
+re-entry before forcing a service save or taking another backup. Then retain a
+separate supported post-earn backup/reference and verify owned cold restart.
+Gate5 remains open, integration4/5/80%, parent4/14/about29%, all82gaps open.
+Tutorial quest assignment is not full-story completion, an inventory/reward
+test, ordinary Mu access or a full-game save claim. No goal change is needed.

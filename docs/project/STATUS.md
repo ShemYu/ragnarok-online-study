@@ -8,17 +8,17 @@ Functionality remains first. **4/14 parent checks, about 29%**; this counts
 major checks, not full-content coverage. All 82 functional resource gaps remain
 open. Full Modern/Renewal scope is unchanged; no new user decision is required.
 
-**Latest verified result:** [Normal human Novice creation and game entry pass](reviews/2026-10-24-normal-integration.md#normal-human-novice-creation-and-game-entry-pass).
-The new group0/state0 account logs in normally and shows15empty slots. Default
-human/male Novice creation uses one visible Make click; the returned selection
-shows Ro4Novice1024/Novice/level1. Normal Start Game enters the tutorial room at
-visible18 26. Root personally views the retained rendered PNG and checks live
-UI/audio/current ownership; all five service identities/starts/images/mounts/
-ports remain unchanged. **Normal integration4/5checks,80% by gate count**.
-The supported pre-earn baseline backup/export/inspection and fresh service
-restart now pass; this is not restore-tested recovery. Walking/quest earning,
-normal post-backup re-entry and save/cold restart remain unverified in ro4.
-Existing Chinese overlays stay enabled and sound stays off.
+**Latest verified result:** [Ordinary tutorial travel and quest marker pass](reviews/2026-10-24-normal-integration.md#ordinary-tutorial-travel-and-quest-marker-pass).
+After the supported baseline backup, normal re-login returns the same Novice.
+Root verifies18,26→18,29→21,29→the authored portal→51,30 through normal keyboard
+input. Two authored NPC stages and normal Next/Close pages earn the visible
+逃離失事輪/與船長對話 marker. Actual character150000 is at iz_int51,30 with
+seven movement requests/acks, closed dialogue and normal input. Root personally
+views the retained scenes; five service identities/starts/images/mounts/ports,
+native ownership, Chinese overlay and quiet audio stay intact. **Normal
+integration4/5checks,80% by gate count**. The verified pre-earn export/inspection
+is not restore-tested recovery. Earned character-select/logout re-entry and
+cold restart remain unverified in ro4; no saved quest-row claim yet.
 
 **Previous renderer result:** [Fresh Mu3 isolated map-render scene passes](reviews/2026-10-24-T07-mu-data-stage.md#fresh-mu3-synthetic-scene-and-complete-root-audit-pass).
 All 1,285 placements load, all 29 retained Float32 arrays are finite, and all
@@ -41,9 +41,11 @@ Gate3 live images/DB/mounts/routes/served files/positive map logs now pass.
 Supported ordinary account creation and its expected service restart now pass.
 Normal login, human Novice creation and game entry now pass. The
 [supported baseline backup and fresh restart pass](reviews/2026-10-24-normal-integration.md#supported-pre-earn-baseline-backup-and-restart-pass).
-After checkpoint dismiss the expected backup disconnect notice normally and
-log into the same character again. Then ordinary
-walking/tutorial portal/NPC/quest/save/re-entry/cold restart form gate5.
+Normal same-character re-login, walking/tutorial portal/NPC/quest earning now
+pass. After checkpoint test ordinary character-select re-entry and logout
+re-entry against the earned position/quest marker. Do not force a service save
+or take another backup first. Then preserve a new post-earn backup/reference
+and verify the supported owned cold restart to finish gate5.
 Keep retained app/engine/private streams monitored. ro3 earned progress
 stays untouched. Continue [quest/logout work](reviews/2026-10-24-functional-priority.md#priority-and-stop-criteria)
 separately; do not replay failed B4 or consumed Mu scenes.
