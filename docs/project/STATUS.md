@@ -8,12 +8,12 @@ Functionality remains first. **4/14 parent checks, about 29%**; this counts
 major checks, not full-content coverage. All 82 functional resource gaps remain
 open. Full Modern/Renewal scope is unchanged; no new user decision is required.
 
-**Latest verified result:** [Normal app and authenticated ownership pass](reviews/2026-10-24-normal-integration.md#actual-normal-app-and-authenticated-ownership-pass).
-One normal startup finishes in49.56s. Root separately verifies current app/
-native/daemon/VZ ownership, fresh native HMAC challenge and authenticated admin
-readiness. Taiwan detection and six ON/eleven OFF mods pass; all four old
-listener owners remain exact. **Normal integration2/5checks,40% by gate count**.
-No account/login/character/play has occurred in ro4.
+**Latest verified result:** [Normal services/routes/mounts and classified logs pass](reviews/2026-10-24-normal-integration.md#actual-normal-services-routes-mounts-and-classified-logs-pass).
+Root12checks/1201full pins pass: five fresh services/DB/mounts, sixteen complete
+served bodies, new routes/digest joins and positive1265-map registration.
+Five known startup errors are specifically reconciled; real logging/recruiter
+defects remain explicit. **Normal integration3/5checks,60% by gate count**.
+No account/browser/login/character/play has occurred in ro4.
 
 **Previous renderer result:** [Fresh Mu3 isolated map-render scene passes](reviews/2026-10-24-T07-mu-data-stage.md#fresh-mu3-synthetic-scene-and-complete-root-audit-pass).
 All 1,285 placements load, all 29 retained Float32 arrays are finite, and all
@@ -30,11 +30,13 @@ UI, story or earned-save behavior. Prior failed trials remain failed.
 
 **Next action:** [Normal integration T07.007.012.009: full copy audit passes](reviews/2026-10-24-normal-integration.md#actual-complete-ro4-copy-and-independent-full-audit-pass).
 The fresh ro4 copy/config/images/engine/storage and normal-app ownership
-checks pass. The repaired normal bundle and unchanged worker are in use by
-the new owned app/native service; actual served bytes remain to be checked.
-Next gate3 verifies new Docker images/DB/writable mounts, generated/served
-endpoints/Online/worker/archive fingerprints and positive map registration/
-logs before ordinary login/travel/save. Keep the retained app/engine/private
+checks pass. The repaired normal bundle and unchanged worker are actually
+served by the new owned app/native service with exact complete hashes.
+Gate3 live images/DB/mounts/routes/served files/positive map logs now pass.
+After checkpoint use supported Accounts create/list for one ordinary group0
+account, verify its expected game-service restart, then use a new quiet
+isolated browser for normal human Novice creation/Start Game. Take a supported
+baseline backup before ordinary earning. Keep retained app/engine/private
 streams monitored. No browser/game actor has run in ro4; ro3 earned progress
 stays untouched. Continue [quest/logout work](reviews/2026-10-24-functional-priority.md#priority-and-stop-criteria)
 separately; do not replay failed B4 or consumed Mu scenes.

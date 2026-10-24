@@ -517,3 +517,75 @@ No login/account/character/gameplay/save yet. Keep app/engine/private streams
 owned and monitored. Parent4/14/about29% and all82functional gaps remain open;
 full Modern/Renewal scope, old earned worlds and user Chrome/mute/IME/network
 are unchanged.
+
+## Actual normal services routes mounts and classified logs pass
+
+Root's complete gate3 audit at cf983712a37a68a97c26466fd2c7af04ee8f0d0f
+passes all12checks/1201full pins. All five current services run with the exact
+bundled classic rAthena/MariaDB image IDs. Every bind mount points into new
+ro4 state; only its backups bind and new named DB volume are writable. Exact
+mount sets, loopback publications and fresh container/volume creation times
+qualify. Current same IDs/StartedAt/images/mounts remain; no old-world mount.
+
+Generated login/char/map/web configs, both endpoint files and all four game
+listeners use36900/36121/35121/38888; admin33339/asset33338/private control
+belong to the current admitted app/native child. Root reads only ten selected
+environment fields from that positively owned child, verifies new state/Web/
+translation roots, exact WS allowlist/web target and full DATA.INI/Config
+digest joins. No inherited environment or credential data is published.
+
+All sixteen native HTTP bodies are200/complete/readback/full-hash equal:
+repaired Online13174566/f81e23ae..., unchanged worker624463/1501ca10...,
+actual4187-byte Config.local.js and74-byte endpoint, plus the prior twelve
+fixed terrain inputs. Total44247224B. Config positively selects langtype4/
+packetver20221005/Renewal/loadLua/refineUI/Chinese+WASD plugins. All five archive
+paths retain exact order. Stock flagged roots GAT remains; no .013normalization
+candidate or ordinary Mu access is inferred from byte availability.
+
+Fresh logs have exactly the same four missing customization-override errors/
+one unplaced recruiter hide error. Root rereads all27 full primary source pins/
+LF slices and fetches five actual primary/recruiter bodies through the current
+container archive API; complete bytes match each source. Actual base317
+atcommand entries/one storage entry, population/hire0/0, unplaced prototype
+context, five ready services and positive1265-map registration/loading complete
+match the scoped explanation. The real logging-counter and recruiter-name
+defects remain unpatched/unaccepted for their broader behavior. No blanket
+error suppression or zero-error claim; registration is not playable coverage.
+
+All1117 other baseline files retain full hashes/C8. The only expected changed
+old file is runtime Web/endpoint.json: same inode/mode, exact new74B/SHA
+510d2d7f9534905cfe9dbeb2a4a8d45035de5f2f488e11a1d783217be050e930.
+New profile/generated state is intentional. Current app/native/daemon/VZ,
+all three VZ backing inodes and all four old listener owners remain exact;
+private streams stay below1MiB. No account/browser/login/gameplay yet.
+
+Preparation findings stay retained: first collector read the wrong
+state/assets/endpoint.json location, refused after readonly metadata/log
+capture, and made no runtime change. Primary cmds.rs shows state/endpoint.json;
+Root changes only that path/new evidence namespace, whole inverse exact.
+Original gate3-1 remains; corrected gate3-2 completes. Python3.9's refusal of
+nanosecond ISO text is found in a pure precheck; a finite UTC normalization
+preserves timestamp comparisons before actual verifier execution. No startup/
+boot/game retry or existing-world action occurs.
+
+Private main-source-root-1/ artifacts:
+
+| Artifact | Bytes | SHA256 |
+| --- | ---: | --- |
+| GATE3_COLLECT_CORRECTED_ROOT.py | 11217 | 5ec247b778723ae21f3846c3c7681276d51d5cb542aa94dd68e61ab954020375 |
+| GATE3_REFUSAL_ROOT.json | 652 | 63ac84b1c3349bbf1a22ce10bad8ab0aca648059825e202098dad50253b37ccc |
+| GATE3_VERIFY_COMPAT_ROOT.py | 14463 | a387fd4e73cae17ddecee359dddc7c92befc69d5751e47ea48158c1638ca06fd |
+
+Private main-actual-root-1/attempt-1/gate3-2/COLLECTION_ROOT.json:
+46480/a9593f2e3babea125129f8c76ea561766815ed089d2d824a03ff01e97d880ad5.
+ROOT_GATE3_AUDIT.json:
+595459/2830bb14607492c094f6a30910e54141635439092c8dda492c5eb41d4ed543cd.
+
+Gates1–3 pass, **3/5 integration checks/60% by count**. After this checkpoint
+Root uses the supported Accounts create/list API for one fresh group0/state0
+account, verifies its expected game-service restart/mounts/map logs, then opens
+a new quiet isolated browser for ordinary empty-slot human Novice creation and
+Start Game. Before movement/quest earning take a supported baseline backup.
+No SQL seed/direct packets/GM warps. Gates4–5 and all82functional gaps remain;
+parent4/14/about29% unchanged. App/engine/new SQL volume stay owned/retained;
+keep private streams monitored and old worlds/Chrome/mute/IME/network intact.
