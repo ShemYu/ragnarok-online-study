@@ -43,8 +43,9 @@ required repairs. [Correction434e264 is fully preserved/released; Root50tests
 pass but three independent regressions hold it](reviews/2026-10-24-direct-dependencies.md#geometry-correction-is-preserved-and-three-root-regressions-hold-it).
 [Root C201778b1now qualifies53author/66independent controls and exact integration](reviews/2026-10-24-direct-dependencies.md#root-geometry-follow-up-qualifies-and-exact-integration-passes).
 The three holds are corrected on a separate branch; focused integrated CLI/
-authored checks pass. Next: bind/requalify the caller and separately admit one
-actual compile. No actual execution yet.
+authored checks pass. [Bound caller68+4checks and outer nine regressions pass;
+ONE actual compile is now admitted](reviews/2026-10-24-direct-dependencies.md#bound-geometry-caller-qualifies-and-one-actual-compile-is-admitted).
+Next execute once and audit every retained mesh byte; no actual execution yet.
 [Full936geometry planning metadata passes16293Root checks; equal .024brief frozen](reviews/2026-10-24-direct-dependencies.md#full-geometry-planning-metadata-qualifies-and-the-extension-brief-is-frozen).
 [Both plans now start fromd70abcd on reused separate branches](reviews/2026-10-24-direct-dependencies.md#independent-geometry-extension-source-plan-wave-starts).
 They plan the next NONE/FLAT subset and all59broader frontiers independently of

@@ -106,7 +106,7 @@ Other active work:
   Tiny geometry originals      [BOTH ROOT VERIFIED/HELD:13vs10; pair released]
   Finite geometry correction   [ROOT C2QUALIFIED:53TESTS/66CONTROLS; exact integration PASS]
   Next geometry frontier plan  [936METADATA ROOT PASS; .024CLAUDE/GROK ACTIVE]
-  Actual model compile         [NEXT:bound caller checks + one-call admission]
+  Actual model compile         [ONE ADMITTED; caller68+4/fence9 PASS; execute then audit]
   Model702node bounds           [SENTINEL PRESERVED; geometry impact OPEN]
   Image consumer source trace  [ROOT PASS:40slices/286joins; both17/20/released]
   Browser image fixture        [BOTH ROOT VERIFIED/HELD12vs10; pair released]

@@ -5382,3 +5382,79 @@ Private t07-014-023-integrated-root-1/:
 | FOCUSED_ROOT.mjs |3778|384c917146f3713a3c3f52029b9fc880e67f5223da59d5e3f20f528982c6fe36|
 | INTEGRATED_CHECK_ROOT.json |5095|f8d7c072f2f848f98028e79fd00b55ddab2dedbdedadb8bddd2c5b4fdfc21bc4|
 | root-c2.bundle |4975|de3370c9bd0f7b2dd359bf5b1874c103eddd752cf8141646f8c863ba89fe9731|
+
+
+## Bound geometry caller qualifies and one actual compile is admitted
+
+After integrationcc04659, Root fully reviews the bound caller and both control
+adapters. The19872B bound copy changes only the qualified V3 header and three
+literal bindings: exact integrated81072Bobserver SHA, true source binding and
+four-key PASS stdout tuple. The complete function tail is byte-identical to
+qualified V3. Root personally executes68authored controls (67inherited plus
+one pure binding check) and four creation regressions: all pass, natural0/no
+stderr. Eleven complete donor/preparation/observer SHA/C8 rows stay equal.
+All explicit test main calls use fake files/handwritten children; actual prefix
+remains absent. No actual model constructor/compile has run.
+
+Root's extra outer wrapper initially passes six controls, but Astra identifies
+two gaps. Root independently reproduces an exited parent leaving its pipe-owning
+grandchild alive (then retires only that authored group and proves absence), and
+a replaced outer marker namespace permitting a simulated launch/foreign receipt
+writes (zero real Popen/body). Root preserves the original source and invalidates
+the unexecuted first admission preparation. A corrected wrapper retires the
+registered owned group independently of leader state and seals the original
+receipt namespace/admission/PRE/consumed marker immediately before Popen.
+A further advisory timing edge reproduces: slow prelaunch authority may exhaust
+the budget before launch. An explicit post-callback deadline now refuses it.
+These are Root wrapper findings, not observer/provider defects or actual failures.
+
+The final6646B wrapper personally passes all seven full fence controls plus
+namespace and prelaunch regressions: nine checks. They include both live-leader
+and exited-leader grandchild cleanup/absence, stdout/stderr overflow, no-child
+selector failure, original marker/namespace continuity and zero launch after
+budget expiry. Every fault injection is asserted. Existing outputs are never
+reused. Original failed controls remain private evidence. The first prepared
+admission was never invoked; no actual output prefix or outer consumed marker
+exists before this checkpoint.
+
+Root now admits exactly ONE new model702/query911/map17/group37/placement50
+static CPU compile, using the fixed .023profile and integrated source. Its
+constructor is only a prerequisite of this new compile purpose; prior constructor,
+parser/reference/delivery calls are not replayed. Six actual input authorities
+plus caller/comparator/frozen expected bytes/qualification receipts make16full
+current pins. Root verifies the body by file hash only, without parsing it again.
+Expected complete meshes are42876B/two buckets; ordered concat SHA is
+ d92c842d5ab9bc031ade0cde8971b21c9830d0e32966a2585cb7021663172281.
+Outer process-group fence35s/1MiB per stream; inner Node wait15s plus1s cleanup,
+caller25s cooperative checks,500ms VM evaluations/10s observer deadline and
+134217728B effective V8 heap. RSS is observed, not capped. Fresh exclusive
+consumed receipt reserves the single launch attempt; any failure preserves
+current evidence and forbids an unchanged retry.
+
+Execution follows this committed admission, not this prose alone: exact private
+ADMISSION_ROOT.json10115B/SHA
+b92708c4aad2a139131579207d1328e70337c8275d9fedf9d999846196c42ee3.
+Root next runs the fixed wrapper once, then audits every file/record/full mesh
+byte against the retained independent reference. Caller PASS alone is not
+geometry qualification. No Worker/browser/GL/image upload/game/save/network
+operation, additional model or full-content acceptance is admitted. Full goal,
+parent4of14/all82gaps remain unchanged; no new user decision is needed.
+
+Private bound/helper and Root qualification packets:
+
+| Packet / File | Bytes | SHA256 |
+|---|---:|---|
+| t07-014-023-caller-bound-helper-1/CALL_GEOMETRY_BOUND.py |19872|8aefcd9b733c6e7352c7d1360be82df86d2170bd479c7caa631865178b35357c|
+| t07-014-023-caller-bound-helper-1/QUALIFY_BOUND_ROOT.py |13018|487114e5603c2e39e738a0e18ad8042af14eb4b5e1df08628b5ad36dd11f3edb|
+| t07-014-023-caller-bound-helper-1/CREATION_BOUND_ROOT.py |3742|6fdf59e2c1249752098c73b349d4a87fa7656d241b555c41c96431c754fedb95|
+| t07-014-023-caller-bound-helper-1/full-controls-root-1/BOUND_CONTROLS_ROOT.json |6194|14c53045592565fee58c20870d256996c1279c4bd35c741ba11a342eb9f7ae63|
+| t07-014-023-caller-bound-helper-1/creation-controls-root-1/CREATION_GREEN_ROOT.json |1671|7320b9e2f22c7527b4d39be01b0f29742685137629611cd5be1cdf97b64b3753|
+| t07-014-023-caller-bound-review-root-1/QUALIFY_ROOT.py |3020|2bffb32d1f77c76bdaebbd77143d376370cd9be868f7b0a3b7c4075f2e952d9e|
+| t07-014-023-caller-bound-review-root-1/QUALIFICATION_ROOT.json |6768|1e7f3288a34e37c9221a1daacae894395a2e2bf145d0a503a220f354188989a5|
+| t07-014-023-call-root-1/ONE_CALL_ROOT.py |6646|2ed0b51ab22413d5527be7dd8c91a4183ee96bd90d8aef07266080596012e889|
+| t07-014-023-call-root-1/FENCE_CONTROLS_V3_ROOT.json |7028|fe204972d5749b5a3108d699a9e5abc72bd5be12a4c0b35980e771b10d0ab4b0|
+| t07-014-023-call-root-1/NAMESPACE_RED_ROOT.json |398|5d4d83844ed781c055762b46085aa6387aa0e02ee4487a16fee4d2e1f9c8d63f|
+| t07-014-023-call-root-1/NAMESPACE_GREEN_V3_ROOT.json |360|d7182def12d820f2a2a943bb292589bf3e07c19bc1d62f07c5092b02549d92eb|
+| t07-014-023-call-root-1/EXITED_LEADER_RED_ROOT.json |1524|b40d1b99e2dcb8da424c29b24c2fb0e4a7ffa98578c04e61a089d2ce473f28e8|
+| t07-014-023-call-root-1/PRELAUNCH_RED_ROOT.json |1160|0b796747976acc31873a9120228c2aaafe4bf5294ee94da78daf4121ddc85c77|
+| t07-014-023-call-root-1/PRELAUNCH_GREEN_ROOT.json |1026|55be1b8c12ca62010229930a530bb2d8a698f9e0ae75805c40ba757f4e23c662|
