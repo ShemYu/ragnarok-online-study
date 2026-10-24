@@ -13,16 +13,17 @@ dictionary abort/load405/map-connection settlement stop later cases. Root's
 complete failure/preservation audit passes; no B200assignment/reconnection or
 parent-check credit. 4/14 is a check count, not measured full-content coverage.
 
-**Parallel work:** [Fresh Mu21 data generation passes complete Root verification](reviews/2026-10-24-T07-mu-data-stage.md#actual-dedicated-mu21-data-call-passes-complete-root-verification).
-One actual run:36closed files/126checks/112full current pins, natural0/
-positive unchanged G, clean retirement. No actor or parent credit.
-Next Mu19 projection caller is actual Grok taskd6f11569da2b/ctx3f0cd4c6b0ec;
-its source preparation runs beside B4 six-fix actual Grok task3a994d4e0125/
-ctx02dd52643961. Root will qualify/audit each before use.
-[F839 final reviews confirm six finite source corrections](reviews/2026-10-24-T06-full-spawn-output-budget.md#final-source-reviews-confirm-six-finite-corrections-before-publication).
-The two prior producer findings are source-addressed;57frozen copies prepare
-one narrow Grok repair. No controls/full export yet. Previous source wave
-owners are released/archive captured. Full goal/Chinese/caps stay unchanged.
+**Parallel work:** [B4 six-fix source qualifies; separate data call admitted next](reviews/2026-10-24-functional-priority.md#b4-finite-source-qualifies-dedicated-data-call-admitted-next).
+Root full44080B/source-map/78input/10output verification passes. Owner is
+released/archive captured beforeACK. One separate B4 data run/full36leaf
+audit is admitted after currentHEAD/Python binding; Mu fixture stays separate.
+Next fixed materializer caller/full71leaf audit is ready for Grok from79copies.
+[Actual Mu21 data remains verified](reviews/2026-10-24-T07-mu-data-stage.md#actual-dedicated-mu21-data-call-passes-complete-root-verification):
+36closed files/126checks/112pins/natural0positiveG; no actor/parent credit.
+Mu19 caller taskd6f11569da2b/ctx3f0cd4c6b0ec and exporter six-fix
+taskcd17d267cb42/ctx317ffea9a1ae are actual live Grok tasks, separate owners.
+Fleet18:263records/3pages,2active/255released/6retained/0reclaimable.
+Full goal/Chinese/caps unchanged; all82functional resource gaps remain open.
 
 [All six actual MuC focused calls pass complete Root223pin verification](reviews/2026-10-24-T07-mu-data-stage.md#actual-six-muc-focused-calls-pass-complete-root-audit).
 Three source fixes qualify; no fresh map actor/render result yet. MU1 exact105body private

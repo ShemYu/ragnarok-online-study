@@ -746,3 +746,19 @@ It contains the complete redacted actual audit/confirmation/Engine/Material/
 SOURCE_PINS keysets, no credentials or role bodies. Send is durably queued;
 adoption is not inferred. Caller must remain unbound until Root review and
 current exact audit/source rejoin; no automatic projection invocation.
+
+## Dedicated B4 fixture stays separate Mu runtime field map prepared
+
+[Root qualifies all six B4 source changes and admits a separate future
+one-time B4 data call](2026-10-24-functional-priority.md#b4-finite-source-qualifies-dedicated-data-call-admitted-next).
+The verified Mu21 fixture stays unchanged and dedicated to Mu19/map testing.
+No shared actors/identity/ports or reduced native19role contract. Actual Mu19
+caller source remains with its live Grok owner; no duplicate editor or replay.
+
+Astra prepares the exact final Mu runtime field map, source only. Root has
+supplied a separate2540B policy metadata file/fe6ca9de03bda818fc1741d9060224ef2d955a72c1fc8482496e332bcfa5e983:
+only four-role readiness/veto arrays and browserVersion from full-pinned
+failed-trial9 recipe. Old credentials/roles/endpoint/head/lease are not copied
+or worker-authorized. These are policy literals, not current readiness or an
+actual browser version observation. Root still reviews the completed map
+before constructing final C after complete Mu19data audit; no actor/config.

@@ -1254,3 +1254,57 @@ The producer's earlier full-postpin/independent-close defects are addressed;
 new concrete consumer predicates and sticky error classification remain.
 No required cap increase, financial pause or goal change. Full milestone
 remains4/14parent checks/about29%; all82functional resource gaps stay open.
+
+## B4 finite source qualifies dedicated data call admitted next
+
+Actual Grok six-fix task3a994d4e0125/ctx02dd52643961 settles. Root reads
+full report/recipe, independently rejoins61frozen copies and eight private
+closed outputs. Literal nested directory names0700/files0600 are real;
+all three directories are0700,files0600,currentUID, no mode repair.
+Root releases/archive captures beforeACK: settlement36941B/
+fc13969ba36558f8e0742183dcb19ac0cb7378fca658bf12fd67aafcff3a55c2;
+release455B/ce224dff509e7755d6e76235cae896681dae02167be88cc6f37cf2133e615836.
+
+Root personally reads all44080B source/a76f70f170099267b69b94ac8fea22a5a53feb950f221aae6b7fd748c54687b3.
+Independent final review4397B/3323a52a36686c4677179c506140718b65bd090b01ea17e78432f6995d09bcd1
+finds no mandatory blocker. Root verifies all78stable inputs/10private
+closed outputs/5exact source spans. Seven changed and eight unchanged
+partitions reconstruct both whole source bodies forward/inverse;5548prefix,
+2815client helpers and19001runtime tail remain exact. All six joins qualify.
+Source and one-schema-slot bound copy compile only; no source execution.
+Root qualification45266B/
+03ccd88d0f1fdd3aae3ab5cfa987fa23f7d892eeec8779f5a19a9c934cf0de26;
+bound44116B/5e9dd504c9502230c155ea436209950f43e5b6b8f1370f5c677436153add976c.
+ROOT_BOUND remains false; no role bodies or actors admitted.
+
+Root prepares a separate dedicated B4 fresh-data call, reusing the already
+qualified once-only Mu21 caller by exactly seven reviewed byte changes:
+namespaces/proposals/new qualification pointer/dedication label/receipt schema
+and an added direct prior-Mu identity/name-disjointness check. No credentials/
+identity reuse, new helper or control family. All63source pins are current.
+New source22677B/67f91b9679494b5aa64fbde0adaef9926b1512527d3c5f22d7893207356b2de9;
+full inverse/compile-only qualification39436B/
+a83180b5e9159b401898040829a08299157118a5eab7c5621bde5e97fdff9a1c.
+Dedicated writer qualification83364B/
+63fdb0b1e4954bd6e488ee6695febbf6a172fb9d09efb201045a2253edc70bfa.
+Five proposals are unprobed, distinct and exclude original/default/normal9/
+Mu proposals. After this checkpoint Root binds only current clean committed
+HEAD/fullPython/admission flag and performs ONE original G10s/512MiB/grace3/
+no-native/1MiB capture call/full36leaf audit. No B4 generation yet.
+
+Next materializer caller/source audit is a useful independent Grok task,
+ready from79exact frozen source/metadata/placeholder copies. Manifest84247B/
+de56e2c98bf2ffc2bdabea367fdaa457d124d08e65e37a67f7fe588957a2dd05;
+brief4953B/da0b69d5eda3989cc77b6fdbb8d5d333a11d9c8c47add20de53ca1a0c2ebdedc.
+Source only, no64asset/13MBclient/binary/role/credential/SQL/archive bodies.
+It prepares the fixed future child/outer caller/full71leaf audit, no framework
+or control generation. Root must review, bind actual separate B4 audit/data,
+and qualify before any materializer call. Mu19 and exporter repairs continue.
+
+Fleet18 full263records/3pages:2active Grok/255released/6retained/
+0reclaimable;10274B/
+2e70e56df33ae76295d2343e3e03a6525cf8399a0e3bc013d8ac9c42e14f96d5.
+Historical attention rows have literal nextAction none; preserve four actual
+user-retained resources and two transferred records without resources.
+No abandoned/duplicate live worker or cleanup debt. No game/parent credit,
+all82functional gaps stay open/full goal/Chinese/caps remain.
