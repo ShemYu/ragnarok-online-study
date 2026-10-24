@@ -51,8 +51,11 @@ retirement. The baseline82393Bdriver/62401BUI receipts remain honest.
 92679Bdriver/65619BUI, four descriptor replacements, complete object/inverse
 and23UI source edits verified. [Fresh complete runtime templates qualify](reviews/2026-10-23-T10.007.md#fresh-b5-complete-runtime-templates-qualify):
 98Root checks/10full pins, complete C26/UI11/Engine13 and9C/4Engine whole
-inverses; Astra independently confirms. Next reuse the finite binder before
-fresh current-world/port/lease/actor bindings.
+inverses; Astra independently confirms. [Finite binder and read-only world sources qualify](reviews/2026-10-23-T10.007.md#fresh-b5-finite-binder-and-read-only-world-source-qualify):
+14source edits/whole inverse,47checks/13pins and exact retained world function.
+Next fresh GET-only world, five fixed ports and shared committed HEAD/lease
+must pass binding before the fixed quest/logout actor. ro4 preservation is
+observed separately from the inherited ro3 world receipt.
 Reuse the fixed F1/B4
 sequence on a fresh disposable fixture; keep the current ro4 character intact.
 Baseline materialization and corrected runtime-source projection remain
