@@ -128,11 +128,15 @@ and source-reviewed four-GET projection. No HTTP/extraction/runtime action yet.
 
 [Fresh four-GRF normal-delivery preflight and fixed GET admission pass](reviews/2026-10-24-remaining-map-bodies.md#fixed-normal-four-get-observation-admitted).
 Four owners/listener/native/config/five archive identities/six selected fields
-match; all four loose and four override paths absent. Root and independent
-source review qualify the exact fixed GET4 projection. Next one75s-bounded
-normal observation and complete Root body/effects/preservation audit. No GET
-has run yet. Independently prepared21map/42field/34query terrain plan awaits
-Root frozen contract/fixture before the next equal Claude/Grok metadata pair.
+match; all four loose and four override paths initially absent. Root and
+independent source review qualify the exact fixed GET4 projection.
+[Normal four responses and Root full confirmation now pass](reviews/2026-10-24-remaining-map-bodies.md#four-normal-responses-and-complete-root-confirmation-pass):
+1223209exact bytes, four matching normal extracted files,31complete pins and
+unchanged owners/archives/config/native/sources/parents/override absences;
+natural0 in2.271178s. No game input/restart/progress grant; no functional gap
+closes. Do not repeat this set. Next freeze the21map/42field/34query terrain
+profile, literal fixture and equal Claude/Grok metadata brief before catalog
+reads. Ordinary play verification remains held by the native-pipe connection.
 
 ### Historical preparation — follow the next action above
 

@@ -422,3 +422,41 @@ observation; server background tasks are not enumerated. Current archive
 identity continuity is checked, not source-archive winner or in-memory cache
 provenance. Body delivery does not prove rendering, entry, story or any82gap
 closure. Normal execution and its independent audit are the next actions.
+
+## Four normal responses and complete Root confirmation pass
+
+The one admitted getter returns natural0 in2.271178s; its internal observation
+takes2.019250s. Observed child maximum RSS23756800B excludes the already-running
+game servers' memory. No timeout or forced termination occurs. All four exact
+normal responses are200/identity encoding/complete HTTP messages and match all
+1223209independently expected bytes. Existing autoextract creates exactly the
+four previously absent target bodies during this scoped observation.
+
+Root separately checks all11private observer files, full response receipts and
+full retained bodies, rehashes the four independent reference bodies and four
+current loose bodies, and verifies the successful caller/source/preflight pins.
+The complete31pin audit passes. All four owners/executables, five archive
+identities, DATA.INI/native/source pins, existing parent lineages and four absent
+override paths stay exact. No existing target is overwritten. No game input,
+config change, VM/server restart, SQL or save action is performed.
+
+| Private receipt | Bytes | SHA256 |
+|---|---:|---|
+| preparation-root-1/CALL_ROOT.json |2398|d3b4aff27937f56703fdffee775e048786464549f62ec13a6916c689b038a17c|
+| preparation-root-1/ROOT_CONFIRMATION.json |10114|d9964678a55fcd489baae12531c64bc69d77957f15c186d5208de3bd4f26a2f9|
+| served-root-1/RESULT_ROOT.json |2643|6a6019e48867653e72133d1e911d57e358ceb21ce7a22bd0762e1de7f9d9728f|
+
+The preparation prefix is `.tools/renewal/t07-remaining-four-normal-get-`;
+the served prefix is `.tools/renewal/t07-remaining-four-normal-`.
+The four literal loose paths are under the existing asset root's `data/`:
+1@vrpop.rsw,2@vrpop.rsw,3@vrpop.rsw,cmd_bhole.rsw. Leave them in place now.
+Git rolls back source/docs only. Any later cleanup first retires the asset
+owner and must independently match each created file before removing only
+those four; this checkpoint authorizes no current deletion or server stop.
+
+This closes the bounded four-response availability check, not any82functional
+gap. In-memory cache/source-archive winner, full RSW parsing/rendering, ordinary
+entry, story and save are not established. The2s asynchronous observation does
+not enumerate outstanding server tasks. Do not rerun this completed set.
+Next freeze the34declared terrain queries/42map-field relations, shared literal
+fixture and equal Claude/Grok metadata brief before reading63catalog streams.
