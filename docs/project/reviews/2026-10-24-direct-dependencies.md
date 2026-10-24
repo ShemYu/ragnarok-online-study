@@ -2604,3 +2604,44 @@ actual model identities remain unknown. Claude is the finite correction basis;
 No source is integrated or browser fixture admitted. All315settled workers
 remain released, ten older retained; only the separately dispatched correction
 is live. No new child/setup or critical goal-changing issue.
+
+
+## Nested delivery domain and resource proposal are independently prepared
+
+Root independently joins the full948qualified .015query observations against
+the complete1222qualified .011delivered-wire/body descriptor packet, preserves
+all1546relations/21maps/aggregate graph and freshly fully rehashes the15exact
+retained BMP bodies/1227464B with safe parents, EOF/current identity/closed FD.
+These15require no new GET. The complement is933new logical requests/162741712B:
+908BMP spellings and25TGA. All full/current metadata sizes agree per query.
+All948metadata total163969176B;438non-ASCII wires remain exact. Potential case
+pair518/603and parentheses542/543remain distinct;703has two current candidates
+of66612B. Metadata sameness does not establish winner/body/physical aliases.
+
+First Root preparation incorrectly compares raw slash filename to the recorded
+encoded http_path at query18. It stops before profile publication or any actual
+request. Original helper/failure are preserved. Only that stage comparison
+changes to computed wire without leading slash; computed wire already equals
+recorded wire. Successful preparation passes8621checks in0.270936s, no new
+body/archive/runtime/network/browser/native reads. This agrees with the
+independent read-only advisory join; paired implementation review remains.
+
+Private t07-014-017-preparation-root-1/PROFILE_ROOT.json is8253357B/SHA
+84bd3ed12485035987b37e2b20cb6e3bacb45c5adc69a5705a661c22ae4b8aa4;
+ROOT_AUDIT.json10715B/2441c124bd05e07b8d4c03e658ef442c20f33d0a039f9cd3ab2a4905d18529c8;
+PREPARE_ROOT.py11757B/154b5bf7f19d941dbaf9fff35a0b76eb0c0ea510de9173c099a86bf16158de8f.
+Root proposes finite new-source reuse of the qualified47892B/b7cb8276... direct
+observer, leaving that source unchanged. [Frozen equal implementation brief](../tasks/T07.007.014.017.md)
+names three new owned paths and five complete read-only private inputs.
+
+Pilot10new indices [0,1,18,518,542,543,603,703,837,839] total9775600B; its
+disjoint923remainder totals152966112B. All15reuse rows are excluded from both.
+Old limits demonstrably cannot fit:75new bodies exceed1MiB;837/839are
+4194348B each. New explicit bounds:8MiB/body,192MiB cumulative new HTTP,
+256MiB artifacts per batch; retain64KiBreads/3sI/O/60swork/2ssettlement/75souter.
+Later Root world caller preserves exact2155wire union, parents/overrides and
+existing owner/ENV/native/archive/Engine scope, with512MiB bounded target samples.
+These are reviewed proposals, not performance observations or server containment.
+BMP retains BM-only consistency; TGA is explicitly not_checked_tga delivery
+without invented magic/decode proof. No actual request/admission, new source
+selection, renderer or content gap closes. .016correction runs independently.

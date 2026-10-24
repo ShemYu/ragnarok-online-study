@@ -89,7 +89,7 @@ Other active work:
   Genuine925remainder          [925/925PASS; Root1253179checks/8407pins]
   All936constructor closure     [ROOT PASS;1546declarations/948targets; no replay]
   Nested texture metadata      [ALL948 + ROOT FULL ORACLE EQUALITY PASS]
-  Nested texture bodies        [NEXT: reuse qualified normal delivery]
+  Nested texture bodies        [933NEW/15REUSE ROOT PREPARED; pair brief frozen]
   Model702node bounds           [SENTINEL PRESERVED; geometry impact OPEN]
   Image consumer source trace  [ROOT PASS:40slices/286joins; both17/20/released]
   Browser image fixture        [BOTH ROOT VERIFIED/HELD12vs10; pair released]
