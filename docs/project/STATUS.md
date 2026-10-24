@@ -30,10 +30,10 @@ independent Python parse is admitted](reviews/2026-10-24-direct-dependencies.md#
 all indices/finite data valid, exact mesh output42876B. Parse consumed; reuse
 retained arrays for the independent Float32 geometry oracle.
 [Root42authored geometry-reference controls and finite caller pass; ONE reference admitted](reviews/2026-10-24-direct-dependencies.md#independent-geometry-reference-passes-authored-source-controls),
-actual reference unrun; [latest admission](reviews/2026-10-24-direct-dependencies.md#independent-geometry-reference-caller-qualifies-and-one-reference-is-admitted). [Claude2d55d16preserved/released, bundle recovery complete](reviews/2026-10-24-direct-dependencies.md#claude-geometry-plan-is-preserved-and-released-with-bundle-recovery);
+[ONE independent reference/full7975check saved-output audit now passes](reviews/2026-10-24-direct-dependencies.md#actual-independent-geometry-reference-and-saved-output-audit-pass); call consumed, reuse full values. [Admission](reviews/2026-10-24-direct-dependencies.md#independent-geometry-reference-caller-qualifies-and-one-reference-is-admitted). [Claude2d55d16preserved/released, bundle recovery complete](reviews/2026-10-24-direct-dependencies.md#claude-geometry-plan-is-preserved-and-released-with-bundle-recovery);
 [Root full review/static reproduction/300span controls now pass with adapter
 and oracle holds](reviews/2026-10-24-direct-dependencies.md#claude-geometry-spans-pass-full-root-reproduction-with-adapter-holds);
-Grok independent, no selection or compile grant. No acquired
+[Grokc0fde99also preserved/released](reviews/2026-10-24-direct-dependencies.md#grok-geometry-original-is-preserved-and-released); Root full review next, no selection or compile grant. No acquired
 constructor/compile/render execution; all82functional gaps remain open.
 
 **Child cleanup:** [Root verifies removal of20completed children](reviews/2026-10-24-orca-children-cleanup.md#second-twelve-removals-personally-verified).
@@ -42,7 +42,7 @@ Current84direct children include the two released review children and the two
 refs, two verified rollback bundles and private evidence survive; the running
 character/quiet audio remain. Three examined children stay held for incomplete
 private preservation; user-retained children remain excluded.
-Latest fleet:328released/ten retained/one active .022Grok source plan/zero reclaimable.
+Latest fleet:329released/ten retained/zero active or reclaimable.
 Two .012implementation attempts reuse existing released checkouts; no new
 child folders or setup hooks. Both .012candidates are preserved/released after
 matched settlements. [Root full review and eight behavioral groups per original are complete](reviews/2026-10-24-direct-dependencies.md#both-constructor-originals-are-personally-checked-and-held).

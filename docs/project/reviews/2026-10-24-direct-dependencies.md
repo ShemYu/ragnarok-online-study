@@ -4527,3 +4527,66 @@ Private t07-014-022-preparation-root-1/:
 | GEOMETRY_REFERENCE_QUALIFICATION_V4_ROOT.json |553|bb80498dc1b3cfea2f14839179bad83563eb2ba9c9f01b478f314028df2f3d3d|
 | CALL_GEOMETRY_REFERENCE_ROOT.py |6939|9534dcda6eb24943ff06a4e8f2b2f23c230fd26cb11b08415c9ed2d42cbc9e91|
 | GEOMETRY_CALLER_SOURCE_ROOT.json |351|ed535f99495adaac21b6f76b855bec938d4954519e1319c3d97046a070e94adf|
+
+
+## Grok geometry original is preserved and released
+
+Matched .022Grok task_531688019543/ctx_80072b967de7 settles successfully as
+c0fde995f5ca66f4e81f6792e51d8230c2eb6879 from the same8e6dc39base. Root verifies
+clean expected branch/HEAD/parent/two owned paths and preserves all three full
+regular single-link files/47639B (two tracked/one private). Named archive ref
+and17809B bundle SHA6083ea889cd0c3997a75a98c42ddd27538aebcac06c43229ab3204ef198a37f6
+verify before release. This time successful preservation explicitly gates the
+release/ACK sequence. Settled worker/transcript is released, then ACKd688cc303837
+returns empty. Fresh reclaimable query is empty:329released/ten older retained,
+zero active/reclaimable. No new child/setup,84direct children unchanged.
+
+Grok reports thirteen whole spans/92740B. Root full reading/recomputation is
+next; no score/selection/runtime claim is inferred from that report. Private
+preservation1771B/SHA3a6587001c622a3f778e095b372ec3dbac76aac7bee6c1bc7d124bbb47fa72d9;
+release455B/SHAe96ec71d17bf59f29773bb4bd2408577c879b98885a305bdba1ee22b9a1d4188.
+Both originals are immutable/preserved; Root compares equal scope before
+implementation. No actual model compile is admitted.
+
+
+## Actual independent geometry reference and saved-output audit pass
+
+ONE independent reference admitted at6105be9 completes natural0/no stderr,
+0.067031s enclosing process/0.032752s caller. No raw-body/constructor/parser or
+acquired-source evaluation occurs. REFERENCE_ROOT.json is543220B/SHA
+74cbcd55b815596038c77c2842506f2ecea628615079fca12af336106c9857b7,
+retained under t07-014-022-geometry-reference-root-1/. The call is consumed;
+reuse its matrices/vertices/face/group normals/complete mesh values, no replay.
+
+Root saved-output audit passes7975checks/six full pins/1538205B,0.018756s.
+Every10719mesh float is finite/Float32; full stride/face/corner/texture order,
+raw-UV/alpha relations, matrix/group/position joins, complete all/emitted bounds
+and all five current input C8/SHA authorities pass. Group normals are finite,
+unit within the explicitly diagnostic2e-7norm rounding check, with zero exact
+cancellations observed. That diagnostic check does not relax the future exact
+component/byte comparison. Saved-reference coherence is not independent proof
+that the acquired compiler matches it: that comparison remains wholly open.
+
+Independent expected mesh byte pins, frozen before the compiler runs:
+
+| Node / key | Floats / bytes | Full little-endian Float32 SHA256 |
+|---|---|---|
+|0 /0|3564 /14256|ca5bef3192cd79093dc21eb21f358d4c02308c0a2ae1f971d1a594edcbf643a3|
+|1 /1|7155 /28620|75d97f790385b84396ea07ba0c3278d5b387cd83d736568be9e23f38c9f75f64|
+
+Node-order concatenation SHA
+d92c842d5ab9bc031ade0cde8971b21c9830d0e32966a2585cb7021663172281.
+The reference predicts finite bounds for both nodes; these remain expected
+values, not observed client geometry or visual fidelity. Exact Float32 first,
+no unexplained ULP allowance or post-output tolerance changes. Root next fully
+reviews Grok, compares/selects corrected source direction and freezes a tiny
+implementation task before any acquired compile. All82functional gaps,
+parent4/14/about29% and full Modern/Renewal scope stay unchanged.
+
+Private t07-014-022-preparation-root-1/:
+
+| File | Bytes | SHA256 |
+|---|---:|---|
+| ACTUAL_GEOMETRY_REFERENCE_CALL_ROOT.json |252|e0ed5bae3040bf1734cd19a3db0c86138b29f419a345d290fcc29f0ac81523b6|
+| AUDIT_GEOMETRY_REFERENCE_ROOT.py |6180|9e7a8cfca832ba51c8214631a6175709e25a2372d2b9bb6c5eb5b5b100d65d47|
+| ACTUAL_GEOMETRY_REFERENCE_AUDIT_ROOT.json |2282|b5a565108a40a63cb960396608612801059974ccc76edd01de9b21cece0a78b2|
