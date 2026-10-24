@@ -1108,3 +1108,79 @@ ead7ce7f720a9389fcbca2e00430e4c10582d80eeecf2944dd4a33bc24670a85,
 65 unique complete input/output pins. First read-only bookkeeping compared
 extra stream annotations; corrected comparison uses full file identity,
 length/SHA and FD/EOF stability, without replaying any target.
+
+## Fresh Mu21 data passes and fixed six-body source qualifies
+
+The admitted existing Mu21 caller is rebound in five exact lines after
+f1060a6; reversing them restores the entire22146-byte donor. New Q changes
+only pureCall.output. Bound caller22155/faebf377...; binding7869/
+ace1618e8e4377019798dc7dbe9d9fea9f796253fed7dc52d5aa74f156643d05.
+One actual originalG10/512MiB/grace3/no-native/1MiB call passes:
+0.233960s,22200320B sampled peak,natural0/positiveguard/no signals.
+Whole36-leaf audit79198 bytes/
+60d402dc9f2622eff16052521b85340442c11e2691ec17cc0d3ce5569075afdf:
+126true checks/112fullpins/errors empty. Current confirmation57147/
+e1ca92f33bcbd1514d4e0ddf7aeb39ffe1f076f80708d392599a33a1b11b2470
+rejoins all outputs/source pins, current process/group absence and explicit
+prior Mu/B4 attempt/account/both-character/both-name noncollision.
+Fresh data only; no runtime/game/save credit.
+
+Root/Astra qualify exactly six fixed archive reads using the existing
+strict decrypt/frame primitives, not the public terrain CLI. Source6768/
+f9de0f0bcf522c622893e2f27da74798abb998cdb3d582aed29e60a1cc76d7ba,
+profile8994/cc63ff3f3d7d6629e3ec291e75002c06083cc80b8ee870ea555df97835a263cd.
+Root decision8403/
+ea7a90b0badcf78440ff26d233623bddfbccdbb110df21f5c09947656c4c42f2:
+seven full inputs/seven raw anchors/nine closed review files and whole
+six-record/five-archive joins. Child uses252 existing cipher answers,
+64KiB full-hash streams for all five4608553685B archives before six exact
+aligned ranges330328B; strict zlib yields at most385942B total.
+Observed transfer hashes are excluded from decoder inputs. No new
+codec/test framework, terrain-signature rule, staged P entries or install.
+
+Root admits one fixed six-body pure-data call after this checkpoint and
+three exact header bindings, originalG30s/512MiB/grace3/no-native/1MiB.
+Require natural0/positiveG/S, whole8-output audit, source/profile/codec/
+vector/Python/G/S postpins, current process/group absence and independent
+length/SHA comparisons before any111-row allowlist. A COMPLETE file alone
+does not qualify; later failures/nonzero/partials remain failures.
+The current game scene is still failed; no actor admitted.
+
+Fresh Mu19 reuse advice also passes Root14fullinputs/23rawanchors/closed
+review outputs; qualification10869/
+9fcd40ea2e7d1939970369f56e5c718a1933b449a475a1b6398cb9a45e49afe8.
+Besides exact source/header paths, caller105/child60 must rebind the repeated
+audit79190/oldSHA guard to79198/newSHA without changing equality.
+Existing projector19779 and nineteen-role/inter1538 contract stay unchanged.
+A24-copy mechanical source packet is ready for actual Grok after checkpoint:
+manifest26924/7733f901c06a31f47fcdad20a609dbab47de2d567caf370d3266b47abaa19db5,
+brief2545/368728038da23186ea94ee1cb9e336dd4d72d8b899ddcb5a70daceae8397e830.
+No fresh Mu19 execution or actor authority follows from source preparation.
+
+## Four independent repair owners settle and three sources qualify
+
+B4,driver,world,UI source-only settlements are accepted and each owner is
+released/archived before its delivery acknowledgment. Settlement hashes:
+B4 52794/83163259e6b3ade3f51b63859a9da00b4baa6233a1faa8644ed3a63b616f1652;
+driver73948/2ad9770d14cad20f338baf625046e8a6299a2098e4512b79ce9863d6e8bfa150;
+world22402/f824b540eae1342d16ea3f8c1c0f63db9d750ec9185b59ef0a8c0350642d5825;
+UI19758/e50a2c59d3cee24bc4ccefd3d3c63ec28fc39d44009f8300cd7504af91c879c9.
+Each has eight closed private outputs; author pre/post input closures are
+99/32/37/32 respectively. First UI settlement bookkeeping used the wrong
+list field and stopped before release; corrected read-only settlement is
+root2, with no source/actor replay.
+
+Root independently reconstructs every byte of the corrected UI50094/
+cd164a975d39c1b0b9742fed075edc7e86089d382b1ff8bf273ad4963c2f21db,
+driver68853/33f2ba5c0345b4385601ecd405d0b0dbb40c3fe4ddf406cbd3799d83a94d0579,
+and world38008/a371892fc181c784f0ca550443a4d38ae0a1e23c26ed8630520a58d85ebb3bdc.
+Root/Astra UI closure41inputs/six raw anchors/eight files verifies one
+bounded evidence publication before fatal numeric/GPU/scene checks, with
+loadComplete and all strict verdicts unchanged. Driver current-kernel
+recheck preserves live/unknown refusal. World request-row alias errors
+stay fatal before clean-unavailable classification. Python syntax-only
+checks pass for driver/world; no actor executed.
+Root qualification26286/
+651b96cb936eae5944465a63efec8894bddd9fb9830aae14d4fa1b27654d5683.
+Numeric cause remains unknown and historical offending group PID unproven.
+B4 whole-source review is still pending; no materializer call admitted.

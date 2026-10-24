@@ -509,3 +509,11 @@ Frozen34-copy manifest37718 bytes/
 8d60377df6e2103e41170c0b60e7e8e1abd63b6b1252ee22c23bfe23b453eac0;
 brief1713/ac94f6d7412f5f6117e94b19d2a12ab69e7160971eddd5b7c3aaf38d4876d0d5.
 No new tests/framework, full839 publication or actor is authorized.
+
+## Exact three-return source correction starts
+
+After f1060a6, actual Grok task_18f4757be71e/ctx_74b1eb667d40 starts
+with the sealed34-copy packet. Start2307 bytes/
+72507151c4bb6d72da56ffa66bfdffcb010b9d16d809748a99e0a2d42fadecec.
+It owns only the two unbound finite entries and proof files. No focused
+controls/full839 export/native/game execution is authorized.

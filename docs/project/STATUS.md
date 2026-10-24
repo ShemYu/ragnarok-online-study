@@ -20,17 +20,17 @@ but6unpinned startup resources and numeric evidence fail. Root verifies
 825checks/754pins/all245Engine wires/current cleanup/original preservation.
 BrowserACK/natural0, SQL/native afterfailure passes, owned resources absent,
 dedicated volume retained. No replay/PASS/game credit. Astra diagnosis next.
-[Four qualified Grok repairs live; fifth mechanical source fix ready](reviews/2026-10-24-functional-priority.md#four-qualified-grok-repairs-live-and-fifth-finite-source-fix-ready):
-B4 task050bfcd6e081/ctxa68a3c92f1db; world taskb18b4ab3e5f6/
-ctx70348dad1903; UI taske9aaacc52d89/ctxa52901cf6896; driver
-taskac38b4e04f79/ctx21f69f1dd9ca. Ten-control author settled/released;
-Root/Astra catch three missing returns before execution; exact fix ready.
-Six-resource current catalog provenance and existing fresh-fixture reuse
-pass Root review. Independent six decoded hashes remain unestablished.
-One fresh existing-generator pure-data call is admitted after exact binding,
-whole36 audit and prior Mu/B4 identity comparison before projection/actor.
-No scan exemption, second trace or failed-fixture replay. Prior source
-owners released/archive; no completed cleanup debt. Numeric cause unknown.
+[Four Grok repairs settle; three sources and fresh data pass Root checks](reviews/2026-10-24-functional-priority.md#parallel-repairs-reach-source-review-while-fresh-data-passes):
+UI50094/driver68853/world38008 source qualifies; B4 source review pending.
+All four owners released/archive beforeACK. Exact-three-return source task
+18f4757be71e/ctx74b1eb667d40 is live. Fresh Mu21 data actualPASS126checks/
+112pins/36leaves plus explicit prior identity noncollision. Fresh Mu19
+24-copy source binding packet ready; no projection yet. Six-body source
+qualifies; one fixed data-only decode admitted after3headers: originalG30/
+512MiB/grace3/nonative/1MiB, all5fullarchive hashes then6bounded ranges.
+Whole8output/postpin/retirement audit required before111allowlist; current
+independent six decoded hashes unestablished. Numeric cause unknown.
+No failed-fixture/scene replay or actor admission; strict verdicts remain.
 Combined-nine finite PASS63checks/44pins/all4expected files; full839 open.
 No parent/gap/game credit;4/14/about29%, all82gaps and full goal unchanged.
 

@@ -1590,3 +1590,13 @@ and [ten-control hold/fix packet](2026-10-24-T06-full-spawn-output-budget.md#ten
 are current. No settled worker is kept only for possible future repair.
 No new game actor is admitted; failed numeric assertions remain strict.
 Parent4/14/about29% and all82 functional gaps remain unchanged.
+
+## Parallel repairs reach source review while fresh data passes
+
+Four actual Grok repair owners settle/release/archive before acknowledgment.
+[Root verifies three corrected sources and the fresh Mu21 data result;
+the one fixed six-body read is admitted](2026-10-24-T07-mu-data-stage.md#fresh-mu21-data-passes-and-fixed-six-body-source-qualifies).
+[Exact-three-return Grok correction continues](2026-10-24-T06-full-spawn-output-budget.md#exact-three-return-source-correction-starts).
+Fresh Mu19 source binding packet is ready as independent Grok work; B4
+caller review is separate. No game/native renderer replay, new acceptance
+credit or full839 publication. All82 functional gaps and parent4/14 remain.
