@@ -69,7 +69,8 @@ forward/inverse chains, and releases the worker. Grok comparison and selection
 remain pending. [Fresh B6 complete unbound templates also qualify](reviews/2026-10-23-T10.007.md#fresh-b6-runtime-templates-qualify-independently-of-driver-selection):
 89recorded checks/9full pins, C26/UI11/Engine13, exact9C/4Engine inverses
 and independent Astra review. Driver source stays null; this preparation
-does not select a provider or admit an actor. Root compares source and focused controls, with
+does not select a provider or admit an actor. [Fresh preservation observer sources qualify](reviews/2026-10-23-T10.007.md#fresh-b6-preservation-observer-sources-qualify)
+with two metadata edits each; no observation has run. Root compares source and focused controls, with
 bounded evidence and unchanged limits, before any further fresh actor.
 [Fresh B6 pure-data caller source also qualifies](reviews/2026-10-23-T10.007.md#fresh-b6-pure-data-source-qualifies-independently-of-the-readiness-authors)
 in parallel: seven metadata/denial edits, complete inverse, unchanged writer
