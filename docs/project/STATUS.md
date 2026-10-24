@@ -21,7 +21,7 @@ Current84direct children include the two released review children and the two
 refs, two verified rollback bundles and private evidence survive; the running
 character/quiet audio remain. Three examined children stay held for incomplete
 private preservation; user-retained children remain excluded.
-Latest fleet:321released/ten retained/four active (.019source/.020authored pairs)/zero reclaimable.
+Latest fleet:322released/ten retained/three active (.019Grok/.020pair)/zero reclaimable.
 Two .012implementation attempts reuse existing released checkouts; no new
 child folders or setup hooks. Both .012candidates are preserved/released after
 matched settlements. [Root full review and eight behavioral groups per original are complete](reviews/2026-10-24-direct-dependencies.md#both-constructor-originals-are-personally-checked-and-held).
@@ -2169,3 +2169,9 @@ external to the frozen page input; next source-only follow-up, no decoder admiss
 **Current independent lanes:** .019Claude/Grok source traces are live fromc378a43,
 three pinned inputs/report-only scope; [.020independent Claude/Grok authored decoder implementation pair is live](reviews/2026-10-24-direct-dependencies.md#independent-authored-decoder-implementation-wave-starts)
 from38fcb2d,32frozen tiny cases/finite pure-VM boundary; Root verification pending. .017all948delivery is committed ready_for_user; no replay.
+
+[All25retained TGA header/resource inputs are independently checked](reviews/2026-10-24-direct-dependencies.md#all25retained-tga-headers-have-a-finite-resource-profile):
+24/32bit uncompressed, max1024x1024/4MiB per RGBA buffer; no pixel/decode PASS.
+[Claude .019original is preserved/released](reviews/2026-10-24-direct-dependencies.md#claude-external-worker-source-original-is-preserved-and-released);
+Root/Astra review pending, Grok source author and both authored implementation
+authors continue. Actual .017responses stay consumed, never replay.

@@ -3442,3 +3442,44 @@ independent waves;321past releases/84direct children unchanged. There is no
 Root-verified candidate implementation or copied decoder result yet. Next
 preserve/release matched settlements, then personally verify all originals.
 No real-body/Worker/browser/GL execution, replay or critical goal change.
+
+
+## All25retained TGA headers have a finite resource profile
+
+While .019source/.020authored pairs run, Root independently reopens only the
+retained .017captured bodies, never the live asset route.969checks/0.176307s/
+46617001B full reads verify both complete qualified results and every selected
+body against previous complete Root confirmation pins, including full C8
+identities/lengths/SHA/EOF/PRE/POST. All25indices/wire targets join exactly;
+17695820B captured TGA bodies are retained without GET replay.
+
+Literal18byte headers show image_type2(uncompressed true-color), depths24or32,
+zero ID length/colormap type, flags0or8, and26trailing bytes after the exact
+raw pixel interval. Dimensions are64x64,128x128,128x256,256x256,512x256,512x512
+or1024x1024. Largest product1048576pixels/4194304B for one RGBA output buffer.
+This is a per-buffer allocation input, not total JS/native/canvas/GPU/RSS cost.
+Do not assume all25are32bit:24bit cases need their own alpha/magenta expectations.
+No pixel is converted, decoder/canvas/GL/Worker executed or actual decoding
+admitted. .020keeps its8x8authored-only bounds; future real-body admission must
+separately qualify larger explicit pins/header limits and independent output
+oracle. No critical goal-changing resource blocker is shown by these headers.
+
+Private t07-014-021-preparation-root-1/ receipts:
+
+| File | Bytes | SHA256 |
+|---|---:|---|
+| PREPARE_HEADERS_ROOT.py |5342|390feb5a7ec4e802a8c54ecb4a2cef6f8c3a060e0b63f7562d46c05476f2145d|
+| HEADERS_ROOT.json |50992|47bf0ddbdb75eb2dbf77529f290196213e1940dc2945fefd296408a0e730700e|
+
+
+## Claude external Worker source original is preserved and released
+
+Matched .019task_f2618a5d7629/ctx_7263e24992ed settles clean at
+1f95f66b6b1bc471cb750956f66c60243a5d0002, directc378a439parent and one owned
+report. Root preserves56complete report/private files/438310B, verifies every
+copied byte/hash, archives refs/ro-task-archive/T07.007.014.019/claude-a1 and
+verifies16481B bundle6799c26c8c6e43989e027c85c25d213b641e76f63f4f87825144908abad4e8cc.
+Release/transcript capture precedes ACKdeliveryf254870811c0. Root/Astra source
+review is pending; worker-reported46spans/all25joins are candidate evidence only.
+Grok .019and both .020authors remain active. Fleet322released/ten older retained/
+three active/zero reclaimable. No idle session kept for review; no new child.
