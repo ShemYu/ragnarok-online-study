@@ -54,14 +54,24 @@ Root's complete failure/preservation audit passes1385checks/901full pins and
 all277Engine wires; independent901rehash and separate ro4before==after pass.
 All owned processes/groups and5containers/network are gone; SQL volume retained.
 
-**Next action:** [Astra/Root priority review is complete](reviews/2026-10-23-T10.007.md#post-b6-priority-review-selects-a-normal-map-prerequisite-check).
-Hold the quest path. Prepare only the map-specific normal-route prerequisite
-and111-body asset-route join for mu_fild01, reusing completed Mu3 rendering
-and installed ro4 integration. Establish native entry/exit conditions first;
-its independence from Chapter1/unearned progression is unproved. If dependent,
-record that fact and consider an already-inventoried accessible map. No new
-actor/install/warp/progress grant or quest repair is admitted. Preserve the
-user's game and the full goal. Earlier preparation history follows:
+**Latest map finding and next action:** [Root checks installed map prerequisites](reviews/2026-10-24-normal-map-prerequisites.md).
+Current Renewal closure:14configs/839NPC declarations, no world_sync import;
+the newer Guide/config files return404. Mu stays held: ordinary entry unproved.
+Four of111 loose resources match;107 archive/served winners remain unverified,
+not missing assets. Retire the former25% estimate; use separate checks in the
+linked review.
+
+Root verifies three current source bodies for **int_land → Izlude →
+prt_fild08 → Izlude**. Next inspect quest21008/inventory through the ordinary
+UI, preserving the tutorial opportunity, before normal travel/field/return.
+Do not choose early departure, warp or grant progression to speed verification.
+No gameplay ran in this checkpoint. Hold the failed F1 quest path; no new
+quest actor/repair, Mu install or synthetic retry. Full goal stays unchanged.
+
+### Historical preparation — follow the next action above
+
+The following retains earlier decisions. Former next-action instructions
+below do not supersede the current checkpoint.
 
 Continue [ordinary quest/logout and full-world functionality](reviews/2026-10-24-functional-priority.md#priority-and-stop-criteria)
 from current user progress; preserve the completed normal integration and its

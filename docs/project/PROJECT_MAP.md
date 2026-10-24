@@ -38,7 +38,9 @@ Map repair:
        -> owned cold restart    [PASS: fresh services + earned re-entry]
        -> session continuity    [PASS: bounded 72s; limits recorded]
        -> normal integration    [5 / 5 PASS; user progress preserved]
-       -> normal map access     [NEXT: route + resource prerequisites]
+       -> Mu route/config check [HELD: newer Guide absent from installation]
+       -> ordinary field route  [SOURCE VERIFIED: island -> Izlude -> field]
+       -> quest state + play    [NEXT: preserve tutorial; travel/return]
 
 Quest check:
   Finite startup repair        [PASS: listener seen in 3 checks]
@@ -55,7 +57,8 @@ Shadow pilot (1-3 real tasks, alongside main work):
 
 Other active work:
   Ordinary quest/logout        [HELD: B6 save/quit evidence failure]
-  mu_fild01 normal route       [SOURCE CHECK NEXT: access may depend on quest]
+  mu_fild01 normal route       [HELD: access unproved; 107 archive joins open]
+  Ordinary field route         [NEXT: quest state -> travel/encounter/return]
   Full839 data + entry         [PASS: 4,226 checks / 947 pins]
   Full839 entry FD closure     [PASS: explicit setup; exact comparison kept]
   Claude/Grok FD plan pair      [BOTH VERIFIED + RELEASED; control PASS]
@@ -65,9 +68,13 @@ Other active work:
 
 The render pass uses a synthetic viewer; it does not close the parent map
 task or prove normal gameplay, animation timing or full-content coverage.
+The former25% estimate is retired; use the separate prerequisite checks.
 Prior failed trials stay failed. Full Renewal goal stays unchanged.
 Original saves/Chrome/profile/settings/mute/IME/network stay untouched.
 ```
+
+See [installed map prerequisites](reviews/2026-10-24-normal-map-prerequisites.md)
+for the current route decision and remaining checks.
 
 The sections below keep the dated history. [Status](STATUS.md) gives the live
 next action and the exact limits of each result.

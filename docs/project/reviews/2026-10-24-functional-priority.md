@@ -30,6 +30,14 @@ inventoried ordinarily accessible map. No new actor/install/warp/progress grant
 is admitted. Full scope and4/14/about29% remain unchanged; no user decision or
 scope change is required.
 
+**Later installed-route checkpoint:** [Mu prerequisites and ordinary field alternative](2026-10-24-normal-map-prerequisites.md)
+find14current configs/839NPC declarations without the newer world_sync Guide.
+Hold ordinary Mu access; four loose bodies match,107 archive/served winners
+remain unresolved. Root verifies current island/Izlude/field source bodies.
+Next inspect quest21008/inventory, preserve the tutorial and check normal field
+travel/encounter/return. No new F1 repair, install or synthetic retry. The former
+25% map-preparation estimate is retired; parent progress remains4/14/about29%.
+
 ## Priority and stop criteria
 
 Marginal effort has become too focused on test infrastructure. Finish the
