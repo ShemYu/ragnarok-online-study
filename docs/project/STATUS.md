@@ -33,8 +33,9 @@ Both implementations start from the [same verified frozen base](reviews/2026-10-
 [Claude d39a23f is submitted/preserved and Root reproduces two deadline failures](reviews/2026-10-24-remaining-map-bodies.md#submitted-claude-host-passes-its-suite-but-fails-two-root-deadline-controls):
 14authored controls pass, both Root completion-time controls fail. Raw source is
 actual-held; [bounded correction](tasks/T07.007.014.009-claude-deadline-correction.md)
-is the immediate reuse action. Grok task_1166063748f6/ctx_aa9287fa50a3 remains
-live/working. No actual target execution is admitted. After qualification one
+is now [active in a fresh Claude worker](reviews/2026-10-24-remaining-map-bodies.md#deadline-correction-resumes-after-orca-reconnect)
+(task_2c53879e53c7/ctx_f2ffffc4c62c). The preserved original worker is released.
+Grok task_1166063748f6/ctx_aa9287fa50a3 remains live/working. No actual target execution is admitted. After qualification one
 candidate may run its separately admitted pilot while the other continues;
 both candidates/comparison still gate task readiness.
 [Root's independent terrain numeric reference is ready](reviews/2026-10-24-remaining-map-bodies.md#independent-remaining-terrain-numeric-reference-is-prepared):
@@ -119,8 +120,9 @@ No gameplay ran in this checkpoint. Hold the failed F1 quest path; no new
 quest actor/repair, Mu install or synthetic retry. Full goal stays unchanged.
 
 **Current UI blocker:** inventory fails with `Sky Computer Use native pipe
-startup failed`, including one tool-session reset/retry after e6337d2. No apps
-or browsers are available through that connection. Do not infer the user
+startup failed`, including the user-requested wake/retry, a tool-session reset,
+direct Chrome selection and a fresh inventory retry. No apps or browsers are
+available through that connection. Do not infer the user
 closed the game: native server ownership checks above pass. Quest/inventory
 inspection and ordinary playtest wait for UI availability; independent source/
 asset checks may continue. No game restart or user decision is required.

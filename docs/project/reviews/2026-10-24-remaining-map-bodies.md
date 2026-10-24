@@ -1339,3 +1339,45 @@ one corrected candidate may receive its separate pilot admission while the other
 implementation continues. Both complete candidates/comparison still gate task
 readiness; no early provider-winner claim, changed input/cap or acceptance waiver
 is made. The actual pilot and21-map batch are not yet admitted.
+
+
+## Deadline correction resumes after Orca reconnect
+
+The intended same-terminal reuse is refused at agent preflight with
+`agent_unconfigured`, request1f7ad916-211a-4da4-889b-11d06c04b8f6; no new
+Task/Dispatch is returned. Root inspects task authority and the preserved,
+settled original before choosing cleanup. Exact original ctx_1f9a6ed816bf is
+positively released with captured transcript, not stopped as an active worker.
+Private RELEASE_ROOT.json is455B/SHA256
+ec3e199953fe286e99cd54008a4e048e3a8dd4a496f50a091918097a340646f3.
+
+The first fresh-worker request then returns `runtime_unavailable`, without
+Task/Dispatch/request authority. Root checks the returned error, runtime and
+fresh task inventory before any new launch. Orca now reports1.4.239 under
+runtime14b54e5b-09e7-4437-b965-82f6f9e3bd23, replacing the earlier1.4.237
+runtime; this is an observation, not an inferred cause of the UI failure.
+The version-matched guides are refreshed. Original Grok still positively
+reports live/working, so it is neither stopped nor duplicated.
+
+A fresh Claude worker in the existing unchanged correction checkout succeeds:
+task_2c53879e53c7/ctx_f2ffffc4c62c, terminal
+term_05229e00-e584-44ae-9509-d24b19708a01. Receipt confirms input accepted,
+turn start observed and no residual resources. No model/effort override is
+claimed. Its2296B receipt SHA256 is
+2c81873af019af2e99c7613a32562ac8ad304491e294259c9ddc51e171df1d04.
+The self-contained [correction brief](../tasks/T07.007.014.009-claude-deadline-correction.md)
+remains the work boundary; no real parser evaluation is admitted.
+
+Private `.tools/renewal/t07-014-009-launch-root-1/RECONNECTED_WORKERS_ROOT.json`
+is21370B/SHA256bcaa9819c2629997c36d6cfa1b999c52c9a651f811318f1705a16ed8854d30f1.
+It fully pins all three launch receipts and records both fresh live verdicts
+plus the empty reclaimable inventory:2active,10user-retained,296released.
+Matched new-worker heartbeat is processed and acknowledged. No settled worker
+is left owing cleanup at this checkpoint.
+
+Root repeats the computer inventory after the user's wake/retry request and
+refreshed tool documentation. It again returns no apps/browsers and
+`Sky Computer Use native pipe startup failed`. Direct Chrome and browser
+selection attempts also failed earlier. No game input is sent. Ordinary UI
+verification stays pending while both source tasks continue; no goal change,
+network cut, browser-control bypass or new user decision is required.
