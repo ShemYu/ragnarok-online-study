@@ -1447,3 +1447,16 @@ Author23/23 and prior-candidate regression results remain author evidence;
 no integration or actual constructor admission yet. Both image-consumer source
 workers remain independent/live; their matched heartbeats were processed with
 this settlement. All936current bodies/11pilot preparation remain separate.
+
+
+## Claude image-consumer trace preserved and released
+
+Expected task_290da19dd1ff/Dispatchctx_70f1a0f1c713 sends one source-only
+settlement. Root preserves its complete private output tree and independently
+checks every copied full hash. No tracked edits or image/source execution are
+reported or accepted. The saved-source trace and286metadata claims remain
+candidate evidence pending Root's complete report/primary source-slice/metadata
+review. Release accepted: only this worker terminal closes, transcript captured;
+Root coordination checkout/game remain. Grokctx_6e8b4ff553a3 remains independent/
+live. No peer findings are sent to it, no provider selection or actual decode.
+Private t07-014-013-claude-packet-root-1/PRESERVATION_ROOT.json pins all members.

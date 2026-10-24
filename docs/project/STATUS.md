@@ -32,7 +32,8 @@ has completed the936body join; [Root independently verifies all records and fres
 must qualify the repair and exact actual caller before real construction.
 
 **Independent parallel lane:** [.013browser image-consumer source trace](tasks/T07.007.014.013.md)
-is live with equal Claude/Grok frozen source/metadata and private-only ownership
+uses equal Claude/Grok frozen source/metadata: Claude report preserved/released,
+Grok live. Private-only ownership
 in this checkout. Root owns tracked docs; authors may not mutate Git/source or
 open images/runtime/browser/game. Trace of286delivered image consumers does not
 wait for .012models. Root compares exact source closures/metadata before use.
