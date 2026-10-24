@@ -103,6 +103,15 @@ Next prioritize existing resource/content gaps using these qualified references;
 no producer rerun or synthetic scene. No new parent completion follows.
 UI-dependent travel stays blocked; independent inventory work continues.
 
+[Remaining map-body recovery is the next independent action](reviews/2026-10-24-remaining-map-bodies.md).
+The qualified26RSW candidates split into5already decoded/header-qualified,
+17remaining patch9298 bodies and4October GRF bodies requiring separate admission.
+Root freezes T07.007.014.006 for the17patch bodies,666248aligned/4806359decoded
+bytes, using the existing decoder. Exact profile/14inputs are pinned; no archive
+or body read yet. Next launch equal isolated Claude/Grok implementations from
+this brief checkpoint, then Root verifies and separately admits actual recovery.
+Reuse existing bodies/terrain evidence; do not repeat the general gap ledger.
+
 ### Historical preparation — follow the next action above
 
 The following retains earlier decisions. Former next-action instructions

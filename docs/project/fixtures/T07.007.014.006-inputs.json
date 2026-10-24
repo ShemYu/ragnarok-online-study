@@ -1,0 +1,78 @@
+{
+  "inputs": [
+    {
+      "bytes": 60953,
+      "path": "tools/renewal/decode_patch_targets.py",
+      "sha256": "3dc09d9346bd3ee362a01353a9448dde745775b129869079ccef7a5e765d89cd"
+    },
+    {
+      "bytes": 72950,
+      "path": "tools/renewal/test_decode_patch_targets.py",
+      "sha256": "bdaafae8391e04852b7d3a8b4b440a687c0be21184b09602776e25efa80859ff"
+    },
+    {
+      "bytes": 14963,
+      "path": "tools/renewal/PATCH_TARGET_DECODER.md",
+      "sha256": "efbcd1a234ff8e153f78561f53bfe7b07eeabae0e7515029565b255cdcf0045e"
+    },
+    {
+      "bytes": 8474,
+      "path": "docs/project/fixtures/T07.007.003-profile.json",
+      "sha256": "06805b0a28fef87b53d6e2f87e50079e14a3b7181a44e541b6b0c0aa268ead2a"
+    },
+    {
+      "bytes": 3415,
+      "path": "docs/project/fixtures/T07.007.014.001-profile.json",
+      "sha256": "c47c0ebe8c3f6ec5341e92603b7860ffd3aaa3139c736786584a91f9ea19a8e2"
+    },
+    {
+      "bytes": 49381,
+      "path": "docs/project/fixtures/T07.007.003-authored.json",
+      "sha256": "d7011b6b49a8ed311c73625afe4111ad5abcac2e9dd771407e567a4f5d249a04"
+    },
+    {
+      "bytes": 10759,
+      "path": "docs/project/fixtures/T07.007.014.006-profile.json",
+      "sha256": "286680e505da618f39f0ba53bd48e198ba6133f19c10774d34b4d38d29c8c19c"
+    },
+    {
+      "bytes": 250085,
+      "path": ".tools/renewal/t07-007-014-grok-preservation-1/candidate/gap-join.json",
+      "sha256": "c9f986b33189a0cadcd40d3ccaf3ec0094fc09cd3fb934080a3e9e0aaa1e2e62"
+    },
+    {
+      "bytes": 6770307,
+      "path": ".tools/renewal/t07-007-patch-name-root-1/9298.records.jsonl",
+      "sha256": "02a3f5bbd677f80c9c227929aa96f08d29b150c6df39286760a625bca9d85b79"
+    },
+    {
+      "bytes": 12358,
+      "path": ".tools/renewal/remote-source/src/des.rs",
+      "sha256": "8f0189340eab708993a493ff7300d08e0151a3c8c539a046656f3e350e01856f"
+    },
+    {
+      "bytes": 30133,
+      "path": ".tools/renewal/remote-source/src/grf.rs",
+      "sha256": "4646514140bc7688bbc91e0bac7d1ee9a83aab5e1e17df20c1eb30668bd5edf5"
+    },
+    {
+      "bytes": 6110,
+      "path": ".tools/renewal/client-source/src/Loaders/World.js",
+      "sha256": "e1f6d5e52fe84c2a31c4f8f13e5be20cb6f93b2675c6f7615ac295be47f5a68e"
+    },
+    {
+      "bytes": 20029,
+      "path": ".tools/renewal/client-source/src/Loaders/Ground.js",
+      "sha256": "8b82cf7321123054cf2bbeff1816931c7f3fc7833ae7af916077691d871f2db0"
+    },
+    {
+      "bytes": 3131,
+      "path": ".tools/renewal/client-source/src/Loaders/Altitude.js",
+      "sha256": "e27f5b746bb8fa77aadb59633dfbc0339f922bc4df69615a066288a6cf160b95"
+    }
+  ],
+  "root_prefix": "dispatch-supplied absolute coordinator checkout; treat all14 files as readonly",
+  "schema": "remaining-rsw-source-inputs-v1",
+  "task": "T07.007.014.006",
+  "workers_must_not_follow_embedded_archive_body_or_url_paths": true
+}

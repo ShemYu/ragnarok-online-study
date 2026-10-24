@@ -1,0 +1,362 @@
+{
+  "authored": {
+    "bytes": 49381,
+    "path": "docs/project/fixtures/T07.007.003-authored.json",
+    "sha256": "d7011b6b49a8ed311c73625afe4111ad5abcac2e9dd771407e567a4f5d249a04"
+  },
+  "not_claimed": [
+    "native parity",
+    "embedded terrain names until the separately qualified header observation",
+    "terrain constructor/render/travel/save success",
+    "ordinary route or Chapter1 story implementation",
+    "full map/story/Traditional Chinese acceptance or any of82 functional gaps closed"
+  ],
+  "patch": {
+    "bytes": 306097616,
+    "file": "2026-08-25_live_client_4340_4349_1787295394.gpf",
+    "header_bytes": 46,
+    "header_sha256": "81fae52437b44388f9a682bc126865ae55850568b62b011a80edce6f05fe4759",
+    "index": 9298,
+    "record_count": 5702,
+    "sha256": "70725f6624f947c3096066cc66a07fcd2440adf94137b79561ed2d67843f9f0e",
+    "table_start": 305616966
+  },
+  "schema": "ro-patch-payload-profile/2",
+  "source_pins": [
+    {
+      "bytes": 12358,
+      "path": ".tools/renewal/remote-source/src/des.rs",
+      "sha256": "8f0189340eab708993a493ff7300d08e0151a3c8c539a046656f3e350e01856f"
+    },
+    {
+      "bytes": 30133,
+      "path": ".tools/renewal/remote-source/src/grf.rs",
+      "sha256": "4646514140bc7688bbc91e0bac7d1ee9a83aab5e1e17df20c1eb30668bd5edf5"
+    },
+    {
+      "bytes": 6110,
+      "path": ".tools/renewal/client-source/src/Loaders/World.js",
+      "sha256": "e1f6d5e52fe84c2a31c4f8f13e5be20cb6f93b2675c6f7615ac295be47f5a68e"
+    },
+    {
+      "bytes": 20029,
+      "path": ".tools/renewal/client-source/src/Loaders/Ground.js",
+      "sha256": "8b82cf7321123054cf2bbeff1816931c7f3fc7833ae7af916077691d871f2db0"
+    },
+    {
+      "bytes": 3131,
+      "path": ".tools/renewal/client-source/src/Loaders/Altitude.js",
+      "sha256": "e27f5b746bb8fa77aadb59633dfbc0339f922bc4df69615a066288a6cf160b95"
+    }
+  ],
+  "source_revision": "66ba94e2b84c4092e4b9cc9d0dcc805313438f53",
+  "strict_policy": {
+    "decrypt_span": "all admitted aligned bytes; mixed branch before header",
+    "magic": "four-byte primary-loader match; next two version bytes observation only",
+    "not_native": "strict framing/size rules exceed native payload reader checks",
+    "padding": "outside compressed_size: preserve length and raw/decrypted hashes, arbitrary byte values allowed",
+    "stored": "real_size == compressed_size; truncate decrypted aligned bytes",
+    "zlib": "first compressed_size decrypted bytes only; cumulative real_size + 1; exact length, eof, no unused_data/unconsumed_tail, no flush"
+  },
+  "targets": [
+    {
+      "compressed_size": 43901,
+      "effective_kind": 3,
+      "expected_magic_hex": "47525357",
+      "kind_label": "rsw",
+      "length_aligned": 43904,
+      "metadata_filter": "eligible",
+      "name_hex": "646174615c3140636831612e727377",
+      "ordinal": 2,
+      "output_file": "target-000.body",
+      "payload_offset_field": 135584,
+      "physical_body_range": [
+        135630,
+        179534
+      ],
+      "real_size": 390026
+    },
+    {
+      "compressed_size": 43901,
+      "effective_kind": 3,
+      "expected_magic_hex": "47525357",
+      "kind_label": "rsw",
+      "length_aligned": 43904,
+      "metadata_filter": "eligible",
+      "name_hex": "646174615c3140636831622e727377",
+      "ordinal": 4,
+      "output_file": "target-001.body",
+      "payload_offset_field": 196472,
+      "physical_body_range": [
+        196518,
+        240422
+      ],
+      "real_size": 390026
+    },
+    {
+      "compressed_size": 43901,
+      "effective_kind": 3,
+      "expected_magic_hex": "47525357",
+      "kind_label": "rsw",
+      "length_aligned": 43904,
+      "metadata_filter": "eligible",
+      "name_hex": "646174615c6368315f64772e727377",
+      "ordinal": 9,
+      "output_file": "target-002.body",
+      "payload_offset_field": 282456,
+      "physical_body_range": [
+        282502,
+        326406
+      ],
+      "real_size": 390026
+    },
+    {
+      "compressed_size": 32829,
+      "effective_kind": 3,
+      "expected_magic_hex": "47525357",
+      "kind_label": "rsw",
+      "length_aligned": 32832,
+      "metadata_filter": "eligible",
+      "name_hex": "646174615c6368315f67656666656e2e727377",
+      "ordinal": 12,
+      "output_file": "target-003.body",
+      "payload_offset_field": 469912,
+      "physical_body_range": [
+        469958,
+        502790
+      ],
+      "real_size": 247458
+    },
+    {
+      "compressed_size": 30661,
+      "effective_kind": 3,
+      "expected_magic_hex": "47525357",
+      "kind_label": "rsw",
+      "length_aligned": 30664,
+      "metadata_filter": "eligible",
+      "name_hex": "646174615c6368315f6765665f696e2e727377",
+      "ordinal": 15,
+      "output_file": "target-004.body",
+      "payload_offset_field": 728200,
+      "physical_body_range": [
+        728246,
+        758910
+      ],
+      "real_size": 220960
+    },
+    {
+      "compressed_size": 53165,
+      "effective_kind": 3,
+      "expected_magic_hex": "47525357",
+      "kind_label": "rsw",
+      "length_aligned": 53168,
+      "metadata_filter": "eligible",
+      "name_hex": "646174615c6368315f67666e30312e727377",
+      "ordinal": 18,
+      "output_file": "target-005.body",
+      "payload_offset_field": 2128304,
+      "physical_body_range": [
+        2128350,
+        2181518
+      ],
+      "real_size": 430568
+    },
+    {
+      "compressed_size": 43727,
+      "effective_kind": 3,
+      "expected_magic_hex": "47525357",
+      "kind_label": "rsw",
+      "length_aligned": 43728,
+      "metadata_filter": "eligible",
+      "name_hex": "646174615c6368315f67666e30332e727377",
+      "ordinal": 21,
+      "output_file": "target-006.body",
+      "payload_offset_field": 3640912,
+      "physical_body_range": [
+        3640958,
+        3684686
+      ],
+      "real_size": 329101
+    },
+    {
+      "compressed_size": 31976,
+      "effective_kind": 3,
+      "expected_magic_hex": "47525357",
+      "kind_label": "rsw",
+      "length_aligned": 31976,
+      "metadata_filter": "eligible",
+      "name_hex": "646174615c6368315f736630312e727377",
+      "ordinal": 26,
+      "output_file": "target-007.body",
+      "payload_offset_field": 3920152,
+      "physical_body_range": [
+        3920198,
+        3952174
+      ],
+      "real_size": 207070
+    },
+    {
+      "compressed_size": 15922,
+      "effective_kind": 3,
+      "expected_magic_hex": "47525357",
+      "kind_label": "rsw",
+      "length_aligned": 15928,
+      "metadata_filter": "eligible",
+      "name_hex": "646174615c6368315f736630322e727377",
+      "ordinal": 29,
+      "output_file": "target-008.body",
+      "payload_offset_field": 4071128,
+      "physical_body_range": [
+        4071174,
+        4087102
+      ],
+      "real_size": 83561
+    },
+    {
+      "compressed_size": 33929,
+      "effective_kind": 3,
+      "expected_magic_hex": "47525357",
+      "kind_label": "rsw",
+      "length_aligned": 33936,
+      "metadata_filter": "eligible",
+      "name_hex": "646174615c6368315f736630332e727377",
+      "ordinal": 32,
+      "output_file": "target-009.body",
+      "payload_offset_field": 4434232,
+      "physical_body_range": [
+        4434278,
+        4468214
+      ],
+      "real_size": 197982
+    },
+    {
+      "compressed_size": 30661,
+      "effective_kind": 3,
+      "expected_magic_hex": "47525357",
+      "kind_label": "rsw",
+      "length_aligned": 30664,
+      "metadata_filter": "eligible",
+      "name_hex": "646174615c6368315f7672676566312e727377",
+      "ordinal": 34,
+      "output_file": "target-010.body",
+      "payload_offset_field": 4474344,
+      "physical_body_range": [
+        4474390,
+        4505054
+      ],
+      "real_size": 220960
+    },
+    {
+      "compressed_size": 32829,
+      "effective_kind": 3,
+      "expected_magic_hex": "47525357",
+      "kind_label": "rsw",
+      "length_aligned": 32832,
+      "metadata_filter": "eligible",
+      "name_hex": "646174615c6368315f7672676566322e727377",
+      "ordinal": 36,
+      "output_file": "target-011.body",
+      "payload_offset_field": 4521144,
+      "physical_body_range": [
+        4521190,
+        4554022
+      ],
+      "real_size": 247458
+    },
+    {
+      "compressed_size": 75788,
+      "effective_kind": 3,
+      "expected_magic_hex": "47525357",
+      "kind_label": "rsw",
+      "length_aligned": 75792,
+      "metadata_filter": "eligible",
+      "name_hex": "646174615c68656d5f64756e30312e727377",
+      "ordinal": 43,
+      "output_file": "target-012.body",
+      "payload_offset_field": 5240872,
+      "physical_body_range": [
+        5240918,
+        5316710
+      ],
+      "real_size": 574740
+    },
+    {
+      "compressed_size": 55493,
+      "effective_kind": 3,
+      "expected_magic_hex": "47525357",
+      "kind_label": "rsw",
+      "length_aligned": 55496,
+      "metadata_filter": "eligible",
+      "name_hex": "646174615c68656d5f64756e30322e727377",
+      "ordinal": 46,
+      "output_file": "target-013.body",
+      "payload_offset_field": 6783376,
+      "physical_body_range": [
+        6783422,
+        6838918
+      ],
+      "real_size": 303996
+    },
+    {
+      "compressed_size": 45261,
+      "effective_kind": 3,
+      "expected_magic_hex": "47525357",
+      "kind_label": "rsw",
+      "length_aligned": 45264,
+      "metadata_filter": "eligible",
+      "name_hex": "646174615c68656d5f66696c642e727377",
+      "ordinal": 49,
+      "output_file": "target-014.body",
+      "payload_offset_field": 9330032,
+      "physical_body_range": [
+        9330078,
+        9375342
+      ],
+      "real_size": 256493
+    },
+    {
+      "compressed_size": 26117,
+      "effective_kind": 3,
+      "expected_magic_hex": "47525357",
+      "kind_label": "rsw",
+      "length_aligned": 26120,
+      "metadata_filter": "eligible",
+      "name_hex": "646174615c756b6e775f7275696e2e727377",
+      "ordinal": 5634,
+      "output_file": "target-015.body",
+      "payload_offset_field": 302377392,
+      "physical_body_range": [
+        302377438,
+        302403558
+      ],
+      "real_size": 157967
+    },
+    {
+      "compressed_size": 26133,
+      "effective_kind": 3,
+      "expected_magic_hex": "47525357",
+      "kind_label": "rsw",
+      "length_aligned": 26136,
+      "metadata_filter": "eligible",
+      "name_hex": "646174615c756b6e775f7275696e322e727377",
+      "ordinal": 5637,
+      "output_file": "target-016.body",
+      "payload_offset_field": 302465792,
+      "physical_body_range": [
+        302465838,
+        302491974
+      ],
+      "real_size": 157967
+    }
+  ],
+  "task": "T07.007.014.006",
+  "work_limits": {
+    "expected_aligned_bytes_total": 666248,
+    "expected_decoded_bytes_total": 4806359,
+    "max_aligned_bytes_per_target": 131072,
+    "max_decoded_bytes_per_target": 1048576,
+    "max_decoded_bytes_total": 8388608,
+    "max_output_bytes": 16777216,
+    "read_chunk_bytes": 1048576
+  }
+}
