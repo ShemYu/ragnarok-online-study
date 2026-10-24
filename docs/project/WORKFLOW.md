@@ -11,8 +11,8 @@ Every task uses an independent Claude candidate and Grok candidate. This compare
 From2026-10-24, the user requests a **1–3 task shadow pilot** of the new
 Kimi coding harness through Orca. Run it alongside useful independent work;
 do not make game progress wait for Kimi or create benchmark-only busywork.
-T07.007.012.010 is trial1; at most two further suitable tasks remain before
-the pilot verdict. Keep the same frozen inputs, acceptance criteria and scorecard
+T07.007.012.010 records trial1 and subsequent shadow use; the pilot is at most
+3tasks total before its verdict. Keep the same frozen inputs, acceptance criteria and scorecard
 as Claude/Grok, and verify its output before adopting it. Observe the
 actual harness/model from launch evidence; inherit its configured default
 unless a supported override is explicitly selected. A launch/authentication

@@ -44,8 +44,10 @@ UI, story or earned-save behavior. Prior failed trials remain failed.
 from current user progress; preserve the completed normal integration and its
 backups. [Fresh B5 fixture data and Root confirmation pass](reviews/2026-10-23-T10.007.md#fresh-b5-fixture-data-and-independent-confirmation-pass):
 one pure call,130checks/116full pins/all36private leaves/21roles/15tokens and
-current retirement. Next qualify baseline materializer copies for the new
-destinations and exact updated schema/scope/counts. Reuse the fixed F1/B4
+current retirement. [Fresh baseline materializer copies qualify](reviews/2026-10-23-T10.007.md#fresh-b5-baseline-materializer-copies-qualify)
+for one pure call after checkpoint: three child/ten outer metadata edits,
+unchanged materializer/authorities/caps and exact new schema/scope/counts.
+Reuse the fixed F1/B4
 sequence on a fresh disposable fixture; keep the current ro4 character intact.
 Baseline materialization and corrected runtime-source projection remain
 separate; no actor is admitted yet. Do not repeat the cold cycle, failed B4
@@ -57,10 +59,11 @@ monitored, with original/W/ro3 worlds, internet, mute and IME preserved.
 The independent [Claude/Grok/Kimi source comparison](reviews/2026-10-24-T07.007.012.010.md#root-verification-and-bounded-comparison)
 is verified. Kimi is usable for source triage; trial1 supports continued shadow
 work, not a general provider or coding verdict. The user's pilot is1–3suitable
-real tasks total, alongside game progress. At most two further useful trials
-remain; create no busywork or main-path dependency. All current workers settle;
-Kimi releases, while Orca retains Claude/Grok as user_takeover. Zero reclaimable
-terminals remain. Parent count remains4/14/about29%.
+real tasks total, alongside game progress. The second shadow task now reviews
+the fresh materializer copies independently; at most one further useful trial
+remains. Create no busywork or main-path dependency. Trial1 workers settled;
+Kimi released, while Orca retained Claude/Grok as user_takeover. Parent count
+remains4/14/about29%.
 
 **Full839 inventory entry now passes:** [Fresh root3 entry and full Root audit](reviews/2026-10-24-T06-full-spawn-output-budget.md#fresh-root3-entry-and-complete-publication-audit-pass).
 The explicit stdlib dependency setup is separately verified; the unchanged
