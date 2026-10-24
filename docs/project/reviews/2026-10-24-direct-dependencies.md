@@ -2761,3 +2761,23 @@ Both .017authors have matching investigating/implementing evidence. Root's
 next .016action is personally review the settled follow-up, reproduce own
 regressions and build/verify exact fixture before any owned-browser admission.
 No actual image/browser/server/network/game call or new user decision.
+
+
+## Protected delivery donor regression remains clean
+
+While the three independent workers implement, Root runs the unchanged direct
+donor36authored tests in a fresh private namespace. TMPDIR is explicitly
+confined there; all test temporary directories are removed. Natural0/
+1.504415s,36tests/zero skips pass, complete captures retained. Both protected
+source/test full PRE/POST hashes remain b7cb8276.../43c12776... with no mutation.
+Private t07-014-017-legacy-regression-root-1/ROOT_REGRESSION.json is1166B/SHA
+9d81c11825ee0a60c3581e41d5b32667c755b2a839c7e10939ba7502bf1b3bb7.
+This is authored transport/private-file regression, not .017source qualification
+or live HTTP/native/asset/Engine/browser/game evidence. Equal workers receive
+the same TMPDIR reminder, no additional inputs or scope.
+
+Read-only Orca tab inventory confirms the same two registered pages, including
+the existing roBrowserLegacy game page; no navigation/input/new page/server
+is performed. A45s worker_done/escalation/question wait times out empty once,
+not a failure or retry/release basis. All three attempts remain active. Root
+continues the same supervised run; no critical goal-changing issue.
