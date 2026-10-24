@@ -61,12 +61,16 @@ SQL or logout credit. A two-second asynchronous host-forwarder loop supports
 a readiness gap; the actual race is not proved. [Equal Claude/Grok source tasks start on isolated branches](reviews/2026-10-23-T10.007.md#equal-finite-readiness-source-tasks-start-on-isolated-branches)
 from0c06238. [Claude submits but Root proves two late-success counterexamples](reviews/2026-10-23-T10.007.md#claude-readiness-source-submits-and-root-proves-a-deadline-hold):
 its source remains unqualified; Orca retains its terminal as user_takeover.
-Grok continues independently. [A separate Claude deadline correction starts](reviews/2026-10-23-T10.007.md#separate-claude-deadline-correction-starts-and-original-evidence-is-mirrored)
-from9f33bfc, preserving the first submission and its user-owned terminal.
-[That correction now qualifies as source](reviews/2026-10-23-T10.007.md#claude-deadline-correction-passes-root-source-and-pure-controls):
-Root repeats65author controls and17independent controls, verifies both complete
-forward/inverse chains, and releases the worker. Grok comparison and selection
-remain pending. [Fresh B6 complete unbound templates also qualify](reviews/2026-10-23-T10.007.md#fresh-b6-runtime-templates-qualify-independently-of-driver-selection):
+[Both source submissions are now compared](reviews/2026-10-23-T10.007.md#both-readiness-sources-compared-corrected-claude-selected):
+Claude15/20 and Grok14/20, both first candidates fail the deadline property.
+Root repeats Grok's11controls and proves four deadline counterexamples.
+[The separately corrected Claude source qualifies](reviews/2026-10-23-T10.007.md#claude-deadline-correction-passes-root-source-and-pure-controls)
+with65repeated author/17independent Root controls and is selected. Both new
+workers are released; the original user-owned Claude terminal remains retained.
+Root records a premature Grok release/ACK after its C8 checker failed, then
+completes body/input/current-pin validation; seven ctime mismatches remain
+explicit. No actor or PASS results from that ordering error.
+[Fresh B6 complete unbound templates also qualify](reviews/2026-10-23-T10.007.md#fresh-b6-runtime-templates-qualify-independently-of-driver-selection):
 89recorded checks/9full pins, C26/UI11/Engine13, exact9C/4Engine inverses
 and independent Astra review. Driver source stays null; this preparation
 does not select a provider or admit an actor. [Fresh preservation observer sources qualify](reviews/2026-10-23-T10.007.md#fresh-b6-preservation-observer-sources-qualify)

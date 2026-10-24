@@ -23,8 +23,9 @@ Latest continuation: [fresh B6 data and baseline materialization pass](2026-10-2
 with independent Root confirmation and no game actor. [Claude's narrow deadline
 correction passes65repeated author and17independent Root controls](2026-10-23-T10.007.md#claude-deadline-correction-passes-root-source-and-pure-controls).
 The original candidate's late-success failures remain failed. Its correction
-author is released; Grok's first independent source task remains live. Select
-only after comparison, then project corrected B6 sources and freshly bind the
+author is released; [both first independent sources are now compared](2026-10-23-T10.007.md#both-readiness-sources-compared-corrected-claude-selected).
+Both fail the frozen deadline property. Root selects the separately qualified
+Claude correction, then projects corrected B6 sources and freshly binds the
 one fixed quest sequence. The narrow correction allowance is already in use;
 a further actor blocker triggers the existing priority review.
 
