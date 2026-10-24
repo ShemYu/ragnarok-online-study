@@ -782,3 +782,69 @@ The work limit excludes explicit cleanup/drain overhead; RSS sampling and post-r
 128MiB artifact accounting are not containment/quotas. No SQL, save, app restart,
 game input, setting change or network disconnection is authorized by this pilot.
 No render/play/story/save or82gap closure is claimed.
+
+
+## Actual eight-query pilot and complete Root audit pass
+
+After conditional admissionc7df76f, Root generates a fresh HEAD-bound preparation:
+natural0/0.559243s/about54.7MiB sampled RSS. Root personally verifies37source/
+plan/current-world joins and full eight-slot caller inverse before the one call.
+No app restart/game input/save/configuration/network change occurs.
+
+Exactly one pilot invokes the unchanged selected observer for the eight frozen
+queries. Inner guard: natural0/0.662416s/70778880B sampled peak, six samples,
+maximum0.134781s gap. Observer reports complete at0.117485s and its final post-
+publication verdict at0.236343s, no late deadline. Whole-caller guard: natural0/
+1.484727s/140705792B sampled peak,12samples/max0.134884s gap. Both guards are
+valid, no signal/action and fresh registered groups are gone. Caller retains
+before/after/error-free final record and explicitly defers delivery acceptance.
+
+Root's independent full actual audit passes270867checks/196full pins. All19
+observer leaves and eight complete response bodies total612703B. Both retained
+independent known pins match; six new observed hashes stay observations. Root
+independently derives every exact wire from original raw bytes, checks all1222
+whole typed query/source records,21maps/2142relations, all115expected-pin joins,
+complete counts/selection and all three logical case groups without merging.
+All1214outside rows remain unattempted. GRSM/BM/JPEG signatures are checked;
+this is not body-format construction/decoding or rendering. Query1158's archive
+winner remains unproved and no duplicate isolated acquisition is authorized.
+
+All153prior-present loose paths and all1222override paths stay unchanged. Six
+new logical loose rows [124,439,483,564,672,1158] match their retained response
+bytes/hashes. Separate requests483/672 now prove the same actual loose inode/
+hash with two independently retained body files; logical rows/wires stay distinct.
+The other two case groups remain unverified. Root rehashes every current present
+literal path and confirms all remaining absences; no unexpected new nonpilot
+path appears. Fresh independent owners/selected ENV/six-GET Engine/native/
+archive/current source preservation passes. No existing game owner is signaled.
+
+An initial Root audit mistakenly applies the per-output64leaf bound to the
+combined working history, which contains78files across three preparations. It
+fails only there after all body/ledger/world joins. Both original audit and
+correction are preserved: selected preparation has12files/889044B, actual output
+has19files/6626216B and entire working history8465918B. Exact selected output
+bounds and128MiB ceiling remain unchanged; candidate/source/inputs are unchanged.
+
+Private receipts:
+
+| File | Bytes | SHA256 |
+|---|---:|---|
+| pilot-audit-root-1/AUDIT_V2_ROOT.py |12161|c3f2253f30faa6f39ef564783187de52e70030c814bbdb5cd3d0e6a40c8380fd|
+| pilot-audit-root-1/ROOT_AUDIT.json |75254|10ac5030a49a656caf9343bac84fad0cd5e680f19a5c838cb83c36bc0b491883|
+| pilot-audit-root-1/ROOT_AUDIT_ASSUMPTION_CORRECTION.json |579|9af5eb6955f8f3915a0c6ea5bf22100247e94e55a18024eb05b26dc106f17583|
+| pilot-audit-root-1/REMAINDER_AUTHORIZATION_ROOT.json |388|97e6e114f4689cae63cd7d1b7ea1f1b5b00dc95c4c51f0755613b6f3373677b6|
+| pilot-caller-root-1/PREPARE_3_CONFIRMATION_ROOT.json |1296|3acab0b717a0bb62035208784f5e53a19ae88a6471e1c1c95e8fd8ddc3563d40|
+| pilot-caller-root-1/CALL_3_PROJECTION_ROOT.json |1998|16e930488496bbd7050be6427e3b4e3dcce160729489286f716cd037ebadc7bc|
+
+Root emits a separate exact closed-schema authorization joined to the pilot
+RESULT5756459B/SHA256
+8f41d5223621a8e1477435bb9cb9034a01bc767a1bd63c06305d5c6c14e6e40e.
+This checkpoint qualifies the pilot and conditionally admits the exact disjoint
+1214-query remainder/24101056B, cumulative24713759B, only after Root qualifies
+a finite remainder caller and fresh current HEAD/source/world/binding. No
+remaining request has run, and the successful pilot must never replay. Source-
+only remainder caller preparation is independent of both .012authors.
+
+T07.007.014.011 stays in_progress until the complete remainder/current-file/
+alias/domain/preservation audit. No .012constructor/render/play/story/save or
+82functional-gap closure is claimed. Full Modern/Renewal goal is unchanged.

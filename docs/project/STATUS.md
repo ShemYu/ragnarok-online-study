@@ -89,8 +89,13 @@ limits. [Exact source integration95bee15 passes36tests](reviews/2026-10-24-direc
 [Root caller and read-only preflight now qualify](reviews/2026-10-24-direct-dependencies.md#root-caller-and-read-only-preflight-qualify):
 32source checks/22full joins/all1222pairs, current owners/Engine/native/archive/
 ENV preservation pass. First environment-read failure is retained and corrected
-through bounded KERN_ARGMAX. One8-request pilot is conditionally admitted after
-a fresh HEAD-bound preparation; no actual asset GET yet. Remainder stays held.
+through bounded KERN_ARGMAX. [The actual eight-query pilot and complete Root audit now pass](reviews/2026-10-24-direct-dependencies.md#actual-eight-query-pilot-and-complete-root-audit-pass):
+270867checks/196full pins, eight200responses/612703B,19artifacts, all1222ledger
+rows/maps/relations and153prior loose paths preserved. Actual483/672share one
+loose inode/hash but remain two requests/records. No guard action/current-world
+drift. Root emits a separate pilot authorization; next qualify the finite
+remainder caller and fresh HEAD-bound preflight before exact1214remaining
+requests. No successful pilot replay or remaining request yet.
 
 **Independent next source lane:** [.012model-constructor brief is frozen](tasks/T07.007.014.012.md)
 after [Root's complete metadata audit](reviews/2026-10-24-direct-dependencies.md#model-constructor-inputs-pass-root-complete-metadata-audit):
