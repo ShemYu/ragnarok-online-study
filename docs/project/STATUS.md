@@ -8,7 +8,7 @@ Functionality remains first. **4/14 parent checks, about 29%**; this counts
 major checks, not full-content coverage. All 82 functional resource gaps remain
 open. Full Modern/Renewal scope is unchanged; no new user decision is required.
 
-**Latest verified result:** [Supported post-earn backup and saved marker pass](reviews/2026-10-24-normal-integration.md#supported-post-earn-backup-and-saved-marker-pass).
+**Latest verified result:** [Post-backup re-entry and cold reference qualify](reviews/2026-10-24-normal-integration.md#post-backup-re-entry-and-cold-reference-qualify).
 One fresh supported export/inspection captures98860B of Renewal state. Root's
 finite offline check confirms character150000/Ro4Novice1024 at iz_int51,30 and
 quest21001/state1; the pre-earn reference instead has18,26 and no21001. No SQL
@@ -46,9 +46,13 @@ Normal login, human Novice creation and game entry now pass. The
 Normal same-character re-login, walking/tutorial portal/NPC/quest earning now
 pass. Both ordinary earned character-select and logout/login re-entry now pass.
 Supported post-earn export/inspection, selected saved-marker comparison and
-fresh service readiness now pass. After this checkpoint normally re-enter the
-same character, capture a current owned pre-stop reference, then verify the
-supported full cold shutdown/start and ordinary re-entry to finish gate5.
+fresh service readiness pass. Normal same-character post-backup re-entry and
+the fresh owned pre-stop reference also pass. Root reviews the ro4 stop/launch/
+post-cold source deltas. After this checkpoint bind one supported full cold
+cycle; close only the owned test page's game connection first, stop the exact
+owned stack/assets/app, then start normal main once and independently verify
+new ownership, persistent volume/routes and ordinary earned re-entry. Gate5
+stays open until those actual cold checks pass.
 Keep retained app/engine/private streams monitored. ro3 earned progress
 stays untouched. Continue [quest/logout work](reviews/2026-10-24-functional-priority.md#priority-and-stop-criteria)
 separately; do not replay failed B4 or consumed Mu scenes.

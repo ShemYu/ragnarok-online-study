@@ -34,6 +34,7 @@ Map repair:
        -> normal travel + quest [PASS: portal/NPC/earned tutorial marker]
        -> earned save + re-entry [PASS: character-select + Exit/login]
        -> post-earn backup       [PASS: saved position + quest21001]
+       -> current pre-stop ref   [PASS: re-entry / owners / full files]
        -> owned cold restart    [NEXT: final gate5 check]
 
 Other active work:

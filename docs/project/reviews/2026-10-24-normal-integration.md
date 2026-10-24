@@ -919,3 +919,60 @@ The post-earn backup is preserved but not restore-tested. No cold persistence,
 inventory/reward/full-story or broader F1 Quit/socket-cleanup PASS is claimed.
 Integration stays4/5/80%, parent4/14/about29%, all82functional gaps open. No
 goal change or user decision is required.
+
+## Post-backup re-entry and cold reference qualify
+
+After940f03bffd894e3ebaff417a9f152cf213af110c, Root dismisses the supported
+backup's disconnect notice through normal UI. Private normal password input,
+login and same-character Enter return character150000 to iz_int51,30 with
+逃離失事輪/與船長對話. Root checks live read-only diagnostics/audio and
+personally views POST_EARN_BACKUP_REENTRY.png1683304B/SHA256
+57d202bfd9300f6278aaae81bada6d4e2c9d3c42340838a3a905ecf77da47b31.
+Private ordinary login/Enter/readback receipts remain in post-earn actual
+UI_POST_BACKUP_REENTRY/. The PNG/snapshot remain in persistence-actual-root-1/.
+
+Root derives the existing cold collector with only fresh ro4 paths/ports,
+owner/source pins, page, volume timestamp, baseline/endpoint and earned-backup
+bindings. Three explicit source-binding projections retain their original
+qualified provenance; they are not current ownership proof. An initial literal
+occurrence-count refusal occurs before collector write or runtime action and
+is preserved. The corrected finite metadata derivation passes Root's complete
+delta review. Actual read-only collector then passes: current app/asset/daemon/
+VZ and four old owners, direct asset parent, control socket/current VZ backing
+paths/inodes, same five containers/volume, earned backup,1118payload files,
+five full archives, installed app/framework and kernel. The only pre-main
+payload metadata difference is the expected endpoint. Current UI marker and
+disabled audio match. Profile contents/writable guest disk bytes remain outside
+the immutable comparison. No lifecycle or game input is sent by this collector.
+
+Root also reviews the complete three cold source deltas from qualified .012:
+fresh ro4 paths/pins/task/ports/ENV, actual Root re-entry receipt shape and
+four preserved old owners. The stop's imported collector also uses ro4; its
+Docker helper cannot accidentally use ro3. The post-auditor checks retained
+volume lineage, while container IDs may change after removal/recreation. The
+engine API reference is7465 and must be joined to the actual new instance.
+No first-install volume-freshness predicate is reused for a persistent volume.
+
+Private cold-source-root-1/ and cold-actual-root-1/ evidence:
+
+| Artifact | Bytes | SHA256 |
+| --- | ---: | --- |
+| Source CAPTURE_BEFORE_ROOT.py | 12273 | f3e4724f18d0e36557387f2430f05268d9649414e8f7a88164d56c2b20b65015 |
+| Actual pre-stop-1/RESULT.json | 18221 | af930206082fb0c34a00a3f7b883139f25bc44da9ed3697f05eabf5ebc141ce1 |
+| Actual pre-stop-1/PAYLOAD.json | 577646 | 4c19689f4948dc28809446fd397ece5bc83c2a3a2cc1c4fca36b7f1d5302b3ce |
+| Source STOP_UNBOUND_ROOT.py | 18475 | 61af9bd9585e8579ba63ccc269590c5b03e029bcbe9d3003ccda61f5bb6ea60d |
+| Source LAUNCH_UNBOUND_ROOT.py | 18446 | 54b0ea0c8ee09d3b470af1b52084256da658274f45d015226e40fec88b7d5df3 |
+| Source AUDIT_UNBOUND_ROOT.py | 18685 | 57cc0023ef35b0700f8ebfae4f4bb2f8a222879a6ec98707a24ea3ae3f2dc4f8 |
+
+After this checkpoint Root may bind one cold cycle to the new Git checkpoint
+and fresh outputs: close only the owned test page's game connection, supported
+stack_down once with positive daemon/VZ departure, assets_stop once with asset
+departure, exact remaining app SIGTERM and positive departure. Original/W/ro3
+worlds, other pages, internet and machine settings remain untouched. Do not
+retry on uncertain responses. The earlier ro3 final-bind refusal stays failed;
+only an actually matching new failure could admit its read-only reconciliation.
+On successful stopped qualification start normal main once with the same
+profile/ENV; no manual engine up or duplicate start_stack. Independently check
+new app/asset/daemon/VZ births, backing/volume lineage, fresh readiness, HMAC/
+admin/mods/detection/all16routes and normal earned re-entry before closing
+gate5. Until then integration4/5/80%, parent4/14/about29%, all82gaps stay open.
