@@ -218,3 +218,59 @@ does not establish a production defect; Root source review keeps both facts.
 Next Root repeats the source-qualified common checker and candidate suite,
 with real-input environment variables absent. Grok remains independently active.
 No actual seventeen-body decode or provider adoption is claimed yet.
+
+## Both source candidates personally verified and settled
+
+Grok task_2638311bea59/ctx_84e621b7f4e1 submits85ac014c12fdc6f6d7b1a630454978286205a44c
+from the samec6b853d base. Root confirms clean Git/exactly three owned changes,
+preserves all three source files, four fixtures and both complete author files,
+and rehashes all14frozen inputs. The matched worker_done settles the dispatch.
+Release positively returns released/closed_agent_terminal/transcript captured.
+Fresh reclaimable enumeration is empty; ten user-retained workers stay untouched.
+
+Root personally reads both complete module/test/document diffs and executes the
+same prequalified common controls and each complete synthetic suite. Each uses
+umask077, isolated Python/no bytecode, ResourceWarning as error, real-input
+environment variables removed and a90s external timeout. Every child exits
+naturally0; exact checker/module/test pins remain unchanged. No real body route
+runs. Counts below include the skip in the test total.
+
+| Evidence | Claude370028f | Grok85ac014 |
+|---|---:|---:|
+| Common checks |63PASS|63PASS|
+| Full suite |93total:92pass/1real-input skip|91total:90pass/1real-input skip|
+| Root suite wall seconds |14.423082|11.747583|
+| Old test methods |76AST-identical|75AST-identical; one adds explicit0600|
+| Old core objects |49retained; only Route docstring/main change|same|
+| New core functions |verify_remaining_rsw only|same|
+
+Root separately runs just the older chapter privacy/size test underumask022
+against baseline and both candidates. Baseline and Claude both fail with
+consumer-file-privacy before the expected consumer-size; Grok's explicit0600
+setup reaches the intended size gate and passes. This is a verified inherited
+test-environment issue, not a production regression or permission weakening.
+Grok's one-line setup fix preserves the original assertions. Candidate-reported
+mutation results without retained mutants are not treated as Root execution.
+
+Both qualify on the frozen bounded scorecard: semantics8/8, preservation4/4,
+controls/artifacts4/4, patch/handoff2/2, resource/closure2/2:20/20 each. This is
+source/synthetic qualification, not actual-body acceptance. Root selects Claude
+for integration because all old test methods remain exact and its additional
+fault controls cover more late publication paths. Test count alone is not the
+selection criterion. Grok also meets this task's functional source contract.
+Root-observed suite time is not provider implementation speed or real-decode
+time; retained author RAM reports are not fresh Root RAM measurements.
+
+| Private receipt | Bytes | SHA256 |
+|---|---:|---|
+| t07-014-006-claude-execution-root-1/EXECUTION_ROOT.json |1736|541d72d6a49c7695fe7ad42a96e0ce548816523c5e434ccde51ce11607446753|
+| t07-014-006-grok-execution-root-1/EXECUTION_ROOT.json |1740|b79e93cd8249e102cd987954218326745e2b645e17b5942d5c6113c50fc8e883|
+| t07-014-006-preservation-controls-root-1/RESULT_ROOT.json |1208|b744e3f03e8a4ead287ee6255d888441bdf321bf2d484e622a71bbea132849b3|
+| t07-014-006-grok-packet-root-1/SETTLEMENT_ROOT.json |7453|28efe07866796747257df41e2fd412cb062e9343171a7954423df1069f0a3db9|
+| t07-014-006-grok-packet-root-1/RELEASE_ROOT.json |455|8a4720b003f314e3131b1f872461e78d9ee7865406011f42ea1b702fb167560f|
+
+Paths are relative to `.tools/renewal/`. Next integrate the selected exact
+three-file source, then separately admit one actual17body recovery/header gate.
+Four normal GRF GETs still await fresh live preflight/source admission. A fresh
+computer-use inventory again has no apps/browsers and the same native-pipe
+startup error; ordinary play verification remains held without game restart.

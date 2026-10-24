@@ -114,8 +114,13 @@ frozen baseline source. Next collect/verify both and equal controls, then Root
 separately admits actual recovery/header observation.
 Reuse existing bodies/terrain evidence; do not repeat the general gap ledger.
 [Claude370028f submits; Root source review passes](reviews/2026-10-24-remaining-map-bodies.md#claude-seventeen-route-submission-preserved-source-review-passes).
-Its complete source/logs are preserved and worker released before ACK. Root
-common controls/suite are next; Grok remains active. No adoption/17body run yet.
+Its complete source/logs are preserved and worker released before ACK.
+[Both source candidates now qualify](reviews/2026-10-24-remaining-map-bodies.md#both-source-candidates-personally-verified-and-settled):
+63common checks each; full suites Claude92pass/1skip, Grok90pass/1skip. Root
+confirms the inherited default-permission test issue; both score20/20 for the
+bounded source task. Claude selected for exact old tests and broader late-fault
+coverage. Both workers preserved/released; no reclaimable terminal. Next exact
+source integration and separate actual17body/header admission; no body run yet.
 In parallel, [all four GRF reference bodies and Root confirmation pass](reviews/2026-10-24-remaining-map-bodies.md#four-actual-reference-bodies-and-complete-root-confirmation-pass):
 1223209decoded bytes/actual embedded GND/GAT declarations; natural0 in2.344735s,
 full archive/source/body/header preservation verified. Next fresh live preflight
