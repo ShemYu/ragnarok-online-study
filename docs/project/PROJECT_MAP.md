@@ -85,7 +85,7 @@ Other active work:
   Model/declaration preparation [BOTH HELD14/20vs9/20; Root full reviews/controls DONE]
   Constructor correction       [INTEGRATED1aa7e67; Root23tests/own regressions/CLI PASS]
   All936model body files       [ROOT FRESH HASH/IDENTITY + COMPLETE JOIN PASS]
-  Genuine constructor pilot    [CALLER SOURCE PASS; full936profile/11binding next]
+  Genuine constructor pilot    [FULL936PROFILE PASS; exact11binding/call next]
   Image consumer source trace  [ROOT PASS:40slices/286joins; both17/20/released]
   Browser image decoding       [NEXT:finite closure/resource/upload plan; no run]
   Remaining direct assets      [DELIVERY DONE; construction/nested textures OPEN]

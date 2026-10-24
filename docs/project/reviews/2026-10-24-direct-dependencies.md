@@ -1658,3 +1658,71 @@ explicit finite Root binding proposals; actual resource fit remains unmeasured.
 Next assemble/freshly pin one full936profile, bind current world/HEAD and the
 exact11pilot, inspect whole source inverses then call once. No constructor has
 run, no925remainder or content closure is admitted.
+
+
+## Full936 runtime profile and Root pilot admission checkpoint
+
+The metadata helper prepares one complete runtime profile without opening
+referenced bodies or executing source. Root reads its builder/report, then
+independently compares every typed runtime value with the original936records/
+1649relations/21maps/three case groups and current body projection. Limits,
+identity encoding and all historical93expected/843pending original records stay
+unchanged; exactly one body field is added per model. Root freshly reads all
+936distinct body files/8059280B to EOF with SHA/eight exact C8 decimal strings/
+FD-literal pre/post/close checks. Every full descriptor matches. Prefix/summary/
+suffix/Node and metadata inputs also match;195177checks/946full pins pass in
+0.400354s. No constructor evaluates.
+
+Frozen profile RUNTIME_PROFILE_ROOT.json:3043046B/SHA256
+c36e551b578c32d9c0c9ceb7df35a410224c5a032e6a02bdbdfd029887f35104,
+execution_admitted:false. This exact whole profile must also govern any later
+925remainder. Node is121911744B/SHA256
+9d050fd455b56426e25d4d603c7c501cbb2630348e836cf221dcce748e90588a.
+Root profile audit ROOT_AUDIT.json is481361B/SHA256
+c10a05ab93289369c97e01140fb4adc9689e02a76eab2ee50ebd4156f85d7d83.
+Private prefixes t07-014-012-runtime-profile-helper-1/ and
+t07-014-012-profile-root-audit-1/ retain full inputs, output and derivation.
+
+Root then runs only the integrated metadata validators and suffix-string checks
+under the unchanged guard: natural0/0.124878s, no action/signals/residue, empty
+stderr, complete capture. All936nonnull body slots/1649relations/21maps/three
+cases validate. The very short966656B sampled RSS misses the transient process
+peak and is not a memory estimate. No genuine prefix/summary/body code evaluates.
+
+Root admits finite preparation and ONE subsequent pilot call, conditional on
+fresh whole source/profile/body/world/HEAD pins and personal private projection/
+inverse checks. Bind the clean HEAD after this checkpoint, never a predicted
+commit hash. Exactly model indices[1,26,378,406,439,445,487,508,509,548,900],
+original queries[1,26,439,483,516,522,564,632,633,672,1178],401761body bytes.
+925others remain outside batch; no replay or automatic remainder admission.
+Same qualified host/suffix/prefix/summary and frozen caps; only the private
+host's sole source-binding line and caller's declared slots may be filled.
+Retain complete inverse/source edits/pins, then Root independently audit all
+24expected model artifacts, summaries/declarations/FD/close/lifecycle/resource
+outcomes before deciding any925admission. No truncate/deduplicate/quiet cap
+raise if real aggregate fit fails. Failure holds this content gate, not the
+full-game goal.
+
+Preparation reuses the unchanged .011helper's world-preservation definitions
+only. Fresh seed must verify four original process births/executables, six
+selected environment keys, explicit native/INI, five archive identities with
+historical hashes, all1222loose/override pairs/parents, listener and six read-only
+Engine metadata GETs. This scope does not inspect SQL/save content or establish
+full offline/world preservation. No actual asset GET, browser/game input, service
+restart, setting/audio/Chrome/IME change or internet disconnection.
+
+Use root005 externally around the whole Python caller, then internally around
+its one Node invocation. Host1240s, Nodeguard1260s, wholecaller1380s; each guard
+has separate3s cleanup grace,1MiB streams and1610612736B sampled owned RSS.
+The outer guard can register only its caller and the caller's one separate-
+session Node child; only those fresh birth-matched leaders may be signaled.
+No existing game/service owner may be signaled. The known orphan-before-
+registration limitation remains unknown/never signaled. Combined caller/model
+artifact accounting is256MiB, source closure512MiB, host retained185597952B,
+unchanged summary/reducer limits. These are accounting/sampled guards, not OS
+containment. Root externally seals complete final outputs and budgets after
+exit; elapsed checks/final caller inventory alone are insufficient.
+
+This checkpoint admits a bounded attempted observation, not a runtime PASS or
+source/content acceptance. Current major-check count stays4/14/about29%;82gaps
+open, full Renewal/Traditional Chinese/functionality-first scope unchanged.

@@ -29,11 +29,13 @@ complete:19tests pass, but two Root combined faults hold it.
 [Root full diff/23tests/own two regressions pass; corrected source selected19/20](reviews/2026-10-24-direct-dependencies.md#corrected-constructor-source-qualifies-for-integration).
 [Exact integration1aa7e67 and focused authored CLI check pass](reviews/2026-10-24-direct-dependencies.md#selected-constructor-source-integrated-unchanged-and-interface-rechecked).
 [Root caller source/five authored controls pass](reviews/2026-10-24-direct-dependencies.md#finite-constructor-caller-passes-root-source-controls).
-Next full936profile/exact11pilot/current-world binding plus whole-caller guard
-and final independent output seal. No new child/setup. A parallel metadata-only helper
+[Full936profile/195177Root checks and integrated metadata validation pass](reviews/2026-10-24-direct-dependencies.md#full936-runtime-profile-and-root-pilot-admission-checkpoint).
+One conditional11pilot is admitted after fresh current-world/HEAD/private source
+binding and inverses; no actual constructor result yet. Whole-caller guard/final
+independent output seal are mandatory. No new child/setup. A parallel metadata-only helper
 has completed the936body join; [Root independently verifies all records and fresh body files](reviews/2026-10-24-direct-dependencies.md#complete936body-join-and-fresh-root-file-audit-pass).
-237771checks/950pins pass. Proposed11pilot/925remainder stay unbound. Root
-must qualify the repair and exact actual caller before real construction.
+237771checks/950pins pass. Exact11pilot binding is next;925remainder stays
+unadmitted until complete actual pilot audit.
 
 **Independent parallel lane:** [.013browser image-consumer source trace](tasks/T07.007.014.013.md)
 [Root complete source/286metadata comparison passes](reviews/2026-10-24-direct-dependencies.md#image-consumer-source-trace-passes-complete-root-comparison):
