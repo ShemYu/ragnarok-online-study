@@ -4007,3 +4007,69 @@ shows an unrelated public model_constructor_worker.mjs read. Development tests
 are still being corrected; no timeout is treated as exit, no retry/cancel and
 no other candidate's findings are sent. Worker settlement/Root comparison remain
 next; no actual decoder or goal/percentage change.
+
+
+## Grok retained observer is preserved and both originals are personally compared
+
+Matched .021Grok task_d90604e96666/ctx_443fba4a0549 settles successfully as
+f41d4b2d2df22eea2412906cddbcb683c29fc133 from the same frozen36736fc base.
+Root verifies clean expected branch/HEAD/exact parent/three owned paths and
+preserves43full regular copies/307672B (three tracked plus40private files),
+34directories and eight inert owned symlink records. Hardlink peers are proven
+inside the owned prefix; links are never followed. Exact archive ref and verified
+22830B rollback bundle SHAeb89bb16b2b923c450ee423c44fdc218310bc60b394f732bb63b0ad192477809
+survive. Root releases the settled worker/transcript before ACK04efd13ef63f.
+Fresh fleet query returns327released/ten retained/zero reclaimable; no active
+worker in this wave, no new child or setup.
+
+Root reads all1160source/406test lines and the complete report, then reruns the
+unchanged ten tests in a separate mirror:10/10,zero skips,0.293865s outer,
+256.648ms suite. Five source/input full C8/SHA pins stay unchanged. Independent
+592controls check all32tiny handwritten outcomes, full output bytes, exact
+three spans and a full25row authored-stub pipeline. Large authored files use
+handwritten VM stubs only:75stub executions across three25row runs, zero acquired
+large-domain decoder evaluations. The test seam substitutes only the owned
+profile pin; the actual CLI is unchanged. No actual body is opened/decoded.
+
+The same four failure families reproduce in Grok: post-publication late PASS,
+output replacement accepted, swallowed input-close failure leaving PASS, and
+symlink-ancestor acceptance. Grok additionally admits an oversized header through
+the direct execution helper, accepts a Uint8Array with a spoofed clamped-array
+tag, and misses individual profile dimension caps. The latter is a preflight
+contract gap: later body validation rejects it and the production frozen profile
+hash prevents substituting the changed metadata. It is not an actual-profile
+escape. All fault files are owned synthetic inputs.
+
+The frozen read scope also has a recorded deviation: the worker transcript
+shows a30line read of public model_constructor_worker.mjs outside the three
+implementation inputs. The report calls this an early search listing; Root
+records the actual read. No other private candidate read is observed. This
+limits the scope-compliance score; it is not evidence of candidate contamination.
+
+| Original | Correctness /8 | Preservation /4 | Checks /4 | Handoff /2 | Limits /2 | Total /20 | Root outcome |
+|---|---:|---:|---:|---:|---:|---:|---|
+| Claude2ac966f |6|2|3|2|2|15|Held unchanged; four reproduced lifecycle/publication faults|
+| Grokf41d4b2 |5|1|2|2|1|11|Held unchanged; four shared families plus direct-bound/brand/preflight gaps|
+
+Raw assertion totals are different test shapes, not comparable speed or coverage
+scores. Both receive credit for correct authored pixels. Scores describe these
+originals only; Root/Astra advice and Root repairs earn neither model credit.
+Select the Claude-derived source as the smaller finite repair basis. A private
+Root correction already targets the four holds and explicit body-byte retirement;
+it remains unintegrated and unqualified pending final review/regressions. No
+actual copied-decoder call is admitted at this checkpoint. Reuse the committed
+independent25file Python oracle without replay. Geometry/render, all82functional
+gaps and4/14/about29% parent-check progress remain unchanged; no goal decision.
+
+Private t07-014-021-grok-review-root-1/ receipts:
+
+| File | Bytes | SHA256 |
+|---|---:|---|
+| AUTHOR_TESTS_ROOT.json |3477|8a2de2709248e353419f918022d4cf658efa9891a3743b6c1094d4994da06423|
+| ROOT_CONTROLS.mjs |10111|212d40e6d8018485c9930f05ee8838caf37f8ee4ce56a465a361f9f33e4dba7b|
+| ROOT_CONTROLS.json |813|03e5a4e9112313487841fc5300b38c2ab760ea266649dc9b06d4194bcc2313f7|
+| ROOT_MATRIX.json |14101|9fa2593c85562b55269205b6b61d9f507ece9f7d48c5f0380ad84ff7bd34f893|
+| ROOT_STUB25.json |26900|4c1a880bfd5c73c93aa9f2d18c4d1df9da96683e3fed959c9e18d4ece8f470c4|
+
+Preservation receipt:18526B/SHA8b9f52c91091a311730bb09e2ee6f96876a1f32e494e5ee9b49f0669a03e3413.
+Release receipt:455B/SHA78d4fceafc6e75b86232df0f577ac065c96b0e4f77a6ea7c5001b7a089a20f62.

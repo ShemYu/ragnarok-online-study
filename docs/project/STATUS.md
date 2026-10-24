@@ -14,7 +14,10 @@ first-milestone content or remaining effort. Do not relabel it as such.
 20tests/515independent controls/675saved-capture audit checks pass all32tiny
 cases and repaired harness faults. Both originals are preserved/released, raw
 Claude15/20/Grok14/20; Root correction credited separately. Copied decoder on retained real images
-remains unverified. [.021paired observer source wave](reviews/2026-10-24-direct-dependencies.md#independent-retained-decoder-observer-source-pair-starts)
+remains unverified. [.021both originals now pass Root comparison with holds](reviews/2026-10-24-direct-dependencies.md#grok-retained-observer-is-preserved-and-both-originals-are-personally-compared):
+Claude18tests/114controls, Grok10tests/592controls, raw15/20versus11/20.
+Both preserved/released; select the smaller Claude-derived Root repair for final
+qualification. No actual copied-decoder execution yet. [.021paired observer source wave](reviews/2026-10-24-direct-dependencies.md#independent-retained-decoder-observer-source-pair-starts)
 and [Root completes its independent25file raw reference and397check audit](reviews/2026-10-24-direct-dependencies.md#actual25independent-reference-and-complete-retained-audit-pass). No body requests repeat.
 .017all948delivery and corrected .019conditional Worker facts remain qualified
 in their bounded scopes. Geometry/render and all82functional gaps remain open.
@@ -25,7 +28,7 @@ Current84direct children include the two released review children and the two
 refs, two verified rollback bundles and private evidence survive; the running
 character/quiet audio remain. Three examined children stay held for incomplete
 private preservation; user-retained children remain excluded.
-Latest fleet:326released/ten retained/one active .021Grok/zero reclaimable.
+Latest fleet:327released/ten retained/zero active or reclaimable.
 Two .012implementation attempts reuse existing released checkouts; no new
 child folders or setup hooks. Both .012candidates are preserved/released after
 matched settlements. [Root full review and eight behavioral groups per original are complete](reviews/2026-10-24-direct-dependencies.md#both-constructor-originals-are-personally-checked-and-held).
