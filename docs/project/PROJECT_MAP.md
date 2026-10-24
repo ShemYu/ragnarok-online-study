@@ -40,7 +40,7 @@ Map repair:
        -> normal integration    [5 / 5 PASS; user progress preserved]
        -> Mu route/config check [HELD: newer Guide absent from installation]
        -> ordinary field route  [SOURCE VERIFIED: island -> Izlude -> field]
-       -> quest state + play    [NEXT: preserve tutorial; travel/return]
+       -> quest state + play    [BLOCKED: computer-control connection unavailable]
 
 Quest check:
   Finite startup repair        [PASS: listener seen in 3 checks]

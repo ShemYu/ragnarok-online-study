@@ -77,3 +77,13 @@ they claim no decoded Chinese donor text. Initial root-level script paths
 return404 before reads follow actual npc/re paths. No game actor is replayed.
 No source/body changes, save rollback or goal change results. Git versions
 this decision; original progress, Chrome, mute, IME and network stay preserved.
+
+## Subsequent UI inspection is blocked
+
+After source checkpoint e6337d2, Root requests the computer-use inventory.
+It returns no apps/browsers and `Sky Computer Use native pipe startup failed`.
+One reset of the tool session and one fresh inventory request give the same
+error. This resets no user app and sends no game input. Current quest/inventory
+cannot yet be inspected; no ordinary route action or gameplay PASS is claimed.
+Continue independent source/asset resolution while UI control is unavailable.
+Do not restart the user's game or replace the observation with a stale marker.

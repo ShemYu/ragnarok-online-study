@@ -68,6 +68,13 @@ Do not choose early departure, warp or grant progression to speed verification.
 No gameplay ran in this checkpoint. Hold the failed F1 quest path; no new
 quest actor/repair, Mu install or synthetic retry. Full goal stays unchanged.
 
+**Current UI blocker:** inventory fails with `Sky Computer Use native pipe
+startup failed`, including one tool-session reset/retry after e6337d2. No apps
+or browsers are available through that connection. Do not infer the user
+closed the game: native server ownership checks above pass. Quest/inventory
+inspection and ordinary playtest wait for UI availability; independent source/
+asset checks may continue. No game restart or user decision is required.
+
 ### Historical preparation — follow the next action above
 
 The following retains earlier decisions. Former next-action instructions
