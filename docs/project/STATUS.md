@@ -10,10 +10,11 @@ open. Full Modern/Renewal scope is unchanged; no new user decision is required.
 The board includes later-phase party taskT11, so this is not a percentage of
 first-milestone content or remaining effort. Do not relabel it as such.
 
-**Child cleanup:** [Root verifies removal of eight completed children](reviews/2026-10-24-orca-children-cleanup.md#first-eight-removals-and-final-preservation-verified),
-reducing100direct children to92. Exact Git archive refs, verified rollback
-bundle and private evidence survive; the running character/quiet audio remain.
-Another12are audit candidates only; user-retained children stay excluded.
+**Child cleanup:** [Root verifies removal of20completed children](reviews/2026-10-24-orca-children-cleanup.md#second-twelve-removals-personally-verified).
+Current82direct children include two new active reviewers. Exact Git archive
+refs, two verified rollback bundles and private evidence survive; the running
+character/quiet audio remain. Three examined children stay held for incomplete
+private preservation; user-retained children remain excluded.
 
 **Current map checkpoint:** [All21remaining compiled cores pass Root's complete audit](reviews/2026-10-24-remaining-map-bodies.md#remaining21-actual-compiled-cores-and-complete-root-audit-pass).
 One unchanged qualified host call exits0 in4.807445s, about800MiB sampled RSS,
@@ -32,8 +33,9 @@ are already qualified. Both providers are preserved/released, no pending worker.
 Next is the1222direct dependency closure; do not replay successful actual calls.
 [T07.007.014.010 preparation passes Root's personal synthetic checks](reviews/2026-10-24-direct-dependencies.md):
 9groups/82assertions, complete fixture publication and fail-before-load actual
-refusal. The real63catalog lookup remains held; next equal Claude/Grok source
-reviews from the frozen brief, then separately bound actual execution.
+refusal. [Both actual source reviews are live from the same frozen base](reviews/2026-10-24-direct-dependencies.md#independent-actual-source-review-pair-launched).
+The real63catalog lookup remains held pending findings and Root verification,
+then separately bound actual execution.
 
 [Normal delivery of all34terrain bodies is already complete](reviews/2026-10-24-remaining-map-bodies.md#normal34delivery-and-complete-root-audit-pass),
 T07.007.014.008 `ready_for_user`:34exact200responses/97037820B, all34new loose

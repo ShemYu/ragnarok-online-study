@@ -49,3 +49,22 @@ launch the actual independent Claude/Grok source-review pair from the same
 introducing commit; personally check their findings before any real lookup.
 No archive/body/runtime/game/save/network change, provider comparison result,
 task readiness or full-content percentage follows from these synthetic checks.
+
+## Independent actual source-review pair launched
+
+Both fresh worker checkouts start exactly at common65065d86391a4bf0cb092a596c0709478235f513,
+with setup skipped and no residual resources. Claude has observed turn_started;
+Grok's launch reports unsupported turn observation, but its exact transcript
+positively shows the live brief and allowed sources being read. Root personally
+checks both HEADs and live/working dispatch projections. No duplicate prompt.
+
+| Provider | Task | Dispatch | Owned terminal |
+|---|---|---|---|
+| Claude | task_29fee3053fa0 | ctx_341b69c56c3c | term_3f5dd3f6-420c-4396-9a05-4bc525b806c1 |
+| Grok | task_1658bc695cbe | ctx_77901ff0c8eb | term_d3e7eba3-52bd-4975-81a1-1e8f068fd547 |
+
+Private t07-014-010-launch-root-1 retains the identical brief/basis, both launch
+receipts and fresh worker observations. Separate ShemYu/t07-014-010-claude/grok
+branches own the one same-path report. Configured defaults are used; effective
+model/effort, billing and tokens remain unobserved. Both reviews and Root's
+claim checks are pending. Real catalog execution remains held.

@@ -71,3 +71,42 @@ An independent second audit recommends12more children, but Root has not yet
 qualified their preservation or removed them. Three other examined children
 remain held for unmatched private logs, authored symlinks or bytecode outside
 the mirrored scope. Unexamined and user-retained children remain untouched.
+
+## Second twelve removals personally verified
+
+Root independently rechecks all150changed/private file mappings,158678996B,
+against exact retained copies, including127ignored files/157942754B. All ignored
+files are covered; twelve current heads/status/startup ownership/lineage and
+covered-empty terminal lists qualify. Fresh browser inventories contain only
+blank pages. The12qualifying children are:
+
+- t06-full839-refs-claude/grok;
+- t07-014-002-claude-a1/grok-a1 and t07-014-claude-a1/grok-a1;
+- t07-013-001-claude-a1, t07-013-002-claude-a1/grok-a1, t07-013-grok-a1;
+- t07-011-005-claude-a1/grok-a1.
+
+Before removal, Root creates exact refs/archive/2026-10-24-cleanup-2/<child>
+and verifies a separate self-contained bundle. Each supported removal is followed
+by actual path/Git absence and retained-ref checks. Final catalog confirms all
+other workspaces survive, including both newly active .010 reviewers. Root then
+fully rehashes all150retained copies, all12refs and the second bundle again.
+
+Total completed children removed20. The current inventory is84workspaces/
+82direct children:100original children minus20removals plus2new active review
+children. This is a saved-workspace count, not a live OS process count. All
+user-retained/main/coordinator records stay excluded. The same ordinary game
+marker remains visible; no reset, raw kill or save rollback occurs. A single
+ordinary DOM ground gesture has no observed movement and is not travel PASS.
+
+| Private record | Bytes | SHA256 |
+|---|---:|---|
+| ROOT_SECOND_RECHECK.json |59761|ba4459562dcd8694dc0580ab28eb33cafa2bcad67c6929b0414d10a05ee23c4a|
+| ROOT_SECOND_ARCHIVE_PLAN.json |4044|f7f9e5a2827d3ac44cef4d51716cafd6b4c8ca78ff55c9040e7c629ee669e93d|
+| rollback-2.bundle |5633845|152d6b30f2c6d6bb09d3fc32504698f786e62035431bb4ec4251e6f8b2ef62a0|
+| ROOT_SECOND_REMOVAL_RESULT.json |1816|56185ac34986a494fe574be5be1ebd14186e20521b92a488e48377c97a004ef2|
+| ROOT_SECOND_FINAL_CONFIRMATION.json |534|fdadac0d4d9e45ac00b2fad85f3f5e25b3eba67893ef5e897eeca2f01f959dbb|
+
+An initial read-only recheck stops on a nullable worker resource field. Root
+preserves that failure, corrects only the metadata filter and completes the
+fresh full recheck before any archive/removal. The three previously held
+children remain held; no unmirrored file or authored symlink is discarded.
