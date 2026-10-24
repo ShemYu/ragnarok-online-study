@@ -621,3 +621,38 @@ Prefixes use `.tools/renewal/t07-remaining-terrain-`. Provider source/fixture
 comparison remains active. Candidate actual execution is still held until its
 source/common qualification and a separate admission. No terrain body, normal
 HTTP, renderer, story, game input or any82gap closure follows from this lookup.
+
+## Claude terrain source preserved and personally reviewed
+
+Matched worker_done msg_be274acf7c20 settles task_48560bd7a1a6 /
+ctx_cd769a653d20. Candidate d0287e073ec39a79fd65053e2882f95dca068d2e
+starts from the common fdcd3d7 base and changes only its owned report, with a
+clean checkout. Root preserves all17private files/102558bytes, the report and
+four frozen brief/fixture files in the private claude-packet-root-1 mirror.
+SETTLEMENT_ROOT.json11920B/SHA256
+70616a0655cc253cbffecf451c1a824d3486c5aee8ec2098ddde2d321eb450c0
+binds the complete22-file mirror. Positive RELEASE_ROOT.json455B/SHA256
+1def2996c0e856c67a81a4e675c72c2167b6fca8b1ae34a22fd9e8c448d64be3
+confirms released/closed_agent_terminal and captured transcript. Release
+accepts the submission lifecycle, not its semantic claims.
+
+Root personally reads the entire lookup.py28874B/SHA256
+532bddf417060b96f98a68f3693e03826fd5f6312e3058bf7480e9482a76a068,
+test_lookup.py31897B and mutants.py2555B. Separate source review finds no
+fixed-input matching/typed-output blocker. Two limitations remain: input open
+without O_NONBLOCK can wait on a substituted FIFO, and output write does not
+reject zero progress. Actual execution therefore still requires the existing
+external guard; neither limitation establishes a wrong pinned result.
+
+This checkpoint admits Root's one full25-test source/synthetic suite under
+explicit -I/-B, private umask and ResourceWarning errors. It reads the three
+pinned authorities but no actual catalog streams; synthetic actual-path tests
+use only owned temporary fixtures. Author25pass/8mutant claims are not Root
+results yet. Root's common fixture/CLI checker is separately being corrected
+to avoid unanchored process-group signaling before admission. No provider
+actual execution, body recovery or game action is admitted here.
+
+Fresh Orca fleet is one live/working Grok dispatch, ten user-retained and292
+released workers. Grok's matched implementing heartbeat remains in progress;
+silence never authorizes replacement. Next run the admitted source suite,
+finish common-checker admission and collect the equal Grok submission.

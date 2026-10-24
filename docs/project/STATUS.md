@@ -160,6 +160,14 @@ and explicit loader/computed-command boundaries; no new goal decision. Next
 story task should reconcile authentic entry-to-Mu quest transitions, not repeat
 a generic absence search or create a quest actor.
 
+[Claude's terrain source is preserved, released and personally reviewed](reviews/2026-10-24-remaining-map-bodies.md#claude-terrain-source-preserved-and-personally-reviewed).
+Root reads its complete method/tests; fixed-input semantics have no identified
+blocker, with FIFO-open/zero-write limits retained for external guarding. Root's
+25-test source/synthetic suite is admitted; common-checker correction/admission
+and equal Grok collection are next. Grok remains live/working, one active worker;
+ten user-retained and292released. Actual provider scans remain held. The Root
+oracle is already complete; do not repeat it or call metadata a gameplay pass.
+
 ### Historical preparation — follow the next action above
 
 The following retains earlier decisions. Former next-action instructions

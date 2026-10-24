@@ -65,7 +65,7 @@ Other active work:
   Full839 map/monster joins    [DONE: Claude integrated; Root verified; pair released]
   Remaining patch map bodies  [DONE:17 bodies/header names Root VERIFIED]
   Remaining October bodies    [DONE:4 bodies/headers/normal GETs Root VERIFIED]
-  Remaining terrain names      [ACTIVE:34queries/42relations; Claude/Grok source pair]
+  Remaining terrain names      [ACTIVE:Claude source reviewed; Grok working]
   Terrain metadata oracle      [PASS:34/34 exact eligible records; Root full audit]
   Claude/Grok FD plan pair      [BOTH VERIFIED + RELEASED; control PASS]
   Authentic Chapter 1 scripts  [OPEN: largest content risk]
