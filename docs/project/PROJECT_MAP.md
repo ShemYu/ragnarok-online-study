@@ -23,8 +23,9 @@ Map repair:
        -> normal source repair  [QUALIFIED: startup + Chinese preserved]
        -> fresh complete ro4    [PASS: 1,135 inputs / 1,114 files audited]
        -> four-file config      [PASS: 40 checks / all prior files unchanged]
-       -> local guest images    [SOURCE QUALIFIED: one install next]
-       -> engine + routes       [OPEN]
+       -> local guest images    [PASS: every byte / prior files unchanged]
+       -> fresh engine          [NEXT: ownership + empty storage]
+       -> normal routes         [OPEN]
        -> normal game + travel  [OPEN]
        -> story + earned save   [OPEN]
 

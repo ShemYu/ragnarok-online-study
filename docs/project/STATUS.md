@@ -8,10 +8,11 @@ Functionality remains first. **4/14 parent checks, about 29%**; this counts
 major checks, not full-content coverage. All 82 functional resource gaps remain
 open. Full Modern/Renewal scope is unchanged; no new user decision is required.
 
-**Latest verified result:** [Four fresh configuration files and complete preservation pass](reviews/2026-10-24-normal-integration.md#actual-four-file-configuration-and-complete-preservation-pass).
-One bounded call and Root40checks/1145full pins pass; all1114 prior files and
-212directory keys/modes remain exact, with exactly1118files after four additions.
-No image, engine, app or game has started in ro4.
+**Latest verified result:** [Fresh local images and complete byte comparison pass](reviews/2026-10-24-normal-integration.md#actual-local-image-install-and-complete-byte-comparison-pass).
+One local install and Root30checks/1137full pins pass. Every decoded byte of
+the kernel and both rootfs copies matches; all1118 previous files/212directory
+keys/modes remain exact. Exactly1121files/215dirs exist. No engine/app/game
+has started in ro4. The preceding [four-file configuration audit](reviews/2026-10-24-normal-integration.md#actual-four-file-configuration-and-complete-preservation-pass) also passes.
 
 **Previous renderer result:** [Fresh Mu3 isolated map-render scene passes](reviews/2026-10-24-T07-mu-data-stage.md#fresh-mu3-synthetic-scene-and-complete-root-audit-pass).
 All 1,285 placements load, all 29 retained Float32 arrays are finite, and all
@@ -30,11 +31,11 @@ UI, story or earned-save behavior. Prior failed trials remain failed.
 The fresh ro4 tree contains the repaired normal Online and unchanged worker.
 One copy and separate full audit pass all1135source files/1114destinations/
 212directories; Root's outer41checks/25pins also pass. Four configuration files
-now pass actual execution and complete preservation. Profile is empty; engine
-contains only config.toml. The complete1118-file baseline and local-image
-installer/caller now qualify as source. After the source checkpoint, run one
-fixed local install and verify every decompressed/installed byte before
-engine/routes/ordinary login/travel/save. No image/engine/app/
+now pass actual execution and complete preservation. Local image installation
+and complete gzip/file readback also pass. Profile is empty; engine has its
+config plus three qualified images. Next prepare the existing one-shot engine
+launcher with fresh pins/ports, then verify actual engine/socket/VZ/empty
+storage before normal main/routes/ordinary login/travel/save. No engine/app/
 browser/game actor has run; ro3 earned progress stays untouched. Continue [quest/logout work](reviews/2026-10-24-functional-priority.md#priority-and-stop-criteria)
 separately; do not replay failed B4 or consumed Mu scenes.
 

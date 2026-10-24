@@ -256,3 +256,44 @@ install only, then personally checks complete results before an actual-image
 checkpoint. No download, help, daemon/VM/app/browser/game, guest marker or
 existing-world action is admitted here. This is existing architecture reuse,
 not a new Claude/Grok implementation comparison.
+
+## Actual local-image install and complete byte comparison pass
+
+Actual basis2c3e4a3bcc7b975812e14f2e0c2134afcc55faed. One fixed local image
+install exits naturally0 in1.122115s, sampled known-process peak9945088B,
+complete181B stdout/0B stderr. Original G60/512MiB/grace3/noNative/1MiB
+contract passes with no action/signals and owned PID/group absent. No help,
+download or separate native child is involved. Root's complete audit passes
+all30checks/1137full pins; the independent complete caller review also finds
+no mandatory defect and confirms the exact three new directories.
+
+Every decoded gzip byte is compared with each installed file through bounded
+decoded EOF/CRC and exact target EOF/full hash/current FD+path identity:
+
+| New image | Bytes | SHA256 |
+| --- | ---: | --- |
+| nebula/kernel/Image | 49830400 | 555f55343607bb6e90d9ffc243863f383a84d3df9dd62607329d3fb13faff132 |
+| nebula/images/rootfs-pristine.img | 1073741824 | 7f427173c372f58c0ac36799670d4b8ac961432bd098b6462be54724dd7d39ff |
+| nebula/disks/rootfs.img | 1073741824 | 7f427173c372f58c0ac36799670d4b8ac961432bd098b6462be54724dd7d39ff |
+
+Pristine/live inodes are distinct. All1118 previous file hashes/C8/modes and
+212directory keys/modes remain exact. Exactly1121files/215directories exist;
+the three native directories are0755, three new single-link ordinary files
+0644, outer root0700. Profile empty; era/guest markers, run/logs, data disk and
+engine MAC absent. No engine/VM/app/browser/game starts. Existing earned
+worlds/user Chrome/mute/IME/network remain untouched.
+
+Private t07-normal-integration-image-actual-root-1/AUDIT_ROOT.json:
+547384/b2b27cd1946a0475bb72c65e61e29100148ab8e791d7f8191e19205447136749.
+Private image-source-root-1/ROOT_IMAGE_INSTALL_AUDIT.json:
+3076/645b48a3ea7282f4e6505daf27f66d528046a8d79300057146019d5fd0d7ff07;
+ROOT_IMAGE_INSTALL_GUARD.json:
+2256/b5e6d3a15bd2e1f98585cb5bade49ecb4e0c655f625d8aad9aed1108d0db2d19.
+Audit RAM is not measured separately. Sparse allocation printed by the
+installer is informational; full logical byte equality is the image proof.
+
+After this checkpoint reuse the existing one-shot engine launcher with fresh
+environment/baseline/image-audit pins and proposed ports, then verify actual
+daemon/VZ/socket/empty-storage ownership before normal main/routes. Preserve
+original/W/ro3 ownership; no blind up/down/retry/global kill. Gate2 remains
+open until the engine checks pass. No full-content gap or parent count changes.
