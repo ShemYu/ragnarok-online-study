@@ -415,3 +415,57 @@ Next qualify the existing normal-main launcher's six fresh metadata values
 bundle/archives/Chinese/empty engine/owners. The installed main automatically
 queues start_stack; no second start. Gate2 still includes normal-app ownership
 and remains open; served routes/mounts/detection are gate3 before login.
+
+## Fresh normal-main source and current full admission pass
+
+Root and the parallel source reviewer identify exactly six metadata changes
+to the selected13274-byte normal launcher: ro4 root, new ENV path/hash,
+admin33339, seven proposed game ports and managed asset httpPort33338. Whole
+inverse exact; source13286/
+15cc5698b00d9387ec7891074af1c380bb4baa620fa271a669a27269cfd82cd5.
+Five existing headers remain unbound. Source qualification5361/
+7800c0fbe8ba95d1758fe95a6238bbf8fd5c119a83b04d384007ad3deeb66ff7
+and all source stay private in main-source-root-1/.
+
+Root's fresh preflight passes every1118 baseline hash/C8, all29 current source/
+metadata and six installed-app inputs, codesign --verify --deep --strict,
+all five complete archives/order (four parallel hash readers), exact Taiwan/
+20221005/Renewal/local settings and empty profile. Root rereads all68 helper
+parity inputs and independently compares all64 exact installed ASAR member
+ranges with retained58JS/six admin static bodies; no source executes.
+
+The bundled95222524-byte image archive has the exact qualified full SHA.
+The earlier complete30-entry/348606464decoded-byte tar proof is reused through
+that immutable full-hash match; no fresh decompression is claimed. Expected
+game image IDs/tags remain fixed. Fresh owned Docker API observations prove
+both game tags404, containers/volumes empty and only the new pause infrastructure
+image present. The same current daemon/VZ/control socket/new backing inodes/
+four old listener owners and all seven bindable ports qualify.
+
+One readonly preflight refuses before any normal app or evidence-attempt
+creation because Root incorrectly reused ro3's pause image ID. Root positively
+reads ro4's sole nebula/pause:slim ID and creation time through its owned socket,
+retains the original caller/refusal and corrects exactly that one metadata
+literal in a separate caller. All other checks remain; whole inverse exact.
+No up/stop/retry or runtime mutation occurs. Refusal1046/
+b527f8753a8a087df9a286b79e031035bd7547dde844390ad11b20a921d074a6;
+corrected finite preflight10181/
+4890c3d8cf127946b0d9ba047321ab1a9680972ae8247f4cda122a52d4482428.
+
+Private main-actual-root-1/ receipts:
+
+| Receipt | Bytes | SHA256 |
+| --- | ---: | --- |
+| ROOT_PRELAUNCH_PINS.json | 22569 | e0f6240206fc76811e6bc2d54aa2c8edf62a323e9fc37b007a5de2faa66a68b5 |
+| ROOT_PACKED_PARITY.json | 39868 | 3efacdb4d37be3e9d266649cbfb04f03ad0c114d42630e339a267e01808392b6 |
+| ROOT_IMAGE_BUNDLE.json | 3050 | 689a0dcce965eb264e404b3936043390562f993fda3ade741d653ff9173d59b0 |
+| ROOT_LAUNCH_ADMISSION.json | 43918 | 86516d6711544acdaac6a09ed8df5f903d688e612d71b1a974680a29f6fdffcf |
+
+After this checkpoint Root binds only ROOT_BOUND/CHECKPOINT/OUT/PREFLIGHT/
+ENGINE with the actual admission HEAD/new exclusive attempt/current passing
+receipt/current daemon/socket tuple, records full bound source, then runs it
+once. Existing240s/6GiB sampled/1MiBstreams and retained-owner failure behavior
+remain. Normal main autoqueues start_stack; no second start. No account/login
+until Root verifies real routes/mounts/detection/served repaired bytes and map
+registration. Engine separation is not HOME confinement; old worlds stay
+untouched. Normal main has not started. Gate2 app ownership remains open.

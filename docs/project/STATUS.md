@@ -35,10 +35,11 @@ One copy and separate full audit pass all1135source files/1114destinations/
 now pass actual execution and complete preservation. Local image installation
 and complete gzip/file readback also pass. Profile is empty; engine has its
 config plus three qualified images and one positively owned running engine.
-Empty storage/backings/full1118baseline preservation now pass. Next refresh
-the existing normal-main launcher/admission using current bundle/archives/
-Chinese/engine/owners, then one supported startup and live routes/mounts/
-detection before ordinary login/travel/save. No normal app/browser/game actor
+Empty storage/backings/full1118baseline preservation pass. Normal-main
+source with six metadata edits and fresh full app/archives/ASAR/Chinese/
+engine/owner admission now pass. After this checkpoint bind five existing
+headers and launch once, then verify live routes/mounts/detection before
+ordinary login/travel/save. No normal app/browser/game actor
 has run in ro4;
 ro3 earned progress stays untouched. Continue [quest/logout work](reviews/2026-10-24-functional-priority.md#priority-and-stop-criteria)
 separately; do not replay failed B4 or consumed Mu scenes.
