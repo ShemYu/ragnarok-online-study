@@ -362,3 +362,63 @@ pin before native queries; preparation is not execution/admission. Fresh current
 owners/listener/config/archive/static/override/target-parent checks and final
 source binding still precede normal GETs. No game input, installed data change,
 native request, restart, terrain construction or story advancement ran here.
+
+## Fresh four-GRF normal-delivery preflight passes
+
+Root performs a fresh read-only preflight after53fb70c. All four expected
+kernel births/executable paths remain exact; the same asset process owns the
+127.0.0.1:33338listener. The native asset binary matches its complete2079536B
+pin. One bounded process-environment read confirms only the six selected
+fields: autoextract true, the existing asset root/translation override/DATA.INI,
+host127.0.0.1 and port33338. Full environment data is neither printed nor saved.
+The fresh selected receipt has the same828B/hash as the earlier observation;
+the new preflight/caller, not byte difference, establishes this fresh read.
+
+Current DATA.INI exactly lists the five retained archives in the qualified
+order, and all five current archive identities match. This is continuity with
+qualified historical archive hashes, not five fresh complete archive rehashes.
+All four loose/static target paths and all four override paths are absent;
+all existing parents are ordinary nonsymlink directories. The fresh output
+directory is absent. Config/native/source/authority pins are stable across the
+preflight; no HTTP, game input, restart, install, config or save action ran.
+
+Private `.tools/renewal/t07-remaining-four-normal-get-preparation-root-1/`:
+
+| File | Bytes | SHA256 |
+|---|---:|---|
+| PREFLIGHT_ROOT.json |9107|0320e4c978b8891611b4d36440432ef98e5978c50de57192e2cc4e292154a464|
+| ENV_SELECTION_ROOT.json |828|6342c7f114325a7aaf4d0cb8d301dd0ee6c296eabb07e43d68fd7da1c0d5fd74|
+| GET4_ROOT.py, bound |9555|fe96d6f7212e7a800d80a3ed02df66ccec888cb590c3b0d29437c5bbbae706c9|
+
+Root binds exactly two environment constants and verifies the complete inverse
+against the retained9556B unbound source, then syntax-compiles without running.
+The independent34query terrain preparation proceeds in parallel, retaining
+all42map-to-field relationships. The old two-query collector cannot be reused
+unchanged: counters keyed only by gnd/gat would overwrite repeated fields.
+Source review and prospective execution admission follow before any GET.
+
+## Fixed normal four-GET observation admitted
+
+Root reads the full bound getter and complete donor diff. Independent source
+review confirms the same9555B/fe96d6f7212e7a800d80a3ed02df66ccec888cb590c3b0d29437c5bbbae706c9
+source, exact four independent expected body pins,1MiB per body/2MiB total,
+identity encoding/status200/message completion and unchanged refusal/owner/
+archive/parent/existing-file checks. No mandatory source blocker is found.
+
+This checkpoint admits ONE direct isolated Python getter child with an external
+75s timeout and the existing inner60s request clock/at most3s socket operations.
+Any forced termination or nonzero exit fails; retain all partial evidence and
+do not retry automatically. Recheck fresh preflight pins/owners/config/archives/
+eight target paths before launch. Four literal normal GETs may intentionally
+populate their four missing loose bodies via existing autoextract, cache and
+logs. There is no input/config/server/VM/SQL/save change or restart.
+
+After natural0 Root separately rehashes all four retained responses against the
+independent allowlist and all four actual loose bodies, checks every complete
+response/receipt and exact private output set, and confirms all old preflight
+pins, owners, archives, parent lineages and four override absences. A success
+flag without this caller/audit is insufficient. Settling is only a bounded2s
+observation; server background tasks are not enumerated. Current archive
+identity continuity is checked, not source-archive winner or in-memory cache
+provenance. Body delivery does not prove rendering, entry, story or any82gap
+closure. Normal execution and its independent audit are the next actions.

@@ -126,6 +126,14 @@ In parallel, [all four GRF reference bodies and Root confirmation pass](reviews/
 full archive/source/body/header preservation verified. Next fresh live preflight
 and source-reviewed four-GET projection. No HTTP/extraction/runtime action yet.
 
+[Fresh four-GRF normal-delivery preflight and fixed GET admission pass](reviews/2026-10-24-remaining-map-bodies.md#fixed-normal-four-get-observation-admitted).
+Four owners/listener/native/config/five archive identities/six selected fields
+match; all four loose and four override paths absent. Root and independent
+source review qualify the exact fixed GET4 projection. Next one75s-bounded
+normal observation and complete Root body/effects/preservation audit. No GET
+has run yet. Independently prepared21map/42field/34query terrain plan awaits
+Root frozen contract/fixture before the next equal Claude/Grok metadata pair.
+
 ### Historical preparation — follow the next action above
 
 The following retains earlier decisions. Former next-action instructions
