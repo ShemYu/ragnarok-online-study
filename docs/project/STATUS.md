@@ -28,7 +28,10 @@ including nonuniform normals and cross-node texture bucket order. The exact
 model702 profile is metadata only; no acquired execution is admitted. Both
 implementations start from d052101 on existing clean checkouts. Claude
 f8eb477 is now completely preserved/released after matched settlement; its33
-author tests and full source await Root verification. Grok
+author tests pass Root's full-source/test/report review and personal rerun.
+[Root's40independent checks reproduce11hold rows](reviews/2026-10-24-direct-dependencies.md#claude-geometry-original-passes-root-meshes-but-independent-faults-hold-it)
+in nine groups, including a creation-namespace returned-PASS fault. The original
+is held before actual use. Grok
 task_0dd910580589/ctx_16fd13ee03e8 remains live. Root now reviews Claude while
 Grok continues, then qualifies both originals before any actual compile. Browser/render,
 normal game/story/full content and all82functional gaps remain open. No acquired

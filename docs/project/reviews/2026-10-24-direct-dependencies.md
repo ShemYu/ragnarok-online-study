@@ -4886,3 +4886,57 @@ RELEASE_SHOW_ROOT.json7463B/SHA7e106e3b101f4385a0966918bf964722f52f208df20a842a4
 Grok continues live. Latest330released/eight user-owned/two absent/one active;
 84child folders unchanged. Root next reads all Claude source/tests/report and
 runs independent checks; no actual acquired compile admission or goal change.
+
+## Claude geometry original passes Root meshes but independent faults hold it
+
+Root personally reads the complete65097B observer,53169B tests and17455B report,
+then reruns the unchanged author suite in its released original checkout with
+a Root-owned ignored capture prefix.33/33tests/zero skips pass in0.820280s
+external wall time (762.312ms test-reported), natural0/no stderr. Seven complete
+source/test/report/profile/inventory/fixture/Worker SHA/C8 pins remain equal
+before/after. Only authored tiny models execute; no actual body/mode.
+
+Root adds40independent checks, personally reproducing all26fixture outcomes
+and eleven hold rows in nine behavioral groups. Full10mesh bytes/keys/order/
+hashes/textures equal independent fixture expectations;16negatives refuse
+before realm creation. Those pure geometry positives do not qualify the harness:
+
+| Reproduced hold | Root observation |
+|---|---|
+| Failure namespace adoption | After original run ownership is lost, success path refuses but failure.json is written into the replacement tree |
+| Earlier evidence overwritten | Late deadline plus an occupied result.unqualified.json overwrites its sentinel |
+| PASS alias retained after failure | A directory at the unqualified destination prevents retirement; returned FAIL leaves result.json containing PASS |
+| Creation identity not joined | Replacement between initial creation stat and parent capture is adopted; authored call returns PASS in replacement directory |
+| Primary timeout lost on close | VM timeout followed by body EIO is reported as EIO/timeout:false, losing the primary failure |
+| Constructed structure gate order | Wrong constructed face count reaches compile before the host mismatch check |
+| Sparse placement | Each sparse position/rotation/scale triple reaches a definitions marker and creates a realm |
+| Float32 scale collapse | Nonzero Number.MIN_VALUE scale reaches the realm despite rounding to a zero Float32 column |
+| Smooth-group structure omitted | Wrong constructed primary group remains unobserved by the structure gate in a handwritten mock |
+
+These are observer controls on owned authored data/stubs, not demonstrated
+actual model failures. Exact profile placement is dense/nondegenerate, so its
+edge-case gaps do not establish an actual-profile bypass. The creation-gap
+returned PASS and misleading retained evidence still require repair before
+source qualification. Failure ownership must be independent of deadline;
+dequalification must preserve occupied evidence and retire only a positively
+owned alias. Preserve primary error plus close diagnostics. Match complete
+constructed structure before instance/compile, validate dense numeric lanes
+and bounded nondegenerate transforms. No output-derived tolerance change.
+
+Astra's independent source advice informs fault selection; Root reproduces
+each material finding. Unused texture buckets are correctly initialized by
+the unchanged client, including zero length, and are not a hold. Mesh hex
+preserves signed zero; JSON bounds lose its sign, so hex is authoritative.
+All seven full input authorities recheck after Root fault controls. Candidate
+f8eb477 remains unchanged/preserved/released and **held before actual use**.
+Grok still works independently; Root will compare its full settled original
+before choosing a correction basis. No goal change/user decision/actual compile.
+
+Private t07-014-023-claude-review-root-1/:
+
+| File | Bytes | SHA256 |
+|---|---:|---|
+| AUTHOR_TESTS_ROOT.json |7374|f6482aad73dddad67eb45b594cbcc61ad34b56e4eb96002b2541f819de355d5e|
+| ROOT_CONTROLS.mjs |12109|7c4d57f92814fee39d7c908b29b833b61a56f0889f0c4ffcede7b60410a49389|
+| direct-controls-1/ROOT_CONTROLS_ROOT.json |4518|1a6d386323746808173d565039f2ae3f9b59863001ac2e7e2a7d04dd5f79017a|
+| ROOT_CONTROL_AUTHORITY_ROOT.json |3461|c0120cb51b21ea7c9525d0c6c7cc9b49d5869baab2d6c365a5f3cdd2da2a63ac|
