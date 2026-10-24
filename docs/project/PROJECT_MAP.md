@@ -49,13 +49,13 @@ B3:one actual Mu21 data run PASS/36files/126checks/112pins.
 B4:six source fixes qualified; separate36file data PASS/127checks.
 MuC/MuD:submitted+released, HOLD5findings -> finite UI/driver fixes ready.
 MuC:three fixes + all six actual focused calls PASS/223pins.
-Mu19/B4caller/world-observer reuse:three actual Grok live.
+B4caller/world-observer reuse:two actual Grok live; Mu19 owner released.
 MuD:both calls PASS/65pins; final source joined/released beforeACK.
-Mu19:child/outer preliminary reviews Root-verified; final handoff next.
+Mu19:final source qualifies -> one pure projection ->33leaf audit next.
 Mu client:259selected files +five archives Root verified; two dirs added.
 Mu Remote:source and current config joins verified; owner released.
 Mu Web:four bodies staged/full verified;105body stage unchanged; no actor.
-Fleet20:265records/3pages;3liveGrok/256released/6retained/0reclaimable.
+Fleet21:265records/3pages;2liveGrok/257released/6retained/0reclaimable.
 MuC/B3 prior owners released/archive beforeACK; no cleanup debt.
 Four actual user-retained resources stay;2transferred records have none.
 Trial9 stays failed; known faults stay failed. No new actor admitted.

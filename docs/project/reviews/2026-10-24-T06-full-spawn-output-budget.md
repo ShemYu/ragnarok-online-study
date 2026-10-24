@@ -368,3 +368,22 @@ full publication or actor is admitted by this source qualification alone.
 Root is selecting bounded existing finite batches before one sealed full
 publication. No NPC corpus or current game/generated role body read here.
 All82functional gaps remain open.
+
+## Existing combined-nine finite entry prepared with source publication correction
+
+Root prepares one existing group01.run_combined_nine call on nine literal
+subjects only (158B); no production/839 corpus/actor authority. First source
+publication mistakenly passed a string to the JSON-writing helper, leaving
+5110B/6b6cc1f9... as a JSON string expression. Astra's pre-run raw source
+review catches it before execution. Original source/finding are preserved;
+this is Root preparation error, not a candidate exporter defect or failed G.
+
+Fresh preparation2 publishes exactly decoded intended UTF-8 bytes with no
+logic change: driver5023B/
+52658b4ce7d1faa359f276f71e3ce360090a545d6af6e23c4488b3c1008b59f2;
+preparation9527B/e2e20adf88817f23849c1f0753e16c8e8ae224716057d6b0893babf96bdb27fb.
+Independent corrected source report4001B/19bbaf7d3f0af0e32d8a4fcdd18fb1598ed27d3676061ed5c1d46102c7d7d2c3
+finds no mandatory selected-source blocker; Root full report/pins review,
+exact two-header admission and independent complete four-file audit remain.
+No test execution/admission yet. Root prioritizes the independent Mu19 data
+projection before expanding these existing finite batches. No new framework.

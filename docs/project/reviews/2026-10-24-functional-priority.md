@@ -1397,3 +1397,18 @@ Finite tests and one full publication still require separately sealed Root
 bindings/admission. Mu19 final handoff/one actual33leaf projection, B4 one
 actual71leaf materialization and later owned scene/quest remain next.
 No actor or parent-check credit;4/14/about29% and all82open stay unchanged.
+
+## Mu19 final source qualifies one pure call and worker is released
+
+[Root verifies the final Mu19 source/eight-file handoff, all current36source
+leaves and112actual audit pins; one exactly bound pure projection is admitted
+after checkpoint](2026-10-24-T07-mu-data-stage.md#final-mu19-source-qualifies-and-one-pure-projection-is-admitted-next).
+Final source exactly rejoins the two already reviewed snapshots. Worker is
+released/archive captured; Root corrects and records the ACK ordering error.
+Fleet21 has2liveGrok/257released/6retained/0reclaimable, all265records covered.
+B4 fixed caller and world-scanner reuse assessment keep distinct ownership.
+
+[Exporter finite entry source publication error is caught before execution
+and corrected in a fresh source copy](2026-10-24-T06-full-spawn-output-budget.md#existing-combined-nine-finite-entry-prepared-with-source-publication-correction).
+No old HOLD/test failure is converted into a PASS; all actors remain unadmitted.
+Full goal/functionality-first/Chinese and4/14/about29%/all82open unchanged.

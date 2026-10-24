@@ -13,21 +13,19 @@ dictionary abort/load405/map-connection settlement stop later cases. Root's
 complete failure/preservation audit passes; no B200assignment/reconnection or
 parent-check credit. 4/14 is a check count, not measured full-content coverage.
 
-**Parallel work:** [Six-fix exporter source submitted and released; Mu19
-preliminary source reviews pass Root verification](reviews/2026-10-24-functional-priority.md#parallel-source-reviews-and-current-archive-observer-reuse-preparation).
-Both dedicated B3 fixtures remain verified and separate: Mu36leaves/
-126checks/112pins; B4 36leaves/127checks/113pins. No actor or parent credit.
-Actual Grok Mu19 caller(taskd6f11569da2b/ctx3f0cd4c6b0ec) and B4 caller
-(taskfe6df2b4cd87/ctxdc84619e0299) remain live. Exporter producer/consumer
-source reviews run independently; selected receipt-optional alternate
-acceptance is excluded. [Root qualifies exporter source only for its receipt-bound selected entry](reviews/2026-10-24-T06-full-spawn-output-budget.md#six-fix-source-qualifies-for-the-single-receipt-bound-entry); finite-call bindings/admission are next.
-A seven-copy bounded Grok existing-world-observer reuse task is now live.
-Old observer's three-archive/alias assumptions require explicit integration
-before current five-archive resource observation. All82 gaps remain open.
-Mu final runtime25field groups/16anchors remain Root-verified; actual
-Mu19data/current world/HEAD/lease/four ports still follow the final handoff.
-[Fleet20:265records/3pages,3activeGrok/256released/6retained/0reclaimable](reviews/2026-10-24-functional-priority.md#three-actual-grok-tasks-active-and-exporter-source-qualified).
-No financial blocker or goal change;4/14parent checks/about29% unchanged.
+**Parallel work:** [Final Mu19 source qualifies; one bound pure projection
+is admitted next](reviews/2026-10-24-T07-mu-data-stage.md#final-mu19-source-qualifies-and-one-pure-projection-is-admitted-next).
+Child11668/outer30594 exactly rejoin reviewed snapshots; Root177fullpins
+include all current112Mu21audit pins/36closedsource leaves. Worker released.
+Next: exact Root3child/6caller header binding, one original G10/512MiB pure
+projection, whole33leaf audit, then final C/current world/HEAD/lease/4ports.
+B4 caller(taskfe6df2b4cd87/ctxdc84619e0299) and current-world-observer reuse
+assessment(task8d3af9d13741/ctx7e3f01695eb7) remain actual Grok live.
+Exporter source qualifies only its receipt-bound selected entry; existing
+nine-case finite entry source correction is preserved, no test run yet.
+Fleet21:265records/3pages,2activeGrok/257released/6retained/0reclaimable.
+No actor/parent credit, financial blocker or goal change. All82gaps open;
+4/14parent checks/about29% unchanged. Both B3 fixtures stay separate/verified.
 
 [All six actual MuC focused calls pass complete Root223pin verification](reviews/2026-10-24-T07-mu-data-stage.md#actual-six-muc-focused-calls-pass-complete-root-audit).
 Three source fixes qualify; no fresh map actor/render result yet. MU1 exact105body private

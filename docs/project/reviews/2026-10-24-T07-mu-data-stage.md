@@ -813,3 +813,45 @@ data projection, native scene or parent-check credit. After the settled
 final submission: Root qualifies, binds exact headers, commits admission,
 then makes one original G/S pure call and verifies all33 outputs before
 building final C/current world/HEAD/lease/four protected-port bindings.
+
+## Final Mu19 source qualifies and one pure projection is admitted next
+
+Actual Grok taskd6f11569da2b/ctx3f0cd4c6b0ec settles with35equal full input
+pins/eightclosed private outputs. Both final sources exactly equal the
+Root/independent reviewed snapshots: child11668B/1e074e80... and
+outer30594B/d62d824a.... Root reads full6209B report/4595B recipe, all
+current author/source pins and both preliminary reviews. Source modes
+now0600/directory0700. Two Python bodies compile only; no import/call yet.
+
+Root final qualification89663B/
+eefcfaf36bd35f707ccd53cd510655428b1bba8055766668a2594256f3664675
+rejoins all112source pins of the actual126check Mu21audit plus all36closed
+current source leaves. Root177fullpins total; source/evidence destinations
+are absent. The final helper19slots, native Engine10/19roles, input order,
+canonical full33audit and original G/S remain source-qualified.
+
+Admit next exactly one pure projection after this checkpoint and exact
+Root header binding: child only ROOT_ADMITTED/AUDIT_PIN/AUDIT_EXPECTED;
+caller only those plus current REQUIRED_HEAD/PYTHON_PIN/CHILD_PIN.
+Root must prove complete forward/inverse replacement of every approved
+spaced assignment, identical complete live audit literals, unchanged
+projector/helper/G/S, clean HEAD and current36pins. Separate source copies
+outside data/evidence, private0600/0700, raw Python bytes and compile only.
+One original G10s/512MiB/grace3/no-native/1MiBcapture, no replay, preserve
+partials/nonzero, then independent complete33leaf/whole stdout/receipt/
+retirement/sourcepostpin audit before any runtime C or actor.
+
+Root settlement23379B/
+c4ff41367a76093b2182372495160de772b8d0e12193c6ee0faca847ea29fb57;
+release455B/0d2181d6a577c29e76ea5e914684cd226f038040ae8b94841aa923fd2d80024e
+captures transcript and closes the settled worker. A coordinator ordering
+error is explicit: first metadata inspection mistook exactClosedFiles'
+eight-name list for an integer count; a following ACK request was issued
+before that inspection succeeded. Root corrected the inspection, fully
+verified settlement and released immediately afterward. This handoff does
+not claim release-before-ACK. No source defect or target call resulted.
+
+Fleet21:265records/3pages,2activeGrok/257released/6retained/0reclaimable,
+10274B/ed3cb0de1d50a201db28420c861c981452e6a50a86fc80ba1b9dcac621c5c3b0.
+B4 caller and current-world-observer assessment remain independent/live.
+Actual Mu19 projection/full33audit is next; no map/game/parent credit yet.
