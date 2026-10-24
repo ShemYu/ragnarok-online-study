@@ -20,8 +20,10 @@ raw Claude15/20/Grok11/20, Root repairs credited separately.
 .021is ready_for_user only for pure retained TGA output, not user acceptance.
 [.020all32tiny authored outcomes](reviews/2026-10-24-direct-dependencies.md#root-corrected-authored-decoder-harness-and-complete-capture-audit-pass),
 .017all948deliveries and corrected .019conditional Worker source facts remain
-qualified in their bounded scopes. Next Root prepares the distinct exact-placement
-model geometry task and independent checks, then browser/render qualification.
+qualified in their bounded scopes. [Next .022exact-placement geometry source plan is frozen](tasks/T07.007.014.022.md):
+Root verifies model702/map17/group37/placement50/ground200x200. Independent
+Claude/Grok source plans and Root binary preflight precede compile, then
+browser/render qualification.
 No new execution is admitted by this result; all82functional gaps remain open.
 
 **Child cleanup:** [Root verifies removal of20completed children](reviews/2026-10-24-orca-children-cleanup.md#second-twelve-removals-personally-verified).

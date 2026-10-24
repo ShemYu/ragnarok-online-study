@@ -4234,3 +4234,29 @@ Next Root freezes the distinct one-model/one-map-placement CPU compile purpose
 and its independent geometry checks. No constructor replay, parser patch, model
 compile or browser image action is admitted by this TGA result. All82functional
 gaps remain open; parent4/14/about29% and full Modern/Renewal goal unchanged.
+
+
+## Exact model placement is joined and geometry source plan is frozen
+
+Root personally verifies the native helper's metadata join from the full pinned
+runtime profile and map17core result. Relation1327/original1703/query911 joins
+model702 to group37, whose only occurrence is placement50. Exact request bytes,
+all parsed placement fields and compiled ground200x200 match. Negative zero is
+explicitly tagged in rotation; position and scale already include parser/5.
+The five complete source/metadata inputs remain unchanged before/after reading.
+No actual model body or acquired source executes in this preparation.
+
+Private t07-014-022-preparation-root-1/PLACEMENT_ROOT.json is6581B/SHA
+173a29b1fbce986a0fbc86061b4c07bee1250d261eff398b634c611a4077add0.
+It preserves full source pins and exact retained body authority as metadata;
+execution_admitted stays false. For this identity-local model the ideal box
+translation terms nearly cancel; Float32 intermediate rounding and actual
+emitted bounds remain unverified. No parser repair is inferred from sentinels.
+
+[.022equal source-only brief](../tasks/T07.007.014.022.md) freezes four inputs
+and two owned report/span-inventory paths. Both providers must identify the
+whole dependency closure, finite compile adapter/resource caps and independent
+geometry oracle/control plan. No body read or acquired-source evaluation, no
+new child/setup. Root can prepare the independent binary preflight alongside
+these plans; actual compile still waits separate implementation/qualification
+and purpose admission. Full content scope, all82gaps and parent4/14 are unchanged.
