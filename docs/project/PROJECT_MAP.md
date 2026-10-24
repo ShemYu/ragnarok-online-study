@@ -29,15 +29,20 @@ Map repair:
        -> normal main ownership [PASS: authenticated]
        -> normal routes/mounts   [PASS: before login]
        -> ordinary account      [PASS: group0/state0 + fresh restart checks]
-       -> character + game entry [PASS: 4 of 5 gates = 80%; CURRENT]
+       -> character + game entry [PASS]
        -> baseline backup        [PASS: export/inspection + fresh restart]
        -> normal travel + quest [PASS: portal/NPC/earned tutorial marker]
        -> earned save + re-entry [PASS: character-select + Exit/login]
        -> post-earn backup       [PASS: saved position + quest21001]
        -> current pre-stop ref   [PASS: re-entry / owners / full files]
-       -> owned cold restart    [OBSERVED: fresh services + earned re-entry]
-       -> session continuity    [OPEN: later Login; no service restart]
-       -> provider trial        [NEXT: same-input Claude / Grok / Kimi]
+       -> owned cold restart    [PASS: fresh services + earned re-entry]
+       -> session continuity    [PASS: bounded 72s; limits recorded]
+       -> normal integration    [5 / 5 PASS; user progress preserved]
+       -> ordinary world/story  [NEXT: open functional coverage]
+
+Shadow pilot (1-3 real tasks, alongside main work):
+  Same-input source triage     [TRIAL 1 VERIFIED: Claude / Grok / Kimi]
+  Kimi follow-up usefulness    [up to 2 suitable tasks; no delay to game]
 
 Other active work:
   Ordinary quest/logout        [OPEN: A199 seen; later cases fail]

@@ -8,9 +8,12 @@ Read root [AGENTS.md](../../AGENTS.md), [Status](STATUS.md), [Goal](GOAL.md), th
 
 Every task uses an independent Claude candidate and Grok candidate. This compares performance on that task type; no blanket model winner is assumed.
 
-From2026-10-24, the user also requests trials of the new **Kimi** coding
-harness through Orca when comparing services. Add Kimi to new comparisons
-with the same frozen inputs, acceptance criteria and scorecard. Observe the
+From2026-10-24, the user requests a **1–3 task shadow pilot** of the new
+Kimi coding harness through Orca. Run it alongside useful independent work;
+do not make game progress wait for Kimi or create benchmark-only busywork.
+T07.007.012.010 is trial1; at most two further suitable tasks remain before
+the pilot verdict. Keep the same frozen inputs, acceptance criteria and scorecard
+as Claude/Grok, and verify its output before adopting it. Observe the
 actual harness/model from launch evidence; inherit its configured default
 unless a supported override is explicitly selected. A launch/authentication
 failure is a harness-availability result, not a failed reasoning score. Keep

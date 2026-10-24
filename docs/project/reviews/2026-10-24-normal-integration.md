@@ -1055,3 +1055,77 @@ trial on identical frozen inputs. No source-plan score is a runtime fix.
 Gate5/task remain open4/5/80%; parent4/14/about29%, all82gaps stay open. Saved
 markers/cold re-entry observations do not establish sustained session behavior,
 all-content/story coverage, restore recovery or native Quit acknowledgement.
+
+## Settled re-entry and bounded normal integration pass
+
+At af04dcc3ac68745e59785d9d32f5a93990e33aa4, Root uses normal private
+login/character selection/Enter on the same owned page/profile. Server logs
+confirm account2000001/character150000 login at06:35:49.320922646Z. The first
+map wait times out after25s; a later read-only eval also times out after12s.
+Tab identity remains available, while all five complete container metadata,
+current app/asset/daemon/VZ and four old-world owners stay exact. A fresh
+native challenge/HMAC verifies the asset service. CUA native-pipe startup
+remains unavailable. No account-list, shutdown, backup or cold launch is repeated.
+
+After exact owned-tab focus, a fresh snapshot/PNG succeeds: same Novice,
+iz_int51,30 and Chinese quest tracker. Root personally views the PNG; AX now
+also says51 30. Recovery follows focus, but the cause of the timeouts or the
+earlier Login return is not established. A separate Astra source consultation
+recommends one bounded foreground observation, without a new lifecycle cycle.
+
+Two successful supported read-only markers, separated by a same-process
+monotonic72.008996459second hold, match the saved character, position and
+quest. Both have visible/focused page, ordinary canMove input and disabled
+BGM/Sound. The holding driver sends no game inputs. This proves the bounded
+observations, not uninterrupted rendering, all-day stability or offline play.
+The initial marker caller has a JavaScript newline-escaping syntax error;
+its failed source/receipt remains. The fresh raw-string caller passes.
+
+A later snapshot/PNG changes position while Root is only reading. Root asks
+about ownership and pauses inputs. The user confirms touching the game from
+curiosity, then tells Root to keep going. This explains that later movement;
+it is not evidence for the earlier06:20Login cause. The moving AX snapshot
+has16,37 while its subsequent PNG has17,36: separate captures are not atomic.
+Two strict final-read joins fail by assuming the earlier stationary51,30 or
+the PNG17,36 must equal that moving AX capture. Both sources stay failed.
+No lifecycle/game action is repeated and no player progress is rolled back.
+
+After the user's handback, Root separately views the current outdoor ship
+scene and checks AX/live readback: the same character at int_land90,111,
+same Chinese quest tracker, normal input and quiet audio. A fresh final marker
+matches. The successful auditor distinguishes this current user progress from
+the earlier persisted51,30 marker and its completed passive interval. It joins
+the exact historical cold/backup/readiness proofs, fresh HMAC/current owners,
+all five unchanged service metadata and final map log with no later logoff or
+session-timeout line. Root's final audit passes46full artifact pins. It does
+not rerun the full content inventory or claim a new SQL/restore test.
+
+Selected private cold-source-root-1/ and cold-actual-root-1/ evidence:
+
+| Artifact | Bytes | SHA256 |
+| --- | ---: | --- |
+| Source CONTINUITY_SERVICES_ROOT.py | 3017 | c0aa46b6a044c9808fc577043fcdb0a59b69397a59c5cb983ef2001c42d04edf |
+| Actual UI_CONTINUITY_1/ROOT_SERVICE_OBSERVATION.json | 18636 | 778ef67e1da9cd180cb50c968520b46f8b4ca3e6435711f96c60833122ed58d6 |
+| Source CONTINUITY_MARKER_ROOT.py,syntax failure | 2307 | 68de6a0dc064344c194ec82012f83dc5af165e7e2117700b2e23068b9c864ddd |
+| Source CONTINUITY_MARKER_RAW_ROOT.py | 2308 | d870b97d2061e0c2d311c30bcac5282500280fcc5a9c5c95a9ba681f2a875d64 |
+| Actual UI_CONTINUITY_1/SETTLED_BEFORE_2.json | 991 | 95cb09daf8c6c85ae41f114ecd505ef3306ed4db5814ada1acc539838ab36a04 |
+| Actual UI_CONTINUITY_1/SETTLED_AFTER_2.json | 991 | 99992461b564706bd6e45ddefe853f9dd8b00ed32c3d1538fcf1569cea877c10 |
+| Actual UI_CONTINUITY_1/BOUNDED_CONTINUITY.json | 2659 | 7194d0cc556389cc3f7279e4ea4f03db880538972aceaa0bdfeec8c33bb9141d |
+| Actual CONTINUITY_FOCUSED_1.png,Root viewed | 1693503 | 604538e43a99054a96bff140fd15aa843dd6cde11a1311da03527174c9ac4412 |
+| Actual CONTINUITY_FOCUSED_2.png,user moved | 1464647 | 828ad1c7cc1c8fa591b50665c1a830e1e5d16510d06ec2c1bf0484ed88c5a126 |
+| Source GATE5_SETTLED_ROOT.py,failed join | 6663 | f76e15f81d67dc34a5c7aff3baca4eb4da49328e69357dd132492ffd657bc641 |
+| Source GATE5_USER_HANDOFF_ROOT.py,failed join | 9097 | ccce42d5b25710fa4ae2f60b3214467be8bee17c32c2c6fe965544b005d7b2ce |
+| Actual CURRENT_HANDOFF_1.png,Root viewed | 5270069 | 4301c1893f2304b7ccd2cb6cc2321489f95358f6526375a9197fd34dcd072e28 |
+| Source GATE5_CONFIRMED_USER_ROOT.py | 9196 | f35ba2cccf661acac0e25d3b03506881e94143f778e7b99e97fd3efb666116fb |
+| Actual ROOT_GATE5_CONFIRMED_USER_AUDIT.json | 28493 | d53847f6c52e1626134f669919bd694696f6ef8e3474e65000a7308b2cb06b06 |
+
+**T07.007.012.009 qualifies5/5checks,100% of this bounded integration task,**
+ready_for_user after its Git checkpoint. Original bind/read failures stay
+failed; native Quit acknowledgement, broader F1 socket closure, restore-tested
+recovery and unbounded browser stability remain unclaimed. Full Modern/Renewal
+coverage remains open: parent4/14/about29%, all82functional resource gaps.
+The separate [provider shadow trial](2026-10-24-T07.007.012.010.md) is source-only;
+none of its workers performs or earns this runtime PASS. Next Root continues
+ordinary story/world functionality from current user progress, preserves the
+earned backups and resumes the open quest/logout/map tasks without replaying
+completed cold or synthetic scenes. No goal-changing blocker is found here.

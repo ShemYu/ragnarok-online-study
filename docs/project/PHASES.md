@@ -4,8 +4,9 @@ Read [Goal](GOAL.md), [Tasks](TASKS.md), [Workflow](WORKFLOW.md) and [Status](ST
 
 Every task gets paired Claude/Grok candidate work and coordinator verification. The coordinator updates the evidence and task state before offering a phase to the user. The user accepts the experience; a technical pass cannot stand in for that acceptance.
 
-New provider comparisons also include the user-requested Kimi trial under the
-same [workflow and scorecard](WORKFLOW.md#paired-claudegrok-task-protocol).
+The user-requested Kimi shadow pilot covers1–3 suitable tasks under the same
+[workflow and scorecard](WORKFLOW.md#paired-claudegrok-task-protocol), alongside
+main work. Trial1 is recorded in T07.007.012.010; it is not a new phase gate.
 Historical pairs and current phase acceptance are unchanged.
 
 Current order: **functionality first**, per the [user decision](reviews/2026-10-19-functionality-first.md). Remaining T05 language/input checks do not block functional T06/T07/T10 work. Existing Chinese support stays enabled; deferred language checks and full Chinese coverage are still required before final milestone acceptance.

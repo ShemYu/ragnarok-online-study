@@ -8,24 +8,24 @@ Functionality remains first. **4/14 parent checks, about 29%**; this counts
 major checks, not full-content coverage. All 82 functional resource gaps remain
 open. Full Modern/Renewal scope is unchanged; no new user decision is required.
 
-**Latest verified result:** [Cold services and earned re-entry observed; session continuity open](reviews/2026-10-24-normal-integration.md#cold-services-and-earned-re-entry-observed-session-continuity-open).
-One fresh supported export/inspection captures98860B of Renewal state. Root's
-finite offline check confirms character150000/Ro4Novice1024 at iz_int51,30 and
-quest21001/state1; the pre-earn reference instead has18,26 and no21001. No SQL
-is executed. Same five containers/images/mounts/ports remain, only the three
-game-service starts change as expected, DB/web/volume stay intact. Fresh1265
-map completion/exact five known diagnostics,16served bodies and1117baseline
-files pass again. Before this backup, ordinary travel/NPC quest earning and
-both character-select and Exit/login re-entry pass through normal UI. The
-separate backup preserves that earned state before cold shutdown; it is not
-restore-tested recovery. **Normal integration4/5checks,80% by gate count**.
-One cold shutdown/new main, fresh owners/backings/volume/routes/readiness and
-normal earned re-entry are observed. A final read audit encounters a transient
-HUD-coordinate snapshot mismatch; the page later returns to Login while all
-five service IDs/starts/states remain unchanged. Root does not blame a service
-restart or account-list causality. Session continuity and corrected final
-evidence join remain open, so gate5/task stay4/5/80%. Native Quit acknowledgement
-and broader F1 socket cleanup remain unclaimed.
+**Latest verified result:** [Settled re-entry and bounded normal integration pass](reviews/2026-10-24-normal-integration.md#settled-re-entry-and-bounded-normal-integration-pass).
+**T07.007.012.009 is5/5checks,100% of that bounded integration task** and
+ready_for_user after its checkpoint. Ordinary creation/travel/NPC earning,
+character-select/Exit re-entry, supported earned backup, one owned cold cycle,
+fresh service/backing/route/readiness checks and earned marker return qualify.
+Two focused read-only markers match iz_int51,30/quest21001's visible tracker
+across72.008996459seconds. Root views the rendered scene. All five current
+service metadata/current and four old owners remain exact; fresh native HMAC
+and the final46pin audit pass. No account-list or cold cycle is repeated.
+
+The user confirms later movement/camera input and hands control back. Root
+preserves that progress, separately views/checks the same character at
+int_land90,111 with the same Chinese tracker/input/quiet audio, and verifies
+its final readback. Moving AX16,37 and later PNG17,36 are not an atomic sample.
+Original strict joins stay failed. Earlier browser timeouts and the06:20Login
+cause remain unexplained; bounded continuity is not universal stability.
+Supported post-earn98860B backup is retained, not restore-tested. Native Quit
+acknowledgement, broader F1 socket cleanup and full-game coverage stay open.
 
 **Previous renderer result:** [Fresh Mu3 isolated map-render scene passes](reviews/2026-10-24-T07-mu-data-stage.md#fresh-mu3-synthetic-scene-and-complete-root-audit-pass).
 All 1,285 placements load, all 29 retained Float32 arrays are finite, and all
@@ -40,28 +40,20 @@ records it before further execution. This does not close the broader
 T07.007.011 map task or prove normal-game travel, animation timing, Chinese
 UI, story or earned-save behavior. Prior failed trials remain failed.
 
-**Next action:** [Normal integration T07.007.012.009: full copy audit passes](reviews/2026-10-24-normal-integration.md#actual-complete-ro4-copy-and-independent-full-audit-pass).
-The fresh ro4 copy/config/images/engine/storage and normal-app ownership
-checks pass. The repaired normal bundle and unchanged worker are actually
-served by the new owned app/native service with exact complete hashes.
-Gate3 live images/DB/mounts/routes/served files/positive map logs now pass.
-Supported ordinary account creation and its expected service restart now pass.
-Normal login, human Novice creation and game entry now pass. The
-[supported baseline backup and fresh restart pass](reviews/2026-10-24-normal-integration.md#supported-pre-earn-baseline-backup-and-restart-pass).
-Normal same-character re-login, walking/tutorial portal/NPC/quest earning now
-pass. Both ordinary earned character-select and logout/login re-entry now pass.
-Supported post-earn export/inspection, selected saved-marker comparison and
-fresh service readiness pass. The actual single cold cycle and ordinary earned
-re-entry are observed; do not repeat shutdown/start. Root next normally
-re-enters and observes a settled marker plus bounded session continuity,
-preserving the first unexpected dialog/transition before input. The current
-owned test page is at Login; backend ownership/readiness remain verified.
-Independent [Claude/Grok/Kimi source plans](tasks/T07.007.012.010.md) compare
-safe diagnosis while Root alone owns live checks. Kimi is newly requested by
-the user; availability/quality have no measured verdict yet. Gate5 stays open.
-Keep retained app/engine/private streams monitored. ro3 earned progress
-stays untouched. Continue [quest/logout work](reviews/2026-10-24-functional-priority.md#priority-and-stop-criteria)
-separately; do not replay failed B4 or consumed Mu scenes.
+**Next action:** continue [ordinary quest/logout and full-world functionality](reviews/2026-10-24-functional-priority.md#priority-and-stop-criteria)
+from current user progress; preserve the completed normal integration and its
+backups. Do not repeat the cold cycle, failed B4 or consumed synthetic scenes.
+Ordinary Mu access/animation timing and authentic Chapter1 story remain open;
+all82functional gaps stay open. Keep retained app/engine/private streams
+monitored, with original/W/ro3 worlds, internet, mute and IME preserved.
+
+The independent [Claude/Grok/Kimi source comparison](reviews/2026-10-24-T07.007.012.010.md#root-verification-and-bounded-comparison)
+is verified. Kimi is usable for source triage; trial1 supports continued shadow
+work, not a general provider or coding verdict. The user's pilot is1–3suitable
+real tasks total, alongside game progress. At most two further useful trials
+remain; create no busywork or main-path dependency. All current workers settle;
+Kimi releases, while Orca retains Claude/Grok as user_takeover. Zero reclaimable
+terminals remain. Parent count remains4/14/about29%.
 
 **Full839 inventory entry now passes:** [Fresh root3 entry and full Root audit](reviews/2026-10-24-T06-full-spawn-output-budget.md#fresh-root3-entry-and-complete-publication-audit-pass).
 The explicit stdlib dependency setup is separately verified; the unchanged
