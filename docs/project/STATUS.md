@@ -33,9 +33,12 @@ are already qualified. Both providers are preserved/released, no pending worker.
 Next is the1222direct dependency closure; do not replay successful actual calls.
 [T07.007.014.010 preparation passes Root's personal synthetic checks](reviews/2026-10-24-direct-dependencies.md):
 9groups/82assertions, complete fixture publication and fail-before-load actual
-refusal. [Both actual source reviews are live from the same frozen base](reviews/2026-10-24-direct-dependencies.md#independent-actual-source-review-pair-launched).
-The real63catalog lookup remains held pending findings and Root verification,
-then separately bound actual execution.
+refusal. [Both actual reviews are personally checked/preserved/released](reviews/2026-10-24-direct-dependencies.md#both-reviews-preserved-personally-checked-and-workers-released):
+source-review tie19/20each; Root14701internal profile checks and three expected
+failure-path reproductions pass. No selected-source correction is required;
+partial outputs never establish success. Next reuse the qualified independent
+oracle, review/freeze source/call limits, then actual oracle and candidate lookup.
+Real63catalog streams remain0; actual execution is not yet admitted.
 
 [Normal delivery of all34terrain bodies is already complete](reviews/2026-10-24-remaining-map-bodies.md#normal34delivery-and-complete-root-audit-pass),
 T07.007.014.008 `ready_for_user`:34exact200responses/97037820B, all34new loose
@@ -47,8 +50,12 @@ GETs or the successful pilot/batch. Keep the extracted files/reference bodies.
 with the same90,111/Chinese boat-captain tracker, personally viewed textured
 scene and quiet BGM/Sound preferences. Keep this game tab running. Native
 computer control remains unavailable; use the supported Orca browser page
-recorded privately. Next inspect current quest/inventory before ordinary travel,
-preserving the tutorial and earned progress. No movement/new progression ran.
+recorded privately. [Ordinary captain progression now qualifies](reviews/2026-10-24-normal-map-prerequisites.md#ordinary-captain-quest-advances-through-orca):
+the same character walks to int_land70,103, completes visible21001 dialogue and
+starts21008, reaching level2/job2/5.8% with the Chinese two-lumber tracker. Root
+views TALK/name feedback and checks the actual quest messages. Next equipment,
+ordinary combat/loot and crew turn-in before travel; no early departure. Some
+English dialogue/Unknown Item tooltip remain; new progress has not been relogged.
 The compiled run still proves no ordinary travel/story/save or82gap closure.
 
 [Primary source defines the first story transition](reviews/2026-10-24-remaining-map-bodies.md#primary-donor-source-defines-the-first-chapter1-progression-edge)

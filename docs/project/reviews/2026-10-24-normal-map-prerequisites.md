@@ -28,6 +28,54 @@ Parent progress stays4/14/about29%, not full-content coverage. All82 gaps
 remain open. Full Renewal scope and existing Chinese overlays stay unchanged.
 No user decision or goal change is required. The failed F1 quest path stays held.
 
+## Ordinary captain quest advances through Orca
+
+The user-requested Orca browser restores direct UI control. Root inspects the
+existing character's quest window:21001's Chinese boat/captain tracker is
+active;21008 is not yet shown. The ordinary Other inventory tab is empty. A
+consumable tooltip says Unknown Item; its identity is unresolved, and it is not
+consumed. Existing equipment names were observed earlier, not yet equipped.
+
+Root walks from int_land90,111 onto the island, ending at70,103. The first DOM
+ground gesture produces no movement. Later normal pointer/key-release/ground
+gestures work, with visible coordinate changes and observed REQUEST_MOVE2
+messages. Do not attribute this to one changed factor. Early attempted captain
+clicks become ground movement and are not NPC PASS. After pointermove plus
+mousemove and rendered hover feedback, Root personally views the TALK cursor
+and Captain Carocc name before clicking the visible sprite.
+
+Ordinary dialogue appears. Root reads each page, chooses the first normal
+reply about helping others, and advances only visible Next controls. A bounded
+five-page helper stops on any menu or absent Next; it does not choose replies.
+The character earns level2/job2,5.8%EXP, and the Chinese tracker becomes
+first battle/deliver two lumber to the crew. Received messages separately show
+DEL_QUEST21001 and ADD_QUEST2 quest21008 active1. This proves the observed live
+transition, not saved-progress persistence. Some dialogue remains English;
+functionality retains priority over translation.
+
+The served Online.js is freshly hash-bound through one ordinary fixed local
+GET:13174566B/f81e23ae64642920b27da257f0d2e125d5e9ca58be6c76d114a0d50a63922301,
+matching the retained normal integration copy. Root reads the relevant actual
+mouse/picking/cursor source. Standard DOM input through supported Orca eval and
+visible UI clicks are used; no game callback/packet/GM/SQL/warp/grant is invoked.
+Pointermove positions the visible cursor, while mousemove supplies picking.
+Use settled camera plus hover feedback before subsequent entity clicks.
+
+Private t07-orca-ordinary-field-root-1/ROOT_CAPTAIN_CONFIRMATION.json is39856B/
+SHA6ac4153cee36da8ee43812981c9329cbeb7df6878d56c695ae49b10813c1ad6a,
+with52full capture/image pins. Console captures stay private0600 because the
+client includes login fields; public evidence contains no credentials. Its raw
+quest observation list also contains REQUEST_TIME names due a broad text
+filter; the two exact quest classes/IDs above are the relevant observations.
+
+Next finish equipment and normal Poring combat/loot, earn two lumber, use the
+ordinary crew turn-in, then island exit/Izlude/field/return and saved-progress
+verification. Do not choose early departure. Instruction-panel close initially
+refuses its selector, then a fresh visible Close succeeds in private root2;
+the new quest/level remain. No encounter/loot, field travel, relog/save, full
+story or82gap closure is claimed. This checkpoint versions the observed earned
+transition before further play; existing failed F1 save evidence stays held.
+
 ## Root verification
 
 Read-only native Engine GETs match the map container's identity/image/mounts

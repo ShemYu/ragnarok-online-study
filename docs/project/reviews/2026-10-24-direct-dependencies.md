@@ -68,3 +68,74 @@ receipts and fresh worker observations. Separate ShemYu/t07-014-010-claude/grok
 branches own the one same-path report. Configured defaults are used; effective
 model/effort, billing and tokens remain unobserved. Both reviews and Root's
 claim checks are pending. Real catalog execution remains held.
+
+## Both reviews preserved, personally checked and workers released
+
+Claude submits8b9d85708d1bbd3202964834610158404b7d9ee8:14346B report/
+SHAd3327a4e0c5696505f33e9d9229bdb37481a50551f4409df8e34525cda4e6b6e.
+Grok submits4ca06828aabeddfa365808cdf2459d63706833b1:16003B report/
+SHA8ec7da657050cef8318dc74144e4cf2af398491441371e23eb87b58f07e4da03.
+Both are one owned-report commit from the frozen base, clean, with no private
+notes/untracked files. Root personally reads both reports in full and preserves
+exact mirrors before releasing both settled terminals with transcripts captured,
+then acknowledging their matching deliveries. No pending reviewer remains.
+
+Root verifies their source claims and independently calculates14701profile
+checks with zero violations. The1222queries/2142relations and all63typed catalog
+descriptors comply with the exact declared bounds. There are three casefold
+pairs; basename fanout is35groups/79queries/44excess/max4. Claude's44 and Grok's35
+describe different quantities, not contradictory results. The89unique future
+inputs total312944919B. The512MiB limit is unique input bytes, not an RSS cap;
+one private consult's memory wording is corrected here. Core-to-query selection
+is not re-executed by this internal profile check. An initial Root expectation
+incorrectly adds /request to direct water pointers; it refuses before output,
+then the corrected complete expectation passes. Fixed inputs stay unchanged.
+
+Root personally reproduces three authored fixture-only failure paths: initial
+directory observation failure exits1 with no failure marker; post-mkdir failure
+can exit2 while an empty directory remains; failed failure-marker publication
+can leave result.json alone with exit1. All have empty success stdout and no
+false success; actual catalog streams opened0. The known-directory identity
+must not be skipped to force marker publication. Claude's W189 description is
+corrected: the existing error check stops first; unbound out_id occurs at W202.
+
+No selected-source correction is necessary for this fixed profile. Record the
+missing generic descriptor gate as discharged by exact-data validation, and
+failure markers as best effort. Every future nonzero/signal invalidates the
+result; Root must inspect the owned output path even after exit2. Success still
+requires the positive guard, natural0/drained captures, exact stdout/closed
+output/current pins and full independent semantic comparison. Internal input
+records use donor7-field identity without UID; wrapper source8-field and Root
+external full identities remain separate. Late fixed-document/source rechecks
+do not make all input observations atomic.
+
+| Source-review dimension | Claude | Grok |
+|---|---:|---:|
+| Correctness/evidence |7/8|8/8|
+| Preservation |4/4|4/4|
+| Actionable controls |4/4|3/4|
+| Handoff |2/2|2/2|
+| Limits/closure |2/2|2/2|
+| Total |19/20|19/20|
+
+This is a task-specific source-review tie. Claude contributes precise partial
+output paths; Grok contributes typed/profile and publication-window analysis.
+The combined corrected findings guide Root's unchanged wrapper; no provider
+implementation or general speed/cost winner is claimed. Result-size/130s
+sufficiency remains a bounded actual-run risk. Do not trim retained rows, raise
+caps or pre-scan the corpus silently to make the result pass. The prior .007
+candidate used these same63streams in7.710635s; that is context, not a .010
+timing/memory guarantee.
+
+| Private record under .tools/renewal/ | Bytes | SHA256 |
+|---|---:|---|
+| t07-014-010-claude-packet-root-1/SETTLEMENT_ROOT.json |708|49f353f5e0ea47d0d463161aef9bf2cf83e9fbf2c4832932e8faab87ccedbf29|
+| t07-014-010-grok-packet-root-1/SETTLEMENT_ROOT.json |706|4833fe60214f6698e1c6a7d04bd8bae6ff152ad2713a00b015323d2e3ce2f028|
+| t07-014-010-root-failure-controls-1/ROOT_CONFIRMATION.json |3553|67f1f0b85bd3be4a875e3470ea96593375b6709c4776c879f6f7519445207804|
+| t07-014-010-root-failure-controls-1/PROFILE_CLAIMS_ROOT.json |526|76bebf97e5f52392e7abe9a03905ca1e914b48c77d593b2e1ce941b7a85005e9|
+
+Next prepare a small adapter around the already qualified independent Root
+.007 oracle, preserving its original source. Root must review the exact source,
+then freeze separate oracle/candidate call bindings and limits before any
+actual catalog access. Actual streams remain0; no task readiness or content
+coverage follows from this completed source review.

@@ -42,7 +42,8 @@ Map repair:
        -> normal Mu asset set   [PASS:111 responses +111 loose files verified]
        -> ordinary field route  [SOURCE VERIFIED: island -> Izlude -> field]
        -> Orca browser re-entry [PASS: saved90,111 + Chinese tracker + quiet audio]
-       -> quest state + play    [NEXT: inspect before tutorial/field route]
+       -> captain dialogue      [PASS: earned Lv2/job2;21008two-lumber quest ACTIVE]
+       -> combat + crew + field [NEXT: equipment/loot before ordinary departure]
 
 Quest check:
   Finite startup repair        [PASS: listener seen in 3 checks]
@@ -72,7 +73,7 @@ Other active work:
   Normal terrain delivery      [DONE:34responses/files; Root full audit PASS]
   Remaining compiled core      [PASS:21/21;252finite arrays; all17GAT references]
   Host source comparison       [DONE:Claude correction SELECTED; both VERIFIED/released]
-  Direct dependency lookup     [PREP PASS:82controls; Claude/Grok reviews LIVE]
+  Direct dependency lookup     [REVIEWS DONE:19/20tie; independent oracle prep NEXT]
   Remaining direct assets      [OPEN:936models +222textures +64water images]
   Claude/Grok FD plan pair      [BOTH VERIFIED + RELEASED; control PASS]
   Chapter 1 first transition   [SOURCE +6retained assets/9cells VERIFIED; play OPEN]
