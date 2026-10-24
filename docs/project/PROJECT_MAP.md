@@ -93,6 +93,7 @@ Other active work:
   Nested texture bodies        [SOURCE QUALIFIED; caller32+1001checks PASS]
   Nested10pilot                [10/10PASS; Root25541checks/1400pins; no replay]
   Nested923remainder            [NEXT:finite caller/exact1849leaves/fresh binding]
+  TGA worker/consumer source   [FROZEN:independent25query trace; dispatch NEXT]
   Model702node bounds           [SENTINEL PRESERVED; geometry impact OPEN]
   Image consumer source trace  [ROOT PASS:40slices/286joins; both17/20/released]
   Browser image fixture        [BOTH ROOT VERIFIED/HELD12vs10; pair released]

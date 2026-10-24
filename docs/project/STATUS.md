@@ -112,6 +112,12 @@ in this checkout. Root owns tracked docs; authors may not mutate Git/source or
 open images/runtime/browser/game. Trace of286delivered image consumers does not
 wait for .012models. Root compares exact source closures/metadata before use.
 
+**Next independent source lane:** [T07.007.014.018](tasks/T07.007.014.018.md)
+freezes equal source-only TGA worker/model-texture tracing and all25query joins.
+It can run beside .017remainder preparation; no body/decode/runtime action and
+no dependency on waiting for those923responses. Dispatch follows the common-base
+checkpoint. No new child folder/setup is needed.
+
 **Current map checkpoint:** [All21remaining compiled cores pass Root's complete audit](reviews/2026-10-24-remaining-map-bodies.md#remaining21-actual-compiled-cores-and-complete-root-audit-pass).
 One unchanged qualified host call exits0 in4.807445s, about800MiB sampled RSS,
 with21positive worker exits/no residue. Root checks all64artifacts and55body
