@@ -41,9 +41,10 @@ The finite sampler patch now qualifies and passes all22 focused Root tests.
 The new isolated four-file Web stage verifies. The fresh-fixture caller's
 one-region variable correction now passes whole-source Root qualification
 and independent semantic review. Header correction passes all20 focused
-cases. FD formatter source now qualifies for its closed caller path; four
-focused cases are next. All three latest Grok workers are released/archived.
-Next: one fresh pure-data call, then Mu19/runtime binding and scene retest.
+cases. FD formatter also passes all4 focused cases. All latest Grok workers
+are released/archived. Fresh Mu3 data now pass130checks/116pins/36leaves,
+with Root current confirmation; no actor. Mu19 metadata reuse source qualifies.
+Next: Mu19 data projection and independent full839 root2 entry, then runtime binding.
 One finished sampler terminal is retained under Orca user_takeover;
 other settled authors are released with captured archives.
 Current map-render verification estimate75%; overall4/14/about29% checks.

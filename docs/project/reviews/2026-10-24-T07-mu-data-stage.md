@@ -1685,3 +1685,30 @@ captured-archive receipts; fleet0active/280released/7retained/zero reclaimable.
 The retained terminals remain under their existing user/transfer ownership.
 After this checkpoint Root can bind only the three admission headers for
 one unchanged-writerG10/512MiB/no-native fresh data call; no retry or game actor.
+
+
+## Actual fresh Mu3 pure data passes complete current confirmation
+
+After445f3e4, Root binds only three admission headers, proving whole inverse,
+and makes exactly one unchanged-writerG10/512MiB/grace3/no-native/1MiB call.
+Natural0 in0.228801s, all130checks/116fullPins/36leaves pass. Audit81199/
+07f91c5825d5678f2ed1f12b9d9ea2e76ddfd49eecd64ed9b17baa4f1078b3e1.
+Root separately reopens every full input/output, whole receipt/streams,
+verifies current owned process/group absence and all three old public-identity
+refusals. Confirmation57986/
+7beb1f512c1ef353ecc7cc8a0fb0a424b02b89029740915fc6cbee6e153aeec8.
+All generated metadata remain unbound; no actor, native compatibility or save
+proof. root3 generation namespace is consumed and will not be replayed.
+
+Root mechanically reuses the qualified Mu19 pair:13 outer/9 child metadata
+edits only, full forward/inverse, new root3 destinations and actual audit
+81199/130checks/116pins/36leaves. Both audit headers remain None and Root
+admission stays false. Projector19779/095fd95d680731a632100642d7e75f5ae964b5cecb5001d8d0b1ecceb01120c3
+and all projection/audit/G logic are unchanged. Q23692/
+b6981408405d449ae7854042cdc3a881c91438da47c8626dc4592b7a43631dac;
+caller30594/ab26ff31e6c48bab8db8e3011804b0ed99bf372de018609c3af12ea7b503c084;
+child11668/5722a41b6718fedcb61e198e78b4794199132cce3b896279de89200e74c73147.
+Independent review confirms exact metadata reuse and no mandatory blocker.
+This reuses the selected implementation; it is not a new model benchmark.
+After checkpoint, Root can bind six outer/three child headers for one
+fresh33-leaf Mu19 projection; no new identity, fixture generation or game actor.

@@ -808,3 +808,20 @@ Author releases/archives before delivery38ed07885539 ACK; release455/
 f8d318b1ef82d9dafb01e997a87dec5f357c3e71ac319ea9a80a4ebdaacf8889.
 Root read-only checker assumptions about the splice newline and seal product
 count are corrected against exact source/metadata before any test/publication.
+
+
+## All four FD formatter boundaries pass under original guard
+
+After445f3e4, one originalG30/512MiB/grace3/no-native selected-excerpt call
+returns natural0 in0.148229s. All4 frozen cases pass: known count/fullSHA
+retention, unknown-after handling, sample-before-error truncation and non-FD
+failure. Whole stderr including newline is395/361/395/177bytes, each<=1024;
+full error count/canonical digest,sticky fd and failure semantics hold.
+Confirmation6944/baf3503d743a49229d051b3fe6da835cacf887ed74fd00b91e6dd2d0e0a3d588.
+Full receipt/streams/current pins/current process/group absence pass.
+Only formatter excerpts run; no publication/native/game credit.
+
+Root rechecks the current original qualification/910-byte expectation and
+new closed-path source proof. Three root2 destinations remain absent.
+After checkpoint, bind only ROOT_ADMITTED/REQUIRED_HEAD for one original
+full839G30/512MiB/no-native publication; original failed root1 is preserved.
