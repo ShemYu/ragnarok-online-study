@@ -3824,3 +3824,45 @@ Private t07-014-020-correction-root-1/ and exact implementation receipts:
 | t07-014-020-correction-root-1/ROOT_CONTROLS.json |603|1c236b8cb2f2e4a20fe03cd9c8acdd125bd8e4f1ba9ae9888b2290e7771b192e|
 | t07-014-020-correction-root-1/CLI_ROOT.json |1188|14393fb35a2d441fe19c91dc97f841a7196012d17501040cb70bd8225e2c7b20|
 | t07-014-020-correction-root-1/AUDIT_CAPTURE_ROOT.py |2496|3a76b89b980f6decfa130e22802d018e2bde4dfb407818c15762df9bcecb15ca|
+
+
+## Independent1024raw reference qualifies and one reference call is admitted
+
+Root extends only the three numerical ceilings of the previously qualified
+independent raw reference:1024dimensions,8MiB encoded and4MiB RGBA. Algorithm
+remains the separate Python row/column/channel loop, with no Targa or acquired
+JavaScript execution. Root passes39authored controls: the original six complete
+handwritten cases/all four origins,24/32bit full1024x1024outputs (4194304bytes
+each), last-channel inequality and strict refusal of excess/truncated/unsupported
+layouts. Qualification completes2.536792s outer/2.483256s internal; observed
+Python ru_maxrss57819136B. No actual body is read/decoded by these controls.
+
+Root personally reviews a finite caller for exactly the frozen25profile rows.
+Default invocation refuses before input/output actions; syntax/default controls
+pass. It reads profile and Root reference only by full fixed pins; all28input
+files (those two plus inert saved JavaScript and25bodies) get bounded single-FD
+full reads, full C8/literal/parent checks through use/publication/close, canonical
+decimal strings and complete hashes. Header/footer/footprint joins and complete
+query/order/count/byte sums are independently checked. It processes one body
+at a time, retains only RGBA hashes/results, and writes one fresh exclusive
+0700/0600capsule of at most1MiB. Internal reference deadline20s/external
+process timeout30s; Python RSS will be observed, not claimed a hard cap.
+
+This checkpoint admits ONE explicit Root independent Python reference call on
+the25 already retained raw24/32bodies. Do not repeat any .017GET. The profile
+is metadata rather than permission; authority is this separately reviewed Root
+call, not a candidate's self-reported result. No copied decoder/Worker/canvas/GL
+or actual observer execution is admitted yet. Next run once, compare complete
+rows/bytes/current pins and retain the independent full-output hash oracle for
+the .021paired observer review. Both authors remain source/tiny-authored only.
+No scope reduction or user decision; all82gaps and parent progress unchanged.
+
+Private t07-014-021-preparation-root-1/ receipts:
+
+| File | Bytes | SHA256 |
+|---|---:|---|
+| RAW_REFERENCE_1024_UNBOUND_ROOT.py |1901|933c28fa2e4705a3df978278d2f03554dbe9b155be20d3ccdf08281c015abc8e|
+| QUALIFY_REFERENCE_1024_ROOT.py |3463|053929a6f6f43c48a3223ceefc96534614e74494d75143a6b884c70a471694d5|
+| RAW_REFERENCE_1024_CONTROLS_ROOT.json |2046|a8839119f82e23796b0d3f513aea8e97668e12b626a82339f301ca9951415056|
+| CALL_REFERENCE_ROOT.py |7058|3c35b8fa07df65f954b7ee45224b817c8fe601c4ae1f0aa5e7043fe58015cf63|
+| REFERENCE_DEFAULT_REFUSAL_ROOT.json |704|da6ea4436a1f16b1ed83d12270acdf43a6c93e061e8e96b08921bcf97ba0235a|

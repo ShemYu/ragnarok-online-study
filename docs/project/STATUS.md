@@ -2196,3 +2196,9 @@ any finite decoder-harness repair. No real image/Worker/render acceptance.
 [Independent strict raw24/32pixel reference passes34tiny authored controls](reviews/2026-10-24-direct-dependencies.md#independent-strict-raw-pixel-reference-passes-tiny-authored-controls);
 8x8only, no real-body decoding/admission. It prepares an independent future
 actual-output oracle while .020Grok continues; source repair/selection stays next.
+
+
+[Independent1024raw reference passes39authored controls; ONE Root reference call admitted](reviews/2026-10-24-direct-dependencies.md#independent1024raw-reference-qualifies-and-one-reference-call-is-admitted).
+Next execute the reviewed fixed25Python reference call once and audit its retained
+hashes/current full pins. No acquired decoder or actual observer action admitted.
+.021Claude/Grok remain source/tiny-authored only; no request replay.
