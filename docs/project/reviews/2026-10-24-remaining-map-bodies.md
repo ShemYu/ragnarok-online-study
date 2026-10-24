@@ -57,3 +57,37 @@ The profile preserves existing archive/source/vector policy and chooses exact
 fixed target ranges; it is not self-authorizing production input before the
 source extension qualifies. All82functional gaps remain open; parent progress
 stays4of14 checks. This is resource recovery, not a new playable-content claim.
+
+## Equal isolated implementation pair is active
+
+Both branches start atc6b853da1c80d091127eec5271ed1b909859b344; Root independently
+reads their actual HEADs. Setup is explicitly skipped and no setup hook exists.
+Both launches return ready/input_accepted; Claude turn start is observed.
+Grok's launch cannot observe turn start, but fresh live/working fleet status and
+both matched investigating heartbeats establish actual ongoing work.
+
+| Provider | Task | Dispatch | Worktree |
+|---|---|---|---|
+| Claude |task_2a28c7ed2fb1|ctx_df81133a4cba|t07-014-006-claude|
+| Grok |task_2638311bea59|ctx_84e621b7f4e1|t07-014-006-grok|
+
+The private preparation directory retains complete receipts/specs and the exact
+baseline decoder/tests/documentation before any candidate source inspection.
+WAVE_ROOT.json6066B/SHA256
+fed769f55ec9d434427339b42676214800ef3d2820294daf2765f388e46b4a8d
+binds both bases, all copies and baseline function/class AST hashes.
+
+| Private wave file | Bytes | SHA256 |
+|---|---:|---|
+| LAUNCH_CLAUDE.json |2529|bbe91f49d4bc1124dd8aea34411370b64d96f46ed47fa9dd45e77bfd6648d593|
+| LAUNCH_GROK.json |2509|ac5970fa9f27c8f7fe5ab633597a3baae67d9916f079f8a68171f751d42d9b49|
+| SPEC_CLAUDE.txt |1741|8b2f580bcc79010bf7de388dcec4208fb09c93ebb17dddb57243ee25af52144f|
+| SPEC_GROK.txt |1739|72f1d09ca5e3de5509e8019c64d09f18579a8e09082f1288ec65b5cd1a4e372b|
+
+Root also freshly hashes five complete existing body/header authority receipts
+used for the5-root exclusion. This validates the retained qualification evidence,
+not current rehashes of every historical body. No actual asset recovery yet.
+Next collect/verify both sources and equal controls, then separately admit the
+concrete seventeen-body recovery and embedded-name observation. Exact provider
+model/version/effort/tokens/billing are unobserved. Kimi stays off this critical
+path; its final shadow slot is not consumed without capacity confirmation.

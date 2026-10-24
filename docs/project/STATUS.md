@@ -108,8 +108,10 @@ The qualified26RSW candidates split into5already decoded/header-qualified,
 17remaining patch9298 bodies and4October GRF bodies requiring separate admission.
 Root freezes T07.007.014.006 for the17patch bodies,666248aligned/4806359decoded
 bytes, using the existing decoder. Exact profile/14inputs are pinned; no archive
-or body read yet. Next launch equal isolated Claude/Grok implementations from
-this brief checkpoint, then Root verifies and separately admits actual recovery.
+or body read yet. [Both implementations are now live](reviews/2026-10-24-remaining-map-bodies.md#equal-isolated-implementation-pair-is-active)
+on separate branches fromc6b853d, with matching task/dispatch heartbeats and
+frozen baseline source. Next collect/verify both and equal controls, then Root
+separately admits actual recovery/header observation.
 Reuse existing bodies/terrain evidence; do not repeat the general gap ledger.
 
 ### Historical preparation — follow the next action above
