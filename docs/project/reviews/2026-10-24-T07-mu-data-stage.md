@@ -581,3 +581,46 @@ actor or test execution is authorized by this source task. Do not manufacture
 config.ini or an env key from a checklist. Source-commit text agrees at
 66ba94e2b84c4092e4b9cc9d0dcc805313438f53; reproducible source-to-binary identity
 is not thereby proved. Root will personally check conclusions before use.
+
+## Current client files verified two missing directories added
+
+Root personally joins all13 private closure-review outputs and six stable
+authority inputs; the one STATUS navigation drift is preserved separately.
+Root independently streams all259 unique selected bodies/sources to EOF in
+64KiB chunks, with full current SHA/C8/fd/path equality:470208538B. P251 is
+345990090B and UI119 is27369372B, with outside binaries/source pins separately
+checked. The full114-file Playwright membership and five disclosed exact
+browser links match. Root creates ONLY the two absent empty0700/currentUID
+resources/translation directories and fsyncs them/parent;105data and4web
+bodies stay unchanged. Root audit145359B/
+b96a95674cac285ce2e4f65aca185e496643d07b5d194918aac8b26b0992b893
+records all259fullpins and no actors.
+
+Astra inspects the actual finite MuD/MuC/G contract; Root personally joins
+all9 stable source inputs,7closed outputs,10 exact source spans and the
+27selected browser descriptors/current pins plus five link descriptors to
+the original frozen runtime donor. Whole-app340 regular files cannot equal
+a selected27 subset; this is not a new runtime failure or evidence of313
+additions. Preserve the measurement, qualify selected containment and keep
+P251/UI119/caps unchanged. No whole340 byte/archive immutability claim is
+made. Root decision8955B/
+0a811dfc623c3f78f63fd09427be96665bb9c6ace264bfc2777322b2c71474ea
+records18fullpins. Native ownership/current config/postchecks remain required.
+
+Root stages three private runtime source copies without execution:
+driver68621B/00ba57f1bc17f246a088f3dc39015c243146090093c26036607f8e1398ca260f
+has only the exact False-to-True header change/full inverse; UI49801 and
+Engine35587 remain byte-identical. New inodes/readbacks/source postpins and
+directory fsync pass. Material3692B/
+1f85f579aef9038d0cd16d60eb06d73118a1ab28739a724efb96d68fd6491c34
+is source staging only; config/fixture/world/lease remain unbound. Partial
+Root1 is preserved after a manually transcribed Engine SHA refused before
+its copy; Root2 uses the correct already verified Engine SHA. No failed G
+or actor call, rollback/overwrite or test replay occurred.
+
+Fourth actual Grok SOURCE task is ready after030432b:
+task_dbca4b0e529e/ctx_54db31a85082, Remote config/resource lookup,
+terminal term_9f3ab70f-25b9-4eaf-940c-e66d0c615b46. Start2307B/
+3f81dc90faa36e0bae2bd6c2f62f6290acb9e00f353c24f81b8384614a71a31a
+proves input accepted/configured Grok, not model/effort or source conclusion.
+No overlap with B3/B4/F839. Fresh dedicated server fixture remains next.

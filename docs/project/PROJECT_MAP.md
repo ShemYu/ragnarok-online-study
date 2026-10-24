@@ -49,13 +49,13 @@ B3:submitted/released; HOLD4findings/modes -> finite repair admitted.
 B4:existing64body source actual Grok ready after8171b27.
 MuC/MuD:submitted+released, HOLD5findings -> finite UI/driver fixes ready.
 MuC:three fixes + all six actual focused calls PASS/223pins.
-B4/F839/B3fix:three live; partial tool progress between500 retries.
+B4/F839/B3fix/Remote:four actual live Grok, separate owned scopes.
 MuD:both calls PASS/65pins; final source joined/released beforeACK.
 Mu19:corrected source qualified conditionally; fresh dedicated data next.
-Mu client:metadata joined; full body/package closure runs in parallel.
-Mu Remote:13-copy source audit frozen; fourth Grok task ready.
+Mu client:all259selected files Root verified; two empty dirs added.
+Mu Remote:13-copy source audit actual Grok ready after030432b.
 Mu Web:four bodies staged/full verified;105body stage unchanged; no actor.
-Current3active/250released/6retained/0reclaimable across259records.
+Current4active/250released/6retained/0reclaimable across260records.
 MuC/B3 prior owners released/archive beforeACK; no cleanup debt.
 Four actual user-retained resources stay;2transferred records have none.
 Trial9 stays failed; known faults stay failed. No new actor admitted.

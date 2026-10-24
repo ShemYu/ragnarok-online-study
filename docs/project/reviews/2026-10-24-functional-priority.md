@@ -1119,3 +1119,21 @@ Fleet14 full259record/3page enumeration remains3active/250released/6retained/
 All three current Grok projections are live/nextAction:none. Two exact
 implementing heartbeats for B3fix/F839 are processed and acknowledged; no
 completion inference. Historical retained ownership stays preserved.
+
+## Four actual Grok tasks and current Mu client closure
+
+[Root verifies all259 selected current client files, adds only two missing
+empty directories and stages three source copies](2026-10-24-T07-mu-data-stage.md#current-client-files-verified-two-missing-directories-added).
+Astra source decision and Root full joins preserve selected27-browser
+containment; no unsupported whole-app equality or raised cap. No actor.
+
+Current fleet15:260records/3pages,4active/250released/6retained/
+0reclaimable,10978B/
+27363b36f9c9f5d388f3f63a3d5210f614229c32967b832dde685605e21023b1.
+Fourth actual Grok is independent Remote source audit, alongside B3fix/B4/
+F839. All live/nextAction:none, no duplicate editors or abandoned owners.
+F839 final-looking report still does not prove adoption of the same three
+Root findings. Guidance msg_471c0e230068 is durably enqueued; adoption must
+be checked against actual final source. First two send attempts were refused
+for invalid type/address before enqueue; neither delivered guidance or
+changed source/lifecycle. Full scope and4/14 parent count stay unchanged.
