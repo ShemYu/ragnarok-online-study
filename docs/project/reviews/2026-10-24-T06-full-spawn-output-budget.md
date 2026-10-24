@@ -276,3 +276,43 @@ is admitted. Root must verify final exact paths and remaining findings
 before finite checks and one full publication. Fixed external oracle stays
 unbound in submitted source; no success object is accepted from candidate
 stdout. All82functional resource gaps remain open.
+
+## Final source reviews confirm six finite corrections before publication
+
+Root personally reads all27789B final consumer, exact producer finding
+paths, both complete independent reports and all source/oracle joins.
+Consumer review10stable inputs/11closed outputs/16exact spans; producer
+review24stable frozen inputs/7closed outputs/21anchors. Producer's live
+Status navigation file changes honestly; no settled source instability.
+Root independently recomputes all ten ordered839ledger counter sums.
+Root source review23782B/
+f3cf17ead2aac7ba50ef9c68c77a8a3108e25004164f7e1015638a535fb3a96e.
+
+Producer's prior body-only postpins and skip-root cleanup findings are now
+source-addressed:4code+3metadata+839body full current postpins precede
+marker creation. New consumer ledger/range/hash helpers are reachable.
+These positive findings do not qualify success. Six remaining corrections:
+
+1. Require exact production profiles/task/caps, typed integer schema/indexes
+   and all ten global counters joined to full per-source sums/fixed oracle.
+2. Require all current production code/3metadata/839source pins non-null
+   and joined to actual selected context; marker/producer aliases must agree.
+   Historical oracle C8 is never substituted for current observation.
+3. Check the closed15-key actual producer receipt and all four file joins,
+   semantic/counter/mode/output values, not only marker/manifest hashes.
+4. Complete current pin rereads with full pre/fd/post path C8 and EOF/hash.
+5. Seal the exact whole typed fixed qualified object; arbitrary expected
+   objects must refuse before consuming the one production call.
+6. Preserve pending unknown-close classification/cause across both admission
+   root finalizers while attempting each cleanup. This remains a fatal
+   classification bug, not an observed success escape.
+
+Root freezes57exact source/metadata copies for one finite source repair:
+manifest60912B/
+8a0b06901e0078bb64ec0991035f27fa4fa94f47801a02df254f673c31d65e7c;
+brief5607B/2ea4539e637b1c41caaa50a6e3c4c8aa46e34fb18d2f673b277ee110543780cc.
+New actual Grok task is ready after this checkpoint. No NPC corpus read,
+target execution, tests or full publication. Preserve existing seven groups,
+unchanged lexer/shared caps/streaming846postpins/marker-last/owned revocation;
+no new framework or broad concurrency guarantee. All prior failed/HOLD
+source evidence remains preserved. No full-game gap or native credit.

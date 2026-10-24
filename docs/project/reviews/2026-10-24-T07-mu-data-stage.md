@@ -707,3 +707,42 @@ complete Root Mu21 audit and36current leaves before binding or invocation.
 Existing corrected19779B projector/helper/G/S and caps remain fixed.
 This is auxiliary source preparation, not a new Claude/Grok benchmark or
 game/content credit. Full33leaf Root audit remains required.
+
+## Actual dedicated Mu21 data call passes complete Root verification
+
+At clean admission HEAD4090eea, Root binds only the three authorized header
+slots. Bound caller22146B/
+40e3c229d1a60d80ad350e103b97742f7ada5a9d6735dfa8d344fbee6f945945;
+binding11883B/a0649782b5c5f2dc0b60e1ca4cd7715c5bb6fd96c72f50c1abff6525067c8619.
+Exact inverse and compile pass. Root then performs the single original
+guarded writer call: caller natural0, writer natural0/positive guard,
+0.222602s, sampled peak22315008B (about21.3MiB), no signals/native process,
+unchanged10s/512MiB/grace3/1MiB capture.
+
+Root actual audit79190B/
+0a6215734cc33259504206e000e651925969bd333884b59612b4e5a1e50a3f4b
+passes all126checks/errors[], all36closed leaves and112full current pins.
+It independently reconstructs complete Engine/Material/SOURCE_PINS and
+10-field stdout; both full streams and original receipt agree. Root's
+subsequent direct confirmation58632B/
+a2ac923e40472d7f1d68265ffc159cd56777ac099d1b5bdae10c1eb88ec37f55
+rejoins all112full pins/36outputs, complete directly measured stdout,
+guard limits/positive status and current owned PID/group absence. No
+generator replay, new identity draw, actor, socket or original-state action.
+
+The dedicated Mu source now exists and remains unconsumed by any actor.
+Next is the conditionally qualified Mu19 projection, its complete33leaf
+Root audit, then fresh runtime/config/world/lease/4ports and one scene test.
+The native19role contract remains unchanged; these fresh21data are never
+shared with B4's separate quest attempt. No parent/game/save credit.
+
+Parallel actual Grok fixed Mu19 caller source taskd6f11569da2b/
+ctx3f0cd4c6b0ec starts after4090eea. Start2307B/
+3e3a63844ba33fd4e9657c0cf2d172766cc16eecb6fa56aa714aad22aa907f47.
+Five generated metadata copies are explicitly authorized as a source-only
+supplement, manifest5751B/
+fb664743b1d86a3a9284532edf3055a89b071d30b78fbcb64707f70631388da3.
+It contains the complete redacted actual audit/confirmation/Engine/Material/
+SOURCE_PINS keysets, no credentials or role bodies. Send is durably queued;
+adoption is not inferred. Caller must remain unbound until Root review and
+current exact audit/source rejoin; no automatic projection invocation.

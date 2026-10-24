@@ -13,17 +13,16 @@ dictionary abort/load405/map-connection settlement stop later cases. Root's
 complete failure/preservation audit passes; no B200assignment/reconnection or
 parent-check credit. 4/14 is a check count, not measured full-content coverage.
 
-**Parallel work:** [Mu21 fixed caller source qualifies; B4 repair is live](reviews/2026-10-24-functional-priority.md#mu21-caller-source-qualifies-while-two-useful-grok-tasks-are-prepared).
-Root has qualified the fixed once-only Mu21 pure-data caller; its admitted
-10s/512MiB run/full36leaf audit are next after current HEAD/Python binding.
-No generator call yet. B4 six finite metadata corrections are actual Grok
-task3a994d4e0125/ctx02dd52643961. Source-only Mu19 projection caller
-preparation is ready from26frozen copies, independent of that repair.
-F839 final source is submitted; owner released/archive captured beforeACK.
-Two independent final producer/consumer source reviews run in parallel;
-no final export qualification/controls/publication yet. Previous four-source
-wave has all submitted; prior optional fallback question is no longer needed.
-Chinese overlays/caps and full goal stay unchanged. All82gaps remain open.
+**Parallel work:** [Fresh Mu21 data generation passes complete Root verification](reviews/2026-10-24-T07-mu-data-stage.md#actual-dedicated-mu21-data-call-passes-complete-root-verification).
+One actual run:36closed files/126checks/112full current pins, natural0/
+positive unchanged G, clean retirement. No actor or parent credit.
+Next Mu19 projection caller is actual Grok taskd6f11569da2b/ctx3f0cd4c6b0ec;
+its source preparation runs beside B4 six-fix actual Grok task3a994d4e0125/
+ctx02dd52643961. Root will qualify/audit each before use.
+[F839 final reviews confirm six finite source corrections](reviews/2026-10-24-T06-full-spawn-output-budget.md#final-source-reviews-confirm-six-finite-corrections-before-publication).
+The two prior producer findings are source-addressed;57frozen copies prepare
+one narrow Grok repair. No controls/full export yet. Previous source wave
+owners are released/archive captured. Full goal/Chinese/caps stay unchanged.
 
 [All six actual MuC focused calls pass complete Root223pin verification](reviews/2026-10-24-T07-mu-data-stage.md#actual-six-muc-focused-calls-pass-complete-root-audit).
 Three source fixes qualify; no fresh map actor/render result yet. MU1 exact105body private
@@ -32,8 +31,9 @@ stage remains verified; retained water geometry0 requires no extra assets.
 final three source bodies are joined byte-exact and owner released. Actual scene
 load/draw waits for fresh fixture/runtime/lease bindings.
 [Dedicated Mu19 data view preserves the native contract](reviews/2026-10-24-T07-mu-data-stage.md#fresh-mu19-view-recommended-without-changing-native-engine-contract);
-the corrected finite projector is conditionally source-qualified; fresh
-dedicated B3 data remain next. All259 selected current client files are now
+the corrected finite projector is conditionally source-qualified; actual
+dedicated B3 data now pass. The fixed projection caller/full33leaf audit are
+next. All259 selected current client files are now
 Root-verified; two missing empty directories added. Three runtime sources are
 staged. Selected browser containment qualifies without a whole-app claim.
 [All five configured archives pass Root full-byte/current-identity checks](reviews/2026-10-24-T07-mu-data-stage.md#five-configured-archives-pass-current-root-full-byte-verification); no archive index/runtime result. [Root qualification and next Grok source
@@ -44,8 +44,8 @@ existing105body stage stays unchanged. No render/game actor.
 [B2U/B2D eight selected focused backend checks pass Root verification](reviews/2026-10-24-functional-priority.md#eight-backend-focused-checks-verified-fresh21-fixture-source-frozen);
 [one actual pending-producer poll also passes](reviews/2026-10-24-functional-priority.md#actual-pending-backend-control-passes-root-verification).
 Original failed Root caller preserved; live response dispatch remains source-
-inspected only. Fresh21-role files,64-body runtime,actual backend/auth/SQL/
-fixed four game cases remain next. B3/B4 are SOURCE ONLY, no actor authority.
+inspected only. Separate B4 fresh21-role files,64-body runtime,actual backend/auth/SQL/
+fixed four game cases remain next. Dedicated Mu B3 data now pass; B4 remains source-only, no actor authority.
 
 D15 passes all eight pure groups and Root's complete183pin audit: unchanged
 G10s/512MiB/grace3, natural0/positiveguard/0.229156s/24068096B sampled peak,
@@ -77,7 +77,7 @@ join; no large JSONL is written. Root now freezes the full selected839 profile/t
 and qualified-publication semantics; independent Grok source implementation
 is actual Grok ready after4425a98. No wrapper/test/game actor is admitted.
 [Final exporter source is submitted, full pins match and owner is released](reviews/2026-10-24-T06-full-spawn-output-budget.md#final-exporter-source-submitted-owner-released-before-acknowledgment).
-Independent source reviews/Root qualification remain; no test/export admission.
+Root confirms six finite source corrections; no test/export admission.
 
 Original app/saves/Chrome/profile/settings/mute/IME/network stay untouched.
 The consumed ninth trial is not retried. All Chinese overlays stay enabled;
