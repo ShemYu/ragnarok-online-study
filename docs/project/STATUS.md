@@ -24,7 +24,9 @@ Raw Claude14/20/Grok9/20 are both held; each11author tests passes. Close-error
 false successes and distinct failure-evidence/lifecycle defects reproduce.
 Separate Claude .012.001 correction is live from79488b6 on a fresh branch in
 the released checkout; no new child/setup. A parallel metadata-only helper
-prepares936retained body descriptors. Root must verify both before actual use.
+has completed the936body join; [Root independently verifies all records and fresh body files](reviews/2026-10-24-direct-dependencies.md#complete936body-join-and-fresh-root-file-audit-pass).
+237771checks/950pins pass. Proposed11pilot/925remainder stay unbound. Root
+must qualify the repair and exact actual caller before real construction.
 
 **Current map checkpoint:** [All21remaining compiled cores pass Root's complete audit](reviews/2026-10-24-remaining-map-bodies.md#remaining21-actual-compiled-cores-and-complete-root-audit-pass).
 One unchanged qualified host call exits0 in4.807445s, about800MiB sampled RSS,
@@ -123,7 +125,8 @@ all839copied hashes and verified rollback bundle. [Grok bf369fd is also preserve
 raw Claude14/20/Grok9/20 both held. Grok additionally lacks a Root-bindable real
 execution path. [Separate correction .012.001](tasks/T07.007.014.012.001.md) is
 live; original comparison is complete and correction effort remains separate.
-Next Root checks repaired source and the independent936body metadata join,
+The independent936body metadata join/fresh files now pass237771Root checks.
+Next Root checks repaired source and the exact eleven-job actual caller,
 then freezes actual caller/profile/Node/guard/pilot authority. No integration.
 No actual constructors or runtime body/Node/guard admission yet.
 

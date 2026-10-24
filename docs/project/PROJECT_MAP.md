@@ -84,6 +84,8 @@ Other active work:
   Direct delivery [ALL1222 + ROOT COMPLETE AUDIT PASS; no replay]
   Model/declaration preparation [BOTH HELD14/20vs9/20; Root full reviews/controls DONE]
   Constructor correction       [SEPARATE .012.001 LIVE; no actual use]
+  All936model body files       [ROOT FRESH HASH/IDENTITY + COMPLETE JOIN PASS]
+  Genuine constructor pilot    [11PROPOSED; source/caller qualification next]
   Remaining direct assets      [DELIVERY DONE; construction/nested textures OPEN]
   Claude/Grok FD plan pair      [BOTH VERIFIED + RELEASED; control PASS]
   Chapter 1 first transition   [SOURCE +6retained assets/9cells VERIFIED; play OPEN]

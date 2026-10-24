@@ -1196,3 +1196,75 @@ availability and placement-aware rendering still require actual qualification;
 no full-game/episode/story/save/localization coverage is inferred. No critical
 goal-changing blocker or new user decision is established. Running game/quiet
 audio/internet are untouched; source/docs rollback uses committed checkpoints.
+
+
+## Complete936body join and fresh Root file audit pass
+
+The independent data-only helper emits a full ordered936body join: every
+original outer model/query record and1649relations/21maps/three case groups
+remain typed unchanged. It uses distinct retained response-body paths rather
+than933case-aliased loose files. Exact integer C8 fields are converted directly
+to decimal strings using lossless Python integers. Original historical93pins/
+843null descriptors stay untouched inside original_model; current descriptors
+are separate. All runtime/admission/binding flags remain false/null.
+
+Root reads the complete report/derivation/PRE/POST/output manifest and performs
+an independent full typed audit. The first Root attempt expects an invented
+known-hash label and stops; actual known_independent_expected_match is correct.
+Only Root's literal expectation changes; the failed script and correction record
+are retained. No model constructor or state mutation occurred in either attempt.
+
+Corrected independent audit passes237771checks/950full pins in0.289514s. All
+seven closed helper files/five manifest pins and four PRE/POST inputs match;
+all936complete model objects/1649relations/21maps/three case groups, all1222
+query-order/role/wire references and exact per-model result/source pointers
+match. All936response paths remain distinct.93independent expected bytes/hash/
+wire pins match;843new hashes remain observations. Total model bytes8059280,
+933hash groups; only the three case pairs repeat hashes. Their six response
+paths/inodes remain distinct. Loose alias facts are receipt-derived here,
+not freshly reobserved on live loose paths.
+
+Root also freshly opens every936retained model body sequentially, nofollow/
+canonical/regular/single-link, verifies complete EOF/SHA/bytes and exact decimal
+C8 before/after, then closes each owned FD. All match the qualified delivery
+ledger. This is a fresh full-file integrity check, not a new GET, decoder,
+constructor or rendering call. No936-FD set is held. Exact first-six-byte groups:
+4752534d0104:559,4752534d0105:46,4752534d0202:46,4752534d0203:285.
+The local pinned RSM source reads GRSM/GRSX then two version bytes, but this
+header observation alone is not full-format validity or actual summary success.
+
+Astra's metadata-only nine-job proposal covers six case rows, maximum known/
+new sizes and minimum body, but cannot claim format diversity. Fresh Root header
+evidence adds model1 and26. Proposed unbound pilot is now eleven model indices
+[1,26,378,406,439,445,487,508,509,548,900],401761B, covering all four raw header
+groups, all six case rows, maximums and minimum. Exact disjoint remainder925
+has union936/intersection0 with the pilot. This is selection preparation only:
+no source-qualified/runtime-bound/execution-admitted claim or actual pilot.
+
+The full936runtime profile must be frozen before pilot and stay unchanged for
+remainder. Existing caps remain:1MiB summary string values per invocation,
+185597952Bretained,1240s host,1.5GiB sampled outer RSS. Aggregate fit is unknown;
+small input sizes do not bound summary expansion or CPU/memory. Measure/audit
+the actual pilot before admitting the exact remainder. If observed fit is poor,
+hold for an explicit finite contract adjustment; do not silently raise limits,
+split the remainder, replay successes or change full-game scope.
+
+Private receipts:
+
+| File | Bytes | SHA256 |
+|---|---:|---|
+| t07-014-012-body-join-helper-1/BODY_JOIN_UNBOUND_ROOT.json |4952278|10a0aea38dad0626bf174d3209898a9cab65cc7f6e6a84601a333518fab8d55d|
+| t07-014-012-body-join-helper-1/OUTPUT_PINS.json |3080|680696a7abef3c03262b97f973ef9a3c1f56c43150244ab9d81ce6c087f0a62a|
+| t07-014-012-body-current-root-1/AUDIT_ROOT.py |8071|6cb348e0ef080873d58bc2d114987e695ebafcb12802998cd2bb9e77d7c2051d|
+| t07-014-012-body-current-root-1/ROOT_AUDIT.json |981294|4f651e1de1a29d46e97f75df51fbfba5565c96965a77ba16cd9bd80f1414034c|
+| t07-014-012-body-current-root-1/ROOT_ASSUMPTION_CORRECTION.json |450|ae0bc989303640620ee16ccab2d0c29c53d9cd06359b70003399bec8750a481a|
+| t07-014-012-body-current-root-1/PILOT_SELECTION_UNBOUND_ROOT.json |7248|35c49db092baa9fd19d7abd6851c61465c7a83f0ca2d75c05dc8ccf43e572a1f|
+| t07-014-012-admission-plan-consult-helper-1/REPORT.md |11326|7e3892d04a13e05824e32f25e29a88c9f5f30c64378663e50357c77a72270f19|
+
+Next Root qualifies the still-live separate Claude correction, integrates only
+verified source, then binds this complete current descriptor projection and a
+finite existing-guard caller. Recheck all current pins/world/HEAD at admission.
+No actual prefix/model/summary evaluation or native/Engine/browser/game/SQL/
+network-disconnection action occurs here. Parent4/14/about29%, all82gaps and
+full Renewal/Traditional Chinese goal remain unchanged. This metadata/integrity
+prerequisite is complete; genuine constructor and end-user gates remain open.
