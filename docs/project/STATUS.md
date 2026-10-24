@@ -13,6 +13,9 @@ first-milestone content or remaining effort. Do not relabel it as such.
 **Latest:** [.021all25retained TGA outputs match the independent pixel oracle](reviews/2026-10-24-direct-dependencies.md#actual25retained-tga-decoder-and-complete-independent-comparison-pass).
 ONE call, Node0.184042s/observed peak RSS114.078125MiB; Root574checks/35pins pass.
 It is ready_for_user for pure CPU output only. Reuse retained results, no replay.
+The .023review finds inherited generic lifecycle defects in the .021donor;
+future lifecycle reuse is held until corrected. The independently audited25
+consumed pixel outputs remain verified; no actual call is repeated.
 
 [.022corrected geometry source plan is now Root-qualified](reviews/2026-10-24-direct-dependencies.md#both-geometry-source-plans-pass-root-comparison-with-a-corrected-direction):
 both originals fully reviewed/preserved/released, raw Claude16/20/Grok13/20.

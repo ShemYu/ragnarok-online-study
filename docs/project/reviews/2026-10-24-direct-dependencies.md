@@ -4940,3 +4940,24 @@ Private t07-014-023-claude-review-root-1/:
 | ROOT_CONTROLS.mjs |12109|7c4d57f92814fee39d7c908b29b833b61a56f0889f0c4ffcede7b60410a49389|
 | direct-controls-1/ROOT_CONTROLS_ROOT.json |4518|1a6d386323746808173d565039f2ae3f9b59863001ac2e7e2a7d04dd5f79017a|
 | ROOT_CONTROL_AUTHORITY_ROOT.json |3461|c0120cb51b21ea7c9525d0c6c7cc9b49d5869baab2d6c365a5f3cdd2da2a63ac|
+
+## New geometry lifecycle holds also constrain future donor reuse
+
+Root checks the unchanged .021donor's complete relevant source against the
+Claude .023original. Creation and held-read implementations are whitespace-
+normalized identical; both retain the same unguarded failure write and
+overwriting result.unqualified rename. The new .023fault controls expose
+inherited lifecycle defects, rather than proving every earlier donor invariant.
+Do not copy that pattern again without the now-required corrections. This is
+a source-only trace; neither observer runs on actual bodies.
+
+The .021completed25outputs remain independently pixel-hash equal and fully
+audited through retained physical file/pin authority. No new contrary evidence
+about those saved outputs is found. Its ready_for_user scope remains that
+consumed pure CPU result; prospective generic lifecycle reuse is held. Keep all
+old originals/checkpoints/results intact and never replay the consumed actual
+call merely to test these synthetic faults. Correct the new geometry observer
+before its first actual use. No goal change or user decision is required.
+
+Private t07-014-023-claude-review-root-1/DONOR_INHERITANCE_ROOT.json784B/SHA
+d14eb2eba3bc0a6640ec7c3887e7c3a184171daf5d6ffc525dc41c0b104cd36c.
