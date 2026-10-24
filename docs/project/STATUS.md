@@ -90,13 +90,13 @@ sidecar; preserve3074supported/310gap/731suffix outcomes and default pilot.
 The common brief checkpoint binds equal Claude/Grok implementations.
 No producer rerun, new generic framework or game-state action is needed.
 
-[Claude submits; Grok remains active](reviews/2026-10-24-full839-references.md#claude-submission-preserved-and-source-review-passes).
-Root preserves Claude606dffa's complete source/evidence and verifies its release.
-Root and independent Astra source review find no concrete blocker. Root's
-complete35,735-row expectation was frozen before candidate review; the retained
-author rows match its whole hash. Next execute Root's common controls, repeat
-the candidate suite and run a fresh full CLI, then compare both candidates on
-the frozen scorecard. No candidate adoption or new parent completion yet.
+[Claude passes Root execution](reviews/2026-10-24-full839-references.md#claude-root-execution-and-complete-output-confirmation-pass):
+178common controls/96tests/no skips, fresh CLI0 and complete35,735-row oracle/
+typed manifest/marker/input-preservation confirmation. [Grok also submits](reviews/2026-10-24-full839-references.md#grok-submission-preserved-with-source-admission-finding);
+both submissions are preserved and workers released. Root/Astra source review
+finds Grok's per-source range/hash bindings incomplete; fixed input pins still
+protect the actual CLI. Next repeat Grok controls/suite/fresh CLI and common
+finite counterexamples, then compare/select. No adoption/new parent completion.
 UI-dependent travel stays blocked; independent inventory work continues.
 
 ### Historical preparation — follow the next action above

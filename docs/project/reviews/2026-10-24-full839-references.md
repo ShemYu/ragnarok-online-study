@@ -20,9 +20,10 @@ branches from the same brief commit, then Root verification and comparison.
 Kimi remains off the critical path; no remaining pilot slot is consumed here.
 No provider model/version/token/money claim is made from a harness label.
 
-Current: Claude submits and its source review passes; Root execution is next.
-Grok remains live and implementing. Root's complete expected rows were frozen
-independently before either candidate review. No adoption or new parent
+Current: Claude passes Root execution and complete output confirmation. Grok
+also submits and is preserved/released; its Root execution is next. A per-source
+admission weakness needs a common counterexample before comparison. Root's
+expected rows predate either candidate review. No adoption or new parent
 completion follows yet. The goal and all gameplay boundaries stay intact.
 
 ## Equal implementation pair starts
@@ -116,3 +117,56 @@ publication/descriptor cleanup is retained. This is source qualification only.
 Root common controls, repeated suite, fresh actual CLI and complete output
 comparison remain next. Grok's current fleet observation is live/working with
 no requested action; no timeout-based restart or completion is inferred.
+
+## Claude Root execution and complete output confirmation pass
+
+Root executes the source-qualified shared checker: all5groups/178checks pass.
+Root repeats the candidate suite with both frozen input settings and
+ResourceWarning treated as error:96tests, no skips, natural0 in52.868950s.
+AST comparison separately confirms all74original test methods are unchanged.
+A fresh full CLI returns0 in2.409334s; time reports611,467,264B maximum RSS
+and607,978,336B peak footprint. These are transient data-tool measurements,
+not game hardware requirements or comparative speed proof.
+
+Root independently compares every fresh serialized row to the pre-candidate
+oracle, all35,735rows/all839source indices. Whole typed manifest and completion
+match the independently constructed expectation, including all source metadata,
+ten actual input pins, producer identity, qualified lexical scope and unchecked
+native/world/story claims. All ten228,765,912B input bodies and identities,
+including ctime, remain exact. Publication entries/modes and full hashes pass.
+
+Private `.tools/renewal/t06-full839-reference-claude-execution-root-1/`
+retains logs, before/after inputs and the fresh publication.
+CONFIRMATION_ROOT.json1176B/SHA256
+981f5eeeed781a2939070b003074c6f85768729ceb954c00291273b2ca5870e7.
+Rows retain the oracle hash above; manifest1234827B/SHA256
+96e83b41e85651afcf1bd4fb81d1993851551f10d2be54b7db3b90549354c486;
+completion377B/SHA256b17e3e43389506b2689a7c4de19a9949c78dffbc187a3fea3fb16862bc075e74.
+Claude qualifies for selection; comparison/adoption remain pending.
+
+## Grok submission preserved with source admission finding
+
+Grok task_c5ecc2699c0c/ctx_b8427e2747d1 submits443872d7eb6d96114ad0db9d99094a05d2ea4cba
+from the same base. Root verifies clean Git and exactly the three owned files,
+preserves8complete source/fixture/report/publication mirrors and freshly hashes
+all ten inputs. Retained author rows also match the independent oracle hash.
+The author reports86tests and a2.00s CLI, but retains no test log/CLI exit receipt;
+these remain report claims until Root repetition. Release positively returns
+released/closed_agent_terminal with captured transcript before inbox ACK.
+
+Private packet `.tools/renewal/t06-full839-reference-grok-packet-root-1/`:
+
+| File | Bytes | SHA256 |
+|---|---:|---|
+| SETTLEMENT_ROOT.json |13858|dd5060193c40be68632de225202666db156b878a50fa20ffcd535d2c84685e2f|
+| RELEASE_ROOT.json |455|bfe91f4a65fb7d770c327581619361206ac736f027644a136006a00be369b053|
+| repo/tools/renewal/static_spawn_references.py |82932|350303ab49aa07f2eaa0273d42dc832a88a482e9dd0f7a44d81780b543d311ba|
+
+Root reads the complete source/test diffs. Independent Astra identifies, and
+Root confirms in source, that the four range partitions only cover aggregate
+totals: each source's ranges are not bound to that source's row counts, actual
+row boundaries or recorded stream hashes. Fixed whole-input pins still prevent
+substituting such data through the actual CLI. This is a semantic-admission
+completeness finding, not evidence of wrong frozen-input rows or a pin bypass.
+Next repeat common controls/suite/fresh CLI and use the same finite in-memory
+range/hash mutations on both candidates before scoring. No game action occurs.
