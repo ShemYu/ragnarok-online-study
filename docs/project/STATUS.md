@@ -4,7 +4,8 @@ Updated: 2026-10-25 JST. Coordinator: Codex. Active scope: **execute the documen
 
 ## Current checkpoint
 
-**Main next action:** closely observed field fight/normal return, then
+**Main next action:** ordinary status/equipment inspection, full-health identified
+Poring encounter and normal return, then
 the [authentic Chapter1 route](reviews/2026-10-24-direct-dependencies.md#next-player-gate-resumes-ordinary-play-and-the-real-chapter1-route).
 [Current earned-state ordinary reentries pass](reviews/2026-10-24-normal-map-prerequisites.md#current-earned-state-character-selection-and-full-logout-reentries-pass):
 same character at textured Izlude128,142, HP45/SP12/base2/job3/displayed17%,
@@ -18,11 +19,18 @@ four inventory rows and Izlude128,142. Only expected login/char/map restart;
 five identities/mounts/ports, DB/web starts/volume and current/four old owners
 stay preserved. Root18pin saved-data audit and both viewed return/inventory
 images pass; backup is not restore-tested. Character stays idle safely in town.
-Next observed field fight/normal return, then first
+[Fresh Fabre attempt fails survival; autoattack does continue](reviews/2026-10-24-normal-map-prerequisites.md#second-field-attempt-has-continued-attacks-and-mutual-death).
+One Space produces six player attack packets and targetHP59→0; player dies
+before Fabre. Skill185is Earth Attribute Attack in shipped data; no suicide or
+new client defect is established. Fabre is shipped level6versus player2.
+Root77pins/59captures/14viewed lossless images/five source pins pass. Normal
+respawn returns safely to Izlude128,142; HP45/SP12regenerate, services/owners
+unchanged. Next inspect actual stats/equipment and choose Poring1002, then first
 Chapter1 selection/traversal/persistence. Independent CPU qualification
 of all936is not a prerequisite for normal play. .024broader source plans remain
 parallel: [both .024plans are preserved/released](reviews/2026-10-24-direct-dependencies.md#both-geometry-extension-plans-are-preserved-and-released);
-Root comparison pending. New backup call is consumed; no replay or cold cycle.
+Root comparison pending. New backup call and Root8captures are consumed;
+use a fresh UI prefix, no backup replay or cold cycle.
 
 
 Functionality remains first. **4/14 parent checks, about 29%**; this counts

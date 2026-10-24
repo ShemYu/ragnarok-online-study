@@ -514,3 +514,69 @@ The actor/call are consumed: do not rerun for another export. Next use a fresh
 UI capture namespace for a closely monitored suitable field fight, normal
 return portal and earned reentry. Prior failed fight stays FAILED. No new cold
 cycle, full content/story/render/animation or goal-count credit follows.
+
+## Second field attempt has continued attacks and mutual death
+
+Root continues at8a54ae3eedce2a85a00d041de0e5ee417a595068 in a fresh Root8
+capture namespace. Ordinary WASD and ground clicks reach Izlude's west portal,
+then a settled textured prt_fild08.gat367,212/fullHP45SP12. All held keys use
+within-call scoped try/finally release; the last few queued steps can finish
+after release. A premature local image-view request occurs while its capture
+process is still running; Root waits for that exact process, then views its
+completed image. No input/capture is replayed for that collection error.
+
+Root moves onto the grass, with six one-second read-only health observations
+during the final north movement. One ordinary Space press starts the encounter,
+then three one-second observations show focused Fabre1007/GID110028494 and
+HP45. The next feedback capture already shows player death action8, staleHP22
+and no focus; Root personally views the death menu. The attempt **fails
+survival**, not a successful field encounter/return. Root sends the ordinary
+Restart button and personally views the normal town respawn. Final diagnostics
+show Izlude128,142, naturally recoveredHP45/SP12 and unchanged quiet audio.
+
+Finite retained console previews distinguish this from the earlier range-stall
+lead. One attack request/action7is followed by **six player attack packets**.
+Fabre HP goes45/59→31→17→3→0. Its skill185targets the player immediately before
+player VANISH/type1at index979; Fabre VANISH/type1follows at982. Both die.
+Attack/skill previews have overflow=trueand omit damage fields, so exact lethal
+damage/attribution is not reconstructed. No range-stall diagnosis, suicide,
+calculation defect or earned EXP/loot PASS follows from these observations.
+
+Astra's source-only consultation identifies the mismatch in target difficulty;
+Root personally reads the primary source sections and full-hashes five sources.
+The retained canonical shipped Renewal data has Fabre1007at level6/HP59/
+Defense24, versus Poring1002at level1/HP55/Defense2. Fabre's skill row uses185,
+level1, attack state, rate2000, zero cast and5000ms delay. The header defines
+10000as100%, so this is nominal20%per eligible skill check, not per hit.
+Skill185is NPC_GROUNDATTACK/Earth Attribute Attack; self-destruction is173.
+The actual installed client agrees on those IDs. These data agree with observed
+FabreHP59/skill185; current effective server DB/import/config equality and the
+server binary/source build match remain unverified. No balance change is justified.
+
+Installed Online.js diagnostics read player.life.hp directly. HP packets update
+it, while death handling clears a life-cache entry and sets the death action
+without zeroing that retained field. Root reads those functions. NumericHP22
+after death is therefore stale; death action/menu/notification takes precedence.
+This is an observer interpretation, not a new patch or a survival claim.
+
+Root independently audits all77current leaves/59capture receipts, reconstructs
+all14personally viewed PNGs losslessly, verifies the finite packet sequence,
+final safe town/audio and five full source pins. A fresh native HMAC/owner/
+GET-only service check matches all five post-backup containers, current and
+four old owners. No service/source/balance/settings change, GM/SQL/direct packet,
+progress grant or internet disconnect occurs. Root8is now sealed.
+
+Private t07-orca-ordinary-field-root-8/ROOT_CONFIRMATION.json54131B/SHA256
+f66cbfa0c1b31d028f13bfaa3ea508f26e45ee4e339e1c8f1a0dc518388fc9d5.
+It retains exact source pins, filtered packet previews and all capture/image
+pins. Raw console/credentials stay private. Source anchors: canonical
+db/re/mob_db.yml136/323, mob_skill_db.txt7/72, skill_db.yml5637/5808,
+conf/battle/monster.conf142/148; installed Online.js332590/339867/341889/
+323077/323727. No claim these shipped files are the live effective DB.
+
+After this Git checkpoint, inspect ordinary status/equipment for actual allocated
+stats, remaining points and equipped weapon/armor; allocation remains unknown.
+Then choose an identified Poring1002at full health, observe a suitable fight,
+normal return portal and earned reentry. Root should not repeat the stronger
+Fabre test blindly or change game rules to pass. The original failed encounter
+stays separate. Full scope, parent4/14and all82functional gaps stay unchanged.
