@@ -16,7 +16,7 @@ Current84direct children include the two released review children and the two
 refs, two verified rollback bundles and private evidence survive; the running
 character/quiet audio remain. Three examined children stay held for incomplete
 private preservation; user-retained children remain excluded.
-Latest fleet:319released/ten retained/zero active/zero reclaimable.
+Latest fleet:319released/ten retained/two active .018source traces/zero reclaimable.
 Two .012implementation attempts reuse existing released checkouts; no new
 child folders or setup hooks. Both .012candidates are preserved/released after
 matched settlements. [Root full review and eight behavioral groups per original are complete](reviews/2026-10-24-direct-dependencies.md#both-constructor-originals-are-personally-checked-and-held).
@@ -115,8 +115,10 @@ wait for .012models. Root compares exact source closures/metadata before use.
 **Next independent source lane:** [T07.007.014.018](tasks/T07.007.014.018.md)
 freezes equal source-only TGA worker/model-texture tracing and all25query joins.
 It can run beside .017remainder preparation; no body/decode/runtime action and
-no dependency on waiting for those923responses. Dispatch follows the common-base
-checkpoint. No new child folder/setup is needed.
+no dependency on waiting for those923responses. [Equal wave launched from4c16f91](reviews/2026-10-24-direct-dependencies.md#independent-tga-source-trace-wave-starts):
+Claude task_554eba2f18b9/ctx_20b39bf8269f and Grok
+task_4fe235a6d17b/ctx_a4883fa672d7, two reused clean checkouts/own branches,
+no child folder/setup. Both active; no source result or runtime admission.
 
 **Current map checkpoint:** [All21remaining compiled cores pass Root's complete audit](reviews/2026-10-24-remaining-map-bodies.md#remaining21-actual-compiled-cores-and-complete-root-audit-pass).
 One unchanged qualified host call exits0 in4.807445s, about800MiB sampled RSS,

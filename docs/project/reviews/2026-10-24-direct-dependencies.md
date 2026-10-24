@@ -3128,3 +3128,26 @@ qualify a future disjoint923remainder; they do not run or accept it. Retain all
 finite remainder caller with exact1849normal output leaves and full2155world
 preservation, then fresh binding. All82functional gaps and parent4/14/about29%
 remain; no decode/render/story/save/full-content claim or user decision.
+
+
+## Independent TGA source trace wave starts
+
+After common-base4c16f91, Root verifies the two released .017checkouts are clean
+at preserved originals5024e19/55bac48, then creates separate .018branches from
+that common checkpoint. No child folder/setup. Equal frozen source-only brief
+and two private pins are unchanged; report-only tracked ownership/private slices.
+
+| Provider | Task / Dispatch | New terminal | Branch |
+|---|---|---|---|
+| Claude |task_554eba2f18b9 / ctx_20b39bf8269f|term_9f01bd4f-d009-4832-8cf4-91a746130f4b|ShemYu/t07-014-018-claude-a1|
+| Grok |task_4fe235a6d17b / ctx_a4883fa672d7|term_4fe7ae8d-3c60-4721-963e-e187a3c8e101|ShemYu/t07-014-018-grok-a1|
+
+Both ready/input accepted/no residual resources; Claude turn start observed,
+Grok start observation unsupported, not failure/retry authority. Model/effort
+requested/effective null; configured provider defaults, exact models unknown.
+Both starts precede any wait. Private launch-root-1/WAVE_ROOT.json preserves
+complete receipts/specs. Root continues .017finite923remainder preparation
+independently. .018authors cannot read its bodies or perform runtime/codec/
+process/network/browser actions. All319settled releases and ten older retained
+resources remain; two current trace authors owe later settlement/preservation/
+cleanup decisions. No critical goal-changing blocker.
