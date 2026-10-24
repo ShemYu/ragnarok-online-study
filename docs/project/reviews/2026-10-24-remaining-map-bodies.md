@@ -874,3 +874,36 @@ The new [T07.007.014.008 scope](../tasks/T07.007.014.008.md) freezes normal34
 delivery: reuse the four-GET observer, exact allowlist and fresh live preflight;
 compare equal Claude/Grok source reviews before Root actual admission. A finite
 unbound source projection is being prepared only; no runtime is admitted yet.
+
+## Fresh normal-terrain preflight and fixed source projection pass
+
+Root performs one fresh read-only preflight. All four owner births/executables
+and the asset listener match; the complete2079536B native binary and868B INI
+match their exact prior pins, including the same five-archive order. All five
+archive identities remain exact (their whole hashes are historical qualified
+pins, not freshly reread archives here). All34loose and34override targets are
+absent with safe stable parent identities; output directory is absent. One
+bounded in-memory process read retains only six selected environment fields;
+full environment is neither printed nor stored. Owners match before/after.
+PREFLIGHT_ROOT.json17870B/SHA256
+88b81c4423f99f8f0369a7c52a8d796359dbc2c9da87f24f9626e4aae77af19e
+and the fresh828B/6342c7f1 environment receipt bind the observation. Its bytes
+equal the earlier selected fields; freshness follows from this observed call,
+not a changed hash. No HTTP request/input/restart/config/save action occurs.
+
+Root personally reviews the finite four-to34projection: same60s/3s-I/O/2s
+settling/owner/archive/preservation flow,34fixed paths,16MiB/body/96MiB total
+and explicit absent-new-file failure. Its9768B unbound source refuses before
+native observation. Root verifies the complete donor inverse across11line
+edit regions and then exactly two fresh environment bindings. Bound source is
+GET34_ROOT.py9767B/SHA256
+6b233b391981a4b8d3eb9819228cb8cfb911e64734cbdce2f6fd2a96dd663851;
+SOURCE_PROJECTION_ROOT.json6004B/SHA256
+3e637d95185704eeef991653e4ed66ff24835e77843ee1ea3c8633f3035ee9e8
+retains all exact edits/inverse/bindings. In-memory syntax passes; no source is
+executed. Prefix is the private terrain-normal-get-preparation-root-1 directory.
+
+The frozen task now names all exact source/preflight inputs for equal isolated
+Claude/Grok source reviews. Dispatch from this introducing checkpoint next;
+no actual normal34GET admission yet. Root still requires fresh final preservation
+and full response/loose-body audit after any later admitted call.

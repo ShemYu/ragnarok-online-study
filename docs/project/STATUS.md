@@ -27,6 +27,12 @@ Ordinary playtest remains blocked by the freshly confirmed native-pipe failure.
 source/fresh preflight/equal Claude-Grok source review. No new recovery/HTTP/
 native/game action, no82gap closure. Keep the retained34expected bodies.
 
+[Fresh normal34preflight and fixed source projection pass](reviews/2026-10-24-remaining-map-bodies.md#fresh-normal-terrain-preflight-and-fixed-source-projection-pass):
+four owners/listener/native/INI/five archive identities match;34loose/34override
+targets absent. Source complete inverse/two fresh ENV bindings/syntax pass.
+Next equal isolated Claude/Grok source reviews from this checkpoint; actual
+normal34GETs remain held until Root source/report qualification/admission.
+
 **Latest playable-integration result:** [Settled re-entry and bounded normal integration pass](reviews/2026-10-24-normal-integration.md#settled-re-entry-and-bounded-normal-integration-pass).
 **T07.007.012.009 is5/5checks,100% of that bounded integration task** and
 ready_for_user after its checkpoint. Ordinary creation/travel/NPC earning,
