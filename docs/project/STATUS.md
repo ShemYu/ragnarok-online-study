@@ -64,7 +64,9 @@ listener predicate. Root next compares source and focused controls, with
 bounded evidence and unchanged limits, before any further fresh actor.
 [Fresh B6 pure-data caller source also qualifies](reviews/2026-10-23-T10.007.md#fresh-b6-pure-data-source-qualifies-independently-of-the-readiness-authors)
 in parallel: seven metadata/denial edits, complete inverse, unchanged writer
-and caps. Its one pure-data call may proceed independently; no actor authority.
+and caps. [One actual B6 data call and Root confirmation pass](reviews/2026-10-23-T10.007.md#fresh-b6-data-and-independent-root-confirmation-pass):
+133checks/119full pins/all36leaves/current retirement, no actor. Next qualify
+finite baseline materializer copies while the readiness authors finish.
 Reuse the fixed F1/B4
 sequence on a fresh disposable fixture; keep the current ro4 character intact.
 Baseline materialization and corrected runtime-source projection remain
