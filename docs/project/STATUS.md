@@ -53,9 +53,14 @@ and23UI source edits verified. [Fresh complete runtime templates qualify](review
 98Root checks/10full pins, complete C26/UI11/Engine13 and9C/4Engine whole
 inverses; Astra independently confirms. [Finite binder and read-only world sources qualify](reviews/2026-10-23-T10.007.md#fresh-b5-finite-binder-and-read-only-world-source-qualify):
 14source edits/whole inverse,47checks/13pins and exact retained world function.
-Next fresh GET-only world, five fixed ports and shared committed HEAD/lease
-must pass binding before the fixed quest/logout actor. ro4 preservation is
-observed separately from the inherited ro3 world receipt.
+[The actual fresh B5 trial fails before browser startup](reviews/2026-10-23-T10.007.md#fresh-b5-fails-before-browser-and-complete-preservation-audit-passes)
+at its single host-listener check. Binding passes; zero quest cases complete.
+Root's1022checks/685pins/all263Engine wires and current cleanup/preservation
+audit pass, including separate ro4 before/after. No browser launches; no quest,
+SQL or logout credit. A two-second asynchronous host-forwarder loop supports
+a readiness gap; the actual race is not proved. Next compare Claude/Grok on
+one finite12s/48observation wait for the same strict listener predicate, with
+bounded evidence and unchanged limits, before any further fresh actor.
 Reuse the fixed F1/B4
 sequence on a fresh disposable fixture; keep the current ro4 character intact.
 Baseline materialization and corrected runtime-source projection remain

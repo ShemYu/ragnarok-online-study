@@ -10,8 +10,14 @@ Root verifies [fresh B5 fixture data for the fixed F1/B4 quest sequence](2026-10
 reusing verified sources/guards and preserving the user's current character.
 This is the existing functional check, not another diagnostic framework or
 Kimi benchmark dependency. The130check/116pin data pass and [321check/306pin baseline materialization](2026-10-23-T10.007.md#fresh-b5-baseline-materialization-and-root-confirmation-pass)
-admit no actor; corrected runtime-source projection/current authority and the
-fixed sequence are next.
+admit no actor alone. Corrected runtime selection/templates and fresh binding
+pass, then [the one fresh B5 trial fails before browser](2026-10-23-T10.007.md#fresh-b5-fails-before-browser-and-complete-preservation-audit-passes)
+at the one-shot host-listener predicate. Zero quest cases complete. Root's
+1022checks/685pins/263wires/current cleanup and separate ro4 preservation pass.
+The selected one narrow correction waits for the same listener under existing
+12s/48observation limits and retains finite evidence. Claude/Grok receive
+identical frozen inputs on isolated branches. No further actor is admitted
+until source and focused controls qualify; all existing limits/faults stay.
 
 ## Priority and stop criteria
 
