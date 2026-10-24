@@ -497,3 +497,58 @@ reads/repeats both original candidates and common behavioral controls, then
 checks the separate repair before any selection or actual binding. Live
 requests, delivery, decoding/rendering and full-content acceptance remain open.
 No goal-changing blocker or new user decision is identified.
+
+## Root repeats both suites and equal behavioral controls
+
+Root personally reads Grok's complete1781-line source, complete tests/report,
+and the remaining Claude test source. Both preserved original author suites
+are run independently in parallel on Python3.9.6: Claude26/0skips exit0 in
+1.147238s, Grok14/0skips exit0 in6.770622s. Source/test/report pre/post hashes
+remain exact. Private own-suite receipts are1505B/SHA256
+2a961bd8bb6a158007f2c376e64704573655e3551e4b3e9f5c2cd11f4b57686f
+and1510B/SHA256
+6b0d62c83382236d8cbedc7dac3b0b7a73203a46ea111e4fc90aef71bd64d424.
+
+Root authors eight equal behavioral cases per original candidate. They use
+identical tiny HTTP bytes, real stdlib parsing/owned AF_UNIX closure, and each
+author's private synthetic domain/files for the settlement cases. Those domains
+have different sizes; this is equal behavior, not equal elapsed/fixture size.
+No TCP/listener/native/game request is performed. Candidate pins stay unchanged.
+
+| Root case | Claude original | Grok original |
+|---|---|---|
+| Complete16B CL+close over AF_UNIX | Rejects transport, retains16 | Rejects io:OSError, retains16 |
+| Same complete bytes through nonclosing parser fixture | Succeeds/16 | Succeeds/16 |
+| Truncated chunk parser exposes16partial bytes | Drops all16 | Drops all16 |
+| Read returns16as deadline crosses | Fails, drops16 | Fails, retains/counts16 |
+| Stable absent loose copies | Delivery passes, absence explicit | Delivery passes, absence explicit |
+| Stable prior A vs delivered same-sized B | Incorrect exit0 | Correct mismatch/exit1 |
+| Deadline crosses during AFTER publication | Incorrect exit0/stale elapsed | Incorrect exit0/elapsed61 |
+| Fetch error, then final listener TimeoutExpired plus archive mutation | Generic internal failure; no AFTER/RESULT | Exit1/first deadline preserved; no AFTER; preservation_complete incorrectly true |
+
+Claude's successful RESULT still has integer map/relation counts; Grok keeps
+the complete arrays. These are actual Root reproductions, distinct from Astra's
+additional unexecuted source recipes. Both original sources remain held from
+actual delivery. Private CONTROL_ROOT.py11805B/SHA256
+843df5e8e76b5b39b6538de3dddf5dabe15a5db0c7d2631f83ac9c7f231db615
+and RESULT_ROOT.json40357B/SHA256
+93b0c2e01dfb6d440bc841e40268ed4cd7c86931206c8b779e361c218628f1f4
+under t07-014-011-pair-controls-root-1/ retain all cases and artifact pins.
+
+The separate Claude correction settles as
+751aefedab69aab2090a5b8d044df74093aa5ac5, based on c36d08a. Root verifies
+clean checkout, exact three-file ownership/committed bytes and preserves all
+three files plus refs/archive/t07-014-011/claude-correction/751aefe and a
+verified24340B incremental bundle requiring c36d08a. Its optional private
+prefix is absent. Matched task_37b5d9fcabce/ctx_aa14367230d5 is released with
+terminal closed/transcript captured before delivery_2ce6f84fc5ec is ACKed.
+Preservation receipt1771B/SHA256
+bc4a7014383e85728418a374383862d45dd15bd52468f7953d202242441533c0
+is under t07-014-011-correction-packet-root-1/.
+
+Root personally reads the complete source diff and new report section. It
+preserves full outer records/arrays and adds explicit final verdict authority.
+The reported36controls and the corrected behavioral cases still need Root's
+execution. No source is selected/integrated and no runtime binding or pilot
+is admitted at this checkpoint. Ordinary field encounter/return/save and all
+82resource gaps remain open.
