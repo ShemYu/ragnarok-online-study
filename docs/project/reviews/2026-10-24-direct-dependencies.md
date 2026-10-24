@@ -2224,3 +2224,49 @@ publication machinery otherwise stays unchanged. This routine verification
 adaptation does not change the goal or constitute a critical blocker. No actual
 lookup/decoded image/render/story/save/content acceptance. Full4of14/about29%
 and all82functional gaps remain; quiet game/Chrome/IME/internet remain untouched.
+
+
+## Finite launch audit derivatives and multi-map controls qualify
+
+Root personally reads both complete .015launch drafts and the candidate audit,
+the old complete oracle audit and its complete new51line relation projection.
+Independent full EOF/SHA/currentC8/PREPOST and forward/inverse checks verify
+all four derivatives against the already qualified .010sources. Root597checks
+pass; every untouched byte span remains equal. Only the explicitly authorized
+new-schema relation loop changes semantics; other edits are literal counts,
+paths/schema/namespace and deliberately UNBOUND future pins. No actual call or
+source compile/evaluation occurs in this source-equivalence check.
+
+| Private actual-draft-helper-1 source | Bytes | SHA256 |
+|---|---:|---|
+| RUN_ORACLE_ONCE_ROOT.py |4969|4af19ae23fb05f39f9188f42f24efbb11397a15b23740a964de0a6ac591fc4b2|
+| RUN_CANDIDATE_ONCE_ROOT.py |5212|3cb1da33c56240513f85a8b0659dcad8e0f9b00830b4864bbfa0262539d144ba|
+| AUDIT_ORACLE_ROOT.py |19474|124898d27f202fb3b95cd2fdc7ba8f28c3f604106ec060b73482b1b0ff3c5578|
+| AUDIT_CANDIDATE_ROOT.py |9368|ca06d68228ca0350f27dac7b13b7961b55a7c065b4a6c8b2982f40598b80025c|
+
+Private actual-source-root-audit-1/ROOT_SOURCE_AUDIT.json is9148B/SHA256
+acef0723e5b784b7ba66dfc5164c744a22ecb867da4589f1db55941eb4bdceac.
+Astra independently checks that exact new loop and all16unchanged oracle-audit
+spans, finds no concrete defect and recommends no repair. Root remains verifier.
+
+Root then exercises the exact trusted audit projection alone, using the full
+pinned profile/aggregate as data and eight independently altered copies. One
+positive complete1546relation/2750source-link/948membership case passes. Missing
+source link, one wrong model pointer, wrong Latin1 bytes, missing inverse query
+membership, extra legacy map alias, missing/reordered relation and altered map
+membership each fail at the expected graph/request gate. Nine cases/65760checks
+pass; every actual metadata read closes its FD. This executes only the trusted
+audit block with a separately recorded diagnostic dedent, never an acquired
+game constructor, actual oracle main or catalog row scanner.
+
+Private projection-controls-root-1/ROOT_CONTROLS.json is8629B/SHA256
+bd8fdf8329810de794ba8a9da2dfc4f25ad1a8df2d67e49dc3cf3fe22c288568.
+Arithmetic is independently confirmed: selected68inputs/311752536B/67recorded;
+oracle68inputs/311759247B with the proposed flag-only12226B admitted adapter;
+combined71initial paths excluding the separately pinned guard,123oracle input/
+ancestor closes. These are future closure expectations, not observations of a
+run. All final plan/admitted-source/current-head/currentC8/receipt bindings remain
+UNBOUND; no automatic execution or scope expansion. Wait for the independent
+Grok review, personally reproduce it, compare both, then bind one guarded oracle
+and qualify its complete output before the selected lookup. Successful older
+.010or .012calls remain retained and are not replayed.

@@ -61,8 +61,10 @@ Its private prototype retains actual admission false. [Claude .015review is
 preserved/released and Root reproduces47source/96control checks](reviews/2026-10-24-direct-dependencies.md#claude-nested-review-is-preserved-and-root-reproduces-the-controls).
 Three independent workers remain live: Grok .015review and Claude/Grok .016
 implementations in reused separate branches/checkouts at5ae4031. Root's independent
-oracle source/current65metadata file checks pass; finite multi-map relation audit
-projection and both review submissions still precede any actual catalog scan.
+oracle source/current65metadata file checks pass; [finite multi-map audit projection
+passes Root's positive/eight negative controls](reviews/2026-10-24-direct-dependencies.md#finite-launch-audit-derivatives-and-multi-map-controls-qualify).
+Grok review settlement/Root comparison and concrete final bindings still precede
+any actual catalog scan. No new runtime claim.
 Private-only proposal ownership
 in this checkout. Root owns tracked docs; authors may not mutate Git/source or
 open images/runtime/browser/game. Trace of286delivered image consumers does not
