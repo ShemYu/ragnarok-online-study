@@ -2645,3 +2645,36 @@ These are reviewed proposals, not performance observations or server containment
 BMP retains BM-only consistency; TGA is explicitly not_checked_tga delivery
 without invented magic/decode proof. No actual request/admission, new source
 selection, renderer or content gap closes. .016correction runs independently.
+
+
+## Equal nested-delivery implementations start
+
+After frozen checkpointd9b81941f640f10a2a49a40ff90f012fcbd9c754, Root verifies
+two existing checkouts are clean and have no remaining original worker terminal.
+The old Claude review commit is retained by its original branch plus explicit
+archive ref before-017; Grok345d328 already has its verified bundle/archive.
+Separate new branches ShemYu/t07-014-017-claude-a1 and
+ShemYu/t07-014-017-grok-a1 start from the exact same frozen head. No child folder,
+setup hook, terminal recycling or code integration occurs.
+
+| Provider | Task | Dispatch | Fresh terminal |
+|---|---|---|---|
+| Claude |task_8cab3a219812|ctx_93998892668c|term_573e2856-6889-4764-946b-dc8878bcd75e|
+| Grok |task_3695d6723248|ctx_dd8e5f76545d|term_96221d40-22e9-4693-8ff6-34eb1dba3a47|
+
+Both launch receipts accept input/no residual resources. Claude turn start is
+observed; Grok's turn-start observation is unsupported, not a failure/retry
+authorization. Requested/effective model/effort are null; configured provider
+defaults are used, actual model identities unknown. Both receive the same brief/
+five exact private inputs and separate provider-owned output prefixes; no
+sibling findings. .016.001correction sends a matched implementing heartbeat.
+
+Independent advisory source review finds no material defect in Root's11757B
+.017helper or complete8253357B profile:948queries/1546relations/21maps, all
+observations/graph/URI-stage/reuse/batch/2155union/caps match exact saved
+metadata. All eight advisory inputs stay unchanged. It reads no bodies and
+executes no helper; Root's15fresh body hashes remain separate Root evidence.
+This advisory does not substitute for the equal implementation comparison or
+Root source/behavioral verification. No actual body request/browser/game call
+is admitted. Current three independent workers are live;315settled released/
+ten older retained, no unused settled terminal kept for review.
