@@ -2455,3 +2455,74 @@ original remains preserved/released pending Root's behavioral controls.
 Full4of14/about29%/all82gaps and the agreed full Renewal goal remain unchanged.
 No critical goal-changing issue or new user decision; game, saves, Chrome, mute,
 IME and internet remain untouched.
+
+
+## Claude fixture tests pass but Root controls hold execution
+
+Root reads the complete Claude report, builder,34194B driver and tests, then
+copies the four exact files to a fresh private Root review namespace. With both
+explicit saved input paths, all13Node tests pass/zero skips/empty stderr in
+0.200641s. A fresh fixture build and complete contiguous source-span/hash audit
+pass:42300B production/SHA3f13999877e9e2c277fc5b8817ffb4e0033c1bced7e8914351396a52a51cbdb6,
+manifest11047B/45cfd4391cce4596db7931f713eb353bb42d5ed736aa2b7cbaf2f013fa4bc60b.
+Full saved source/metadata hashes remain unchanged. This is byte/source work,
+not acquired-code execution or browser/native/GL qualification.
+
+Root's own controls reproduce four fault groups in the original driver:
+
+- Actual makeGate/observeTextureLoad output uses completions/forwardCount;
+  evaluateControl expects events/forward_count and throws TypeError. The
+  author's hand-built test record uses a different schema and hides this.
+- Authored failing readPixels leaves a zero buffer and records three diagnostic
+  INVALID_OPERATION errors; blank-ground probes, upload judge and evaluator
+  still PASS. Consumer and diagnostic errors are separate, but diagnostics
+  cannot be ignored when accepting readback evidence.
+- An actually thrown forwarded callback exception still settles forwarded.
+  Compatibility-schema records with that exception/realm error PASS as valid;
+  native-load-plus-processing-error also PASS as malformed unknown decode.
+- Authored script-load rejection leaves its iframe appended; no missing-load
+  setup timer exists. A15ms external observation remains pending. This is a
+  source/DOM-double hold, not a measurement of a real browser's deadline.
+
+Root also source-confirms unguarded sequential cleanup/publication and missing
+button-finally handling, plus nondiscriminating NPOT inset probes. Astra's
+independent source review identifies these same defects and provides a finite
+context-local drawImage observer alongside existing independent pixels; Root
+verifies the two literal production calls at Online209397–209398.
+No production-source patch or broad framework is needed.
+
+Private claude-root-review-1/AUTHOR_TESTS_ROOT.json is2529B/SHA
+c165bbfe82b3d01d08826a1cc4b47abcc8aee011277a7c6e286d70b164c8b53b.
+ROOT_CONTROLS.mjs10680B/eb28c644b6ee79acc3391c706ef283cd605a999a7bd1030554b211c05237c6a6
+and ROOT_CONTROLS.json7008B/c019997c8b2aab1bcedfa4fbf1740ccec3d75cfc70d1b96ba2ea45837f0d63a4
+retain complete controls/results. The private export-only diagnostic projection
+fully inverts to the original driver; original source stays unchanged.
+Compatibility records are explicitly needed to isolate ignored errors from the
+fatal runtime schema mismatch. NPOT/cleanup source holds are not claimed as
+executed GPU/browser failures. Original is held; score/selection follows full
+Grok review. Freeze a separate [five-issue correction](../tasks/T07.007.014.016.001.md)
+from9b3a119; its rework is scored separately.
+
+## Grok fixture original is preserved and released
+
+Matched task_12eeccacc381/ctx_afd98154abb6 settles succeeded at345d3280891bcb93cba902b1317e2dc3a70b1404,
+exact5ae4031parent, clean branch and four owned changes. Root reads full report
+and preserves all four files/nine private outputs/three explicitly identified
+outside-prefix authoring files:16copies/213295B with full verified hashes.
+Archive ref refs/ro-task-archive/T07.007.014.016/grok-a1 and verified30325B
+bundle/SHAa1f3f7cb696d0a6bbbcbe6ca60382b231976e0d510ecca225fc9369d3f4bffbf
+retain rollback. Private grok-packet-root-1/PRESERVATION_ROOT.json is6502B/
+7a80bb018fae073ed2f21e213840d7543fdb048c418a189dfe53afa2651e6883.
+
+Report explicitly retains the unauthorized authoring-only /tmp/t07-016-jpeg and
+sips step; no later native call, production/game image or browser is claimed.
+Root preserves its three exact known files; after a fresh complete hash/copy
+comparison, removes only these three files and their empty original directory.
+EXTRA_CLEANUP_ROOT.json632B/SHA256
+db4125b8a2fc9af705ebc657197eb99520c4784d35558275b5df95aa1cc2c36f
+records original absence; no codec is rerun. This is
+a preservation/scope deviation in the original comparison, not retroactive
+authorization. Worker reports12Node tests; full Root source/test verification
+remains. Settled terminal is released/transcript captured before ACKdelivery
+093b8da5c290. Fresh reclaimable list is empty:315released/ten retained. No idle
+worker is kept for later review. No game/Chrome/internet/settings changes.

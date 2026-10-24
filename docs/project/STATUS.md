@@ -16,7 +16,7 @@ Current84direct children include the two released review children and the two
 refs, two verified rollback bundles and private evidence survive; the running
 character/quiet audio remain. Three examined children stay held for incomplete
 private preservation; user-retained children remain excluded.
-Latest settled fleet:314released/ten retained/zero reclaimable.
+Latest settled fleet:315released/ten retained/zero reclaimable.
 Two .012implementation attempts reuse existing released checkouts; no new
 child folders or setup hooks. Both .012candidates are preserved/released after
 matched settlements. [Root full review and eight behavioral groups per original are complete](reviews/2026-10-24-direct-dependencies.md#both-constructor-originals-are-personally-checked-and-held).
@@ -61,8 +61,10 @@ Its private prototype retains actual admission false. [Claude .015review is
 preserved/released and Root reproduces47source/96control checks](reviews/2026-10-24-direct-dependencies.md#claude-nested-review-is-preserved-and-root-reproduces-the-controls).
 Both .015reviews now pass Root reproduction/compare19/20each and are preserved/
 released; [source qualifies unchanged](reviews/2026-10-24-direct-dependencies.md#both-nested-source-reviews-are-personally-verified-and-qualify).
-Claude .016candidate9b3a119 is preserved/released; Grok implementation remains
-live in its reused separate branch/checkout at5ae4031. Root's independent
+Both .016originals are preserved/released: Claude9b3a119 and Grok345d328.
+[Root reruns all13Claude tests/fresh build and reproduces four fault groups](reviews/2026-10-24-direct-dependencies.md#claude-fixture-tests-pass-but-root-controls-hold-execution);
+original is held. A [finite five-issue correction](tasks/T07.007.014.016.001.md)
+is frozen separately; Grok full Root source/test review proceeds independently. Root's independent
 oracle source/current65metadata file checks pass; [finite multi-map audit projection
 passes Root's positive/eight negative controls](reviews/2026-10-24-direct-dependencies.md#finite-launch-audit-derivatives-and-multi-map-controls-qualify).
 [Concrete bindings for ONE independent oracle are verified/admitted](reviews/2026-10-24-direct-dependencies.md#one-actual-nested-oracle-is-admitted).
