@@ -76,6 +76,23 @@ the new quest/level remain. No encounter/loot, field travel, relog/save, full
 story or82gap closure is claimed. This checkpoint versions the observed earned
 transition before further play; existing failed F1 save evidence stays held.
 
+## Existing equipment and ordinary keyboard movement verified
+
+Root opens the ordinary equipment window and sees the already equipped cotton
+shirt and dagger in their slots. The inventory equipment tab is empty because
+those worn items are displayed in equipment; no new item is granted or used.
+The existing Controls dialog has keyboard/arrow movement, Q/E camera and Space
+nearest-monster attack enabled. Root reads the instructions and closes Done,
+without changing settings. A normal650ms KeyS hold/release moves the same
+character from70,103 to72,96, level2/job2/5.8% with the two-lumber tracker intact.
+Root views the scene; trees obscure the sprite at that position. A prior ground
+gesture has no observed movement and does not establish a terrain defect.
+
+Private t07-orca-ordinary-field-root-2/ROOT_CONFIRMATION.json8182B/SHA
+8699c3c7528732803f5a34215e05cdcd3ac9c1d944cf0bafdc782b89810beea0
+pins23UI/action/image captures. Combat, loot, crew turn-in and the planned
+field/return/save gates remain next. No early departure or progress replay.
+
 ## Root verification
 
 Read-only native Engine GETs match the map container's identity/image/mounts

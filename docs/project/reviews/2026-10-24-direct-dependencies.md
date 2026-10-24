@@ -139,3 +139,65 @@ Next prepare a small adapter around the already qualified independent Root
 then freeze separate oracle/candidate call bindings and limits before any
 actual catalog access. Actual streams remain0; no task readiness or content
 coverage follows from this completed source review.
+
+## Qualified independent oracle and first actual-call admission
+
+Root personally reads all167adapter and577original Root-oracle lines. The old
+28162B source remains exactf3506d5071244ebd09b729e4d94073fad712555033e9951f51475224330cf3e4.
+A sole85B→99B role-total span changes gnd/gat to model/texture/water; forward,
+whole inverse and projected28176B/SHA78fd8c0a3750270bacd80a9119c86264dbaf1169161195c3d3df5b3af6609224
+qualify. No selected matcher/candidate result enters this independent oracle.
+The unchanged held-input/ancestor/collector/publisher code is reused rather
+than introducing a new scanner.
+
+Root checks all11preparation input pins and the closed11-leaf source packet.
+Both an intercepted in-memory unbound main and separate direct CLI refuse
+before the loader: exit2, exact stderr,0loader calls/no actual output. The
+adapter/original projection compile as Root-owned source; no actual catalog
+evaluation occurs. Root controls receipt616B/SHA
+f93c9022c64704c0ea1426f2559dc7c5c397fe35348fca49531e027ef346af4f
+is under t07-014-010-oracle-root-controls-1. The prepared tiny fixture is not
+a claimed positive run of the fixed63-stream collector.
+
+An independent Astra source challenge finds no mandatory admission blocker.
+Final receipt passed:true is not final authority: publisher-close/FD/elapsed
+errors can occur later and must make final stdout/exit fail. The external guard
+covers final serialization/stdout/exit after the internal time observation.
+Original oracle CRLF acceptance remains broader than the selected matcher;
+oracle success cannot override selected refusal. Both operate from the fixed
+profile selection; this oracle independently matches rows, not core selection.
+
+Root creates two fresh exact one-flag derivatives, with complete inverse checks
+against immutable unbound sources. Current metadata-only preflight checks92
+distinct path identities/sizes, including63catalogs by stat only; six source/
+fixed-document contents are freshly checked. No stream is read in preparation.
+The fixed plan is private t07-014-010-actual-preparation-root-1:
+
+| Record | Bytes | SHA256 |
+|---|---:|---|
+| ORACLE_ADMITTED_ROOT.py |12247|f07c1cec117d4aa385199f39ae8df06d51e157b2286c502428d26c8f57075307|
+| LOOKUP_ADMITTED_ROOT.py |12723|01aba206744a6b7e8ec90df0a6b54d6a2ac45a775812dedf0dc1885de3d28452|
+| CALL_PLAN_ROOT.json |80076|8c267115c9cf4012b7ce36dc73b885ef6758a5741d0a465225524ea289816ab6|
+
+After this checkpoint admit **one independent oracle call only**, using the
+exact plan argv and unchanged Root005guardc74f86a2f7f41aa5d468fe10c21cc4a837eea4b5684c4d12fef74d26f3a97a00.
+Guard:130s wall/1610612736B sampled RSS/8s cleanup grace/1MiB each capture,
+expect_native=false. The oracle has127s work plus3s evidence reserve, row1MiB,
+result64MiB/artifacts65MiB/unique-input512MiB. Its89input paths total312942632B
+including the admitted self source. Memory samples are not OS containment.
+
+Require natural0, complete drained stdout/stderr, positive unchanged guard,
+no residual registered group, explicit final success and complete output audit.
+Independently rehash all89whole inputs against their observed identities and
+fixed pins; verify every artifact/result/receipt/closure and all semantic rows.
+Exact success leaves are result.json and RECEIPT_ROOT.json. Any failure,
+signal/late/partial capture or failed marker invalidates the result regardless
+of filenames; preserve partials and do not replay automatically.
+
+The selected candidate binding is preparation only: run it only after complete
+Root oracle qualification and its own checkpoint/admission. Its89inputs total
+312944919B. Compare every maps/catalogs/scan/queries/relations/counts/claims value
+with the independent oracle using typed equality; independently qualify its
+different provenance/source/seed/pre-post record fields. No archive/body/native,
+game/save/network action is admitted by either metadata call. All82functional
+gaps remain open. Actual execution and results follow this admission record.

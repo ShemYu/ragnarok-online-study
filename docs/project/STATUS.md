@@ -11,7 +11,7 @@ The board includes later-phase party taskT11, so this is not a percentage of
 first-milestone content or remaining effort. Do not relabel it as such.
 
 **Child cleanup:** [Root verifies removal of20completed children](reviews/2026-10-24-orca-children-cleanup.md#second-twelve-removals-personally-verified).
-Current82direct children include two new active reviewers. Exact Git archive
+Current82direct children include the two new, now-released review children. Exact Git archive
 refs, two verified rollback bundles and private evidence survive; the running
 character/quiet audio remain. Three examined children stay held for incomplete
 private preservation; user-retained children remain excluded.
@@ -37,8 +37,10 @@ refusal. [Both actual reviews are personally checked/preserved/released](reviews
 source-review tie19/20each; Root14701internal profile checks and three expected
 failure-path reproductions pass. No selected-source correction is required;
 partial outputs never establish success. Next reuse the qualified independent
-oracle, review/freeze source/call limits, then actual oracle and candidate lookup.
-Real63catalog streams remain0; actual execution is not yet admitted.
+oracle. [Root qualifies its source/gate and freezes one actual oracle call](reviews/2026-10-24-direct-dependencies.md#qualified-independent-oracle-and-first-actual-call-admission).
+After this checkpoint run the fixed130s/1.5GiB-sampled guard once, then fully
+audit the oracle before separately admitting the selected candidate. Catalogs
+have only been statted in preparation; no actual lookup result exists yet.
 
 [Normal delivery of all34terrain bodies is already complete](reviews/2026-10-24-remaining-map-bodies.md#normal34delivery-and-complete-root-audit-pass),
 T07.007.014.008 `ready_for_user`:34exact200responses/97037820B, all34new loose
@@ -53,9 +55,12 @@ computer control remains unavailable; use the supported Orca browser page
 recorded privately. [Ordinary captain progression now qualifies](reviews/2026-10-24-normal-map-prerequisites.md#ordinary-captain-quest-advances-through-orca):
 the same character walks to int_land70,103, completes visible21001 dialogue and
 starts21008, reaching level2/job2/5.8% with the Chinese two-lumber tracker. Root
-views TALK/name feedback and checks the actual quest messages. Next equipment,
-ordinary combat/loot and crew turn-in before travel; no early departure. Some
+views TALK/name feedback and checks the actual quest messages. Next ordinary
+combat/loot and crew turn-in before travel; no early departure. Some
 English dialogue/Unknown Item tooltip remain; new progress has not been relogged.
+Root now sees the worn dagger/cotton shirt and verifies existing keyboard
+controls without changing settings. A normal KeyS hold reaches72,96. Next
+ordinary combat/loot and crew turn-in; no new gameplay coverage percentage.
 The compiled run still proves no ordinary travel/story/save or82gap closure.
 
 [Primary source defines the first story transition](reviews/2026-10-24-remaining-map-bodies.md#primary-donor-source-defines-the-first-chapter1-progression-edge)
