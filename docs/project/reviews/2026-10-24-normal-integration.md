@@ -656,3 +656,60 @@ save/re-entry and owned cold restart. No seeded character/direct packet/GM
 travel. All82functional gaps and parent4/14/about29% remain unchanged. No new
 goal-changing issue is established. Git rollback restores this evidence/source,
 not the new account/database; retain its private credentials and state.
+
+## Normal human Novice creation and game entry pass
+
+Root executes the gate4 UI sequence after5eefc512021cec954659ea091dc9fddfd20af358.
+The owned isolated page loads the normal client. Root focuses the actual login
+fields and uses ordinary text insertion; private readback checks both lengths
+and quiet Audio preferences without publishing credentials. One Login click
+reaches CharSelectV4 with15empty names. Normal Enter on that empty selection
+opens CharCreatev4; visible Traditional Chinese text and checked DOM radios
+confirm default human/male selection.
+
+Root inserts Ro4Novice1024 into the visible name input and reads it back. The
+visible 創立 element receives exactly one standard DOM click because this
+custom ui-button has no snapshot button ref. No Component.create, internal
+callback, network packet, SQL seed, privileged account or GM command is
+called directly. The returned character-selection snapshot shows exactly one
+named character, Novice/level1 and 開始遊戲. Normal Enter activates Start Game.
+
+The game enters a rendered tutorial room with the character visible, status
+Lv.1/Novice/Lv.1/Exp0%, HP40/40/SP11/11 and visible coordinates18 26. Root
+personally views the retained PNG. This is actual normal-client entry, not the
+synthetic Mu scene. Live UI readback confirms the status, at least two canvases,
+no creation/selection component, existing Chinese overlay and BGM/Sound still
+off. Root repeats current authenticated native ownership checks and reads all
+five current services: same IDs/StartedAt/images/mounts/ports as after Accounts
+restart, with admitted app/native/engine/VZ and four old listener owners preserved.
+
+A readonly selection predicate initially compares the Start Game label
+without trimming the HTML's surrounding line breaks/tabs. Root retains the
+refusal, reads the actual label and corrects whitespace handling only. The
+normal create and Start Game are not repeated. An initial private receipt-copy
+helper likewise preserves its partial output when encountering this expected
+failed predicate; a fresh complete namespace includes all20original receipts,
+including the refusal. Neither issue changes game state or hides a failed game
+action. Gate4's independent Root auditor passes; no walking/quest/save result
+is inferred from entry.
+
+Private account-source-root-1/ and account-actual-root-1/ evidence:
+
+| Artifact | Bytes | SHA256 |
+| --- | ---: | --- |
+| Source BROWSER_READ_ROOT.py | 1340 | dc8abf16b4a5b762e1381f86480d24dabf66f3c98fa888295eb1175ff5486613 |
+| Source GATE4_AUDIT_ROOT.py | 6641 | 8f558daac37969df497e41167ca0c538371691df8cdddc7c45ef056e916272ea |
+| Actual UI_RECEIPTS_2/PINS.json,20receipts | 5129 | cb5b7e0b55284d5bccedba44dd172e7e4591a81cb78deea4e8feba8a745e5d63 |
+| Actual NORMAL_GAME_ENTRY.png,Root viewed | 944700 | 5e8f289cd7d7d6ee2147ff9336a7fb76c62de5cd46e00efdf79357cd4903003f |
+| Actual ROOT_GATE4_AUDIT.json | 22529 | 0d5de7da2279554aec505c9aa8cc6d6aaf5a5e2db5047a8ad030906cf69e8632 |
+
+Gates1–4 now pass: **4/5integration checks,80% by count**. This is neither an
+effort/time estimate nor80% of full game content. After this Git checkpoint,
+take a new supported baseline backup/reference before earning mutations;
+verify its owned service restart and normal re-login. Then ordinary walking,
+tutorial portal/NPC/quest earning, save/re-entry and supported owned cold
+restart must pass gate5. The ro4 baseline backup and those checks are still
+untested. Preserve new character/account/private credentials and original
+worlds/Chrome/mute/IME/network. All82functional gaps and parent4/14/about29%
+remain unchanged; all-map/story/Chinese completeness and ordinary Mu access
+are not claimed. No user decision or goal change is needed at this checkpoint.

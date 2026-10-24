@@ -19,7 +19,7 @@ Map repair:
        -> fix + 22 focused cases [DONE]
        -> fresh isolated render [PASS: 1,285 placements]
        -> Root audit + image    [PASS: 767 checks / 735 pins]
-       -> Git checkpoint        [THIS CHECKPOINT]
+       -> Git checkpoint        [DONE]
        -> normal source repair  [QUALIFIED: startup + Chinese preserved]
        -> fresh complete ro4    [PASS: 1,135 inputs / 1,114 files audited]
        -> four-file config      [PASS: 40 checks / all prior files unchanged]
@@ -27,10 +27,11 @@ Map repair:
        -> fresh engine boot     [PASS: new ownership / 4 old owners preserved]
        -> empty storage/backing [PASS: new VM / empty DB / all prior files]
        -> normal main ownership [PASS: authenticated]
-       -> normal routes/mounts   [PASS: 3 of 5 gates = 60%]
+       -> normal routes/mounts   [PASS: before login]
        -> ordinary account      [PASS: group0/state0 + fresh restart checks]
-       -> character + game entry [NEXT: ordinary UI; integration still 60%]
-       -> normal game + travel  [OPEN]
+       -> character + game entry [PASS: 4 of 5 gates = 80%; CURRENT]
+       -> baseline backup        [NEXT: before earning]
+       -> normal travel + quest [OPEN]
        -> story + earned save   [OPEN]
 
 Other active work:
