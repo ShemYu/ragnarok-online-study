@@ -3648,3 +3648,31 @@ Private t07-014-019-root-review-1/ receipts:
 | CLAUDE_ROOT.json |3127|f118327795da96ed4594e83d026c03b2f3340653cfe71b8fec39aa1f689f35f7|
 | GROK_ROOT.py |7064|5032ee0ee5d0cb3c67b24076ea988d8e4ec51a9118f8d29cab8355c6411481a9|
 | GROK_ROOT.json |1195|584769d5011d36ab5606cbc5de1e23a0f45fd8591391ed4d94f922bdbbf6ef89|
+
+
+## Independent strict raw pixel reference passes tiny authored controls
+
+Root prepares a1879B independent Python verification function for complete raw
+24/32bit true-color layouts. It uses a separate row/column/channel loop rather
+than Targa's Uint32 pixel implementation. Source defines functions only, fixes
+8x8/256RGBA/4096encoded ceilings and admits no actual body. Strict refusal of
+encoded/palette/unknown/truncated layouts is intentional reference scope, not
+a patch to the acquired decoder or an imitation of its permissive cases.
+
+Root personally passes34controls: complete dimensions and every handwritten
+RGBA byte for all four origins,24bit opaque magenta and8x8maximum; equal values
+with a26byte ignored trailer; short/truncated/extra-byte/dimension/encoded caps,
+palette/RLE/unknown layouts and all three huge-header controls refuse. Last
+pixel inequality is discriminated. Source stays unchanged. Six positive cases
+come from the frozen authored corpus; no acquired JavaScript or real image
+body/pixels are decoded. Zero actual-body admission; larger real-header bounds
+and complete selected pins still need a separate later projection/qualification.
+This prepares the independent oracle needed after .020harness selection/repair,
+without letting a candidate validate its own output. No engine/game replacement.
+
+Private t07-014-021-preparation-root-1/ receipts:
+
+| File | Bytes | SHA256 |
+|---|---:|---|
+| RAW_REFERENCE_UNBOUND_ROOT.py |1879|3d74f2bb598a1796af31c8787f95fe648c651e8f3050c47d9b72709b405e393c|
+| RAW_REFERENCE_CONTROLS_ROOT.json |1896|6cff1e7d64518f791c7d3ac5f9ef57997c10a32b9574426c74e7a289549a884a|

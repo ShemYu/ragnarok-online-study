@@ -2188,3 +2188,7 @@ Claude14050/Grok23930checks, all74spans/full25queries/37relations/91links;
 raw16/20each, both preserved/released. Conditional source synthesis ready_for_user.
 Current next action: finish .020Grok original/Root equal controls and dispatch
 any finite decoder-harness repair. No real image/Worker/render acceptance.
+
+[Independent strict raw24/32pixel reference passes34tiny authored controls](reviews/2026-10-24-direct-dependencies.md#independent-strict-raw-pixel-reference-passes-tiny-authored-controls);
+8x8only, no real-body decoding/admission. It prepares an independent future
+actual-output oracle while .020Grok continues; source repair/selection stays next.
