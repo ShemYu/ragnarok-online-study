@@ -1253,3 +1253,35 @@ Use all17descriptors to check the eventual real host results, not just its
 PASS/summary. This is an independent verification reference, not another game
 parser, full GND/RSW validation or actual compiled-runtime acceptance. It does
 not change either worker's frozen input/implementation task or permit execution.
+
+## Provisional host deadline gap is reproduced before execution
+
+Claude writes a provisional53366B host with SHA256
+250d844e34cc84e9e3a859890a72255a08cf8dfe44f8cdd02266aba4f2afa673.
+It is still implementing/testing, not a submitted or selected candidate. Astra
+performs a read-only source consultation; Root personally reads the complete
+source and checks the lifecycle/clock findings. Classic same-realm evaluation,
+unchanged pilot concatenation, two-region remaining-map inverse and distinct
+installation/result/closing/exit evidence appear consistent in this revision.
+Actual host/runtime qualification remains held.
+
+There is a concrete deadline gap: the whole-run timer is cleared before final
+synchronous posthashes, and success publication does not compare final elapsed
+time to1240s. Worker exit likewise records elapsed but lacks an actual-time
+comparison to its effective55s/remaining-run budget; a delayed timer callback
+alone cannot prove timely completion. Root reproduces the latter using only
+the candidate's pure classifier and a synthetic otherwise-successful record:
+elapsed55001ms/limit55000ms incorrectly returns observed. The matching on-time,
+timer-expired and nonzero-exit controls give their expected outcomes. No Worker,
+acquired parser/source/body, network or game action is used by this control.
+
+Private `.tools/renewal/t07-014-009-root-pure-controls-1/CLAUDE_EARLY_DEADLINE_ROOT.json`
+is1119B/SHA256cd03fa26cbd4589f11d8d002a67bbfbee0c13faa77544f551d9797b15fb03d76.
+Root checks source bytes unchanged around the control. This is a provisional
+counterexample, not a final comparison score or authority to stop/retry workers.
+Both live implementations receive the same actual-time deadline requirement
+(msg_feca10117773/msg_963ba3c8d24d) with no changed frozen input/cap/acceptance.
+Require checks after synchronous final work/publication as well as worker
+termination/exit, and repeat focused late-completion controls on final sources.
+Pilot full-oracle equality remains Root-owned; host observation alone cannot
+admit the21-map batch. No genuine target execution is admitted here.

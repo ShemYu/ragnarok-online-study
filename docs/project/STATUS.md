@@ -35,6 +35,10 @@ ctx_aa9287fa50a3, exact ab3aebaHEADs verified. Preserve/release and personally
 qualify their source/tests next; no actual target execution is admitted.
 [Root's independent terrain numeric reference is ready](reviews/2026-10-24-remaining-map-bodies.md#independent-remaining-terrain-numeric-reference-is-prepared):
 all17GATs/1653256raw cells, no unknown type or expected numeric anomaly.
+[Early host review reproduces a deadline hold](reviews/2026-10-24-remaining-map-bodies.md#provisional-host-deadline-gap-is-reproduced-before-execution).
+Claude's provisional source is not a settled submission; both providers receive
+the same actual-time deadline advisory. Require final corrected source/controls
+before real parser execution. This changes neither full scope nor acceptance.
 Ordinary playtest is separately blocked by the native-pipe startup failure;
 no game restart, network cut or alternative browser-control bypass is admitted.
 
