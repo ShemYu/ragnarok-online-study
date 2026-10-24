@@ -35,6 +35,11 @@ geometry execution is admitted and no goal-changing issue/user decision appears.
 Root's independent mesh comparator now passes350checks/10authored positives/
 170corruptions after two advisory faults reproduce and are fixed. Exact full
 expected model702 bytes are projected from the consumed reference, without replay.
+[Unbound caller now passes67Root authored controls](reviews/2026-10-24-direct-dependencies.md#unbound-geometry-caller-passes-root-controls-after-bounded-cleanup-correction);
+future source/stdout binding and actual admission remain absent. [All936summary
+coverage rows pass Root's full metadata audit](reviews/2026-10-24-direct-dependencies.md#all936saved-summary-coverage-rows-pass-independent-root-audit):
+142structural candidates/794outside the current narrow harness; none thereby
+qualifies for actual execution. Broader versions/hierarchies remain later work.
 
 **Child cleanup:** [Root verifies removal of20completed children](reviews/2026-10-24-orca-children-cleanup.md#second-twelve-removals-personally-verified).
 Current84direct children include the two released review children and the two
@@ -42,7 +47,8 @@ Current84direct children include the two released review children and the two
 refs, two verified rollback bundles and private evidence survive; the running
 character/quiet audio remain. Three examined children stay held for incomplete
 private preservation; user-retained children remain excluded.
-Latest fleet:329released/ten retained/two active/zero reclaimable.
+Latest full341row fleet:329released/eight user-owned/two absent/two active;
+no lifecycle action advertised and zero reclaimable. Both active workers are live.
 Two .012implementation attempts reuse existing released checkouts; no new
 child folders or setup hooks. Both .012candidates are preserved/released after
 matched settlements. [Root full review and eight behavioral groups per original are complete](reviews/2026-10-24-direct-dependencies.md#both-constructor-originals-are-personally-checked-and-held).

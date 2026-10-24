@@ -4763,3 +4763,86 @@ Private t07-014-023-preparation-root-1/:
 | COMPARATOR_REDGREEN_ROOT.py |2466|cf4f6c372698593df48c8c3b6908e9979811c30fb442f36069e615c2cab729a1|
 | COMPARATOR_RED_ROOT.json |325|4c7539886556ccdd8f38e948e5cd05fb9b45b6b1dfc219489bd1c0ac42f9ca62|
 | COMPARATOR_GREEN_ROOT.json |328|ff892481fa70a6992a28abbd41e0805495c72fe2a10094eda2a5c519e3dc0e9b|
+
+## Unbound geometry caller passes Root controls after bounded cleanup correction
+
+A native advisory helper prepares a .023caller from the qualified .021donor;
+no Orca-original benchmark credit is assigned. Root reads the complete19074B
+candidate/report/test plan and personally runs39authored controls: fake six-input
+positive, unbound/optimized gates, actual handwritten child stdout/stderr floods
+and tiny real timeout, selector setup failure, input close error, late pending/
+linked output, namespace replacement and foreign final. No acquired body/source,
+reference or compiler runs. This is caller plumbing, not geometry acceptance.
+
+A further Root fake-process probe reproduces an unbounded cleanup wait after
+kill failure. V1/red evidence are preserved. The helper's minimal V2 changes
+that wait to timeout1s; Root reads the complete delta and runs67controls including
+the same regression, all eight C8 lanes, noncanonical identities, owned link
+faults, late deadline plus occupied earlier unqualified alias, and late output
+close plus deadline. All pass. Both kill and timed-wait errors remain sticky;
+all pipe/selector closes are attempted. Finite process budget is15s running plus
+at most1s cleanup wait; the25s caller filesystem deadline is cooperative. No
+hard RSS/address-space or interruptible host-IO claim is made.
+
+V2 remains ROOT_BOUND:false with future module pin/stdout contract UNBOUND.
+Root source selection, exact binding/requalification and a separate committed
+actual admission are still required. The fixed actual prefix remains absent.
+The tested fake children/files never include client code or real model bytes.
+
+| Private artifact | Bytes | SHA256 |
+|---|---:|---|
+| t07-014-023-caller-helper-2/CALL_GEOMETRY_UNBOUND.py |19167|7c56cb0c2c0082ab8a93973dde5b2bc76095517a46b1fef0eac2c167e10a5837|
+| t07-014-023-caller-review-root-2/QUALIFY_UNBOUND_ROOT.py |12348|3d0b0616d1f15645595b4fef676e8d108ba93f7f77ce5b36155d53aa4e1b5059|
+| t07-014-023-caller-review-root-2/UNBOUND_CONTROLS_ROOT.json |6111|10cceb49b7c1f135ce191ece4c4adeae4bdb54b0e10ec93c85a1e5383ba4e8ad|
+| t07-014-023-caller-review-root-1/CLEANUP_WAIT_RED_ROOT.json |880|b4baa60a11e3e04bf416f57c57d2d78d6b9fb37da969214b4c49749615ef69c4|
+
+## All936saved-summary coverage rows pass independent Root audit
+
+While the implementation pair runs, a metadata-only helper preserves/classifies
+all936consumed constructor summaries. It reads the fixed runtime profile, two
+consumed manifests, four public guidance files and936whole result JSONs:943pins,
+4694helper checks. No raw body, actual parsed/reference array, acquired source
+or runtime executes. Historical result identity is explicitly unknown where
+manifests supplied only full size/SHA; fresh C8/SHA authority is recorded.
+
+Root reads the complete classifier/report and independently recomputes every
+row from freshly pinned whole summaries/manifests/profile.53540checks/all943
+full PRE/POST authorities pass, including every relation field, texture slot/
+table join, node transform/key/count and tri-state condition, complete domain
+and all aggregates. Root additionally checks unique node names and zero volume
+boxes; all142structural candidates satisfy both.141have one root; model702has
+two. Actual raw preflight/placement/cap fit/compile remain UNKNOWN for all936.
+
+| Saved-summary fact | Count |
+|---|---:|
+| Version1.4 /1.5 /2.2 /2.3 |559 /46 /46 /285|
+| Shade0 /1 /2 |117 /92 /727|
+| Animation by node keys false /true |896 /40|
+| Current narrow structural conditions pass /known outside |142 /794|
+| Unknown key-count condition, already outside by version |615|
+
+This is future verification planning;142is not executable-model acceptance or
+content coverage. The794outside rows require broader observer/oracle variants;
+this table does not establish a game failure. Full936scope is preserved.
+
+Astra finds generic classifier defects for absent string/reference metadata and
+an omitted unique-name condition. Root's current-row supplement verifies all
+1306node name/parent records are explicitly present/non-sentinel, and all158
+texture references within the142candidates have complete valid slot/table
+joins. No current count changes. Generic reuse is held until those tri-state
+defects are repaired; the present saved-row audit does not qualify arbitrary
+future metadata. Zero top-level UNKNOWN rows does not imply complete key fields.
+
+After three empty waits, Root fully enumerates four fleet pages/all341rows to
+hasMore:false:329released/eight user-owned/two absent/two owned live workers.
+No nonempty next-action argv is advertised; user-owned rows remain untouched.
+Both current implementations continue; no new child/setup or user decision.
+All82functional gaps and parent4/14/about29% remain unchanged.
+
+| Private artifact | Bytes | SHA256 |
+|---|---:|---|
+| t07-014-023-coverage-helper-1/COVERAGE_ROOT.json |5425959|85c93e66795a8abf44322f5b9acb8e1ae374fdf9fc6fbfd802d65dbc9b6dec7d|
+| t07-014-023-coverage-helper-1/INPUT_PREPOST_ROOT.json |1359562|4485b5f45822902e9793acbe6a8e49c88a8171805a00255334829f79a2b4bd70|
+| t07-014-023-coverage-review-root-1/AUDIT_ROOT.py |9824|1caa1f561f5ebc4c641a5d59e1b6e52cca34d55273008e33322d37c2ee5b214e|
+| t07-014-023-coverage-review-root-1/COVERAGE_AUDIT_ROOT.json |5277|8b27490876c948ec915bb1347992da9d4bbc5cbde14ffaee66fec2943f9b484b|
+| t07-014-023-coverage-review-root-1/CURRENT_FIELDS_SUPPLEMENT_ROOT.json |449|5463af28e08514d663a993c40cd227c0458ec4f6ad95f7a9f2985c32cd1d407d|
