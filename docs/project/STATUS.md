@@ -54,11 +54,14 @@ Root's complete failure/preservation audit passes1385checks/901full pins and
 all277Engine wires; independent901rehash and separate ro4before==after pass.
 All owned processes/groups and5containers/network are gone; SQL volume retained.
 
-**Next action:** perform the mandatory Astra/Root priority review of the new
-logout blocker, then choose the next player-value action under the existing
-[stop criteria](reviews/2026-10-24-functional-priority.md#priority-and-stop-criteria).
-No automatic retry or scope reduction. Preserve the user's current game and
-the completed normal integration. Earlier preparation history follows:
+**Next action:** [Astra/Root priority review is complete](reviews/2026-10-23-T10.007.md#post-b6-priority-review-selects-a-normal-map-prerequisite-check).
+Hold the quest path. Prepare only the map-specific normal-route prerequisite
+and111-body asset-route join for mu_fild01, reusing completed Mu3 rendering
+and installed ro4 integration. Establish native entry/exit conditions first;
+its independence from Chapter1/unearned progression is unproved. If dependent,
+record that fact and consider an already-inventoried accessible map. No new
+actor/install/warp/progress grant or quest repair is admitted. Preserve the
+user's game and the full goal. Earlier preparation history follows:
 
 Continue [ordinary quest/logout and full-world functionality](reviews/2026-10-24-functional-priority.md#priority-and-stop-criteria)
 from current user progress; preserve the completed normal integration and its

@@ -19,12 +19,16 @@ current retirement/API cleanup and separate ro4 before==after. No user progress
 is changed. This trial remains failed with zero completed quest cases; later
 cancel/grant-repeat/new-auth and post-logout SQL are unverified.
 
-The one narrow readiness correction allowance is consumed. **Mandatory priority
-review is now active; no further quest actor, default diagnostic generation or
-repair is admitted.** Astra reviews compact actual/source evidence; Root will
-record the next player-value action, distinguishing a test seam from a real
-normal-game defect and considering independent content work. Full scope and
-4/14/about29% remain unchanged; no new user decision or scope change is required.
+The one narrow readiness correction allowance is consumed. **The Astra/Root
+priority review is complete; hold F1 with no further quest actor or repair.**
+[Root selects normal-map prerequisite preparation](2026-10-23-T10.007.md#post-b6-priority-review-selects-a-normal-map-prerequisite-check):
+reuse completed Mu3 rendering and installed ro4 integration; join111actual
+resource bodies to the normal route and establish native entry/exit conditions.
+mu_fild01 access may require blocked Chapter1/unearned progression: independence
+is unproved. If dependent, record the exact gate and consider another already-
+inventoried ordinarily accessible map. No new actor/install/warp/progress grant
+is admitted. Full scope and4/14/about29% remain unchanged; no user decision or
+scope change is required.
 
 ## Priority and stop criteria
 

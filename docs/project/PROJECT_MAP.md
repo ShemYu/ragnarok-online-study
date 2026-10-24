@@ -38,14 +38,24 @@ Map repair:
        -> owned cold restart    [PASS: fresh services + earned re-entry]
        -> session continuity    [PASS: bounded 72s; limits recorded]
        -> normal integration    [5 / 5 PASS; user progress preserved]
-       -> ordinary world/story  [NEXT: open functional coverage]
+       -> normal map access     [NEXT: route + resource prerequisites]
+
+Quest check:
+  Finite startup repair        [PASS: listener seen in 3 checks]
+       -> Chinese A199 refusal  [SEEN; full case not complete]
+       -> logout/save           [FAIL: save evidence unknown]
+       -> cleanup + Root audit  [PASS: 1,385 checks / 901 pins]
+       -> priority review       [DONE: hold quest; no retry]
+       -> normal map route      [NEXT: check Chapter1 dependency first]
 
 Shadow pilot (1-3 real tasks, alongside main work):
   Same-input source triage     [TRIAL 1 VERIFIED: Claude / Grok / Kimi]
-  Kimi follow-up usefulness    [up to 2 suitable tasks; no delay to game]
+  Kimi follow-up               [TRIAL 2: quota 429; no handoff]
+  One Kimi trial remains       [capacity check first; off critical path]
 
 Other active work:
-  Ordinary quest/logout        [OPEN: A199 seen; later cases fail]
+  Ordinary quest/logout        [HELD: B6 save/quit evidence failure]
+  mu_fild01 normal route       [SOURCE CHECK NEXT: access may depend on quest]
   Full839 data + entry         [PASS: 4,226 checks / 947 pins]
   Full839 entry FD closure     [PASS: explicit setup; exact comparison kept]
   Claude/Grok FD plan pair      [BOTH VERIFIED + RELEASED; control PASS]
