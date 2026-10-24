@@ -20,9 +20,10 @@ branches from the same brief commit, then Root verification and comparison.
 Kimi remains off the critical path; no remaining pilot slot is consumed here.
 No provider model/version/token/money claim is made from a harness label.
 
-Current: both implementations are active; Root's complete expected rows are
-frozen independently. Next collect and personally verify each candidate before
-adoption and worker release. The goal and all gameplay boundaries stay intact.
+Current: Claude submits and its source review passes; Root execution is next.
+Grok remains live and implementing. Root's complete expected rows were frozen
+independently before either candidate review. No adoption or new parent
+completion follows yet. The goal and all gameplay boundaries stay intact.
 
 ## Equal implementation pair starts
 
@@ -80,3 +81,38 @@ candidate only when subsequently executed. No candidate has been read/imported
 or run by this checker. Production admission/publication and transient global
 monkeypatching still require Root code/CLI review; these controls do not claim
 to cover them. No project production source is changed by checker preparation.
+
+## Claude submission preserved and source review passes
+
+Claude task_dc3cf089858a/ctx_5410b57ddf3f submits commit
+606dffa286cdb2753d6e492f1c76f7352cde3a54 from the common b8c6f5d base.
+Root verifies clean Git and exactly the three owned source/test/document files.
+The worker reports96tests with no skips and one full CLI; those execution
+claims await Root repetition. The retained13,095,722row bytes do match the
+independently frozen whole-output SHA above.
+
+Root fully preserves and revalidates16 source/evidence mirrors and freshly
+hashes all ten228,765,912B frozen inputs before lifecycle cleanup. An initial
+receipt reader expected bare `0` and stopped before settlement/release/ACK;
+the actual receipt is `exit=0\n`. Root verifies that exact form and all existing
+copies without overwriting them, then records settlement. Release returns
+`released`/`closed_agent_terminal` with the transcript captured. No worker
+terminal is kept sleeping for hypothetical repairs.
+
+Private packet `.tools/renewal/t06-full839-reference-claude-packet-root-1/`:
+
+| File | Bytes | SHA256 |
+|---|---:|---|
+| SETTLEMENT_ROOT.json |19380|a2b67ff80860e3db65cb3a093dfcdae238d811a68662ecd7ea3f57c73140153a|
+| RELEASE_ROOT.json |455|65e726b2201e7971e1c1bdbbe166ce40a162705536394072aee4ad7970c146c1|
+| repo/tools/renewal/static_spawn_references.py |78260|0e9b75ad0da00b19e4172543abf7edf6d05775d3a14e019fab234fd204e244d8|
+
+Root reads the whole source diff; independent Astra also verifies the exact
+module and finds no concrete source blocker. Separate full pins/limits/order
+preserve pilot defaults without global monkeypatching. Full admission binds
+all839source ranges, terminal states and both streams; physical/declaration
+bodies remain hash/LF bridges without historical path traversal. Existing
+publication/descriptor cleanup is retained. This is source qualification only.
+Root common controls, repeated suite, fresh actual CLI and complete output
+comparison remain next. Grok's current fleet observation is live/working with
+no requested action; no timeout-based restart or completion is inferred.
