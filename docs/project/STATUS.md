@@ -70,6 +70,9 @@ including normal complete-response socket-close rejection. Grok remains active.
 No live GET is admitted; compare both before source selection/repair. Root also
 [checks the next constructor/declaration source seams](reviews/2026-10-24-direct-dependencies.md#next-constructor-stage-source-review);
 genuine placement-aware compile and browser decoding remain separate gates.
+[A separate Claude correction is frozen](tasks/T07.007.014.011.001.md) from
+c36d08a in its existing checkout/new branch, independent of Grok's original.
+Ten fixed source/metadata inputs; no live request authority or source selection.
 
 [Normal delivery of all34terrain bodies is already complete](reviews/2026-10-24-remaining-map-bodies.md#normal34delivery-and-complete-root-audit-pass),
 T07.007.014.008 `ready_for_user`:34exact200responses/97037820B, all34new loose
