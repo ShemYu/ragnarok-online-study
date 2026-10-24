@@ -4487,3 +4487,43 @@ Private t07-014-022-claude-review-root-1/:
 | ROOT_CONTROLS_ROOT.json |412|316e162f844c48ec1835ada398bf5ee09aa826f859365b40f6bfa6743429c91f|
 | ROOT_CONTROLS.mjs |987|451fa42aec3eb849a8b26fbf999718d226c51e5ed793d50e75073dfcf0e3a53e|
 | AUTHORED_VM_CONTROL_ROOT.json |289|e2d6f2a04f908eabbfce2a56e33f8c5b34d53770cf194f4149eb00c85183a96c|
+
+
+## Independent geometry reference caller qualifies and one reference is admitted
+
+Root extends the independently authored reference to retain transformed vertices,
+face normals and per-group/vertex normals along with full mesh arrays and matrix/
+bounds evidence. This is diagnostic output, not an arithmetic change. Complete
+42authored controls pass, including both zero-sign orders; prior source versions
+remain preserved. Latest6234B function SHA
+0c14e0a556d58f6d2d2bf6da8f23bf3321f8b66d8ae9ea6ce74fa54f434dc263
+supersedes the6097B source-control checkpoint. No actual parsed model is evaluated
+by these authored tests, and no acquired JS executes.
+
+Root personally reads the finite caller's complete main; syntax/default refusal
+before data IO/output and exact inherited helper equality pass. It holds five
+full inputs: reference function, placement, retained independent parsed arrays,
+inert Worker and old summary. It restores tagged negative zero, passes already
+scaled placement values and ground200x200, and requires exact2mesh lengths and
+texture names. Full input/namespace/close/deadline/pending-publication checks
+reuse the qualified preflight pattern. This is no acquired constructor/compile
+or parser replay, and no worker's observed mesh is used as expected values.
+
+**Admit ONE independent geometry-reference call** using fixed6939B caller SHA
+9534dcda6eb24943ff06a4e8f2b2f23c230fd26cb11b08415c9ed2d42cbc9e91,
+mode `--execute-qualified-geometry-reference`, absent owned0700 prefix
+`.tools/renewal/t07-014-022-geometry-reference-root-1`. Inputs retain exact pins,
+including parsed353543B/SHAfe18ec2d7a198c6d80993b2e5377a54bd729f03cb1ab839638da1e0291fedf8f.
+Five seconds inner/ten seconds real outer process guard,1MiB result cap, regular
+0600outputs. Failure grants no retry. Root audits saved reference/current full
+input/output authority afterward. Exact Float32 comparison stays frozen;
+cross-libm discrepancies remain held. Actual reference/time/RSS unobserved here.
+No actual model compile, request/body/parser replay, browser/game or goal change.
+
+Private t07-014-022-preparation-root-1/:
+
+| File | Bytes | SHA256 |
+|---|---:|---|
+| GEOMETRY_REFERENCE_QUALIFICATION_V4_ROOT.json |553|bb80498dc1b3cfea2f14839179bad83563eb2ba9c9f01b478f314028df2f3d3d|
+| CALL_GEOMETRY_REFERENCE_ROOT.py |6939|9534dcda6eb24943ff06a4e8f2b2f23c230fd26cb11b08415c9ed2d42cbc9e91|
+| GEOMETRY_CALLER_SOURCE_ROOT.json |351|ed535f99495adaac21b6f76b855bec938d4954519e1319c3d97046a070e94adf|

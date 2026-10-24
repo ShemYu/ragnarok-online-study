@@ -29,8 +29,8 @@ independent Python parse is admitted](reviews/2026-10-24-direct-dependencies.md#
 [ONE independent parse/full4226check saved-array audit now passes](reviews/2026-10-24-direct-dependencies.md#independent-actual-static-model-preflight-and-full-saved-array-audit-pass):
 all indices/finite data valid, exact mesh output42876B. Parse consumed; reuse
 retained arrays for the independent Float32 geometry oracle.
-[Root40authored geometry-reference controls pass](reviews/2026-10-24-direct-dependencies.md#independent-geometry-reference-passes-authored-source-controls),
-actual reference unrun. [Claude2d55d16preserved/released, bundle recovery complete](reviews/2026-10-24-direct-dependencies.md#claude-geometry-plan-is-preserved-and-released-with-bundle-recovery);
+[Root42authored geometry-reference controls and finite caller pass; ONE reference admitted](reviews/2026-10-24-direct-dependencies.md#independent-geometry-reference-passes-authored-source-controls),
+actual reference unrun; [latest admission](reviews/2026-10-24-direct-dependencies.md#independent-geometry-reference-caller-qualifies-and-one-reference-is-admitted). [Claude2d55d16preserved/released, bundle recovery complete](reviews/2026-10-24-direct-dependencies.md#claude-geometry-plan-is-preserved-and-released-with-bundle-recovery);
 [Root full review/static reproduction/300span controls now pass with adapter
 and oracle holds](reviews/2026-10-24-direct-dependencies.md#claude-geometry-spans-pass-full-root-reproduction-with-adapter-holds);
 Grok independent, no selection or compile grant. No acquired
