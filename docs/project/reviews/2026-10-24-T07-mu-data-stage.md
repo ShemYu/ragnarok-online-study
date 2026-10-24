@@ -1666,3 +1666,22 @@ B4 header correction now passes Root whole-source qualification9679/
 2a765bb9d5ecdc99a2c1848f8eba8d93c8c621c792c9941eb51fb57863593474;
 20frozen helper cases remain next. Its author is released/archived beforeACK.
 Caller rename and FD formatter remain live. No data/scene/parent credit.
+
+
+## Corrected Mu3 caller qualifies and closes semantic hold
+
+Actual ctx22fe26e5ed21 candidate26491/
+1ffb4560397a11ad195b33d8758c59a912b66da5c470fda42c0ec6923839de73
+changes only the two-line loop variable and four accesses. Root whole forward/
+inverse, five current opened inputs/eight closed outputs and the prior entire
+caller proof pass; historical old dictionary stays intact. Independent review
+confirms the narrow semantic HOLD closes; no remaining mandatory defect.
+RootQ23209/b28555bf763d3f055ea7ddee42d307c04b6e982652df1aeda98cc079958b1899.
+Source still unbound, no data call or actor is admitted by that file.
+Release455/8375438d2dcd0030d2ca161c5b14ea0cfb119e73e284390bbd15e39091867054
+is explicitly released/closed_agent_terminal/captured archive before
+delivery94d985c5ad77 ACK. All latest three Grok authors now have released,
+captured-archive receipts; fleet0active/280released/7retained/zero reclaimable.
+The retained terminals remain under their existing user/transfer ownership.
+After this checkpoint Root can bind only the three admission headers for
+one unchanged-writerG10/512MiB/no-native fresh data call; no retry or game actor.

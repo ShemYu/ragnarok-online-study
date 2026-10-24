@@ -38,17 +38,17 @@ all111 body joins/1285 placements load; one animated model has864NaNs
 only in its first retained frame. Complete Root776checks/771pins/all252
 Engine wires pass failure/preservation audit; the scene remains failed.
 The finite sampler patch now qualifies and passes all22 focused Root tests.
-The new isolated four-file Web stage verifies. The fresh-fixture caller returns
-and passes Root whole-source structural verification. Semantic review then
-finds a reused loop variable that would fail the audit after generation;
-Root confirms it and holds the caller. The one-region caller correction and
-FD diagnostic-retention task remain active. B4 header source correction now
-passes whole-file Root verification; its20 focused cases are next.
+The new isolated four-file Web stage verifies. The fresh-fixture caller's
+one-region variable correction now passes whole-source Root qualification
+and independent semantic review. Header correction passes all20 focused
+cases. FD formatter source now qualifies for its closed caller path; four
+focused cases are next. All three latest Grok workers are released/archived.
+Next: one fresh pure-data call, then Mu19/runtime binding and scene retest.
 One finished sampler terminal is retained under Orca user_takeover;
 other settled authors are released with captured archives.
 Current map-render verification estimate75%; overall4/14/about29% checks.
 Next Mu19/runtime reuse recipe is independently reviewed. Root freezes20
-header and4 FD-formatting boundary cases; no candidate test or scene runs yet.
+header and4 FD-formatting boundary cases. Header20pass; no new scene yet.
 
 **Current blocker:** the animated first-frame numeric-data failure is
 proved at leading-key interpolation; its source repair passes, fresh scene

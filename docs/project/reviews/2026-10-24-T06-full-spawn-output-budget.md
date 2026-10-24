@@ -785,3 +785,26 @@ B4 header correction now passes Root whole-source qualification9679/
 2a765bb9d5ecdc99a2c1848f8eba8d93c8c621c792c9941eb51fb57863593474;
 20frozen helper cases remain next. Its author is released/archived beforeACK.
 Caller rename and FD formatter remain live. No data/scene/parent credit.
+
+
+## FD formatter source qualifies for the closed fixed entry
+
+Actual ctx564b36f472fb returns candidate30756/
+7fe1a6c32d790ebc2384e95815d6351bdb3c7134788d52f8011faedaa3c87891.
+Root verifies all six opened current inputs/ten closed outputs, whole forward/
+inverse and exact unchanged prefix24004/suffix1600: only fail and immediate
+sample-removal helper change. SourceQ9958/
+67b2cd8fc4292a0a2f32ea9288f287d91abd7947d468ae7cf43ebbf15477e66a.
+Independent semantics and Root inspect the actual closed fd_difference path:
+counts<=256,full64hexSHAs and at most2sample rows per side. Known counts/SHAs
+survive, samples drop first, then errors truncate with full normalized error
+count/canonical digest and sticky fd,return1. This is not a generic cap
+guarantee for arbitrarily oversized external fd_diag objects.
+
+Four frozen formatter cases remain next; probe2366/
+e7297731c185518a617d565c036fdb9a1a31c78ecbc4a568d459c57fbd62177f.
+No full839 publication is admitted or run. Original entry remains failed.
+Author releases/archives before delivery38ed07885539 ACK; release455/
+f8d318b1ef82d9dafb01e997a87dec5f357c3e71ac319ea9a80a4ebdaacf8889.
+Root read-only checker assumptions about the splice newline and seal product
+count are corrected against exact source/metadata before any test/publication.

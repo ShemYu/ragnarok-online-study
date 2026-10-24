@@ -1159,3 +1159,9 @@ B4 header correction now passes Root whole-source qualification9679/
 2a765bb9d5ecdc99a2c1848f8eba8d93c8c621c792c9941eb51fb57863593474;
 20frozen helper cases remain next. Its author is released/archived beforeACK.
 Caller rename and FD formatter remain live. No data/scene/parent credit.
+
+
+Latest source wave settles: corrected Mu3 caller qualifies; header20focused
+cases pass; FD formatter qualifies for its closed caller path,4cases next.
+No new data/scene/parent credit. Fleet0active/280released/7retained,
+zero reclaimable. Root next binds the fresh pure-data call after checkpoint.
