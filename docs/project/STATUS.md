@@ -16,6 +16,8 @@ Current84direct children include the two released review children and the two
 refs, two verified rollback bundles and private evidence survive; the running
 character/quiet audio remain. Three examined children stay held for incomplete
 private preservation; user-retained children remain excluded.
+Latest fleet:303released/ten retained/zero reclaimable, no active implementation
+worker. Existing candidate checkouts can be reused for the next pair.
 
 **Current map checkpoint:** [All21remaining compiled cores pass Root's complete audit](reviews/2026-10-24-remaining-map-bodies.md#remaining21-actual-compiled-cores-and-complete-root-audit-pass).
 One unchanged qualified host call exits0 in4.807445s, about800MiB sampled RSS,
@@ -73,7 +75,7 @@ Root now reads its complete source/tests/report and repeats all14author controls
 normal response closure and partial-byte loss fail on both. Grok keeps late
 returned bytes and rejects prior-file/response mismatch; both miss the final
 publication deadline and complete preservation after an ordinary probe exception.
-No live GET is admitted; compare both before source selection/repair. Root also
+No live GET is admitted; the selected correction is recorded below. Root also
 [checks the next constructor/declaration source seams](reviews/2026-10-24-direct-dependencies.md#next-constructor-stage-source-review);
 genuine placement-aware compile and browser decoding remain separate gates.
 [A separate Claude correction submits751aefe](tasks/T07.007.014.011.001.md),
@@ -82,7 +84,8 @@ source diff/tests/report and [selects it after personal checks](reviews/2026-10-
 36author tests, eight Root groups/146assertions/52artifact pins and3666complete
 metadata checks pass. Raw Claude12/20/Grok11/20 stay held; separate correction
 18/20 is selected for guarded pilot preparation with explicit timing/evidence
-limits. Next exact integration and fresh current binding; no actual GET yet.
+limits. [Exact source integration95bee15 passes36tests](reviews/2026-10-24-direct-dependencies.md#selected-direct-delivery-source-integrated-unchanged).
+Next fresh current binding and guarded8-request pilot; no actual GET yet.
 
 [Normal delivery of all34terrain bodies is already complete](reviews/2026-10-24-remaining-map-bodies.md#normal34delivery-and-complete-root-audit-pass),
 T07.007.014.008 `ready_for_user`:34exact200responses/97037820B, all34new loose
@@ -110,9 +113,14 @@ not proved. No game patch is required. [Ordinary field entry now qualifies](revi
 received prt_fild08.gat367,212, settled UI and Root-viewed textured bridge.
 A bridge helper's key-release fails through global const redeclaration;
 Root's scoped release succeeds and independently checks the arrival. The
-helper stays FAILED; future inputs use timed within-call release. Next field
-encounter/return/save;
-new progress is not yet relogged/backed up. English/Unknown Item
+helper stays FAILED; future inputs use timed within-call release. [Field
+encounter fails; normal death-respawn qualifies](reviews/2026-10-24-normal-map-prerequisites.md#field-encounter-fails-and-normal-respawn-preserves-visible-progress).
+Root observes one strike, later distance recovery/no follow-up and player death;
+cause unresolved. Same character is safely back at Izlude128,142, fullHP45/SP12,
+base2/job3/17%, inventory quantities1/5 visible and quiet audio preserved.
+Root6captures are sealed. Next new-state reentry/backup and a closely observed
+ordinary fight/return; no normal return-portal or field-kill PASS. New progress
+is not yet relogged/backed up. English/Unknown Item
 tooltip remains deferred; no new gameplay coverage percentage.
 The compiled run still proves no ordinary travel/story/save or82gap closure.
 

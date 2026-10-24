@@ -65,7 +65,7 @@ Shadow pilot (1-3 real tasks, alongside main work):
 Other active work:
   Ordinary quest/logout        [HELD: B6 save/quit evidence failure]
   mu_fild01 normal route       [HELD: access unproved;111 asset bodies verified]
-  Ordinary field route         [NEXT: Izlude -> field encounter/return/save]
+  Ordinary field route         [ENTRY PASS; fight FAILED; respawn PASS; save next]
   Full839 data + entry         [PASS: 4,226 checks / 947 pins]
   Full839 entry FD closure     [PASS: explicit setup; exact comparison kept]
   Full839 map/monster joins    [DONE: Claude integrated; Root verified; pair released]
@@ -80,7 +80,7 @@ Other active work:
   Direct dependency lookup     [DONE:both actuals +Root full equality; all1222found]
   Direct asset preparation     [PASS:115retained bodies +1222exact mappings]
   Normal delivery derivative   [BOTH HELD:Root suites +8equal cases checked]
-  Claude delivery repair       [SOURCE VERIFIED751aefe; integrate/bind pilot next]
+  Claude delivery repair       [INTEGRATED95bee15;36tests PASS; bind pilot next]
   Model/declaration preparation [SOURCE REVIEWED:actual bodies/Root audit next]
   Remaining direct assets      [OPEN:1107new; normal1222delivery unproved]
   Claude/Grok FD plan pair      [BOTH VERIFIED + RELEASED; control PASS]

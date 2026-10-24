@@ -332,3 +332,59 @@ Next: UI quest/inventory observation and ordinary field travel when computer
 control returns. No further111-path asset pass, fresh Mu scene or archive scan
 is needed without changed inputs or a new failure. Independent full-content
 inventory can continue. Full goal,4/14 parent checks and82 open gaps stay intact.
+
+## Field encounter fails and normal respawn preserves visible progress
+
+Root walks from the field bridge using timed within-call key release and one
+ordinary ground click for pathfinding. A locally rejected --script flag does
+not reach the browser; its failed receipt is retained and the correct supported
+--expression call is separately recorded. Earlier failed bridge-helper evidence
+is unchanged. Each capture is a separate instant; key release can leave the
+current few server steps to finish.
+
+The field encounter is **FAILED**, not a successful monster/combat check.
+Root sends ordinary Space after movement. The character approaches a visible
+target; a player strike and target HP31/max48 are received. Root then spends
+too long on code checks without monitoring the fight, and the character dies.
+Root discloses that mistake and does not label the field route complete.
+The retained death scene and player NOTIFY_VANISH type1 are observed; the UI's
+last HP22is stale and is not used as a proof of surviving the encounter.
+
+Relevant finite packet previews show action7, a player strike, a subsequent
+ATTACK_FAILURE_FOR_DISTANCE, automatic direction/move and no later attack
+request before death in that retained window. Root personally reads the actual
+served distance handler, entity focus/path branch and deferred onWalkEnd
+attack. The first calls entity.onFocus; the second can queue a moveAction;
+the last sends it only after walk completion plus50ms. Source and previews
+support this range-recovery lead, not the reason reattack failed. Space keyup
+sends no stop in the inspected plugin. Do not infer guaranteed uninterrupted
+combat from the old comment or claim a server/game defect without stronger
+evidence. Root/Astra's source-only consultation is8957B/SHA256
+3da85710e05cdca351620a775d1633e29beec1e5d82dac949411cd44bac23492
+under private t07-field-combat-source-consult-helper-1/.
+
+Root clicks the visible normal restart control. The ordinary RESTART type0
+and received izlude.gat128,142 qualify this death-respawn transition. Root
+personally views the settled textured town, then verifies full HP45/SP12,
+base2/job3/17%EXP, the Chinese overlay and unchanged quiet BGM/Sound off/0.
+Normal inventory shows consume quantities1/5 and the magnifier icon5; no fresh
+typed item-ID claim is made from that image. Inventory is closed afterwards;
+the game stays running safely in town. No GM/SQL, direct game callback or
+packet injection, network cut, Chrome change, restore or save replacement.
+
+Private t07-orca-ordinary-field-root-6/ROOT_CONFIRMATION.json13858B/SHA256
+97d37d30ed3d2808efc9c445e74fd2d389c14e816564450dbd776f30510f16a9
+seals69full pins/53capture receipts and15losslessly reconstructed screenshots.
+Its explicit list distinguishes personally viewed images from the complete
+artifact inventory. Root6is sealed; use a fresh prefix next. The console
+returns1000entries despite a smaller requested limit, so no smaller capture
+bound is claimed. Credentials remain private and no console is committed.
+
+This does not verify the normal return portal, a monster kill, or fresh
+logout/reentry/backup of the newly earned tutorial state. Next normal reentry
+and current backup, then a deliberately observed nearby low-risk fight with
+movement released first and one-second feedback checks. A deliberate new
+Space press or visible-target click can test stalled range recovery; do not
+run a blind held/repeated attack loop or change gameplay rules. Broader
+client/server repair requires its own bounded evidence and equal task if
+needed. Full scope and all82functional gaps remain unchanged.

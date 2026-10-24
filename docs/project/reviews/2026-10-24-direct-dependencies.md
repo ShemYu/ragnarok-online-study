@@ -621,3 +621,22 @@ mandatory. The18/20 score does not waive a failed runtime audit or make broader
 fault paths proven. No live request, constructor, decoding/rendering or game
 coverage is qualified here. Next integrate exact source/test/report bytes,
 repeat repository checks, then prepare a fresh bound pilot. Full scope remains.
+
+## Selected direct-delivery source integrated unchanged
+
+After selection checkpoint85fd4ce, Root cherry-picks the exact original and
+correction as12a10c7/95bee15. All three integrated files equal the preserved
+751aefe bytes. Integrated Python3.9.6 suite with ResourceWarning as error passes
+36tests/0skips, exit0 in1.393075s. All post-run source/test/report hashes remain
+exact. Public-tree check passes624indexed paths. Private integration receipt
+897B/SHA256
+faf2d6952081e56a7b9124bbd42bebcce92743ab580e2eaefb130fba0449b2fa
+is under t07-014-011-integrated-root-1/.
+
+Fresh Orca enumeration has303released, ten explicitly retained and zero
+reclaimable workers; no implementation worker remains active. The existing
+Claude/Grok checkouts can serve the next equal source task without adding
+child folders. .012metadata/helper audit is available but is not yet Root's
+complete personal audit or a frozen implementation task. Next Root fresh
+environment/owner/archive/path/world binding, guarded8-request pilot and
+independent artifact/current-file audit. No actual .011GET is performed yet.
