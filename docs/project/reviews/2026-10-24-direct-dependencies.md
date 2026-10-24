@@ -1552,3 +1552,20 @@ unchanged prefix+summary, then freeze11pilot and independent audit before925
 remainder. No successful actual delivery may replay. The independent image
 source trace remains source-only (Claude released/Grok live), no image decode.
 Full goal/4of14/about29%/quiet running game/internet stay unchanged.
+
+
+## Grok image-consumer trace preserved and released
+
+Matched task_e6905091405d/Dispatchctx_6e8b4ff553a3 settles the independent
+source-only trace. Root mirrors all29private files/246100B and compares every
+complete copied byte/hash before release. No tracked/Git mutation or actual
+image/runtime/browser action is accepted. The worker terminal closes and its
+transcript is captured; neither current game nor coordination checkout closes.
+Private t07-014-013-grok-packet-root-1/PRESERVATION_ROOT.json is5225B/SHA256
+7dc18979769200b64c1c814c6ef0c5b60d7ae749eb4521e9cc3b6a8a4e31d30d.
+Both .013attempts are now preserved/released, with no pending provider work.
+Root reads both complete reports and independently checks their retained source
+slices/286metadata joins before scoring or using the trace. Candidate source
+claims do not establish image decoding, WebGL appearance or any82gap closure.
+Constructor source integration1aa7e67 remains qualified; next Root caller/full
+936profile/exact11pilot gate is unchanged. No new user decision or goal change.
