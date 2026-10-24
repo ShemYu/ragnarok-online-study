@@ -28,7 +28,10 @@ browser/render qualification.
 independent Python parse is admitted](reviews/2026-10-24-direct-dependencies.md#independent-static-model-preflight-qualifies-and-one-binary-parse-is-admitted).
 [ONE independent parse/full4226check saved-array audit now passes](reviews/2026-10-24-direct-dependencies.md#independent-actual-static-model-preflight-and-full-saved-array-audit-pass):
 all indices/finite data valid, exact mesh output42876B. Parse consumed; reuse
-retained arrays for the independent Float32 geometry oracle. No acquired
+retained arrays for the independent Float32 geometry oracle.
+[Root40authored geometry-reference controls pass](reviews/2026-10-24-direct-dependencies.md#independent-geometry-reference-passes-authored-source-controls),
+actual reference unrun. [Claude2d55d16preserved/released, bundle recovery complete](reviews/2026-10-24-direct-dependencies.md#claude-geometry-plan-is-preserved-and-released-with-bundle-recovery);
+Root full review next, Grok independent. No acquired
 constructor/compile/render execution; all82functional gaps remain open.
 
 **Child cleanup:** [Root verifies removal of20completed children](reviews/2026-10-24-orca-children-cleanup.md#second-twelve-removals-personally-verified).
@@ -37,7 +40,7 @@ Current84direct children include the two released review children and the two
 refs, two verified rollback bundles and private evidence survive; the running
 character/quiet audio remain. Three examined children stay held for incomplete
 private preservation; user-retained children remain excluded.
-Latest fleet:327released/ten retained/two active .022source plans/zero reclaimable.
+Latest fleet:328released/ten retained/one active .022Grok source plan/zero reclaimable.
 Two .012implementation attempts reuse existing released checkouts; no new
 child folders or setup hooks. Both .012candidates are preserved/released after
 matched settlements. [Root full review and eight behavioral groups per original are complete](reviews/2026-10-24-direct-dependencies.md#both-constructor-originals-are-personally-checked-and-held).

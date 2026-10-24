@@ -4374,3 +4374,69 @@ Private t07-014-022-preparation-root-1/:
 | ACTUAL_PREFLIGHT_CALL_ROOT.json |271|59a0f314511eea7cfccae9a8caf8cd960e5ad940d5c479d48377bd0dec9926cb|
 | AUDIT_PREFLIGHT_ROOT.py |6450|3d21e1afc42389686a4796636fbfc467d9452fee33de8da89d9993963b69d77d|
 | ACTUAL_PREFLIGHT_AUDIT_ROOT.json |3037|6fa0d6d211b4b6d49b98714f889e9598197d79df3cc83d2d154bcd6f6ab43c2e|
+
+
+## Claude geometry plan is preserved and released with bundle recovery
+
+Matched .022Claude task_0b21aef33ea6/ctx_806f8ceb1ce1 settles successfully as
+2d55d169deac892a1c559f58000f0b4076830c4c from8e6dc39. Root verifies clean
+expected branch/HEAD/exact parent/two owned report paths and copies all eight
+regular single-link files/72579B (two tracked/six private). The exact Git archive
+ref is retained; no source/evidence is lost.
+
+The initial rollback-bundle command using a raw-SHA positive revision exits128
+after the file copies and ref exist. Root mistakenly advances release/ACK before
+bundle verification completes. The settled worker/transcript is released and
+ACK286cae7d5b10 completes; Root then freshly rechecks every source/copy byte and
+identity, creates the bundle from the named archive ref and verifies it. Recovered
+bundle17826B/SHA081b8d2078c72fcc5276384f2356a9f766da7826d5748231d217f3d0cd845876.
+The preserved receipt records that exact order and the recovery. Root corrects
+the future preservation script and must gate release/ACK on its successful exit.
+This is a coordinator archival error, not a worker quality defect or game issue.
+
+Current fleet328released/ten retained/one active Grok, no new child/setup. Claude
+reports source-only spans/plan checks; Root has not yet fully read/recomputed the
+new original, so no score/selection/ready claim. Private preservation receipt
+3978B/SHAde13a8c5986b746abfa597cfb6d71ac75bf887df3c6ba6919045cc95d2d8a4e2;
+release455B/SHA740764542b5e1624c8c489e2af9eaccf4d3d75faf23c2a3dd92b84841e9c8395.
+Actual model compile remains unadmitted; Grok stays independent.
+
+
+## Independent geometry reference passes authored source controls
+
+Root independently implements a no-IO Python geometry reference for the static
+v2.3 root-node subset. It derives the main-root box from independent raw arrays,
+retains separate Float32 box/matrix writes and the exact optimized binary64
+translation/scale/trigonometric operands. Normal construction follows rounded
+local face normals, rounded column-normalized/reflection-preserving transforms,
+face-order equal weighting within primary groups, and rounded smooth sums.
+It preserves per-texture face/corner order, adjusted UVs and model alpha. The
+source must not be mistaken for a general scene-graph implementation or oracle
+learned from the future compiler output.
+
+Root40authored controls pass: axis/placement/noncommuting rotations/nonuniform
+scale, triangle winding/reflection/degenerate/cancellation/equal-face weighting,
+group boundaries/second root/global keys/bucket order/UV/layout, index refusals
+and a double-operand discriminator. Prematurely rounding the actual non-binary
+scale changes a finite test product from0.11851844191551208 to0.11851843446493149;
+the reference preserves the former operation order. Astra source review finds
+no material model702 mismatch; its signed-zero bounds edge is corrected and
+both vertex orders tested. No actual-model reference or acquired source runs.
+
+An initial authored bucket test wrongly expected cancellation with two positive
+and one negative face. Root retains that failing test/evidence, corrects only
+the expected positive normal plus full corner-order assertions; reference code
+was unchanged for that test correction. Signed-zero handling is a separate
+source correction with prior version retained.
+
+Freeze **exact Float32 first**. No blanket tolerance or output-derived widening
+is accepted; a cross-libm difference must remain a held numerical discrepancy.
+Actual reference generation over the retained model arrays still waits a finite
+caller/admission. This checkpoint supplies source controls only, no compile or
+render grant. Private t07-014-022-preparation-root-1/:
+
+| File | Bytes | SHA256 |
+|---|---:|---|
+| GEOMETRY_REFERENCE_UNBOUND_ROOT.py |6097|c9aad3267604dfd22dd497ae2883bb8e70a2a3ccff22634bbb2b940d3e83d38d|
+| QUALIFY_GEOMETRY_REFERENCE_V3_ROOT.py |6235|f0575aa00bb0a3f372761db44e4d6fd86367ca24ea44f98cfdd15a00a7e5a406|
+| GEOMETRY_REFERENCE_QUALIFICATION_V3_ROOT.json |563|b6c26e1c439c4d801566f2d1103b32a473511449e49b61e81bd09d196d3c0eec|
