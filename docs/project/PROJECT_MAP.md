@@ -89,7 +89,8 @@ Map repair:
        -> fresh cleanup witness    [PASS:original5;groups/ports gone;volume unused]
        -> retained runtime audit   [PASS:391wires/1041pins;Root verified]
        -> retained UI audit        [PASS:412captures/12images/448full pins]
-       -> normal supported install [NEXT:prepare;user play stays running]
+       -> normal install preparation [PASS:6staged leaves;source collisions/dispatcher]
+       -> normal supported install [NEXT:save/logout window;user play stays running]
           Current isolated plan:6/6with complete Root audits.
           Normal install/earned-level200/later story/full game remain OPEN.
 

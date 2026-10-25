@@ -12,8 +12,16 @@ Root stops inputs to that page. Supported setup intentionally restarts normal
 game services; refresh any future operational start reference. No stop/rebuild
 under active user play. Synthetic demo is not earned/full-game acceptance.
 
-**Main next action:** prepare the supported normal installation/journal plan
-while the user plays. Root's complete retained runtime and UI audits now pass
+**Main next action:** [normal installation/journal preparation is Root-checked](runbooks/T10.008-T10.009-normal-apply.md).
+Six exact leaves are staged privately; both live mod folders remain absent.
+All six enabled mods/eleven off choices and Chinese settings are preserved.
+Root checks39source pins/six root censuses and the current packaged dispatcher.
+The Mods Apply button only restarts native services; use supported full
+settings Apply to regenerate the True text overlay in the same window.
+Next coordinate user save/logout, inspect current native base imports/IDs,
+take a fresh baseline/current-state backup, then install/apply and check the
+normal journal. No installation/rebuild has run under user play.
+Root's complete retained runtime and UI audits now pass
 for the consumed fourth trial. No actor replay/new launch or global rebuild
 under the active user play session is admitted.
 [The fourth trial passes complete Root runtime/UI audits](reviews/2026-10-25-T10.009.md#fourth-visible-trial-passes-complete-root-runtime-and-ui-audits).
