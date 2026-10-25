@@ -27,8 +27,9 @@ work identifies the next18369objective as 莎莎 at fruit80,122, followed by
 18370's 梅雪 at82,120. Exact next-room initialization/state/reward mechanics
 are now source-bound for a [two-conversation implementation pair](tasks/T10.010.md).
 Root freezes31payloads/215457B,14excerpt files/60spans and the equal profile.
-Next checkpoint/dispatch Claude and Grok on separate branches while normal
-installation awaits coordinated logout. No candidate or native acceptance yet.
+[Actual Claude/Grok implementations are live](reviews/2026-10-25-T10.010.md#both-actual-independent-implementations-start)
+on separate branches from7165ce7with identical inputs. Normal installation
+awaits coordinated logout. No candidate or native acceptance yet.
 Root's complete retained runtime and UI audits now pass
 for the consumed fourth trial. No actor replay/new launch or global rebuild
 under the active user play session is admitted.

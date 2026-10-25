@@ -93,7 +93,7 @@ Map repair:
        -> normal supported install [NEXT:save/logout window;user play stays running]
        -> normal journal oracle    [SOURCE PASS:7bundle regions/6payloads;UI unrun]
        -> next village source      [QUALIFIED:莎莎+梅雪/rewards;4-ID resume]
-       -> parallel implementations [NEXT:equal Claude/Grok pair;no live change]
+       -> parallel implementations [WORKING:equal Claude/Grok pair;no live change]
           Current isolated plan:6/6with complete Root audits.
           Normal install/earned-level200/later story/full game remain OPEN.
 
