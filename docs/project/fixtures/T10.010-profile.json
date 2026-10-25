@@ -1,0 +1,82 @@
+{
+  "schema": "T10.010-equal-fruit-village-profile.v1",
+  "task": "T10.010",
+  "packet": {
+    "payloads": 31,
+    "payloadBytes": 215457,
+    "manifestBytes": 39389,
+    "manifestSha256": "7891b2b88b350540ab0fae4ce27f284f6e285de3d26ff3a56fa584b4a9695807"
+  },
+  "stages": {
+    "A": 18368,
+    "B": 18369,
+    "C": 18370,
+    "D": 18371
+  },
+  "acceptedSourceStages": [
+    [
+      2,
+      1,
+      -1,
+      -1
+    ],
+    [
+      2,
+      -1,
+      1,
+      -1
+    ],
+    [
+      2,
+      -1,
+      -1,
+      1
+    ]
+  ],
+  "preservedPartial": [
+    2,
+    -1,
+    -1,
+    -1
+  ],
+  "mayselNativeReward": {
+    "baseExp": 65304744,
+    "jobExp": 4000000,
+    "itemAlias": "Ch1_Root_Coin",
+    "sourceItemID": 1001972,
+    "count": 10,
+    "effectiveCreditUnrun": true
+  },
+  "groups": [
+    {
+      "id": "A",
+      "requires": "four-ID inherited compatibility, fresh/cancel/defer/partial/unknown and C/D repeat travel; no unrelated writes"
+    },
+    {
+      "id": "B",
+      "requires": "checked arrival fallback, real Shasha replacement before final close, post-yield/readback failures and no reward"
+    },
+    {
+      "id": "C",
+      "requires": "real Maysel replacement, preflight and ordered native rewards, post-item/tuple holds and no repeat; no transaction claim"
+    },
+    {
+      "id": "D",
+      "requires": "character-scoped presentation, close interruption/re-entry interaction recovery, genuine inert Est and bounded Debris; unchanged safe exits/all four DB definitions"
+    },
+    {
+      "id": "E",
+      "requires": "meaningful actual NPC-text authored checks, input preservation, exact owned source/rights/Git/runbook handoff; no runtime/whole-chain acceptance"
+    }
+  ],
+  "scoreDimensions": [
+    "correctness and evidence",
+    "task coverage",
+    "verification design/results",
+    "handoff clarity",
+    "Git/state discipline"
+  ],
+  "pointsPerDimension": 4,
+  "unitCommandSecondsMax": 120,
+  "sourcePassIsRuntimeAcceptance": false
+}
