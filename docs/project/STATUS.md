@@ -31,13 +31,16 @@ work identifies the next18369objective as 莎莎 at fruit80,122, followed by
 are now source-bound for a [two-conversation implementation pair](tasks/T10.010.md).
 Root freezes31payloads/215457B,14excerpt files/60spans and the equal profile.
 [Actual Claude/Grok implementations start](reviews/2026-10-25-T10.010.md#both-actual-independent-implementations-start)
-on separate branches from7165ce7with identical inputs. Claude5933f7b is now
-[preserved/released and held by Root](reviews/2026-10-25-T10.010.md#claude-submission-is-preserved-and-released-root-reproduces-a-capacity-hold):
-107authored tests pass, but a metadata-incompatible full-bag coin stack can
-pass preflight and reach D/EXP before the coin-delivery hold. Root reproduces
-this in the actual NPC-text model with an explicit insertion override, not
-native play. No repeat reward occurs. Grok remains live; compare the same
-control before correction/selection. No integration or native acceptance.
+on separate branches from7165ce7with identical inputs. [Both are now
+preserved/released and compared](reviews/2026-10-25-T10.010.md#both-raw-submissions-pass-their-suites-and-are-held-claude-is-the-correction-basis).
+Root107/72authored tests pass; both fail the same four metadata-capacity
+controls. A full bag with an incompatible same-ID coin stack can pass
+checkweight and reach D/EXP before delivery holds. These are source-model
+controls, not native/user failures. Grok also omits companion roles, resets
+unsupported personal masks and has misleading tuple-only hold wording.
+Claude5933f7b17/20is selected only as correction basis; Grokd295c0214/20.
+Both raw sources remain held.341released/ten retained/zero active/reclaimable.
+Next qualify the capacity correction; no integration or native acceptance.
 Normal installation still awaits coordinated logout.
 Root independently qualifies the four selected actor identities and all eight
 stored ACT/SPR ranges against complete catalogs/current tables and five
