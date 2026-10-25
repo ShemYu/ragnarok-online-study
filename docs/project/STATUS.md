@@ -4,41 +4,24 @@ Updated: 2026-10-25 JST. Coordinator: Codex. Active scope: **execute the documen
 
 ## Current checkpoint
 
-**Main next action:** normal mod assembly/readiness preparation and a fresh
-isolated eligible visible route/render/save check; protect current earned
-progress before changing original services. Ordinary base2eligibility is separate.
-[Exact install/safe-exit packets and current mod controls are staged/checked](reviews/2026-10-25-T10.009.md#install-and-safe-exit-packages-staged-without-changing-the-app):
-four files each, exact three retained connections/unchanged DB; selectedmod
-currently absent, navigation generators disabled. No app mutation. Current
-health headers allow8000/8080origins; actual isolated client/save routing stays
-open. Qualify fresh manual backend/front-door source next; no B6actor replay.
-[Changed backend C1source passes21Root fault cases and47unchanged-function checks](reviews/2026-10-25-T10.009.md#isolated-backend-correction-passes-changed-source-controls).
-Same-map restart now waits for its old network endpoint to retire. No runtime
-admission. [Manual callback C1passes21Root source controls](reviews/2026-10-25-T10.009.md#manual-callback-correction-passes-root-failure-controls):
-failure renames removed; never-started/join/FD failures retain failure and
-continue safe closure. Thirteen existing helpers unchanged. Bind the fresh
-driver/backend material next; no visible launch or story/save credit yet.
-[Fresh front-door files and24protocol controls pass](reviews/2026-10-25-T10.009.md#fresh-front-door-files-and-protocol-source-controls-pass):
-10unchanged Web pins, eight copied plugins, exact config object inverse,
-INI/five retained archive joins. Profile stays UNBOUND; no listener launched.
-[Direct driver C1passes45Root checks after three reproduced receipt defects](reviews/2026-10-25-T10.009.md#direct-driver-receipt-continuity-correction-passes-root-controls).
-All prior result seals now persist across both inventories. Complete backend
-material generation/audit and final authority binding/admission next.
-[Material writer C1passes27Root checks](reviews/2026-10-25-T10.009.md#material-writer-post-close-deadline-correction-passes-root-controls):
-21fixed inputs/24roles, all rendered bodies match independently; late successful
-closes now refuse. [One actual private28-file package passes Root full audit](reviews/2026-10-25-T10.009.md#fresh-private-backend-material-generation-and-complete-root-audit-pass):
-24roles independently reconstructed,56pins/1630checks, natural exit0/no signals.
-Runtime config remains UNBOUND. Final outer-parent source/current-world binding
-and one isolated visible session are next; no original services changed.
-[Fresh isolated Orca profile/blank page respond](reviews/2026-10-25-T10.009.md#isolated-browser-preflight-is-ready-without-game-navigation).
-Use only its recorded page ID for the upcoming test; original game tab untouched.
-[Outer parent C1passes38fault checks plus current-file controls](reviews/2026-10-25-T10.009.md#outer-parent-namespace-correction-and-source-controls-pass).
-Two late-name gaps corrected; original-world function unchanged. Fresh binding,
-port/current-owner preflight and one guarded visible interval are next.
-[Fresh read-only preflight passes; exact one-call recipe is admitted after binding audit](reviews/2026-10-25-T10.009.md#fresh-read-only-preflight-and-one-manual-interval-admission):
-five current services/owners, two images and five absent ports match. The
-six-control binder must rejoin current state and produce a fully audited
-header-only binding before the one actual parent call. No actor launched yet.
+**Main next action:** correct the fresh front-door resource layout and add a
+prelaunch relationship check, then prepare a separately qualified fresh trial.
+[The one actual visible interval is consumed and FAILED before READY](reviews/2026-10-25-T10.009.md#first-visible-interval-fails-resource-directory-validation-cleanup-and-root-audit-pass):
+resources/ resolves under SERVER_ROOT, while the staged directory was its sibling.
+All five GRFs validate, but native exits1before game/UI/commands/withdrawal.
+No replay. Root audits all256wires/329child leaves/30log joins/14execs,
+26guest file readbacks plus exact418Bwrapper/two init closures; five owned
+SIGTERM exits/removals and empty network cleanup pass. Original services/files
+match; fresh witness confirms five original services, absent test ports/groups
+and the new unreferenced SQL volume retained. Failure stays failed.
+
+[All test-source prerequisites remain qualified](reviews/2026-10-25-T10.009.md#outer-parent-namespace-correction-and-source-controls-pass):
+backend/callback/driver/outer-parent failure controls; exact client/plugin/INI
+and28-file backend packages. [Final binding passed1641checks/48pins](reviews/2026-10-25-T10.009.md#first-visible-interval-fails-resource-directory-validation-cleanup-and-root-audit-pass)
+before the failed actual call. These are evidence/cleanup passes, not visible
+story/save completion. Preserve all consumed inputs, outputs and volume.
+The fresh isolated Orca page remains blank; Root alone owns it.
+
 [Actual changed native loading and complete Root audit pass](reviews/2026-10-25-T10.009.md#actual-three-case-native-load-and-complete-root-audit-pass):
 five declarations/12maps/3DBrows; positive error-free, both deliberate faults
 produce their exact script/line17parser errors.137complete wires/152runtime

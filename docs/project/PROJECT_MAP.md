@@ -56,7 +56,10 @@ Map repair:
        -> native script loading [PASS:3cases;137wires/32readbacks/205pins]
        -> isolated test source   [PASS:backend/callback/driver failure controls]
        -> fresh client + DB files [PASS:10client leaves/28backend leaves; unbound]
-       -> outer binding + play    [NEXT:isolated eligible route/render/save]
+       -> outer binding          [PASS:1,641 checks/48 pins]
+       -> isolated native start   [FAIL:resources path; no game opened]
+       -> cleanup + full audit    [PASS:256 wires; original progress preserved]
+       -> resource path repair    [NEXT:fresh files/prelaunch check, then play]
 
 Quest check:
   Finite startup repair        [PASS: listener seen in 3 checks]
