@@ -17,7 +17,10 @@ Same-map restart now waits for its old network endpoint to retire. No runtime
 admission. [Manual callback C1passes21Root source controls](reviews/2026-10-25-T10.009.md#manual-callback-correction-passes-root-failure-controls):
 failure renames removed; never-started/join/FD failures retain failure and
 continue safe closure. Thirteen existing helpers unchanged. Bind the fresh
-driver/profile/material next; no visible launch or story/save credit yet.
+driver/backend material next; no visible launch or story/save credit yet.
+[Fresh front-door files and24protocol controls pass](reviews/2026-10-25-T10.009.md#fresh-front-door-files-and-protocol-source-controls-pass):
+10unchanged Web pins, eight copied plugins, exact config object inverse,
+INI/five retained archive joins. Profile stays UNBOUND; no listener launched.
 [Actual changed native loading and complete Root audit pass](reviews/2026-10-25-T10.009.md#actual-three-case-native-load-and-complete-root-audit-pass):
 five declarations/12maps/3DBrows; positive error-free, both deliberate faults
 produce their exact script/line17parser errors.137complete wires/152runtime
