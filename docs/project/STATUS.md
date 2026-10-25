@@ -33,6 +33,12 @@ Root freezes31payloads/215457B,14excerpt files/60spans and the equal profile.
 [Actual Claude/Grok implementations are live](reviews/2026-10-25-T10.010.md#both-actual-independent-implementations-start)
 on separate branches from7165ce7with identical inputs. Normal installation
 awaits coordinated logout. No candidate or native acceptance yet.
+Root independently qualifies the four selected actor identities and all eight
+stored ACT/SPR ranges against complete catalogs/current tables and five
+archive identities. [Source/byte preparation passes](reviews/2026-10-25-T10.010.md#four-actor-bindings-and-stored-resource-ranges-pass-root-checks);
+native serving/decode/render and Shasha's case lookup remain open. No new
+acquisition or live operation. The normal runtime replacement condition also
+matches the current disk markers/binary; recheck before authorized apply.
 Root's complete retained runtime and UI audits now pass
 for the consumed fourth trial. No actor replay/new launch or global rebuild
 under the active user play session is admitted.

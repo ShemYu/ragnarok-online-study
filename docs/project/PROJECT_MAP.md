@@ -94,6 +94,7 @@ Map repair:
        -> normal journal oracle    [SOURCE PASS:7bundle regions/6payloads;UI unrun]
        -> next village source      [QUALIFIED:莎莎+梅雪/rewards;4-ID resume]
        -> parallel implementations [WORKING:equal Claude/Grok pair;no live change]
+       -> four actor resources     [SOURCE/BYTES PASS:8ranges;native render OPEN]
           Current isolated plan:6/6with complete Root audits.
           Normal install/earned-level200/later story/full game remain OPEN.
 
