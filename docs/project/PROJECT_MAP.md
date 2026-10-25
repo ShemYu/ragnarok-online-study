@@ -101,6 +101,7 @@ Map repair:
        -> current build metadata  [PASS:original5/image;4GiBguest;no compile yet]
        -> compiler probe source   [PASS:8fake controls;one real call consumed]
        -> actual resource probe   [PASS:31responses;limits/cleanup/original5]
+       -> idle saves + fresh backup [PASS:3offline;22leaves;full save outputs kept]
        -> Linux compiler build    [OPEN:1.30GiBavailable;no compiler installed]
        -> four actor resources     [SOURCE/BYTES PASS:8ranges;native render OPEN]
           Current isolated plan:6/6with complete Root audits.
