@@ -38,6 +38,14 @@ The normal build/up path would replace active services, so full native build
 and isolated image binding are separate future gates. No server,
 Engine/SQL or user-game operation in this source work. Full coverage remains
 4/14(29%)and82resource gaps open.
+Claude5f3f2a6is now preserved/released and Root-tested:120NPC tests,
+106authored C++ cases/50probes/four causal controls pass; Root61general
+original-vs-patched pairs/42ordinary probes and32common NPC controls pass.
+Raw candidate is HELD: three malformed noncoin-row controls return1instead
+of required-1(14/17domain controls pass). No user inventory defect is
+observed. Root adds the author's omitted nonGUID/nonstackable supplied-ID
+regression; it passes. Child removed after full preservation; branch/bundle
+remain. Grok continues independently. No source selection/integration yet.
 
 **Pending user logout:** [normal installation/journal preparation is Root-checked](runbooks/T10.008-T10.009-normal-apply.md).
 Six exact leaves are staged privately; both live mod folders remain absent.
