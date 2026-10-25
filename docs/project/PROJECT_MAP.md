@@ -68,7 +68,9 @@ Map repair:
        -> Messenger               [SEEN:commit/repeat;later save still open]
        -> ordinary fruit route    [FAIL:window expired at156,160;no withdrawal]
        -> complete cleanup/audit  [PASS:292wires;original progress preserved]
-       -> countdown + route repair [NEXT:fix cross-process estimate/check path]
+       -> countdown C3             [PASS:35Root controls;budgets unchanged]
+       -> retained east passage    [PASS:31,709checks;client planning only]
+       -> fresh focused trial      [NEXT:source/files/binding;unfinished checks]
 
 Quest check:
   Finite startup repair        [PASS: listener seen in 3 checks]
