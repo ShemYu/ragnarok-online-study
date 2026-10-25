@@ -21,6 +21,9 @@ driver/backend material next; no visible launch or story/save credit yet.
 [Fresh front-door files and24protocol controls pass](reviews/2026-10-25-T10.009.md#fresh-front-door-files-and-protocol-source-controls-pass):
 10unchanged Web pins, eight copied plugins, exact config object inverse,
 INI/five retained archive joins. Profile stays UNBOUND; no listener launched.
+[Direct driver C1passes45Root checks after three reproduced receipt defects](reviews/2026-10-25-T10.009.md#direct-driver-receipt-continuity-correction-passes-root-controls).
+All prior result seals now persist across both inventories. Complete backend
+material qualification and final authority binding/admission next.
 [Actual changed native loading and complete Root audit pass](reviews/2026-10-25-T10.009.md#actual-three-case-native-load-and-complete-root-audit-pass):
 five declarations/12maps/3DBrows; positive error-free, both deliberate faults
 produce their exact script/line17parser errors.137complete wires/152runtime
