@@ -82,6 +82,12 @@ The guest reports4CPU/about3.82GiB total RAM; the host has64GiB. This does not
 qualify compiler headroom or cgroup enforcement. First preflight's whole-object
 versus historical projection assertion is preserved and corrected explicitly.
 No runtime writes or compiler/readiness container have run. User play is untouched.
+The integrated source checkpoint is3931f8f. [The first unexecuted readiness
+actor is held on an exact Engine network-shape/cleanup defect](reviews/2026-10-25-T10.010.md#first-compiler-readiness-actor-is-held-before-any-runtime-action).
+Source correction is in preparation: keep the no-network container policy,
+accept Engine's actual none endpoint representation, and check the same shape
+during cleanup. The120second total envelope/supervision and actual cgroup
+visibility still require qualification. No guest compiler run is admitted.
 
 **Pending user logout:** [normal installation/journal preparation is Root-checked](runbooks/T10.008-T10.009-normal-apply.md).
 Six exact leaves are staged privately; both live mod folders remain absent.
