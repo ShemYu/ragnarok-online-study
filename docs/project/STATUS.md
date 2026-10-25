@@ -35,6 +35,10 @@ Use only its recorded page ID for the upcoming test; original game tab untouched
 [Outer parent C1passes38fault checks plus current-file controls](reviews/2026-10-25-T10.009.md#outer-parent-namespace-correction-and-source-controls-pass).
 Two late-name gaps corrected; original-world function unchanged. Fresh binding,
 port/current-owner preflight and one guarded visible interval are next.
+[Fresh read-only preflight passes; exact one-call recipe is admitted after binding audit](reviews/2026-10-25-T10.009.md#fresh-read-only-preflight-and-one-manual-interval-admission):
+five current services/owners, two images and five absent ports match. The
+six-control binder must rejoin current state and produce a fully audited
+header-only binding before the one actual parent call. No actor launched yet.
 [Actual changed native loading and complete Root audit pass](reviews/2026-10-25-T10.009.md#actual-three-case-native-load-and-complete-root-audit-pass):
 five declarations/12maps/3DBrows; positive error-free, both deliberate faults
 produce their exact script/line17parser errors.137complete wires/152runtime
