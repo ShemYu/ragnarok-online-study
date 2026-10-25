@@ -91,6 +91,8 @@ Map repair:
        -> retained UI audit        [PASS:412captures/12images/448full pins]
        -> normal install preparation [PASS:6staged leaves;source collisions/dispatcher]
        -> normal supported install [NEXT:save/logout window;user play stays running]
+       -> normal journal oracle    [SOURCE PASS:7bundle regions/6payloads;UI unrun]
+       -> next fruit story edge    [SOURCE:莎莎 objective;bind exact mechanics]
           Current isolated plan:6/6with complete Root audits.
           Normal install/earned-level200/later story/full game remain OPEN.
 
