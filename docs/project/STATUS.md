@@ -12,6 +12,10 @@ four files each, exact three retained connections/unchanged DB; selectedmod
 currently absent, navigation generators disabled. No app mutation. Current
 health headers allow8000/8080origins; actual isolated client/save routing stays
 open. Qualify fresh manual backend/front-door source next; no B6actor replay.
+[Changed backend C1source passes21Root fault cases and47unchanged-function checks](reviews/2026-10-25-T10.009.md#isolated-backend-correction-passes-changed-source-controls).
+Same-map restart now waits for its old network endpoint to retire. No runtime
+admission. Manual callback still needs receipt-publication/thread-cleanup
+corrections and deadline controls before fresh binding/visible play.
 [Actual changed native loading and complete Root audit pass](reviews/2026-10-25-T10.009.md#actual-three-case-native-load-and-complete-root-audit-pass):
 five declarations/12maps/3DBrows; positive error-free, both deliberate faults
 produce their exact script/line17parser errors.137complete wires/152runtime
