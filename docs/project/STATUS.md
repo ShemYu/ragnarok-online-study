@@ -6,6 +6,9 @@ Updated: 2026-10-25 JST. Coordinator: Codex. Active scope: **execute the documen
 
 **Main next action:** qualify changed Chapter1 native loading/assembly and the
 finite current-town asset read, then verify eligible interaction/render/save.
+[One finite ordinary town-read attempt is admitted after fresh binding](reviews/2026-10-25-T10.009.md#finite-ordinary-town-read-is-admitted-after-fresh-binding):
+three exact bodies maximum, unchanged caps/guard, natural0 plus complete Root
+audit; no replay, mod install or game-state input. Actual result is unrun here.
 [Root correction b6299ac and exact source integration pass](reviews/2026-10-25-T10.009.md#root-correction-and-exact-source-integration-pass):
 50corrected tests plus seven Root regressions, integrated50tests, all six
 source bytes and30original candidate payload pins match. Registration now
