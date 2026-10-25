@@ -16,6 +16,10 @@ debugmes/extra OnInit commands refuse. No new runtime install or game input.
 counterexamples and3default refusals; actual GETs0. Foreign receipt ownership,
 late deadline and detached response cleanup are corrected before binding.
 Fresh owners/ENV/outer caller and actual town body remain the next read gate.
+[Changed native-fixture source controls also pass](reviews/2026-10-25-T10.009.md#changed-native-fixture-source-passes-root-controls-before-binding):
+8authored case-loop scenarios,2malformed recipe/inverses and3early refusals;
+full warning/error audit and fresh parent/image/socket authority remain required.
+No native fixture has run. Zero reclaimable paired workers remain.
 [Both raw candidates are personally compared and held](reviews/2026-10-25-T10.009.md#both-raw-sources-pass-their-suites-but-need-correction):
 Claude8c2be4a18/20correction basis versus Grokb30534b16/20. Root46/36author
 tests and56common observations pass their stated results; both have false
