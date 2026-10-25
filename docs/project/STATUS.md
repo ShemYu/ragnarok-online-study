@@ -28,8 +28,11 @@ separate child branches with identical packet/profile; setup skipped. Root
 joins eight BASE blobs in each. Claude turn-start observed; Grok's launch
 observer cannot prove turn-start, but its matching lifecycle heartbeat is
 received/ACKed. No duplicate input. Root compiles unchanged actual original
-C++ bodies with typed stubs:47finite reference cases pass; no full headers,
-server linking or native/game acceptance. The fixed
+C++ bodies with typed stubs:47finite reference cases pass. A61case comparison
+scaffold also passes unchanged-original versus unchanged-original full-state/
+trace equality; three target-only favorite/merge-metadata/data-pointer defects
+are independently detected. No candidate has run through it yet; no full
+headers, server linking or native/game acceptance. The fixed
 tri-state probe must restore compatible-stack positives; only1permits changes.
 The normal build/up path would replace active services, so full native build
 and isolated image binding are separate future gates. No server,
