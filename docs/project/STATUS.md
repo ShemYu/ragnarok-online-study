@@ -54,9 +54,15 @@ too; exact metadata support remains open asT10.010.002. Equal actual
 Claude/Grok source repairs are now ready/input accepted from5933f7b on two
 isolated branches, setup skipped; no integration/native credit. Root verifies
 both seven-leaf BASE joins and prepares independent controls while they work.
-Claude5131caf is now preserved/released; Root personally passes117authored
-tests, all24common NPC-text cases and10extra causal/yield/late-capacity cases.
-Grok continues independently. No pair selection, installation or native PASS.
+Both are now preserved/released and Root-tested: Claude5131caf117authored
+tests; Grokcaead8f118. Both pass the same24common NPC-text cases and10extra
+causal/yield/late-capacity controls with equal observed outcomes. Both score
+20/20for this bounded interim source task; select Claude for clearer refusal
+text and fuller physical-inventory/weight assertions. Grok supplies fuller
+individual postpins. Both child paths are removed after preservation; branches
+and full bundles remain.353row fleet:343released/ten user-retained/zero active
+or reclaimable. Next prepare the changed native parse/resource/reward/save/
+withdrawal checks; no installation/integration or native PASS under user play.
 Normal installation still awaits coordinated logout.
 Root independently qualifies the four selected actor identities and all eight
 stored ACT/SPR ranges against complete catalogs/current tables and five

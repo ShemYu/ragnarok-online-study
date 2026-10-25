@@ -95,7 +95,7 @@ Map repair:
        -> next village source      [QUALIFIED:莎莎+梅雪/rewards;4-ID resume]
        -> parallel implementations [COMPARED:Claude17/Grok14;both source-held]
        -> capacity source control  [HOLD:incompatible stack can pass preflight]
-       -> interim correction      [CLAUDE SOURCE PASS:117+24+10;Grok working]
+       -> interim correction      [BOTH SOURCE PASS:117/118+24+10;Claude selected]
        -> exact stack support     [OPEN:T10.010.002;interim gate refuses old coins]
        -> four actor resources     [SOURCE/BYTES PASS:8ranges;native render OPEN]
           Current isolated plan:6/6with complete Root audits.
