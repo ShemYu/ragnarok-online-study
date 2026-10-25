@@ -99,6 +99,7 @@ Map repair:
        -> exact stack support     [SOURCE PASS:Root fix;133C++/120NPC;0.3.2integrated]
        -> native build path       [SOURCE:separate compile + file copies proposed]
        -> current build metadata  [PASS:original5/image;4GiBguest;no compile yet]
+       -> compiler probe source   [PASS:8fake controls;real probe NEXT]
        -> four actor resources     [SOURCE/BYTES PASS:8ranges;native render OPEN]
           Current isolated plan:6/6with complete Root audits.
           Normal install/earned-level200/later story/full game remain OPEN.

@@ -4,7 +4,13 @@ Updated: 2026-10-25 JST. Coordinator: Codex. Active scope: **execute the documen
 
 ## Current checkpoint
 
-**User play:** [separate Assassin account/page is Root-verified](reviews/2026-10-25-user-assassin-play.md).
+**User test ended:** the user says testing is finished and asks to close the
+game. Root sees the Assassin page, then it becomes unavailable before any
+logout input; a fresh tab inventory confirms the personal profile has no
+remaining page. No logout/save or full-content acceptance is inferred from
+tab absence. [Closure record](reviews/2026-10-25-user-assassin-play.md#user-finishes-testing-and-the-personal-page-is-confirmed-closed).
+
+**User-play history:** [separate Assassin account/page is Root-verified](reviews/2026-10-25-user-assassin-play.md).
 RO personal play is handed to the user with level99Assassin; level200Shadow
 Cross is the second character. Both have saved skills/gear/potions. New gear is
 in bags, not automatically equipped. Original novice's whole row is unchanged.
@@ -88,8 +94,15 @@ Source correction is in preparation: keep the no-network container policy,
 accept Engine's actual none endpoint representation, and check the same shape
 during cleanup. The120second total envelope/supervision and actual cgroup
 visibility still require qualification. No guest compiler run is admitted.
+Root's narrow C2 source now passes eight FAKE Unix-Engine controls, including
+proper none-network cleanup, archive/error cleanup and the old predicate
+mutant. [One readonly guest cgroup-parent view is source-qualified](reviews/2026-10-25-T10.010.md#c2-readiness-source-and-fake-engine-controls-qualify): fixed reads touch only
+the recorded self-ID. This is not actual cgroup/guest readiness. Root still
+must seal a fresh binding/caller/supervision before a real tiny probe.
 
-**Pending user logout:** [normal installation/journal preparation is Root-checked](runbooks/T10.008-T10.009-normal-apply.md).
+**Normal installation window:** the user has finished testing and the personal
+page is absent. Verify current offline saves and take a fresh backup before
+service changes. [Normal installation/journal preparation is Root-checked](runbooks/T10.008-T10.009-normal-apply.md).
 Six exact leaves are staged privately; both live mod folders remain absent.
 This frozen staging remains0.2.0, separate from the newly integrated0.3.2
 source. Do not replace staged bytes or install0.3.2against stock binaries;

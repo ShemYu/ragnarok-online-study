@@ -75,3 +75,19 @@ and READY.png2362635B/SHA
 01bed87619d27c6268677f9808009e938b8e1f6b7c6bc7f3b5e93474ff9f73e4
 preserve this check. Page/profile IDs and credentials stay private. The
 personal play ownership and no-restart boundary still apply.
+
+## User finishes testing and the personal page is confirmed closed
+
+The user explicitly says testing is finished and asks to close the game.
+Root first sees ShemAssassin99/50at74,118, full12077HP/665SP. Before a logout
+input, the page becomes unavailable. A fresh authoritative tab inventory
+confirms that both the target page and every page in RO personal play are
+absent. Root sends no logout, movement, account/preset, service or other-tab
+close action and does not reopen the game. Do not claim a normal logout/save
+was verified here; actual saved/offline state remains a later preflight.
+
+Private user-assassin-play-close-root-1/TAB_LIST_ROOT.json1233B/SHA
+51965005a9e4e9f204d5f9e17edb57fa54c03d9faf4c167e98230b276d92d936.
+The active-play window has ended; any next installation still requires its
+current-state/offline/backup checks. No formal full-content acceptance is
+implied by finished testing.
