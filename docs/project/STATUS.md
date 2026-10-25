@@ -4,11 +4,15 @@ Updated: 2026-10-25 JST. Coordinator: Codex. Active scope: **execute the documen
 
 ## Current checkpoint
 
-**Main next action:** qualify changed Chapter1 native loading/assembly and the
-finite current-town asset read, then verify eligible interaction/render/save.
-[One finite ordinary town-read attempt is admitted after fresh binding](reviews/2026-10-25-T10.009.md#finite-ordinary-town-read-is-admitted-after-fresh-binding):
-three exact bodies maximum, unchanged caps/guard, natural0 plus complete Root
-audit; no replay, mod install or game-state input. Actual result is unrun here.
+**Main next action:** bind fresh Chapter1 native fixture material/parent and
+verify actual loading, then normal assembly and player-facing route/render/save.
+[The one town read is consumed; Root preservation and retained client-cell audit pass](reviews/2026-10-25-T10.009.md#consumed-town-read-fails-its-version-gate-but-retained-client-cells-qualify).
+Three complete200bodies/3650839B captured. The strict1.3-only probe refuses
+GAT1.2and remains FAILED; independent retained400×400layout/cell check passes:
+353,248type0/client flags10and finite heights, as do four cells toward the
+starter. Four owners/ENV/native/INI/five archives preserved; two ordinary
+loose files materialized, no signals/residue or game input.26full audit pins.
+No acquisition replay is needed. Server collision/arrival/render/save stay open.
 [Root correction b6299ac and exact source integration pass](reviews/2026-10-25-T10.009.md#root-correction-and-exact-source-integration-pass):
 50corrected tests plus seven Root regressions, integrated50tests, all six
 source bytes and30original candidate payload pins match. Registration now
@@ -16,9 +20,9 @@ classifies the full post-write tuple and reports holds accurately; malformed
 debugmes/extra OnInit commands refuse. No new runtime install or game input.
 [Finite town-reader C2 source and fault controls qualify](reviews/2026-10-25-T10.009.md#finite-town-reader-source-and-fault-controls-qualify-before-binding):
 9pure tests,19current fetch cases/raw defect control, publication/deadline
-counterexamples and3default refusals; actual GETs0. Foreign receipt ownership,
+counterexamples and3default refusals before actual use. Foreign receipt ownership,
 late deadline and detached response cleanup are corrected before binding.
-Fresh owners/ENV/outer caller and actual town body remain the next read gate.
+Fresh binding/actual read are now recorded above; preserve those consumed outputs.
 [Changed native-fixture source controls also pass](reviews/2026-10-25-T10.009.md#changed-native-fixture-source-passes-root-controls-before-binding):
 8authored case-loop scenarios,2malformed recipe/inverses and3early refusals;
 full warning/error audit and fresh parent/image/socket authority remain required.
@@ -33,7 +37,8 @@ The corrected source is checked on a separate Root branch; native loading,
 current cells/eligible interaction/rendering/traversal/persistence remain.
 [Retained ygg_edge return-trigger216,91 passes Root's finite client GAT check](reviews/2026-10-25-T10.009.md#retained-return-trigger-cell-passes-a-finite-client-check);
 all nine named first-edge/fruit cells are connected in the retained client
-walkable grids. Town destination353,248 and current server/arrival remain unqualified.
+walkable grids. Town353,248now passes the separate retained client check;
+current server/arrival remain unqualified.
 [The ordinary field encounter, normal return and earned re-entry now pass](reviews/2026-10-24-normal-map-prerequisites.md#ordinary-little-poring-encounter-return-and-earned-reentry-pass).
 One Space selects Little Poring2398, not proposed1002; two player attacks,
 HP40→0and EXP18base/10job, player survives fullHP45/SP12. Ordinary portal
