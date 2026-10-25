@@ -45,7 +45,17 @@ Raw candidate is HELD: three malformed noncoin-row controls return1instead
 of required-1(14/17domain controls pass). No user inventory defect is
 observed. Root adds the author's omitted nonGUID/nonstackable supplied-ID
 regression; it passes. Child removed after full preservation; branch/bundle
-remain. Grok continues independently. No source selection/integration yet.
+remain. Grok later settles an honest failed partial atd09ccaa: native/NPC
+changes exist, but no new driver/fixture or updated harness/behavior guide.
+[Root comparison is complete](reviews/2026-10-25-T10.010.md#both-exact-capacity-originals-are-compared-and-held-claude-is-the-repair-basis):
+Grok passes the same61general pairs/42ordinary probes/17domain controls and
+32actual-text NPC controls. Its inherited117test suite fails7/errors17;
+the new native fixture is absent. An extracted-builtin control also reproduces
+missing-actor script termination despite the pushed-1/success. Both originals
+remain HELD; select Claude18/20as the narrow correction basis versus Grok13/20.
+Both are preserved/released and their child paths removed; branches/bundles
+remain.355fleet rows:345released/ten retained/zero reclaimable. Next fix only
+the probe's all-named-row domain guard and relevant tests; no integration yet.
 
 **Native build preparation:** [four pinned primary-source GETs and Root review](reviews/2026-10-25-T10.010.md#pinned-build-handler-and-crate-source-narrow-the-native-build-path)
 establish that the bundled build route can publish images, but its ARG,
@@ -56,7 +66,13 @@ image copies with no RUN. Actual limits, dependencies, ABI, cancellation,
 cleanup and source/binary identity still need qualification; no container,
 image build or service change is admitted by this source result. Grok is still
 live after the30minute source-task timebox; Root asks for an honest bounded
-settlement, with no duplicate worker or inferred exit. User play is untouched.
+settlement and later receives it, without duplicate launch or inferred exit.
+[Nine read-only preflight GETs](reviews/2026-10-25-T10.010.md#current-read-only-compiler-preflight-preserves-the-original-world)
+confirm all five original services running and historical image fields intact.
+The guest reports4CPU/about3.82GiB total RAM; the host has64GiB. This does not
+qualify compiler headroom or cgroup enforcement. First preflight's whole-object
+versus historical projection assertion is preserved and corrected explicitly.
+No runtime writes or compiler/readiness container have run. User play is untouched.
 
 **Pending user logout:** [normal installation/journal preparation is Root-checked](runbooks/T10.008-T10.009-normal-apply.md).
 Six exact leaves are staged privately; both live mod folders remain absent.
