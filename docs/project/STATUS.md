@@ -4,16 +4,23 @@ Updated: 2026-10-25 JST. Coordinator: Codex. Active scope: **execute the documen
 
 ## Current checkpoint
 
-**Main next action:** fresh world/image binding and the one admitted Chapter1
-native fixture, then normal assembly and player-facing route/render/save.
-[Current parent/private material now qualify](reviews/2026-10-25-T10.009.md#current-native-parent-and-private-material-qualify-before-one-fixture):
-full parent inverse,3early refusals/3exact transport joins,17material roles,
-two malformed inverses and exact selected script/DB bytes. Old ro3transport
-is explicitly rebound/joined to ro4. No fixture has run; native markers,
-full warnings/errors, original-world preservation and cleanup await Root audit.
+**Main next action:** normal mod assembly/readiness preparation and a fresh
+isolated eligible visible route/render/save check; protect current earned
+progress before changing original services. Ordinary base2eligibility is separate.
+[Actual changed native loading and complete Root audit pass](reviews/2026-10-25-T10.009.md#actual-three-case-native-load-and-complete-root-audit-pass):
+five declarations/12maps/3DBrows; positive error-free, both deliberate faults
+produce their exact script/line17parser errors.137complete wires/152runtime
+leaves/32file readbacks/205audit pins; tmpfs/zero player+quest counts, natural
+map exits and exact four-container/network removal confirmed. Fresh original
+world matches after audit.13.252s/32.531MiBsampled host-child RSS; guest memory
+not measured. Call consumed, no replay. No player/dialogue/traversal/render/save
+or installed-mod credit; all82gaps and4/14parent count remain unchanged.
+[Current parent/private material source qualification](reviews/2026-10-25-T10.009.md#current-native-parent-and-private-material-qualify-before-one-fixture)
+preserves the full inverse and refusal/transport controls; old ro3transport
+is explicitly rebound/joined to ro4.
 [First binding refuses an outdated service-start reference before creation](reviews/2026-10-25-T10.009.md#native-binding-refuses-a-stale-service-start-reference-before-creation).
 Root2joins fixed post-play metadata to the same five IDs/names/images/mounts;
-four exact structural controls pass. No native trial or original-state action.
+four exact structural controls pass before the successful actual trial above.
 [The one town read is consumed; Root preservation and retained client-cell audit pass](reviews/2026-10-25-T10.009.md#consumed-town-read-fails-its-version-gate-but-retained-client-cells-qualify).
 Three complete200bodies/3650839B captured. The strict1.3-only probe refuses
 GAT1.2and remains FAILED; independent retained400×400layout/cell check passes:
@@ -33,8 +40,8 @@ late deadline and detached response cleanup are corrected before binding.
 Fresh binding/actual read are now recorded above; preserve those consumed outputs.
 [Changed native-fixture source controls also pass](reviews/2026-10-25-T10.009.md#changed-native-fixture-source-passes-root-controls-before-binding):
 8authored case-loop scenarios,2malformed recipe/inverses and3early refusals;
-full warning/error audit and fresh parent/image/socket authority remain required.
-No native fixture has run. Zero reclaimable paired workers remain.
+their actual full warning/error and fresh authority audit now pass above.
+Zero reclaimable paired workers remain.
 [Both raw candidates are personally compared and held](reviews/2026-10-25-T10.009.md#both-raw-sources-pass-their-suites-but-need-correction):
 Claude8c2be4a18/20correction basis versus Grokb30534b16/20. Root46/36author
 tests and56common observations pass their stated results; both have false
