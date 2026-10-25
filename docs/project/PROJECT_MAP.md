@@ -88,8 +88,10 @@ Map repair:
        -> FINISH6 + retirement     [CANDIDATE PASS:natural0;no guard signals]
        -> fresh cleanup witness    [PASS:original5;groups/ports gone;volume unused]
        -> retained runtime audit   [PASS:391wires/1041pins;Root verified]
-       -> retained UI audit        [NOW:qualify complete candidate]
-          Current plan:6/6command checkpoints;full acceptance still OPEN.
+       -> retained UI audit        [PASS:412captures/12images/448full pins]
+       -> normal supported install [NEXT:prepare;user play stays running]
+          Current isolated plan:6/6with complete Root audits.
+          Normal install/earned-level200/later story/full game remain OPEN.
 
 Quest check:
   Finite startup repair        [PASS: listener seen in 3 checks]
@@ -105,8 +107,8 @@ Shadow pilot (1-3 real tasks, alongside main work):
   One Kimi trial remains       [capacity check first; off critical path]
   Muse task1 source triage     [ROOT REVIEW:15/20;112s;corrections needed]
   Muse task2 retained UI audit [HELD:Root run fails ACK envelope;coverage gaps]
-  Muse task3 quest text        [DELIVERED:Root byte/field review pending]
-  Muse use profile            [AFTER3:quality/time/rework;no general winner]
+  Muse task3 quest text        [HELD:18wrong structured joins;Root corrected]
+  Muse use profile            [DONE:supervised source triage/drafts;3task limits]
 
 Other active work:
   User Assassin test account  [READY:99Assassin +200ShadowCross;own play tab]

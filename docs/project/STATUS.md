@@ -12,9 +12,11 @@ Root stops inputs to that page. Supported setup intentionally restarts normal
 game services; refresh any future operational start reference. No stop/rebuild
 under active user play. Synthetic demo is not earned/full-game acceptance.
 
-**Main next action:** finish Root's complete retained UI evidence audit
-for the consumed fourth visible trial. No actor replay or new launch is admitted.
-[The fourth trial completes all six commands and the visible town return](reviews/2026-10-25-T10.009.md#fourth-visible-trial-completes-the-route-full-retained-audits-remain-open).
+**Main next action:** prepare the supported normal installation/journal plan
+while the user plays. Root's complete retained runtime and UI audits now pass
+for the consumed fourth trial. No actor replay/new launch or global rebuild
+under the active user play session is admitted.
+[The fourth trial passes complete Root runtime/UI audits](reviews/2026-10-25-T10.009.md#fourth-visible-trial-passes-complete-root-runtime-and-ui-audits).
 Root personally sees fruit re-entry after withdrawal, the normal return to
 town353,248, former starter absence, and normal town save/re-entry. STATE5
 confirms both characters offline, B at353,248, A unchanged, and preserved
@@ -26,19 +28,22 @@ groups/five ports, and the new retained unused volume. Sole isolated page blank.
 Complete runtime audit now passes110814assertions/1041pins/391whole wires,
 46log joins/34execs/34guest readbacks/two init closures. Original auditor first
 refuses the system Python's78hard links; one exact pinned-interpreter exception
-qualifies while private evidence still requiresnlink1. UI audit remains open;
-six of six command
-checkpoints is not full acceptance. Broader4/14(29%)and82gaps stay unchanged.
+qualifies while private evidence still requiresnlink1. Complete UI audit passes
+58140assertions/448full pins/412captures/12images, with two retained page errors
+and a separately attributed ten-image Root visual judgment. Six of six command
+checkpoints now have complete retained closure; normal install/earned-level200/
+later story/full-game acceptance remain open. Broader4/14(29%)and82gaps unchanged.
 User reports possible tab interaction during two lost-page incidents; no
 exclusive Root input or browser-cause claim. Original Default tabs are now
 absent; Root did not close or recreate them. New owned page recovers after
 foreground focus, with no game/server patch.
 
-[Muse shadow pilot](reviews/2026-10-25-Muse.md): first task Root-reviewed15/20,
-112s; useful source triage with corrected anchors/inferences, no proven cause.
-Task2 is delivered but held after Root's executable ACK-envelope error and
-coverage review. Task3 quest-text expectations is delivered; Root review is
-pending. Workers released/ACKed. Profile strengths after all3Root reviews.
+[Muse three-task profile](reviews/2026-10-25-Muse.md#profile-after-three-tasks)
+is Root-verified:15/9/13of20under task-specific criteria,112/about90/about183s.
+Useful initial source triage/drafts; exact code/data joins need material review.
+Raw auditor and raw structured oracle held; separate Root fixes are not Muse
+credit. Three workers released/ACKed, child preserved then removed;339released,
+10user-retained/zero reclaimable. Pilot complete, no extra benchmark work.
 
 Earlier file-admission checkpoint:
 [Fresh Root4 files and bound-auditor sources pass Root verification](reviews/2026-10-25-T10.009.md#fresh-root4-files-pass-and-one-longer-visible-interval-is-conditionally-admitted).
