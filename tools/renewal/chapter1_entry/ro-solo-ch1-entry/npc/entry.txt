@@ -1,4 +1,4 @@
-//===== ro-solo-ch1-entry 0.2.0 (T10.007, T10.009) =============================
+//===== ro-solo-ch1-entry 0.3.0 (T10.007, T10.009, T10.010) ====================
 //= Chapter 1 starter branch: registers, cancels or resumes quest 18368 and
 //=   offers ordinary transport to ygg_edge for BaseLevel 200+.
 //= Encoding: UTF-8 (Traditional Chinese dialogue).
@@ -7,10 +7,12 @@
 //= Quest state uses default checkquest (HAVEQUEST) as implemented in rAthena
 //=   0693b8c quest_check: -1 absent, 1 active OR inactive (Q_INACTIVE is
 //=   reported as 1), 2 complete. Any other value is treated as unknown.
+//= Tuples are (18368,18369,18370,18371); 18371 is read in every gate.
 //= Transport: a registration verified in THIS invocation may travel to
-//=   ygg_edge 255,240. Existing (1,-1,-1) and edge-done (2,1,-1) travel to
-//=   ygg_edge 212,95. Every other tuple stays where it is. 18369/18370 are
-//=   only read here; the Messenger in first_edge.txt owns 18368 -> 18369.
+//=   ygg_edge 255,240. Existing (1,-1,-1,-1), edge-done (2,1,-1,-1),
+//=   Shasha-done (2,-1,1,-1) and room-done (2,-1,-1,1) travel to ygg_edge
+//=   212,95. Every other tuple stays where it is. 18369-18371 are only read
+//=   here; first_edge.txt and fruit_village.txt own the later writes.
 //==============================================================================
 
 prt_fild05,353,252,4	script	梧桐枝#ROSOLO_CH1	4_CH1_BRANCH,{
@@ -18,6 +20,8 @@ prt_fild05,353,252,4	script	梧桐枝#ROSOLO_CH1	4_CH1_BRANCH,{
 	if (.@state == 1) goto L_Resume;
 	if (.@state == 2) goto L_Done;
 	if (.@state == 4) goto L_EdgeDone;
+	if (.@state == 6) goto L_ShashaDone;
+	if (.@state == 7) goto L_RoomDone;
 	if (.@state == 5) goto L_Interrupted;
 	if (.@state != 0) goto L_Conflict;
 	if (BaseLevel < 200) goto L_TooLow;
@@ -39,6 +43,8 @@ prt_fild05,353,252,4	script	梧桐枝#ROSOLO_CH1	4_CH1_BRANCH,{
 	if (.@state == 1) goto L_Resume;
 	if (.@state == 2) goto L_Done;
 	if (.@state == 4) goto L_EdgeDone;
+	if (.@state == 6) goto L_ShashaDone;
+	if (.@state == 7) goto L_RoomDone;
 	if (.@state == 5) goto L_Interrupted;
 	if (.@state != 0) goto L_Conflict;
 	if (BaseLevel < 200) goto L_TooLow;
@@ -48,7 +54,8 @@ prt_fild05,353,252,4	script	梧桐枝#ROSOLO_CH1	4_CH1_BRANCH,{
 	.@a = checkquest(18368);
 	.@b = checkquest(18369);
 	.@c = checkquest(18370);
-	if (.@a == 1 && .@b == -1 && .@c == -1) {
+	.@d = checkquest(18371);
+	if (.@a == 1 && .@b == -1 && .@c == -1 && .@d == -1) {
 		mes "[梧桐枝]";
 		mes "樹枝的光芒輕輕包圍了你。";
 		mes "任務「天地樹的召喚(1)」已記錄。";
@@ -58,8 +65,8 @@ prt_fild05,353,252,4	script	梧桐枝#ROSOLO_CH1	4_CH1_BRANCH,{
 		.@first = 1;
 		goto L_Offer;
 	}
-	if (.@a == -1 && .@b == -1 && .@c == -1) {
-		debugmes "ROSOLO_CH1: setquest 18368 was not recorded; guarded tuple remains (-1,-1,-1).";
+	if (.@a == -1 && .@b == -1 && .@c == -1 && .@d == -1) {
+		debugmes "ROSOLO_CH1: setquest 18368 was not recorded; guarded tuple remains (-1,-1,-1,-1).";
 		mes "[梧桐枝]";
 		mes "呼喚中斷了，任務沒有被記錄。";
 		mes "這段任務仍未建立，可稍後再試。";
@@ -68,7 +75,7 @@ prt_fild05,353,252,4	script	梧桐枝#ROSOLO_CH1	4_CH1_BRANCH,{
 	goto L_RegistrationHold;
 
 L_RegistrationHold:
-	debugmes "ROSOLO_CH1: unexpected registration readback 18368=" + .@a + " 18369=" + .@b + " 18370=" + .@c + "; stopped, no further change.";
+	debugmes "ROSOLO_CH1: unexpected registration readback 18368=" + .@a + " 18369=" + .@b + " 18370=" + .@c + " 18371=" + .@d + "; stopped, no further change.";
 	mes "[梧桐枝]";
 	mes "任務紀錄出現無法確認的變化。";
 	mes "已經停止，不會再做其他變更。";
@@ -96,6 +103,22 @@ L_EdgeDone:
 	mes "任務「天地樹的召喚(2)」仍在進行中。";
 	if (BaseLevel < 200) goto L_NoTravel;
 	.@want = 4;
+	goto L_Offer;
+
+L_ShashaDone:
+	mes "[梧桐枝]";
+	mes "樹枝記得你走過的路。";
+	mes "任務「天地樹的召喚(3)」仍在進行中。";
+	if (BaseLevel < 200) goto L_NoTravel;
+	.@want = 6;
+	goto L_Offer;
+
+L_RoomDone:
+	mes "[梧桐枝]";
+	mes "樹枝記得你走過的路。";
+	mes "任務「扭曲的黑暗之地」仍在進行中。";
+	if (BaseLevel < 200) goto L_NoTravel;
+	.@want = 7;
 	goto L_Offer;
 
 L_NoTravel:
@@ -146,42 +169,48 @@ L_Done:
 	close;
 
 L_Interrupted:
-	debugmes "ROSOLO_CH1: 18368 complete without 18369 (2,-1,-1); holding, no automatic repair.";
+	debugmes "ROSOLO_CH1: 18368 complete without 18369 (2,-1,-1,-1); holding, no automatic repair.";
 	mes "[梧桐枝]";
 	mes "這段任務紀錄停在中途。";
 	mes "為了保護紀錄，這裡不會自動修復。";
 	close;
 
 L_Conflict:
-	debugmes "ROSOLO_CH1: unrecognised quest state 18368=" + checkquest(18368) + " 18369=" + checkquest(18369) + " 18370=" + checkquest(18370) + "; no change made.";
+	debugmes "ROSOLO_CH1: unrecognised quest state 18368=" + checkquest(18368) + " 18369=" + checkquest(18369) + " 18370=" + checkquest(18370) + " 18371=" + checkquest(18371) + "; no change made.";
 	mes "[梧桐枝]";
 	mes "任務紀錄的狀態無法確認。";
 	mes "為了保護你的紀錄，這裡不會做任何變更。";
 	close;
 
-// 0 fresh (all three absent), 1 entry in progress (18368 active or inactive,
-// nothing later), 4 first edge done (2,1,-1), 5 interrupted edge (2,-1,-1),
-// 2 other later progress without conflict, 3 anything else. Later quests may
-// exist without 18368 if a future script uses changequest, so absent 18368
-// plus later progress is legal and preserved.
+// 0 fresh (all four absent), 1 entry in progress (18368 active or inactive,
+// nothing later), 4 first edge done (2,1,-1,-1), 5 interrupted edge
+// (2,-1,-1,-1), 6 Shasha done (2,-1,1,-1), 7 room done (2,-1,-1,1),
+// 2 other later progress without conflict, 3 anything else. changequest
+// replaces the old ID, so absent 18369/18370 after a later stage is the
+// expected history, and later quests without 18368 are preserved.
 L_State:
 	.@a = checkquest(18368);
 	.@b = checkquest(18369);
 	.@c = checkquest(18370);
+	.@d = checkquest(18371);
 	if (.@a != -1 && .@a != 1 && .@a != 2) return 3;
 	if (.@b != -1 && .@b != 1 && .@b != 2) return 3;
 	if (.@c != -1 && .@c != 1 && .@c != 2) return 3;
-	if (.@a == -1 && .@b == -1 && .@c == -1) return 0;
+	if (.@d != -1 && .@d != 1 && .@d != 2) return 3;
+	if (.@a == -1 && .@b == -1 && .@c == -1 && .@d == -1) return 0;
 	if (.@a == 1) {
-		if (.@b == -1 && .@c == -1) return 1;
-		return 3; // 18368 still open alongside a later quest
+		if (.@b == -1 && .@c == -1 && .@d == -1) return 1;
+		return 3;
 	}
-	if (.@b == 1 && .@c != -1) return 3; // 18369 still open alongside 18370
-	if (.@a == 2 && .@b == 1 && .@c == -1) return 4;
-	if (.@a == 2 && .@b == -1 && .@c == -1) return 5;
+	if (.@b == 1 && (.@c != -1 || .@d != -1)) return 3;
+	if (.@c == 1 && .@d != -1) return 3;
+	if (.@a == 2 && .@b == 1 && .@c == -1 && .@d == -1) return 4;
+	if (.@a == 2 && .@b == -1 && .@c == -1 && .@d == -1) return 5;
+	if (.@a == 2 && .@b == -1 && .@c == 1 && .@d == -1) return 6;
+	if (.@a == 2 && .@b == -1 && .@c == -1 && .@d == 1) return 7;
 	return 2;
 
 OnInit:
-	questinfo(QTYPE_QUEST, QMARK_YELLOW, "BaseLevel >= 200 && checkquest(18368) == -1 && checkquest(18369) == -1 && checkquest(18370) == -1");
+	questinfo(QTYPE_QUEST, QMARK_YELLOW, "BaseLevel >= 200 && checkquest(18368) == -1 && checkquest(18369) == -1 && checkquest(18370) == -1 && checkquest(18371) == -1");
 	end;
 }

@@ -1,7 +1,7 @@
 {
   "name": "ro-solo-ch1-entry",
-  "version": "0.2.0",
-  "author": "ro-solo local component (T10.007, T10.009)",
-  "description": "Chapter 1 starter branch on prt_fild05 for BaseLevel 200+: registers, cancels or resumes quest 18368 and offers ordinary travel to ygg_edge. A Messenger on ygg_edge completes 18368 and starts 18369 with checked readbacks; two warps link ygg_edge and ygg_fruit and a gate returns to prt_fild05. QUEST_DB definitions for 18368-18370 (Id/Title only). First story edge only: no 18370, next-room NPCs or rewards. Text is UTF-8 Traditional Chinese.",
+  "version": "0.3.2",
+  "author": "ro-solo local component (T10.007, T10.009, T10.010, T10.010.001, T10.010.002)",
+  "description": "Chapter 1 starter branch on prt_fild05 for BaseLevel 200+: registers, cancels or resumes quest 18368 and offers ordinary travel to ygg_edge, including revisits at 18369, 18370 and 18371. A Messenger on ygg_edge completes 18368 and starts 18369 with checked readbacks; two warps link ygg_edge and ygg_fruit and a gate returns to prt_fild05. On ygg_fruit a checked arrival fallback, Shasha (18369 to 18370) and Maysel (18370 to 18371 with its native EXP and 10 Ch1_Root_Coin; only after the native ros_ch1_coin_capacity() preflight reports the coins fit; requires the T10.010.002 native patch) use quest replacement with full readbacks, and Est/Debris presentation is set per character. QUEST_DB definitions for 18368-18371 (Id/Title only). Ends at the 18371 objective. Text is UTF-8 Traditional Chinese.",
   "requires": { "app": ">=1.6.3", "era": "renewal" }
 }

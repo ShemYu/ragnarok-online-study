@@ -55,7 +55,16 @@ missing-actor script termination despite the pushed-1/success. Both originals
 remain HELD; select Claude18/20as the narrow correction basis versus Grok13/20.
 Both are preserved/released and their child paths removed; branches/bundles
 remain.355fleet rows:345released/ten retained/zero reclaimable. Next fix only
-the probe's all-named-row domain guard and relevant tests; no integration yet.
+the probe's all-named-row domain guard and relevant tests.
+**That narrow correction now passes and the complete source package is
+integrated locally as0.3.2:** [Root source qualification](reviews/2026-10-25-T10.010.md#corrected-exact-capacity-source-passes-and-the-complete-package-is-integrated).
+133C++ cases/63probes/nine causal mutants and120NPC tests pass. Root's
+61general pairs/42ordinary probes/all17domain checks/32NPC controls pass.
+Whole native inverse proves the only production change from raw Claude is
+the probe quantity predicate; generic add/header/script bodies are unchanged.
+Eleven source leaves change from current0.2.0; all12final source/profile hashes
+join the tested derivative. T10.010.002is self_verified SOURCE ONLY. Stock
+binaries cannot load0.3.2's new builtin; no normal install or native/game credit.
 
 **Native build preparation:** [four pinned primary-source GETs and Root review](reviews/2026-10-25-T10.010.md#pinned-build-handler-and-crate-source-narrow-the-native-build-path)
 establish that the bundled build route can publish images, but its ARG,
@@ -76,6 +85,9 @@ No runtime writes or compiler/readiness container have run. User play is untouch
 
 **Pending user logout:** [normal installation/journal preparation is Root-checked](runbooks/T10.008-T10.009-normal-apply.md).
 Six exact leaves are staged privately; both live mod folders remain absent.
+This frozen staging remains0.2.0, separate from the newly integrated0.3.2
+source. Do not replace staged bytes or install0.3.2against stock binaries;
+its new native prerequisite requires a separately qualified build/plan.
 All six enabled mods/eleven off choices and Chinese settings are preserved.
 Root checks39source pins/six root censuses and the current packaged dispatcher.
 The Mods Apply button only restarts native services; use supported full

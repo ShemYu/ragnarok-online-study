@@ -1,0 +1,526 @@
+//===== ro-solo-ch1-entry 0.3.2 (T10.010.002) ==================================
+//= Fruit village introduction on ygg_fruit: arrival fallback, Shasha 18369 ->
+//=   18370, Maysel 18370 -> 18371 with its native rewards, and presentation.
+//= Encoding: UTF-8 (Traditional Chinese dialogue; Est/Debris left untranslated).
+//= Quest state uses default checkquest as in entry.txt: -1 absent, 1 active
+//=   OR inactive, 2 complete; any other value is unknown and refused.
+//=   Tuples are (18368,18369,18370,18371); L_State is identical in every
+//=   script that reads it (codes as in entry.txt, plus 6 and 7).
+//= Native changequest replaces the source quest with the destination; the old
+//=   ID is absent afterwards. Command success proves nothing, so every write
+//=   is followed by a full readback before anything else happens.
+//= Not a transaction: quest, status and inventory are saved separately. A
+//=   partial or uncertain result is held for review, never replayed, rolled
+//=   back or compensated. No permanent variable of any kind is used.
+//= Presentation: per-character cloakonnpc/cloakoffnpc derived from a fresh
+//=   tuple (L_Sync). Masks reset on map change and logout; arrival, Shasha
+//=   and both final closes resynchronise. Cloaking is not an eligibility
+//=   gate: every consequential path checks the quest log itself.
+//==============================================================================
+
+// Arrival at the landing cell. Only (1,-1,-1,-1) gets the checked
+// A-complete/B-set fallback (same sequence as the Messenger, no yield);
+// every other tuple only resynchronises presentation. Not a warp.
+ygg_fruit,73,117,0	script	#ROSOLO_CH1_ARR	HIDDEN_WARP_NPC,1,1,{
+	end;
+
+OnTouch:
+	.@a = checkquest(18368);
+	.@b = checkquest(18369);
+	.@c = checkquest(18370);
+	.@d = checkquest(18371);
+	if (.@a != 1 || .@b != -1 || .@c != -1 || .@d != -1) goto L_Present;
+	completequest 18368;
+	.@a = checkquest(18368);
+	.@b = checkquest(18369);
+	.@c = checkquest(18370);
+	.@d = checkquest(18371);
+	if (.@a == 1 && .@b == -1 && .@c == -1 && .@d == -1) goto L_NotCompleted;
+	if (.@a != 2 || .@b != -1 || .@c != -1 || .@d != -1) goto L_Hold;
+	setquest 18369;
+	.@a = checkquest(18368);
+	.@b = checkquest(18369);
+	.@c = checkquest(18370);
+	.@d = checkquest(18371);
+	if (.@a == 2 && .@b == -1 && .@c == -1 && .@d == -1) goto L_NotStarted;
+	if (.@a != 2 || .@b != 1 || .@c != -1 || .@d != -1) goto L_Hold;
+	dispbottom "任務「天地樹的召喚(2)」已記錄。";
+L_Present:
+	callsub L_Sync;
+	end;
+
+L_NotCompleted:
+	debugmes "ROSOLO_CH1: arrival completequest 18368 did not take effect; still (1,-1,-1,-1).";
+	dispbottom "紀錄沒有更新，任務維持原狀。";
+	end;
+
+L_NotStarted:
+	debugmes "ROSOLO_CH1: arrival completed 18368 but setquest 18369 did not take effect; holding (2,-1,-1,-1).";
+	dispbottom "紀錄只更新了一半，不會自動修復。";
+	end;
+
+L_Hold:
+	debugmes "ROSOLO_CH1: unexpected arrival readback 18368=" + .@a + " 18369=" + .@b + " 18370=" + .@c + " 18371=" + .@d + "; stopped, no further change.";
+	dispbottom "任務紀錄出現無法確認的變化。";
+	end;
+
+L_Sync:
+	if (strcharinfo(3) != "ygg_fruit") return;
+	.@s = callsub(L_State);
+	.@cid = getcharid(0);
+	if (.@s == 4) {
+		cloakonnpc "梅雪#ROSOLO_CH1_MAY",.@cid;
+		cloakoffnpc "Est#ROSOLO_CH1_EST",.@cid;
+		cloakoffnpc "Debris#ROSOLO_CH1_DEB",.@cid;
+		return;
+	}
+	if (.@s == 6) {
+		cloakoffnpc "梅雪#ROSOLO_CH1_MAY",.@cid;
+		cloakonnpc "Est#ROSOLO_CH1_EST",.@cid;
+		cloakoffnpc "Debris#ROSOLO_CH1_DEB",.@cid;
+		return;
+	}
+	if (.@s == 7) {
+		cloakoffnpc "梅雪#ROSOLO_CH1_MAY",.@cid;
+		cloakonnpc "Est#ROSOLO_CH1_EST",.@cid;
+		cloakonnpc "Debris#ROSOLO_CH1_DEB",.@cid;
+		return;
+	}
+	return;
+
+L_State:
+	.@a = checkquest(18368);
+	.@b = checkquest(18369);
+	.@c = checkquest(18370);
+	.@d = checkquest(18371);
+	if (.@a != -1 && .@a != 1 && .@a != 2) return 3;
+	if (.@b != -1 && .@b != 1 && .@b != 2) return 3;
+	if (.@c != -1 && .@c != 1 && .@c != 2) return 3;
+	if (.@d != -1 && .@d != 1 && .@d != 2) return 3;
+	if (.@a == -1 && .@b == -1 && .@c == -1 && .@d == -1) return 0;
+	if (.@a == 1) {
+		if (.@b == -1 && .@c == -1 && .@d == -1) return 1;
+		return 3;
+	}
+	if (.@b == 1 && (.@c != -1 || .@d != -1)) return 3;
+	if (.@c == 1 && .@d != -1) return 3;
+	if (.@a == 2 && .@b == 1 && .@c == -1 && .@d == -1) return 4;
+	if (.@a == 2 && .@b == -1 && .@c == -1 && .@d == -1) return 5;
+	if (.@a == 2 && .@b == -1 && .@c == 1 && .@d == -1) return 6;
+	if (.@a == 2 && .@b == -1 && .@c == -1 && .@d == 1) return 7;
+	return 2;
+}
+
+// Shasha: the only 18369 -> 18370 writer. Sprite follows the pinned mechanics
+// reference (DELEGACY01); the client navigation row says DELEGACY02.
+ygg_fruit,80,122,3	script	莎莎#ROSOLO_CH1_SHA	4_CH1_DELEGACY01,{
+	.@state = callsub(L_State);
+	if (.@state == 4) goto L_Intro;
+	if (.@state == 6) goto L_Repeat;
+	if (.@state == 7) goto L_Onward;
+	if (.@state == 3) goto L_Conflict;
+	mes "[莎莎]";
+	mes "這裡是梧桐村，天地樹的果實。";
+	close;
+
+L_Repeat:
+	callsub L_Sync;
+	mes "[莎莎]";
+	mes "梅雪就在旁邊，去和她說話吧。";
+	mes "任務「天地樹的召喚(3)」仍在進行中。";
+	close;
+
+L_Onward:
+	callsub L_Sync;
+	mes "[莎莎]";
+	mes "天地樹有一根樹枝通往北方。";
+	mes "目標：前往扭曲的黑暗之地";
+	close;
+
+// Seven dialogue yields before the write; each is followed by a full recheck.
+L_Intro:
+	callsub L_Sync;
+	mes "[莎莎]";
+	mes "又有冒險家來了，歡迎來到梧桐村。";
+	mes "我是莎莎，負責傳達天地樹的意志。";
+	next;
+	.@state = callsub(L_State);
+	if (.@state != 4) goto L_Changed;
+	mes "[莎莎]";
+	mes "先和早到的同伴們打聲招呼吧，";
+	mes "往後大家要一起行動。";
+	next;
+	.@state = callsub(L_State);
+	if (.@state != 4) goto L_Changed;
+	mes "[Est]";
+	mes "天地樹在召集各地的強者，";
+	mes "你會被叫來一點也不奇怪。";
+	next;
+	.@state = callsub(L_State);
+	if (.@state != 4) goto L_Changed;
+	select("你為什麼在這裡？");
+	.@state = callsub(L_State);
+	if (.@state != 4) goto L_Changed;
+	mes "[Est]";
+	mes "我來確認求救是不是真的。";
+	mes "情況比想像中緊急，所以留下幫忙。";
+	mes "我還得調查，先走一步了。";
+	next;
+	.@state = callsub(L_State);
+	if (.@state != 4) goto L_Changed;
+	mes "[Debris]";
+	mes "你也是跟著小精靈來的嗎？";
+	mes "我是植物學家，負責分析帶回的東西。";
+	next;
+	.@state = callsub(L_State);
+	if (.@state != 4) goto L_Changed;
+	mes "[Debris]";
+	mes "梅雪也在村子裡，";
+	mes "去向她自我介紹吧。";
+	next;
+	// Last yield before the write: the whole tuple must still be (2,1,-1,-1).
+	.@a = checkquest(18368);
+	.@b = checkquest(18369);
+	.@c = checkquest(18370);
+	.@d = checkquest(18371);
+	if (.@a != 2 || .@b != 1 || .@c != -1 || .@d != -1) goto L_Changed;
+	changequest 18369,18370;
+	// changequest reports success even when quest_change refused: read back.
+	.@a = checkquest(18368);
+	.@b = checkquest(18369);
+	.@c = checkquest(18370);
+	.@d = checkquest(18371);
+	if (.@a == 2 && .@b == 1 && .@c == -1 && .@d == -1) goto L_NotChanged;
+	if (.@a != 2 || .@b != -1 || .@c != 1 || .@d != -1) goto L_Hold;
+	mes "[莎莎]";
+	mes "任務「天地樹的召喚(3)」已記錄。";
+	mes "目標：與梅雪對話";
+	close2;
+	// close2 waited for the button: fresh state and map before presentation.
+	callsub L_Sync;
+	end;
+
+L_Changed:
+	mes "[莎莎]";
+	mes "任務紀錄剛剛有了變化。";
+	mes "這次不會做任何變更。";
+	close;
+
+L_NotChanged:
+	debugmes "ROSOLO_CH1: changequest 18369,18370 did not take effect; still (2,1,-1,-1).";
+	mes "[莎莎]";
+	mes "紀錄沒有更新，任務維持原狀。";
+	mes "可以稍後再和我說話。";
+	close;
+
+L_Hold:
+	debugmes "ROSOLO_CH1: unexpected Shasha readback 18368=" + .@a + " 18369=" + .@b + " 18370=" + .@c + " 18371=" + .@d + "; stopped, no further change.";
+	mes "[莎莎]";
+	mes "任務紀錄出現無法確認的變化。";
+	mes "已經停止，不會再做其他變更。";
+	close;
+
+L_Conflict:
+	debugmes "ROSOLO_CH1: unrecognised quest state 18368=" + checkquest(18368) + " 18369=" + checkquest(18369) + " 18370=" + checkquest(18370) + " 18371=" + checkquest(18371) + "; no change made.";
+	mes "[莎莎]";
+	mes "任務紀錄的狀態無法確認。";
+	mes "為了保護你的紀錄，這裡不會做任何變更。";
+	close;
+
+L_Sync:
+	if (strcharinfo(3) != "ygg_fruit") return;
+	.@s = callsub(L_State);
+	.@cid = getcharid(0);
+	if (.@s == 4) {
+		cloakonnpc "梅雪#ROSOLO_CH1_MAY",.@cid;
+		cloakoffnpc "Est#ROSOLO_CH1_EST",.@cid;
+		cloakoffnpc "Debris#ROSOLO_CH1_DEB",.@cid;
+		return;
+	}
+	if (.@s == 6) {
+		cloakoffnpc "梅雪#ROSOLO_CH1_MAY",.@cid;
+		cloakonnpc "Est#ROSOLO_CH1_EST",.@cid;
+		cloakoffnpc "Debris#ROSOLO_CH1_DEB",.@cid;
+		return;
+	}
+	if (.@s == 7) {
+		cloakoffnpc "梅雪#ROSOLO_CH1_MAY",.@cid;
+		cloakonnpc "Est#ROSOLO_CH1_EST",.@cid;
+		cloakonnpc "Debris#ROSOLO_CH1_DEB",.@cid;
+		return;
+	}
+	return;
+
+L_State:
+	.@a = checkquest(18368);
+	.@b = checkquest(18369);
+	.@c = checkquest(18370);
+	.@d = checkquest(18371);
+	if (.@a != -1 && .@a != 1 && .@a != 2) return 3;
+	if (.@b != -1 && .@b != 1 && .@b != 2) return 3;
+	if (.@c != -1 && .@c != 1 && .@c != 2) return 3;
+	if (.@d != -1 && .@d != 1 && .@d != 2) return 3;
+	if (.@a == -1 && .@b == -1 && .@c == -1 && .@d == -1) return 0;
+	if (.@a == 1) {
+		if (.@b == -1 && .@c == -1 && .@d == -1) return 1;
+		return 3;
+	}
+	if (.@b == 1 && (.@c != -1 || .@d != -1)) return 3;
+	if (.@c == 1 && .@d != -1) return 3;
+	if (.@a == 2 && .@b == 1 && .@c == -1 && .@d == -1) return 4;
+	if (.@a == 2 && .@b == -1 && .@c == -1 && .@d == -1) return 5;
+	if (.@a == 2 && .@b == -1 && .@c == 1 && .@d == -1) return 6;
+	if (.@a == 2 && .@b == -1 && .@c == -1 && .@d == 1) return 7;
+	return 2;
+
+OnInit:
+	questinfo(QTYPE_QUEST, QMARK_YELLOW, "checkquest(18368) == 2 && checkquest(18369) == 1 && checkquest(18370) == -1 && checkquest(18371) == -1");
+	end;
+}
+
+// Maysel: the only 18370 -> 18371 writer and the only reward. Order after the
+// last yield: full recheck, native coin capacity preflight, changequest,
+// exact D readback, getexp, getitem, coin/tuple readback. No menu or yield
+// inside that window.
+// ros_ch1_coin_capacity() (T10.010.002 native patch) pushes 1 when getitem's
+//   ordinary Ch1_Root_Coin x10 fits now, 0 for a capacity refusal and -1 when
+//   unsupported. Only 1 proceeds. Stock binaries cannot load this NPC.
+ygg_fruit,82,120,3	script	梅雪#ROSOLO_CH1_MAY	4_F_MAYSEL,{
+	.@state = callsub(L_State);
+	if (.@state == 6) goto L_Talk;
+	if (.@state == 7) goto L_Onward;
+	if (.@state == 4) goto L_Early;
+	if (.@state == 3) goto L_Conflict;
+	mes "[梅雪]";
+	mes "情報交給我處理最合適了。";
+	close;
+
+L_Early:
+	mes "[梅雪]";
+	mes "先去和莎莎說話吧。";
+	close;
+
+L_Onward:
+	mes "[梅雪]";
+	mes "黑暗之地在北方，路上小心。";
+	mes "目標：前往扭曲的黑暗之地";
+	close;
+
+// Twelve dialogue yields before the write; each is followed by a full recheck.
+L_Talk:
+	mes "[莎莎]";
+	mes "梅雪，你來得正好。";
+	mes "這位冒險家會幫忙調查平行之門。";
+	next;
+	.@state = callsub(L_State);
+	if (.@state != 6) goto L_Changed;
+	mes "[梅雪]";
+	mes "其他人已經抵達黑暗之地了。";
+	mes "連到樹枝盡頭的門運作正常，";
+	mes "但有一處扭曲的空間出了問題。";
+	next;
+	.@state = callsub(L_State);
+	if (.@state != 6) goto L_Changed;
+	select("這是怎麼回事？");
+	.@state = callsub(L_State);
+	if (.@state != 6) goto L_Changed;
+	mes "[梅雪]";
+	mes "親眼看過就會明白了。";
+	next;
+	.@state = callsub(L_State);
+	if (.@state != 6) goto L_Changed;
+	mes "[莎莎]";
+	mes "總之，世界正面臨危險！";
+	next;
+	.@state = callsub(L_State);
+	if (.@state != 6) goto L_Changed;
+	select("世界好像總是有危險……");
+	.@state = callsub(L_State);
+	if (.@state != 6) goto L_Changed;
+	mes "[莎莎]";
+	mes "本來不該相連的世界互相干擾，";
+	mes "放著不管，一切都可能毀滅。";
+	mes "所以天地樹開始行動了。";
+	next;
+	.@state = callsub(L_State);
+	if (.@state != 6) goto L_Changed;
+	mes "[Debris]";
+	mes "這和以前的次元裂縫不一樣嗎？";
+	next;
+	.@state = callsub(L_State);
+	if (.@state != 6) goto L_Changed;
+	mes "[莎莎]";
+	mes "裂縫是同一個世界裡的混亂，";
+	mes "平行之門則是不同世界線相撞。";
+	next;
+	.@state = callsub(L_State);
+	if (.@state != 6) goto L_Changed;
+	select("以前的入侵不是解決了嗎？");
+	.@state = callsub(L_State);
+	if (.@state != 6) goto L_Changed;
+	mes "[莎莎]";
+	mes "平行世界可不只一個。";
+	mes "你的第一個任務是往北走，";
+	mes "親眼看看扭曲的黑暗之地。";
+	next;
+	.@state = callsub(L_State);
+	if (.@state != 6) goto L_Changed;
+	select("要怎麼去黑暗之地？");
+	// Last yield before the write: the whole tuple must still be (2,-1,1,-1).
+	.@a = checkquest(18368);
+	.@b = checkquest(18369);
+	.@c = checkquest(18370);
+	.@d = checkquest(18371);
+	if (.@a != 2 || .@b != -1 || .@c != 1 || .@d != -1) goto L_Changed;
+	// Preflight before any mutation: exact native insertion plan, tri-state.
+	.@cap = ros_ch1_coin_capacity();
+	if (.@cap == 0) goto L_NoRoom;
+	if (.@cap != 1) goto L_Unsupported;
+	.@coin = countitem("Ch1_Root_Coin");
+	changequest 18370,18371;
+	.@a = checkquest(18368);
+	.@b = checkquest(18369);
+	.@c = checkquest(18370);
+	.@d = checkquest(18371);
+	if (.@a == 2 && .@b == -1 && .@c == 1 && .@d == -1) goto L_NotChanged;
+	if (.@a != 2 || .@b != -1 || .@c != -1 || .@d != 1) goto L_Hold;
+	getexp 65304744,4000000;
+	getitem "Ch1_Root_Coin",10;
+	.@after = countitem("Ch1_Root_Coin");
+	.@a = checkquest(18368);
+	.@b = checkquest(18369);
+	.@c = checkquest(18370);
+	.@d = checkquest(18371);
+	if (.@after != .@coin + 10) goto L_RewardHold;
+	if (.@a != 2 || .@b != -1 || .@c != -1 || .@d != 1) goto L_RewardHold;
+	mes "[莎莎]";
+	mes "天地樹有一根樹枝通往那裡。";
+	mes "任務「扭曲的黑暗之地」已記錄。";
+	mes "目標：前往扭曲的黑暗之地";
+	close2;
+	callsub L_Sync;
+	end;
+
+L_NoRoom:
+	debugmes "ROSOLO_CH1: Ch1_Root_Coin x10 preflight refused; 18370 kept, nothing granted.";
+	mes "[梅雪]";
+	mes "你的行囊好像裝不下了。";
+	mes "整理之後再來找我吧。";
+	close;
+
+L_Unsupported:
+	debugmes "ROSOLO_CH1: Ch1_Root_Coin x10 capacity unconfirmed; 18370 kept, nothing granted.";
+	mes "[梅雪]";
+	mes "現在無法確認金幣能否放進你的行囊。";
+	mes "這次沒有發放獎勵，任務維持原狀。";
+	close;
+
+L_Changed:
+	mes "[梅雪]";
+	mes "任務紀錄剛剛有了變化。";
+	mes "這次不會做任何變更。";
+	close;
+
+L_NotChanged:
+	debugmes "ROSOLO_CH1: changequest 18370,18371 did not take effect; still (2,-1,1,-1), nothing granted.";
+	mes "[梅雪]";
+	mes "紀錄沒有更新，任務維持原狀。";
+	mes "可以稍後再和我說話。";
+	close;
+
+L_Hold:
+	debugmes "ROSOLO_CH1: unexpected Maysel readback 18368=" + .@a + " 18369=" + .@b + " 18370=" + .@c + " 18371=" + .@d + "; stopped, nothing granted.";
+	mes "[梅雪]";
+	mes "任務紀錄出現無法確認的變化。";
+	mes "已經停止，不會再做其他變更。";
+	close;
+
+L_RewardHold:
+	debugmes "ROSOLO_CH1: reward readback coin " + .@coin + "->" + .@after + " 18368=" + .@a + " 18369=" + .@b + " 18370=" + .@c + " 18371=" + .@d + "; held, no replay.";
+	mes "[梅雪]";
+	mes "獎勵沒有確認送達。";
+	mes "紀錄已保留，不會自動重發。";
+	mes "請回報這個狀況。";
+	close;
+
+L_Conflict:
+	debugmes "ROSOLO_CH1: unrecognised quest state 18368=" + checkquest(18368) + " 18369=" + checkquest(18369) + " 18370=" + checkquest(18370) + " 18371=" + checkquest(18371) + "; no change made.";
+	mes "[梅雪]";
+	mes "任務紀錄的狀態無法確認。";
+	mes "為了保護你的紀錄，這裡不會做任何變更。";
+	close;
+
+L_Sync:
+	if (strcharinfo(3) != "ygg_fruit") return;
+	.@s = callsub(L_State);
+	.@cid = getcharid(0);
+	if (.@s == 4) {
+		cloakonnpc "梅雪#ROSOLO_CH1_MAY",.@cid;
+		cloakoffnpc "Est#ROSOLO_CH1_EST",.@cid;
+		cloakoffnpc "Debris#ROSOLO_CH1_DEB",.@cid;
+		return;
+	}
+	if (.@s == 6) {
+		cloakoffnpc "梅雪#ROSOLO_CH1_MAY",.@cid;
+		cloakonnpc "Est#ROSOLO_CH1_EST",.@cid;
+		cloakoffnpc "Debris#ROSOLO_CH1_DEB",.@cid;
+		return;
+	}
+	if (.@s == 7) {
+		cloakoffnpc "梅雪#ROSOLO_CH1_MAY",.@cid;
+		cloakonnpc "Est#ROSOLO_CH1_EST",.@cid;
+		cloakonnpc "Debris#ROSOLO_CH1_DEB",.@cid;
+		return;
+	}
+	return;
+
+L_State:
+	.@a = checkquest(18368);
+	.@b = checkquest(18369);
+	.@c = checkquest(18370);
+	.@d = checkquest(18371);
+	if (.@a != -1 && .@a != 1 && .@a != 2) return 3;
+	if (.@b != -1 && .@b != 1 && .@b != 2) return 3;
+	if (.@c != -1 && .@c != 1 && .@c != 2) return 3;
+	if (.@d != -1 && .@d != 1 && .@d != 2) return 3;
+	if (.@a == -1 && .@b == -1 && .@c == -1 && .@d == -1) return 0;
+	if (.@a == 1) {
+		if (.@b == -1 && .@c == -1 && .@d == -1) return 1;
+		return 3;
+	}
+	if (.@b == 1 && (.@c != -1 || .@d != -1)) return 3;
+	if (.@c == 1 && .@d != -1) return 3;
+	if (.@a == 2 && .@b == 1 && .@c == -1 && .@d == -1) return 4;
+	if (.@a == 2 && .@b == -1 && .@c == -1 && .@d == -1) return 5;
+	if (.@a == 2 && .@b == -1 && .@c == 1 && .@d == -1) return 6;
+	if (.@a == 2 && .@b == -1 && .@c == -1 && .@d == 1) return 7;
+	return 2;
+
+OnInit:
+	questinfo(QTYPE_QUEST, QMARK_YELLOW, "checkquest(18368) == 2 && checkquest(18369) == -1 && checkquest(18370) == 1 && checkquest(18371) == -1");
+	end;
+}
+
+// Est: genuinely inert presentation actor, cloaked for everyone at init.
+ygg_fruit,77,117,1	script	Est#ROSOLO_CH1_EST	4_F_ESTLOVELOY,{
+	end;
+
+OnInit:
+	cloakonnpc;
+	end;
+}
+
+// Debris: cloaked at init; one self-only line at the 18370 stage, no writes.
+ygg_fruit,77,124,4	script	Debris#ROSOLO_CH1_DEB	4_LGTSCIENCE,{
+	.@a = checkquest(18368);
+	.@b = checkquest(18369);
+	.@c = checkquest(18370);
+	.@d = checkquest(18371);
+	if (.@a != 2 || .@b != -1 || .@c != 1 || .@d != -1) end;
+	npctalk "這種地方的研究，總是讓人興奮。","",BC_SELF;
+	end;
+
+OnInit:
+	cloakonnpc;
+	end;
+}

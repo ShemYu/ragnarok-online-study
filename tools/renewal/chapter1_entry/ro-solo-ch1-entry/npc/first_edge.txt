@@ -1,25 +1,26 @@
-//===== ro-solo-ch1-entry 0.2.0 (T10.009) ======================================
+//===== ro-solo-ch1-entry 0.3.0 (T10.009, T10.010) ============================
 //= First Chapter 1 story edge on ygg_edge: the Messenger completes 18368 and
 //=   starts 18369, plus three ordinary unconditional connections.
 //= Encoding: UTF-8 (Traditional Chinese dialogue).
 //= Quest state uses default checkquest as in entry.txt: -1 absent, 1 active
 //=   OR inactive, 2 complete; any other value is unknown and refused.
-//= Only the exact tuple (18368,18369,18370) = (1,-1,-1) admits the edge.
-//=   completequest 18368, read back (2,-1,-1), setquest 18369, read back
-//=   (2,1,-1). No yield between the last precondition and the last readback.
-//=   This is a checked fail-closed sequence, not an atomic save: a partial
-//=   (2,-1,-1) is retained and held, never repaired automatically.
-//= Not here: the ygg_fruit 73,117 arrival event, the next room's NPCs,
-//=   18370, rewards, cutins or any permanent variable.
+//= Only the exact tuple (18368,18369,18370,18371) = (1,-1,-1,-1) admits the
+//=   edge. completequest 18368, read back (2,-1,-1,-1), setquest 18369, read
+//=   back (2,1,-1,-1). No yield between the last precondition and the last
+//=   readback. This is a checked fail-closed sequence, not an atomic save: a
+//=   partial (2,-1,-1,-1) is retained and held, never repaired automatically.
+//= Not here: the ygg_fruit 73,117 arrival event and the village NPCs (see
+//=   fruit_village.txt), rewards, cutins or any permanent variable.
 //==============================================================================
 
 ygg_edge,253,246,4	script	信使#ROSOLO_CH1_MSG	4_CH1_DELEGACY02,{
 	.@a = checkquest(18368);
 	.@b = checkquest(18369);
 	.@c = checkquest(18370);
-	if (.@a == 2 && .@b == 1 && .@c == -1) goto L_Done;
-	if (.@a == 2 && .@b == -1 && .@c == -1) goto L_Interrupted;
-	if (.@a != 1 || .@b != -1 || .@c != -1) goto L_Other;
+	.@d = checkquest(18371);
+	if (.@a == 2 && .@b == 1 && .@c == -1 && .@d == -1) goto L_Done;
+	if (.@a == 2 && .@b == -1 && .@c == -1 && .@d == -1) goto L_Interrupted;
+	if (.@a != 1 || .@b != -1 || .@c != -1 || .@d != -1) goto L_Other;
 
 	mes "[信使]";
 	mes "歡迎來到天地樹的樹枝盡頭。";
@@ -27,24 +28,27 @@ ygg_edge,253,246,4	script	信使#ROSOLO_CH1_MSG	4_CH1_DELEGACY02,{
 	mes "一直走到果實那裡就好。";
 	next;
 
-	// next yielded: read all three again; this is the final precondition.
+	// next yielded: read all four again; this is the final precondition.
 	.@a = checkquest(18368);
 	.@b = checkquest(18369);
 	.@c = checkquest(18370);
-	if (.@a != 1 || .@b != -1 || .@c != -1) goto L_Changed;
+	.@d = checkquest(18371);
+	if (.@a != 1 || .@b != -1 || .@c != -1 || .@d != -1) goto L_Changed;
 	completequest 18368;
 	// completequest reports success even when nothing changed: read back.
 	.@a = checkquest(18368);
 	.@b = checkquest(18369);
 	.@c = checkquest(18370);
-	if (.@a == 1 && .@b == -1 && .@c == -1) goto L_NotCompleted;
-	if (.@a != 2 || .@b != -1 || .@c != -1) goto L_Hold;
+	.@d = checkquest(18371);
+	if (.@a == 1 && .@b == -1 && .@c == -1 && .@d == -1) goto L_NotCompleted;
+	if (.@a != 2 || .@b != -1 || .@c != -1 || .@d != -1) goto L_Hold;
 	setquest 18369;
 	.@a = checkquest(18368);
 	.@b = checkquest(18369);
 	.@c = checkquest(18370);
-	if (.@a == 2 && .@b == -1 && .@c == -1) goto L_NotStarted;
-	if (.@a != 2 || .@b != 1 || .@c != -1) goto L_Hold;
+	.@d = checkquest(18371);
+	if (.@a == 2 && .@b == -1 && .@c == -1 && .@d == -1) goto L_NotStarted;
+	if (.@a != 2 || .@b != 1 || .@c != -1 || .@d != -1) goto L_Hold;
 
 	mes "[信使]";
 	mes "任務「天地樹的召喚(1)」完成。";
@@ -66,28 +70,28 @@ L_Changed:
 	close;
 
 L_NotCompleted:
-	debugmes "ROSOLO_CH1: completequest 18368 did not take effect; still (1,-1,-1), 18369 not set.";
+	debugmes "ROSOLO_CH1: completequest 18368 did not take effect; still (1,-1,-1,-1), 18369 not set.";
 	mes "[信使]";
 	mes "紀錄沒有更新，任務維持原狀。";
 	mes "可以稍後再和我說話。";
 	close;
 
 L_NotStarted:
-	debugmes "ROSOLO_CH1: 18368 completed but setquest 18369 did not take effect; holding (2,-1,-1).";
+	debugmes "ROSOLO_CH1: 18368 completed but setquest 18369 did not take effect; holding (2,-1,-1,-1).";
 	mes "[信使]";
 	mes "紀錄只更新了一半。";
 	mes "為了保護紀錄，這裡不會再自動變更。";
 	close;
 
 L_Hold:
-	debugmes "ROSOLO_CH1: unexpected quest state after a write 18368=" + checkquest(18368) + " 18369=" + checkquest(18369) + " 18370=" + checkquest(18370) + "; stopped, no further change.";
+	debugmes "ROSOLO_CH1: unexpected quest state after a write 18368=" + checkquest(18368) + " 18369=" + checkquest(18369) + " 18370=" + checkquest(18370) + " 18371=" + checkquest(18371) + "; stopped, no further change.";
 	mes "[信使]";
 	mes "任務紀錄出現無法確認的變化。";
 	mes "已經停止，不會再做其他變更。";
 	close;
 
 L_Interrupted:
-	debugmes "ROSOLO_CH1: 18368 complete without 18369 (2,-1,-1); holding, no automatic repair.";
+	debugmes "ROSOLO_CH1: 18368 complete without 18369 (2,-1,-1,-1); holding, no automatic repair.";
 	mes "[信使]";
 	mes "這段任務紀錄停在中途。";
 	mes "為了保護紀錄，這裡不會自動修復。";
@@ -100,21 +104,23 @@ L_Other:
 	if (.@a != -1 && .@a != 1 && .@a != 2) goto L_Conflict;
 	if (.@b != -1 && .@b != 1 && .@b != 2) goto L_Conflict;
 	if (.@c != -1 && .@c != 1 && .@c != 2) goto L_Conflict;
+	if (.@d != -1 && .@d != 1 && .@d != 2) goto L_Conflict;
 	if (.@a == 1) goto L_Conflict;
-	if (.@b == 1 && .@c != -1) goto L_Conflict;
+	if (.@b == 1 && (.@c != -1 || .@d != -1)) goto L_Conflict;
+	if (.@c == 1 && .@d != -1) goto L_Conflict;
 	mes "[信使]";
 	mes "這根樹枝通往天地樹的深處。";
 	close;
 
 L_Conflict:
-	debugmes "ROSOLO_CH1: unrecognised quest state 18368=" + checkquest(18368) + " 18369=" + checkquest(18369) + " 18370=" + checkquest(18370) + "; no change made.";
+	debugmes "ROSOLO_CH1: unrecognised quest state 18368=" + checkquest(18368) + " 18369=" + checkquest(18369) + " 18370=" + checkquest(18370) + " 18371=" + checkquest(18371) + "; no change made.";
 	mes "[信使]";
 	mes "任務紀錄的狀態無法確認。";
 	mes "為了保護你的紀錄，這裡不會做任何變更。";
 	close;
 
 OnInit:
-	questinfo(QTYPE_QUEST, QMARK_YELLOW, "checkquest(18368) == 1 && checkquest(18369) == -1 && checkquest(18370) == -1");
+	questinfo(QTYPE_QUEST, QMARK_YELLOW, "checkquest(18368) == 1 && checkquest(18369) == -1 && checkquest(18370) == -1 && checkquest(18371) == -1");
 	end;
 }
 

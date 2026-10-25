@@ -96,7 +96,7 @@ Map repair:
        -> parallel implementations [COMPARED:Claude17/Grok14;both source-held]
        -> capacity source control  [HOLD:incompatible stack can pass preflight]
        -> interim correction      [BOTH SOURCE PASS:117/118+24+10;Claude selected]
-       -> exact stack support     [BOTH HELD:Claude18/Grok13;small Claude fix next]
+       -> exact stack support     [SOURCE PASS:Root fix;133C++/120NPC;0.3.2integrated]
        -> native build path       [SOURCE:separate compile + file copies proposed]
        -> current build metadata  [PASS:original5/image;4GiBguest;no compile yet]
        -> four actor resources     [SOURCE/BYTES PASS:8ranges;native render OPEN]
