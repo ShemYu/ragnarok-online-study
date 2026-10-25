@@ -4,14 +4,22 @@ Updated: 2026-10-25 JST. Coordinator: Codex. Active scope: **execute the documen
 
 ## Current checkpoint
 
-**Main next action:** bind the fresh inputs, personally verify the entire
-binding, then run one conditionally admitted isolated visible trial.
-[Fresh backend files pass1685checks/59pins; new binding sources pass14controls
-and the isolated blank page is freshly rejoined](reviews/2026-10-25-T10.009.md#fresh-backend-files-pass-and-a-separate-visible-trial-is-conditionally-admitted).
-[Fresh client files also pass Root's complete708check/37pin audit](reviews/2026-10-25-T10.009.md#fresh-nested-client-files-pass-and-new-backend-preparation-source-qualifies).
-The [resource-layout and prelaunch correction](reviews/2026-10-25-T10.009.md#resource-layout-and-prelaunch-correction-pass-root-source-controls)
-remains qualified. No new native launch or visible result has occurred.
-[The one actual visible interval is consumed and FAILED before READY](reviews/2026-10-25-T10.009.md#first-visible-interval-fails-resource-directory-validation-cleanup-and-root-audit-pass):
+**Main next action:** qualify the cross-process countdown correction and a
+checked east-passage route before preparing any new isolated trial.
+[Second visible interval is consumed/FAILED; Root's complete failure and UI
+audits pass](reviews/2026-10-25-T10.009.md#second-visible-trial-reaches-first-edge-and-messenger-but-fails-before-fruit-with-complete-cleanup-audit).
+Native READY now passes; A199 refusal/B200 cancel, first registration/travel
+255,240/saved re-entry and Messenger commit/repeat text are personally seen.
+Three STATEs prove cancellation and the pre-Messenger saved state; no later
+SQL/save/fruit/withdrawal result. Root walks to156,160and the interval expires.
+The separate command helper wrongly compares monotonic clocks across Python3.9
+processes. Actor deadlines remain enforced; no budget or goal change is selected.
+Full292wires/378runtime leaves/406pins,369child-manifest pins and230UIcaptures/
+14viewed images pass; fresh witness preserves original five services/files,
+absent test groups/ports and the new retained unused DB volume. The isolated
+page is returned to blank. No actor replay or new actual admission.
+
+[The first actual visible interval failed before READY](reviews/2026-10-25-T10.009.md#first-visible-interval-fails-resource-directory-validation-cleanup-and-root-audit-pass):
 resources/ resolves under SERVER_ROOT, while the staged directory was its sibling.
 All five GRFs validate, but native exits1before game/UI/commands/withdrawal.
 No replay. Root audits all256wires/329child leaves/30log joins/14execs,
@@ -25,7 +33,7 @@ backend/callback/driver/outer-parent failure controls; exact client/plugin/INI
 and28-file backend packages. [Final binding passed1641checks/48pins](reviews/2026-10-25-T10.009.md#first-visible-interval-fails-resource-directory-validation-cleanup-and-root-audit-pass)
 before the failed actual call. These are evidence/cleanup passes, not visible
 story/save completion. Preserve all consumed inputs, outputs and volume.
-The fresh isolated Orca page remains blank; Root alone owns it.
+The isolated Orca page is blank again; Root alone owns it.
 
 [Actual changed native loading and complete Root audit pass](reviews/2026-10-25-T10.009.md#actual-three-case-native-load-and-complete-root-audit-pass):
 five declarations/12maps/3DBrows; positive error-free, both deliberate faults

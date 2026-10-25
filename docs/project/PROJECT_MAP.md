@@ -62,7 +62,13 @@ Map repair:
        -> resource path repair    [PASS:13callback +21writer source controls]
        -> fresh nested client files [PASS:708checks/37pins; no launch]
        -> fresh backend package   [PASS:1685checks/59pins;24roles/28files]
-       -> fresh binding/new trial [NEXT:bind/audit, then one visible interval]
+       -> fresh binding           [PASS:1643checks/48pins]
+       -> native READY + A/B UI    [PASS:Chinese refusal/cancel, no quest write]
+       -> first edge/save/re-entry [PASS:255,240;18368active;sentinels kept]
+       -> Messenger               [SEEN:commit/repeat;later save still open]
+       -> ordinary fruit route    [FAIL:window expired at156,160;no withdrawal]
+       -> complete cleanup/audit  [PASS:292wires;original progress preserved]
+       -> countdown + route repair [NEXT:fix cross-process estimate/check path]
 
 Quest check:
   Finite startup repair        [PASS: listener seen in 3 checks]
