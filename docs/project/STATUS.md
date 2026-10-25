@@ -21,6 +21,9 @@ settings Apply to regenerate the True text overlay in the same window.
 Next coordinate user save/logout, inspect current native base imports/IDs,
 take a fresh baseline/current-state backup, then install/apply and check the
 normal journal. No installation/rebuild has run under user play.
+A single read-only current map inspect joins expected read-only host mounts,
+unchanged image and only settings/Carocc imports; no game input or service
+operation. The native base graph and fresh whole-world baseline remain open.
 The expected journal fields now join seven exact current-bundle regions and
 six checked True payloads; live load/render remains unrun. Independent source
 work identifies the next18369objective as 莎莎 at fruit80,122, followed by
