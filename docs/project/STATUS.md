@@ -7,6 +7,11 @@ Updated: 2026-10-25 JST. Coordinator: Codex. Active scope: **execute the documen
 **Main next action:** normal mod assembly/readiness preparation and a fresh
 isolated eligible visible route/render/save check; protect current earned
 progress before changing original services. Ordinary base2eligibility is separate.
+[Exact install/safe-exit packets and current mod controls are staged/checked](reviews/2026-10-25-T10.009.md#install-and-safe-exit-packages-staged-without-changing-the-app):
+four files each, exact three retained connections/unchanged DB; selectedmod
+currently absent, navigation generators disabled. No app mutation. Current
+health headers allow8000/8080origins; actual isolated client/save routing stays
+open. Qualify fresh manual backend/front-door source next; no B6actor replay.
 [Actual changed native loading and complete Root audit pass](reviews/2026-10-25-T10.009.md#actual-three-case-native-load-and-complete-root-audit-pass):
 five declarations/12maps/3DBrows; positive error-free, both deliberate faults
 produce their exact script/line17parser errors.137complete wires/152runtime
