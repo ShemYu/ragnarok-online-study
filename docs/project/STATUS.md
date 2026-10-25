@@ -87,7 +87,8 @@ confirm all five original services running and historical image fields intact.
 The guest reports4CPU/about3.82GiB total RAM; the host has64GiB. This does not
 qualify compiler headroom or cgroup enforcement. First preflight's whole-object
 versus historical projection assertion is preserved and corrected explicitly.
-No runtime writes or compiler/readiness container have run. User play is untouched.
+At that read-only checkpoint no runtime writes or compiler/readiness container
+had run. The later bounded probe result is recorded below.
 The integrated source checkpoint is3931f8f. [The first unexecuted readiness
 actor is held on an exact Engine network-shape/cleanup defect](reviews/2026-10-25-T10.010.md#first-compiler-readiness-actor-is-held-before-any-runtime-action).
 Source correction is in preparation: keep the no-network container policy,
@@ -97,8 +98,16 @@ visibility still require qualification. No guest compiler run is admitted.
 Root's narrow C2 source now passes eight FAKE Unix-Engine controls, including
 proper none-network cleanup, archive/error cleanup and the old predicate
 mutant. [One readonly guest cgroup-parent view is source-qualified](reviews/2026-10-25-T10.010.md#c2-readiness-source-and-fake-engine-controls-qualify): fixed reads touch only
-the recorded self-ID. This is not actual cgroup/guest readiness. Root still
-must seal a fresh binding/caller/supervision before a real tiny probe.
+the recorded self-ID. Root then seals the fresh binding/caller/supervision and
+executes one tiny real probe. [The live readiness check and full Root audit
+pass](reviews/2026-10-25-T10.010.md#live-compiler-readiness-probe-and-root-audit-pass):
+31complete responses/81768wire bytes, natural zero exit, owned deletion/404,
+and all five original services unchanged. Actual self-cgroup membership and
+configured memory/CPU/PID values are verified; this is not a stress test.
+The admission is consumed; do not replay it. No compiler/APK/image build ran.
+The guest has about1.30GiB available RAM, no swap and no compiler tools.
+Next verify current offline saves and a fresh whole-world backup, then use
+the supported idle RAM setting before a separately qualified Linux build.
 
 **Normal installation window:** the user has finished testing and the personal
 page is absent. Verify current offline saves and take a fresh backup before
@@ -111,7 +120,7 @@ All six enabled mods/eleven off choices and Chinese settings are preserved.
 Root checks39source pins/six root censuses and the current packaged dispatcher.
 The Mods Apply button only restarts native services; use supported full
 settings Apply to regenerate the True text overlay in the same window.
-Next coordinate user save/logout, inspect current native base imports/IDs,
+Next verify current offline saves, inspect current native base imports/IDs,
 take a fresh baseline/current-state backup, then install/apply and check the
 normal journal. No installation/rebuild has run under user play.
 A single read-only current map inspect joins expected read-only host mounts,

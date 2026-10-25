@@ -90,7 +90,7 @@ Map repair:
        -> retained runtime audit   [PASS:391wires/1041pins;Root verified]
        -> retained UI audit        [PASS:412captures/12images/448full pins]
        -> normal install preparation [PASS:6staged leaves;source collisions/dispatcher]
-       -> normal supported install [NEXT:save/logout window;user play stays running]
+       -> normal supported install [OPEN:user test ended;fresh saves/backup next]
        -> normal journal oracle    [SOURCE PASS:7bundle regions/6payloads;UI unrun]
        -> next village source      [QUALIFIED:莎莎+梅雪/rewards;4-ID resume]
        -> parallel implementations [COMPARED:Claude17/Grok14;both source-held]
@@ -99,7 +99,9 @@ Map repair:
        -> exact stack support     [SOURCE PASS:Root fix;133C++/120NPC;0.3.2integrated]
        -> native build path       [SOURCE:separate compile + file copies proposed]
        -> current build metadata  [PASS:original5/image;4GiBguest;no compile yet]
-       -> compiler probe source   [PASS:8fake controls;real probe NEXT]
+       -> compiler probe source   [PASS:8fake controls;one real call consumed]
+       -> actual resource probe   [PASS:31responses;limits/cleanup/original5]
+       -> Linux compiler build    [OPEN:1.30GiBavailable;no compiler installed]
        -> four actor resources     [SOURCE/BYTES PASS:8ranges;native render OPEN]
           Current isolated plan:6/6with complete Root audits.
           Normal install/earned-level200/later story/full game remain OPEN.
