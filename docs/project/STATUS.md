@@ -4,18 +4,19 @@ Updated: 2026-10-25 JST. Coordinator: Codex. Active scope: **execute the documen
 
 ## Current checkpoint
 
-**Main next action:** qualify fresh preparation/binding sources, then prepare
-a new isolated trial focused on the unfinished handoff/fruit/withdrawal/return.
-[Countdown C3 passes35Root controls and the retained east passage passes
-31,709checks](reviews/2026-10-25-T10.009.md#countdown-c3-and-retained-east-passage-pass-root-qualification).
-The command helper now uses a fixed wall-time estimate; the callback retains
-its own authoritative monotonic deadline and every existing budget/reserve.
-At175,173stay east through177,169/177,157/177,145then170,140/164,140.
-This is retained client route planning, not a server traversal PASS.
-Do not repeat A199/cancel or first-edge save/re-entry just for verification.
-Fresh B must still register, travel and use Messenger normally; no quest seed.
-New material/frontdoor/binder source packets are prepared but unqualified.
-No new data generation, binding or actual interval is admitted at this checkpoint.
+**Main next action:** run one fresh private-file preparation for the client
+and one guarded backend-material generation, then personally audit both.
+[Root qualifies four fresh source derivatives with46focused checks and
+freezes the six-command unfinished-check plan](reviews/2026-10-25-T10.009.md#fresh-root3-sources-and-focused-visible-plan-qualify-before-private-preparation).
+Both consumed attempts are denied; original saves/services remain untouched.
+This checkpoint admits those two file-only preparations, not binding or an actor.
+[Countdown C3/35controls and retained east passage/31,709checks pass](reviews/2026-10-25-T10.009.md#countdown-c3-and-retained-east-passage-pass-root-qualification).
+Budgets/reserves remain unchanged. Prior A199/cancel/first-edge-save checks
+stay qualified. New B still registers/travels/uses Messenger normally.
+Fresh trial focus: durable handoff, fruit/save/re-entry, safe withdrawal,
+fruit->edge->town and final saved re-entry. Direct return leaves a visual
+former-Messenger revisit unverified; actual source/readback withdrawal of
+both NPCs remains required. No new actual interval is admitted here.
 [Second visible interval is consumed/FAILED; Root's complete failure and UI
 audits pass](reviews/2026-10-25-T10.009.md#second-visible-trial-reaches-first-edge-and-messenger-but-fails-before-fruit-with-complete-cleanup-audit).
 Native READY now passes; A199 refusal/B200 cancel, first registration/travel
