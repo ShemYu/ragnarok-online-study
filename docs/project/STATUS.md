@@ -4,8 +4,15 @@ Updated: 2026-10-25 JST. Coordinator: Codex. Active scope: **execute the documen
 
 ## Current checkpoint
 
-**Main next action:** qualify a consistent1800s work/60s cleanup/1900s guard
-window for one future fresh isolated trial, then finish town return/re-entry.
+**Main next action:** prepare and personally audit fresh Root4 client/backend
+files, then freshly bind the qualified1800s work/60s cleanup/1900s guard
+window before one separately admitted town-return/re-entry trial.
+[The longer window and Root4 source projections pass132focused Root checks](reviews/2026-10-25-T10.009.md#longer-window-and-fresh-root4-source-projections-pass-focused-root-controls).
+Nine complete forwards/inverses preserve all unlisted logic; old/mixed budgets,
+deadline equality, invalid READY timing and source drift refuse. Explicit bound
+config/profile1800 projections preserve original900 proposals. Independent
+source reviews find no concrete hold; Root3 metadata exclusions are included.
+No new preparation/binding/actor has run. This is source qualification only.
 [Third interval reaches saved handoff, fruit/save/re-entry and successful
 withdrawal; complete Root UI/failure/cleanup audits pass](reviews/2026-10-25-T10.009.md#third-visible-trial-qualifies-saved-handoff-fruit-and-safe-withdrawal-but-town-return-stays-open).
 The actual interval remains FAILED:3STATEs+WITHDRAW, no fourth STATE or FINISH.
@@ -18,7 +25,8 @@ sole isolated page blank. No actor/PTY remains running and no replay is admitted
 C3 countdown works;900s is inadequate for Root's manual input/inspection pace.
 The next duration change is internal verification design, not a goal change;
 all memory/request/SQL/log/command limits and retirement reserves stay fixed.
-Qualify every duration-dependent source/config gate before new binding/actor.
+The duration-dependent source/config gates now qualify; fresh file/binding and
+browser/world ownership audits remain mandatory before any new actor.
 [Second visible interval is consumed/FAILED; Root's complete failure and UI
 audits pass](reviews/2026-10-25-T10.009.md#second-visible-trial-reaches-first-edge-and-messenger-but-fails-before-fruit-with-complete-cleanup-audit).
 Native READY now passes; A199 refusal/B200 cancel, first registration/travel

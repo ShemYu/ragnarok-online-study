@@ -79,7 +79,8 @@ Map repair:
        -> retained fruit exit      [PASS:edge168,139]
        -> town return/re-entry     [OPEN:deadline at171,142;47movement ACKs]
        -> full cleanup + Root audit [PASS:378wires/524pins;original kept]
-       -> longer test window       [NEXT:qualify1800/60/1900;no new actor]
+       -> longer test window       [SOURCE PASS:132focused Root controls;1800/60/1900]
+       -> fresh Root4 files        [NEXT:prepare/audit;no actor admission]
           Current plan:4/6command checkpoints(67% by count);trial still FAILED.
 
 Quest check:
