@@ -96,3 +96,9 @@ with refreshed exact files and current-state checks when integration is ready.
 - Branch: `ShemYu/reverse-the-Ragnarok-Online-to-play-by-myself`.
   The current user request authorizes committing and pushing this feature
   branch. Keep downloaded assets, raw evidence, accounts and saves local.
+- Cleanup source checkpoint `9536d59` and the legacy archive tag are pushed.
+  [Hosted CI passes](https://github.com/ShemYu/ragnarok-online-study/actions/runs/40192204732)
+  on that source revision; subsequent maintenance only records the result.
+  The default branch is not merged. [The archive review](reviews/2026-10-25-T00.003.md)
+  contains checks, recovery, provider-availability limits and the remaining
+  paused game boundary.
