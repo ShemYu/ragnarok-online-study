@@ -32,6 +32,9 @@ Runtime config remains UNBOUND. Final outer-parent source/current-world binding
 and one isolated visible session are next; no original services changed.
 [Fresh isolated Orca profile/blank page respond](reviews/2026-10-25-T10.009.md#isolated-browser-preflight-is-ready-without-game-navigation).
 Use only its recorded page ID for the upcoming test; original game tab untouched.
+[Outer parent C1passes38fault checks plus current-file controls](reviews/2026-10-25-T10.009.md#outer-parent-namespace-correction-and-source-controls-pass).
+Two late-name gaps corrected; original-world function unchanged. Fresh binding,
+port/current-owner preflight and one guarded visible interval are next.
 [Actual changed native loading and complete Root audit pass](reviews/2026-10-25-T10.009.md#actual-three-case-native-load-and-complete-root-audit-pass):
 five declarations/12maps/3DBrows; positive error-free, both deliberate faults
 produce their exact script/line17parser errors.137complete wires/152runtime
