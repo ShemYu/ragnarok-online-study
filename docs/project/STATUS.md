@@ -4,8 +4,11 @@ Updated: 2026-10-25 JST. Coordinator: Codex. Active scope: **execute the documen
 
 ## Current checkpoint
 
-**Main next action:** correct the fresh front-door resource layout and add a
-prelaunch relationship check, then prepare a separately qualified fresh trial.
+**Main next action:** prepare fresh client/backend files using the
+[Root-qualified resource-layout and prelaunch correction](reviews/2026-10-25-T10.009.md#resource-layout-and-prelaunch-correction-pass-root-source-controls),
+then separately bind/admit the next isolated trial. Callback C2 passes13focused
+controls; the fresh writer passes21source/path/inverse controls. No new native
+launch or visible result follows from those source checks.
 [The one actual visible interval is consumed and FAILED before READY](reviews/2026-10-25-T10.009.md#first-visible-interval-fails-resource-directory-validation-cleanup-and-root-audit-pass):
 resources/ resolves under SERVER_ROOT, while the staged directory was its sibling.
 All five GRFs validate, but native exits1before game/UI/commands/withdrawal.

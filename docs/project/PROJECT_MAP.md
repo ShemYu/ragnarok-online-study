@@ -59,7 +59,8 @@ Map repair:
        -> outer binding          [PASS:1,641 checks/48 pins]
        -> isolated native start   [FAIL:resources path; no game opened]
        -> cleanup + full audit    [PASS:256 wires; original progress preserved]
-       -> resource path repair    [NEXT:fresh files/prelaunch check, then play]
+       -> resource path repair    [PASS:13callback +21writer source controls]
+       -> fresh files/new trial   [NEXT:prepare, verify, bind, then play]
 
 Quest check:
   Finite startup repair        [PASS: listener seen in 3 checks]
