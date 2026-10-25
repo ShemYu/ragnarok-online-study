@@ -23,7 +23,6 @@ import stat
 import subprocess
 import sys
 import tempfile
-import types
 import unittest
 
 HERE = Path(__file__).resolve().parent

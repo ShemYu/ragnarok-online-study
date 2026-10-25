@@ -15,7 +15,6 @@ Run: python3 -I tools/renewal/test_zero_sum_normal_repair.py -v
 import hashlib
 import json
 import os
-import shutil
 import struct
 import subprocess
 import sys

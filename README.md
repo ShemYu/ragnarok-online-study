@@ -10,7 +10,8 @@ The current goal is the **full Modern / Renewal RO game** for personal play on t
 play and saved progress are verified; full world/story/Chinese coverage remains
 unfinished. The active documents show remaining work, with completed records
 preserved in [History](docs/project/HISTORY.md). Documentation cleanup and the
-requested feature-branch publication are the current authorized work.
+requested feature-branch publication and conservative pre-merge source cleanup
+are the current authorized work. No default-branch merge is authorized.
 
 | Planning document | Purpose |
 | --- | --- |
@@ -35,10 +36,24 @@ With Node.js 22+ and Python 3.9+:
 
 ```sh
 python3 tools/check_public_tree.py
-node --test tools/character-lab/tests/modular-motion.test.mjs tools/character-lab/tests/modular-engine.test.mjs
+python3 tools/check_source.py
+uvx --from ruff==0.16.9 ruff check --config ruff.toml --no-cache tools tests
+node --test tools/character-lab/tests/modular-motion.test.mjs tools/character-lab/tests/modular-engine.test.mjs tests/renewal/quest_text_projection.test.mjs tests/renewal/quest_registration_tail.test.mjs
+python3 -I -B tools/renewal/test_chapter1_entry.py
 ```
 
-The public CI runs these checks. The native fixture tests, browser comparisons and visual performance measurements documented in the milestone require the local asset pack and are not reproduced by CI.
+The lint command uses `uvx` to run the pinned tool in isolation; an existing
+Ruff 0.16.9 installation can run the same arguments directly. CI installs that
+version with pip. Lint checks Python errors and unused code; it does not format
+files. One documented F401 exception preserves the exact bytes of a materializer
+pinned by local replay tooling. Syntax checks parse every tracked Python/JavaScript file without
+executing its source. Stage new source files to include them in this inventory.
+
+CI runs these checks using authored source/model fixtures. Do not replace the
+explicit test list with broad discovery: some other suites automatically read
+private `.tools` inputs when present. Native tests, browser/gameplay checks,
+Godot parsing and visual measurements remain separate; a green CI result does
+not establish runtime or full-content acceptance.
 
 ## Historical local game prototype
 

@@ -3,8 +3,9 @@
 Updated: 2026-10-25 JST. Owner: coordinating Codex.
 
 **Execution is paused at the user's request.** The current authorization is
-documentation cleanup, a local commit and publication of the current feature
-branch. Resume game implementation only when the user resumes it.
+documentation cleanup, conservative pre-merge lint/trim, a local commit and
+publication of the current feature branch. No default-branch merge is
+authorized. Resume game implementation only when the user resumes it.
 
 ## Goal and current boundary
 

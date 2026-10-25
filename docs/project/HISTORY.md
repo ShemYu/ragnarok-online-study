@@ -29,6 +29,13 @@ and [frozen brief](tasks/T00.001.md) record the process. This is an additional
 maintenance record; the157/37/120counts above refer to the original ledger.
 No game task or pending user acceptance is closed by this cleanup.
 
+T00.002 conservative source lint/CI maintenance is `self_verified` within its
+documented source/model scope. Root preserves the byte-pinned materializer,
+removes two unused test imports and expands safe checks. See its
+[review and model-comparison limits](reviews/2026-10-25-T00.002.md) and
+[frozen brief](tasks/T00.002.md). The user subsequently authorizes archiving
+the legacy projects; that removal is a separate T00.003 checkpoint.
+
 ## Preserved snapshots
 
 - [Original task ledger and acceptance contracts](HISTORY-2026-10-25-TASKS.md):

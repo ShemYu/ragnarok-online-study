@@ -1,0 +1,9 @@
+target-version = "py39"
+
+[lint]
+select = ["F", "E9"]
+
+[lint.per-file-ignores]
+# Private replay tooling pins this materializer's complete source bytes.
+# Preserve its unused stdlib import until a separately verified rebind.
+"tools/renewal/quest_negative_lifecycle_patch.py" = ["F401"]

@@ -5,8 +5,10 @@
 Read root [AGENTS.md](../../AGENTS.md), [Status](STATUS.md), [Goal](GOAL.md), the assigned [task](TASKS.md) and its [phase](PHASES.md). Verify branch, base commit and working-tree ownership. Read the task's linked evidence, not every historical transcript. If the task lacks acceptance criteria or inputs, ask the coordinator before mutating anything.
 
 Check the current execution/pause state before starting. At the2026-10-25
-handoff the game goal is paused; documentation cleanup and the requested
-feature-branch commit/push are authorized. A maintenance or publication request
+handoff the game goal is paused; documentation cleanup, conservative source
+lint/trim and the requested feature-branch commit/push are authorized. Preserve
+behavior, keep uncertain dependencies and verify each small removal. No
+default-branch merge is authorized. A maintenance or publication request
 does not itself resume game implementation.
 
 ## Active documentation and completed history

@@ -15,16 +15,23 @@ jobs:
       - uses: actions/setup-node@v4
         with:
           node-version: '22'
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
       - name: Check public source inventory
         run: python3 tools/check_public_tree.py
-      - name: Check Python syntax without generating caches
-        run: |
-          python3 - <<'PY'
-          import ast
-          from pathlib import Path
-          for name in ("tools/character-lab/pipeline.py", "tools/check_public_tree.py"):
-              ast.parse(Path(name).read_text(encoding="utf-8"), filename=name)
-          print("Python syntax passed: 2 files.")
-          PY
-      - name: Run asset-independent motion and modularity tests
-        run: node --test tools/character-lab/tests/modular-motion.test.mjs tools/character-lab/tests/modular-engine.test.mjs
+      - name: Check tracked Python and JavaScript syntax
+        run: python3 tools/check_source.py
+      - name: Install pinned source linter
+        run: python3 -m pip install ruff==0.16.9
+      - name: Check Python errors and unused code
+        run: ruff check --config ruff.toml --no-cache tools tests
+      - name: Run authored motion and quest regressions
+        run: >-
+          node --test
+          tools/character-lab/tests/modular-motion.test.mjs
+          tools/character-lab/tests/modular-engine.test.mjs
+          tests/renewal/quest_text_projection.test.mjs
+          tests/renewal/quest_registration_tail.test.mjs
+      - name: Check Chapter 1 source and progression models
+        run: python3 -I -B tools/renewal/test_chapter1_entry.py
