@@ -80,7 +80,9 @@ Map repair:
        -> town return/re-entry     [OPEN:deadline at171,142;47movement ACKs]
        -> full cleanup + Root audit [PASS:378wires/524pins;original kept]
        -> longer test window       [SOURCE PASS:132focused Root controls;1800/60/1900]
-       -> fresh Root4 files        [NEXT:prepare/audit;no actor admission]
+       -> fresh Root4 files        [PASS:1904backend/708client checks;all files]
+       -> bound audit source      [PASS:40focused controls;whole projections]
+       -> fresh page + Root6 bind [PAGE PASS;NEXT:binding/full audit then ONE call]
           Current plan:4/6command checkpoints(67% by count);trial still FAILED.
 
 Quest check:

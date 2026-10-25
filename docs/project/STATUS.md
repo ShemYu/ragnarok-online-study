@@ -4,15 +4,23 @@ Updated: 2026-10-25 JST. Coordinator: Codex. Active scope: **execute the documen
 
 ## Current checkpoint
 
-**Main next action:** prepare and personally audit fresh Root4 client/backend
-files, then freshly bind the qualified1800s work/60s cleanup/1900s guard
-window before one separately admitted town-return/re-entry trial.
+**Main next action:** fresh read-only world/image/port preflight and Root6
+binding, complete personal bound-file confirmation, then ONE exact parent call
+for town return/re-entry under the qualified1800/60/1900s window.
+[Fresh Root4 files and bound-auditor sources pass Root verification](reviews/2026-10-25-T10.009.md#fresh-root4-files-pass-and-one-longer-visible-interval-is-conditionally-admitted).
+Backend1904checks/71pins reconstruct all24roles/28leaves and privately compare
+all five credential values against Root1/2/3. Client708checks/37pins verify
+10leaves/config/nested resources.22file-auditor and40bound-auditor source checks
+pass. A new blank isolated page is rejoined; original two Default tabs remain.
+No binding or actor has run. One fresh call is conditional on complete new
+binding confirmation/current page/world/clean HEAD/expiry; no old replay.
 [The longer window and Root4 source projections pass132focused Root checks](reviews/2026-10-25-T10.009.md#longer-window-and-fresh-root4-source-projections-pass-focused-root-controls).
 Nine complete forwards/inverses preserve all unlisted logic; old/mixed budgets,
 deadline equality, invalid READY timing and source drift refuse. Explicit bound
 config/profile1800 projections preserve original900 proposals. Independent
 source reviews find no concrete hold; Root3 metadata exclusions are included.
-No new preparation/binding/actor has run. This is source qualification only.
+File preparation is now separately verified above; no binding or actor has run.
+The longer-window checks themselves remain source qualification only.
 [Third interval reaches saved handoff, fruit/save/re-entry and successful
 withdrawal; complete Root UI/failure/cleanup audits pass](reviews/2026-10-25-T10.009.md#third-visible-trial-qualifies-saved-handoff-fruit-and-safe-withdrawal-but-town-return-stays-open).
 The actual interval remains FAILED:3STATEs+WITHDRAW, no fourth STATE or FINISH.
