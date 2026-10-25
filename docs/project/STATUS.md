@@ -4,9 +4,11 @@ Updated: 2026-10-25 JST. Coordinator: Codex. Active scope: **execute the documen
 
 ## Current checkpoint
 
-**Main next action:** generate/audit fresh backend files, then separately
-bind/admit the next isolated trial. [Fresh client files now pass Root's complete
-708check/37pin audit; the backend preparation derivative passes14controls](reviews/2026-10-25-T10.009.md#fresh-nested-client-files-pass-and-new-backend-preparation-source-qualifies).
+**Main next action:** bind the fresh inputs, personally verify the entire
+binding, then run one conditionally admitted isolated visible trial.
+[Fresh backend files pass1685checks/59pins; new binding sources pass14controls
+and the isolated blank page is freshly rejoined](reviews/2026-10-25-T10.009.md#fresh-backend-files-pass-and-a-separate-visible-trial-is-conditionally-admitted).
+[Fresh client files also pass Root's complete708check/37pin audit](reviews/2026-10-25-T10.009.md#fresh-nested-client-files-pass-and-new-backend-preparation-source-qualifies).
 The [resource-layout and prelaunch correction](reviews/2026-10-25-T10.009.md#resource-layout-and-prelaunch-correction-pass-root-source-controls)
 remains qualified. No new native launch or visible result has occurred.
 [The one actual visible interval is consumed and FAILED before READY](reviews/2026-10-25-T10.009.md#first-visible-interval-fails-resource-directory-validation-cleanup-and-root-audit-pass):
