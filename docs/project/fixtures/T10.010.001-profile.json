@@ -1,0 +1,50 @@
+{
+  "schema": "T10.010.001-equal-conservative-capacity-profile.v1",
+  "task": "T10.010.001",
+  "codeBase": "5933f7bce1c2f3c02b3d0bb8af9c6b54fb15d472",
+  "version": "0.3.1",
+  "sourceOnly": true,
+  "fullNativeCompatibilityAccepted": false,
+  "exactCompatibilityFollowup": "T10.010.002",
+  "stages": { "A": 18368, "B": 18369, "C": 18370, "D": 18371 },
+  "finalPreflightTuple": [2, -1, 1, -1],
+  "reward": { "baseExp": 65304744, "jobExp": 4000000, "alias": "Ch1_Root_Coin", "itemId": 1001972, "count": 10 },
+  "domain": [
+    "positive valid quantities; nonnegative expiration; nonoverflowing native count totals",
+    "attached character; stable qualified item DB and alias; no yield in preflight/write/reward window",
+    "malformed inventory and unforeseen late failures are not eliminated"
+  ],
+  "groups": [
+    { "id": "A", "requires": "both nonrental and rental zero before mutation; separate truthful existing-coin refusal; inherited capacity gate retained" },
+    { "id": "B", "requires": "no-coin ordered success and native-shaped negative capacity cases; explicit compatible-stack policy narrowing" },
+    { "id": "C", "requires": "actual NPC-text metadata cases, independent predicate-removal and late-placement causal controls; meaningful inherited tests" },
+    { "id": "D", "requires": "unchanged nonowned source bytes, state/presentation/reward/readback/noReplay/sentinels and safe withdrawal" },
+    { "id": "E", "requires": "exact four-path committed diff, full input preservation, reproducible source-only handoff; exact compatibility stays open" }
+  ],
+  "existingCoinCases": [
+    "ordinary compatible with no free slot: native success, interim C refusal",
+    "ordinary compatible with spare slot: native success, interim C refusal",
+    "bound only with full bag",
+    "card marked only with full bag",
+    "nonzero unique ID only with full bag",
+    "positive expiry only with full bag and nonrental total zero",
+    "expired but retained positive expiry",
+    "mixed rental and nonrental rows",
+    "positive coin in inaccessible inventory index",
+    "full compatible stack",
+    "earlier incompatible stack and later full compatible stack, with a spare slot"
+  ],
+  "noExistingCoinCases": [
+    "adequate weight and one usable blank: D, EXP then ten coins once",
+    "no usable blank: C refusal, even if an index beyond usable slots is empty",
+    "overweight: C refusal",
+    "stack limit below ten: C refusal",
+    "alias unavailable: counts may be zero; retained checkweight must refuse",
+    "unforeseen late item failure: D plus EXP request, honest hold, no automatic repeat"
+  ],
+  "scoreDimensions": ["correctness and evidence", "task coverage", "verification design/results", "handoff clarity", "Git/state discipline"],
+  "pointsPerDimension": 4,
+  "unitCommandSecondsMax": 120,
+  "taskMinutesMax": 20,
+  "sourcePassIsRuntimeAcceptance": false
+}

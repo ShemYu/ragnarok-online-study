@@ -46,7 +46,12 @@ Claude5933f7b17/20is selected only as correction basis; Grokd295c0214/20.
 Both raw sources remain held.341released/ten retained/zero active/reclaimable.
 Both finished child worktrees are now removed after complete preservation;
 their candidate branches, source/report copies and rollback bundles remain.
-Next qualify the capacity correction; no integration or native acceptance.
+Next is the [explicit interim capacity repair](tasks/T10.010.001.md): Root
+qualifies23payloads/181914B, eleven native spans/seven candidate Git joins.
+Both plain count and rental count must be zero before original capacity and
+progression/rewards. This deliberately refuses compatible existing stacks
+too; exact metadata support remains open asT10.010.002. Preparing equal
+actual Claude/Grok source repairs from5933f7b; no integration/native credit.
 Normal installation still awaits coordinated logout.
 Root independently qualifies the four selected actor identities and all eight
 stored ACT/SPR ranges against complete catalogs/current tables and five
