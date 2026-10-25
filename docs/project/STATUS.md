@@ -4,19 +4,17 @@ Updated: 2026-10-25 JST. Coordinator: Codex. Active scope: **execute the documen
 
 ## Current checkpoint
 
-**Main next action:** run one fresh private-file preparation for the client
-and one guarded backend-material generation, then personally audit both.
-[Root qualifies four fresh source derivatives with46focused checks and
-freezes the six-command unfinished-check plan](reviews/2026-10-25-T10.009.md#fresh-root3-sources-and-focused-visible-plan-qualify-before-private-preparation).
-Both consumed attempts are denied; original saves/services remain untouched.
-This checkpoint admits those two file-only preparations, not binding or an actor.
-[Countdown C3/35controls and retained east passage/31,709checks pass](reviews/2026-10-25-T10.009.md#countdown-c3-and-retained-east-passage-pass-root-qualification).
-Budgets/reserves remain unchanged. Prior A199/cancel/first-edge-save checks
-stay qualified. New B still registers/travels/uses Messenger normally.
-Fresh trial focus: durable handoff, fruit/save/re-entry, safe withdrawal,
-fruit->edge->town and final saved re-entry. Direct return leaves a visual
-former-Messenger revisit unverified; actual source/readback withdrawal of
-both NPCs remains required. No new actual interval is admitted here.
+**Main next action:** bind the fresh Root3 files after a new read-only
+world/port/image/file preflight, personally verify the entire binding, then
+perform the one conditionally admitted focused visible trial.
+[Both fresh file preparations and Root complete audits pass](reviews/2026-10-25-T10.009.md#fresh-root3-files-pass-and-one-focused-visible-interval-is-conditionally-admitted):
+client708checks/37pins, backend1740checks/62pins/all28leaves reconstructed.
+Both consumed identities/credentials are excluded. The isolated page/profile
+is freshly rejoined blank; original game/settings tabs remain unchanged.
+[Fresh four-source46check qualification and six-command plan](reviews/2026-10-25-T10.009.md#fresh-root3-sources-and-focused-visible-plan-qualify-before-private-preparation),
+[C3 countdown/east-route qualification](reviews/2026-10-25-T10.009.md#countdown-c3-and-retained-east-passage-pass-root-qualification)
+remain in force. Budgets/reserves and full scope stay unchanged.
+No actor has launched at this checkpoint. Do not reuse consumed callers/data.
 [Second visible interval is consumed/FAILED; Root's complete failure and UI
 audits pass](reviews/2026-10-25-T10.009.md#second-visible-trial-reaches-first-edge-and-messenger-but-fails-before-fruit-with-complete-cleanup-audit).
 Native READY now passes; A199 refusal/B200 cancel, first registration/travel

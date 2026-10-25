@@ -71,7 +71,8 @@ Map repair:
        -> countdown C3             [PASS:35Root controls;budgets unchanged]
        -> retained east passage    [PASS:31,709checks;client planning only]
        -> fresh source plan        [PASS:46Root checks;six commands frozen]
-       -> fresh private files      [NEXT:client/backend preparation + Root audit]
+       -> fresh private files      [PASS:708client/1740backend checks]
+       -> fresh binding + trial    [NEXT:full Root binding audit;one focused call]
 
 Quest check:
   Finite startup repair        [PASS: listener seen in 3 checks]
