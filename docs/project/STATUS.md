@@ -11,6 +11,11 @@ finite current-town asset read, then verify eligible interaction/render/save.
 source bytes and30original candidate payload pins match. Registration now
 classifies the full post-write tuple and reports holds accurately; malformed
 debugmes/extra OnInit commands refuse. No new runtime install or game input.
+[Finite town-reader C2 source and fault controls qualify](reviews/2026-10-25-T10.009.md#finite-town-reader-source-and-fault-controls-qualify-before-binding):
+9pure tests,19current fetch cases/raw defect control, publication/deadline
+counterexamples and3default refusals; actual GETs0. Foreign receipt ownership,
+late deadline and detached response cleanup are corrected before binding.
+Fresh owners/ENV/outer caller and actual town body remain the next read gate.
 [Both raw candidates are personally compared and held](reviews/2026-10-25-T10.009.md#both-raw-sources-pass-their-suites-but-need-correction):
 Claude8c2be4a18/20correction basis versus Grokb30534b16/20. Root46/36author
 tests and56common observations pass their stated results; both have false
