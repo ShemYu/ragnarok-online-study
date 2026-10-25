@@ -50,8 +50,10 @@ Next is the [explicit interim capacity repair](tasks/T10.010.001.md): Root
 qualifies23payloads/181914B, eleven native spans/seven candidate Git joins.
 Both plain count and rental count must be zero before original capacity and
 progression/rewards. This deliberately refuses compatible existing stacks
-too; exact metadata support remains open asT10.010.002. Preparing equal
-actual Claude/Grok source repairs from5933f7b; no integration/native credit.
+too; exact metadata support remains open asT10.010.002. Equal actual
+Claude/Grok source repairs are now ready/input accepted from5933f7b on two
+isolated branches, setup skipped; no integration/native credit. Root verifies
+both seven-leaf BASE joins and prepares independent controls while they work.
 Normal installation still awaits coordinated logout.
 Root independently qualifies the four selected actor identities and all eight
 stored ACT/SPR ranges against complete catalogs/current tables and five
