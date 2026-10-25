@@ -4,6 +4,20 @@ Updated: 2026-10-25 JST. Coordinator: Codex. Active scope: **execute the documen
 
 ## Current checkpoint
 
+**Resume now:** source0.3.2is integrated; the tiny real resource probe passes.
+User testing is finished, all three characters are saved/offline, and the
+fresh whole-world backup passes. [The supported idle RAM restart now also
+passes Root verification](reviews/2026-10-25-T10.010.md#supported-idle-ram-restart-and-save-preservation-pass):
+8192MiBpersisted,8318238720Bguest kernel memory, four CPUs; all five services
+have new IDs with unchanged images/mounts/config/ports/argv. Full saved
+character/quest/inventory/skill outputs still match. Next qualify the bounded
+Linux toolchain/build/export recipe and compile the exact prepared source;
+then native parser/reward/save checks. No compiler is installed, no custom
+image is built and no0.3.2mod is installed. Old socket/container/start bindings
+are obsolete after the restart; refresh from the new private audit. Counts
+remain4/14parent checks and82open resource gaps. No goal change or user action
+is required.
+
 **User test ended:** the user says testing is finished and asks to close the
 game. Root sees the Assassin page, then it becomes unavailable before any
 logout input; a fresh tab inventory confirms the personal profile has no
@@ -89,8 +103,8 @@ application Dockerfile. No acquired code is executed. The smaller proposal is
 a separately controlled compiler container followed by literal single-file
 image copies with no RUN. Actual limits, dependencies, ABI, cancellation,
 cleanup and source/binary identity still need qualification; no container,
-image build or service change is admitted by this source result. Grok is still
-live after the30minute source-task timebox; Root asks for an honest bounded
+image build or service change is admitted by this source result. Grok remained
+live after the30minute source-task timebox; Root asked for an honest bounded
 settlement and later receives it, without duplicate launch or inferred exit.
 [Nine read-only preflight GETs](reviews/2026-10-25-T10.010.md#current-read-only-compiler-preflight-preserves-the-original-world)
 confirm all five original services running and historical image fields intact.
@@ -101,7 +115,7 @@ At that read-only checkpoint no runtime writes or compiler/readiness container
 had run. The later bounded probe result is recorded below.
 The integrated source checkpoint is3931f8f. [The first unexecuted readiness
 actor is held on an exact Engine network-shape/cleanup defect](reviews/2026-10-25-T10.010.md#first-compiler-readiness-actor-is-held-before-any-runtime-action).
-Source correction is in preparation: keep the no-network container policy,
+The later source correction keeps the no-network container policy,
 accept Engine's actual none endpoint representation, and check the same shape
 during cleanup. The120second total envelope/supervision and actual cgroup
 visibility still require qualification. No guest compiler run is admitted.
@@ -115,13 +129,14 @@ pass](reviews/2026-10-25-T10.010.md#live-compiler-readiness-probe-and-root-audit
 and all five original services unchanged. Actual self-cgroup membership and
 configured memory/CPU/PID values are verified; this is not a stress test.
 The admission is consumed; do not replay it. No compiler/APK/image build ran.
-The guest has about1.30GiB available RAM, no swap and no compiler tools.
-Current offline-save and fresh whole-world backup gates now pass. Next use
-the supported idle RAM setting before a separately qualified Linux build.
+That4GiBguest had about1.30GiB available RAM, no swap and no compiler tools.
+Current offline-save, fresh backup and supported8GiBrestart gates now pass.
+Toolchain qualification/native compilation remains next; available build
+headroom must be checked in the new guest before admitting the actual build.
 
 **Normal installation window:** the user has finished testing and the personal
-page is absent. Verify current offline saves and take a fresh backup before
-service changes. [Normal installation/journal preparation is Root-checked](runbooks/T10.008-T10.009-normal-apply.md).
+page is absent. Offline saves, fresh backup and the supported RAM restart are
+now verified. [Normal installation/journal preparation is Root-checked](runbooks/T10.008-T10.009-normal-apply.md).
 Six exact leaves are staged privately; both live mod folders remain absent.
 This frozen staging remains0.2.0, separate from the newly integrated0.3.2
 source. Do not replace staged bytes or install0.3.2against stock binaries;
@@ -130,12 +145,13 @@ All six enabled mods/eleven off choices and Chinese settings are preserved.
 Root checks39source pins/six root censuses and the current packaged dispatcher.
 The Mods Apply button only restarts native services; use supported full
 settings Apply to regenerate the True text overlay in the same window.
-Next verify current offline saves, inspect current native base imports/IDs,
-take a fresh baseline/current-state backup, then install/apply and check the
+Before a later install, refresh native base imports/IDs and the current
+backup/baseline as needed, then install/apply and check the
 normal journal. No installation/rebuild has run under user play.
 A single read-only current map inspect joins expected read-only host mounts,
 unchanged image and only settings/Carocc imports; no game input or service
-operation. The native base graph and fresh whole-world baseline remain open.
+operation. The native base graph remains open; the later fresh whole-world
+baseline/backup is now verified.
 The expected journal fields now join seven exact current-bundle regions and
 six checked True payloads; live load/render remains unrun. Independent source
 work identifies the next18369objective as 莎莎 at fruit80,122, followed by
