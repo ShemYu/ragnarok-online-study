@@ -4,7 +4,15 @@ Updated: 2026-10-25 JST. Coordinator: Codex. Active scope: **execute the documen
 
 ## Current checkpoint
 
-**Main next action:** finish Root's complete retained runtime/UI evidence audit
+**User play:** [separate Assassin account/page is Root-verified](reviews/2026-10-25-user-assassin-play.md).
+RO personal play is handed to the user with level99Assassin; level200Shadow
+Cross is the second character. Both have saved skills/gear/potions. New gear is
+in bags, not automatically equipped. Original novice's whole row is unchanged.
+Root stops inputs to that page. Supported setup intentionally restarts normal
+game services; refresh any future operational start reference. No stop/rebuild
+under active user play. Synthetic demo is not earned/full-game acceptance.
+
+**Main next action:** finish Root's complete retained UI evidence audit
 for the consumed fourth visible trial. No actor replay or new launch is admitted.
 [The fourth trial completes all six commands and the visible town return](reviews/2026-10-25-T10.009.md#fourth-visible-trial-completes-the-route-full-retained-audits-remain-open).
 Root personally sees fruit re-entry after withdrawal, the normal return to
@@ -15,7 +23,11 @@ pass, driver/parent candidate checks pass with acceptance deliberately false.
 Natural driver0, no guard signals,1697.302418s/243.828MiBsampled host-child RSS.
 Fresh read-only witness confirms original five services unchanged, absent trial
 groups/five ports, and the new retained unused volume. Sole isolated page blank.
-Complete wire/archive/manifest/UI audits remain open; six of six command
+Complete runtime audit now passes110814assertions/1041pins/391whole wires,
+46log joins/34execs/34guest readbacks/two init closures. Original auditor first
+refuses the system Python's78hard links; one exact pinned-interpreter exception
+qualifies while private evidence still requiresnlink1. UI audit remains open;
+six of six command
 checkpoints is not full acceptance. Broader4/14(29%)and82gaps stay unchanged.
 User reports possible tab interaction during two lost-page incidents; no
 exclusive Root input or browser-cause claim. Original Default tabs are now
@@ -24,8 +36,9 @@ foreground focus, with no game/server patch.
 
 [Muse shadow pilot](reviews/2026-10-25-Muse.md): first task Root-reviewed15/20,
 112s; useful source triage with corrected anchors/inferences, no proven cause.
-Task2 is dispatched on its own branch for the retained UI auditor; task3 remains
-unassigned until useful work is available. Profile strengths only after3tasks.
+Task2 is delivered but held after Root's executable ACK-envelope error and
+coverage review. Task3 quest-text expectations is delivered; Root review is
+pending. Workers released/ACKed. Profile strengths after all3Root reviews.
 
 Earlier file-admission checkpoint:
 [Fresh Root4 files and bound-auditor sources pass Root verification](reviews/2026-10-25-T10.009.md#fresh-root4-files-pass-and-one-longer-visible-interval-is-conditionally-admitted).

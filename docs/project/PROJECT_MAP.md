@@ -87,7 +87,8 @@ Map repair:
        -> town save/re-entry       [SEEN:normal UI;STATE5quests/sentinels kept]
        -> FINISH6 + retirement     [CANDIDATE PASS:natural0;no guard signals]
        -> fresh cleanup witness    [PASS:original5;groups/ports gone;volume unused]
-       -> complete retained audit  [NOW:runtime + UI checks in parallel]
+       -> retained runtime audit   [PASS:391wires/1041pins;Root verified]
+       -> retained UI audit        [NOW:qualify complete candidate]
           Current plan:6/6command checkpoints;full acceptance still OPEN.
 
 Quest check:
@@ -103,11 +104,13 @@ Shadow pilot (1-3 real tasks, alongside main work):
   Kimi follow-up               [TRIAL 2: quota 429; no handoff]
   One Kimi trial remains       [capacity check first; off critical path]
   Muse task1 source triage     [ROOT REVIEW:15/20;112s;corrections needed]
-  Muse task2 retained UI audit [DISPATCHED:own branch;Root verification later]
-  Muse task3                  [UNASSIGNED:useful real task only]
+  Muse task2 retained UI audit [HELD:Root run fails ACK envelope;coverage gaps]
+  Muse task3 quest text        [DELIVERED:Root byte/field review pending]
   Muse use profile            [AFTER3:quality/time/rework;no general winner]
 
 Other active work:
+  User Assassin test account  [READY:99Assassin +200ShadowCross;own play tab]
+  Original novice preservation [PASS:whole character unchanged;new test only]
   Old workspace cleanup       [23REMOVED;81DIRECT CHILDREN; all rollback preserved]
   Ordinary quest/logout        [HELD: B6 save/quit evidence failure]
   mu_fild01 normal route       [HELD: access unproved;111 asset bodies verified]
