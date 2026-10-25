@@ -11,6 +11,10 @@ in bags, not automatically equipped. Original novice's whole row is unchanged.
 Root stops inputs to that page. Supported setup intentionally restarts normal
 game services; refresh any future operational start reference. No stop/rebuild
 under active user play. Synthetic demo is not earned/full-game acceptance.
+The earlier personal page later disappears; Root restores a fresh page in the
+same profile, logs into the saved Assassin at69,124 and personally checks the
+rendered map/status/Chinese UI. No service/write/movement action in that
+restoration. Root hands off the new page and stops inputs again.
 
 **Main next action:** [normal installation/journal preparation is Root-checked](runbooks/T10.008-T10.009-normal-apply.md).
 Six exact leaves are staged privately; both live mod folders remain absent.
@@ -40,6 +44,8 @@ controls, not native/user failures. Grok also omits companion roles, resets
 unsupported personal masks and has misleading tuple-only hold wording.
 Claude5933f7b17/20is selected only as correction basis; Grokd295c0214/20.
 Both raw sources remain held.341released/ten retained/zero active/reclaimable.
+Both finished child worktrees are now removed after complete preservation;
+their candidate branches, source/report copies and rollback bundles remain.
 Next qualify the capacity correction; no integration or native acceptance.
 Normal installation still awaits coordinated logout.
 Root independently qualifies the four selected actor identities and all eight

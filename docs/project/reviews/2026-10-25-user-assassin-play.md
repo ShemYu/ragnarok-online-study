@@ -45,3 +45,33 @@ Private USER_PLAY_RESULT_ROOT.json SHA
 05c2e5ae3996a57facdc693fe24053953b6db2fa4e4689b92e0916032e9ab676
 is recorded after Root checks. The synthetic account is for user evaluation,
 not full-content, normal leveling, story or first-milestone acceptance.
+
+## Personal play page restored after the earlier page disappeared
+
+Root's later tab inventory no longer contains the handed-off personal page.
+A listed Default page also refuses a read-only snapshot as no longer available;
+the repeated inventory still lists it, so Root does not infer or force its
+closure. Under the user's existing account/page request, Root opens a fresh
+page in the same RO personal play profile without restarting services or
+presetting/restoring accounts, characters or saves, or changing installed files.
+
+The first password fill/Enter attempt receives an invalid-credentials dialog.
+Root dismisses it and uses the previously proven focus/select/ordinary text
+insertion path. Private equality checks confirm both input values before
+submission. Login succeeds; Root sees both character names and the selected
+level99Assassin. Ordinary Enter reaches the saved game. This demonstrates
+recovery with text insertion; it does not establish why the earlier fill
+failed or a general input defect.
+
+Root personally checks the rendered character/map/Chinese UI and the live
+ShemAssassin level99/job50 status, full12077HP/665SP, at69,124. No movement,
+gear grant, SQL write or service action is sent during this restoration.
+The new page is handed to the user and Root stops its inputs. The older
+73,117 setup is a historical checkpoint, not the current saved position.
+
+Private t10-user-assassin-reopen-root-1/READY_SNAPSHOT.json5288B/SHA
+231a5591b57f2347140089a999fa592bc37acd2b26ba0f74c502a37c137654f7
+and READY.png2362635B/SHA
+01bed87619d27c6268677f9808009e938b8e1f6b7c6bc7f3b5e93474ff9f73e4
+preserve this check. Page/profile IDs and credentials stay private. The
+personal play ownership and no-restart boundary still apply.
