@@ -97,6 +97,7 @@ Map repair:
        -> capacity source control  [HOLD:incompatible stack can pass preflight]
        -> interim correction      [BOTH SOURCE PASS:117/118+24+10;Claude selected]
        -> exact stack support     [Claude:small fix needed;Grok working;runtime OPEN]
+       -> native build path       [SOURCE:separate compile + file copies proposed]
        -> four actor resources     [SOURCE/BYTES PASS:8ranges;native render OPEN]
           Current isolated plan:6/6with complete Root audits.
           Normal install/earned-level200/later story/full game remain OPEN.

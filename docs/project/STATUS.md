@@ -23,7 +23,7 @@ paths. Thirteen patch-created backup files are preserved outside the build
 tree after the first strict footprint check refuses them. Original add/search/
 getitem bodies remain identical. Equal22payload/1920770B inputs and eight
 candidate Git joins/nine prepared-native joins pass. Both actual
-Claude/Grok source implementations are active from selected5131caf in
+Claude/Grok source implementations start from selected5131caf in
 separate child branches with identical packet/profile; setup skipped. Root
 joins eight BASE blobs in each. Claude turn-start observed; Grok's launch
 observer cannot prove turn-start, but its matching lifecycle heartbeat is
@@ -31,7 +31,7 @@ received/ACKed. No duplicate input. Root compiles unchanged actual original
 C++ bodies with typed stubs:47finite reference cases pass. A61case comparison
 scaffold also passes unchanged-original versus unchanged-original full-state/
 trace equality; three target-only favorite/merge-metadata/data-pointer defects
-are independently detected. No candidate has run through it yet; no full
+are independently detected. Claude later passes this comparison below; no full
 headers, server linking or native/game acceptance. The fixed
 tri-state probe must restore compatible-stack positives; only1permits changes.
 The normal build/up path would replace active services, so full native build
@@ -46,6 +46,17 @@ of required-1(14/17domain controls pass). No user inventory defect is
 observed. Root adds the author's omitted nonGUID/nonstackable supplied-ID
 regression; it passes. Child removed after full preservation; branch/bundle
 remain. Grok continues independently. No source selection/integration yet.
+
+**Native build preparation:** [four pinned primary-source GETs and Root review](reviews/2026-10-25-T10.010.md#pinned-build-handler-and-crate-source-narrow-the-native-build-path)
+establish that the bundled build route can publish images, but its ARG,
+directory COPY, networking and RUN controls cannot faithfully execute the full
+application Dockerfile. No acquired code is executed. The smaller proposal is
+a separately controlled compiler container followed by literal single-file
+image copies with no RUN. Actual limits, dependencies, ABI, cancellation,
+cleanup and source/binary identity still need qualification; no container,
+image build or service change is admitted by this source result. Grok is still
+live after the30minute source-task timebox; Root asks for an honest bounded
+settlement, with no duplicate worker or inferred exit. User play is untouched.
 
 **Pending user logout:** [normal installation/journal preparation is Root-checked](runbooks/T10.008-T10.009-normal-apply.md).
 Six exact leaves are staged privately; both live mod folders remain absent.
