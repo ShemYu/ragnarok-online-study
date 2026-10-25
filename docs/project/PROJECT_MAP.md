@@ -54,7 +54,9 @@ Map repair:
        -> Chapter1 first edge    [SOURCE INTEGRATED:50tests +7Root regressions]
        -> client route cells     [PASS:retained grids/town landing; limits kept]
        -> native script loading [PASS:3cases;137wires/32readbacks/205pins]
-       -> assembly + visible play [NEXT:isolated eligible route/render/save]
+       -> isolated test source   [PASS:backend/callback/driver failure controls]
+       -> fresh client + DB files [PASS:10client leaves/28backend leaves; unbound]
+       -> outer binding + play    [NEXT:isolated eligible route/render/save]
 
 Quest check:
   Finite startup repair        [PASS: listener seen in 3 checks]
