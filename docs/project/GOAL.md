@@ -1,12 +1,16 @@
 # Renewal solo milestone: goal and feasibility
 
-Last reviewed: 2026-10-22. Owner: coordinating Codex agent. Current work: active execution of the documented strategy.
+Feasibility review: 2026-10-22. Handoff updated: 2026-10-25.
+Owner: coordinating Codex. **Game execution is paused by the user.** Current
+work is documentation cleanup and the requested feature-branch commit/push;
+the full goal and functionality-first order are unchanged. [Current status](STATUS.md)
+gives the resume action; [History](HISTORY.md) holds completed records.
 
 ## User decisions
 
 The first milestone targets the **full Modern / Renewal Ragnarok Online game** for personal play on this Mac: maps, monsters, story/quests, Traditional Chinese game UI/text and persistent progress. On2026-10-19 the user clarified that “all content” means the full game, rather than a single-map game, and deferred party-only content to the next phase. The user also requires durable documentation for stateless agents, supervised phases, task-level Claude/Grok comparisons, coordinator verification before user evaluation, and Git rollback controls.
 
-After documentation checkpoint `35ad527`, the user instructed “follow the strategy I told you, finished all these steps” and activated the thread goal. This authorizes local execution of the task board; the earlier documentation-only boundary applied to T00. It is not evidence that the game or later acceptance gates are complete.
+After documentation checkpoint `35ad527`, the user instructed “follow the strategy I told you, finished all these steps” and activated the thread goal. That authorization remains the scope for resumption; game execution is currently paused. The earlier documentation-only boundary applied to T00. It is not evidence that the game or later acceptance gates are complete.
 
 The user selected Renewal rather than classic/pre-renewal. T06/T07 must identify the actual version/edition, build a complete content manifest and expose missing content against the full-game goal. A version/manifest is a verification boundary, not permission to declare only the easiest shipped subset complete. The current evidence does not establish parity with the latest Taiwan or Korean service. Root will provide a concrete coverage recommendation; no new user answer is needed to continue the inventory.
 
@@ -53,7 +57,7 @@ Initial allowances and later observations are distinguished below. Neither is a 
 | Basic feasibility trial | 2–4 engineering hours after compatible assets are available | Packaged app works; no substantial runtime or encoding fix required |
 | First coverage/localization inventory | 1–3 working days | Inventory/report only; not all quests tested or translated |
 | Full milestone | Unestimated until inventory and a pilot establish remaining work | Count translation units, missing systems and verification workload first |
-| RAM | Initial allowance6–8GB; measured app/asset/VM summed RSS median1.85GiB, maximum1.87GiB | Excludes shared Chrome; Chrome's other tabs prevent game-only attribution. Configured VM maximum4GiB is separate; [method and limits](RESOURCES.md) |
+| RAM | Initial allowance6–8GB; measured app/asset/VM summed RSS median1.85GiB, maximum1.87GiB | That measured baseline used a4GiBVM ceiling and excludes shared Chrome. Current build preparation uses the supported8GiBceiling; see [Status](STATUS.md). This is not a new8GiBRSS/performance measurement; [original method and limits](RESOURCES.md) |
 | Disk | Initial allowance20–30GB; observed ignored engineering tree13.49GiB, installed app0.51GiB, app support1.06GiB | Asset tree4.50GiB is nested in engineering tree; do not add nested rows. Downloads/source/backups make this larger than a minimal install |
 | New infrastructure | No cloud host or hardware purchase expected for the trial | Existing Mac; external service/API purchases are not part of this plan |
 

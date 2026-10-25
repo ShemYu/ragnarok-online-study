@@ -2,6 +2,10 @@
 
 Read [Goal](GOAL.md), [Tasks](TASKS.md), [Workflow](WORKFLOW.md) and [Status](STATUS.md) together. These are staged evidence gates, not a claim that the entire goal already works.
 
+At the2026-10-25 handoff, game execution is paused. The [active task board](TASKS.md)
+contains unfinished work; [History](HISTORY.md) preserves completed scoped
+records and pending user acceptance. The phase requirements below are unchanged.
+
 Every task gets paired Claude/Grok candidate work and coordinator verification. The coordinator updates the evidence and task state before offering a phase to the user. The user accepts the experience; a technical pass cannot stand in for that acceptance.
 
 The user-requested Kimi shadow pilot covers1–3 suitable tasks under the same

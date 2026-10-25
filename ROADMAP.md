@@ -2,7 +2,7 @@
 
 ## Active milestone — Modern / Renewal solo RO
 
-The user now prioritizes playing the full Modern/Renewal game locally on a Mac, with maps, monsters, story, Traditional Chinese and persistent personal progress. Party-only activities and their solo adaptations are deferred to the next phase. An existing emulator/client stack is the proposed foundation. Exact episode coverage, Taiwan text compatibility and full story completion remain unverified. The documentation checkpoint is complete and the user has authorized executing all steps.
+The user prioritizes playing the full Modern/Renewal game locally on a Mac, with maps, monsters, story, Traditional Chinese and persistent personal progress. Party-only activities and their solo adaptations are deferred to the next phase. The local emulator/browser baseline is playable in tested scenarios; exact complete coverage and full Chinese story remain unverified. **Game execution is paused at the2026-10-25 handoff.** Documentation cleanup and current feature-branch commit/push are authorized.
 
 1. **P0:** document goal, feasibility, task ownership, paired model comparison, root verification and Git/state recovery.
 2. **P1:** establish a version-pinned local runtime, compatible assets, basic gameplay/persistence/recovery, measured resources and a Chinese pilot.
@@ -11,7 +11,7 @@ The user now prioritizes playing the full Modern/Renewal game locally on a Mac, 
 5. **P4:** qualify required coverage, rehearse setup/restore, and hand over a root-verified build for user acceptance.
 6. **Later phase (T11):** address deferred party-only activities and define any solo adaptations. This does not block first-milestone delivery.
 
-Read [current status](docs/project/STATUS.md), [phase gates](docs/project/PHASES.md), [task contracts](docs/project/TASKS.md), [feasibility](docs/project/GOAL.md) and [Git/model workflow](docs/project/WORKFLOW.md). A worker result must be independently verified by the coordinator before user evaluation. Existing source QA does not establish this runtime's playability.
+Read [current status](docs/project/STATUS.md), [remaining-work map](docs/project/PROJECT_MAP.md), [unfinished tasks](docs/project/TASKS.md), [phase gates](docs/project/PHASES.md) and [Git/model workflow](docs/project/WORKFLOW.md). [History](docs/project/HISTORY.md) preserves completed work. After resumption, the immediate step is the native0.3.2build, followed by isolated story/reward/save checks and supported normal integration. A worker result requires Root verification before user evaluation.
 
 ## Preserved historical Godot / artwork roadmap — deferred
 

@@ -4,13 +4,20 @@ The current goal is the **full Modern / Renewal RO game** for personal play on t
 
 **Current priority: gameplay functionality first.** Verify maps, monsters, combat, jobs, items, quests and persistence before remaining translation/input work. Existing Chinese support stays enabled; full Traditional Chinese remains in the final goal.
 
-**Start at [current status](docs/project/STATUS.md).** Stateless agents should read [AGENTS.md](AGENTS.md), then the assigned task and evidence. The user has authorized executing the strategy after the documentation checkpoint. Runtime and content claims require the task-specific evidence recorded there.
+**Start at [current status](docs/project/STATUS.md).** Stateless agents should read [AGENTS.md](AGENTS.md), then the assigned task and evidence. Runtime and content claims require the task-specific evidence recorded there; the current pause state controls execution.
+
+**Current handoff (2026-10-25): game execution is paused.** Basic local browser
+play and saved progress are verified; full world/story/Chinese coverage remains
+unfinished. The active documents show remaining work, with completed records
+preserved in [History](docs/project/HISTORY.md). Documentation cleanup and the
+requested feature-branch publication are the current authorized work.
 
 | Planning document | Purpose |
 | --- | --- |
 | [Goal and feasibility](docs/project/GOAL.md) | Decisions, known facts, uncertainties, candidate sources and initial estimates |
 | [Supervisory phases](docs/project/PHASES.md) | Coordinator verification and end-user acceptance at each gate |
-| [Task board](docs/project/TASKS.md) | Dependencies, task deliverables, status and verification contracts |
+| [Unfinished task board](docs/project/TASKS.md) | Remaining tasks, dependencies, next actions and acceptance contracts |
+| [Completed work and history](docs/project/HISTORY.md) | Original task dispositions, verification evidence and dated snapshots |
 | [Workflow and Git control](docs/project/WORKFLOW.md) | Paired Claude/Grok comparison, stateless handoff, branches and rollback |
 | [Roadmap](ROADMAP.md) | Active direction and deferred historical work |
 

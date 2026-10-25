@@ -4,6 +4,31 @@
 
 Read root [AGENTS.md](../../AGENTS.md), [Status](STATUS.md), [Goal](GOAL.md), the assigned [task](TASKS.md) and its [phase](PHASES.md). Verify branch, base commit and working-tree ownership. Read the task's linked evidence, not every historical transcript. If the task lacks acceptance criteria or inputs, ask the coordinator before mutating anything.
 
+Check the current execution/pause state before starting. At the2026-10-25
+handoff the game goal is paused; documentation cleanup and the requested
+feature-branch commit/push are authorized. A maintenance or publication request
+does not itself resume game implementation.
+
+## Active documentation and completed history
+
+- STATUS contains the current pause/execution state, remaining gates, concise
+  preserved baseline, evidence and next owner/action.
+- PROJECT_MAP shows the remaining dependency flow. TASKS lists unfinished
+  deliverables and their dependencies/next actions, without launch chronology.
+- On completion of a scoped task, record Root's actual result in its dated
+  review and checkpoint it. Move the finished active-board row into dated
+  history, preserving its ID, original disposition, evidence and comparison.
+  Keep any unresolved integration requirement under its unfinished parent.
+- `self_verified` source work remains source-only. `ready_for_user` still
+  awaits explicit acceptance; archiving never changes it to `accepted`.
+  Preserve the full task register in history when reporting parent counts.
+- Keep frozen briefs/profiles and old reviews intact. For a major cleanup,
+  preserve complete dated snapshots in the same directory so their relative
+  links survive; check paths, anchors and task/status conservation afterward.
+- On resume, update the pause state and current operational bindings before
+  runtime work. Do not replay consumed admissions or repeat finished tests
+  unless changed inputs, failures or unresolved concerns require it.
+
 ## Paired Claude/Grok task protocol
 
 Every task uses an independent Claude candidate and Grok candidate. This compares performance on that task type; no blanket model winner is assumed.
@@ -97,7 +122,7 @@ Task and phase acceptance are separate: mechanical internal tasks can be reviewe
 - Baseline before this pass: `c6314bbd85caa01f54fdcc38d62168e101e2c5a4`. Current coordination branch: `ShemYu/reverse-the-Ragnarok-Online-to-play-by-myself`. It is not the default branch.
 - Documentation-only reviews may share a checkout only while read-only or when file ownership is explicitly disjoint. All mutating implementation candidates get dedicated branches such as `task/T05-claude-a1` and `task/T05-grok-a1` from the same recorded commit.
 - Create/manage Orca worktrees with the Orca CLI, loading its placement guide before doing so. Skip setup hooks for documentation-only work. Never manually repurpose another agent's active branch/worktree.
-- Before edits, inspect status/HEAD; commit only owned paths. Before checkpointing, inspect the diff and staged path list, run applicable checks, and update evidence. Local commits are authorized; publishing/pushing and merging to the default branch are separate actions.
+- Before edits, inspect status/HEAD; commit only owned paths. Before checkpointing, inspect the diff and staged path list, run applicable checks, and update evidence. Push the current feature branch when explicitly requested; set its upstream if absent and verify the remote tip. Keep default-branch merges and history rewrites separate. Exclude local assets, raw evidence and saves from publication.
 - Integrate a selected committed candidate onto the coordination branch with a traceable commit/cherry-pick, resolve conflicts explicitly, and reverify the integrated result. Retain the rejected candidate commit and review record for comparison.
 - Suggested messages: `docs(P0): define Renewal milestone and verification workflow`, `task(T05): verify Traditional Chinese pilot`, `fix(T09): preserve quest variables during localization`.
 - Record each checkpoint with task, parent/base commit, verification and external-state backup reference. Locate the current documentation checkpoint with `git log -1 --format='%h %s' -- AGENTS.md docs/project` instead of embedding a commit's own hash into its files.

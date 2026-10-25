@@ -1,0 +1,1351 @@
+# Archived PROJECT_MAP.md: 2026-10-25
+
+Historical snapshot from commit `348ea6cc12873e08be0698a203d20c6268847ae4`.
+Its instructions, live-worker statements and pending actions describe earlier
+checkpoints. Use [current status](STATUS.md) and [unfinished tasks](TASKS.md)
+for the current paused handoff. Original scoped statuses and evidence are
+preserved below; `ready_for_user` does not mean user acceptance.
+
+Original bytes: 88148; SHA-256: `f038542483d3430e41936bcef9816d96d1bb7d0229c07f5fabab2056f31c7cf2`.
+
+---
+
+# Supervision, plan and current position
+
+Date: **2026-10-25 JST**. Functionality comes first.
+[Fresh Mu3 isolated rendering now passes](reviews/2026-10-24-T07-mu-data-stage.md#fresh-mu3-synthetic-scene-and-complete-root-audit-pass):
+all 1,285 placements load; all retained Float32 arrays are finite; Root
+visually checks the image and completes the 767-check / 735-pin audit.
+Normal-game entry/travel/story and full content remain open.
+
+Use this map for a short view of [Status](STATUS.md), [Tasks](TASKS.md) and
+[Phases](PHASES.md). Status gives the current next action.
+Update this map after each important change. Keep the dated evidence.
+
+```text
+NOW: 4 / 14 parent checks complete (about 29%)
+     This is a check count, not playable-content coverage.
+
+MAIN: field fight + return/save PASS -> Chapter1 first edge -> wider coverage
+      Broader CPU geometry remains parallel diagnostic preparation.
+
+Map repair:
+  Reproduce numeric fault       [DONE]
+       -> fix + 22 focused cases [DONE]
+       -> fresh isolated render [PASS: 1,285 placements]
+       -> Root audit + image    [PASS: 767 checks / 735 pins]
+       -> Git checkpoint        [DONE]
+       -> normal source repair  [QUALIFIED: startup + Chinese preserved]
+       -> fresh complete ro4    [PASS: 1,135 inputs / 1,114 files audited]
+       -> four-file config      [PASS: 40 checks / all prior files unchanged]
+       -> local guest images    [PASS: every byte / prior files unchanged]
+       -> fresh engine boot     [PASS: new ownership / 4 old owners preserved]
+       -> empty storage/backing [PASS: new VM / empty DB / all prior files]
+       -> normal main ownership [PASS: authenticated]
+       -> normal routes/mounts   [PASS: before login]
+       -> ordinary account      [PASS: group0/state0 + fresh restart checks]
+       -> character + game entry [PASS]
+       -> baseline backup        [PASS: export/inspection + fresh restart]
+       -> normal travel + quest [PASS: portal/NPC/earned tutorial marker]
+       -> earned save + re-entry [PASS: character-select + Exit/login]
+       -> post-earn backup       [PASS: saved position + quest21001]
+       -> current pre-stop ref   [PASS: re-entry / owners / full files]
+       -> owned cold restart    [PASS: fresh services + earned re-entry]
+       -> session continuity    [PASS: bounded 72s; limits recorded]
+       -> normal integration    [5 / 5 PASS; user progress preserved]
+       -> Mu route/config check [HELD: newer Guide absent from installation]
+       -> normal Mu asset set   [PASS:111 responses +111 loose files verified]
+       -> ordinary field route  [SOURCE VERIFIED: island -> Izlude -> field]
+       -> Orca browser re-entry [PASS: saved90,111 + Chinese tracker + quiet audio]
+       -> captain dialogue      [PASS:21001complete;21008earned]
+       -> combat + lumber       [PASS:two natural fights; inventory stack2]
+       -> crew turn-in          [PASS:21008removed; five magnifiers;job3/17%]
+       -> island departure      [PASS:normal Izlude196,209; Root image checked]
+       -> ordinary field entry  [PASS:prt_fild08 367,212; Root image checked]
+       -> field/return/save      [PASS:Little Poring2398/EXP170/saved stats]
+       -> Chapter1 first edge    [SOURCE INTEGRATED:50tests +7Root regressions]
+       -> client route cells     [PASS:retained grids/town landing; limits kept]
+       -> native script loading [PASS:3cases;137wires/32readbacks/205pins]
+       -> isolated test source   [PASS:backend/callback/driver failure controls]
+       -> fresh client + DB files [PASS:10client leaves/28backend leaves; unbound]
+       -> outer binding          [PASS:1,641 checks/48 pins]
+       -> isolated native start   [FAIL:resources path; no game opened]
+       -> cleanup + full audit    [PASS:256 wires; original progress preserved]
+       -> resource path repair    [PASS:13callback +21writer source controls]
+       -> fresh nested client files [PASS:708checks/37pins; no launch]
+       -> fresh backend package   [PASS:1685checks/59pins;24roles/28files]
+       -> fresh binding           [PASS:1643checks/48pins]
+       -> native READY + A/B UI    [PASS:Chinese refusal/cancel, no quest write]
+       -> first edge/save/re-entry [PASS:255,240;18368active;sentinels kept]
+       -> Messenger               [SEEN:commit/repeat;later save still open]
+       -> ordinary fruit route    [FAIL:window expired at156,160;no withdrawal]
+       -> complete cleanup/audit  [PASS:292wires;original progress preserved]
+       -> countdown C3             [PASS:35Root controls;budgets unchanged]
+       -> retained east passage    [PASS:31,709checks;client planning only]
+       -> fresh source plan        [PASS:46Root checks;six commands frozen]
+       -> fresh private files      [PASS:708client/1740backend checks]
+       -> fresh binding            [PASS:1643checks/48pins]
+       -> saved Messenger handoff  [PASS:18368complete/18369active;re-entry]
+       -> east passage + fruit     [PASS:73,117;render/save/re-entry]
+       -> safe NPC withdrawal      [PASS:quests/save kept;new map load]
+       -> retained fruit exit      [PASS:edge168,139]
+       -> town return/re-entry     [OPEN:deadline at171,142;47movement ACKs]
+       -> full cleanup + Root audit [PASS:378wires/524pins;original kept]
+       -> longer test window       [SOURCE PASS:132focused Root controls;1800/60/1900]
+       -> fresh Root4 files        [PASS:1904backend/708client checks;all files]
+       -> bound audit source      [PASS:40focused controls;whole projections]
+       -> fresh page + Root6 bind [PASS:1,803checks/53pins;one call consumed]
+       -> fresh visible route      [SEEN:fruit -> edge -> town353,248]
+       -> town save/re-entry       [SEEN:normal UI;STATE5quests/sentinels kept]
+       -> FINISH6 + retirement     [CANDIDATE PASS:natural0;no guard signals]
+       -> fresh cleanup witness    [PASS:original5;groups/ports gone;volume unused]
+       -> retained runtime audit   [PASS:391wires/1041pins;Root verified]
+       -> retained UI audit        [PASS:412captures/12images/448full pins]
+       -> normal install preparation [PASS:6staged leaves;source collisions/dispatcher]
+       -> normal supported install [OPEN:user test ended;fresh saves/backup next]
+       -> normal journal oracle    [SOURCE PASS:7bundle regions/6payloads;UI unrun]
+       -> next village source      [QUALIFIED:莎莎+梅雪/rewards;4-ID resume]
+       -> parallel implementations [COMPARED:Claude17/Grok14;both source-held]
+       -> capacity source control  [HOLD:incompatible stack can pass preflight]
+       -> interim correction      [BOTH SOURCE PASS:117/118+24+10;Claude selected]
+       -> exact stack support     [SOURCE PASS:Root fix;133C++/120NPC;0.3.2integrated]
+       -> native build path       [SOURCE:separate compile + file copies proposed]
+       -> current build metadata  [PASS:original5/image;4GiBguest;no compile yet]
+       -> compiler probe source   [PASS:8fake controls;one real call consumed]
+       -> actual resource probe   [PASS:31responses;limits/cleanup/original5]
+       -> idle saves + fresh backup [PASS:3offline;22leaves;full save outputs kept]
+       -> supported RAM restart   [PASS:8GiBsetting;new5;all full saves unchanged]
+       -> Linux compiler build    [NEXT:toolchain/ABI/limits;no compiler installed]
+       -> four actor resources     [SOURCE/BYTES PASS:8ranges;native render OPEN]
+          Current isolated plan:6/6with complete Root audits.
+          Normal install/earned-level200/later story/full game remain OPEN.
+
+Quest check:
+  Finite startup repair        [PASS: listener seen in 3 checks]
+       -> Chinese A199 refusal  [SEEN; full case not complete]
+       -> logout/save           [FAIL: save evidence unknown]
+       -> cleanup + Root audit  [PASS: 1,385 checks / 901 pins]
+       -> priority review       [DONE: hold quest; no retry]
+       -> normal map route      [NEXT: check Chapter1 dependency first]
+
+Shadow pilot (1-3 real tasks, alongside main work):
+  Same-input source triage     [TRIAL 1 VERIFIED: Claude / Grok / Kimi]
+  Kimi follow-up               [TRIAL 2: quota 429; no handoff]
+  One Kimi trial remains       [capacity check first; off critical path]
+  Muse task1 source triage     [ROOT REVIEW:15/20;112s;corrections needed]
+  Muse task2 retained UI audit [HELD:Root run fails ACK envelope;coverage gaps]
+  Muse task3 quest text        [HELD:18wrong structured joins;Root corrected]
+  Muse use profile            [DONE:supervised source triage/drafts;3task limits]
+
+Other active work:
+  User Assassin test account  [READY:99Assassin +200ShadowCross;own play tab]
+  Original novice preservation [PASS:whole character unchanged;new test only]
+  Old workspace cleanup       [23REMOVED;81DIRECT CHILDREN; all rollback preserved]
+  Ordinary quest/logout        [HELD: B6 save/quit evidence failure]
+  mu_fild01 normal route       [HELD: access unproved;111 asset bodies verified]
+  Ordinary field route         [PASS:survival + EXP + normal return + saved stats]
+  Full839 data + entry         [PASS: 4,226 checks / 947 pins]
+  Full839 entry FD closure     [PASS: explicit setup; exact comparison kept]
+  Full839 map/monster joins    [DONE: Claude integrated; Root verified; pair released]
+  Remaining patch map bodies  [DONE:17 bodies/header names Root VERIFIED]
+  Remaining October bodies    [DONE:4 bodies/headers/normal GETs Root VERIFIED]
+  Remaining terrain names      [DONE:Claude selected; Root full actual/oracle PASS]
+  Terrain metadata oracle      [PASS:34/34 exact eligible records; Root full audit]
+  Remaining terrain bodies     [REUSE:all34already in qualified native capture]
+  Normal terrain delivery      [DONE:34responses/files; Root full audit PASS]
+  Remaining compiled core      [PASS:21/21;252finite arrays; all17GAT references]
+  Host source comparison       [DONE:Claude correction SELECTED; both VERIFIED/released]
+  Direct dependency lookup     [DONE:both actuals +Root full equality; all1222found]
+  Direct asset preparation     [PASS:115retained bodies +1222exact mappings]
+  Normal delivery derivative   [BOTH HELD:Root suites +8equal cases checked]
+  Claude delivery repair       [INTEGRATED95bee15;36tests PASS; actual delivery DONE]
+  Direct delivery [ALL1222 + ROOT COMPLETE AUDIT PASS; no replay]
+  Model/declaration preparation [BOTH HELD14/20vs9/20; Root full reviews/controls DONE]
+  Constructor correction       [INTEGRATED1aa7e67; Root23tests/own regressions/CLI PASS]
+  All936model body files       [ROOT FRESH HASH/IDENTITY + COMPLETE JOIN PASS]
+  Genuine constructor pilot    [11/11PASS; Root253583checks/1097pins; no replay]
+  Genuine925remainder          [925/925PASS; Root1253179checks/8407pins]
+  All936constructor closure     [ROOT PASS;1546declarations/948targets; no replay]
+  Nested texture metadata      [ALL948 + ROOT FULL ORACLE EQUALITY PASS]
+  Nested delivery source       [CLAUDE19/20 SELECTED; GROK17/20 TGA READBACK HELD]
+  Nested texture bodies        [ALL948DELIVERIES ROOT PASS;15reuse+933new]
+  Nested10pilot                [10/10PASS; Root25541checks/1400pins; no replay]
+  Nested923remainder            [923/923PASS; Root54317checks/4073pins; no replay]
+  TGA page source              [ROOT19300checks PASS; raw15/20each HELD/corrected]
+  TGA Worker path              [ROOT BOTH FULL CHECKS PASS; corrected source only]
+  TGA tiny decoder fixture     [ROOT CORRECTED PASS:20TESTS/515+675CHECKS]
+  Retained decoder observer   [ROOT CORRECTED; ALL25FULL RGBA HASHES PASS]
+  Independent25pixel oracle   [ROOT MATCH:574CHECKS/35PINS; no replay]
+  Real25TGA header resource    [ROOT969checks PASS; max1024x1024; decoder PASS]
+  Geometry source plan pair    [ROOT CORRECTED PLAN PASS; raw16/20vs13/20]
+  Independent binary preflight [ROOT47CONTROLS +4226ACTUAL AUDIT PASS]
+  Independent geometry oracle  [ROOT42CONTROLS +7975SAVED AUDIT PASS]
+  Tiny geometry originals      [BOTH ROOT VERIFIED/HELD:13vs10; pair released]
+  Finite geometry correction   [ROOT C2QUALIFIED:53TESTS/66CONTROLS; exact integration PASS]
+  Next geometry frontier plan  [BOTH PRESERVED/RELEASED; Root compare pending]
+  Actual model compile         [ONE PASS; ROOT3143CHECKS/17PINS; exact42876B; no replay]
+  Broader geometry + rendering [NEXT:compare .024plans; end-user gate still open]
+  Model702node bounds           [SENTINEL PRESERVED; geometry impact OPEN]
+  Image consumer source trace  [ROOT PASS:40slices/286joins; both17/20/released]
+  Browser image fixture        [BOTH ROOT VERIFIED/HELD12vs10; pair released]
+  Claude fixture correction    [ROOT20tests PASS; four combined faults HELD]
+  Fixture finite follow-up     [INTEGRATEDa41644d; SOURCE19/20; all own controls PASS]
+  Actual tiny browser matrix    [24/24PASS in21.1s; Root1912checks; cleanup PASS]
+  Remaining direct assets      [DIRECT/NESTED DELIVERY DONE; DECODE/RENDER OPEN]
+  Claude/Grok FD plan pair      [BOTH VERIFIED + RELEASED; control PASS]
+  Chapter 1 first transition   [SOURCE +6retained assets/9cells VERIFIED; play OPEN]
+  Full Chapter 1 story         [OPEN: largest content risk]
+  All 82 functional gaps       [OPEN]
+  Full Traditional Chinese     [LATER: existing overlays stay enabled]
+
+The render pass uses a synthetic viewer; it does not close the parent map
+task or prove normal gameplay, animation timing or full-content coverage.
+The former25% estimate is retired; use the separate prerequisite checks.
+Prior failed trials stay failed. Full Renewal goal stays unchanged.
+Original saves/Chrome/profile/settings/mute/IME/network stay untouched.
+```
+
+See [installed map prerequisites](reviews/2026-10-24-normal-map-prerequisites.md)
+for the current route decision and remaining checks.
+
+The sections below keep the dated history. [Status](STATUS.md) gives the live
+next action and the exact limits of each result.
+
+```text
+CURRENT WORK: quest data, missing story and map-load checks
+
+CURRENT (23 Oct):
+  [!] Browser publisher gate refused: main has an ad-hoc signature.
+      Failed run kept; full Root integrity/closure audit passes.
+  [V] Official-download/file-integrity basis checked for this local test.
+      No certificate or notarization claim; ownership rules stay strict.
+  [V] All 17 architecture checks pass; complete Root audit passes.
+      419 full pins, 677 nodes, 18 owned test processes/groups gone.
+  [V] Minimal test-browser launcher source checked; clocks stay strict.
+  [V] Shared bindings checked: 51 full pins / 42 exact source slots.
+      Expected browser product will be checked during the actual test.
+  [V] Fresh read-only game preflight and full Root audit pass: 4.951s.
+      All 17 pins / 5 archives / current game owner and cleanup checked.
+  [V] Final launcher/controller copies checked; only bindings change.
+  [V] Exact nine-resource source set and finite reader source checked.
+      Actual return-time check corrected; one data call now completes.
+  [V] Nine responses and complete Root audit pass: 11.849s / 4.36MiB.
+      Three files return 200; six aliases return 404. No new extraction.
+      18 effects / 7 parents / original owner / test cleanup all checked.
+  [V] Diagnostic data/configuration/session and served-byte recipes checked.
+      68 full pins / 57 source spans / 8 exact edits + full inverses pass.
+      Nine retained bodies / 18 leaves / 7 parents match. No live test yet.
+  [V] All five inert test files created and checked: 13.21MiB / 18 full pins.
+      Actual stored bytes match predictions and restore the exact donors.
+  [V] Final proxy/parent bindings and fresh three-world owner checks pass.
+      44 full pins / 13 parent headers / 2 proxy edits + full inverses.
+  [!] First live test stops before browser launch: startup clocks disagree.
+      Both guards stay failed; caller 1. No game data request or Node run.
+  [V] Failure/preservation audit passes: 70 pins / all 3 original owners.
+      18 effects / 7 parents unchanged; both test drivers and caller gone.
+  [V] Claude clock source: 24 own + 27 common checks and full Root audit pass.
+      25 pins / caller0 / valid original guard; test driver group is gone.
+  [!] Grok clock source rejects the valid input: 7/31 own, 4/27 common.
+      Failure/full audit kept; both providers released. No repair retry needed.
+  [V] Claude 20/20 selected over Grok 9/20 for this source task.
+  [V] Actual clock proof: two fresh processes, both startup/transfer seams pass.
+      Full Root audit passes: 24 pins / 5 samples each / all test PIDs gone.
+  [V] Unchanged clock source integrated as db25488 and tracked checks pass.
+      24 own + 27 common / 26 audit pins / all test processes gone.
+      Source task self_verified; fresh actor bindings and game test remain.
+  [V] Fresh clock-patched actors and five served files materialized and checked.
+      42 full audit pins / exact source inverses. No actor has run yet.
+  [V] Final parent and current-game checks pass: 82 pins / all 3 owners.
+      18 effects / 7 parents / fresh templates match. One game test admitted.
+  [!] Fresh test reaches browser + controller; first page stalls before GET.
+      Caller1 / no quest data / original guard retires its registered browser.
+  [V] Full failure audit: 128 pins / all 16 retained test PIDs gone.
+      Original 3 worlds / 18 effects / 7 parents unchanged. Trial stays failed.
+  [V] Claude/Grok plan comparison complete: 12/20 and 13/20; neither probe fits.
+      Root 41-pin source/evidence audit passes; both workers released.
+  [V] Exact browser source has a test-keychain flag and provider consumer.
+      Previous cause stays unknown; no runtime fix or fresh run is claimed.
+  [V] On-disk navigation table read/audit pass: empty table, 22 bytes.
+      Served table/browser winner and actual route still unknown.
+  [V] Equal portal-routing implementation task frozen: 6 inputs / 8 groups.
+      Hidden guidance, ordinary portals and stale-work fences are in scope.
+  [>] Actual Claude/Grok pair dispatched on separate branches from 44afe8e.
+      Both submitted and preserved; both settled workers released.
+  [V] Independent test source checked: 53 cases / 8 groups.
+      Both implementations receive the same Root checks after submission.
+  [V] Shared test-runner source and two-assertion final deadline fix checked.
+      One execution-metadata Boolean corrected; same Root policy for both.
+  [V] Claude full source and exact pure-run bindings checked; one call admitted.
+  [V] Claude raw test/audit: 34/34 own, 42/53 common; result stays failed.
+      11 common comparisons fail on VM-array prototypes. Fixture fix reviewed.
+  [V] Grok raw test/audit: own harness error, common 41/53; stays failed.
+      Same 11 fixture failures plus unknown Worker policy routing.
+  [V] Equal corrected fixture/bindings checked; one fresh call each admitted.
+  [V] Corrected pair/audit: Claude 34/34 own + 53/53 common pass.
+      Grok own harness error + 52/53 common; stays failed. All tests exited.
+  [V] Claude 20/20 selected; Grok 13/20, retained for comparison.
+  [V] Unchanged Claude source integrated as 88577ae; three full blobs match.
+  [V] Actual tracked-source verification/audit: 34 own + 53 common pass.
+      Source-tool task self_verified; 28 pins / test cleanup checked.
+  [V] One-argument candidate materialized: 58-pin audit / exact full inverses.
+      Three fresh actor sources and five served files; no actor has run.
+  [V] Fresh parent/current-world binding passes: 82 pins / 13 exact headers.
+      Original worlds/effects unchanged; one trial admitted at db138b9.
+  [V] Actual one-argument test loads page/Online; Worker target attaches.
+      Chrome exits cleanly with valid original guard/no signal. Network ACK passes.
+  [!] Controller rejects Worker-session finish for page-seen bootstrap request.
+      Caller1 / no native asset request / no quest result. Trial stays failed.
+  [V] Complete failure audit: 129 pins / 15 retained test PIDs + 4 groups gone.
+      Original 3 worlds / 18 effects / 7 parents unchanged. Admission consumed.
+  [V] Equal Worker-bootstrap plans checked: Claude17/20 vs Grok15/20.
+      Both preserved/released; Root74-pin audit and18primary responses checked.
+  [V] Corrected startup/real-response source materializes: 12 closed edits.
+      Full inverse and9-pin Root audit pass; first inert token-reuse gap fixed.
+  [V] Existing24 case bodies + 8 new groups/30 variants qualify as source.
+      Root16 exact fragments / 13 pins / full driver+caller inverses pass.
+  [V] All32 groups pass: caller0 / driver0 / valid original guard / no signals.
+      Root22-pin/full-stream audit passes; caller/driver/group are gone.
+  [V] Fresh3 actor sources + 5 served files materialize; Root66-pin audit passes.
+      Four Node fields + 12 policy edits invert; other actor behavior unchanged.
+      Source checkpoint precedes the single root-4 trial below.
+  [V] Current-world/effect and13-header parent binding pass.
+      Binder86 full-hash entries; Root79 unique C8 / exact13-header inverse.
+      Original3 owners/listeners and18effects/7parents unchanged.
+  [V] One corrected root-4 trial runs once: real Worker response200 + finish.
+      Owned pause/enable/resume ACKs and raw/canonical session evidence pass.
+  [!] Lua startup rejects before native assets; quest diagnostic stays failed.
+      Caller1 / Chrome0 valid guard / one preserved failure / zero native GETs.
+  [V] Full134-pin failure audit: 15 retained test PIDs / 4 groups are gone.
+      Original3 owners/listeners,18effects/7parents and FD/threads unchanged.
+  [V] Equal Lua-startup plans checked: Claude13/20 versus Grok14/20.
+      Both preserved/released; Root25-pin audit. Corrected shared HTTP route chosen.
+  [V] Lua-route source materializes: 12 spans / 2 joins / full inverses pass.
+      Root12 source/output pins; produced JS/Wasm/actors have not run.
+  [V] Exact new-tail regression bindings qualify; old test bodies unchanged.
+  [V] All15own/75shared/one-pending pass in parallel; full53-pin audit passes.
+      Three caller0/driver0/valid guards; complete streams and cleanup checked.
+  [V] New40group source/caller qualifies: 13pins / 21fragments / full inverses.
+  [V] All40groups pass; Root22-pin audit / complete streams / cleanup pass.
+  [V] Fresh parent binder draft qualifies: 12groups/14sites/full inverse.
+      Six static leaves; parent body / nine protected / seven Node roles kept.
+  [V] Fresh3actors / 6static files qualify: 62full pins / exact inverses.
+      Root-5 source files only; no runtime inputs/profile/T0/admission.
+  [V] Fresh parent binding: 95hash entries / 87current C8 / 13header inverse.
+      Original3owners/listeners and18effects/7parents match; no actor ran.
+  [V] Root-5 starts Lua: five real Wasm chains / two native reads / report.
+      Report counts5520own keys; Chinese21001 present,16912 absent.
+  [!] Optional Worker404 has no terminal; full diagnostic reaches cutoff.
+      Separate shutdown socket error also remains. No content acceptance.
+  [V] Root144-pin audit / 15test PIDs / 4groups / original worlds pass.
+  [V] T10.005.005 freezes14equal inputs / six groups / readonly source plans.
+  [V] Both real C/G plans complete; full reports kept; both workers released.
+  [V] Root comparison: Claude15/20, Grok15/20; neither raw fix accepted.
+      Fix cancellation-as-EOF and missing ACK/error/close ordering.
+      Existing outer deadlines suffice; no new Worker grant protocol needed.
+  [V] Root repairs submitted source + controls in an isolated branch.
+      Root checks 10 sources / 20 excerpts for affected validation checks.
+      Refresh embedded Worker hash; test actual error + ACK handlers.
+      First draft byte composition matches; parallel audits find fixable gaps.
+      Correct stream shapes, inverse and witness/shutdown ordering before tests.
+      Grok submission stays needs_fix; raw2affd6b kept and worker released.
+      Root repairs with disjoint native proposals and Astra support.
+  [V] Corrected26343ef: all10Python / all37Node pass; full19-pin audit passes.
+      Exact test births/groups gone, no signals, source/FD/thread checks pass.
+  [V] Actual integrated5e96cf6: all10Python / all37Node and18-pin audit pass.
+  [V] Required40regressions pass; full25-pin Root audit/clean exit/no signals.
+  [V] Root6 fresh source/parent bindings + one live diagnostic pass.
+      14request/response/finish chains; optional404drains14B to EOF.
+      Strict shutdown sequence + independent Chrome natural exit0.
+      Full Root audit passes; original worlds/effects preserved; no signals.
+      Loading/shutdown blocker CLOSED for this diagnostic; root6 immutable.
+      Ordinary-session table winner/story/content remain open. Progress4/14.
+      No game design or milestone change. No user action is needed.
+  [V] T10.006 research: Claude16/20 versus Grok13/20; both workers released.
+      Root confirms typed NPC coordinates; no complete story contract yet.
+      Exact Taiwan parity is not an added requirement for personal Renewal play.
+  [V] T10.007 freezes30equal inputs; Root78-pin/source/collision audit passes.
+  [>] Actual C/G pair assigned: persistent starter registration/cancel/resume.
+      Sameee23e4e / separate branches / no installed app or DB mutation.
+      Resolve real route/reward/transition rules before integration and play.
+
+Earlier checkpoints (their next actions can be superseded):
+  [V] Browser integration plan checked; strict ownership/clocks stay.
+  [V] Preserved navigation index located; one historical data read admitted.
+  [V] One inert browser archive download + full Root audit pass.
+      186MiB file/checksums/34pins match; test processes are gone.
+      ZIP metadata inspection next. No browser launch yet.
+  [V] Exact portal-generator source checked:10pins/17spans.
+      Selected server table/index/era/mod inputs still need binding.
+  [V] Inert download caller checked:25full pins/four exact reused sections.
+      One archive download admitted; full checksum/exit audit follows.
+      Browser launch remains a separate gate.
+  [V] Download source review confirms final guard/exit gates.
+      Fixed caller pins and exact admission are next; no request yet.
+  [V] Historical portal table checked; current table is still UNKNOWN.
+      One exact generator-source read admitted, independently of browser work.
+  [V] CfT default build excludes the inspected updater path.
+      Selected browser package still needs qualification.
+      Inert download source checked; fixed caller/admission next.
+  [V] First story handoff has a source-defined ordinary portal candidate.
+      Actual route/table/packet binding and full service filtering stay open.
+  [V] Test-browser metadata and pinned source checked.
+      ZIP proposal:186MiB. Updater exclusion is still UNKNOWN.
+      Data-only acquisition preparation next; no browser launch.
+  [V] Quest launcher tests: all 9 groups / 104 variants pass.
+      Full Root audit passes:54file pins and positive test-process closure.
+      Test-browser qualification and real quest-loader trial remain open.
+  [>] Equal Claude/Grok navigation source workers dispatched.
+      Root corrected comparison done:16/20 each; both released.
+      Exact server emitter/first Messenger source checked:27 bytes.
+      Macro/client policy checked: service toggle cannot honor request yet.
+      Worker ignores service types. Primary category comment found.
+      Faithful selector mapping and installed-table association remain open.
+  [V] Quest cleanup deadline source gap found; narrow correction checked.
+      All five fixed checks pass. Shared runner late-return gap found.
+      All eight return-time checks and full28-file Root audit pass.
+      Astra finds late cleanup-start gap; three-line source fix checked.
+      Nine composed boundary groups next, then actual quest binding.
+  [V] Navigation source contract checked: 54 ranges and 70 file pins match.
+      Three plugins and their source imports found. Equal model task next.
+  [V] Bounded child-absence and normal-close source changes checked.
+      Corrected51/51 and full85-file audit pass; first49/51 preserved.
+  [!] Scene wave3 stops before READY at an unknown child identity.
+      Full 175-file audit passes; test processes end; original games intact.
+      Next: bounded child-absence and parent-exit handling, then fixed tests.
+  [V] Fresh scene files and binding checks pass; one live wave admitted.
+      All 143 file pins and 3 original services match. Scene test next.
+  [V] Corrected quest tests: all 24 pass; full Root audit passes.
+      All 45 file pins match. First fixture failure stays preserved.
+  [V] Quest-controller test source and fixed caller checked: 24 cases.
+      One pure run admitted; full result and cleanup audit follow.
+  [V] Fresh scene preflight and full independent audit pass.
+      All 107 inventory paths and 3 original game services match.
+  [>] Independent navigation task: bind the selected packet/overlay path.
+      Compare Claude/Grok after exact inputs are frozen; no repair assumed.
+  [V] Fresh read-only scene preflight source checked; one run admitted.
+      Next: current full-file and original-game owner checks, then audit.
+  [V] Quest controller source checked; deadline and session fixes reviewed.
+      Next: targeted tests, shared caller and actual source/owner bindings.
+  [V] Scene binder now uses the corrected launcher; all 45 header slots match.
+      Fresh W4 preflight + full audit pass:114 inventory files,3 original owners.
+      Reader templates + five inert data copies checked.
+      W4 reaches READY, then refuses a child in another process group.
+      Full179-file audit passes;24test identities end; original games intact.
+      Scene remains failed. Log points to GoogleUpdater activity.
+      System Chrome trials stop; isolated test-browser research next.
+      Next: fresh file/process preflight. No new browser has started.
+  [V] Corrected launcher tests: all 43 pass; full Root audit passes.
+      Next: fresh scene setup and file/process checks before a live test.
+  [!] Targeted tests: 42 / 43 pass. One fixture input binding was missing.
+      Failed run audited and kept; one corrected replay is admitted.
+  [V] All 43 targeted test sources and the fixed caller are checked.
+      Healthy missing-controller case added. One pure test run is admitted.
+  [V] Failure handling + one-instance feature source correction checked.
+      Next: targeted Python cases; no new browser test yet.
+  [V] Quest test has one proposed 120s schedule with early finish limits.
+      Controller and shared caller still need implementation and checks.
+  [V] Two clone names account for Chrome's extra executable links.
+      One-instance feature setting proposed; strict file checks stay required.
+  [V] Quest browser direction checked; Worker destruction must be witnessed.
+      Shared time limits and the runtime adapter still need binding.
+  [!] Fresh Chrome test stops on child identity; scene observer never starts.
+      Failed run kept. Known test processes/listeners gone; original games stay.
+      Fix failure cleanup and explain executable link change before a new run.
+  [V] Reader files and fixed browser binder checked; one scene wave admitted.
+      That wave fails before the scene. Full image/resource checks remain open.
+  [V] Fresh scene preflight: 113 full file checks and 3 game owners pass.
+      First metadata-parser refusal kept; no browser or reader starts yet.
+  [V] One-image observer and exact browser template update source checked.
+      Next: fresh setup, one real scene, full image and cleanup audit.
+  [V] Quest clock/abort: all 16 browser / 15 proxy checks pass Root audit.
+      Next: bind the real-loader trial and whole-attempt cleanup.
+  [V] Fresh-browser binder: source pins and 45 header slots checked.
+      One image capture must be added before automatic browser close.
+  [V] Quest clock/abort source reviewed; one BOM refusal defect corrected.
+      Next: run the 16 browser / 15 proxy checks with fixed callers.
+  [V] Browser cleanup: all 25 launcher / 15 observer cases pass Root audit.
+      No real browser or game scene ran in these checks.
+  [V] Integrated quest tail: 15 own / 75 shared / 1 edge case pass.
+      Root full audit done. Next: real-loader source/caller binding.
+  [V] Unchanged Claude source imported as fbc2e96 (3 exact blobs).
+      Integrated own/common/pending calls admitted; execution/audit next.
+  [V] Claude selected 20/20 vs Grok 16/20 for the quest tail.
+      Equal checks/audits done. Next: unchanged import and integrated checks.
+  [V] Corrected pending/error control and two equal calls admitted.
+      Next: run once per provider, audit, then select/integrate.
+  [V] Grok: 15 own tests pass; common is 74/75 (argument loss).
+      Full audit done. One equal pending/error check remains before selection.
+  [V] Grok full source review is done; equal own/common calls admitted.
+      Two source concerns need targeted checks before either is selected.
+  [V] Grok quest-tail submission is preserved; both pair workers released.
+      Root source review and equal replay follow; no runtime or selection.
+  [V] All 50 scheduling and failure-path checks pass Root execution/audit.
+      Next: bind the separate browser adapter. Scene rendering is not passed.
+  [V] Chrome source plan and corrected frame-gate source qualify.
+      One pure 50-case check admitted. Actual browser/scene test stays open.
+  [V] Claude: 15 own tests and all 75 common cases pass Root replay.
+      Full source/output/cleanup audit passes. Grok and real trial remain.
+  [V] Root reads Claude's whole code and tests. Two authored calls admitted.
+      Next: run its own suite and the 15-group, 75-case common suite.
+  [!] Native screen tool cannot start. No visible pane is proved.
+      Next: qualify a new private Chrome profile and owned browser.
+  [V] Claude recovers, commits its source and closes after preservation.
+      Its reported tests await Root replay. Grok is still working.
+  [V] Root reads the 15-group, 75-case common test source. No run yet.
+  [V] Astra and Root source review: use an actually visible owned pane.
+      A focus reply alone is insufficient. Bind the real surface next.
+  [V] Corrected event reader: all 14 groups and 77 calls pass.
+  [!] Fresh screenshot returns an error; no image. All test actors close.
+      Original game remains. Next: review an owned visible surface with Astra.
+  [!] Screenshot control stops on an unknown browser message; no image.
+      Test page and processes close; original game and saves remain.
+  [V] Source confirms screenshot support and browser event forwarding.
+      Our reader rejects those events. The actual refused message is unknown.
+      Next: bounded reader correction and checks, then a separate test.
+  [V] New isolated engine: empty database/storage/ports checks pass.
+  [V] Full game services: new mounts/routes/12 terrain files pass.
+      Five startup diagnostics classified; known defects stay open.
+  [V] New normal account, login and character creation pass.
+  [V] Enter map, back up baseline, walk, use portal and receive a quest.
+  [V] Earned quest/position survive character selection and full relogin.
+  [V] New earned backup and read-only cold reference checked.
+  [V] Owned app/server shutdown and stopped-state checks pass.
+  [V] Normal full restart: same character, quest and location return.
+      Test game running quietly; old test tab replaced after timeout.
+  [V] Offline movement candidate: actual bytes/receipt/inverse pass.
+      Claude selected; Grok close check fails. No live mapping selected.
+  [V] Before-close test confirms two ownership-loss paths in the writer.
+      Astra policy reviewed; core-only uncertainty correction frozen.
+      Both submitted/preserved/released. Root finds raw error-object defects;
+      Grok also loses one terminal snapshot. Both pass 10 shared close checks.
+      Earlier defects stay open; caller checks and correction are next.
+      Own replay: 99 methods and two direct imports pass in 24 fresh children.
+      Claude 17/20 correction basis; Grok 14/20. Raw defects remain open.
+      Existing fixed caller qualification stays separate.
+      Real map/save untouched.
+  [V] Chapter 1 decoder: both candidates pass 30 Root common groups.
+  [V] Both own suites: Claude 76 / Grok 64 run, one skip each, no failures.
+      Source comparison: 19/20 each.
+  [V] Independent Chapter 1 reference: all 182,666 map-file bytes checked.
+  [V] Both real decoders and public verifiers match the complete reference.
+  [V] Selected Claude integrated; 76 tests and 30 common groups pass.
+      One optional real-input skip in the synthetic suite.
+  [V] Actual integrated new + old routes: all 13 complete files match.
+  [V] Chapter 1 header: terrain names are gef_dun03.gnd / gef_dun03.gat.
+      Decoder/header child ready. Catalog/body/loading checks are next.
+  [V] Exact terrain lookup: both providers compared and released.
+  [V] Root full scan finds both exact terrain-name entries in data0.grf.
+      Both original/fresh results match. Claude selected: 18/20 vs 16/20.
+      Private checker limitations retained. Full body reads/loading next.
+  [V] Normal two-body preflight: current owner/config match.
+      Automatic extraction retained; both loose/override targets absent.
+  [V] Two-response observer reviewed; wire/storage accounting corrected.
+  [V] Both normal terrain responses pass all 4,073,068 bytes and hashes.
+  [V] Exact extracted copies, 25 protected inputs and live reader pass.
+  [V] Real compiled Chapter 1 core runs; complete dependency ledger passes.
+      370 placements, 27 model requests, 7 ground textures; no numeric fault.
+  [~] Normal dependency loading, story routes and play remain.
+      Current reader check passes: five archives and exact ownership match.
+  [!] First normal loading check stops on the browser icon request.
+      Real map file arrives and its parser runs; terrain is not reached.
+      Test proxy rejects /favicon.ico and closes. Failed evidence is saved.
+      Temporary page/processes close; original game and saves remain.
+  [V] Small icon-route fix passes all five isolated checks.
+      Unknown, over-limit and late requests still stop correctly.
+      Test sockets/threads/files close. No game request is sent.
+  [V] Fresh reader check and corrected map loading now pass.
+      All 74 responses, 27 model groups and 370 placements checked.
+      All 38 used texture files and 43 decoder callbacks pass.
+      Two saved frames advance; Root sees textured terrain and models.
+      Report reply consumed; test page/processes close; saves preserved.
+      First image is later than planned; background progress is unproved.
+      This is a map-loading check. Normal entry, story and save remain.
+      Next: client quest/text inventory and normal Chapter 1 entry flow.
+  [V] Client quest inventory: three existing files checked (4.57 MB).
+      All file hashes and headers pass; no Lua execution.
+      Both readers dispatched from the same frozen source.
+      Claude submitted; old worker closed, source and branch retained.
+      Root runs 26 authored tests and 14 shared groups: all pass.
+      Grok: 9 authored tests and the same 14 shared groups pass.
+      Both workers closed; branches and evidence retained.
+      Both guarded actual runs pass; all three full outputs match.
+      Newest table: 10,023 rows; 86 reference Chapter 1 maps.
+      Claude selected (20/20 vs 19/20); source integration passes.
+      Root path: all 26 tests and the same 14 shared groups pass.
+      Next: find the game-selected table and read its existing text safely.
+  [V] Quest-load plans checked: Claude 18/20, Grok 16/20.
+      Both worker terminals closed; reports and branches retained.
+      Quest tables load on map entry. Current selected records stay unknown.
+      Current owner/config/source check now passes: all 21 pins match.
+      Next: observe actual registrations in an owned test client.
+  [V] Current text decoder: all 6 groups / 21 authored cases pass.
+      Full Root audit checks characters, raw bytes, markup and source hashes.
+      First result-file check failed; correction and both records are saved.
+      No game quest text decoded yet. Reuse existing Chinese before translation.
+  [~] Existing text projection: 152 records, 641 byte values, 26 KiB.
+      Claude source is saved and its worker terminal is closed.
+      Root: 8 authored groups and 18 shared groups pass.
+      Six extra input/error checks fail; candidate is held for repair.
+      Grok is saved; both worker terminals are closed.
+      Root Grok: 9 own, 18 shared and all 6 extra checks pass.
+      Next: test both on actual records, then select and integrate.
+      No actual quest text, integration or story pass yet.
+  [V] Official guide panels checked in parallel: side/daily tasks found.
+      Three later cards use another map; next search must include it.
+      Full main-story flow and Chinese decoding remain open.
+      Installed scripts: 1185 NPC files and 94 config files checked.
+      17 configs select 841 sources; mounts match. No Chapter 1 references.
+  [V] Story feasibility pair checked: Claude 17/20, Grok 13/20.
+      Existing reward data found; quest scripts are still missing evidence.
+      All 1178 current upstream NPC files checked; no Chapter 1 references.
+      Next: recover client quest/text data and read Taiwan guide panels.
+      Story implementation remains a schedule risk; goal unchanged.
+  [~] Fruit scene: full render still fails one model fetch.
+      Plans compared: Claude 17/20 vs Grok 16/20. Diagnostic gates next.
+  [V] Small worker-failure test completes; temporary server/page closed.
+      Page capture misses both worker requests, including the success.
+      Failed timing zeros do not mean no request was sent.
+      Held-worker check stops at an unexpected connection close.
+      No fetch start is sent; both test processes/page/server retire.
+      New single-controller test reaches worker setup and both fetches.
+      Exact failed check found: script request and end use different sessions.
+  [V] Startup handling fixed; both worker fetch endings now captured.
+      Failed POST gives browser error ERR_EMPTY_RESPONSE in the test.
+      Adapter is prepared; its first actual observation is recorded below.
+      The cause of the game's failed fetch is still unknown.
+  [!] First actual observation stops before terrain/model loading.
+      All control replies arrive; loading image succeeds; map times out.
+      Failed record saved; temporary page/reader/processes fully closed.
+      Next: check frame progress at the loading-screen transition.
+  [V] Blank test page: frames advance in both one-second checks.
+      Both states were visible; this does not explain the old scene stall.
+      Next actual scene must record its own frame progress.
+  [V] Report test: full reply succeeds; short reply correctly fails.
+      Exact failure occurs during body reading, before the 15-second timer.
+      Both pages, actors and listeners close. Original game view restored.
+      Root reviews both full adapter files; all 27 source pins match.
+      Fresh sources are bound; Root must check them before the test.
+      Next: check exact sources, then record one actual scene attempt.
+      No new fruit test or cause claim yet.
+  [V] File writer fix: 51 tests, 10 shared and 2 focused checks pass.
+  [V] Caller accepts the normal test; all 15 failure checks reject correctly.
+  [V] Corrected writer source is integrated with separate rollback commits.
+  [V] Corrected writer: real game-data output and full parent audit pass.
+      Only two bytes change; original, heights and receipt checks pass.
+      Test process exits cleanly. No game/save/cache change is installed.
+  Parent checkpoints: 4 / 14 = about 29%. Full game remains open.
+  Four old agent sessions and 18 unused child shells are closed.
+  Their branches, files and evidence stay saved for rollback.
+
+[V] Download and extract the base package. Verify all 4,976 files.
+ |
+[V] Find the official patch list. Check all 59 file sizes.
+ |    All 59 acquired, including 57 new files. No patch is installed.
+ |
+[V] Find all 12 terrain-name entries for the four target maps.
+ |    Names and table fields pass. Normal play is not checked.
+ |
+ +-- Inventory tool: corrected and verified.
+ |                  Full records and April checks pass.
+ |
+ +-- Patch and reader plan: compared and corrected.
+ +-- Collect all candidate patches: done.
+ +-- Independent 12-body reference: decoded and checked.
+ |    Corrected decoder tool: verified. 52 tests pass.
+ +-- Terrain loader tool: verified. All 12 full results match.
+ |    Grok selected. Both workers released.
+ +-- Exact native reader: verified for these 12 bodies.
+ |    Archive/order/loose controls and cleanup pass.
+ |    ygg_roots: two cell types need client/server movement checks.
+ |
+[V] Freeze map dependency inputs and the independent expected result.
+ |    311 first-level request paths. No asset availability claim.
+ |
+[V] Map model and texture request list: tools compared and repaired.
+ |    26 tests and all 20 shared checks pass. Both workers released.
+ |
+[V] First-level asset availability: repaired scanner verified.
+ |    Both test suites pass. Extra checks find repair needs.
+ |    Astra/high repair: root 85 tests and 48 shared checks pass.
+ |    Repair integrated. All 25 failure checks pass again.
+ |    Four real owned-process tests and 30 full-auditor checks pass.
+ |    All 311 requests return 200 and match model or BMP signatures.
+ |    Full output audit and input/process cleanup checks pass.
+ |    Next: model constructors and nested textures, then render/play.
+ |
+[V] Model constructor tool: verified on the project branch.
+ |    All 273 full model files and map links pass input checks.
+ |    Harness failure checks and all 13 known fixtures pass.
+ |    All 273 direct loader results pass. Full output checks pass.
+ |    Claude: root source review and 48 tests pass.
+ |    Fresh run: all 273 results match the full reference.
+ |    Extra checks find timeout and stream-end repair needs.
+ |    Grok: 273 results match; all 135 extra checks pass.
+ |    Both raw EOF gates fail. Grok also crossed the output boundary.
+ |    Claude selected for repair: 17/20 versus Grok 13/20.
+ |    Both raw workers released. Astra repair is submitted and released.
+ |    Repair integrated. Root repeats 56 tests and all 135 shared checks.
+ |    Three real stream-end checks and full fresh output checks pass.
+ |    All 273 results and both 13-case fixture sets match.
+ |
+[V] Nested model textures: both candidates compared and released.
+ |    Independent reference: 397 declarations, 178 distinct paths.
+ |    Claude submitted: root 26 tests and fresh repeated CLI pass.
+ |    All four full outputs match the independent reference.
+ |    Claude: all 26 shared checks pass.
+ |    Grok submitted: root 25 tests and repeated CLI pass.
+ |    Grok full outputs and all 26 shared checks pass too.
+ |    Extra checks: Claude refuses all five; Grok has validation gaps.
+ |    Claude selected: 19/20 versus 14/20. Integrated and verified.
+ |    Root repeats 26 tests, 26 shared checks and four full output audits.
+ |    All 178 texture paths now verified below. Image decode is open.
+ |
+[V] Texture availability: all 178 actual bodies verified.
+ |    Claude selected: 17/20 versus Grok 15/20. Both released.
+ |    Integrated repair: 32 new tests, 9 admissions, old 44 pass.
+ |    Shared 20 and auditor 39 checks pass. Real preflight passes.
+ |    All 181 responses independently checked; no missing texture.
+ |    171 BMP prefixes match; 7 TGA headers pass all checks.
+ |    Reader closed cleanly. Inputs and original game preserved.
+ |    Next: actual image decode, model compile and map rendering.
+ |
+[~] Four-map rendering: actual served client files now pinned.
+ |    Six Web files and generated config match the live reader.
+ |    Narrow viewer bootstrap proposed; no game login needed.
+ |    Both plans compared: Claude 15/20; Grok 14/20. Both released.
+ |    Root corrects boot and observer details. All 32 inputs pass again.
+ |    First pilot retained after a test-policy failure. Policy corrected.
+ |    Second pilot: real map loads in 2.75s. All 60 decoders succeed.
+ |    No browser/GL/audio errors. Static upload hash matches its packet.
+ |    Both pages/readers closed. Source/world listeners preserved.
+ |    Astra and root: one model request absent; exact size gap matches.
+ |    Reference: all 4,922 placements and 6,470 meshes accounted for.
+ |    All raw matrix hashes and four expected static sizes match.
+ |    Three maps have finite model meshes. Roots has NaN normals.
+ |    Actual mu trace: all 48 groups and 1,285 placements accounted for.
+ |    Full static packet and GPU hashes match. All 60 decoders pass.
+ |    Ship motion captured with fixed camera. Owned cleanup passes.
+ |    Earlier missing request did not recur. Its cause stays open.
+ |    Actual roots: all 75 groups and 1,838 placements accounted for.
+ |    Static packet/GPU match; all 102 texture decoders pass.
+ |    Cause found: zero normal length leads to 108 NaN components.
+ |    Edge now passes full static/GPU and 44 texture decoders.
+ |    Fruit now passes full static/GPU and 74 texture decoders.
+ |    Original: all four loaded; roots has 108 invalid normal values.
+ |    Repair plans compared: Grok 17/20; Claude 14/20. Both released.
+ |    Exact-zero guard selected with root corrections.
+ |    Both implementations compared. Raw delivery faults corrected.
+ |    Root: 22 tests and fresh full artifact audit pass.
+ |    Repaired roots: full packet/GPU and finite normals now pass.
+ |    All source, response and owned cleanup checks pass.
+ |    Parallel repeats: mu and edge static checks also pass.
+ |    Fruit: one texture fetch fails. Null material prevents readiness.
+ |    Full failure data and cleanup are checked. Cause still open.
+ |    Ship02 motion captured. Light GPU motion passes; view is hidden.
+ |    Next: transport probe and light visibility check.
+ |    In parallel: both archive selector candidates are checked/released.
+ |    Grok imported; root correction passes 29 own and 35 shared checks.
+ |    Private stack builds. All three integration checks pass.
+ |    Real five-archive assembly/relink passes. All 51 outputs match.
+ |    Diagnostic managed reader: all 12 full map files match.
+ |    All 300 input hashes, signed identity and cleanup pass.
+ |    Actual source owner module passes: 12 bodies, same reader, clean stop.
+ |    Next: current mods, new world, full app and normal entry/save.
+ |    Capture pair compared/released; root correction qualifies.
+ |    24 authored tests pass, one optional skip; 16 common/3 extra groups pass.
+ |    Hook controls: nine groups pass. Fresh capture complete; model omission fails full check.
+ |    Local close witness: three controls pass. New paired transport diagnosis runs.
+ |    Movement plans compared: Grok 17/20 basis, Claude 15/20.
+ |    Production movement policy stays open.
+ |    Parallel: full 82-gap ledger verified; both workers released.
+ |    All 63 catalogs / 408,794 rows root-checked. No map gap closes yet.
+ |    Normal repair pair preserves Chinese bytes. Full Chinese source snapshot passes.
+ |    Full file copy/audit passes: 1,135 sources and 1,114 targets.
+ |    New config/images/engine pass. Empty Docker and fresh backing ownership pass.
+ |    Next: full main, fresh game mounts/routes, then normal entry/save.
+ |    Movement: both candidates retained; Root Claude 39 own/17 common pass.
+ |    Parallel Chapter1 RSW route: Claude submitted; Grok works independently.
+ |
+ +-- [V] Other 28 GPF patch tables: corrected tool verified.
+ |        Root reference: all 5,742 raw records checked.
+ |        Claude: 5,742 records and 17 consumer checks pass.
+ |        Fresh root run and full record audit pass.
+ |        Both fresh runs and all 5,742 records match the reference.
+ |        Claude selected: 16/20, versus Grok 11/20.
+ |        Repair passes 32 enabled tests and both new failure checks.
+ |        Corrected run, consumer checks and full record audit pass.
+ +-- [V] RGZ reference: all 29 files and 275 raw records checked.
+ |        Grammar, body hashes, checksums and full output checks pass.
+ |        Metadata: no terrain suffix and no direct texture-path match.
+ |        Duplicate production facade deferred; texture work continues.
+ |        No file applied. Render and play remain open.
+ |
+[ ] Render -> normal play and save -> full content checks.
+```
+
+All 82 earlier RSW gaps stay open for functional checks. The checked base and
+patch have name counterparts for 26 of them. The other 56 have no counterpart
+in this checked set. A name match does not close a playable-map gap.
+
+Language: short English sentences and consistent terms, using
+[ASD-STE100 writing principles](https://www.asd-ste100.org/STE_faq.html).
+The user requested this style for the progress map only.
+This is a simple overview, not a formal standard-conformity review.
+
+## Goal and supervision
+
+Goal: play Modern/Renewal Ragnarok Online (RO) alone on this Mac.
+The goal is the full Modern/Renewal game, with its maps, monsters and story.
+The game must save progress and use Traditional Chinese text and user interface (UI).
+Party-only activities and their solo adaptations belong to the next phase.
+We must verify the actual game version, content coverage and gaps.
+We use an existing RO-compatible client and server. A new game engine remains a later research option.
+
+```text
+YOU: define the goal and scope. Evaluate the result.
+ |
+ v
+CODEX: supervise all work. Control the shared game and database.
+ |
+ +-- Define one task: same inputs, base commit, scope and tests
+ |       |
+ |       +--> CLAUDE: separate candidate, branch and worktree
+ |       +--> GROK:   separate candidate, branch and worktree
+ |                    (compare plans if shared state prevents separate tests)
+ |
+ +-- Read both -> personally verify both -> compare and select
+ |                                  |
+ |                    failure ------+--> repair, test again, keep evidence
+ |
+ +-- Integrate -> test again -> document -> Git commit
+ |
+ +-- Your evaluation -> accept the result OR record a new issue
+
+Critical issue that can change the goal -> tell you -> wait for your decision
+```
+
+Codex compares actual Claude and Grok results.
+Internal assistants help with preparation and verification. They do not replace the Claude/Grok comparison.
+Codex must verify each result before your evaluation. A worker cannot accept a task for you.
+We use task branches and the coordination branch. We do not push or merge into the default branch.
+Git can recover source files. Separate backups can recover the installed game and saved progress.
+Do not replace newer progress with an older save.
+
+## Full plan and where we are
+
+```text
+Legend: [A] you accepted   [V] Codex verified. Ready for you.
+        [~] active        [ ] planned. Tests not complete.
+
+P0  DEFINE THE PROJECT
+    T00 Goal, documentation, supervision and Git controls        [A]
+     |
+P1  PROVE A PLAYABLE CHINESE FOUNDATION
+    T01 Source/version manifest                                 [V]
+     -> T02 Acquire/extract assets                              [V]
+     -> T03 Install and launch the local stack                  [V]
+     -> T04 Play, save/recovery, resources and offline trial     [~]
+     -> T05 Chinese pilot; remaining language/input deferred   [~]
+             |
+             +-- T05.009 Navigation UI: ready for you
+             +-- T05.010 Active quest sample: ready for you
+             +-- T05.011 Quest window: ready for you
+             +-- T05.012 One mixed story line: ready for you
+             +-- Remaining language/input checks: later
+
+P2  VERIFY FULL-GAME COVERAGE
+    T06 World/text inventory; functional checks first           [~]
+        Early source-only inventory runs alongside P1.
+        Raw text catalog: ready. Native story coverage stays open.
+     -> T07 Actual version, full content list, gaps and estimate     [~] <-- NOW
+             |
+P3  COMPLETE THE AGREED CONTENT AND LANGUAGE
+             +-- T10 Gameplay gaps: first                       [ ]
+             +-- T08 Client/launcher localization: later         [ ]
+             +-- T09 NPC/story localization: later               [ ]
+             |
+P4  QUALIFY AND HAND OVER
+    T12 Required-content, persistence, recovery, performance     [ ]
+     -> T13 Reproducible play guide and your acceptance          [ ]
+
+LATER PHASE: PARTY-ONLY CONTENT
+    T11 Party activities and solo adaptations                    [ ] deferred
+```
+
+Four of the 14 main tasks are accepted or ready for you: T00 and T01-T03.
+This gives **4/14 = 28.6%, approximately 29%**, when we count main tasks equally.
+T04-T07 are active. The other six main tasks remain planned.
+This project ledger includes T11 in the later phase. It does not measure milestone content.
+We exclude child tasks from this count. The figure does not measure time, translation or playable content.
+We need the content list and gap list before we can give a reliable full cost or delivery date.
+
+## Current functionality checkpoint: all cached-map resources
+
+```text
+Freeze all 1,296 cached map names and source inputs               [V]
+Compare actual Claude and Grok plans; correct the procedure       [V]
+Run one isolated reader; keep the game and save untouched         [V]
+Check every saved response, map record and reader cleanup         [V]
+Record 1,213 header chains and 83 resource gaps                    [V]
+Diagnose the 82 failed requests from retained filename data      [V]
+Observe the larger file with a new limit; preserve the first run  [V]
+Compare actual Claude and Grok constructor runners               [V]
+Repair the runner; pass 27 tests and all 26 fixture cases          [V]
+Check all 2,761 core-file jobs and all worker exits                [V]
+Build the first model and ground-texture request catalog          [V]
+Compare both actual asset-scanner implementations                [V]
+Repair selected scanner; repeat the required checks              [V]
+Prepare and verify a guard for both owned process groups         [V]
+Check all 11,134 model and texture request paths                  [V]
+Admit all 8,194 model targets as 8,166 distinct body jobs          [V]
+Pass 13 authored cases and the shared model summary              [V]
+Compare both raw model runners and all 8,166 job results          [V]
+Select Grok repair basis; both raw candidates need fixes          [V]
+Repair runner timing, file checks and failure accounting          [V]
+Repeat integrated checks and the complete model corpus           [V]
+Fix log text and loss reporting; pass 36 tests and 13 fixtures     [V]
+Repeat the final-source full corpus and independent audit         [V]
+Freeze the nested-texture catalog and common checks               [V]
+Prepare and launch the actual Claude/Grok catalog pair            [V]
+Build both independent catalogs; preserve and release workers      [V]
+Root verifies both catalogs, boundary cases and real I/O            [V]
+Compare both full catalogs, failures and repeat outputs            [V]
+Select Claude; integrate, fix copying and repeat final checks       [V]
+Prepare availability inputs and common controls                    [V]
+Compare new Claude/Grok texture observers                          [V]
+Repair final failures; pass 44 tests and 91 shared cases            [V]
+Check all 8,119 paths: 8,118 available; one missing                  [V]
+Verify every stored body, input and clean reader exit               [V]
+Build the preliminary version/content gap matrix in parallel       [V]
+Compare separate-world plans in parallel                           [V]
+Check installed tools and create guarded test state                [V]
+Prepare the qualified client and overlays in test state            [V]
+Launch once and prove test-world identity                          [V]
+Replay and verify client repairs in that world                     [V]
+Compare dated official version proposals in parallel               [V]
+Check ordinary entry and fresh-login persistence                  [V]
+Check a full owned stop/start and restored quest                    [V]
+Check an ordinary multi-stage quest and effective runtime loads    [ ] <-- NEXT
+Diagnose one model exception and nine numeric-marker models      [ ]
+Investigate eight core NaN files and twelve unread tails          [ ]
+Check compilation, rendering, travel and play                     [ ]
+Find compatible assets for the 82 unresolved requests             [ ]
+```
+
+The texture scan takes 31.4 seconds and samples about 1.16 GB of owned RAM.
+One unknown-extension request is missing. Its effect on the game is untested.
+All 216 TGA headers pass the recorded checks. Images still need load/render tests.
+Separate test state now passes the identity check.
+All 13 served client files match. Five distinct startup errors remain open.
+The test novice enters, earns a quest and restores it after a fresh login.
+A full test-app and VM restart restores the same quest and position.
+A clean startup and full content are not yet proved.
+Do not operate on the original database merely to start this separate test.
+Official baseline research can run beside the test-world checks.
+Shared game and database changes run in sequence.
+Codex removed 35 inactive child worktrees after full backup verification.
+There are 22 children left. Their review, retained or uncertain state needs them.
+All removed commits and private evidence remain recoverable.
+
+The original scan checker refused an extra diagnostic log.
+Codex kept that failure and checked the log and all saved evidence separately.
+The log matches the 82 failed requests. The separate evidence check passes.
+The separate follow-up reads the complete 21.4 MB ground file.
+Codex checks its data, prior context, input files and reader cleanup.
+The combined evidence now has 1,214 header chains and 82 unresolved gaps.
+The first run stays unchanged at 1,213 chains and 83 gaps.
+The corrected runner now observes all 2,761 unique core-file jobs.
+All constructors return. Their summaries match both raw candidates.
+The final constructor run takes about 2 minutes 47 seconds and samples about 526 MB of RAM.
+Both providers have submitted the next catalog tool. Their workers are released.
+Codex passes 12 tests for each and checks both complete catalogs against the reference.
+All 1,296 roots, 2,761 jobs and 11,134 request paths match.
+Grok passes the file-checking case that fails in Claude's tool.
+Codex integrates Grok and passes the final tests and complete data checks.
+The request catalog is ready for you. The asset-scan brief and shared tests are set.
+Both providers submit their scanners. Their workers are released.
+Codex reads and tests both. Both pass all 48 shared checks and metadata checks.
+Extra checks find cleanup, deadline and byte-count faults.
+Claude scores 15/20. Grok scores 13/20. Both need repairs.
+Codex integrates Claude, then adds a separate correction.
+All 42 tests, 48 shared checks and 11 production controls now pass.
+The 11 new regression methods expose failures in the original source.
+The guard passes six tests with owned Python processes and identity checks.
+Time, memory, output, crash and forced cleanup cases behave as expected.
+All test processes exit. A separate unrelated test process stays untouched.
+The real scan is complete. Codex checks every saved body and reference.
+11,132 requests return data with the expected file headers. Two textures return 404.
+Both missing textures belong to one ground file. All 8,194 model headers match.
+The scan takes about 24 seconds and samples about 873 MB of RAM.
+No guard acts. The reader exits cleanly. Inputs stay unchanged.
+The scan does not write to the running game or save.
+Codex rehashes all 8,194 model bodies twice and checks the 28 duplicate pairs.
+The shared model summary passes all 13 authored cases.
+Both runners use the same frozen inputs. Claude has submitted its runner.
+Its normal fixtures pass, but Codex finds a false pass in a fault test.
+Grok has also submitted. Both worker sessions are closed and results kept.
+Codex compares both complete runs. All 8,165 returned summaries match.
+The same model throws an error in both. That error stays in the gap list.
+Codex repairs timing, file checks and failure reporting in a separate commit.
+All 29 tests, 13 fixture cases and 8,166 corrected jobs pass their checks.
+The full run takes about 4 minutes and samples about 419 MB of RAM.
+A separate test finds damaged log text and unclear dropped-log counts.
+Codex fixes the issue. All 36 tests and 13 fresh fixture cases pass.
+The final full run and both independent comparisons pass.
+All model targets and map links stay accounted for. The known error stays open.
+The texture catalog contract and shared literal checks are prepared.
+Codex builds a full reference before either implementation starts.
+Its counts match a separate recount. The reference is about 96 MB.
+Both providers submit from the same Git checkpoint in separate branches.
+Their raw commits and transcripts are preserved; both workers are released.
+Both full catalogs match every reference value and each other byte-for-byte.
+Claude scores16/20. Grok scores12/20. Both raw versions need corrections.
+Codex selects Claude, integrates it unchanged, then fixes metadata copying.
+The new regression first fails on raw source, then passes with the correction.
+All17tests, shared/boundary/I/O controls and final full-catalog audits pass.
+The catalog is ready. Texture availability is the next step.
+See the [current paired task](reviews/2026-10-20-T06.003.003.007.md).
+Nested texture retrieval, rendering and travel still follow.
+Separate [model-error preparation](reviews/2026-10-20-model-exception-preparation.md)
+verifies a reachable node-call loop in the one retained failing model.
+No repair or new constructor/rendering result is claimed.
+See the [scanner comparison](reviews/2026-10-20-T06.003.003.005.md#paired-decision-and-next-correction-gate).
+Before the scan, Codex checks the size metadata.
+10,704 asset paths have size candidates. Their declarations total about 290 MB.
+The scan includes all 430 paths that had no size candidate.
+That earlier metadata uncertainty does not mean 430 files are missing.
+Six world files and two collision files have NaN values. Check them further.
+Twelve ground files have unread tails. Their meaning is not yet known.
+Older ground files omit water as the client code specifies.
+These results do not prove that a map renders or plays correctly.
+The scan took about 5.5 minutes. It kept about 4.85 GiB of response data.
+No purchase or goal change is needed for this check. The full cost is still unknown.
+See the [map scan](reviews/2026-10-19-T06.003.003.001.md#independent-corpus-audit-and-bounded-readiness), [qualified follow-up](reviews/2026-10-19-T06.003.003.002.md#actual-targeted-observation-and-independent-root-qualification) and [final constructor checks](reviews/2026-10-19-T06.003.003.003.md#final-integrated-qualification-and-bounded-readiness).
+
+## Completed task: T05.012 one mixed story sentence
+
+```text
+Observe all six real dialogue pages and the English line         [V]
+Compare Claude and Grok; preserve both raw candidates             [V]
+Integrate selected source; check exact output and unchanged logic [V]
+Preserve newest save, full backup and old pilot                   [V]
+Install -> check six pages and the same link target               [V]
+Check save and normal re-entry                                   [V]
+Check full-app cold start                                        [V]
+Test old-pilot rollback                                          [V]
+Reapply the new pilot                                            [V]
+Final checks and game-running handoff                            [V]
+Task ready for your evaluation                                  [V] <-- DONE
+```
+
+The real six-page dialogue and save/re-entry pass.
+Cold start, old-pilot rollback and Chinese reapply pass.
+Final checks pass. The normal game is left running.
+Next: whole-world resource and functional checks.
+Remaining Chinese input checks are deferred.
+See the [story repair checks](reviews/2026-10-19-T05.012.md).
+
+## Completed task: T05.011 Quest window
+
+```text
+Fixed inputs and independent expected output                    [V]
+Claude and Grok source checks; raw candidates kept                [V]
+Compare both: tied17/20. Select Claude as the correction basis.    [V]
+Fix error messages and test runner -> integrate                  [V]
+Separate browser: four tabs, text fit and original handlers      [V]
+Install and browser integrity positive/refusal checks            [V]
+Actual quest tabs, controls, save and normal re-entry             [V]
+Same-ON cold restart                                             [V]
+Quest-only rollback                                              [V]
+Chinese Quest reapply                                            [V]
+Remove test files -> check normal game page                      [V]
+Task ready for your evaluation                                  [V] <-- DONE
+```
+
+The separate browser uses sample data and exact source fragments.
+It does not change your game or prove that the installed window works.
+The first Quest build is installed. Chinese Navigation stays enabled.
+The browser loads the correct file and refuses the opposite file pin.
+Actual Chinese quest tabs, controls and save/re-entry now pass.
+Cold restart, Quest-only rollback and Chinese reapply pass.
+Test files are gone. The normal game page and saved progress pass.
+The Quest delivery passed. The later story repair also passes.
+The normal page is now running after the T05.012 handoff.
+See the [Quest checks](reviews/2026-10-19-T05.011.md).
+
+## Completed task: T05.009 Navigation
+
+```text
+Same-base Claude/Grok implementations -> Codex selection        [V]
+Integrated source and exact inverse                              [V]
+Detached real-browser controls                                   [V]
+Fresh full backup and newest-save preservation                    [V]
+Chinese installation and native integrity positive/refusal        [V]
+Live Chinese search, filters, reset/minimize, command              [V]
+Normal logout/re-entry and saved progress                          [V]
+Same-Chinese full cold restart                                    [V]
+English rollback: native UI/data/save checks                       [V] <-- DONE
+Chinese reapply                                                   [V]
+Remove two temporary entries. Test normal game page and save.     [V]
+Task ready for your evaluation                                    [V] <-- DONE
+```
+
+Chinese Navigation, Quest and prior overlays are ON. Pilot0.2 is ON.
+The current app process is58655. Its asset process is67357. The server is Ready.
+Read-only resumed UI shows newer progress at Izlude136,181, Chinese Quest and active7472.
+The earlier verified logged-out save starts withff3ec892. It predates newer resumed progress.
+At T05.012, all earned fields survived repair, restart, rollback and reapply.
+Only the normal login time changes between qualified story checks.
+No database check is claimed while the game is live.
+Their full alias/protected/runtime checks passed at that checkpoint; no fresh full check is claimed here.
+Backup O contains earlier progress and the old pilot. Preserve newer progress; do not restore O over it.
+
+Earlier Navigation, quest-grant and Quest-window checkpoints remain historical evidence.
+Their process IDs and save hashes are not the current runtime or latest save.
+See the [Navigation delivery](reviews/2026-10-19-T05.009-delivery.md#final-owned-cleanup-and-ordinary-page-handoff-qualified),
+[active quest](reviews/2026-10-19-T05.010.md#ordinary-active7472sample-and-persistence-qualified),
+[Quest window](reviews/2026-10-19-T05.011.md#final-cleanup-and-ordinary-page-qualified) and
+[current story handoff](reviews/2026-10-19-T05.012.md#final-handoff-and-readiness).
+We must still test actual macOS input method editor (IME) composition and candidate selection.
+Full UI, story, world, solo and offline tests remain open.
+The Mac's internet remains ON, as you instructed.
+
+## Verification history
+
+| Checkpoint | Result | Evidence |
+| --- | --- | --- |
+| 2026-10-18,35ad527 | Goal/phase/task/Git protocol established; user authorized execution | [Goal](GOAL.md), [Workflow](WORKFLOW.md) |
+| T01-T03 | Pinned sources, acquired assets, installed local stack/character screen | [Foundation](FOUNDATION.md), [Assets](ASSETS.md), [Installation](INSTALLATION.md) |
+| T04 and early T05 children | Ordinary play/save/recovery and narrow Chinese dialogue/item pilots | [Baseline](BASELINE.md), [T05.006](reviews/2026-10-18-T05.006.md) |
+| T05.007-.008 | Chinese navigation data repair, real original/repaired browser rollback and cleanup | [T05.008](reviews/2026-10-19-T05.008.md) |
+| 2026-10-19,42e6336 | Selected Navigation source integrated unchanged | [Source selection](reviews/2026-10-19-T05.009.md#raw-pair-comparison-and-source-selection) |
+| 2026-10-19,6706adf | Fresh full backup L qualified before localization | [Backup](reviews/2026-10-19-T05.009.md#fresh-full-backup-l-qualified) |
+| 2026-10-19,afc1f87 | Driver preflight error caught before mutation; corrected artifact-role pin qualified | [Preparation](reviews/2026-10-19-T05.009-delivery.md#reviewed-serial-preparation) |
+| 2026-10-19,4af13c2 | Chinese installed; correct native integrity loads, opposite pin refuses | [Installed proof](reviews/2026-10-19-T05.009-delivery.md#chinese-installed-and-native-execution-qualified) |
+| 2026-10-19,3bde669 | Live Chinese UI and normal logout/re-entry preserve earned state | [Live proof](reviews/2026-10-19-T05.009-delivery.md#live-chinese-ui-normal-logout-and-re-entry-qualified) |
+| 2026-10-19,77615ab | Full same-Chinese cold restart preserves UI/data/save | [Cold proof](reviews/2026-10-19-T05.009-delivery.md#same-chinese-cold-relaunch-qualified) |
+| 2026-10-19,c04be3c | English rollback, reverse integrity refusal, live data and save tests pass; first ASCII map saved | [Rollback proof](reviews/2026-10-19-T05.009-delivery.md#english-bundle-rollback-qualified) |
+| 2026-10-19,301bd0e | User corrected the standard name to ASD-STE100; map language simplified | This map and Git history |
+| 2026-10-19,ffd154c | Chinese reapply, native integrity, live UI and saved progress pass | [Reapply proof](reviews/2026-10-19-T05.009-delivery.md#chinese-reapply-qualified) |
+| 2026-10-19,e747286 | Exact test-page cleanup and normal-page Chinese search/save pass; T05.009 ready for you | [Final proof](reviews/2026-10-19-T05.009-delivery.md#final-owned-cleanup-and-ordinary-page-handoff-qualified) |
+| 2026-10-19,4f815df | Ordinary Active tab is empty; earned progress unchanged; normal story sample still needed | [Quest finding](reviews/2026-10-19-T05-active-quest-preparation.md#ordinary-active-tab-precondition-inspection) |
+| 2026-10-19,d9ece6c | T05.010 plan comparison defined; current Taiwan quest table and literal7472 source verified | [Next task](reviews/2026-10-19-T05.010.md) |
+| 2026-10-19,21b967f | Actual Claude/Grok plan workers started from the same frozen inputs | [Pair](reviews/2026-10-19-T05.010.md#actual-independent-pair-launched) |
+| 2026-10-19,26470e3 | Fresh full M backup verified and newest saved tables unchanged | [Backup](reviews/2026-10-19-T05.010.md#independent-fresh-full-m-backup-qualified) |
+| 2026-10-19,9915079 | Both plans checked18/20; corrected Grok procedure selected | [Comparison](reviews/2026-10-19-T05.010.md#both-plans-settled-and-source-comparison-complete) |
+| T05.010 checkpoint | Normal7472Chinese Active/full text/save/re-entry verified; ready for you | [Quest proof](reviews/2026-10-19-T05.010.md#ordinary-active7472sample-and-persistence-qualified) |
+
+Codex also verified several T06 tools for source inventories.
+They cover archive tables, source order, map records, YAML, monsters, spawns and references within their stated limits.
+These tools do not prove that all maps, monsters or story chains work in the game.
+
+## Claude and Grok: observed task results
+
+| Task and comparison type | Claude | Grok | What this supports |
+| --- | ---: | ---: | --- |
+| T01 foundation source audit | 17/20 | 18/20 | Grok supplied the stronger audited proposal here |
+| T03 installation plans | 14/20 | 17/20 | Grok supplied the stronger plan; root executed the install |
+| T04.005 fog diagnosis/design | 14/20 | 17/20 | Grok's diagnosis scored higher; permanent repair remains open |
+| T05.009 actual fixed-source transform | 19/20 | 18/20 | Both exact outputs/common178checks pass; Claude selected for stronger tests/simpler implementation |
+| T05.012 one mixed story sentence | 18/20 | 18/20 | Both exact source results pass; Claude selected in tie; native/save/cold/rollback/reapply and handoff pass |
+| T06 declared-reference actual implementation | 16/20 | 13/20 | Claude selected; root still corrected and independently verified the integration |
+
+Grok scored higher on several source analysis and plan tasks.
+Claude supplied stronger implementations and tests in several recent tasks.
+The tasks differ. These results do not establish a general winner or a speed or cost advantage.
+We did not observe exact model versions, API tokens or billing.
+
+At 2026-10-19T00:06:24Z, Orca listed 55 worker records: 53 released and two older user-retained records.
+It listed 54 successful records and one earlier failed attempt. The failed attempt is released.
+We could not verify whether the two retained worker contexts were still active.
+Both Navigation workers are complete and released. Codex controls the current serial game tests.
+That earlier fleet receipt SHA starts with 3410ccca.
+The newer T05.010 wave adds two actual plan workers. The startup fleet has 57 records.
+Both workers were live at startup. Claude has since finished and been released.
+Both plan workers are now complete and released. No reclaimable worker remains.
+Both scored18/20. The normal quest sample now passes. Full-language work remains.
+
+## Remaining decisions and phase gates
+
+- P1: the active-quest sample passes. Defer input and remaining UI samples until after functional work.
+  Record the offline and display limits. You can already try basic play, but the phase remains open.
+- P2: verify the actual Renewal version and full-game coverage. List the language and gameplay gaps.
+  Confirm game behavior separately from source data. Use the gap list to estimate the remaining work.
+- P3: repair functional gameplay gaps first, then remaining language/input gaps.
+- Later phase: address party-only activities and define their solo adaptations.
+- P4: test every required content entry. Rehearse setup and recovery. Then give you the game for final evaluation.
+  A task changes from ready_for_user to accepted only after you explicitly accept it.
+
+You confirmed the full-game goal and deferred party-only content.
+The inventory will show the actual version, coverage and gaps.
+See the [scope decision](reviews/2026-10-19-scope-clarification.md).
+
+Latest independent asset lane: the new built stack assembles/relinks the actual
+five archives with all 51 outputs equal. Its diagnostic managed reader now
+returns all twelve complete map files with exact hashes. Root checks signed
+identity/shutdown, all 300 readonly input hashes and normal cleanup. See
+[managed parity evidence](reviews/2026-10-22-T07.007.012.002.md#diagnostic-managed-identity-and-twelve-complete-bodies-qualify).
+The actual source owner module also passes all twelve bodies, same-reader
+reuse and normal shutdown. Current Chinese source/full payload freeze, a new
+third world and ordinary save remain next;
+this diagnostic pass does not advance the 4/14 parent checkpoint count.
+
+
+Latest: N8 exact prefix wrapper source qualifies; one bounded pure call is next.
+Both optional host-status workers settled/released; source inference disagrees.
+No new browser/game/Engine admission. All82functional gaps remain open.
+
+
+Latest: all45NPC prefix observations PASS; Grok failure metadata selected20vs19.
+S8Claude source/data selected19vs16; actual serving remains unverified.
+Next independent D9 implementations; NPC name dataflow packet preparation.
+No new full-game/Engine/browser admission;4/14/about29% and all82gaps unchanged.
+
+
+Latest D9 actual workers both ready before wait;222released/4retained/2active.
+The complete stopped-image source correction chain verifies without new runtime.
+
+
+Latest: N9 raw-name pipeline packet qualifies:15origins/10copies/32exact slices.
+Next launch both providers independently of D9; no cause/repair/runtime PASS.
+
+
+Latest: four actual workers active (two Grok); two independent problems.
+Normal9 exact64body copies and compact capture caller source/syntax qualify.
+Configuration stale/unbound; current-world preflight preparation is next.
+
+
+Latest: existing world-check source/pins qualify; one read-only G55call admitted.
+Root binds fresh HEAD/lease/output before checking originals. No capture yet.
+
+
+Latest: actual world preservation preflight PASS (sixGETs/four owners/five originals).
+One fixed never-started image file-capture call admitted after fresh exact binding.
+No service/browser/game execution; Root full-wire/cleanup audit remains mandatory.
+
+
+Latest: first capture stops on omitted image volume field BEFORE any creation.
+All13GET wires/original preservation audited; no file capability PASS.
+Both N9 and D9Claude source submissions retained/released; only D9Grok active.
+Next Root controls + API contract and narrow caller failure-path checks.
+
+
+## Fresh Mu3 caller returns and passes whole-source structural review
+
+Grok taskdddc284cf372/ctx7f5c46355887 returns a source-only26436-byte
+caller, SHA0e105ad4a0aae1a7d117e3fb75bc077c62586b434f8dc5b3047340d379b7e5f8.
+Root verifies all13 opened current pins, nine original/copy byte joins,
+eight closed outputs, and exact whole-source forward/inverse reconstruction:
+six admission/destination/qualification metadata replacements plus two
+closed prior-identity insertions. Writer,63 inputs,21 roles/36 leaves,
+15 runtime tokens and originalG10/512MiB/no-native limits are unchanged.
+Structure15781/583e8f5d5f944ecf324f2b6d501e7d93ad6ab728c4234864f47a0367d69da87c.
+Independent semantic review remains pending; no new data or actor admitted.
+
+The original Root checker assumed a seal sidecar and41 insertion lines;
+both assumptions were corrected by inspecting the sealed eight-file set
+and36-line insertion before any publication or actor. Source was unchanged.
+Author explicitly releases with closed_agent_terminal/captured archive
+before deliveryd53e6164885b ACK. Current fleet2active/277released/7retained,
+zero reclaimable. B4 header and FD formatter corrections remain independent
+live Grok work. Current map-step estimate stays75%; overall4/14/about29%
+major checks, with no full-content coverage claim or goal-changing blocker.
+
+
+## Fresh caller semantic hold precedes any data generation
+
+Independent review finds one mandatory correction, confirmed by Root's
+literal source reads: new for-old-in-priors overwrites the historical
+material dictionary; unchanged old['attempt'] then raises TypeError.
+Whole-source reconstruction passing does not establish audit semantics.
+No data generation or actor occurred. The caller remains unqualified.
+Fix only that loop variable and four accesses, preserving every other byte.
+
+Frozen two-copy source packet3208/
+1ae18707c2a635c9802b322c2b465c013516a6147249b9e8543193bf28935086;
+HOLD1253/966e4208c03fec29d95d0adf872dc5df1f267e9f87938099303c4849047814a4.
+The new separate Grok correction is ready after this checkpoint. Existing
+header/FD tasks continue. No goal change or user decision; estimate75%
+for current map step, overall4/14/about29% major checks unchanged.
+
+
+After2ea22a2, actual Grok one-region correction task2d990628f864/
+ctx22fe26e5ed21 starts. Receipt2307/
+31c17bdca89d717c9fcc008dcd6e7e854d2dc57fc73a3cae65f878969572dbb2.
+Three independent Grok source tasks are active; no data or game actor.
+
+
+The next Mu19/runtime reuse plan is independently reviewed without new
+actor authority. Root freezes20 header and4 FD-formatting cases before
+acceptance; three source workers remain live. No new data or scene result.
+
+
+B4 header correction now passes Root whole-source qualification9679/
+2a765bb9d5ecdc99a2c1848f8eba8d93c8c621c792c9941eb51fb57863593474;
+20frozen helper cases remain next. Its author is released/archived beforeACK.
+Caller rename and FD formatter remain live. No data/scene/parent credit.
+
+
+Latest source wave settles: corrected Mu3 caller qualifies; header20focused
+cases pass; FD formatter qualifies for its closed caller path,4cases next.
+No new data/scene/parent credit. Fleet0active/280released/7retained,
+zero reclaimable. Root next binds the fresh pure-data call after checkpoint.
+
+
+Fresh Mu3 data pass130checks/116pins/36leaves and Root current confirmation;
+no actor. Existing Mu19 implementation is mechanically requalified with only
+13outer/9child metadata edits. FD formatter4cases pass within1024bytes.
+Next after checkpoint: one fresh Mu19 projection and independent full839
+root2 entry. No scene, ordinary B4 or parent-check credit; all82gaps open.
+
+
+Fresh Mu19 passes112checks/85pins/33leaves; new repaired runtime C/E qualifies
+513slots/57exact deltas and six-metadata binder reuse. Current-world/final
+binding and fresh scene remain next. Independently full839 root2 data pass
+4227checks/910pins, but entry still fails one added urandom-matching FD.
+Conditional stdlib-initialization source mechanism is under review; identical
+Claude/Grok14copy plan packet is ready. No waiver, replay or goal change.
+
+
+Two independent Claude/Grok FD source-plan tasks start after7491f4d on the
+identical14copy packet. Final Mu3 binder review finds no mandatory blocker;
+current-world/final binding and one existing-policy synthetic scene are next.
+No data/scene acceptance is inferred from the FD plans.
+
+
+Latest ordinary status/equipment check passes:25native stat clicks spend50of
+51existing points;STR9/AGI9/DEX9/VIT2,1point left. Sword/armor equipped.
+Root130pins/123captures/four viewed lossless images; idle fully healthy town.
+Next identified Poring, successful survival/earned progress, normal return and
+re-entry; then Chapter1. No grant/balance change or full-content credit.
+
+
+Latest field test passes: Little Poring2398defeated, EXP18base/10job, HP45.
+Normal portal returns to Izlude24,98; selection/re-entry preserves EXP170,
+allocated stats and1point left. Root114pins/90captures/17critical images viewed;
+all five service metadata/current+four old owners unchanged, audio quiet.
+Next first Chapter1 extension; base2is not eligible for fresh level200entry.
+No full-content/parent credit, source/balance change, grant or old actor replay.
+
+
+First Chapter1 extension brief is frozen (T10.009):23equal source inputs,
+checked registration/transport/Messenger edge and safe ordinary return paths.
+Next launch Claude/Grok on reused separate branches; Root tests both before
+integration. Eligible play, rendering and persistence stay unverified.
+
+
+T10.009actual Claude/Grok source authors both ready/input accepted from2187b31.
+Both candidates now preserved/released: Claude8c2be4a18/20correction basis;
+Grokb30534b16/20. Root46/36tests plus56common observations; both need repairs.
+Root b6299ac correction/integration pass:50tests+7regressions, integrated50.
+Town read consumed: strict probe failed1.2version, Root retained-cell check PASS.
+Next changed native loading/assembly and actual server/player route gates.
+Retained client first-edge/fruit grid routes and town landing pass; server/arrival open.
+Separate reused branches, no new child/setup, same23inputs. Root receives,
+preserves and tests both before integration; no runtime/story credit at startup.
+
+
+Broader geometry source-plan comparison is complete:Claude17/20corrected basis,
+Grok14/20. Root reproduces all936members/59groups/215anchors;35next metadata
+candidates include7known excess/28UNKNOWNcap-fit, none admitted. Required
+source/oracle/resource corrections are recorded. Chapter1 stays the main lane.
