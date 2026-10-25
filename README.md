@@ -9,9 +9,9 @@ The current goal is the **full Modern / Renewal RO game** for personal play on t
 **Current handoff (2026-10-25): game execution is paused.** Basic local browser
 play and saved progress are verified; full world/story/Chinese coverage remains
 unfinished. The active documents show remaining work, with completed records
-preserved in [History](docs/project/HISTORY.md). Documentation cleanup and the
-requested feature-branch publication and conservative pre-merge source cleanup
-are the current authorized work. No default-branch merge is authorized.
+preserved in [History](docs/project/HISTORY.md). The current authorized work is
+conservative source cleanup, archiving the retired prototypes and feature-branch
+publication. No default-branch merge is authorized.
 
 | Planning document | Purpose |
 | --- | --- |
@@ -22,13 +22,13 @@ are the current authorized work. No default-branch merge is authorized.
 | [Workflow and Git control](docs/project/WORKFLOW.md) | Paired Claude/Grok comparison, stateless handoff, branches and rollback |
 | [Roadmap](ROADMAP.md) | Active direction and deferred historical work |
 
-## Historical Godot and Character Lab study
+## Repository scope
 
-The source below preserves the earlier work reverse-engineering RO file formats, rendering and animation to learn game development. It includes a Godot field prototype and a browser Character Lab. These are historical research, separate from the new Renewal integration candidate and its future verification.
-
-**This public repository contains source code, tests and research notes.** Native RO files, reference images, generated artwork/video, visual fixtures and full local snapshots are excluded. A fresh clone can run the source-only checks below; the game and visual demos require separately supplied local assets. Your existing local asset folders continue to work. See [public repository scope and local asset setup](docs/PUBLIC_REPOSITORY.md).
-
-The historical [v0.1.0 findings](docs/character-lab/native-art-poc-v0.1.0.md) and [artwork workflow](docs/character-lab/WORKFLOW.md) preserve one native attack with replacement body/clothing and head. They do not establish the new milestone's content or localization.
+The active tree contains Renewal integration tools, authored tests and project
+records. Game assets, the local app, saves, credentials and raw runtime evidence
+stay outside Git. A fresh source checkout can run the checks below; it does not
+install or launch the game. See [publication scope](docs/PUBLIC_REPOSITORY.md)
+and [Renewal tools](tools/renewal/README.md).
 
 ## Source-only checks
 
@@ -38,7 +38,7 @@ With Node.js 22+ and Python 3.9+:
 python3 tools/check_public_tree.py
 python3 tools/check_source.py
 uvx --from ruff==0.16.9 ruff check --config ruff.toml --no-cache tools tests
-node --test tools/character-lab/tests/modular-motion.test.mjs tools/character-lab/tests/modular-engine.test.mjs tests/renewal/quest_text_projection.test.mjs tests/renewal/quest_registration_tail.test.mjs
+node --test tests/renewal/quest_text_projection.test.mjs tests/renewal/quest_registration_tail.test.mjs
 python3 -I -B tools/renewal/test_chapter1_entry.py
 ```
 
@@ -46,105 +46,30 @@ The lint command uses `uvx` to run the pinned tool in isolation; an existing
 Ruff 0.16.9 installation can run the same arguments directly. CI installs that
 version with pip. Lint checks Python errors and unused code; it does not format
 files. One documented F401 exception preserves the exact bytes of a materializer
-pinned by local replay tooling. Syntax checks parse every tracked Python/JavaScript file without
-executing its source. Stage new source files to include them in this inventory.
+pinned by local replay tooling. Syntax checks parse every tracked Python and
+JavaScript file without executing its source. Stage new source files to include
+them in this inventory.
 
 CI runs these checks using authored source/model fixtures. Do not replace the
 explicit test list with broad discovery: some other suites automatically read
-private `.tools` inputs when present. Native tests, browser/gameplay checks,
-Godot parsing and visual measurements remain separate; a green CI result does
-not establish runtime or full-content acceptance.
+private `.tools` inputs when present. Native tests, browser/gameplay checks
+and visual measurements remain separate; a green CI result does not establish
+runtime or full-content acceptance.
 
-## Historical local game prototype
+## Retired prototypes
 
-A standalone **Godot 4 + GDScript** learning project. The game simulation, rendering and saves run in one desktop app. Playing requires no game server, account, database service or internet connection.
+The user retired the Godot prototype and browser Character Lab on 2026-10-25.
+Their code, launchers, tests and reports are removed from this active branch and
+preserved under Git tag
+[`archive/legacy-prototypes-2026-10-25`](https://github.com/ShemYu/ragnarok-online-study/tree/archive/legacy-prototypes-2026-10-25).
+[Archive verification and recovery](docs/project/reviews/2026-10-25-T00.003.md)
+records the exact boundary. Existing ignored assets are not deleted.
 
-Godot was chosen for this prototype's 3D scenery, camera-facing 2D sprites, editable scene system and native local executable. Its runtime is pinned to **Godot 4.5.1**. This version choice concerns the historical prototype, not the proposed Renewal app.
-
-## Play with local assets
-
-Restore your own local study assets first, as described in [local asset setup](docs/PUBLIC_REPOSITORY.md#local-assets). `Setup.command` installs the engine only; it does not download RO files or Character Lab artwork.
-
-On this Mac, double-click **Play.command**. Double-click **Edit.command** to open the project in Godot's editor; **F5** runs it.
-
-On another Mac, run **Setup.command** once online, or install Godot 4.5+ and open `project.godot`. Setup downloads the official 4.5.1 release and verifies SHA-512. Windows and Linux have not been tested.
-
-| Input | Action |
-| --- | --- |
-| Click ground | Walk through the navigation grid; cancel the current attack |
-| Click a monster | Approach and continuously attack |
-| Right-drag | Rotate camera |
-| Shift + right-drag | Tilt camera |
-| Wheel / Ctrl + right-drag | Zoom |
-| 1 / F1 | Red Potion: heal 45–65 HP |
-| 2 / Insert | Sit or stand; sitting increases HP/SP recovery |
-| 3 / F2 | First Aid: heal 5 HP for 3 SP |
-| 4 / F3 | Queue Bash on the selected target, after learning it as Swordsman |
-| E | Gather nearby loot; drops can also be clicked |
-| I / Alt+E / Ctrl+E | Inventory and weapon equipment |
-| C | Stats and skills |
-| T / Talk to Guide | Approach the training instructor |
-| Esc | Close windows, then cancel the current command |
-
-Speak to the instructor to begin a **3 Poring / 2 Lunatic** exercise. Claiming its accelerated training reward reaches Novice Job 10. Speak again to become a Swordsman, then earn a job level and spend a skill point on Bash in Status. The reward and short quest are conveniences for this local study, not a reproduction of RO's original novice tutorial.
-
-Potions are limited; sitting and First Aid provide recovery. The instructor can heal and supply at least three potions. Monsters retaliate after being attacked, lose interest when pulled too far, return home and respawn after defeat. Death returns the player to camp after four seconds.
-
-## What changed in revision 3
-
-The active field now loads a **native crop of Prontera South Field (`prt_fild08`)**: original ground geometry, texture UVs, baked shading, stone gate, walls, trees and benches placed from the source map. Its 49 × 49 navigation area retains the original GAT blocked cells. Characters follow the terrain height, ground clicks account for elevation, and the minimap shows the native area.
-
-The player and monsters are approximately **42% larger relative to the map** than in revision 2: sprite scale increased from 0.022 to 0.03125 world units per pixel. The standing Novice measures about 139 screen pixels in the default preview; zoom and camera position change that measurement.
-
-The existing eight-direction sprites, timed combat, EXP, stats, equipment, First Aid, Bash, training quest and job change remain. The instructor and monster placement are local training content inside the authentic map crop. Battle formulas are simplified, and this is not a complete RO client. Audio, full job trees, shops, the complete field and multiplayer are not implemented.
-
-See [map revision details and before/after images](docs/MAP_V3.md). This revision is ready for visual review; technical checks do not establish the user's approval of its appearance.
-
-## Character Lab
-
-Double-click **Character Lab.command**, then open the printed local browser address. The current [native-action PoC](http://127.0.0.1:8767/native.html) applies Wayfarer clothing and a separate head to one original RO attack, with independent headgear and weapon layers. Earlier appearance, sprite-sheet, video and cutout experiments remain available. This is a separate Character Lab study; the replacement designs are not integrated as game jobs. [Usage and artwork notes](tools/character-lab/README.md) · [v0.1.0 findings, workflow and snapshot](docs/character-lab/README.md).
-
-## Saves
-
-Character, stats, equipment, inventory, skills, quest and kill count save automatically to `user://progress-v2.json` under Godot's application data directory. Each launch starts at camp with full HP/SP; monster positions and uncollected drops reset. The earlier `progress.json` save is preserved but not imported into the new rules.
-
-## Learn the implementation
-
-| File | Responsibility |
-| --- | --- |
-| `scenes/main.tscn` | Root game scene |
-| `scripts/main.gd` | Commands, timed combat, AI, quest, interaction and persistence |
-| `scripts/rpg_rules.gd` | Stats, damage, EXP, items and class/skill rules |
-| `scripts/ro_sprite_data.gd` | SPR image decoding and ACT animation parsing |
-| `scripts/ro_sprite_actor.gd` | Head/body/equipment composition and camera-relative animation |
-| `scripts/field_world_ro.gd` | Active native field crop, elevation, blocked cells and navigation |
-| `scripts/ro_map_data.gd` | GND/GAT parsing, textured terrain and baked shading |
-| `scripts/ro_model_data.gd` | Native RSM model parsing and rendering |
-| `scripts/field_world.gd` | Preserved revision 2 procedural field |
-| `scripts/game_hud.gd` | Status, inventory, skills, map and dialogue |
-| `assets/reference-ro/map-study/` | Native field files, prop models, 49 textures and provenance |
-| `assets/environment/*.gdshader` | Preserved revision 2 procedural materials |
-
-A useful first experiment is changing `walk_speed` in `rpg_rules.gd`, then comparing walking cadence. Next, tune `ATTACK_RANGE` in `main.gd`, observe the pending-hit timer in `_start_attack()`, or change a monster definition. Gameplay timing can retime an ACT clip without altering its head/body/weapon registration.
-
-## Checks with the local study pack
+To inspect the old source without changing this checkout:
 
 ```sh
-.tools/Godot.app/Contents/MacOS/Godot --headless --path . --editor --quit
-.tools/Godot.app/Contents/MacOS/Godot --headless --path . --script res://tests/rpg_rules_test.gd
-.tools/Godot.app/Contents/MacOS/Godot --headless --path . --script res://tests/ro_sprite_test.gd
-.tools/Godot.app/Contents/MacOS/Godot --headless --path . --script res://tests/ro_map_data_test.gd
-.tools/Godot.app/Contents/MacOS/Godot --headless --path . --script res://tests/ro_model_data_test.gd
-.tools/Godot.app/Contents/MacOS/Godot --headless --path . --script res://tests/map_integration_test.gd
-.tools/Godot.app/Contents/MacOS/Godot --headless --path . -- --qa
-.tools/Godot.app/Contents/MacOS/Godot --path . -- --qa-playthrough
-.tools/Godot.app/Contents/MacOS/Godot --headless --path . --script res://tests/progression_playthrough.gd -- --qa-progression
+git fetch origin tag archive/legacy-prototypes-2026-10-25
+git show archive/legacy-prototypes-2026-10-25:README.md
 ```
 
-Integration QA uses a separate temporary save. See [current validation evidence](docs/QA_V3.md), [revision 2 validation history](docs/QA.md), [study notes](docs/STUDY.md), [sprite provenance and format research](docs/RO_ASSET_RESEARCH.md), [native map notes](docs/MAP_V3.md) and [previous environment notes](docs/ENVIRONMENT_V2.md). The V1 baseline is preserved in `docs/baseline-v1/`; its procedural actor and test remain historical references and are no longer used by the game.
-
-## Sources and attribution
-
-[Godot Engine](https://godotengine.org/) is under the [MIT license](https://godotengine.org/license/). Ragnarok Online reference sprites and map assets belong to Gravity and the relevant rightsholders. Their public source paths and SHA-256 hashes are recorded in `assets/reference-ro/provenance.json` and `assets/reference-ro/map-study/provenance.json`. They are local study references, not original or open-source project art. The earlier procedural field remains preserved as revision 2. This project is unaffiliated with Ragnarok Online's creators and publishers.
-
-The revision 3 field preview is retained locally at `docs/v3/field-preview.png`; screenshots and media are not part of the public repository.
+The tag versions source only; it does not contain private assets or saves.

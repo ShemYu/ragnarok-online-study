@@ -7,6 +7,12 @@ documentation cleanup, conservative pre-merge lint/trim, a local commit and
 publication of the current feature branch. No default-branch merge is
 authorized. Resume game implementation only when the user resumes it.
 
+Pre-merge maintenance: lint/CI checkpoint `86e98d9` is verified. At the user's
+subsequent request, the retired Godot/Character Lab source is preserved under
+tag `archive/legacy-prototypes-2026-10-25` and removed from the active tree.
+See [archive verification and recovery](reviews/2026-10-25-T00.003.md). The
+Renewal implementation and unfinished game gates remain unchanged.
+
 ## Goal and current boundary
 
 The goal remains the full Modern/Renewal game on this Mac: maps, monsters,

@@ -33,7 +33,7 @@ Traditional Chinese means menus, item/skill/monster names and descriptions, ques
 
 Evaluate **Ragnarok Offline v1.6.3**, which packages rAthena, roBrowserLegacy, MariaDB and a local microVM/Electron shell. An app can be local and offline while running server components on the same Mac. This changes the earlier server-free Godot study's architecture; a public multiplayer service is not requested.
 
-Godot and the asset factory are deferred research for this milestone. Reusing a functioning RO stack is the credible route to broad existing content. A full engine reconstruction is a separate, much larger goal. The foundation remains a candidate until the runtime, Chinese and content gates pass.
+Godot and Character Lab are retired from the active repository at the user's 2026-10-25 request, with source preserved at Git tag `archive/legacy-prototypes-2026-10-25`. Reusing a functioning RO stack is the credible route to broad existing content. A full engine reconstruction is a separate, much larger goal. The foundation remains a candidate until the runtime, Chinese and content gates pass.
 
 ## Feasibility assessment
 
@@ -106,7 +106,7 @@ Internet remains connected at the user's instruction. [Calibrated connected metr
 
 - Source checkpoint before this documentation work: `c6314bbd85caa01f54fdcc38d62168e101e2c5a4`.
 - Coordination branch: `ShemYu/reverse-the-Ragnarok-Online-to-play-by-myself`.
-- Earlier Godot code and source-only checks exist. Reference and Character Lab asset directories in this checkout contain READMEs only.
+- At that starting point, earlier Godot code and source-only checks existed, with READMEs only in the reference and Character Lab asset directories. Those legacy sources are now preserved in the archive tag rather than the active tree.
 - A bounded search of Downloads, the original project directory and Applications found no matching GRF/archive candidate. This is not a machine-wide absence claim.
 - No app/asset download or runtime test had occurred at that original source-research checkpoint. Later installation/gameplay/Chinese results are described above and in [current status](STATUS.md).
 

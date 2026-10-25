@@ -26,11 +26,9 @@ jobs:
         run: python3 -m pip install ruff==0.16.9
       - name: Check Python errors and unused code
         run: ruff check --config ruff.toml --no-cache tools tests
-      - name: Run authored motion and quest regressions
+      - name: Run authored quest regressions
         run: >-
           node --test
-          tools/character-lab/tests/modular-motion.test.mjs
-          tools/character-lab/tests/modular-engine.test.mjs
           tests/renewal/quest_text_projection.test.mjs
           tests/renewal/quest_registration_tail.test.mjs
       - name: Check Chapter 1 source and progression models

@@ -36,6 +36,13 @@ removes two unused test imports and expands safe checks. See its
 [frozen brief](tasks/T00.002.md). The user subsequently authorizes archiving
 the legacy projects; that removal is a separate T00.003 checkpoint.
 
+T00.003 is `self_verified` for source/tooling. It retires 108 legacy Godot/Character Lab source/report files from the
+active tree under the user's explicit instruction, preserving their complete
+snapshot at tag `archive/legacy-prototypes-2026-10-25`. See
+[archive verification, limitations and recovery](reviews/2026-10-25-T00.003.md)
+and [frozen removal brief](tasks/T00.003.md). Renewal source and unfinished
+game gates are preserved; no game task is accepted by this maintenance.
+
 ## Preserved snapshots
 
 - [Original task ledger and acceptance contracts](HISTORY-2026-10-25-TASKS.md):

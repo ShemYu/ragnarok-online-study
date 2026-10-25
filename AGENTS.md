@@ -15,7 +15,7 @@
 - **Current priority: functionality first** (user clarification2026-10-19). Verify maps, monsters, combat, jobs, items, quests and persistence before remaining localization/input work. Keep existing Chinese overlays enabled. T05 remains open with deferred checks; it does not block functional inventory/repairs. Reuse existing text/resources before bulk translation; full Traditional Chinese remains in the final goal.
 - The exact episode and completeness are **not verified**. The candidate is Ragnarok Offline v1.6.3, not a confirmed foundation.
 - Execution is **paused at the 2026-10-25 handoff**. The user currently authorizes documentation cleanup, conservative repository lint/trim and committing/pushing the current feature branch. Preserve behavior; trace references and check regressions before removing code. A default-branch merge remains unauthorized. Keep game implementation paused until the user resumes it. The earlier authorization to execute the full strategy remains the scope for resumption; it is not a completion claim. Check Status and the thread goal before acting.
-- Earlier Godot and Character Lab code and reports are historical research. They do not prove the new milestone works. Preserve them.
+- The user retired Godot and Character Lab from the active tree on 2026-10-25. Their complete source/report snapshot is preserved at Git tag `archive/legacy-prototypes-2026-10-25` (`62dde90`). Do not restore those projects into the active tree without a new reason. Preserve ignored local assets and all Renewal/project evidence; see the archive record linked in Status.
 
 ## Coordination and evidence
 
