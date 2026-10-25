@@ -72,7 +72,15 @@ Map repair:
        -> retained east passage    [PASS:31,709checks;client planning only]
        -> fresh source plan        [PASS:46Root checks;six commands frozen]
        -> fresh private files      [PASS:708client/1740backend checks]
-       -> fresh binding + trial    [NEXT:full Root binding audit;one focused call]
+       -> fresh binding            [PASS:1643checks/48pins]
+       -> saved Messenger handoff  [PASS:18368complete/18369active;re-entry]
+       -> east passage + fruit     [PASS:73,117;render/save/re-entry]
+       -> safe NPC withdrawal      [PASS:quests/save kept;new map load]
+       -> retained fruit exit      [PASS:edge168,139]
+       -> town return/re-entry     [OPEN:deadline at171,142;47movement ACKs]
+       -> full cleanup + Root audit [PASS:378wires/524pins;original kept]
+       -> longer test window       [NEXT:qualify1800/60/1900;no new actor]
+          Current plan:4/6command checkpoints(67% by count);trial still FAILED.
 
 Quest check:
   Finite startup repair        [PASS: listener seen in 3 checks]

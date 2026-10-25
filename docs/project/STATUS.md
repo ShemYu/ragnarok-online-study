@@ -4,17 +4,21 @@ Updated: 2026-10-25 JST. Coordinator: Codex. Active scope: **execute the documen
 
 ## Current checkpoint
 
-**Main next action:** bind the fresh Root3 files after a new read-only
-world/port/image/file preflight, personally verify the entire binding, then
-perform the one conditionally admitted focused visible trial.
-[Both fresh file preparations and Root complete audits pass](reviews/2026-10-25-T10.009.md#fresh-root3-files-pass-and-one-focused-visible-interval-is-conditionally-admitted):
-client708checks/37pins, backend1740checks/62pins/all28leaves reconstructed.
-Both consumed identities/credentials are excluded. The isolated page/profile
-is freshly rejoined blank; original game/settings tabs remain unchanged.
-[Fresh four-source46check qualification and six-command plan](reviews/2026-10-25-T10.009.md#fresh-root3-sources-and-focused-visible-plan-qualify-before-private-preparation),
-[C3 countdown/east-route qualification](reviews/2026-10-25-T10.009.md#countdown-c3-and-retained-east-passage-pass-root-qualification)
-remain in force. Budgets/reserves and full scope stay unchanged.
-No actor has launched at this checkpoint. Do not reuse consumed callers/data.
+**Main next action:** qualify a consistent1800s work/60s cleanup/1900s guard
+window for one future fresh isolated trial, then finish town return/re-entry.
+[Third interval reaches saved handoff, fruit/save/re-entry and successful
+withdrawal; complete Root UI/failure/cleanup audits pass](reviews/2026-10-25-T10.009.md#third-visible-trial-qualifies-saved-handoff-fruit-and-safe-withdrawal-but-town-return-stays-open).
+The actual interval remains FAILED:3STATEs+WITHDRAW, no fourth STATE or FINISH.
+B renders/reloads fruit73,117, retained exit reaches edge168,139; last connected
+position171,142/47movement ACKs. Town/visible starter absence/final town save
+remain open. Four of six planned command checkpoints reached(67% by count,
+not weighted effort or full-content coverage). Original five services/files
+remain intact, owned groups/ports/services gone, new SQL volume retained unused;
+sole isolated page blank. No actor/PTY remains running and no replay is admitted.
+C3 countdown works;900s is inadequate for Root's manual input/inspection pace.
+The next duration change is internal verification design, not a goal change;
+all memory/request/SQL/log/command limits and retirement reserves stay fixed.
+Qualify every duration-dependent source/config gate before new binding/actor.
 [Second visible interval is consumed/FAILED; Root's complete failure and UI
 audits pass](reviews/2026-10-25-T10.009.md#second-visible-trial-reaches-first-edge-and-messenger-but-fails-before-fruit-with-complete-cleanup-audit).
 Native READY now passes; A199 refusal/B200 cancel, first registration/travel
