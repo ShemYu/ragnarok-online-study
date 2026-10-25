@@ -51,7 +51,9 @@ Map repair:
        -> island departure      [PASS:normal Izlude196,209; Root image checked]
        -> ordinary field entry  [PASS:prt_fild08 367,212; Root image checked]
        -> field/return/save      [PASS:Little Poring2398/EXP170/saved stats]
-       -> Chapter1 first edge    [TWO SOURCE AUTHORS:Root review/tests next]
+       -> Chapter1 first edge    [SOURCE INTEGRATED:50tests +7Root regressions]
+       -> client route cells     [PASS:retained grids/town landing; limits kept]
+       -> native script loading [NEXT:one isolated3-case fixture admitted]
 
 Quest check:
   Finite startup repair        [PASS: listener seen in 3 checks]

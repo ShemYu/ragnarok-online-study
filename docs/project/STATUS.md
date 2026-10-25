@@ -4,8 +4,13 @@ Updated: 2026-10-25 JST. Coordinator: Codex. Active scope: **execute the documen
 
 ## Current checkpoint
 
-**Main next action:** bind fresh Chapter1 native fixture material/parent and
-verify actual loading, then normal assembly and player-facing route/render/save.
+**Main next action:** fresh world/image binding and the one admitted Chapter1
+native fixture, then normal assembly and player-facing route/render/save.
+[Current parent/private material now qualify](reviews/2026-10-25-T10.009.md#current-native-parent-and-private-material-qualify-before-one-fixture):
+full parent inverse,3early refusals/3exact transport joins,17material roles,
+two malformed inverses and exact selected script/DB bytes. Old ro3transport
+is explicitly rebound/joined to ro4. No fixture has run; native markers,
+full warnings/errors, original-world preservation and cleanup await Root audit.
 [The one town read is consumed; Root preservation and retained client-cell audit pass](reviews/2026-10-25-T10.009.md#consumed-town-read-fails-its-version-gate-but-retained-client-cells-qualify).
 Three complete200bodies/3650839B captured. The strict1.3-only probe refuses
 GAT1.2and remains FAILED; independent retained400×400layout/cell check passes:
