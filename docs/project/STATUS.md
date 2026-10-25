@@ -4,9 +4,30 @@ Updated: 2026-10-25 JST. Coordinator: Codex. Active scope: **execute the documen
 
 ## Current checkpoint
 
-**Main next action:** fresh read-only world/image/port preflight and Root6
-binding, complete personal bound-file confirmation, then ONE exact parent call
-for town return/re-entry under the qualified1800/60/1900s window.
+**Main next action:** finish Root's complete retained runtime/UI evidence audit
+for the consumed fourth visible trial. No actor replay or new launch is admitted.
+[The fourth trial completes all six commands and the visible town return](reviews/2026-10-25-T10.009.md#fourth-visible-trial-completes-the-route-full-retained-audits-remain-open).
+Root personally sees fruit re-entry after withdrawal, the normal return to
+town353,248, former starter absence, and normal town save/re-entry. STATE5
+confirms both characters offline, B at353,248, A unchanged, and preserved
+18368complete/18369active plus sentinels; FINISH6 acknowledges. Callback/backend
+pass, driver/parent candidate checks pass with acceptance deliberately false.
+Natural driver0, no guard signals,1697.302418s/243.828MiBsampled host-child RSS.
+Fresh read-only witness confirms original five services unchanged, absent trial
+groups/five ports, and the new retained unused volume. Sole isolated page blank.
+Complete wire/archive/manifest/UI audits remain open; six of six command
+checkpoints is not full acceptance. Broader4/14(29%)and82gaps stay unchanged.
+User reports possible tab interaction during two lost-page incidents; no
+exclusive Root input or browser-cause claim. Original Default tabs are now
+absent; Root did not close or recreate them. New owned page recovers after
+foreground focus, with no game/server patch.
+
+[Muse shadow pilot](reviews/2026-10-25-Muse.md): first task Root-reviewed15/20,
+112s; useful source triage with corrected anchors/inferences, no proven cause.
+Task2 is dispatched on its own branch for the retained UI auditor; task3 remains
+unassigned until useful work is available. Profile strengths only after3tasks.
+
+Earlier file-admission checkpoint:
 [Fresh Root4 files and bound-auditor sources pass Root verification](reviews/2026-10-25-T10.009.md#fresh-root4-files-pass-and-one-longer-visible-interval-is-conditionally-admitted).
 Backend1904checks/71pins reconstruct all24roles/28leaves and privately compare
 all five credential values against Root1/2/3. Client708checks/37pins verify
