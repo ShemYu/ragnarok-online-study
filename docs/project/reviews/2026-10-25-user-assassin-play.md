@@ -91,3 +91,27 @@ Private user-assassin-play-close-root-1/TAB_LIST_ROOT.json1233B/SHA
 The active-play window has ended; any next installation still requires its
 current-state/offline/backup checks. No formal full-content acceptance is
 implied by finished testing.
+
+## Current offline saves are verified after the test
+
+Root refreshes the tab list: the personal profile remains absent. Supported
+authenticated app reads bind the normal data root, host/local mode, Renewal,
+4096MiB setting, current settings/mod list and stack status. Six read-only
+Engine GETs verify the census and all five original running service IDs,
+including the DB volume mount. Current supervisor and runtime VERSION pins
+match the qualified copies. No personal page is reopened.
+
+Five supported supervisor SQL reads, without --write, return naturally with
+zero status. Full character, quest, inventory and skill rows are preserved
+privately; small table counts are checked before the latter full reads. All
+three characters are offline. The original novice remains level2/job3at
+Izlude24,98. ShemAssassin remains99/50atfruit74,118, matching the last observed
+page. ShemShadow remains200/50atfruit76,120. This verifies persisted current
+state, not that a normal logout input was sent. There is no database write,
+restore, service restart or backup in this step.
+
+Private idle-world-baseline-root-1/BASELINE_ROOT.json4930B/SHA
+f7caa801948edb0d37f8ae7a3b68125a519d7d91c1c93e1594fd598ddc64a78e
+joins the full private outputs and source queries. Next take and inspect a
+fresh whole-world backup before any supported VM/service change. User test
+completion still does not establish full-game/content acceptance.

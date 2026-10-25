@@ -9,6 +9,11 @@ game. Root sees the Assassin page, then it becomes unavailable before any
 logout input; a fresh tab inventory confirms the personal profile has no
 remaining page. No logout/save or full-content acceptance is inferred from
 tab absence. [Closure record](reviews/2026-10-25-user-assassin-play.md#user-finishes-testing-and-the-personal-page-is-confirmed-closed).
+Root subsequently verifies all three characters offline through supported
+read-only SQL. Assassin's saved fruit74,118matches the last observed page;
+full character/quest/inventory/skill rows are preserved privately. The normal
+world, current app root, settings and all five original service IDs join.
+A fresh whole-world backup is next; no restore or character write is used.
 
 **User-play history:** [separate Assassin account/page is Root-verified](reviews/2026-10-25-user-assassin-play.md).
 RO personal play is handed to the user with level99Assassin; level200Shadow
