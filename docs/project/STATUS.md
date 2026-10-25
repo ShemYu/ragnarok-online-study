@@ -22,12 +22,18 @@ prefix in a private tree:112input pins/36patches,5049→5120files,100changed
 paths. Thirteen patch-created backup files are preserved outside the build
 tree after the first strict footprint check refuses them. Original add/search/
 getitem bodies remain identical. Equal22payload/1920770B inputs and eight
-candidate Git joins/nine prepared-native joins pass. Next launch the actual
-Claude/Grok source implementation pair from selected5131caf. The fixed
+candidate Git joins/nine prepared-native joins pass. Both actual
+Claude/Grok source implementations are active from selected5131caf in
+separate child branches with identical packet/profile; setup skipped. Root
+joins eight BASE blobs in each. Claude turn-start observed; Grok's launch
+observer cannot prove turn-start, but its matching lifecycle heartbeat is
+received/ACKed. No duplicate input. Root compiles unchanged actual original
+C++ bodies with typed stubs:47finite reference cases pass; no full headers,
+server linking or native/game acceptance. The fixed
 tri-state probe must restore compatible-stack positives; only1permits changes.
 The normal build/up path would replace active services, so full native build
-and isolated image binding are separate future gates. No compiler, server,
-Engine/SQL or user-game operation in this preparation. Full coverage remains
+and isolated image binding are separate future gates. No server,
+Engine/SQL or user-game operation in this source work. Full coverage remains
 4/14(29%)and82resource gaps open.
 
 **Pending user logout:** [normal installation/journal preparation is Root-checked](runbooks/T10.008-T10.009-normal-apply.md).
