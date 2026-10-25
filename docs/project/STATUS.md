@@ -16,7 +16,21 @@ same profile, logs into the saved Assassin at69,124 and personally checks the
 rendered map/status/Chinese UI. No service/write/movement action in that
 restoration. Root hands off the new page and stops inputs again.
 
-**Main next action:** [normal installation/journal preparation is Root-checked](runbooks/T10.008-T10.009-normal-apply.md).
+**Active independent source work:** [exact native capacity taskT10.010.002 is
+frozen](tasks/T10.010.002.md). Root prepares the actual app-overlay source
+prefix in a private tree:112input pins/36patches,5049→5120files,100changed
+paths. Thirteen patch-created backup files are preserved outside the build
+tree after the first strict footprint check refuses them. Original add/search/
+getitem bodies remain identical. Equal22payload/1920770B inputs and eight
+candidate Git joins/nine prepared-native joins pass. Next launch the actual
+Claude/Grok source implementation pair from selected5131caf. The fixed
+tri-state probe must restore compatible-stack positives; only1permits changes.
+The normal build/up path would replace active services, so full native build
+and isolated image binding are separate future gates. No compiler, server,
+Engine/SQL or user-game operation in this preparation. Full coverage remains
+4/14(29%)and82resource gaps open.
+
+**Pending user logout:** [normal installation/journal preparation is Root-checked](runbooks/T10.008-T10.009-normal-apply.md).
 Six exact leaves are staged privately; both live mod folders remain absent.
 All six enabled mods/eleven off choices and Chinese settings are preserved.
 Root checks39source pins/six root censuses and the current packaged dispatcher.

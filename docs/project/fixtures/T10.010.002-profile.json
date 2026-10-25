@@ -1,0 +1,32 @@
+{
+  "schema": "T10.010.002-equal-native-capacity-source-profile.v1",
+  "task": "T10.010.002",
+  "codeBase": "5131caf290f8a1f159e53df23f3d1828ce2de728",
+  "nativeBase": "0693b8c69911d5ca42269684aa036b67d67f4d3e",
+  "appOverlayBase": "2c3b2612973fb8d0ae6ad366a2b298686f2404cb",
+  "version": "0.3.2",
+  "sourceOnly": true,
+  "builtin": {"name": "ros_ch1_coin_capacity", "arguments": 0, "fits": 1, "noFit": 0, "unsupported": -1, "onlyAllowedProgressionValue": 1},
+  "nativeFunctions": ["pc_additem_plan", "pc_ch1_coin_capacity"],
+  "reward": {"alias": "Ch1_Root_Coin", "itemId": 1001972, "count": 10, "baseExp": 65304744, "jobExp": 4000000},
+  "finalTuple": [2, -1, 1, -1],
+  "nativePatchPaths": ["src/map/pc.cpp", "src/map/pc.hpp", "src/map/script.cpp"],
+  "groups": [
+    {"id": "A", "requires": "exact supported tri-state probe with shared first-match selector; no probe side effects or invented metadata gates"},
+    {"id": "B", "requires": "unchanged original actual C++ add body vs patched body differential, native enum/state/input/counter/trace equality including general GUID/rental/nonstackable regressions"},
+    {"id": "C", "requires": "actual builtin body and NPC text; only1 proceeds, both count gates and legacy checkweight removed, valid compatible/mixed positives restored"},
+    {"id": "D", "requires": "meaningful inherited and causal controls; unchanged quest/reward/order/presentation/noReplay/withdrawal invariants"},
+    {"id": "E", "requires": "eight-path clean commit, exact patch/input preservation, reproducible bounded host fixture; native build/runtime remains open"}
+  ],
+  "scoreDimensions": ["correctness and evidence", "task coverage", "verification design/results", "handoff clarity", "Git/state discipline"],
+  "pointsPerDimension": 4,
+  "compilerSecondsMax": 120,
+  "fixtureExecutionSecondsMax": 15,
+  "otherCheckSecondsMax": 120,
+  "combinedCommandOutputBytesMax": 1048576,
+  "fixtureArtifactsBytesMax": 134217728,
+  "taskMinutesMax": 30,
+  "sourcePassIsNativeRuntimeAcceptance": false,
+  "nativeFullBuildAllowed": false,
+  "userPlayOperationsAllowed": false
+}
