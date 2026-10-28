@@ -11,7 +11,8 @@ play and saved progress are verified; full world/story/Chinese coverage remains
 unfinished. The active documents show remaining work, with completed records
 preserved in [History](docs/project/HISTORY.md). The current authorized work is
 conservative source cleanup, archiving the retired prototypes and feature-branch
-publication. No default-branch merge is authorized.
+publication. On 2026-10-28 the user also authorizes a merge into local `main`;
+the reviewed source is fast-forwarded locally. `origin/main` stays unchanged.
 
 | Planning document | Purpose |
 | --- | --- |

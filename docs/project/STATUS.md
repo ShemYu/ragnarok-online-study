@@ -1,11 +1,12 @@
 # Current status — paused handoff
 
-Updated: 2026-10-25 JST. Owner: coordinating Codex.
+Updated: 2026-10-28 JST. Owner: coordinating Codex.
 
 **Execution is paused at the user's request.** The current authorization is
-documentation cleanup, conservative pre-merge lint/trim, a local commit and
-publication of the current feature branch. No default-branch merge is
-authorized. Resume game implementation only when the user resumes it.
+documentation cleanup, conservative lint/trim, committing and publishing the
+current feature branch, plus the user's 2026-10-28 merge into **local `main`
+only**. The reviewed source is fast-forwarded locally; `origin/main` stays
+unchanged. Resume game implementation only when the user resumes it.
 
 Pre-merge maintenance: lint/CI checkpoint `86e98d9` is verified. At the user's
 subsequent request, the retired Godot/Character Lab source is preserved under
@@ -99,6 +100,10 @@ with refreshed exact files and current-state checks when integration is ready.
 - Cleanup source checkpoint `9536d59` and the legacy archive tag are pushed.
   [Hosted CI passes](https://github.com/ShemYu/ragnarok-online-study/actions/runs/40192204732)
   on that source revision; subsequent maintenance only records the result.
-  The default branch is not merged. [The archive review](reviews/2026-10-25-T00.003.md)
+  [The archive review](reviews/2026-10-25-T00.003.md)
   contains checks, recovery, provider-availability limits and the remaining
   paused game boundary.
+- The user authorizes the local-main merge on 2026-10-28. The reviewed source
+  fast-forwards from `c6314bb` to `7e527bd`; the documentation checkpoint is
+  included by the same fast-forward process. Feature publication continues,
+  while `origin/main` remains at `c6314bb`. See [merge verification and rollback](reviews/2026-10-28-T00.004.md).

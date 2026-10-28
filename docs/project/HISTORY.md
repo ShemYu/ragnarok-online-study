@@ -43,6 +43,11 @@ snapshot at tag `archive/legacy-prototypes-2026-10-25`. See
 and [frozen removal brief](tasks/T00.003.md). Renewal source and unfinished
 game gates are preserved; no game task is accepted by this maintenance.
 
+T00.004 records the user's 2026-10-28 feature commit/push and local-main merge
+authorization. The source is fast-forwarded without conflicts; `origin/main`
+stays unchanged. [Verification and rollback](reviews/2026-10-28-T00.004.md)
+preserve the branch boundary and paused game scope.
+
 ## Preserved snapshots
 
 - [Original task ledger and acceptance contracts](HISTORY-2026-10-25-TASKS.md):

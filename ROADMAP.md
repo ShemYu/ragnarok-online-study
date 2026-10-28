@@ -2,7 +2,7 @@
 
 ## Active milestone — Modern / Renewal solo RO
 
-The user prioritizes playing the full Modern/Renewal game locally on a Mac, with maps, monsters, story, Traditional Chinese and persistent personal progress. Party-only activities and their solo adaptations are deferred to the next phase. The local emulator/browser baseline is playable in tested scenarios; exact complete coverage and full Chinese story remain unverified. **Game execution is paused at the2026-10-25 handoff.** Conservative source cleanup, legacy archival and current feature-branch commit/push are authorized; no merge is authorized.
+The user prioritizes playing the full Modern/Renewal game locally on a Mac, with maps, monsters, story, Traditional Chinese and persistent personal progress. Party-only activities and their solo adaptations are deferred to the next phase. The local emulator/browser baseline is playable in tested scenarios; exact complete coverage and full Chinese story remain unverified. **Game execution is paused at the2026-10-25 handoff.** Conservative source cleanup, legacy archival and current feature-branch commit/push are authorized. The 2026-10-28 request also authorizes the fast-forward merge into local `main`; `origin/main` stays unchanged.
 
 1. **P0:** document goal, feasibility, task ownership, paired model comparison, root verification and Git/state recovery.
 2. **P1:** establish a version-pinned local runtime, compatible assets, basic gameplay/persistence/recovery, measured resources and a Chinese pilot.

@@ -14,7 +14,7 @@
 - T06/T07 must identify actual version/content coverage and gaps without reducing that full-game intent. Inventory party-only entries explicitly as later-phase work; do not require T11 for first-milestone acceptance or infer approval for companions/rule changes.
 - **Current priority: functionality first** (user clarification2026-10-19). Verify maps, monsters, combat, jobs, items, quests and persistence before remaining localization/input work. Keep existing Chinese overlays enabled. T05 remains open with deferred checks; it does not block functional inventory/repairs. Reuse existing text/resources before bulk translation; full Traditional Chinese remains in the final goal.
 - The exact episode and completeness are **not verified**. The candidate is Ragnarok Offline v1.6.3, not a confirmed foundation.
-- Execution is **paused at the 2026-10-25 handoff**. The user currently authorizes documentation cleanup, conservative repository lint/trim and committing/pushing the current feature branch. Preserve behavior; trace references and check regressions before removing code. A default-branch merge remains unauthorized. Keep game implementation paused until the user resumes it. The earlier authorization to execute the full strategy remains the scope for resumption; it is not a completion claim. Check Status and the thread goal before acting.
+- Game execution remains **paused at the 2026-10-25 handoff**. On 2026-10-28 the user authorizes committing, pushing the feature branch and merging it into **local `main` only**. The verified source merge uses fast-forward only; `origin/main` stays unchanged. Keep game implementation paused until the user resumes it. The earlier authorization to execute the full strategy remains the scope for resumption; it is not a completion claim. Check Status and the thread goal before acting.
 - The user retired Godot and Character Lab from the active tree on 2026-10-25. Their complete source/report snapshot is preserved at Git tag `archive/legacy-prototypes-2026-10-25` (`62dde90`). Do not restore those projects into the active tree without a new reason. Preserve ignored local assets and all Renewal/project evidence; see the archive record linked in Status.
 
 ## Coordination and evidence
@@ -35,7 +35,7 @@
 ## Git and local data
 
 - Work on the assigned task branch, never directly on `main`. Start paired implementations from the same recorded commit.
-- Make local checkpoint commits after coordinator verification. Push the feature branch when explicitly requested by the user, as authorized for this handoff. Default-branch merges, force-push and shared-history rewrites remain separate actions.
+- Make local checkpoint commits after coordinator verification. The 2026-10-28 request authorizes feature-branch publication and a fast-forward merge into local `main`. Return this workspace to its feature branch afterward. Pushing `origin/main`, force-push and shared-history rewrites remain separate actions.
 - Revert verified checkpoint commits to roll source changes back. Git does not restore app databases, saves, installed files or untracked assets; use tested external-state backups.
 - Keep game assets, installers, screenshots, logs, credentials and database dumps local. Commit redacted Markdown evidence and source only; follow [repository scope](docs/PUBLIC_REPOSITORY.md).
 - Do not store private hardware identifiers, credentials or machine-wide environment dumps in documentation.

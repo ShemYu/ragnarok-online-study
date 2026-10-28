@@ -8,7 +8,9 @@ Check the current execution/pause state before starting. At the2026-10-25
 handoff the game goal is paused; documentation cleanup, conservative source
 lint/trim and the requested feature-branch commit/push are authorized. Preserve
 behavior, keep uncertain dependencies and verify each small removal. No
-default-branch merge is authorized. A maintenance or publication request
+remote default-branch merge was authorized at that handoff. The user's
+2026-10-28 request additionally authorizes a fast-forward merge into local
+`main`, while `origin/main` stays unchanged. A maintenance or publication request
 does not itself resume game implementation.
 
 ## Active documentation and completed history
