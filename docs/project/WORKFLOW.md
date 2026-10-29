@@ -13,6 +13,13 @@ remote default-branch merge was authorized at that handoff. The user's
 `main`, while `origin/main` stays unchanged. A maintenance or publication request
 does not itself resume game implementation.
 
+The 2026-10-29 expert re-audit authorizes inspection/design and controlled
+source checks while keeping game execution paused. Its [next actions](NEXT_ACTIONS.md)
+require self-isolated mutation suites and explicit public/private test inputs.
+Do not use broad discovery or a private historical wrapper as a public test
+entrypoint. Reproduce proposed simplifications against existing counterexamples
+before changing the implementation or asking the user to choose a new strategy.
+
 ## Active documentation and completed history
 
 - STATUS contains the current pause/execution state, remaining gates, concise

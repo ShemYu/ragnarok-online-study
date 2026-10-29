@@ -14,6 +14,10 @@ conservative source cleanup, archiving the retired prototypes and feature-branch
 publication. On 2026-10-28 the user also authorizes a merge into local `main`;
 the reviewed source is fast-forwarded locally. `origin/main` stays unchanged.
 
+The 2026-10-29 [expert re-audit](docs/project/reviews/2026-10-29-T00.005.md)
+defines [seven bounded next tasks](docs/project/NEXT_ACTIONS.md). Inspection
+and design proceed; game implementation and installation remain paused.
+
 | Planning document | Purpose |
 | --- | --- |
 | [Goal and feasibility](docs/project/GOAL.md) | Decisions, known facts, uncertainties, candidate sources and initial estimates |

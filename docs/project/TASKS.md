@@ -1,6 +1,6 @@
 # Unfinished task board
 
-Updated: 2026-10-25 JST. Owner: coordinator unless explicitly dispatched.
+Updated: 2026-10-29 JST. Owner: coordinator unless explicitly dispatched.
 **Game execution is paused.** Status `in_progress` below retains the existing
 unfinished task disposition; it does not mean a worker is currently running.
 
@@ -10,13 +10,21 @@ The 89 `ready_for_user` records still await explicit user acceptance; archiving
 does not accept them. Thirty `self_verified` results retain their exact scoped
 limits. Source-only completion does not close a parent's native/game gate.
 Dependencies may refer to completed IDs in the historical ledger.
-Each remaining ID's original brief, profile and evidence links are preserved
-in its row of the [dated original task ledger](HISTORY-2026-10-25-TASKS.md).
+The original unfinished IDs' brief, profile and evidence links are preserved
+in the [dated original task ledger](HISTORY-2026-10-25-TASKS.md). The seven
+newly designed tasks use [Next actions](NEXT_ACTIONS.md) for their bounded
+acceptance; freeze their task-specific execution inputs before dispatch.
+
+The expert re-audit adds seven planned children to the 37 previously unfinished
+rows. Their bounded outputs, acceptance and parallel lanes are defined in
+[Next actions](NEXT_ACTIONS.md); this is design, not resumed runtime execution.
 
 ## Resume order
 
-1. T10.010: qualify/build the exact native source and export matching binaries.
-2. T10.007–T10.010: isolated native verification, then supported normal
+1. In parallel: T00.006 safe verification, T06.005.001 provisional coverage and
+   T10.010.003 reproducible native source/build recipe.
+2. T10.010.004–007: full native build and ordinary-item regression, release
+   capability gate and reward/save qualification, then supported normal
    integration and journal/progression/save checks.
 3. T06/T07 and their independent children: complete world/content coverage,
    the 82-gap reconciliation and a coherent version/effort contract.
@@ -28,6 +36,7 @@ in its row of the [dated original task ledger](HISTORY-2026-10-25-TASKS.md).
 
 | Task | Phase | Pending scope | Dependencies | Status | Next action |
 | --- | --- | --- | --- | --- | --- |
+| T00.006 | P0 verification tooling | Public test classification and self-isolating mutation-suite runner | T00.005 source re-audit | `planned` | Check in a safe reproducible runner; keep canonical hash/inode/mtime/ctime unchanged on success and interruption. |
 | T04 | P1 | Baseline play, persistence, offline and resource report | T03 | `in_progress` | Finish remaining offline/performance qualification; preserve the keep-internet-on constraint. |
 | T04.001 | P1 | Calibrated offline verification design and trial | T04 partial | `in_progress` | Qualify the remaining offline scenario without disconnecting the Mac; quiet network counters are insufficient. |
 | T04.005 | P1 | Field fog diagnosis and repair design | T04 field observation | `in_progress` | Verify a permanent fog/display fix on the current runtime and affected scenes. |
@@ -50,6 +59,7 @@ in its row of the [dated original task ledger](HISTORY-2026-10-25-TASKS.md).
 | T06.006 | P2 ordinary gameplay verification | Isolated multi-stage quest and effective runtime-load evidence | .008 checkpoint; paired plan; proved fresh state isolation/preservation | `in_progress` | Complete effective-runtime and ordinary multi-stage quest evidence. |
 | T06.006.003 | P2 root serial progression | Ordinary intro/Eden membership, hunt, rewards and persistence | Qualified .002separate world; corrected actual T07.001 paired scenario | `in_progress` | Finish the ordinary intro/Eden hunt, rewards and persistence scenario after the current story lane. |
 | T06.005 | P2 | Reconciled content/gap report | T06.002–T06.004 | `planned` | Publish the reconciled required-content and gap report after its inventory inputs qualify. |
+| T06.005.001 | P2 provisional coverage | Version/content ledger with evidence levels and 82-gap joins | Already qualified T06/T07 inventories; unknown inputs stay unknown | `planned` | Produce the provisional ledger now, without waiting for complete T06 or claiming full-content coverage. |
 | T07 | P2 | Full-game version/coverage contract and gap-based estimate | Verified partial T06 inputs; full T06 completion still required | `in_progress` | Declare a coherent Renewal content/version contract and estimate the actual remaining gaps. |
 | T07.007 | P2 modern asset acquisition | Official October Taiwan package, full extracted manifest and exact terrain/dependency catalog | Independent verified official metadata; common base6e05dfc | `in_progress` | Finish the official-package/dependency reconciliation and remaining production map gates. |
 | T07.007.011 | P2 actual map loading/rendering | Four target maps through production image/instance/compile/GPU paths | Qualified .010 assets; exact actual client bundles and fresh viewer origin | `in_progress` | Complete the four target maps through genuine production render paths; isolated samples stay scoped. |
@@ -62,6 +72,11 @@ in its row of the [dated original task ledger](HISTORY-2026-10-25-TASKS.md).
 | T10.008 | P3 functional source | Supported Traditional Chinese True quest-text mod generator | Existing supported System-table route; independent source lane from T10.007, normal journal gate later uses actual server admission | `in_progress` | Install/relink the supported True quest-text overlay and verify the normal journal against its oracle. |
 | T10.009 | P3 functional source | Chapter1 starter transport and checked18368→18369Messenger handoff | Integrated2734d8f starter, supported mechanics/commands and existing destination metadata; independent of broader geometry | `in_progress` | Complete supported normal integration of first-edge travel, Messenger handoff, fruit/return and saves. |
 | T10.010 | P3 functional source | Fruit village arrival, Shasha/Maysel through18371, real rewards and resume | Qualified T10.009 source; retained mechanics/native binding; independent of pending normal installation | `in_progress` | NEXT: qualify/build the exact 0.3.2 native server, then test parser, actors, rewards, save and withdrawal before normal installation. |
+| T10.010.003 | P3 reproducible build | Exact source/overlay preparation and bounded native build/export recipe | Qualified T10.010.002 source; fresh environment/resource binding before execution | `planned` | Reconstruct all nine pinned inputs and define full Linux/arm64 source, dependencies, ABI, limits, cleanup and export. |
+| T10.010.004 | P3 native qualification | Full binary build/start and ordinary-item A/B regression | T10.010.003 | `planned` | Verify complete linking/loader/startup and ordinary loot/shop/inventory behavior before loading the story extension. |
+| T10.010.005 | P3 release safety | Binary/mod/text/config compatibility manifest and pre-install gate | Design with T10.010.003; execution needs T10.010.004 | `planned` | Refuse stock or mismatched native capability before installing 0.3.2; keep frozen 0.2.0 staging clearly separate. |
+| T10.010.006 | P3 reward/save qualification | Actual EXP, callback, save and uncertain-delivery acceptance | Analyze with T10.010.003; native validation needs T10.010.004 | `planned` | Inspect actual save paths, verify level-up and restart/no-replay, and define manual review without claiming atomicity. |
+| T10.010.007 | P3 native to normal story | Real parser/actors/story, supported install, persistence and withdrawal | T10.010.004–006; refreshed ownership/current backup | `planned` | Verify in isolated state, then normal play with progress preserved before the user's evaluation. |
 | T11 | Later phase after P4 | Party-only activities and approved solo adaptations | T07 coverage; first-milestone T13 | `planned` | Later phase by user decision; inventory real party gates now. This does not block milestone 1. |
 | T12 | P4 | First-milestone coverage qualification and recovery/performance report | T05 remaining + T08–T10; T07 explicit party-only deferral | `planned` | Qualify every required coverage entry plus recovery, offline and performance; account for explicit deferrals. |
 | T13 | P4 | Reproducible user handoff and acceptance | T12 | `planned` | Rehearse the installation/play/rollback guide and obtain explicit milestone acceptance. |

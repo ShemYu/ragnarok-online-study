@@ -11,8 +11,14 @@ network step and installs nothing.
 python3 -I tools/renewal/server_snapshot.py \
   "/path/to/Ragnarok Offline.app/Contents/Resources/payload/dist/images.tar.gz" \
   .tools/renewal/T06.001/output
-RENEWAL_IMAGES_TAR=/path/to/images.tar.gz python3 -I -m unittest discover -s tools/renewal
+RENEWAL_IMAGES_TAR=/path/to/images.tar.gz python3 -I -B tools/renewal/test_server_snapshot.py
 ```
+
+This is the snapshot-specific suite with an explicit private input, not a
+general public test command. It also auto-detects the conventional private
+archive when that file exists; use an asset-free checkout for authored-only
+checks and report the skipped private cases. General public checks use the
+[explicit source-only list](../../README.md#source-only-checks), not discovery.
 
 The output directory must not exist yet; its parent must exist, be owned by you
 and not be group/world writable. Keep it under the ignored `.tools/`. Generated

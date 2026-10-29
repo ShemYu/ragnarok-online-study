@@ -18,8 +18,13 @@ its UTF-8 path for the whole file, so the Chinese text and Hangul resource names
 ```sh
 python3 -I tools/renewal/tw_iteminfo_utf8.py \
   /path/to/System/iteminfo_new.lub .tools/t04-003/out
-python3 -I -m unittest discover -s tools/renewal
+python3 -I -B tools/renewal/test_tw_iteminfo_utf8.py
 ```
+
+The test command runs this converter's authored fixtures only. For general
+public checks, use the [explicit source-only list](../../README.md#source-only-checks).
+Do not use broad discovery here: other suites may auto-detect private inputs
+or require copied source files for intentional mutation controls.
 
 The output directory must not exist yet. Keep it under the ignored `.tools/`.
 Publication creates the destination exclusively; an existing directory, file or

@@ -1,15 +1,22 @@
 # Remaining work and supervision
 
-Updated: 2026-10-25 JST. **Execution paused by the user.**
-Documentation cleanup and current-branch commit/push are authorized.
+Updated: 2026-10-29 JST. **Game execution remains paused.**
+Expert inspection/design and documentation are authorized. See
+[the detailed next actions](NEXT_ACTIONS.md) and [audit](reviews/2026-10-29-T00.005.md).
 
 ```text
 FULL MODERN / RENEWAL PERSONAL GAME
 |
-+-- Story lane [NEXT AFTER RESUME]
++-- Parallel prerequisites [DESIGNED; NOT EXECUTED]
+|   [ ] T00.006: safe public/private test classification and isolated runner
+|   [ ] T06.005.001: provisional content ledger / 82-gap joins
+|   [ ] T10.010.003: reproducible native sources / bounded build recipe
+|
++-- Story lane [AFTER SOURCE/BUILD RECIPE]
 |   Exact 0.3.2 source is qualified; native runtime work remains:
-|   [ ] Qualify Linux toolchain / dependencies / ABI / build controls
-|   [ ] Compile and export matching server binaries
+|   [ ] Full compile/link/export and ordinary-item A/B regression
+|   [ ] Binary/mod/text capability gate; replace 0.2.0 apply/withdrawal sheet
+|   [ ] Real EXP/callback/save and uncertain-reward acceptance
 |   [ ] Isolated native parser / actors / quest states / rewards
 |   [ ] Save, re-entry, repeat and withdrawal checks
 |   [ ] Supported normal installation and full settings Apply

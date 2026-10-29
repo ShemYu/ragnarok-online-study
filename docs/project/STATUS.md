@@ -1,12 +1,17 @@
 # Current status — paused handoff
 
-Updated: 2026-10-28 JST. Owner: coordinating Codex.
+Updated: 2026-10-29 JST. Owner: coordinating Codex.
 
 **Execution is paused at the user's request.** The current authorization is
 documentation cleanup, conservative lint/trim, committing and publishing the
 current feature branch, plus the user's 2026-10-28 merge into **local `main`
 only**. The reviewed source is fast-forwarded locally; `origin/main` stays
 unchanged. Resume game implementation only when the user resumes it.
+
+The 2026-10-29 request authorizes a fresh expert inspection and next-action
+design, with source-only verification and documentation. This inspection does
+not install/build a game server or change the running world. See
+[audit findings](reviews/2026-10-29-T00.005.md) and [the seven next tasks](NEXT_ACTIONS.md).
 
 Pre-merge maintenance: lint/CI checkpoint `86e98d9` is verified. At the user's
 subsequent request, the retired Godot/Character Lab source is preserved under
@@ -28,24 +33,30 @@ This is not a percentage of playable content, effort or translation.
 
 ## Unfinished work, in priority order
 
-1. **Native build for the 0.3.2 story extension.** Qualify the bounded
+1. **Parallel prerequisites.** Make mutation suites self-isolating (T00.006),
+   publish a provisional coverage ledger now (T06.005.001), and reconstruct the
+   exact native source/build recipe (T10.010.003). No broad discovery or stock
+   `checkweight` substitution. These address confirmed verification/release
+   gaps without changing the goal.
+2. **Native build for the 0.3.2 story extension.** Qualify the bounded
    Linux/arm64 toolchain, exact dependencies/ABI, resource and deadline controls,
    cancellation/cleanup and binary export. Compile the exact prepared source.
    No compiler is installed, no custom image is built and the new builtin is
    not available in stock binaries.
-2. **Native and normal story integration.** Check script parsing, four actors,
+3. **Native and normal story integration.** First qualify ordinary-item
+   behavior because the patch touches general insertion. Check script parsing, four actors,
    state transitions, capacity/refusal cases, actual rewards, repeats, saves
    and withdrawal in isolation. Then supported installation/full Apply and
    normal journal/travel/progression checks. Source tests and isolated earlier
    scenes do not close these normal-game gates.
-3. **Full world/content coverage.** Finish effective maps/spawns/monsters,
+4. **Full world/content coverage.** Finish effective maps/spawns/monsters,
    items/skills, NPCs, quest chains, instances, dynamic resources and the 82-gap
    reconciliation. Declare the coherent version/content boundary and estimate
    remaining work from it. Do not silently narrow the full-game goal.
-4. **Remaining Chinese and input coverage.** Keep current overlays enabled;
+5. **Remaining Chinese and input coverage.** Keep current overlays enabled;
    finish the unresolved UI, NPC/story/system text and real macOS IME checks
    after functional work.
-5. **Final qualification and handoff.** Complete required coverage, offline,
+6. **Final qualification and handoff.** Complete required coverage, offline,
    performance and recovery checks, rehearse the user runbook and obtain
    explicit milestone acceptance. Keep the Mac's internet connected.
 
@@ -84,9 +95,17 @@ then owns the serial runtime execution and independent verification. Refresh
 current Engine/socket/service/save bindings after the 8 GiB restart; old IDs,
 start times and consumed probe admissions are not reusable authority.
 
+The expert re-audit refines that next action: reproducible source preparation
+and the full-binary/ordinary-item proof come before more story authoring.
+Safe test isolation and provisional coverage can run in parallel. The current
+model's no-replay reward alert is not persistent quarantine or crash-atomic
+delivery; T10.010.006 qualifies the actual native save/EXP behavior.
+
 Keep the frozen normal 0.2.0 staging separate from source 0.3.2. Do not install
-0.3.2 against stock binaries. Use [the existing normal-apply runbook](runbooks/T10.008-T10.009-normal-apply.md)
-with refreshed exact files and current-state checks when integration is ready.
+0.3.2 against stock binaries. [The existing normal-apply runbook](runbooks/T10.008-T10.009-normal-apply.md)
+is the frozen **0.2.0-only** reference; its three-row acceptance/withdrawal is
+unsafe for 0.3.2 D-state progress. T10.010.005 must produce a separate matching
+release/apply sheet retaining all four quest definitions and all three exits.
 
 ## Records and Git
 

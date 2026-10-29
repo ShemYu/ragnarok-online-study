@@ -1,10 +1,13 @@
 # Renewal solo milestone: goal and feasibility
 
-Feasibility review: 2026-10-22. Handoff updated: 2026-10-25.
+Feasibility review: 2026-10-22. Inspection/design updated: 2026-10-29.
 Owner: coordinating Codex. **Game execution is paused by the user.** Current
-work is documentation cleanup and the requested feature-branch commit/push;
+work includes expert re-inspection, next-action design and documentation;
 the full goal and functionality-first order are unchanged. [Current status](STATUS.md)
 gives the resume action; [History](HISTORY.md) holds completed records.
+The [2026-10-29 plan](NEXT_ACTIONS.md) adds reproducible verification/build
+prerequisites and a parallel provisional content ledger. It makes no new
+full-milestone estimate, runtime acceptance or scope reduction.
 
 ## User decisions
 

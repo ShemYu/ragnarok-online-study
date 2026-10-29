@@ -48,6 +48,13 @@ authorization. The source is fast-forwarded without conflicts; `origin/main`
 stays unchanged. [Verification and rollback](reviews/2026-10-28-T00.004.md)
 preserve the branch boundary and paused game scope.
 
+T00.005 is `self_verified` for expert inspection/design and its scoped fresh
+checks. The [audit findings and actual provider comparison](reviews/2026-10-29-T00.005.md)
+lead to [seven planned next tasks](NEXT_ACTIONS.md), a new total of 44 open
+rows, safe documentation commands and an explicit 0.2.0-only runbook banner.
+All original 37 unfinished IDs/statuses/dependencies survive. No game gate is
+closed and no installed files, saves or gameplay change in this inspection.
+
 ## Preserved snapshots
 
 - [Original task ledger and acceptance contracts](HISTORY-2026-10-25-TASKS.md):
