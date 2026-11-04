@@ -74,6 +74,9 @@ the original26-package base and proposes47 installs with no base upgrades.
 It stops before installation because the parser skips APK's space-padded
 single-digit counters, producing38 rows. Root reproduces this and freezes
 [the same narrow correction](tasks/T10.010.004-dependency-repair-3.md).
+Claude d58059e9 is now selected/integrated as67efe092 after Root81 tests,
+unchanged638 files and direct actual-log/refusal controls. A fresh replay
+phase is prepared; real BusyBox parsing, fetch/install and closure remain open.
 The VM is stopped, both containers deleted and five personal service
 projections identical. No real closure or full build is qualified.
 The [EXP/callback/save source analysis](reviews/2026-11-04-T10.010.006-root.md)
@@ -179,8 +182,8 @@ Evidence: [saved user state](reviews/2026-10-25-user-assassin-play.md#current-of
 The three prerequisite source lanes are integrated. Root owns serial runtime
 execution/verification for .004; .005 source is integrated, with runtime
 pins deliberately unqualified. The .004 dependency recipe and .006 analysis
-source are selected/integrated. Repair the observed counter-format parser,
-then repeat exact-base closure with a fresh admission. Fresh build-only state initialization
+source are selected/integrated; the counter-format repair is verified.
+Execute the fresh exact-base closure admission, then inspect its actual result. Fresh build-only state initialization
 uses the workflow's isolated-new-state allowance; it does not establish
 current ro4 backup/restore qualification.
 Refresh current Engine/socket/service/save bindings; old IDs, start times,
