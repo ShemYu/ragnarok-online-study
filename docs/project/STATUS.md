@@ -24,18 +24,19 @@ not percentages of playable content, translation or remaining effort.
 ## Current action — DB qualification before integrated items
 
 **Next:** finish review/admission of the read-only live metadata/dump capture.
-Claude candidate3 repairctx_7e1004e5d64e and Grok's originalctx_49ebc7d36e6a
-are confirmed live on separate task branches. The common41-file input contract
-stays frozen. Root handles report wakes without inbox polling; source work is
-not on its own runtime qualification. See the [current review and evidence](reviews/2026-11-05-T10.010.004-db-discovery-root.md)
+Both original suppliers and Claude candidate3 have delivered; source copies
+and task branches are preserved. The common41-file input contract stays frozen.
+Root handles report wakes without inbox polling; source work is not on its own
+runtime qualification. See the [current review and evidence](reviews/2026-11-05-T10.010.004-db-discovery-root.md)
 and [frozen discovery contract](reviews/2026-11-05-T10.010.004-db-discovery-brief.md).
 
-The latest Claude candidate passes46 pure/fake-lifecycle controls, compilation
-and lint, but10 additional Root probes expose cleanup authority, retained
-diagnostics, cleanup-marker and dialect/log-record gaps. Candidate3 must repair
-those failures and narrow current generated outputs. Grok is asked to honor
-its original bound and deliver complete/partial source promptly; its report
-does not block use of a separately Root-qualified candidate.
+The latest Claude candidate passes66 pure/fake-lifecycle controls, compilation
+and lint. Prior failures are addressed, but asserted-hit I/O probes still show
+missing exception-safe preservation, and CREATE/SET profiles admit opaque
+options/extra statements. Require the narrow remaining repair before live use.
+Grok's original compiles/lints and passes its helper/decoder groups but has
+broader lifecycle/metadata gaps; it is not selected. The [paired review](reviews/2026-11-05-T10.010.004-discovery-suppliers.md)
+keeps original source scores separate from later repair quality.
 
 Root's real read-only preflight passes:41 input/2084 protected/1109 actual-world
 pins, indirect import sources, stopped VM binding and host checks match. No VM
