@@ -25,6 +25,8 @@ not percentages of playable content, translation or remaining effort.
 
 **Next:** close candidate5's directory-binding gap and control-fixture error,
 then rebind a fresh phase.
+Claude candidate6 source repair is active asctx_6f03970860d4; Root will verify
+fresh copies before preflight/phase2 admission.
 Candidate4's admitted run exits1 before LAUNCHED or any VM command: one existing
 Nebula stderr file violates its empty shared-temp glob check. Root retains the
 phase and raw refusal and leaves the existing file untouched. The private
@@ -69,6 +71,8 @@ producer/session, root metadata and supported backup/restore semantics remain
 unqualified. Byte-admission, full synthetic oracle and observer controls retain
 their earlier scoped passes in the [local-control record](reviews/2026-11-04-T10.010.004-root.md#observer-local-controls-personally-qualified).
 The same-PID restore launcher and outer custody handling are still unfinished.
+Their independent implementation-brief draft is prepared for Root review;
+no implementation dispatch or runtime qualification follows from that draft.
 
 Root owns all runtime work. Refresh the exact owned VM/world/resources and
 personal projections before startup. Supported ordinary up can initialize/write

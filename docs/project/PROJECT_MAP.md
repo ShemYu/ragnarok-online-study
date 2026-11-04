@@ -28,7 +28,7 @@ FULL MODERN / RENEWAL PERSONAL GAME
 |   [ ] Ordinary-item NPC fixtures [CLAUDE SOURCE SELECTED; PARSER OPEN]
 |   [x] Startup process/mount readbacks [ROOT VERIFIED; PARSER OPEN]
 |   [x] Managed client identity/static/owned stop [ROOT VERIFIED]
-|   [ ] Live DB discovery [CANDIDATE5: DIRECTORY/FIXTURE REPAIR NEXT]
+|   [ ] Live DB discovery [CANDIDATE6 DIRECTORY/FIXTURE REPAIR ACTIVE]
 |   [ ] Isolated DB backup/restore -> integrated rendering/item A/B
 |   [ ] Binary/mod/text gate [SOURCE INTEGRATED; RUNTIME OPEN]
 |   [ ] Real EXP/callback/save [ANALYSIS INTEGRATED; RUNTIME OPEN]
