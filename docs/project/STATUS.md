@@ -90,9 +90,11 @@ passes for Grok. Both receive11/20 for this source task, with material native
 wait/custody, protocol, evidence and harness gaps. Neither is selected or
 runtime-admitted. Root keeps the exact interpreter fixed and requests a bounded
 native-custody design before safe fake controls/repair. Astra now delivers the
-kqueue/raw-wait design and seven unexecuted direct-fake cases; Root reads the
-source and authenticates its SDK/Python basis. Native primitive qualification
-is next. One raced Grok wrap-up
+kqueue/raw-wait design. Root reads its source/SDK/Python basis, then personally
+qualifies seven direct-host-fake primitive cases: exit0, empty stderr, all
+actors reaped and both streams at EOF in0.344006seconds. Lost wait authority
+stays ECHILD and nonzero/signal status is preserved. Full launch repair and
+its controls remain open. One raced Grok wrap-up
 follow-up fails readiness; the original source task remains delivered and no
 restart/terminal-exit assumption follows. See the
 [paired assessment](reviews/2026-11-05-T10.010.004-launch-suppliers.md).
