@@ -1186,3 +1186,16 @@ the selected itemInfo merge-layer/config reference, six navigation tables/four
 plaintext-plugin files, moved ports/Taiwan/Renewal/packet configuration and absent
 detection/endpoints. No asset server/browser/DB/game starts. See [actual host result](2026-11-04-T10.010.004-root.md#ordinary-host-assets-linked-and-personally-read-back).
 Compiler6 remains independently running; no artifact or rendering claim yet.
+
+Compiler6 actual exec5054 finishes exit0/candidate_built:844.4s/no timeout,
+complete interpreter reports and both binaries byte-identical to the earlier
+compiled pair. Root's final fresh offline replay passes as exec47734:105 saved
+artifact files and nine resource files reproduce exactly,47/base26/raw memory/
+native ELF/loader/owner/marker checks pass and342 protected files stay unchanged.
+Both containers are deleted/404, VM shutdown/current stopped ownership pass
+and personal projections remain byte-identical. The first qualifier's1MiB JSON
+cap refusal is preserved; the scoped8MiB metadata reader passes independent
+review and actual replay without changing runtime policy. See
+[Root artifact qualification](2026-11-04-T10.010.004-root.md#compiler6-full-artifacts-personally-qualified).
+Commit this artifact checkpoint before image preparation. Images/original
+libraries, supported startup and all gameplay/save gates remain open.

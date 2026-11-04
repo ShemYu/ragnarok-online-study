@@ -1,9 +1,9 @@
 # Remaining work and supervision
 
 Updated: 2026-11-05 JST. **Seven-task execution active.**
-All three prerequisite source/tooling tasks are integrated. Root's actual
-binary experiment compiled both variants; fresh source-bound dependencies are
-qualified and the repaired compiler pair is next. Release-gate and reward/save source are integrated. See
+All three prerequisite source/tooling tasks are integrated. Both full binary
+artifacts now pass Root's fresh replay; images and isolated startup are next.
+Release-gate and reward/save source are integrated. See
 [the detailed next actions](NEXT_ACTIONS.md) and [audit](reviews/2026-10-29-T00.005.md).
 
 ```text
@@ -16,22 +16,10 @@ FULL MODERN / RENEWAL PERSONAL GAME
 |
 +-- Story lane [AFTER SOURCE/BUILD RECIPE]
 |   Exact 0.3.2 source is qualified; native runtime work remains:
-|   [x] Isolated build VM resource/image/cleanup characterization
-|   [x] APK signatures / causal closed-vs-valid stdin diagnostic
-|   [x] Exact-base dependency recipe repair [SOURCE VERIFIED]
-|   [x] APK counter-format repair [SOURCE VERIFIED]
-|   [x] Real guest parses all47 solver rows [ACTUAL VERIFIED]
-|   [x] APK3 exact-fetch correction [SOURCE VERIFIED]
-|   [x] Actual44 stock-selected URLs / empty payload / owned cleanup
-|   [x] Complete GCC host measurement / exact raw identity / child cleanup
-|   [x] Complete44 host downloads +3dev -> exact47 manifest
-|   [x] Actual47 stock-key authentication and offline install
-|   [x] Tuple ordering [ROOT SOURCE VERIFIED; Claude retained]
-|   [x] Final supplier comparison [both verified; terminals released]
-|   [x] Fresh successful normal closure [ROOT QUALIFIED; v4]
-|   [x] Offline compiler admission [FAILED RUN PRESERVED; token consumed]
-|   [x] Fresh source-bound dependency resolve [ROOT QUALIFIED; v5]
-|   [ ] Full unpatched/patched builds [REPAIRED COMPILER6 RUNNING]
+|   [x] Owned build VM / exact source / authenticated47-package closure
+|   [x] Both full binary artifacts [ROOT REPLAY PASSED; STARTUP OPEN]
+|   [x] Host asset assembly / selected Chinese files [BYTES VERIFIED]
+|   [ ] Immutable images / original-library loader checks [NEXT]
 |   [ ] Ordinary-item NPC fixtures [CLAUDE SOURCE SELECTED; PARSER OPEN]
 |   [ ] Immutable binary readback -> ordinary-item A/B
 |   [ ] Binary/mod/text gate [SOURCE INTEGRATED; RUNTIME OPEN]
@@ -64,22 +52,17 @@ The ledger remains **4/14 parent checkpoints qualified**, not 29% of the
 world/story completed. The content denominator and full-milestone estimate
 remain unfinished. Basic local play and saved progress are already available.
 Three of seven audit tasks are self-verified (about 43% by task count only).
-The separate4GiB build VM is running compiler6. The actual dependency closure is
-Root-qualified: all47 raw/PLAN/installed identities join, base26 and trusted
-keys stay unchanged. Supplier ordering/noarch repairs are source-integrated.
-The first compiler's1536MiB cgroup OOM is preserved. The fresh2560MiB retry
-compiles both variants in844.1s with exit0/no timeout; Root replays104 exported
-files and checks dependency/cgroup/owner/ELF identities. Overall qualification
-still refuses incomplete interpreter-report capture. Both native ELF paths are
-correct; both supplier repairs pass Root source checks and Claude is selected.
-A fresh exact47 dependency5 binding is now Root-qualified after123-file raw
-replay,47 identity joins/base26 and297-file preservation. Its12.2s actual run,
-cleanup and personal checks pass; the VM is stopped. The repaired compiler6
-admission is prepared/Root file-state reviewed and committed/pushed9f8c2bed
-before actual exec5054 starts. Resource probe/base26 pass; the full compiler
-has not returned. No image or
-runtime item result is qualified. Both containers are deleted/404, VM down and
-personal projections unchanged; exec54479 is terminal, phase5 cannot be replayed.
+The separate4GiB build VM is stopped after the repaired full pair succeeds:
+844.4s/exit0/no timeout. Root reproduces105 artifact files and nine resource
+files, checks exact47/base26 and native loader/marker/owner identities, with342
+protected files unchanged. Both owned containers are deleted/404 and personal
+projections remain unchanged. The corrected report is complete; both binary
+hashes equal the previous compiled pair. Historical OOM/refused runs stay fixed.
+
+Next qualify immutable images and original-image libraries, then actual startup
+at the supported /rathena/map-server path. Host assets are linked/read back,
+but no image, client protocol, parser or runtime item result is qualified.
+See [Root artifact result](reviews/2026-11-04-T10.010.004-root.md#compiler6-full-artifacts-personally-qualified).
 
 Both ordinary-fixture candidates pass Root's source review after the equal
 budget correction. Claude fbf1fcc6 is selected as four exact blobs for simpler
@@ -87,14 +70,14 @@ control flow and guard margin. Both settled workers are released, branches
 retained. Real parsing,200-row completion/capture, effective items, probe purity
 and persistence are still open. Fresh-world payload/image/port/mount admission
 also remains open; final app up can prune unused untagged images even without
-a bundle. See the [current result](reviews/2026-11-04-T10.010.004-root.md#both-variants-compile-interpreter-report-refuses-qualification).
+a bundle. See the [current result](reviews/2026-11-04-T10.010.004-root.md#compiler6-full-artifacts-personally-qualified).
 Fresh host assets are now linked/read back:59 generated files, selected Chinese
 layers/config and1265-file preservation pass. Asset-server/browser protocol and
 actual world startup remain open; generated files alone are not rendering proof.
 
 Release-gate source and reward/save analysis are integrated within their
 recorded limits. Their actual runtime pins and native/game/save gates remain
-open. The [current Root record](reviews/2026-11-04-T10.010.004-root.md#fresh-v4-closure-personally-qualified)
+open. The [current Root record](reviews/2026-11-04-T10.010.004-root.md#compiler6-full-artifacts-personally-qualified)
 preserves completed chronology and the next checks.
 See [safe runner](reviews/2026-11-04-T00.006-root.md) and
 [coverage verification](reviews/2026-11-04-T06.005.001-root.md) and
