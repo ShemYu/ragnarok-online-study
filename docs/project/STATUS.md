@@ -36,9 +36,11 @@ withdrawal replacement procedure. Neither is selected/integrated. Root owns
 serial runtime work; suppliers own isolated source repairs.
 Grok's second repair now passes Root's69 tests and the two original edge-case
 controls with all619 tracked files unchanged, but its same-name failure
-recovery/withdrawal contracts still need correction. Claude is quota-limited
-before its report/commit. The [same replacement/withdrawal clarification](tasks/T10.010.005-replacement-clarification.md)
-is frozen for both suppliers; source selection and actual release admission stay open.
+recovery/withdrawal contracts still need correction. Claude has now resumed
+and submitted `b9038ee6`; Root's113 tests pass with all620 tracked files
+unchanged, and independent source review finds no material blocker in the
+scoped repairs. The [same replacement/withdrawal clarification](tasks/T10.010.005-replacement-clarification.md)
+remains outstanding for Grok; source selection and actual release admission stay open.
 The [current .004 ownership correction](reviews/2026-11-04-T10.010.004-root.md#ownership-correction-before-further-admission)
 finds four concurrent worlds. The completed resource probe and 1.27 GiB
 headroom refusal apply to the default instance. The later
@@ -56,8 +58,10 @@ then fails: the repository upgrades four frozen base packages and APK's trigger
 launcher exits127. Both owned containers are deleted and VM shutdown passes;
 no lock or full build is qualified. Astra/primary-source review identifies
 separate package-drift and closed-stdin leads. Matching APK candidates are
-retained but signatures and causal stdio A/B remain unverified. Next: exact
-input authentication and bounded diagnostics before any recipe repair.
+retained but signatures and causal stdio A/B remain unverified. The
+[exact diagnostic admission](tasks/T10.010.004-apk-diagnostic.md) is prepared;
+syntax and invalid-token pre-launch refusal pass. Next: actual input
+authentication and causal control before any recipe repair.
 No personal RAM adjustment/restart, game/DB service or progress write occurs.
 
 Pre-merge maintenance: lint/CI checkpoint `86e98d9` is verified. At the user's
