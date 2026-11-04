@@ -31,7 +31,7 @@ FULL MODERN / RENEWAL PERSONAL GAME
 |   [x] Live DB metadata / clean shutdown [ROOT VERIFIED; FK-AWARE]
 |   [x] Complete DB discovery [ROOT VERIFIED; ROW SEMANTICS OPEN]
 |   [ ] Full definitions/counts + supported B0 [DESIGN; TWO EXTRA CLAUSES OPEN]
-|   [ ] Same-PID restore launch gate [BOTH REVIEWED; REPAIR REQUIRED]
+|   [ ] Same-PID restore launch gate [CLAUDE REPAIR ASSIGNED; CONTROLS OPEN]
 |   [ ] Isolated DB backup/restore -> integrated rendering/item A/B
 |   [ ] Binary/mod/text gate [SOURCE INTEGRATED; RUNTIME OPEN]
 |   [ ] Real EXP/callback/save [ANALYSIS INTEGRATED; RUNTIME OPEN]
@@ -85,10 +85,12 @@ Backup transitive source is now authenticated across16 files; runtime must
 prove the no-switch route. Native kqueue/raw-wait feasibility now passes seven
 Root-run direct-fake cases; full launch integration remains open.
 Root chooses Claude original as the launch repair basis; the complete repair
-contract passes independent source design review and awaits implementation.
+contract passes independent source design review; candidate2 source repair is
+accepted on the preserved task lane. Root verification remains open.
 The timestamp repair's contract/packet pass independent design review. Claude's first repair passes
 163 Root-run controls and actual catalog admission with clauses preserved;
-Grok's report and paired selection remain pending. Independent capture and
+Grok's first delivery is frozen with34 unrun controls; equal Root verification
+and paired selection remain pending. Independent capture and
 actual backup/restore remain open. See the
 [compatibility result](reviews/2026-11-05-T10.010.004-timestamp-oracle-root.md).
 See the [qualified capture](reviews/2026-11-05-T10.010.004-db-discovery-root.md#candidate8-actual-native-dump-profile-and-settled-preservation-qualified).

@@ -97,7 +97,9 @@ stays ECHILD and nonzero/signal status is preserved. Full launch repair and
 its controls remain open. Claude original is now chosen as the repair basis
 for its correct spawn/configuration sequence and smaller gate. The full
 [repair contract](reviews/2026-11-05-T10.010.004-db-launch-repair-brief.md)
-passes independent source design review; repaired implementation is next.
+passes independent source design review. Claude candidate2 source repair is
+accepted ready as ctx_21c8ca4ea41c/task_c108a48751f4 on the preserved task
+lane; implementation and Root controls remain pending.
 Both original scores remain fixed. One raced Grok wrap-up
 follow-up fails readiness; the original source task remains delivered and no
 restart/terminal-exit assumption follows. See the
@@ -107,8 +109,10 @@ The original oracle rejects two actual timestamp EXTRA clauses. Claude's
 first repair now passes Root's34 original oracle,51 original codec,49 supplier
 and29 independent controls (163total). The authenticated73-table/844-column
 actual catalog admits without dropping clauses or changing bytes. Exact diff,
-compilation and lint pass. No actual rows or backup are parsed. Grok's delivery
-and paired selection remain pending; the selected oracle is not yet replaced.
+compilation and lint pass. No actual rows or backup are parsed. Grok now
+delivers four frozen source files with34 authored/unrun controls; its equal
+Root verification and paired selection are next. The selected oracle is not
+yet replaced.
 Independent full definitions/counts and supported B0 remain absent. See the
 [compatibility result](reviews/2026-11-05-T10.010.004-timestamp-oracle-root.md).
 
@@ -123,9 +127,13 @@ and common five-file pure packet pass independent source design review;
 Claude ctx_610aa37c9b67/task_106e34086ecb and Grok
 ctx_85a8a53c4d6b/task_c42600ade6c1 are now accepted ready on separate clean
 same-base branches with the identical prompt. Claude's first delivery/Root
-checks are qualified as above; Grok's explicit report and paired source
-selection remain pending. Root awaits explicit report wakes; no runtime
-admission or audit closure follows from dispatch.
+checks are qualified as above; Grok's first delivery is now frozen, with source
+review queued and equal Root checks/paired selection pending. Root awaits the
+separate launcher-repair report; no runtime admission or audit closure follows
+from source delivery.
+Claude's completed timestamp terminal is released with its transcript/source
+branch preserved. Grok's source lane is retained through verification;
+unproven older resources remain untouched.
 
 Root owns all runtime work. Refresh the exact owned VM/world/resources and
 personal projections before startup. Supported ordinary up can initialize/write
