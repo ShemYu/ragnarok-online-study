@@ -21,67 +21,49 @@ ledger remains **4/14 checkpoints qualified**: one accepted and three ready
 for user review, with **82 resource gaps open**. These are separate ledgers,
 not percentages of playable content, translation or remaining effort.
 
-## Current action — managed client, then ordinary items
+## Current action — client qualified; integrated items next
 
-**Actual process and generated-mount startup readbacks pass Root verification.**
-After admission43dba540 is committed/pushed, initialized restart85017 exits0:
-supported up0/11.944s, five exact-image services and1265 registered maps. Complete
-API capture proves map executable/cwd, UID/GID1000 and both binary hashes;
-all17 generated conf/NPC/Kafra files are read with matching bytes as the game
-user. Exact existing volume/network/images are retained. Five ordered TERM/
-exited0 checks precede down0/0.864s; the VM is stopped. See
-[Root's qualified result](reviews/2026-11-04-T10.010.004-root.md#initialized-process-and-mounts-personally-qualified).
+**Root qualifies managed client identity, static HTTP and graceful owned stop.**
+After admission17621f39 is committed/pushed, the Node probe exits0 in730ms:
+authenticated readiness, six complete HTTP200 responses, four exact static
+file matches, effective256MiB/5000-entry cache and one-GRF index. The owned
+child exits0 without a signal, owner record is removed and all six isolated
+ports are free. The game VM stays exactly stopped. All2084 protected inputs,
+all1107 existing world files and five personal projections remain unchanged;
+only0600 secret/log files are added. See
+[Root's qualified result](reviews/2026-11-04-T10.010.004-root.md#managed-client-protocol-static-and-owned-stop-personally-qualified).
 
-Root independently replays nine resource files, service projection/three
-negative controls, both strict raw API captures/terminal execs and shutdown
-request/log joins. All1978 protected inputs and88 terminal files remain unchanged.
-The1107-file world has no additions/deletions;18 admitted generated files change
-stat only, with all content unchanged. Fresh current stopped/personal checks
-pass. Registration and reads do not qualify saved DB content or full-world
-functionality. Four map/one character startup errors remain to classify;
-all-NPC/parser acceptance, rendering, items, probe purity and saves stay open.
+The original Python3.9 wrapper exits1 in post-response validation because it
+uses unsupported zip(strict=True). Its refusal stays fixed. Root's separate
+compatible qualifier exits0, independently replaying all six raw body/hash/
+header joins, current static bytes, identity fingerprint, cache and current
+preservation; all25 terminal files remain unchanged. No client relaunch is
+needed. The earlier macOS environment refusal and narrow normalization are
+preserved. These are scoped client checks, not rendering/game/item/save proof.
 
-**Current client probe refuses before launch.** After admission38289295 is
-pushed, actual69031 exits1 at the exact parent-environment guard in68ms:
-native macOS Node adds only `__CF_USER_TEXT_ENCODING`; all six supplied values
-match. No helper/client starts or HTTP GET occurs. Root proves all1107 world
-files exactly unchanged and2071 protected inputs/stopped VM/personal checks
-pass. Refusal4d775e71 and source correction9e98c111 are pushed. Root/Astra
-clear the narrow normalization before the exact six-key/value comparison.
-Fresh preparation77277 and current admission95103 exit0:2084 protected files,
-1107 unchanged world files, stopped VM and personal projections match. Pure
-phase differential confirms unchanged policy/environment/GET expectations.
-Commit this admission before one launch; no new client or game-goal change.
-Actual managed identity/readiness, allowed writes, effective cache limits,
-static routing and owned stop still require verification. See
-[fresh prepared admission](reviews/2026-11-04-T10.010.004-root.md#normalized-client-fresh-prepared-admission).
-Start with the bounded host-only protocol/static check while the VM remains
-off, then integrate the owned client with the same disposable game for rendering
-and ordinary-item A/B. Do not infer gameplay from HTTP health. Preserve Chinese
-inputs, existing DB/network,4GiB/CPU2 limits and all personal state; internet stays
-connected. See [client preparation](reviews/2026-11-04-T10.010.004-root.md#managed-client-source-plan-and-node-import).
+**Next:** checkpoint this result, then design/admit the integrated disposable
+run. Qualify a supported DB-only backup/restore and complete semantic readback
+before ordinary-item mutations. Use the same owned VM/world/client, refreshed
+1109-file world baseline, existing Chinese assets and bounded resources. Then
+verify isolated browser rendering, fixture parsing/200 rows, effective items,
+ordinary A/B, capacity-probe purity and saves. Keep personal state untouched
+and the Mac online. Five startup diagnostics still
+need Root's source classification and any justified follow-up; no all-NPC
+acceptance follows from startup. No verified finding requires a goal change.
 
-Completed prerequisites stay in dated evidence:
-
-- [Full artifacts](reviews/2026-11-04-T10.010.004-root.md#compiler6-full-artifacts-personally-qualified),
-  [images/original loaders](reviews/2026-11-04-T10.010.004-root.md#image-pair-and-original-loaders-personally-qualified),
-  [host assets/Chinese bytes](reviews/2026-11-04-T10.010.004-root.md#ordinary-host-assets-linked-and-personally-read-back)
-  and [four diagnostic bind/user reads](reviews/2026-11-04-T10.010.004-root.md#read-only-user-mount-diagnostic-personally-qualified)
-  pass their scoped Root checks. None proves gameplay/persistence.
-- [Ordinary fixtures](reviews/2026-11-04-T10.010.004-root.md#ordinary-fixture-comparison-closed-claude-selected)
-  are source-selected/integrated; actual parsing/200-row capture, effective items,
-  ordinary A/B, capacity-probe purity and saves remain open. Settled suppliers
-  are released; branches retained.
-- Earlier OOM/report/DB-cwd refusals and incomplete CLI output are preserved.
-  The bounded Engine capture restores the missing readbacks without relaxing
-  assertions. No verified finding requires changing the goal.
+Completed startup/build/asset prerequisites and comparisons stay in the
+[dated Root record](reviews/2026-11-04-T10.010.004-root.md). Actual unpatched
+process/cwd/UID/GID/binary and17 generated-mount reads are qualified; the
+patched image still needs its corresponding actual A/B run. Existing DB/network
+remain retained. Settled suppliers are released with branches preserved.
 
 ## Four audit tasks remain open
 
 - **T10.010.004 — full binaries and ordinary items.** Both full artifacts and
   their exact dependency closure, immutable images and original-library loaders
-  pass Root's fresh offline replay. Process/generated-mount readbacks are also
-  qualified. Admit the managed client, then verify ordinary stack/new-slot,
+  pass Root's fresh offline replay. Process/generated-mount and managed-client
+  protocol/static/owned-stop checks are qualified. Qualify isolated backup/
+  restore and integrated client/game, then verify ordinary stack/new-slot,
   weight/full-bag, equipment/rental/GUID and save/re-entry behavior. The capacity
   probe must remain read-only. Use the [ordinary-item runbook](runbooks/T10.010.004-ordinary-item-verification.md)
   and [image source readiness](reviews/2026-11-04-T10.010.004-image-source.md).

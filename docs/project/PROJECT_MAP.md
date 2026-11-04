@@ -3,7 +3,8 @@
 Updated: 2026-11-05 JST. **Seven-task execution active.**
 All three prerequisite source/tooling tasks are integrated. Both full binary
 artifacts, immutable images and original-library loaders pass Root's replay;
-process/mount readbacks are qualified; managed client and ordinary items are next.
+process/mount and managed-client protocol/static checks are qualified;
+integrated rendering and ordinary items are next.
 Release-gate and reward/save source are integrated. See
 [the detailed next actions](NEXT_ACTIONS.md) and [audit](reviews/2026-10-29-T00.005.md).
 
@@ -18,13 +19,14 @@ FULL MODERN / RENEWAL PERSONAL GAME
 +-- Story lane [AFTER SOURCE/BUILD RECIPE]
 |   Exact 0.3.2 source is qualified; native runtime work remains:
 |   [x] Owned build VM / exact source / authenticated47-package closure
-|   [x] Both full binary artifacts [ROOT REPLAY PASSED; STARTUP OPEN]
+|   [x] Both full binary artifacts [ROOT REPLAY; PATCHED STARTUP OPEN]
 |   [x] Host asset assembly / selected Chinese files [BYTES VERIFIED]
 |   [x] Immutable images / original-library loader checks [ROOT VERIFIED]
 |   [x] Read-only bind/user diagnostic [FOUR EXACT READS VERIFIED]
 |   [ ] Ordinary-item NPC fixtures [CLAUDE SOURCE SELECTED; PARSER OPEN]
 |   [x] Startup process/mount readbacks [ROOT VERIFIED; PARSER OPEN]
-|   [ ] Managed client/protocol/static -> integrated rendering/item A/B
+|   [x] Managed client identity/static/owned stop [ROOT VERIFIED]
+|   [ ] Isolated DB backup/restore -> integrated rendering/item A/B
 |   [ ] Binary/mod/text gate [SOURCE INTEGRATED; RUNTIME OPEN]
 |   [ ] Real EXP/callback/save [ANALYSIS INTEGRATED; RUNTIME OPEN]
 |   [ ] Isolated native parser / actors / quest states / rewards
@@ -62,31 +64,30 @@ protected files unchanged. Both owned containers are deleted/404 and personal
 projections remain unchanged. The corrected report is complete; both binary
 hashes equal the previous compiled pair. Historical OOM/refused runs stay fixed.
 
-Initialized startup readbacks now pass Root: supported up0/11.944s with five
-admitted images/1265-map registration, complete map process cwd/UID/GID/binary
-and17 generated-file reads. Fresh replay checks nine resource files, projections/
-three controls, both strict API captures and ordered TERM/exited0; down0 stops
-the VM. All1978 protected and88 terminal files/personal projections remain
-unchanged. Eighteen generated changes are stat-only; no host content changes.
-Five startup errors remain unclassified. Managed-client controller source and
-current read-only admission pass. First probe refuses before launch on one
-macOS-injected environment key; all world/VM/personal inputs are unchanged.
-The narrow normalization and fresh2084-input admission pass; checkpoint before
-one fresh probe, then integrated rendering and ordinary items. Neither
-registration nor reads qualify full-world/parser/play/save acceptance. See
-[Root's result](reviews/2026-11-04-T10.010.004-root.md#initialized-process-and-mounts-personally-qualified).
+Initialized startup process/mount readbacks pass Root, with five admitted
+images/1265-map registration and complete executable/UID/GID/17-file reads.
+Managed client now passes six HTTP/body checks, four static byte matches,
+effective256MiB/5000-entry cache and graceful owned exit in730ms. Root's
+independent compatible replay passes after the original Python3.9 wrapper's
+post-check refusal. All2084 protected inputs/1107 existing world files and
+personal projections remain unchanged; only two0600 private client outputs
+are added. VM stays stopped, six isolated ports free. Next isolate supported
+DB backup/restore and integrated rendering/item A/B. Five startup diagnostics
+still need Root classification; no all-NPC/item/save/full-world acceptance.
+See [Root's result](reviews/2026-11-04-T10.010.004-root.md#managed-client-protocol-static-and-owned-stop-personally-qualified).
 
 Both ordinary-fixture candidates pass Root's source review after the equal
 budget correction. Claude fbf1fcc6 is selected as four exact blobs for simpler
 control flow and guard margin. Both settled workers are released, branches
 retained. Real parsing,200-row completion/capture, effective items, probe purity
-and persistence are still open. Managed client/integrated rendering admission
+and persistence are still open. Integrated client/game/rendering admission
 remains open; fresh host state does not isolate the Engine's fixed DB
 volume or container names. Final app up can prune unused untagged images even
 without a bundle. See the [current result](reviews/2026-11-04-T10.010.004-root.md#image-pair-and-original-loaders-personally-qualified).
 Fresh host assets are now linked/read back:59 generated files, selected Chinese
-layers/config and1265-file preservation pass. Asset-server/browser protocol and
-actual world startup remain open; generated files alone are not rendering proof.
+layers/config and1265-file preservation pass. Managed asset protocol/static
+and startup process/mount reads are qualified; integrated browser rendering
+remains open.
 
 Release-gate source and reward/save analysis are integrated within their
 recorded limits. Their actual runtime pins and native/game/save gates remain
