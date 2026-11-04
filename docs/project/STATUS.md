@@ -67,7 +67,8 @@ Claude has submitted f5342ebf; Root's69 tests pass with638 tracked files
 unchanged. Root's independent coherent-export controls expose a missing
 APK-bytes/installed-control-identity join. The
 [same correction](tasks/T10.010.004-dependency-repair-2.md) is frozen for both
-suppliers; selection and real closure replay remain open.
+suppliers. Claude follow-up is ready and the identical body is queued to
+Grok's active worker; selection and real closure replay remain open.
 The [EXP/callback/save analysis brief](tasks/T10.010.006.md) freezes the freshly
 reverified source and explicitly unknown effective EXP facts. Both Claude/Grok
 analysis workers are now ready from the samed1993ac base, parallel to .004.

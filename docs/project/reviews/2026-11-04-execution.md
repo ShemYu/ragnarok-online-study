@@ -576,3 +576,22 @@ installed-state, runtime or new implementation framework. This advances
 [.006 analysis](../tasks/T10.010.006.md) while .004 remains on the build path.
 Root will verify the analyses before selecting a usable runbook; actual
 EXP/callback/save/restart/interruption acceptance is still open.
+
+
+## Equal APK identity correction delivered
+
+Root's two coherent-export controls expose a missing retained-byte/installed
+identity join in Claude f5342ebf, despite its69-test pass. Both controls and
+the exact pinned APK3 primary-source metadata semantics are recorded in
+[the same bounded clarification](../tasks/T10.010.004-dependency-repair-2.md).
+Only the original recipe/report paths may change; real APK/Engine/compiler
+actions remain forbidden to workers. No recipe or closure is yet qualified.
+
+Claude's settled candidate receives a ready follow-up ctx_fba5e8f70562 on its
+existing owned terminal; Grok's active ctx_e9de1ec344a3 receives the same body
+as msg_ced5e8a4d63a. The receipt proves delivery/queueing, not completion.
+Private DISPATCH_ROOT.json SHA-256:
+`50f01cb6d165aca4bcfa4dcaf709600a9d8089a04dbc15ff3419eaf50c661109`.
+The first normal push of clarificatione7a4405 returns GitHub Internal Server
+Error; Root keeps the local committed evidence and retries normal publication
+after this receipt checkpoint. No rule/config or force-push change is made.
