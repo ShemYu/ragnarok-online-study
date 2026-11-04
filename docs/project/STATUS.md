@@ -21,7 +21,7 @@ ledger remains **4/14 checkpoints qualified**: one accepted and three ready
 for user review, with **82 resource gaps open**. These are separate ledgers,
 not percentages of playable content, translation or remaining effort.
 
-## Current action — qualify images and isolated startup
+## Current action — isolated startup and ordinary items
 
 **Both full server artifacts now pass Root's offline qualification.** After
 admission9f8c2bed is committed/pushed, compiler6 exits0/no timeout in844.4s.
@@ -35,22 +35,25 @@ are deleted/404, VM shutdown exits0, current stopped ownership passes and
 personal five-service projections remain byte-identical. See
 [actual qualification](reviews/2026-11-04-T10.010.004-root.md#compiler6-full-artifacts-personally-qualified).
 
-**Next:** prepare/review a separate immutable-image phase, verify each binary
-against the original image's libraries, read it back at the actual supported
-launch path and start the disposable world. The app selects
-/rathena/map-server for Renewal/packet20221005. The test-only suffixed paths
-would leave normal startup using stock code. Bind that literal for both image
-context and import checks; preserve owned A/B tags and admit normal up's
-unused-untagged-image pruning. No image construction, server/parser/game/SQL,
-probe purity or save result is qualified yet. See
-[normal launch binding](reviews/2026-11-04-T10.010.004-image-source.md#normal-renewal-launch-target-source-qualified).
-After source checkpoint81248bb4 is committed/pushed, the new image phase is
-prepared. Root verifies477 pins/six payloads, both exact two-member contexts,
-four-member loader uploads/current library/base26, original resource payload,
-fixed limits and current stopped binding. Independent Astra file review agrees;
-all execution markers are absent. Commit this admission before its one serial
-run. No image or actual loader result exists yet. See
-[prepared admission](reviews/2026-11-04-T10.010.004-root.md#image-pair-prepared-admission).
+**Both immutable images and original-library loaders now pass Root verification.**
+After admission1f79acf4 is committed/pushed, the one image run exits0. Both
+images contain the exact qualified binary at the supported /rathena/map-server
+path, retain base Config/layer inheritance and resolve all five required
+libraries against the unchanged original26 packages. Root's fresh offline
+replay reproduces nine resource and14 files per loader; all93 terminal evidence
+files are pinned and558 protected files remain unchanged. Five owned containers
+are deleted/404, the VM is stopped and personal projections remain identical.
+Whole-layer entry inspection and actual server/parser/game/SQL/probe-purity/save
+results remain unqualified. See
+[image qualification](reviews/2026-11-04-T10.010.004-root.md#image-pair-and-original-loaders-personally-qualified).
+
+**Next:** admit supported startup in the disposable world using its own state
+and the owned Engine. Fresh host state alone does not isolate an Engine's fixed
+container names or DB volume. Verify their absence, images, mounts, six ports,
+exact environment and graceful shutdown before initialization. Keep the4GiB/
+CPU2 ceiling; actual game fit is unproved. Require positive map registration
+and actual process/image/binary identity, then managed client and ordinary-item
+A/B checks. A successful up/Ready label alone cannot qualify startup.
 
 Host assembly is also verified in fresh owned state, after source/input
 checkpoint57ae52be is committed/pushed: supported link-assets exits0/2.004s,
@@ -77,9 +80,9 @@ been reduced and no verified finding forces a goal change.
 ## Four audit tasks remain open
 
 - **T10.010.004 — full binaries and ordinary items.** Both full artifacts and
-  their exact dependency closure pass Root's fresh offline replay. Build/read
-  back immutable images, verify original libraries and supported launch, then
-  start in isolated state and verify ordinary stack/new-slot,
+  their exact dependency closure, immutable images and original-library loaders
+  pass Root's fresh offline replay. Admit supported isolated service/client
+  startup, then verify ordinary stack/new-slot,
   weight/full-bag, equipment/rental/GUID and save/re-entry behavior. The capacity
   probe must remain read-only. Use the [ordinary-item runbook](runbooks/T10.010.004-ordinary-item-verification.md)
   and [image source readiness](reviews/2026-11-04-T10.010.004-image-source.md).

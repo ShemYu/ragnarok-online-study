@@ -1,6 +1,11 @@
 # Seven-task execution — 2026-11-04
 
-## Current dependency challenge
+Current checkpoint: [both immutable images and original-library loaders pass
+Root qualification](2026-11-04-T10.010.004-root.md#image-pair-and-original-loaders-personally-qualified).
+Supported isolated startup and ordinary-item verification are next. Three of
+seven audit tasks remain closed; the entries below retain historical scope.
+
+## Historical dependency challenge
 
 The actual second phase passes Engine readiness on GET2 and the fresh resource
 probe, then executes the selected dependency plan once. It selects four base
@@ -65,7 +70,7 @@ main `c6314bbd85caa01f54fdcc38d62168e101e2c5a4`. The earlier rejection records
 are historical; no force/rule change was needed. Subsequent checkpoints must
 still be pushed and verified before claiming current synchronization.
 
-## Latest actual runtime result
+## Earlier build-VM characterization
 
 [Separate build-only VM characterization passes](2026-11-04-T10.010.004-root.md#actual-build-only-vm-characterization-passes)
 after revised admission `dddc41d`. Root reads both execution records, rechecks
@@ -1214,3 +1219,17 @@ exact contexts, loader template/upload identities, original resource payload,
 policy/limits, current stopped ownership/host resources and unused markers.
 Independent Astra file review agrees. Commit the [prepared admission](2026-11-04-T10.010.004-root.md#image-pair-prepared-admission)
 before one serial actual run. No image/library/probe/game result exists yet.
+
+
+Admission1f79acf4 is committed/pushed before actual image exec82023 exits0.
+Both immutable images pass supported /rathena/map-server binary readback,
+base inheritance and bounded original-image musl loader checks with all26
+packages/raw database unchanged. Root repairs two source-review evidence joins
+before executing the offline qualifier; no image/token retry occurs. Fresh
+exec99031 exits0/3.860s, reproducing nine resource/14 files per loader with93
+terminal evidence pins and558 unchanged protected files. All five owned
+containers are deleted/404, VM shutdown/current stopped ownership pass and
+personal projections remain identical. See [Root image qualification](2026-11-04-T10.010.004-root.md#image-pair-and-original-loaders-personally-qualified).
+Commit this checkpoint before supported isolated startup. Game/server/parser,
+managed client/rendering, ordinary items, probe purity and saves remain open;
+3/7 audit-task closure and all four runtime tasks are unchanged.
