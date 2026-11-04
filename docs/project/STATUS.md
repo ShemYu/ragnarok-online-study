@@ -37,8 +37,11 @@ expects full name=version order. The candidate matches the frozen delta when
 complete tuples are sorted. Keep the exact comparison and repair its producer.
 The [equal source brief](tasks/T10.010.004-installed-order.md) freezes the real
 packet, prefix-pair/empty/refusal tests and fail-closed stage-status requirements.
-Claude/Grok workers are started from the same a6103005 base, confirmed in both
-checkouts. Root owns comparison/verification and the next fresh runtime phase.
+Both workers start from the same confirmed a6103005 base. Claude17c8a233 now
+passes Root's isolated97 tests with no skips, all1388 protected files unchanged,
+and7 independent producer controls. Source review finds no blocker; Grok's
+result is pending. The settled Claude terminal is released with branch retained.
+Root comparison/selection and the next fresh runtime phase remain open.
 See [actual result and limits](reviews/2026-11-04-T10.010.004-root.md#actual-offline-install-passes-final-ordering-gate-fails).
 
 Both containers are deleted/404, the owned VM is stopped again, and personal
@@ -47,7 +50,9 @@ Phase3 is consumed/failed; phase2 remains retired without runtime. Neither may
 be reset or reused. Review PHASE/pins directly; admitted_phase consumes its
 one-use marker and belongs only in run. After Root selects/verifies the repair,
 rebind fresh wrapper/source pins and admit a new normal successful closure.
-Compiler drafts still require that future qualified closure before preparation.
+The compiler v3 draft also rechecks checksums before its execution-time
+dependency reader after an Astra finding; Root's7 source/model controls pass.
+It still requires future qualified closure/source bindings before preparation.
 No closure/full build is qualified; no goal change is required.
 
 Renew stopped VM ownership/resources before runtime; old IDs, consumed

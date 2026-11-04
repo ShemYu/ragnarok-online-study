@@ -961,3 +961,18 @@ the same a6103005 initial HEAD in both checkouts. They receive the same frozen
 nine-file packet/spec and retain the91-case private-input suite. Root keeps
 runtime serial; candidate reports still need personal comparison/verification.
 The private compiler v2 draft remains unqualified and must reject failed phase3.
+
+Claude ordering candidate17c8a233 passes Root's isolated97-test suite with all
+private selections,0skips and1388 protected files unchanged. Seven independent
+producer controls pass, including actual47 tuples and failed comm/sort. Both
+scripts/lint/diff checks pass; independent review finds no blocker. Its settled
+terminal is released with branch preserved; Grok remains live for comparison.
+No source integration or fresh runtime admission occurs yet. See [candidate
+verification](2026-11-04-T10.010.004-root.md#ordering-candidate-personally-verified-comparison-pending).
+
+Astra finds an unused compiler-v2 draft evidence-drift gap. A separate v3 adds
+the checksum recheck before execution-time dependency/state use. Root's7 scoped
+source/model checks reproduce/refuse the changed-key pair and confirm unset
+bindings prevent helper imports/preparation. Future closure/source bindings
+remain unqualified; no compiler plan/admission/runtime is claimed. See [draft
+correction and limits](2026-11-04-T10.010.004-root.md#compiler-draft-evidence-drift-guard-corrected).
