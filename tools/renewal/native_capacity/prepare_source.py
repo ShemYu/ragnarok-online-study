@@ -133,13 +133,22 @@ def export(bare, sha, dest):
 # ---------------------------------------------------------------- digest
 def tree_listing(root):
     rows = []
+    root = Path(root)
+    if root.is_symlink() or not root.is_dir():
+        raise PrepError(f"{root} is not a real directory")
     for dirpath, dirnames, filenames in os.walk(root):
+        for d in dirnames:
+            if (Path(dirpath) / d).is_symlink():
+                # os.walk does not descend into it, so it would otherwise go unseen
+                raise PrepError(f"unexpected directory symlink {(Path(dirpath) / d).relative_to(root).as_posix()}")
         dirnames.sort()
         for fn in filenames:
             p = Path(dirpath) / fn
             rel = p.relative_to(root).as_posix()
             if p.is_symlink():
                 raise PrepError(f"unexpected symlink {rel}")
+            if not p.is_file():
+                raise PrepError(f"unexpected non-regular entry {rel}")
             data = p.read_bytes()
             ex = "755" if os.stat(p).st_mode & 0o100 else "644"
             rows.append((rel, ex, hashlib.sha256(data).hexdigest(), len(data)))
@@ -316,6 +325,8 @@ def prepare(cache, out, manifest, engine, allow_unpinned=False, pins=None):
             raise PrepError(f"prepared tree digest {got} != pinned {expected}")
         base = {r[0]: r[2] for r in base_rows}
         now = {r[0]: r[2] for r in rows}
+        fp = footprint(base, now)
+        check_footprint(manifest, fp, allow_unpinned)
         record = {
             "schema": "t10.010.003/prepared/v1",
             "identity": ident,
@@ -325,6 +336,7 @@ def prepare(cache, out, manifest, engine, allow_unpinned=False, pins=None):
             "prepared_tree_sha256": got,
             "manifest_sha256": hashlib.sha256(json.dumps(manifest, sort_keys=True).encode()).hexdigest(),
             "nine_pins_ok": npins,
+            "footprint_paths": fp,
             "footprint": {
                 "added": sorted(set(now) - set(base)),
                 "modified": sorted(k for k in set(now) & set(base) if now[k] != base[k]),
@@ -340,11 +352,46 @@ def prepare(cache, out, manifest, engine, allow_unpinned=False, pins=None):
         raise
 
 
+def footprint(base, now):
+    """Every path the overlays add, modify or remove, with its prepared bytes' sha256."""
+    fp = {k: {"change": "added", "sha256": now[k]} for k in set(now) - set(base)}
+    fp.update({k: {"change": "modified", "sha256": now[k]} for k in set(now) & set(base) if now[k] != base[k]})
+    fp.update({k: {"change": "removed", "sha256": None} for k in set(base) - set(now)})
+    return dict(sorted(fp.items()))
+
+
+def check_footprint(manifest, fp, allow_unpinned=False):
+    name = manifest.get("footprint_file")
+    if not name:
+        if allow_unpinned:
+            return
+        raise PrepError("manifest pins no footprint_file")
+    path = Path(name) if Path(name).is_absolute() else HERE / name
+    if not path.is_file():
+        if allow_unpinned:
+            return
+        raise PrepError(f"footprint file {name} missing")
+    pinned = json.loads(path.read_text())["paths"]
+    diff = sorted(set(pinned) ^ set(fp)) + sorted(k for k in set(pinned) & set(fp) if pinned[k] != fp[k])
+    if diff:
+        raise PrepError(f"overlay footprint differs from {name} at {len(diff)} path(s): {diff[:10]}")
+
+
+def reconcile(a, b, ignore_suffixes=(".orig",)):
+    """Path-by-path comparison of two independently prepared source trees."""
+    la = {r[0]: r[1:3] for r in tree_listing(a)}
+    lb = {r[0]: r[1:3] for r in tree_listing(b) if not r[0].endswith(ignore_suffixes)}
+    return {"only_a": sorted(set(la) - set(lb)), "only_b": sorted(set(lb) - set(la)),
+            "differ": sorted(k for k in set(la) & set(lb) if la[k] != lb[k]), "files_a": len(la), "files_b": len(lb)}
+
+
 def verify(out, manifest, pins=None):
     out = out.resolve()
     left = leftover_staging(out)
     if left:
         raise PrepError(f"partial preparation present: {left}")
+    if out.is_symlink() or (out / "source").is_symlink() or (out / MARKER).is_symlink():
+        raise PrepError(f"{out}: symlinked output entry")
     marker = out / MARKER
     if not marker.is_file():
         raise PrepError(f"{out}: no {MARKER}; partial or foreign directory")
@@ -379,7 +426,7 @@ def reference(cache, out, manifest):
     if rc:
         raise PrepError(f"reference apply-server-mods.sh rc={rc}: {log[-800:]}")
     shutil.copyfile(app / "containers/rathena/Dockerfile", tree / "Dockerfile.ragnarokmac")
-    shutil.rmtree(app)
+    shutil.rmtree(app)  # the reference tree stays at <out>/source for `reconcile`
     side = sorted(p.relative_to(tree).as_posix() for p in tree.rglob("*") if p.suffix in (".orig", ".rej"))
     rows = [r for r in tree_listing(tree) if not r[0].endswith((".orig", ".rej"))]
     return {"digest_without_side_files": digest(rows), "files": len(rows), "side_files": side,
@@ -388,7 +435,8 @@ def reference(cache, out, manifest):
 
 def main(argv=None):
     ap = argparse.ArgumentParser()
-    ap.add_argument("cmd", choices=("fetch", "prepare", "verify", "reference"))
+    ap.add_argument("cmd", choices=("fetch", "prepare", "verify", "reference", "reconcile", "footprint"))
+    ap.add_argument("--against", type=Path, help="reconcile: independently prepared directory with source/")
     ap.add_argument("--cache", type=Path)
     ap.add_argument("--out", type=Path)
     ap.add_argument("--manifest", type=Path, default=MANIFEST)
@@ -402,13 +450,23 @@ def main(argv=None):
             res = fetch(a.cache.resolve(), m)
         elif a.cmd == "prepare":
             res = prepare(a.cache.resolve(), a.out, m, a.patch_engine, a.allow_unpinned_digest)
-            res = {k: v for k, v in res.items() if k not in ("steps", "footprint")} | {
+            res = {k: v for k, v in res.items() if k not in ("steps", "footprint", "footprint_paths")} | {
                 "added": len(res["footprint"]["added"]), "modified": len(res["footprint"]["modified"]),
                 "removed": len(res["footprint"]["removed"])}
         elif a.cmd == "verify":
             res = verify(a.out, m)
-        else:
+        elif a.cmd == "reference":
             res = reference(a.cache.resolve(), a.out, m)
+        elif a.cmd == "reconcile":
+            res = reconcile(a.out / "source", a.against / "source")
+            if res["only_a"] or res["only_b"] or res["differ"]:
+                print("FAIL", json.dumps(res, sort_keys=True))
+                return 1
+        else:  # footprint: print the per-path footprint of a verified output
+            verify(a.out, m)
+            res = json.loads((a.out / MARKER).read_text())["footprint_paths"]
+            print(json.dumps({"schema": "t10.010.003/footprint/v1", "paths": res}, indent=1, sort_keys=True))
+            return 0
     except (PrepError, OSError, subprocess.TimeoutExpired) as e:
         print("FAIL", e)
         return 1

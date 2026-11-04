@@ -12,6 +12,7 @@ run separately through the CLI (see the T10.010.003 review).
 
 import copy
 import hashlib
+import json
 import os
 from pathlib import Path
 import shutil
@@ -128,6 +129,9 @@ class Fixture:
         rec = ps.prepare(self.cache, self.tmp / "disc", self.manifest, engine, allow_unpinned=True, pins={})
         shutil.rmtree(self.tmp / "disc")
         self.manifest["prepared_tree"]["sha256"] = rec["prepared_tree_sha256"]
+        fp = self.tmp / "footprint.json"
+        fp.write_text(json.dumps({"paths": rec["footprint_paths"]}))
+        self.manifest["footprint_file"] = str(fp)
         return rec
 
     def close(self):
@@ -243,6 +247,43 @@ class PrepareTests(unittest.TestCase):
         self.assertFails(lambda: ps.verify(self.f.out, self.f.manifest, pins=self.f.pins), "unexpected entries")
 
 
+    def test_footprint_pin_mismatch(self):
+        self.f.discover()
+        fp = Path(self.f.manifest["footprint_file"])
+        d = json.loads(fp.read_text())
+        d["paths"]["src/map/new.cpp"]["sha256"] = "8" * 64
+        fp.write_text(json.dumps(d))
+        self.assertFails(lambda: ps.prepare(self.f.cache, self.f.out, self.f.manifest, "patch", pins={}),
+                         "footprint differs")
+        self.assertNoOutput()
+        del self.f.manifest["footprint_file"]
+        self.assertFails(lambda: ps.prepare(self.f.cache, self.f.out, self.f.manifest, "patch", pins={}),
+                         "no footprint_file")
+
+    def test_directory_symlink_rejected(self):
+        self.prepared()
+        outside = self.f.tmp / "outside"
+        outside.mkdir()
+        (outside / "planted.cpp").write_text("x")
+        os.symlink(outside, self.f.out / "source" / "src" / "linked")
+        self.assertFails(lambda: ps.verify(self.f.out, self.f.manifest, pins=self.f.pins), "directory symlink")
+        os.unlink(self.f.out / "source" / "src" / "linked")
+        self.assertEqual(ps.verify(self.f.out, self.f.manifest, pins=self.f.pins)["files"], 7)
+        os.mkfifo(self.f.out / "source" / "fifo")
+        self.assertFails(lambda: ps.verify(self.f.out, self.f.manifest, pins=self.f.pins), "non-regular")
+
+    def test_reconcile_reports_exact_paths(self):
+        self.prepared()
+        other = self.f.tmp / "other"
+        shutil.copytree(self.f.out, other)
+        self.assertEqual(ps.reconcile(self.f.out / "source", other / "source")["differ"], [])
+        (other / "source/src/map/map.cpp").write_text("other\n")
+        (other / "source/extra.orig").write_text("side file\n")
+        (other / "source/conf/x.conf").unlink()
+        r = ps.reconcile(self.f.out / "source", other / "source")
+        self.assertEqual((r["differ"], r["only_a"], r["only_b"]), (["src/map/map.cpp"], ["conf/x.conf"], []))
+
+
 class PatchPolicyTests(unittest.TestCase):
     def run_fixture(self, patches, allow=None, engines=("patch", "git-apply")):
         f = Fixture(patches)
@@ -307,6 +348,12 @@ class RealManifestTests(unittest.TestCase):
         self.assertEqual(m["steps"][2]["expect_patches"], 36)
         self.assertEqual(len(m["steps"][2]["fuzz_allowlist"]), 1)
         self.assertRegex(m["prepared_tree"]["sha256"], r"^[0-9a-f]{64}$")
+        fp = json.loads((HERE / m["footprint_file"]).read_text())["paths"]
+        self.assertEqual(len(fp), 101)
+        self.assertEqual(sum(v["change"] == "added" for v in fp.values()), 72)
+        self.assertEqual(sum(v["change"] == "modified" for v in fp.values()), 29)
+        self.assertEqual(fp["src/map/pc.cpp"]["sha256"] != m["steps"][2]["fuzz_allowlist"][
+            "0001-population-engine-hooks.patch"]["sha256_after"], True)  # later patches also touch pc.cpp
         self.assertEqual(len(ps.load_pins()), 9)
 
 

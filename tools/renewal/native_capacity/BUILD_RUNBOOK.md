@@ -2,295 +2,189 @@
 
 Claude candidate (blinded pair). Base `a06f1037ac6ecf308db6a963e06391ebbf586cbd`,
 brief `docs/project/tasks/T10.010.003.md` (SHA-256 `7bd1791f…a5a3f8`).
-Status: **candidate result, not Root verification**. Source preparation was
-executed and checked on the host. The full build recipe is implemented and
-tested only against a fake Engine. **No compiler container, image or binary
-has been run or produced.**
 
-## Files
+| Revision | Content |
+| --- | --- |
+| `06d6f36` | Initial candidate. Root verified the source reconstruction and did not admit build execution. |
+| repair (this revision) | Fixes Root's P1/lifecycle findings, adds owner checks and closed-tree checks |
+
+**Status: candidate, not Root verification.**
+- Source preparation was executed and checked on the host.
+- The build recipe is implemented and tested only against a **fake** Engine
+  plus host-run guest-library fixtures.
+- **No compiler container, image or binary has been run or produced, and
+  T10.010.003/.004 are not complete.**
+
+## Files (all under `tools/renewal/native_capacity/`)
 
 | Path | Role |
 | --- | --- |
-| `source_manifest.json` | Repository/commit/tree pins, app semantics blob pins, ordered steps, fuzz allowlist and prepared-tree digest |
-| `prepare_source.py` | `fetch` / `prepare` / `verify` / `reference` |
-| `test_prepare_source.py` | 16 focused tests using synthetic `file://` repos, plus a binding check on the real manifest |
-| `build/guest_build.sh` | Guest script: builds unpatched and patched renewal `map-server` in one container with one toolchain |
+| `source_manifest.json` | Repository/commit/tree pins, app semantics blob pins, ordered steps, fuzz allowlist, prepared-tree digest, crash-fixture pin, footprint file |
+| `source_footprint.json` | The 101 overlay paths (72 added, 29 modified, 0 removed), each with its prepared-bytes SHA-256 |
+| `prepare_source.py` | `fetch` / `prepare` / `verify` / `reference` / `reconcile` / `footprint` |
+| `build/guest_build.sh` | Guest main: checks, then dependencies, then unpatched + patched renewal `map-server` |
+| `build/guest_lib.sh` | Guest checks: cgroup, lock, closure, lock candidate, finalize. Sourced by the guest and by host tests |
 | `build_recipe.py` | `plan` / `execute` / `validate-export` / `image-context` / `import-check` |
-| `test_build_recipe.py` | 11 tests against a fake Unix-socket Engine |
+| `test_prepare_source.py`, `test_build_recipe.py` | 19 + 28 focused tests |
 
-## 1. Source identity
+## 1. Source identity and preparation (unchanged result, verified again)
 
-- rAthena `0693b8c69911d5ca42269684aa036b67d67f4d3e`, tree
-  `e7122969bfca08f0dd1dc65e5cc723dcd7411170`, 5049 files (5031 × 100644 and 18 × 100755).
-- **Repository identity finding.** The brief names `rathena/rathena`. The
-  app's own `config/VENDOR_PINS` pins this commit on **`Flux159/rathena`**
-  (branch `ragnarokoffline`). The commit is a fork merge ("Merge pull
-  request #40 from Dizzzlectic/fix/non-critical-random-options", 2026-10-15).
-  `rathena/rathena.git` serves it only because GitHub shares objects across a
-  fork network. `fetch` downloads it from **both** URLs into separate bare
-  caches and requires the same commit and tree (`app_vendor_pin_url: true`).
-  The content is identical, but upstream rAthena does not necessarily contain
-  this commit on any of its branches.
-- App `2c3b2612973fb8d0ae6ad366a2b298686f2404cb`, tree `8cab46745c01bc49d62b5f43b209a88910686151`.
-- Fetching uses `git fetch --depth 1 <url> <sha>` with `transfer.fsckObjects`.
-  Export reproduces `git checkout` (`read-tree` + `checkout-index`, with
-  `core.autocrlf=false`, honouring `.gitattributes` eol rules) and includes
-  no `.git` directory.
+- rAthena `0693b8c69911d5ca42269684aa036b67d67f4d3e` has tree `e7122969…`
+  and 5049 files.
+- The app's `config/VENDOR_PINS` pins it on **`Flux159/rathena`**, while the
+  brief names `rathena/rathena`. `fetch` downloads it from both URLs and
+  requires the same commit and tree.
+- App `2c3b2612973fb8d0ae6ad366a2b298686f2404cb` has tree `8cab4674…`.
+- The ordered steps equal the app's `apply-server-mods.sh` followed by the
+  CI Dockerfile copy:
+  1. crash-trace script
+  2. copy of the 65 population-engine files
+  3. 36 patches
+  4. party-chat hook
+  5. stamp file
+  6. `Dockerfile.ragnarokmac`
 
-## 2. Ordered transforms (= `scripts/apply-server-mods.sh` + CI Dockerfile copy)
+  The blobs of the semantics scripts are pinned.
+- **Fuzz:** exactly one hunk needs it (`0001`, the `pc.cpp` include block;
+  the fork adds `skill_lua.hpp`). It is allowlisted with zero-fuzz-must-fail
+  and a pinned resulting `pc.cpp` SHA-256. Every other patch uses zero fuzz.
+- Rejects, side files, unlisted fuzz and stale allowlists all fail closed.
+- Prepared tree: **5121 files**, digest
+  **`b64e850bd0d0fddbcda1df619d9a2544f27e286301a0e7d69b5f827ea3d40f32`**.
 
-The app's actual build route is the same in `bootstrap.sh` and in
-`.github/workflows/images.yml` (`compile`): `vendor-fetch.sh rathena` →
-`apply-server-mods.sh` → `cp containers/rathena/Dockerfile Dockerfile.ragnarokmac` → build.
-The manifest pins the blobs of `apply-server-mods.sh`, `apply-crash-trace.py`,
-`apply-party-chat-hook.py`, the Dockerfile, `VENDOR_PINS` and `PACKETVERS`.
-Any change to those semantics makes preparation fail.
+### Footprint reconciled against independently prepared bytes (repair)
 
-| # | Step | Effect on tree |
+The "112 payloads" count is no longer used as an oracle. Instead:
+- `prepare` compares its full per-path footprint with `source_footprint.json`
+  (path, change type and SHA-256 for all 101 paths). Any difference fails
+  and names the paths.
+- `reconcile` compares two complete prepared trees path by path
+  (exec bit + SHA-256). The reference side ignores only `.orig` side files.
+
+Executed on 2026-11-04, all against a fresh `prepared2`:
+
+| Compared tree | Result |
+| --- | --- |
+| The app's **own** `apply-server-mods.sh` (`reference`; it leaves 13 `.orig` side files) | 5121 vs 5121 files, `differ` / `only_a` / `only_b` all empty |
+| The earlier independent `prepared` run | identical |
+| A `git apply -C2` engine run | identical |
+
+### Closed tree (repair)
+
+`tree_listing` now rejects:
+- **directory symlinks**, which `os.walk` lists but never descends, so they
+  previously went unseen
+- symlinked files
+- non-regular entries such as FIFOs
+- a symlinked root
+
+`verify` also rejects a symlinked `out`, `out/source` or marker. Focused
+controls: a planted directory symlink and a FIFO each fail `verify`; after
+removal, `verify` passes.
+
+## 2. Build recipe — what the repair changed
+
+| Root finding | Repair | Control |
 | --- | --- | --- |
-| 1 | `apply-crash-trace.py` (the app's own script, run with `python3 -I -X utf8`) | modifies `src/common/core.cpp`; adds `src/common/ragnarok_crash_trace.hpp` and 4 files in `ragnarok-crash-tests/` |
-| 2 | copy `third-party/population-engine/files/**` | +65 files |
-| 3 | 36 patches, byte-sorted, `-p1 --forward` | modifies 28 files |
-| 4 | `apply-party-chat-hook.py` | modifies `src/map/clif.cpp` (already patched in step 3) |
-| 5 | stamp `.ragnarokmac-server-mods` = sha256(cat patches) + `\n` | +1 |
-| 6 | `Dockerfile.ragnarokmac` | +1 (build context) |
+| P1 `logs/steps.log` changed after `SHA256SUMS` | `finalize()` logs `PASS` first, writes sums atomically (`SHA256SUMS.tmp` → mv, excluded from scope), then only `RESULT`, which is checked by value | host `sh` runs the real `finalize` and the exact host `check_sums` passes, with `steps.log` included; an export with a late log line is rejected |
+| P1 cgroup readback read parent leaves; values were not enforced | `check_cgroup` runs **before** any apk/compile and requires all of: exactly `0::/slim/<id>`; id == `CONTAINER_ID` (delivered by a second PUT after create); one mount at `/run/root-cgroup-view` with fstype `cgroup2` and `ro`; `<view>/<id>/{memory.max,memory.swap.max,cpu.max,pids.max}` equal to the plan and positive. `validate-export` re-checks the values and that the id equals the created container ID | pass case; other id, wrong pids, zero memory, rw mount, non-cgroup2, missing mount, only parent leaves, host cgroup and `pids.max=max` all fail closed (the parent `memory.max=max` is never read) |
+| Expected values | Taken from pinned `slim-runtime linux.rs cgroup_setup`: memory.max = Memory; swap = MemorySwap − Memory if larger, else **Memory** (so MemorySwap == Memory would allow swap equal to Memory); cpu.max = `NanoCpus/10000 100000`; pids.max = PidsLimit. The plan sets MemorySwap = Memory + 1 MiB (swap 1 MiB; the backend cannot express 0) and **requests PidsLimit**, which the pinned runtime writes | formula tests |
+| Plan accepted `memory_mib<=0` | Positive bounds: memory 512–6144 MiB, cpus 1–64 and ≤ fresh `--host-cpus`, jobs 1–cpus, pids 64–4096, reserve ≥ 256 MiB, deadline 600–86400 s, step ≤ deadline, post/cleanup budgets ≥ 30 s; booleans are rejected | 17 refusal cases; no run directory is created on refusal |
+| P1 `/rathena` symlink on a populated image dir; `verify.sh` absent | No `/rathena` or `/symbols` access at all. The host rewrites the pinned app `verify.sh` (SHA `d4b7295b…`) with exact anchor counts (`cd /rathena/ragnarok-crash-tests` ×1 → `/work/crash/…`, `/symbols/trace-tests` ×2 → `/work/crash/symbols/trace-tests`) and records both SHAs. The guest checks the extracted original SHA, copies the fixture into owned `/work/crash` and runs the transform; only `/work` is written | transform output contains no `/rathena`; drift is refused; guest contract has no `ln -sfn` and no `rm -f /rathena` |
+| Ambiguous create left an unowned orphan | `create_owned`: a 4xx is definite (nothing of ours exists). Transport loss or a 5xx is **ambiguous**: list all, adopt only an object with the exact `/<name>` **and** role and run labels, solely to delete it, then abort. **Never retried** | lost response → recovered and deleted, creates=1; 5xx → same; lost response with foreign labels → left untouched and reported UNRESOLVED; pre-existing same name → refused before create |
+| SIGTERM bypassed `finally` | SIGTERM/SIGINT raise `Cancelled` (a BaseException). The post phase kills the container, cleanup deletes it with signals ignored, the previous handlers are restored, and the CLI exits 143 | real `os.kill(SIGTERM)` during poll → kill, delete, 404, `state=finished`, handler restored |
+| Deadline started after start; HTTP timeout idle-only | The build deadline is absolute **from admission**. Post (logs/export) and cleanup have separate budgets; the plan records `absolute_bound_s`. Every request has an absolute end, enforced by a timer that shuts the socket down, plus an idle timeout and a body cap (json 8 MiB, logs 64 MiB, export 1 GiB, import 256 MiB). Short Content-Length bodies are detected | drip-fed response aborted at the 2 s budget (< 30 s total); truncated export → failure, no `export.tar`, cleanup done; body-cap overflow fails |
+| Cleanup refusal | A refused DELETE is recorded as `deleted=false` and raises **UNRESOLVED**, never success | refused delete → UNRESOLVED and the container remains in the fake |
+| `Binds` can create a missing source | `HostConfig.Mounts` `[{Type: bind, Source: /sys/fs/cgroup/slim, Target: /run/root-cgroup-view, ReadOnly: true}]`. Pinned `mounts.rs` refuses a missing `--mount` bind source at create; `Binds` is never sent | plan test |
+| Owner (follow-up) | Declared `artifact_owner` and `import_owner` = uid 0, gid 0, mode 0755. The guest runs `chown 0:0`. `safe_extract` returns tar uid/gid/mode, and `validate-export` requires the declaration. `import-check` compares bytes, tar uid/gid/mode and the stat-header mode | export with uid/gid 1000 rejected; import with 1000:1000, 0:1000, 0644 or setuid 4755 rejected; owned container deleted each time |
+| Dependency pins unqualified | `--mode build` **requires** `--apk-lock`: sorted, unique `name=version-rN` lines covering the Dockerfile set + `patch`, with `libunwind-dev` 1.8.1. The guest installs exact pins; an unavailable pin fails before compilation. The installed closure must equal the lock exactly, and preinstalled packages (musl/libstdc++) must be unchanged. `--mode resolve` is a separate qualification run: it installs the unpinned set, records `apk.lock.candidate`, and builds nothing | missing, malformed, unsorted or duplicate locks, a missing package and wrong libunwind all refused; extra or changed installed package fails `check_deps`; `lock_candidate` exact-prefix parse |
 
-**Footprint:** 5049 → **5121** files: **72 added, 29 modified, 0 removed**
-(full lists are in `PREPARED.json`). The historical 5049 → 5120 files and
-"100 changed paths" equal this footprint minus `Dockerfile.ragnarokmac`,
-which bootstrap/CI add separately. On the "112 overlay payloads": this
-reconstruction reads 108 distinct app blobs as inputs (65 files, 36 patches,
-4 crash-trace sources, 2 Python transforms, the Dockerfile). It also
-executes or pins 3 more semantics blobs (`apply-server-mods.sh`,
-`VENDOR_PINS`, `PACKETVERS`), for 111 in total. I cannot reproduce the
-historical 112 from public inputs without its private packet, so that count
-is **unreconciled**. The footprint above is what I actually verified.
+### Unchanged route and lifecycle
 
-### Patch ambiguity found and how it is handled
+- Engine requests:
+  1. census (`GET /containers/json?all=1`)
+  2. create
+  3. inspect, with a label check
+  4. PUT `upload.tar` and PUT `owner.env` to `/work/in`
+  5. start
+  6. poll inspect
+  7. kill (on deadline, failure or cancel)
+  8. logs, then GET `/work/out`
+  9. `DELETE ?force=1`, then inspect, expecting 404
+- Never used: `/build`, `/wait`, commit/save, exec, pull.
+- The upload is a 23,080,960 B wrapper tar holding the 23 MB deterministic
+  `source.tar.gz` (SHA-256 `101b1526…388d84f`, unchanged).
+- Flags, configure options, `make -j$JOBS map`, the era check, builtin
+  presence, debuglink, ELF/INTERP/NEEDED checks and the musl loader
+  `--list` are unchanged from the initial candidate.
+- Unpatched and patched builds run in one container with one toolchain.
 
-- Every patch applies with **offsets** (git-apply counts many offset hunks
-  per patch). This is expected because the patches target a fork that has
-  moved under them.
-- Exactly **one hunk needs fuzz**: `0001-population-engine-hooks.patch` in
-  `src/map/pc.cpp`, the include block. The fork adds
-  `#include "skill_lua.hpp"` after `skill.hpp`, so the last trailing context
-  line differs. With fuzz 1 the two population includes still land after
-  `pet.hpp` inside the include block, which is the intended and unique
-  place. Host `patch -F 0` rejects it, and `git apply` with full context
-  fails it (and then cascades to 27 more patches).
-- The historical "no fuzz/offset diagnostic" result came from `patch -s`,
-  which suppresses those diagnostics. The app's real script uses default
-  fuzz silently, and on macOS it leaves **13 `.orig` side files**, matching
-  the historical 13.
-- Policy: zero fuzz everywhere except the single allowlisted patch. For that
-  patch, zero fuzz must fail (otherwise the allowlist is stale), fuzz 1 is
-  used, and the resulting `pc.cpp` SHA-256 must equal
-  `bf611356a23674233969d1eb37c32bff551b5ce94bf28517777d755975bb24b6`.
-  Rejects, `.rej`/`.orig` files, an unlisted fuzz or a wrong result all fail
-  closed.
-- **Cross-implementation agreement.** Three routes produce the same
-  prepared-tree digest **`b64e850bd0d0fddbcda1df619d9a2544f27e286301a0e7d69b5f827ea3d40f32`**
-  (sha256 over sorted `exec-bit\tsha256\tpath` lines):
-  1. Apple `patch` 2.0-12u11 with the allowlist.
-  2. `git apply -C2` for the allowlisted patch and full context otherwise.
-  3. The app's **own** `apply-server-mods.sh` (`reference` command), after
-     excluding its 13 `.orig` side files.
+## 3. Checks executed on this revision (host, 2026-11-04 UTC)
 
-  GNU patch was not available on the host, so GNU-specific behaviour is
-  **not observed**. The digest pin makes any divergence fail.
+| Check | Result |
+| --- | --- |
+| fresh `prepare` (footprint pin active) + `verify` | OK, 5121 files, `b64e850b…`; `PREPARED.json` `1f3a3c92…` |
+| `reference` + `reconcile` × 3 (app script, earlier run, git-apply) | all zero differences |
+| `test_coin_capacity.py` on `prepared2/source` | `pins ok 9`; clean patch; 133 cases / 63 probes / 0 failures; **9/9 mutants caught** |
+| `test_prepare_source.py` | **19/19 OK** |
+| `test_build_recipe.py` | **28/28 OK**, ×3 repeats (about 12 s each) |
+| `ruff check tools/renewal/native_capacity/` (ruff 0.16.9, repo `ruff.toml`) | All checks passed |
+| `sh -n` guest scripts | OK |
+| plan-only demo on the real tree (`--mode resolve`, placeholder image `sha256:0…0`, no Engine) | upload `6bee45a7…08ac`, expected cgroup `memory.max=1610612736`, `memory.swap.max=1048576`, `cpu.max=200000 100000`, `pids.max=1024`, absolute bound 14880 s; `--mode build` without a lock refused; `--memory-mib 0` refused |
 
-### Safe-failure rules
+Owned evidence stays in ignored `.tools/t10-010-003-claude-a1/` (`ev/`,
+`ev2/`, `prepared/`, `prepared2/`, `prepared-ga/`, `ref-app/`). The
+initial-candidate evidence is kept.
 
-- `prepare` refuses an existing output and any `<out>.staging-*` leftover.
-- It builds in a sibling staging directory, writes `PREPARED.json` last and
-  publishes with an atomic rename.
-- On any error the staging directory is removed.
-- `verify` fails on a missing marker, unexpected entries, any
-  modified/added/removed file or mode change, digest drift, or a staging
-  leftover.
-
-## 3. Executed source checks (host, 2026-11-04 UTC)
-
-Owned ignored workspace: `.tools/t10-010-003-claude-a1/` (fresh, created by
-this run). No shared canonical source, old `.tools` packet or prepared
-checkout was used.
-
-| Check | Command | Result |
-| --- | --- | --- |
-| fresh fetch (both rAthena URLs + app) | `prepare_source.py fetch --cache C` | OK; rathena tree e7122969…, vendor-pin URL identical; app tree 8cab4674… |
-| fresh preparation | `prepare_source.py prepare --cache C --out O` | OK: 5049 → 5121 files, +72/~29/−0, nine pins 9/9, digest b64e850b…; fresh fetch + prepare + verify took 18 s |
-| re-verify | `prepare_source.py verify --out O` | OK, 5121 files, same digest |
-| engines agree | `--patch-engine git-apply`, `reference` | same digest (discovery run) |
-| patch + differential | `test_coin_capacity.py --native-source O/source --clang /usr/bin/clang++` | `pins ok 9`; patch applied with no rejects; unchanged bodies OK; `SUMMARY cases=133 probes=63 failures=0`; **9/9 causal mutants caught**; rc 0, 8 s |
-| safe failures | `test_prepare_source.py` | 16/16 OK (bad revision, bad tree pin, app-semantics change, unpinned/wrong digest, wrong native pin, existing output, partial staging, dirty modify/add/remove/mode, missing marker, foreign entries, reject, unlisted fuzz, allowlisted fuzz with right/wrong result, stale allowlist, absent-patch allowlist) |
-| recipe logic | `test_build_recipe.py` | 11/11 OK, fake Engine only |
-
-Hashes: `PREPARED.json` 5665099a…e9832ce521. The deterministic
-`source.tar.gz` is 23,049,381 B, sha256 `101b1526…388d84f`. The wrapper
-`upload.tar` is 23,070,720 B, sha256 `3e36a6eb…a4139833`. Both are identical
-across repeated plans. `coin_capacity.patch` is `9c84d846…5411d`; the patch
-and oracle are unchanged.
-
-## 4. Full build/export recipe (for Root in T10.010.004)
-
-### Engine route (pinned slim source, nebula `2e9cf43`, `slimd/router.rs` and `archive.rs`)
-
-- **Uses only** `GET /containers/json`, `POST /containers/create`,
-  `GET /containers/{id}/json`, `PUT` and `GET /containers/{id}/archive`,
-  `POST start` and `POST kill`, `GET logs` and `DELETE ?force=1`.
-- **Does not use:**
-  - Dockerfile build (pre-FROM ARG and stage ARG defects, directory COPY
-    basename, RUN without network or limits)
-  - commit or image save (both return 501)
-  - `/wait`: an HTTP disconnect only stops the wait, not the container, so
-    the recipe polls inspect and kills on the deadline
-  - exec and pull
-- PUT archive buffers the whole body in Engine memory (2 GiB cap) and does
-  not decompress it, so the upload is a 23 MB wrapper tar holding
-  `source.tar.gz` (the prepared tree itself is about 110 MB). PUT preserves
-  modes, and GET works on stopped containers.
-
-### Container lifecycle
-
-- Single owner: refuse if any container labelled
-  `t10.010.003.role=compiler` already exists.
-- Admission token = sha256 of `PLAN.json`. The plan is consumed once
-  (`EXECUTION.json`).
-- Create the named, labelled container (`User 0:0`,
-  `Cmd /work/in/guest_build.sh`, `RestartPolicy no`, `AutoRemove false`) →
-  PUT inputs → start → poll.
-- On the deadline: kill → logs → GET `/work/out` → `DELETE ?force=1` →
-  confirm 404.
-- The delete runs in `finally` for every path. A cleanup error is reported
-  as **unresolved**, never as success.
-
-### Toolchain and dependency inputs
-
-- Base image must be an **immutable local image ID** (`sha256:…`), never a
-  tag. Recommended base: the currently running stock
-  `ragnarokmac/rathena:20221005` image ID (Alpine 3.23, runtime libraries
-  already present). Its musl and libstdc++ then define the ABI. Root must
-  read that ID freshly.
-- The guest runs `apk add` with the Dockerfile set (`bash git make cmake gcc
-  g++ zlib-dev mariadb-dev linux-headers libunwind-dev~1.8.1 binutils`) plus
-  `patch` (GNU; busybox patch has no `-F`).
-- After the install, the build **fails** unless musl and libstdc++ still
-  equal the expected runtime versions (plan inputs, e.g. `1.2.5-r23` and
-  `15.2.0-r2`, from Root's fresh check). It records `apk-before/after`,
-  `toolchain.txt` and `environment.txt` (Alpine release, nproc, meminfo,
-  cgroup values).
-
-### Flags, configuration and outputs
-
-- Flags are identical to the Dockerfile: `CXXFLAGS=-g -O2
-  -fno-omit-frame-pointer -fno-optimize-sibling-calls`,
-  `CPPFLAGS=-DRAGNAROK_CRASH_TRACE`, `LIBS=-lunwind`,
-  `LDFLAGS=-Wl,--build-id=sha1 -rdynamic`.
-- Configure with `./configure --enable-packetver=20221005` (renewal),
-  then `make -j$JOBS map`.
-- Crash-trace `verify.sh` runs once.
-- Era check: the `npc/re` marker is present and `npc/pre-re` is absent.
-- Builtin check: `ros_ch1_coin_capacity` is present only in the patched build.
-- Then objcopy `--only-keep-debug` / `strip --strip-debug` / debuglink, as
-  in the Dockerfile.
-- The guest records the ELF header, NEEDED/RPATH, INTERP and the musl
-  loader `--list` (any unresolved library fails), plus `SHA256SUMS`.
-
-### Comparable A/B builds
-
-The **unpatched** and **patched** builds run in the same container, with
-the same toolchain, flags and prepared tree. The only difference is
-`coin_capacity.patch` (GNU patch `-F 0`, dry run first, no side files
-allowed).
-
-### Resource limits (defaults, all parameters)
-
-- `Memory = MemorySwap = 1536 MiB` (no swap), `NanoCpus = 2e9`, `-j1`.
-- Per-step `timeout` 3600 s; overall deadline 4 h.
-- `plan` refuses unless the fresh MemAvailable ≥ limit + 768 MiB reserve.
-- `PidsLimit` is **not advertised** by the current Engine (Root, 2026-11-04),
-  so it is not requested.
-- An optional read-only cgroup view bind
-  (`/sys/fs/cgroup/slim:/run/root-cgroup-view:ro`) follows Root's earlier
-  qualified readiness probe. Enforcement is **not** assumed; Root compares
-  the guest's readback with the plan.
-
-### Export validation (`validate-export`)
-
-The export must pass all of the following:
-
-- safe tar extraction (regular files and directories only, no escape)
-- `RESULT = PASS`
-- the file set equals `SHA256SUMS` and every hash matches
-- both binaries are ELF64 LE AArch64 (`e_machine` 183), mode 0755, with
-  interpreter `/lib/ld-musl-aarch64.so.1`
-- era markers are correct, and the builtin is present only in the patched
-  binary
-- both variants have identical NEEDED sets but different bytes
-- musl and libstdc++ match the plan
-
-It writes `ARTIFACTS.json` (sha256, size, Build ID, NEEDED, debug sha256).
-
-### Import route
-
-- `image-context` writes a context whose Dockerfile is exactly
-  `FROM <image-id>` plus one literal single-file
-  `COPY map-server /rathena/map-server-t10-010-<variant>`, with no ARG and
-  no RUN.
-- Because COPY chmod/chown cannot be assumed, `import-check` creates (and
-  never starts) a container from the resulting image. It reads the
-  stat-header mode and the archive bytes, requires sha256 and mode 0755,
-  then deletes the container and confirms a 404.
-- The image build itself goes through the Engine's build handler. Missing
-  bases may be pulled and no-cache still uses the shared cache, so Root
-  must use a locally present base ID and verify readback.
-
-### Root's next executable action (T10.010.004)
+## 4. Root's next executable sequence (T10.010.004, after fresh bindings)
 
 ```sh
-# 0. fresh read-only binding: Engine, running stock image ID, musl/libstdc++,
-#    MemAvailable, no foreign compiler-role containers; backup/isolation refreshed
-python3 -I -B tools/renewal/native_capacity/prepare_source.py fetch   --cache $W/cache
-python3 -I -B tools/renewal/native_capacity/prepare_source.py prepare --cache $W/cache --out $W/prepared
-python3 -I -B tools/renewal/native_capacity/test_coin_capacity.py --native-source $W/prepared/source --clang /usr/bin/clang++
-python3 -I -B tools/renewal/native_capacity/build_recipe.py plan --prepared $W/prepared --rundir $W/run1 \
+P=tools/renewal/native_capacity
+python3 -I -B $P/prepare_source.py fetch   --cache $W/cache
+python3 -I -B $P/prepare_source.py prepare --cache $W/cache --out $W/prepared
+python3 -I -B $P/prepare_source.py reference --cache $W/cache --out $W/ref
+python3 -I -B $P/prepare_source.py reconcile --out $W/prepared --against $W/ref
+python3 -I -B $P/test_coin_capacity.py --native-source $W/prepared/source --clang /usr/bin/clang++
+# (a) dependency qualification run -- builds nothing
+python3 -I -B $P/build_recipe.py plan --mode resolve --prepared $W/prepared --rundir $W/r1 \
     --base-image sha256:<fresh stock image id> --expect-musl <fresh> --expect-libstdcxx <fresh> \
-    --mem-available-bytes <fresh>          # prints admit=<sha256 of PLAN.json>
-python3 -I -B tools/renewal/native_capacity/build_recipe.py execute --plan $W/run1/PLAN.json \
-    --engine-socket <socket> --admit <admit>
-python3 -I -B tools/renewal/native_capacity/build_recipe.py validate-export --plan $W/run1/PLAN.json \
-    --export $W/run1/export.tar --dest $W/run1/artifacts
+    --mem-available-bytes <fresh> --host-cpus <fresh>
+python3 -I -B $P/build_recipe.py execute --plan $W/r1/PLAN.json --engine-socket <sock> --admit <admit>
+python3 -I -B $P/build_recipe.py validate-export --plan $W/r1/PLAN.json --export $W/r1/export.tar --dest $W/r1/v
+#     Root reviews r1/v/out/apk.lock.candidate and decides whether to qualify it as apk.lock
+# (b) build run with the qualified lock
+python3 -I -B $P/build_recipe.py plan --mode build --apk-lock <qualified apk.lock> ... --rundir $W/b1
+python3 -I -B $P/build_recipe.py execute ... ; python3 -I -B $P/build_recipe.py validate-export ...
 ```
 
-## 5. Limitations and open items (not passed)
+## 5. Remaining limitations (open, not passed)
 
-- **No real build has run.** Compile success, compile time, peak memory,
-  whether 1536 MiB suffices at `-j1` for `script.cpp`/`pc.cpp` with
-  `-g -O2`, and the real outputs are all unknown.
-- At the earlier ~4 GiB guest snapshot, MemAvailable was about 1.30 GiB.
-  At those numbers `plan` would **refuse** (it needs 2.25 GiB). Root must
-  either measure enough headroom or choose an explicit smaller limit and
-  accept the OOM risk. The recipe does not stop or resize user services.
-- **Network:** `apk add` needs container networking. Neither an offline
-  package set nor immutable apk pins exist, because Alpine carries only the
-  current `-rN` of each package. The recipe records the resolved versions
-  and fails on an ABI drift of musl/libstdc++, but other package versions
-  (gcc, binutils, libunwind, mariadb-connector) are recorded, not pinned.
-  This dependency pin is **missing**.
-- Cgroup enforcement, actual PID limits, container deletion that fully
-  reclaims storage, and kill-at-deadline on the real slim Engine are
-  untested. The fake Engine proves only request order and logic.
-- The `/sys/fs/cgroup/slim` bind source must exist in the guest. If it does
-  not, create fails closed, and Root may drop the bind from the plan.
-- GNU patch behaviour on the host was not observed (only Apple patch and
-  `git apply`). The guest uses GNU patch `-F 0` only for `coin_capacity.patch`.
-- Only renewal `map-server` is built. char/login/web and pre-re builds are
-  not produced. The app image also ships `char-server`, which must match
-  `mmo.hpp`, and the coin patch does not change `mmo.hpp`.
-- The prepared tree deliberately excludes `.git` and the 13 `.orig` files
-  that the app's own script leaves in its build context. Neither is
-  compiled.
-- The "112 overlay payloads" count remains unreconciled (see §2).
-- Model: configured `claude-opus-5-5` (Opus 5.5) per session metadata; the
-  provider-reported model is not observed. Elapsed time is about 20 min of
-  wall clock from 07:03:44Z. Cost and tokens were not observed.
+- **No real execution.** Nothing has run on a real slim Engine or guest:
+  cgroup leaf values and mount layout, the PidsLimit write, `Mounts`
+  refusal, kill/delete, archive owner/mode readback, compile time and
+  memory, and the binaries themselves.
+- The fake Engine proves request order and logic only.
+- `guest_lib.sh` was exercised under macOS `/bin/sh` (bash 3.2 in POSIX
+  mode). **Busybox ash, comm, awk and cmp behaviour in Alpine is not
+  observed.**
+- **Dependencies.** No qualified lock exists yet. Alpine keeps only the
+  current `-rN`, so a lock can stop resolving at any time, which fails
+  closed before compilation. There is **no offline closure**, apk needs
+  container networking, and package bytes are verified only by apk's own
+  signed index.
+- Swap: the backend cannot express zero swap, so 1 MiB is requested and
+  verified.
+- Headroom: the defaults need 1536 + 768 MiB of fresh MemAvailable. The
+  earlier ~1.3 GiB snapshot would be refused. Whether 1536 MiB suffices at
+  `-j1` is unknown.
+- Pinned `mounts.rs` validates the bind source at **create**, but `prepare`
+  at start would create it again if it vanished in between. The guest's
+  cgroup2/ro check catches a plain directory.
+- If create is ambiguous **and** recovery cannot list the object, the
+  possible orphan is reported UNRESOLVED (name + run label) for Root. It is
+  never guessed or deleted.
+- Only the renewal `map-server` is built; pre-renewal builds and the other
+  servers are not.
+- Model: configured `claude-opus-5-5`; the provider-reported model is not
+  observed. Repair wall clock was about 28 min (07:27–07:55Z). Cost and
+  tokens were not observed.

@@ -76,5 +76,7 @@
   "prepared_tree": {
     "files": 5121,
     "sha256": "b64e850bd0d0fddbcda1df619d9a2544f27e286301a0e7d69b5f827ea3d40f32"
-  }
+  },
+  "footprint_file": "source_footprint.json",
+  "crash_verify_sha256": "d4b7295b16677e2417cf87316e70a211b6d58c90aece1cc43bbea3e65f8e8ebe"
 }

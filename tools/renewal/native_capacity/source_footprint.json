@@ -1,0 +1,410 @@
+{
+ "description": "Every path the app overlays add/modify/remove on rAthena 0693b8c, with the sha256 of its prepared bytes. Independently re-derived by the app's own apply-server-mods.sh (prepare_source.py reference + reconcile).",
+ "paths": {
+  ".ragnarokmac-server-mods": {
+   "change": "added",
+   "sha256": "599c31ef10613b51c8710563cfa086062a7106f21f7e65525bee24ff408b6632"
+  },
+  "Dockerfile.ragnarokmac": {
+   "change": "added",
+   "sha256": "27fc6d2af194e43cb6e4f40aea3fc073d8b9a5279a571f034542419d8b71cca5"
+  },
+  "conf/battle/population_engine.conf": {
+   "change": "added",
+   "sha256": "fa46be6c69c4e80983c216754f05b252b0778ff639b2a074c50701cac4ff61b6"
+  },
+  "db/import-tmpl/population_spawn.yml": {
+   "change": "added",
+   "sha256": "dd0bec15cd7b498fbeafd42fcb1b42715be1aa97c90af46319b1d5860256c809"
+  },
+  "db/import-tmpl/population_strategy.yml": {
+   "change": "added",
+   "sha256": "29b2b6e5e67f24abdb08143bcffb3d5c2911643641b7cd9f92e9525573790547"
+  },
+  "db/import-tmpl/population_vendor_pop.yml": {
+   "change": "added",
+   "sha256": "90e64db68484b16427bf2983d2d226f7ab43180e7ee435ae884016e03bcf6224"
+  },
+  "db/import-tmpl/population_vendors.yml": {
+   "change": "added",
+   "sha256": "7030417d15ec47d784a3a8e08331bf9e92fbce81b536efb9b036cb12a9ebc472"
+  },
+  "db/population_chat.yml": {
+   "change": "added",
+   "sha256": "4abdea87fa803544f6481d8fe6be12cb1839f97a367631fef37b90e533768c53"
+  },
+  "db/population_engine.yml": {
+   "change": "added",
+   "sha256": "70eaff1fc86dabcb2ad8d774c4760d45a183f0de1f435d4413b823807cb54526"
+  },
+  "db/population_gear_sets.yml": {
+   "change": "added",
+   "sha256": "721c892ac765cb284cd3d93aaecedca0addfa14b076e00af48ffe606e8ef25e2"
+  },
+  "db/population_names.yml": {
+   "change": "added",
+   "sha256": "d33e81a378c3721c621e16756a083e3071de656582c7400c91cf850138776b5b"
+  },
+  "db/population_pvp.yml": {
+   "change": "added",
+   "sha256": "afadd6c06ff2085d1e29d303c0e0b0d30b2a8cfb860379295d4edafb41825f85"
+  },
+  "db/population_skill_db.yml": {
+   "change": "added",
+   "sha256": "530225127bf955a2a029683b0da3b62b53f9b7fc8c202ecc5a437287b1170858"
+  },
+  "db/population_spawn.yml": {
+   "change": "added",
+   "sha256": "05acd9a8a90f16a746319eca6ebe0664f04fedba6d468a9cf26ef556cf42cdaf"
+  },
+  "db/population_strategy.yml": {
+   "change": "added",
+   "sha256": "d66a229ca6133754fc6912e523f09b12958854b99701d63af25b108d558ed331"
+  },
+  "db/population_vendor_pop.yml": {
+   "change": "added",
+   "sha256": "7ae52f4838e2a55e9673134289dae217d94f5e24277a732c4cda013ded5ead0b"
+  },
+  "db/population_vendors.yml": {
+   "change": "added",
+   "sha256": "67df548dfcdeb7031ed0c761afd35ae335b7efbdfb43783d5b133bfd8673debe"
+  },
+  "npc/custom/population/arena.txt": {
+   "change": "added",
+   "sha256": "d6919d3fdfa2ec42a9f27f6d40894d4aa3e38a31dbbd90aeec548192e812c22c"
+  },
+  "npc/custom/population/recruiter.txt": {
+   "change": "added",
+   "sha256": "4a32b6c6c36882f4a32745f31c0b950bd336cea24b6a2d73eba2dc1b79288aea"
+  },
+  "npc/scripts_custom.conf": {
+   "change": "modified",
+   "sha256": "773bcd67add0629fca5e3c0bbd6c5890bb639fb579d7e096837db48efd5edf48"
+  },
+  "ragnarok-crash-tests/fixture.cpp": {
+   "change": "added",
+   "sha256": "ad432af3c4ce0bb6650b157a6c0fbe4b1b804a63bd43e67073a81ca735886aaa"
+  },
+  "ragnarok-crash-tests/libunwind-COPYING": {
+   "change": "added",
+   "sha256": "6a0dbbdaec2b3136b7bf045586f4212bdf74e7af688bf9dfe9154607cf5ec156"
+  },
+  "ragnarok-crash-tests/ragnarok_crash_trace.hpp": {
+   "change": "added",
+   "sha256": "1f01e22906eba75a802a5632ca9d68d976788bdae7a3ff588f8712a9f8bfe687"
+  },
+  "ragnarok-crash-tests/verify.sh": {
+   "change": "added",
+   "sha256": "d4b7295b16677e2417cf87316e70a211b6d58c90aece1cc43bbea3e65f8e8ebe"
+  },
+  "sql-files/population_engine/cp_companion_persistence.sql": {
+   "change": "added",
+   "sha256": "ca250cdc4da9f8c3ee9b3a29da9a3bcba3e4a99d9839d7d2c3e657e081f7986b"
+  },
+  "sql-files/population_engine/cp_population_stats.sql": {
+   "change": "added",
+   "sha256": "3777407e8dea027fa0aa3657bf2e442c5f12f11f6d7e54d1dcf8147804e04dbd"
+  },
+  "src/common/core.cpp": {
+   "change": "modified",
+   "sha256": "b6492d2a97cb8181879c874048439502218c5abaca8edee3e2084480d58f50c2"
+  },
+  "src/common/mmo.hpp": {
+   "change": "modified",
+   "sha256": "f4b81dc87a8f54059e07e90a314c2cef1d61e67ef488fe0093bea2805814a795"
+  },
+  "src/common/ragnarok_crash_trace.hpp": {
+   "change": "added",
+   "sha256": "1f01e22906eba75a802a5632ca9d68d976788bdae7a3ff588f8712a9f8bfe687"
+  },
+  "src/custom/atcommand.inc": {
+   "change": "modified",
+   "sha256": "c7a60c7486c13d1058abddd5d6b989d444ac676ccf2d24118662c1a4682058c2"
+  },
+  "src/custom/atcommand_def.inc": {
+   "change": "modified",
+   "sha256": "ef8b84b32fe571cbf60411b3d79beb34014f0d68c493cb65d7a0dfc59493a421"
+  },
+  "src/custom/battle_config_init.inc": {
+   "change": "modified",
+   "sha256": "bfebcd80936f9fdde598eded5410305a457d7d2f8051c775536a6ba31aaf8a9d"
+  },
+  "src/custom/battle_config_struct.inc": {
+   "change": "modified",
+   "sha256": "3bf6caec57c6ce37a75631fe0152678b2e7b6a92bd764826cfadab0368e55d33"
+  },
+  "src/custom/script.inc": {
+   "change": "modified",
+   "sha256": "4ec39ca6d8513b84e7a27de54f5a085c44c9e659c87f1aa8d7b5f0b2189a337b"
+  },
+  "src/custom/script_def.inc": {
+   "change": "modified",
+   "sha256": "d82bfe6a70c8e6d085e38fd93a9728fd5ca3dcf43c5a42ee4683aa5b9f8ad916"
+  },
+  "src/map/CMakeLists.txt": {
+   "change": "modified",
+   "sha256": "161c7bcbcf4e84bd9df31f46073736f8cfdbb4f66bfd139685a9acf4222e28ad"
+  },
+  "src/map/Makefile.in": {
+   "change": "modified",
+   "sha256": "bca73b0a04a58e41d45d8ca41b5fd767a33cfd183f9661a24e7ce891e58c842c"
+  },
+  "src/map/atcommand.cpp": {
+   "change": "modified",
+   "sha256": "f31454b2a4fcd10d8db6a8955227fff048be5eeae0e3e04868f748c986e16ecc"
+  },
+  "src/map/battle.cpp": {
+   "change": "modified",
+   "sha256": "0d99ba8e970017988e29c348e1d83ed030864050381dd47a659e83bf5f1bc7ac"
+  },
+  "src/map/buyingstore.cpp": {
+   "change": "modified",
+   "sha256": "04ac32513c31b3b53454487c64505d079de95173c39a0e8198377e5dfb759eec"
+  },
+  "src/map/chrif.cpp": {
+   "change": "modified",
+   "sha256": "dd98232ee5977d3ccc2e7337bbe74af3f310d03314630a1f9519d78bef670c34"
+  },
+  "src/map/clif.cpp": {
+   "change": "modified",
+   "sha256": "814563416328f97243f6c00e74525d67537755bf4a035200200e646a7fc326ca"
+  },
+  "src/map/intif.cpp": {
+   "change": "modified",
+   "sha256": "8eeb6e7cd51075a2e4f93f48102f462e58c641c648387ebc591c737e1266573b"
+  },
+  "src/map/map.cpp": {
+   "change": "modified",
+   "sha256": "4fd663d42126b8138a516d38204ecd6f5f69480346b3867b0d145cf1f8640484"
+  },
+  "src/map/mob.cpp": {
+   "change": "modified",
+   "sha256": "50b45ab767e7f4ae4747d92c6ee8b62e7aaa132dfa85399a6ac5e3967d59dbbd"
+  },
+  "src/map/npc.cpp": {
+   "change": "modified",
+   "sha256": "2754e8bb36b1acbd35bced3341123a5d681cc4fd9a9a4fcc2ff6fe7b9583850c"
+  },
+  "src/map/party.cpp": {
+   "change": "modified",
+   "sha256": "5ab03563bded40a1fce834a175bce6fff3a20ecb313500536c1f659a5ea0e133"
+  },
+  "src/map/pc.cpp": {
+   "change": "modified",
+   "sha256": "03b4d592e46e36824e4d44da6c7132edcb89e35f15f826914a2dae6d1d8a6e9b"
+  },
+  "src/map/pc.hpp": {
+   "change": "modified",
+   "sha256": "0f57ca247570962ab357adbf257f8e1304bd95cf0219220fb4855bbba06d1a39"
+  },
+  "src/map/population_engine.cpp": {
+   "change": "added",
+   "sha256": "05dda9383cf3905320478a1d551cd8dc9c975f8f43ff2f2041b7d014ee9e3cc8"
+  },
+  "src/map/population_engine.hpp": {
+   "change": "added",
+   "sha256": "e8d8c740564dc0fe4eef7e9e05a5e44c61e31573937b8e8146a813d4504cc00d"
+  },
+  "src/map/population_engine/config/population_config.cpp": {
+   "change": "added",
+   "sha256": "ada281231a3d1e31e224c5e2d2655b308447a5811b83b6929f6e39fbc800d842"
+  },
+  "src/map/population_engine/config/population_config.hpp": {
+   "change": "added",
+   "sha256": "49c19eb0cb0b60b2740d8c1f467121753f0a71ee5db3dc7eefe7799b2a057a71"
+  },
+  "src/map/population_engine/config/population_skill_db.cpp": {
+   "change": "added",
+   "sha256": "55684f2f696628dce46b53b513d7bd4ddf4dec179af2a0631cbd4cdd44dbd9ee"
+  },
+  "src/map/population_engine/config/population_skill_db.hpp": {
+   "change": "added",
+   "sha256": "3963c10c70bdae3ddbbc573ecf2d56d9b1b31862ba67d1ee6e94e77153ce8933"
+  },
+  "src/map/population_engine/config/population_spawn_db.cpp": {
+   "change": "added",
+   "sha256": "c4cd9e3da1da8cbd5a4ae2e15d3e6f2dbdf150671e4e0d4ce1422dc3f0b30dd7"
+  },
+  "src/map/population_engine/config/population_spawn_db.hpp": {
+   "change": "added",
+   "sha256": "20cea445120b0b533b417df207fb2b03b10dba9a71f9ef55b79e87e43777bd0c"
+  },
+  "src/map/population_engine/config/population_yaml_types.hpp": {
+   "change": "added",
+   "sha256": "28359222f9ae5c04dd87f4a46187539e19b4b5399519efe6d52f9a416e610f9c"
+  },
+  "src/map/population_engine/core/pe_perf.cpp": {
+   "change": "added",
+   "sha256": "08d622f75a5ae925511451fb56e2bdf0f378aba84291200deb66d39ecd1c39f3"
+  },
+  "src/map/population_engine/core/pe_perf.hpp": {
+   "change": "added",
+   "sha256": "27d9efc09f0cadb0de3ea50d2b647b7c77562cf016a9bf72ce29b7497b0521ee"
+  },
+  "src/map/population_engine/core/population_engine_core.hpp": {
+   "change": "added",
+   "sha256": "0ca1d3ae802b496e520f49739f74f3c6ebe3abad93d085b553b7f9e53659df34"
+  },
+  "src/map/population_engine/core/population_shell_combat_skills.hpp": {
+   "change": "added",
+   "sha256": "b021266f6aded96513b327ca5c133dd445032358dfa7d821b4b93b940eb24d4f"
+  },
+  "src/map/population_engine/core/population_shell_hold.hpp": {
+   "change": "added",
+   "sha256": "38c5891b89f42a76dea87ee15cdae7875ae97b4a8951ec8492777180cad3f9da"
+  },
+  "src/map/population_engine/core/population_shell_returns.hpp": {
+   "change": "added",
+   "sha256": "463d64ca003fa217cd937da97f167834059ecd057109d3700453a070a03c1e0c"
+  },
+  "src/map/population_engine/core/population_shell_state.hpp": {
+   "change": "added",
+   "sha256": "1e9bc46b59f2db7a846980724ae87279c927877fb72b2f1f36989f4cbf6a9e73"
+  },
+  "src/map/population_engine/expanded_ai/expanded_condition.hpp": {
+   "change": "added",
+   "sha256": "34f831d8d98f98cf7faa45bc68e341ce1670bcc7ab88ea1b643f7bd9c006a752"
+  },
+  "src/map/population_engine/expanded_ai/expanded_parser.cpp": {
+   "change": "added",
+   "sha256": "3ecaec419690c3094789082687f7426ce21ea96fbddd8d59f151a155f0ac9138"
+  },
+  "src/map/population_engine/expanded_ai/expanded_parser.hpp": {
+   "change": "added",
+   "sha256": "cb61b192e4a184db7696ab82148c0fd62de3d21b547017a9fcc4c5e415b55c6b"
+  },
+  "src/map/population_engine/expanded_ai/logic_gates.hpp": {
+   "change": "added",
+   "sha256": "6e9612bd45c4fefba1f565065c64b4fe1abd4c6432b8db6c07b191125c2994ea"
+  },
+  "src/map/population_engine/expanded_ai/predicates.hpp": {
+   "change": "added",
+   "sha256": "3dc6b2d226ecec99e3d61189be86b0d26d7b2f7accf0e21fe8b40bd793607555"
+  },
+  "src/map/population_engine/population_engine_factory.cpp": {
+   "change": "added",
+   "sha256": "7305ecb98ea6463cbf2800ac5add24809b1e38d5f0ffa029a60fe2f9c3a03727"
+  },
+  "src/map/population_engine/population_engine_factory.hpp": {
+   "change": "added",
+   "sha256": "4bd92b4018c7c2ec7ac42fd21c317d6585fcd7cffdae6be96cafd0e411082450"
+  },
+  "src/map/population_engine/population_shell_control.hpp": {
+   "change": "added",
+   "sha256": "b49738391b7d5589c7c5d83b1c5c2a6185c320a0395bcd405f2f8c7148cb9c97"
+  },
+  "src/map/population_engine/runtime/population_companion_roam.cpp": {
+   "change": "added",
+   "sha256": "37838a2bbdc0625b21044a088d1563809095c520366a0fb10be5015b3b5e2f06"
+  },
+  "src/map/population_engine/runtime/population_companion_roam.hpp": {
+   "change": "added",
+   "sha256": "cda7a696083d95b930d0b5733c05f030226ee7f16b8e348432ad327cac404c25"
+  },
+  "src/map/population_engine/runtime/population_customers.cpp": {
+   "change": "added",
+   "sha256": "897d6b361cf58909c05c9e76f48f6354e90fe0d7004a9223f5403b7e0854c0d3"
+  },
+  "src/map/population_engine/runtime/population_engine_combat.cpp": {
+   "change": "added",
+   "sha256": "bb0043b50fa5d3d644c6b68ede8424dc6a59be821cc62e6dbd18195c55098420"
+  },
+  "src/map/population_engine/runtime/population_engine_combat.hpp": {
+   "change": "added",
+   "sha256": "572dd2a84c2357e0f8e7a6d0393e899b6c752b6a58e8e331ad1a28525ab83c1c"
+  },
+  "src/map/population_engine/runtime/population_engine_path.cpp": {
+   "change": "added",
+   "sha256": "680129b093ab08bc245e4fc99dc311502b40e9303616076210954c9f66cbed9d"
+  },
+  "src/map/population_engine/runtime/population_engine_path.hpp": {
+   "change": "added",
+   "sha256": "4d1a5a4a773ee3dad42ed79e21394a15eb4b1d1b8df0d451b880fab313b64299"
+  },
+  "src/map/population_engine/runtime/population_shell_ammo.cpp": {
+   "change": "added",
+   "sha256": "5656d0f5e4d7d27a7a12f46afe62f182530c2e606570a4c09233b72317f2607b"
+  },
+  "src/map/population_engine/runtime/population_shell_ammo.hpp": {
+   "change": "added",
+   "sha256": "92566bfb1230484ceedb353d8858952c64ecd85df647cc30b09dec234ed12870"
+  },
+  "src/map/population_engine/runtime/population_shell_control.cpp": {
+   "change": "added",
+   "sha256": "28670339322614e137e9c77a274a341b91f2a1780609cc47c7284ac88f11788d"
+  },
+  "src/map/population_engine/runtime/population_shell_gear.cpp": {
+   "change": "added",
+   "sha256": "7dce96eac9ba76e8d6cc7e1138d2e526badc2a1d47e6d68f18ae0a0cf6baf8bd"
+  },
+  "src/map/population_engine/runtime/population_shell_gear.hpp": {
+   "change": "added",
+   "sha256": "b2223b75450b12411c6d16d516e2a214a94c87072ebff586fbd00747d35657a0"
+  },
+  "src/map/population_engine/runtime/population_shell_inventory.cpp": {
+   "change": "added",
+   "sha256": "b85ce4301cb08fdf2ffb61d506a01c8af7f25d282298dcd6c5e97114bfc72e51"
+  },
+  "src/map/population_engine/runtime/population_shell_inventory.hpp": {
+   "change": "added",
+   "sha256": "c1485e9a8d19e264e19179134fba401c00860c5f4263714f97c71c2576715c7d"
+  },
+  "src/map/population_engine/runtime/population_shell_loot.cpp": {
+   "change": "added",
+   "sha256": "88867091e5eaf4478ec35e63825cfd24d60dc2d3c495d2981a776fd5be809b45"
+  },
+  "src/map/population_engine/runtime/population_shell_loot.hpp": {
+   "change": "added",
+   "sha256": "8acc7e2c4dd6831798347c3c357b41c4850670d41f24635799266a4b23fd01d9"
+  },
+  "src/map/population_engine/runtime/population_shell_runtime.cpp": {
+   "change": "added",
+   "sha256": "f463a92c535f93d0f4246c34215d7699b45dd133956610ce9f44a50f2cf46a32"
+  },
+  "src/map/population_engine/runtime/population_shell_runtime.hpp": {
+   "change": "added",
+   "sha256": "4b1f6ee58be185be8d478df6374b00103fad12628bd1c54c545230b836c64a96"
+  },
+  "src/map/population_engine/runtime/population_shell_selling.cpp": {
+   "change": "added",
+   "sha256": "5765a3f6d22323eb74f2954d2c60aa2bebf760a8e180be6103f2c917670e26ae"
+  },
+  "src/map/population_engine/runtime/population_shell_selling.hpp": {
+   "change": "added",
+   "sha256": "4a19277d6112814ff95ac3308bd5c667d52e3b32eb982f1eef2d451dc97bb0fc"
+  },
+  "src/map/population_engine/strategy/population_strategy.cpp": {
+   "change": "added",
+   "sha256": "82763ebd1f80b5916df72617993d3fe9f8fdb9683987a1c90439ca2065502790"
+  },
+  "src/map/population_engine/strategy/population_strategy.hpp": {
+   "change": "added",
+   "sha256": "b543c56fa15a99510bab1ba62bc8fb2eb786f3714e4d465129ddbe4f1a8a6fe7"
+  },
+  "src/map/script.cpp": {
+   "change": "modified",
+   "sha256": "f83b93eb11b1765d6115a5be64837be892cc11da2ec94ee3298fe8dd1fdf85db"
+  },
+  "src/map/skill.cpp": {
+   "change": "modified",
+   "sha256": "92ea2623b60ab5e8f87bf53a6a36c2e4fede4a9c378fd0d8f20be7933558b321"
+  },
+  "src/map/status.cpp": {
+   "change": "modified",
+   "sha256": "73fb384e15d4774fbc184aacf21391cb76b1571be5aa739a33126f8a4fa03af4"
+  },
+  "src/map/trade.cpp": {
+   "change": "modified",
+   "sha256": "362b4d3166a12955ab79abee02ca526e9908a2228119bddeeb322cd975f27dcc"
+  },
+  "src/map/unit.cpp": {
+   "change": "modified",
+   "sha256": "0bbd34410c6f58bdb1f5e34bdd906ddb338cfbca71d8a6335bae912a9e11e971"
+  },
+  "src/map/vending.cpp": {
+   "change": "modified",
+   "sha256": "89ed2f0ae6136cf74a0d13238cef2b96de8eb668a647cb6602c7acd35e249caf"
+  }
+ },
+ "schema": "t10.010.003/footprint/v1"
+}
