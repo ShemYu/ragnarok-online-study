@@ -28,7 +28,7 @@ FULL MODERN / RENEWAL PERSONAL GAME
 |   [ ] Ordinary-item NPC fixtures [CLAUDE SOURCE SELECTED; PARSER OPEN]
 |   [x] Startup process/mount readbacks [ROOT VERIFIED; PARSER OPEN]
 |   [x] Managed client identity/static/owned stop [ROOT VERIFIED]
-|   [ ] Live DB discovery [CANDIDATE6 DIRECTORY/FIXTURE REPAIR ACTIVE]
+|   [ ] Live DB discovery [CANDIDATE6 CHECKS PASS; FRESH PHASE2 NEXT]
 |   [ ] Isolated DB backup/restore -> integrated rendering/item A/B
 |   [ ] Binary/mod/text gate [SOURCE INTEGRATED; RUNTIME OPEN]
 |   [ ] Real EXP/callback/save [ANALYSIS INTEGRATED; RUNTIME OPEN]
@@ -60,13 +60,12 @@ The ledger remains **4/14 parent checkpoints qualified**, not 29% of the
 world/story completed. The content denominator and full-milestone estimate
 remain unfinished. Basic local play and saved progress are already available.
 Three of seven audit tasks are self-verified (about 43% by task count only).
-Discovery candidate4 passes76 authored controls and13 independent Root probes;
-the observed preservation and CREATE/SET faults are repaired within that
-synthetic contract. Fresh preflight/prepare and final source/phase review pass;
-the actual run refuses before any VM command because a shared-temp match already
-exists. Candidate5 scopes app temp files, but needs a directory-binding and
-test-fixture repair before fresh admission; no live capture
-yet. Grok's original is preserved but not selected,
+Discovery candidate6 passes98 authored controls,13 independent profile/I/O
+probes and four independent actual-hit directory swaps. The observed temp/
+fixture faults are repaired within that synthetic contract. Candidate4's
+shared-temp pre-start refusal remains preserved; fresh candidate6 actual
+preflight/phase2 preparation is next, with no live capture yet.
+Grok's original is preserved but not selected,
 and its settled worker is released. See the [current discovery record](reviews/2026-11-05-T10.010.004-db-discovery-root.md).
 The separate4GiB build VM is stopped after the repaired full pair succeeds:
 844.4s/exit0/no timeout. Root reproduces105 artifact files and nine resource

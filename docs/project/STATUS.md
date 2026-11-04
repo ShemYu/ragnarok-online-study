@@ -23,34 +23,29 @@ not percentages of playable content, translation or remaining effort.
 
 ## Current action — DB qualification before integrated items
 
-**Next:** close candidate5's directory-binding gap and control-fixture error,
-then rebind a fresh phase.
-Claude candidate6 source repair is active asctx_6f03970860d4; Root will verify
-fresh copies before preflight/phase2 admission.
-Candidate4's admitted run exits1 before LAUNCHED or any VM command: one existing
-Nebula stderr file violates its empty shared-temp glob check. Root retains the
-phase and raw refusal and leaves the existing file untouched. The private
-app-only TMPDIR design is selected and candidate5 is delivered. Its compile/
-lint and13 independent Root checks pass, but the92-control suite aborts on a
-late helper definition. Root also reproduces two actual-hit directory swaps
-that the new check accepts. Require fd-bound enumeration/current identity
-readback and the small fixture repair before source qualification. Phase2 is
-not prepared and no new run is admitted.
-The prior read-only preflight, prepare and final source/phase review retain
-their scoped passes; they did not prove shared-temp emptiness.
-Both original suppliers and Claude candidate5 have delivered; source copies
+**Next:** bind candidate6's fresh actual preflight and phase2 preparation,
+then review the resulting runtime admission. Root verifies98 authored controls,
+13 independent profile/I/O probes and four independent actual-hit directory
+swaps, with compile/lint passing. Both observed temp/control faults are repaired
+within that synthetic contract; no remaining blocker was found in the narrow
+source reviews. Real phase2 is absent and no new run is admitted.
+
+Candidate4's earlier run refused before any VM command on a shared-temp file.
+That phase/refusal and the unrelated file stay preserved. Candidate6 uses a
+private phase-owned TMPDIR for app up/down only, keeping the historical
+environment for direct VM boot. Exact private-dir identity and environment
+must still be bound and exercised in actual preparation/startup.
+Both original suppliers and Claude candidate6 have delivered; source copies
 and task branches are preserved. The common41-file input contract stays frozen.
 Root handles report wakes without inbox polling; source work is not on its own
 runtime qualification. See the [current review and evidence](reviews/2026-11-05-T10.010.004-db-discovery-root.md)
 and [frozen discovery contract](reviews/2026-11-05-T10.010.004-db-discovery-brief.md).
 
-Claude candidate4 passes76 pure/fake-lifecycle controls, compilation and lint,
-retaining all66 prior cases. Root's13 independent focused checks also pass:
-two positive native-format specimens, eight SQL-profile refusals and three
-single-hit I/O faults with no direct fake DB TERM/down. Source peer reviews
-find no remaining blocker within these repairs. The observed preservation and
-CREATE/SET faults are closed in the synthetic contract; current producer/dialect,
-actual helpers and runtime results remain unqualified.
+The98 controls retain all92 prior authored cases. Root's13 profile/I/O probes
+retain their scoped passes; the four new swap probes assert one hit each,
+no substituted-directory enumeration and closed opened handles. Directory
+checks are point-in-time guards under Root's exclusive phase custody.
+Current producer/dialect, actual helpers and runtime results remain unqualified.
 Grok's original compiles/lints and passes its helper/decoder groups but has
 broader lifecycle/metadata gaps; it is not selected. The [paired review](reviews/2026-11-05-T10.010.004-discovery-suppliers.md)
 keeps original source scores separate from later repair quality.
