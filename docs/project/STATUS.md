@@ -1,17 +1,19 @@
-# Current status — paused handoff
+# Current status — expert-action execution
 
-Updated: 2026-10-29 JST. Owner: coordinating Codex.
+Updated: 2026-11-04 JST. Owner: coordinating Codex.
 
-**Execution is paused at the user's request.** The current authorization is
-documentation cleanup, conservative lint/trim, committing and publishing the
-current feature branch, plus the user's 2026-10-28 merge into **local `main`
-only**. The reviewed source is fast-forwarded locally; `origin/main` stays
-unchanged. Resume game implementation only when the user resumes it.
+**The active thread goal resumes the seven expert-audit tasks with Orca workers.**
+The first three independent lanes are safe test isolation, provisional content
+coverage and reproducible native source/build preparation. They start with
+isolated source work. Runtime execution remains serial under Root, after fresh
+ownership/resource bindings and backup/restore checks. The installed game and
+existing saves have not been changed by this activation checkpoint.
 
-The 2026-10-29 request authorizes a fresh expert inspection and next-action
-design, with source-only verification and documentation. This inspection does
-not install/build a game server or change the running world. See
-[audit findings](reviews/2026-10-29-T00.005.md) and [the seven next tasks](NEXT_ACTIONS.md).
+See [audit findings](reviews/2026-10-29-T00.005.md),
+[the seven tasks](NEXT_ACTIONS.md) and the
+[current execution record](reviews/2026-11-04-execution.md).
+Feature-branch checkpoints/publication remain authorized; `origin/main` stays
+unchanged. No additional local-main merge is part of this execution checkpoint.
 
 Pre-merge maintenance: lint/CI checkpoint `86e98d9` is verified. At the user's
 subsequent request, the retired Godot/Character Lab source is preserved under
@@ -63,7 +65,7 @@ This is not a percentage of playable content, effort or translation.
 The [unfinished task board](TASKS.md) holds the remaining IDs, dependencies and
 next actions. The [ASCII map](PROJECT_MAP.md) shows the execution order.
 
-## Last verified baseline — preserve; do not repeat without a reason
+## Historical last runtime baseline — refresh before runtime work
 
 - The user finished the personal playtest. Its tab is absent; all three
   characters are offline. Assassin's latest position and all complete
@@ -87,11 +89,11 @@ Evidence: [saved user state](reviews/2026-10-25-user-assassin-play.md#current-of
 [fresh backup](reviews/2026-10-25-T10.010.md#idle-saves-and-fresh-whole-world-backup-pass),
 [8 GiB restart](reviews/2026-10-25-T10.010.md#supported-idle-ram-restart-and-save-preservation-pass).
 
-## Resume action and ownership
+## Current action and ownership
 
-After the user resumes execution, Root freezes one bounded native build recipe
-with equal Claude/Grok inputs and acceptance criteria, compares both plans,
-then owns the serial runtime execution and independent verification. Refresh
+Root freezes equal Claude/Grok implementation briefs for the three independent
+source lanes, verifies both candidates and integrates the stronger bounded
+outputs. Root then owns serial runtime execution and verification. Refresh
 current Engine/socket/service/save bindings after the 8 GiB restart; old IDs,
 start times and consumed probe admissions are not reusable authority.
 

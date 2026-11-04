@@ -1,7 +1,9 @@
 # Expert re-audit — next actions
 
-Updated 2026-10-29. **Inspection/design is authorized; game execution remains
-paused.** These are planned tasks, not dispatched implementation or acceptance.
+Designed 2026-10-29; execution activated 2026-11-04 by the current thread goal.
+The seven tasks remain unverified until their acceptance gates pass. The first
+three source lanes have frozen briefs; see the
+[execution record](reviews/2026-11-04-execution.md) for dispatch and results.
 [Audit evidence](reviews/2026-10-29-T00.005.md) distinguishes confirmed findings
 from missing runtime proof. The full Modern/Renewal goal is unchanged.
 
@@ -33,7 +35,7 @@ The acceptance column describes future evidence, not a result already obtained.
 ## Dependency flow
 
 ```text
-Inspection/design complete; execution awaits resumption
+Inspection/design complete; execution resumed 2026-11-04
  |
  +-- T00.006     safe, reproducible verification ----------+
  +-- T06.005.001 coverage ledger / 82-gap reconciliation --+--> full-content plan

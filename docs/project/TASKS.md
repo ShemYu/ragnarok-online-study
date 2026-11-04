@@ -1,8 +1,10 @@
 # Unfinished task board
 
-Updated: 2026-10-29 JST. Owner: coordinator unless explicitly dispatched.
-**Game execution is paused.** Status `in_progress` below retains the existing
-unfinished task disposition; it does not mean a worker is currently running.
+Updated: 2026-11-04 JST. Owner: coordinator unless explicitly dispatched.
+**The active goal resumes the seven expert-audit tasks.** Historical
+`in_progress` rows are unfinished dispositions, not evidence of a live worker.
+Current dispatches and verification are recorded in the
+[execution record](reviews/2026-11-04-execution.md).
 
 Only unfinished work is listed here. The 120 verified/ready/accepted rows have
 moved out of the active view into [the historical ledger](HISTORY.md).
@@ -17,7 +19,8 @@ acceptance; freeze their task-specific execution inputs before dispatch.
 
 The expert re-audit adds seven planned children to the 37 previously unfinished
 rows. Their bounded outputs, acceptance and parallel lanes are defined in
-[Next actions](NEXT_ACTIONS.md); this is design, not resumed runtime execution.
+[Next actions](NEXT_ACTIONS.md). Their execution starts with three independent
+source lanes; installed-state mutations require the later runtime gates.
 
 ## Resume order
 
@@ -36,7 +39,7 @@ rows. Their bounded outputs, acceptance and parallel lanes are defined in
 
 | Task | Phase | Pending scope | Dependencies | Status | Next action |
 | --- | --- | --- | --- | --- | --- |
-| T00.006 | P0 verification tooling | Public test classification and self-isolating mutation-suite runner | T00.005 source re-audit | `planned` | Check in a safe reproducible runner; keep canonical hash/inode/mtime/ctime unchanged on success and interruption. |
+| T00.006 | P0 verification tooling | Public test classification and self-isolating mutation-suite runner | T00.005 source re-audit | `in_progress` | Implement paired candidates from the [frozen brief](tasks/T00.006.md); Root verifies source identities on success and interruption. |
 | T04 | P1 | Baseline play, persistence, offline and resource report | T03 | `in_progress` | Finish remaining offline/performance qualification; preserve the keep-internet-on constraint. |
 | T04.001 | P1 | Calibrated offline verification design and trial | T04 partial | `in_progress` | Qualify the remaining offline scenario without disconnecting the Mac; quiet network counters are insufficient. |
 | T04.005 | P1 | Field fog diagnosis and repair design | T04 field observation | `in_progress` | Verify a permanent fog/display fix on the current runtime and affected scenes. |
@@ -59,7 +62,7 @@ rows. Their bounded outputs, acceptance and parallel lanes are defined in
 | T06.006 | P2 ordinary gameplay verification | Isolated multi-stage quest and effective runtime-load evidence | .008 checkpoint; paired plan; proved fresh state isolation/preservation | `in_progress` | Complete effective-runtime and ordinary multi-stage quest evidence. |
 | T06.006.003 | P2 root serial progression | Ordinary intro/Eden membership, hunt, rewards and persistence | Qualified .002separate world; corrected actual T07.001 paired scenario | `in_progress` | Finish the ordinary intro/Eden hunt, rewards and persistence scenario after the current story lane. |
 | T06.005 | P2 | Reconciled content/gap report | T06.002–T06.004 | `planned` | Publish the reconciled required-content and gap report after its inventory inputs qualify. |
-| T06.005.001 | P2 provisional coverage | Version/content ledger with evidence levels and 82-gap joins | Already qualified T06/T07 inventories; unknown inputs stay unknown | `planned` | Produce the provisional ledger now, without waiting for complete T06 or claiming full-content coverage. |
+| T06.005.001 | P2 provisional coverage | Version/content ledger with evidence levels and 82-gap joins | Already qualified T06/T07 inventories; unknown inputs stay unknown | `in_progress` | Implement paired candidates from the [frozen brief](tasks/T06.005.001.md); reconcile known inputs without claiming full-content coverage. |
 | T07 | P2 | Full-game version/coverage contract and gap-based estimate | Verified partial T06 inputs; full T06 completion still required | `in_progress` | Declare a coherent Renewal content/version contract and estimate the actual remaining gaps. |
 | T07.007 | P2 modern asset acquisition | Official October Taiwan package, full extracted manifest and exact terrain/dependency catalog | Independent verified official metadata; common base6e05dfc | `in_progress` | Finish the official-package/dependency reconciliation and remaining production map gates. |
 | T07.007.011 | P2 actual map loading/rendering | Four target maps through production image/instance/compile/GPU paths | Qualified .010 assets; exact actual client bundles and fresh viewer origin | `in_progress` | Complete the four target maps through genuine production render paths; isolated samples stay scoped. |
@@ -72,7 +75,7 @@ rows. Their bounded outputs, acceptance and parallel lanes are defined in
 | T10.008 | P3 functional source | Supported Traditional Chinese True quest-text mod generator | Existing supported System-table route; independent source lane from T10.007, normal journal gate later uses actual server admission | `in_progress` | Install/relink the supported True quest-text overlay and verify the normal journal against its oracle. |
 | T10.009 | P3 functional source | Chapter1 starter transport and checked18368→18369Messenger handoff | Integrated2734d8f starter, supported mechanics/commands and existing destination metadata; independent of broader geometry | `in_progress` | Complete supported normal integration of first-edge travel, Messenger handoff, fruit/return and saves. |
 | T10.010 | P3 functional source | Fruit village arrival, Shasha/Maysel through18371, real rewards and resume | Qualified T10.009 source; retained mechanics/native binding; independent of pending normal installation | `in_progress` | NEXT: qualify/build the exact 0.3.2 native server, then test parser, actors, rewards, save and withdrawal before normal installation. |
-| T10.010.003 | P3 reproducible build | Exact source/overlay preparation and bounded native build/export recipe | Qualified T10.010.002 source; fresh environment/resource binding before execution | `planned` | Reconstruct all nine pinned inputs and define full Linux/arm64 source, dependencies, ABI, limits, cleanup and export. |
+| T10.010.003 | P3 reproducible build | Exact source/overlay preparation and bounded native build/export recipe | Qualified T10.010.002 source; fresh environment/resource binding before execution | `in_progress` | Implement paired candidates from the [frozen brief](tasks/T10.010.003.md); reconstruct pinned sources without old prepared target bodies. |
 | T10.010.004 | P3 native qualification | Full binary build/start and ordinary-item A/B regression | T10.010.003 | `planned` | Verify complete linking/loader/startup and ordinary loot/shop/inventory behavior before loading the story extension. |
 | T10.010.005 | P3 release safety | Binary/mod/text/config compatibility manifest and pre-install gate | Design with T10.010.003; execution needs T10.010.004 | `planned` | Refuse stock or mismatched native capability before installing 0.3.2; keep frozen 0.2.0 staging clearly separate. |
 | T10.010.006 | P3 reward/save qualification | Actual EXP, callback, save and uncertain-delivery acceptance | Analyze with T10.010.003; native validation needs T10.010.004 | `planned` | Inspect actual save paths, verify level-up and restart/no-replay, and define manual review without claiming atomicity. |

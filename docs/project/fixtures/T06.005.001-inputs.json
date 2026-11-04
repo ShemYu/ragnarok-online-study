@@ -1,0 +1,75 @@
+{
+  "schema": "renewal-provisional-coverage-inputs-v1",
+  "task": "T06.005.001",
+  "frozen_date": "2026-11-04",
+  "source_commit": "8ddffdf683a08ab82cf485ef2a77efde882f2de3",
+  "input_boundary": "Read-only metadata authority. Does not requalify raw row producers, current overlays, native loading, story completeness or full-game denominator.",
+  "inputs": [
+    {
+      "path": "docs/project/fixtures/T07.007.014-profile.json",
+      "bytes": 164526,
+      "sha256": "6105ef0acefa97cea81da2b90eab0e71c1151ca1867be4792efb9f29c514703c",
+      "role": "qualified_metadata_only"
+    },
+    {
+      "path": ".tools/renewal/t06-map-gap-plans-1/gaps.json",
+      "bytes": 93349,
+      "sha256": "8cadd3aec2dd312854c72a9fd076640b7f11133e67fb381b917117848741ddf1",
+      "role": "qualified_metadata_only"
+    },
+    {
+      "path": ".tools/renewal/t06-map-gap-preparation-1/root-metadata-2/report.json",
+      "bytes": 66556,
+      "sha256": "18c6ba3af7c8adf9845383f290a8a7f7b7b7ef70322d5c727c2188164de80a57",
+      "role": "qualified_metadata_only"
+    },
+    {
+      "path": ".tools/renewal/t07-007-014-root-g-qualification-preparation-1/actual-g-1/gap-join.json",
+      "bytes": 250085,
+      "sha256": "c9f986b33189a0cadcd40d3ccaf3ec0094fc09cd3fb934080a3e9e0aaa1e2e62",
+      "role": "qualified_metadata_only"
+    },
+    {
+      "path": ".tools/renewal/t06-candidates/integrated-2/snapshot-manifest.json",
+      "bytes": 810498,
+      "sha256": "79ee4eff2ed1621aa3be6247d0aedefc5f44abd65025617de652f41644c1dbd0",
+      "role": "qualified_metadata_only"
+    },
+    {
+      "path": ".tools/renewal/t06-selection-candidates/integrated-1/selection-manifest.json",
+      "bytes": 953299,
+      "sha256": "d62e31fd601a879a9020eb0cbc79273cdaa38f11d6119af056b36727631aec9a",
+      "role": "qualified_metadata_only"
+    },
+    {
+      "path": ".tools/renewal/t06-map-cache-candidates/integrated-2/map-cache-manifest.json",
+      "bytes": 2109200,
+      "sha256": "fd49368cc132ad7a1303d1eba8705b89da1548b293265094b69dc7e80ea240f5",
+      "role": "qualified_metadata_only"
+    },
+    {
+      "path": ".tools/renewal/t06-yaml-graph-candidates/integrated-1/yaml-graph-manifest.json",
+      "bytes": 56125,
+      "sha256": "60fc99c4259743170e2239648539e1bc1757299f4168484b96ac7c736b76f98a",
+      "role": "qualified_metadata_only"
+    },
+    {
+      "path": ".tools/renewal/t06-monster-projection-candidates/integrated-1/actual-1/monster-projection-manifest.json",
+      "bytes": 20320,
+      "sha256": "71220de66e81869cb955fb0b2ad47775b79a10953d866ab8ad70189aa77b3ce1",
+      "role": "qualified_metadata_only"
+    },
+    {
+      "path": ".tools/renewal/t06-full839-reference-claude-execution-root-1/publication/static-spawn-references-manifest.json",
+      "bytes": 1234827,
+      "sha256": "96e83b41e85651afcf1bd4fb81d1993851551f10d2be54b7db3b90549354c486",
+      "role": "qualified_metadata_only"
+    },
+    {
+      "path": ".tools/renewal/t06-text-pair-1/root-corrected-actual-1/actual-1/quoted-manifest.json",
+      "bytes": 1377,
+      "sha256": "d40b084830168052e89487b2a455bb86b0cdba6d4a5507293a9d4a953372d8e1",
+      "role": "qualified_metadata_only"
+    }
+  ]
+}

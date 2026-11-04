@@ -1,10 +1,10 @@
 # Renewal solo milestone: goal and feasibility
 
-Feasibility review: 2026-10-22. Inspection/design updated: 2026-10-29.
-Owner: coordinating Codex. **Game execution is paused by the user.** Current
-work includes expert re-inspection, next-action design and documentation;
+Feasibility review: 2026-10-22. Inspection/design: 2026-10-29. Execution resumed: 2026-11-04.
+Owner: coordinating Codex. **The active thread goal resumes the seven audit tasks.** Current
+work starts with safe verification, provisional coverage and exact build inputs;
 the full goal and functionality-first order are unchanged. [Current status](STATUS.md)
-gives the resume action; [History](HISTORY.md) holds completed records.
+gives the current action; [History](HISTORY.md) holds completed records.
 The [2026-10-29 plan](NEXT_ACTIONS.md) adds reproducible verification/build
 prerequisites and a parallel provisional content ledger. It makes no new
 full-milestone estimate, runtime acceptance or scope reduction.
@@ -13,7 +13,7 @@ full-milestone estimate, runtime acceptance or scope reduction.
 
 The first milestone targets the **full Modern / Renewal Ragnarok Online game** for personal play on this Mac: maps, monsters, story/quests, Traditional Chinese game UI/text and persistent progress. On2026-10-19 the user clarified that “all content” means the full game, rather than a single-map game, and deferred party-only content to the next phase. The user also requires durable documentation for stateless agents, supervised phases, task-level Claude/Grok comparisons, coordinator verification before user evaluation, and Git rollback controls.
 
-After documentation checkpoint `35ad527`, the user instructed “follow the strategy I told you, finished all these steps” and activated the thread goal. That authorization remains the scope for resumption; game execution is currently paused. The earlier documentation-only boundary applied to T00. It is not evidence that the game or later acceptance gates are complete.
+After documentation checkpoint `35ad527`, the user instructed “follow the strategy I told you, finished all these steps” and activated the thread goal. Following the later pause and expert re-audit, the active 2026-11-04 goal explicitly asks to finish the seven audit tasks with Orca workers. See the [execution record](reviews/2026-11-04-execution.md). Resumption does not establish that the game or later acceptance gates are complete.
 
 The user selected Renewal rather than classic/pre-renewal. T06/T07 must identify the actual version/edition, build a complete content manifest and expose missing content against the full-game goal. A version/manifest is a verification boundary, not permission to declare only the easiest shipped subset complete. The current evidence does not establish parity with the latest Taiwan or Korean service. Root will provide a concrete coverage recommendation; no new user answer is needed to continue the inventory.
 

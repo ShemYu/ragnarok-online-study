@@ -2,7 +2,8 @@
 
 Read [Goal](GOAL.md), [Tasks](TASKS.md), [Workflow](WORKFLOW.md) and [Status](STATUS.md) together. These are staged evidence gates, not a claim that the entire goal already works.
 
-At the2026-10-25 handoff, game execution is paused. The [active task board](TASKS.md)
+The2026-10-25 pause is historical; the active2026-11-04 goal resumes the seven
+expert-audit tasks. The [active task board](TASKS.md)
 contains unfinished work; [History](HISTORY.md) preserves completed scoped
 records and pending user acceptance. The phase requirements below are unchanged.
 

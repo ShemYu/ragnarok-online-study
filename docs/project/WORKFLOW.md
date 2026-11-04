@@ -14,7 +14,9 @@ remote default-branch merge was authorized at that handoff. The user's
 does not itself resume game implementation.
 
 The 2026-10-29 expert re-audit authorizes inspection/design and controlled
-source checks while keeping game execution paused. Its [next actions](NEXT_ACTIONS.md)
+source checks while keeping game execution paused at that date. The active
+2026-11-04 thread goal now resumes the seven audit tasks with Orca workers;
+see the [execution record](reviews/2026-11-04-execution.md). Its [next actions](NEXT_ACTIONS.md)
 require self-isolated mutation suites and explicit public/private test inputs.
 Do not use broad discovery or a private historical wrapper as a public test
 entrypoint. Reproduce proposed simplifications against existing counterexamples
