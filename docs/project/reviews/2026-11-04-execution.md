@@ -717,3 +717,16 @@ cause is claimed. Root adds retained observations and a40s GET-only retry,
 preserving the exact acceptance predicate. Four focused modelled controls
 and independent source review pass. New resolve-vm-root-5 admission is
 prepared; old phases stay consumed. See the current .004 Root record.
+
+
+## Captured memory value corrects the readiness guard
+
+The retained retry reports187 stable matching identity/CPU samples, with
+MemTotal one4KiB page above the earlier snapshot. Root's exact-byte guard
+was over-specific. No container/package starts; cleanup and personal
+preservation pass. Root restores the original characterized3800–4096MiB
+band while keeping config/control4096MiB, all identity pins, fresh available
+memory, resource/package/ABI gates and cleanup unchanged. Seven modelled
+controls and independent narrow source review pass. Fresh phase6/resolve5
+is prepared; previous admissions stay consumed. This is a bounded harness
+correction, not a game-goal or hardware change.

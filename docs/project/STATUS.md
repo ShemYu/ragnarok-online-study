@@ -80,8 +80,12 @@ phase reaches a readiness refusal before any container/package action.
 A separate GET-only diagnostic captures the correct tuple in three samples.
 Root adds a40s readiness retry with the same exact predicate and retained
 observations; four modelled controls and independent review pass. A fresh
-resolve-vm-root-5 admission is prepared. BusyBox parsing, fetch/install and
-closure remain open; the earlier mismatch's exact cause remains unknown.
+retry captures187 correct identity samples whose MemTotal is one4KiB
+page above the old snapshot. Root restores the original characterized
+3800–4096MiB band; pinned4096MiB config/control and the fresh1536+768MiB
+available-memory gate stay unchanged. Seven controls and narrow review
+pass. Fresh resolve-vm-root-6 is prepared. Actual fetch/install and closure
+remain open; the first unretained mismatch remains unclassified.
 The VM is stopped, both containers deleted and five personal service
 projections identical. No real closure or full build is qualified.
 The [EXP/callback/save source analysis](reviews/2026-11-04-T10.010.006-root.md)
