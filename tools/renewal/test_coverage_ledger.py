@@ -52,6 +52,12 @@ def _apply(doc, op, pointer, value=None):
         raise ValueError(op)
 
 
+def _lookup(doc, pointer):
+    for part in _parts(pointer):
+        doc = doc[int(part)] if isinstance(doc, list) else doc[part]
+    return doc
+
+
 def _dump(doc):
     return (json.dumps(doc, indent=1, sort_keys=True) + "\n").encode()
 
@@ -174,7 +180,10 @@ class CoverageLedgerTests(unittest.TestCase):
             with self.subTest(case=case["id"]):
                 self.assertNotIn(case["id"], seen)
                 seen.add(case["id"])
-                self.assertEqual(self._run_case(case), case["expect"])
+                code, detail = self._run_case(case)
+                self.assertEqual(code, case["expect"], detail)
+                if "expect_detail" in case:
+                    self.assertIn(case["expect_detail"], detail)
 
     def _run_case(self, case):
         stage = case["stage"]
@@ -201,22 +210,29 @@ class CoverageLedgerTests(unittest.TestCase):
             except cl.Refusal as refusal:
                 if stage == "ledger":
                     self.fail(f"valid base refused: {refusal}")
-                return refusal.code
+                return refusal.code, refusal.detail
             if stage != "ledger":
-                return "ACCEPTED"
-            _apply(ledger, case["op"], case["pointer"], case.get("value"))
+                return "ACCEPTED", ""
+            for step in case.get("ops") or [case]:
+                if step["op"] == "recompute_summary":
+                    ledger["gap_summary"] = cl.summarize_roots(ledger["gap_roots"],
+                                                               ledger["catalog_views"])
+                elif step["op"] == "copy":
+                    _apply(ledger, "set", step["pointer"], _lookup(ledger, step["from"]))
+                else:
+                    _apply(ledger, step["op"], step["pointer"], step.get("value"))
             try:
                 cl.validate_ledger(ledger)
             except cl.Refusal as refusal:
-                return refusal.code
-            return "ACCEPTED"
+                return refusal.code, refusal.detail
+            return "ACCEPTED", ""
         finally:
             h.close()
 
     def test_every_required_negative_class_present(self):
         codes = {c["expect"] for c in CASES["negative_cases"]}
         for required in ("DUPLICATE_ROOT_ID", "MISSING_ROOT_ID", "PIN_DRIFT",
-                         "UNSUPPORTED_PROMOTION", "COUNT_MISMATCH"):
+                         "UNSUPPORTED_PROMOTION", "COUNT_MISMATCH", "UNBOUND_FACT"):
             self.assertIn(required, codes)
 
     def test_committed_public_ledger_is_valid(self):
@@ -228,6 +244,34 @@ class CoverageLedgerTests(unittest.TestCase):
         self.assertEqual(len(ledger["gap_roots"]), 82)
         text = path.read_text()
         self.assertNotIn("/Users/", text)
+        warps = [f for f in ledger["categories"]["maps_warps"] if f["id"] == "warps.count"][0]
+        self.assertEqual((warps["state"], warps["value"], warps["source"]["input"]),
+                         ("unknown", None, None))
+        self.assertNotIn("inside the 31601", text)
+        for fid in cl.DENOMINATOR_FACTS:
+            self.assertIn(fid, text)
+
+    def test_ledger_fact_targets_are_the_intended_facts(self):
+        # Guards the index-based pointers used by the negative cases.
+        h = Harness()
+        try:
+            ledger = cl.generate(h.pins_path, h.root)
+        finally:
+            h.close()
+        cats = ledger["categories"]
+        expect = {("maps_warps", 0): "maps.full_game_denominator",
+                  ("maps_warps", 1): "maps.server_cache_entries",
+                  ("maps_warps", 6): "maps.client_rsw_404_gap_roots",
+                  ("maps_warps", 7): "maps.gap_roots_configured",
+                  ("monsters_spawns", 5): "spawns.static_supported",
+                  ("items_skills", 0): "items.item_db_raw_rows",
+                  ("npcs", 2): "npcs.entities",
+                  ("story_quests", 0): "story.full_chain_denominator",
+                  ("story_quests", 1): "quests.quest_db_raw_rows",
+                  ("story_quests", 3): "story.chapter1_family_gap_roots",
+                  ("instances", 1): "instances.gap_root_name_candidates"}
+        for (cat, index), fid in expect.items():
+            self.assertEqual(cats[cat][index]["id"], fid)
 
 
 if __name__ == "__main__":

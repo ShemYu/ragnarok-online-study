@@ -984,7 +984,7 @@
     "scope": "server",
     "source": {
      "input": ".tools/renewal/t06-yaml-graph-candidates/integrated-1/yaml-graph-manifest.json",
-     "pointer": "/counts/skip_reasons"
+     "pointer": "/counts/edges_skipped"
     },
     "state": "unknown",
     "unit": "import edges",
@@ -1063,7 +1063,7 @@
     "scope": "server",
     "source": {
      "input": ".tools/renewal/t06-map-cache-candidates/integrated-2/map-cache-manifest.json",
-     "pointer": "/summary/dispositions"
+     "pointer": "/summary/dispositions/retained"
     },
     "state": "present",
     "unit": "map candidates",
@@ -1072,10 +1072,11 @@
    {
     "evidence_level": "qualified_inventory_manifest",
     "id": "maps.cache_only",
+    "note": "Derived: maps.server_cache_entries minus maps.stock_configured.",
     "scope": "server",
     "source": {
-     "input": ".tools/renewal/t06-map-cache-candidates/integrated-2/map-cache-manifest.json",
-     "pointer": "/summary"
+     "input": null,
+     "pointer": null
     },
     "state": "present",
     "unit": "cache entries without stock configuration",
@@ -1147,11 +1148,11 @@
    {
     "evidence_level": "not_observed",
     "id": "warps.count",
-    "note": "Warps fall inside the 31601 not-static events, which are not classified.",
+    "note": "No admitted input inventories warps. The static-spawn not_static class is only whitespace/line_comment/block_comment (static_spawn_references.py NOT_STATIC). The pilot lexer accepts monster/boss_monster and bounded opaque scripts, then stops at the first other construct (unsupported_construct), leaving the rest of that source as uncertified suffix bytes. Warp declarations are not counted.",
     "scope": "server",
     "source": {
-     "input": ".tools/renewal/t06-full839-reference-claude-execution-root-1/publication/static-spawn-references-manifest.json",
-     "pointer": "/counters/not_static"
+     "input": null,
+     "pointer": null
     },
     "state": "unknown",
     "unit": "warp declarations",
@@ -1457,7 +1458,8 @@
   "not_observed",
   "runtime_load_observation",
   "root_verified_runtime",
-  "user_accepted"
+  "user_accepted",
+  "full_content_oracle"
  ],
  "gap_roots": [
   {
@@ -9322,47 +9324,192 @@
  "pin_file_source_commit": "8ddffdf683a08ab82cf485ef2a77efde882f2de3",
  "reconciliation": {
   "basename_only": {
-   "ledger": 0,
-   "source": 0
+   "binding": "rows_basename_only",
+   "input": ".tools/renewal/t07-007-014-root-g-qualification-preparation-1/actual-g-1/gap-join.json",
+   "pointer": "/counts/basename_only_occurrences",
+   "source_value": 0
   },
   "cache_only": {
-   "ledger": 3,
-   "source": 3
+   "binding": "rows_cache_only",
+   "input": ".tools/renewal/t06-map-gap-preparation-1/root-metadata-2/report.json",
+   "pointer": "/cache_only404",
+   "source_value": 3
+  },
+  "cache_only_profile": {
+   "binding": "rows_cache_only",
+   "input": "docs/project/fixtures/T07.007.014-profile.json",
+   "pointer": "/denominators/cache_only_gap_roots",
+   "source_value": 3
   },
   "comparison_names": {
-   "ledger": 246,
-   "source": 246
+   "binding": "rows_comparison_names",
+   "input": "docs/project/fixtures/T07.007.014-profile.json",
+   "pointer": "/denominators/comparison_names",
+   "source_value": 246
   },
   "configured": {
-   "ledger": 79,
-   "source": 79
+   "binding": "rows_configured",
+   "input": ".tools/renewal/t06-map-gap-preparation-1/root-metadata-2/report.json",
+   "pointer": "/configured404",
+   "source_value": 79
   },
-  "gap_roots": {
-   "ledger": 82,
-   "source": 82
+  "configured_profile": {
+   "binding": "rows_configured",
+   "input": "docs/project/fixtures/T07.007.014-profile.json",
+   "pointer": "/denominators/configured_gap_roots",
+   "source_value": 79
+  },
+  "configured_world_roots": {
+   "binding": "fact_stock_configured",
+   "input": "docs/project/fixtures/T07.007.014-profile.json",
+   "pointer": "/denominators/configured_world_roots",
+   "source_value": 1265
+  },
+  "gap_roots_join": {
+   "binding": "rows",
+   "input": ".tools/renewal/t07-007-014-root-g-qualification-preparation-1/actual-g-1/gap-join.json",
+   "pointer": "/counts/gap_roots",
+   "source_value": 82
   },
   "gap_roots_profile": {
-   "ledger": 82,
-   "source": 82
+   "binding": "rows",
+   "input": "docs/project/fixtures/T07.007.014-profile.json",
+   "pointer": "/denominators/gap_roots",
+   "source_value": 82
   },
   "gap_roots_rsw404": {
-   "ledger": 82,
-   "source": 82
+   "binding": "rows",
+   "input": ".tools/renewal/t06-map-gap-preparation-1/root-metadata-2/report.json",
+   "pointer": "/rsw404_count",
+   "source_value": 82
   },
   "name_occurrences": {
-   "ledger": 73,
-   "source": 73
+   "binding": "rows_name_occurrences",
+   "input": ".tools/renewal/t07-007-014-root-g-qualification-preparation-1/actual-g-1/gap-join.json",
+   "pointer": "/counts/full_path_occurrences",
+   "source_value": 73
   },
   "roots_with_counterpart": {
-   "ledger": 26,
-   "source": 26
+   "binding": "rows_with_counterpart",
+   "input": ".tools/renewal/t07-007-014-root-g-qualification-preparation-1/actual-g-1/gap-join.json",
+   "pointer": "/counts/roots_with_full_path",
+   "source_value": 26
   },
   "world_roots": {
-   "ledger": 1296,
-   "source": 1296
+   "binding": "fact_server_cache_entries",
+   "input": "docs/project/fixtures/T07.007.014-profile.json",
+   "pointer": "/denominators/world_roots",
+   "source_value": 1296
   }
  },
  "schema": "renewal-provisional-coverage-ledger-v1",
+ "source_values": {
+  "items.item_db_raw_rows": {
+   "input": ".tools/renewal/t06-yaml-graph-candidates/integrated-1/yaml-graph-manifest.json",
+   "pointer": "/databases/ITEM_DB/raw_rows",
+   "value": 29356
+  },
+  "items_skills.yaml_edges_skipped": {
+   "input": ".tools/renewal/t06-yaml-graph-candidates/integrated-1/yaml-graph-manifest.json",
+   "pointer": "/counts/edges_skipped",
+   "value": 4
+  },
+  "maps.client_rsw_404_gap_roots": {
+   "input": ".tools/renewal/t06-map-gap-preparation-1/root-metadata-2/report.json",
+   "pointer": "/rsw404_count",
+   "value": 82
+  },
+  "maps.gap_roots_cache_only": {
+   "input": ".tools/renewal/t06-map-gap-preparation-1/root-metadata-2/report.json",
+   "pointer": "/cache_only404",
+   "value": 3
+  },
+  "maps.gap_roots_configured": {
+   "input": ".tools/renewal/t06-map-gap-preparation-1/root-metadata-2/report.json",
+   "pointer": "/configured404",
+   "value": 79
+  },
+  "maps.server_cache_entries": {
+   "input": ".tools/renewal/t06-map-cache-candidates/integrated-2/map-cache-manifest.json",
+   "pointer": "/summary/cache_entries",
+   "value": 1296
+  },
+  "maps.source_profile_retained": {
+   "input": ".tools/renewal/t06-map-cache-candidates/integrated-2/map-cache-manifest.json",
+   "pointer": "/summary/dispositions/retained",
+   "value": 1265
+  },
+  "maps.stock_configured": {
+   "input": ".tools/renewal/t06-selection-candidates/integrated-1/selection-manifest.json",
+   "pointer": "/counts/map_candidates",
+   "value": 1265
+  },
+  "monsters.distinct_declared_ids": {
+   "input": ".tools/renewal/t06-monster-projection-candidates/integrated-1/actual-1/monster-projection-manifest.json",
+   "pointer": "/counts/distinct_supported_declared_ids",
+   "value": 2699
+  },
+  "monsters.mob_db_raw_declarations": {
+   "input": ".tools/renewal/t06-monster-projection-candidates/integrated-1/actual-1/monster-projection-manifest.json",
+   "pointer": "/counts/raw_declarations",
+   "value": 2699
+  },
+  "npcs.stock_selected_sources": {
+   "input": ".tools/renewal/t06-selection-candidates/integrated-1/selection-manifest.json",
+   "pointer": "/counts/npc_source_files",
+   "value": 839
+  },
+  "quests.quest_db_raw_rows": {
+   "input": ".tools/renewal/t06-yaml-graph-candidates/integrated-1/yaml-graph-manifest.json",
+   "pointer": "/databases/QUEST_DB/raw_rows",
+   "value": 4848
+  },
+  "skills.skill_db_raw_rows": {
+   "input": ".tools/renewal/t06-yaml-graph-candidates/integrated-1/yaml-graph-manifest.json",
+   "pointer": "/databases/SKILL_DB/raw_rows",
+   "value": 1635
+  },
+  "spawns.framing_events": {
+   "input": ".tools/renewal/t06-full839-reference-claude-execution-root-1/publication/static-spawn-references-manifest.json",
+   "pointer": "/counters/events",
+   "value": 35735
+  },
+  "spawns.not_static": {
+   "input": ".tools/renewal/t06-full839-reference-claude-execution-root-1/publication/static-spawn-references-manifest.json",
+   "pointer": "/counters/not_static",
+   "value": 31601
+  },
+  "spawns.opaque": {
+   "input": ".tools/renewal/t06-full839-reference-claude-execution-root-1/publication/static-spawn-references-manifest.json",
+   "pointer": "/counters/opaque",
+   "value": 19
+  },
+  "spawns.static_gap": {
+   "input": ".tools/renewal/t06-full839-reference-claude-execution-root-1/publication/static-spawn-references-manifest.json",
+   "pointer": "/counters/static_gap",
+   "value": 310
+  },
+  "spawns.static_supported": {
+   "input": ".tools/renewal/t06-full839-reference-claude-execution-root-1/publication/static-spawn-references-manifest.json",
+   "pointer": "/counters/static_supported",
+   "value": 3074
+  },
+  "spawns.uncertified_suffix": {
+   "input": ".tools/renewal/t06-full839-reference-claude-execution-root-1/publication/static-spawn-references-manifest.json",
+   "pointer": "/counters/suffix",
+   "value": 731
+  },
+  "spawns.unparsed_suffix_bytes": {
+   "input": ".tools/renewal/t06-full839-reference-claude-execution-root-1/publication/static-spawn-references-manifest.json",
+   "pointer": "/raw_scope/raw_counters/unknown_bytes",
+   "value": 23237306
+  },
+  "story.quoted_text_occurrences": {
+   "input": ".tools/renewal/t06-text-pair-1/root-corrected-actual-1/actual-1/quoted-manifest.json",
+   "pointer": "/counts/occurrences",
+   "value": 402809
+  }
+ },
  "states": [
   "expected",
   "present",
@@ -9375,7 +9522,8 @@
  ],
  "status": "provisional",
  "task": "T06.005.001",
- "tool_version": "1.0.0",
+ "tool_version": "1.1.0",
+ "validation_boundary": "validate checks structure and internal consistency only; input authenticity and reproducibility are proved only by `check` against the pinned inputs.",
  "versions": {
   "client": {
    "episode": {

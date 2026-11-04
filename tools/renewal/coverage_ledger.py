@@ -35,7 +35,7 @@ import time
 
 SCHEMA = "renewal-provisional-coverage-ledger-v1"
 INPUTS_SCHEMA = "renewal-provisional-coverage-inputs-v1"
-TOOL_VERSION = "1.0.0"
+TOOL_VERSION = "1.1.0"
 
 STATES = ("expected", "present", "effective", "loaded", "exercised",
           "verified", "missing", "unknown")
@@ -50,12 +50,49 @@ EVIDENCE_LEVELS = (
     "runtime_load_observation",       # reserved; no admitted input provides it
     "root_verified_runtime",          # reserved; no admitted input provides it
     "user_accepted",                  # reserved; no admitted input provides it
+    "full_content_oracle",            # reserved; an authoritative full-content denominator
 )
+RESERVED_LEVELS = {"runtime_load_observation", "root_verified_runtime", "user_accepted",
+                   "full_content_oracle"}
 # States that need runtime-level evidence; metadata inputs cannot supply it.
 PROMOTION_RULES = {
     "loaded": {"runtime_load_observation", "root_verified_runtime", "user_accepted"},
     "verified": {"root_verified_runtime", "user_accepted"},
     "effective": {"runtime_load_observation", "root_verified_runtime", "user_accepted"},
+    # A full-content denominator needs an authoritative oracle, never metadata.
+    "expected": {"full_content_oracle"},
+    # Exercise needs an actual observation (historical request or documented play).
+    "exercised": {"prior_observed_request", "documented_not_admitted",
+                  "runtime_load_observation", "root_verified_runtime", "user_accepted"},
+}
+# Denominators no admitted input defines; they must stay unknown/null/unsourced.
+DENOMINATOR_FACTS = ("maps.full_game_denominator", "monsters.full_game_denominator",
+                     "story.full_chain_denominator", "instances.denominator")
+# Every category must carry exactly these fact IDs (no silent removal or addition).
+REQUIRED_FACTS = {
+    "maps_warps": ("maps.full_game_denominator", "maps.server_cache_entries",
+                   "maps.stock_configured", "maps.source_profile_retained", "maps.cache_only",
+                   "maps.runtime_loaded", "maps.client_rsw_404_gap_roots",
+                   "maps.gap_roots_configured", "maps.gap_roots_cache_only",
+                   "maps.exercised_tour", "warps.count"),
+    "monsters_spawns": ("monsters.full_game_denominator", "monsters.mob_db_raw_declarations",
+                        "monsters.distinct_declared_ids", "monsters.effective_table",
+                        "spawns.framing_events", "spawns.static_supported", "spawns.static_gap",
+                        "spawns.opaque", "spawns.uncertified_suffix", "spawns.not_static",
+                        "spawns.unparsed_suffix_bytes", "spawns.effective_population"),
+    "items_skills": ("items.item_db_raw_rows", "skills.skill_db_raw_rows",
+                     "items_skills.yaml_edges_skipped", "items_skills.effective",
+                     "items_skills.client_tables"),
+    "npcs": ("npcs.stock_selected_sources", "npcs.installed_selected_sources",
+             "npcs.entities", "npcs.loaded"),
+    "story_quests": ("story.full_chain_denominator", "quests.quest_db_raw_rows",
+                     "story.quoted_text_occurrences", "story.chapter1_family_gap_roots",
+                     "story.chains_implemented", "story.party_gates"),
+    "instances": ("instances.denominator", "instances.gap_root_name_candidates",
+                  "instances.party_gates"),
+    "dynamic_dependencies": ("dynamic.rsw_embedded_gnd_gat", "dynamic.model_texture_dependencies",
+                             "dynamic.computed_map_names", "dynamic.archive_priority",
+                             "dynamic.overlay_effects"),
 }
 METADATA_ROLES = {"qualified_metadata_only"}
 SCOPES = ("server", "client", "overlay", "cross")
@@ -482,11 +519,11 @@ def build_categories(docs, paths, roots):
         fact("maps.stock_configured", "present", msum["candidates"], "configured map names", QI,
              "server", S("selection", "/counts/map_candidates")),
         fact("maps.source_profile_retained", "present", msum["dispositions"].get("retained", 0),
-             "map candidates", QI, "server", S("map_cache", "/summary/dispositions"),
+             "map candidates", QI, "server", S("map_cache", "/summary/dispositions/retained"),
              "Native-rule model disposition; status_meaning states these are not runtime loads."),
         fact("maps.cache_only", "present", msum["cache_entries"] - msum["candidates"],
-             "cache entries without stock configuration", QI, "server",
-             S("map_cache", "/summary")),
+             "cache entries without stock configuration", QI, "server", S(None, None),
+             "Derived: maps.server_cache_entries minus maps.stock_configured."),
         fact("maps.runtime_loaded", "unknown", None, "maps", N, "server", S(None, None),
              "Current map-server load not admitted (map-cache not_checked list)."),
         fact("maps.client_rsw_404_gap_roots", "missing", len(roots), "gap roots", QJ, "client",
@@ -501,9 +538,12 @@ def build_categories(docs, paths, roots):
         fact("maps.exercised_tour", "exercised", None, "maps", D, "cross", S(None, None),
              "Tested personal-play scenarios are documented; a sample tour is not counted "
              "as coverage and has no denominator here."),
-        fact("warps.count", "unknown", None, "warp declarations", N, "server",
-             S("spawn", "/counters/not_static"),
-             "Warps fall inside the 31601 not-static events, which are not classified."),
+        fact("warps.count", "unknown", None, "warp declarations", N, "server", S(None, None),
+             "No admitted input inventories warps. The static-spawn not_static class is only "
+             "whitespace/line_comment/block_comment (static_spawn_references.py NOT_STATIC). "
+             "The pilot lexer accepts monster/boss_monster and bounded opaque scripts, then "
+             "stops at the first other construct (unsupported_construct), leaving the rest of "
+             "that source as uncertified suffix bytes. Warp declarations are not counted."),
     ]
     cats["monsters_spawns"] = [
         fact("monsters.full_game_denominator", "unknown", None, "monsters", N, "cross",
@@ -541,7 +581,7 @@ def build_categories(docs, paths, roots):
         fact("skills.skill_db_raw_rows", "present", dbs["SKILL_DB"]["raw_rows"], "raw rows", QI,
              "server", S("yaml", "/databases/SKILL_DB/raw_rows"), yg["not_counts_of"]),
         fact("items_skills.yaml_edges_skipped", "unknown", yg["counts"]["edges_skipped"],
-             "import edges", QI, "server", S("yaml", "/counts/skip_reasons"),
+             "import edges", QI, "server", S("yaml", "/counts/edges_skipped"),
              "Skipped by mode: " + json.dumps(yg["counts"]["skip_reasons"], sort_keys=True)),
         fact("items_skills.effective", "unknown", None, "items/skills", N, "server",
              S(None, None), "Native rapidyaml parity and row callbacks are not established."),
@@ -657,15 +697,82 @@ def build_versions(docs, revision):
 
 
 # ---------------------------------------------------------------- validator
+#
+# validate_ledger checks STRUCTURE and INTERNAL CONSISTENCY only: vocabularies,
+# promotion rules, required facts/denominators, root identity/order, row-derived
+# totals, arithmetic identities between facts, and that every input-sourced fact
+# equals its recorded source value. It cannot prove that the recorded source
+# values are authentic: a coordinated edit of a fact and its recorded source
+# value (or of every input) is only detected by `check`, which regenerates the
+# ledger from the pinned inputs and requires byte equality.
+
+def _rows(ledger):
+    return ledger.get("gap_roots") or []
+
+
+def _slot_total(roots, key):
+    return sum(r["client"]["name_counterparts"][k][key] for r in roots
+               for k in ("rsw", "gnd", "gat"))
+
+
+# Ledger-side values recomputed from the actual rows/facts at validation time.
+BINDINGS = {
+    "rows": lambda L, F: len(_rows(L)),
+    "rows_configured": lambda L, F: sum(1 for r in _rows(L) if r["configured"]),
+    "rows_cache_only": lambda L, F: sum(1 for r in _rows(L) if not r["configured"]),
+    "rows_name_occurrences": lambda L, F: _slot_total(_rows(L), "full_path_occurrences"),
+    "rows_basename_only": lambda L, F: _slot_total(_rows(L), "basename_only_occurrences"),
+    "rows_with_counterpart": lambda L, F: sum(
+        1 for r in _rows(L) if any(r["client"]["name_counterparts"][k]["full_path_occurrences"]
+                                   for k in ("rsw", "gnd", "gat"))),
+    "rows_comparison_names": lambda L, F: 3 * len(_rows(L)),
+    "fact_server_cache_entries": lambda L, F: F["maps.server_cache_entries"]["value"],
+    "fact_stock_configured": lambda L, F: F["maps.stock_configured"]["value"],
+}
+# Reconciliation keys -> (binding, source role, pointer). All are mandatory.
+RECONCILIATION = {
+    "gap_roots_join": ("rows", "join", "/counts/gap_roots"),
+    "gap_roots_profile": ("rows", "profile", "/denominators/gap_roots"),
+    "gap_roots_rsw404": ("rows", "corrected", "/rsw404_count"),
+    "configured": ("rows_configured", "corrected", "/configured404"),
+    "configured_profile": ("rows_configured", "profile", "/denominators/configured_gap_roots"),
+    "cache_only": ("rows_cache_only", "corrected", "/cache_only404"),
+    "cache_only_profile": ("rows_cache_only", "profile", "/denominators/cache_only_gap_roots"),
+    "name_occurrences": ("rows_name_occurrences", "join", "/counts/full_path_occurrences"),
+    "roots_with_counterpart": ("rows_with_counterpart", "join", "/counts/roots_with_full_path"),
+    "basename_only": ("rows_basename_only", "join", "/counts/basename_only_occurrences"),
+    "comparison_names": ("rows_comparison_names", "profile", "/denominators/comparison_names"),
+    "world_roots": ("fact_server_cache_entries", "profile", "/denominators/world_roots"),
+    "configured_world_roots": ("fact_stock_configured", "profile",
+                               "/denominators/configured_world_roots"),
+}
+# Facts recomputed from rows (no input pointer of their own).
+ROW_DERIVED = {
+    "maps.client_rsw_404_gap_roots": lambda L: len(_rows(L)),
+    "maps.gap_roots_configured": lambda L: BINDINGS["rows_configured"](L, None),
+    "maps.gap_roots_cache_only": lambda L: BINDINGS["rows_cache_only"](L, None),
+    "story.chapter1_family_gap_roots": lambda L: sum(
+        1 for r in _rows(L) if r["tags"]["chapter1_family_documented"]),
+    "instances.gap_root_name_candidates": lambda L: sum(
+        1 for r in _rows(L) if r["tags"]["instance_name_candidate"]),
+}
+# Arithmetic identities between facts.
+IDENTITIES = (
+    ("spawns.framing_events", ("spawns.static_supported", "spawns.static_gap", "spawns.opaque",
+                               "spawns.uncertified_suffix", "spawns.not_static"), ()),
+    ("maps.cache_only", ("maps.server_cache_entries",), ("maps.stock_configured",)),
+)
+
 
 def validate_ledger(ledger):
-    """Structural, promotion and reconciliation checks on a ledger document."""
+    """Structural and internal-consistency checks (see the note above)."""
     need(ledger.get("schema") == SCHEMA, "LEDGER_SHAPE", "unexpected ledger schema")
     admitted = ledger.get("admitted_inputs") or []
     need(admitted and all(i.get("role") in METADATA_ROLES and len(i.get("sha256", "")) == 64
                           for i in admitted), "LEDGER_SHAPE", "admitted inputs missing pins")
     metadata_only = all(i["role"] in METADATA_ROLES for i in admitted)
-    roots = ledger.get("gap_roots") or []
+    admitted_paths = {i["path"] for i in admitted}
+    roots = _rows(ledger)
     for key in ("gap_index", "root_ordinal", "map_name"):
         values = [r.get(key) for r in roots]
         need(None not in values, "MISSING_ROOT_ID", f"root lacks {key}")
@@ -677,21 +784,75 @@ def validate_ledger(ledger):
     def check_state(where, state, level):
         need(state in STATES, "LEDGER_SHAPE", f"{where}: unknown state {state!r}")
         need(level in EVIDENCE_LEVELS, "LEDGER_SHAPE", f"{where}: unknown level {level!r}")
+        need(state == "unknown" or level != "not_observed", "UNSUPPORTED_PROMOTION",
+             f"{where}: state {state} claimed with evidence level not_observed")
         allowed = PROMOTION_RULES.get(state)
         need(allowed is None or level in allowed, "UNSUPPORTED_PROMOTION",
              f"{where}: state {state} needs {sorted(allowed or [])}, has {level}")
-        need(not (metadata_only and level in {"runtime_load_observation",
-                                              "root_verified_runtime", "user_accepted"}),
-             "UNSUPPORTED_PROMOTION", f"{where}: runtime level from metadata-only inputs")
+        need(not (metadata_only and level in RESERVED_LEVELS), "UNSUPPORTED_PROMOTION",
+             f"{where}: reserved level {level} from metadata-only inputs")
+        need(level != "name_convention_only" or state == "unknown", "UNSUPPORTED_PROMOTION",
+             f"{where}: name convention cannot establish state {state}")
 
+    facts_by_id = {}
+    categories = ledger.get("categories") or {}
+    need(set(categories) == set(CATEGORIES), "LEDGER_SHAPE", "category set differs")
     for cat in CATEGORIES:
-        facts = ledger["categories"].get(cat)
-        need(isinstance(facts, list) and facts, "LEDGER_SHAPE", f"category {cat} missing")
+        facts = categories[cat]
+        need(isinstance(facts, list) and [f.get("id") for f in facts]
+             == list(REQUIRED_FACTS[cat]), "LEDGER_SHAPE",
+             f"category {cat} facts differ from the required fact list")
         need(any(f["state"] == "unknown" for f in facts), "LEDGER_SHAPE",
              f"category {cat} hides its unknowns")
         for f in facts:
             check_state(f"{cat}/{f['id']}", f["state"], f["evidence_level"])
             need(f["scope"] in SCOPES, "LEDGER_SHAPE", f"{f['id']}: scope {f['scope']!r}")
+            facts_by_id[f["id"]] = f
+    for fid in DENOMINATOR_FACTS:
+        f = facts_by_id[fid]
+        need(f["state"] == "unknown" and f["value"] is None
+             and f["evidence_level"] == "not_observed" and f["source"]["input"] is None,
+             "UNSUPPORTED_PROMOTION",
+             f"{fid}: no admitted input defines this denominator; metadata, raw declarations "
+             "or the installed subset cannot fill it")
+
+    # Every numeric fact must be bound: to a recorded input value, to rows, or be documented.
+    recorded = ledger.get("source_values") or {}
+    bound = set()
+    for fid, f in facts_by_id.items():
+        value, source = f["value"], f["source"]
+        if source["input"] is not None:
+            need(source["input"] in admitted_paths, "UNBOUND_FACT",
+                 f"{fid}: source {source['input']} is not an admitted input")
+        if value is None:
+            continue
+        need(isinstance(value, int) and not isinstance(value, bool), "LEDGER_SHAPE",
+             f"{fid}: non-integer value")
+        if source["input"] is not None:
+            rec = recorded.get(fid)
+            need(rec is not None and rec.get("input") == source["input"]
+                 and rec.get("pointer") == source["pointer"], "UNBOUND_FACT",
+                 f"{fid}: no recorded source value for its input/pointer")
+            need(rec["value"] == value, "COUNT_MISMATCH",
+                 f"{fid}: value {value} differs from recorded source value {rec['value']}")
+            bound.add(fid)
+        if fid in ROW_DERIVED:
+            want = ROW_DERIVED[fid](ledger)
+            need(value == want, "COUNT_MISMATCH",
+                 f"{fid}: value {value} differs from {want} recomputed from rows")
+            bound.add(fid)
+        if source["input"] is None and fid not in ROW_DERIVED:
+            need(f["evidence_level"] == "documented_not_admitted"
+                 or any(fid == total for total, _, _ in IDENTITIES), "UNBOUND_FACT",
+                 f"{fid}: value has no input, row or identity binding")
+    need(set(recorded) <= bound, "UNBOUND_FACT",
+         f"recorded source values without a fact: {sorted(set(recorded) - bound)}")
+    for total, plus, minus in IDENTITIES:
+        got = facts_by_id[total]["value"]
+        want = (sum(facts_by_id[k]["value"] for k in plus)
+                - sum(facts_by_id[k]["value"] for k in minus))
+        need(got == want, "COUNT_MISMATCH", f"{total} = {got}, identity gives {want}")
+
     for r in roots:
         where = f"root {r.get('map_name')}"
         need(r.get("functional_gap") == "open", "UNSUPPORTED_PROMOTION",
@@ -700,6 +861,13 @@ def validate_ledger(ledger):
                      r["server"]["runtime_load"], r["client"]["rsw_request"],
                      r["client"]["body_render_load"], r["story_chain"], r["party_gate"]):
             check_state(where, part["state"], part["evidence_level"])
+        need(r["server"]["stock_selection"]["state"]
+             == ("present" if r["configured"] else "missing"), "COUNT_MISMATCH",
+             f"{where}: stock selection state disagrees with configured flag")
+        rsw = r["client"]["rsw_request"]
+        need(rsw["state"] == "missing" and rsw["evidence_level"] == "prior_observed_request"
+             and rsw.get("observed") == "HTTP404", "UNSUPPORTED_PROMOTION",
+             f"{where}: gap root RSW request must remain the observed HTTP404")
         for role, slot in r["client"]["name_counterparts"].items():
             check_state(f"{where}/{role}", slot["state"], slot["evidence_level"])
             need(slot["state"] == ("present" if slot["full_path_occurrences"] else "missing"),
@@ -709,10 +877,18 @@ def validate_ledger(ledger):
     want = summarize_roots(roots, ledger["catalog_views"])
     need(ledger.get("gap_summary") == want, "COUNT_MISMATCH",
          "gap summary does not reconcile with per-root ledger")
-    rec = ledger["reconciliation"]
-    for key, item in rec.items():
-        need(item["ledger"] == item["source"], "COUNT_MISMATCH",
-             f"reconciliation {key}: ledger {item['ledger']} vs source {item['source']}")
+    rec = ledger.get("reconciliation") or {}
+    need(set(rec) == set(RECONCILIATION), "UNBOUND_FACT",
+         f"reconciliation keys differ: {sorted(set(rec) ^ set(RECONCILIATION))}")
+    for key, (binding, _role, pointer) in RECONCILIATION.items():
+        item = rec[key]
+        need(item.get("binding") == binding and item.get("pointer") == pointer
+             and item.get("input") in admitted_paths, "UNBOUND_FACT",
+             f"reconciliation {key}: binding/source differs from the fixed specification")
+        actual = BINDINGS[binding](ledger, facts_by_id)
+        need(actual == item["source_value"], "COUNT_MISMATCH",
+             f"reconciliation {key}: rows/facts give {actual}, source recorded "
+             f"{item['source_value']}")
     return True
 
 
@@ -726,26 +902,20 @@ def generate(pins_path, root):
     roots = join_roots(docs, paths)
     categories = build_categories(docs, paths, roots)
     summary = summarize_roots(roots, docs["profile"]["catalogs"])
-    join_counts, corrected, denom = (docs["join"]["counts"], docs["corrected"],
-                                     docs["profile"]["denominators"])
-    reconciliation = {
-        "gap_roots": {"ledger": summary["gap_roots"], "source": join_counts["gap_roots"]},
-        "gap_roots_profile": {"ledger": summary["gap_roots"], "source": denom["gap_roots"]},
-        "gap_roots_rsw404": {"ledger": summary["gap_roots"], "source": corrected["rsw404_count"]},
-        "configured": {"ledger": summary["configured"], "source": corrected["configured404"]},
-        "cache_only": {"ledger": summary["cache_only"], "source": corrected["cache_only404"]},
-        "name_occurrences": {"ledger": summary["name_occurrences_total"],
-                             "source": join_counts["full_path_occurrences"]},
-        "roots_with_counterpart": {"ledger": summary["roots_with_any_counterpart"],
-                                   "source": join_counts["roots_with_full_path"]},
-        "basename_only": {"ledger": sum(v["basename_only_occurrences"]
-                                        for v in summary["per_role"].values()),
-                          "source": join_counts["basename_only_occurrences"]},
-        "comparison_names": {"ledger": 3 * summary["gap_roots"],
-                             "source": denom["comparison_names"]},
-        "world_roots": {"ledger": docs["map_cache"]["summary"]["cache_entries"],
-                        "source": denom["world_roots"]},
-    }
+    role_of_path = {a["path"]: a["ledger_role"] for a in admitted}
+    source_values = {}
+    for facts in categories.values():
+        for f in facts:
+            if f["source"]["input"] is None or f["value"] is None:
+                continue
+            got = _get(docs[role_of_path[f["source"]["input"]]], f["source"]["pointer"])
+            need(got == f["value"], "COUNT_MISMATCH",
+                 f"{f['id']}: fact {f['value']} vs input {got} at {f['source']['pointer']}")
+            source_values[f["id"]] = dict(f["source"], value=got)
+    reconciliation = {}
+    for key, (binding, role, pointer) in RECONCILIATION.items():
+        reconciliation[key] = {"binding": binding, "input": paths[role], "pointer": pointer,
+                               "source_value": _get(docs[role], pointer)}
     ledger = {
         "schema": SCHEMA, "task": "T06.005.001", "tool_version": TOOL_VERSION,
         "status": "provisional",
@@ -766,6 +936,10 @@ def generate(pins_path, root):
         "categories": categories,
         "gap_summary": summary,
         "reconciliation": reconciliation,
+        "source_values": source_values,
+        "validation_boundary": "validate checks structure and internal consistency only; "
+                               "input authenticity and reproducibility are proved only by "
+                               "`check` against the pinned inputs.",
         "gap_roots": roots,
         "claims_not_made": [
             "full world/story coverage", "current runtime map/NPC/monster load",

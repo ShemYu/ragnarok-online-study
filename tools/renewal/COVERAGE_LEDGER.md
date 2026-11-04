@@ -52,17 +52,50 @@ facts and all 82 gap roots. Every fact and root slot carries:
   `documented_not_admitted`, `name_convention_only`, `not_observed`);
 - `scope` ∈ server, client, overlay, cross; plus the source input/pointer.
 
-The validator (also run by `generate`) refuses:
+`generate` also records `source_values` (each input-sourced fact's value as
+read from its input pointer) and a fixed `reconciliation` table. Each
+reconciliation entry names a binding (row count, configured rows, witness
+totals, a fact) plus the input/pointer/value it must equal.
 
-- `effective`, `loaded` or `verified` states without runtime/acceptance
-  evidence levels, and any runtime level when every input is metadata-only;
-- a gap root whose `functional_gap` is not `open`;
-- a category with no visible `unknown` fact;
-- duplicate or non-dense root identifiers;
-- witness states that disagree with occurrence counts;
-- summary/reconciliation values that do not match the per-root rows.
+### What `validate` proves, and what it cannot
 
-Codes: exit 0 on success, 2 on refusal (the code is printed on stderr), 64 on
+`validate` (also run by `generate`) checks **structure and internal
+consistency only**. It refuses:
+
+- unknown states or levels. Any non-`unknown` state at level `not_observed`.
+  `effective`/`loaded`/`verified` without runtime or acceptance levels.
+  `exercised` without an observation level (`prior_observed_request`,
+  documented play or runtime). `expected` without a reserved
+  `full_content_oracle`. Any reserved level when every input is metadata-only.
+  A name-convention level on anything except `unknown`.
+- the four full-content denominators (maps, monsters, story chains,
+  instances) unless they are `unknown`, null, `not_observed` and unsourced.
+  This holds even when the value or source is copied from cache entries or
+  raw declarations.
+- a category whose fact IDs differ from the fixed required list, or that has
+  no visible `unknown`.
+- duplicate or non-dense root identifiers, a closed `functional_gap`, a stock
+  selection state that contradicts `configured`, and a gap RSW request that
+  is not the observed HTTP404.
+- an input-sourced fact without a matching recorded source value or with a
+  different value. Row-derived facts that differ from the recomputed rows.
+  Broken identities (spawn classes sum to framing events; cache-only equals
+  cache entries minus configured). Recorded values without a fact.
+- witness states/lists that disagree with occurrence counts, and a
+  `gap_summary` that differs from `summarize_roots(rows)`.
+- a reconciliation table whose keys, bindings or source pointers differ from
+  the fixed specification, or whose recomputed rows/facts value differs from
+  the recorded source value. For example, dropping a root and recomputing the
+  summary still fails against the recorded 82.
+
+`validate` **cannot prove input authenticity**. A coordinated edit of a fact
+together with its recorded source value and every dependent fact/identity is
+internally consistent by construction. Only `check`, which regenerates from
+the pinned inputs and requires byte equality, proves reproducibility from the
+frozen inputs.
+
+Refusal codes include `UNBOUND_FACT` for a fact or reconciliation with no
+fixed binding. Codes: exit 0 on success, 2 on refusal (the code is printed on stderr), 64 on
 usage errors.
 
 ## Commands
@@ -87,11 +120,13 @@ requires byte equality with the committed ledger (`LEDGER_DRIFT` otherwise).
 `docs/project/fixtures/T06.005.001-cases.json` is a synthetic three-root
 world, with non-dense root/cache ordinals, one cache-only root, one excluded
 non-404 extract row, two catalog views and placeholder-resolved provenance.
-It contains no real catalog row or asset data. It also holds 29 negative cases covering
+It contains no real catalog row or asset data. It also holds 45 negative cases covering
 duplicate/missing/extra root IDs, pin drift/missing/role/duplicate, relative
-root, provenance and revision drift, count reconciliation, installed-subset
-denominators and seven verification-promotion and shape attacks on the
-generated ledger.
+root, provenance and revision drift, input count reconciliation, and ledger
+attacks. The ledger attacks are verification/exercise promotion,
+denominators filled from metadata, inflated single facts (with and without
+their recorded source value), removed bindings, row-pop with a recomputed
+summary, and reconciliation rebinding. Multi-step cases use `ops`.
 
 ## Limits
 
