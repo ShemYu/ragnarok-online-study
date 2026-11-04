@@ -30,7 +30,7 @@ FULL MODERN / RENEWAL PERSONAL GAME
 |   [x] Managed client identity/static/owned stop [ROOT VERIFIED]
 |   [x] Live DB metadata / clean shutdown [ROOT VERIFIED; FK REFUSAL]
 |   [ ] Complete DB discovery [C8 SOURCE/READBACK QUALIFIED; PHASE3 NEXT]
-|   [ ] Same-PID restore launch gate [SOURCE DISPATCHED: GROK]
+|   [ ] Same-PID restore launch gate [SOURCE DISPATCHED: CLAUDE + GROK]
 |   [ ] Isolated DB backup/restore -> integrated rendering/item A/B
 |   [ ] Binary/mod/text gate [SOURCE INTEGRATED; RUNTIME OPEN]
 |   [ ] Real EXP/callback/save [ANALYSIS INTEGRATED; RUNTIME OPEN]
@@ -75,8 +75,8 @@ and14 independent FK probes. Actual41/2084/8-record authentication, full fresh
 stopped/1109-world/personal5 equality pass. Phase3 is absent: require full
 selected/current equality before preparation, again joined to phase.binding
 after preparation, and before admitted run. No current capture admission yet.
-The independent restore-launch source assignment is dispatched to Grok;
-Claude's same-input proposal follows after publishing this C8 checkpoint.
+Independent restore-launch source assignments are dispatched to both Claude
+and Grok with the identical frozen packet/brief after C8 publication.
 Root's direct-interpreter/shebang fake checks do not qualify actual restore.
 No dump, backup/restore or integrated game qualification follows yet.
 Grok's original is preserved but not selected,

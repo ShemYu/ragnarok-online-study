@@ -77,9 +77,12 @@ that source-defined projection before Docker overrides. Paired source work
 can proceed independently; implementation/selected-source controls/actual
 restore remain unqualified. See the [launch preparation record](reviews/2026-11-05-T10.010.004-db-launch-root.md).
 Grok source assignmentctx_9245522e29b9/task_2f0bc2d158fb is accepted ready
-in its reopened preserved worktree. Claude receives the identical launch
-packet/brief only after its FK repair settles; the paired comparison is
-pending. These two current assignments are independent source work.
+in its reopened preserved worktree. After publishingdd415993 and confirming
+clean state, Root reauthenticates the same eleven-file packet/brief and sends
+Claude the independent launch task. Orca acceptsctx_67e826bb6fa1/
+task_81017cb416c6, ready on the retained lane. Both current assignments are
+independent source work; no delivery, selected implementation, control pass
+or runtime admission is inferred. Root awaits explicit report wakes.
 
 Root owns all runtime work. Refresh the exact owned VM/world/resources and
 personal projections before startup. Supported ordinary up can initialize/write
