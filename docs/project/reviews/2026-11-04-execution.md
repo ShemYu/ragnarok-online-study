@@ -1207,3 +1207,10 @@ find no material source blocker. New exact Engine API blobs establish Config/
 RootFS inspect joins and a source-only501 image-save boundary. No independent
 whole-layer entry claim follows. Commit [the source checkpoint](2026-11-04-T10.010.004-root.md#image-pair-source-and-preflight-verified)
 before preparation. No image phase/API mutation/runtime start/probe exists yet.
+
+Source checkpoint81248bb4 is committed/pushed before image-pair-root-1 is
+prepared, exec47804 exit0. Root personally verifies477 pins/six payloads, two
+exact contexts, loader template/upload identities, original resource payload,
+policy/limits, current stopped ownership/host resources and unused markers.
+Independent Astra file review agrees. Commit the [prepared admission](2026-11-04-T10.010.004-root.md#image-pair-prepared-admission)
+before one serial actual run. No image/library/probe/game result exists yet.

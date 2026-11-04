@@ -44,11 +44,13 @@ context and import checks; preserve owned A/B tags and admit normal up's
 unused-untagged-image pruning. No image construction, server/parser/game/SQL,
 probe purity or save result is qualified yet. See
 [normal launch binding](reviews/2026-11-04-T10.010.004-image-source.md#normal-renewal-launch-target-source-qualified).
-The new private image controller now passes Root's source/frozen-input checks:
-463 guarded source/evidence paths, six payloads and current stopped binding.
-Independent Astra/loader reviews find no material source blocker. Source
-checkpoint must precede phase preparation. No image phase or actual loader
-result exists yet. See [source/preflight](reviews/2026-11-04-T10.010.004-root.md#image-pair-source-and-preflight-verified).
+After source checkpoint81248bb4 is committed/pushed, the new image phase is
+prepared. Root verifies477 pins/six payloads, both exact two-member contexts,
+four-member loader uploads/current library/base26, original resource payload,
+fixed limits and current stopped binding. Independent Astra file review agrees;
+all execution markers are absent. Commit this admission before its one serial
+run. No image or actual loader result exists yet. See
+[prepared admission](reviews/2026-11-04-T10.010.004-root.md#image-pair-prepared-admission).
 
 Host assembly is also verified in fresh owned state, after source/input
 checkpoint57ae52be is committed/pushed: supported link-assets exits0/2.004s,
