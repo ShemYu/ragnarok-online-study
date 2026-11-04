@@ -1289,3 +1289,12 @@ current stopped ownership/resources/ports and no execution markers. Astra
 pure-file review agrees. Commit [the admission](2026-11-04-T10.010.004-root.md#supported-first-start-prepared-admission)
 before one supported isolated startup. No game/DB/SQL or client has started;
 actual runtime and all four audit tasks remain open.
+
+
+After admissionce22447d is committed/pushed, actual session88148 exits1 before
+app up/resource probe/SQL: captured DB WorkingDir=/ differs from validator's
+empty expectation. The owned VM shuts down0/0.544s; no Engine mutation occurs.
+Root's read-only replay session85329 confirms1902 unchanged protected files,
+zero host outputs, unchanged whole world/personal projections and current
+stopped ownership, preserving23 terminal files. See [the exact refusal](2026-11-04-T10.010.004-root.md#first-start-refused-before-sql-db-cwd-mismatch).
+Commit before narrow source correction/new phase. No runtime gate passes.
