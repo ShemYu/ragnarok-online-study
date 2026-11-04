@@ -23,60 +23,43 @@ not percentages of playable content, translation or remaining effort.
 
 ## Current action — DB qualification before integrated items
 
-Managed client identity, six complete HTTP responses, current static files and
-graceful owned stop are qualified. Earlier environment/wrapper refusals and the
-separate compatible qualifier stay in the
+**Next:** finish review/admission of the read-only live metadata/dump capture.
+Claude candidate3 repairctx_7e1004e5d64e and Grok's originalctx_49ebc7d36e6a
+are confirmed live on separate task branches. The common41-file input contract
+stays frozen. Root handles report wakes without inbox polling; source work is
+not on its own runtime qualification. See the [current review and evidence](reviews/2026-11-05-T10.010.004-db-discovery-root.md)
+and [frozen discovery contract](reviews/2026-11-05-T10.010.004-db-discovery-brief.md).
+
+The latest Claude candidate passes46 pure/fake-lifecycle controls, compilation
+and lint, but10 additional Root probes expose cleanup authority, retained
+diagnostics, cleanup-marker and dialect/log-record gaps. Candidate3 must repair
+those failures and narrow current generated outputs. Grok is asked to honor
+its original bound and deliver complete/partial source promptly; its report
+does not block use of a separately Root-qualified candidate.
+
+Root's real read-only preflight passes:41 input/2084 protected/1109 actual-world
+pins, indirect import sources, stopped VM binding and host checks match. No VM
+starts and no Engine API/SQL runs. Current personal-service equality, guest
+resources, complete Engine census and actual metadata/dialect/log/archive
+behavior remain before-startup/live gates. **Live discovery is unadmitted.**
+
+The supported-backup codec v2 passes51 isolated synthetic controls, compilation
+and lint, preserving all original32 cases. This repairs observed newline and
+type/literal-profile problems within that subset. Actual full definitions,
+producer/session, root metadata and supported backup/restore semantics remain
+unqualified. Byte-admission, full synthetic oracle and observer controls retain
+their earlier scoped passes in the [local-control record](reviews/2026-11-04-T10.010.004-root.md#observer-local-controls-personally-qualified).
+The same-PID restore launcher and outer custody handling are still unfinished.
+
+Root owns all runtime work. Refresh the exact owned VM/world/resources and
+personal projections before startup. Supported ordinary up can initialize/write
+state; discovery is read-only only after exact-ID TERM/exited0 of four game
+services, retaining the same DB. Unknown exec/up/actor completion blocks all
+automatic shutdown. Keep the Mac online and personal world untouched.
+
+Managed-client protocol/static identity and graceful owned stop are qualified;
+rendering/game/items/saves remain unverified. Earlier attempts stay in the
 [dated client record](reviews/2026-11-04-T10.010.004-root.md#managed-client-protocol-static-and-owned-stop-personally-qualified).
-Rendering/game/items/saves are still unverified.
-
-Root qualifies the local verification prerequisites:25 synthetic backup-byte
-admission controls,34 full synthetic oracle controls (32refusals) and33 isolated
-observer/fake-command controls. All pass their stated local scope; no fake test
-actor remains. Original failures and minimal harness repairs are preserved.
-These checks do not qualify actual MariaDB dialect, provenance or restore.
-See [local-control checkpoint](reviews/2026-11-04-T10.010.004-root.md#observer-local-controls-personally-qualified).
-
-**Next:** implement/review/admit a read-only live metadata/dump-format capture.
-The [frozen discovery source contract](reviews/2026-11-05-T10.010.004-db-discovery-brief.md)
-binds41 named source/record inputs for independent Claude/Grok candidates.
-Both are dispatched in separate task branches at the samee185f6ed base.
-Claude's source candidate is delivered, hash-verified and frozen for Root
-review; Grok's candidate remains pending. Source review and isolated controls
-must precede admission. Root compiles the four source bodies and runs35 authored
-fake controls successfully, but lint and eight targeted probes expose required
-repairs in lifecycle custody, retained diagnostics and native dump/log framing.
-The candidate is not admitted; no live discovery is executed. Root also checks the existing disposable backup's
-multiline tuple format; this is historical format evidence, not a current
-schema or restore proof. See [current review and next action](reviews/2026-11-05-T10.010.004-db-discovery-root.md)
-and [dispatch record](reviews/2026-11-04-T10.010.004-root.md#discovery-workers-dispatched-and-live).
-Claude repairctx_5efe029e4fb0 is delivered and hash-frozen. Root reviews it
-and personally passes its46 authored pure/fake-lifecycle controls, compilation
-and lint. Ten new synthetic probes still expose pre-up cleanup, evidence,
-cleanup-marker and dialect/log-profile failures. A source-only repair and a
-separately bounded read-only real-helper preflight are required. Root now passes
-that real preflight:41 input/2084 protected/1109 actual-world pins, stopped VM
-and host checks match, with no VM start or Engine API/SQL call. Execution-path
-repairs remain; live discovery is unadmitted. Grok's original delivery is pending.
-The concrete source repair is dispatched asctx_7e1004e5d64e/ready; Root waits
-for its report without inbox polling. Grok is asked to honor the original bound.
-The separate supported-backup codec passes32 synthetic controls and lint,
-but Root reproduces numeric-literal/type-join gaps and an actual-format header
-assumption. It needs a narrow source repair before further grammar replay;
-native v2 is now source-frozen and independently reviewed, with51 authored
-controls awaiting Root's fresh isolated run. This does not qualify actual
-backup/restore or delay discovery worker review.
-Root independently derives and verifies the two indirect project-import pins
-against Git/source; the repaired before-import protected-context gate remains
-to be reviewed. The common41-file supplier manifest stays frozen.
-Root/native/Astra source review identifies the old1107/current1109 baseline
-distinction, explicit DB cwd, split quiescence and unknown-exec shutdown gate.
-Refresh the exact owned VM/world/resources and personal projections before
-startup; ordinary up then exact-ID TERM/exited0 of four game services leaves
-the same DB for discovery. Before fixture writes, qualify authoritative root
-metadata visibility, full decoding, actual dump dialect and raw archive/exec
-provenance. The bounded actuator, supported B/safety profile, same-PID restore
-launch gate and outer custody handling remain unfinished. No current phase
-authorizes database execution. Root owns all runtime actions.
 
 Then qualify the supported disposable DB backup/restore and complete semantic
 S0–S4 readback using the [corrected paired-plan contract](reviews/2026-11-05-T10.010.004-db-plan-root.md).
