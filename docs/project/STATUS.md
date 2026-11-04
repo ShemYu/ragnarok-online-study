@@ -50,8 +50,10 @@ now passes after correcting macOS process-column truncation: local image
 import, identity, own cgroup/limit readbacks,3.61 GiB available RAM and owned
 cleanup all pass. The unchanged1536+768 MiB gate is met. The VM is gracefully
 stopped, its probe deleted, no containers/volumes remain, and five personal
-service projections are identical. [Bounded dependency-only execution is admitted](tasks/T10.010.004-dependency-resolve.md)
+service projections are identical. [Bounded dependency-only execution is admitted](tasks/T10.010.004-dependency-resolve-2.md)
 on this save-free build engine, conditional on a new boot/resource/headroom check.
+The first phase refused a closed Engine connection before any create/APK and
+stopped cleanly; the revised phase adds a40 s read-only readiness gate.
 No personal RAM adjustment/restart,
 compiler/package install or progress write has occurred.
 

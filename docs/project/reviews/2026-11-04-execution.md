@@ -2,6 +2,13 @@
 
 ## Dependency admission and source-lane checkpoint
 
+The first actual dependency phase boots/proves owner/control/sockets, then
+refuses a closed GET/version before any resource/resolver create or APK.
+Root verifies graceful down0.502 s, PID/socket departure, unused execution
+paths and personal service equality. [The corrected phase](../tasks/T10.010.004-dependency-resolve-2.md)
+seals fresh stopped bindings and adds only a40 s transport-only GET readiness
+wait, tested for success, semantic refusal and deadline. No mutation retries.
+
 [One dependency-only phase](../tasks/T10.010.004-dependency-resolve.md) is
 prepared/admitted on the stopped owned build VM. It pins the selected resolve
 plan, source/payload/state witnesses and new resource plan. Three invalid
