@@ -26,6 +26,28 @@ an exact offline same-name withdrawal replacement/failure procedure.
 [Root's evidence](2026-11-04-T10.010.005-root.md#second-root-check-of-repaired-candidates)
 records exact candidate/result hashes. Neither candidate is selected.
 
+## Build-only runtime admission and provider availability
+
+Root prepares and commits [one fresh build VM characterization](../tasks/T10.010.004-build-vm-probe.md).
+Exact final plan/hash, payload/controller pins, seven successful host controls,
+step budgets, target attribution, Binds cgroup prerequisite and finite graceful
+cleanup are recorded there. There is no VM or APK/compiler action at this
+admission. Existing personal state remains outside this experiment.
+
+Claude's second repair stops on account rate limiting before its report/commit
+(`msg_stop_1393dccdcd6caf9640e112f7`). Root sends continuation guidance to the
+same open dispatch; receipt `msg_85f34a148c40` acknowledges enqueue. The next
+escalation `msg_stop_33879ac71fabd9a8ad4e5e5d` reports a five-hour quota limit
+resetting at19:20 JST and automatic continuation. Do not count this as a
+completed repair or keep retrying before provider availability. Preserve its
+local edits/chat for completion; Grok's separate repair and Root runtime work
+continue independently. No extra benchmark fleet is created.
+
+Root's fresh read-only remote inspection still finds feature `04ab492f` and
+main `c6314bbd`. A read-only helper finds no malformed new Git objects or
+published branch-rule restriction; this is advisory diagnosis, not proof of
+the remote error's cause/transience. Retain local commits; no force/rule change.
+
 ## Second release repair dispatch
 
 After source/evidence checkpoint `b85bcef`, Root sends the exact same brief
