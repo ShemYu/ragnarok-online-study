@@ -23,8 +23,8 @@ not percentages of playable content, translation or remaining effort.
 
 ## Current action — DB qualification before integrated items
 
-**Next:** bind candidate4's actual read-only preflight, then prepare/review the
-live metadata/dump capture admission. Both original suppliers and Claude
+**Next:** prepare and review candidate4's live metadata/dump capture admission.
+Its freshly bound actual read-only preflight passes. Both original suppliers and Claude
 candidate4 have delivered; source copies
 and task branches are preserved. The common41-file input contract stays frozen.
 Root handles report wakes without inbox polling; source work is not on its own
@@ -44,12 +44,12 @@ keeps original source scores separate from later repair quality.
 Its settled worker is now released with an archived transcript; source,
 reports, branch and worktree remain preserved.
 
-Root's earlier candidate2 real read-only preflight passes:41 input/2084 protected/1109 actual-world
+Root's repaired candidate4 real read-only preflight passes:41 input/2084 protected/1109 actual-world
 pins, indirect import sources, stopped VM binding and host checks match. No VM
 starts and no Engine API/SQL runs. Current personal-service equality, guest
 resources, complete Engine census and actual metadata/dialect/log/archive
-behavior remain before-startup/live gates. Rebind the repaired source rather
-than inherit candidate2's admission. **Live discovery is unadmitted.**
+behavior remain before-startup/live gates. This uses a fresh source admission,
+separate from candidate2's earlier pass. **Live discovery is unadmitted.**
 
 The supported-backup codec v2 passes51 isolated synthetic controls, compilation
 and lint, preserving all original32 cases. This repairs observed newline and
