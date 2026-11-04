@@ -1,0 +1,161 @@
+# Test classification and safe mutation-suite runner (T00.006)
+
+Task: [T00.006](tasks/T00.006.md). Frozen base `a06f1037ac6ecf308db6a963e06391ebbf586cbd`.
+This is a Claude worker candidate (blinded Claude/Grok pair). Root has not verified it, and it is not `ready_for_user`.
+
+## Safe entry points
+
+| Purpose | Command | Inputs |
+| --- | --- | --- |
+| Public CI list (unchanged) | See [root README](../../README.md#source-only-checks) and `.github/workflows/source-checks.yml` | Tracked source only |
+| Runner checks, public part | `node --test tests/renewal/run_isolated_suite.test.mjs` | Authored synthetic suite only; two private cases skip with a reason |
+| Runner checks, private part | `T00_006_CORPUS=<abs canonical checkout> node --test tests/renewal/run_isolated_suite.test.mjs` | Explicit corpus only |
+| List registered mutation suites | `node tools/renewal/run_isolated_suite.mjs --list` | None |
+| Model-constructor suite | `node tools/renewal/run_isolated_suite.mjs --suite model-constructors --corpus <abs canonical checkout>` | Explicit corpus only |
+
+Never run `tools/renewal/test_probe_model_constructors.mjs` directly in a source checkout. Its tests rewrite the sibling `model_constructor_worker.mjs`, at about lines 311 and 1775. Restoring the same bytes still changes ctime, and the driver admits `dev/ino/size/mtime_ns/ctime_ns`. The pinned `MODEL_CONSTRUCTOR_PROBE.md` (line 43) still shows the direct command. Its bytes are frozen by the T07.007.008 baseline, so the warning is in the test header and [TARGET_MODEL_CONSTRUCTORS.md](../../tools/renewal/TARGET_MODEL_CONSTRUCTORS.md) instead.
+
+### What the runner does
+
+The runner is `tools/renewal/run_isolated_suite.mjs`. Its only dependencies are Node built-ins and `/bin/ps`. It does not use the historical ignored `.tools` wrapper.
+
+1. **Selection.** Choose a registered suite with `--suite`, or an authored JSON definition with `--definition` (the authored kind is used by the focused checks). A registered private suite with no `--corpus` refuses with `private_input_required` (exit 2).
+   - A corpus that is relative, absent, a symlink or a non-directory is refused.
+   - A corpus missing any required pinned file refuses with `private_input_missing`. The required set is the 10 client modules/rules, manifest, 4 availability inputs, 273 bodies, ledger profile and the 9-file source closure.
+   - All refusals happen before anything is copied, run or created.
+2. **Protected snapshot.** Each protected path gets SHA-256 plus `type/dev/ino/size/mode/nlink/mtime_ns/ctime_ns`, before and after the run. Protected paths are the source closure in the invoking checkout and every corpus input. Optional historical world-route inputs are included when present, as are their parent directories (stat only). For this suite that makes 326 entries.
+3. **Private tree.** Each closure file is copied into `<work-root>/<suite>-XXXX/tree/` by a read plus an exclusive `O_CREAT|O_EXCL|O_NOFOLLOW` write (0600 files, 0700 directories). No hardlink, symlink or clone is used.
+   - A copy must be a regular file with `nlink == 1`, equal SHA and an inode different from every protected inode. Otherwise the run refuses with `copy_not_isolated`.
+   - Source symlinks are refused.
+   - The copied closure must match the frozen profile/baseline pins. Otherwise the run refuses with `pin_drift`.
+   - The work root defaults to `<checkout>/.tools/renewal/isolated-runs`. It may not be inside the corpus, or inside the source tree outside its ignored `.tools`.
+4. **Run.** The test runs unchanged as `node --experimental-vm-modules --no-warnings --test <copy>/tools/renewal/test_probe_model_constructors.mjs`.
+   - Settings: `cwd` = the copy, its own process group, `PATH=/usr/bin:/bin:/usr/sbin:/sbin`, `TMPDIR` inside the run directory, and `T06_INPUT_ROOT=<corpus>`.
+   - The suite's `REPO`/`HERE` therefore resolve to the copy. Every worker rewrite and every `.tools/renewal` output lands in the copy. The corpus is only read.
+   - The driver's own admission and source pins are unchanged.
+5. **Tracking and cleanup.** Every 100 ms the runner reads the process table. It records each descendant (by parent chain or process group) by pid plus start time, so a reused pid is not mistaken for one. It notes `mutation_observed` when the copied witness worker's ctime/inode changes.
+   - SIGINT, SIGTERM or SIGHUP to the runner (or leftovers after a normal exit) trigger SIGTERM to the group and to every live recorded descendant. After `--grace-ms` (default 5000) comes SIGKILL, followed by verification that none remain.
+   - The after-snapshot runs in every case.
+6. **Exit codes.** 0 = passed. 1 = suite failed. 2 = refused. 3 = canonical changed. 4 = descendant cleanup failed. 128+signal = interrupted, with cleanup and preservation intact.
+   - Status `passed_subset` (exit 0) is used only when `--exclude-test` names exact tests. It is never a full pass.
+   - `result.json`, `before.json`, `after.json`, `copies.json`, `events.jsonl` and `suite.log` stay in the ignored run directory.
+   - `corpus_identity_preflight` *reports* manifest-pinned identities that already differ from the live corpus. It never repairs them or relaxes admission.
+
+## Candidate results, 2026-11-04 (actual runs)
+
+Node `/Users/shem/.local/bin/node` v24.20.0, macOS. Canonical corpus is the read-only checkout named in the brief; its HEAD moved from `a06f103` to `39c4b66` during this work. Those two commits change only Root's STATUS/PROJECT_MAP/execution docs, so no closure file differs. Evidence is in this worktree's ignored `.tools/renewal/t00-006-claude-evidence/` and `.tools/renewal/t00-006-runner-checks/`.
+
+| Check | Exit | Result |
+| --- | --- | --- |
+| Public runner checks (no corpus) | 0 | 12 tests: 10 pass, 0 fail, 2 private skipped with reason |
+| `--list`; no `--corpus`; absent / empty corpus | 0; 2; 2 / 2 | `private_input_required`; `private_input_missing`, no work root created |
+| Full private model suite | **1** | **56 tests: 48 pass, 8 fail.** `mutation_observed_in_copy=true`, 9/9 ordinary private copies, 326/326 protected entries unchanged, 0 leaked, 28.1s |
+| Same suite, excluding exactly the 8 drift-blocked tests | 0 | `passed_subset`: 48/48 pass, copy mutation observed, 326 unchanged, 0 leaked, 28.0s |
+| Private SIGINT after the copied worker was rewritten | 130 | Mutation at 2315 ms, signal at 2317 ms, 14/56 tests done. SIGTERM reached 3 live descendants (12 observed), 0 leaked, 326 unchanged |
+| Private SIGTERM after the copied worker was rewritten | 143 | Mutation at 2156 ms, signal at 2204 ms. SIGTERM reached 3 live descendants (12 observed), 0 leaked, 326 unchanged |
+| Independent snapshot of canonical files (Python) | — | 1407 files, identical digest `9a62ad57…f1f15c10` before (16:12:06) and after (16:14:02) the four private runs |
+| Repeat on the final committed tree (header comment edit) | 1 / 0 / 0 / 0 | Full 48/56 with the same 8 failures; subset 48/48; runner checks 12/12 private and 10 pass + 2 skipped public. Snapshot files byte-identical before (16:16:45) and after (16:18:13) |
+| CI list and hygiene on the final tree | 0 | Public tree 602 paths; syntax 72 Py / 45 JS; Ruff 0.16.9 passes; quest Node suites 24/24; Chapter 1 120 OK; `git diff --cached --check` clean |
+
+The independent snapshot is `ext_snapshot.py` in the evidence directory. It covers canonical `tools/renewal/**`, `docs/project/fixtures/**`, `.tools/renewal/client-source/src/**`, the manifest, the availability inputs and the 273 bodies. For each file it records content SHA-256 plus `mode/dev/ino/nlink/size/mtime_ns/ctime_ns`.
+
+The synthetic interruption checks run a suite that rewrites its sibling, then starts two children: one that ignores SIGTERM and one detached into its own process group. They require the runner's `mutation_observed` event and the suite's own ready file before signalling. They then prove three things: both escalation steps (SIGTERM then SIGKILL) ran, every recorded pid is dead, and the canonical identities are unchanged. A control shows that a direct same-bytes rewrite changes `ctime_ns` with an unchanged SHA, and that the snapshot detects it.
+
+### Unresolved: the full private suite does not pass at the current canonical state
+
+All 8 failures refuse admission with `identity_changed` rather than the asserted outcomes. Corpus files and the runner are not the cause. The supplement manifest pins the ledger profile `docs/project/fixtures/T06.003.003.006-profile.json` with `ino 19645439` and `mtime/ctime 1792464154520062553`.
+
+The canonical file still has the same 4855 bytes and SHA `9ad90329…b2140d`. However, it was recreated on 2026-10-28 09:48:58 JST (new birth time, inode and mtime/ctime), consistent with that day's working-tree checkout. The runner's preflight finds exactly 1 of 278 pinned identities drifted.
+
+Following the brief, the runner neither re-pins, edits nor weakens admission. Root decides how to restore the binding, for example by re-preparing the T07.007.008 manifest. The 8 blocked tests are listed in `drift-blocked-tests.txt` and are:
+
+- cross-route substitutions;
+- positive admission;
+- typed semantic drift;
+- lower-only limits;
+- worker nonzero/timeout/lost exits;
+- storage failures;
+- worker pin/reread/final drift (the line-1775 mutation test);
+- actual 273-job CLI.
+
+Consequently, no fresh actual 273-job result is claimed here.
+
+## Classification of tracked test entry points
+
+Static classification from headers and source. Only the CI list, the runner checks and the private model suite were executed for this task. No broad discovery was run. "Writes `.tools`" means ignored private state created under the *invoking* checkout. That is harmless in a fresh worktree, but it creates directories when invoked inside the canonical checkout.
+
+### Public, CI members (unchanged)
+
+| Entry | Invocation | Notes |
+| --- | --- | --- |
+| `tests/renewal/quest_text_projection.test.mjs`, `tests/renewal/quest_registration_tail.test.mjs` | `node --test <both>` | Authored only |
+| `tools/renewal/test_chapter1_entry.py` | `python3 -I -B <file>` | Own committed source only |
+
+### Public authored, not in CI
+
+These need no private input. Optional real-input groups run **only** when an explicit environment variable or argument names the input, and are otherwise skipped with a reason. They are CI candidates only after a separate verified run on the CI image.
+
+| Entry | Invocation | Explicit optional/required input; side effects |
+| --- | --- | --- |
+| `tests/probe_direct_models.test.mjs` | `node --test` | none; writes `.tools` |
+| `tests/image_consumer_fixture.test.mjs` | `node --test` | `IMAGE_CONSUMER_SOURCE`+`IMAGE_CONSUMER_METADATA`; writes `.tools` |
+| `tests/renewal/test_quest_table_inventory.py` | `python3 -m unittest` (header suggests discovery; use the file) | none |
+| `tests/renewal/test_quest_negative_lifecycle_patch.py` | unittest file | `T10_NEGATIVE_LIFECYCLE_DONORS` |
+| `tests/test_observe_direct_asset_delivery.py` | `python3 -I -m unittest <file>` | none; private temp tree |
+| `tests/test_observe_nested_texture_delivery.py` | unittest file, `TMPDIR` in a private prefix | `T07_014_017_PROFILE`; imports the direct-delivery test as a library |
+| `tests/test_two_cell_gat_candidate.py` | direct | `TWO_CELL_CASE`; writes a fixed `.tools` base (no temp fallback) |
+| `tools/renewal/quest_shared_clock_patch.test.py` | unittest file | none; header says worker-authored, unrun |
+| `tools/renewal/test_archive_catalog.py` | unittest file | `T06_CLIENT_INPUTS`+`T06_ARCHIVE_ROOT` |
+| `tools/renewal/test_archive_inventory_october.py` | unittest file | `T07_EXTRACTED_MANIFEST`/`T07_ARCHIVE_ROOT`/`T07_OUTPUT_PARENT` |
+| `tools/renewal/test_archive_inventory_patches.py` | `-p` single-file pattern | none; writes `.tools/renewal/T07.007.007` |
+| `tools/renewal/test_carocc_zh_pilot.py` | unittest file | `CAROCC_ACADEMY` |
+| `tools/renewal/test_decode_patch_targets.py` | `-p` single-file pattern | `PATCH_DECODER_SOURCE_ROOT`+`PATCH_DECODER_PATCH` |
+| `tools/renewal/test_dictionary_loader.mjs`, `test_navigation_browser_cache.mjs`, `test_npc_plaintext_adapter.mjs` | `node --test` | none (authored doubles) |
+| `tools/renewal/test_ui_msgid_adapter.mjs` | `node --test` | `T05_UITEXT_SOURCE` |
+| `tools/renewal/test_map_cache_inventory.py` | unittest file | `MAP_CACHE_SNAPSHOT`+`MAP_CACHE_SELECTION` |
+| `tools/renewal/test_monster_projection.py`, `test_yaml_graph_inventory.py` | unittest file | `/usr/bin/ruby` Psych required; `T06_YAML_SNAPSHOT` (yaml) |
+| `tools/renewal/test_navigation_browser_verifier.py`, `test_navigation_client_repair.py`, `test_npc_plaintext_package.py` | direct `-v` | `T05_008/007/006_INPUT_ROOT`; `WORK` defaults to `.tools` |
+| `tools/renewal/test_navigation_ui_zh_tw.py`, `test_quest_ui_zh_tw.py` | direct `-v` | `T05_009_BUNDLE` / `T05_011_BUNDLE`; writes `.tools` |
+| `tools/renewal/test_quoted_source_inventory.py` | direct | `QUOTED_SOURCE_FROZEN_ROOT`; source tampering is in-memory/temp only |
+| `tools/renewal/test_static_spawn_pilot.py`, `test_static_spawn_references.py` | direct | `STATIC_SPAWN_*FROZEN_ROOT`, `..._FULL839_MANIFEST` |
+| `tools/renewal/test_tw_iteminfo_utf8.py` | direct | none |
+| `tools/renewal/test_zero_sum_normal_repair.py` | direct | `RO_NORMAL_FIX_INPUT_ROOT`; writes `.tools` |
+| `tools/renewal/tests/probe_remaining_compiled_core.test.mjs` | profile-named Node `--test` | none (synthetic) |
+
+### Explicitly private (mandatory input; not public)
+
+| Entry | Required input |
+| --- | --- |
+| `tests/tga_decoder_fixture.test.mjs` | `TGA_DECODER_BUNDLE` (saved Online.js) |
+| `tools/renewal/test_fruit_transport_capture.py` | mandatory fresh `RO_FRUIT_TEST_ROOT` below `.tools` |
+| `tools/renewal/test_quest_true_text_mod.py` | `--source <retained .lub> --workdir NEW` |
+| `tools/renewal/native_capacity/test_coin_capacity.py` | `--native-source <prepared subset> --clang` |
+| `tools/renewal/test_ordered_archive_stack_integration.rs` | Compiled inside the app crate (`use super::link`). Not runnable from this repo; needs `RO_STACK_INTEGRATION_TEST_ROOT` |
+
+### Flagged: import-time private autodiscovery
+
+These choose a private input at import time **without** explicit selection, from a conventional `.tools` file, the sibling canonical checkout or an absolute canonical path. Real-input tests then auto-enable, or tests fail, depending on the host. Do not add them to CI or to any glob. Do not "fix" this with blanket discovery. The recommended later repair, outside this task's allowed edits, is to require an explicit variable and skip with a reason otherwise.
+
+| Entry | Default chosen without selection | Effect |
+| --- | --- | --- |
+| `tools/renewal/test_server_snapshot.py` | `.tools/renewal/app-unpacked/...` in the checkout | Real archive tests run whenever that file exists |
+| `tools/renewal/test_server_selection.py` | `.tools/renewal/t06-candidates/integrated-2` | Pinned-input test runs whenever present |
+| `tools/renewal/test_observe_map_dependencies.py` | absolute canonical `.../t07-007-006-legacy-metadata-1/snapshot` and canonical root | Reads canonical metadata; writes `.tools` |
+| `tools/renewal/test_catalog_map_dependencies.mjs` | sibling `../reverse-the-Ragnarok-Online-to-play-by-myself` | Corpus tests run or skip by host layout |
+| `tools/renewal/test_probe_map_constructors.mjs` | sibling canonical (`T06_INPUT_ROOT` fallback) | Needs canonical client-source; no source rewrite found |
+| `tools/renewal/test_probe_model_constructors.mjs` | sibling canonical (`T06_INPUT_ROOT` fallback) | **Also rewrites its sibling worker**. Use only via the runner |
+| `tools/renewal/test_catalog_model_textures.mjs` | `CANONICAL_ROOT` fallback to sibling canonical | Reads canonical metadata |
+| `tools/renewal/test_observe_model_textures.py` | absolute canonical `CANONICAL_ROOT` default | Full canonical metadata-only preflight |
+| `tests/model_geometry_observer.test.mjs`, `tests/tga_decode_observer.test.mjs` | the checkout's `.tools` profile if it exists, else sibling canonical | Private prefix defaults into `.tools` |
+
+### Flagged: exported-only navigation helper
+
+`tools/renewal/navigation_portal_patch.test.cjs` registers no `node:test` cases and has no main. It only exports `runAuthored(onlineText, workerText)`, and its header says it is not executed by the worker. `node --test` on it reports `tests 1, pass 1`, which is a file-level pass with **zero** assertions (observed on this candidate). It is not a meaningful entry point. Its meaningful use is a caller that passes the private saved `Online.js`/worker texts and inspects the returned groups. No checked-in caller exists.
+
+## Limitations and next action
+
+- The full private suite is blocked by the pre-existing ledger-profile identity drift above. The 48/48 subset and the interrupted runs prove isolation and cleanup, not fresh corpus admission or the 273 actual jobs.
+- Descendant tracking samples the process table every 100 ms. A process that forks, double-forks out of the group and exits its parent within one interval could be missed. The authored escaped child is caught. This is not OS containment and sets no RSS or CPU limits. SIGKILL to the runner itself cannot be cleaned up by the runner.
+- Parent directories of corpus inputs are stat-compared. A concurrent writer in a canonical directory (Root actively commits there) would be reported as `canonical_changed`. That is correct to flag, but it is not attributable to the suite without inspection.
+- Only one registered mutation suite exists. Classification is static apart from the commands above. CI membership is unchanged; adding the public runner checks would first need a verified Linux run (`/bin/ps -o lstart`).
+- Next owner: Root. Verify this candidate against the sibling, decide the ledger-profile identity rebinding, then rerun the full private suite through the runner.

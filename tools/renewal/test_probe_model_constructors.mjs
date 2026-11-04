@@ -1,7 +1,7 @@
-// Runner controls for T06.003.003.006. Fixture execution only.
-// T07.007.008 supplement-route controls below also read the frozen canonical
-// four-root manifest/availability pins and run its 273 pure constructor jobs.
-//   T06_INPUT_ROOT=/canonical/repository node --experimental-vm-modules --test tools/renewal/test_probe_model_constructors.mjs
+// Runner controls for T06.003.003.006, plus T07.007.008 supplement-route controls that read the frozen canonical
+// four-root manifest/availability pins and run its 273 pure constructor jobs. NEVER run this file in a source
+// checkout: tests rewrite the sibling model_constructor_worker.mjs (same bytes still change its ctime/identity).
+//   node tools/renewal/run_isolated_suite.mjs --suite model-constructors --corpus /abs/canonical/repository
 import assert from 'node:assert/strict';
 import { spawnSync } from 'node:child_process';
 import crypto from 'node:crypto';

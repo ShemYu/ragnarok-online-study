@@ -59,7 +59,9 @@ CI runs these checks using authored source/model fixtures. Do not replace the
 explicit test list with broad discovery: some other suites automatically read
 private `.tools` inputs when present. Native tests, browser/gameplay checks
 and visual measurements remain separate; a green CI result does not establish
-runtime or full-content acceptance.
+runtime or full-content acceptance. See the [test classification](docs/project/TEST_CLASSIFICATION.md)
+for every tracked test entry point. Mutation suites run only through
+`tools/renewal/run_isolated_suite.mjs`, which needs an explicit private `--corpus`.
 
 ## Retired prototypes
 
