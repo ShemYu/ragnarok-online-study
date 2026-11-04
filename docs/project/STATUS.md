@@ -29,8 +29,8 @@ old aarch64-only gate. Its signatures/install remain unqualified;33 selected
 files have not completed acquisition. All host handles are terminal/reaped and
 the separate save-free build VM is stopped. No personal game/SQL action occurs.
 
-Compare the equal Claude/Grok [noarch repair](tasks/T10.010.004-dependency-noarch.md)
-from the same frozen base. Accept native-target or architecture-independent
+Claude/Grok [noarch repairs](tasks/T10.010.004-dependency-noarch.md) are running
+from the same26bb3781 base, confirmed in both checkouts. Accept native-target or architecture-independent
 dependency metadata, preserve actual arch and bind verification-row/raw/local
 plan agreement. Keep signatures, raw SHA/Q1/installed-C/base26 and ARM64 VM/
 ABI/ELF requirements intact. Root reviews the private host-helper correction

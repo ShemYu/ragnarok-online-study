@@ -56,22 +56,20 @@ The ledger remains **4/14 parent checkpoints qualified**, not 29% of the
 world/story completed. The content denominator and full-milestone estimate
 remain unfinished. Basic local play and saved progress are already available.
 Three of seven audit tasks are self-verified (about 43% by task count only).
-The personal resource probe passes with saves preserved. A separate 4 GiB
-build VM now passes image/resources/cleanup with3.61 GiB available and is
-stopped. Root authenticates all four APKs and reproduces the trigger-launch
-failure with closed stdin; the same actual reinstall succeeds with /dev/null.
-The repaired recipe is now integrated after Root76 tests and independent
-identity controls. The first exact-base solve proposes47 installs without upgrades, but the
-parser drops padded counter rows and refuses before installation. The format repair passes Root81 tests and now parses all47 rows
-in the actual guest. The first exact package fetch then refuses before install;
-Root identifies a pinned-source lookup defect. Its fetch repair now passes
-Root86 tests with zero skips and unchanged candidate-copy/main identities;
-the exact source is integrated. Actual resolve6/phase7 begins downloads but
-hits its300s batch limit before installation. Next: capture stock-selected
-URLs without payloads (now verified), measure host transfer, then qualify all47 signed local
-inputs. Cleanup and personal projections pass. Claude's release-gate source is selected and
-integrated; Root's113 integrated tests and real release/withdrawal refusals
-pass with644 tracked files unchanged. All actual release/runtime gates remain open.
+The separate4GiB build VM passes actual image/resource/cleanup checks and is
+stopped. Exact-base parsing/fetch source is integrated; the guest parses47
+solver rows without base upgrades. The300s bulk fetch times out, so Root
+captures all44 exact URLs and verifies a complete54.7MB GCC host transfer.
+Ten repository files now have Root raw-byte verification. A complete
+architecture-independent git-init-template is quarantined by an overly strict
+architecture gate;33 files remain unattempted. Equal source-only Claude/Grok
+repairs are running from the same base before all47 stock-key/install/closure
+qualification. All host handles are terminal; no full compiler has run.
+
+Release-gate source and reward/save analysis are integrated within their
+recorded limits. Their actual runtime pins and native/game/save gates remain
+open. The [current Root record](reviews/2026-11-04-T10.010.004-root.md#actual-noarch-package-exposes-a-dependency-validation-defect)
+preserves completed chronology and the next checks.
 See [safe runner](reviews/2026-11-04-T00.006-root.md) and
 [coverage verification](reviews/2026-11-04-T06.005.001-root.md) and
 [native preparation](reviews/2026-11-04-T10.010.003-root.md); all 82 functional

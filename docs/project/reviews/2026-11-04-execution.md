@@ -901,3 +901,11 @@ Root integrates the reviewed concise STATUS draft after refreshing its runtime
 facts; the [full prior snapshot](../HISTORY-2026-11-04-STATUS.md) preserves the
 completed chronology. Task/ledger/gap counts stay unchanged. See [actual defect,
 preservation and next checks](2026-11-04-T10.010.004-root.md#actual-noarch-package-exposes-a-dependency-validation-defect).
+
+Both noarch workers now start ready from the same26bb3781 base, confirmed by
+Root in both checkouts. They have the identical frozen brief/private inputs
+and source-only/isolation restrictions. Root releases the old exact settled
+Claude terminal after verifying its state; transcript/branch/commits remain.
+Root next reviews the independent private host correction before new admission.
+No candidate or runtime result is inferred from worker activity. See [dispatch
+and release](2026-11-04-T10.010.004-root.md#equal-noarch-workers-start-old-settled-session-released).
