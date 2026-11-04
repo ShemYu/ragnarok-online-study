@@ -88,6 +88,9 @@ retained. Real parsing,200-row completion/capture, effective items, probe purity
 and persistence are still open. Fresh-world payload/image/port/mount admission
 also remains open; final app up can prune unused untagged images even without
 a bundle. See the [current result](reviews/2026-11-04-T10.010.004-root.md#both-variants-compile-interpreter-report-refuses-qualification).
+Fresh host assets are now linked/read back:59 generated files, selected Chinese
+layers/config and1265-file preservation pass. Asset-server/browser protocol and
+actual world startup remain open; generated files alone are not rendering proof.
 
 Release-gate source and reward/save analysis are integrated within their
 recorded limits. Their actual runtime pins and native/game/save gates remain

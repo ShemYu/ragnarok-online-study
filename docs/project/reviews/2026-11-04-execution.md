@@ -1178,3 +1178,11 @@ loopback ports simultaneously, then closes the sockets. Host-only asset-link
 source and direct managed asset-server source are independently reviewed.
 No assets/server/browser/DB/game is started in the fresh world; source plans
 and port checks do not qualify protocol/Chinese rendering. See [running scope](2026-11-04-T10.010.004-root.md#compiler6-started-host-asset-inputs-bound-in-parallel).
+
+Host-source/input checkpoint57ae52be is committed/pushed before the one supported
+asset link, exec38326 exit0/2.004s. All1265 protected files retain content/stat;
+transaction cleanup passes. Root then rehashes all59 generated files and checks
+the selected itemInfo merge-layer/config reference, six navigation tables/four
+plaintext-plugin files, moved ports/Taiwan/Renewal/packet configuration and absent
+detection/endpoints. No asset server/browser/DB/game starts. See [actual host result](2026-11-04-T10.010.004-root.md#ordinary-host-assets-linked-and-personally-read-back).
+Compiler6 remains independently running; no artifact or rendering claim yet.

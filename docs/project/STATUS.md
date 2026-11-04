@@ -110,7 +110,7 @@ is now staged/pinned; actual image/port/mount and complete startup bindings
 remain unqualified. Source inspection does not initialize a game world.
 Root stages999 independent regular files/107278460bytes for the fixed Renewal
 test, pins every copied byte/mode and confirms current source identities stay
-unchanged during readback. No binary is invoked; no DB or saves are initialized.
+unchanged during readback. That staging invokes no binary or DB/save initialization.
 Pre-sign checksum sidecars are retained separately from actual executable hashes;
 their mismatch does not establish corruption or these files' signing provenance.
 Four selected Chinese overlay trees and their enable/disable lists are now
@@ -125,9 +125,13 @@ its source identities stay unchanged. It is not yet linked or content-complete
 qualified by this hash.
 Root also pins the240 automatically selected sibling BGM/AI/System files,
 404635573bytes, and simultaneously binds all six proposed loopback ports.
-Sockets are closed; this is no retained port reservation. Host-only link
-source/containment is reviewed; the fresh state still has no linked assets
-or asset server. Recheck inputs/ports before the supported command.
+Sockets are closed; this is no retained port reservation. After checkpoint57ae52be
+is committed/pushed, Root executes the supported host-only asset link once:
+exit0/2.004s, all1265 protected files unchanged and59 generated files/66650497bytes.
+Root independently rehashes all59 outputs, checks selected itemInfo merge-layer,
+six navigation tables/four plaintext-plugin files and moved Taiwan/Renewal
+configuration. Transaction cleanup passes. No asset server/browser/DB/game starts,
+and client detection/endpoints remain absent. See [actual host link](reviews/2026-11-04-T10.010.004-root.md#ordinary-host-assets-linked-and-personally-read-back).
 
 ## Four audit tasks remain open
 
