@@ -16,6 +16,8 @@ Feature-branch checkpoints/publication remain authorized; `origin/main` stays
 unchanged. No additional local-main merge is part of this execution checkpoint.
 Normal feature publication recovers after a GitHub server-error retry:
 selected source/checkpoint47bfe3d is pushed, with origin/main unchanged.
+Later checkpoints through5bd22362 are also confirmed published; origin/main
+remains c6314bbd.
 [Hosted source CI](https://github.com/ShemYu/ragnarok-online-study/actions/runs/41816752719)
 passes on107e352, including the explicit release-gate step; later HEAD CI
 is not yet checked. No rules/config/force changes are made.
@@ -84,10 +86,14 @@ retry captures187 correct identity samples whose MemTotal is one4KiB
 page above the old snapshot. Root restores the original characterized
 3800–4096MiB band; pinned4096MiB config/control and the fresh1536+768MiB
 available-memory gate stay unchanged. Seven controls and narrow review
-pass. Fresh resolve-vm-root-6 is prepared. Actual fetch/install and closure
-remain open; the first unretained mismatch remains unclassified.
-The VM is stopped, both containers deleted and five personal service
-projections identical. No real closure or full build is qualified.
+pass. Fresh phase6 now passes actual resources/base/signatures and parses
+all47 solver rows correctly. Its first exact package fetch refuses before
+installation. Root's pinned upstream source review identifies a nonrecursive
+lookup defect and a proposed full-package-field workaround. The equal
+[fetch repair](tasks/T10.010.004-dependency-repair-4.md) is the next source
+action; no closure/full build is qualified. The first unretained readiness
+mismatch remains unclassified. The VM is stopped, both containers deleted
+and five personal service projections identical.
 The [EXP/callback/save source analysis](reviews/2026-11-04-T10.010.006-root.md)
 is selected/integrated from Claude2f2a610f as a75eeb2e after Root/Astra
 checks both repaired analyses. All17 pins and the5121-file source digest
@@ -192,7 +198,8 @@ The three prerequisite source lanes are integrated. Root owns serial runtime
 execution/verification for .004; .005 source is integrated, with runtime
 pins deliberately unqualified. The .004 dependency recipe and .006 analysis
 source are selected/integrated; the counter-format repair is verified.
-Execute the fresh exact-base closure admission, then inspect its actual result. Fresh build-only state initialization
+Complete and Root-verify the exact-fetch source repair, then execute a new
+exact-base closure admission. The previous phase is consumed. Fresh build-only state initialization
 uses the workflow's isolated-new-state allowance; it does not establish
 current ro4 backup/restore qualification.
 Refresh current Engine/socket/service/save bindings; old IDs, start times,

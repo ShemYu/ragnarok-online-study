@@ -19,6 +19,8 @@ FULL MODERN / RENEWAL PERSONAL GAME
 |   [x] APK signatures / causal closed-vs-valid stdin diagnostic
 |   [x] Exact-base dependency recipe repair [SOURCE VERIFIED]
 |   [x] APK counter-format repair [SOURCE VERIFIED]
+|   [x] Real guest parses all47 solver rows [ACTUAL VERIFIED]
+|   [ ] APK3 exact-fetch correction [CURRENT SOURCE REPAIR]
 |   [ ] Actual exact-base signed dependency closure [CURRENT]
 |   [ ] Qualified dependencies -> full builds -> ordinary-item A/B
 |   [ ] Binary/mod/text gate [SOURCE INTEGRATED; RUNTIME OPEN]
@@ -57,8 +59,10 @@ stopped. Root authenticates all four APKs and reproduces the trigger-launch
 failure with closed stdin; the same actual reinstall succeeds with /dev/null.
 The repaired recipe is now integrated after Root76 tests and independent
 identity controls. The first exact-base solve proposes47 installs without upgrades, but the
-parser drops padded counter rows and refuses before installation. The format repair now passes Root81 tests and actual-log controls;
-execute a fresh admission to retain/authenticate the complete closure for replay. Claude's release-gate source is selected and
+parser drops padded counter rows and refuses before installation. The format repair passes Root81 tests and now parses all47 rows
+in the actual guest. The first exact package fetch then refuses before install;
+Root identifies a pinned-source lookup defect. Complete the equal fetch
+repair before a new closure admission. Claude's release-gate source is selected and
 integrated; Root's113 integrated tests and real release/withdrawal refusals
 pass with644 tracked files unchanged. All actual release/runtime gates remain open.
 See [safe runner](reviews/2026-11-04-T00.006-root.md) and

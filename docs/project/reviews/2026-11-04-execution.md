@@ -730,3 +730,19 @@ memory, resource/package/ABI gates and cleanup unchanged. Seven modelled
 controls and independent narrow source review pass. Fresh phase6/resolve5
 is prepared; previous admissions stay consumed. This is a bounded harness
 correction, not a game-goal or hardware change.
+
+## Real parser passes; package selection is the next narrow repair
+
+Phase6 passes fresh resources/base/signatures and parses all47 real solver
+rows correctly. Its first exact repository fetch refuses before apk-add;
+the resolver exits1 after39.7s. Root verifies the failed evidence, both
+containers' deletion/404, finite VM shutdown and identical five personal
+service projections. There is no qualified closure or full build.
+
+Pinned upstream query/fetch source explains a nonrecursive exact-version
+lookup defect and supports full-package-field matching as a proposed repair.
+The equal source-only [repair4 brief](../tasks/T10.010.004-dependency-repair-4.md)
+retains all earlier safety/identity/offline constraints. Root's direct checks
+of Grok dab369f8 find the uncounted-action guard and metadata-only defects
+still open, so it remains unselected. The main goal is unchanged;3/7 audit
+tasks are closed. Feature5bd22362 is confirmed pushed, origin/main unchanged.
