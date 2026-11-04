@@ -64,8 +64,8 @@ All44 repository files now pass Root host checks; with3 matching dev inputs,
 the47-file manifest matches the frozen delta (122065747bytes,46aarch64/1noarch).
 All download children are reaped. Claude338ca82f is selected/source-integrated:
 both candidates pass Root's91-test runs, but a further native-target
-counterexample rejects Grok's candidate. Rebind the reviewed v2 wrapper before
-all47 stock-key/install/closure qualification. The VM is stopped and no full
+counterexample rejects Grok's candidate. A rebound/reviewed fresh v3 phase is
+ready for all47 stock-key/install/closure qualification. The VM is stopped and no full
 compiler has run. Both settled worker terminals are released.
 
 Release-gate source and reward/save analysis are integrated within their

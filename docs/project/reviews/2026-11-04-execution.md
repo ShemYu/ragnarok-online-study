@@ -937,3 +937,11 @@ reviewed v2 all-local draft passes8 pure controls but retains unqualified pin
 placeholders and creates no runtime plan. Next: rebind/admit fresh all-local47
 stock-key/install/closure checks; no closure/full build/task closure is claimed.
 See [source comparison and verification](2026-11-04-T10.010.004-root.md#noarch-source-comparison-and-root-verification).
+
+Selected source de5b216e is committed/pushed. Root's mistaken use of a one-use
+admission function during preflight consumes unused phase2 without runtime;
+the guard refuses a second call. Preserve/retire it. Fresh phase3 is prepared,
+rebound and independently reviewed without consuming admission. All124 pins,
+six payloads and47 identities agree; no runtime marker exists. Commit this
+admission checkpoint before the dependency-only VM run. See [fresh all-local
+admission](2026-11-04-T10.010.004-root.md#fresh-all-local-phase-reviewed-before-execution).

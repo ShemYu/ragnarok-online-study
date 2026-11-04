@@ -39,15 +39,18 @@ Actual noarch/aarch64 values remain joined across guest rows, raw bytes and
 local plans; VM/ABI/ELF stays ARM64. Both settled supplier terminals are released
 with their branches preserved. See [source selection and limits](reviews/2026-11-04-T10.010.004-root.md#noarch-source-comparison-and-root-verification).
 
-Root must rebind/review the all-local wrapper and admit fresh resolution from
-the pinned47-file manifest. The reviewed v2 draft passes8 pure controls but
-deliberately refuses helper imports/preparation until its selected-source pins
-are rebound. It has generated no runtime plans/admission.
+Selected source is committed/pushed as de5b216e. Root rebinds the wrapper and
+reviews a fresh v3 all-local phase with124 source/input/generated pins and six
+runtime payload pins. It is unconsumed; actual stock-key/install checks are
+next. The preceding v2 phase was consumed by Root's mistaken preflight call
+without starting runtime; it is preserved/retired rather than reset or reused.
+See [fresh admission and exact hashes](reviews/2026-11-04-T10.010.004-root.md#fresh-all-local-phase-reviewed-before-execution).
 Require all47 actual stock-key checks, exact frozen47 delta, unchanged complete
 26-package base/ABI, fresh cgroup/headroom evidence, offline install and owned
 cleanup. Resolve simulation remains online. The all-local/compiler wrappers
-are source-only drafts; rebind their architecture checks and source pins after
-selection before preparation. No closure or full build is qualified.
+include a reviewed/prepared all-local phase and a compiler draft. The compiler
+still needs fresh qualified-closure/source bindings before preparation.
+No closure or full build is qualified.
 
 Renew stopped VM ownership/resources before runtime; old IDs, consumed
 admissions and snapshots are not authority. Earlier stdin/parser/readiness/
