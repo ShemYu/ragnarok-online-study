@@ -23,7 +23,7 @@ FULL MODERN / RENEWAL PERSONAL GAME
 |   [x] APK3 exact-fetch correction [SOURCE VERIFIED]
 |   [x] Actual44 stock-selected URLs / empty payload / owned cleanup
 |   [x] Complete GCC host measurement / exact raw identity / child cleanup
-|   [ ] Remaining39 downloads -> all47 signed local closure [CURRENT]
+|   [ ] Remaining35 downloads -> all47 signed local closure [CURRENT]
 |   [ ] Qualified dependencies -> full builds -> ordinary-item A/B
 |   [ ] Binary/mod/text gate [SOURCE INTEGRATED; RUNTIME OPEN]
 |   [ ] Real EXP/callback/save [ANALYSIS INTEGRATED; RUNTIME OPEN]

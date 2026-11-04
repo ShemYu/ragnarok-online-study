@@ -876,3 +876,12 @@ continuation at max two live helpers, using one fresh binutils plan and38
 unconsumed plans. All prior verified bytes are retained and pins rechecked.
 This is a connection issue, not a new package/goal defect. See [stop, evidence
 and new admission](2026-11-04-T10.010.004-root.md#collection-stops-on-zero-byte-connection-failure-fresh-continuation-admitted).
+
+Collection2 verifies four further files, including fresh binutils, then stops
+and drains on G++'s zero-byte connection timeout. Repository inputs are9/44.
+Root/Astra inspect installed-manual retry semantics; Root retains upstream
+source. Root reviews v3's bounded native retry2/delay1/start-window60 policy,
+unchanged620s parent/validation/cleanup and three final-header controls.
+Thirty-five fresh individually checked v3 plans are admitted at max two live
+helpers; older unconsumed plans are unused. All47 signatures/install/closure
+remain open. See [primary evidence, limits and admission](2026-11-04-T10.010.004-root.md#repeated-connection-timeout-motivates-bounded-native-retries).

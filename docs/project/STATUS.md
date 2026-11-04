@@ -214,10 +214,10 @@ execution/verification for .004; .005 source is integrated, with runtime
 pins deliberately unqualified. The .004 dependency recipe and .006 analysis
 source are selected/integrated; the counter-format repair is verified.
 The URL capture and revised complete GCC transfer are verified:54.7MB in254.5s,
-exact raw identity/hash and clean child exit. Four further files pass; a zero-byte
-binutils connection timeout stops/drains the first collection. Execute the newly
-admitted39-file continuation at max two live helpers, reserving128MiB each under
-a512MiB completed-plus-live cap. Stop on failure/unresolved cleanup.
+exact raw identity/hash and clean child exit. Repository files are9/44 verified;
+two zero-byte connection failures are safely drained. Execute35 fresh v3 plans
+with bounded native curl retries, max two live helpers and128MiB reserved each
+under a512MiB completed-plus-live cap. Stop on failure/unresolved cleanup.
 All47
 must still pass actual stock-key/raw-identity/offline-install qualification.
 Resolve6/phase7 is consumed; do not repeat it. The exact-fetch source remains
