@@ -48,6 +48,21 @@ main `c6314bbd`. A read-only helper finds no malformed new Git objects or
 published branch-rule restriction; this is advisory diagnosis, not proof of
 the remote error's cause/transience. Retain local commits; no force/rule change.
 
+## First build VM identity refusal and recovery
+
+After `1a2d730`, the new a1 VM boots in0.658 s, but the controller's combined
+macOS process column truncates its path. It refuses before image import and
+records automatic cleanup unresolved. Root establishes full actual ownership
+through command/birth, loaded binary and socket descriptors, control status
+and plan owner/config, then gracefully stops that exact VM in0.530 s. Engine
+socket pathname remains stale/connection-refused; process/control departure
+is proved. Five personal service projections remain byte-identical.
+
+[The revised exact admission](../tasks/T10.010.004-build-vm-probe-2.md) pins a
+new absent a2 target, corrected full-command/birth/loaded-image check and four
+authored identity controls. Old controller/failed result/recovery are retained.
+This is a corrected new experiment; no blind retry or dependency installation.
+
 ## Second release repair dispatch
 
 After source/evidence checkpoint `b85bcef`, Root sends the exact same brief

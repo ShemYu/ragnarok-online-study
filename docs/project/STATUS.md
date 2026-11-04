@@ -41,9 +41,12 @@ headroom refusal apply to the default instance. The later
 passes: 7.75 GiB total but only 1.20 GiB available. All five service projections
 and four complete save-table outputs remain identical; three characters stay
 offline. Attributed stats confirm the balloon holds 5847 MiB of an 8192 MiB
-ceiling. Root admits [one separate bounded 4 GiB build-only VM probe](tasks/T10.010.004-build-vm-probe.md),
-with ballooning disabled only for its new daemon and mandatory shutdown after
-the attempt. Seven focused host controls pass; no new VM exists yet.
+ceiling. The first separate 4 GiB VM boots, but a truncated macOS process
+column causes identity refusal before import; Root resolves its exact owner
+and gracefully stops it, preserving all personal service projections.
+[The corrected new-target admission](tasks/T10.010.004-build-vm-probe-2.md)
+uses full command/birth plus loaded-image descriptors and four focused controls.
+The new target is absent; mandatory shutdown and balloon opt-out remain.
 The unchanged 1536+768 MiB gate must pass actual readback
 before resolve. No personal RAM adjustment/restart, compiler/package install
 or progress write has occurred.
