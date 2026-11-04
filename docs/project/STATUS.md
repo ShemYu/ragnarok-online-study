@@ -43,7 +43,12 @@ preserved. These are scoped client checks, not rendering/game/item/save proof.
 
 **Next:** compare bounded source-only DB rehearsal plans from Claude/Grok under
 the [frozen brief](reviews/2026-11-05-T10.010.004-db-roundtrip-brief.md), then
-design/admit the integrated disposable run. Qualify a supported DB-only backup/restore and complete semantic readback
+design/admit the integrated disposable run. Both dispatched workers are observed
+live with input accepted; no candidate is selected. Root independently retains/
+rehashes ten exact existing app Git objects for later source verification;
+no VM/DB/client action occurs. See
+[planning ownership and inputs](reviews/2026-11-04-T10.010.004-root.md#db-plan-workers-live-and-primary-inputs-retained).
+Qualify a supported DB-only backup/restore and complete semantic readback
 before ordinary-item mutations. Use the same owned VM/world/client, refreshed
 1109-file world baseline, existing Chinese assets and bounded resources. Then
 verify isolated browser rendering, fixture parsing/200 rows, effective items,
