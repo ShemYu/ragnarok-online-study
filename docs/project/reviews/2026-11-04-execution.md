@@ -2,7 +2,9 @@
 
 Current checkpoint: [both immutable images and original-library loaders pass
 Root qualification](2026-11-04-T10.010.004-root.md#image-pair-and-original-loaders-personally-qualified).
-Supported isolated startup and ordinary-item verification are next. Three of
+The [read-only user/bind diagnostic](2026-11-04-T10.010.004-root.md#read-only-user-mount-diagnostic-personally-qualified)
+also passes independent replay. Supported isolated startup and ordinary-item
+verification are next. Three of
 seven audit tasks remain closed; the entries below retain historical scope.
 
 ## Historical dependency challenge
@@ -1254,3 +1256,17 @@ mounts plus cgroup, harmless fixture modes/identities and current stopped
 binding. Astra pure-file review agrees; actual markers remain absent. Commit
 [prepared admission](2026-11-04-T10.010.004-root.md#read-only-user-mount-prepared-admission)
 before one serial run. No VM, user-read, game/DB or SQL result exists yet.
+
+
+Admission91105e2f is committed/pushed before actual readonly user/bind exec92432
+exits0. Resource/user probes finish10.2s/0.7s; actual UID/GID1000 and zero
+CapEff read all three fixtures and the exact NPC. Root's independent offline
+replay exec14027 exits0/8.215s, reproduces nine resource files and request-hashed
+Docker logs, and joins all user/cgroup/binary/read/stat summaries. All1896
+protected and37 terminal files remain unchanged; both owned containers are
+deleted204/404, VM stopped and personal preservation pass. No permission fix
+is justified for these exact reads; the unusual single-file ownership/access
+mechanism and future generated game mounts remain unqualified. See [Root's
+actual result](2026-11-04-T10.010.004-root.md#read-only-user-mount-diagnostic-personally-qualified).
+Commit this checkpoint before supported isolated startup. No app up/DB/SQL,
+parser, gameplay or save result is claimed;3/7 audit closure is unchanged.

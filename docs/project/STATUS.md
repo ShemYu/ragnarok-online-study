@@ -47,17 +47,21 @@ Whole-layer entry inspection and actual server/parser/game/SQL/probe-purity/save
 results remain unqualified. See
 [image qualification](reviews/2026-11-04-T10.010.004-root.md#image-pair-and-original-loaders-personally-qualified).
 
+**The read-only user/bind diagnostic also passes Root's independent replay.**
+After admission91105e2f is committed/pushed, resource/user probes exit0 in10.2s/
+0.7s. Actual rathena UID/GID1000 with zero effective capabilities reads all
+three permission fixtures and the exact NPC bytes. Root replays nine resource
+files and request-hashed Docker logs;1896 protected files and37 terminal files
+remain unchanged. Both containers are deleted/404, VM stopped/personal checks
+pass. Host0600 alone is not a demonstrated read blocker; no chmod repair is
+justified for these exact reads. The unusual reported single-file ownership
+mechanism is unqualified and needs no extra diagnostic before startup. See
+[actual read qualification](reviews/2026-11-04-T10.010.004-root.md#read-only-user-mount-diagnostic-personally-qualified).
+
 **Next:** admit supported startup in the disposable world using its own state
-and the owned Engine. First run the separately admitted read-only bind/user diagnostic: the frozen
-Carocc NPC is0600, copy preserves its mode, and unmanaged startup can leave
-generated conf at its inherited umask. Source/preflight checks pass1889 inputs
-and six payloads. Source checkpoint5d8d66b4 is committed/pushed before preparation.
-Root and Astra verify the new phase's1896 pins, six payloads, exact scripts,
-fixtures/direct mounts, fixed limits and unused execution markers. Commit the
-[prepared admission](reviews/2026-11-04-T10.010.004-root.md#read-only-user-mount-prepared-admission)
-before one actual run. Actual rathena readability and VM/probe execution remain
-unobserved.
-Fresh host state alone does not isolate an Engine's fixed
+and the owned Engine. Verify actual generated conf/NPC mount access and process
+identity; the diagnostic does not qualify those future mounts. Fresh host
+state alone does not isolate an Engine's fixed
 container names or DB volume. Verify their absence, images, mounts, six ports,
 exact environment and graceful shutdown before initialization. Keep the4GiB/
 CPU2 ceiling; actual game fit is unproved. Require positive map registration
