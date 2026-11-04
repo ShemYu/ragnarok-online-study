@@ -41,10 +41,13 @@ pass. Registration and reads do not qualify saved DB content or full-world
 functionality. Four map/one character startup errors remain to classify;
 all-NPC/parser acceptance, rendering, items, probe purity and saves stay open.
 
-**Next:** commit this checkpoint, then complete/admit the managed-client
-controller. Source/Node preparation passes: exact helper loads on pinned Node
-v24.20.0 without Electron/npm. Actual managed identity/readiness, allowed writes,
-cache/log bounds, static routing and owned stop still require verification.
+**Next:** prepare/admit the managed-client phase, then run it once. Root and
+Astra clear the revised controller/wrapper source; Node syntax and Python
+compile/Ruff pass. Fresh read-only preflight checks2064 protected files,1107
+world files, stopped VM and five personal services. No client launch yet.
+Actual managed identity/readiness, allowed writes, effective cache limits,
+static routing and owned stop still require verification. See
+[source and preflight](reviews/2026-11-04-T10.010.004-root.md#managed-client-controller-source-and-preflight).
 Start with the bounded host-only protocol/static check while the VM remains
 off, then integrate the owned client with the same disposable game for rendering
 and ordinary-item A/B. Do not infer gameplay from HTTP health. Preserve Chinese

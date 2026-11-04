@@ -68,8 +68,9 @@ and17 generated-file reads. Fresh replay checks nine resource files, projections
 three controls, both strict API captures and ordered TERM/exited0; down0 stops
 the VM. All1978 protected and88 terminal files/personal projections remain
 unchanged. Eighteen generated changes are stat-only; no host content changes.
-Five startup errors remain unclassified. Next bounded managed-client identity/
-static/owned-stop checks, then integrated rendering and ordinary items. Neither
+Five startup errors remain unclassified. Managed-client controller source and
+current read-only preflight pass; prepare/admit its bounded identity/static/
+owned-stop phase next, then integrated rendering and ordinary items. Neither
 registration nor reads qualify full-world/parser/play/save acceptance. See
 [Root's result](reviews/2026-11-04-T10.010.004-root.md#initialized-process-and-mounts-personally-qualified).
 
