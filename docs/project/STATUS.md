@@ -56,6 +56,9 @@ but Root reproduces numeric-literal/type-join gaps and an actual-format header
 assumption. It needs a narrow source repair before further grammar replay;
 the native drafter is assigned a fresh source-only revision. This does not
 qualify actual backup/restore or delay discovery worker review.
+Root independently derives and verifies the two indirect project-import pins
+against Git/source; the repaired before-import protected-context gate remains
+to be reviewed. The common41-file supplier manifest stays frozen.
 Root/native/Astra source review identifies the old1107/current1109 baseline
 distinction, explicit DB cwd, split quiescence and unknown-exec shutdown gate.
 Refresh the exact owned VM/world/resources and personal projections before
