@@ -17,7 +17,9 @@
 // selection or missing pinned input refuses (exit 2) before any copy or run.
 // Exit codes: 0 suite passed and canonical preserved; 1 suite failed; 2 refused;
 // 3 canonical identity/content changed; 4 descendant cleanup failed;
-// 128+signal when interrupted with cleanup and preservation intact.
+// 5 runner error after the suite was spawned (owned cleanup and the protected
+// after-snapshot still ran); 128+signal when interrupted with cleanup and
+// preservation intact.
 import { spawn, spawnSync } from 'node:child_process';
 import crypto from 'node:crypto';
 import fs from 'node:fs';
@@ -32,6 +34,9 @@ const MAX_HASH_BYTES = 64 * 1024 * 1024;
 export class Refusal extends Error {
   constructor(reason, detail) { super(`${reason}: ${detail}`); this.reason = reason; this.detail = detail; }
 }
+
+// In-process test seams (fault injection). The CLI never sets these.
+export const hooks = { beforeEvent: null, afterPoll: null };
 
 const sha256 = (buffer) => crypto.createHash('sha256').update(buffer).digest('hex');
 const readJson = (abs) => JSON.parse(fs.readFileSync(abs, 'utf8'));
@@ -296,10 +301,12 @@ export class Tracker {
 
 const sleep = (ms) => new Promise((resolve) => setTimeout(resolve, ms));
 
+// Best-effort: one failed kill never prevents signalling the remaining targets;
+// survivors are found by the following waitGone check.
 function signalAll(tracker, signal) {
-  try { process.kill(-tracker.pgid, signal); } catch (error) { if (error.code !== 'ESRCH') throw error; }
+  try { process.kill(-tracker.pgid, signal); } catch { /* ESRCH or EPERM: verified by waitGone */ }
   for (const row of tracker.alive() || []) {
-    try { process.kill(row.pid, signal); } catch (error) { if (error.code !== 'ESRCH') throw error; }
+    try { process.kill(row.pid, signal); } catch { /* as above */ }
   }
 }
 
@@ -418,7 +425,10 @@ export async function main(argv, { stdout = process.stdout, signals = process } 
   fs.mkdirSync(treeRoot, { mode: 0o700 });
   fs.mkdirSync(tmpDir, { mode: 0o700 });
   const eventsFile = path.join(runDir, 'events.jsonl');
-  const event = (value) => fs.appendFileSync(eventsFile, `${JSON.stringify({ t_ms: Date.now() - started, ...value })}\n`, { mode: 0o600 });
+  const event = (value) => {
+    if (hooks.beforeEvent) hooks.beforeEvent(value);
+    fs.appendFileSync(eventsFile, `${JSON.stringify({ t_ms: Date.now() - started, ...value })}\n`, { mode: 0o600 });
+  };
   const relRun = path.relative(CHECKOUT, runDir);
   const result = { schema: 'T00.006-isolated-run-1', suite: definition.name, run_dir: within(runDir, CHECKOUT) ? relRun : '<work-root>/' + path.basename(runDir) };
 
@@ -466,61 +476,116 @@ export async function main(argv, { stdout = process.stdout, signals = process } 
     PATH: '/usr/bin:/bin:/usr/sbin:/sbin', TMPDIR: tmpDir, LANG: 'C', NO_COLOR: '1',
     ...definition.env(corpus)
   };
-  const log = fs.openSync(path.join(runDir, 'suite.log'), 'wx', 0o600);
-  // Exclusions are exact test names, passed to node:test as anchored skip
-  // patterns; any exclusion makes a pass a labeled subset, never a full pass.
-  const skipArgs = opts.exclude.map((name) => `--test-skip-pattern=^${name.replace(/[.*+?^${}()|[\]\\/]/g, '\\$&')}$`);
-  const child = spawn(process.execPath, [...definition.nodeArgs, ...skipArgs, path.join(treeRoot, definition.entry)], {
-    cwd: treeRoot, env, detached: true, stdio: ['ignore', log, log]
-  });
-  fs.closeSync(log);
-  const tracker = new Tracker(child.pid, child.pid);
-  event({ event: 'started', pid: child.pid, pgid: child.pid });
-
-  let interrupted = null;
-  let exit = null;
-  const exited = new Promise((resolve) => child.on('exit', (code, signal) => { exit = { code, signal }; resolve(); }));
-  const onSignal = (name) => { if (!interrupted) { interrupted = name; event({ event: 'signal', name }); } };
+  // Lifecycle. Everything after the first owned resource (log fd, child) runs
+  // inside one try; the outer finally always performs best-effort owned
+  // cleanup, the protected after-snapshot and result publication, even when
+  // an evidence write, the poll loop or the witness check throws. Evidence
+  // write failures abort the run (fail closed) but never skip cleanup.
+  const life = { child: null, tracker: null, exit: null, interrupted: null, mutationObserved: false, error: null, evidenceErrors: [] };
+  let exited = Promise.resolve();
+  const onSignal = (name) => {
+    if (life.interrupted) return;
+    life.interrupted = name;
+    try { event({ event: 'signal', name }); } catch (error) { life.evidenceErrors.push(`signal event: ${error.message}`); }
+  };
   const handlers = Object.keys(SIGNAL_CODES).map((name) => [name, () => onSignal(name)]);
   for (const [name, fn] of handlers) signals.on(name, fn);
-  let mutationObserved = false;
+  let log = null;
   try {
-    while (!exit && !interrupted) {
-      tracker.poll();
-      if (witnessAbs && !mutationObserved) {
+    log = fs.openSync(path.join(runDir, 'suite.log'), 'wx', 0o600);
+    // Exclusions are exact test names, passed to node:test as anchored skip
+    // patterns; any exclusion makes a pass a labeled subset, never a full pass.
+    const skipArgs = opts.exclude.map((name) => `--test-skip-pattern=^${name.replace(/[.*+?^${}()|[\]\\/]/g, '\\$&')}$`);
+    life.child = spawn(process.execPath, [...definition.nodeArgs, ...skipArgs, path.join(treeRoot, definition.entry)], {
+      cwd: treeRoot, env, detached: true, stdio: ['ignore', log, log]
+    });
+    exited = new Promise((resolve) => {
+      life.child.on('exit', (code, signal) => { life.exit = { code, signal }; resolve(); });
+      life.child.on('error', (error) => { life.error = life.error || error; resolve(); });
+    });
+    if (!Number.isSafeInteger(life.child.pid)) throw new Error('suite did not start');
+    life.tracker = new Tracker(life.child.pid, life.child.pid);
+    fs.closeSync(log); log = null;
+    event({ event: 'started', pid: life.child.pid, pgid: life.child.pid });
+    while (!life.exit && !life.interrupted && !life.error) {
+      life.tracker.poll();
+      if (hooks.afterPoll) hooks.afterPoll(life.tracker, treeRoot);
+      if (witnessAbs && !life.mutationObserved) {
         const now = statIdentity(witnessAbs, { hash: false });
-        if (now.ctime_ns !== witnessBefore.ctime_ns || now.ino !== witnessBefore.ino) { mutationObserved = true; event({ event: 'mutation_observed', path: definition.witness }); }
+        if (now.ctime_ns !== witnessBefore.ctime_ns || now.ino !== witnessBefore.ino) {
+          life.mutationObserved = true;
+          event({ event: 'mutation_observed', path: definition.witness });
+        }
       }
       await Promise.race([exited, sleep(100)]);
     }
-    const cleanup = await stopOwned(tracker, interrupted ? opts.graceMs : Math.min(opts.graceMs, 2000));
-    await Promise.race([exited, sleep(1000)]);
-    if (witnessAbs && !mutationObserved) {
-      const now = statIdentity(witnessAbs, { hash: false });
-      mutationObserved = now.ctime_ns !== witnessBefore.ctime_ns || now.ino !== witnessBefore.ino;
-    }
-    result.cleanup = { ...cleanup, descendants_observed: tracker.seen.size, polls: tracker.polls };
+    if (life.error) throw life.error;
+  } catch (error) {
+    life.error = error;
   } finally {
+    if (log !== null) { try { fs.closeSync(log); } catch { /* already closed */ } }
+    result.cleanup = { actions: [], leaked: [], descendants_observed: 0, polls: 0 };
+    if (life.tracker) {
+      try {
+        const grace = life.interrupted || life.error ? opts.graceMs : Math.min(opts.graceMs, 2000);
+        const cleanup = await stopOwned(life.tracker, grace);
+        result.cleanup = { ...cleanup, descendants_observed: life.tracker.seen.size, polls: life.tracker.polls };
+      } catch (error) {
+        // Last resort: kill the whole owned group, then report what is left.
+        try { process.kill(-life.tracker.pgid, 'SIGKILL'); } catch { /* ESRCH */ }
+        let left = null;
+        try { left = await waitGone(life.tracker, 3000); } catch { /* table unavailable */ }
+        result.cleanup = { actions: [{ signal: 'SIGKILL', targets: 'group' }], cleanup_error: String(error && error.message),
+          leaked: left ? left.map((row) => ({ pid: row.pid, pgid: row.pgid })) : [{ pid: -1, pgid: life.tracker.pgid }],
+          descendants_observed: life.tracker.seen.size, polls: life.tracker.polls };
+      }
+    } else if (life.child && Number.isSafeInteger(life.child.pid)) {
+      try { process.kill(-life.child.pid, 'SIGKILL'); } catch { /* ESRCH */ }
+      result.cleanup.actions.push({ signal: 'SIGKILL', targets: 'group' });
+    }
+    if (life.child && !life.exit) await Promise.race([exited, sleep(1000)]);
     for (const [name, fn] of handlers) signals.removeListener(name, fn);
   }
-  const after = snapshot(protectedEntries);
-  fs.writeFileSync(path.join(runDir, 'after.json'), JSON.stringify(after, null, 1), { mode: 0o600 });
-  const changed = compareSnapshots(before, after);
+  if (witnessAbs && !life.mutationObserved) {
+    try {
+      const now = statIdentity(witnessAbs, { hash: false });
+      life.mutationObserved = now.ctime_ns !== witnessBefore.ctime_ns || now.ino !== witnessBefore.ino;
+    } catch { /* copy unreadable: stays false */ }
+  }
+  // The protected comparison never depends on evidence writes succeeding.
+  let changed;
+  try {
+    const after = snapshot(protectedEntries);
+    changed = compareSnapshots(before, after);
+    try { fs.writeFileSync(path.join(runDir, 'after.json'), JSON.stringify(after, null, 1), { mode: 0o600 }); } catch (error) {
+      life.evidenceErrors.push(`after.json: ${error.message}`);
+    }
+  } catch (error) {
+    changed = [{ key: '<after-snapshot>', fields: ['unreadable'], detail: String(error && error.message) }];
+  }
+  const exit = life.exit;
+  const interrupted = life.interrupted;
   result.suite_exit = exit;
   result.interrupted = interrupted;
-  result.mutation_observed_in_copy = witnessAbs ? mutationObserved : null;
+  result.mutation_observed_in_copy = witnessAbs ? life.mutationObserved : null;
   result.preservation = { compared: Object.keys(before).length, changed };
   result.elapsed_ms = Date.now() - started;
-  result.tap = summarizeTap(path.join(runDir, 'suite.log'));
+  try { result.tap = summarizeTap(path.join(runDir, 'suite.log')); } catch { result.tap = null; }
+  if (life.error) result.runner_error = String(life.error && life.error.message);
   let code;
   if (changed.length) { result.status = 'canonical_changed'; code = 3; }
   else if (result.cleanup.leaked.length) { result.status = 'cleanup_failed'; code = 4; }
+  else if (life.error) { result.status = 'runner_error'; code = 5; }
   else if (interrupted) { result.status = 'interrupted'; code = SIGNAL_CODES[interrupted]; }
   else if (exit && exit.code === 0) { result.status = opts.exclude.length ? 'passed_subset' : 'passed'; code = 0; }
   else { result.status = 'suite_failed'; code = 1; }
-  event({ event: 'finished', status: result.status, code });
-  fs.writeFileSync(path.join(runDir, 'result.json'), JSON.stringify(result, null, 1), { mode: 0o600 });
+  try { event({ event: 'finished', status: result.status, code }); } catch (error) { life.evidenceErrors.push(`finished event: ${error.message}`); }
+  result.evidence_errors = life.evidenceErrors;
+  try { fs.writeFileSync(path.join(runDir, 'result.json'), JSON.stringify(result, null, 1), { mode: 0o600 }); } catch (error) {
+    result.evidence_errors.push(`result.json: ${error.message}`);
+  }
   emit(stdout, { status: result.status, suite: result.suite, run_dir: result.run_dir, suite_exit: exit, interrupted,
+    runner_error: result.runner_error || null, evidence_errors: result.evidence_errors,
     mutation_observed_in_copy: result.mutation_observed_in_copy, copies: result.copies, preservation_changed: changed.length,
     protected_entries: result.preservation.compared, leaked: result.cleanup.leaked.length, signals_sent: result.cleanup.actions,
     tap: result.tap, excluded_tests: opts.exclude.length,

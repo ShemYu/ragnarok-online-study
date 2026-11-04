@@ -15,7 +15,8 @@ import fs from 'node:fs';
 import path from 'node:path';
 import test from 'node:test';
 import { fileURLToPath } from 'node:url';
-import { compareSnapshots, snapshot } from '../../tools/renewal/run_isolated_suite.mjs';
+import { EventEmitter } from 'node:events';
+import { compareSnapshots, hooks, main, snapshot } from '../../tools/renewal/run_isolated_suite.mjs';
 
 process.umask(0o077);
 const REPO = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..', '..');
@@ -228,6 +229,97 @@ for (const [signal, code] of [['SIGINT', 130], ['SIGTERM', 143]]) {
     assert.ok(readResult(r.out).cleanup.descendants_observed >= 4);
   });
 }
+
+// Post-spawn failures: faults are injected through the runner's in-process
+// hooks (never set by the CLI) while the suite runs; the outer lifecycle
+// finally must still stop every owned descendant and run the after-snapshot.
+const groupMembers = (pgid) => {
+  const r = spawnSync('/bin/ps', ['-A', '-o', 'pid=,pgid='], { encoding: 'utf8' });
+  return r.stdout.split('\n').map((line) => line.trim().split(/\s+/).map(Number)).filter(([, g]) => g === pgid).map(([p]) => p);
+};
+async function inProcess(f, extra = []) {
+  let text = '';
+  const signals = new EventEmitter();
+  const code = await main(['--definition', f.def, '--work-root', f.work, '--grace-ms', '500', ...extra],
+    { stdout: { write: (chunk) => { text += chunk; } }, signals });
+  return { code, out: JSON.parse(text.trim().split('\n').at(-1)), signals };
+}
+const eio = (what) => Object.assign(new Error(`injected EIO writing ${what}`), { code: 'EIO' });
+
+test('post-spawn: an evidence-write failure on the started event still kills the suite group and preserves canonical', async () => {
+  const f = fixture('hang');
+  const before = snapshot(f.entries);
+  let pgid = null;
+  hooks.beforeEvent = (value) => { if (value.event === 'started') { pgid = value.pgid; throw eio('started'); } };
+  let r;
+  try { r = await inProcess(f); } finally { hooks.beforeEvent = null; }
+  assert.equal(r.code, 5, JSON.stringify(r.out));
+  assert.equal(r.out.status, 'runner_error');
+  assert.match(r.out.runner_error, /injected EIO writing started/);
+  assert.ok(Number.isSafeInteger(pgid));
+  await sleep(200);
+  assert.equal(alive(pgid), false, 'suite leader still alive');
+  assert.deepEqual(groupMembers(pgid), []);
+  assert.equal(r.out.leaked, 0);
+  assert.equal(r.out.preservation_changed, 0);
+  assert.ok(fs.existsSync(path.join(runDirOf(r.out), 'after.json')));
+  assert.deepEqual(compareSnapshots(before, snapshot(f.entries)), []);
+  assert.equal(readResult(r.out).status, 'runner_error');
+});
+
+test('post-spawn: an error inside the poll loop with live stubborn and escaped descendants still cleans up', async () => {
+  const f = fixture('hang');
+  const before = snapshot(f.entries);
+  let ready = null;
+  hooks.afterPoll = (tracker, tree) => {
+    const file = path.join(tree, 'lib/ready.json');
+    if (!fs.existsSync(file)) return;
+    try { ready = JSON.parse(fs.readFileSync(file, 'utf8')); } catch { return; }
+    throw new Error('injected poll-loop failure');
+  };
+  let r;
+  try { r = await inProcess(f); } finally { hooks.afterPoll = null; }
+  assert.equal(r.code, 5, JSON.stringify(r.out));
+  assert.equal(r.out.status, 'runner_error');
+  assert.ok(ready, 'descendants were live when the fault fired');
+  assert.equal(r.out.mutation_observed_in_copy, true);
+  assert.deepEqual(r.out.signals_sent.map((a) => a.signal), ['SIGTERM', 'SIGKILL']);
+  for (const pid of ready.pids) assert.equal(alive(pid), false, `pid ${pid} still alive`);
+  assert.equal(r.out.leaked, 0);
+  assert.equal(r.out.preservation_changed, 0);
+  assert.deepEqual(compareSnapshots(before, snapshot(f.entries)), []);
+});
+
+test('post-spawn: a failed signal-event write neither crashes the runner nor skips cleanup', async () => {
+  const f = fixture('hang');
+  const before = snapshot(f.entries);
+  let ready = null;
+  let sent = false;
+  hooks.beforeEvent = (value) => { if (value.event === 'signal') throw eio('signal'); };
+  hooks.afterPoll = (tracker, tree) => {
+    const file = path.join(tree, 'lib/ready.json');
+    if (sent || !fs.existsSync(file)) return;
+    try { ready = JSON.parse(fs.readFileSync(file, 'utf8')); } catch { return; }
+    sent = true;
+    setImmediate(() => signalsRef.emit('SIGINT'));
+  };
+  let signalsRef = null;
+  let text = '';
+  signalsRef = new EventEmitter();
+  let code;
+  try {
+    code = await main(['--definition', f.def, '--work-root', f.work, '--grace-ms', '500'],
+      { stdout: { write: (chunk) => { text += chunk; } }, signals: signalsRef });
+  } finally { hooks.beforeEvent = null; hooks.afterPoll = null; }
+  const out = JSON.parse(text.trim().split('\n').at(-1));
+  assert.equal(code, 130, JSON.stringify(out));
+  assert.equal(out.status, 'interrupted');
+  assert.ok(out.evidence_errors.some((e) => e.includes('injected EIO writing signal')));
+  for (const pid of ready.pids) assert.equal(alive(pid), false, `pid ${pid} still alive`);
+  assert.equal(out.leaked, 0);
+  assert.equal(out.preservation_changed, 0);
+  assert.deepEqual(compareSnapshots(before, snapshot(f.entries)), []);
+});
 
 for (const [signal, code] of [['SIGINT', 130], ['SIGTERM', 143]]) {
   test(`private: ${signal} interrupts the real model suite after its copied worker is rewritten`,

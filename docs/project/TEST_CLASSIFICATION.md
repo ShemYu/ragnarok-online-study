@@ -35,8 +35,11 @@ The runner is `tools/renewal/run_isolated_suite.mjs`. Its only dependencies are 
    - The driver's own admission and source pins are unchanged.
 5. **Tracking and cleanup.** Every 100 ms the runner reads the process table. It records each descendant (by parent chain or process group) by pid plus start time, so a reused pid is not mistaken for one. It notes `mutation_observed` when the copied witness worker's ctime/inode changes.
    - SIGINT, SIGTERM or SIGHUP to the runner (or leftovers after a normal exit) trigger SIGTERM to the group and to every live recorded descendant. After `--grace-ms` (default 5000) comes SIGKILL, followed by verification that none remain.
-   - The after-snapshot runs in every case.
-6. **Exit codes.** 0 = passed. 1 = suite failed. 2 = refused. 3 = canonical changed. 4 = descendant cleanup failed. 128+signal = interrupted, with cleanup and preservation intact.
+   - **Lifecycle guarantee (repair 1).** Signal handlers are registered before the spawn. Everything from opening the suite log onward (spawn, tracker, every evidence event, the poll/witness loop) runs inside one `try`.
+   - The outer `finally` always performs best-effort owned cleanup: the escalation above, or a last-resort group SIGKILL if the escalation itself throws. The protected after-snapshot and comparison then run outside any evidence write.
+   - An evidence-write failure (`events.jsonl`, `after.json`, `result.json`) fails the run closed but never skips cleanup or the comparison. A failed signal-event write is recorded in `evidence_errors` and cannot crash the runner from inside its signal handler.
+   - Before the spawn, no owned process exists. A non-refusal error there (for example a copy I/O error) still exits as `runner_error` without an after-snapshot; the runner has written only inside its private run directory at that point.
+6. **Exit codes.** 0 = passed. 1 = suite failed. 2 = refused. 3 = canonical changed. 4 = descendant cleanup failed. 5 = runner error after the spawn, with cleanup and comparison still performed. 128+signal = interrupted, with cleanup and preservation intact.
    - Status `passed_subset` (exit 0) is used only when `--exclude-test` names exact tests. It is never a full pass.
    - `result.json`, `before.json`, `after.json`, `copies.json`, `events.jsonl` and `suite.log` stay in the ignored run directory.
    - `corpus_identity_preflight` *reports* manifest-pinned identities that already differ from the live corpus. It never repairs them or relaxes admission.
@@ -57,6 +60,22 @@ Node `/Users/shem/.local/bin/node` v24.20.0, macOS. Canonical corpus is the read
 | Repeat on the final committed tree (header comment edit) | 1 / 0 / 0 / 0 | Full 48/56 with the same 8 failures; subset 48/48; runner checks 12/12 private and 10 pass + 2 skipped public. Snapshot files byte-identical before (16:16:45) and after (16:18:13) |
 | CI list and hygiene on the final tree | 0 | Public tree 602 paths; syntax 72 Py / 45 JS; Ruff 0.16.9 passes; quest Node suites 24/24; Chapter 1 120 OK; `git diff --cached --check` clean |
 
+### Repair 1: post-spawn failure cleanup (Root source review of `c9dbef6`)
+
+Root found that the original lifecycle spawned the detached suite, closed the log, built the tracker and emitted `started` *before* entering its `try`. The `finally` only removed signal handlers. As a result, an evidence-write failure, or any error in the poll/witness loop, escaped as `runner_error` with no `stopOwned` and no after-snapshot. The repair moves the whole post-spawn lifecycle under an outer `finally`, as described in step 5.
+
+| Check (repaired tree, 2026-11-04 16:43–16:45 JST, canonical HEAD `39c4b660`) | Exit | Result |
+| --- | --- | --- |
+| Negative control: `c9dbef6` runner plus only the fault hook, `started` write fails | — | `main` threw, the suite group was **still alive** afterwards, and no `after.json` was written. This confirms the defect |
+| Injected EIO on the `started` event write (repaired) | 5 | `runner_error`. Group leader and every group member gone, 0 leaked, `after.json` written, 0 protected changes, independent re-snapshot unchanged |
+| Injected error inside the poll loop, with the TERM-ignoring and escaped descendants live (copy already mutated) | 5 | SIGTERM then SIGKILL; all 3 recorded pids dead; 0 leaked; 0 protected changes |
+| Injected EIO on the signal-event write, then SIGINT | 130 | `interrupted`, write failure listed in `evidence_errors`, all pids dead, 0 leaked, 0 changes |
+| Runner checks, public / private | 0 / 0 | 15 tests: 13 pass + 2 skipped (public); 15/15 (private) |
+| Full private suite / exact 8-test exclusion | 1 / 0 | Unchanged: 48/56, and `passed_subset` 48/48. Copy mutation observed, 326 unchanged, 0 leaked, no evidence errors |
+| Independent canonical snapshot | — | 1407 files byte-identical, 16:43:17 to 16:44:35 |
+
+Preservation is demonstrated for the cases exercised above: success, suite failure, leftovers after exit, SIGINT/SIGTERM after mutation, and injected post-spawn failures on the `started` event, inside the poll loop and on the signal-event write. It is **not** claimed for every possible failure. SIGKILL of the runner itself, host crash, power loss, an unavailable process table and pre-spawn I/O errors are outside the evidence.
+
 The independent snapshot is `ext_snapshot.py` in the evidence directory. It covers canonical `tools/renewal/**`, `docs/project/fixtures/**`, `.tools/renewal/client-source/src/**`, the manifest, the availability inputs and the 273 bodies. For each file it records content SHA-256 plus `mode/dev/ino/nlink/size/mtime_ns/ctime_ns`.
 
 The synthetic interruption checks run a suite that rewrites its sibling, then starts two children: one that ignores SIGTERM and one detached into its own process group. They require the runner's `mutation_observed` event and the suite's own ready file before signalling. They then prove three things: both escalation steps (SIGTERM then SIGKILL) ran, every recorded pid is dead, and the canonical identities are unchanged. A control shows that a direct same-bytes rewrite changes `ctime_ns` with an unchanged SHA, and that the snapshot detects it.
@@ -67,7 +86,7 @@ All 8 failures refuse admission with `identity_changed` rather than the asserted
 
 The canonical file still has the same 4855 bytes and SHA `9ad90329…b2140d`. However, it was recreated on 2026-10-28 09:48:58 JST (new birth time, inode and mtime/ctime), consistent with that day's working-tree checkout. The runner's preflight finds exactly 1 of 278 pinned identities drifted.
 
-Following the brief, the runner neither re-pins, edits nor weakens admission. Root decides how to restore the binding, for example by re-preparing the T07.007.008 manifest. The 8 blocked tests are listed in `drift-blocked-tests.txt` and are:
+Following the brief, the runner neither re-pins, edits nor weakens admission. Root's repair dispatch confirms the stale historical binding from both suppliers. It preserves the old manifest/profile/baseline: no re-pin of canonical private records, no change to the production driver, routes or frozen profiles, and no rerun of the old ignored producer (it pins an obsolete parent and output directory). The 8 private semantic admission failures stay visible for a separately scoped fresh-binding task. The 8 blocked tests are listed in `drift-blocked-tests.txt` and are:
 
 - cross-route substitutions;
 - positive admission;
@@ -154,8 +173,9 @@ These choose a private input at import time **without** explicit selection, from
 
 ## Limitations and next action
 
-- The full private suite is blocked by the pre-existing ledger-profile identity drift above. The 48/48 subset and the interrupted runs prove isolation and cleanup, not fresh corpus admission or the 273 actual jobs.
+- The full private suite is blocked by the pre-existing ledger-profile identity drift above. The 48/48 subset stays labeled as a subset; it is never a 56/56 or 273-job pass. The subset and the interrupted runs prove isolation and cleanup, not fresh corpus admission or the 273 actual jobs.
+- Preservation evidence covers only the exercised cases listed under Repair 1. The fault hooks (`hooks.beforeEvent`, `hooks.afterPoll`) are in-process test seams that the CLI never sets.
 - Descendant tracking samples the process table every 100 ms. A process that forks, double-forks out of the group and exits its parent within one interval could be missed. The authored escaped child is caught. This is not OS containment and sets no RSS or CPU limits. SIGKILL to the runner itself cannot be cleaned up by the runner.
 - Parent directories of corpus inputs are stat-compared. A concurrent writer in a canonical directory (Root actively commits there) would be reported as `canonical_changed`. That is correct to flag, but it is not attributable to the suite without inspection.
 - Only one registered mutation suite exists. Classification is static apart from the commands above. CI membership is unchanged; adding the public runner checks would first need a verified Linux run (`/bin/ps -o lstart`).
-- Next owner: Root. Verify this candidate against the sibling, decide the ledger-profile identity rebinding, then rerun the full private suite through the runner.
+- Next owner: Root. Verify the repaired runner and classify every result. A separately scoped fresh-binding task owns the 8 private admission failures and any later full run.
