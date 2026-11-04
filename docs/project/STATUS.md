@@ -25,11 +25,12 @@ and the 133-case/9-mutant host check pass. All 82 functional gaps remain open.
 All six original supplier terminals are released. No real compiler container
 has started. The real private constructor suite remains 48/56 due to stale
 historical admission; its safe runner reports failure without canonical changes.
-The [release-gate source phase](tasks/T10.010.005.md) now runs as a fresh equal
-Claude/Grok pair from `51f927a2`, independently of actual native execution.
+The [release-gate source phase](tasks/T10.010.005.md) has submitted both equal
+Claude/Grok candidates from `51f927a2`, independently of actual native execution.
 Its real admission must refuse until missing runtime/text facts are qualified.
-The two release-gate workers remain under supervision. Root owns the next
-serial runtime experiment.
+Neither candidate is Root-verified or integrated. Two read-only reviewers
+inspect them while the same Orca terminals review the resource probe. Root
+owns the next serial runtime experiment.
 The [current .004 preflight](reviews/2026-11-04-T10.010.004-root.md) confirms
 unchanged five-service bindings and the local stock image. A real GET exposes
 close-framed HTTP handling absent from the old fake tests; repair `8b6e347f`
@@ -120,7 +121,7 @@ Evidence: [saved user state](reviews/2026-10-25-user-assassin-play.md#current-of
 ## Current action and ownership
 
 The three prerequisite source lanes are integrated. Root owns serial runtime
-execution/verification for .004; the .005 equal source pair runs independently.
+execution/verification for .004; both .005 source candidates await Root review.
 Refresh current Engine/socket/service/save bindings; old IDs, start times,
 RAM assumptions and consumed probe admissions are not reusable authority.
 

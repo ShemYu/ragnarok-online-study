@@ -18,7 +18,7 @@ Root verifies final source, all nine pins, exact patch/differential and the
 executable recipe's host/fake-Engine controls, then rechecks integration.
 Three of seven audit tasks are self-verified; 41 board rows remain. No real
 native build is claimed. All six initial supplier terminals are released;
-the .005 source pair remains active. Root's next serial task is .004.
+both .005 candidates are now submitted. Root's next serial task is .004.
 
 The preceding dispatch checkpoint `8cafcd21` actually checked 48 local links/
 anchors; its commit-message count of 47 is a transcription error. Actual tool
@@ -30,7 +30,10 @@ Current serial runtime action: [T10.010.004](2026-11-04-T10.010.004-root.md).
 Root's actual read-only checks find unchanged services/local image, expose and
 repair close-framed HTTP handling, and prepare one bounded resource probe.
 No Engine write or compiler action has occurred. The .005 Claude source
-candidate `4161e4cd` is submitted; it is not Root-verified or integrated yet.
+candidate `4161e4cd` and Grok source candidate `7e9e59e0` are submitted;
+neither is Root-verified or integrated. The worker-reported 75 and 38 synthetic
+tests respectively are not Root acceptance. Two read-only helper reviews run
+independently while Root owns comparison, focused tests and counterexamples.
 
 Root freezes [the release compatibility brief](../tasks/T10.010.005.md) and
 [equal input profile](../fixtures/T10.010.005-inputs.json) from `0a2a2494`.
@@ -65,6 +68,27 @@ source/tests/runbook/report. Real execution remains serial under Root. These
 two starts replace released work with useful parallel tasks; native Claude's
 import-cleanup repair remains in its existing workspace. End this coordinator
 turn after recording/publication; Orca wakes Root with results, without polling.
+
+## First resource-probe reviews dispatched
+
+Root verifies the frozen harness/plan hashes in
+[the .004 brief](../tasks/T10.010.004.md) and reuses the two settled .005
+terminals for independent read-only recommendations. Their .005 candidate
+branches must remain unchanged. The identical delivered body has SHA-256
+`b752ab511ec6a8208019a0e708dd02f5389122cad9453ba6defda5adf0ebea47`;
+it identifies canonical Root `d1c8b745` and selected recipe `8b6e347f`.
+
+| Supplier | Follow-up Task / Dispatch | Reused terminal |
+| --- | --- | --- |
+| Claude | `task_01ba42c6947a` / `ctx_6bbcdd73bb14` | `term_16022a1e-dbb6-4dac-8401-4f5800a4328a` |
+| Grok | `task_efb5e1d5c84b` / `ctx_2a81eecaffd5` | `term_ebcf0bc2-0d18-440b-a845-7ea721fec6c6` |
+
+Both receipts report `follow_up` / `ready`. This is dispatch only, with no
+new fleet terminals, model-quality claim or runtime acceptance. Private
+receipts and exact delivered body remain under the execution packet's
+`probe-review-dispatch-root-1/`. Root will handle wake messages, resolve material
+findings and commit the admission checkpoint before the one-shot run. No
+Engine write, probe, package installation or build has occurred.
 
 ## Original activation authority
 
