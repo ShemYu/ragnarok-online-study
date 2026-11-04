@@ -26,6 +26,25 @@ an exact offline same-name withdrawal replacement/failure procedure.
 [Root's evidence](2026-11-04-T10.010.005-root.md#second-root-check-of-repaired-candidates)
 records exact candidate/result hashes. Neither candidate is selected.
 
+## Second release repair dispatch
+
+After source/evidence checkpoint `b85bcef`, Root sends the exact same brief
+body to both existing supplier dispatches, sequentially. Both receipts report
+`delivery=follow_up`, state ready, in run `run_7cfbb105cb59`:
+
+| Supplier | New Task / Dispatch | Existing terminal |
+| --- | --- | --- |
+| Claude | `task_fc0e4bf7ad33` / `ctx_98adfc4b5c05` | `term_16022a1e-dbb6-4dac-8401-4f5800a4328a` |
+| Grok | `task_f2d2b9304dfd` / `ctx_14975150c3b8` | `term_ebcf0bc2-0d18-440b-a845-7ea721fec6c6` |
+
+Body SHA-256 is
+`373e4d5fe38d33224862243563abae9e875afdf5397aab3490e50a4eaf4a332a`.
+The private `release-repair-dispatch-root-2/DISPATCH_ROOT.json` is
+`cb45dafd6b6d5bb9607e0ed616b0f49530c8944073d2fbcd3db08ba623b99b9a`.
+No new benchmark fleet is created. This records accepted delivery, not repair
+completion or real-install admission. Root ends the dispatch turn and handles
+Orca's next wake; no inbox polling consumes results in the background.
+
 ## Earlier completion snapshots
 
 Latest completion: [T06.005.001 selection/integration](2026-11-04-T06.005.001-root.md).
