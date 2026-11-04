@@ -100,3 +100,40 @@ Root handles delivered questions/results, verifies and compares both,
 integrates the qualified output, commits its evidence and starts the next
 cleared gate. Cost/tokens and actual underlying model versions are not yet
 observed.
+
+## Fresh read-only runtime preflight
+
+On the next goal continuation, Root confirms all six specific Orca dispatches
+above are `in_progress` and `live`. The source worktree is clean at `fe760dd`.
+No candidate has yet been submitted or personally verified by Root.
+
+Root reads whitelisted installed metadata: app/build 1.6.3, runtime
+`APP_VERSION` 1.6.3 and `VERSION` 2c3b261. Host architecture is arm64, total
+RAM 64 GiB and workspace free space approximately 438.85 GB at this check.
+These totals are not available build headroom or measured game usage.
+
+Eight bounded Unix-socket HTTP GETs (`/version`, `/info`, the all-container
+census, and five individual inspections) all return 200 in about 0.01 seconds.
+The current Engine reports slim-0.1.0, API 1.43, Linux/arm64, kernel 6.12.94,
+four CPUs and **4105080832 bytes of guest RAM (about 3.82 GiB)**. All five
+current services are running. Private evidence retains current IDs/starts and
+hashes of configuration, mounts and network projections without publishing
+credentials. No service/snapshot equality with October is inferred from counts.
+
+The actual guest RAM differs from the historical 8192 MiB restart record.
+Therefore that record cannot authorize an 8 GiB build now. The Engine
+advertises memory/swap/CPU limits, but `PidsLimit` is absent; current limit
+enforcement, guest free memory, loader libraries, backup/restore and compiler
+admission remain unproved. No compile is admitted by this preflight. Root did
+not change VM settings, install dependencies, start containers, query SQL,
+drive a browser or touch saves. Both native-preparation candidates receive
+the same resource correction; send receipts `msg_92e28d0f84b9` and
+`msg_7c0253b2c86f` prove enqueue only, not worker adoption.
+
+Private evidence:
+`.tools/renewal/seven-task-execution-2026-11-04/preflight-root-1/PREFLIGHT_ROOT.json`,
+SHA-256 `bce26d163a309112d6924e4dd2e17e29e72a4ac8f08bbfc4a215b660a850e623`.
+This changes the next build action: verify current enforceable limits and
+headroom with the selected recipe instead of replaying the old capacity
+assumption. The difference is a bounded execution constraint, not evidence
+that the agreed game goal must change.

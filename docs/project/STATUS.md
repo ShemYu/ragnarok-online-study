@@ -43,8 +43,13 @@ This is not a percentage of playable content, effort or translation.
 2. **Native build for the 0.3.2 story extension.** Qualify the bounded
    Linux/arm64 toolchain, exact dependencies/ABI, resource and deadline controls,
    cancellation/cleanup and binary export. Compile the exact prepared source.
-   No compiler is installed, no custom image is built and the new builtin is
-   not available in stock binaries.
+   The project has not installed the compiler or built a custom image; fresh
+   toolchain qualification is pending. The new builtin is unavailable in stock
+   binaries.
+   The fresh Nov4 read-only preflight finds five running services but only
+   about 3.82 GiB of guest RAM, rather than the historical 8 GiB setting.
+   Verify present enforcement/headroom before admitting a build; do not
+   replay the old assumption. See the [current preflight](reviews/2026-11-04-execution.md#fresh-read-only-runtime-preflight).
 3. **Native and normal story integration.** First qualify ordinary-item
    behavior because the patch touches general insertion. Check script parsing, four actors,
    state transitions, capacity/refusal cases, actual rewards, repeats, saves
