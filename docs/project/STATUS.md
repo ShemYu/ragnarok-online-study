@@ -63,18 +63,20 @@ versions, personal service projections and owned cleanup pass. Next: the
 exact-base resolution with retained signed package bytes before a full build.
 Claude/Grok source-only repairs are now dispatched from the same30439b1 base;
 both report ready. Root retains serial runtime ownership and the VM is stopped.
-Claude has submitted f5342ebf; Root's69 tests pass with638 tracked files
-unchanged. Root's independent coherent-export controls expose a missing
-APK-bytes/installed-control-identity join. The
-[same correction](tasks/T10.010.004-dependency-repair-2.md) is frozen for both
-suppliers. Claude follow-up is ready and the identical body is queued to
-Grok's active worker; selection and real closure replay remain open.
-The [EXP/callback/save analysis brief](tasks/T10.010.006.md) freezes the freshly
-reverified source and explicitly unknown effective EXP facts. Both Claude/Grok
-analysis workers are now ready from the samed1993ac base, parallel to .004.
-Claude ce9e7d64 is submitted. [Root/Astra source review](reviews/2026-11-04-T10.010.006-root.md)
-confirms the main separate-save/callback findings but requires conditional
-crash-window, ACK, carry-capacity and EXP-example corrections before selection.
+Claude submits repaired ada8cd77. Root's76 tests (including the four actual
+retained APKs) pass, all638 tracked files stay unchanged, and both independent
+coherent-export counterexamples now refuse while the valid baseline passes.
+Independent source review finds no material residual join blocker. Grok
+submits35d7f3a, but Orca reports its queued identity correction did not reach
+the finished worker; the identical correction is resent as ready follow-up
+ctx_256f02ab970a. No dependency recipe is selected and no real closure/full
+build is qualified.
+The [EXP/callback/save source analyses](tasks/T10.010.006.md) are both
+submitted: Claude76e2c22a and Grok0aea57f7. Root/Astra review finds two
+remaining callback-timing/interruption-observation limits, recorded in
+[the same narrow clarification](tasks/T10.010.006-repair-2.md). The earlier
+conditional collision/carry/save bounds also still apply to Grok's report.
+Neither analysis is integrated; actual EXP/reward/save checks remain open.
 [Image source readiness](reviews/2026-11-04-T10.010.004-image-source.md)
 also finds the existing single-COPY build path is implemented; actual image
 creation and all runtime reward/save checks remain open.
@@ -168,8 +170,9 @@ Evidence: [saved user state](reviews/2026-10-25-user-assassin-play.md#current-of
 ## Current action and ownership
 
 The three prerequisite source lanes are integrated. Root owns serial runtime
-execution/verification for .004; both .005 source candidates need the frozen
-replacement/withdrawal corrections before Root selection. Fresh build-only state initialization
+execution/verification for .004; .005 source is integrated, with runtime
+pins deliberately unqualified. Paired .004 recipe and .006 source repairs
+remain under Root review. Fresh build-only state initialization
 uses the workflow's isolated-new-state allowance; it does not establish
 current ro4 backup/restore qualification.
 Refresh current Engine/socket/service/save bindings; old IDs, start times,

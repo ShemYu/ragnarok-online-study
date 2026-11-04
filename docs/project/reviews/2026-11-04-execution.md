@@ -615,3 +615,21 @@ Root also reads the separate Grok dependency worker once: authoritative
 agent status is fresh/live/working, with source/test activity observed; the
 clipped transcript is not a completion report. No restart or release is made.
 The normal publication of6b22b1f succeeds; origin/main is unchanged.
+
+
+## Package identity repair checked; reward analysis refinement
+
+Both dependency candidates report. Claude ada8cd77 passes Root's76 tests
+with all638 tracked files unchanged. Root's two independent coherent-export
+controls now refuse for the intended identity contradictions; the valid
+baseline passes. Independent source review finds no material remaining join
+blocker. This is recipe source verification only. Grok35d7f3a did not receive
+the queued latest correction before completion: Orca reports a continuation
+timeout. The identical body is resent as ready ctx_256f02ab970a, retaining
+the same owned terminal and branch. Selection and real closure remain open.
+
+Both .006 analyses report. Root/Astra finds Claude76e2c22a substantially
+fixes the first correction, with two residual callback-timing and C4
+observation claims; Grok0aea57f7 still needs explicit first-correction bounds.
+The same narrow clarification is frozen for both. No actual reward/save or
+installed-state action occurs. The task count remains3/7 closed.
