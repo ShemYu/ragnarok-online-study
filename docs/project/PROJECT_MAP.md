@@ -1,6 +1,6 @@
 # Remaining work and supervision
 
-Updated: 2026-11-04 JST. **Seven-task execution resumed.**
+Updated: 2026-11-05 JST. **Seven-task execution active.**
 All three prerequisite source/tooling tasks are integrated. Root's actual
 binary experiment is next; release-gate and reward/save source are integrated. See
 [the detailed next actions](NEXT_ACTIONS.md) and [audit](reviews/2026-10-29-T00.005.md).
@@ -28,9 +28,9 @@ FULL MODERN / RENEWAL PERSONAL GAME
 |   [x] Tuple ordering [ROOT SOURCE VERIFIED; Claude retained]
 |   [x] Final supplier comparison [both verified; terminals released]
 |   [x] Fresh successful normal closure [ROOT QUALIFIED; v4]
-|   [x] Offline compiler admission [COMMITTED; one-use token consumed]
-|   [ ] Full unpatched/patched builds [CURRENT; run admitted]
-|   [ ] Ordinary-item NPC fixtures [CLAUDE/GROK SOURCE WORK RUNNING]
+|   [x] Offline compiler admission [FAILED RUN PRESERVED; token consumed]
+|   [ ] Full unpatched/patched builds [CAP OOM; RESOURCE RETRY NEXT]
+|   [ ] Ordinary-item NPC fixtures [CLAUDE CANDIDATE; GROK PENDING]
 |   [ ] Immutable binary readback -> ordinary-item A/B
 |   [ ] Binary/mod/text gate [SOURCE INTEGRATED; RUNTIME OPEN]
 |   [ ] Real EXP/callback/save [ANALYSIS INTEGRATED; RUNTIME OPEN]
@@ -78,13 +78,15 @@ for an offline compiler. Original26/keys stay unchanged. Both containers are
 deleted, VM stopped and personal projections identical. All settled noarch and
 ordering supplier terminals are released. The fresh offline compiler admission
 passes Root's201-pin/56-member/47-identity readback and independent Astra review.
-Admission is committed2e06fa1a. Root's serial run passes the fresh resource/base26
-gate and admits compiler execution; final output remains pending. Never replay
-the consumed token. No full binary result is qualified.
-Bounded Root GET-only readback observes the exact compiler running unpatched
-make after successful extraction/crash-trace/configure. The independent
-[fixture brief](tasks/T10.010.004-ordinary-fixtures.md) prepares practical item
-readouts/actions and a separate patched-only probe without runtime access.
+The first full compiler passes resource/base26 and offline dependency gates,
+then fails compiling population_engine.o. Exact-container kernel evidence
+confirms the1536MiB compiler cgroup OOM. Both containers are deleted/404, VM
+stopped and personal projections unchanged. No full binary is qualified; the
+consumed run stays failed. Root/Astra recommend2560MiB in the same4GiB VM with
+unchanged768MiB reserve and fresh3328MiB headroom gate. Prepare/review/commit a
+fresh resource-only admission before retry. The independent
+[fixture lane](tasks/T10.010.004-ordinary-fixtures.md) has Claude8e24ad10
+submitted and Grok pending; Root comparison/parser/item results remain open.
 
 Release-gate source and reward/save analysis are integrated within their
 recorded limits. Their actual runtime pins and native/game/save gates remain

@@ -1028,3 +1028,15 @@ from that exact confirmed base and identical spec/source packet. They own
 separate four-file source candidates and no runtime permission. Root keeps
 exec42607 as the sole compiler controller; worker reports will arrive through
 Orca wakes. No fixture selection/parser/item result is claimed by dispatch.
+
+2026-11-05 JST:exec42607 becomes terminal, exit1/no timeout after443.2s. Full
+unpatched make fails at population_engine.o. Root's failed-export replay keeps
+all47 offline dependency joins/base26, then exact-container kernel evidence
+confirms compiler-cgroup OOM at1536MiB. Both containers are deleted/404, VM
+shutdown passes and personal projections match. Root/Astra review a fresh
+2560MiB retry in the same4GiB VM with768MiB reserve and3328MiB fresh headroom.
+No retry or binary is qualified. See [failure, proof and bounded repair](2026-11-04-T10.010.004-root.md#first-full-compiler-fails-at-confirmed-cgroup-oom).
+
+An explicit Orca wake returns Claude fixture8e24ad10 as a source candidate.
+Root review is pending, Grok remains independent; no parser/runtime selection
+or loading is claimed. Source fixtures continue alongside compiler recovery.

@@ -1,6 +1,6 @@
 # Current status — expert-action execution
 
-Updated: 2026-11-04 JST. Owner: coordinating Codex.
+Updated: 2026-11-05 JST. Owner: coordinating Codex.
 
 **Seven-task execution is active. Root owns serial runtime verification.**
 The goal remains the full Modern/Renewal game on this Mac: maps, monsters,
@@ -21,68 +21,48 @@ ledger remains **4/14 checkpoints qualified**: one accepted and three ready
 for user review, with **82 resource gaps open**. These are separate ledgers,
 not percentages of playable content, translation or remaining effort.
 
-## Current action — run the admitted offline full compiler pair
+## Current action — repair the compiler memory limit
 
-All44 repository downloads and3 matching dev inputs reconcile to the frozen
-47-file manifest (122065747bytes;46aarch64/1noarch); every host child is reaped.
-Selected noarch source is committed/pushed as de5b216e after Root's equal-base
-91-test runs and independent counterexamples. Both settled supplier terminals
-are released with branches preserved.
+The fresh v4 dependency closure remains Root-qualified:47 stock-key/offline
+installs, exact retained raw/PLAN/installed identities and original26 packages
+pass. Root independently replays123 output files and records177 evidence pins.
+The equal ordering comparison is closed; Claude17c8a233 is retained as1ac079c7.
+Both ordering-worker terminals are released, branches preserved.
 
-**New actual progress:** the fresh v4 resolve completes normally after the
-ordering repair. All47 stock-key checks and offline installation pass with
-scripts/triggers enabled; original26 packages and keys remain unchanged.
-Root independently replays the exported archive: all123 saved output files
-match, and all47 retained raw N/V/size/SHA/Q1/actual-arch identities join to
-the PLAN and installed database. The exact frozen delta matches byte for byte.
-The resulting177-file qualification record is ready for the offline compiler.
-See [actual v4 qualification](reviews/2026-11-04-T10.010.004-root.md#fresh-v4-closure-personally-qualified).
+**The first full offline compiler fails.** Under the1536MiB cap, cc1plus is
+killed while compiling unpatched population_engine.o. The owned VM's kernel
+log names that exact container with CONSTRAINT_MEMCG, confirming a compiler
+cgroup OOM. Root re-extracts the failed export:47 offline dependency joins and
+base26 still pass; no full binary is exported. Resource/extract/crash-trace/
+configure passed first. See [failure and kernel proof](reviews/2026-11-04-T10.010.004-root.md#first-full-compiler-fails-at-confirmed-cgroup-oom).
 
-The [equal ordering comparison](reviews/2026-11-04-T10.010.004-root.md#ordering-comparison-closed-claude-retained)
-is complete. Root verifies Claude17c8a233 with97 tests and Grok73e21eef with101,
-both with no skips and7 common independent controls. Keep Claude's exact
-integration1ac079c7: it avoids scratch files and directly replays the actual
-base26 ordering. Both settled terminals are released, branches preserved.
+Both owned containers are deleted/404, VM shutdown exits0 and the owned daemon
+departs. Personal five-service projections are byte-identical. Exec42607 is
+terminal; full-build phase4 is consumed/failed and must not be replayed.
+The failed evidence and successful dependency qualification stay preserved.
+No game/SQL/save writes or goal change occur.
 
-At dependency-run completion, both containers are deleted/404, the owned VM
-is stopped and personal five-service projections are identical. That run has
-no compiler/game/SQL action; the separate current compiler run is below.
-Phase3 is consumed/failed; phase2 remains retired without runtime. Neither may
-be reset or reused. Review PHASE/pins directly; admitted_phase consumes its
-one-use marker and belongs only in run. The successful v4 admission is consumed
-as well; preserve its qualified output and never rerun that phase.
-The compiler v3 draft rechecks checksums before its execution-time dependency
-reader after an Astra finding; Root's7 source/model controls pass. A fresh
-operational v4 now binds the selected hashes and actual qualification. Root
-checks all201 phase pins/six payloads,56 upload members and47 raw identity joins;
-the owned stopped binding matches and execution markers are absent. Independent
-Astra review finds no blocker. [Admission](reviews/2026-11-04-T10.010.004-root.md#fresh-offline-compiler-admission-personally-verified)
-is committed/pushed as2e06fa1a. Root starts the one serial run:resource probe
-exits0/deleted, fresh original26 matches and the compiler execution is admitted.
-Its result is pending; the phase token is consumed and must not be replayed.
-Root owns the live controller (exec session42607); inspect that handle and
-the existing files before any new action. No compiler/full binaries are
-qualified. No goal change is required.
+Root/Astra review recommends a fresh2560MiB compiler cap inside the same4GiB
+VM,2CPUs/jobs1 and unchanged768MiB reserve. Require fresh MemAvailable at least
+3489660928bytes before compilation. Only new private controller/wrapper
+versions and resource bindings are needed; source/toolchain/flags/ABI/offline
+controls stay fixed. The historical dependency threshold remains unchanged.
+Next create/review fresh versions, prepare and independently verify a new
+PLAN/PHASE, then commit its admission before one bounded retry. The higher
+cap is a justified experiment, not proof that the full build will finish.
 
-Root's bounded GET-only readback confirms the exact compiler container is
-running:unpatched extract, crash-trace fixture and configure complete; full
-unpatched make is in progress. No binary is qualified from this observation.
-The [ordinary-item NPC fixture](tasks/T10.010.004-ordinary-fixtures.md) lane is
-dispatched to independent Claude/Grok workers, both ready from confirmed
-ced65a38 with the same brief/source packet. Root retains runtime.
-The frozen eight-file source packet is read-only; effective item/parser facts
-and loading stay unqualified. No production story changes are part of it.
-
-Renew stopped VM ownership/resources before runtime; old IDs, consumed
-admissions and snapshots are not authority. Earlier source/transfer/admission
-results remain in the [dated Root record](reviews/2026-11-04-T10.010.004-root.md).
-The [pre-trim snapshot](HISTORY-2026-11-04-STATUS.md) preserves prior chronology.
+The independent [ordinary-item fixture](tasks/T10.010.004-ordinary-fixtures.md)
+lane uses the same ced65a38 base and frozen eight-file packet. Claude8e24ad10
+has submitted four source files; Root review is pending. Grok's result is
+pending. Neither candidate is selected or parser/runtime-qualified. Workers
+have no VM/game access. Root alone owns future runtime; no controller is live
+now. Earlier steps remain in the [dated record](reviews/2026-11-04-T10.010.004-root.md).
 
 ## Four audit tasks remain open
 
 - **T10.010.004 — full binaries and ordinary items.** Selected exact-fetch
   source is integrated as `73014940`; dependency closure is now Root-qualified.
-  The offline compiler admission is Root-verified; compile corresponding
+  Prepare the resource-only retry admission, then compile corresponding
   unpatched/patched full binaries, export/read back
   immutable images, start in isolated state and verify ordinary stack/new-slot,
   weight/full-bag, equipment/rental/GUID and save/re-entry behavior. The capacity
