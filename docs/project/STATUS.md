@@ -75,6 +75,10 @@ Compiler6 must bind this fresh qualification while retaining2560MiB,
 3489660928-byte fresh headroom and network-none. Its source, preparation and
 admission remain next; no new compiler/image/game result is qualified. See
 [fresh qualification](reviews/2026-11-04-T10.010.004-root.md#fresh-dependency5-personally-qualified).
+Compiler6 source now passes Root's exact15-rebinding reversal/AST comparison,
+19 fixed pins and177 qualification pins, with197 protected files unchanged.
+Independent Astra source review finds no blocker. Commit this source checkpoint
+before preparation; no phase/token/runtime exists yet. See [source binding](reviews/2026-11-04-T10.010.004-root.md#compiler6-source-bound-to-fresh-dependency5).
 See [repair selection and refresh](reviews/2026-11-04-T10.010.004-root.md#interpreter-repair-comparison-closed-claude-selected).
 
 The [ordinary fixtures](tasks/T10.010.004-ordinary-fixtures.md) comparison is

@@ -1152,3 +1152,11 @@ content/stat identity. Fresh qualification binds selected sourced3b1b71c and
 the repaired producer; old runs remain immutable. Commit this verified result
 before preparing compiler6. See [Root qualification](2026-11-04-T10.010.004-root.md#fresh-dependency5-personally-qualified).
 No new compiler, image, game, SQL or save qualification follows from it.
+
+After verified-result checkpoint03b23b20 is committed/pushed, Root binds new
+compiler6 source to dependency5. Exact15 literal/comment reversal reproduces
+frozen compiler5 bytes and AST;19 fixed and177 fresh qualification pins pass,
+with197 protected files unchanged. Independent Astra finds no source blocker.
+Controller2,2560MiB/3489660928-byte headroom, network-none and all prior gates
+remain. Commit [this source checkpoint](2026-11-04-T10.010.004-root.md#compiler6-source-bound-to-fresh-dependency5)
+before preparation. New output paths are absent; no compiler phase/run exists.
