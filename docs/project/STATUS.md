@@ -37,6 +37,8 @@ expects full name=version order. The candidate matches the frozen delta when
 complete tuples are sorted. Keep the exact comparison and repair its producer.
 The [equal source brief](tasks/T10.010.004-installed-order.md) freezes the real
 packet, prefix-pair/empty/refusal tests and fail-closed stage-status requirements.
+Claude/Grok workers are started from the same a6103005 base, confirmed in both
+checkouts. Root owns comparison/verification and the next fresh runtime phase.
 See [actual result and limits](reviews/2026-11-04-T10.010.004-root.md#actual-offline-install-passes-final-ordering-gate-fails).
 
 Both containers are deleted/404, the owned VM is stopped again, and personal

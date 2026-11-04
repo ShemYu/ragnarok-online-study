@@ -955,3 +955,9 @@ sorts full name=version strings. Keep the gate, freeze the real packet and
 Both owned containers are deleted204/404, VM shutdown succeeds and personal
 projections are identical. Phase3 stays consumed/failed; no normal closure or
 compiler output is qualified. See [actual progress and refusal](2026-11-04-T10.010.004-root.md#actual-offline-install-passes-final-ordering-gate-fails).
+
+Both equal ordering workers start ready with setup skipped, and Root confirms
+the same a6103005 initial HEAD in both checkouts. They receive the same frozen
+nine-file packet/spec and retain the91-case private-input suite. Root keeps
+runtime serial; candidate reports still need personal comparison/verification.
+The private compiler v2 draft remains unqualified and must reject failed phase3.
