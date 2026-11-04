@@ -72,8 +72,9 @@ independent compatible replay passes after the original Python3.9 wrapper's
 post-check refusal. All2084 protected inputs/1107 existing world files and
 personal projections remain unchanged; only two0600 private client outputs
 are added. VM stays stopped, six isolated ports free. Next isolate supported
-DB backup/restore and integrated rendering/item A/B. Five startup diagnostics
-still need Root classification; no all-NPC/item/save/full-world acceptance.
+DB backup/restore and integrated rendering/item A/B. Root source-classifies the
+five startup diagnostics; actual defaults/functional follow-up remain open.
+No all-NPC/item/save/full-world acceptance follows.
 See [Root's result](reviews/2026-11-04-T10.010.004-root.md#managed-client-protocol-static-and-owned-stop-personally-qualified).
 
 Both ordinary-fixture candidates pass Root's source review after the equal

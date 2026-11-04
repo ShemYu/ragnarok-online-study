@@ -47,9 +47,11 @@ before ordinary-item mutations. Use the same owned VM/world/client, refreshed
 1109-file world baseline, existing Chinese assets and bounded resources. Then
 verify isolated browser rendering, fixture parsing/200 rows, effective items,
 ordinary A/B, capacity-probe purity and saves. Keep personal state untouched
-and the Mac online. Five startup diagnostics still
-need Root's source classification and any justified follow-up; no all-NPC
-acceptance follows from startup. No verified finding requires a goal change.
+and the Mac online. Root classifies the five startup diagnostics from pinned
+source/logs: four nonfatal missing override imports and one localized recruiter
+OnInit name mismatch. Actual image defaults/functional follow-up remain open;
+no all-NPC acceptance follows. No verified finding requires a goal change. See
+[diagnostic classification](reviews/2026-11-04-T10.010.004-root.md#startup-diagnostics-source-classification-personally-checked).
 
 Completed startup/build/asset prerequisites and comparisons stay in the
 [dated Root record](reviews/2026-11-04-T10.010.004-root.md). Actual unpatched
