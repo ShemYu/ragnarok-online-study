@@ -1,180 +1,248 @@
 # 0.3.2 release compatibility gate (T10.010.005)
 
 This is a read-only gate that runs outside the app, before install. It checks
-one coherent release: story `ro-solo-ch1-entry` 0.3.2 plus text
-`tc-true-quest-text` 0.1.0. It must pass before either folder is installed
-through the app. The app's `requires` field only understands `app`, `era`,
-`mods` and `client`, so it cannot express a native-capability requirement.
-Also, an app refusal can still leave a folder installed and enabled. That is
-why the check lives outside the app and comes first. This is source-phase
-work only: **real admission refuses today**, and only Root can supply the
-runtime facts it needs (after T10.010.004).
+one coherent release: the staged story folder `ro-solo-ch1-entry` 0.3.2 plus
+the staged text folder `tc-true-quest-text` 0.1.0. It must pass before either
+folder is installed through the app.
+
+- The app's `requires` field only understands `app`, `era`, `mods` and
+  `client`, so it cannot express a native-capability requirement.
+- An app refusal can still leave a folder installed and enabled.
+
+That is why the check lives outside the app and comes first. This is
+source-phase work only: **real admission refuses today**. Only Root can
+review and pin the runtime facts and records it needs.
 
 | File | Purpose |
 | --- | --- |
-| `release_gate.py` | Python standard library only. Reads explicit regular files and prints one JSON result to stdout. Writes nothing. |
-| `release_manifest_0.3.2.json` | The external release manifest: frozen source pins plus `null` runtime slots. |
-| `test_release_gate.py` | Authored synthetic controls (75 cases). |
+| `release_gate.py` | Python standard library only. Reads explicit regular files plus a bounded census of the two explicit staged roots, and prints one JSON result to stdout. Writes nothing. |
+| `release_manifest_0.3.2.json` (schema v2) | The external release manifest: frozen source pins plus `null` expected pins. |
+| `test_release_gate.py` | Authored synthetic controls (77 cases). |
 
 ```sh
-python3 -I tools/renewal/release_compatibility/release_gate.py --packet /abs/packet.json
-python3 -I -W error tools/renewal/release_compatibility/test_release_gate.py
+python3 -I -B tools/renewal/release_compatibility/release_gate.py --packet /abs/packet.json
+python3 -I -B -W error tools/renewal/release_compatibility/test_release_gate.py
 ```
 
-Exit codes: `0` means `admitted` (real mode only). `1` means `refused`. `2` means
-a usage error. In synthetic mode the best result is `synthetic_consistent`,
-and that is never an admission.
+Exit codes:
 
-## Modes and separation
+| Code | Meaning |
+| --- | --- |
+| `0` | `admitted` (real mode only), or `synthetic_consistent` |
+| `1` | `refused` |
+| `2` | Usage error |
 
-- **Real mode** always uses the bundled manifest. It refuses `--manifest`
-  overrides, synthetic manifests, packets or records, and any `null` runtime
-  pin. The current manifest leaves these slots `null`: executable bytes and
-  SHA-256, stock executable, image ID, ABI/libraries and effective
-  configuration. Root fills them in a separately reviewed commit after .004.
-- **Synthetic mode** needs `--synthetic --manifest <abs>` with
-  `manifest_class: synthetic`. It also refuses `actual` records. Tests build
-  their whole packet in a fresh temporary directory. Only the tracked story
-  source and the native patch come from the checkout, and those are read-only.
+`synthetic_consistent` is the best result in synthetic mode, and it is never
+an admission.
+
+## Trust model: independent expected pins
+
+The caller's packet, record self-hashes, `qualified_by` labels, booleans and
+provenance strings never qualify anything. Every file is compared against
+the **manifest's own** expected pin:
+
+- **Staged story files:** exact frozen 0.3.2 bytes.
+- **Staged text table:** exact True-table bytes (2248204 B, `49264cdd…`).
+- **Text `mod.json`:** pin is `null` until Root pins the qualified bytes.
+- **App sources and native patch:** pinned.
+- **Native subject:** `native.executable` bytes and SHA-256, stock
+  executable, image ID and ABI/libraries.
+- **`qualification_pins`:** the exact bytes of each Root-reviewed record:
+  - `native.parser_log`, `native.qualification`, `effective.config`;
+  - `effective.facts`, `text.reference`, `text.effective`.
+
+Any `null` pin refuses, in both modes. In the checked-in real manifest, every
+runtime and record pin is `null` today. Root fills them only in a separately
+reviewed commit, after .004/.006 and .007's isolated qualification.
+
+Because the record bytes themselves are pinned, a coherent change still
+refuses as `release_pin_mismatch`, even when both records change together.
+Examples are replacing or truncating a Description list, changing the
+qualification ID, or swapping the executable or configuration in every
+record. The semantic checks below then make sure the pinned records describe
+the same subject:
+
+- the executable, image, configuration and patch;
+- the prepared source, scripts and quest DB;
+- the item and import facts;
+- the text table.
+
+Synthetic tests author their own explicit pins in a synthetic manifest.
+Real mode never accepts a substitute manifest.
+
+## Packet (`ro-solo-release-admission-packet.v2`)
+
+```json
+{"schema": "ro-solo-release-admission-packet.v2", "record_class": "actual",
+ "release_id": "ro-solo-ch1-entry@0.3.2+tc-true-quest-text@0.1.0",
+ "roots": {"story": "/abs/…/ro-solo-ch1-entry", "text": "/abs/…/tc-true-quest-text"},
+ "inputs": {"<role>": {"path": "/abs/file", "bytes": 0, "sha256": "…"}},
+ "expected": {"selected_server": "…", "custom_quest_info": ["…"]}}
+```
+
+### Staged roots
+
+The gate takes a bounded census of exactly the two named roots: at most 64
+entries and a depth of 4. Nothing else is listed.
+
+The root folder's name must be the mod name, because the app installs the
+folder under its own name. Each root must hold exactly the following, with
+no other file or directory:
+
+| Root | Directories | Files |
+| --- | --- | --- |
+| story | `db`, `npc` | `mod.json`, `db/quest_db.yml`, `npc/entry.txt`, `npc/first_edge.txt`, `npc/fruit_village.txt` |
+| text | `System` | `mod.json`, `System/OngoingQuestInfoList-tc-true-quest-text.lub` |
+
+The census refuses:
+
+- extra files or directories;
+- missing files;
+- symlinks (including the root or a parent of it);
+- special files;
+- an over-deep tree;
+- a wrong folder name or layout.
+
+It also refuses era or client overrides:
+
+- any path segment named `re`, `pre-re`, `renewal`, `pre-renewal`,
+  `prerenewal`, `when` or `client`;
+- a `renewalFolder`, `prerenewalFolder` or `clientFolders` key in either
+  `mod.json`.
+
+The leaves are read from those roots. They are never taken from separately
+listed paths.
+
+### Explicit roles
+
+- Six `app.*` sources.
+- `native.patch`.
+- `native.executable`, streamed.
+- `native.parser_log`.
+- `native.qualification`.
+- `effective.config`, streamed: Root's exported effective map-server
+  configuration artifact.
+- `effective.facts`.
+- `text.reference`.
+- `text.effective`.
+
+Unknown roles refuse.
 
 ## Input safety
 
-The packet lists every input as `role -> {path, bytes, sha256}`. The gate
-does no discovery, never lists a directory and accepts no unknown role.
-
-Each path must meet these conditions:
+Each input path must meet these conditions:
 
 - It is absolute and normalized, with no symlink in any component.
 - It is a regular file with `nlink == 1`.
 - It is opened with `O_NOFOLLOW|O_NONBLOCK`.
-- Its `dev/ino` must match after opening, and it must not change size while
-  being read.
+
+A read refuses with `input_changed` on any observed change. The gate
+compares three identities: the path's `lstat`, the descriptor before and
+after the read, and a final path `lstat`. Each covers dev, inode, mode, size,
+mtime and ctime, and the byte count read must match the size.
 
 Reads are bounded:
 
-| Input | Size limit |
-| --- | --- |
-| JSON records | 1 MiB |
-| Story/app source | 1 MiB |
-| Text table | 8 MiB |
-| Parser log | 16 MiB |
-| Executable | 512 MiB (streamed, hash only) |
+| Input | How it is read | Size limit |
+| --- | --- | --- |
+| JSON records | buffered | 1 MiB |
+| Story/app source | buffered | 1 MiB |
+| Text table | buffered | 8 MiB |
+| Parser log | buffered | 16 MiB |
+| Effective configuration | streamed hash | 64 MiB |
+| Executable | streamed hash | 1 GiB |
 
-Every file must match both its packet pin and, where one exists, its manifest
-pin. Refusal reasons are capped at 64 entries of 240 characters each, plus a
-truncation count. The result also reports the gate, manifest, packet and
-per-role input hashes.
+Numeric observations and pins must be exact integers. `true`/`false` or
+`1.0` never equal `1`/`0`, because comparison is structural on canonical
+JSON. Refusal reasons are capped at 64 entries of 240 characters each, plus a
+truncation count. The result reports the gate, manifest, packet and every
+input hash.
 
-## Required roles
+The image is bound by its pinned ID across the manifest and records. Pinned
+Slim exposes no image save or export (`build_recipe.py` header), so the gate
+does not hash an image archive.
 
-- `story.mod_json`, `story.quest_db`, `story.npc.entry`,
-  `story.npc.first_edge`, `story.npc.fruit_village`: exact staged 0.3.2
-  bytes. These are pinned to frozen source `0a2a2494`.
-- `text.mod_json` (equal to the frozen T10.008 manifest) and `text.table`
-  (2248204 bytes, `49264cdd…bb805c00`).
-- Six `app.*` sources, pinned to app `2c3b2612…`, tree `8cab4674…`.
-- `native.patch`: `coin_capacity.patch`, pinned. `native.executable` is the
-  actual patched map-server binary.
-- `native.parser_log`: the raw log from the isolated load.
-- `native.qualification`, `effective.facts`, `text.reference` and
-  `text.effective`: the records described below.
+## Record contract (Root supplies, reviews and pins)
 
-## Evidence contract (Root supplies after .004)
-
-Every record must have all of the following, or it is refused:
-
-- `record_class` set to `actual` (or `synthetic` in synthetic mode).
-- `qualified_by: "Root"`.
-- A non-empty qualification or reference ID.
-- The manifest `release_id`.
+Every record has `record_class` (`actual`; `synthetic` only in synthetic mode)
+and the manifest `release_id`.
 
 **`ro-solo-native-qualification.v1`**
 
-- `qualification_kind: isolated_runtime`. Host fixtures do not qualify.
-- `source`: rAthena revision `0693b8c6…`, prepared tree `b64e850b…`, patch
-  SHA, app commit and app tree.
-- `executable`: `{bytes, sha256, patched: true}`, matching the supplied
-  binary.
-- `image`: `{id: sha256:…, platform: linux/arm64}`.
+- `qualification_kind: isolated_runtime`.
+- `source`: rAthena `0693b8c6…`, prepared tree `b64e850b…`, patch, app
+  commit and app tree.
+- `executable`: `{bytes, sha256, patched: true}`, matching the supplied file.
+- `image`: `{id, platform: linux/arm64}`.
 - `packet_version: 20221005`.
-- `abi`: `{libc, loader, libraries[{soname, sha256}]}`.
-- `effective_config_sha256`.
+- `abi`.
+- `effective_config_sha256`: the supplied artifact.
 - `parser`:
   - `method: isolated_map_server_load`.
-  - `log_sha256` equal to the supplied log.
+  - `log_sha256`: the supplied log.
   - `loaded: true`, `errors: 0`, `release_warnings: 0`.
-  - `scripts`: exactly the three staged NPC files plus `db/quest_db.yml`,
-    with their hashes.
+  - `scripts`: exactly the three staged NPC files and `db/quest_db.yml`, by
+    hash.
 - `builtin`: `ros_ch1_coin_capacity`, `registered: true`, `arguments: 0`,
   plus `probe_observations {fits: 1, no_fit: 0}`.
-- `stock_control`: a different executable with `builtin_registered: false`
-  and `release_rejected: true`.
+- `stock_control`: a different executable, `builtin_registered: false`,
+  `release_rejected: true`.
 - `stack_restrictions`.
 - `max_amount`.
 
-The gate also refuses a log containing a rejection marker such as `parse_line`,
-`undeclared function`, `Unknown command`, `script error` or `unknown item`
-(the full list is `PARSER_REJECT_MARKERS` in the gate). This is a consistency
+The gate also refuses a log containing a rejection marker such as
+`parse_line` or `undeclared function` (`PARSER_REJECT_MARKERS`). This is a
 screen only.
 
 **`ro-solo-effective-facts.v1`**
 
-- `environment`: same executable, image and configuration as the native
-  record.
+- `environment`: the same executable, image and configuration.
 - `item`:
-  - At least two `alias_resolutions` from distinct sources, all giving
-    `Ch1_Root_Coin -> 1001972`.
-  - `type Etc`, `weight 1`, `stackable true`, `guid false`, `pet false`.
-  - `stack_restrictions {amount, inventory, cart, storage, guild_storage}`
-    and `max_amount`. Both must equal the native record. There is no modeled
-    30000 default.
-- `maps`: `prt_fild05`, `ygg_edge` and `ygg_fruit`, all `loaded`.
-- `connections`: the three exits from `first_edge.txt` lines 129–138, each
-  exactly once.
-- `npc_imports`: the three staged files by hash, each exactly once.
-- `quest_db`:
-  - `layers`, each with a boolean `clear`. Any `true` refuses, and one layer
-    must be the staged file.
-  - `rows`: exactly one effective row for each of 18368–18371, with the
-    pinned Title hash.
-- `collisions`: `[]`, or entries that are `resolved` and `identical`.
+  - Two distinct `alias_resolutions` of `Ch1_Root_Coin`, both giving
+    1001972.
+  - Etc, weight 1, stackable, non-GUID, non-pet.
+  - Actual `stack_restrictions` and `max_amount`, equal to the native record.
+- `maps`: the three maps, loaded.
+- `connections`: the exact three exits.
+- `npc_imports`: the three staged files.
+- `quest_db.layers`: with boolean `clear` (no `true`), including the staged
+  file.
+- `quest_db.rows`: one each for 18368–18371, with the pinned Title hashes.
+- `collisions`: none unresolved or non-identical.
 
-**`ro-solo-quest-text-reference.v1`**
-
-This is the explicit full-reference packet.
+**`ro-solo-quest-text-reference.v2`** is the separate full-reference
+expectation.
 
 - `complete: true`.
-- `source_table` equal to the pinned True table.
-- `hash_basis`: SHA-256 of the UTF-8 encoding of each Big5-decoded field.
-- For each of the four IDs: a Title and Summary equal to the frozen public
-  hashes, plus a non-empty list of `description_sha256` element hashes.
+- `source_table` equal to the pinned and staged True table.
+- `records` keyed by exactly the four IDs. Each has:
+  - `title_sha256` and `summary_sha256`, equal to the frozen public hashes;
+  - `description_sha256`: every Description element's hash, in order;
+  - `description_elements`, equal to the list length.
 
-The manifest holds no Description hash. If this record is absent or
-incomplete, the gate refuses.
+The record's exact bytes are pinned independently. The manifest contains no
+Description hash, and none is invented here.
 
 **`ro-solo-text-effective.v1`**
 
-- Same executable and configuration as the native record.
-- `generated_resource` is the staged table at
-  `System/OngoingQuestInfoList-tc-true-quest-text.lub`.
-- `selected_server` and the full ordered `custom_quest_info` both equal the
-  packet's `expected` value, which names the resource exactly once.
+- Same executable and configuration.
+- `generated_resource` is the staged table.
+- `selected_server` and the full ordered `custom_quest_info` equal the
+  packet's `expected` values, which name the resource exactly once.
 - `decoder {langtype: 4}`.
-- `diagnostic_quest_ids` is exactly `[18368, 18369, 18370, 18371]`. A
-  diagnostic for 21001/16912 from `quest_registration_tail.js` does not
-  count.
+- `diagnostic_quest_ids` is exactly the four IDs.
 - `records`: the four records' Title, Summary and Description hashes equal
-  the reference.
+  the pinned reference.
 
 These records come from Root's isolated qualification of the same staged
-bytes, not from the live install. The post-apply journal and rendering
-checks are a separate Root gate (see the
+bytes, not from the live install. Post-apply journal and rendering stays a
+separate Root gate (see the
 [0.3.2 runbook](../../../docs/project/runbooks/T10.010.005-0.3.2-release.md)).
 
 ## What a pass does and does not mean
 
-The gate checks that the evidence is recorded consistently. It does not
-establish the facts behind it. A forged `actual` record can only be caught by
-Root's qualification and pinning. A pass is the precondition for supported
-installation. It is not install, journal, save, restart, withdrawal or play
-acceptance.
+The gate checks that independently pinned evidence is recorded
+consistently. Root's review and pinning of actual records is the trust
+anchor; the gate cannot tell whether an `actual` record is true. A pass is
+the precondition for supported installation. It is not install, journal,
+save, restart, withdrawal or play acceptance.

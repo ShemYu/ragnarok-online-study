@@ -1,11 +1,11 @@
 {
- "schema": "ro-solo-release-compatibility-manifest.v1",
+ "schema": "ro-solo-release-compatibility-manifest.v2",
  "manifest_class": "actual",
  "task": "T10.010.005",
  "release_id": "ro-solo-ch1-entry@0.3.2+tc-true-quest-text@0.1.0",
  "source_snapshot": "0a2a2494ad59b8e325b3271a72f0bb55ee57bd78",
  "project_contract_sha256": "645a1d21b68c05940122f256164e35c4fa0a15ef99ae9d91a9da943ed9d57855",
- "note": "Pins below are frozen source facts. Every null is a runtime fact Root pins after T10.010.004 in a separate reviewed commit; while any is null, real admission refuses.",
+ "note": "Frozen source pins plus null expected pins. Every null is a runtime fact or a qualification/reference record that Root reviews and pins in a separate commit after T10.010.004/.006/.007 isolated qualification; while any is null, admission refuses. Caller packets cannot supply these pins.",
  "story": {
   "name": "ro-solo-ch1-entry",
   "version": "0.3.2",
@@ -49,7 +49,11 @@
     "bytes": 17959,
     "sha256": "f82e8d0997774f95d2fa6c593ad7d228ccb1571b9a21d6dcdb0cd766f7bb9557"
    }
-  }
+  },
+  "directories": [
+   "db",
+   "npc"
+  ]
  },
  "text": {
   "name": "tc-true-quest-text",
@@ -64,10 +68,20 @@
     "era": "renewal"
    }
   },
-  "table": {
-   "relpath": "System/OngoingQuestInfoList-tc-true-quest-text.lub",
-   "bytes": 2248204,
-   "sha256": "49264cdd9b30ecad3416c721d153f91688455daa243e6af6ae04ad49bb805c00"
+  "directories": [
+   "System"
+  ],
+  "files": {
+   "text.mod_json": {
+    "relpath": "mod.json",
+    "bytes": null,
+    "sha256": null
+   },
+   "text.table": {
+    "relpath": "System/OngoingQuestInfoList-tc-true-quest-text.lub",
+    "bytes": 2248204,
+    "sha256": "49264cdd9b30ecad3416c721d153f91688455daa243e6af6ae04ad49bb805c00"
+   }
   }
  },
  "app": {
@@ -129,8 +143,7 @@
   },
   "stock_executable_sha256": null,
   "image_id": null,
-  "abi": null,
-  "effective_config_sha256": null
+  "abi": null
  },
  "item": {
   "alias": "Ch1_Root_Coin",
@@ -251,19 +264,40 @@
   "app.stack/src/assets/client_tables.rs",
   "app.stack/src/cmds.rs",
   "app.stack/src/mods.rs",
+  "effective.config",
   "effective.facts",
   "native.executable",
   "native.parser_log",
   "native.patch",
   "native.qualification",
-  "story.mod_json",
-  "story.npc.entry",
-  "story.npc.first_edge",
-  "story.npc.fruit_village",
-  "story.quest_db",
   "text.effective",
-  "text.mod_json",
-  "text.reference",
-  "text.table"
- ]
+  "text.reference"
+ ],
+ "qualification_pins": {
+  "native.parser_log": {
+   "bytes": null,
+   "sha256": null
+  },
+  "native.qualification": {
+   "bytes": null,
+   "sha256": null
+  },
+  "effective.config": {
+   "bytes": null,
+   "sha256": null
+  },
+  "effective.facts": {
+   "bytes": null,
+   "sha256": null
+  },
+  "text.reference": {
+   "bytes": null,
+   "sha256": null
+  },
+  "text.effective": {
+   "bytes": null,
+   "sha256": null
+  }
+ },
+ "qualification_note": "Exact bytes of each Root-reviewed record. text.reference is the full-reference expectation: Title, Summary and every Description element hash for 18368-18371 from the pinned True table. No value is invented here."
 }
