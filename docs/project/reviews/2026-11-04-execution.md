@@ -116,6 +116,15 @@ Root ends the turn for Orca's wakes rather than polling. No new terminal is
 created and no actual probe is admitted. Release repairs remain the next
 supplier implementation task after these recommendations settle.
 
+Both revised probe recommendations now settle successfully. Root's exact
+pin, archive, AST-literal, resource and exposure checks also pass, so Root
+[records one-shot source admission](2026-11-04-T10.010.004-root.md#revision-2-source-admission)
+before any Engine write. This qualifies source/request readiness only.
+The next actual result must preserve its own scope; no compiler or release
+acceptance follows from a tiny resource probe. The previous goal turn was
+progress: executed candidate counterexamples changed the repair gate, primary
+source resolved the probe mismatch, and both revised reviews were dispatched.
+
 ## Original activation authority
 
 The active thread goal explicitly asks to finish the seven actions in the

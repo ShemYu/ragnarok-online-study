@@ -38,8 +38,9 @@ unchanged five-service bindings and the local stock image. A real GET exposes
 close-framed HTTP handling absent from the old fake tests; repair `8b6e347f`
 passes 56 tests and actual read-only GETs. The tiny no-network resource probe
 has an unused revised plan after Root confirms a serialization false refusal
-in primary Slim source; equal delta reviews precede execution. No actual
-probe/build has run yet.
+in primary Slim source. Both delta reviews and Root's exact pin/archive/limit
+checks pass; the one-shot admission is recorded before execution. No actual
+probe/build has run at this admission checkpoint.
 
 Pre-merge maintenance: lint/CI checkpoint `86e98d9` is verified. At the user's
 subsequent request, the retired Godot/Character Lab source is preserved under
