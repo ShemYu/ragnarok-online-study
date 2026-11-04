@@ -26,8 +26,10 @@ not percentages of playable content, translation or remaining effort.
 **Next:** fix the shared-temp pre-start assumption, then rebind a fresh phase.
 Candidate4's admitted run exits1 before LAUNCHED or any VM command: one existing
 Nebula stderr file violates its empty shared-temp glob check. Root retains the
-phase and raw refusal and leaves the existing file untouched. A narrow source
-design review is checking a private operational TMPDIR; no new run is admitted.
+phase and raw refusal and leaves the existing file untouched. The private
+app-only TMPDIR design is selected; Claude candidate5 source repair is active
+asctx_a7751f9ab13c. Root verifies it before fresh phase2 admission; no new run
+is admitted.
 The prior read-only preflight, prepare and final source/phase review retain
 their scoped passes; they did not prove shared-temp emptiness.
 Both original suppliers and Claude
