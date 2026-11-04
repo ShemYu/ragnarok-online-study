@@ -35,6 +35,14 @@ neither is Root-verified or integrated. The worker-reported 75 and 38 synthetic
 tests respectively are not Root acceptance. Two read-only helper reviews run
 independently while Root owns comparison, focused tests and counterexamples.
 
+Root subsequently runs both suites (75/38 pass), Ruff and independent
+synthetic counterexamples. [The Root record](2026-11-04-T10.010.005-root.md)
+finds missing independent qualification/reference pins and complete staged
+folder bindings, plus candidate-specific defects. Neither is selected. The
+[equal repair criteria](../tasks/T10.010.005-repair.md) are frozen for reuse
+of their existing workspaces after probe reviews settle. No new runtime fact
+or real release admission is claimed by these synthetic checks.
+
 Root freezes [the release compatibility brief](../tasks/T10.010.005.md) and
 [equal input profile](../fixtures/T10.010.005-inputs.json) from `0a2a2494`.
 The 17 project files independently reproduce contract SHA-256

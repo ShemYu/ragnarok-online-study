@@ -28,14 +28,18 @@ historical admission; its safe runner reports failure without canonical changes.
 The [release-gate source phase](tasks/T10.010.005.md) has submitted both equal
 Claude/Grok candidates from `51f927a2`, independently of actual native execution.
 Its real admission must refuse until missing runtime/text facts are qualified.
-Neither candidate is Root-verified or integrated. Two read-only reviewers
-inspect them while the same Orca terminals review the resource probe. Root
-owns the next serial runtime experiment.
+Root runs both candidates' 75/38 synthetic tests and Ruff successfully, but
+[independent counterexamples](reviews/2026-11-04-T10.010.005-root.md) expose
+missing qualification/staging bindings. Both need the same repair gate;
+neither is selected or integrated. The same Orca terminals review the
+resource probe. Root owns the next serial runtime experiment.
 The [current .004 preflight](reviews/2026-11-04-T10.010.004-root.md) confirms
 unchanged five-service bindings and the local stock image. A real GET exposes
 close-framed HTTP handling absent from the old fake tests; repair `8b6e347f`
 passes 56 tests and actual read-only GETs. The tiny no-network resource probe
-is prepared for equal source reviews; no actual probe/build has run yet.
+has an unused revised plan after Root confirms a serialization false refusal
+in primary Slim source; equal delta reviews precede execution. No actual
+probe/build has run yet.
 
 Pre-merge maintenance: lint/CI checkpoint `86e98d9` is verified. At the user's
 subsequent request, the retired Godot/Character Lab source is preserved under
@@ -121,7 +125,8 @@ Evidence: [saved user state](reviews/2026-10-25-user-assassin-play.md#current-of
 ## Current action and ownership
 
 The three prerequisite source lanes are integrated. Root owns serial runtime
-execution/verification for .004; both .005 source candidates await Root review.
+execution/verification for .004; both .005 source candidates need the frozen
+repairs before Root selection.
 Refresh current Engine/socket/service/save bindings; old IDs, start times,
 RAM assumptions and consumed probe admissions are not reusable authority.
 
