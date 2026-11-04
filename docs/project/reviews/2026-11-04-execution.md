@@ -1069,3 +1069,12 @@ before one serial run; failed4 stays consumed. No binary result is implied.
 An explicit wake returns corrected Claude1172ffcd, still source-only and pending
 Root review. Grok2008f8cd still fails the source budget counterexample and has
 a broken guide link; concrete follow-up is enqueued, without proof of adoption.
+
+After4cca3dae, Root's new serial compiler5 runs under exec54479. Fresh resource/
+base26/headroom and actual2.5GiB native cgroup gates pass; unpatched make is
+observed running. The token is consumed; final outputs/cleanup remain pending.
+Root also verifies corrected Claudefbf1fcc6 on an isolated archive with15
+protected files unchanged, format/source/budget checks and corrected426-goto
+derivation. This remains source-only; the settled worker is released/branch
+retained. Grok's current repairctx_61e23d0785f8 is confirmed live and reading
+the budget message. See [live gates and source verification](2026-11-04-T10.010.004-root.md#memory-adjusted-run-live-and-one-fixture-source-verified).

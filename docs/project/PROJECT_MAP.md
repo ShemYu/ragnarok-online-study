@@ -29,8 +29,8 @@ FULL MODERN / RENEWAL PERSONAL GAME
 |   [x] Final supplier comparison [both verified; terminals released]
 |   [x] Fresh successful normal closure [ROOT QUALIFIED; v4]
 |   [x] Offline compiler admission [FAILED RUN PRESERVED; token consumed]
-|   [ ] Full unpatched/patched builds [FRESH 2.5GiB ADMISSION VERIFIED]
-|   [ ] Ordinary-item NPC fixtures [BOTH SUBMITTED; CORRECTIONS OPEN]
+|   [ ] Full unpatched/patched builds [2.5GiB RUN LIVE; unpatched make]
+|   [ ] Ordinary-item NPC fixtures [CLAUDE SOURCE VERIFIED; GROK REPAIR LIVE]
 |   [ ] Immutable binary readback -> ordinary-item A/B
 |   [ ] Binary/mod/text gate [SOURCE INTEGRATED; RUNTIME OPEN]
 |   [ ] Real EXP/callback/save [ANALYSIS INTEGRATED; RUNTIME OPEN]
@@ -90,8 +90,12 @@ and Grok2008f8cd submitted; equal budget corrections and Root comparison/parser/
 item results remain open. New compiler-controller-v2/wrapper-v5 source passes
 Root's19 fixed/177 qualification pin checks and independent Astra review;
 fresh PLAN/PHASE5 also passes Root's201-pin/56-member/47-identity and current
-stopped-state review. Commit its admission before the bounded retry. Claude's
-1172ffcd fixture repair is submitted; Root verification/Grok correction remain open.
+stopped-state review. Admission4cca3dae precedes the live retry. Root verifies
+fresh3959771136-byte headroom, original26 and actual2.5GiB compiler cgroups;
+unpatched make is running under exec54479. Output/final cleanup remain pending.
+Claudefbf1fcc6 passes Root's source-only fixture checks and its worker is
+released. Grok's current repairctx_61e23d0785f8 is confirmed live/read; comparison
+and real parsing/items remain open.
 
 Release-gate source and reward/save analysis are integrated within their
 recorded limits. Their actual runtime pins and native/game/save gates remain

@@ -21,7 +21,7 @@ ledger remains **4/14 checkpoints qualified**: one accepted and three ready
 for user review, with **82 resource gaps open**. These are separate ledgers,
 not percentages of playable content, translation or remaining effort.
 
-## Current action — run the fresh memory-adjusted compiler
+## Current action — verify the live memory-adjusted compiler
 
 The fresh v4 dependency closure remains Root-qualified:47 stock-key/offline
 installs, exact retained raw/PLAN/installed identities and original26 packages
@@ -52,29 +52,35 @@ literals, controller pin/import and new output bindings change. Root's19 fixed
 pins and177 qualification pins pass. Fresh PLAN/PHASE5 is prepared; Root checks
 201 pins/six payloads,56 upload members/47 raw identities, exact new resource
 values and the current owned stopped-state binding. Execution markers are
-absent; independent Astra review finds no blocker. Commit [this admission](reviews/2026-11-04-T10.010.004-root.md#fresh-memory-adjusted-compiler-admission)
-before the bounded retry. The higher cap is an experiment, not proof that the
-full build will finish.
+absent at review; independent Astra finds no blocker. [Admission](reviews/2026-11-04-T10.010.004-root.md#fresh-memory-adjusted-compiler-admission)
+is committed/pushed4cca3dae before the new serial run. Its token is consumed.
+Root confirms fresh available3959771136bytes exceeds the3489660928 gate,
+resource/base26 pass, and the exact running compiler's native cgroup matches
+the2.5GiB plan. Extract/crash-trace/configure pass; unpatched make is running.
+Live exec54479 owns the controller:resume it and inspect existing files, never
+replay phase5. Full output, final cleanup/personal comparisons remain pending.
 
 The independent [ordinary-item fixture](tasks/T10.010.004-ordinary-fixtures.md)
 lane uses the same ced65a38 base and frozen eight-file packet. Claude's first
 8e24ad10 candidate has a source-derived200-row logging
 budget counterexample and a report scope error; the [equal follow-up](tasks/T10.010.004-fixture-budget.md)
-requires correction without disabling guards. Grok2008f8cd is also submitted;
-its first report does not address the added budget acceptance. Root review is
-pending; do not treat the old enqueue as adoption.
-Claude's1172ffcd repair is submitted; Root review is pending. Grok's first
-candidate still needs the budget correction. Concrete follow-up is enqueued
-after submission; reading/adoption is not yet proved.
+requires correction without disabling guards. Grok's first2008f8cd candidate
+also fails the source budget case; corrected comparison remains open.
+Claude's correctedfbf1fcc6 passes Root's isolated archive/static/source review:
+all15 protected files unchanged, complete fields/format arity, source budget
+42200 commands/426 gotos at200rows. Actual parsing/budget/capture remain open.
+Its exact settled worker is released, branch preserved. Grok's repair is
+confirmed ready/live asctx_61e23d0785f8 and has read the budget message; revised
+output is pending. Use that current dispatch, not the old settled handle.
 Neither candidate is selected or parser/runtime-qualified. Workers
-have no VM/game access. Root alone owns future runtime; no controller is live
-now. Earlier steps remain in the [dated record](reviews/2026-11-04-T10.010.004-root.md).
+have no VM/game access. Root alone owns live exec54479. See [current runtime
+and fixture evidence](reviews/2026-11-04-T10.010.004-root.md#memory-adjusted-run-live-and-one-fixture-source-verified).
 
 ## Four audit tasks remain open
 
 - **T10.010.004 — full binaries and ordinary items.** Selected exact-fetch
   source is integrated as `73014940`; dependency closure is now Root-qualified.
-  Commit the verified resource-only retry admission, then compile corresponding
+  The memory-adjusted serial run is live; verify corresponding
   unpatched/patched full binaries, export/read back
   immutable images, start in isolated state and verify ordinary stack/new-slot,
   weight/full-bag, equipment/rental/GUID and save/re-entry behavior. The capacity
