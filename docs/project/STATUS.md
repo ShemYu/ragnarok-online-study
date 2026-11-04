@@ -52,9 +52,14 @@ actuator still need Root qualification; no new VM/DB/client action occurs. See
 Root's source-derived backup-byte admission passes25 isolated synthetic controls,
 including invalid UTF-8, ambiguous/late stamps and changed input pins. This
 qualifies only that helper; no actual backup, staging hash or restore is proved.
-The observer and complete-snapshot oracle are being drafted independently;
+The independent observer/oracle source drafts are delivered. Root checks the
+oracle's authored pure controls; they pass but do not exercise the full parser,
+capture or roundtrip paths. Those controls and observer review remain open.
 Root retains executable review and all runtime ownership. See
 [byte-admission checkpoint](reviews/2026-11-04-T10.010.004-root.md#backup-byte-identity-admission-controls-qualified).
+Capture live metadata/dump dialect read-only before admitting fixture writes;
+the metadata decoder, exact capture integration and backup/safety profile remain
+unfinished. See [oracle review](reviews/2026-11-04-T10.010.004-root.md#oracle-source-delivered-authored-pure-controls-only).
 Qualify a supported DB-only backup/restore and complete semantic readback
 before ordinary-item mutations. Use the same owned VM/world/client, refreshed
 1109-file world baseline, existing Chinese assets and bounded resources. Then
