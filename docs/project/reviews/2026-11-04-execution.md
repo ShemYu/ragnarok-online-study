@@ -809,3 +809,15 @@ is released with transcript/committed branch preserved. Compiler-wrapper
 source guards are also corrected and pass three host refusal controls;
 no compiler preparation occurs. Hosted Source checks pass6d44abc4. See
 [current actual evidence and next route](2026-11-04-T10.010.004-root.md#actual-batch-reaches-downloads-but-its-step-budget-expires).
+
+## URL diagnostic source checks pass; fresh phase admitted
+
+Root reviews the private URL-only helper and generated plan, verifies30
+source/generated pins, six runtime payloads and all five upload members.
+Independent Astra review finds no material blocker. Ten host-only controls
+accept the synthetic baseline and refuse nine malformed exports. Root admits
+one new separate-VM capture:44 exact queries with simulate+url, no package
+payload/install, existing resource/base/personal-preservation gates and finite
+cleanup. Actual selection remains unqualified before execution. The host
+single-transfer helper is drafted independently without network/runtime use.
+See [exact admission and limits](2026-11-04-T10.010.004-root.md#url-only-diagnostic-reviewed-and-admitted).

@@ -98,7 +98,9 @@ files integrate as73014940. The fresh actual resolve6/phase7 starts package
 downloads, then its300s batch step terminates before completion; total328.2s,
 no install. Root/Astra chooses actual stock-selected URL capture followed by
 a bounded host-transfer measurement and all-local qualification with all47
-real stock-key checks. That URL diagnostic is being drafted source-only.
+real stock-key checks. The URL diagnostic now passes Root/independent source
+and prepared-plan review, ten host validator controls and exact input/payload
+hash checks. One fresh URL-only phase is admitted; actual selection is next.
 Grok f9b146d9 fixes earlier inflation/fetch issues, but Root's direct replay
 still accepts three malformed uncounted actions; its32-local/16MiB limits
 also constrain this route. It remains unselected and its settled owned
@@ -210,7 +212,7 @@ The three prerequisite source lanes are integrated. Root owns serial runtime
 execution/verification for .004; .005 source is integrated, with runtime
 pins deliberately unqualified. The .004 dependency recipe and .006 analysis
 source are selected/integrated; the counter-format repair is verified.
-Root-review the source-only URL-capture diagnostic, then prepare/admit it
+Execute the newly reviewed/admitted URL-capture phase once
 to capture exact stock-selected URLs without APK payload downloads. Measure
 one bounded host transfer before acquiring the remaining exact files. All47
 must still pass actual stock-key/raw-identity/offline-install qualification.
