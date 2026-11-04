@@ -852,3 +852,11 @@ full-file success or closure is claimed. See [actual refusal](2026-11-04-T10.010
 Root verifies the narrow six-change v2 diff, unchanged v1, five nullable-field
 controls and all fresh GCC-root-2 plan pins. That one fresh600s/620s measurement
 is admitted; the old partial/consumed phase is not reused. See [revised admission](2026-11-04-T10.010.004-root.md#revised-one-file-measurement-reviewed-and-admitted).
+
+While the actual v2 host transfer runs, Root reviews the separate all-local
+resolve wrapper. Independent review,22 fixed pins and six pure metadata guard
+controls pass. It preserves exact frozen47 input/retained checks, all47 actual
+stock-key checks, offline install and the existing resource/owned-cleanup/
+personal-finally path. Simulation remains online with the existing bounded
+fetch fallback. No real47-file manifest or VM phase is prepared. See [source
+checks and limits](2026-11-04-T10.010.004-root.md#all-local-resolve-wrapper-source-checked-while-host-transfer-runs).
