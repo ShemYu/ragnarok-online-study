@@ -41,8 +41,9 @@ preservation; all25 terminal files remain unchanged. No client relaunch is
 needed. The earlier macOS environment refusal and narrow normalization are
 preserved. These are scoped client checks, not rendering/game/item/save proof.
 
-**Next:** checkpoint this result, then design/admit the integrated disposable
-run. Qualify a supported DB-only backup/restore and complete semantic readback
+**Next:** compare bounded source-only DB rehearsal plans from Claude/Grok under
+the [frozen brief](reviews/2026-11-05-T10.010.004-db-roundtrip-brief.md), then
+design/admit the integrated disposable run. Qualify a supported DB-only backup/restore and complete semantic readback
 before ordinary-item mutations. Use the same owned VM/world/client, refreshed
 1109-file world baseline, existing Chinese assets and bounded resources. Then
 verify isolated browser rendering, fixture parsing/200 rows, effective items,
