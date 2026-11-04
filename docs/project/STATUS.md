@@ -21,7 +21,7 @@ ledger remains **4/14 checkpoints qualified**: one accepted and three ready
 for user review, with **82 resource gaps open**. These are separate ledgers,
 not percentages of playable content, translation or remaining effort.
 
-## Current action — refresh dependencies for the selected capture repair
+## Current action — prepare the repaired full compiler pair
 
 The qualified dependency-v4 closure and original26-package base remain fixed.
 The2560MiB retry compiles **both full server variants**, exits0/no timeout
@@ -63,10 +63,18 @@ d3b1b71c is committed/pushed before fresh dependency5 preparation. Root and
 Astra now review124 source/input/generated pins, six payloads,54 regular upload
 members and all47 raw/source/PLAN identities. Only guest_build.sh differs from
 the old upload; inputs.env stays equal. Current owned stopped binding matches,
-and all execution/admission markers are absent. Commit this admission before
-its one serial run. Resolver1536MiB/headroom2415919104, reserve768MiB and controls
-stay fixed; compiler6 will retain2560MiB/3489660928-byte headroom. No new actual
-dependency result is qualified. See [prepared admission](reviews/2026-11-04-T10.010.004-root.md#fresh-dependency5-admission-for-the-selected-producer).
+and all execution/admission markers are absent. Admission checkpointfaa0d306
+is committed/pushed before its one serial run. Resolver1536MiB/headroom2415919104,
+reserve768MiB and controls stay fixed. Actual dependency5 exits0/no timeout
+in12.2s. Root independently replays123 exported files and qualifies all47
+raw/PLAN/installed identities, unchanged base26, stock-key checks, exact owned
+cleanup and personal preservation. All297 protected files remain unchanged.
+Both owned containers are deleted/404 and the VM is stopped. The new qualification
+binds selected sourced3b1b71c and repaired producer; old evidence stays fixed.
+Compiler6 must bind this fresh qualification while retaining2560MiB,
+3489660928-byte fresh headroom and network-none. Its source, preparation and
+admission remain next; no new compiler/image/game result is qualified. See
+[fresh qualification](reviews/2026-11-04-T10.010.004-root.md#fresh-dependency5-personally-qualified).
 See [repair selection and refresh](reviews/2026-11-04-T10.010.004-root.md#interpreter-repair-comparison-closed-claude-selected).
 
 The [ordinary fixtures](tasks/T10.010.004-ordinary-fixtures.md) comparison is
@@ -105,7 +113,7 @@ qualified by this hash.
 - **T10.010.004 — full binaries and ordinary items.** Selected exact-fetch
   source is integrated as `73014940`; dependency closure is now Root-qualified.
   Both variants compile, but report capture refuses qualification. The repaired
-  producer source is now selected; refresh its dependency binding, verify a fresh
+  producer source and fresh dependency5 are now qualified; verify a fresh
   comparable pair, then export/read back
   immutable images, start in isolated state and verify ordinary stack/new-slot,
   weight/full-bag, equipment/rental/GUID and save/re-entry behavior. The capacity

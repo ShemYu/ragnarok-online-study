@@ -2,7 +2,8 @@
 
 Updated: 2026-11-05 JST. **Seven-task execution active.**
 All three prerequisite source/tooling tasks are integrated. Root's actual
-binary experiment compiled both variants; source-bound dependency refresh is next; release-gate and reward/save source are integrated. See
+binary experiment compiled both variants; fresh source-bound dependencies are
+qualified and the repaired compiler pair is next. Release-gate and reward/save source are integrated. See
 [the detailed next actions](NEXT_ACTIONS.md) and [audit](reviews/2026-10-29-T00.005.md).
 
 ```text
@@ -29,7 +30,7 @@ FULL MODERN / RENEWAL PERSONAL GAME
 |   [x] Final supplier comparison [both verified; terminals released]
 |   [x] Fresh successful normal closure [ROOT QUALIFIED; v4]
 |   [x] Offline compiler admission [FAILED RUN PRESERVED; token consumed]
-|   [ ] Fresh source-bound dependency resolve [NEXT; STRICT PINS RETAINED]
+|   [x] Fresh source-bound dependency resolve [ROOT QUALIFIED; v5]
 |   [ ] Full unpatched/patched builds [COMPILED; CAPTURE REPAIR SOURCE SELECTED]
 |   [ ] Ordinary-item NPC fixtures [CLAUDE SOURCE SELECTED; PARSER OPEN]
 |   [ ] Immutable binary readback -> ordinary-item A/B
@@ -71,7 +72,10 @@ compiles both variants in844.1s with exit0/no timeout; Root replays104 exported
 files and checks dependency/cgroup/owner/ELF identities. Overall qualification
 still refuses incomplete interpreter-report capture. Both native ELF paths are
 correct; both supplier repairs pass Root source checks and Claude is selected.
-A fresh exact47 dependency binding and actual compiler run are next. No image or
+A fresh exact47 dependency5 binding is now Root-qualified after123-file raw
+replay,47 identity joins/base26 and297-file preservation. Its12.2s actual run,
+cleanup and personal checks pass; the VM is stopped. Prepare/review/commit the
+repaired compiler6 admission next. No image or
 runtime item result is qualified. Both containers are deleted/404, VM down and
 personal projections unchanged; exec54479 is terminal, phase5 cannot be replayed.
 

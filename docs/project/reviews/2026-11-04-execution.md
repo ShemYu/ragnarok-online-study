@@ -1142,3 +1142,13 @@ Astra file review finds no blocker. Commit this [fresh admission](2026-11-04-T10
 before its one serial run; no new actual dependency/binary result is implied.
 Root also fully pins the existing2.17GB GRF read-only without identity changes;
 assets/client linkage and resource coverage remain open.
+
+Dependency5 runs only after admissionfaa0d306 is committed/pushed. Actual
+resolve exits0/no timeout in12.2s. Root's fresh offline replay reproduces all123
+saved export files,47 stock-key/raw/PLAN/installed joins and original base26.
+Both owned containers are deleted/404, VM shutdown exits0 and the personal
+five-service projections remain byte-identical. All297 protected files retain
+content/stat identity. Fresh qualification binds selected sourced3b1b71c and
+the repaired producer; old runs remain immutable. Commit this verified result
+before preparing compiler6. See [Root qualification](2026-11-04-T10.010.004-root.md#fresh-dependency5-personally-qualified).
+No new compiler, image, game, SQL or save qualification follows from it.
