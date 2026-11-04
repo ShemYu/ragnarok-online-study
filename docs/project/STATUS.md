@@ -23,8 +23,12 @@ not percentages of playable content, translation or remaining effort.
 
 ## Current action — DB qualification before integrated items
 
-**Next:** prepare and review candidate4's live metadata/dump capture admission.
-Its freshly bound actual read-only preflight passes. Both original suppliers and Claude
+**Next:** execute the admitted one-use candidate4 metadata/dump capture.
+Its freshly bound actual read-only preflight and prepare-only run pass; the
+one-use phase exists without a LAUNCHED marker. Root and the independent final
+source/phase review find no remaining admission blocker; the exact run command
+is admitted after publication of this checkpoint, with all fresh runtime gates.
+Both original suppliers and Claude
 candidate4 have delivered; source copies
 and task branches are preserved. The common41-file input contract stays frozen.
 Root handles report wakes without inbox polling; source work is not on its own
@@ -37,7 +41,7 @@ two positive native-format specimens, eight SQL-profile refusals and three
 single-hit I/O faults with no direct fake DB TERM/down. Source peer reviews
 find no remaining blocker within these repairs. The observed preservation and
 CREATE/SET faults are closed in the synthetic contract; current producer/dialect,
-actual helpers and complete runtime admission remain unqualified.
+actual helpers and runtime results remain unqualified.
 Grok's original compiles/lints and passes its helper/decoder groups but has
 broader lifecycle/metadata gaps; it is not selected. The [paired review](reviews/2026-11-05-T10.010.004-discovery-suppliers.md)
 keeps original source scores separate from later repair quality.
@@ -49,7 +53,7 @@ pins, indirect import sources, stopped VM binding and host checks match. No VM
 starts and no Engine API/SQL runs. Current personal-service equality, guest
 resources, complete Engine census and actual metadata/dialect/log/archive
 behavior remain before-startup/live gates. This uses a fresh source admission,
-separate from candidate2's earlier pass. **Live discovery is unadmitted.**
+separate from candidate2's earlier pass. **Live discovery has not run.**
 
 The supported-backup codec v2 passes51 isolated synthetic controls, compilation
 and lint, preserving all original32 cases. This repairs observed newline and
