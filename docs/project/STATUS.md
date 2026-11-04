@@ -48,7 +48,13 @@ results remain unqualified. See
 [image qualification](reviews/2026-11-04-T10.010.004-root.md#image-pair-and-original-loaders-personally-qualified).
 
 **Next:** admit supported startup in the disposable world using its own state
-and the owned Engine. Fresh host state alone does not isolate an Engine's fixed
+and the owned Engine. First admit a read-only bind/user diagnostic: the frozen
+Carocc NPC is0600, copy preserves its mode, and unmanaged startup can leave
+generated conf at its inherited umask. Source/preflight checks pass1889 inputs
+and six payloads; actual rathena readability is unobserved. Commit the
+[probe source checkpoint](reviews/2026-11-04-T10.010.004-root.md#read-only-user-mount-source-and-preflight)
+before preparation; no probe phase or VM start exists yet.
+Fresh host state alone does not isolate an Engine's fixed
 container names or DB volume. Verify their absence, images, mounts, six ports,
 exact environment and graceful shutdown before initialization. Keep the4GiB/
 CPU2 ceiling; actual game fit is unproved. Require positive map registration

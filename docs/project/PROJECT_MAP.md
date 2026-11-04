@@ -21,6 +21,7 @@ FULL MODERN / RENEWAL PERSONAL GAME
 |   [x] Both full binary artifacts [ROOT REPLAY PASSED; STARTUP OPEN]
 |   [x] Host asset assembly / selected Chinese files [BYTES VERIFIED]
 |   [x] Immutable images / original-library loader checks [ROOT VERIFIED]
+|   [ ] Read-only bind/user diagnostic [SOURCE CHECKED; BEFORE SQL]
 |   [ ] Ordinary-item NPC fixtures [CLAUDE SOURCE SELECTED; PARSER OPEN]
 |   [ ] Actual startup / process-binary identity -> ordinary-item A/B
 |   [ ] Binary/mod/text gate [SOURCE INTEGRATED; RUNTIME OPEN]
@@ -64,7 +65,8 @@ Both immutable images now pass actual binary readback at /rathena/map-server
 and original-library loader checks. Root replays nine resource/14 files per
 loader with93 terminal evidence files pinned and558 protected files unchanged.
 All five owned containers are deleted/404; VM stopped/personal preservation
-pass. Next admit actual isolated startup and verify process identity, managed
+pass. Next run the separately admitted read-only bind/user diagnostic, then
+admit actual isolated startup and verify process identity, managed
 client and ordinary-item A/B. No parser, rendering, runtime item or save result
 is qualified. See [Root image result](reviews/2026-11-04-T10.010.004-root.md#image-pair-and-original-loaders-personally-qualified).
 

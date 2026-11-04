@@ -1233,3 +1233,15 @@ personal projections remain identical. See [Root image qualification](2026-11-04
 Commit this checkpoint before supported isolated startup. Game/server/parser,
 managed client/rendering, ordinary items, probe purity and saves remain open;
 3/7 audit-task closure and all four runtime tasks are unchanged.
+
+
+Before disposable SQL startup, primary source and host readback expose a
+permission risk: Carocc0600 copying and unmanaged generated-conf umask. Root
+source-verifies a separate bounded explicit-rathena/read-only-bind diagnostic.
+The first preflight refuses one intentionally retained empty asset lock; Root
+confirms source/identity/free lock and narrows the inventory allowance. v2
+preflight exits0/3.735s with1889 inputs/six payloads/current stopped binding;
+wrong-source admission refuses before phase creation. Reviews clear the
+neutral read_failed/status/stderr/stat/capability evidence contract. Commit
+[this source checkpoint](2026-11-04-T10.010.004-root.md#read-only-user-mount-source-and-preflight)
+before preparation. No probe phase, VM, app up or SQL is started.
