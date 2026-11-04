@@ -1015,3 +1015,10 @@ Admission2e06fa1a is committed/pushed. Root starts the exact one-use compiler
 run; resource probe exits0/deleted and original26 matches. Compiler execution
 is admitted, with result/final cleanup pending under live exec42607. The token
 is consumed; no second controller or replay is permitted. See [live handoff](2026-11-04-T10.010.004-root.md#compiler-run-admitted-result-pending).
+
+Root's GET-only exact-owned-container observation confirms unpatched make
+running after extract/crash-trace/configure. No compiler success is claimed.
+The independent [ordinary-item fixture brief](../tasks/T10.010.004-ordinary-fixtures.md)
+freezes two scripts/guide/report and eight read-only native source inputs for
+equal Claude/Grok preparation, with no worker runtime permission. See [source
+packet and monitor evidence](2026-11-04-T10.010.004-root.md#compiler-observed-running-item-fixture-source-lane-prepared).

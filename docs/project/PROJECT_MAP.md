@@ -30,6 +30,7 @@ FULL MODERN / RENEWAL PERSONAL GAME
 |   [x] Fresh successful normal closure [ROOT QUALIFIED; v4]
 |   [x] Offline compiler admission [COMMITTED; one-use token consumed]
 |   [ ] Full unpatched/patched builds [CURRENT; run admitted]
+|   [ ] Ordinary-item NPC fixtures [INDEPENDENT SOURCE PREPARATION]
 |   [ ] Immutable binary readback -> ordinary-item A/B
 |   [ ] Binary/mod/text gate [SOURCE INTEGRATED; RUNTIME OPEN]
 |   [ ] Real EXP/callback/save [ANALYSIS INTEGRATED; RUNTIME OPEN]
@@ -80,6 +81,10 @@ passes Root's201-pin/56-member/47-identity readback and independent Astra review
 Admission is committed2e06fa1a. Root's serial run passes the fresh resource/base26
 gate and admits compiler execution; final output remains pending. Never replay
 the consumed token. No full binary result is qualified.
+Bounded Root GET-only readback observes the exact compiler running unpatched
+make after successful extraction/crash-trace/configure. The independent
+[fixture brief](tasks/T10.010.004-ordinary-fixtures.md) prepares practical item
+readouts/actions and a separate patched-only probe without runtime access.
 
 Release-gate source and reward/save analysis are integrated within their
 recorded limits. Their actual runtime pins and native/game/save gates remain

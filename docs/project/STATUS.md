@@ -44,8 +44,9 @@ both with no skips and7 common independent controls. Keep Claude's exact
 integration1ac079c7: it avoids scratch files and directly replays the actual
 base26 ordering. Both settled terminals are released, branches preserved.
 
-Both containers are deleted/404, the owned VM is stopped again, and personal
-five-service projections are identical. No compiler/game/SQL action occurs.
+At dependency-run completion, both containers are deleted/404, the owned VM
+is stopped and personal five-service projections are identical. That run has
+no compiler/game/SQL action; the separate current compiler run is below.
 Phase3 is consumed/failed; phase2 remains retired without runtime. Neither may
 be reset or reused. Review PHASE/pins directly; admitted_phase consumes its
 one-use marker and belongs only in run. The successful v4 admission is consumed
@@ -62,6 +63,14 @@ Its result is pending; the phase token is consumed and must not be replayed.
 Root owns the live controller (exec session42607); inspect that handle and
 the existing files before any new action. No compiler/full binaries are
 qualified. No goal change is required.
+
+Root's bounded GET-only readback confirms the exact compiler container is
+running:unpatched extract, crash-trace fixture and configure complete; full
+unpatched make is in progress. No binary is qualified from this observation.
+Prepare [ordinary-item NPC fixtures](tasks/T10.010.004-ordinary-fixtures.md) as
+an independent equal-source Claude/Grok lane while Root retains runtime.
+The frozen eight-file source packet is read-only; effective item/parser facts
+and loading stay unqualified. No production story changes are part of it.
 
 Renew stopped VM ownership/resources before runtime; old IDs, consumed
 admissions and snapshots are not authority. Earlier source/transfer/admission
