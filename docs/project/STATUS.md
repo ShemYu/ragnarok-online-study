@@ -31,8 +31,8 @@ Its real admission must refuse until missing runtime/text facts are qualified.
 Root runs both candidates' 75/38 synthetic tests and Ruff successfully, but
 [independent counterexamples](reviews/2026-11-04-T10.010.005-root.md) expose
 missing qualification/staging bindings. Both need the same repair gate;
-neither is selected or integrated. The same Orca terminals review the
-resource probe. Root owns the next serial runtime experiment.
+neither is selected or integrated. With probe reviews complete, both same
+Orca terminals now repair the release gates. Root owns serial runtime work.
 The [current .004 resource probe](reviews/2026-11-04-T10.010.004-root.md#actual-resource-probe-passes-default-headroom-gate-refuses)
 passes after both reviews and Root's committed admission. Actual kernel limits
 match; the owned object is deleted/404 and all five original service projections

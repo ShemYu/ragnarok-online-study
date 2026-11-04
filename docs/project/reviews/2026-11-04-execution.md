@@ -127,6 +127,37 @@ acceptance follows from a tiny resource probe. The previous goal turn was
 progress: executed candidate counterexamples changed the repair gate, primary
 source resolved the probe mismatch, and both revised reviews were dispatched.
 
+## Release repairs dispatched
+
+Root's first actual resource probe and default headroom refusal are committed
+as `ead8fd7616de87dca114bc27271c819f19e9d4b7`. That checkpoint checks
+56 local links/anchors, 41 task rows, 627 public paths and clean whitespace.
+The actual [probe result](2026-11-04-T10.010.004-root.md#actual-resource-probe-passes-default-headroom-gate-refuses)
+does not close .004; dependencies/build/ordinary items remain open. Fresh
+idleness/backup and supported RAM qualification are Root's next serial work.
+Read-only helpers locate the exact supported sequence and dependency inputs;
+their source advice does not establish current backup/restore or memory facts.
+
+Both suppliers now continue their own .005 candidates against the identical
+[repair brief](../tasks/T10.010.005-repair.md), delivered from the canonical
+Root checkpoint above. Same body SHA-256:
+`a81fc9aecdd6acae3b45c774d13156dfc578afb56d541625a15d16ea72546727`.
+The original profile/base remain fixed; workers do not merge Root or read
+the sibling implementation. Probe-review follow-up mail is explicitly
+superseded. Private exact body/receipts: `release-repair-dispatch-root-1/`.
+
+| Supplier | Repair Task / Dispatch | Receipt |
+| --- | --- | --- |
+| Claude | `task_5ca6fb8229aa` / `ctx_dbcc3c92575d` | follow_up, ready, same terminal |
+| Grok | `task_3af465d49f96` / `ctx_8303a351388b` | follow_up, ready, same terminal |
+
+Grok's receipt links through failed duplicate review `ctx_fbe2cb09334b`.
+Root had inspected its failed readiness/no-assignee status and preserved the
+accepted original review separately. This is a new implementation assignment,
+not a claim that the rejected duplicate completed or its process exited.
+No new terminal or worktree is created. Root ends after publication and
+handles Orca's delivered results without polling.
+
 ## Original activation authority
 
 The active thread goal explicitly asks to finish the seven actions in the
