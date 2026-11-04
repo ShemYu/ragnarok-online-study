@@ -67,8 +67,9 @@ qualified. No goal change is required.
 Root's bounded GET-only readback confirms the exact compiler container is
 running:unpatched extract, crash-trace fixture and configure complete; full
 unpatched make is in progress. No binary is qualified from this observation.
-Prepare [ordinary-item NPC fixtures](tasks/T10.010.004-ordinary-fixtures.md) as
-an independent equal-source Claude/Grok lane while Root retains runtime.
+The [ordinary-item NPC fixture](tasks/T10.010.004-ordinary-fixtures.md) lane is
+dispatched to independent Claude/Grok workers, both ready from confirmed
+ced65a38 with the same brief/source packet. Root retains runtime.
 The frozen eight-file source packet is read-only; effective item/parser facts
 and loading stay unqualified. No production story changes are part of it.
 

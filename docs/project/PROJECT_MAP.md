@@ -30,7 +30,7 @@ FULL MODERN / RENEWAL PERSONAL GAME
 |   [x] Fresh successful normal closure [ROOT QUALIFIED; v4]
 |   [x] Offline compiler admission [COMMITTED; one-use token consumed]
 |   [ ] Full unpatched/patched builds [CURRENT; run admitted]
-|   [ ] Ordinary-item NPC fixtures [INDEPENDENT SOURCE PREPARATION]
+|   [ ] Ordinary-item NPC fixtures [CLAUDE/GROK SOURCE WORK RUNNING]
 |   [ ] Immutable binary readback -> ordinary-item A/B
 |   [ ] Binary/mod/text gate [SOURCE INTEGRATED; RUNTIME OPEN]
 |   [ ] Real EXP/callback/save [ANALYSIS INTEGRATED; RUNTIME OPEN]

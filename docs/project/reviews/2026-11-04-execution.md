@@ -1022,3 +1022,9 @@ The independent [ordinary-item fixture brief](../tasks/T10.010.004-ordinary-fixt
 freezes two scripts/guide/report and eight read-only native source inputs for
 equal Claude/Grok preparation, with no worker runtime permission. See [source
 packet and monitor evidence](2026-11-04-T10.010.004-root.md#compiler-observed-running-item-fixture-source-lane-prepared).
+
+Afterced65a38 is committed/pushed, both ordinary-fixture workers start ready
+from that exact confirmed base and identical spec/source packet. They own
+separate four-file source candidates and no runtime permission. Root keeps
+exec42607 as the sole compiler controller; worker reports will arrive through
+Orca wakes. No fixture selection/parser/item result is claimed by dispatch.
