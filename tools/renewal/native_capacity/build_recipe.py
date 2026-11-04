@@ -49,6 +49,7 @@ import tarfile
 import threading
 import time
 import uuid
+import zlib
 
 HERE = Path(__file__).resolve().parent
 sys.path.insert(0, str(HERE))
@@ -279,7 +280,168 @@ def read_bound(dirfd, name, cap, want_bytes=None):
     return data
 
 
-def load_local_manifest(path):
+APKV2_CAP = {"sig_gz": MIB, "sig_raw": MIB, "ctl_gz": 8 * MIB, "ctl_raw": 16 * MIB, "entries": 64,
+             "pkginfo": MIB}
+
+
+def _gzip_member(data, off, cap_gz, cap_raw, what):
+    """One complete gzip member starting at data[off]: returns (end, inflated).
+    Bounded: at most cap_gz compressed and cap_raw inflated bytes. A member
+    that does not end inside the bound is truncated/oversized and refuses."""
+    if data[off:off + 3] != b"\x1f\x8b\x08":
+        raise RecipeError(f"apk {what}: not a gzip/deflate member")
+    window = data[off:off + cap_gz]
+    d = zlib.decompressobj(31)
+    out, buf = [], window
+    total = 0
+    try:
+        while True:
+            chunk = d.decompress(buf, 1 << 16)
+            total += len(chunk)
+            if total > cap_raw:
+                raise RecipeError(f"apk {what}: inflates past {cap_raw} bytes")
+            out.append(chunk)
+            if d.eof:
+                break
+            buf = d.unconsumed_tail
+            if not buf and not chunk:
+                raise RecipeError(f"apk {what}: truncated gzip member")
+    except zlib.error as exc:
+        raise RecipeError(f"apk {what}: corrupt gzip member ({exc})") from exc
+    end = off + len(window) - len(d.unused_data)
+    return end, b"".join(out)
+
+
+PAX_TIME_KEYS = {"atime", "ctime", "mtime"}
+
+
+def _pax_times_only(body, what):
+    """A local pax header may only carry time records (what Alpine's APKs
+    actually contain); path/size/link or any other key would change how the
+    entry is read and is refused rather than interpreted."""
+    off = 0
+    while off < len(body):
+        sp = body.find(b" ", off)
+        if sp < 0 or not body[off:sp].isdigit():
+            raise RecipeError(f"apk {what}: malformed pax record")
+        n = int(body[off:sp])
+        rec = body[off:off + n]
+        if n <= sp - off + 1 or len(rec) != n or not rec.endswith(b"\n") or b"=" not in rec:
+            raise RecipeError(f"apk {what}: malformed pax record")
+        key = rec[sp - off + 1:].split(b"=", 1)[0].decode("ascii", "replace")
+        if key not in PAX_TIME_KEYS:
+            raise RecipeError(f"apk {what}: unsupported pax key {key!r}")
+        off += n
+
+
+def _tar_entries(raw, what):
+    """Complete regular-file ustar entries, each optionally preceded by a
+    local pax header holding only time records. No global pax, long names,
+    links or directories. Header checksums are verified; zero blocks only
+    at the end."""
+    if len(raw) % 512:
+        raise RecipeError(f"apk {what}: tar stream is not whole 512-byte blocks")
+    entries, off, pax = [], 0, False
+    while off < len(raw):
+        h = raw[off:off + 512]
+        if h == bytes(512):
+            if raw[off:].strip(b"\0"):
+                raise RecipeError(f"apk {what}: data after a zero tar block")
+            break
+        want = int(h[148:156].replace(b"\0", b" ").strip() or b"-1", 8)
+        if want != sum(h[:148]) + 8 * 32 + sum(h[156:]):
+            raise RecipeError(f"apk {what}: tar header checksum mismatch")
+        kind = h[156:157]
+        if kind not in (b"0", b"\0", b"x"):
+            raise RecipeError(f"apk {what}: unsupported tar entry type {kind!r}")
+        if kind == b"x" and pax:
+            raise RecipeError(f"apk {what}: consecutive pax headers")
+        name = h[:100].split(b"\0", 1)[0]
+        if h[257:262] == b"ustar" and h[345:500].strip(b"\0"):
+            raise RecipeError(f"apk {what}: tar prefix names are not supported")
+        field = h[124:136]
+        if field[:1] in (b"\x80", b"\xff"):
+            raise RecipeError(f"apk {what}: base-256 tar size not supported")
+        size = int(field.replace(b"\0", b" ").strip() or b"0", 8)
+        body = off + 512
+        if body + size > len(raw):
+            raise RecipeError(f"apk {what}: truncated tar entry {name!r}")
+        if kind == b"x":
+            _pax_times_only(raw[body:body + size], what)
+            pax = True
+        else:
+            try:
+                entries.append((name.decode("ascii", "strict"), raw[body:body + size]))
+            except UnicodeDecodeError as exc:
+                raise RecipeError(f"apk {what}: non-ASCII tar name") from exc
+            pax = False
+        if len(entries) > APKV2_CAP["entries"]:
+            raise RecipeError(f"apk {what}: too many tar entries")
+        off = body + (size + 511) // 512 * 512
+    if pax:
+        raise RecipeError(f"apk {what}: pax header without an entry")
+    if not entries:
+        raise RecipeError(f"apk {what}: empty tar member")
+    return entries
+
+
+def apk_identity(data):
+    """Package identity derived from an APK v2 file's own bytes (T10.010.004).
+
+    Layout (apk-tools 44dcdfc extract_v2.c / io_gunzip.c): gzip member 1 holds
+    only .SIGN.* tar entries; member 2 (the control member) holds dot-file
+    entries including exactly one .PKGINFO; member 3+ is the data, which is
+    never inflated here. apk's package identity (installed-db and index C:)
+    is "Q1" + Base64(SHA1(complete compressed control gzip member bytes)) --
+    not a whole-file hash and not a .PKGINFO hash (blob.c apk_blob_push_hash).
+
+    This is IDENTITY PARSING ONLY. Signature entries are counted, never
+    trusted: only the guest's real `apk verify` with the stock keys
+    authenticates. Unsupported, truncated or ambiguous layouts refuse."""
+    if not isinstance(data, (bytes, bytearray)) or len(data) > LOCAL_CAP["file"]:
+        raise RecipeError("apk: input missing or over the file cap")
+    data = bytes(data)
+    s_end, s_raw = _gzip_member(data, 0, APKV2_CAP["sig_gz"], APKV2_CAP["sig_raw"], "signature member")
+    sig = _tar_entries(s_raw, "signature member")
+    if not all(n.startswith(".SIGN.") and "/" not in n for n, _ in sig):
+        raise RecipeError("apk: first member is not signature-only (unsupported layout)")
+    c_end, c_raw = _gzip_member(data, s_end, APKV2_CAP["ctl_gz"], APKV2_CAP["ctl_raw"], "control member")
+    ctl = _tar_entries(c_raw, "control member")
+    names = [n for n, _ in ctl]
+    if any(not n.startswith(".") or "/" in n or n.startswith(".SIGN.") or n == ".INSTALL" for n in names):
+        raise RecipeError(f"apk: control member has non-control entries {names}")
+    if names.count(".PKGINFO") != 1 or len(set(names)) != len(names):
+        raise RecipeError("apk: control member must hold exactly one .PKGINFO and unique entries")
+    if data[c_end:c_end + 3] != b"\x1f\x8b\x08":
+        raise RecipeError("apk: no data gzip member after the control member")
+    info = dict(ctl)[".PKGINFO"]
+    if len(info) > APKV2_CAP["pkginfo"]:
+        raise RecipeError("apk: .PKGINFO too large")
+    fields = {}
+    for line in info.decode("utf-8", "strict").split("\n"):
+        if not line or line.startswith("#") or " = " not in line:
+            continue
+        k, v = line.split(" = ", 1)
+        if k in ("pkgname", "pkgver", "arch", "datahash"):
+            if k in fields:
+                raise RecipeError(f"apk: .PKGINFO repeats {k} (ambiguous)")
+            fields[k] = v
+    missing = [k for k in ("pkgname", "pkgver", "arch", "datahash") if k not in fields]
+    if missing:
+        raise RecipeError(f"apk: .PKGINFO lacks {missing}")
+    if not re.fullmatch(NAME_RE, fields["pkgname"]) or not re.fullmatch(VERSION_RE, fields["pkgver"]):
+        raise RecipeError("apk: .PKGINFO name/version malformed")
+    if not re.fullmatch(r"[0-9a-f]{64}", fields["datahash"]):
+        raise RecipeError("apk: .PKGINFO datahash malformed")
+    control = data[s_end:c_end]
+    digest = hashlib.sha1(control).digest()
+    return {"name": fields["pkgname"], "version": fields["pkgver"], "arch": fields["arch"],
+            "q1": "Q1" + base64.b64encode(digest).decode(), "control_sha1": digest.hex(),
+            "datahash": fields["datahash"], "signature_entries": len(sig),
+            "sha256": sha256(data), "bytes": len(data)}
+
+
+def load_local_manifest(path, arch="aarch64"):
     """Explicit local APK inputs (T10.010.004). The manifest is a small JSON file:
 
       {"schema": "t10.010.004/apk-local/v1",
@@ -289,9 +451,11 @@ def load_local_manifest(path):
     "file" is a plain basename in the manifest's own directory; nothing else is
     discovered. Keys are exact (no caller "verified"/trust flag is accepted).
     Every file is read once, bounded, as a safe regular single-link file, and its
-    byte count, SHA-256 and gzip (APK v2) magic must match before it can enter an
-    upload. Duplicate files, names or hashes refuse. Only the guest's real
-    stock-key verification authenticates a package; this binds bytes only.
+    byte count and SHA-256 must match, and apk_identity() must derive exactly the
+    claimed name/version and the expected arch from the file's own control
+    member before it can enter an upload. Duplicate files, names or hashes
+    refuse. Only the guest's real stock-key verification authenticates a
+    package; this binds bytes and derived identity only.
     Returns (manifest_bytes, [entry + "data"], sorted by name)."""
     path = Path(path)
     try:
@@ -336,9 +500,13 @@ def load_local_manifest(path):
             data = read_bound(dirfd, e["file"], LOCAL_CAP["file"], e["bytes"])
             if sha256(data) != e["sha256"]:
                 raise RecipeError(f"local input {e['file']} sha256 differs from the manifest")
-            if data[:2] != b"\x1f\x8b":
-                raise RecipeError(f"local input {e['file']} is not a gzip (APK v2) package")
-            e["data"] = data
+            ident = apk_identity(data)  # from the bytes themselves; not authentication
+            if (ident["name"], ident["version"]) != (e["name"], e["version"]):
+                raise RecipeError(f"local input {e['file']} control identity {ident['name']}={ident['version']} "
+                                  f"is not the claimed {e['name']}={e['version']}")
+            if ident["arch"] != arch:
+                raise RecipeError(f"local input {e['file']} arch {ident['arch']!r} != {arch!r}")
+            e["data"], e["identity"] = data, ident
     finally:
         os.close(dirfd)
     return raw, sorted(entries, key=lambda e: e["name"])
@@ -358,8 +526,10 @@ def local_conflicts(entries, base=None, lock=None, abi_names=("musl", "libstdc++
 
 
 def local_list(entries):
-    """Guest list: "<index> <sha256> <bytes> <name> <version>"; index names local-<index>.apk."""
-    return "".join(f"{i} {e['sha256']} {e['bytes']} {e['name']} {e['version']}\n"
+    """Guest list: "<index> <sha256> <bytes> <name> <version> <Q1>"; index names
+    local-<index>.apk; Q1 is the host-derived control identity, which the guest
+    joins to the installed database after the transaction."""
+    return "".join(f"{i} {e['sha256']} {e['bytes']} {e['name']} {e['version']} {e['identity']['q1']}\n"
                    for i, e in enumerate(entries)).encode()
 
 
@@ -483,7 +653,9 @@ def plan(prepared, rundir, base_image, expect_musl, expect_libstdcxx, mem_availa
                    "apk_local_manifest_sha256": sha256(local_raw) if local else None,
                    "apk_local_list_sha256": sha256(llist) if local else None,
                    "apk_local": [{"member": f"local-{i}.apk", "name": e["name"], "version": e["version"],
-                                  "bytes": e["bytes"], "sha256": e["sha256"], "manifest_file": e["file"]}
+                                  "bytes": e["bytes"], "sha256": e["sha256"], "manifest_file": e["file"],
+                                  "arch": e["identity"]["arch"], "q1": e["identity"]["q1"],
+                                  "control_sha1": e["identity"]["control_sha1"]}
                                  for i, e in enumerate(local)] or None},
         "dependency_recipe": DEPS_RECIPE,
         "apk_package_network": not offline,
@@ -890,7 +1062,20 @@ def _text_lines(path, what):
     return lines
 
 
-def check_dependency_evidence(out, p, abi):
+def _upload_members(upload_path, p):
+    """The plan's own upload bytes (bound by the plan's upload SHA-256), for
+    joining build-mode local inputs that are not re-exported."""
+    if upload_path is None:
+        raise RecipeError("build-mode local inputs need the plan's upload.tar to join identities")
+    raw = Path(upload_path).read_bytes()
+    if sha256(raw) != p["inputs"]["upload_tar_sha256"]:
+        raise RecipeError("upload.tar differs from the plan")
+    with tarfile.open(fileobj=io.BytesIO(raw)) as t:
+        return {m.name: t.extractfile(m).read() for m in t.getmembers()
+                if m.isfile() and re.fullmatch(r"local-\d+\.apk", m.name)}
+
+
+def check_dependency_evidence(out, p, abi, upload_path=None):
     """Join every dependency inventory (T10.010.004). Contradictory exports fail
     even when SHA256SUMS is coherent: base-current vs base-candidate (or the
     plan's base), names/versions before and after, the solver delta, the lock
@@ -968,24 +1153,50 @@ def check_dependency_evidence(out, p, abi):
         c = got_local[k]
         if (c["sha256"], c["bytes"], c["file"]) != (e["sha256"], e["bytes"], e["member"]):
             raise RecipeError(f"local input {k} differs from the plan")
+    # Independent raw-byte identity join (T10.010.004 repair 2): every closure
+    # entry's bytes -- retained in the export, or the plan's own uploaded local
+    # input -- are parsed for their control identity, which must equal the
+    # claimed name=version, the expected arch, the full file hash/size, the
+    # plan's identity and the installed database C:.
+    cdir = out / "apk-closure"
+    files = {f.name for f in cdir.iterdir()} if cdir.is_dir() else set()
+    if p["mode"] == "resolve":
+        want_files = {c["file"] for c in closure.values()} | {"MANIFEST.json"}
+    else:
+        want_files = {c["file"] for c in closure.values() if c["source"] == "repo"}
+    if files != want_files:
+        raise RecipeError("retained closure files differ from the closure record")
+    uploaded = _upload_members(upload_path, p) if (p["mode"] == "build" and planned) else {}
+    derived = {}
+    for k, c in closure.items():
+        if p["mode"] == "build" and c["source"] == "local":
+            data = uploaded.get(c["file"])
+            if data is None:
+                raise RecipeError(f"{k}: planned local bytes missing from upload.tar")
+        else:
+            data = (cdir / c["file"]).read_bytes()
+        if (sha256(data), len(data)) != (c["sha256"], c["bytes"]):
+            raise RecipeError(f"{k}: raw bytes differ from the closure record")
+        idn = apk_identity(data)
+        if f"{idn['name']}={idn['version']}" != k:
+            raise RecipeError(f"{k}: the file's own control identity is {idn['name']}={idn['version']}")
+        if idn["arch"] != p["abi_expect"]["arch"]:
+            raise RecipeError(f"{k}: control arch {idn['arch']!r}")
+        if ident[k] != idn["q1"]:
+            raise RecipeError(f"{k}: installed C: {ident[k]} != control identity {idn['q1']} of its bytes")
+        if k in planned and planned[k].get("q1") not in (None, idn["q1"]):
+            raise RecipeError(f"{k}: control identity differs from the plan's")
+        derived[k] = {x: idn[x] for x in ("q1", "control_sha1", "arch", "datahash")}
     retained = None
     if p["mode"] == "resolve":
-        cdir = out / "apk-closure"
-        files = {f.name for f in cdir.iterdir()} if cdir.is_dir() else set()
-        if files != {c["file"] for c in closure.values()} | {"MANIFEST.json"}:
-            raise RecipeError("retained closure files differ from the closure record")
-        for k, c in closure.items():
-            data = (cdir / c["file"]).read_bytes()
-            if (sha256(data), len(data)) != (c["sha256"], c["bytes"]):
-                raise RecipeError(f"retained {k} bytes differ from the closure record")
-        _, ments = load_local_manifest(cdir / "MANIFEST.json")
+        _, ments = load_local_manifest(cdir / "MANIFEST.json", p["abi_expect"]["arch"])
         mview = sorted((f"{e['name']}={e['version']}", e["sha256"], e["bytes"], e["file"]) for e in ments)
         if mview != sorted((k, c["sha256"], c["bytes"], c["file"]) for k, c in closure.items()):
             raise RecipeError("retained MANIFEST.json differs from the closure record")
         retained = {"manifest": str(cdir / "MANIFEST.json"),
                     "manifest_sha256": sha256((cdir / "MANIFEST.json").read_bytes())}
     return {"delta": delta, "base": base, "closure": closure, "installed_identity": ident,
-            "trusted_keys_sha256": sha256(keys), "retained": retained}
+            "derived_identity": derived, "trusted_keys_sha256": sha256(keys), "retained": retained}
 
 
 def validate_export(plan_path, export_tar, dest):
@@ -1004,7 +1215,7 @@ def validate_export(plan_path, export_tar, dest):
         if f"{name}-{want}" not in apk_before:
             raise RecipeError(f"base {name} != {want}")
     abi = (p["abi_expect"]["musl"], p["abi_expect"]["libstdc++"])
-    deps = check_dependency_evidence(out, p, abi)
+    deps = check_dependency_evidence(out, p, abi, plan_path.parent / "upload.tar")
     if p["mode"] == "resolve":
         cand, bcand = (out / "apk.lock.candidate").read_bytes(), (out / "apk.base.candidate").read_bytes()
         lines, blines = deps["delta"], deps["base"]
@@ -1012,6 +1223,7 @@ def validate_export(plan_path, export_tar, dest):
                   "lock_candidate_sha256": sha256(cand), "base_candidate": blines,
                   "base_candidate_sha256": sha256(bcand), "dependency_recipe": DEPS_RECIPE,
                   "closure": deps["closure"], "installed_identity": deps["installed_identity"],
+                  "derived_identity": deps["derived_identity"],
                   "trusted_keys_sha256": deps["trusted_keys_sha256"], "retained_closure": deps["retained"],
                   "note": "candidate only: Root must review and qualify it before a build plan uses it"}
         (Path(dest) / "RESOLVE.json").write_text(json.dumps(result, indent=1, sort_keys=True) + "\n")

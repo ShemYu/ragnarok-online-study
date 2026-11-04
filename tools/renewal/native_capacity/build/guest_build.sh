@@ -98,7 +98,7 @@ resolve)
     check_coverage "$OUT/apk.base.candidate" "$OUT/apk.lock.candidate" $WANT
     grep -qx "musl-$EXPECT_MUSL" "$OUT/apk-after.txt" || die "musl changed from $EXPECT_MUSL (runtime ABI)"
     grep -qx "libstdc++-$EXPECT_LIBSTDCXX" "$OUT/apk-after.txt" || die "libstdc++ changed from $EXPECT_LIBSTDCXX (runtime ABI)"
-    retain_closure
+    retain_closure all
     rm -rf "$STAGE"
     finalize
     exit 0 ;;
@@ -118,6 +118,7 @@ build)
     echo "offline=$OFFLINE" > "$OUT/apk-mode.txt"
     # Exact base + delta pins; an unavailable/conflicting pin fails here, before compilation.
     deps_transaction "$IN/apk.base" "$OUT/apk-local.list" "$IN/apk.lock" "$OFFLINE"
+    retain_closure repo
     rm -rf "$STAGE"
     grep -qx "musl-$EXPECT_MUSL" "$OUT/apk-after.txt" || die "musl changed from $EXPECT_MUSL (runtime ABI)"
     grep -qx "libstdc++-$EXPECT_LIBSTDCXX" "$OUT/apk-after.txt" || die "libstdc++ changed from $EXPECT_LIBSTDCXX (runtime ABI)" ;;

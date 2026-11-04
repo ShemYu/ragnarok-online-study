@@ -50,6 +50,52 @@ and no dependency transaction or build has run.**
 | Offline build | `plan --mode build --apk-local <resolve dest>/out/apk-closure/MANIFEST.json` with the reviewed lock and base. When the manifest covers the whole delta, the plan records `apk_package_network: false`, and the guest runs both solver and install with `--no-network --repositories-file /dev/null`. **The offline replay has not been exercised on a real guest.** Container networking itself is unchanged. |
 | Export join | `check_dependency_evidence` joins: base-current = base-candidate (or plan base); solver delta = lock candidate (or plan lock); before = base; names before/after; after = before ∪ delta with no extra, removal or upgrade; keys unchanged; installed identities cover the delta exactly once; closure = delta, with every file bound to a stock-key verification line (tag, full SHA-256, name=version, arch, OK); local entries = plan's; retained bytes and MANIFEST.json = closure. Contradictions fail even with coherent SHA256SUMS. Resolve output stays `candidate only`. |
 
+### Repair 2: raw-byte identity join
+
+This answers [the identity-join brief](../../../docs/project/tasks/T10.010.004-dependency-repair-2.md)
+and Root's two coherent-export counterexamples against `f5342ebf`.
+
+- **Parser.** `apk_identity(bytes)` is a bounded APK v2 parser, following
+  apk-tools `44dcdfc` `extract_v2.c`, `io_gunzip.c` and `blob.c`.
+  - Gzip member 1 must hold only `.SIGN.*` tar entries.
+  - Member 2, the control member, must hold unique dot entries with exactly
+    one `.PKGINFO`. That `.PKGINFO` must contain exactly one each of
+    pkgname, pkgver, arch and datahash.
+  - A data member must follow. It is never inflated.
+  - Bounds: 1 MiB for the signature member, 8 MiB compressed and 16 MiB
+    inflated for the control member, and 64 tar entries.
+  - Tar header checksums are verified. Only regular entries are accepted,
+    each optionally preceded by a local PAX header with time-only records.
+    That is exactly what the four retained Alpine files contain.
+  - Refused: prefix names, base-256 sizes, other PAX keys and other entry
+    types, `.INSTALL`, payload in the control member, and truncated, corrupt
+    or ambiguous input.
+- **Identity.** Identity is `Q1` + Base64(SHA1(complete compressed control
+  gzip member)). It is not a whole-file hash, an inflated-control hash or a
+  `.PKGINFO` hash.
+  - On the actual retained BusyBox file it reproduces Root's
+    `Q1ikqlwHVQiBbHyd5Y5R6TMlf4pN8=` / `8a4aa5c0…`. The test that checks this
+    is private-only and is skipped unless `T10_APK_IDENTITY_DIR` is set.
+  - It parses the three development APKs as their claimed name, version and arch.
+  - **Parsing is not authentication.** Signature entries are only counted.
+    Only the guest's real `apk verify` with the stock keys authenticates.
+- **Joins.**
+  - Plan: `load_local_manifest` refuses any local file whose own control
+    identity or arch differs from its claim. The plan and `apk-local.list`
+    carry each local file's Q1.
+  - Guest: requires the installed DB `C:` of each local input to equal its
+    planned Q1.
+  - Validator, resolve and build:
+    - Every closure entry's raw bytes are read. For resolve, and for
+      fetched repository files in build mode, they come from the export
+      (build mode now also retains fetched files). For build-mode local
+      files they come from the plan's own `upload.tar`, bound by its SHA-256.
+    - Each file is parsed, and its derived name=version, arch and Q1 must
+      equal the claimed entry, the plan and the installed `C:`.
+    - Mutually agreeing declarations and hashes no longer suffice.
+- **Offline replay.** The complete-offline build plan, guest transaction
+  and host validation all use those same bytes.
+
 ## Files (all under `tools/renewal/native_capacity/`)
 
 | Path | Role |
@@ -60,7 +106,7 @@ and no dependency transaction or build has run.**
 | `build/guest_build.sh` | Guest main: checks, then dependencies, then unpatched + patched renewal `map-server` |
 | `build/guest_lib.sh` | Guest checks: cgroup, lock, closure, lock candidate, finalize. Sourced by the guest and by host tests |
 | `build_recipe.py` | `plan` / `execute` / `validate-export` / `image-context` / `import-check` |
-| `test_prepare_source.py`, `test_build_recipe.py` | 20 + 69 focused tests (13 added by T10.010.004; synthetic) |
+| `test_prepare_source.py`, `test_build_recipe.py` | 20 + 76 focused tests (20 added by T10.010.004, one private-only skip; synthetic) |
 
 ## 1. Source identity and preparation (unchanged result, verified again)
 

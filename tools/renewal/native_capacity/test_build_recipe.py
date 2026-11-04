@@ -30,6 +30,8 @@ import threading
 import time
 import unittest
 from unittest import mock
+import uuid
+import zlib
 
 HERE = Path(__file__).resolve().parent
 sys.path.insert(0, str(HERE))
@@ -77,8 +79,8 @@ def dep_evidence(plan, delta, local_data=None):
                  [b.split("=")[0] for b in base] + [d.split("=")[0] for d in delta])).encode(),
              "apk-simulate.delta": "".join(d + "\n" for d in delta).encode(),
              "apk-keys-before.txt": KEYS_EVIDENCE, "apk-keys-after.txt": KEYS_EVIDENCE,
-             "apk-installed-identity.txt": "".join(f"{d} Q1{'A' * 27}=\n" for d in delta).encode()}
-    closure, verify, manifest, k = [], [], [], 0
+             }
+    closure, verify, manifest, idents, k = [], [], [], [], 0
     for d in delta:
         if d in locals_:
             e = locals_[d]
@@ -89,11 +91,16 @@ def dep_evidence(plan, delta, local_data=None):
             h, b = hashlib.sha256(data).hexdigest(), len(data)
             k += 1
         closure.append(f"{d} {h} {b} {f} {src}\n")
+        try:
+            idents.append(f"{d} {q1_of(data)}\n")
+        except br.RecipeError:
+            idents.append(f"{d} Q1{'A' * 27}=\n")  # unparseable bytes: only for negative fixtures
         verify.append(f"{f[:-4]} {h} {d.replace('=', ' ', 1)} aarch64 OK\n")
         name, ver = d.split("=", 1)
         manifest.append({"file": f, "name": name, "version": ver, "bytes": b, "sha256": h})
-        if plan["mode"] == "resolve":
+        if plan["mode"] == "resolve" or src == "repo":
             files[f"apk-closure/{f}"] = data
+    files["apk-installed-identity.txt"] = "".join(idents).encode()
     files["apk-closure.txt"] = "".join(sorted(closure)).encode()
     files["apk-verify.txt"] = "".join(verify).encode()
     if plan["mode"] == "resolve":
@@ -1192,15 +1199,50 @@ class GuestLibTests(unittest.TestCase):
 # the recipe's binding, ordering, constraint and refusal logic -- they do NOT
 # authenticate any package, resolve a real repository or run a transaction.
 
-def pkg_bytes(name, version, arch="aarch64", pkgname=None):
-    """Synthetic APK v2 stand-in: gzip tar with a .PKGINFO (no signature)."""
-    info = f"# synthetic\npkgname = {pkgname or name}\npkgver = {version}\narch = {arch}\n".encode()
-    raw = io.BytesIO()
-    with tarfile.open(fileobj=raw, mode="w") as t:
-        ti = tarfile.TarInfo(".PKGINFO")
-        ti.size, ti.mtime = len(info), 0
-        t.addfile(ti, io.BytesIO(info))
-    return gzip.compress(raw.getvalue(), mtime=0)
+def _pax_record(kv):
+    body = f" {kv}\n"
+    n = len(body) + 1
+    while len(str(n)) + len(body) != n:
+        n += 1
+    return f"{n}{body}".encode()
+
+
+def _tar_member(entries, pax=True):
+    """Concatenated ustar entries without end-of-archive blocks (abuild-tar
+    --cut style), each preceded by a local pax header with time records only,
+    like the actual Alpine files."""
+    out = b""
+    for name, body in entries:
+        if pax:
+            recs = b"".join(_pax_record(r) for r in ("ctime=0", "atime=0"))
+            x = tarfile.TarInfo("PaxHeaders/" + name.lstrip("."))
+            x.type, x.size = tarfile.XHDTYPE, len(recs)
+            out += x.tobuf(tarfile.USTAR_FORMAT) + recs + bytes(-len(recs) % 512)
+        ti = tarfile.TarInfo(name)
+        ti.size, ti.mtime = len(body), 0
+        out += ti.tobuf(tarfile.USTAR_FORMAT) + body + bytes(-len(body) % 512)
+    return out
+
+
+def pkg_bytes(name, version, arch="aarch64", pkgname=None, sig=True, pkginfo=None, extra_ctl=(), data=True,
+              datahash="ab" * 32):
+    """Synthetic APK v2 with the supported layout: gzip(signature tar) +
+    gzip(control tar with .PKGINFO) + gzip(data tar). The signature entry is
+    a placeholder, NOT a real signature: these files authenticate nothing."""
+    info = pkginfo if pkginfo is not None else (
+        f"# synthetic\npkgname = {pkgname or name}\npkgver = {version}\narch = {arch}\n"
+        f"datahash = {datahash}\n").encode()
+    parts = []
+    if sig:
+        parts.append(gzip.compress(_tar_member([(".SIGN.RSA.synthetic-not-a-key.rsa.pub", b"\0" * 64)]), mtime=0))
+    parts.append(gzip.compress(_tar_member([(".PKGINFO", info)] + list(extra_ctl)), mtime=0))
+    if data:
+        parts.append(gzip.compress(_tar_member([("usr/share/synthetic", b"payload " + name.encode())]), mtime=0))
+    return b"".join(parts)
+
+
+def q1_of(data):
+    return br.apk_identity(data)["q1"]
 
 
 LOCAL_DEV = {"musl-dev": "1.2.5-r23", "openssl-dev": "3.5.8-r0", "zlib-dev": "1.3.2-r0"}
@@ -1267,7 +1309,8 @@ class LocalInputPlanTests(RecipeBase):
                         self.assertEqual(hashlib.sha256(t.extractfile(f"local-{i}.apk").read()).hexdigest(),
                                          e["sha256"])
                         self.assertEqual(lst.decode().splitlines()[i],
-                                         f"{i} {e['sha256']} {e['bytes']} {e['name']} {e['version']}")
+                                         f"{i} {e['sha256']} {e['bytes']} {e['name']} {e['version']} {got[i]['q1']}")
+                        self.assertEqual(got[i]["q1"], q1_of((self.ld / e["file"]).read_bytes()))
                 self.assertTrue(p["apk_package_network"])  # partial closure: repository additions remain
         a, _, _ = self.plan("again", mode="build", apk_local=man)
         b, _, _ = self.plan("again2", mode="build", apk_local=man)
@@ -1388,8 +1431,10 @@ add)
     else
         cat "$FAKE/adds" >> "$FAKE/installed"
         LC_ALL=C sort -o "$FAKE/installed" "$FAKE/installed"
-        while IFS= read -r nv; do printf 'C:Q1%s=\nP:%s\nV:%s\n\n' AAAAAAAAAAAAAAAAAAAAAAAAAAA "${nv%%=*}" "${nv#*=}"; done \
-            < "$FAKE/adds" >> "$FAKE/db"
+        while IFS= read -r nv; do
+            c=$(awk -v nv="$nv" '$1 == nv { print $2 }' "$FAKE/ident")
+            printf 'C:%s\nP:%s\nV:%s\n\n' "${c:-Q1AAAAAAAAAAAAAAAAAAAAAAAAAAA=}" "${nv%%=*}" "${nv#*=}"
+        done < "$FAKE/adds" >> "$FAKE/db"
     fi ;;
 fetch)
     [ "$1" = --no-cache ] && shift
@@ -1452,12 +1497,26 @@ class GuestDependencyTests(unittest.TestCase):
         for i, (n, v) in enumerate(sorted(pkgs.items())):
             data = pkg_bytes(n, v)
             (self.inn / f"local-{i}.apk").write_bytes(data)
-            rows.append(f"{i} {hashlib.sha256(data).hexdigest()} {len(data)} {n} {v}\n")
+            rows.append(f"{i} {hashlib.sha256(data).hexdigest()} {len(data)} {n} {v} {q1_of(data)}\n")
         (self.tmp / "local.list").write_text("".join(rows))
         if tamper:
             tamper()
 
+    def write_ident(self):
+        """Modelled apk records, per installed package, the control identity
+        of the file that provided it (derived from those bytes)."""
+        rows = {}
+        for f in list(self.inn.glob("local-*.apk")) + list((self.fake / "repo").glob("*.apk")):
+            try:
+                i = br.apk_identity(f.read_bytes())
+            except br.RecipeError:
+                continue
+            rows[f"{i['name']}={i['version']}"] = i["q1"]
+        rows.update(getattr(self, "ident_override", {}))
+        (self.fake / "ident").write_text("".join(f"{k} {v}\n" for k, v in sorted(rows.items())))
+
     def run_deps(self, lock="", offline=0, extra=""):
+        self.write_ident()
         env = {"OUT": str(self.out), "IN": str(self.inn), "STAGE": str(self.stage), "FAKE": str(self.fake),
                "APK": str(self.tmp / "bin" / "apk"), "APK_KEYS_DIR": str(self.tmp / "keys"),
                "APK_DB": str(self.fake / "db"), "WANT": WANT_S, "EXPECT_ARCH": "aarch64", "STEP_TIMEOUT": "30",
@@ -1531,7 +1590,7 @@ class GuestDependencyTests(unittest.TestCase):
         rows = (self.tmp / "local.list").read_text().splitlines()
         data = (self.inn / f"local-{i}.apk").read_bytes()
         f = rows[i].split()
-        rows[i] = " ".join([f[0], hashlib.sha256(data).hexdigest(), str(len(data))] + f[3:])
+        rows[i] = " ".join([f[0], hashlib.sha256(data).hexdigest(), str(len(data))] + f[3:5] + [q1_of(data)])
         (self.tmp / "local.list").write_text("\n".join(rows) + "\n")
 
     def test_local_input_refusals_before_solver(self):
@@ -1615,9 +1674,8 @@ class GuestDependencyTests(unittest.TestCase):
         self.assertLess(g.index("exec 0< /dev/null"), g.index('. "$IN/guest_lib.sh"'))
 
 
-class ClosureReplayAndExportTests(RecipeBase):
-    """Resolve export -> strict join -> build plan from the retained closure ->
-    offline guest transaction from exactly those bytes (modelled APK)."""
+class ClosureFixture(RecipeBase):
+    """Shared local manifest + resolve-run helper (no tests)."""
 
     def setUp(self):
         super().setUp()
@@ -1638,6 +1696,11 @@ class ClosureReplayAndExportTests(RecipeBase):
         br.execute(path, e.sock, admit, poll=0, sleep=lambda s: None)
         cid = json.loads((self.tmp / name / "EXECUTION.json").read_text())["container_id"]
         return p, path, cid
+
+
+class ClosureReplayAndExportTests(ClosureFixture):
+    """Resolve export -> strict join -> build plan from the retained closure ->
+    offline guest transaction from exactly those bytes (modelled APK)."""
 
     def test_complete_closure_replays_offline_in_build(self):
         p, path, cid = self.resolve_run()
@@ -1672,8 +1735,29 @@ class ClosureReplayAndExportTests(RecipeBase):
             self.assertTrue(all("--no-network" in c.split() for c in calls if not c.startswith("info")), calls)
             self.assertEqual(len([c for c in calls if " verify " in f" {c} "]), len(self.delta))
             self.assertEqual({x.split()[4] for x in (g.out / "apk-closure.txt").read_text().splitlines()}, {"local"})
+            replay_ident = (g.out / "apk-installed-identity.txt").read_text()
         finally:
             g.tearDown()
+        # host qualification of that offline build: every package's identity is
+        # derived from the plan's own uploaded bytes (nothing re-exported)
+        with tarfile.open(self.tmp / "b-offline" / "upload.tar") as t:
+            up = {m.name: t.extractfile(m).read() for m in t.getmembers() if m.name.startswith("local-")}
+        ldata = {f"{e['name']}={e['version']}": up[e["member"]] for e in bp["inputs"]["apk_local"]}
+        self.assertEqual(replay_ident, "".join(f"{k} {q1_of(v)}\n" for k, v in sorted(ldata.items())))
+        e = self.engine(export=lambda cid: export_tar(bp, cid, local_data=ldata))
+        badmit = hashlib.sha256(bpath.read_bytes()).hexdigest()
+        br.execute(bpath, e.sock, badmit, poll=0, sleep=lambda s: None)
+        bcid = json.loads((self.tmp / "b-offline" / "EXECUTION.json").read_text())["container_id"]
+        good = self.tmp / "bo-good.tar"
+        good.write_bytes(export_tar(bp, bcid, local_data=ldata))
+        art = br.validate_export(bpath, good, self.tmp / "bo-good-v")
+        self.assertEqual({c["source"] for c in art["dependency_closure"].values()}, {"local"})
+        bad = self.tmp / "bo-bad.tar"
+        bad.write_bytes(export_tar(bp, bcid, lambda f: set_ident(f, "gcc=15.2.0-r2", q1_of(pkg_bytes("busybox", "1-r0"))),
+                                   local_data=ldata))
+        with self.assertRaises(br.RecipeError) as cm:
+            br.validate_export(bpath, bad, self.tmp / "bo-bad-v")
+        self.assertIn("installed C:", str(cm.exception))
 
     def test_contradictory_exports_fail_with_coherent_checksums(self):
         p, path, cid = self.resolve_run()
@@ -1723,6 +1807,230 @@ class ClosureReplayAndExportTests(RecipeBase):
         good.write_bytes(export_tar(p, cid, lambda f: f.pop("unpatched/map-server"), delta=self.delta,
                                     local_data=self.local_data))
         self.assertEqual(br.validate_export(path, good, self.tmp / "good-v")["lock_candidate"], self.delta)
+
+
+# ---------------------------------------------------------------- repair 2
+def split_members(data):
+    """Independent test-side split of concatenated gzip members (raw bytes)."""
+    out, off = [], 0
+    while off < len(data):
+        d = zlib.decompressobj(31)
+        d.decompress(data[off:])
+        end = len(data) - len(d.unused_data)
+        out.append(data[off:end])
+        off = end
+    return out
+
+
+def regzip_control(data, mutate_raw):
+    """Rebuild a package whose control tar bytes were changed by mutate_raw."""
+    sig, ctl, *rest = split_members(data)
+    raw = gzip.decompress(ctl)
+    return sig + gzip.compress(mutate_raw(raw), mtime=0) + b"".join(rest)
+
+
+class ApkIdentityTests(unittest.TestCase):
+    """Bounded APK v2 identity parser (identity only, never authentication)."""
+
+    def test_q1_is_sha1_of_compressed_control_member(self):
+        data = pkg_bytes("gcc", "15.2.0-r2", extra_ctl=[(".post-install", b"#!/bin/sh\n")])
+        i = br.apk_identity(data)
+        sig, ctl, dat = split_members(data)
+        want = hashlib.sha1(ctl).digest()
+        self.assertEqual(i["q1"], "Q1" + base64.b64encode(want).decode())
+        self.assertEqual(i["control_sha1"], want.hex())
+        self.assertEqual((i["name"], i["version"], i["arch"], i["signature_entries"]), ("gcc", "15.2.0-r2", "aarch64", 1))
+        for other in (hashlib.sha1(data).digest(), hashlib.sha1(gzip.decompress(ctl)).digest(),
+                      hashlib.sha1(sig).digest()):  # never conflated with whole-file/inflated/signature hashes
+            self.assertNotEqual(i["control_sha1"], other.hex())
+        self.assertEqual(i["sha256"], hashlib.sha256(data).hexdigest())
+        # data member is never inflated: a corrupt payload does not change the identity
+        bad_data = sig + ctl + b"\x1f\x8b\x08" + b"\xff" * 40
+        self.assertEqual(br.apk_identity(bad_data)["q1"], i["q1"])
+
+    def test_unsupported_truncated_ambiguous_layouts_refuse(self):
+        good = pkg_bytes("gcc", "15.2.0-r2")
+        sig, ctl, dat = split_members(good)
+        flip = bytearray(ctl)
+        flip[len(flip) // 2] ^= 0xFF
+
+        def chk(raw):  # corrupt one tar header's checksum
+            b = bytearray(raw)
+            b[148:156] = b"0000000\0"
+            return bytes(b)
+        dup = "pkgname = gcc\npkgname = busybox\npkgver = 1-r0\narch = aarch64\ndatahash = " + "ab" * 32 + "\n"
+        cases = {
+            "truncated control member": sig + ctl[:len(ctl) // 2],
+            "corrupted control bytes": sig + bytes(flip) + dat,
+            "no data member": sig + ctl,
+            "no signature member": pkg_bytes("gcc", "15.2.0-r2", sig=False),
+            "tar header checksum": regzip_control(good, chk),
+            "truncated tar entry": regzip_control(good, lambda r: r[:600]),
+            "repeated pkgname": pkg_bytes("gcc", "1-r0", pkginfo=dup.encode()),
+            "missing datahash": pkg_bytes("gcc", "1-r0", pkginfo=b"pkgname = gcc\npkgver = 1-r0\narch = aarch64\n"),
+            "two .PKGINFO": pkg_bytes("gcc", "1-r0", extra_ctl=[(".PKGINFO", b"pkgname = x\n")]),
+            ".INSTALL": pkg_bytes("gcc", "1-r0", extra_ctl=[(".INSTALL", b"x")]),
+            "payload in control": pkg_bytes("gcc", "1-r0", extra_ctl=[("usr/bin/gcc", b"x")]),
+            "not gzip": b"PK\x03\x04" + good,
+            "unsupported pax key": regzip_control(good, lambda r: r.replace(b"ctime=0\n", b"path=xx\n", 1)),
+        }
+        for name, data in cases.items():
+            with self.subTest(name), self.assertRaises(br.RecipeError):
+                br.apk_identity(data)
+        with mock.patch.dict(br.APKV2_CAP, {"ctl_raw": 512}):  # inflation bound
+            with self.assertRaises(br.RecipeError):
+                br.apk_identity(good)
+
+    @unittest.skipUnless(os.environ.get("T10_APK_IDENTITY_DIR"), "private retained APKs not provided")
+    def test_known_actual_busybox_identity(self):
+        """Root-only/private: the retained BusyBox APK's identity (values from the brief)."""
+        data = (Path(os.environ["T10_APK_IDENTITY_DIR"]) / "busybox-1.37.0-r30.apk").read_bytes()
+        i = br.apk_identity(data)
+        self.assertEqual((i["name"], i["version"], i["arch"]), ("busybox", "1.37.0-r30", "aarch64"))
+        self.assertEqual(i["q1"], "Q1ikqlwHVQiBbHyd5Y5R6TMlf4pN8=")
+        self.assertEqual(i["control_sha1"], "8a4aa5c075508816c7c9de58e51e933257f8a4df")
+        self.assertEqual(i["sha256"], "d3c919f1f142e41ba83c7dbcc392388f23f840dda6867719e660ebb9cc681254")
+        # Root's counterexample 2 on the actual bytes: claimed as a compiler package -> refused
+        d = Path(tempfile.mkdtemp(prefix="t10-010-004-bb-"))
+        try:
+            (d / "gcc.apk").write_bytes(data)
+            (d / "m.json").write_text(json.dumps({"schema": br.LOCAL_SCHEMA, "packages": [
+                {"file": "gcc.apk", "name": "gcc", "version": "15.2.0-r2", "bytes": len(data), "sha256": i["sha256"]}]}))
+            with self.assertRaises(br.RecipeError) as cm:
+                br.load_local_manifest(d / "m.json")
+            self.assertIn("control identity busybox=1.37.0-r30", str(cm.exception))
+        finally:
+            shutil.rmtree(d, ignore_errors=True)
+
+
+def rebind(f, nv, data):
+    """Coherently substitute the bytes behind closure entry nv: closure hash/size,
+    verification row, manifest entry and retained file all agree afterwards."""
+    lines = f["apk-closure.txt"].decode().splitlines()
+    for i, line in enumerate(lines):
+        k, h, b, fn, src = line.split()
+        if k == nv:
+            lines[i] = f"{k} {hashlib.sha256(data).hexdigest()} {len(data)} {fn} {src}"
+            f["apk-closure.txt"] = ("\n".join(lines) + "\n").encode()
+            f["apk-verify.txt"] = f["apk-verify.txt"].replace(h.encode(), hashlib.sha256(data).hexdigest().encode())
+            f[f"apk-closure/{fn}"] = data
+            if "apk-closure/MANIFEST.json" in f:
+                m = json.loads(f["apk-closure/MANIFEST.json"])
+                for e in m["packages"]:
+                    if e["file"] == fn:
+                        e["sha256"], e["bytes"] = hashlib.sha256(data).hexdigest(), len(data)
+                f["apk-closure/MANIFEST.json"] = json.dumps(m).encode()
+            return
+    raise AssertionError(nv)
+
+
+def set_ident(f, nv, q1):
+    f["apk-installed-identity.txt"] = b"".join(
+        (f"{nv} {q1}".encode() if x.split()[0].decode() == nv else x) + b"\n"
+        for x in f["apk-installed-identity.txt"].splitlines())
+
+
+class IdentityJoinTests(ClosureFixture):
+    """Root's coherent-export counterexamples and the raw-byte identity join."""
+
+    def _expect(self, p, path, cid, tamper, ok=False, mode_files=None):
+        tag = uuid.uuid4().hex  # unique per call: a reused path would refuse for the wrong reason
+        tar = self.tmp / f"j{tag}.tar"
+
+        def t(f):
+            if p["mode"] == "resolve":
+                f.pop("unpatched/map-server")
+            tamper(f)
+        tar.write_bytes(export_tar(p, cid, t, delta=self.delta if p["mode"] == "resolve" else None,
+                                   local_data=self.local_data))
+        dest = self.tmp / f"v{tag}"
+        if ok:
+            return br.validate_export(path, tar, dest)
+        with self.assertRaises(br.RecipeError) as cm:
+            br.validate_export(path, tar, dest)
+        return str(cm.exception)
+
+    def test_counterexamples_refused_in_resolve(self):
+        p, path, cid = self.resolve_run()
+        self._expect(p, path, cid, lambda f: None, ok=True)  # baseline still validates
+        busybox = pkg_bytes("busybox", "1.37.0-r30", extra_ctl=[(".trigger", b"#!/bin/sh\n")])
+        other_q1 = q1_of(busybox)
+        x86 = pkg_bytes("gcc", "15.2.0-r2", arch="x86_64")
+        cases = {  # name: (tamper, the join that must refuse it)
+            # Root 1: a different, valid Q1 in the installed DB; everything else coherent
+            "wrong installed C": (lambda f: set_ident(f, "gcc=15.2.0-r2", other_q1), "installed C:"),
+            # Root 2: a validly structured package of another identity relabeled as the compiler
+            "unrelated package relabeled": (lambda f: rebind(f, "gcc=15.2.0-r2", busybox), "own control identity"),
+            "relabeled and C rebound too": (lambda f: (rebind(f, "gcc=15.2.0-r2", busybox),
+                                                       set_ident(f, "gcc=15.2.0-r2", other_q1)), "own control identity"),
+            "wrong version": (lambda f: rebind(f, "gcc=15.2.0-r2", pkg_bytes("gcc", "15.2.0-r3")),
+                              "own control identity"),
+            "wrong arch, C rebound": (lambda f: (rebind(f, "gcc=15.2.0-r2", x86),
+                                                 set_ident(f, "gcc=15.2.0-r2", q1_of(x86))), "control arch"),
+            "corrupted control": (lambda f: rebind(f, "gcc=15.2.0-r2", regzip_control(
+                pkg_bytes("gcc", "15.2.0-r2"), lambda r: r[:600])), "apk control member"),
+            "truncated file": (lambda f: rebind(f, "gcc=15.2.0-r2", pkg_bytes("gcc", "15.2.0-r2")[:300]), "apk "),
+            "local relabeled": (lambda f: rebind(f, "musl-dev=1.2.5-r23", pkg_bytes("musl-dev", "1.2.5-r24")),
+                                "differs from the plan"),  # bound to the plan's bytes before any parse
+        }
+        for name, (tamper, why) in cases.items():
+            with self.subTest(name):
+                self.assertIn(why, self._expect(p, path, cid, tamper))
+
+    def test_counterexamples_refused_in_build_and_local_join_uses_upload(self):
+        # build with planned local inputs (+ repository additions retained in the export)
+        (self.tmp / "qlock").write_text("".join(d + "\n" for d in self.delta))
+        p, path, admit = self.plan("bld", mode="build", apk_lock=self.tmp / "qlock", apk_local=self.man)
+        e = self.engine(export=lambda cid: export_tar(p, cid, local_data=self.local_data))
+        br.execute(path, e.sock, admit, poll=0, sleep=lambda s: None)
+        cid = json.loads((self.tmp / "bld" / "EXECUTION.json").read_text())["container_id"]
+        art = self._expect(p, path, cid, lambda f: None, ok=True)
+        self.assertEqual(art["dependency_closure"]["musl-dev=1.2.5-r23"]["source"], "local")
+        busybox = pkg_bytes("busybox", "1.37.0-r30")
+        x86 = pkg_bytes("gcc", "15.2.0-r2", arch="x86_64")
+        for name, (tamper, why) in {
+            "wrong installed C (repo)": (lambda f: set_ident(f, "gcc=15.2.0-r2", q1_of(busybox)), "installed C:"),
+            "wrong installed C (local)": (lambda f: set_ident(f, "musl-dev=1.2.5-r23", q1_of(busybox)),
+                                          "installed C:"),
+            "repo bytes relabeled": (lambda f: rebind(f, "gcc=15.2.0-r2", busybox), "own control identity"),
+            "relabeled, C rebound": (lambda f: (rebind(f, "gcc=15.2.0-r2", busybox),
+                                                set_ident(f, "gcc=15.2.0-r2", q1_of(busybox))), "own control identity"),
+            "wrong arch, C rebound": (lambda f: (rebind(f, "gcc=15.2.0-r2", x86),
+                                                 set_ident(f, "gcc=15.2.0-r2", q1_of(x86))), "control arch"),
+        }.items():
+            with self.subTest(name):
+                self.assertIn(why, self._expect(p, path, cid, tamper))
+        # the plan's own upload is the source for local bytes; a changed upload refuses
+        with open(self.tmp / "bld" / "upload.tar", "ab") as fh:
+            fh.write(b"\0" * 512)
+        self.assertIn("upload.tar", self._expect(p, path, cid, lambda f: None))
+
+    def test_plan_refuses_relabeled_or_corrupt_local_inputs(self):
+        d = self.tmp / "relabel"
+        d.mkdir()
+        cases = {"busybox as gcc": pkg_bytes("busybox", "1.37.0-r30"),
+                 "wrong arch": pkg_bytes("gcc", "15.2.0-r2", arch="x86_64"),
+                 "corrupt control": regzip_control(pkg_bytes("gcc", "15.2.0-r2"), lambda r: r[:600])}
+        for i, (name, data) in enumerate(cases.items()):
+            with self.subTest(name):
+                (d / "gcc.apk").write_bytes(data)
+                (d / "m.json").write_text(json.dumps({"schema": br.LOCAL_SCHEMA, "packages": [
+                    {"file": "gcc.apk", "name": "gcc", "version": "15.2.0-r2", "bytes": len(data),
+                     "sha256": hashlib.sha256(data).hexdigest()}]}))
+                with self.assertRaises(br.RecipeError):
+                    self.plan(f"rl{i}", mode="resolve", apk_local=d / "m.json")
+                self.assertFalse((self.tmp / f"rl{i}").exists())
+
+    def test_guest_refuses_installed_identity_not_planned(self):
+        g = GuestDependencyTests("test_fd0_closed_is_replaced_by_dev_null_for_steps")
+        g.setUp()
+        try:
+            g.ident_override = {"musl-dev=1.2.5-r23": q1_of(pkg_bytes("busybox", "1.37.0-r30"))}
+            r = g.run_deps()
+            self.assertNotEqual(r.returncode, 0)
+            self.assertIn("not its planned control identity", (g.out / "RESULT").read_text())
+        finally:
+            g.tearDown()
 
 
 if __name__ == "__main__":

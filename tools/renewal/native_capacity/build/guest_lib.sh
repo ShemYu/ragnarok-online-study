@@ -132,13 +132,17 @@ lock_candidate() {
 sha_of() { sha256sum "$1" | cut -d' ' -f1; }
 size_of() { wc -c < "$1" | tr -d ' '; }
 
-# check_local_list <list>: "<index> <sha256> <bytes> <name> <version>" lines,
-# indices 0..n-1 in order, unique names. Indices name generated upload files
+# check_local_list <list>: "<index> <sha256> <bytes> <name> <version> <Q1>"
+# lines, indices 0..n-1 in order, unique names. Q1 is the host-derived control
+# identity (apk_identity), joined to the installed database after install. Indices name generated upload files
 # ($IN/local-<index>.apk); no caller string is ever used as a path.
 check_local_list() {
     _n=0
-    while IFS=' ' read -r _i _sha _bytes _nm _v _extra; do
+    while IFS=' ' read -r _i _sha _bytes _nm _v _q1 _extra; do
         [ -z "$_extra" ] && [ "$_i" = "$_n" ] || die "local list line $_n malformed"
+        case "$_q1" in Q1*=) ;; *) die "local list $_n identity digest" ;; esac
+        case "${_q1#Q1}" in *[!A-Za-z0-9+/=]*) die "local list $_n identity digest" ;; esac
+        [ "${#_q1}" = 30 ] || die "local list $_n identity digest length"
         case "$_sha" in *[!0-9a-f]*|'') die "local list $_n sha256" ;; esac
         [ "${#_sha}" = 64 ] || die "local list $_n sha256 length"
         is_uint "$_bytes" && [ "$_bytes" -gt 0 ] || die "local list $_n bytes"
@@ -208,8 +212,10 @@ deps_transaction() {
     [ -s "$OUT/apk-keys-before.txt" ] || die "no stock trusted keys"
     cut -d= -f1 "$_base" | LC_ALL=C sort > "$STAGE/base.names"
     _files=""
-    while IFS=' ' read -r _i _sha _bytes _nm _v; do
+    : > "$STAGE/local.q1"
+    while IFS=' ' read -r _i _sha _bytes _nm _v _q1; do
         ! grep -qx -- "$_nm" "$STAGE/base.names" || die "local input $_nm would replace a frozen base package"
+        printf '%s=%s %s\n' "$_nm" "$_v" "$_q1" >> "$STAGE/local.q1"
         verify_apk "$IN/local-$_i.apk" "$_sha" "$_bytes" "$_nm" "$_v" "local-$_i"
         printf '%s=%s %s %s local-%s.apk local\n' "$_nm" "$_v" "$_sha" "$_bytes" "$_i" >> "$STAGE/local.src"
         _files="$_files $IN/local-$_i.apk"
@@ -268,17 +274,25 @@ deps_transaction() {
          END { flush() }' "$OUT/apk-simulate.delta" "$APK_DB" | LC_ALL=C sort > "$OUT/apk-installed-identity.txt"
     cut -d' ' -f1 "$OUT/apk-installed-identity.txt" | cmp -s - "$OUT/apk-simulate.delta" \
         || die "installed database identities do not cover the delta exactly once"
+    # planned local inputs: the installed C: must be the host-derived control identity
+    while IFS=' ' read -r _nv _q1; do
+        grep -qxF -- "$_nv $_q1" "$OUT/apk-installed-identity.txt" || die "installed identity of $_nv is not its planned control identity"
+    done < "$STAGE/local.q1"
 }
 
-# retain_closure: copy every authenticated delta file into the export with its
-# generated name, recheck its hash, and write MANIFEST.json in the documented
-# local-input format (usable as plan --apk-local for an offline build).
+# retain_closure <all|repo>: copy authenticated delta files into the export
+# with their generated names and recheck each hash. "all" (resolve) also
+# writes MANIFEST.json in the documented local-input format (usable as plan
+# --apk-local for an offline build); "repo" (build) retains only fetched
+# repository files -- planned local bytes are joined from the plan's upload.
 retain_closure() {
+    _scope=${1:-all}
     mkdir -p "$OUT/apk-closure"
     _first=1
     { printf '{"schema": "t10.010.004/apk-local/v1", "packages": ['
       while IFS=' ' read -r _nv _sha _bytes _file _src; do
           case "$_src" in local) _from="$IN/$_file" ;; repo) _from="$STAGE/$_file" ;; *) die "closure source $_src" ;; esac
+          [ "$_scope" = all ] || [ "$_src" = repo ] || continue
           cp "$_from" "$OUT/apk-closure/$_file"
           [ "$(sha_of "$OUT/apk-closure/$_file")" = "$_sha" ] || die "retained $_file hash"
           [ "$_first" = 1 ] || printf ', '
@@ -286,7 +300,8 @@ retain_closure() {
           printf '{"file": "%s", "name": "%s", "version": "%s", "bytes": %s, "sha256": "%s"}' \
               "$_file" "${_nv%%=*}" "${_nv#*=}" "$_bytes" "$_sha"
       done < "$OUT/apk-closure.txt"
-      printf ']}\n'; } > "$OUT/apk-closure/MANIFEST.json"
+      printf ']}\n'; } > "$STAGE/MANIFEST.json"
+    if [ "$_scope" = all ]; then mv "$STAGE/MANIFEST.json" "$OUT/apk-closure/MANIFEST.json"; else rm -f "$STAGE/MANIFEST.json"; fi
 }
 
 # finalize: the last log line precedes the immutable checksums; nothing is
