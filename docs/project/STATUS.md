@@ -76,7 +76,12 @@ single-digit counters, producing38 rows. Root reproduces this and freezes
 [the same narrow correction](tasks/T10.010.004-dependency-repair-3.md).
 Claude d58059e9 is now selected/integrated as67efe092 after Root81 tests,
 unchanged638 files and direct actual-log/refusal controls. A fresh replay
-phase is prepared; real BusyBox parsing, fetch/install and closure remain open.
+phase reaches a readiness refusal before any container/package action.
+A separate GET-only diagnostic captures the correct tuple in three samples.
+Root adds a40s readiness retry with the same exact predicate and retained
+observations; four modelled controls and independent review pass. A fresh
+resolve-vm-root-5 admission is prepared. BusyBox parsing, fetch/install and
+closure remain open; the earlier mismatch's exact cause remains unknown.
 The VM is stopped, both containers deleted and five personal service
 projections identical. No real closure or full build is qualified.
 The [EXP/callback/save source analysis](reviews/2026-11-04-T10.010.006-root.md)

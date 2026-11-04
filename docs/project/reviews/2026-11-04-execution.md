@@ -699,3 +699,21 @@ is created. Private apk-counter-format-dispatch-root-1/DISPATCH_ROOT.json
 SHA-256:
 f70dfa5e9e99a6e6d6900bfd84021b986fc9d415568870d58aacbb4d7e79be71.
 Normal publication of570750b succeeds. The consumed resolver remains stopped.
+
+
+## Parser correction integrated; readiness diagnostic and retry prepared
+
+Root verifies Claude d58059e9 with81 tests (both private inputs enabled)
+and direct actual47/refusal controls;638 tracked files remain unchanged.
+The imported four files match the tested bytes; shell syntax and Ruff pass.
+A concrete source-only ordinary-item runbook records the next isolated
+startup/baseline/readout/cases, with all actual runtime slots unqualified.
+
+The fresh replay then stops at combined Engine readiness, before any
+container or package action. Cleanup/personal service preservation pass.
+One separately bound GET-only diagnostic captures three correct metric
+samples and cleans up; the original bad readings were not retained, so no
+cause is claimed. Root adds retained observations and a40s GET-only retry,
+preserving the exact acceptance predicate. Four focused modelled controls
+and independent source review pass. New resolve-vm-root-5 admission is
+prepared; old phases stay consumed. See the current .004 Root record.
