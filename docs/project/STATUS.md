@@ -57,11 +57,14 @@ separately bounded read-only real-helper preflight are required. Root now passes
 that real preflight:41 input/2084 protected/1109 actual-world pins, stopped VM
 and host checks match, with no VM start or Engine API/SQL call. Execution-path
 repairs remain; live discovery is unadmitted. Grok's original delivery is pending.
+The concrete source repair is dispatched asctx_7e1004e5d64e/ready; Root waits
+for its report without inbox polling. Grok is asked to honor the original bound.
 The separate supported-backup codec passes32 synthetic controls and lint,
 but Root reproduces numeric-literal/type-join gaps and an actual-format header
 assumption. It needs a narrow source repair before further grammar replay;
-the native drafter is assigned a fresh source-only revision. This does not
-qualify actual backup/restore or delay discovery worker review.
+native v2 is now source-frozen and independently reviewed, with51 authored
+controls awaiting Root's fresh isolated run. This does not qualify actual
+backup/restore or delay discovery worker review.
 Root independently derives and verifies the two indirect project-import pins
 against Git/source; the repaired before-import protected-context gate remains
 to be reviewed. The common41-file supplier manifest stays frozen.
