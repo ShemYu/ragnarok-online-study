@@ -37,6 +37,10 @@ These checks do not qualify actual MariaDB dialect, provenance or restore.
 See [local-control checkpoint](reviews/2026-11-04-T10.010.004-root.md#observer-local-controls-personally-qualified).
 
 **Next:** implement/review/admit a read-only live metadata/dump-format capture.
+The [frozen discovery source contract](reviews/2026-11-05-T10.010.004-db-discovery-brief.md)
+binds41 named source/record inputs for independent Claude/Grok candidates.
+Root/native/Astra source review identifies the old1107/current1109 baseline
+distinction, explicit DB cwd, split quiescence and unknown-exec shutdown gate.
 Refresh the exact owned VM/world/resources and personal projections before
 startup; ordinary up then exact-ID TERM/exited0 of four game services leaves
 the same DB for discovery. Before fixture writes, qualify authoritative root
