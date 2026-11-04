@@ -60,15 +60,16 @@ The separate4GiB build VM passes actual image/resource/cleanup checks and is
 stopped. Exact-base parsing/fetch source is integrated; the guest parses47
 solver rows without base upgrades. The300s bulk fetch times out, so Root
 captures all44 exact URLs and verifies a complete54.7MB GCC host transfer.
-Eleven repository files now pass Root host checks, including the retained
-noarch file requalified without redownloading. Thirty-three fresh v4 transfers
-are admitted independently of the public architecture-gate repair. Equal source-only Claude/Grok
-repairs are running from the same base before all47 stock-key/install/closure
-qualification. The host collection remains bounded; the VM is stopped and no full compiler has run.
+All44 repository files now pass Root host checks; with3 matching dev inputs,
+the47-file manifest matches the frozen delta (122065747bytes,46aarch64/1noarch).
+All download children are reaped. Claude338ca82f is returned for Root review;
+Grok's same-base source result is pending. Select/verify the repair and rebind
+the wrappers before all47 stock-key/install/closure qualification. The VM is
+stopped and no full compiler has run.
 
 Release-gate source and reward/save analysis are integrated within their
 recorded limits. Their actual runtime pins and native/game/save gates remain
-open. The [current Root record](reviews/2026-11-04-T10.010.004-root.md#actual-noarch-package-exposes-a-dependency-validation-defect)
+open. The [current Root record](reviews/2026-11-04-T10.010.004-root.md#complete-host-candidate-set-reconciled)
 preserves completed chronology and the next checks.
 See [safe runner](reviews/2026-11-04-T00.006-root.md) and
 [coverage verification](reviews/2026-11-04-T06.005.001-root.md) and

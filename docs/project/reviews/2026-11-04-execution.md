@@ -917,3 +917,12 @@ Repository candidates are11/44; stock authentication remains open. Root
 prepares/reviews33 fresh v4 plans for bounded max-two acquisition in parallel
 with supplier source work. Public source integration waits for terminal host
 handles. See [host checks, provenance and admission](2026-11-04-T10.010.004-root.md#host-noarch-correction-verified-retained-transfer-requalified).
+
+All33 remaining v4 transfers complete successfully. Root reconciles44 captured
+repository files plus3 matching dev inputs into a pinned47-file manifest,
+122065747bytes, with actual46aarch64/1noarch metadata. Every host child is
+reaped. Root corrects its own name-versus-complete-tuple ordering assertion;
+the frozen delta and all inputs remain unchanged. Host parsing/transport is
+qualified; all47 stock-key/install/closure checks remain open. Claude338ca82f
+is returned for Root review and Grok's source result is pending. The build VM
+remains stopped. See [complete candidate reconciliation](2026-11-04-T10.010.004-root.md#complete-host-candidate-set-reconciled).

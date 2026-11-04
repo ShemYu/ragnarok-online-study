@@ -23,23 +23,26 @@ not percentages of playable content, translation or remaining effort.
 
 ## Current action — repair dependency architecture checks
 
-Root host checks now cover **11/44 repository files**, including the previous
-complete noarch transfer requalified without redownloading. Signatures/install
-remain unqualified. Continue the33 fresh v4 plans at max two live helpers,
-128MiB reserved each under512MiB, with bounded retries and stop/drain on failure.
-The separate save-free build VM remains stopped; no personal game/SQL action occurs.
+Root host checks now cover **44/44 repository files**. Combined with the three
+matching development inputs, all47 staged files match the frozen exact delta:
+122065747bytes,46aarch64 and one actual noarch. Every download child is reaped.
+The five-field manifest is pinned; all47 stock-key authentication and install
+remain unqualified. Root corrected its own name-versus-full-tuple sorting
+assertion without changing inputs or repeating downloads. The separate
+save-free build VM remains stopped; no personal game/SQL action occurs.
 
-Claude/Grok [noarch repairs](tasks/T10.010.004-dependency-noarch.md) are running
-from the same26bb3781 base, confirmed in both checkouts. Accept native-target or architecture-independent
+Claude's [noarch repair](tasks/T10.010.004-dependency-noarch.md) is returned as
+candidate338ca82f; Grok's result is pending. Both started at the confirmed same
+26bb3781 base. Root source review/tests and comparison remain open. Accept native-target or architecture-independent
 dependency metadata, preserve actual arch and bind verification-row/raw/local
 plan agreement. Keep signatures, raw SHA/Q1/installed-C/base26 and ARM64 VM/
 ABI/ELF requirements intact. The private host correction/controls are verified
-and its33-file admission is committed before execution. Do not
-integrate changed public recipe pins while any old host helper is live.
-See [actual refusal and next source repair](reviews/2026-11-04-T10.010.004-root.md#actual-noarch-package-exposes-a-dependency-validation-defect).
+and its33-file admission was committed before execution. All host helpers are
+now terminal, so their old source-pin restriction no longer prevents a later
+Root-verified source integration. See [complete candidate reconciliation](reviews/2026-11-04-T10.010.004-root.md#complete-host-candidate-set-reconciled).
 
-After44 captured selections plus the three matching dev inputs reconcile,
-Root must review a pinned47-file manifest and admit fresh all-local resolution.
+After selecting and verifying the source repair, Root must rebind/review the
+all-local wrapper and admit fresh resolution from the pinned47-file manifest.
 Require all47 actual stock-key checks, exact frozen47 delta, unchanged complete
 26-package base/ABI, fresh cgroup/headroom evidence, offline install and owned
 cleanup. Resolve simulation remains online. The all-local/compiler wrappers
