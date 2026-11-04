@@ -53,8 +53,10 @@ Claude repairctx_5efe029e4fb0 is delivered and hash-frozen. Root reviews it
 and personally passes its46 authored pure/fake-lifecycle controls, compilation
 and lint. Ten new synthetic probes still expose pre-up cleanup, evidence,
 cleanup-marker and dialect/log-profile failures. A source-only repair and a
-separately bounded read-only real-helper preflight remain; live discovery is
-unadmitted. Grok's original source delivery is pending.
+separately bounded read-only real-helper preflight are required. Root now passes
+that real preflight:41 input/2084 protected/1109 actual-world pins, stopped VM
+and host checks match, with no VM start or Engine API/SQL call. Execution-path
+repairs remain; live discovery is unadmitted. Grok's original delivery is pending.
 The separate supported-backup codec passes32 synthetic controls and lint,
 but Root reproduces numeric-literal/type-join gaps and an actual-format header
 assumption. It needs a narrow source repair before further grammar replay;
