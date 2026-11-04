@@ -18,8 +18,9 @@
 // Exit codes: 0 suite passed and canonical preserved; 1 suite failed; 2 refused;
 // 3 canonical identity/content changed; 4 descendant cleanup failed;
 // 5 runner error after the suite was spawned (owned cleanup and the protected
-// after-snapshot still ran); 128+signal when interrupted with cleanup and
-// preservation intact.
+// after-snapshot still ran); 6 evidence publication failed (an event,
+// after.json or result.json could not be written), so a run with lost evidence
+// never exits 0; 128+signal when interrupted with cleanup and preservation intact.
 import { spawn, spawnSync } from 'node:child_process';
 import crypto from 'node:crypto';
 import fs from 'node:fs';
@@ -36,7 +37,7 @@ export class Refusal extends Error {
 }
 
 // In-process test seams (fault injection). The CLI never sets these.
-export const hooks = { beforeEvent: null, afterPoll: null };
+export const hooks = { beforeEvent: null, afterPoll: null, beforeWrite: null };
 
 const sha256 = (buffer) => crypto.createHash('sha256').update(buffer).digest('hex');
 const readJson = (abs) => JSON.parse(fs.readFileSync(abs, 'utf8'));
@@ -557,7 +558,10 @@ export async function main(argv, { stdout = process.stdout, signals = process } 
   try {
     const after = snapshot(protectedEntries);
     changed = compareSnapshots(before, after);
-    try { fs.writeFileSync(path.join(runDir, 'after.json'), JSON.stringify(after, null, 1), { mode: 0o600 }); } catch (error) {
+    try {
+      if (hooks.beforeWrite) hooks.beforeWrite('after.json');
+      fs.writeFileSync(path.join(runDir, 'after.json'), JSON.stringify(after, null, 1), { mode: 0o600 });
+    } catch (error) {
       life.evidenceErrors.push(`after.json: ${error.message}`);
     }
   } catch (error) {
@@ -572,17 +576,34 @@ export async function main(argv, { stdout = process.stdout, signals = process } 
   result.elapsed_ms = Date.now() - started;
   try { result.tap = summarizeTap(path.join(runDir, 'suite.log')); } catch { result.tap = null; }
   if (life.error) result.runner_error = String(life.error && life.error.message);
-  let code;
-  if (changed.length) { result.status = 'canonical_changed'; code = 3; }
-  else if (result.cleanup.leaked.length) { result.status = 'cleanup_failed'; code = 4; }
-  else if (life.error) { result.status = 'runner_error'; code = 5; }
-  else if (interrupted) { result.status = 'interrupted'; code = SIGNAL_CODES[interrupted]; }
-  else if (exit && exit.code === 0) { result.status = opts.exclude.length ? 'passed_subset' : 'passed'; code = 0; }
-  else { result.status = 'suite_failed'; code = 1; }
-  try { event({ event: 'finished', status: result.status, code }); } catch (error) { life.evidenceErrors.push(`finished event: ${error.message}`); }
+  // Precedence: canonical change, cleanup failure, post-spawn runner error and
+  // interruption keep their own codes; any lost evidence (event, after.json,
+  // result.json) then overrides passed/passed_subset/suite_failed, so a run
+  // whose evidence was not fully published never exits 0.
   result.evidence_errors = life.evidenceErrors;
-  try { fs.writeFileSync(path.join(runDir, 'result.json'), JSON.stringify(result, null, 1), { mode: 0o600 }); } catch (error) {
-    result.evidence_errors.push(`result.json: ${error.message}`);
+  let code;
+  const classify = () => {
+    if (changed.length) { result.status = 'canonical_changed'; code = 3; }
+    else if (result.cleanup.leaked.length) { result.status = 'cleanup_failed'; code = 4; }
+    else if (life.error) { result.status = 'runner_error'; code = 5; }
+    else if (interrupted) { result.status = 'interrupted'; code = SIGNAL_CODES[interrupted]; }
+    else if (life.evidenceErrors.length) { result.status = 'evidence_failed'; code = 6; }
+    else if (exit && exit.code === 0) { result.status = opts.exclude.length ? 'passed_subset' : 'passed'; code = 0; }
+    else { result.status = 'suite_failed'; code = 1; }
+  };
+  classify();
+  try { event({ event: 'finished', status: result.status, code }); } catch (error) { life.evidenceErrors.push(`finished event: ${error.message}`); }
+  classify();
+  try {
+    if (hooks.beforeWrite) hooks.beforeWrite('result.json');
+    fs.writeFileSync(path.join(runDir, 'result.json'), JSON.stringify(result, null, 1), { mode: 0o600 });
+  } catch (error) {
+    life.evidenceErrors.push(`result.json: ${error.message}`);
+    classify();
+    // result.json is absent; the stdout line and exit code carry the status.
+    try { event({ event: 'publication_failed', status: result.status, code }); } catch (inner) {
+      life.evidenceErrors.push(`publication_failed event: ${inner.message}`);
+    }
   }
   emit(stdout, { status: result.status, suite: result.suite, run_dir: result.run_dir, suite_exit: exit, interrupted,
     runner_error: result.runner_error || null, evidence_errors: result.evidence_errors,

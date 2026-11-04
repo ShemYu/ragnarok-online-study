@@ -37,9 +37,10 @@ The runner is `tools/renewal/run_isolated_suite.mjs`. Its only dependencies are 
    - SIGINT, SIGTERM or SIGHUP to the runner (or leftovers after a normal exit) trigger SIGTERM to the group and to every live recorded descendant. After `--grace-ms` (default 5000) comes SIGKILL, followed by verification that none remain.
    - **Lifecycle guarantee (repair 1).** Signal handlers are registered before the spawn. Everything from opening the suite log onward (spawn, tracker, every evidence event, the poll/witness loop) runs inside one `try`.
    - The outer `finally` always performs best-effort owned cleanup: the escalation above, or a last-resort group SIGKILL if the escalation itself throws. The protected after-snapshot and comparison then run outside any evidence write.
-   - An evidence-write failure (`events.jsonl`, `after.json`, `result.json`) fails the run closed but never skips cleanup or the comparison. A failed signal-event write is recorded in `evidence_errors` and cannot crash the runner from inside its signal handler.
+   - An evidence-write failure during the lifecycle fails the run closed but never skips cleanup or the comparison. A failure to publish the final evidence (`after.json`, the `finished` event, `result.json`) gives status `evidence_failed` (exit 6), never a pass (repair 2). A failed signal-event write is recorded in `evidence_errors` and cannot crash the runner from inside its signal handler.
    - Before the spawn, no owned process exists. A non-refusal error there (for example a copy I/O error) still exits as `runner_error` without an after-snapshot; the runner has written only inside its private run directory at that point.
-6. **Exit codes.** 0 = passed. 1 = suite failed. 2 = refused. 3 = canonical changed. 4 = descendant cleanup failed. 5 = runner error after the spawn, with cleanup and comparison still performed. 128+signal = interrupted, with cleanup and preservation intact.
+6. **Exit codes.** 0 = passed. 1 = suite failed. 2 = refused. 3 = canonical changed. 4 = descendant cleanup failed. 5 = runner error after the spawn, with cleanup and comparison still performed. 6 = evidence publication failed. 128+signal = interrupted, with cleanup and preservation intact.
+   - Precedence: 3 > 4 > 5 > 128+signal > 6 > 0 / 1. Lost evidence therefore overrides `passed`, `passed_subset` and `suite_failed`; `suite_exit` still shows the suite's own result. Higher-priority statuses keep their codes and list the loss in `evidence_errors`.
    - Status `passed_subset` (exit 0) is used only when `--exclude-test` names exact tests. It is never a full pass.
    - `result.json`, `before.json`, `after.json`, `copies.json`, `events.jsonl` and `suite.log` stay in the ignored run directory.
    - `corpus_identity_preflight` *reports* manifest-pinned identities that already differ from the live corpus. It never repairs them or relaxes admission.
@@ -98,6 +99,25 @@ Following the brief, the runner neither re-pins, edits nor weakens admission. Ro
 - actual 273-job CLI.
 
 Consequently, no fresh actual 273-job result is claimed here.
+
+### Repair 2: evidence publication failures can no longer pass
+
+Root reproduced `5df05ff` with an authored same-bytes mutation suite. With `hooks.beforeEvent` throwing on `finished`, the run returned exit 0 and status `passed` even though `evidence_errors` held the injected EIO (Root evidence: `.tools/renewal/seven-task-execution-2026-11-04/t00-evidence-fault-root-1/RESULT_ROOT.json`). The source also let `after.json` and `result.json` write failures keep exit 0.
+
+The repair classifies the run status three times: before the `finished` event, after it, and after `result.json`. A failed write adds to `evidence_errors` and reclassifies the run. If `result.json` cannot be written, the runner appends a best-effort `publication_failed` event carrying the final status and code. The stdout line and the exit code always carry the final status. The test seam `hooks.beforeWrite(name)` covers `after.json` and `result.json`; the CLI never sets it.
+
+| Authored control (16:54–16:55 JST, canonical HEAD `0b0252ff`) | Exit | Result |
+| --- | --- | --- |
+| `finished` event write fails, suite passed | 6 | `evidence_failed`; `suite_exit` 0 still visible; `result.json` records `evidence_failed`; 0 leaked; canonical unchanged |
+| `after.json` write fails | 6 | `evidence_failed`; `after.json` absent; the comparison still ran (`changed` = [], more than 0 entries compared); last event code 6 |
+| `result.json` write fails | 6 | stdout `evidence_failed`; `result.json` absent; last event `publication_failed` with status `evidence_failed`, code 6; canonical unchanged |
+| Suite failure plus `finished` and `result.json` faults | 6 | `evidence_failed` with `suite_exit` 1 visible and 2 evidence errors |
+| SIGTERM during a hang, plus `finished` and `result.json` faults | 143 | `interrupted` keeps its signal code and lists 2 evidence errors; all descendants dead; 0 leaked |
+| Runner checks, public / private | 0 / 0 | 20 tests: 18 pass + 2 skipped (public); 20/20 (private) |
+| Full private suite / exact 8-test exclusion | 1 / 0 | Unchanged: 48/56 (8 stale-binding admission failures), and `passed_subset` 48/48. 0 evidence errors, 0 leaked, 326 unchanged |
+| Independent canonical snapshot | — | 1412 files (Root's later commits added 5) byte-identical, 16:54:07 to 16:55:28 |
+
+Not covered: stdout itself being unwritable, a failure to write `before.json`/`copies.json` (pre-spawn; exits `runner_error` with no owned processes), and the earlier limits (runner SIGKILL, host crash).
 
 ## Classification of tracked test entry points
 

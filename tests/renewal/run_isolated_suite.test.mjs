@@ -321,6 +321,99 @@ test('post-spawn: a failed signal-event write neither crashes the runner nor ski
   assert.deepEqual(compareSnapshots(before, snapshot(f.entries)), []);
 });
 
+// Evidence publication: a lost finished event, after.json or result.json must
+// never leave a passing status or exit 0, while cleanup and the protected
+// comparison still run and higher-priority statuses keep their codes.
+async function withFault(f, { event: badEvent = null, write: badWrite = null } = {}) {
+  hooks.beforeEvent = badEvent ? (value) => { if (value.event === badEvent) throw eio(`${badEvent} event`); } : null;
+  hooks.beforeWrite = badWrite ? (name) => { if (name === badWrite) throw eio(badWrite); } : null;
+  try { return await inProcess(f); } finally { hooks.beforeEvent = null; hooks.beforeWrite = null; }
+}
+const eventsOf = (out) => fs.readFileSync(path.join(runDirOf(out), 'events.jsonl'), 'utf8').trim().split('\n').map((l) => JSON.parse(l));
+
+test('evidence: a failed finished-event write turns a passing suite into evidence_failed (exit 6)', async () => {
+  const f = fixture('ok');
+  const before = snapshot(f.entries);
+  const r = await withFault(f, { event: 'finished' });
+  assert.equal(r.code, 6, JSON.stringify(r.out));
+  assert.equal(r.out.status, 'evidence_failed');
+  assert.deepEqual(r.out.suite_exit, { code: 0, signal: null });
+  assert.ok(r.out.evidence_errors.some((e) => e.startsWith('finished event:')));
+  assert.equal(readResult(r.out).status, 'evidence_failed');
+  assert.equal(r.out.leaked, 0);
+  assert.equal(r.out.preservation_changed, 0);
+  assert.deepEqual(compareSnapshots(before, snapshot(f.entries)), []);
+});
+
+test('evidence: a failed after.json write still compares canonical and is evidence_failed (exit 6)', async () => {
+  const f = fixture('ok');
+  const before = snapshot(f.entries);
+  const r = await withFault(f, { write: 'after.json' });
+  assert.equal(r.code, 6, JSON.stringify(r.out));
+  assert.equal(r.out.status, 'evidence_failed');
+  assert.ok(r.out.evidence_errors.some((e) => e.startsWith('after.json:')));
+  assert.equal(fs.existsSync(path.join(runDirOf(r.out), 'after.json')), false);
+  const result = readResult(r.out);
+  assert.equal(result.status, 'evidence_failed');
+  assert.ok(result.preservation.compared > 0);
+  assert.deepEqual(result.preservation.changed, []);
+  assert.equal(eventsOf(r.out).at(-1).code, 6);
+  assert.deepEqual(compareSnapshots(before, snapshot(f.entries)), []);
+});
+
+test('evidence: an unpublishable result.json still yields a useful nonzero status on stdout and in events', async () => {
+  const f = fixture('ok');
+  const before = snapshot(f.entries);
+  const r = await withFault(f, { write: 'result.json' });
+  assert.equal(r.code, 6, JSON.stringify(r.out));
+  assert.equal(r.out.status, 'evidence_failed');
+  assert.ok(r.out.evidence_errors.some((e) => e.startsWith('result.json:')));
+  assert.equal(r.out.preservation_changed, 0);
+  assert.equal(r.out.mutation_observed_in_copy, true);
+  assert.equal(r.out.leaked, 0);
+  assert.equal(fs.existsSync(path.join(runDirOf(r.out), 'result.json')), false);
+  const last = eventsOf(r.out).at(-1);
+  assert.deepEqual([last.event, last.status, last.code], ['publication_failed', 'evidence_failed', 6]);
+  assert.deepEqual(compareSnapshots(before, snapshot(f.entries)), []);
+});
+
+test('evidence: lost evidence overrides suite_failed but keeps the suite exit visible', async () => {
+  const f = fixture('fail');
+  const r = await withFault(f, { event: 'finished', write: 'result.json' });
+  assert.equal(r.code, 6, JSON.stringify(r.out));
+  assert.equal(r.out.status, 'evidence_failed');
+  assert.deepEqual(r.out.suite_exit, { code: 1, signal: null });
+  assert.equal(r.out.evidence_errors.length, 2);
+});
+
+test('evidence: an interruption keeps its signal code when its evidence is also lost', async () => {
+  const f = fixture('hang');
+  const signals = new EventEmitter();
+  let ready = null;
+  let sent = false;
+  hooks.beforeEvent = (value) => { if (value.event === 'finished') throw eio('finished event'); };
+  hooks.beforeWrite = (name) => { if (name === 'result.json') throw eio('result.json'); };
+  hooks.afterPoll = (tracker, tree) => {
+    const file = path.join(tree, 'lib/ready.json');
+    if (sent || !fs.existsSync(file)) return;
+    try { ready = JSON.parse(fs.readFileSync(file, 'utf8')); } catch { return; }
+    sent = true;
+    setImmediate(() => signals.emit('SIGTERM'));
+  };
+  let text = '';
+  let code;
+  try {
+    code = await main(['--definition', f.def, '--work-root', f.work, '--grace-ms', '500'],
+      { stdout: { write: (chunk) => { text += chunk; } }, signals });
+  } finally { hooks.beforeEvent = null; hooks.beforeWrite = null; hooks.afterPoll = null; }
+  const out = JSON.parse(text.trim().split('\n').at(-1));
+  assert.equal(code, 143, JSON.stringify(out));
+  assert.equal(out.status, 'interrupted');
+  assert.equal(out.evidence_errors.length, 2);
+  for (const pid of ready.pids) assert.equal(alive(pid), false, `pid ${pid} still alive`);
+  assert.equal(out.leaked, 0);
+});
+
 for (const [signal, code] of [['SIGINT', 130], ['SIGTERM', 143]]) {
   test(`private: ${signal} interrupts the real model suite after its copied worker is rewritten`,
     { skip: CORPUS ? false : 'T00_006_CORPUS not set: private interruption not run' }, async () => {
