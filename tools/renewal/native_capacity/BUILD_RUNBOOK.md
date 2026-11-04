@@ -26,8 +26,9 @@ container is removed and VM stopped; no closure/full build is qualified.
 Dependencies and compiler/export/binary qualification remain pending; do not
 interpret the historical fake-only results below as current runtime coverage.
 - Source preparation was executed and checked on the host.
-- The build recipe is implemented and tested only against a **fake** Engine
-  plus host-run guest-library fixtures.
+- The implementation's host/fake-Engine checks pass. Its actual Engine path
+  now runs resource probes and one failed dependency transaction; the full
+  compilation/export/import paths remain unqualified.
 - **No full map-server build or new game image/binary is qualified.
   T10.010.003 is self-verified for implementation; .004 remains unqualified.**
 

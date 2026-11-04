@@ -18,7 +18,7 @@ FULL MODERN / RENEWAL PERSONAL GAME
 |   [x] Isolated build VM resource/image/cleanup characterization
 |   [ ] APK/base-version + stdin diagnostics [CURRENT]
 |   [ ] Qualified dependencies -> full builds -> ordinary-item A/B
-|   [ ] Binary/mod/text gate [SECOND SOURCE REPAIR; PARALLEL]
+|   [ ] Binary/mod/text gate [SOURCE REPAIRS; PARALLEL]
 |   [ ] Real EXP/callback/save and uncertain-reward acceptance
 |   [ ] Isolated native parser / actors / quest states / rewards
 |   [ ] Save, re-entry, repeat and withdrawal checks

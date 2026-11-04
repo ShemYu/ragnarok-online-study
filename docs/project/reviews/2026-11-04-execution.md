@@ -20,6 +20,21 @@ Astra supplies a concrete retained-package route preserving the runtime ABI;
 an independent source helper converges on the fd0 collision chain and exact
 offline reinstall criteria. Both are source consultations, not runtime proof.
 
+## Equal final source clarification delivery
+
+After `0a65982`, both existing suppliers receive identical
+[replacement/withdrawal criteria](../tasks/T10.010.005-replacement-clarification.md).
+Body SHA-256 `de41746ac2b6593a617efebcc60095cb9a74b31c9d7ea75497c676b07355d2ae`.
+Claude's still-open/quota-limited `ctx_98adfc4b5c05` receives queued message
+`msg_bf2ef54e8943`; this is not resumed execution or completion proof.
+Grok follow-up `task_56ac3db17b2d` / `ctx_b5824dac423d` is ready in the same
+existing terminal. Receipt SHA-256
+`853fae8e9446c75b6a069902663577109d19c9f4bbc653396dc10254979c830e`
+is private at `replacement-followup-root-1/DISPATCH_ROOT.json`.
+No new supplier terminal/fleet is created. Root ends the dispatch turn; the
+next serial action is APK authentication/causal diagnostic admission, not a
+repeat of the consumed floating resolver.
+
 ## Dependency admission and source-lane checkpoint
 
 The first actual dependency phase boots/proves owner/control/sockets, then

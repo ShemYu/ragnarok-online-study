@@ -149,7 +149,7 @@ Evidence: [saved user state](reviews/2026-10-25-user-assassin-play.md#current-of
 
 The three prerequisite source lanes are integrated. Root owns serial runtime
 execution/verification for .004; both .005 source candidates need the frozen
-second repairs before Root selection. Fresh build-only state initialization
+replacement/withdrawal corrections before Root selection. Fresh build-only state initialization
 uses the workflow's isolated-new-state allowance; it does not establish
 current ro4 backup/restore qualification.
 Refresh current Engine/socket/service/save bindings; old IDs, start times,
