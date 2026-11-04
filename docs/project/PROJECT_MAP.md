@@ -28,8 +28,8 @@ FULL MODERN / RENEWAL PERSONAL GAME
 |   [x] Tuple ordering [ROOT SOURCE VERIFIED; Claude retained]
 |   [x] Final supplier comparison [both verified; terminals released]
 |   [x] Fresh successful normal closure [ROOT QUALIFIED; v4]
-|   [x] Offline compiler admission [ROOT VERIFIED; fresh unused token]
-|   [ ] Full unpatched/patched builds [CURRENT]
+|   [x] Offline compiler admission [COMMITTED; one-use token consumed]
+|   [ ] Full unpatched/patched builds [CURRENT; run admitted]
 |   [ ] Immutable binary readback -> ordinary-item A/B
 |   [ ] Binary/mod/text gate [SOURCE INTEGRATED; RUNTIME OPEN]
 |   [ ] Real EXP/callback/save [ANALYSIS INTEGRATED; RUNTIME OPEN]
@@ -77,7 +77,9 @@ for an offline compiler. Original26/keys stay unchanged. Both containers are
 deleted, VM stopped and personal projections identical. All settled noarch and
 ordering supplier terminals are released. The fresh offline compiler admission
 passes Root's201-pin/56-member/47-identity readback and independent Astra review.
-No full compiler has run; commit the admission before executing its one-use token.
+Admission is committed2e06fa1a. Root's serial run passes the fresh resource/base26
+gate and admits compiler execution; final output remains pending. Never replay
+the consumed token. No full binary result is qualified.
 
 Release-gate source and reward/save analysis are integrated within their
 recorded limits. Their actual runtime pins and native/game/save gates remain

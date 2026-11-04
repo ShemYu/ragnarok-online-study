@@ -55,9 +55,13 @@ reader after an Astra finding; Root's7 source/model controls pass. A fresh
 operational v4 now binds the selected hashes and actual qualification. Root
 checks all201 phase pins/six payloads,56 upload members and47 raw identity joins;
 the owned stopped binding matches and execution markers are absent. Independent
-Astra review finds no blocker. Commit [this admission](reviews/2026-11-04-T10.010.004-root.md#fresh-offline-compiler-admission-personally-verified)
-before one serial run. No compiler/full binaries are qualified. No goal change
-is required.
+Astra review finds no blocker. [Admission](reviews/2026-11-04-T10.010.004-root.md#fresh-offline-compiler-admission-personally-verified)
+is committed/pushed as2e06fa1a. Root starts the one serial run:resource probe
+exits0/deleted, fresh original26 matches and the compiler execution is admitted.
+Its result is pending; the phase token is consumed and must not be replayed.
+Root owns the live controller (exec session42607); inspect that handle and
+the existing files before any new action. No compiler/full binaries are
+qualified. No goal change is required.
 
 Renew stopped VM ownership/resources before runtime; old IDs, consumed
 admissions and snapshots are not authority. Earlier source/transfer/admission

@@ -1010,3 +1010,8 @@ all47 raw identities/seven-field rows,26 base, strict ABI, NetworkMode=none,
 limits and current owned stopped-state binding. Independent Astra review finds
 no blocker. No execution markers exist. Commit [this admission](2026-11-04-T10.010.004-root.md#fresh-offline-compiler-admission-personally-verified)
 before the one serial compiler pair; binaries/game/save results remain open.
+
+Admission2e06fa1a is committed/pushed. Root starts the exact one-use compiler
+run; resource probe exits0/deleted and original26 matches. Compiler execution
+is admitted, with result/final cleanup pending under live exec42607. The token
+is consumed; no second controller or replay is permitted. See [live handoff](2026-11-04-T10.010.004-root.md#compiler-run-admitted-result-pending).
