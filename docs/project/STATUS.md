@@ -33,14 +33,14 @@ Root runs both candidates' 75/38 synthetic tests and Ruff successfully, but
 missing qualification/staging bindings. Both need the same repair gate;
 neither is selected or integrated. With probe reviews complete, both same
 Orca terminals now repair the release gates. Root owns serial runtime work.
-The [current .004 resource probe](reviews/2026-11-04-T10.010.004-root.md#actual-resource-probe-passes-default-headroom-gate-refuses)
-passes after both reviews and Root's committed admission. Actual kernel limits
-match; the owned object is deleted/404 and all five original service projections
-are preserved. The fresh 1.27 GiB available RAM makes the unchanged default
-1536+768 MiB planning gate refuse. Refresh idleness/backup and qualify the
-supported RAM route before dependency/build admission. No compiler/package
-installation or normal app/SQL/save action has occurred. Actual Engine reads
-also qualify HTTP repair `8b6e347f`, beyond its 56 focused tests.
+The [current .004 ownership correction](reviews/2026-11-04-T10.010.004-root.md#ownership-correction-before-further-admission)
+finds four concurrent worlds. The completed resource probe and 1.27 GiB
+headroom refusal apply to the default instance. Intended personal ro4 currently
+has its saved 8192 MiB setting and about 7.75 GiB actual total RAM; available
+headroom remains unproved. No RAM adjustment is planned from the wrong-world
+sample. Root's target-bound probe admission follows seven negative controls,
+fresh source/socket/service pins and three offline characters in read-only
+SQL. No compiler/package install, restart or progress write has occurred.
 
 Pre-merge maintenance: lint/CI checkpoint `86e98d9` is verified. At the user's
 subsequent request, the retired Godot/Character Lab source is preserved under
@@ -64,7 +64,8 @@ This is not a percentage of playable content, effort or translation.
 
 1. **Actual binary experiment.** T00.006, T06.005.001 and T10.010.003 are
    integrated within their documented limits. T10.010.004's tiny resource probe
-   now passes; qualify supported RAM with fresh idleness/backup, then dependency
+   passed on the default instance; run the corrected personal-world probe and
+   refresh applicable backup/restore qualification, then dependency
    resolution before admitting a bounded actual build. Full content stays open.
    No broad discovery or stock
    `checkweight` substitution. These address confirmed verification/release
@@ -75,10 +76,10 @@ This is not a percentage of playable content, effort or translation.
    The project has not installed the compiler or built a custom image; fresh
    toolchain qualification is pending. The new builtin is unavailable in stock
    binaries.
-   The fresh Nov4 read-only preflight finds five running services but only
-   about 3.82 GiB of guest RAM, rather than the historical 8 GiB setting.
-   Verify present enforcement/headroom before admitting a build; do not
-   replay the old assumption. See the [current preflight](reviews/2026-11-04-execution.md#fresh-read-only-runtime-preflight).
+   The corrected Nov4 ownership check finds about 7.75 GiB total RAM on
+   personal ro4. Its fresh available memory and limit readbacks still gate
+   admission; the earlier 3.82 GiB measurement belongs to another instance.
+   See [the current ownership correction](reviews/2026-11-04-T10.010.004-root.md#ownership-correction-before-further-admission).
 3. **Native and normal story integration.** First qualify ordinary-item
    behavior because the patch touches general insertion. Check script parsing, four actors,
    state transitions, capacity/refusal cases, actual rewards, repeats, saves
