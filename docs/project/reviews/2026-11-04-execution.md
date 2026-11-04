@@ -1058,3 +1058,14 @@ pin checks, AST/checksum ordering and independent Astra review pass. No
 preparation/runtime is claimed; commit [source verification](2026-11-04-T10.010.004-root.md#resource-only-compiler-sources-personally-verified)
 before fresh PLAN/PHASE preparation. An explicit wake returns Grok2008f8cd's
 first fixture; budget-addendum adoption and Root selection remain open.
+
+Aftere0f41dd4, Root prepares fresh compiler5 without runtime, then verifies
+201 pins/six payloads,56 upload members/47 raw identities, original26, exact
+2560MiB resource/cgroup values and current owned stopped-state binding. Markers
+are absent and independent Astra file review finds no blocker. Commit [this
+admission](2026-11-04-T10.010.004-root.md#fresh-memory-adjusted-compiler-admission)
+before one serial run; failed4 stays consumed. No binary result is implied.
+
+An explicit wake returns corrected Claude1172ffcd, still source-only and pending
+Root review. Grok2008f8cd still fails the source budget counterexample and has
+a broken guide link; concrete follow-up is enqueued, without proof of adoption.
