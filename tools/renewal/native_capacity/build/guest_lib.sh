@@ -268,23 +268,65 @@ deps_transaction() {
     while IFS=' ' read -r _nv _rest; do  # a file loop, not a pipeline: die must end the guest
         grep -qxF -- "$_nv" "$OUT/apk-simulate.delta" || die "local input $_nv is not in the solver delta"
     done < "$STAGE/local.src"
-    _k=0
+    # Repository additions: ONE exact, nonrecursive fetch of the complete
+    # package field (T10.010.004 repair 4). apk-tools 44dcdfc query.c: with the
+    # default --match name, match_name() compares the package NAME with the
+    # whole "name=version" argument and refuses before any version check
+    # (Root's actual "acl-libs: unable to select package"). With --match
+    # package, the argument (no comparer, so apk_dep_parse keeps it whole) is
+    # compared exactly with each package's serialized "name-version"
+    # (PKG_VER_FMT), and app_fetch.c downloads nothing unless every argument
+    # matched. No -R/--recursive, --link, --url, wildcard, unversioned query or
+    # guessed URL. One call loads the index once. The exit status is never
+    # acceptance: the fresh directory must then hold exactly one regular file
+    # per wanted package, each mapped by its own signed .PKGINFO identity, and
+    # every file is re-authenticated (verify_apk) before the single install.
+    : > "$STAGE/repo.want"
     while IFS= read -r _nv; do
         if awk -v nv="$_nv" '$1 == nv { f = 1 } END { exit !f }' "$STAGE/local.src"; then continue; fi
         [ "$_offline" = 0 ] || die "offline closure lacks $_nv"
-        _d="$STAGE/fetch-$_k"; mkdir "$_d"
-        step "apk-fetch-$_k" "$APK" fetch --no-cache --output "$_d" "$_nv"
-        [ "$(find "$_d" ! -type d | wc -l | tr -d ' ')" = 1 ] || die "fetch $_nv did not yield exactly one file"
-        _ff=$(find "$_d" -type f -name '*.apk')
-        [ -n "$_ff" ] && [ ! -L "$_ff" ] || die "fetch $_nv is not one regular .apk"
-        mv "$_ff" "$STAGE/repo-$_k.apk"
-        rmdir "$_d"
-        _sha=$(sha_of "$STAGE/repo-$_k.apk"); _bytes=$(size_of "$STAGE/repo-$_k.apk")
-        verify_apk "$STAGE/repo-$_k.apk" "$_sha" "$_bytes" "${_nv%%=*}" "${_nv#*=}" "repo-$_k"
-        printf '%s %s %s repo-%s.apk repo\n' "$_nv" "$_sha" "$_bytes" "$_k" >> "$STAGE/repo.src"
-        _files="$_files $STAGE/repo-$_k.apk"
-        _k=$((_k + 1))
+        case "$_nv" in *[!A-Za-z0-9._+~=-]*|=*|*=|*=*=*) die "fetch selection $_nv" ;; esac
+        printf '%s\n' "$_nv" >> "$STAGE/repo.want"
     done < "$OUT/apk-simulate.delta"
+    _want=$(wc -l < "$STAGE/repo.want" | tr -d ' ')
+    if [ "$_want" -gt 0 ]; then
+        _d="$STAGE/fetch"
+        rm -rf "$_d"; mkdir "$_d"
+        [ -z "$(find "$_d" ! -path "$_d")" ] || die "fetch directory is not fresh and empty"
+        sed 's/=/-/' "$STAGE/repo.want" > "$STAGE/repo.query"   # exact package field: name-version
+        # shellcheck disable=SC2046  # validated name-version tokens only
+        step apk-fetch "$APK" fetch --no-cache --match package --output "$_d" $(cat "$STAGE/repo.query")
+        [ "$(find "$_d" ! -path "$_d" | wc -l | tr -d ' ')" = "$_want" ] || die "fetch yielded a different file set than $_want packages"
+        [ "$(find "$_d" ! -path "$_d" -type f -name '*.apk' ! -name '.*' | wc -l | tr -d ' ')" = "$_want" ] \
+            || die "fetch yielded non-regular, hidden or non-.apk entries"
+        : > "$STAGE/repo.map"
+        _m=0
+        find "$_d" ! -path "$_d" -type f -name '*.apk' > "$STAGE/repo.files"
+        while IFS= read -r _ff; do
+            [ -f "$_ff" ] && [ ! -L "$_ff" ] || die "fetched entry is not a regular file"
+            tar -xzOf "$_ff" .PKGINFO > "$STAGE/map-$_m.pkginfo" 2> /dev/null || die "fetched file has no .PKGINFO"
+            _pn=$(pkginfo_field "$STAGE/map-$_m.pkginfo" pkgname) || die "fetched file pkgname"
+            _pv=$(pkginfo_field "$STAGE/map-$_m.pkginfo" pkgver) || die "fetched file pkgver"
+            grep -qxF -- "$_pn=$_pv" "$STAGE/repo.want" || die "fetch delivered unrequested $_pn=$_pv"
+            mv "$_ff" "$STAGE/fetched-$_m.apk"
+            printf '%s=%s fetched-%s.apk\n' "$_pn" "$_pv" "$_m" >> "$STAGE/repo.map"
+            _m=$((_m + 1))
+        done < "$STAGE/repo.files"
+        # same count + sorted equality: a duplicate identity implies a missing one
+        cut -d' ' -f1 "$STAGE/repo.map" | LC_ALL=C sort | cmp -s - "$STAGE/repo.want" \
+            || die "fetched identities are not exactly the wanted repository additions"
+        _k=0
+        while IFS= read -r _nv; do
+            _src=$(awk -v nv="$_nv" '$1 == nv { print $2 }' "$STAGE/repo.map")
+            mv "$STAGE/$_src" "$STAGE/repo-$_k.apk"
+            _sha=$(sha_of "$STAGE/repo-$_k.apk"); _bytes=$(size_of "$STAGE/repo-$_k.apk")
+            verify_apk "$STAGE/repo-$_k.apk" "$_sha" "$_bytes" "${_nv%%=*}" "${_nv#*=}" "repo-$_k"
+            printf '%s %s %s repo-%s.apk repo\n' "$_nv" "$_sha" "$_bytes" "$_k" >> "$STAGE/repo.src"
+            _files="$_files $STAGE/repo-$_k.apk"
+            _k=$((_k + 1))
+        done < "$STAGE/repo.want"
+        rmdir "$_d"
+    fi
     cat "$STAGE/local.src" "$STAGE/repo.src" | LC_ALL=C sort > "$OUT/apk-closure.txt"
     cut -d' ' -f1 "$OUT/apk-closure.txt" | cmp -s - "$OUT/apk-simulate.delta" || die "closure differs from the solver delta"
     # shellcheck disable=SC2046,SC2086

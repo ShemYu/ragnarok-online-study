@@ -1437,11 +1437,42 @@ add)
         done < "$FAKE/adds" >> "$FAKE/db"
     fi ;;
 fetch)
-    [ "$1" = --no-cache ] && shift
-    [ "$1" = --output ] || exit 9
-    d=$2; nv=$3
-    [ -f "$FAKE/repo/$nv.apk" ] || { echo "ERROR: $nv: unable to fetch"; exit 1; }
-    cp "$FAKE/repo/$nv.apk" "$d/${nv%%=*}-${nv#*=}.apk" ;;
+    # Models apk-tools 44dcdfc app_fetch.c/query.c selection (synthetic):
+    # default --match name compares the NAME with the whole argument, so
+    # "name=version" never matches; --match package compares the serialized
+    # "name-version" exactly; any unmatched argument -> nothing downloaded.
+    match=name; d=
+    while :; do
+        case "${1:-}" in
+        --no-cache) shift ;;
+        --match) match=$2; shift 2 ;;
+        --output) d=$2; shift 2 ;;
+        -*) echo "fake: unsupported fetch option $1"; exit 9 ;;
+        *) break ;;
+        esac
+    done
+    [ -n "$d" ] && [ -d "$d" ] || exit 9
+    : > "$FAKE/fetch.sel"; err=0
+    for q; do
+        hit=
+        for f in "$FAKE"/repo/*.apk; do
+            nv=$(basename "$f" .apk); n=${nv%%=*}; v=${nv#*=}
+            case "$match" in
+            package) [ "$n-$v" = "$q" ] && hit=$f ;;
+            name) [ "$n" = "$q" ] && hit=$f ;;
+            *) exit 9 ;;
+            esac
+        done
+        if [ -z "$hit" ]; then echo "${q%%[=<>~]*}: unable to select package (or its dependencies)"; err=$((err + 1)); fi
+        [ -z "$hit" ] || printf '%s\n' "$hit" >> "$FAKE/fetch.sel"
+    done
+    [ "$err" = 0 ] || exit "$err"
+    while IFS= read -r f; do
+        nv=$(basename "$f" .apk)
+        cp "$f" "$d/${nv%%=*}-${nv#*=}.apk"
+    done < "$FAKE/fetch.sel"
+    [ ! -e "$FAKE/fetch_fault" ] || . "$FAKE/fetch_fault"
+    exit 0 ;;
 info)
     if [ "${1:-}" = -v ]; then sed 's/=/-/' "$FAKE/installed"; else cut -d= -f1 "$FAKE/installed"; fi ;;
 *) exit 8 ;;
@@ -1562,8 +1593,12 @@ class GuestDependencyTests(unittest.TestCase):
         joined = "\n".join(calls)
         for forbidden in ("--allow-untrusted", "--keys-dir", "--no-scripts", "--force", "--arch", "upgrade"):
             self.assertNotIn(forbidden, joined)
-        fetches = [c for c in calls if c.startswith("fetch --no-cache --output ")]
-        self.assertEqual(sorted(c.split()[-1] for c in fetches), sorted(set(self.delta) - self.local))
+        fetches = [c for c in calls if c.startswith("fetch ")]
+        self.assertEqual(len(fetches), 1)  # one batched exact selection: one index load
+        toks = fetches[0].split()
+        self.assertEqual(toks[:6], ["fetch", "--no-cache", "--match", "package", "--output", toks[5]])
+        self.assertEqual(toks[6:], [d.replace("=", "-", 1) for d in sorted(set(self.delta) - self.local)])
+        self.assertFalse([t for t in toks[6:] if "=" in t or "*" in t or "?" in t])
         closure = (self.out / "apk-closure.txt").read_text().splitlines()
         self.assertEqual([c.split()[0] for c in closure], self.delta)
         self.assertEqual(sorted(c.split()[4] for c in closure).count("local"), 3)
@@ -1643,7 +1678,7 @@ class GuestDependencyTests(unittest.TestCase):
         (self.fake / "repo" / f"{repo[0]}.apk").write_bytes(pkg_bytes(n, "0.0-r0"))  # mirror serves other bytes
         r = self.run_deps()
         self.assertNotEqual(r.returncode, 0)
-        self.assertIn("identity", (self.out / "RESULT").read_text())
+        self.assertIn("fetch delivered unrequested", (self.out / "RESULT").read_text())
         self.assertEqual(self.real_adds(), [])
         self.tearDown(), self.setUp()
         (self.fake / "adds").write_text((self.fake / "adds").read_text() + "zzz-extra=1-r0\n")
@@ -1680,6 +1715,135 @@ class GuestDependencyTests(unittest.TestCase):
         first_apk = min(g.index(x) for x in ("apk --print-arch", "deps_transaction \"", "apk info"))
         self.assertLess(g.index("exec 0< /dev/null"), first_apk)
         self.assertLess(g.index("exec 0< /dev/null"), g.index('. "$IN/guest_lib.sh"'))
+
+
+HYPHENATED = ["acl-libs=2.3.2-r1", "git-init-template=2.52.0-r0", "libstdc++-dev=15.2.0-r2",
+              "mariadb-connector-c-dev=3.4.6-r0", "zstd-libs=1.5.7-r2"]
+
+
+class FetchSelectionTests(unittest.TestCase):
+    """Repair 4: exact full-package-field fetch (modelled apk; see FAKE_APK).
+    Proves the call shape, the exact file-set/identity/signature gates and
+    refusal paths -- NOT the real apk-tools 3.0.8 behaviour, which is only
+    source-supported (query.c/app_fetch.c at 44dcdfc)."""
+
+    def setUp(self):
+        self.g = GuestDependencyTests("test_fd0_closed_is_replaced_by_dev_null_for_steps")
+        self.g.setUp()
+        delta = {line.split("=", 1)[0]: line for line in LOCK.split()}
+        delta.update({n: f"{n}={v}" for n, v in LOCAL_DEV.items()})
+        delta.update({d.split("=", 1)[0]: d for d in HYPHENATED})
+        for d in HYPHENATED:
+            n, v = d.split("=", 1)
+            (self.g.fake / "repo" / f"{d}.apk").write_bytes(pkg_bytes(n, v))
+        self.g.set_delta(delta.values())
+        self.repo = sorted(set(self.g.delta) - self.g.local)
+
+    def tearDown(self):
+        self.g.tearDown()
+
+    def fake(self, *args):
+        d = self.g.tmp / f"fresh-{uuid.uuid4().hex}"
+        d.mkdir()
+        r = subprocess.run([str(self.g.tmp / "bin" / "apk"), "fetch", "--no-cache", *args[:-1], "--output", str(d),
+                            *args[-1]], env={"FAKE": str(self.g.fake), "PATH": os.environ["PATH"]},
+                           capture_output=True, text=True, timeout=30)
+        return r, sorted(x.name for x in d.iterdir())
+
+    def test_full_package_field_differs_from_old_name_version_call(self):
+        # the modelled pinned semantics: old call refuses, as on Root's actual run
+        r, files = self.fake(["acl-libs=2.3.2-r1"])
+        self.assertNotEqual(r.returncode, 0)
+        self.assertIn("acl-libs: unable to select package (or its dependencies)", r.stdout)
+        self.assertEqual(files, [])
+        r, files = self.fake("--match", "package", ["acl-libs-2.3.2-r1"])
+        self.assertEqual((r.returncode, files), (0, ["acl-libs-2.3.2-r1.apk"]), r.stdout)
+        # exact field only: a wrong version or bare name selects nothing, and one miss downloads nothing
+        for q in (["acl-libs-2.3.2-r0"], ["acl-libs"], ["acl-libs-2.3.2-r1", "libstdc++-dev-15.2.0-r9"]):
+            r, files = self.fake("--match", "package", q)
+            self.assertNotEqual(r.returncode, 0, q)
+            self.assertEqual(files, [], q)
+
+    def test_batched_hyphenated_exact_fetch_installs_once(self):
+        r = self.g.run_deps()
+        self.assertEqual(r.returncode, 0, r.stderr)
+        calls = self.g.calls()
+        fetches = [c for c in calls if c.startswith("fetch ")]
+        self.assertEqual(len(fetches), 1)
+        q = fetches[0].split()[6:]
+        self.assertEqual(q, [d.replace("=", "-", 1) for d in self.repo])
+        for h in HYPHENATED:
+            self.assertIn(h.replace("=", "-", 1), q)
+        self.assertNotIn("--recursive", fetches[0].split())
+        self.assertNotIn("-R", fetches[0].split())
+        self.assertEqual(len(self.g.real_adds()), 1)
+        fetch_i = calls.index(fetches[0])
+        add_i = calls.index(self.g.real_adds()[0])
+        repo_verifies = [i for i, c in enumerate(calls) if c.startswith("--no-network verify ") and "/repo-" in c]
+        self.assertEqual(len(repo_verifies), len(self.repo))
+        self.assertTrue(all(fetch_i < i < add_i for i in repo_verifies))
+        closure = (self.g.out / "apk-closure.txt").read_text().splitlines()
+        for line in closure:  # each repo-K file really is the package its row names
+            nv, h, b, f, src = line.split()
+            if src == "repo":
+                data = (self.g.stage / f).read_bytes() if (self.g.stage / f).exists() else None
+                if data is not None:
+                    self.assertEqual(f"{br.apk_identity(data)['name']}={br.apk_identity(data)['version']}", nv)
+
+    def test_wrong_missing_extra_files_refuse_even_with_exit_zero(self):
+        first = self.repo[0].replace("=", "-", 1)
+        other = '"$FAKE/other.apk"'  # written into each fresh fixture below
+        faults = {
+            "missing file": (f'rm -f "$d/{first}.apk"', "different file set"),
+            "extra file": (f'cp {other} "$d/busybox-1.37.0-r30.apk"', "different file set"),
+            "wrong package bytes": (f'cp {other} "$d/{first}.apk"', "unrequested busybox"),
+            "duplicate identity": (f'cp "$d/{self.repo[1].replace("=", "-", 1)}.apk" "$d/{first}.apk"',
+                                   "not exactly the wanted"),
+            "hidden entry": (f'mv "$d/{first}.apk" "$d/.{first}.apk"', "non-regular, hidden"),
+            "symlink": (f'mv "$d/{first}.apk" "$d/../real.apk"; ln -s ../real.apk "$d/{first}.apk"',
+                        "non-regular, hidden"),
+            "subdirectory": (f'mkdir "$d/sub"; mv "$d/{first}.apk" "$d/sub/"', "different file set"),
+            "non-apk name": (f'mv "$d/{first}.apk" "$d/{first}.tar"', "non-regular, hidden"),
+            "signature fails": (None, "apk-verify-repo-0"),
+        }
+        for name, (script, why) in faults.items():
+            with self.subTest(name):
+                self.tearDown(), self.setUp()
+                (self.g.fake / "other.apk").write_bytes(pkg_bytes("busybox", "1.37.0-r30"))
+                if script:
+                    (self.g.fake / "fetch_fault").write_text("set -e\n" + script + "\n")
+                else:
+                    data = (self.g.fake / "repo" / f"{self.repo[0]}.apk").read_bytes()
+                    (self.g.fake / "badsig").write_text(hashlib.sha256(data).hexdigest() + "\n")
+                r = self.g.run_deps()
+                self.assertNotEqual(r.returncode, 0, name)
+                self.assertIn(why, (self.g.out / "RESULT").read_text())
+                self.assertEqual(self.g.real_adds(), [])
+
+    def test_unavailable_exact_package_refuses_without_fallback(self):
+        (self.g.fake / "repo" / f"{self.repo[0]}.apk").unlink()
+        n = self.repo[0].split("=", 1)[0]
+        other = f"{n}=99.0-r0"  # a different version exists: must not be chosen
+        (self.g.fake / "repo" / f"{other}.apk").write_bytes(pkg_bytes(n, "99.0-r0"))
+        r = self.g.run_deps()
+        self.assertNotEqual(r.returncode, 0)
+        self.assertIn("apk-fetch", (self.g.out / "RESULT").read_text())
+        self.assertEqual(len([c for c in self.g.calls() if c.startswith("fetch ")]), 1)  # no retry/fallback
+        self.assertEqual(self.g.real_adds(), [])
+
+    def test_forbidden_transaction_forms_still_refuse_before_fetch(self):
+        n = len(self.g.delta)
+        w = len(str(n))
+        for extra in (f"({n + 1:>{w}}/{n}) Upgrading musl (1.2.5-r23 -> 1.2.5-r24)\n",
+                      f" ({n + 1}/{n}) Frobbing zlib (1.3.2-r0)\n",
+                      "Upgrading musl (1.2.5-r23 -> 1.2.5-r24)\n"):
+            with self.subTest(extra.strip()):
+                self.tearDown(), self.setUp()
+                self.g.set_delta(self.g.delta, extra_sim=extra)
+                r = self.g.run_deps()
+                self.assertNotEqual(r.returncode, 0)
+                self.assertFalse([c for c in self.g.calls() if c.startswith("fetch ")])
+                self.assertEqual(self.g.real_adds(), [])
 
 
 class ClosureFixture(RecipeBase):

@@ -128,6 +128,44 @@ is refused as an indented transaction row. Root's control was an appended
 Unchanged: all 26 solver pins, WANT/libunwind 1.8.1, signature checks and
 scripts, raw identity joins, offline replay and the lifecycle.
 
+### Repair 4: exact full-package-field fetch
+
+This answers [the exact-package fetch brief](../../../docs/project/tasks/T10.010.004-dependency-repair-4.md).
+
+Root's actual resolve failed at `apk fetch … acl-libs=2.3.2-r1` with
+`unable to select package`.
+
+The pinned source shows why (apk-tools `44dcdfc` `query.c`):
+- `apk_query_matches` defaults to `--match name`, and its fast path calls
+  `match_name()`.
+- `match_name()` compares `name->name` with the *whole* argument
+  (`m->match = arg`). The comparison fails before any version check, so the
+  failure is not evidence that the package is unavailable.
+
+The correction:
+- Use `--match package` with `name-version`. `apk_dep_parse` finds no
+  comparer, so it keeps the whole string as the query. A full scan then
+  compares it exactly against each package's serialized `PKG_VER_FMT`
+  (`name-version`) in `ser_match_string`/`match_blob`.
+- `app_fetch.c` downloads nothing unless every argument matched
+  (`ctx->errors == 0`).
+- All repository additions go in **one batched, nonrecursive call**:
+  `apk fetch --no-cache --match package --output <fresh empty dir> n1-v1 …`.
+  This loads the index once instead of once per package.
+- Never used: `-R`, `--link`, `--url`, wildcards, unversioned queries,
+  fallback retries or guessed URLs.
+
+The fetch exit status is never acceptance. Whatever the status:
+- The fresh directory must hold exactly one regular, non-hidden `*.apk` per
+  wanted package, and nothing else.
+- Each file is mapped by its own signed `.PKGINFO` name=version. Unrequested
+  or duplicate identities refuse, and the mapped set must equal the wanted set.
+- Each file is renamed `repo-K.apk` and re-authenticated with `verify_apk`
+  (real stock-key verify plus signed identity).
+- The single offline install and the host raw N/V/A/Q1/full-hash join are unchanged.
+
+This path is **source-supported, not runtime verified**.
+
 ## Files (all under `tools/renewal/native_capacity/`)
 
 | Path | Role |
@@ -138,7 +176,7 @@ scripts, raw identity joins, offline replay and the lifecycle.
 | `build/guest_build.sh` | Guest main: checks, then dependencies, then unpatched + patched renewal `map-server` |
 | `build/guest_lib.sh` | Guest checks: cgroup, lock, closure, lock candidate, finalize. Sourced by the guest and by host tests |
 | `build_recipe.py` | `plan` / `execute` / `validate-export` / `image-context` / `import-check` |
-| `test_prepare_source.py`, `test_build_recipe.py` | 20 + 81 focused tests (25 added by T10.010.004, two private-only skips; synthetic) |
+| `test_prepare_source.py`, `test_build_recipe.py` | 20 + 86 focused tests (30 added by T10.010.004, two private-only skips; synthetic) |
 
 ## 1. Source identity and preparation (unchanged result, verified again)
 
