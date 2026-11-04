@@ -746,3 +746,12 @@ retains all earlier safety/identity/offline constraints. Root's direct checks
 of Grok dab369f8 find the uncounted-action guard and metadata-only defects
 still open, so it remains unselected. The main goal is unchanged;3/7 audit
 tasks are closed. Feature5bd22362 is confirmed pushed, origin/main unchanged.
+
+At frozen ae4c846, the identical repair4 body reaches both retained owned
+terminals as ready follow-ups: Claude ctx_856023beba22 / task_09d036ec4c7d
+and Grok ctx_f236123bedf5 / task_a685973b6d8e. Both continue their own
+candidate branches with the original six-file source-only boundary. No new
+worker fleet is created. These receipts prove dispatch, not correction or
+runtime success. Root retains serial runtime ownership and the VM stays
+stopped. Private apk-fetch-repair-dispatch-root-1/DISPATCH_ROOT.json SHA-256:
+fdb027322ba02620561747dc93b0d4fbb1eda1d918ca4462c89563c055445449.

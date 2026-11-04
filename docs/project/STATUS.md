@@ -91,7 +91,9 @@ all47 solver rows correctly. Its first exact package fetch refuses before
 installation. Root's pinned upstream source review identifies a nonrecursive
 lookup defect and a proposed full-package-field workaround. The equal
 [fetch repair](tasks/T10.010.004-dependency-repair-4.md) is the next source
-action; no closure/full build is qualified. The first unretained readiness
+action. Identical frozen ae4c846 briefs are dispatched as ready follow-ups
+to both retained Claude/Grok workers; no new fleet is created. No
+closure/full build is qualified. The first unretained readiness
 mismatch remains unclassified. The VM is stopped, both containers deleted
 and five personal service projections identical.
 The [EXP/callback/save source analysis](reviews/2026-11-04-T10.010.006-root.md)
