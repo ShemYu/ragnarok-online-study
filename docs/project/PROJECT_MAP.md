@@ -25,8 +25,9 @@ FULL MODERN / RENEWAL PERSONAL GAME
 |   [x] Complete GCC host measurement / exact raw identity / child cleanup
 |   [x] Complete44 host downloads +3dev -> exact47 manifest
 |   [x] Actual47 stock-key authentication and offline install
-|   [ ] Canonical installed tuple ordering [CURRENT; source repair]
-|   [ ] Fresh successful normal closure qualification
+|   [x] Tuple ordering [ROOT SOURCE VERIFIED; provisional Claude]
+|   [ ] Final supplier comparison [Grok running independently]
+|   [ ] Fresh successful normal closure [CURRENT; v4 admission ready]
 |   [ ] Qualified dependencies -> full builds -> ordinary-item A/B
 |   [ ] Binary/mod/text gate [SOURCE INTEGRATED; RUNTIME OPEN]
 |   [ ] Real EXP/callback/save [ANALYSIS INTEGRATED; RUNTIME OPEN]
@@ -68,8 +69,10 @@ All download children are reaped. Claude338ca82f is selected/source-integrated:
 both candidates pass Root's91-test runs, but a further native-target
 counterexample rejects Grok's candidate. The real v3 run authenticates/installs
 all47 offline and preserves base26/keys/installed-C identities. Final candidate
-ordering fails despite exact set equality. Repair the producer with the
-[equal brief](tasks/T10.010.004-installed-order.md), then use a fresh phase.
+ordering fails despite exact set equality. Claude's producer correction passes
+Root97 tests/7 controls and is provisionally integrated as1ac079c7; final Grok
+comparison under the [equal brief](tasks/T10.010.004-installed-order.md) stays
+open. Fresh v4 source/input/admission pins are reviewed before the next run.
 Both containers are deleted, VM stopped and personal projections identical;
 no full compiler has run. Both settled noarch-worker terminals are released.
 

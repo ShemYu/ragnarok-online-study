@@ -983,3 +983,9 @@ the isolated runtime path independently. All five blobs equal that candidate;
 Grok's common inputs/checkout remain unchanged and final comparison stays
 open. Require fresh guest-script/helper/upload/phase bindings before a new
 run; failed phase3 is never reused. See [provisional source decision](2026-11-04-T10.010.004-root.md#verified-ordering-source-provisionally-advances-isolated-runtime).
+
+Provisional source is committed1ac079c7. Fresh v4 changes only3output paths,
+schema and2 exact guest-script hashes. Root checks all124 phase pins,6 payloads,
+47 identities/upload rows and unconsumed markers without calling admission.
+Commit the exact final phase token before dependency-only execution; no
+compiler/game/SQL or normal closure result is implied. See [v4 admission](2026-11-04-T10.010.004-root.md#fresh-v4-runtime-admission-after-ordering-repair).
