@@ -23,18 +23,22 @@ not percentages of playable content, translation or remaining effort.
 
 ## Current action — DB qualification before integrated items
 
-**Next:** bind candidate6's fresh actual preflight and phase2 preparation,
-then review the resulting runtime admission. Root verifies98 authored controls,
+**Next:** execute candidate6's admitted one-use phase2 capture.
+Its fresh actual read-only preflight and prepare-only commands pass. Root verifies98 authored controls,
 13 independent profile/I/O probes and four independent actual-hit directory
 swaps, with compile/lint passing. Both observed temp/control faults are repaired
 within that synthetic contract; no remaining blocker was found in the narrow
-source reviews. Real phase2 is absent and no new run is admitted.
+source reviews. Phase2/private app-tmp/resource files are prepared and read
+back, with no LAUNCHED marker. Root and the independent final source/phase
+review find no blocker; the exact run is admitted after this checkpoint is
+published, with all fresh runtime gates still required.
 
 Candidate4's earlier run refused before any VM command on a shared-temp file.
 That phase/refusal and the unrelated file stay preserved. Candidate6 uses a
 private phase-owned TMPDIR for app up/down only, keeping the historical
 environment for direct VM boot. Exact private-dir identity and environment
-must still be bound and exercised in actual preparation/startup.
+are bound in actual preparation; the app's honoring of TMPDIR remains a live
+startup observation.
 Both original suppliers and Claude candidate6 have delivered; source copies
 and task branches are preserved. The common41-file input contract stays frozen.
 Root handles report wakes without inbox polling; source work is not on its own
@@ -52,12 +56,14 @@ keeps original source scores separate from later repair quality.
 Its settled worker is now released with an archived transcript; source,
 reports, branch and worktree remain preserved.
 
-Root's repaired candidate4 real read-only preflight passes:41 input/2084 protected/1109 actual-world
+Root's repaired candidate6 real read-only preflight passes:41 input/2084 protected/1109 actual-world
 pins, indirect import sources, stopped VM binding and host checks match. No VM
 starts and no Engine API/SQL runs. Current personal-service equality, guest
 resources, complete Engine census and actual metadata/dialect/log/archive
 behavior remain before-startup/live gates. This uses a fresh source admission,
-separate from candidate2's earlier pass. **No live metadata/dump was captured.**
+separate from all earlier admissions. Preparation creates the private empty0700
+app-tmp and changes exactly TMPDIR in app up/down's environment; direct VM
+boot keeps its historical environment. **No live metadata/dump was captured.**
 
 The supported-backup codec v2 passes51 isolated synthetic controls, compilation
 and lint, preserving all original32 cases. This repairs observed newline and
