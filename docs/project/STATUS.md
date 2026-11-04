@@ -99,12 +99,14 @@ follow-up fails readiness; the original source task remains delivered and no
 restart/terminal-exit assumption follows. See the
 [paired assessment](reviews/2026-11-05-T10.010.004-launch-suppliers.md).
 
-Root's pure check of the authenticated73-table/844-column catalog identifies
-two actual timestamp EXTRA clauses rejected by the current oracle. All844
-codec type profiles pass separately. Preserve those exact clauses; a narrow
-reviewed repair is needed. Independent full definitions/counts and supported
-B0 remain absent. This metadata finding does not qualify rows or restore and
-does not require a goal change.
+The original oracle rejects two actual timestamp EXTRA clauses. Claude's
+first repair now passes Root's34 original oracle,51 original codec,49 supplier
+and29 independent controls (163total). The authenticated73-table/844-column
+actual catalog admits without dropping clauses or changing bytes. Exact diff,
+compilation and lint pass. No actual rows or backup are parsed. Grok's delivery
+and paired selection remain pending; the selected oracle is not yet replaced.
+Independent full definitions/counts and supported B0 remain absent. See the
+[compatibility result](reviews/2026-11-05-T10.010.004-timestamp-oracle-root.md).
 
 Supported-backup transitive source inspection is complete. Root authenticates
 16 exact app source bodies and personally reads the stop/restart, era-switch,
@@ -116,8 +118,9 @@ Current runtime preconditions remain unobserved. The
 and common five-file pure packet pass independent source design review;
 Claude ctx_610aa37c9b67/task_106e34086ecb and Grok
 ctx_85a8a53c4d6b/task_c42600ade6c1 are now accepted ready on separate clean
-same-base branches with the identical prompt. Source delivery, Root controls
-and selection remain pending. Root awaits explicit report wakes; no runtime
+same-base branches with the identical prompt. Claude's first delivery/Root
+checks are qualified as above; Grok's explicit report and paired source
+selection remain pending. Root awaits explicit report wakes; no runtime
 admission or audit closure follows from dispatch.
 
 Root owns all runtime work. Refresh the exact owned VM/world/resources and

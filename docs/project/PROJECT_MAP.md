@@ -84,9 +84,11 @@ backup/restore/S0–S4 remain open. See the
 Backup transitive source is now authenticated across16 files; runtime must
 prove the no-switch route. Native kqueue/raw-wait feasibility now passes seven
 Root-run direct-fake cases; full launch integration remains open. The timestamp repair's frozen
-contract/packet pass independent design review; identical source tasks are now
-accepted by Claude and Grok on separate clean same-base branches. Root awaits
-their reports before verification/selection.
+contract/packet pass independent design review. Claude's first repair passes
+163 Root-run controls and actual catalog admission with clauses preserved;
+Grok's report and paired selection remain pending. Independent capture and
+actual backup/restore remain open. See the
+[compatibility result](reviews/2026-11-05-T10.010.004-timestamp-oracle-root.md).
 See the [qualified capture](reviews/2026-11-05-T10.010.004-db-discovery-root.md#candidate8-actual-native-dump-profile-and-settled-preservation-qualified).
 The separate4GiB build VM is stopped after the repaired full pair succeeds:
 844.4s/exit0/no timeout. Root reproduces105 artifact files and nine resource
