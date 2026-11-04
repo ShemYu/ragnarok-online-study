@@ -29,7 +29,8 @@ FULL MODERN / RENEWAL PERSONAL GAME
 |   [x] Startup process/mount readbacks [ROOT VERIFIED; PARSER OPEN]
 |   [x] Managed client identity/static/owned stop [ROOT VERIFIED]
 |   [x] Live DB metadata / clean shutdown [ROOT VERIFIED; FK REFUSAL]
-|   [ ] Complete DB discovery [FK SOURCE FOLLOW-UP DISPATCHED]
+|   [ ] Complete DB discovery [C7 OVERLAY/FIXTURE REPAIR NEXT]
+|   [ ] Same-PID restore launch gate [SOURCE CONTRACT FROZEN]
 |   [ ] Isolated DB backup/restore -> integrated rendering/item A/B
 |   [ ] Binary/mod/text gate [SOURCE INTEGRATED; RUNTIME OPEN]
 |   [ ] Real EXP/callback/save [ANALYSIS INTEGRATED; RUNTIME OPEN]
@@ -68,8 +69,11 @@ shared-temp pre-start refusal remains preserved. Candidate6's actual phase2
 captures73tables/844columns and refuses one unsupported foreign key before
 dump. Root replays raw evidence and clean DB shutdown, then verifies fresh
 1109world/2084protected pins, five unchanged personal services and stopped VM.
-Claude's candidate7 source follow-up covers complete FK metadata/DDL checks
-and a fresh post-run baseline; delivery and Root verification remain pending.
+Claude's candidate7 compiles/lints and passes132 authored fake controls;
+Root's actual read-only overlay parse refuses the wrong execution-field shape,
+and two synthetic probes find exact-role gaps. Repair those in fresh C8 before
+runtime admission. The independent restore-launch contract is also frozen;
+Root's direct-interpreter/shebang fake checks do not qualify actual restore.
 No dump, backup/restore or integrated game qualification follows yet.
 Grok's original is preserved but not selected,
 and its settled worker is released. See the [current discovery record](reviews/2026-11-05-T10.010.004-db-discovery-root.md).

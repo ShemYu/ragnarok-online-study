@@ -23,16 +23,22 @@ not percentages of playable content, translation or remaining effort.
 
 ## Current action — DB qualification before integrated items
 
-**Next:** review and test Claude's candidate7 FK/terminal-baseline source on
-delivery, then separately prepare/admit a fresh actual capture.
+**Next:** repair candidate7's terminal-overlay field/role handling in a fresh
+candidate8, then independently retest before fresh preflight/capture admission.
 The [candidate7 source contract](reviews/2026-11-05-T10.010.004-db-fk-brief.md)
 is frozen for the existing Claude repair lane. Astra's design and a narrow
 independent brief review are read by Root; the reported missing record-shape
 descriptor is supplied and its joins checked against the eight pinned overlay
 records. This authorizes source work only; no next runtime phase is admitted.
-The retained Claude lane receives follow-upctx_6c79073e47f8/task_836908a41516;
-the accepted receipt is ready, with no candidate7 delivery or execution yet.
-Wait for its explicit report wake; do not poll the orchestration inbox.
+Candidate7 is delivered and Root freezes its exact bytes. Four body compilations,
+Ruff and132 authored fake controls pass, retaining all98 prior names. The actual
+read-only overlay parse refuses because the implementation/fixture expects
+nested execution fields, while the frozen descriptor/records use flat keys.
+Two Root synthetic probes also reproduce lost exact source/snapshot roles.
+The bounded FK source review finds no blocker; the whole candidate is not
+admitted and phase3 remains absent. Repair the overlay/fixtures without
+changing capture, decoder or lifecycle behavior. See the [candidate7 record](reviews/2026-11-05-T10.010.004-db-discovery-root.md#candidate7-controls-pass-actual-overlay-and-strict-role-gaps-remain).
+Root handles explicit report wakes without polling the orchestration inbox.
 Candidate6's one-use phase2 runs and settles in36.030seconds, exit0/no stderr.
 Root independently replays the raw requests/responses, metadata archive,
 guest manifest, completion markers, root visibility and shutdown records.
@@ -83,8 +89,12 @@ producer/session, root metadata and supported backup/restore semantics remain
 unqualified. Byte-admission, full synthetic oracle and observer controls retain
 their earlier scoped passes in the [local-control record](reviews/2026-11-04-T10.010.004-root.md#observer-local-controls-personally-qualified).
 The same-PID restore launcher and outer custody handling are still unfinished.
-Their independent implementation-brief draft is prepared for Root review;
-no implementation dispatch or runtime qualification follows from that draft.
+Root qualifies direct-interpreter and shebang fake identity/settlement, then
+freezes the [launch source contract](reviews/2026-11-05-T10.010.004-db-launch-brief.md).
+Two source reviews expose the native app's PATH widening; the contract includes
+that source-defined projection before Docker overrides. Paired source work
+can proceed independently; implementation/selected-source controls/actual
+restore remain unqualified. See the [launch preparation record](reviews/2026-11-05-T10.010.004-db-launch-root.md).
 
 Root owns all runtime work. Refresh the exact owned VM/world/resources and
 personal projections before startup. Supported ordinary up can initialize/write
