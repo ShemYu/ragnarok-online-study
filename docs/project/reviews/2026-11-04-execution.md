@@ -13,6 +13,17 @@ reported as a failure with canonical preservation. Two of seven audit tasks
 are self-verified; 42 unfinished board rows remain. Both T00 terminals and
 the non-selected native Grok terminal are released with archived transcripts.
 
+Latest completion: [T10.010.003 selection/integration](2026-11-04-T10.010.003-root.md).
+Root verifies final source, all nine pins, exact patch/differential and the
+executable recipe's host/fake-Engine controls, then rechecks integration.
+Three of seven audit tasks are self-verified; 41 board rows remain. No real
+native build is claimed. All six initial supplier terminals are released;
+the .005 source pair remains active. Root's next serial task is .004.
+
+The preceding dispatch checkpoint `8cafcd21` actually checked 48 local links/
+anchors; its commit-message count of 47 is a transcription error. Actual tool
+results govern these records. The frozen-packet count remains unchanged.
+
 ## Next independent source lane: T10.010.005
 
 Root freezes [the release compatibility brief](../tasks/T10.010.005.md) and

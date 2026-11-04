@@ -1,21 +1,21 @@
 # Remaining work and supervision
 
 Updated: 2026-11-04 JST. **Seven-task execution resumed.**
-Safe verification and provisional coverage are integrated. The native recipe
-is under repair/Root verification. See
+All three prerequisite source/tooling tasks are integrated. Root's actual
+binary experiment is next; release-gate source work runs in parallel. See
 [the detailed next actions](NEXT_ACTIONS.md) and [audit](reviews/2026-10-29-T00.005.md).
 
 ```text
 FULL MODERN / RENEWAL PERSONAL GAME
 |
-+-- Parallel prerequisites [2 OF 3 SELF-VERIFIED]
++-- Parallel prerequisites [3 OF 3 SELF-VERIFIED]
 |   [x] T00.006: safe public/private test classification and isolated runner
 |   [x] T06.005.001: provisional content ledger / 82-gap joins
-|   [ ] T10.010.003: reproducible native sources / bounded build recipe
+|   [x] T10.010.003: reproducible native sources / bounded build recipe
 |
 +-- Story lane [AFTER SOURCE/BUILD RECIPE]
 |   Exact 0.3.2 source is qualified; native runtime work remains:
-|   [ ] Full compile/link/export and ordinary-item A/B regression
+|   [ ] Full compile/link/export and ordinary-item A/B regression [NEXT]
 |   [ ] Binary/mod/text gate [SOURCE PAIR RUNNING IN PARALLEL]
 |   [ ] Real EXP/callback/save and uncertain-reward acceptance
 |   [ ] Isolated native parser / actors / quest states / rewards
@@ -45,9 +45,10 @@ FULL MODERN / RENEWAL PERSONAL GAME
 The ledger remains **4/14 parent checkpoints qualified**, not 29% of the
 world/story completed. The content denominator and full-milestone estimate
 remain unfinished. Basic local play and saved progress are already available.
-Two of the seven audit tasks are self-verified (about 29% by task count only).
+Three of seven audit tasks are self-verified (about 43% by task count only).
 See [safe runner](reviews/2026-11-04-T00.006-root.md) and
-[coverage verification](reviews/2026-11-04-T06.005.001-root.md); all 82 functional
+[coverage verification](reviews/2026-11-04-T06.005.001-root.md) and
+[native preparation](reviews/2026-11-04-T10.010.003-root.md); all 82 functional
 gaps remain open. The historical private constructor suite remains 48/56.
 
 [Current status](STATUS.md) is authoritative for pause state, the preserved

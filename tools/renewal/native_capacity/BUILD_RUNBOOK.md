@@ -10,12 +10,14 @@ brief `docs/project/tasks/T10.010.003.md` (SHA-256 `7bd1791f…a5a3f8`).
 | `7e5135b0` | Consistent base+delta dependency model, cancellation-safe create/import, output-root link check |
 | repair 3 (this revision) | `import_check` preserves ownership detail when the body fails and cleanup also fails |
 
-**Status: candidate, not Root verification.**
+**Status: selected and integrated; Root verifies preparation/recipe scope.**
+See [Root's selection, actual tests and remaining runtime gates](../../../docs/project/reviews/2026-11-04-T10.010.003-root.md).
+Historical worker results below retain their original scope.
 - Source preparation was executed and checked on the host.
 - The build recipe is implemented and tested only against a **fake** Engine
   plus host-run guest-library fixtures.
-- **No compiler container, image or binary has been run or produced, and
-  T10.010.003/.004 are not complete.**
+- **No compiler container, image or binary has been run or produced.
+  T10.010.003 is self-verified for implementation; .004 remains unqualified.**
 
 ## Files (all under `tools/renewal/native_capacity/`)
 

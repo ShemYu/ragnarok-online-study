@@ -1,9 +1,11 @@
 # Expert re-audit — next actions
 
 Designed 2026-10-29; execution activated 2026-11-04 by the current thread goal.
-T00.006 safe verification and T06.005.001 provisional metadata/tooling are
-self-verified and integrated; see [runner selection](reviews/2026-11-04-T00.006-root.md)
-and [ledger selection](reviews/2026-11-04-T06.005.001-root.md). Five audit tasks
+T00.006 safe verification, T06.005.001 provisional metadata/tooling and
+T10.010.003 preparation/recipe are self-verified and integrated; see
+[runner](reviews/2026-11-04-T00.006-root.md),
+[ledger](reviews/2026-11-04-T06.005.001-root.md) and
+[native preparation](reviews/2026-11-04-T10.010.003-root.md). Four audit tasks
 remain open. The first three source lanes have frozen briefs; see the
 [execution record](reviews/2026-11-04-execution.md) for dispatch and results.
 [Audit evidence](reviews/2026-10-29-T00.005.md) distinguishes confirmed findings
@@ -43,7 +45,7 @@ Inspection/design complete; execution resumed 2026-11-04
  +-- T00.006     safe verification [SELF-VERIFIED] -------+
  +-- T06.005.001 coverage ledger [SELF-VERIFIED] ----------+--> full-content plan
  |
- +-- T10.010.003 exact sources + build recipe
+ +-- T10.010.003 exact sources + recipe [SELF-VERIFIED]
        +-- T10.010.004 full binary + ordinary items ------+
        +-- T10.010.005 release compatibility ------------+--> T10.010.007
        +-- T10.010.006 reward/save analysis + validation -+    native -> normal play

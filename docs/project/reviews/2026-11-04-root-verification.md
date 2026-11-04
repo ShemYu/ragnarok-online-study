@@ -242,7 +242,19 @@ No real Engine is contacted. Repair dispatch `ctx_f6bac435906a`, task
 | `native-repair-controls-root-2/RESULT_ROOT.json` | `847fc4421407862f354a9515e3318e01c7c39df6bdd482f80d3ca11669a863c1` |
 | `native-grok-root-2/RESULT_ROOT.json` | `ace80d61f7fc198d6ad30554ed66d05c76b55a97787ef94bc34976d7b7cf6b7d` |
 
-Next owner: suppliers repair their owned candidates; Root verifies the latest
+## Final prerequisite disposition
+
+Root verifies the narrow final import repair `ad87a58b`, repeats the owned
+fake-Engine two-failure control, reconstructs fresh source and checks the
+integrated implementation. [T10.010.003 is self-verified](2026-11-04-T10.010.003-root.md)
+for preparation/recipe scope. All three prerequisites are integrated; no real
+native build is implied. All six original supplier terminals are released.
+The .005 source pair remains active; Root's next serial experiment is .004.
+The previous candidate states and failures above remain dated evidence.
+
+Next owner: Root executes the qualified next experiment within fresh runtime
+bindings; release-gate suppliers finish their independent source candidates.
+Root verifies the latest
 revisions, records the final paired score/selection, integrates and commits
 each qualified child before advancing. Model versions remain provider/session
 reports where not independently observable; API tokens/cost are unobserved.

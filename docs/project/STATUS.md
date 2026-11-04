@@ -15,21 +15,21 @@ See [audit findings](reviews/2026-10-29-T00.005.md),
 Feature-branch checkpoints/publication remain authorized; `origin/main` stays
 unchanged. No additional local-main merge is part of this execution checkpoint.
 
-Two of seven audit tasks are now `self_verified` and integrated:
+Three of seven audit tasks are now `self_verified` and integrated:
 [T00.006 safe verification](reviews/2026-11-04-T00.006-root.md) and
-[T06.005.001 provisional ledger](reviews/2026-11-04-T06.005.001-root.md).
-Root checks both final pairs and the selected integrated tools. Four settled
-test/coverage terminals are released. All 82 functional gaps remain open.
-The [native checks](reviews/2026-11-04-root-verification.md) continue: fresh
-source/nine pins/133 cases/9 mutants pass, while dependency-lock and owned
-cancellation repairs remain under verification. No real compiler container
+[T06.005.001 provisional ledger](reviews/2026-11-04-T06.005.001-root.md), and
+[T10.010.003 native preparation/recipe](reviews/2026-11-04-T10.010.003-root.md).
+Root checks the pairs, selects and rechecks integrated implementations. Fresh
+native preparation reproduces all nine pins; 20 preparation/45 recipe tests
+and the 133-case/9-mutant host check pass. All 82 functional gaps remain open.
+All six original supplier terminals are released. No real compiler container
 has started. The real private constructor suite remains 48/56 due to stale
 historical admission; its safe runner reports failure without canonical changes.
 The [release-gate source phase](tasks/T10.010.005.md) now runs as a fresh equal
-Claude/Grok pair from `51f927a2`, independently of native recipe repair.
+Claude/Grok pair from `51f927a2`, independently of actual native execution.
 Its real admission must refuse until missing runtime/text facts are qualified.
-Five settled supplier terminals have been released; the native repair and two
-new release-gate workers remain under supervision.
+The two release-gate workers remain under supervision. Root owns the next
+serial runtime experiment.
 
 Pre-merge maintenance: lint/CI checkpoint `86e98d9` is verified. At the user's
 subsequent request, the retired Godot/Character Lab source is preserved under
@@ -51,9 +51,10 @@ This is not a percentage of playable content, effort or translation.
 
 ## Unfinished work, in priority order
 
-1. **Native prerequisite.** Finish the exact native source/build recipe
-   (T10.010.003). Safe verification T00.006 and provisional ledger T06.005.001
-   are integrated within their documented limits; full content stays open.
+1. **Actual binary experiment.** T00.006, T06.005.001 and T10.010.003 are
+   integrated within their documented limits. Start T10.010.004 by refreshing
+   ownership/images/ABI, headroom and effective limits, then qualify dependency
+   resolution before admitting a bounded actual build. Full content stays open.
    No broad discovery or stock
    `checkweight` substitution. These address confirmed verification/release
    gaps without changing the goal.
@@ -113,11 +114,10 @@ Evidence: [saved user state](reviews/2026-10-25-user-assassin-play.md#current-of
 
 ## Current action and ownership
 
-Root freezes equal Claude/Grok implementation briefs for the three independent
-source lanes, verifies both candidates and integrates the stronger bounded
-outputs. Root then owns serial runtime execution and verification. Refresh
-current Engine/socket/service/save bindings after the 8 GiB restart; old IDs,
-start times and consumed probe admissions are not reusable authority.
+The three prerequisite source lanes are integrated. Root owns serial runtime
+execution/verification for .004; the .005 equal source pair runs independently.
+Refresh current Engine/socket/service/save bindings; old IDs, start times,
+RAM assumptions and consumed probe admissions are not reusable authority.
 
 The expert re-audit refines that next action: reproducible source preparation
 and the full-binary/ordinary-item proof come before more story authoring.

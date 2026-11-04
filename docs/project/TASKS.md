@@ -18,15 +18,15 @@ newly designed tasks use [Next actions](NEXT_ACTIONS.md) for their bounded
 acceptance; freeze their task-specific execution inputs before dispatch.
 
 The expert re-audit adds seven planned children to the 37 previously unfinished
-rows. T00.006 and T06.005.001 are self-verified in [History](HISTORY.md), leaving 42 open
+rows. T00.006, T06.005.001 and T10.010.003 are self-verified in [History](HISTORY.md), leaving 41 open
 rows. Their bounded outputs, acceptance and parallel lanes are defined in
 [Next actions](NEXT_ACTIONS.md). Their execution starts with three independent
 source lanes; installed-state mutations require the later runtime gates.
 
 ## Resume order
 
-1. T10.010.003 reproducible native source/build recipe. T00.006 safe verification
-   and T06.005.001's provisional ledger are integrated within their stated scope.
+1. T10.010.004 fresh runtime/dependency qualification and actual comparable
+   native builds. The three prerequisite source/tooling tasks are integrated.
 2. T10.010.004–007: full native build and ordinary-item regression, release
    capability gate and reward/save qualification, then supported normal
    integration and journal/progression/save checks.
@@ -74,7 +74,6 @@ source lanes; installed-state mutations require the later runtime gates.
 | T10.008 | P3 functional source | Supported Traditional Chinese True quest-text mod generator | Existing supported System-table route; independent source lane from T10.007, normal journal gate later uses actual server admission | `in_progress` | Install/relink the supported True quest-text overlay and verify the normal journal against its oracle. |
 | T10.009 | P3 functional source | Chapter1 starter transport and checked18368→18369Messenger handoff | Integrated2734d8f starter, supported mechanics/commands and existing destination metadata; independent of broader geometry | `in_progress` | Complete supported normal integration of first-edge travel, Messenger handoff, fruit/return and saves. |
 | T10.010 | P3 functional source | Fruit village arrival, Shasha/Maysel through18371, real rewards and resume | Qualified T10.009 source; retained mechanics/native binding; independent of pending normal installation | `in_progress` | NEXT: qualify/build the exact 0.3.2 native server, then test parser, actors, rewards, save and withdrawal before normal installation. |
-| T10.010.003 | P3 reproducible build | Exact source/overlay preparation and bounded native build/export recipe | Qualified T10.010.002 source; fresh environment/resource binding before execution | `in_progress` | Repair dependency-lock semantics and cancellation during create/import, then Root qualifies executable recipe. Grok's planner remains non-executable. [Review](reviews/2026-11-04-root-verification.md). |
 | T10.010.004 | P3 native qualification | Full binary build/start and ordinary-item A/B regression | T10.010.003 | `planned` | Verify complete linking/loader/startup and ordinary loot/shop/inventory behavior before loading the story extension. |
 | T10.010.005 | P3 release safety | Binary/mod/text/config compatibility manifest and pre-install gate | Source phase parallel to .003; execution needs .004 | `in_progress` | Independent Claude/Grok source candidates start from the [same brief](tasks/T10.010.005.md) and 23 pinned sources. Real admission must refuse until Root supplies qualified native/effective/text facts; [dispatches](reviews/2026-11-04-execution.md#next-independent-source-lane-t10010005). |
 | T10.010.006 | P3 reward/save qualification | Actual EXP, callback, save and uncertain-delivery acceptance | Analyze with T10.010.003; native validation needs T10.010.004 | `planned` | Inspect actual save paths, verify level-up and restart/no-replay, and define manual review without claiming atomicity. |

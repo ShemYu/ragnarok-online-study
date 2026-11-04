@@ -141,6 +141,7 @@ These need no private input. Optional real-input groups run **only** when an exp
 | --- | --- | --- |
 | `tests/probe_direct_models.test.mjs` | `node --test` | none; writes `.tools` |
 | `tools/renewal/test_coverage_ledger.py` | `python3 -I -B <file> -v` | Authored fixtures only; actual pinned regeneration is a separate explicit-root command |
+| `tools/renewal/native_capacity/test_prepare_source.py`, `test_build_recipe.py` | `python3 -I -B <file>` | Authored Git/host-shell/fake-Engine fixtures; no installed Engine, package install or server build; actual preparation/build commands are separate |
 | `tests/image_consumer_fixture.test.mjs` | `node --test` | `IMAGE_CONSUMER_SOURCE`+`IMAGE_CONSUMER_METADATA`; writes `.tools` |
 | `tests/renewal/test_quest_table_inventory.py` | `python3 -m unittest` (header suggests discovery; use the file) | none |
 | `tests/renewal/test_quest_negative_lifecycle_patch.py` | unittest file | `T10_NEGATIVE_LIFECYCLE_DONORS` |

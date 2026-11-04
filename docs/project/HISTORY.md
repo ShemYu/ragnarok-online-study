@@ -72,6 +72,15 @@ See [selection, exact checks and limits](reviews/2026-11-04-T00.006-root.md).
 The active board now has 42 unfinished rows; two of seven audit tasks are
 self-verified. Both settled T00 terminals are released. Full game gates remain.
 
+T10.010.003 is `self_verified` for reproducible source preparation and executable
+recipe implementation on 2026-11-04. Root selects repaired Claude over Grok's
+non-executable planner; fresh reconstruction, all nine pins, 20 preparation/
+45 recipe tests, 133 host cases and nine fault mutants pass. See
+[selection, controls, integration and remaining real-runtime gates](reviews/2026-11-04-T10.010.003-root.md).
+The active board has 41 unfinished rows; three of seven audit tasks are
+self-verified. All six initial supplier terminals are released. The real
+Linux build, item regressions and release/game acceptance remain open.
+
 ## Preserved snapshots
 
 - [Original task ledger and acceptance contracts](HISTORY-2026-10-25-TASKS.md):
