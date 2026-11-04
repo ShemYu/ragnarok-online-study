@@ -1298,3 +1298,23 @@ Root's read-only replay session85329 confirms1902 unchanged protected files,
 zero host outputs, unchanged whole world/personal projections and current
 stopped ownership, preserving23 terminal files. See [the exact refusal](2026-11-04-T10.010.004-root.md#first-start-refused-before-sql-db-cwd-mismatch).
 Commit before narrow source correction/new phase. No runtime gate passes.
+
+
+Corrected source6ef0d54f is committed/pushed before a new first-start phase is
+prepared and Root admits1905 pins/six payloads. Astra source/file review agrees.
+After admissiond7a21f3f is committed/pushed, actual session55275 starts all five
+exact-image services through plain up0/21.182s and registers1265 maps. Strict
+process readback refuses missing cwd/UID/GID prefix despite two correct hashes;
+actual generated-mount reads are not reached. All five ordered TERM/exited0
+checks pass; supported down exits0/.849s and the VM is stopped. Root's file-only
+replay81888 exits0: nine resource files, projection/three negative controls,
+shutdown log/request joins,1905 protected files,28 bounded outputs and64 unchanged
+terminal files pass. Fresh Root stopped/personal checks also pass. See
+[the partial qualification](2026-11-04-T10.010.004-root.md#initialized-startup-partial-process-readback-incomplete).
+
+Pinned client source exposes header-buffer prefix loss; existing bounded
+non-Upgrade Engine exec is source-supported for complete capture. Keep missing
+fields and five startup errors unresolved. Commit this checkpoint, then admit
+same-version diagnostic reuse of the initialized disposable DB/network, with
+mutable generated-content deltas and immutable inputs/personal state protected.
+No client/item/parser/story/save gate or additional audit task closes.

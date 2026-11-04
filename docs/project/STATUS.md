@@ -21,113 +21,61 @@ ledger remains **4/14 checkpoints qualified**: one accepted and three ready
 for user review, with **82 resource gaps open**. These are separate ledgers,
 not percentages of playable content, translation or remaining effort.
 
-## Current action — isolated startup and ordinary items
+## Current action — complete startup readbacks
 
-**Both full server artifacts now pass Root's offline qualification.** After
-admission9f8c2bed is committed/pushed, compiler6 exits0/no timeout in844.4s.
-The corrected interpreter capture passes the unchanged validator. Both ELF
-hashes equal the earlier compiled pair; only the report capture changed.
-Root independently reproduces105 saved artifact files and nine resource files,
-checks exact47/base26, raw memory/cgroup evidence, native ELF interpreter,
-nonempty matching loader/dependency reports, owners/modes and capability markers.
-All342 protected source/evidence files remain unchanged. Both owned containers
-are deleted/404, VM shutdown exits0, current stopped ownership passes and
-personal five-service projections remain byte-identical. See
-[actual qualification](reviews/2026-11-04-T10.010.004-root.md#compiler6-full-artifacts-personally-qualified).
+**The disposable server starts; full startup qualification remains open.**
+After admissiond7a21f3f is committed/pushed, supported up exits0 in21.182s.
+All five services use the admitted immutable images. The current character
+server registers1265 maps; captured process/file hashes match the qualified
+unpatched binary. This is registration of that server's map set, not proof of
+full-world coverage or working maps/quests.
 
-**Both immutable images and original-library loaders now pass Root verification.**
-After admission1f79acf4 is committed/pushed, the one image run exits0. Both
-images contain the exact qualified binary at the supported /rathena/map-server
-path, retain base Config/layer inheritance and resolve all five required
-libraries against the unchanged original26 packages. Root's fresh offline
-replay reproduces nine resource and14 files per loader; all93 terminal evidence
-files are pinned and558 protected files remain unchanged. Five owned containers
-are deleted/404, the VM is stopped and personal projections remain identical.
-Whole-layer entry inspection and actual server/parser/game/SQL/probe-purity/save
-results remain unqualified. See
-[image qualification](reviews/2026-11-04-T10.010.004-root.md#image-pair-and-original-loaders-personally-qualified).
+The strict controller exits1 because bundled CLI exec captures only the two
+SHA rows, omitting preceding cwd/UID/GID fields. Root keeps that failure:
+process user/cwd and generated-mount reads remain unqualified. Astra identifies
+client header-buffer loss in pinned source, consistent with the missing prefix;
+no wire capture proves exactly which bytes were lost. The supported correction
+is the existing bounded Engine API without Upgrade, strict complete-frame/EOF
+capture and matching terminal exec inspection. Keep the original assertions.
 
-**The read-only user/bind diagnostic also passes Root's independent replay.**
-After admission91105e2f is committed/pushed, resource/user probes exit0 in10.2s/
-0.7s. Actual rathena UID/GID1000 with zero effective capabilities reads all
-three permission fixtures and the exact NPC bytes. Root replays nine resource
-files and request-hashed Docker logs;1896 protected files and37 terminal files
-remain unchanged. Both containers are deleted/404, VM stopped/personal checks
-pass. Host0600 alone is not a demonstrated read blocker; no chmod repair is
-justified for these exact reads. The unusual reported single-file ownership
-mechanism is unqualified and needs no extra diagnostic before startup. See
-[actual read qualification](reviews/2026-11-04-T10.010.004-root.md#read-only-user-mount-diagnostic-personally-qualified).
+**Clean shutdown and preservation pass the controller's actual checks.** All
+five exact services receive ordered signal-only TERM, exit0 without escalation,
+and supported down exits0/0.849s with the VM stopped. All1905 protected inputs
+and personal projections are unchanged;28 generated host files/262737bytes are
+retained. Root's fresh stopped/personal/input checks pass. Root
+independently replays nine resource files, the service projection/three negative
+controls and ordered shutdown; all64 terminal files remain unchanged. See
+[the actual partial result](reviews/2026-11-04-T10.010.004-root.md#initialized-startup-partial-process-readback-incomplete).
 
-**Startup source and read-only preflight pass; actual startup remains open.**
-Root and independent reviews check the exact five-service projection and
-original supported launch path. Eight modeled shutdown controls pass: clean
-ordered TERM, timeout, request failure, nonzero exit, restart, failed log
-response, unknown name and wrong image. The Engine stop API can escalate to
-SIGKILL yet return success, so down alone cannot prove graceful shutdown.
-The admitted controller must first prove ordered signal-only TERM/exited0,
-without escalation; ambiguity preserves the VM. Read-only preflight passes
-1898 inputs/six payloads/current stopped state and ports. These are source/
-modeled results, not actual SQL/service evidence. See
-[startup source checkpoint](reviews/2026-11-04-T10.010.004-root.md#supported-first-start-source-and-stop-controls).
+**Next:** commit the partial-result replay, then source-review/admit a
+same-version diagnostic restart of this initialized disposable world. Preserve
+its DB volume/network and freeze the same Renewal/mod selection; ordinary up
+repeats schema/grant/config operations. Refresh current world/output inventory,
+not the old first-use loader. Complete API process/generated-mount readbacks,
+then managed client and ordinary-item A/B. Keep4GiB/CPU2 and internet connected;
+personal state remains untouched.
 
-**First attempt safely refuses before app up or SQL.** After admissionce22447d
-is committed/pushed, actual session88148 exits1 at the pre-SQL DB-default check:
-the exact DB image reports WorkingDir=/, while the source validator expected
-empty. No app-up/resource probe/game/SQL is attempted. VM shutdown exits0;
-1902 protected files, the entire host world and personal services are unchanged.
-Root's independent read-only replay confirms all of this and current stopped
-ownership, preserving23 terminal files. See
-[preserved refusal](reviews/2026-11-04-T10.010.004-root.md#first-start-refused-before-sql-db-cwd-mismatch).
+Completed prerequisites stay scoped in dated evidence:
 
-**Corrected source/preflight passes:** the DB projection now requires the
-actual cwd=/; Root verifies the exact one-line helper change and positive/
-three negative metadata controls. v3 pins full DB metadata/current stopped
-state and retains byte-identical shutdown code. Read-only preflight passes
-1901 inputs/six payloads. See [correction](reviews/2026-11-04-T10.010.004-root.md#corrected-db-projection-source-checkpoint).
-
-**Corrected phase is prepared/admitted, not consumed.** After source6ef0d54f
-is committed/pushed, Root verifies1905 pins/six payloads, complete actual DB
-metadata, current stopped binding, resource payload, environment/policy and
-unused markers. See [new admission](reviews/2026-11-04-T10.010.004-root.md#corrected-first-start-prepared-admission).
-
-**Next:** commit the new admission, then execute phase1f6567f5 once. Keep the
-first consumed attempt unchanged. Verify actual generated conf/NPC mount access and process
-identity; the diagnostic does not qualify those future mounts. Fresh host
-state alone does not isolate an Engine's fixed
-container names or DB volume. Verify their absence, images, mounts, six ports,
-exact environment and graceful shutdown before initialization. Keep the4GiB/
-CPU2 ceiling; actual game fit is unproved. Require positive map registration
-and actual process/image/binary identity, then managed client and ordinary-item
-A/B checks. A successful up/Ready label alone cannot qualify startup.
-
-Host assembly is also verified in fresh owned state, after source/input
-checkpoint57ae52be is committed/pushed: supported link-assets exits0/2.004s,
-all1265 protected inputs retain content/stat and Root rehashes59 generated
-files/66650497bytes. Selected itemInfo merge-layer, six navigation tables,
-four plaintext-plugin files and moved Taiwan/Renewal configuration match.
-No asset server/browser or DB/game starts; detection/endpoints remain absent.
-The source-supported managed RemoteClient route still needs actual protocol,
-owned-lifecycle and rendering checks. See
-[host result](reviews/2026-11-04-T10.010.004-root.md#ordinary-host-assets-linked-and-personally-read-back).
-
-The [ordinary fixtures](tasks/T10.010.004-ordinary-fixtures.md) are source-selected
-and integrated. Both suppliers pass Root's isolated source/budget checks; Claude
-fbf1fcc6 is retained for simpler controls and guard margin. Both worker terminals
-are released, branches preserved. Actual parser/200-row completion, effective
-items, ordinary A/B behavior, probe purity and persistence stay open. See
-[fixture selection](reviews/2026-11-04-T10.010.004-root.md#ordinary-fixture-comparison-closed-claude-selected).
-
-Earlier1536MiB OOM, refused compiler5 and the first qualifier's metadata-reader
-refusal remain preserved. The corrected bounded8MiB reader replay passes;
-no original run or evidence is overwritten. Source/game functionality has not
-been reduced and no verified finding forces a goal change.
+- [Full server artifacts](reviews/2026-11-04-T10.010.004-root.md#compiler6-full-artifacts-personally-qualified),
+  [immutable images/original loaders](reviews/2026-11-04-T10.010.004-root.md#image-pair-and-original-loaders-personally-qualified),
+  [host assets/Chinese bytes](reviews/2026-11-04-T10.010.004-root.md#ordinary-host-assets-linked-and-personally-read-back)
+  and [four read-only bind/user reads](reviews/2026-11-04-T10.010.004-root.md#read-only-user-mount-diagnostic-personally-qualified)
+  pass Root's applicable checks. None proves gameplay or persistence.
+- [Ordinary fixtures](reviews/2026-11-04-T10.010.004-root.md#ordinary-fixture-comparison-closed-claude-selected)
+  are source-selected/integrated; real parsing/200-row capture, effective items,
+  ordinary A/B behavior, probe purity and saves remain open. Both settled
+  supplier terminals are released; branches retained.
+- Earlier OOM/report refusals and the first pre-SQL DB-cwd refusal remain
+  preserved. The corrected DB projection passes actual-metadata controls.
+  No verified finding forces a goal change.
 
 ## Four audit tasks remain open
 
 - **T10.010.004 — full binaries and ordinary items.** Both full artifacts and
   their exact dependency closure, immutable images and original-library loaders
-  pass Root's fresh offline replay. Admit supported isolated service/client
-  startup, then verify ordinary stack/new-slot,
+  pass Root's fresh offline replay. Complete isolated startup readbacks, admit
+  the managed client, then verify ordinary stack/new-slot,
   weight/full-bag, equipment/rental/GUID and save/re-entry behavior. The capacity
   probe must remain read-only. Use the [ordinary-item runbook](runbooks/T10.010.004-ordinary-item-verification.md)
   and [image source readiness](reviews/2026-11-04-T10.010.004-image-source.md).

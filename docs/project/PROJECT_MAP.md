@@ -3,7 +3,7 @@
 Updated: 2026-11-05 JST. **Seven-task execution active.**
 All three prerequisite source/tooling tasks are integrated. Both full binary
 artifacts, immutable images and original-library loaders pass Root's replay;
-isolated startup and ordinary items are next.
+startup readbacks and ordinary items are next.
 Release-gate and reward/save source are integrated. See
 [the detailed next actions](NEXT_ACTIONS.md) and [audit](reviews/2026-10-29-T00.005.md).
 
@@ -23,7 +23,8 @@ FULL MODERN / RENEWAL PERSONAL GAME
 |   [x] Immutable images / original-library loader checks [ROOT VERIFIED]
 |   [x] Read-only bind/user diagnostic [FOUR EXACT READS VERIFIED]
 |   [ ] Ordinary-item NPC fixtures [CLAUDE SOURCE SELECTED; PARSER OPEN]
-|   [ ] Actual startup / process-binary identity -> ordinary-item A/B
+|   [ ] Startup readbacks [FIVE SERVICES/1265 MAP REGISTRATION OBSERVED]
+|   [ ] Actual cwd/UID/GID and generated mounts -> client/item A/B
 |   [ ] Binary/mod/text gate [SOURCE INTEGRATED; RUNTIME OPEN]
 |   [ ] Real EXP/callback/save [ANALYSIS INTEGRATED; RUNTIME OPEN]
 |   [ ] Isolated native parser / actors / quest states / rewards
@@ -61,23 +62,23 @@ protected files unchanged. Both owned containers are deleted/404 and personal
 projections remain unchanged. The corrected report is complete; both binary
 hashes equal the previous compiled pair. Historical OOM/refused runs stay fixed.
 
-Both immutable images now pass actual binary readback at /rathena/map-server
-and original-library loader checks. Root replays nine resource/14 files per
-loader with93 terminal evidence files pinned and558 protected files unchanged.
-All five owned containers are deleted/404; VM stopped/personal preservation
-pass. The read-only user/bind diagnostic also passes Root's replay: all four
-exact reads succeed as UID/GID1000 with zero effective capabilities;1896 inputs
-and37 terminal files stay unchanged. No permission repair is inferred; actual
-generated game mounts remain open. Next admit isolated startup and verify
-process identity, managed
-client and ordinary-item A/B. No parser, rendering, runtime item or save result
-is qualified. See [Root image result](reviews/2026-11-04-T10.010.004-root.md#image-pair-and-original-loaders-personally-qualified).
+The disposable server now starts through supported up in21.182s with all five
+admitted images and1265 registered maps. Strict process checks refuse incomplete
+CLI output: both SHA rows match, but cwd/UID/GID are missing. Root's partial
+replay reproduces nine resource files, the service projection/three negative
+controls and ordered TERM/exited0 evidence. Supported down exits0;1905 protected
+and64 terminal files/personal projections remain unchanged. The initialized
+owned DB/network remain for the next diagnostic restart; VM is stopped.
+Use the bounded Engine API to complete process/generated-mount reads before
+managed client and ordinary items. Five startup errors remain to classify;
+registration is not full-world/parser/play/save acceptance. See
+[Root's partial result](reviews/2026-11-04-T10.010.004-root.md#initialized-startup-partial-process-readback-incomplete).
 
 Both ordinary-fixture candidates pass Root's source review after the equal
 budget correction. Claude fbf1fcc6 is selected as four exact blobs for simpler
 control flow and guard margin. Both settled workers are released, branches
 retained. Real parsing,200-row completion/capture, effective items, probe purity
-and persistence are still open. Service startup/mount/port/client admission
+and persistence are still open. Complete startup/mount/client admission
 also remains open; fresh host state does not isolate the Engine's fixed DB
 volume or container names. Final app up can prune unused untagged images even
 without a bundle. See the [current result](reviews/2026-11-04-T10.010.004-root.md#image-pair-and-original-loaders-personally-qualified).
