@@ -40,7 +40,8 @@ recovery/withdrawal contracts still need correction. Claude has now resumed
 and submitted `b9038ee6`; Root's113 tests pass with all620 tracked files
 unchanged, and independent source review finds no material blocker in the
 scoped repairs. The [same replacement/withdrawal clarification](tasks/T10.010.005-replacement-clarification.md)
-remains outstanding for Grok; source selection and actual release admission stay open.
+has now produced Grok `73cd559c` too. Root's79 tests pass with all620 tracked
+files unchanged; final source comparison/selection and actual release admission stay open.
 The [current .004 ownership correction](reviews/2026-11-04-T10.010.004-root.md#ownership-correction-before-further-admission)
 finds four concurrent worlds. The completed resource probe and 1.27 GiB
 headroom refusal apply to the default instance. The later
@@ -58,13 +59,12 @@ then fails: the repository upgrades four frozen base packages and APK's trigger
 launcher exits127. Both owned containers are deleted and VM shutdown passes;
 no lock or full build is qualified. Astra/primary-source review identifies
 separate package-drift and closed-stdin leads. Matching APK candidates are
-now authenticated by the actual stock-key verifier. The first closed-stdin
-reinstall succeeds, leaving the cause unproved; a config-file fd0 confound
-explains why this trial differs from the original resolver. The
-[revised diagnostic admission](tasks/T10.010.004-apk-diagnostic-2.md) removes
-that confound and records both trial outcomes. All26 versions, personal
-service projections and owned cleanup pass. Next: the revised causal control
-before recipe repair and exact-base dependency resolution.
+now authenticated by the actual stock-key verifier. After removing a config
+file confound, the real closed/null control reproduces fchdir/child127 only
+with closed stdin; /dev/null completes the real reinstall and trigger. All26
+versions, personal service projections and owned cleanup pass. Next: the
+[equal dependency-recipe repair](tasks/T10.010.004-dependency-repair.md), then
+exact-base resolution with retained signed package bytes before a full build.
 No personal RAM adjustment/restart, game/DB service or progress write occurs.
 
 Pre-merge maintenance: lint/CI checkpoint `86e98d9` is verified. At the user's

@@ -16,7 +16,8 @@ FULL MODERN / RENEWAL PERSONAL GAME
 +-- Story lane [AFTER SOURCE/BUILD RECIPE]
 |   Exact 0.3.2 source is qualified; native runtime work remains:
 |   [x] Isolated build VM resource/image/cleanup characterization
-|   [ ] APK/base-version + stdin diagnostics [CURRENT]
+|   [x] APK signatures / causal closed-vs-valid stdin diagnostic
+|   [ ] Exact-base signed dependency recipe repair [CURRENT; PARALLEL]
 |   [ ] Qualified dependencies -> full builds -> ordinary-item A/B
 |   [ ] Binary/mod/text gate [SOURCE REPAIRS; PARALLEL]
 |   [ ] Real EXP/callback/save and uncertain-reward acceptance
@@ -50,10 +51,12 @@ remain unfinished. Basic local play and saved progress are already available.
 Three of seven audit tasks are self-verified (about 43% by task count only).
 The personal resource probe passes with saves preserved. A separate 4 GiB
 build VM now passes image/resources/cleanup with3.61 GiB available and is
-stopped. Actual dependency installation fails on base-version drift and an APK
-trigger-launch error; input authentication and a causal stdin check are next.
-Grok's69-test repair closes the old edge cases; withdrawal/replacement
-procedures still need correction. Claude is pending quota/report completion.
+stopped. Root authenticates all four APKs and reproduces the trigger-launch
+failure with closed stdin; the same actual reinstall succeeds with /dev/null.
+The next source repair must also freeze all26 base versions and retain signed
+dependency bytes for replay. Both final release-gate repairs are submitted;
+Root's113/79 tests pass for Claude/Grok, with620 tracked files unchanged in
+each. Source selection and all actual release/runtime gates remain open.
 See [safe runner](reviews/2026-11-04-T00.006-root.md) and
 [coverage verification](reviews/2026-11-04-T06.005.001-root.md) and
 [native preparation](reviews/2026-11-04-T10.010.003-root.md); all 82 functional

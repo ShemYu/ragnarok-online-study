@@ -470,3 +470,30 @@ This changes the next build action: verify current enforceable limits and
 headroom with the selected recipe instead of replaying the old capacity
 assumption. The difference is a bounded execution constraint, not evidence
 that the agreed game goal must change.
+
+
+## APK authentication and actual causal control
+
+Root authenticates all four retained APKs using the pinned stock image and
+unchanged trusted keys. The first closed-stdin trial succeeds because its
+APK_CONFIG=/dev/null config load can occupy fd0. Astra identifies this
+concrete confound in primary source; Root preserves that refused experiment,
+guards absence of both the owned config path and fallback, then runs both
+trials before classification. The actual revised pair reproduces fchdir/127
+with closed stdin (APK2) and succeeds with /dev/null (APK0), including real
+post-upgrade and trigger launches. All26 versions/trust/world identities stay
+unchanged. Four owned deletions/404 and graceful VM shutdown pass; five
+personal service projections are identical. No game/DB/save action occurs.
+See [Root evidence](2026-11-04-T10.010.004-root.md#actual-package-authentication-and-causal-stdin-control).
+
+The [equal recipe-repair brief](../tasks/T10.010.004-dependency-repair.md)
+requires authenticated local APK inputs, solver constraints for every frozen
+base package, retained signed added-package closure and stronger raw export
+joins. It preserves all source/image/ABI/crash flags and owned lifecycle.
+Root will compare source candidates before admitting another real dependency
+transaction. Three of seven audit tasks remain closed; no full build yet.
+
+Both final release repairs have now reported: Claude b9038ee6 and Grok73cd559c.
+Root independently runs113/79 tests respectively, with all620 tracked files
+unchanged in each checkout. Final source selection and actual runtime pins
+remain open; see [release comparison](2026-11-04-T10.010.005-root.md).
