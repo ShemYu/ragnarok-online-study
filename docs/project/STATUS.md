@@ -33,14 +33,14 @@ Root runs both candidates' 75/38 synthetic tests and Ruff successfully, but
 missing qualification/staging bindings. Both need the same repair gate;
 neither is selected or integrated. The same Orca terminals review the
 resource probe. Root owns the next serial runtime experiment.
-The [current .004 preflight](reviews/2026-11-04-T10.010.004-root.md) confirms
-unchanged five-service bindings and the local stock image. A real GET exposes
-close-framed HTTP handling absent from the old fake tests; repair `8b6e347f`
-passes 56 tests and actual read-only GETs. The tiny no-network resource probe
-has an unused revised plan after Root confirms a serialization false refusal
-in primary Slim source. Both delta reviews and Root's exact pin/archive/limit
-checks pass; the one-shot admission is recorded before execution. No actual
-probe/build has run at this admission checkpoint.
+The [current .004 resource probe](reviews/2026-11-04-T10.010.004-root.md#actual-resource-probe-passes-default-headroom-gate-refuses)
+passes after both reviews and Root's committed admission. Actual kernel limits
+match; the owned object is deleted/404 and all five original service projections
+are preserved. The fresh 1.27 GiB available RAM makes the unchanged default
+1536+768 MiB planning gate refuse. Refresh idleness/backup and qualify the
+supported RAM route before dependency/build admission. No compiler/package
+installation or normal app/SQL/save action has occurred. Actual Engine reads
+also qualify HTTP repair `8b6e347f`, beyond its 56 focused tests.
 
 Pre-merge maintenance: lint/CI checkpoint `86e98d9` is verified. At the user's
 subsequent request, the retired Godot/Character Lab source is preserved under
@@ -63,8 +63,8 @@ This is not a percentage of playable content, effort or translation.
 ## Unfinished work, in priority order
 
 1. **Actual binary experiment.** T00.006, T06.005.001 and T10.010.003 are
-   integrated within their documented limits. Start T10.010.004 by refreshing
-   ownership/images/ABI, headroom and effective limits, then qualify dependency
+   integrated within their documented limits. T10.010.004's tiny resource probe
+   now passes; qualify supported RAM with fresh idleness/backup, then dependency
    resolution before admitting a bounded actual build. Full content stays open.
    No broad discovery or stock
    `checkweight` substitution. These address confirmed verification/release

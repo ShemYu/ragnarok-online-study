@@ -29,7 +29,9 @@ results govern these records. The frozen-packet count remains unchanged.
 Current serial runtime action: [T10.010.004](2026-11-04-T10.010.004-root.md).
 Root's actual read-only checks find unchanged services/local image, expose and
 repair close-framed HTTP handling, and prepare one bounded resource probe.
-No Engine write or compiler action has occurred. The .005 Claude source
+The later admitted resource probe now passes; no compiler action has occurred.
+See [actual result/headroom refusal](2026-11-04-T10.010.004-root.md#actual-resource-probe-passes-default-headroom-gate-refuses).
+The .005 Claude source
 candidate `4161e4cd` and Grok source candidate `7e9e59e0` are submitted;
 neither is Root-verified or integrated. The worker-reported 75 and 38 synthetic
 tests respectively are not Root acceptance. Two read-only helper reviews run
