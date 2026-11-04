@@ -113,7 +113,7 @@ the tested test file is
 
 > **T00.006 safe path.** The helper scripts below are historical and ignored. Do
 > not run the test file directly in any checkout. Use the checked-in copy runner:
-> `node tools/renewal/run_isolated_suite.mjs --suite model-constructors --corpus <abs canonical checkout>`.
+> `node tools/renewal/run_isolated_suite.mjs --suite model-constructors --corpus <abs canonical checkout> --work-root <new absolute directory outside corpus>`.
 > See [test classification](../../docs/project/TEST_CLASSIFICATION.md).
 
 All execution used `/Users/shem/.local/bin/node`, observed version `v24.20.0`.

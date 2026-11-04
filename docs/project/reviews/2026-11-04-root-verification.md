@@ -184,6 +184,49 @@ actual exits/timings and input-preservation snapshots are retained there.
 | `reward-source-root-1/BINDING_ROOT.json` | `2deb855ec8ffb033a517fc86735a81fdab75da4ca93aecdd02f29481383b6680` |
 | `reward-source-root-1/IDENTITY_ROOT.json` | `8fcefd38f75f405f22b69b1917a38ec78abef8f0824ed1b048d3b8013caaa5b0` |
 
+## Subsequent integrated tasks and remaining native repairs
+
+The preceding sections describe checkpoint `232eb9fa`, before integration.
+Root subsequently completes [T06.005.001](2026-11-04-T06.005.001-root.md) and
+[T00.006](2026-11-04-T00.006-root.md). Both selected implementations are
+rechecked after integration; all four settled coverage/T00 terminals are
+released with transcript archives. Two of seven audit tasks are self-verified.
+
+Native Grok submits `10f959c0`. Root runs 13 preparation and six planner tests
+successfully. Its header's `python3 -I -m unittest <path>` fails to import
+`tools`; direct explicit-file invocation passes. Actual `execute` exits 2
+unconditionally: this candidate is a JSON planner, not the frozen brief's
+executable lifecycle. Source review also finds unrelated manifest/staging
+admission and root-link/ignored-overlay closure weaknesses. No full Grok
+reconstruction or native build is claimed by Root. The candidate is not
+selected; its settled terminal is released, preserving Git and transcript.
+
+Claude's executable repair `1b0508c8` improves cgroup ordering, final log/hash
+sealing, mount semantics, request bounds, ownership checks and dependency
+inputs. Root personally tests its guest lock helper against an authored
+preinstalled-bash fixture: it emits an added-only lock which its own host
+parser refuses (`apk lock lacks ['bash']`). Source confirms build validation
+also requires an incompatible full-versus-added lock. Root's fake Engine
+control creates an object then raises `Cancelled` during create: recovery
+does not run and no owned ID is returned. Source confirms import-check also
+lacks SIGTERM handling. A narrower output-root symlink check resolves before
+testing the link. No real Engine requests occur in these controls.
+
+Repair dispatch `ctx_5f4bd33b6298` / task `task_65756ef449b9` owns these
+remaining fixes. The extra root-link correction is queued as
+`msg_f12d874d58f1`. This is continued work in the same Claude native workspace.
+No actual compiler, package installation or image import is admitted yet.
+
+That dispatch submits `7e5135b0b7e63db64fc433272c735e3663cd770c` with base/delta
+dependency separation, cancellation-safe create/import and output-root link
+checks. The worker reports 41 recipe/20 preparation tests. These are candidate
+claims pending Root's next check, not an executed guest or integrated task.
+
+| Additional private evidence under the same execution directory | SHA-256 |
+| --- | --- |
+| `native-repair-controls-root-2/RESULT_ROOT.json` | `847fc4421407862f354a9515e3318e01c7c39df6bdd482f80d3ca11669a863c1` |
+| `native-grok-root-2/RESULT_ROOT.json` | `ace80d61f7fc198d6ad30554ed66d05c76b55a97787ef94bc34976d7b7cf6b7d` |
+
 Next owner: suppliers repair their owned candidates; Root verifies the latest
 revisions, records the final paired score/selection, integrates and commits
 each qualified child before advancing. Model versions remain provider/session

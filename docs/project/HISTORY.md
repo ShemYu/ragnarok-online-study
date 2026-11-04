@@ -63,6 +63,15 @@ The active board now has 43 unfinished rows. This completes one of the seven
 audit tasks; T06/T07, all 82 functional gaps and the 4/14 parent ledger stay
 open/unchanged. Both settled coverage terminals are released with output archived.
 
+T00.006 is `self_verified` for safe runner/classification scope on 2026-11-04.
+Root verifies both candidates, selects Claude's repaired lifecycle and checks
+the integrated runner. Authored mutation, external runner signals, real-suite
+signals and evidence faults pass with preservation. The complete private suite
+still exits 1 (48/56, eight historical admission failures); no pin is weakened.
+See [selection, exact checks and limits](reviews/2026-11-04-T00.006-root.md).
+The active board now has 42 unfinished rows; two of seven audit tasks are
+self-verified. Both settled T00 terminals are released. Full game gates remain.
+
 ## Preserved snapshots
 
 - [Original task ledger and acceptance contracts](HISTORY-2026-10-25-TASKS.md):

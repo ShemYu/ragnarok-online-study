@@ -1,8 +1,9 @@
 # Expert re-audit — next actions
 
 Designed 2026-10-29; execution activated 2026-11-04 by the current thread goal.
-T06.005.001 is self-verified for provisional metadata/tooling and integrated;
-see [Root's selection](reviews/2026-11-04-T06.005.001-root.md). Six audit tasks
+T00.006 safe verification and T06.005.001 provisional metadata/tooling are
+self-verified and integrated; see [runner selection](reviews/2026-11-04-T00.006-root.md)
+and [ledger selection](reviews/2026-11-04-T06.005.001-root.md). Five audit tasks
 remain open. The first three source lanes have frozen briefs; see the
 [execution record](reviews/2026-11-04-execution.md) for dispatch and results.
 [Audit evidence](reviews/2026-10-29-T00.005.md) distinguishes confirmed findings
@@ -39,7 +40,7 @@ in History.
 ```text
 Inspection/design complete; execution resumed 2026-11-04
  |
- +-- T00.006     safe, reproducible verification ----------+
+ +-- T00.006     safe verification [SELF-VERIFIED] -------+
  +-- T06.005.001 coverage ledger [SELF-VERIFIED] ----------+--> full-content plan
  |
  +-- T10.010.003 exact sources + build recipe

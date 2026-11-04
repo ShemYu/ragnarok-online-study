@@ -1,7 +1,10 @@
 # Test classification and safe mutation-suite runner (T00.006)
 
 Task: [T00.006](tasks/T00.006.md). Frozen base `a06f1037ac6ecf308db6a963e06391ebbf586cbd`.
-This is a Claude worker candidate (blinded Claude/Grok pair). Root has not verified it, and it is not `ready_for_user`.
+The selected Claude candidate is integrated. Root's
+[selection and verification scope](reviews/2026-11-04-T00.006-root.md)
+supersede the historical worker results below. This is tooling verification,
+not a full private-constructor or game-runtime pass.
 
 ## Safe entry points
 
@@ -9,9 +12,9 @@ This is a Claude worker candidate (blinded Claude/Grok pair). Root has not verif
 | --- | --- | --- |
 | Public CI list (unchanged) | See [root README](../../README.md#source-only-checks) and `.github/workflows/source-checks.yml` | Tracked source only |
 | Runner checks, public part | `node --test tests/renewal/run_isolated_suite.test.mjs` | Authored synthetic suite only; two private cases skip with a reason |
-| Runner checks, private part | `T00_006_CORPUS=<abs canonical checkout> node --test tests/renewal/run_isolated_suite.test.mjs` | Explicit corpus only |
+| Runner checks, private part | `T00_006_CORPUS=<abs canonical checkout> node --test tests/renewal/run_isolated_suite.test.mjs` | Run from a separate source checkout; explicit corpus differs from that checkout |
 | List registered mutation suites | `node tools/renewal/run_isolated_suite.mjs --list` | None |
-| Model-constructor suite | `node tools/renewal/run_isolated_suite.mjs --suite model-constructors --corpus <abs canonical checkout>` | Explicit corpus only |
+| Model-constructor suite | `node tools/renewal/run_isolated_suite.mjs --suite model-constructors --corpus <abs canonical checkout> --work-root <new absolute directory outside corpus>` | Explicit corpus; separate work root, including when invoked from the corpus checkout |
 
 Never run `tools/renewal/test_probe_model_constructors.mjs` directly in a source checkout. Its tests rewrite the sibling `model_constructor_worker.mjs`, at about lines 311 and 1775. Restoring the same bytes still changes ctime, and the driver admits `dev/ino/size/mtime_ns/ctime_ns`. The pinned `MODEL_CONSTRUCTOR_PROBE.md` (line 43) still shows the direct command. Its bytes are frozen by the T07.007.008 baseline, so the warning is in the test header and [TARGET_MODEL_CONSTRUCTORS.md](../../tools/renewal/TARGET_MODEL_CONSTRUCTORS.md) instead.
 
@@ -137,6 +140,7 @@ These need no private input. Optional real-input groups run **only** when an exp
 | Entry | Invocation | Explicit optional/required input; side effects |
 | --- | --- | --- |
 | `tests/probe_direct_models.test.mjs` | `node --test` | none; writes `.tools` |
+| `tools/renewal/test_coverage_ledger.py` | `python3 -I -B <file> -v` | Authored fixtures only; actual pinned regeneration is a separate explicit-root command |
 | `tests/image_consumer_fixture.test.mjs` | `node --test` | `IMAGE_CONSUMER_SOURCE`+`IMAGE_CONSUMER_METADATA`; writes `.tools` |
 | `tests/renewal/test_quest_table_inventory.py` | `python3 -m unittest` (header suggests discovery; use the file) | none |
 | `tests/renewal/test_quest_negative_lifecycle_patch.py` | unittest file | `T10_NEGATIVE_LIFECYCLE_DONORS` |

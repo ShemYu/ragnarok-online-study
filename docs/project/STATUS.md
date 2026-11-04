@@ -15,16 +15,16 @@ See [audit findings](reviews/2026-10-29-T00.005.md),
 Feature-branch checkpoints/publication remain authorized; `origin/main` stays
 unchanged. No additional local-main merge is part of this execution checkpoint.
 
-Latest [coverage selection and integration](reviews/2026-11-04-T06.005.001-root.md):
-T06.005.001 is `self_verified`, the first of seven audit tasks completed within
-its provisional metadata/tooling scope. Root verifies both repaired candidates,
-selects Claude's generator and rechecks it after integration. All 82 functional
-gaps remain open. Both settled coverage terminals are released.
-The [other candidate checks](reviews/2026-11-04-root-verification.md) remain
-active: fresh native source/nine pins/133 cases/9 mutants pass, while runner
-evidence handling and build-recipe qualification remain open. No real compiler
-container has started. Historical private admission remains stale despite
-matching bytes; preserve that failure and its old evidence.
+Two of seven audit tasks are now `self_verified` and integrated:
+[T00.006 safe verification](reviews/2026-11-04-T00.006-root.md) and
+[T06.005.001 provisional ledger](reviews/2026-11-04-T06.005.001-root.md).
+Root checks both final pairs and the selected integrated tools. Four settled
+test/coverage terminals are released. All 82 functional gaps remain open.
+The [native checks](reviews/2026-11-04-root-verification.md) continue: fresh
+source/nine pins/133 cases/9 mutants pass, while dependency-lock and owned
+cancellation repairs remain under verification. No real compiler container
+has started. The real private constructor suite remains 48/56 due to stale
+historical admission; its safe runner reports failure without canonical changes.
 
 Pre-merge maintenance: lint/CI checkpoint `86e98d9` is verified. At the user's
 subsequent request, the retired Godot/Character Lab source is preserved under
@@ -46,9 +46,9 @@ This is not a percentage of playable content, effort or translation.
 
 ## Unfinished work, in priority order
 
-1. **Parallel prerequisites.** Make mutation suites self-isolating (T00.006)
-   and reconstruct the exact native source/build recipe (T10.010.003). The
-   provisional ledger T06.005.001 is integrated; full content stays open.
+1. **Native prerequisite.** Finish the exact native source/build recipe
+   (T10.010.003). Safe verification T00.006 and provisional ledger T06.005.001
+   are integrated within their documented limits; full content stays open.
    No broad discovery or stock
    `checkweight` substitution. These address confirmed verification/release
    gaps without changing the goal.

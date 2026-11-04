@@ -6,6 +6,13 @@ of seven audit tasks is self-verified; all 82 functional gaps stay open. The
 two settled coverage terminals are released. The dated snapshots below retain
 their original dispatch/verification scope.
 
+Next completion: [T00.006 selection/integration](2026-11-04-T00.006-root.md).
+Root qualifies mutation isolation, external runner and real-suite interruption,
+cleanup and final-evidence failures. The complete private suite remains 48/56,
+reported as a failure with canonical preservation. Two of seven audit tasks
+are self-verified; 42 unfinished board rows remain. Both T00 terminals and
+the non-selected native Grok terminal are released with archived transcripts.
+
 ## Authority and preserved boundaries
 
 The active thread goal explicitly asks to finish the seven actions in the
