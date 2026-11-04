@@ -29,8 +29,8 @@ full SQL codec/oracle and input-byte gates, then isolated backup/restore and
 S0–S4 once the same-PID launcher is selected and verified. The direct discovery
 dump has no app stamp; do not synthesize one or infer independent counts from
 its INSERT lines. The codec has not been called on it. Before capture, finish
-the bounded timestamp-oracle repair, supported-backup transitive source check
-and actual SHOW CREATE transport qualification, then admit a new versioned
+the bounded timestamp-oracle repair and actual SHOW CREATE transport
+qualification, then admit a new versioned
 capture gate. See [Root's prerequisite findings](reviews/2026-11-05-T10.010.004-full-catalog-root.md).
 
 **Actual DB discovery is now Root-qualified.** Candidate8's one-use phase3
@@ -89,7 +89,10 @@ compile without import; Ruff reports three unused imports for Claude and
 passes for Grok. Both receive11/20 for this source task, with material native
 wait/custody, protocol, evidence and harness gaps. Neither is selected or
 runtime-admitted. Root keeps the exact interpreter fixed and requests a bounded
-native-custody design before safe fake controls/repair. One raced Grok wrap-up
+native-custody design before safe fake controls/repair. Astra now delivers the
+kqueue/raw-wait design and seven unexecuted direct-fake cases; Root reads the
+source and authenticates its SDK/Python basis. Native primitive qualification
+is next. One raced Grok wrap-up
 follow-up fails readiness; the original source task remains delivered and no
 restart/terminal-exit assumption follows. See the
 [paired assessment](reviews/2026-11-05-T10.010.004-launch-suppliers.md).
@@ -100,6 +103,16 @@ codec type profiles pass separately. Preserve those exact clauses; a narrow
 reviewed repair is needed. Independent full definitions/counts and supported
 B0 remain absent. This metadata finding does not qualify rows or restore and
 does not require a goal change.
+
+Supported-backup transitive source inspection is complete. Root authenticates
+16 exact app source bodies and personally reads the stop/restart, era-switch,
+stamp and export paths. A fresh capture must positively prove matching running
+Renewal DB/volume/marker, absent prere selector/volume, already-stopped game
+services and valid local settings; otherwise backup can recreate/switch DBs.
+Current runtime preconditions remain unobserved. The
+[timestamp repair contract](reviews/2026-11-05-T10.010.004-timestamp-oracle-brief.md)
+and common five-file pure packet pass independent source design review;
+paired proposals and Root verification follow separately.
 
 Root owns all runtime work. Refresh the exact owned VM/world/resources and
 personal projections before startup. Supported ordinary up can initialize/write

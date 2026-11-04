@@ -81,6 +81,10 @@ Independent counts/full definitions, supported B0, launch controls and actual
 backup/restore/S0–S4 remain open. See the
 [paired review](reviews/2026-11-05-T10.010.004-launch-suppliers.md) and
 [catalog prerequisites](reviews/2026-11-05-T10.010.004-full-catalog-root.md).
+Backup transitive source is now authenticated across16 files; runtime must
+prove the no-switch route. Native custody has a source-reviewed kqueue/raw-wait
+design and seven unexecuted direct-fake probes. The timestamp repair's frozen
+contract/packet pass independent design review; implementation is next.
 See the [qualified capture](reviews/2026-11-05-T10.010.004-db-discovery-root.md#candidate8-actual-native-dump-profile-and-settled-preservation-qualified).
 The separate4GiB build VM is stopped after the repaired full pair succeeds:
 844.4s/exit0/no timeout. Root reproduces105 artifact files and nine resource
