@@ -670,3 +670,20 @@ started. The dependency Claude session is retained for immediate real-resolve
 repair if needed; Grok's correcting alternative is still assigned.
 Private reward-source-release-root-1/RELEASE_ROOT.json SHA-256:
 232e6ab061267e94f70db4d655e4b54e48a3398014920d77a8aa020ee76c0d20.
+
+
+## Real exact-base resolve exposes a bounded parser gap
+
+Fresh plan/admission293ac8e is executed in the save-free VM. Fresh26-base
+equality/headroom, three actual signatures and all26 solver constraints pass.
+APK proposes47 installs with no base changes. Space-padded ( 1/47)
+counters are missed by the parser, so only38 rows reach coverage and the
+guest refuses binutils before any install. Root reproduces the captured-log
+failure and padded-upgrade omission on the host and freezes the same
+counter-format correction for both suppliers. No requirement is relaxed.
+
+The consumed resolver exits1 after10.1s; both owned containers are deleted,
+VM down/daemon departure/socket closure pass, and personal five-service
+projections are identical. There is no guest PASS/SHA256SUMS or qualified
+closure. See [failure and next repair](2026-11-04-T10.010.004-root.md#actual-exact-base-solver-reaches47-installs-counter-parser-refuses).
+The main goal is unchanged; the seven-task count remains3/7 closed.

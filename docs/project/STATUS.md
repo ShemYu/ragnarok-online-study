@@ -69,9 +69,13 @@ all638 tracked files stay unchanged, and both independent coherent-export
 counterexamples now refuse while the valid baseline passes. Grok35d7f3a
 lacks that join and predates delivery of the common correction; its
 continuation timeout is kept separate from candidate quality. Its correction
-continues as an alternative, with no main-path dependency. Next: one fresh
-exact-base resolution, then separately admit full builds. No real closure
-or full build is qualified.
+continues as an alternative, with no main-path dependency. The fresh actual resolve authenticates all three local APKs, preserves
+the original26-package base and proposes47 installs with no base upgrades.
+It stops before installation because the parser skips APK's space-padded
+single-digit counters, producing38 rows. Root reproduces this and freezes
+[the same narrow correction](tasks/T10.010.004-dependency-repair-3.md).
+The VM is stopped, both containers deleted and five personal service
+projections identical. No real closure or full build is qualified.
 The [EXP/callback/save source analysis](reviews/2026-11-04-T10.010.006-root.md)
 is selected/integrated from Claude2f2a610f as a75eeb2e after Root/Astra
 checks both repaired analyses. All17 pins and the5121-file source digest
@@ -175,7 +179,8 @@ Evidence: [saved user state](reviews/2026-10-25-user-assassin-play.md#current-of
 The three prerequisite source lanes are integrated. Root owns serial runtime
 execution/verification for .004; .005 source is integrated, with runtime
 pins deliberately unqualified. The .004 dependency recipe and .006 analysis
-source are selected/integrated; real exact-base closure is the next experiment. Fresh build-only state initialization
+source are selected/integrated. Repair the observed counter-format parser,
+then repeat exact-base closure with a fresh admission. Fresh build-only state initialization
 uses the workflow's isolated-new-state allowance; it does not establish
 current ro4 backup/restore qualification.
 Refresh current Engine/socket/service/save bindings; old IDs, start times,
