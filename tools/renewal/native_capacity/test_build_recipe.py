@@ -2125,6 +2125,11 @@ class ParseSimulateTests(unittest.TestCase):
             "uncounted action": "".join(ok) + "Upgrading musl (1.2.5-r23 -> 1.2.5-r24)\n",
             "malformed counter": at(1, "(2/x) Installing zstd-libs (1.5.7-r2)\n"),
             "paren line not a row": "".join(ok) + "(note) something\n",
+            # Root's 90365e35 control: an indented unknown row appended to a valid plan
+            "indented unknown appended": "".join(ok) + " (13/12) Frobbing zlib (1.3.2-r0)\n",
+            "indented valid-looking row": at(1, " ( 2/12) Installing zstd-libs (1.5.7-r2)\n"),
+            "tab-indented upgrade": "".join(ok) + "\t(13/12) Upgrading musl (1.2.5-r23 -> 1.2.5-r24)\n",
+            "indented malformed counter": "".join(ok) + "  (x/12) Installing extra (1-r0)\n",
         }
         for name, text in cases.items():
             with self.subTest(name):
@@ -2162,6 +2167,10 @@ class ParseSimulateTests(unittest.TestCase):
                    "musl-dev=1.2.5-r23", "openssl-dev=3.5.8-r0", "zlib-dev=1.3.2-r0"):
             self.assertIn(nv, rows)
         self.assertFalse([x for x in rows if x.split("=")[0] in ("musl", "libstdc++", "zlib", "libcrypto3", "libssl3")])
+        # Root's control on the actual log: an appended indented unknown row must refuse
+        r, rows = self.parse(log.read_text() + " (48/47) Frobbing zlib (1.3.2-r0)\n")
+        self.assertNotEqual(r.returncode, 0, rows)
+        self.assertIn("indented transaction row", (self.tmp / "out" / "apk-simulate.refused").read_text())
 
 
 if __name__ == "__main__":

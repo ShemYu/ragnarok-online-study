@@ -120,6 +120,11 @@ would also have been skipped silently.
   missing parentheses, extra fields, double spaces, a bad name or version,
   a duplicate package, a malformed counter, and an uncounted action line.
 
+Follow-up (Root's 90365e35 review): a `(` that follows leading whitespace
+is also treated as a transaction row. apk never indents rows, so such a line
+is refused as an indented transaction row. Root's control was an appended
+` (48/47) Frobbing zlib (1.3.2-r0)`.
+
 Unchanged: all 26 solver pins, WANT/libunwind 1.8.1, signature checks and
 scripts, raw identity joins, offline replay and the lifecycle.
 

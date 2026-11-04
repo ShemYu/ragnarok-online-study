@@ -184,7 +184,8 @@ verify_apk() {
 # "(i/n) Installing <name> (<version>)" rows. apk-tools 3.0.8 pads the
 # counter to the width of n -- actual: "( 1/47) Installing jansson (2.14.1-r0)"
 # -- so a counter is accepted unpadded or space-padded to exactly n's width.
-# Every line that starts with "(" or names a transaction action is a
+# Every line that starts with "(" (after optional whitespace) or names a
+# transaction action is a
 # transaction row and must parse completely: counters 1..n in order with one
 # constant n, a valid name and "(version)", unique names, and exactly n rows.
 # Any upgrade/downgrade/reinstall/replace/purge/remove/unknown action or
@@ -193,6 +194,9 @@ verify_apk() {
 parse_simulate() {
     awk -v bad="$OUT/apk-simulate.refused" '
         function refuse(why) { print why ": " $0 > bad; refused = 1 }
+        # A "(" after leading whitespace is still transaction-shaped; apk never
+        # indents its rows, so the strict grammar below refuses it.
+        /^[[:space:]]+\(/ { refuse("indented transaction row"); next }
         /^\(/ {
             if (!match($0, /^\( *[0-9]+\/[0-9]+\) /)) { refuse("malformed counter"); next }
             head = substr($0, 2, RLENGTH - 3); rest = substr($0, RLENGTH + 1)
