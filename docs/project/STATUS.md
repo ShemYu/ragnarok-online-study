@@ -85,8 +85,13 @@ three negative metadata controls. v3 pins full DB metadata/current stopped
 state and retains byte-identical shutdown code. Read-only preflight passes
 1901 inputs/six payloads. See [correction](reviews/2026-11-04-T10.010.004-root.md#corrected-db-projection-source-checkpoint).
 
-**Next:** commit corrected source evidence, prepare/admit a new one-use phase
-and execute it. Keep the consumed attempt unchanged. Verify actual generated conf/NPC mount access and process
+**Corrected phase is prepared/admitted, not consumed.** After source6ef0d54f
+is committed/pushed, Root verifies1905 pins/six payloads, complete actual DB
+metadata, current stopped binding, resource payload, environment/policy and
+unused markers. See [new admission](reviews/2026-11-04-T10.010.004-root.md#corrected-first-start-prepared-admission).
+
+**Next:** commit the new admission, then execute phase1f6567f5 once. Keep the
+first consumed attempt unchanged. Verify actual generated conf/NPC mount access and process
 identity; the diagnostic does not qualify those future mounts. Fresh host
 state alone does not isolate an Engine's fixed
 container names or DB volume. Verify their absence, images, mounts, six ports,
