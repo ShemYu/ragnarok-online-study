@@ -45,6 +45,17 @@ No new benchmark fleet is created. This records accepted delivery, not repair
 completion or real-install admission. Root ends the dispatch turn and handles
 Orca's next wake; no inbox polling consumes results in the background.
 
+Publication exception: the normal feature push is rejected twice with the
+remote error `fatal error in commit_refs_rules`. Root's read-only remote
+inspection confirms feature head remains `04ab492fe015e90d80d03c4e8b13c9979a997ea4`
+and remote main remains `c6314bbd85caa01f54fdcc38d62168e101e2c5a4`.
+The ownership correction, personal probe/evidence and follow-up records are
+committed locally but are not published. No force push, history rewrite or
+branch-rule change is attempted. Workers have accepted their briefs and can
+continue. Root should diagnose remote publication before claiming upstream
+synchronization; this is not a game-goal blocker. Find the exact local tip
+with `git log -1 --format='%h %s'`.
+
 ## Earlier completion snapshots
 
 Latest completion: [T06.005.001 selection/integration](2026-11-04-T06.005.001-root.md).
