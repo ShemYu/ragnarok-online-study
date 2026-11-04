@@ -16,7 +16,8 @@ FULL MODERN / RENEWAL PERSONAL GAME
 +-- Story lane [AFTER SOURCE/BUILD RECIPE]
 |   Exact 0.3.2 source is qualified; native runtime work remains:
 |   [x] Isolated build VM resource/image/cleanup characterization
-|   [ ] Dependencies -> full compile/export -> ordinary-item A/B [NEXT]
+|   [ ] APK/base-version + stdin diagnostics [CURRENT]
+|   [ ] Qualified dependencies -> full builds -> ordinary-item A/B
 |   [ ] Binary/mod/text gate [SECOND SOURCE REPAIR; PARALLEL]
 |   [ ] Real EXP/callback/save and uncertain-reward acceptance
 |   [ ] Isolated native parser / actors / quest states / rewards
@@ -49,8 +50,10 @@ remain unfinished. Basic local play and saved progress are already available.
 Three of seven audit tasks are self-verified (about 43% by task count only).
 The personal resource probe passes with saves preserved. A separate 4 GiB
 build VM now passes image/resources/cleanup with3.61 GiB available and is
-stopped. Dependency qualification is next. Release candidates pass77/55 tests but need two reproduced
-edge-case repairs and a concrete withdrawal sequence before selection.
+stopped. Actual dependency installation fails on base-version drift and an APK
+trigger-launch error; input authentication and a causal stdin check are next.
+Grok's69-test repair closes the old edge cases; withdrawal/replacement
+procedures still need correction. Claude is pending quota/report completion.
 See [safe runner](reviews/2026-11-04-T00.006-root.md) and
 [coverage verification](reviews/2026-11-04-T06.005.001-root.md) and
 [native preparation](reviews/2026-11-04-T10.010.003-root.md); all 82 functional

@@ -22,7 +22,7 @@ Three of seven audit tasks are now `self_verified` and integrated:
 Root checks the pairs, selects and rechecks integrated implementations. Fresh
 native preparation reproduces all nine pins; 20 preparation/45 recipe tests
 and the 133-case/9-mutant host check pass. All 82 functional gaps remain open.
-All six original supplier terminals are released. No real compiler container
+All six original supplier terminals are released. No full map-server build
 has started. The real private constructor suite remains 48/56 due to stale
 historical admission; its safe runner reports failure without canonical changes.
 The [release-gate source phase](tasks/T10.010.005.md) has submitted both equal
@@ -37,7 +37,8 @@ serial runtime work; suppliers own isolated source repairs.
 Grok's second repair now passes Root's69 tests and the two original edge-case
 controls with all619 tracked files unchanged, but its same-name failure
 recovery/withdrawal contracts still need correction. Claude is quota-limited
-before its report/commit. Source selection and actual release admission stay open.
+before its report/commit. The [same replacement/withdrawal clarification](tasks/T10.010.005-replacement-clarification.md)
+is frozen for both suppliers; source selection and actual release admission stay open.
 The [current .004 ownership correction](reviews/2026-11-04-T10.010.004-root.md#ownership-correction-before-further-admission)
 finds four concurrent worlds. The completed resource probe and 1.27 GiB
 headroom refusal apply to the default instance. The later
@@ -49,13 +50,15 @@ ceiling. The [actual separate 4 GiB build VM characterization](reviews/2026-11-0
 now passes after correcting macOS process-column truncation: local image
 import, identity, own cgroup/limit readbacks,3.61 GiB available RAM and owned
 cleanup all pass. The unchanged1536+768 MiB gate is met. The VM is gracefully
-stopped, its probe deleted, no containers/volumes remain, and five personal
-service projections are identical. [Bounded dependency-only execution is admitted](tasks/T10.010.004-dependency-resolve-2.md)
-on this save-free build engine, conditional on a new boot/resource/headroom check.
-The first phase refused a closed Engine connection before any create/APK and
-stopped cleanly; the revised phase adds a40 s read-only readiness gate.
-No personal RAM adjustment/restart,
-compiler/package install or progress write has occurred.
+stopped, its probe deleted, and five personal service projections are identical.
+[The actual dependency attempt](reviews/2026-11-04-T10.010.004-root.md#actual-dependency-failure-and-next-diagnostic)
+then fails: the repository upgrades four frozen base packages and APK's trigger
+launcher exits127. Both owned containers are deleted and VM shutdown passes;
+no lock or full build is qualified. Astra/primary-source review identifies
+separate package-drift and closed-stdin leads. Matching APK candidates are
+retained but signatures and causal stdio A/B remain unverified. Next: exact
+input authentication and bounded diagnostics before any recipe repair.
+No personal RAM adjustment/restart, game/DB service or progress write occurs.
 
 Pre-merge maintenance: lint/CI checkpoint `86e98d9` is verified. At the user's
 subsequent request, the retired Godot/Character Lab source is preserved under
@@ -80,7 +83,8 @@ This is not a percentage of playable content, effort or translation.
 1. **Actual binary experiment.** T00.006, T06.005.001 and T10.010.003 are
    integrated within their documented limits. T10.010.004's tiny resource probe
    passed on both the default and correctly bound personal instance. A separate
-   build-only VM now passes actual headroom/ABI/cleanup. Qualify dependency
+   build-only VM now passes actual headroom/ABI/cleanup. Diagnose the failed
+   dependency transaction, authenticate matching APKs and qualify exact-base
    resolution before admitting a bounded actual build. Current personal recovery proof
    remains required before later existing-state mutations. Full content stays open.
    No broad discovery or stock
@@ -89,12 +93,13 @@ This is not a percentage of playable content, effort or translation.
 2. **Native build for the 0.3.2 story extension.** Qualify the bounded
    Linux/arm64 toolchain, exact dependencies/ABI, resource and deadline controls,
    cancellation/cleanup and binary export. Compile the exact prepared source.
-   The project has not installed the compiler or built a custom image; fresh
-   toolchain qualification is pending. The new builtin is unavailable in stock
+   One discarded dependency container installs toolchain packages but fails its
+   trigger; no compiler closure, custom game image or binary is qualified.
+   The new builtin is unavailable in stock
    binaries.
    Personal ro4's balloon-held memory remains untouched. The separate build
    VM passes actual limits/headroom and is stopped. Actual dependency closure
-   and full-build fit remain unproved; no compiler is admitted yet.
+   and full-build fit remain unproved; no full build is admitted yet.
    See [the current ownership correction](reviews/2026-11-04-T10.010.004-root.md#ownership-correction-before-further-admission).
 3. **Native and normal story integration.** First qualify ordinary-item
    behavior because the patch touches general insertion. Check script parsing, four actors,

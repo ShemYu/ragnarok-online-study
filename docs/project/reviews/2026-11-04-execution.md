@@ -1,5 +1,25 @@
 # Seven-task execution — 2026-11-04
 
+## Current dependency challenge
+
+The actual second phase passes Engine readiness on GET2 and the fresh resource
+probe, then executes the selected dependency plan once. It selects four base
+upgrades and fails its APK trigger launcher (fchdir/exit127); no candidate lock
+is produced. Root verifies own1536 MiB/CPU2/pids1024 kernel evidence, resolver
+exit1, both owned container deletions, graceful VM down0.600 s, actual PID/socket
+departure and identical personal five-service snapshots.
+[Root's diagnostic record](2026-11-04-T10.010.004-root.md#actual-dependency-failure-and-next-diagnostic)
+pins complete failed logs/export and separates confirmed package drift from
+the source-supported closed-stdin hypothesis. Three exact matching dev APKs
+and BusyBox are acquired/hashed privately; Alpine signature and cache-identity
+qualification plus causal stdin A/B remain next. No trust bypass/base upgrade
+acceptance/trigger disabling or full compile is admitted. The game goal is
+unchanged;3/7 task closure is unchanged.
+
+Astra supplies a concrete retained-package route preserving the runtime ABI;
+an independent source helper converges on the fd0 collision chain and exact
+offline reinstall criteria. Both are source consultations, not runtime proof.
+
 ## Dependency admission and source-lane checkpoint
 
 The first actual dependency phase boots/proves owner/control/sockets, then

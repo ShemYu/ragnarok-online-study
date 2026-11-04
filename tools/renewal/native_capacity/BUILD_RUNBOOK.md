@@ -19,14 +19,16 @@ and cleanup404. Its 1.20 GiB available memory refuses the unchanged 1536 MiB
 compiler plus 768 MiB reserve gate. Attributed stats establish balloon-held
 RAM. [Root's separate 4 GiB build VM](../../../docs/project/reviews/2026-11-04-T10.010.004-root.md#actual-build-only-vm-characterization-passes)
 subsequently passes local image/ownership/cgroup/cleanup and the unchanged
-headroom gate with3.61 GiB available; it is stopped. Dependency resolution
-and full compilation remain unexecuted.
+headroom gate with3.61 GiB available; it is stopped. The later
+[actual dependency attempt](../../../docs/project/reviews/2026-11-04-T10.010.004-root.md#actual-dependency-failure-and-next-diagnostic)
+fails on an APK trigger error after selecting four base upgrades. Its owned
+container is removed and VM stopped; no closure/full build is qualified.
 Dependencies and compiler/export/binary qualification remain pending; do not
 interpret the historical fake-only results below as current runtime coverage.
 - Source preparation was executed and checked on the host.
 - The build recipe is implemented and tested only against a **fake** Engine
   plus host-run guest-library fixtures.
-- **No compiler container, image or binary has been run or produced.
+- **No full map-server build or new game image/binary is qualified.
   T10.010.003 is self-verified for implementation; .004 remains unqualified.**
 
 ## Files (all under `tools/renewal/native_capacity/`)
