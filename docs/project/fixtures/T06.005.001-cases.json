@@ -1,0 +1,230 @@
+{
+ "schema": "renewal-provisional-coverage-cases-v1",
+ "task": "T06.005.001",
+ "note": "Authored synthetic metadata only. No game asset, catalog row, private path or real manifest content. Placeholders: {\"@sha\": rel} is replaced by the SHA-256 of that materialized file, {\"@pin\": rel} by {path, bytes, sha256}, \"@profile-gap:N\" by profile /gaps/N.",
+ "files": {
+  ".tools/renewal/t06-candidates/integrated-2/snapshot-manifest.json": {
+   "input": {"tag": "synthetic/rathena:00000000"},
+   "output": {"file_list_sha256": "0000000000000000000000000000000000000000000000000000000000000001"},
+   "counts": {"files": 4}
+  },
+  ".tools/renewal/t06-selection-candidates/integrated-1/selection-manifest.json": {
+   "input": {"snapshot_manifest_sha256": {"@sha": ".tools/renewal/t06-candidates/integrated-2/snapshot-manifest.json"}},
+   "counts": {"map_candidates": 3, "npc_source_files": 2},
+   "source": {"repository": "rathena", "revision": "synthetic-revision-a"},
+   "profile": {"name": "synthetic-profile", "renewal": true}
+  },
+  ".tools/renewal/t06-map-cache-candidates/integrated-2/map-cache-manifest.json": {
+   "inputs": {
+    "snapshot": {"manifest_sha256": {"@sha": ".tools/renewal/t06-candidates/integrated-2/snapshot-manifest.json"}},
+    "selection": {"selection-manifest.json": {"sha256": {"@sha": ".tools/renewal/t06-selection-candidates/integrated-1/selection-manifest.json"}}}
+   },
+   "source": {"revision": "synthetic-revision-a"},
+   "summary": {"cache_entries": 4, "candidates": 3, "dispositions": {"retained": 3}},
+   "caches": [
+    {"path": "db/import/map_cache.dat", "catalogued_entries": 0, "entries": []},
+    {"path": "db/re/map_cache.dat", "catalogued_entries": 1, "entries": [
+     {"name": "ch1_gamma", "ordinal": 0, "decode": "ok"}]},
+    {"path": "db/map_cache.dat", "catalogued_entries": 3, "entries": [
+     {"name": "town", "ordinal": 0, "decode": "ok"},
+     {"name": "alpha", "ordinal": 4, "decode": "ok"},
+     {"name": "1@beta", "ordinal": 7, "decode": "ok"}]}
+   ],
+   "candidates": [
+    {"name": "town", "disposition": "retained"},
+    {"name": "1@beta", "disposition": "retained"},
+    {"name": "ch1_gamma", "disposition": "retained"}
+   ]
+  },
+  ".tools/renewal/t06-yaml-graph-candidates/integrated-1/yaml-graph-manifest.json": {
+   "input": {"snapshot_manifest_sha256": {"@sha": ".tools/renewal/t06-candidates/integrated-2/snapshot-manifest.json"}},
+   "source": {"revision": "synthetic-revision-a"},
+   "databases": {"ITEM_DB": {"raw_rows": 5}, "SKILL_DB": {"raw_rows": 2}, "MOB_DB": {"raw_rows": 3}, "QUEST_DB": {"raw_rows": 1}},
+   "counts": {"raw_rows": 11, "edges_skipped": 1, "skip_reasons": {"mode_mismatch": 1}},
+   "not_counts_of": "synthetic: not effective entities"
+  },
+  ".tools/renewal/t06-monster-projection-candidates/integrated-1/actual-1/monster-projection-manifest.json": {
+   "input": {"snapshot_manifest_sha256": {"@sha": ".tools/renewal/t06-candidates/integrated-2/snapshot-manifest.json"}},
+   "source": {"revision": "synthetic-revision-a"},
+   "counts": {"raw_declarations": 3, "distinct_supported_declared_ids": 3},
+   "not_counts_of": "synthetic: not effective monsters"
+  },
+  ".tools/renewal/t06-full839-reference-claude-execution-root-1/publication/static-spawn-references-manifest.json": {
+   "provenance": {
+    "snapshot_manifest_sha256": {"@sha": ".tools/renewal/t06-candidates/integrated-2/snapshot-manifest.json"},
+    "selection_manifest_sha256": {"@sha": ".tools/renewal/t06-selection-candidates/integrated-1/selection-manifest.json"},
+    "rathena_revision": "synthetic-revision-a"
+   },
+   "inputs": {
+    "map/map-cache-manifest.json": {"sha256": {"@sha": ".tools/renewal/t06-map-cache-candidates/integrated-2/map-cache-manifest.json"}},
+    "monster/monster-projection-manifest.json": {"sha256": {"@sha": ".tools/renewal/t06-monster-projection-candidates/integrated-1/actual-1/monster-projection-manifest.json"}}
+   },
+   "counters": {"events": 10, "static_supported": 2, "static_gap": 1, "opaque": 1, "suffix": 1, "not_static": 5,
+                "monster_declaration_occurrences": 2, "map_candidate_present": 2},
+   "raw_scope": {
+    "raw_counters": {"static_declared": 3, "static_supported": 2, "static_gap": 1, "framing_events": 10,
+                     "suffix_events": 1, "opaque_blocks": 1, "raw_bytes": 100, "certified_bytes": 40, "unknown_bytes": 60},
+    "sources": ["npc/a.txt", "npc/b.txt"]
+   },
+   "claims": {"effective_population": "not_checked"}
+  },
+  ".tools/renewal/t06-text-pair-1/root-corrected-actual-1/actual-1/quoted-manifest.json": {
+   "inputs": {
+    "snapshot_manifest": {"sha256": {"@sha": ".tools/renewal/t06-candidates/integrated-2/snapshot-manifest.json"}},
+    "selection_manifest": {"sha256": {"@sha": ".tools/renewal/t06-selection-candidates/integrated-1/selection-manifest.json"}}
+   },
+   "counts": {"sources": 2, "complete_sources": 2, "incomplete_sources": 0, "occurrences": 7},
+   "claims": {"story_reachability": "not_checked"}
+  },
+  ".tools/renewal/t06-map-gap-plans-1/gaps.json": {
+   "gaps": [
+    {"name": "alpha", "ordinal": 5, "cache_file": "db/map_cache.dat", "cache_ordinal": 4, "configured": null,
+     "rsw": {"outcome": "http_404", "request_index": 10}},
+    {"name": "zeta", "ordinal": 7, "cache_file": "db/map_cache.dat", "cache_ordinal": 6, "configured": {"line": 2},
+     "rsw": {"outcome": "observed_header", "request_index": 11}},
+    {"name": "1@beta", "ordinal": 9, "cache_file": "db/map_cache.dat", "cache_ordinal": 7, "configured": {"line": 3},
+     "rsw": {"outcome": "http_404", "request_index": 12}},
+    {"name": "ch1_gamma", "ordinal": 11, "cache_file": "db/re/map_cache.dat", "cache_ordinal": 0, "configured": {"line": 4},
+     "rsw": {"outcome": "http_404", "request_index": 15}}
+   ]
+  },
+  ".tools/renewal/t06-map-gap-preparation-1/root-metadata-2/report.json": {
+   "rsw404_count": 3, "configured404": 2, "cache_only404": 1,
+   "rows": [
+    {"name": "alpha", "ordinal": 5, "cache_file": "db/map_cache.dat", "cache_ordinal": 4, "configured": false, "observed": "HTTP404"},
+    {"name": "1@beta", "ordinal": 9, "cache_file": "db/map_cache.dat", "cache_ordinal": 7, "configured": true, "observed": "HTTP404"},
+    {"name": "ch1_gamma", "ordinal": 11, "cache_file": "db/re/map_cache.dat", "cache_ordinal": 0, "configured": true, "observed": "HTTP404"}
+   ]
+  },
+  "docs/project/fixtures/T07.007.014-profile.json": {
+   "inputs": [
+    {"@pin": ".tools/renewal/t06-map-gap-plans-1/gaps.json"},
+    {"@pin": ".tools/renewal/t06-map-gap-preparation-1/root-metadata-2/report.json"}
+   ],
+   "policy": {"gnd_gat": "synthetic same-stem candidates"},
+   "denominators": {"world_roots": 4, "configured_world_roots": 3, "gap_roots": 3, "comparison_names": 9},
+   "catalogs": [
+    {"catalog_index": 0, "family": "grf", "archive_file": "data.grf", "archive_bytes": 1,
+     "archive_sha256": "00000000000000000000000000000000000000000000000000000000000000aa", "patch_index": null,
+     "memberships": [{"view": "april"}]},
+    {"catalog_index": 1, "family": "gpf", "archive_file": "patch.gpf", "archive_bytes": 1,
+     "archive_sha256": "00000000000000000000000000000000000000000000000000000000000000bb", "patch_index": 9298,
+     "memberships": [{"view": "suffix59"}]}
+   ],
+   "gaps": [
+    {"gap_index": 0, "root_ordinal": 5, "map_name": "alpha", "cache_file": "db/map_cache.dat", "cache_ordinal": 4,
+     "configured": false, "rsw_request_index": 10, "gap_extract_pointer": "/gaps/0",
+     "original_report_pointer": "/roots/5", "corrected_metadata_pointer": "/rows/0"},
+    {"gap_index": 1, "root_ordinal": 9, "map_name": "1@beta", "cache_file": "db/map_cache.dat", "cache_ordinal": 7,
+     "configured": true, "rsw_request_index": 12, "gap_extract_pointer": "/gaps/2",
+     "original_report_pointer": "/roots/9", "corrected_metadata_pointer": "/rows/1"},
+    {"gap_index": 2, "root_ordinal": 11, "map_name": "ch1_gamma", "cache_file": "db/re/map_cache.dat", "cache_ordinal": 0,
+     "configured": true, "rsw_request_index": 15, "gap_extract_pointer": "/gaps/3",
+     "original_report_pointer": "/roots/11", "corrected_metadata_pointer": "/rows/2"}
+   ]
+  },
+  ".tools/renewal/t07-007-014-root-g-qualification-preparation-1/actual-g-1/gap-join.json": {
+   "inputs": [
+    {"@pin": ".tools/renewal/t06-map-gap-plans-1/gaps.json"},
+    {"@pin": ".tools/renewal/t06-map-gap-preparation-1/root-metadata-2/report.json"}
+   ],
+   "counts": {"gap_roots": 3, "full_path_occurrences": 3, "roots_with_full_path": 2, "basename_only_occurrences": 0},
+   "roots": [
+    {"gap": "@profile-gap:0", "terrain": {
+     "rsw": {"basis": "prior_observed_request", "full_path_occurrences": [], "basename_only_occurrences": []},
+     "gnd": {"basis": "unobserved_same_stem_candidate", "full_path_occurrences": [], "basename_only_occurrences": []},
+     "gat": {"basis": "unobserved_same_stem_candidate", "full_path_occurrences": [], "basename_only_occurrences": []}}},
+    {"gap": "@profile-gap:1", "terrain": {
+     "rsw": {"basis": "prior_observed_request", "full_path_occurrences": [
+      {"catalog_index": 1, "record_ordinal": 3, "match": "raw_exact", "file_candidate": true}], "basename_only_occurrences": []},
+     "gnd": {"basis": "unobserved_same_stem_candidate", "full_path_occurrences": [], "basename_only_occurrences": []},
+     "gat": {"basis": "unobserved_same_stem_candidate", "full_path_occurrences": [
+      {"catalog_index": 1, "record_ordinal": 2, "match": "ascii_slash_casefold", "file_candidate": true}], "basename_only_occurrences": []}}},
+    {"gap": "@profile-gap:2", "terrain": {
+     "rsw": {"basis": "prior_observed_request", "full_path_occurrences": [
+      {"catalog_index": 0, "record_ordinal": 8, "match": "raw_exact", "file_candidate": true}], "basename_only_occurrences": []},
+     "gnd": {"basis": "unobserved_same_stem_candidate", "full_path_occurrences": [], "basename_only_occurrences": []},
+     "gat": {"basis": "unobserved_same_stem_candidate", "full_path_occurrences": [], "basename_only_occurrences": []}}}
+   ]
+  }
+ },
+ "expect_valid": {
+  "gap_roots": 3, "configured": 2, "cache_only": 1, "name_occurrences_total": 3,
+  "roots_with_any_counterpart": 2, "roots_without_rsw_counterpart": 1,
+  "roots_with_counterpart_in_view": {"april": 1, "suffix59": 1},
+  "instance_name_candidates": 1, "chapter1_family_documented": 1, "functional_open": 3
+ },
+ "negative_cases": [
+  {"id": "duplicate_root_ordinal", "stage": "fixture", "file": "docs/project/fixtures/T07.007.014-profile.json",
+   "op": "set", "pointer": "/gaps/1/root_ordinal", "value": 5, "expect": "DUPLICATE_ROOT_ID"},
+  {"id": "duplicate_map_name", "stage": "fixture", "file": "docs/project/fixtures/T07.007.014-profile.json",
+   "op": "set", "pointer": "/gaps/2/map_name", "value": "alpha", "expect": "DUPLICATE_ROOT_ID"},
+  {"id": "non_dense_gap_index", "stage": "fixture", "file": "docs/project/fixtures/T07.007.014-profile.json",
+   "op": "set", "pointer": "/gaps/2/gap_index", "value": 3, "expect": "MISSING_ROOT_ID"},
+  {"id": "missing_root_in_join", "stage": "fixture",
+   "file": ".tools/renewal/t07-007-014-root-g-qualification-preparation-1/actual-g-1/gap-join.json",
+   "op": "delete", "pointer": "/roots/2", "expect": "MISSING_ROOT_ID"},
+  {"id": "missing_root_in_corrected", "stage": "fixture",
+   "file": ".tools/renewal/t06-map-gap-preparation-1/root-metadata-2/report.json",
+   "op": "delete", "pointer": "/rows/1", "expect": "MISSING_ROOT_ID"},
+  {"id": "extra_404_in_extract", "stage": "fixture", "file": ".tools/renewal/t06-map-gap-plans-1/gaps.json",
+   "op": "set", "pointer": "/gaps/1/rsw/outcome", "value": "http_404", "expect": "EXTRA_ROOT_ID"},
+  {"id": "extract_identity_drift", "stage": "fixture", "file": ".tools/renewal/t06-map-gap-plans-1/gaps.json",
+   "op": "set", "pointer": "/gaps/2/cache_ordinal", "value": 8, "expect": "ROOT_JOIN_MISMATCH"},
+  {"id": "pin_drift_appended_byte", "stage": "materialized",
+   "file": ".tools/renewal/t06-map-cache-candidates/integrated-2/map-cache-manifest.json",
+   "op": "append_bytes", "value": " ", "expect": "PIN_DRIFT"},
+  {"id": "pin_missing_file", "stage": "materialized",
+   "file": ".tools/renewal/t06-text-pair-1/root-corrected-actual-1/actual-1/quoted-manifest.json",
+   "op": "remove_file", "expect": "PIN_MISSING"},
+  {"id": "pin_role_not_admitted", "stage": "pins", "op": "set", "pointer": "/inputs/0/role",
+   "value": "runtime_observation", "expect": "INPUT_ROLE"},
+  {"id": "pin_duplicate_input", "stage": "pins", "op": "duplicate", "pointer": "/inputs/0", "expect": "INPUT_DUPLICATE"},
+  {"id": "relative_root_refused", "stage": "root", "value": "relative/root", "expect": "EXPLICIT_ROOT_REQUIRED"},
+  {"id": "provenance_snapshot_drift", "stage": "fixture",
+   "file": ".tools/renewal/t06-selection-candidates/integrated-1/selection-manifest.json",
+   "op": "set", "pointer": "/input/snapshot_manifest_sha256",
+   "value": "0000000000000000000000000000000000000000000000000000000000000000", "expect": "PROVENANCE_MISMATCH"},
+  {"id": "server_revision_split", "stage": "fixture",
+   "file": ".tools/renewal/t06-yaml-graph-candidates/integrated-1/yaml-graph-manifest.json",
+   "op": "set", "pointer": "/source/revision", "value": "synthetic-revision-b", "expect": "PROVENANCE_MISMATCH"},
+  {"id": "spawn_classes_do_not_sum", "stage": "fixture",
+   "file": ".tools/renewal/t06-full839-reference-claude-execution-root-1/publication/static-spawn-references-manifest.json",
+   "op": "set", "pointer": "/counters/not_static", "value": 6, "expect": "COUNT_MISMATCH"},
+  {"id": "suffix_bytes_do_not_reconcile", "stage": "fixture",
+   "file": ".tools/renewal/t06-full839-reference-claude-execution-root-1/publication/static-spawn-references-manifest.json",
+   "op": "set", "pointer": "/raw_scope/raw_counters/unknown_bytes", "value": 59, "expect": "COUNT_MISMATCH"},
+  {"id": "join_occurrence_summary_mismatch", "stage": "fixture",
+   "file": ".tools/renewal/t07-007-014-root-g-qualification-preparation-1/actual-g-1/gap-join.json",
+   "op": "set", "pointer": "/counts/full_path_occurrences", "value": 4, "expect": "COUNT_MISMATCH"},
+  {"id": "configured_count_mismatch", "stage": "fixture",
+   "file": ".tools/renewal/t06-map-gap-preparation-1/root-metadata-2/report.json",
+   "op": "set", "pointer": "/configured404", "value": 3, "expect": "COUNT_MISMATCH"},
+  {"id": "installed_subset_as_denominator", "stage": "fixture",
+   "file": ".tools/renewal/t06-map-cache-candidates/integrated-2/map-cache-manifest.json",
+   "op": "set", "pointer": "/summary/cache_entries", "value": 3, "expect": "COUNT_MISMATCH"},
+  {"id": "promote_root_closed", "stage": "ledger", "op": "set", "pointer": "/gap_roots/1/functional_gap",
+   "value": "closed", "expect": "UNSUPPORTED_PROMOTION"},
+  {"id": "promote_name_witness_to_verified", "stage": "ledger", "op": "set",
+   "pointer": "/gap_roots/1/client/name_counterparts/rsw/state", "value": "verified", "expect": "UNSUPPORTED_PROMOTION"},
+  {"id": "promote_runtime_load_without_evidence", "stage": "ledger", "op": "set",
+   "pointer": "/gap_roots/0/server/runtime_load/state", "value": "loaded", "expect": "UNSUPPORTED_PROMOTION"},
+  {"id": "runtime_level_from_metadata_inputs", "stage": "ledger", "op": "set",
+   "pointer": "/gap_roots/0/server/runtime_load", "value": {"state": "verified", "evidence_level": "root_verified_runtime"},
+   "expect": "UNSUPPORTED_PROMOTION"},
+  {"id": "category_effective_from_manifest", "stage": "ledger", "op": "set",
+   "pointer": "/categories/monsters_spawns/0/state", "value": "effective", "expect": "UNSUPPORTED_PROMOTION"},
+  {"id": "category_hides_unknowns", "stage": "ledger", "op": "set", "pointer": "/categories/instances",
+   "value": [{"id": "instances.present", "state": "present", "value": 1, "unit": "instances",
+              "evidence_level": "name_convention_only", "scope": "cross", "source": {"input": null, "pointer": null}}],
+   "expect": "LEDGER_SHAPE"},
+  {"id": "witness_state_without_occurrence", "stage": "ledger", "op": "set",
+   "pointer": "/gap_roots/0/client/name_counterparts/rsw/state", "value": "present", "expect": "COUNT_MISMATCH"},
+  {"id": "summary_tampered", "stage": "ledger", "op": "set", "pointer": "/gap_summary/name_occurrences_total",
+   "value": 4, "expect": "COUNT_MISMATCH"},
+  {"id": "ledger_duplicate_root", "stage": "ledger", "op": "set", "pointer": "/gap_roots/2/root_ordinal",
+   "value": 5, "expect": "DUPLICATE_ROOT_ID"},
+  {"id": "ledger_missing_root", "stage": "ledger", "op": "delete", "pointer": "/gap_roots/1",
+   "expect": "MISSING_ROOT_ID"}
+ ]
+}
