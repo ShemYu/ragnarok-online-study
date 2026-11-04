@@ -79,9 +79,14 @@ Root's independent read-only replay confirms all of this and current stopped
 ownership, preserving23 terminal files. See
 [preserved refusal](reviews/2026-11-04-T10.010.004-root.md#first-start-refused-before-sql-db-cwd-mismatch).
 
-**Next:** bind the validator to the actual immutable DB metadata, refresh the
-stopped binding and prepare a new one-use phase. Keep the consumed attempt
-unchanged. Verify actual generated conf/NPC mount access and process
+**Corrected source/preflight passes:** the DB projection now requires the
+actual cwd=/; Root verifies the exact one-line helper change and positive/
+three negative metadata controls. v3 pins full DB metadata/current stopped
+state and retains byte-identical shutdown code. Read-only preflight passes
+1901 inputs/six payloads. See [correction](reviews/2026-11-04-T10.010.004-root.md#corrected-db-projection-source-checkpoint).
+
+**Next:** commit corrected source evidence, prepare/admit a new one-use phase
+and execute it. Keep the consumed attempt unchanged. Verify actual generated conf/NPC mount access and process
 identity; the diagnostic does not qualify those future mounts. Fresh host
 state alone does not isolate an Engine's fixed
 container names or DB volume. Verify their absence, images, mounts, six ports,
