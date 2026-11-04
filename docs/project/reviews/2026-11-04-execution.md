@@ -13,8 +13,6 @@ reported as a failure with canonical preservation. Two of seven audit tasks
 are self-verified; 42 unfinished board rows remain. Both T00 terminals and
 the non-selected native Grok terminal are released with archived transcripts.
 
-## Authority and preserved boundaries
-
 ## Next independent source lane: T10.010.005
 
 Root freezes [the release compatibility brief](../tasks/T10.010.005.md) and
@@ -30,8 +28,26 @@ This source phase is independent of the remaining native import-cleanup
 repair. Native binary/parser/effective-data/full-text reference inputs are
 explicitly absent, so real pre-install admission must refuse. The task's
 actual release/install acceptance remains dependent on .004 and later Root
-runtime checks. Dispatch receipts and introducing base are recorded below
-once accepted; no live worker is implied by freezing a brief.
+runtime checks. Introducing paired base:
+`51f927a2b68974b37c4a3c5215773e2ec32b3176`. Root's actual freeze check is
+12 local links/anchors (the commit-message count of 14 is a transcription
+error), 42 task rows, 613 indexed public paths and clean staged whitespace.
+
+Both starts return `ready`, terminal mode and delivered dispatches. Provider
+model/effort defaults are inherited; actual model identities and cost remain
+unobserved until supported worker/session evidence exists.
+
+| Supplier | Task / dispatch | Owned child workspace |
+| --- | --- | --- |
+| Claude | `task_6d6329444c0c` / `ctx_3ab6d36963ee` | `t10-010-005-claude-nov04-a1` |
+| Grok | `task_3939b254d33d` / `ctx_3a70dfa16afe` | `t10-010-005-grok-nov04-a1` |
+
+The same brief is delivered via `--spec-file`, with `--setup skip` and the
+same explicit Git base. Workers may edit only their bounded release-gate
+source/tests/runbook/report. Real execution remains serial under Root. These
+two starts replace released work with useful parallel tasks; native Claude's
+import-cleanup repair remains in its existing workspace. End this coordinator
+turn after recording/publication; Orca wakes Root with results, without polling.
 
 ## Original activation authority
 

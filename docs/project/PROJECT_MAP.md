@@ -16,7 +16,7 @@ FULL MODERN / RENEWAL PERSONAL GAME
 +-- Story lane [AFTER SOURCE/BUILD RECIPE]
 |   Exact 0.3.2 source is qualified; native runtime work remains:
 |   [ ] Full compile/link/export and ordinary-item A/B regression
-|   [ ] Binary/mod/text capability gate; replace 0.2.0 apply/withdrawal sheet
+|   [ ] Binary/mod/text gate [SOURCE PAIR RUNNING IN PARALLEL]
 |   [ ] Real EXP/callback/save and uncertain-reward acceptance
 |   [ ] Isolated native parser / actors / quest states / rewards
 |   [ ] Save, re-entry, repeat and withdrawal checks

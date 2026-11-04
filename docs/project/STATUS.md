@@ -25,6 +25,11 @@ source/nine pins/133 cases/9 mutants pass, while dependency-lock and owned
 cancellation repairs remain under verification. No real compiler container
 has started. The real private constructor suite remains 48/56 due to stale
 historical admission; its safe runner reports failure without canonical changes.
+The [release-gate source phase](tasks/T10.010.005.md) now runs as a fresh equal
+Claude/Grok pair from `51f927a2`, independently of native recipe repair.
+Its real admission must refuse until missing runtime/text facts are qualified.
+Five settled supplier terminals have been released; the native repair and two
+new release-gate workers remain under supervision.
 
 Pre-merge maintenance: lint/CI checkpoint `86e98d9` is verified. At the user's
 subsequent request, the retired Godot/Character Lab source is preserved under
