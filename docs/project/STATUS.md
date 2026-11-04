@@ -21,7 +21,7 @@ ledger remains **4/14 checkpoints qualified**: one accepted and three ready
 for user review, with **82 resource gaps open**. These are separate ledgers,
 not percentages of playable content, translation or remaining effort.
 
-## Current action — prepare the offline full compiler pair
+## Current action — run the admitted offline full compiler pair
 
 All44 repository downloads and3 matching dev inputs reconcile to the frozen
 47-file manifest (122065747bytes;46aarch64/1noarch); every host child is reaped.
@@ -51,11 +51,13 @@ be reset or reused. Review PHASE/pins directly; admitted_phase consumes its
 one-use marker and belongs only in run. The successful v4 admission is consumed
 as well; preserve its qualified output and never rerun that phase.
 The compiler v3 draft rechecks checksums before its execution-time dependency
-reader after an Astra finding; Root's7 source/model controls pass. Next create
-a fresh operational wrapper with the selected source hashes and actual v4
-qualification, verify its plan/admission without consuming it, and commit that
-checkpoint before execution. No compiler/full binaries are qualified. No goal
-change is required.
+reader after an Astra finding; Root's7 source/model controls pass. A fresh
+operational v4 now binds the selected hashes and actual qualification. Root
+checks all201 phase pins/six payloads,56 upload members and47 raw identity joins;
+the owned stopped binding matches and execution markers are absent. Independent
+Astra review finds no blocker. Commit [this admission](reviews/2026-11-04-T10.010.004-root.md#fresh-offline-compiler-admission-personally-verified)
+before one serial run. No compiler/full binaries are qualified. No goal change
+is required.
 
 Renew stopped VM ownership/resources before runtime; old IDs, consumed
 admissions and snapshots are not authority. Earlier source/transfer/admission
@@ -66,7 +68,7 @@ The [pre-trim snapshot](HISTORY-2026-11-04-STATUS.md) preserves prior chronology
 
 - **T10.010.004 — full binaries and ordinary items.** Selected exact-fetch
   source is integrated as `73014940`; dependency closure is now Root-qualified.
-  Prepare/verify the offline compiler admission, then compile corresponding
+  The offline compiler admission is Root-verified; compile corresponding
   unpatched/patched full binaries, export/read back
   immutable images, start in isolated state and verify ordinary stack/new-slot,
   weight/full-bag, equipment/rental/GUID and save/re-entry behavior. The capacity

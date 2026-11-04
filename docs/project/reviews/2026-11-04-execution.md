@@ -1002,3 +1002,11 @@ and keys stay unchanged. Both exact containers are deleted/404, VM shutdown
 passes and personal projections remain identical. Root records177-file
 qualification for the offline compiler; no compiler/game/save result is implied.
 Next bind/review/commit a fresh compiler admission. See [actual v4 qualification](2026-11-04-T10.010.004-root.md#fresh-v4-closure-personally-qualified).
+
+After4356bfc7, Root binds a fresh operational compiler v4 to the actual
+qualification and selected guest hashes. Preparation creates unused output
+paths. Root verifies201 phase pins/six payloads,56 regular upload members,
+all47 raw identities/seven-field rows,26 base, strict ABI, NetworkMode=none,
+limits and current owned stopped-state binding. Independent Astra review finds
+no blocker. No execution markers exist. Commit [this admission](2026-11-04-T10.010.004-root.md#fresh-offline-compiler-admission-personally-verified)
+before the one serial compiler pair; binaries/game/save results remain open.

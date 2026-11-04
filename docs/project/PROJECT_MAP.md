@@ -28,7 +28,8 @@ FULL MODERN / RENEWAL PERSONAL GAME
 |   [x] Tuple ordering [ROOT SOURCE VERIFIED; Claude retained]
 |   [x] Final supplier comparison [both verified; terminals released]
 |   [x] Fresh successful normal closure [ROOT QUALIFIED; v4]
-|   [ ] Offline compiler admission -> full builds [CURRENT]
+|   [x] Offline compiler admission [ROOT VERIFIED; fresh unused token]
+|   [ ] Full unpatched/patched builds [CURRENT]
 |   [ ] Immutable binary readback -> ordinary-item A/B
 |   [ ] Binary/mod/text gate [SOURCE INTEGRATED; RUNTIME OPEN]
 |   [ ] Real EXP/callback/save [ANALYSIS INTEGRATED; RUNTIME OPEN]
@@ -74,7 +75,9 @@ and exact ordering gates. Root independently replays all123 saved output files,
 joins every retained raw identity to PLAN/installed C: and qualifies the closure
 for an offline compiler. Original26/keys stay unchanged. Both containers are
 deleted, VM stopped and personal projections identical. All settled noarch and
-ordering supplier terminals are released. No full compiler has run.
+ordering supplier terminals are released. The fresh offline compiler admission
+passes Root's201-pin/56-member/47-identity readback and independent Astra review.
+No full compiler has run; commit the admission before executing its one-use token.
 
 Release-gate source and reward/save analysis are integrated within their
 recorded limits. Their actual runtime pins and native/game/save gates remain
