@@ -23,13 +23,16 @@ not percentages of playable content, translation or remaining effort.
 
 ## Current action — DB qualification before integrated items
 
-**Next:** extend discovery to capture and validate the actual foreign key,
-using a separately authenticated post-run baseline before another admission.
+**Next:** review and test Claude's candidate7 FK/terminal-baseline source on
+delivery, then separately prepare/admit a fresh actual capture.
 The [candidate7 source contract](reviews/2026-11-05-T10.010.004-db-fk-brief.md)
 is frozen for the existing Claude repair lane. Astra's design and a narrow
 independent brief review are read by Root; the reported missing record-shape
 descriptor is supplied and its joins checked against the eight pinned overlay
 records. This authorizes source work only; no next runtime phase is admitted.
+The retained Claude lane receives follow-upctx_6c79073e47f8/task_836908a41516;
+the accepted receipt is ready, with no candidate7 delivery or execution yet.
+Wait for its explicit report wake; do not poll the orchestration inbox.
 Candidate6's one-use phase2 runs and settles in36.030seconds, exit0/no stderr.
 Root independently replays the raw requests/responses, metadata archive,
 guest manifest, completion markers, root visibility and shutdown records.

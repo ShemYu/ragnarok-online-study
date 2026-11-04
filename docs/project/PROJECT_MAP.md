@@ -29,7 +29,7 @@ FULL MODERN / RENEWAL PERSONAL GAME
 |   [x] Startup process/mount readbacks [ROOT VERIFIED; PARSER OPEN]
 |   [x] Managed client identity/static/owned stop [ROOT VERIFIED]
 |   [x] Live DB metadata / clean shutdown [ROOT VERIFIED; FK REFUSAL]
-|   [ ] Complete DB discovery [FOREIGN-KEY PROFILE EXTENSION NEXT]
+|   [ ] Complete DB discovery [FK SOURCE FOLLOW-UP DISPATCHED]
 |   [ ] Isolated DB backup/restore -> integrated rendering/item A/B
 |   [ ] Binary/mod/text gate [SOURCE INTEGRATED; RUNTIME OPEN]
 |   [ ] Real EXP/callback/save [ANALYSIS INTEGRATED; RUNTIME OPEN]
@@ -68,7 +68,8 @@ shared-temp pre-start refusal remains preserved. Candidate6's actual phase2
 captures73tables/844columns and refuses one unsupported foreign key before
 dump. Root replays raw evidence and clean DB shutdown, then verifies fresh
 1109world/2084protected pins, five unchanged personal services and stopped VM.
-Extend complete FK metadata/DDL checks against a fresh post-run baseline.
+Claude's candidate7 source follow-up covers complete FK metadata/DDL checks
+and a fresh post-run baseline; delivery and Root verification remain pending.
 No dump, backup/restore or integrated game qualification follows yet.
 Grok's original is preserved but not selected,
 and its settled worker is released. See the [current discovery record](reviews/2026-11-05-T10.010.004-db-discovery-root.md).
