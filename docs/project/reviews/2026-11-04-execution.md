@@ -755,3 +755,18 @@ worker fleet is created. These receipts prove dispatch, not correction or
 runtime success. Root retains serial runtime ownership and the VM stays
 stopped. Private apk-fetch-repair-dispatch-root-1/DISPATCH_ROOT.json SHA-256:
 fdb027322ba02620561747dc93b0d4fbb1eda1d918ca4462c89563c055445449.
+
+## Parallel next-runtime source preflight
+
+Both repair follow-ups remain authoritatively ready/live at the check. Root
+and independent read-only helpers inspect the next build/world setup. Six
+app blob/tree identities reverify. The source explicitly permits a private
+payload with neither shipped guest pair nor image bundle, provided the
+selected immutable game/DB images are already present. This avoids replacing
+the qualified guest without forging a fingerprint marker. Stock-map bootstrap
+still requires an explicit owned custom-map replacement before actor login;
+the temporary Kafra container must also be reconciled. The ordinary-item
+runbook records these gates. A full retained closure can also support a
+separately pinned network-none compiler plan. All are source findings;
+actual payload/startup/closure/compiler/items remain unqualified. See the
+[Root preflight](2026-11-04-T10.010.004-root.md#parallel-source-preflight-for-the-full-build-and-disposable-world).
