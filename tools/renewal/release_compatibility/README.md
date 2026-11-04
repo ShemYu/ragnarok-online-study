@@ -17,7 +17,8 @@ review and pin the runtime facts and records it needs.
 | --- | --- |
 | `release_gate.py` | Python standard library only. Reads explicit regular files plus a bounded census of the two explicit staged roots, and prints one JSON result to stdout. Writes nothing. |
 | `release_manifest_0.3.2.json` (schema v2) | The external release manifest: frozen source pins plus `null` expected pins. |
-| `test_release_gate.py` | Authored synthetic controls (77 cases). |
+| `withdrawal_manifest_0.3.2.json` | The separate manifest for the actor-free same-name withdrawal/preservation folder (`--contract withdrawal`). |
+| `test_release_gate.py` | Authored synthetic controls (113 cases). |
 
 ```sh
 python3 -I -B tools/renewal/release_compatibility/release_gate.py --packet /abs/packet.json
@@ -113,6 +114,29 @@ It also refuses era or client overrides:
 The leaves are read from those roots. They are never taken from separately
 listed paths.
 
+### Staging snapshot and revalidation
+
+- **Snapshot.** The census records a snapshot of each root: every entry's
+  kind and its dev/inode/mode/size/mtime/ctime, including the root itself
+  and every directory and file.
+- **Read binding.** Each staged leaf's read must match its snapshot entry.
+  Otherwise it refuses with `staged_changed` ("changed between the census
+  and its read").
+- **Revalidation.** As the last step before any success, both roots are
+  censused again and compared with their snapshots. Anything added, removed,
+  replaced or retimed during evaluation refuses with `staged_changed`. That
+  covers files, directories, symlinks and a swapped root.
+- **Bounded enumeration.** Entries are consumed one at a time from a
+  context-managed `os.scandir`. The census stops at 64 entries plus the one
+  refusal witness, before any directory is fully listed. Only each bounded
+  batch is sorted, so output stays deterministic. An entry that disappears
+  mid-census refuses with `staged_changed`.
+
+A pass proves the closure **at that moment only**. Root keeps exclusive
+ownership of the staged folders from admission until Install from folder
+copies them, and re-runs the gate if anything touches them in between
+(runbook Apply step 2).
+
 ### Explicit roles
 
 - Six `app.*` sources.
@@ -151,6 +175,19 @@ Reads are bounded:
 | Parser log | buffered | 16 MiB |
 | Effective configuration | streamed hash | 64 MiB |
 | Executable | streamed hash | 1 GiB |
+
+Every JSON input is checked against an explicit nesting policy: at most 32
+levels, found by a linear pre-scan that ignores brackets inside strings.
+That covers the manifest, the packet, both staged `mod.json` files and all
+four records. A decoder `RecursionError` is also turned into a structured
+refusal, so a deep input under its byte cap returns `*_malformed` with no
+traceback. A parseable manifest of the wrong shape refuses as
+`manifest_malformed`.
+
+Record checks have no broad exception catch. Every field is type-guarded,
+so a programming error surfaces instead of being hidden as a refusal. A
+scratch type-fuzz of 3771 cases over every record, packet and `mod.json`
+field produced no traceback.
 
 Numeric observations and pins must be exact integers. `true`/`false` or
 `1.0` never equal `1`/`0`, because comparison is structural on canonical
@@ -238,6 +275,52 @@ These records come from Root's isolated qualification of the same staged
 bytes, not from the live install. Post-apply journal and rendering stays a
 separate Root gate (see the
 [0.3.2 runbook](../../../docs/project/runbooks/T10.010.005-0.3.2-release.md)).
+
+## Withdrawal / preservation contract (`--contract withdrawal`)
+
+This is a separate contract for the actor-free story folder with the same
+name, `ro-solo-ch1-entry`. The ordinary-release gate can never admit it, and
+a release pass never transfers to it.
+
+```sh
+python3 -I -B tools/renewal/release_compatibility/release_gate.py --contract withdrawal --packet /abs/w.json
+```
+
+**Packet** (`ro-solo-withdrawal-admission-packet.v1`)
+
+- `roots.story`: the withdrawal folder.
+- `inputs`: `native.executable`, `native.parser_log`, `effective.config`
+  and `withdrawal.qualification`.
+
+**Inventory.** The census checks for exactly these, with the same
+revalidation, bounded enumeration and change refusal as the release:
+
+| Path | Pin |
+| --- | --- |
+| `mod.json` | Null until Root pins it. Its version must be new (not 0.1.0, 0.2.0 or 0.3.2), with the same `requires` and no era or client keys. |
+| `db/quest_db.yml` | The frozen 517-byte four-row file. |
+| `npc/connections.txt` | Exactly `first_edge.txt` lines 129–138 (249 B). Every declaration must be one of the three exits; a consequential actor refuses as `withdrawal_actor_present`. |
+
+**Record** (`ro-solo-withdrawal-load-qualification.v1`, independently
+pinned)
+
+- An isolated runtime load on the same executable and configuration.
+- Exactly the two staged scripts, with no parser errors.
+- Three maps loaded, three exits effective, four rows effective, and no
+  `Clear` layer.
+- `actors.checked` equal to the seven consequential actors, and
+  `actors.loaded` an empty list (`[]`).
+
+Every runtime and record pin is `null` in the checked-in manifest.
+
+## Interpreter scope
+
+The suite passes on the Mac's `python3` 3.9.6 and on a local Python
+3.12.14. Python 3.12 enforces the 4300-digit integer limit: an oversized
+integer literal there raises a `ValueError` from inside `json.loads`. That
+`ValueError` is caught only around the decoder call and becomes
+`*_malformed`. On 3.9 the same literal parses and is refused later by the
+type and pin checks.
 
 ## What a pass does and does not mean
 

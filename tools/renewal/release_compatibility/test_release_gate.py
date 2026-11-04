@@ -616,9 +616,9 @@ class NativeEvidence(Base):
         calls = {}
         real = gate.read_explicit
 
-        def spy(path, cap, keep=True):
+        def spy(path, cap, keep=True, ident_out=None):
             calls[path] = (cap, keep)
-            return real(path, cap, keep)
+            return real(path, cap, keep, ident_out)
         with mock.patch.object(gate, "read_explicit", spy):
             self.assertEqual(self.evaluate()["status"], "synthetic_consistent")
         ins = self.p.packet["inputs"]
@@ -750,6 +750,9 @@ class ItemFacts(Base):
         self.setUp()
         self.p.facts["item"]["alias_resolutions"] = self.p.facts["item"]["alias_resolutions"][:1]
         self.refused("item_alias_unproven")
+        self.setUp()
+        self.p.facts["item"]["alias_resolutions"][0]["source"] = ["item_db"]
+        self.refused("item_alias_malformed", "item_alias_unproven")
 
     def test_wrong_type_weight_guid_pet_stackable(self):
         item = self.p.facts["item"]
@@ -972,6 +975,520 @@ class MalformedAndUnsafeInputs(Base):
             fh.write("{")
         r = self.evaluate()
         self.assertEqual(self.codes(r), ["manifest_malformed"])
+
+
+def deep_object(levels):
+    return ('{"a":' * levels + "1" + "}" * levels).encode()
+
+
+class StagingChangesDuringEvaluation(Base):
+    """Second repair: staging changes observed while the gate runs must refuse."""
+
+    def during_executable_read(self, action):
+        self.p.write()
+        target = self.p.packet["inputs"]["native.executable"]["path"]
+        ino = os.lstat(target).st_ino
+        real_read = os.read
+        state = {"done": False}
+
+        def read(fd, n):
+            data = real_read(fd, n)
+            if not state["done"] and os.fstat(fd).st_ino == ino:
+                state["done"] = True
+                action()
+            return data
+        with mock.patch.object(gate.os, "read", read):
+            r = self.evaluate()
+        self.assertTrue(state["done"], "hook did not fire")
+        return self.assert_refused(r, "staged_changed")
+
+    def test_story_file_added_after_census(self):
+        def add():
+            with open(os.path.join(self.p.roots["story"], "npc", "extra.txt"), "wb") as fh:
+                fh.write(b"// added during evaluation\n")
+        r = self.during_executable_read(add)
+        details = [x["detail"] for x in r["reasons"] if x["code"] == "staged_changed"]
+        self.assertIn("story npc/extra.txt added during evaluation", details)
+
+    def test_text_file_added_after_census(self):
+        def add():
+            with open(os.path.join(self.p.roots["text"], "System", "OngoingQuestInfoList_True.lub"), "wb") as fh:
+                fh.write(b"-- added\n")
+        self.during_executable_read(add)
+
+    def test_file_removed_after_read(self):
+        def remove():
+            os.unlink(os.path.join(self.p.roots["story"], "npc", "fruit_village.txt"))
+        r = self.during_executable_read(remove)
+        self.assertIn("story npc/fruit_village.txt removed during evaluation",
+                      [x["detail"] for x in r["reasons"] if x["code"] == "staged_changed"])
+
+    def test_file_replaced_with_same_bytes_after_read(self):
+        def replace():
+            path = os.path.join(self.p.roots["text"], "mod.json")
+            with open(path + ".new", "wb") as fh:
+                fh.write(self.p.files["text.mod_json"])
+            os.rename(path + ".new", path)
+        r = self.during_executable_read(replace)
+        self.assertIn("text mod.json changed during evaluation",
+                      [x["detail"] for x in r["reasons"] if x["code"] == "staged_changed"])
+
+    def test_directory_and_symlink_added_after_census(self):
+        def add():
+            os.mkdir(os.path.join(self.p.roots["story"], "db", "re"))
+            os.symlink(os.path.join(STORY_DIR, "mod.json"), os.path.join(self.p.roots["text"], "link.json"))
+        r = self.during_executable_read(add)
+        details = [x["detail"] for x in r["reasons"] if x["code"] == "staged_changed"]
+        self.assertIn("story db/re added during evaluation", details)
+        self.assertIn("text link.json added during evaluation", details)
+
+    def test_root_swapped_after_census(self):
+        def swap():
+            root = self.p.roots["story"]
+            os.rename(root, root + ".old")
+            shutil.copytree(root + ".old", root)
+        r = self.during_executable_read(swap)
+        self.assertIn("story . changed during evaluation",
+                      [x["detail"] for x in r["reasons"] if x["code"] == "staged_changed"])
+
+    def test_change_between_census_and_read(self):
+        # Rewritten with the same bytes after the census but before its own read.
+        self.p.write()
+        real_scan = gate.scan_root
+        state = {"calls": 0}
+
+        def scan(root, label, reasons):
+            snap = real_scan(root, label, reasons)
+            state["calls"] += 1
+            if state["calls"] == 1:
+                path = os.path.join(root, "npc", "entry.txt")
+                st = os.lstat(path)
+                os.utime(path, ns=(st.st_atime_ns, st.st_mtime_ns + 1000000000))
+            return snap
+        with mock.patch.object(gate, "scan_root", scan):
+            r = self.evaluate()
+        self.assert_refused(r, "staged_changed")
+        self.assertIn("story.npc.entry changed between the census and its read", [x["detail"] for x in r["reasons"]])
+
+    def test_unchanged_staging_still_consistent(self):
+        self.assertEqual(self.run_gate()["status"], "synthetic_consistent")
+
+
+class BoundedEnumeration(Base):
+    def counting_scandir(self, stats):
+        real = os.scandir
+
+        class Counted:
+            def __init__(self, path):
+                self.inner = real(path)
+
+            def __enter__(self):
+                return self
+
+            def __exit__(self, *exc):
+                stats["closed"] += 1
+                self.inner.close()
+                return False
+
+            def __iter__(self):
+                return self
+
+            def __next__(self):
+                entry = next(self.inner)
+                if entry.path.startswith(stats["under"]):
+                    stats["consumed"] += 1
+                return entry
+
+            def close(self):
+                self.inner.close()
+        def scandir(path):
+            stats["opened"] += 1
+            return Counted(path)
+        return scandir
+
+    def test_consumption_stops_at_cap_plus_witness(self):
+        self.p.write()
+        for i in range(500):
+            with open(os.path.join(self.p.roots["story"], "npc", "x%03d.txt" % i), "wb") as fh:
+                fh.write(b"x")
+        stats = {"consumed": 0, "closed": 0, "opened": 0, "under": self.p.roots["story"] + os.sep}
+        with mock.patch.object(gate.os, "scandir", self.counting_scandir(stats)):
+            r = self.evaluate()
+        self.assert_refused(r, "staged_too_many_entries")
+        self.assertEqual(stats["consumed"], gate.CENSUS_MAX_ENTRIES + 1, stats)
+        self.assertEqual(stats["closed"], stats["opened"], stats)
+
+    def test_disappearing_entry_is_structured(self):
+        self.p.write()
+        real = os.scandir
+
+        class Gone:
+            def __init__(self, entry):
+                self.entry, self.name, self.path = entry, entry.name, entry.path
+
+            def stat(self, follow_symlinks=True):
+                raise FileNotFoundError(self.path)
+
+        class Wrapped:
+            def __init__(self, path):
+                self.inner = real(path)
+
+            def __enter__(self):
+                return self
+
+            def __exit__(self, *exc):
+                self.inner.close()
+                return False
+
+            def __iter__(self):
+                for entry in self.inner:
+                    yield Gone(entry) if entry.name == "entry.txt" else entry
+        with mock.patch.object(gate.os, "scandir", Wrapped):
+            r = self.evaluate()
+        self.assert_refused(r, "staged_changed")
+        self.assertIn("story npc/entry.txt vanished during the census", [x["detail"] for x in r["reasons"]])
+
+    def test_output_order_is_deterministic(self):
+        self.p.extra_staged[("story", "npc/b.txt")] = b"b"
+        self.p.extra_staged[("story", "npc/a.txt")] = b"a"
+        r1 = self.run_gate()
+        r2 = self.evaluate()
+        self.assertEqual(r1["reasons"], r2["reasons"])
+        extras = [x["detail"] for x in r1["reasons"] if x["code"] == "staged_extra"]
+        self.assertEqual(extras, ["story npc/a.txt", "story npc/b.txt"])
+
+
+class DeepJson(Base):
+    def test_deep_packet(self):
+        path = os.path.join(self.tmp, "deep-packet.json")
+        body = deep_object(1100)
+        self.assertLess(len(body), gate.JSON_CAP)
+        with open(path, "wb") as fh:
+            fh.write(body)
+        self.p.write()
+        r = gate.evaluate("synthetic", self.p.manifest_path, path)
+        self.assertEqual(self.codes(r), ["packet_malformed"])
+        self.assertIn("nests deeper than", r["reasons"][0]["detail"])
+
+    def test_deep_manifest(self):
+        self.p.write()
+        with open(self.p.manifest_path, "wb") as fh:
+            fh.write(deep_object(1100))
+        r = self.evaluate()
+        self.assertEqual(self.codes(r), ["manifest_malformed"])
+
+    def test_parseable_but_misshaped_manifest(self):
+        self.p.write()
+        for mutate in (lambda m: m.pop("routes"), lambda m: m["story"].__setitem__("files", []),
+                       lambda m: m["native"].__setitem__("packet_version", "20221005"),
+                       lambda m: m["app"]["files"].__setitem__("app.x", 1)):
+            manifest = copy.deepcopy(self.p.manifest)
+            mutate(manifest)
+            with open(self.p.manifest_path, "w") as fh:
+                json.dump(manifest, fh)
+            r = self.evaluate()
+            self.assertEqual(self.codes(r), ["manifest_malformed"])
+
+    def test_deep_evidence_records(self):
+        for role in RECORD_ROLES:
+            self.p.raw[role] = deep_object(1100)
+        r = self.refused("evidence_malformed")
+        self.assertEqual(self.codes(r).count("evidence_malformed"), len(RECORD_ROLES))
+
+    def test_deep_staged_mod_json(self):
+        self.p.files["story.mod_json"] = deep_object(1100)
+        self.p.files["text.mod_json"] = b'{"x":' + b"[" * 1100 + b"]" * 1100 + b"}"
+        self.refused("story_manifest_malformed", "text_manifest_malformed")
+
+    def test_recursion_fallback_without_policy(self):
+        # Even with the explicit policy bypassed, a RecursionError becomes a structured refusal.
+        self.p.write()
+        with open(self.p.packet_path, "wb") as fh:
+            fh.write(deep_object(150000))
+        with mock.patch.object(gate, "json_depth_ok", lambda text: True):
+            r = self.evaluate()
+        self.assertEqual(self.codes(r), ["packet_malformed"])
+        self.assertIn("nests too deeply to decode", r["reasons"][0]["detail"])
+
+    def test_brackets_inside_strings_do_not_count(self):
+        self.p.native["note"] = "[" * 200 + '\\"{' * 50
+        self.assertEqual(self.run_gate()["status"], "synthetic_consistent")
+
+    def test_cli_returns_bounded_refusal_without_traceback(self):
+        path = os.path.join(self.tmp, "deep-packet.json")
+        with open(path, "wb") as fh:
+            fh.write(deep_object(1100))
+        out = subprocess.run([sys.executable, "-I", "-B", GATE_PATH, "--packet", path],
+                             stdout=subprocess.PIPE, stderr=subprocess.PIPE, timeout=60)
+        self.assertEqual(out.returncode, 1)
+        self.assertNotIn(b"Traceback", out.stderr)
+        r = json.loads(out.stdout)
+        self.assertFalse(r["admitted"])
+        self.assertIn("packet_malformed", self.codes(r))
+
+
+def edge_block():
+    with open(os.path.join(STORY_DIR, "npc", "first_edge.txt"), "rb") as fh:
+        lines = fh.read().split(b"\n")
+    return b"\n".join(lines[128:138]) + b"\n"
+
+
+class WithdrawalPacket:
+    """A complete SYNTHETIC actor-free same-name withdrawal folder and record."""
+
+    def __init__(self, root):
+        self.root = root
+        with open(gate.BUNDLED_WITHDRAWAL_MANIFEST, "rb") as fh:
+            self.manifest = json.loads(fh.read().decode("utf-8"))
+        m = self.manifest
+        m["manifest_class"] = "synthetic"
+        with open(os.path.join(STORY_DIR, "db", "quest_db.yml"), "rb") as fh:
+            quest_db = fh.read()
+        mod = {"name": "ro-solo-ch1-entry", "version": "0.3.3-withdrawal", "description": "SYNTHETIC withdrawal",
+               "requires": {"app": ">=1.6.3", "era": "renewal"}}
+        self.files = {"withdrawal.mod_json": json.dumps(mod, ensure_ascii=False).encode(),
+                      "withdrawal.quest_db": quest_db, "withdrawal.npc.connections": edge_block(),
+                      "native.executable": b"\x7fELF SYNTHETIC patched map-server\n",
+                      "native.parser_log": b"[Status]: SYNTHETIC isolated withdrawal load, no errors\n",
+                      "effective.config": b"# SYNTHETIC effective configuration\n"}
+        m["native"]["image_id"] = "sha256:" + fake("image")
+        self.record = {"schema": gate.WITHDRAWAL_RECORD_SCHEMA, "record_class": "synthetic", "release_id": m["release_id"],
+                       "qualification_id": "SYNTHETIC-withdrawal-1", "qualification_kind": "isolated_runtime",
+                       "image": {"id": m["native"]["image_id"], "platform": "linux/arm64"}, "packet_version": 20221005,
+                       "parser": {"method": "isolated_map_server_load", "loaded": True, "errors": 0, "release_warnings": 0},
+                       "maps": {n: {"loaded": True} for n in m["routes"]["maps"]},
+                       "connections": [dict(c, loaded=True) for c in copy.deepcopy(m["routes"]["connections"])],
+                       "quest_db": {"rows": [{"id": r["id"], "title_sha256": r["title_sha256"]} for r in m["quests"]["rows"]]},
+                       "actors": {"checked": list(m["consequential_actors"]), "loaded": []},
+                       "collisions": []}
+        self.extra = {}
+        self.auto = True
+        self.n = 0
+
+    def write(self, repin=True):
+        self.n += 1
+        base = os.path.join(self.root, "w%d" % self.n)
+        f = self.files
+        if self.auto:
+            self.record["executable"] = {"bytes": len(f["native.executable"]), "sha256": sha(f["native.executable"])}
+            self.record["effective_config_sha256"] = sha(f["effective.config"])
+            self.record["parser"]["log_sha256"] = sha(f["native.parser_log"])
+            self.record["parser"]["scripts"] = [{"path": "npc/connections.txt", "sha256": sha(f["withdrawal.npc.connections"])},
+                                                {"path": "db/quest_db.yml", "sha256": sha(f["withdrawal.quest_db"])}]
+            self.record["quest_db"]["layers"] = [{"source": "db/import/quest_db.yml", "sha256": sha(f["withdrawal.quest_db"]), "clear": False}]
+        self.story = os.path.join(base, "ro-solo-ch1-entry")
+        for role, rel in (("withdrawal.mod_json", "mod.json"), ("withdrawal.quest_db", "db/quest_db.yml"),
+                          ("withdrawal.npc.connections", "npc/connections.txt")):
+            path = os.path.join(self.story, *rel.split("/"))
+            os.makedirs(os.path.dirname(path), exist_ok=True)
+            with open(path, "wb") as fh:
+                fh.write(f[role])
+        for rel, body in self.extra.items():
+            path = os.path.join(self.story, *rel.split("/"))
+            os.makedirs(os.path.dirname(path), exist_ok=True)
+            with open(path, "wb") as fh:
+                fh.write(body)
+        payload = {r: f[r] for r in ("native.executable", "native.parser_log", "effective.config")}
+        payload["withdrawal.qualification"] = json.dumps(self.record, ensure_ascii=False).encode()
+        inputs = {}
+        os.makedirs(os.path.join(base, "in"))
+        for role, body in payload.items():
+            path = os.path.join(base, "in", role)
+            with open(path, "wb") as fh:
+                fh.write(body)
+            inputs[role] = {"path": path, "bytes": len(body), "sha256": sha(body)}
+        m = self.manifest
+        if repin:
+            m["story"]["files"]["withdrawal.mod_json"].update(bytes=len(f["withdrawal.mod_json"]), sha256=sha(f["withdrawal.mod_json"]))
+            m["native"]["executable"] = {"bytes": len(f["native.executable"]), "sha256": sha(f["native.executable"])}
+            for role in gate.WITHDRAWAL_QUALIFIED_ROLES:
+                m["qualification_pins"][role] = {"bytes": len(payload[role]), "sha256": sha(payload[role])}
+        self.manifest_path = os.path.join(base, "manifest.json")
+        with open(self.manifest_path, "w", encoding="utf-8") as fh:
+            json.dump(m, fh, ensure_ascii=False)
+        self.packet = {"schema": gate.WITHDRAWAL_PACKET_SCHEMA, "record_class": "synthetic", "release_id": m["release_id"],
+                       "roots": {"story": self.story}, "inputs": inputs}
+        self.packet_path = os.path.join(base, "packet.json")
+        with open(self.packet_path, "w", encoding="utf-8") as fh:
+            json.dump(self.packet, fh, ensure_ascii=False)
+
+
+class WithdrawalContract(unittest.TestCase):
+    def setUp(self):
+        self.tmp = os.path.realpath(tempfile.mkdtemp(prefix="t10-010-005-w-"))
+        self.addCleanup(shutil.rmtree, self.tmp, True)
+        self.w = WithdrawalPacket(self.tmp)
+
+    def run_w(self, repin=True, mode="synthetic"):
+        self.w.write(repin)
+        manifest = self.w.manifest_path if mode == "synthetic" else gate.BUNDLED_WITHDRAWAL_MANIFEST
+        return gate.evaluate_withdrawal(mode, manifest, self.w.packet_path)
+
+    def refused(self, *codes, **kw):
+        r = self.run_w(**kw)
+        self.assertEqual(r["status"], "refused", r["reasons"])
+        self.assertFalse(r["admitted"])
+        got = [x["code"] for x in r["reasons"]]
+        for code in codes:
+            self.assertIn(code, got, r["reasons"])
+        return r
+
+    def test_complete_synthetic_withdrawal_is_consistent_never_admitted(self):
+        r = self.run_w()
+        self.assertEqual(r["reasons"], [])
+        self.assertEqual((r["status"], r["admitted"], r["contract"]), ("synthetic_consistent", False, "withdrawal"))
+
+    def test_frozen_files_are_pinned_from_source(self):
+        with open(gate.BUNDLED_WITHDRAWAL_MANIFEST, encoding="utf-8") as fh:
+            m = json.load(fh)
+        self.assertEqual(m["story"]["files"]["withdrawal.npc.connections"]["sha256"], sha(edge_block()))
+        self.assertEqual(m["story"]["files"]["withdrawal.npc.connections"]["bytes"], len(edge_block()))
+        with open(os.path.join(STORY_DIR, "db", "quest_db.yml"), "rb") as fh:
+            self.assertEqual(m["story"]["files"]["withdrawal.quest_db"]["sha256"], sha(fh.read()))
+
+    def test_real_mode_refuses_today(self):
+        r = self.refused("manifest_unpinned", "packet_record_class", "withdrawal_record_class", mode="real")
+        self.assertNotIn("release_pin_mismatch", [x["code"] for x in r["reasons"]],
+                         "the frozen quest_db/connections pins must match the source-derived files")
+        gaps = {x["detail"].split(" ")[0] for x in r["reasons"] if x["code"] == "manifest_unpinned"}
+        self.assertTrue({"withdrawal.mod_json", "native.image_id", "qualification_pins.withdrawal.qualification"} <= gaps)
+
+    def test_ordinary_release_folder_is_not_a_withdrawal(self):
+        self.w.write()
+        self.w.packet["roots"]["story"] = STORY_DIR
+        with open(self.w.packet_path, "w") as fh:
+            json.dump(self.w.packet, fh)
+        r = gate.evaluate_withdrawal("synthetic", self.w.manifest_path, self.w.packet_path)
+        codes = [x["code"] for x in r["reasons"]]
+        self.assertEqual(r["status"], "refused")
+        self.assertIn("staged_extra", codes)
+        self.assertIn("staged_missing", codes)
+
+    def test_withdrawal_folder_is_not_an_ordinary_release(self):
+        self.w.write()
+        release = Packet(os.path.join(self.tmp, "release"))
+        os.makedirs(release.root)
+        release.write()
+        release.packet["roots"]["story"] = self.w.story
+        release.rewrite_packet()
+        r = gate.evaluate("synthetic", release.manifest_path, release.packet_path)
+        codes = [x["code"] for x in r["reasons"]]
+        self.assertEqual(r["status"], "refused")
+        self.assertIn("staged_missing", codes)
+        self.assertIn("staged_extra", codes)
+
+    def test_actor_present(self):
+        with open(os.path.join(STORY_DIR, "npc", "fruit_village.txt"), "rb") as fh:
+            maysel = [l for l in fh.read().split(b"\n") if l.startswith(b"ygg_fruit,") and "梅雪#ROSOLO_CH1_MAY".encode() in l][0]
+        self.w.files["withdrawal.npc.connections"] += maysel + b"\n\tend;\n}\n"
+        r = self.refused("withdrawal_actor_present", "release_pin_mismatch")
+        self.assertIn("梅雪#ROSOLO_CH1_MAY", [x["detail"] for x in r["reasons"]])
+
+    def test_unexpected_declaration(self):
+        self.w.files["withdrawal.npc.connections"] += b"prontera,150,150,4\tscript\tOther#X\t4_M_MAN,{\n\tend;\n}\n"
+        self.refused("withdrawal_unexpected_declaration")
+
+    def test_missing_exit_or_changed_block(self):
+        self.w.files["withdrawal.npc.connections"] = edge_block().replace(b"ygg_fruit,71,114,0\twarp\tROSOLO_CH1_FRUIT_OUT\t1,1,ygg_edge,168,139\n", b"")
+        r = self.refused("route_exit_missing", "connection_block_changed")
+        self.assertIn("ROSOLO_CH1_FRUIT_OUT", [x["detail"] for x in r["reasons"]])
+
+    def test_missing_18371_and_clear(self):
+        text = self.w.files["withdrawal.quest_db"].decode()
+        self.w.files["withdrawal.quest_db"] = text[:text.index("  - Id: 18371")].replace("  Version: 3\n", "  Version: 3\n  Clear: true\n").encode()
+        self.refused("quest_row_missing", "quest_db_clear", "release_pin_mismatch")
+
+    def test_release_version_reused(self):
+        mod = json.loads(self.w.files["withdrawal.mod_json"])
+        mod["version"] = "0.3.2"
+        self.w.files["withdrawal.mod_json"] = json.dumps(mod).encode()
+        self.refused("withdrawal_version")
+
+    def test_extra_file_and_era_override(self):
+        self.w.extra["npc/entry.txt"] = b"// starter\n"
+        self.w.extra["db/re/quest_db.yml"] = b"Header:\n"
+        self.refused("staged_extra", "staged_era_override")
+
+    def test_record_actor_loaded_or_unchecked(self):
+        self.w.record["actors"]["loaded"] = ["梅雪#ROSOLO_CH1_MAY"]
+        self.refused("withdrawal_actor_loaded")
+        self.setUp()
+        self.w.record["actors"]["checked"] = ["梅雪#ROSOLO_CH1_MAY"]
+        self.refused("withdrawal_actors_unchecked")
+
+    def test_record_load_facts(self):
+        self.w.record["quest_db"]["rows"] = self.w.record["quest_db"]["rows"][:3]
+        self.w.record["connections"] = self.w.record["connections"][:2]
+        self.w.record["parser"]["errors"] = False
+        self.w.record["qualification_kind"] = "host_fixture"
+        self.refused("quest_row_not_effective", "route_exit_not_effective", "withdrawal_parser_failed", "withdrawal_unqualified_kind")
+        self.setUp()
+        self.w.write()
+        self.w.auto = False
+        self.w.record["quest_db"]["layers"][0]["clear"] = True
+        self.w.record["effective_config_sha256"] = fake("other")
+        self.refused("quest_db_clear", "withdrawal_config_mismatch")
+
+    def test_coherent_record_change_without_repin(self):
+        self.assertEqual(self.run_w()["status"], "synthetic_consistent")
+        self.w.record["qualification_id"] = "SYNTHETIC-withdrawal-2"
+        r = self.refused("release_pin_mismatch", repin=False)
+        self.assertEqual([x["detail"] for x in r["reasons"]], ["withdrawal.qualification"])
+
+    def test_staging_change_during_evaluation(self):
+        self.w.write()
+        target = self.w.packet["inputs"]["native.executable"]["path"]
+        ino = os.lstat(target).st_ino
+        real_read = os.read
+        state = {"done": False}
+
+        def read(fd, n):
+            data = real_read(fd, n)
+            if not state["done"] and os.fstat(fd).st_ino == ino:
+                state["done"] = True
+                with open(os.path.join(self.w.story, "npc", "entry.txt"), "wb") as fh:
+                    fh.write(b"// added\n")
+            return data
+        with mock.patch.object(gate.os, "read", read):
+            r = gate.evaluate_withdrawal("synthetic", self.w.manifest_path, self.w.packet_path)
+        self.assertEqual(r["status"], "refused")
+        self.assertIn("staged_changed", [x["code"] for x in r["reasons"]])
+
+    def test_cli_contract_switch(self):
+        self.w.write()
+        out = subprocess.run([sys.executable, "-I", "-B", GATE_PATH, "--contract", "withdrawal", "--synthetic",
+                              "--manifest", self.w.manifest_path, "--packet", self.w.packet_path],
+                             stdout=subprocess.PIPE, stderr=subprocess.PIPE, timeout=60)
+        self.assertEqual(out.returncode, 0, out.stderr)
+        self.assertEqual(json.loads(out.stdout)["contract"], "withdrawal")
+        out = subprocess.run([sys.executable, "-I", "-B", GATE_PATH, "--contract", "withdrawal", "--packet", self.w.packet_path],
+                             stdout=subprocess.PIPE, stderr=subprocess.PIPE, timeout=60)
+        self.assertEqual(out.returncode, 1)
+        self.assertFalse(json.loads(out.stdout)["admitted"])
+        # A withdrawal packet is never an ordinary-release admission.
+        out = subprocess.run([sys.executable, "-I", "-B", GATE_PATH, "--packet", self.w.packet_path],
+                             stdout=subprocess.PIPE, stderr=subprocess.PIPE, timeout=60)
+        self.assertEqual(out.returncode, 1)
+        self.assertIn("packet_malformed", [x["code"] for x in json.loads(out.stdout)["reasons"]])
+
+
+class ParserPortability(Base):
+    def test_huge_integer_literal_is_structured(self):
+        # Python >= 3.11 raises ValueError("Exceeds the limit (4300 digits)...") inside json.loads;
+        # older interpreters parse it. Either way the result is a bounded refusal, never a traceback.
+        self.p.write()
+        with open(self.p.packet_path, "wb") as fh:
+            fh.write(b'{"schema": ' + b"9" * 5000 + b"}")
+        r = self.evaluate()
+        self.assertEqual(r["status"], "refused")
+        if hasattr(sys, "get_int_max_str_digits"):
+            self.assertEqual(self.codes(r), ["packet_malformed"])
+            self.assertIn("not JSON", r["reasons"][0]["detail"])
+        self.p.raw["native.qualification"] = b'{"max_amount": ' + b"1" * 5000 + b"}"
+        r = self.run_gate()
+        self.assertEqual(r["status"], "refused")
+        if hasattr(sys, "get_int_max_str_digits"):
+            self.assertIn("evidence_malformed", self.codes(r))
 
 
 if __name__ == "__main__":

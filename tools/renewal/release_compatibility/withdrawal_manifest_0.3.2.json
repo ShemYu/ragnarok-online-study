@@ -1,0 +1,162 @@
+{
+ "schema": "ro-solo-withdrawal-compatibility-manifest.v1",
+ "manifest_class": "actual",
+ "task": "T10.010.005",
+ "release_id": "ro-solo-ch1-entry@withdrawal-of-0.3.2",
+ "contract": "withdrawal",
+ "note": "Actor-free same-name withdrawal/preservation folder. quest_db.yml and npc/connections.txt are fully determined by frozen source (the 0.3.2 QUEST_DB file and first_edge.txt lines 129-138), so they are pinned here; the new mod.json, executable, image and every qualification record stay null until Root reviews actual evidence.",
+ "story": {
+  "name": "ro-solo-ch1-entry",
+  "forbidden_versions": [
+   "0.1.0",
+   "0.2.0",
+   "0.3.2"
+  ],
+  "requires": {
+   "app": ">=1.6.3",
+   "era": "renewal"
+  },
+  "requires_supported_keys": [
+   "app",
+   "era",
+   "mods",
+   "client"
+  ],
+  "directories": [
+   "db",
+   "npc"
+  ],
+  "files": {
+   "withdrawal.mod_json": {
+    "relpath": "mod.json",
+    "bytes": null,
+    "sha256": null
+   },
+   "withdrawal.quest_db": {
+    "relpath": "db/quest_db.yml",
+    "bytes": 517,
+    "sha256": "2a1b0b0ee1588240e9845b68146226e21545d09bf7b2c99217069aa37bced23f"
+   },
+   "withdrawal.npc.connections": {
+    "relpath": "npc/connections.txt",
+    "bytes": 249,
+    "sha256": "e315e1467196b56c0cf936acfedae785ff0d4e1554a9e9fc365f6b1ceba9b9ae"
+   }
+  }
+ },
+ "native": {
+  "platform": "linux/arm64",
+  "packet_version": 20221005,
+  "executable": {
+   "bytes": null,
+   "sha256": null
+  },
+  "image_id": null
+ },
+ "routes": {
+  "maps": [
+   "prt_fild05",
+   "ygg_edge",
+   "ygg_fruit"
+  ],
+  "connections": [
+   {
+    "name": "ROSOLO_CH1_EDGE_IN",
+    "from": [
+     "ygg_edge",
+     164,
+     140
+    ],
+    "to": [
+     "ygg_fruit",
+     73,
+     117
+    ]
+   },
+   {
+    "name": "ROSOLO_CH1_FRUIT_OUT",
+    "from": [
+     "ygg_fruit",
+     71,
+     114
+    ],
+    "to": [
+     "ygg_edge",
+     168,
+     139
+    ]
+   },
+   {
+    "name": "回程#ROSOLO_CH1_RET",
+    "from": [
+     "ygg_edge",
+     216,
+     91
+    ],
+    "to": [
+     "prt_fild05",
+     353,
+     248
+    ]
+   }
+  ],
+  "first_edge_block": {
+   "role": "story.npc.first_edge",
+   "first_line": 129,
+   "last_line": 138,
+   "bytes": 249,
+   "sha256": "e315e1467196b56c0cf936acfedae785ff0d4e1554a9e9fc365f6b1ceba9b9ae"
+  }
+ },
+ "quests": {
+  "db_type": "QUEST_DB",
+  "db_version": 3,
+  "rows": [
+   {
+    "id": 18368,
+    "title_sha256": "a71c099afc2f2439f8b1a39944fd2424a2efeb99d4f24715f470bbdaa940ba12"
+   },
+   {
+    "id": 18369,
+    "title_sha256": "cdef2c43bd2100a0194eafc67036410906fb93a69571026be44c0e4619c7e46e"
+   },
+   {
+    "id": 18370,
+    "title_sha256": "c110a8a52040a7ad5345cc3503b694548af8f9bb38523769bfcd9184102c6e36"
+   },
+   {
+    "id": 18371,
+    "title_sha256": "e2daadf50038d2878e4bc87abfc16eb249cc5ad3fc9a549ea58677675a89c4e3"
+   }
+  ]
+ },
+ "consequential_actors": [
+  "梅雪#ROSOLO_CH1_MAY",
+  "莎莎#ROSOLO_CH1_SHA",
+  "#ROSOLO_CH1_ARR",
+  "信使#ROSOLO_CH1_MSG",
+  "梧桐枝#ROSOLO_CH1",
+  "Est#ROSOLO_CH1_EST",
+  "Debris#ROSOLO_CH1_DEB"
+ ],
+ "qualification_pins": {
+  "native.parser_log": {
+   "bytes": null,
+   "sha256": null
+  },
+  "effective.config": {
+   "bytes": null,
+   "sha256": null
+  },
+  "withdrawal.qualification": {
+   "bytes": null,
+   "sha256": null
+  }
+ },
+ "required_roles": [
+  "effective.config",
+  "native.executable",
+  "native.parser_log",
+  "withdrawal.qualification"
+ ]
+}

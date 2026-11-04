@@ -44,6 +44,10 @@ TEXT_EFFECTIVE_SCHEMA = "ro-solo-text-effective.v1"
 
 HERE = os.path.dirname(os.path.abspath(__file__))
 BUNDLED_MANIFEST = os.path.join(HERE, "release_manifest_0.3.2.json")
+BUNDLED_WITHDRAWAL_MANIFEST = os.path.join(HERE, "withdrawal_manifest_0.3.2.json")
+WITHDRAWAL_MANIFEST_SCHEMA = "ro-solo-withdrawal-compatibility-manifest.v1"
+WITHDRAWAL_PACKET_SCHEMA = "ro-solo-withdrawal-admission-packet.v1"
+WITHDRAWAL_RECORD_SCHEMA = "ro-solo-withdrawal-load-qualification.v1"
 
 MAX_REASONS = 64
 MAX_DETAIL = 240
@@ -56,6 +60,9 @@ EXECUTABLE_CAP = 1 << 30
 CHUNK = 1 << 16
 CENSUS_MAX_ENTRIES = 64
 CENSUS_MAX_DEPTH = 4
+# Explicit JSON nesting policy for every JSON role (manifest, packet, both
+# mod.json files, records). Valid inputs nest at most ~6 levels.
+JSON_MAX_DEPTH = 32
 QUEST_IDS = (18368, 18369, 18370, 18371)
 SHA_RE = re.compile(r"[0-9a-f]{64}\Z")
 IMAGE_RE = re.compile(r"sha256:[0-9a-f]{64}\Z")
@@ -165,7 +172,7 @@ def _ident(st):
     return (st.st_dev, st.st_ino, st.st_mode, st.st_size, st.st_mtime_ns, st.st_ctime_ns)
 
 
-def read_explicit(path, cap, keep=True):
+def read_explicit(path, cap, keep=True, ident_out=None):
     """Bounded read of one explicit regular file. Returns (data|None, size, sha256).
 
     The path's lstat identity, the opened descriptor's identity before and
@@ -211,6 +218,8 @@ def read_explicit(path, cap, keep=True):
         raise InputError("input_changed", "%s vanished after read" % path)
     if _ident(final) != _ident(before):
         raise InputError("input_changed", "%s replaced after read" % path)
+    if ident_out is not None:
+        ident_out.append(_ident(final))
     return (b"".join(parts) if keep else None), total, digest.hexdigest()
 
 
@@ -227,16 +236,47 @@ def _reject_constant(name):
     raise Malformed("non-finite number %s" % name)
 
 
+def json_depth_ok(text, limit=JSON_MAX_DEPTH):
+    """Linear pre-scan: the bracket depth outside strings never exceeds limit."""
+    depth = 0
+    in_string = escaped = False
+    for ch in text:
+        if in_string:
+            if escaped:
+                escaped = False
+            elif ch == "\\":
+                escaped = True
+            elif ch == '"':
+                in_string = False
+        elif ch == '"':
+            in_string = True
+        elif ch in "[{":
+            depth += 1
+            if depth > limit:
+                return False
+        elif ch in "]}":
+            depth -= 1
+    return True
+
+
 def parse_json(data, what):
     try:
         text = data.decode("utf-8")
     except UnicodeDecodeError:
         raise Malformed("%s is not UTF-8" % what)
+    if not json_depth_ok(text):
+        raise Malformed("%s nests deeper than %d levels" % (what, JSON_MAX_DEPTH))
     try:
         value = json.loads(text, object_pairs_hook=_no_duplicates, parse_constant=_reject_constant)
     except Malformed:
         raise
+    except RecursionError:
+        # Defence in depth behind the explicit policy above.
+        raise Malformed("%s nests too deeply to decode" % what)
     except ValueError as exc:
+        # JSONDecodeError, and on Python >= 3.11 the integer-digit limit
+        # ("Exceeds the limit (4300 digits)") raised from inside the decoder.
+        # Only the json.loads call is covered; checks after it are not.
         raise Malformed("%s is not JSON: %s" % (what, exc))
     if not isinstance(value, dict):
         raise Malformed("%s is not a JSON object" % what)
@@ -251,12 +291,14 @@ def _get(obj, key, kind=dict):
 # --------------------------------------------------------------------- staging
 
 
-def census(root, spec, label, reasons):
-    """Bounded census of one explicit staged root.
+def scan_root(root, label, reasons):
+    """Bounded, streaming census of one explicit staged root.
 
-    spec = {"name", "directories": [...], "files": {role: {relpath, ...}}}.
-    Returns {role: absolute path} for the expected files that exist, or None
-    when the root itself is unusable. Only this root is listed."""
+    Returns {relpath: (kind, identity)} for the root itself ("") and every
+    entry beneath it, or None when the root is unusable or the scan must stop.
+    Entries are consumed one at a time from a closed-on-exit iterator and the
+    scan stops at CENSUS_MAX_ENTRIES + 1 (the refusal witness): no directory
+    is materialized before the cap is enforced. Only this root is listed."""
     try:
         st = _check_path_shape(root)
     except InputError as exc:
@@ -265,40 +307,78 @@ def census(root, spec, label, reasons):
     if not stat.S_ISDIR(st.st_mode):
         reasons.add("staged_root_not_directory", "%s root %s" % (label, root))
         return None
-    if os.path.basename(root) != spec["name"]:
-        reasons.add("staged_root_name", "%s root is %r, the app installs the folder name; expected %r" % (
-            label, os.path.basename(root), spec["name"]))
-    files, dirs = set(), set()
+    snapshot = {"": ("dir", _ident(st))}
     pending = [("", root, 0)]
     count = 0
     while pending:
         rel, path, depth = pending.pop()
+        batch = []
         try:
-            entries = sorted(os.scandir(path), key=lambda e: e.name)
+            with os.scandir(path) as it:
+                for entry in it:
+                    count += 1
+                    if count > CENSUS_MAX_ENTRIES:
+                        reasons.add("staged_too_many_entries", "%s exceeds %d entries" % (label, CENSUS_MAX_ENTRIES))
+                        return None
+                    erel = entry.name if not rel else rel + "/" + entry.name
+                    try:
+                        est = entry.stat(follow_symlinks=False)
+                    except FileNotFoundError:
+                        reasons.add("staged_changed", "%s %s vanished during the census" % (label, erel))
+                        return None
+                    batch.append((erel, entry.path, est))
+        except FileNotFoundError:
+            reasons.add("staged_changed", "%s %s vanished during the census" % (label, rel or "."))
+            return None
         except OSError as exc:
             reasons.add("staged_unreadable", "%s %s: %s" % (label, rel or ".", exc.strerror))
             return None
-        for entry in entries:
-            count += 1
-            if count > CENSUS_MAX_ENTRIES:
-                reasons.add("staged_too_many_entries", "%s exceeds %d entries" % (label, CENSUS_MAX_ENTRIES))
-                return None
-            erel = entry.name if not rel else rel + "/" + entry.name
-            est = entry.stat(follow_symlinks=False)
+        for erel, epath, est in sorted(batch):
             if stat.S_ISLNK(est.st_mode):
-                reasons.add("staged_symlink", "%s %s" % (label, erel))
+                kind = "symlink"
             elif stat.S_ISDIR(est.st_mode):
-                dirs.add(erel)
+                kind = "dir"
                 if depth + 1 >= CENSUS_MAX_DEPTH:
-                    reasons.add("staged_too_deep", "%s %s" % (label, erel))
+                    kind = "too_deep"
                 else:
-                    pending.append((erel, entry.path, depth + 1))
+                    pending.append((erel, epath, depth + 1))
             elif stat.S_ISREG(est.st_mode):
-                files.add(erel)
+                kind = "file"
             else:
-                reasons.add("staged_special_file", "%s %s" % (label, erel))
-            if set(erel.split("/")) & ERA_DIR_NAMES:
-                reasons.add("staged_era_override", "%s %s" % (label, erel))
+                kind = "special"
+            snapshot[erel] = (kind, _ident(est))
+    return snapshot
+
+
+def census(root, spec, label, reasons):
+    """Check one staged root's complete inventory against spec.
+
+    spec = {"name", "directories": [...], "files": {role: {relpath, ...}}}.
+    Returns ({role: absolute path}, snapshot) or (None, None) when the root
+    is unusable. The snapshot is rechecked before any success."""
+    snapshot = scan_root(root, label, reasons)
+    if snapshot is None:
+        return None, None
+    if os.path.basename(root) != spec["name"]:
+        reasons.add("staged_root_name", "%s root is %r, the app installs the folder name; expected %r" % (
+            label, os.path.basename(root), spec["name"]))
+    files, dirs = set(), set()
+    for erel, (kind, _) in sorted(snapshot.items()):
+        if not erel:
+            continue
+        if kind == "symlink":
+            reasons.add("staged_symlink", "%s %s" % (label, erel))
+        elif kind == "too_deep":
+            dirs.add(erel)
+            reasons.add("staged_too_deep", "%s %s" % (label, erel))
+        elif kind == "dir":
+            dirs.add(erel)
+        elif kind == "file":
+            files.add(erel)
+        else:
+            reasons.add("staged_special_file", "%s %s" % (label, erel))
+        if set(erel.split("/")) & ERA_DIR_NAMES:
+            reasons.add("staged_era_override", "%s %s" % (label, erel))
     by_rel = {f["relpath"]: role for role, f in spec["files"].items()}
     for erel in sorted(files - set(by_rel)):
         reasons.add("staged_extra", "%s %s" % (label, erel))
@@ -307,10 +387,25 @@ def census(root, spec, label, reasons):
     found = {}
     for erel, role in sorted(by_rel.items()):
         if erel in files:
-            found[role] = os.path.join(root, *erel.split("/"))
+            found[role] = (os.path.join(root, *erel.split("/")), erel)
         else:
             reasons.add("staged_missing", "%s %s" % (label, erel))
-    return found
+    return found, snapshot
+
+
+def revalidate(root, label, snapshot, reasons):
+    """Final closure check: the root still has exactly the census snapshot
+    (same entries, kinds and dev/ino/mode/size/mtime/ctime, root included)."""
+    again = scan_root(root, label, Reasons())
+    if again is None:
+        reasons.add("staged_changed", "%s root is no longer readable as censused" % label)
+        return
+    if again == snapshot:
+        return
+    for erel in sorted(set(snapshot) | set(again)):
+        if snapshot.get(erel) != again.get(erel):
+            what = "added" if erel not in snapshot else "removed" if erel not in again else "changed"
+            reasons.add("staged_changed", "%s %s %s during evaluation" % (label, erel or ".", what))
 
 
 # --------------------------------------------------------------------- static
@@ -362,26 +457,10 @@ def _check_requires_and_era(mod, story, label, reasons):
             reasons.add("staged_era_override", "%s mod.json declares %s" % (label, key))
 
 
-def check_story_static(manifest, data, reasons):
-    story = manifest["story"]
+def check_quest_db_bytes(manifest, raw, reasons):
+    """Four exact QUEST_DB v3 Id/Title rows, no Clear and no Footer imports."""
     try:
-        mod = parse_json(data["story.mod_json"], "story mod.json")
-    except Malformed as exc:
-        reasons.add("story_manifest_malformed", exc)
-        mod = None
-    if mod is not None:
-        version = mod.get("version")
-        if mod.get("name") != story["name"]:
-            reasons.add("story_name_mismatch", repr(mod.get("name")))
-        if version in story["superseded_versions"]:
-            reasons.add("story_superseded_staging", "staged %s; current release is %s" % (version, story["version"]))
-        elif version != story["version"]:
-            reasons.add("story_version_mismatch", repr(version))
-        _check_requires_and_era(mod, story, "story", reasons)
-        if isinstance(mod.get("requires"), dict) and not same(mod["requires"], story["requires"]):
-            reasons.add("story_requires_mismatch", canon(mod["requires"]))
-    try:
-        header, rows = parse_quest_db(data["story.quest_db"].decode("utf-8"))
+        header, rows = parse_quest_db(raw.decode("utf-8"))
     except (UnicodeDecodeError, Malformed) as exc:
         reasons.add("quest_db_malformed", exc)
         header, rows = None, []
@@ -408,6 +487,42 @@ def check_story_static(manifest, data, reasons):
                 reasons.add("quest_row_fields", "%d: %s" % (qid, ",".join(sorted(row))))
             if hashlib.sha256(row.get("Title", "").encode("utf-8")).hexdigest() != expected[qid]:
                 reasons.add("quest_row_title_mismatch", str(qid))
+
+
+def check_exits(manifest, edge, reasons):
+    """The exact three connections, each present in the given script text."""
+    for conn in manifest["routes"]["connections"]:
+        (fm, fx, fy), (tm, tx, ty) = conn["from"], conn["to"]
+        if conn["name"].startswith("ROSOLO_"):
+            pattern = r"(?m)^%s,%d,%d,\d+\twarp\t%s\t\d+,\d+,%s,%d,%d$" % (
+                re.escape(fm), fx, fy, re.escape(conn["name"]), re.escape(tm), tx, ty)
+            found = re.search(pattern, edge)
+        else:
+            head = re.search(r"(?m)^%s,%d,%d,\d+\tscript\t%s\t" % (re.escape(fm), fx, fy, re.escape(conn["name"])), edge)
+            found = head and ('warp "%s",%d,%d;' % (tm, tx, ty)) in edge[head.end():head.end() + 200]
+        if not found:
+            reasons.add("route_exit_missing", conn["name"])
+
+
+def check_story_static(manifest, data, reasons):
+    story = manifest["story"]
+    try:
+        mod = parse_json(data["story.mod_json"], "story mod.json")
+    except Malformed as exc:
+        reasons.add("story_manifest_malformed", exc)
+        mod = None
+    if mod is not None:
+        version = mod.get("version")
+        if mod.get("name") != story["name"]:
+            reasons.add("story_name_mismatch", repr(mod.get("name")))
+        if version in story["superseded_versions"]:
+            reasons.add("story_superseded_staging", "staged %s; current release is %s" % (version, story["version"]))
+        elif version != story["version"]:
+            reasons.add("story_version_mismatch", repr(version))
+        _check_requires_and_era(mod, story, "story", reasons)
+        if isinstance(mod.get("requires"), dict) and not same(mod["requires"], story["requires"]):
+            reasons.add("story_requires_mismatch", canon(mod["requires"]))
+    check_quest_db_bytes(manifest, data["story.quest_db"], reasons)
     npc_text = {}
     for role in ("story.npc.entry", "story.npc.first_edge", "story.npc.fruit_village"):
         try:
@@ -424,18 +539,7 @@ def check_story_static(manifest, data, reasons):
     piece = b"\n".join(lines[block["first_line"] - 1: block["last_line"]]) + b"\n"
     if len(piece) != block["bytes"] or hashlib.sha256(piece).hexdigest() != block["sha256"]:
         reasons.add("connection_block_changed", "first_edge.txt lines %d-%d differ" % (block["first_line"], block["last_line"]))
-    edge = npc_text["story.npc.first_edge"]
-    for conn in manifest["routes"]["connections"]:
-        (fm, fx, fy), (tm, tx, ty) = conn["from"], conn["to"]
-        if conn["name"].startswith("ROSOLO_"):
-            pattern = r"(?m)^%s,%d,%d,\d+\twarp\t%s\t\d+,\d+,%s,%d,%d$" % (
-                re.escape(fm), fx, fy, re.escape(conn["name"]), re.escape(tm), tx, ty)
-            found = re.search(pattern, edge)
-        else:
-            head = re.search(r"(?m)^%s,%d,%d,\d+\tscript\t%s\t" % (re.escape(fm), fx, fy, re.escape(conn["name"])), edge)
-            found = head and ('warp "%s",%d,%d;' % (tm, tx, ty)) in edge[head.end():head.end() + 200]
-        if not found:
-            reasons.add("route_exit_missing", conn["name"])
+    check_exits(manifest, npc_text["story.npc.first_edge"], reasons)
 
 
 def check_text_static(manifest, data, reasons):
@@ -595,7 +699,8 @@ def check_facts(manifest, rec, ctx, mode, reasons):
     else:
         sources = set()
         for entry in res:
-            if not isinstance(entry, dict) or entry.get("alias") != want["alias"] or not is_int(entry.get("id")):
+            if not isinstance(entry, dict) or entry.get("alias") != want["alias"] or not is_int(entry.get("id")) \
+                    or not isinstance(entry.get("source"), str) or not entry["source"]:
                 reasons.add("item_alias_malformed", canon(entry)[:120])
                 continue
             sources.add(entry.get("source"))
@@ -759,7 +864,44 @@ def check_text_effective(manifest, rec, packet, ctx, mode, reasons):
 # --------------------------------------------------------------------- driver
 
 
-def load_manifest(path, mode, reasons):
+MANIFEST_SHAPE = {
+    "release_id": str, "story": dict, "text": dict, "app": dict, "native": dict, "item": dict,
+    "routes": dict, "npc_imports": list, "quests": dict, "text_expectations": dict,
+    "qualification_pins": dict, "required_roles": list,
+}
+SECTION_SHAPE = {
+    "story": {"name": str, "version": str, "superseded_versions": list, "requires": dict,
+              "requires_supported_keys": list, "directories": list, "files": dict},
+    "text": {"name": str, "mod_manifest": dict, "directories": list, "files": dict},
+    "app": {"commit": str, "tree": str, "files": dict},
+    "native": {"source_revision": str, "prepared_source_tree_sha256": str, "patch": dict,
+               "builtin": dict, "packet_version": int, "platform": str, "executable": dict},
+    "routes": {"maps": list, "connections": list, "first_edge_block": dict},
+    "quests": {"rows": list},
+    "text_expectations": {"resource": str, "decoder": dict, "hash_basis": str,
+                          "public_title_sha256": dict, "public_summary_sha256": dict},
+}
+
+
+def manifest_shape_error(manifest):
+    """Top-level and section shapes the gate relies on; None when they hold."""
+    for key, kind in MANIFEST_SHAPE.items():
+        if not isinstance(manifest.get(key), kind):
+            return "manifest %s must be %s" % (key, kind.__name__)
+    for section, fields in SECTION_SHAPE.items():
+        for key, kind in fields.items():
+            if not isinstance(manifest[section].get(key), kind):
+                return "manifest %s.%s must be %s" % (section, key, kind.__name__)
+    for section in ("story", "text", "app"):
+        if not all(isinstance(v, dict) and isinstance(v.get("relpath", v.get("path")), str)
+                   for v in manifest[section]["files"].values()):
+            return "manifest %s.files entries need a path" % section
+    if not all(isinstance(v, dict) for v in manifest["qualification_pins"].values()):
+        return "manifest qualification_pins entries must be objects"
+    return None
+
+
+def load_manifest(path, mode, reasons, schema=MANIFEST_SCHEMA, shape=None):
     try:
         raw, size, digest = read_explicit(path, JSON_CAP)
         manifest = parse_json(raw, "manifest")
@@ -770,8 +912,12 @@ def load_manifest(path, mode, reasons):
         reasons.add("manifest_malformed", exc)
         return None, None
     info = {"path": path, "bytes": size, "sha256": digest}
-    if manifest.get("schema") != MANIFEST_SCHEMA:
+    if manifest.get("schema") != schema:
         reasons.add("manifest_malformed", "schema %r" % manifest.get("schema"))
+        return None, info
+    shape_error = (shape or manifest_shape_error)(manifest)
+    if shape_error:
+        reasons.add("manifest_malformed", shape_error)
         return None, info
     want = "synthetic" if mode == "synthetic" else "actual"
     if manifest.get("manifest_class") != want:
@@ -803,7 +949,7 @@ def unpinned(manifest):
 
 def _pin_of(manifest, role):
     for section in ("story", "text", "app"):
-        if role in manifest[section]["files"]:
+        if section in manifest and role in manifest[section]["files"]:
             return manifest[section]["files"][role]
     if role == "native.patch":
         return manifest["native"]["patch"]
@@ -812,12 +958,15 @@ def _pin_of(manifest, role):
     return manifest["qualification_pins"].get(role)
 
 
-def _read_role(role, path, manifest, reasons, inputs, data, declared=None):
+def _read_role(role, path, manifest, reasons, inputs, data, declared=None, expect_ident=None):
+    seen = []
     try:
-        body, size, digest = read_explicit(path, _role_cap(role), keep=role not in STREAMED)
+        body, size, digest = read_explicit(path, _role_cap(role), keep=role not in STREAMED, ident_out=seen)
     except InputError as exc:
         reasons.add(exc.code, "%s: %s" % (role, exc.detail))
         return
+    if expect_ident is not None and seen[0] != expect_ident:
+        reasons.add("staged_changed", "%s changed between the census and its read" % role)
     inputs[role] = {"bytes": size, "sha256": digest}
     if declared is not None and (not _int_eq(declared.get("bytes"), size) or declared.get("sha256") != digest):
         reasons.add("packet_pin_mismatch", role)
@@ -881,18 +1030,20 @@ def evaluate(mode, manifest_path, packet_path):
         reasons.add("packet_unknown_role", role)
     data = {}
     staged_roles = []
+    snapshots = {}
     for label in ("story", "text"):
         spec = manifest[label]
         staged_roles.extend(spec["files"])
         if label not in roots:
             reasons.add("input_missing", "staged %s root not supplied" % label)
             continue
-        found = census(roots[label], spec, label, reasons)
+        found, snapshot = census(roots[label], spec, label, reasons)
         if found is None:
             continue
+        snapshots[label] = snapshot
         result.setdefault("roots", {})[label] = roots[label]
-        for role, path in sorted(found.items()):
-            _read_role(role, path, manifest, reasons, inputs, data)
+        for role, (path, erel) in sorted(found.items()):
+            _read_role(role, path, manifest, reasons, inputs, data, expect_ident=snapshot[erel][1])
     for role in required:
         entry = declared.get(role)
         if entry is None:
@@ -925,16 +1076,267 @@ def evaluate(mode, manifest_path, packet_path):
             check(manifest, rec, ctx, mode, reasons)
         except Malformed as exc:
             reasons.add("evidence_malformed", "%s: %s" % (role, exc))
-        except (TypeError, KeyError, AttributeError, ValueError) as exc:
-            reasons.add("evidence_malformed", "%s: %s" % (role, type(exc).__name__))
     if "text.effective" in data:
         try:
             rec = parse_json(data["text.effective"], "text.effective")
             check_text_effective(manifest, rec, packet, ctx, mode, reasons)
         except Malformed as exc:
             reasons.add("evidence_malformed", "text.effective: %s" % exc)
-        except (TypeError, KeyError, AttributeError, ValueError) as exc:
-            reasons.add("evidence_malformed", "text.effective: %s" % type(exc).__name__)
+    # Last step before any success: the staged closure must still be exactly
+    # what was censused and read. This is a snapshot; see README (exclusive
+    # staging ownership, re-run the gate if anything changes before install).
+    for label, snapshot in sorted(snapshots.items()):
+        revalidate(roots[label], label, snapshot, reasons)
+    return _finish(result, reasons, mode)
+
+
+# --------------------------------------------------------------------- withdrawal contract
+#
+# A separate, actor-free story folder with the SAME name (ro-solo-ch1-entry)
+# that keeps exactly the four QUEST_DB definitions and the exact three-exit
+# block and nothing consequential. The ordinary-release gate above can never
+# admit these bytes, and a release PASS never transfers to them. This
+# contract has its own manifest, inventory pins and independently pinned
+# isolated native-load qualification record.
+
+WITHDRAWAL_SHAPE = {
+    "release_id": str, "story": dict, "native": dict, "routes": dict, "quests": dict,
+    "consequential_actors": list, "qualification_pins": dict, "required_roles": list,
+}
+WITHDRAWAL_SECTION_SHAPE = {
+    "story": {"name": str, "forbidden_versions": list, "requires": dict, "requires_supported_keys": list,
+              "directories": list, "files": dict},
+    "native": {"platform": str, "packet_version": int, "executable": dict},
+    "routes": {"maps": list, "connections": list, "first_edge_block": dict},
+    "quests": {"rows": list},
+}
+WITHDRAWAL_QUALIFIED_ROLES = ("native.parser_log", "effective.config", "withdrawal.qualification")
+
+
+def withdrawal_shape_error(manifest):
+    for key, kind in WITHDRAWAL_SHAPE.items():
+        if not isinstance(manifest.get(key), kind):
+            return "manifest %s must be %s" % (key, kind.__name__)
+    for section, fields in WITHDRAWAL_SECTION_SHAPE.items():
+        for key, kind in fields.items():
+            if not isinstance(manifest[section].get(key), kind):
+                return "manifest %s.%s must be %s" % (section, key, kind.__name__)
+    if not all(isinstance(v, dict) and isinstance(v.get("relpath"), str) for v in manifest["story"]["files"].values()):
+        return "manifest story.files entries need a relpath"
+    if not all(isinstance(v, dict) for v in manifest["qualification_pins"].values()):
+        return "manifest qualification_pins entries must be objects"
+    return None
+
+
+def withdrawal_unpinned(manifest):
+    gaps = []
+    if manifest["native"].get("image_id") is None:
+        gaps.append("native.image_id")
+    for key in ("bytes", "sha256"):
+        if manifest["native"]["executable"].get(key) is None:
+            gaps.append("native.executable." + key)
+    for role, pin in manifest["story"]["files"].items():
+        if pin.get("bytes") is None or pin.get("sha256") is None:
+            gaps.append(role)
+    for role in WITHDRAWAL_QUALIFIED_ROLES:
+        pin = manifest["qualification_pins"].get(role) or {}
+        if pin.get("bytes") is None or pin.get("sha256") is None:
+            gaps.append("qualification_pins." + role)
+    return gaps
+
+
+def check_withdrawal_static(manifest, data, reasons):
+    story = manifest["story"]
+    try:
+        mod = parse_json(data["withdrawal.mod_json"], "withdrawal mod.json")
+    except Malformed as exc:
+        reasons.add("withdrawal_manifest_malformed", exc)
+        mod = None
+    if mod is not None:
+        if mod.get("name") != story["name"]:
+            reasons.add("withdrawal_name_mismatch", repr(mod.get("name")))
+        version = mod.get("version")
+        if not isinstance(version, str) or not version or version in story["forbidden_versions"]:
+            reasons.add("withdrawal_version", "withdrawal needs its own new version, not %r" % (version,))
+        _check_requires_and_era(mod, story, "withdrawal", reasons)
+        if isinstance(mod.get("requires"), dict) and not same(mod["requires"], story["requires"]):
+            reasons.add("withdrawal_requires_mismatch", canon(mod["requires"]))
+    check_quest_db_bytes(manifest, data["withdrawal.quest_db"], reasons)
+    try:
+        npc = data["withdrawal.npc.connections"].decode("utf-8")
+    except UnicodeDecodeError:
+        reasons.add("withdrawal_npc_not_utf8", "npc/connections.txt")
+        npc = ""
+    block = manifest["routes"]["first_edge_block"]
+    raw = data["withdrawal.npc.connections"]
+    if len(raw) != block["bytes"] or hashlib.sha256(raw).hexdigest() != block["sha256"]:
+        reasons.add("connection_block_changed", "npc/connections.txt must be exactly first_edge.txt lines %d-%d" % (
+            block["first_line"], block["last_line"]))
+    check_exits(manifest, npc, reasons)
+    # Every top-level declaration must be one of the three exits.
+    exits = {c["name"] for c in manifest["routes"]["connections"]}
+    actors = set(manifest["consequential_actors"])
+    for m in re.finditer(r"(?m)^[^\s,/][^,\n]*,\d+,\d+,\d+\t(\w+)\t([^\t\n]+)\t", npc):
+        name = m.group(2)
+        if name in actors:
+            reasons.add("withdrawal_actor_present", name)
+        elif name not in exits:
+            reasons.add("withdrawal_unexpected_declaration", "%s %s" % (m.group(1), name))
+
+
+def check_withdrawal_record(manifest, rec, ctx, mode, reasons):
+    _common_record(rec, WITHDRAWAL_RECORD_SCHEMA, "withdrawal", mode, manifest, reasons)
+    nat = manifest["native"]
+    if rec.get("qualification_kind") != "isolated_runtime":
+        reasons.add("withdrawal_unqualified_kind", repr(rec.get("qualification_kind")))
+    exe = _get(rec, "executable")
+    if exe.get("sha256") != ctx["executable_sha256"] or not _int_eq(exe.get("bytes"), ctx["executable_bytes"]):
+        reasons.add("withdrawal_executable_mismatch", "record does not describe the supplied executable")
+    image = _get(rec, "image")
+    if nat["image_id"] is not None and image.get("id") != nat["image_id"]:
+        reasons.add("withdrawal_image_mismatch", repr(image.get("id")))
+    if not isinstance(image.get("id"), str) or IMAGE_RE.match(image.get("id")) is None or image.get("platform") != nat["platform"]:
+        reasons.add("withdrawal_image_malformed", canon(image)[:120])
+    if not _int_eq(rec.get("packet_version"), nat["packet_version"]):
+        reasons.add("withdrawal_packet_mismatch", repr(rec.get("packet_version")))
+    if rec.get("effective_config_sha256") != ctx["config_sha256"]:
+        reasons.add("withdrawal_config_mismatch", "record does not cite the supplied effective configuration")
+    parser = _get(rec, "parser")
+    if parser.get("method") != "isolated_map_server_load" or parser.get("log_sha256") != ctx["parser_log_sha256"]:
+        reasons.add("withdrawal_parser_unqualified", "parser method/log not bound")
+    if parser.get("loaded") is not True or not _int_eq(parser.get("errors"), 0) or not _int_eq(parser.get("release_warnings"), 0):
+        reasons.add("withdrawal_parser_failed", "loaded/errors/release_warnings")
+    want = {manifest["story"]["files"][r]["relpath"]: ctx["staged_sha"].get(r)
+            for r in ("withdrawal.npc.connections", "withdrawal.quest_db")}
+    got = {i.get("path"): i.get("sha256") for i in _get(parser, "scripts", list) if isinstance(i, dict) and isinstance(i.get("path"), str)}
+    if not same(got, want):
+        reasons.add("withdrawal_script_mismatch", "parser.scripts must be exactly the staged withdrawal files")
+    maps = _get(rec, "maps")
+    for name in manifest["routes"]["maps"]:
+        if not isinstance(maps.get(name), dict) or maps[name].get("loaded") is not True:
+            reasons.add("route_map_not_loaded", name)
+    by_name = {}
+    for c in _get(rec, "connections", list):
+        if isinstance(c, dict) and isinstance(c.get("name"), str):
+            by_name.setdefault(c["name"], []).append(c)
+    for want_c in manifest["routes"]["connections"]:
+        got_c = by_name.get(want_c["name"], [])
+        if len(got_c) != 1 or got_c[0].get("loaded") is not True or not same(got_c[0].get("from"), want_c["from"]) \
+                or not same(got_c[0].get("to"), want_c["to"]):
+            reasons.add("route_exit_not_effective", want_c["name"])
+    qdb = _get(rec, "quest_db")
+    layers = qdb.get("layers")
+    if not isinstance(layers, list) or not layers or not all(isinstance(x, dict) and is_bool(x.get("clear")) for x in layers):
+        reasons.add("quest_db_layers_unknown", "effective quest DB layers are not recorded")
+    else:
+        if any(x["clear"] for x in layers):
+            reasons.add("quest_db_clear", "an effective layer clears QUEST_DB")
+        if not any(x.get("sha256") == ctx["staged_sha"].get("withdrawal.quest_db") for x in layers):
+            reasons.add("quest_db_import_missing", "no effective layer is the staged quest_db.yml")
+    seen = {}
+    for row in _get(qdb, "rows", list):
+        if isinstance(row, dict) and is_int(row.get("id")):
+            seen.setdefault(row["id"], []).append(row)
+    for want_r in manifest["quests"]["rows"]:
+        got_r = seen.get(want_r["id"], [])
+        if len(got_r) != 1 or got_r[0].get("title_sha256") != want_r["title_sha256"]:
+            reasons.add("quest_row_not_effective", str(want_r["id"]))
+    actors = _get(rec, "actors")
+    if not same(actors.get("checked"), manifest["consequential_actors"]):
+        reasons.add("withdrawal_actors_unchecked", "actors.checked must list exactly the consequential actors")
+    if not same(actors.get("loaded"), []):
+        reasons.add("withdrawal_actor_loaded", canon(actors.get("loaded"))[:160])
+    collisions = rec.get("collisions")
+    if not isinstance(collisions, list) or any(not isinstance(c, dict) or c.get("identical") is not True or c.get("resolved") is not True
+                                               for c in collisions):
+        reasons.add("collision_unresolved", "withdrawal load collisions unknown or unresolved")
+
+
+def evaluate_withdrawal(mode, manifest_path, packet_path):
+    reasons = Reasons()
+    result = {
+        "schema": RESULT_SCHEMA, "contract": "withdrawal", "mode": mode, "status": "refused", "admitted": False,
+        "boundary": "Actor-free same-name withdrawal/preservation folder only; never the ordinary 0.3.2 release. "
+                    "Consistency against independently pinned expectations; Root establishes runtime facts.",
+    }
+    try:
+        _, gsize, gsha = read_explicit(os.path.abspath(__file__), TEXT_CAP, keep=False)
+        result["gate"] = {"bytes": gsize, "sha256": gsha}
+    except InputError:
+        result["gate"] = None
+    manifest, minfo = load_manifest(manifest_path, mode, reasons, WITHDRAWAL_MANIFEST_SCHEMA, withdrawal_shape_error)
+    result["manifest"] = minfo
+    inputs = {}
+    result["inputs"] = inputs
+    if manifest is None:
+        return _finish(result, reasons, mode)
+    for gap in withdrawal_unpinned(manifest):
+        reasons.add("manifest_unpinned", "%s awaits Root's reviewed pin" % gap)
+    try:
+        if packet_path is None:
+            raise InputError("input_missing", "no --packet")
+        raw, size, digest = read_explicit(packet_path, JSON_CAP)
+        packet = parse_json(raw, "packet")
+        result["packet"] = {"path": packet_path, "bytes": size, "sha256": digest}
+    except InputError as exc:
+        reasons.add("packet_" + exc.code, exc.detail)
+        return _finish(result, reasons, mode)
+    except Malformed as exc:
+        reasons.add("packet_malformed", exc)
+        return _finish(result, reasons, mode)
+    if packet.get("schema") != WITHDRAWAL_PACKET_SCHEMA:
+        reasons.add("packet_malformed", "schema %r" % packet.get("schema"))
+    if packet.get("record_class") != ("synthetic" if mode == "synthetic" else "actual"):
+        reasons.add("packet_record_class", "%r in %s mode" % (packet.get("record_class"), mode))
+    if packet.get("release_id") != manifest["release_id"]:
+        reasons.add("packet_release_mismatch", repr(packet.get("release_id")))
+    declared = packet.get("inputs") if isinstance(packet.get("inputs"), dict) else None
+    roots = packet.get("roots") if isinstance(packet.get("roots"), dict) else None
+    if declared is None or roots is None:
+        reasons.add("packet_malformed", "packet needs roots {story} and inputs role -> {path, bytes, sha256}")
+        return _finish(result, reasons, mode)
+    for key in sorted(set(roots) - {"story"}):
+        reasons.add("packet_unknown_role", "roots." + key)
+    required = manifest["required_roles"]
+    for role in sorted(set(declared) - set(required)):
+        reasons.add("packet_unknown_role", role)
+    data = {}
+    snapshot = None
+    if "story" not in roots:
+        reasons.add("input_missing", "staged withdrawal root not supplied")
+    else:
+        found, snapshot = census(roots["story"], manifest["story"], "withdrawal", reasons)
+        if found is not None:
+            for role, (path, erel) in sorted(found.items()):
+                _read_role(role, path, manifest, reasons, inputs, data, expect_ident=snapshot[erel][1])
+    for role in required:
+        entry = declared.get(role)
+        if entry is None:
+            reasons.add("input_missing", "role %s not supplied" % role)
+            continue
+        if not isinstance(entry, dict) or not is_int(entry.get("bytes")) or not is_sha(entry.get("sha256")):
+            reasons.add("packet_entry_malformed", role)
+            continue
+        _read_role(role, entry.get("path"), manifest, reasons, inputs, data, declared=entry)
+    if all(r in data for r in manifest["story"]["files"]):
+        check_withdrawal_static(manifest, data, reasons)
+    ctx = {
+        "executable_sha256": inputs.get("native.executable", {}).get("sha256"),
+        "executable_bytes": inputs.get("native.executable", {}).get("bytes"),
+        "parser_log_sha256": inputs.get("native.parser_log", {}).get("sha256"),
+        "config_sha256": inputs.get("effective.config", {}).get("sha256") if "effective.config" in data else None,
+        "staged_sha": {r: v["sha256"] for r, v in inputs.items() if r in data},
+    }
+    if "native.parser_log" in data:
+        check_parser_log(data["native.parser_log"], reasons)
+    if "withdrawal.qualification" in data:
+        try:
+            check_withdrawal_record(manifest, parse_json(data["withdrawal.qualification"], "withdrawal.qualification"),
+                                    ctx, mode, reasons)
+        except Malformed as exc:
+            reasons.add("evidence_malformed", "withdrawal.qualification: %s" % exc)
+    if snapshot is not None:
+        revalidate(roots["story"], "withdrawal", snapshot, reasons)
     return _finish(result, reasons, mode)
 
 
@@ -958,14 +1360,20 @@ def main(argv=None):
     ap.add_argument("--packet", help="absolute path of the admission packet JSON")
     ap.add_argument("--synthetic", action="store_true", help="authored-fixture mode; never admits")
     ap.add_argument("--manifest", help="synthetic mode only: absolute path of a synthetic manifest")
+    ap.add_argument("--contract", choices=("release", "withdrawal"), default="release",
+                    help="release: ordinary 0.3.2 story+text; withdrawal: actor-free same-name preservation folder")
     args = ap.parse_args(argv)
     if args.synthetic and not args.manifest:
         ap.error("--synthetic requires --manifest")
     if args.manifest and not args.synthetic:
         ap.error("real mode uses the bundled manifest; --manifest is synthetic-only")
     mode = "synthetic" if args.synthetic else "real"
-    manifest = args.manifest if args.synthetic else BUNDLED_MANIFEST
-    result = evaluate(mode, manifest, args.packet)
+    if args.contract == "withdrawal":
+        manifest = args.manifest if args.synthetic else BUNDLED_WITHDRAWAL_MANIFEST
+        result = evaluate_withdrawal(mode, manifest, args.packet)
+    else:
+        manifest = args.manifest if args.synthetic else BUNDLED_MANIFEST
+        result = evaluate(mode, manifest, args.packet)
     sys.stdout.write(json.dumps(result, ensure_ascii=False, indent=1) + "\n")
     return 0 if result["status"] in ("admitted", "synthetic_consistent") else 1
 
