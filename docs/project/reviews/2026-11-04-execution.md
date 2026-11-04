@@ -821,3 +821,15 @@ payload/install, existing resource/base/personal-preservation gates and finite
 cleanup. Actual selection remains unqualified before execution. The host
 single-transfer helper is drafted independently without network/runtime use.
 See [exact admission and limits](2026-11-04-T10.010.004-root.md#url-only-diagnostic-reviewed-and-admitted).
+
+## Actual URL capture passes; host acquisition remains next
+
+Root executes the committed admission once and personally checks all44 exact
+HTTPS selections, empty payload output/stderr, exit0, unchanged stock26/keys
+and container-bound resource evidence. Resource/capture take10.4s/27.0s;
+both containers are deleted/404 and owned VM shutdown passes in0.554s.
+Personal five-service projections remain identical. Root creates a pinned
+host-selection input from the actual capture. Next: reviewed one-file GCC
+transfer measurement, then remaining inputs and real47-file qualification.
+No signatures/index digest/closure/full build are qualified;3/7 tasks remain
+closed. See [actual checks and hashes](2026-11-04-T10.010.004-root.md#actual44-url-capture-and-owned-cleanup-pass).

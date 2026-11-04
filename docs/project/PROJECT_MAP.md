@@ -21,7 +21,8 @@ FULL MODERN / RENEWAL PERSONAL GAME
 |   [x] APK counter-format repair [SOURCE VERIFIED]
 |   [x] Real guest parses all47 solver rows [ACTUAL VERIFIED]
 |   [x] APK3 exact-fetch correction [SOURCE VERIFIED]
-|   [ ] Stock-selected URLs / measured transfer / signed closure [CURRENT]
+|   [x] Actual44 stock-selected URLs / empty payload / owned cleanup
+|   [ ] Measured host transfer -> all47 signed local closure [CURRENT]
 |   [ ] Qualified dependencies -> full builds -> ordinary-item A/B
 |   [ ] Binary/mod/text gate [SOURCE INTEGRATED; RUNTIME OPEN]
 |   [ ] Real EXP/callback/save [ANALYSIS INTEGRATED; RUNTIME OPEN]
@@ -65,7 +66,7 @@ Root identifies a pinned-source lookup defect. Its fetch repair now passes
 Root86 tests with zero skips and unchanged candidate-copy/main identities;
 the exact source is integrated. Actual resolve6/phase7 begins downloads but
 hits its300s batch limit before installation. Next: capture stock-selected
-URLs without payloads, measure host transfer, then qualify all47 signed local
+URLs without payloads (now verified), measure host transfer, then qualify all47 signed local
 inputs. Cleanup and personal projections pass. Claude's release-gate source is selected and
 integrated; Root's113 integrated tests and real release/withdrawal refusals
 pass with644 tracked files unchanged. All actual release/runtime gates remain open.
