@@ -28,7 +28,7 @@ FULL MODERN / RENEWAL PERSONAL GAME
 |   [ ] Ordinary-item NPC fixtures [CLAUDE SOURCE SELECTED; PARSER OPEN]
 |   [x] Startup process/mount readbacks [ROOT VERIFIED; PARSER OPEN]
 |   [x] Managed client identity/static/owned stop [ROOT VERIFIED]
-|   [ ] Live DB discovery [PRE-START REFUSAL; CANDIDATE5 TEMP REPAIR ACTIVE]
+|   [ ] Live DB discovery [CANDIDATE5: DIRECTORY/FIXTURE REPAIR NEXT]
 |   [ ] Isolated DB backup/restore -> integrated rendering/item A/B
 |   [ ] Binary/mod/text gate [SOURCE INTEGRATED; RUNTIME OPEN]
 |   [ ] Real EXP/callback/save [ANALYSIS INTEGRATED; RUNTIME OPEN]
@@ -64,7 +64,8 @@ Discovery candidate4 passes76 authored controls and13 independent Root probes;
 the observed preservation and CREATE/SET faults are repaired within that
 synthetic contract. Fresh preflight/prepare and final source/phase review pass;
 the actual run refuses before any VM command because a shared-temp match already
-exists. Scope the operational temp files and rebind admission; no live capture
+exists. Candidate5 scopes app temp files, but needs a directory-binding and
+test-fixture repair before fresh admission; no live capture
 yet. Grok's original is preserved but not selected,
 and its settled worker is released. See the [current discovery record](reviews/2026-11-05-T10.010.004-db-discovery-root.md).
 The separate4GiB build VM is stopped after the repaired full pair succeeds:

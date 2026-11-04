@@ -23,17 +23,20 @@ not percentages of playable content, translation or remaining effort.
 
 ## Current action — DB qualification before integrated items
 
-**Next:** fix the shared-temp pre-start assumption, then rebind a fresh phase.
+**Next:** close candidate5's directory-binding gap and control-fixture error,
+then rebind a fresh phase.
 Candidate4's admitted run exits1 before LAUNCHED or any VM command: one existing
 Nebula stderr file violates its empty shared-temp glob check. Root retains the
 phase and raw refusal and leaves the existing file untouched. The private
-app-only TMPDIR design is selected; Claude candidate5 source repair is active
-asctx_a7751f9ab13c. Root verifies it before fresh phase2 admission; no new run
-is admitted.
+app-only TMPDIR design is selected and candidate5 is delivered. Its compile/
+lint and13 independent Root checks pass, but the92-control suite aborts on a
+late helper definition. Root also reproduces two actual-hit directory swaps
+that the new check accepts. Require fd-bound enumeration/current identity
+readback and the small fixture repair before source qualification. Phase2 is
+not prepared and no new run is admitted.
 The prior read-only preflight, prepare and final source/phase review retain
 their scoped passes; they did not prove shared-temp emptiness.
-Both original suppliers and Claude
-candidate4 have delivered; source copies
+Both original suppliers and Claude candidate5 have delivered; source copies
 and task branches are preserved. The common41-file input contract stays frozen.
 Root handles report wakes without inbox polling; source work is not on its own
 runtime qualification. See the [current review and evidence](reviews/2026-11-05-T10.010.004-db-discovery-root.md)
