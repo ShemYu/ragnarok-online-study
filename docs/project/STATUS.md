@@ -39,9 +39,13 @@ See [local-control checkpoint](reviews/2026-11-04-T10.010.004-root.md#observer-l
 **Next:** implement/review/admit a read-only live metadata/dump-format capture.
 The [frozen discovery source contract](reviews/2026-11-05-T10.010.004-db-discovery-brief.md)
 binds41 named source/record inputs for independent Claude/Grok candidates.
-Both are dispatched in separate clean task branches at the samee185f6ed base;
-Orca reports each ready/input_accepted and live. Source delivery/review remains
-pending. See [dispatch record](reviews/2026-11-04-T10.010.004-root.md#discovery-workers-dispatched-and-live).
+Both are dispatched in separate task branches at the samee185f6ed base.
+Claude's unexecuted candidate is delivered, hash-verified and frozen for Root
+review; Grok's candidate remains pending. Source review and isolated controls
+must precede admission. Root also checks the existing disposable backup's
+multiline tuple format; this is historical format evidence, not a current
+schema or restore proof. See [current review and next action](reviews/2026-11-05-T10.010.004-db-discovery-root.md)
+and [dispatch record](reviews/2026-11-04-T10.010.004-root.md#discovery-workers-dispatched-and-live).
 Root/native/Astra source review identifies the old1107/current1109 baseline
 distinction, explicit DB cwd, split quiescence and unknown-exec shutdown gate.
 Refresh the exact owned VM/world/resources and personal projections before
