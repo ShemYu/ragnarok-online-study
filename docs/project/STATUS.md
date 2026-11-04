@@ -25,6 +25,11 @@ not percentages of playable content, translation or remaining effort.
 
 **Next:** extend discovery to capture and validate the actual foreign key,
 using a separately authenticated post-run baseline before another admission.
+The [candidate7 source contract](reviews/2026-11-05-T10.010.004-db-fk-brief.md)
+is frozen for the existing Claude repair lane. Astra's design and a narrow
+independent brief review are read by Root; the reported missing record-shape
+descriptor is supplied and its joins checked against the eight pinned overlay
+records. This authorizes source work only; no next runtime phase is admitted.
 Candidate6's one-use phase2 runs and settles in36.030seconds, exit0/no stderr.
 Root independently replays the raw requests/responses, metadata archive,
 guest manifest, completion markers, root visibility and shutdown records.
