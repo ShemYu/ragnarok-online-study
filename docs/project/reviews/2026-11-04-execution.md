@@ -21,6 +21,8 @@ must remain unchanged.
 ## Execution and supplier selection
 
 Orca Run: `run_7cfbb105cb59`. Root owns integration and serial runtime work.
+Latest [Root candidate verification and repair gates](2026-11-04-root-verification.md)
+supersede the initial dispatch/preflight snapshots below for current actions.
 The first three independent lanes have equal frozen Claude/Grok briefs:
 
 | Lane | Brief | Candidate ownership | Root gate |

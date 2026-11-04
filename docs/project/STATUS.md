@@ -15,6 +15,14 @@ See [audit findings](reviews/2026-10-29-T00.005.md),
 Feature-branch checkpoints/publication remain authorized; `origin/main` stays
 unchanged. No additional local-main merge is part of this execution checkpoint.
 
+Latest [Root verification](reviews/2026-11-04-root-verification.md): all six
+initial candidates are submitted. Fresh public native source reconstruction,
+nine source pins and the 133-case/9-mutant host check pass. Root independently
+reconciles both coverage ledgers to all 82 roots. Candidate cleanup/output/
+build-recipe repairs remain open; no candidate is integrated or real compiler
+container started. Historical private admission is stale despite matching
+bytes; keep that failure visible and preserve its old evidence.
+
 Pre-merge maintenance: lint/CI checkpoint `86e98d9` is verified. At the user's
 subsequent request, the retired Godot/Character Lab source is preserved under
 tag `archive/legacy-prototypes-2026-10-25` and removed from the active tree.
