@@ -1270,3 +1270,13 @@ mechanism and future generated game mounts remain unqualified. See [Root's
 actual result](2026-11-04-T10.010.004-root.md#read-only-user-mount-diagnostic-personally-qualified).
 Commit this checkpoint before supported isolated startup. No app up/DB/SQL,
 parser, gameplay or save result is claimed;3/7 audit closure is unchanged.
+
+
+Root source review exposes Engine stop's TERM-to-SIGKILL escalation despite
+success; plain down alone cannot qualify graceful DB shutdown. Preserved v1
+is not executed. v2 adds ordered full-ID signal-only TERM/wait/log/exited0
+proof before supported down, preserving the VM on ambiguity. Astra clears
+source; Root's eight modeled controls and v2 read-only stopped preflight pass
+1898 inputs/six payloads. See [source checkpoint](2026-11-04-T10.010.004-root.md#supported-first-start-source-and-stop-controls).
+Commit before preparation. No phase, VM/game/DB/SQL or client is started;
+actual process/mount/registration/parser/item/save results remain open.

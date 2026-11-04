@@ -58,8 +58,20 @@ justified for these exact reads. The unusual reported single-file ownership
 mechanism is unqualified and needs no extra diagnostic before startup. See
 [actual read qualification](reviews/2026-11-04-T10.010.004-root.md#read-only-user-mount-diagnostic-personally-qualified).
 
-**Next:** admit supported startup in the disposable world using its own state
-and the owned Engine. Verify actual generated conf/NPC mount access and process
+**Startup source and read-only preflight pass; actual startup remains open.**
+Root and independent reviews check the exact five-service projection and
+original supported launch path. Eight modeled shutdown controls pass: clean
+ordered TERM, timeout, request failure, nonzero exit, restart, failed log
+response, unknown name and wrong image. The Engine stop API can escalate to
+SIGKILL yet return success, so down alone cannot prove graceful shutdown.
+The admitted controller must first prove ordered signal-only TERM/exited0,
+without escalation; ambiguity preserves the VM. Read-only preflight passes
+1898 inputs/six payloads/current stopped state and ports. These are source/
+modeled results, not actual SQL/service evidence. See
+[startup source checkpoint](reviews/2026-11-04-T10.010.004-root.md#supported-first-start-source-and-stop-controls).
+
+**Next:** prepare/admit supported startup in the disposable world using its own
+state and the owned Engine. Verify actual generated conf/NPC mount access and process
 identity; the diagnostic does not qualify those future mounts. Fresh host
 state alone does not isolate an Engine's fixed
 container names or DB volume. Verify their absence, images, mounts, six ports,
