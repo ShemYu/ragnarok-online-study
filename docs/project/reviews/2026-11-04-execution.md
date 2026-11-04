@@ -1169,3 +1169,12 @@ Only guest_build.sh differs from old compiler5 upload; other55 member bodies
 and inputs.env are identical. Final phasecee3a51c is distinct from the
 intermediatecade4e2a. Commit the [prepared admission](2026-11-04-T10.010.004-root.md#compiler6-prepared-admission)
 before its one serial actual run; no new binary/runtime qualification yet.
+
+Admission9f8c2bed is committed/pushed before actual exec5054 starts compiler6.
+The resource probe exits0, is deleted/404 and confirms original base26; the
+compiler pair is still running. Root alone owns runtime. In parallel, Root
+pins240 adjacent client System/BGM/AI files/404635573bytes and binds six distinct
+loopback ports simultaneously, then closes the sockets. Host-only asset-link
+source and direct managed asset-server source are independently reviewed.
+No assets/server/browser/DB/game is started in the fresh world; source plans
+and port checks do not qualify protocol/Chinese rendering. See [running scope](2026-11-04-T10.010.004-root.md#compiler6-started-host-asset-inputs-bound-in-parallel).

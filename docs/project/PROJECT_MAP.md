@@ -31,7 +31,7 @@ FULL MODERN / RENEWAL PERSONAL GAME
 |   [x] Fresh successful normal closure [ROOT QUALIFIED; v4]
 |   [x] Offline compiler admission [FAILED RUN PRESERVED; token consumed]
 |   [x] Fresh source-bound dependency resolve [ROOT QUALIFIED; v5]
-|   [ ] Full unpatched/patched builds [REPAIRED COMPILER6 ADMISSION PREPARED]
+|   [ ] Full unpatched/patched builds [REPAIRED COMPILER6 RUNNING]
 |   [ ] Ordinary-item NPC fixtures [CLAUDE SOURCE SELECTED; PARSER OPEN]
 |   [ ] Immutable binary readback -> ordinary-item A/B
 |   [ ] Binary/mod/text gate [SOURCE INTEGRATED; RUNTIME OPEN]
@@ -64,7 +64,7 @@ The ledger remains **4/14 parent checkpoints qualified**, not 29% of the
 world/story completed. The content denominator and full-milestone estimate
 remain unfinished. Basic local play and saved progress are already available.
 Three of seven audit tasks are self-verified (about 43% by task count only).
-The separate4GiB build VM is stopped. The actual dependency closure is
+The separate4GiB build VM is running compiler6. The actual dependency closure is
 Root-qualified: all47 raw/PLAN/installed identities join, base26 and trusted
 keys stay unchanged. Supplier ordering/noarch repairs are source-integrated.
 The first compiler's1536MiB cgroup OOM is preserved. The fresh2560MiB retry
@@ -75,8 +75,9 @@ correct; both supplier repairs pass Root source checks and Claude is selected.
 A fresh exact47 dependency5 binding is now Root-qualified after123-file raw
 replay,47 identity joins/base26 and297-file preservation. Its12.2s actual run,
 cleanup and personal checks pass; the VM is stopped. The repaired compiler6
-admission is now prepared and Root file/state reviewed;
-commit the admission before its one actual run. No image or
+admission is prepared/Root file-state reviewed and committed/pushed9f8c2bed
+before actual exec5054 starts. Resource probe/base26 pass; the full compiler
+has not returned. No image or
 runtime item result is qualified. Both containers are deleted/404, VM down and
 personal projections unchanged; exec54479 is terminal, phase5 cannot be replayed.
 

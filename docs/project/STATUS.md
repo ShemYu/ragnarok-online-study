@@ -21,7 +21,7 @@ ledger remains **4/14 checkpoints qualified**: one accepted and three ready
 for user review, with **82 resource gaps open**. These are separate ledgers,
 not percentages of playable content, translation or remaining effort.
 
-## Current action — prepare the repaired full compiler pair
+## Current action — repaired full compiler pair running
 
 The qualified dependency-v4 closure and original26-package base remain fixed.
 The2560MiB retry compiles **both full server variants**, exits0/no timeout
@@ -86,6 +86,11 @@ is not authority. Independent Astra file review finds no material blocker.
 Commit the reviewed admission before its one actual run.
 No compiler6 container/image/game/SQL/save result exists yet. See
 [prepared admission](reviews/2026-11-04-T10.010.004-root.md#compiler6-prepared-admission).
+Admission9f8c2bed is now committed/pushed before actual exec5054 starts.
+Compiler6 is running in the owned build VM. Its resource probe exits0 with
+deleted/404 cleanup and exact original base26; the compiler has not returned
+an artifact result. Root remains the sole VM/Engine owner. See
+[current running scope](reviews/2026-11-04-T10.010.004-root.md#compiler6-started-host-asset-inputs-bound-in-parallel).
 See [repair selection and refresh](reviews/2026-11-04-T10.010.004-root.md#interpreter-repair-comparison-closed-claude-selected).
 
 The [ordinary fixtures](tasks/T10.010.004-ordinary-fixtures.md) comparison is
@@ -118,6 +123,11 @@ RemoteClient protocol, client assets/Chinese overlay and world launch stay open.
 The existing selected2172616301-byte GRF is now fully content-pinned read-only;
 its source identities stay unchanged. It is not yet linked or content-complete
 qualified by this hash.
+Root also pins the240 automatically selected sibling BGM/AI/System files,
+404635573bytes, and simultaneously binds all six proposed loopback ports.
+Sockets are closed; this is no retained port reservation. Host-only link
+source/containment is reviewed; the fresh state still has no linked assets
+or asset server. Recheck inputs/ports before the supported command.
 
 ## Four audit tasks remain open
 
