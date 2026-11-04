@@ -46,8 +46,11 @@ pushed, actual69031 exits1 at the exact parent-environment guard in68ms:
 native macOS Node adds only `__CF_USER_TEXT_ENCODING`; all six supplied values
 match. No helper/client starts or HTTP GET occurs. Root proves all1107 world
 files exactly unchanged and2071 protected inputs/stopped VM/personal checks
-pass. Preserve this consumed phase. Checkpoint the refusal, then narrowly
-bind/normalize that OS field and prepare a fresh phase; no game-goal change.
+pass. Refusal4d775e71 is pushed. Root reads/syntax-checks the narrow correction:
+record only that key's value hash, remove it before the exact six-key/value
+comparison, retain all other refusals. Revised Python compile/Ruff pass; old
+phase/evidence will be protected in the new context. Checkpoint source, then
+prepare/admit a fresh phase; no new client launch or game-goal change.
 Actual managed identity/readiness, allowed writes, effective cache limits,
 static routing and owned stop still require verification. See
 [prelaunch refusal](reviews/2026-11-04-T10.010.004-root.md#managed-client-prelaunch-environment-refusal).
