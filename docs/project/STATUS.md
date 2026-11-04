@@ -21,53 +21,34 @@ ledger remains **4/14 checkpoints qualified**: one accepted and three ready
 for user review, with **82 resource gaps open**. These are separate ledgers,
 not percentages of playable content, translation or remaining effort.
 
-## Current action — client qualified; integrated items next
+## Current action — DB qualification before integrated items
 
-**Root qualifies managed client identity, static HTTP and graceful owned stop.**
-After admission17621f39 is committed/pushed, the Node probe exits0 in730ms:
-authenticated readiness, six complete HTTP200 responses, four exact static
-file matches, effective256MiB/5000-entry cache and one-GRF index. The owned
-child exits0 without a signal, owner record is removed and all six isolated
-ports are free. The game VM stays exactly stopped. All2084 protected inputs,
-all1107 existing world files and five personal projections remain unchanged;
-only0600 secret/log files are added. See
-[Root's qualified result](reviews/2026-11-04-T10.010.004-root.md#managed-client-protocol-static-and-owned-stop-personally-qualified).
+Managed client identity, six complete HTTP responses, current static files and
+graceful owned stop are qualified. Earlier environment/wrapper refusals and the
+separate compatible qualifier stay in the
+[dated client record](reviews/2026-11-04-T10.010.004-root.md#managed-client-protocol-static-and-owned-stop-personally-qualified).
+Rendering/game/items/saves are still unverified.
 
-The original Python3.9 wrapper exits1 in post-response validation because it
-uses unsupported zip(strict=True). Its refusal stays fixed. Root's separate
-compatible qualifier exits0, independently replaying all six raw body/hash/
-header joins, current static bytes, identity fingerprint, cache and current
-preservation; all25 terminal files remain unchanged. No client relaunch is
-needed. The earlier macOS environment refusal and narrow normalization are
-preserved. These are scoped client checks, not rendering/game/item/save proof.
+Root qualifies the local verification prerequisites:25 synthetic backup-byte
+admission controls,34 full synthetic oracle controls (32refusals) and33 isolated
+observer/fake-command controls. All pass their stated local scope; no fake test
+actor remains. Original failures and minimal harness repairs are preserved.
+These checks do not qualify actual MariaDB dialect, provenance or restore.
+See [local-control checkpoint](reviews/2026-11-04-T10.010.004-root.md#observer-local-controls-personally-qualified).
 
-**Next:** implement/review the corrected disposable DB rehearsal design.
-Both independent source plans are Root-read and compared: Claude14/20,
-Grok12/20 for these initial plans only. Root selects Claude's quiescent
-full-snapshot sequence, combines Grok's interface/environment details and adds
-mandatory pruning/era/whole-data/completion corrections. Neither first plan
-is executable as written. The actual WC-observation/capture method and bounded
-actuator still need Root qualification; no new VM/DB/client action occurs. See
-[paired review and corrected contract](reviews/2026-11-05-T10.010.004-db-plan-root.md).
-Root's source-derived backup-byte admission passes25 isolated synthetic controls,
-including invalid UTF-8, ambiguous/late stamps and changed input pins. This
-qualifies only that helper; no actual backup, staging hash or restore is proved.
-The independent observer/oracle source drafts are delivered. Root checks the
-oracle's authored pure controls; they pass but do not exercise the full parser,
-capture or roundtrip paths. Those controls and observer review remain open.
-The repaired full synthetic oracle suite passes34cases, including32 refusals.
-Observer controls advance through capture/refusal cases, then stop on a stale
-pipe-flag fixture baseline; a pipe-only diagnostic confirms the cause. Original
-failures remain fixed and a minimal repair needs a fresh run. No real database
-action or actual dump-dialect qualification occurs.
-Root retains executable review and all runtime ownership. See
-[byte-admission checkpoint](reviews/2026-11-04-T10.010.004-root.md#backup-byte-identity-admission-controls-qualified).
-Capture live metadata/dump dialect read-only before admitting fixture writes;
-the metadata decoder, exact capture integration and backup/safety profile remain
-unfinished. See [oracle review](reviews/2026-11-04-T10.010.004-root.md#oracle-source-delivered-authored-pure-controls-only).
-Qualify a supported DB-only backup/restore and complete semantic readback
-before ordinary-item mutations. Use the same owned VM/world/client, refreshed
-1109-file world baseline, existing Chinese assets and bounded resources. Then
+**Next:** implement/review/admit a read-only live metadata/dump-format capture.
+Refresh the exact owned VM/world/resources and personal projections before
+startup; ordinary up then exact-ID TERM/exited0 of four game services leaves
+the same DB for discovery. Before fixture writes, qualify authoritative root
+metadata visibility, full decoding, actual dump dialect and raw archive/exec
+provenance. The bounded actuator, supported B/safety profile, same-PID restore
+launch gate and outer custody handling remain unfinished. No current phase
+authorizes database execution. Root owns all runtime actions.
+
+Then qualify the supported disposable DB backup/restore and complete semantic
+S0–S4 readback using the [corrected paired-plan contract](reviews/2026-11-05-T10.010.004-db-plan-root.md).
+Use the same owned VM/world/client, refreshed1109-file baseline, existing
+Chinese assets and bounded resources. After the DB gate,
 verify isolated browser rendering, fixture parsing/200 rows, effective items,
 ordinary A/B, capacity-probe purity and saves. Keep personal state untouched
 and the Mac online. Root classifies the five startup diagnostics from pinned
