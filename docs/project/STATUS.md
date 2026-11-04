@@ -65,6 +65,8 @@ with closed stdin; /dev/null completes the real reinstall and trigger. All26
 versions, personal service projections and owned cleanup pass. Next: the
 [equal dependency-recipe repair](tasks/T10.010.004-dependency-repair.md), then
 exact-base resolution with retained signed package bytes before a full build.
+Claude/Grok source-only repairs are now dispatched from the same30439b1 base;
+both report ready. Root retains serial runtime ownership and the VM is stopped.
 No personal RAM adjustment/restart, game/DB service or progress write occurs.
 
 Pre-merge maintenance: lint/CI checkpoint `86e98d9` is verified. At the user's

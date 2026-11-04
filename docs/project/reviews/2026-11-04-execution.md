@@ -497,3 +497,18 @@ Both final release repairs have now reported: Claude b9038ee6 and Grok73cd559c.
 Root independently runs113/79 tests respectively, with all620 tracked files
 unchanged in each checkout. Final source selection and actual runtime pins
 remain open; see [release comparison](2026-11-04-T10.010.005-root.md).
+
+
+## Equal dependency repairs dispatched
+
+Both source-only suppliers start at30439b1b9777b2519617e248103b377e65eecffc
+in separate Orca task worktrees with setup skipped. Both receive the exact
+same spec bytes, SHA-256
+`9abcadbccc79feb61871625eba3ae828e44a354bcd0698521fcbe3dc860a7f81`;
+brief SHA-256 is
+`fa7c83ac7ea8bbcd2a703678310c809a1c2fbff22aebb2382d645ad70b367cea`.
+Claude dispatch `ctx_9845d0f7407f` and Grok `ctx_e9de1ec344a3` both report
+ready. These are starts, not successful repairs. No model override or
+provider-cost measurement is made. Source candidates must report/commit,
+then Root compares and verifies before runtime admission. The build VM stays
+stopped. Final release-gate comparison remains independent Root work.
