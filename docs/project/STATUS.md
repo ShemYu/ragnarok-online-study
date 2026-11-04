@@ -23,11 +23,13 @@ not percentages of playable content, translation or remaining effort.
 
 ## Current action — DB qualification before integrated items
 
-**Next:** execute the admitted one-use candidate4 metadata/dump capture.
-Its freshly bound actual read-only preflight and prepare-only run pass; the
-one-use phase exists without a LAUNCHED marker. Root and the independent final
-source/phase review find no remaining admission blocker; the exact run command
-is admitted after publication of this checkpoint, with all fresh runtime gates.
+**Next:** fix the shared-temp pre-start assumption, then rebind a fresh phase.
+Candidate4's admitted run exits1 before LAUNCHED or any VM command: one existing
+Nebula stderr file violates its empty shared-temp glob check. Root retains the
+phase and raw refusal and leaves the existing file untouched. A narrow source
+design review is checking a private operational TMPDIR; no new run is admitted.
+The prior read-only preflight, prepare and final source/phase review retain
+their scoped passes; they did not prove shared-temp emptiness.
 Both original suppliers and Claude
 candidate4 have delivered; source copies
 and task branches are preserved. The common41-file input contract stays frozen.
@@ -53,7 +55,7 @@ pins, indirect import sources, stopped VM binding and host checks match. No VM
 starts and no Engine API/SQL runs. Current personal-service equality, guest
 resources, complete Engine census and actual metadata/dialect/log/archive
 behavior remain before-startup/live gates. This uses a fresh source admission,
-separate from candidate2's earlier pass. **Live discovery has not run.**
+separate from candidate2's earlier pass. **No live metadata/dump was captured.**
 
 The supported-backup codec v2 passes51 isolated synthetic controls, compilation
 and lint, preserving all original32 cases. This repairs observed newline and
