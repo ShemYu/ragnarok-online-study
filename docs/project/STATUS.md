@@ -14,6 +14,11 @@ See [audit findings](reviews/2026-10-29-T00.005.md),
 [current execution record](reviews/2026-11-04-execution.md).
 Feature-branch checkpoints/publication remain authorized; `origin/main` stays
 unchanged. No additional local-main merge is part of this execution checkpoint.
+Publication note: local release-gate integration/checkpoint `34876e5` is
+verified, but two normal pushes return GitHub Internal Server Error. Remote
+feature remains `7217a81`; the new source and this documentation are committed
+locally and awaiting publication. Root will retry later without rule/config
+changes or force-push. This does not block independent local source work.
 
 Three of seven audit tasks are now `self_verified` and integrated:
 [T00.006 safe verification](reviews/2026-11-04-T00.006-root.md) and

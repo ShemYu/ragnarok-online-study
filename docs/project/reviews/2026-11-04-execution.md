@@ -530,3 +530,15 @@ See [selection/evidence](2026-11-04-T10.010.005-root.md#selected-source-and-inte
 Orca releases the two settled release-worker terminals with transcripts
 captured: ctx_98adfc4b5c05 and ctx_b5824dac423d. Their committed branches are
 retained; only the new exact-base dependency workers need live sessions.
+
+
+## Release integration publication pending
+
+Local source/verification checkpoint34876e5 is committed. Two normal feature
+pushes return remote Internal Server Error (2026-11-04 10:47 UTC). Fresh
+ls-remote after each shows feature7217a81 and origin/main c6314bbd unchanged.
+Ancestry confirms a normal fast-forward update; no force, rules/config change
+or alternate publication route is used. Root retains the local checkpoint
+and will retry later. The hosted source/CI cannot yet be claimed updated;
+local source verification remains valid. Independent dependency-repair work
+continues in its frozen branches.
