@@ -833,3 +833,10 @@ host-selection input from the actual capture. Next: reviewed one-file GCC
 transfer measurement, then remaining inputs and real47-file qualification.
 No signatures/index digest/closure/full build are qualified;3/7 tasks remain
 closed. See [actual checks and hashes](2026-11-04-T10.010.004-root.md#actual44-url-capture-and-owned-cleanup-pass).
+
+Root then reviews the private one-file host helper and prepared GCC plan.
+Independent review and12 pure selection/transport/raw-identity controls pass;
+a wrong-token CLI control refuses before a child/consumed record. Five pins
+match. One bounded GCC measurement is admitted, with no redirects/retries,
+180s curl/200s parent bounds and128MiB per file. Actual transfer, signature
+and closure remain unqualified. See [host admission](2026-11-04-T10.010.004-root.md#one-file-host-measurement-source-verified-and-admitted).

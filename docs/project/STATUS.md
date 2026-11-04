@@ -213,8 +213,8 @@ The three prerequisite source lanes are integrated. Root owns serial runtime
 execution/verification for .004; .005 source is integrated, with runtime
 pins deliberately unqualified. The .004 dependency recipe and .006 analysis
 source are selected/integrated; the counter-format repair is verified.
-The URL-capture phase is consumed and verified. Review/admit the host helper,
-then measure one bounded GCC transfer from its actual selected URL before
+The URL-capture phase is consumed and verified. The host helper/one-file plan
+passes Root/independent review and13 controls; execute its admitted GCC transfer before
 acquiring the remaining exact files. All47
 must still pass actual stock-key/raw-identity/offline-install qualification.
 Resolve6/phase7 is consumed; do not repeat it. The exact-fetch source remains
