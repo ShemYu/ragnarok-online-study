@@ -6,7 +6,8 @@ brief `docs/project/tasks/T10.010.003.md` (SHA-256 `7bd1791f…a5a3f8`).
 | Revision | Content |
 | --- | --- |
 | `06d6f36` | Initial candidate. Root verified the source reconstruction and did not admit build execution. |
-| repair (this revision) | Fixes Root's P1/lifecycle findings, adds owner checks and closed-tree checks |
+| `1b0508c8` | Fixes Root's P1/lifecycle findings, adds owner checks and closed-tree checks |
+| repair 2 (this revision) | Consistent base+delta dependency model, cancellation-safe create/import, output-root link check |
 
 **Status: candidate, not Root verification.**
 - Source preparation was executed and checked on the host.
@@ -25,7 +26,7 @@ brief `docs/project/tasks/T10.010.003.md` (SHA-256 `7bd1791f…a5a3f8`).
 | `build/guest_build.sh` | Guest main: checks, then dependencies, then unpatched + patched renewal `map-server` |
 | `build/guest_lib.sh` | Guest checks: cgroup, lock, closure, lock candidate, finalize. Sourced by the guest and by host tests |
 | `build_recipe.py` | `plan` / `execute` / `validate-export` / `image-context` / `import-check` |
-| `test_prepare_source.py`, `test_build_recipe.py` | 19 + 28 focused tests |
+| `test_prepare_source.py`, `test_build_recipe.py` | 20 + 41 focused tests |
 
 ## 1. Source identity and preparation (unchanged result, verified again)
 
@@ -99,6 +100,15 @@ removal, `verify` passes.
 | Owner (follow-up) | Declared `artifact_owner` and `import_owner` = uid 0, gid 0, mode 0755. The guest runs `chown 0:0`. `safe_extract` returns tar uid/gid/mode, and `validate-export` requires the declaration. `import-check` compares bytes, tar uid/gid/mode and the stat-header mode | export with uid/gid 1000 rejected; import with 1000:1000, 0:1000, 0644 or setuid 4755 rejected; owned container deleted each time |
 | Dependency pins unqualified | `--mode build` **requires** `--apk-lock`: sorted, unique `name=version-rN` lines covering the Dockerfile set + `patch`, with `libunwind-dev` 1.8.1. The guest installs exact pins; an unavailable pin fails before compilation. The installed closure must equal the lock exactly, and preinstalled packages (musl/libstdc++) must be unchanged. `--mode resolve` is a separate qualification run: it installs the unpinned set, records `apk.lock.candidate`, and builds nothing | missing, malformed, unsorted or duplicate locks, a missing package and wrong libunwind all refused; extra or changed installed package fails `check_deps`; `lock_candidate` exact-prefix parse |
 
+### Repair 2 (Root review of `1b0508c`)
+
+| Root finding | Repair | Control |
+| --- | --- | --- |
+| Preinstalled `bash`: the guest's candidate lock held only *added* names, and the host lock parser then rejected it for lacking `bash`; build compared only the added set | **One consistent model** in both guest and host. **BASE** = exact `name=version` of every package the stock image already has, frozen: the guest derives `apk.base.current` before any change and requires it to equal the qualified `apk.base` byte for byte. **DELTA** (`apk.lock`, may be empty) = exact `name=version` of every package the install adds. WANT must be covered by BASE ∪ DELTA. DELTA must not re-pin any BASE package, which also refuses base upgrades. `libunwind-dev` is 1.8.1 wherever it comes from. Base musl/libstdc++ must equal the runtime ABI. After the install, the added set must equal DELTA exactly and no BASE package may be upgraded, downgraded or removed (guest `check_deps` and host `validate-export`). Resolve mode emits both `apk.lock.candidate` and `apk.base.candidate`; `plan --mode build` needs **both** `--apk-lock` and `--apk-base` | the Root case (bash only in base) plans and validates; bash in neither, re-pinned bash, musl ABI drift and empty base are refused; all-wanted-preinstalled with an empty delta is accepted; build exports with base drift, base upgraded or base removed are rejected; guest `check_coverage`/`check_lock_file` and base freeze via `lock_candidate` are run under `sh` |
+| `create_owned` caught `Exception` only; `Cancelled` (a BaseException) escaped with no ID, no recovery and no delete | `create_owned` runs inside a bounded **`Shield`**, which swaps the SIGTERM/SIGINT handlers so a signal is only recorded. A per-thread mask cannot do this, because Python runs handlers in the main thread whatever thread receives the signal. The ID is stored in a caller-owned holder as soon as it is known. A `Cancelled` raised from inside the call is treated as an ambiguous create: exact name+labels recovery, delete only, no retry, then `Cancelled` is re-raised. After the shield, a recorded signal is raised as `Cancelled`. `execute` and its `finally` read the holder. An ambiguous create with no owned object found is recorded as `orphan_unresolved` (name + run label, possible late completion) without masking the cancellation | Cancelled raised after the daemon created the object → recovered `c1`, deleted, creates = 1, handler restored. Cancelled before send → no create, no delete, orphan recorded UNRESOLVED. Real SIGTERM during a delayed create → shield lets the create finish, ID known directly, then cancelled and deleted |
+| `import_check` installed no signal handling and could lose cleanup or the ID during create | Same holder + shield + exact-label recovery. SIGTERM/SIGINT handlers are installed and restored; cleanup runs with signals ignored; a refused delete is UNRESOLVED; a lost create is never retried | Cancelled after daemon create → deleted; real SIGTERM during delayed create → deleted; real SIGTERM with known ID (during HEAD) → deleted; refused delete → UNRESOLVED; dropped create → creates = 1, nothing left |
+| `verify` resolved `out` before its symlink check, so a root link was accepted | The root path is checked with `is_symlink()` **before** `resolve()` | authored root-link control; real check: `prepared2-link` → `FAIL … output root is a symlink`; `prepared2` itself passes |
+
 ### Unchanged route and lifecycle
 
 - Engine requests:
@@ -126,8 +136,8 @@ removal, `verify` passes.
 | fresh `prepare` (footprint pin active) + `verify` | OK, 5121 files, `b64e850b…`; `PREPARED.json` `1f3a3c92…` |
 | `reference` + `reconcile` × 3 (app script, earlier run, git-apply) | all zero differences |
 | `test_coin_capacity.py` on `prepared2/source` | `pins ok 9`; clean patch; 133 cases / 63 probes / 0 failures; **9/9 mutants caught** |
-| `test_prepare_source.py` | **19/19 OK** |
-| `test_build_recipe.py` | **28/28 OK**, ×3 repeats (about 12 s each) |
+| `test_prepare_source.py` | **20/20 OK** (repair 2) |
+| `test_build_recipe.py` | **41/41 OK**, ×3 repeats (about 20 s each; repair 2) |
 | `ruff check tools/renewal/native_capacity/` (ruff 0.16.9, repo `ruff.toml`) | All checks passed |
 | `sh -n` guest scripts | OK |
 | plan-only demo on the real tree (`--mode resolve`, placeholder image `sha256:0…0`, no Engine) | upload `6bee45a7…08ac`, expected cgroup `memory.max=1610612736`, `memory.swap.max=1048576`, `cpu.max=200000 100000`, `pids.max=1024`, absolute bound 14880 s; `--mode build` without a lock refused; `--memory-mib 0` refused |
@@ -151,9 +161,9 @@ python3 -I -B $P/build_recipe.py plan --mode resolve --prepared $W/prepared --ru
     --mem-available-bytes <fresh> --host-cpus <fresh>
 python3 -I -B $P/build_recipe.py execute --plan $W/r1/PLAN.json --engine-socket <sock> --admit <admit>
 python3 -I -B $P/build_recipe.py validate-export --plan $W/r1/PLAN.json --export $W/r1/export.tar --dest $W/r1/v
-#     Root reviews r1/v/out/apk.lock.candidate and decides whether to qualify it as apk.lock
-# (b) build run with the qualified lock
-python3 -I -B $P/build_recipe.py plan --mode build --apk-lock <qualified apk.lock> ... --rundir $W/b1
+#     Root reviews r1/v/out/apk.lock.candidate (delta) and apk.base.candidate (frozen base)
+# (b) build run with both qualified files
+python3 -I -B $P/build_recipe.py plan --mode build --apk-lock <qualified delta> --apk-base <qualified base> ... --rundir $W/b1
 python3 -I -B $P/build_recipe.py execute ... ; python3 -I -B $P/build_recipe.py validate-export ...
 ```
 
@@ -167,7 +177,7 @@ python3 -I -B $P/build_recipe.py execute ... ; python3 -I -B $P/build_recipe.py 
 - `guest_lib.sh` was exercised under macOS `/bin/sh` (bash 3.2 in POSIX
   mode). **Busybox ash, comm, awk and cmp behaviour in Alpine is not
   observed.**
-- **Dependencies.** No qualified lock exists yet. Alpine keeps only the
+- **Dependencies.** No qualified base/delta pair exists yet. Alpine keeps only the
   current `-rN`, so a lock can stop resolving at any time, which fails
   closed before compilation. There is **no offline closure**, apk needs
   container networking, and package bytes are verified only by apk's own
@@ -186,5 +196,8 @@ python3 -I -B $P/build_recipe.py execute ... ; python3 -I -B $P/build_recipe.py 
 - Only the renewal `map-server` is built; pre-renewal builds and the other
   servers are not.
 - Model: configured `claude-opus-5-5`; the provider-reported model is not
-  observed. Repair wall clock was about 28 min (07:27–07:55Z). Cost and
-  tokens were not observed.
+  observed. Repair wall clock was about 28 min (07:27–07:55Z); repair 2 took
+  about 25 min. Cost and tokens were not observed.
+- `Shield` defers signals only for the bounded create/recovery (the request
+  budget plus the recovery budget). A SIGKILL, or a host crash in that
+  window, still needs Root's exact name + run-label recovery.

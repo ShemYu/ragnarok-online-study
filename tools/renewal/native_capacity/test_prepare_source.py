@@ -272,6 +272,13 @@ class PrepareTests(unittest.TestCase):
         os.mkfifo(self.f.out / "source" / "fifo")
         self.assertFails(lambda: ps.verify(self.f.out, self.f.manifest, pins=self.f.pins), "non-regular")
 
+    def test_output_root_symlink_rejected(self):
+        self.prepared()
+        link = self.f.tmp / "work" / "link"
+        os.symlink(self.f.out, link)
+        self.assertFails(lambda: ps.verify(link, self.f.manifest, pins=self.f.pins), "output root is a symlink")
+        self.assertEqual(ps.verify(self.f.out, self.f.manifest, pins=self.f.pins)["files"], 7)
+
     def test_reconcile_reports_exact_paths(self):
         self.prepared()
         other = self.f.tmp / "other"

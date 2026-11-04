@@ -155,21 +155,46 @@ def crash_verify(original, expect_sha=CRASH_VERIFY_ORIG):
     return text.encode()
 
 
-def parse_lock(data):
+WANT = ("bash", "git", "make", "cmake", "gcc", "g++", "zlib-dev", "mariadb-dev", "linux-headers",
+        "libunwind-dev", "binutils", "patch")
+DEP_LINE = r"[A-Za-z0-9][A-Za-z0-9._+-]*=[0-9][A-Za-z0-9._+~-]*-r\d+"
+
+
+def _dep_lines(data, what, allow_empty):
     lines = data.decode().splitlines()
-    if not lines or lines != sorted(set(lines)):
-        raise RecipeError("apk lock must be non-empty, sorted and unique")
+    if not lines and not allow_empty:
+        raise RecipeError(f"{what} must not be empty")
+    if lines != sorted(set(lines)):
+        raise RecipeError(f"{what} must be sorted and unique")
     for line in lines:
-        if not re.fullmatch(r"[A-Za-z0-9][A-Za-z0-9._+-]*=[0-9][A-Za-z0-9._+~-]*-r\d+", line):
-            raise RecipeError(f"apk lock line {line!r} is not name=version-rN")
-    names = {line.split("=", 1)[0] for line in lines}
-    need = {"bash", "git", "make", "cmake", "gcc", "g++", "zlib-dev", "mariadb-dev", "linux-headers",
-            "libunwind-dev", "binutils", "patch"}
-    if need - names:
-        raise RecipeError(f"apk lock lacks {sorted(need - names)}")
-    if not any(re.fullmatch(r"libunwind-dev=1\.8\.1-r\d+", line) for line in lines):
-        raise RecipeError("apk lock libunwind-dev is not ~1.8.1")
-    return lines
+        if not re.fullmatch(DEP_LINE, line):
+            raise RecipeError(f"{what} line {line!r} is not name=version-rN")
+    return dict(line.split("=", 1) for line in lines)
+
+
+def parse_deps(lock, base, abi=None):
+    """Dependency model: BASE = exact name=version of every package the stock
+    image already has (frozen; the guest refuses an image that differs);
+    DELTA (lock) = exact name=version of every package the install adds.
+    WANT is covered by BASE + DELTA, DELTA never re-pins a BASE package and
+    libunwind-dev is 1.8.1 wherever it comes from. The guest then requires the
+    install to add exactly DELTA and change no BASE package."""
+    b = _dep_lines(base, "apk base", allow_empty=False)
+    d = _dep_lines(lock, "apk lock", allow_empty=True)
+    both = sorted(set(b) & set(d))
+    if both:
+        raise RecipeError(f"apk lock re-pins base packages {both} (base upgrades are refused)")
+    full = {**b, **d}
+    missing = [w for w in WANT if w not in full]
+    if missing:
+        raise RecipeError(f"required packages in neither base nor lock: {missing}")
+    if not re.fullmatch(r"1\.8\.1-r\d+", full["libunwind-dev"]):
+        raise RecipeError("libunwind-dev is not ~1.8.1")
+    if abi:
+        for name, want in (("musl", abi[0]), ("libstdc++", abi[1])):
+            if b.get(name) != want:
+                raise RecipeError(f"base {name}={b.get(name)!r} != runtime ABI {want!r}")
+    return sorted(f"{k}={v}" for k, v in d.items()), sorted(f"{k}={v}" for k, v in b.items())
 
 
 def expected_cgroup(memory, memory_swap, nano_cpus, pids):
@@ -180,7 +205,7 @@ def expected_cgroup(memory, memory_swap, nano_cpus, pids):
 
 
 def plan(prepared, rundir, base_image, expect_musl, expect_libstdcxx, mem_available, host_cpus, mode="build",
-         apk_lock=None, memory_mib=1536, cpus=2, jobs=1, pids=1024, step_timeout=3600, deadline=4 * 3600,
+         apk_lock=None, apk_base=None, memory_mib=1536, cpus=2, jobs=1, pids=1024, step_timeout=3600, deadline=4 * 3600,
          reserve_mib=768, post_budget=300, cleanup_budget=180, packetver="20221005", manifest=None, pins=None):
     manifest = manifest or ps.load_manifest(ps.MANIFEST)
     if not re.fullmatch(r"sha256:[0-9a-f]{64}", base_image or ""):
@@ -205,14 +230,15 @@ def plan(prepared, rundir, base_image, expect_musl, expect_libstdcxx, mem_availa
     need = (memory_mib + reserve_mib) * MIB
     if not isinstance(mem_available, int) or mem_available < need:
         raise RecipeError(f"insufficient fresh MemAvailable {mem_available} < limit+reserve {need}")
-    lock = b""
+    lock = base = b""
     if mode == "build":
-        if apk_lock is None:
-            raise RecipeError("build mode requires an explicit qualified --apk-lock (run --mode resolve first)")
-        lock = Path(apk_lock).read_bytes()
-        parse_lock(lock)
-    elif apk_lock is not None:
-        raise RecipeError("resolve mode takes no lock")
+        if apk_lock is None or apk_base is None:
+            raise RecipeError("build mode requires explicit qualified --apk-lock and --apk-base "
+                              "(run --mode resolve first)")
+        lock, base = Path(apk_lock).read_bytes(), Path(apk_base).read_bytes()
+        parse_deps(lock, base, (expect_musl, expect_libstdcxx))
+    elif apk_lock is not None or apk_base is not None:
+        raise RecipeError("resolve mode takes no lock or base")
     rundir = Path(rundir).resolve()
     if rundir.exists():
         raise RecipeError(f"{rundir} exists; refuse to reuse run state")
@@ -228,7 +254,8 @@ def plan(prepared, rundir, base_image, expect_musl, expect_libstdcxx, mem_availa
     env = "".join(f"{k}='{v}'\n" for k, v in (
         ("MODE", mode), ("SOURCE_SHA256", sha256(src)), ("PATCH_SHA256", sha256(patch)),
         ("CRASH_VERIFY_ORIG_SHA256", sha256(orig_verify)), ("CRASH_VERIFY_SHA256", sha256(cverify)),
-        ("LOCK_SHA256", sha256(lock) if lock else "none"), ("PACKETVER", packetver), ("JOBS", jobs),
+        ("LOCK_SHA256", sha256(lock) if mode == "build" else "none"),
+        ("BASE_SHA256", sha256(base) if mode == "build" else "none"), ("PACKETVER", packetver), ("JOBS", jobs),
         ("STEP_TIMEOUT", step_timeout), ("EXPECT_MUSL", expect_musl), ("EXPECT_LIBSTDCXX", expect_libstdcxx),
         ("EXPECT_ARCH", "aarch64"), ("EXPECT_MEMORY_MAX", cg["memory.max"]),
         ("EXPECT_SWAP_MAX", cg["memory.swap.max"]), ("EXPECT_CPU_MAX", cg["cpu.max"]),
@@ -236,8 +263,9 @@ def plan(prepared, rundir, base_image, expect_musl, expect_libstdcxx, mem_availa
     members = {"source.tar.gz": (src, 0o644), "coin_capacity.patch": (patch, 0o644),
                "guest_build.sh": (guest, 0o755), "guest_lib.sh": (lib, 0o644),
                "crash_verify.sh": (cverify, 0o644), "inputs.env": (env, 0o644)}
-    if lock:
+    if mode == "build":
         members["apk.lock"] = (lock, 0o644)
+        members["apk.base"] = (base, 0o644)
     upload = wrapper_tar(members)
     run_id = uuid.uuid4().hex[:12]
     create = {
@@ -266,8 +294,10 @@ def plan(prepared, rundir, base_image, expect_musl, expect_libstdcxx, mem_availa
         "inputs": {"source_tar_gz_sha256": sha256(src), "source_tar_gz_bytes": len(src),
                    "coin_capacity_patch_sha256": sha256(patch), "guest_build_sh_sha256": sha256(guest),
                    "guest_lib_sh_sha256": sha256(lib), "crash_verify_orig_sha256": sha256(orig_verify),
-                   "crash_verify_sha256": sha256(cverify), "apk_lock_sha256": sha256(lock) if lock else None,
-                   "apk_lock": lock.decode().splitlines() if lock else None,
+                   "crash_verify_sha256": sha256(cverify), "apk_lock_sha256": sha256(lock) if mode == "build" else None,
+                   "apk_lock": lock.decode().splitlines() if mode == "build" else None,
+                   "apk_base_sha256": sha256(base) if mode == "build" else None,
+                   "apk_base": base.decode().splitlines() if mode == "build" else None,
                    "inputs_env": env.decode(), "upload_tar_sha256": sha256(upload), "upload_tar_bytes": len(upload)},
         "packetver": packetver,
         "abi_expect": {"musl": expect_musl, "libstdc++": expect_libstdcxx, "arch": "aarch64"},
@@ -392,25 +422,66 @@ def recover_owned(engine, name, run_id, role, until):
     return (owned[0] if owned else None), foreign
 
 
-def create_owned(engine, name, body, run_id, role, until, recover_budget, res):
-    """Create once. A definite 4xx means nothing of ours exists. A transport
-    failure or 5xx is ambiguous: recover exactly our object for deletion only,
-    then abort. Never retries."""
-    try:
-        _, _, raw = engine.call("POST", f"/containers/create?name={name}", body, until=until)
-        return json.loads(raw)["Id"], False
-    except EngineStatusError as exc:
-        if exc.status < 500:
-            raise
-        res["create_ambiguous"] = str(exc)
-    except (EngineIOError, ValueError, KeyError) as exc:
-        res["create_ambiguous"] = str(exc)
-    try:
-        cid, foreign = recover_owned(engine, name, run_id, role, time.monotonic() + recover_budget)
-    except RecipeError as exc:
-        res["recovery_error"] = str(exc)
-        cid, foreign = None, []
-    res["recovered_owned_id"], res["foreign_ids"] = cid, foreign
+SIGNALS = (signal.SIGTERM, signal.SIGINT)
+
+
+class Shield:
+    """Bounded section during which SIGTERM/SIGINT are recorded, not raised.
+
+    Python runs signal handlers in the main thread even when another thread
+    receives the signal, so a per-thread mask cannot defer them; swapping the
+    handler can. On exit the previous handlers return and a recorded signal
+    is raised as Cancelled -- after the section has stored what it learned
+    (e.g. an owned container ID), so the caller's cleanup can act on it."""
+
+    def __init__(self):
+        self.pending = []
+
+    def __enter__(self):
+        self.prev = {s: signal.signal(s, lambda n, f: self.pending.append(n)) for s in SIGNALS}
+        return self
+
+    def __exit__(self, et, ev, tb):
+        for s, h in self.prev.items():
+            signal.signal(s, h)
+        if self.pending and (et is None or issubclass(et, Exception)):
+            raise Cancelled(signal.Signals(self.pending[0]).name) from ev
+        return False
+
+
+def create_owned(engine, name, body, run_id, role, until, recover_budget, res, holder):
+    """Create once, inside a bounded signal shield. holder["cid"] is set as
+    soon as an owned ID is known, so cleanup can delete it whatever happens
+    next. A definite 4xx means nothing of ours exists. A transport failure,
+    5xx, or a Cancelled raised from inside the call is ambiguous: recover
+    exactly our object (exact name + role + run labels) for deletion only,
+    then abort. Never retries. A deferred signal is raised as Cancelled
+    after holder/res are recorded."""
+    holder["cid"] = None
+    cancelled = None
+    with Shield():
+        try:
+            _, _, raw = engine.call("POST", f"/containers/create?name={name}", body, until=until)
+            holder["cid"] = json.loads(raw)["Id"]
+            return holder["cid"], False
+        except EngineStatusError as exc:
+            if exc.status < 500:
+                raise
+            res["create_ambiguous"] = str(exc)
+        except (EngineIOError, ValueError, KeyError) as exc:
+            res["create_ambiguous"] = str(exc)
+        except Cancelled as exc:
+            res["create_ambiguous"] = f"cancelled during create: {exc}"
+            cancelled = exc
+        try:
+            cid, foreign = recover_owned(engine, name, run_id, role, time.monotonic() + recover_budget)
+        except RecipeError as exc:
+            res["recovery_error"] = str(exc)
+            cid, foreign = None, []
+        holder["cid"] = cid
+        res["recovered_owned_id"], res["foreign_ids"] = cid, foreign
+    if cancelled is not None:
+        raise cancelled
     return cid, True
 
 
@@ -437,8 +508,9 @@ def execute(plan_path, sock, admit, poll=5.0, now=time.monotonic, sleep=time.sle
     res = {"run_id": p["run_id"], "container_name": p["container_name"], "state": "admitted",
            "started": time.strftime("%Y-%m-%dT%H:%M:%SZ", time.gmtime())}
     (rundir / "EXECUTION.json").write_text(json.dumps(res) + "\n")
-    old = {s: signal.signal(s, _raise_cancel) for s in (signal.SIGTERM, signal.SIGINT)}
+    old = {s: signal.signal(s, _raise_cancel) for s in SIGNALS}
     cid, failure, cancelled = None, None, None
+    holder = {"cid": None}
     try:
         try:
             compilers, named = census(e, p["container_name"], build_until)
@@ -446,7 +518,7 @@ def execute(plan_path, sock, admit, poll=5.0, now=time.monotonic, sleep=time.sle
                 raise RecipeError("single-owner admission: existing compiler/name "
                                   f"{[c.get('Id') for c in compilers + named]}")
             cid, ambiguous = create_owned(e, p["container_name"], p["create"], p["run_id"], "compiler",
-                                          build_until, lim["cleanup_budget_s"], res)
+                                          build_until, lim["cleanup_budget_s"], res, holder)
             if ambiguous:
                 raise RecipeError("create response ambiguous; run aborted (no retry)")
             res["container_id"] = cid
@@ -479,6 +551,9 @@ def execute(plan_path, sock, admit, poll=5.0, now=time.monotonic, sleep=time.sle
         except Cancelled as exc:
             cancelled = exc
             res["cancelled"] = str(exc)
+        cid = cid or holder["cid"]  # an ID learned before an exception still gets cleaned up
+        if cid:
+            res.setdefault("container_id", cid)
         # Post phase (own budget): stop the container if needed, collect evidence.
         if cid:
             for s in old:
@@ -503,6 +578,7 @@ def execute(plan_path, sock, admit, poll=5.0, now=time.monotonic, sleep=time.sle
         # Owned cleanup always runs; further signals are ignored until it ends.
         for s in old:
             signal.signal(s, signal.SIG_IGN)
+        cid = cid or holder["cid"]
         try:
             if cid:
                 cleanup_until = time.monotonic() + lim["cleanup_budget_s"]
@@ -513,6 +589,9 @@ def execute(plan_path, sock, admit, poll=5.0, now=time.monotonic, sleep=time.sle
                 except RecipeError as exc:
                     res["deleted"] = False
                     res["cleanup_error"] = str(exc)
+            if res.get("create_ambiguous") and not cid:
+                res["orphan_unresolved"] = (f"no owned object found at recovery; a late-completing create could "
+                                            f"leave {p['container_name']} (run label {p['run_id']}) -- UNRESOLVED")
             res["elapsed_s"] = round(now() - t0, 1)
             res["requests"] = e.log
             res["state"] = "finished"
@@ -523,11 +602,10 @@ def execute(plan_path, sock, admit, poll=5.0, now=time.monotonic, sleep=time.sle
                 signal.signal(s, h)
     if cid and not res.get("deleted"):
         raise RecipeError(f"owned container {cid} cleanup UNRESOLVED: {res.get('cleanup_error')}")
-    if res.get("create_ambiguous") and cid is None:
-        raise RecipeError("create response ambiguous and no owned object found: possible orphan named "
-                          f"{p['container_name']} with run label {p['run_id']} is UNRESOLVED")
     if cancelled is not None:
         raise cancelled
+    if res.get("orphan_unresolved"):
+        raise RecipeError("create response ambiguous: " + res["orphan_unresolved"])
     if failure is not None:
         raise failure
     if res.get("timed_out"):
@@ -603,11 +681,13 @@ def validate_export(plan_path, export_tar, dest):
     for name, want in (("musl", p["abi_expect"]["musl"]), ("libstdc++", p["abi_expect"]["libstdc++"])):
         if f"{name}-{want}" not in apk_before:
             raise RecipeError(f"base {name} != {want}")
+    abi = (p["abi_expect"]["musl"], p["abi_expect"]["libstdc++"])
     if p["mode"] == "resolve":
-        cand = (out / "apk.lock.candidate").read_bytes()
-        lines = parse_lock(cand)
-        result = {"schema": "t10.010.003/resolve/v1", "run_id": p["run_id"], "lock_candidate": lines,
-                  "lock_candidate_sha256": sha256(cand),
+        cand, bcand = (out / "apk.lock.candidate").read_bytes(), (out / "apk.base.candidate").read_bytes()
+        lines, blines = parse_deps(cand, bcand, abi)
+        result = {"schema": "t10.010.003/resolve/v2", "run_id": p["run_id"], "lock_candidate": lines,
+                  "lock_candidate_sha256": sha256(cand), "base_candidate": blines,
+                  "base_candidate_sha256": sha256(bcand),
                   "note": "candidate only: Root must review and qualify it before a build plan uses it"}
         (Path(dest) / "RESOLVE.json").write_text(json.dumps(result, indent=1, sort_keys=True) + "\n")
         return result
@@ -615,10 +695,14 @@ def validate_export(plan_path, export_tar, dest):
     for name, want in (("musl", p["abi_expect"]["musl"]), ("libstdc++", p["abi_expect"]["libstdc++"])):
         if f"{name}-{want}" not in apk:
             raise RecipeError(f"{name} != {want}")
+    if (out / "apk.base.current").read_text().splitlines() != p["inputs"]["apk_base"]:
+        raise RecipeError("image packages differ from the plan's frozen base")
     locked = sorted(line.replace("=", "-", 1) for line in p["inputs"]["apk_lock"])
     added = sorted(set(apk) - set(apk_before))
     if added != locked:
-        raise RecipeError("installed closure differs from the plan's lock")
+        raise RecipeError("installed closure differs from the plan's delta lock")
+    if sorted(set(apk_before) - set(apk)):
+        raise RecipeError("install changed base packages")
     owner = p["artifact_owner"]
     art = {}
     for v in ("unpatched", "patched"):
@@ -676,23 +760,26 @@ def image_context(artifacts_dir, variant, base_image, dest):
             "dockerfile_sha256": sha256((dest / "Dockerfile").read_bytes())}
 
 
-def import_check(sock, image, variant, expect_sha256, budget=300, owner=IMPORT_OWNER):
+def import_check(sock, image, variant, expect_sha256, budget=300, owner=IMPORT_OWNER, cleanup_budget=120):
     """Create (not start) a container, HEAD+GET the imported file and compare
     bytes, tar uid/gid/mode and stat mode with the declaration; delete it.
-    Same ambiguous-create rule as execute: exact name + labels, no retry."""
+    Same rules as execute: one shielded create, exact name + labels recovery,
+    no retry; SIGTERM/SIGINT unwind through deletion of any owned ID."""
     e = Engine(sock)
     until = time.monotonic() + budget
     run_id = uuid.uuid4().hex[:12]
     name = f"t10-010-003-import-{run_id}"
     target = IMPORT_DEST.format(variant=variant)
-    res = {"ok": False}
-    cid = None
+    res = {"ok": False, "name": name, "run_id": run_id}
+    holder = {"cid": None}
+    old = {s: signal.signal(s, _raise_cancel) for s in SIGNALS}
     try:
         cid, ambiguous = create_owned(e, name, {"Image": image, "Entrypoint": ["/bin/true"],
                                                 "Labels": {ROLE_LABEL: "import-check", RUN_LABEL: run_id}},
-                                      run_id, "import-check", until, 60, res)
+                                      run_id, "import-check", until, 60, res, holder)
         if ambiguous:
-            raise RecipeError("create response ambiguous; aborted (no retry)")
+            raise RecipeError("create response ambiguous; aborted (no retry)" + (
+                "" if cid else f"; possible late orphan {name} (run label {run_id}) UNRESOLVED"))
         _, hdr, _ = e.call("HEAD", f"/containers/{cid}/archive?path={target}", ok=(200,), until=until)
         stat = json.loads(base64.b64decode(hdr.get("X-Docker-Container-Path-Stat", "")))
         _, _, tarb = e.call("GET", f"/containers/{cid}/archive?path={target}", ok=(200,),
@@ -708,11 +795,25 @@ def import_check(sock, image, variant, expect_sha256, budget=300, owner=IMPORT_O
                    ok=sha256(data) == expect_sha256 and got == owner
                    and oct(stat.get("mode", 0) & 0o7777) == owner["mode"])
     finally:
-        if cid:
-            cu = time.monotonic() + 120
-            e.call("DELETE", f"/containers/{cid}?force=1", ok=(204, 404), until=cu)
-            e.call("GET", f"/containers/{cid}/json", ok=(404,), until=cu)
-    res["requests"] = e.log
+        for s in old:
+            signal.signal(s, signal.SIG_IGN)
+        try:
+            cid = holder["cid"]
+            if cid:
+                cu = time.monotonic() + cleanup_budget
+                try:
+                    e.call("DELETE", f"/containers/{cid}?force=1", ok=(204, 404), until=cu)
+                    e.call("GET", f"/containers/{cid}/json", ok=(404,), until=cu)
+                    res["deleted"] = True
+                except RecipeError as exc:
+                    res["deleted"] = False
+                    res["cleanup_error"] = str(exc)
+            res["requests"] = e.log
+        finally:
+            for s, h in old.items():
+                signal.signal(s, h)
+    if holder["cid"] and not res.get("deleted"):
+        raise RecipeError(f"import-check container {holder['cid']} cleanup UNRESOLVED: {res.get('cleanup_error')}")
     return res
 
 
@@ -724,6 +825,7 @@ def main(argv=None):
     a.add_argument("--rundir", required=True, type=Path)
     a.add_argument("--mode", choices=("resolve", "build"), required=True)
     a.add_argument("--apk-lock", type=Path)
+    a.add_argument("--apk-base", type=Path)
     a.add_argument("--base-image", required=True)
     a.add_argument("--expect-musl", required=True)
     a.add_argument("--expect-libstdcxx", required=True)
@@ -755,7 +857,7 @@ def main(argv=None):
     try:
         if o.cmd == "plan":
             r = plan(o.prepared, o.rundir, o.base_image, o.expect_musl, o.expect_libstdcxx, o.mem_available_bytes,
-                     o.host_cpus, o.mode, o.apk_lock, o.memory_mib, o.cpus, o.jobs, o.pids, o.step_timeout,
+                     o.host_cpus, o.mode, o.apk_lock, o.apk_base, o.memory_mib, o.cpus, o.jobs, o.pids, o.step_timeout,
                      o.deadline, o.reserve_mib, o.post_budget, o.cleanup_budget)
             r = {"run_id": r["run_id"], "mode": r["mode"], "inputs": r["inputs"], "limits": r["limits"],
                  "expected_cgroup": r["expected_cgroup"], "admit": sha256((o.rundir / "PLAN.json").read_bytes())}

@@ -9,7 +9,7 @@
 #   coin_capacity.patch  checked-in patch, applied with GNU patch -F 0
 #   crash_verify.sh      the app's crash-trace verify.sh with its two
 #                        hardcoded roots rewritten to owned /work/crash paths
-#   apk.lock             exact "name=version" closure (build mode only)
+#   apk.base, apk.lock   exact "name=version" frozen base and install delta (build mode)
 #   guest_lib.sh         checks (also exercised by host tests)
 #   inputs.env           hashes, mode, limits, expected ABI versions
 #   owner.env            CONTAINER_ID (second PUT, after create)
@@ -35,7 +35,7 @@ CG_MOUNTS=/proc/self/mountinfo
 CG_VIEW=/run/root-cgroup-view
 : "${MODE:?}" "${SOURCE_SHA256:?}" "${PATCH_SHA256:?}" "${PACKETVER:?}" "${JOBS:?}" "${STEP_TIMEOUT:?}"
 : "${EXPECT_MUSL:?}" "${EXPECT_LIBSTDCXX:?}" "${EXPECT_ARCH:?}" "${CRASH_VERIFY_ORIG_SHA256:?}"
-: "${CRASH_VERIFY_SHA256:?}" "${LOCK_SHA256:?}"
+: "${CRASH_VERIFY_SHA256:?}" "${LOCK_SHA256:?}" "${BASE_SHA256:?}"
 
 sha() { sha256sum "$1" | cut -d' ' -f1; }
 
@@ -58,27 +58,39 @@ grep -qx "libstdc++-$EXPECT_LIBSTDCXX" "$OUT/apk-before.txt" || die "base libstd
 
 # ---- 2. dependencies: the Dockerfile set + GNU patch (busybox patch has no -F)
 WANT="bash git make cmake gcc g++ zlib-dev mariadb-dev linux-headers libunwind-dev binutils patch"
+# Dependency model (both modes): BASE = exact name=version of every package the
+# stock image already has (frozen); DELTA = exact name=version of every package
+# the install adds. WANT must be covered by BASE + DELTA; DELTA never re-pins a
+# BASE package; the install must leave every BASE package unchanged.
+: > "$OUT/empty"
+lock_candidate "$OUT/empty" "$OUT/apk-names-before.txt" "$OUT/apk-before.txt" > "$OUT/apk.base.current" || die "base freeze"
 case "$MODE" in
 resolve)
     # Qualification run only: resolve the current closure, record it, build nothing.
     step apk-resolve apk add --no-cache $(printf '%s\n' $WANT | sed 's/^libunwind-dev$/libunwind-dev~1.8.1/')
     apk info -v 2>/dev/null | LC_ALL=C sort > "$OUT/apk-after.txt"
     apk info 2>/dev/null | LC_ALL=C sort > "$OUT/apk-names-after.txt"
-    LC_ALL=C comm -13 "$OUT/apk-before.txt" "$OUT/apk-after.txt" > "$OUT/deps-added.txt"
     LC_ALL=C comm -23 "$OUT/apk-before.txt" "$OUT/apk-after.txt" > "$OUT/deps-removed.txt"
+    [ ! -s "$OUT/deps-removed.txt" ] || die "resolve upgraded/removed base packages: $(tr '\n' ' ' < "$OUT/deps-removed.txt")"
     grep -q '^libunwind-dev-1\.8\.1-' "$OUT/apk-after.txt" || die "libunwind-dev is not ~1.8.1"
-    [ ! -s "$OUT/deps-removed.txt" ] || die "resolve changed preinstalled packages"
-    # Candidate lock for Root to review/qualify: "name=version" per added package.
+    # Candidates for Root to review/qualify: the delta and the frozen base.
     lock_candidate "$OUT/apk-names-before.txt" "$OUT/apk-names-after.txt" "$OUT/apk-after.txt" > "$OUT/apk.lock.candidate" || die "lock candidate"
+    cp "$OUT/apk.base.current" "$OUT/apk.base.candidate"
+    check_coverage "$OUT/apk.base.candidate" "$OUT/apk.lock.candidate" $WANT
     finalize
     exit 0 ;;
 build)
     [ "$(sha "$IN/apk.lock")" = "$LOCK_SHA256" ] || die "apk.lock sha256"
-    check_lock_file "$IN/apk.lock"
-    grep -q '^libunwind-dev=1\.8\.1-' "$IN/apk.lock" || die "lock libunwind-dev is not ~1.8.1"
-    for w in $WANT; do grep -q "^$w=" "$IN/apk.lock" || die "lock lacks $w"; done
-    # Exact versions only; any unavailable pin fails here, before compilation.
-    step apk-add apk add --no-cache $(cat "$IN/apk.lock")
+    [ "$(sha "$IN/apk.base")" = "$BASE_SHA256" ] || die "apk.base sha256"
+    check_lock_file "$IN/apk.base" nonempty
+    check_lock_file "$IN/apk.lock" empty-ok
+    # The stock image must be exactly the qualified base, before anything changes.
+    cmp -s "$OUT/apk.base.current" "$IN/apk.base" || die "image packages differ from the qualified base"
+    check_coverage "$IN/apk.base" "$IN/apk.lock" $WANT
+    # Exact delta pins only; an unavailable pin fails here, before compilation.
+    if [ -s "$IN/apk.lock" ]; then
+        step apk-add apk add --no-cache $(cat "$IN/apk.lock")
+    fi
     apk info -v 2>/dev/null | LC_ALL=C sort > "$OUT/apk-after.txt"
     check_deps "$OUT/apk-before.txt" "$OUT/apk-after.txt" "$IN/apk.lock"
     grep -qx "musl-$EXPECT_MUSL" "$OUT/apk-after.txt" || die "musl changed from $EXPECT_MUSL (runtime ABI)"

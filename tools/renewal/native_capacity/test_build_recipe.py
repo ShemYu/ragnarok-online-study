@@ -28,6 +28,7 @@ import tempfile
 import threading
 import time
 import unittest
+from unittest import mock
 
 HERE = Path(__file__).resolve().parent
 sys.path.insert(0, str(HERE))
@@ -36,11 +37,14 @@ import prepare_source as ps  # noqa: E402
 from test_prepare_source import Fixture, PATCH_OK  # noqa: E402
 
 BASE = "sha256:" + "ab" * 32
+# Root's reproduced case: the stock runtime image already has bash, so the
+# delta lock legitimately lacks it and the frozen base covers it.
+BASE_LOCK = "bash=5.3-r0\nlibstdc++=15.2.0-r2\nmusl=1.2.5-r23\n"
 LOCK = "".join(f"{n}={v}\n" for n, v in sorted({
-    "bash": "5.3-r0", "binutils": "2.45-r0", "cmake": "4.1.2-r0", "g++": "15.2.0-r2", "gcc": "15.2.0-r2",
+    "binutils": "2.45-r0", "cmake": "4.1.2-r0", "g++": "15.2.0-r2", "gcc": "15.2.0-r2",
     "git": "2.52.0-r0", "libunwind-dev": "1.8.1-r0", "linux-headers": "6.16-r0", "make": "4.4.1-r3",
     "mariadb-dev": "11.8.3-r0", "patch": "2.8-r0", "zlib-dev": "1.3.1-r2"}.items()))
-APK_BEFORE = ["libstdc++-15.2.0-r2", "musl-1.2.5-r23"]
+APK_BEFORE = sorted(x.replace("=", "-", 1) for x in BASE_LOCK.split())
 
 
 def fake_elf(marker):
@@ -55,6 +59,7 @@ def export_tar(plan, cid, tamper=None, owner=(0, 0)):
     cg = plan["expected_cgroup"]
     locked = sorted(x.replace("=", "-", 1) for x in plan["inputs"]["apk_lock"] or [])
     files = {"RESULT": b"PASS\n", "toolchain.txt": b"gcc 15\n", "environment.txt": b"nproc=4\n",
+             "apk.base.current": BASE_LOCK.encode(),
              "apk-before.txt": "\n".join(APK_BEFORE).encode() + b"\n",
              "apk-after.txt": "\n".join(sorted(APK_BEFORE + locked)).encode() + b"\n",
              "cgroup.txt": ("".join(f"{k}={v}\n" for k, v in cg.items()) + f"id={cid}\n").encode(),
@@ -166,6 +171,8 @@ class FakeEngine:
             cid = "c%d" % self.creates
             self.containers[cid] = {"name": name, "labels": labels, "status": "created",
                                     "hc": req.get("HostConfig", {})}
+            if fault == "delay":
+                time.sleep(0.8)
             if fault in ("drop", "foreign-labels"):
                 return "drop"
             if fault == "500":
@@ -196,6 +203,8 @@ class FakeEngine:
         if m == "GET" and tail == "logs":
             return 200, b"log\n", "application/octet-stream"
         if tail == "archive" and m in ("GET", "HEAD"):
+            if fault == "delay":
+                time.sleep(0.8)
             if "path=/work/out" in q:
                 data = self.export_fn(cid) if self.export_fn else b""
                 return 200, data, "application/x-tar", None, "truncate" if fault == "truncate" else None
@@ -232,7 +241,8 @@ class Clock:
         self.t += 1000.0
 
 
-class RecipeTests(unittest.TestCase):
+class RecipeBase(unittest.TestCase):
+    """Shared prepared fixture, fake engines and plan helper (no tests)."""
     @classmethod
     def setUpClass(cls):
         cls.fx = Fixture({"0001-ok.patch": PATCH_OK})
@@ -262,6 +272,8 @@ class RecipeTests(unittest.TestCase):
         self.engines = []
         self.lock = self.tmp / "apk.lock"
         self.lock.write_text(LOCK)
+        self.base = self.tmp / "apk.base"
+        self.base.write_text(BASE_LOCK)
 
     def tearDown(self):
         for e in self.engines:
@@ -275,7 +287,7 @@ class RecipeTests(unittest.TestCase):
 
     def plan(self, name="run", mode="build", **kw):
         args = dict(mem_available=4 << 30, host_cpus=4, mode=mode, apk_lock=self.lock if mode == "build" else None,
-                    manifest=self.fx.manifest, pins={})
+                    apk_base=self.base if mode == "build" else None, manifest=self.fx.manifest, pins={})
         args.update(kw)
         p = br.plan(self.fx.out, self.tmp / name, BASE, "1.2.5-r23", "15.2.0-r2", **args)
         path = self.tmp / name / "PLAN.json"
@@ -288,6 +300,8 @@ class RecipeTests(unittest.TestCase):
         holder["p"] = p
         return e, p, path, admit
 
+
+class RecipeTests(RecipeBase):
     # ---------------------------------------------------------------- plan
     def test_plan_deterministic_mounts_limits_and_cgroup(self):
         p1, _, _ = self.plan("a")
@@ -302,7 +316,7 @@ class RecipeTests(unittest.TestCase):
         self.assertEqual(p1["expected_cgroup"], {"memory.max": str(1536 << 20), "memory.swap.max": str(1 << 20),
                                                  "cpu.max": "200000 100000", "pids.max": "1024"})
         with tarfile.open(self.tmp / "a" / "upload.tar") as t:
-            self.assertEqual(sorted(t.getnames()), ["apk.lock", "coin_capacity.patch", "crash_verify.sh",
+            self.assertEqual(sorted(t.getnames()), ["apk.base", "apk.lock", "coin_capacity.patch", "crash_verify.sh",
                                                      "guest_build.sh", "guest_lib.sh", "inputs.env", "source.tar.gz"])
             cv = t.extractfile("crash_verify.sh").read().decode()
             self.assertNotIn("/rathena", cv)
@@ -325,18 +339,80 @@ class RecipeTests(unittest.TestCase):
             self.assertFalse((self.tmp / f"bad{i}").exists())
 
     def test_dependency_inputs_explicit(self):
-        with self.assertRaises(br.RecipeError) as cm:
-            self.plan("nolock", apk_lock=None)
-        self.assertIn("requires an explicit", str(cm.exception))
-        for bad in ("gcc\n", LOCK.replace("libunwind-dev=1.8.1-r0", "libunwind-dev=1.9.0-r0"),
-                    LOCK.replace("patch=2.8-r0\n", ""), "zz=1-r0\n" + LOCK, LOCK + LOCK.splitlines()[0] + "\n"):
+        for kw in (dict(apk_lock=None), dict(apk_base=None)):
+            with self.subTest(kw), self.assertRaises(br.RecipeError) as cm:
+                self.plan("missing", **kw)
+            self.assertIn("requires explicit", str(cm.exception))
+        bad_locks = {
+            "format": "gcc\n",
+            "libunwind": LOCK.replace("libunwind-dev=1.8.1-r0", "libunwind-dev=1.9.0-r0"),
+            "missing patch": LOCK.replace("patch=2.8-r0\n", ""),
+            "unsorted": "zz=1-r0\n" + LOCK,
+            "duplicate": LOCK + LOCK.splitlines()[0] + "\n",
+            "re-pins base (upgrade)": "bash=5.3-r1\n" + LOCK,
+        }
+        for name, bad in bad_locks.items():
             self.lock.write_text(bad)
-            with self.subTest(bad[:20]), self.assertRaises(br.RecipeError):
+            with self.subTest(name), self.assertRaises(br.RecipeError):
                 self.plan("badlock")
+        self.lock.write_text(LOCK)
+        bad_bases = {
+            "bash in neither": BASE_LOCK.replace("bash=5.3-r0\n", ""),
+            "abi musl": BASE_LOCK.replace("musl=1.2.5-r23", "musl=1.2.5-r24"),
+            "empty": "",
+        }
+        for name, bad in bad_bases.items():
+            self.base.write_text(bad)
+            with self.subTest(name), self.assertRaises(br.RecipeError):
+                self.plan("badbase")
+        self.base.write_text(BASE_LOCK)
+        p, _, _ = self.plan("ok")  # preinstalled bash: covered by base, absent from delta
+        self.assertNotIn("bash=5.3-r0", p["inputs"]["apk_lock"])
+        self.assertIn("bash=5.3-r0", p["inputs"]["apk_base"])
         p, _, _ = self.plan("resolve", mode="resolve")
         self.assertIsNone(p["inputs"]["apk_lock"])
         with self.assertRaises(br.RecipeError):
             self.plan("resolve2", mode="resolve", apk_lock=self.lock)
+
+    def test_all_wanted_preinstalled_empty_delta(self):
+        base = {w: "1-r0" for w in br.WANT}
+        base.update({"libunwind-dev": "1.8.1-r0", "musl": "1.2.5-r23", "libstdc++": "15.2.0-r2"})
+        self.base.write_text("".join(f"{k}={v}\n" for k, v in sorted(base.items())))
+        self.lock.write_text("")
+        p, _, _ = self.plan("empty-delta")
+        self.assertEqual(p["inputs"]["apk_lock"], [])
+
+    def test_resolve_export_with_preinstalled_bash_validates(self):
+        e = self.engine()
+        p, path, admit = self.plan("res", mode="resolve")
+
+        def resolve_files(f):
+            f.pop("unpatched/map-server")
+            f["apk.lock.candidate"] = LOCK.encode()      # delta: no bash
+            f["apk.base.candidate"] = BASE_LOCK.encode()  # base: has bash
+        e.export_fn = lambda cid: export_tar(p, cid, resolve_files)
+        br.execute(path, e.sock, admit, poll=0, sleep=lambda s: None)
+        r = br.validate_export(path, self.tmp / "res" / "export.tar", self.tmp / "res-v")
+        self.assertNotIn("bash=5.3-r0", r["lock_candidate"])
+        self.assertIn("bash=5.3-r0", r["base_candidate"])
+
+    def test_build_export_base_freeze_and_no_upgrade(self):
+        e, p, path, admit = self.run_ok()
+        br.execute(path, e.sock, admit, poll=0, sleep=lambda s: None)
+        cid = json.loads((self.tmp / "run" / "EXECUTION.json").read_text())["container_id"]
+        cases = {
+            "base drift": lambda f: f.__setitem__("apk.base.current", b"bash=5.3-r1\nlibstdc++=15.2.0-r2\nmusl=1.2.5-r23\n"),
+            "base upgraded by install": lambda f: f.__setitem__(
+                "apk-after.txt", f["apk-after.txt"].replace(b"bash-5.3-r0", b"bash-5.3-r1")),
+            "base removed by install": lambda f: f.__setitem__(
+                "apk-after.txt", f["apk-after.txt"].replace(b"bash-5.3-r0\n", b"")),
+        }
+        for name, tamper in cases.items():
+            with self.subTest(name):
+                tar = self.tmp / f"{name}.tar"
+                tar.write_bytes(export_tar(p, cid, tamper))
+                with self.assertRaises(br.RecipeError):
+                    br.validate_export(path, tar, self.tmp / f"x-{name}")
 
     def test_crash_verify_transform_refuses_drift(self):
         with self.assertRaises(br.RecipeError):
@@ -551,6 +627,108 @@ class RecipeTests(unittest.TestCase):
         self.assertFalse((self.tmp / "escape").exists())
 
 
+class CancellationTests(RecipeBase):
+    """Cancellation at every create/known-ID boundary, for execute and import_check."""
+
+    @staticmethod
+    def _cancel_after_create(real):
+        def call(self, method, path, *a, **k):
+            out = real(self, method, path, *a, **k)
+            if method == "POST" and path.startswith("/containers/create"):
+                raise br.Cancelled("SIGTERM")  # object exists daemon-side; caller never sees the ID
+            return out
+        return call
+
+    @staticmethod
+    def _cancel_before_create(real):
+        def call(self, method, path, *a, **k):
+            if method == "POST" and path.startswith("/containers/create"):
+                raise br.Cancelled("SIGTERM")  # nothing sent
+            return real(self, method, path, *a, **k)
+        return call
+
+    def _sigterm_in(self, delay):
+        t = threading.Timer(delay, lambda: os.kill(os.getpid(), signal.SIGTERM))
+        t.start()
+        return t
+
+    def test_execute_cancel_raised_after_daemon_create(self):
+        e, p, path, admit = self.run_ok()
+        before = signal.getsignal(signal.SIGTERM)
+        with mock.patch.object(br.Engine, "call", self._cancel_after_create(br.Engine.call)):
+            with self.assertRaises(br.Cancelled):
+                br.execute(path, e.sock, admit, poll=0, sleep=lambda s: None)
+        self.assertEqual((e.creates, e.containers), (1, {}))  # recovered by name+labels, deleted, no retry
+        rec = json.loads((self.tmp / "run" / "EXECUTION.json").read_text())
+        self.assertEqual((rec["recovered_owned_id"], rec["deleted"], rec["state"]), ("c1", True, "finished"))
+        self.assertIs(signal.getsignal(signal.SIGTERM), before)
+
+    def test_execute_cancel_before_create_records_possible_orphan(self):
+        e, p, path, admit = self.run_ok()
+        with mock.patch.object(br.Engine, "call", self._cancel_before_create(br.Engine.call)):
+            with self.assertRaises(br.Cancelled):
+                br.execute(path, e.sock, admit, poll=0, sleep=lambda s: None)
+        self.assertEqual((e.creates, e.containers), (0, {}))
+        rec = json.loads((self.tmp / "run" / "EXECUTION.json").read_text())
+        self.assertIsNone(rec["recovered_owned_id"])
+        self.assertIn("UNRESOLVED", rec["orphan_unresolved"])
+
+    def test_execute_real_sigterm_during_create_is_deferred_until_id_known(self):
+        e, p, path, admit = self.run_ok(faults={("POST", "create"): "delay"})
+        t = self._sigterm_in(0.2)
+        try:
+            with self.assertRaises(br.Cancelled):
+                br.execute(path, e.sock, admit, poll=0, sleep=lambda s: None)
+        finally:
+            t.cancel()
+        self.assertEqual((e.creates, e.containers), (1, {}))
+        rec = json.loads((self.tmp / "run" / "EXECUTION.json").read_text())
+        self.assertEqual((rec["container_id"], rec["deleted"]), ("c1", True))
+        self.assertNotIn("create_ambiguous", rec)  # the shield let create finish; ID known directly
+
+    def test_import_cancel_raised_after_daemon_create(self):
+        e = self.engine()
+        before = signal.getsignal(signal.SIGTERM)
+        with mock.patch.object(br.Engine, "call", self._cancel_after_create(br.Engine.call)):
+            with self.assertRaises(br.Cancelled):
+                br.import_check(e.sock, "sha256:" + "cd" * 32, "patched", "0" * 64)
+        self.assertEqual((e.creates, e.containers), (1, {}))
+        self.assertIs(signal.getsignal(signal.SIGTERM), before)
+
+    def test_import_real_sigterm_during_create(self):
+        e = self.engine(faults={("POST", "create"): "delay"})
+        t = self._sigterm_in(0.2)
+        try:
+            with self.assertRaises(br.Cancelled):
+                br.import_check(e.sock, "sha256:" + "cd" * 32, "patched", "0" * 64)
+        finally:
+            t.cancel()
+        self.assertEqual((e.creates, e.containers), (1, {}))
+
+    def test_import_real_sigterm_with_known_id(self):
+        e = self.engine(faults={("HEAD", "archive"): "delay"})
+        t = self._sigterm_in(0.2)
+        try:
+            with self.assertRaises(br.Cancelled):
+                br.import_check(e.sock, "sha256:" + "cd" * 32, "patched", "0" * 64)
+        finally:
+            t.cancel()
+        self.assertEqual(e.containers, {})
+        self.assertIn(("DELETE", "/containers/c1"), e.calls)
+
+    def test_import_cleanup_refusal_unresolved(self):
+        e = self.engine(faults={("DELETE", "c1"): "refuse"})
+        with self.assertRaises(br.RecipeError) as cm:
+            br.import_check(e.sock, "sha256:" + "cd" * 32, "patched", "0" * 64)
+        self.assertIn("UNRESOLVED", str(cm.exception))
+
+    def test_import_lost_create_no_retry(self):
+        e = self.engine(faults={("POST", "create"): "drop"})
+        with self.assertRaises(br.RecipeError):
+            br.import_check(e.sock, "sha256:" + "cd" * 32, "patched", "0" * 64)
+        self.assertEqual((e.creates, e.containers), (1, {}))
+
+
 class GuestLibTests(unittest.TestCase):
     """Run the real guest_lib.sh functions under /bin/sh on fixture files."""
 
@@ -633,6 +811,32 @@ class GuestLibTests(unittest.TestCase):
         self.assertNotEqual(self.sh(f'check_deps "{before}" "{after}" "{lock}"').returncode, 0)
         lock.write_text("make=4.4.1-r3\ng++=15.2.0-r2\n")
         self.assertNotEqual(self.sh(f'check_lock_file "{lock}"').returncode, 0)
+
+    def test_check_coverage_base_plus_delta(self):
+        base, delta = self.tmp / "base", self.tmp / "delta"
+        want = "bash git make cmake gcc g++ zlib-dev mariadb-dev linux-headers libunwind-dev binutils patch"
+        base.write_text("bash=5.3-r0\nmusl=1.2.5-r23\n")
+        delta.write_text("".join(sorted(f"{w}={'1.8.1-r0' if w == 'libunwind-dev' else '1-r0'}\n"
+                                        for w in want.split() if w != "bash")))
+        self.assertEqual(self.sh(f'check_lock_file "{base}" nonempty; check_lock_file "{delta}" empty-ok; '
+                                 f'check_coverage "{base}" "{delta}" {want}').returncode, 0)
+        base.write_text("musl=1.2.5-r23\n")  # bash in neither
+        self.assertNotEqual(self.sh(f'check_coverage "{base}" "{delta}" {want}').returncode, 0)
+        base.write_text("bash=5.3-r0\nmusl=1.2.5-r23\n")
+        delta.write_text("bash=5.3-r1\n" + delta.read_text())  # re-pin (upgrade) of a base package
+        self.assertNotEqual(self.sh(f'check_coverage "{base}" "{delta}" {want}').returncode, 0)
+        empty = self.tmp / "empty"
+        empty.write_text("")
+        self.assertEqual(self.sh(f'check_lock_file "{empty}" empty-ok').returncode, 0)
+        self.assertNotEqual(self.sh(f'check_lock_file "{empty}" nonempty').returncode, 0)
+
+    def test_base_freeze_from_lock_candidate(self):
+        empty, names, vers = self.tmp / "e", self.tmp / "n", self.tmp / "v"
+        empty.write_text("")
+        names.write_text("bash\nmusl\n")
+        vers.write_text("bash-5.3-r0\nmusl-1.2.5-r23\n")
+        r = self.sh(f'lock_candidate "{empty}" "{names}" "{vers}"')
+        self.assertEqual((r.returncode, r.stdout), (0, "bash=5.3-r0\nmusl=1.2.5-r23\n"))
 
     def test_lock_candidate(self):
         nb, na, va = self.tmp / "nb", self.tmp / "na", self.tmp / "va"

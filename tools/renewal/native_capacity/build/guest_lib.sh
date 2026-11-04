@@ -67,22 +67,38 @@ check_cgroup() {
     printf 'id=%s\nmount=%s\n' "$_id" "$_mi" >> "$OUT/cgroup.txt"
 }
 
-# check_lock_file <lock>: every line "name=version", sorted, unique.
+# check_lock_file <lock> <nonempty|empty-ok>: lines "name=version", sorted, unique.
 check_lock_file() {
-    [ -s "$1" ] || die "dependency lock empty"
+    if [ ! -s "$1" ]; then
+        [ "$2" = empty-ok ] || die "dependency list $1 empty"
+        return 0
+    fi
     while IFS= read -r _l; do
-        case "$_l" in *[!A-Za-z0-9._+~=-]*|=*|*=|*=*=*) die "dependency lock line '$_l'" ;; *=*) ;; *) die "dependency lock line '$_l'" ;; esac
+        case "$_l" in *[!A-Za-z0-9._+~=-]*|=*|*=|*=*=*) die "dependency line '$_l'" ;; *=*) ;; *) die "dependency line '$_l'" ;; esac
     done < "$1"
-    sort -u "$1" | cmp -s - "$1" || die "dependency lock not sorted/unique"
+    LC_ALL=C sort -u "$1" | cmp -s - "$1" || die "dependency list $1 not sorted/unique"
 }
 
-# check_deps <before> <after> <lock>: the packages added by the install are
-# EXACTLY the locked closure and nothing already installed changed version.
+# check_coverage <base> <delta> <want...>: every wanted name is in exactly one
+# of base/delta, delta re-pins no base package, libunwind-dev is 1.8.1.
+check_coverage() {
+    _b=$1; _d=$2; shift 2
+    cut -d= -f1 "$_b" | LC_ALL=C sort > "$OUT/names-base.txt"
+    cut -d= -f1 "$_d" | LC_ALL=C sort > "$OUT/names-delta.txt"
+    [ -z "$(LC_ALL=C comm -12 "$OUT/names-base.txt" "$OUT/names-delta.txt")" ] || die "delta re-pins base packages"
+    for _w in "$@"; do
+        grep -qx -- "$_w" "$OUT/names-base.txt" || grep -qx -- "$_w" "$OUT/names-delta.txt" || die "required $_w in neither base nor delta"
+    done
+    cat "$_b" "$_d" | grep -q '^libunwind-dev=1\.8\.1-' || die "libunwind-dev is not ~1.8.1"
+}
+
+# check_deps <before> <after> <delta>: the packages added by the install are
+# EXACTLY the delta, and no base package was upgraded, downgraded or removed.
 check_deps() {
     _before=$1; _after=$2; _lock=$3
-    sed 's/=/-/' "$_lock" | sort > "$OUT/deps-locked.txt"
-    comm -13 "$_before" "$_after" > "$OUT/deps-added.txt"
-    comm -23 "$_before" "$_after" > "$OUT/deps-removed.txt"
+    sed 's/=/-/' "$_lock" | LC_ALL=C sort > "$OUT/deps-locked.txt"
+    LC_ALL=C comm -13 "$_before" "$_after" > "$OUT/deps-added.txt"
+    LC_ALL=C comm -23 "$_before" "$_after" > "$OUT/deps-removed.txt"
     [ ! -s "$OUT/deps-removed.txt" ] || die "dependency install changed preinstalled packages: $(tr '\n' ' ' < "$OUT/deps-removed.txt")"
     cmp -s "$OUT/deps-added.txt" "$OUT/deps-locked.txt" || die "installed closure differs from the lock"
 }

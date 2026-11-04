@@ -386,6 +386,9 @@ def reconcile(a, b, ignore_suffixes=(".orig",)):
 
 
 def verify(out, manifest, pins=None):
+    out = Path(out)
+    if out.is_symlink():  # before resolve(), which would follow it
+        raise PrepError(f"{out}: output root is a symlink")
     out = out.resolve()
     left = leftover_staging(out)
     if left:
