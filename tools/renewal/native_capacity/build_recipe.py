@@ -85,6 +85,20 @@ BODY_CAP = {"json": 8 * MIB, "logs": 64 * MIB, "export": 1024 * MIB, "import": 2
 LOCAL_SCHEMA = "t10.010.004/apk-local/v1"
 LOCAL_CAP = {"manifest": MIB, "file": 128 * MIB, "total": 512 * MIB, "packages": 256}
 DEPS_RECIPE = "t10.010.004/deps/v1"
+# The VM, `apk --print-arch`, runtime ABI and output ELF are strictly this
+# native architecture. A DEPENDENCY package may instead declare "noarch":
+# apk-tools 44dcdfc database.c apk_db_arch_compatible() accepts noarch
+# independently of the configured native arches (no --arch override). The
+# actual value is retained and must agree across every record of one package.
+NATIVE_ARCH = "aarch64"
+NOARCH = "noarch"
+
+
+def dependency_arches(native=NATIVE_ARCH):
+    """Package architectures accepted for a dependency of this native target."""
+    if native != NATIVE_ARCH:
+        raise RecipeError(f"native target arch {native!r} is not {NATIVE_ARCH!r}")
+    return (native, NOARCH)
 
 
 class RecipeError(Exception):
@@ -443,7 +457,7 @@ def apk_identity(data):
             "sha256": sha256(data), "bytes": len(data)}
 
 
-def load_local_manifest(path, arch="aarch64"):
+def load_local_manifest(path, arch=NATIVE_ARCH):
     """Explicit local APK inputs (T10.010.004). The manifest is a small JSON file:
 
       {"schema": "t10.010.004/apk-local/v1",
@@ -454,11 +468,13 @@ def load_local_manifest(path, arch="aarch64"):
     discovered. Keys are exact (no caller "verified"/trust flag is accepted).
     Every file is read once, bounded, as a safe regular single-link file, and its
     byte count and SHA-256 must match, and apk_identity() must derive exactly the
-    claimed name/version and the expected arch from the file's own control
-    member before it can enter an upload. Duplicate files, names or hashes
+    claimed name/version and a dependency arch of the native target ("arch" or
+    noarch) from the file's own control member before it can enter an upload;
+    the actual value is kept in e["identity"]["arch"], never relabeled. Duplicate files, names or hashes
     refuse. Only the guest's real stock-key verification authenticates a
     package; this binds bytes and derived identity only.
     Returns (manifest_bytes, [entry + "data"], sorted by name)."""
+    allowed = dependency_arches(arch)
     path = Path(path)
     try:
         dirfd = os.open(str(path.parent), os.O_RDONLY | getattr(os, "O_DIRECTORY", 0))
@@ -506,8 +522,8 @@ def load_local_manifest(path, arch="aarch64"):
             if (ident["name"], ident["version"]) != (e["name"], e["version"]):
                 raise RecipeError(f"local input {e['file']} control identity {ident['name']}={ident['version']} "
                                   f"is not the claimed {e['name']}={e['version']}")
-            if ident["arch"] != arch:
-                raise RecipeError(f"local input {e['file']} arch {ident['arch']!r} != {arch!r}")
+            if ident["arch"] not in allowed:
+                raise RecipeError(f"local input {e['file']} arch {ident['arch']!r} not in {list(allowed)}")
             e["data"], e["identity"] = data, ident
     finally:
         os.close(dirfd)
@@ -528,11 +544,13 @@ def local_conflicts(entries, base=None, lock=None, abi_names=("musl", "libstdc++
 
 
 def local_list(entries):
-    """Guest list: "<index> <sha256> <bytes> <name> <version> <Q1>"; index names
-    local-<index>.apk; Q1 is the host-derived control identity, which the guest
-    joins to the installed database after the transaction."""
-    return "".join(f"{i} {e['sha256']} {e['bytes']} {e['name']} {e['version']} {e['identity']['q1']}\n"
-                   for i, e in enumerate(entries)).encode()
+    """Guest list: "<index> <sha256> <bytes> <name> <version> <Q1> <arch>"; index
+    names local-<index>.apk; Q1 is the host-derived control identity, which the
+    guest joins to the installed database after the transaction; arch is the
+    file's actual control arch (aarch64 or noarch), which the guest's signed
+    .PKGINFO must equal."""
+    return "".join(f"{i} {e['sha256']} {e['bytes']} {e['name']} {e['version']} {e['identity']['q1']} "
+                   f"{e['identity']['arch']}\n" for i, e in enumerate(entries)).encode()
 
 
 def expected_cgroup(memory, memory_swap, nano_cpus, pids):
@@ -606,7 +624,7 @@ def plan(prepared, rundir, base_image, expect_musl, expect_libstdcxx, mem_availa
         ("LOCK_SHA256", sha256(lock) if mode == "build" else "none"),
         ("BASE_SHA256", sha256(base) if mode == "build" else "none"), ("PACKETVER", packetver), ("JOBS", jobs),
         ("STEP_TIMEOUT", step_timeout), ("EXPECT_MUSL", expect_musl), ("EXPECT_LIBSTDCXX", expect_libstdcxx),
-        ("EXPECT_ARCH", "aarch64"), ("EXPECT_MEMORY_MAX", cg["memory.max"]),
+        ("EXPECT_ARCH", NATIVE_ARCH), ("EXPECT_MEMORY_MAX", cg["memory.max"]),
         ("EXPECT_SWAP_MAX", cg["memory.swap.max"]), ("EXPECT_CPU_MAX", cg["cpu.max"]),
         ("EXPECT_PIDS_MAX", cg["pids.max"]), ("LOCAL_LIST_SHA256", sha256(llist) if local else "none"))).encode()
     members = {"source.tar.gz": (src, 0o644), "coin_capacity.patch": (patch, 0o644),
@@ -662,7 +680,7 @@ def plan(prepared, rundir, base_image, expect_musl, expect_libstdcxx, mem_availa
         "dependency_recipe": DEPS_RECIPE,
         "apk_package_network": not offline,
         "packetver": packetver,
-        "abi_expect": {"musl": expect_musl, "libstdc++": expect_libstdcxx, "arch": "aarch64"},
+        "abi_expect": {"musl": expect_musl, "libstdc++": expect_libstdcxx, "arch": NATIVE_ARCH},
         "artifact_owner": ARTIFACT_OWNER,
         "import_owner": IMPORT_OWNER,
         "expected_cgroup": cg,
@@ -1138,15 +1156,18 @@ def check_dependency_evidence(out, p, abi, upload_path=None):
         raise RecipeError("authenticated closure differs from the exact delta")
     if len({c["file"] for c in closure.values()}) != len(closure):
         raise RecipeError("closure reuses a file name")
+    allowed = dependency_arches(p["abi_expect"]["arch"])  # the native target itself stays aarch64
     verified = {}
     for line in _text_lines(out / "apk-verify.txt", "apk-verify.txt"):
         parts = line.split(" ")
-        if len(parts) != 6 or parts[5] != "OK" or parts[4] != p["abi_expect"]["arch"] or parts[0] in verified:
+        if len(parts) != 6 or parts[5] != "OK" or parts[4] not in allowed or parts[0] in verified:
             raise RecipeError(f"verification line {line!r}")
-        verified[parts[0]] = (parts[1], f"{parts[2]}={parts[3]}")
+        verified[parts[0]] = (parts[1], f"{parts[2]}={parts[3]}", parts[4])
     for k, c in closure.items():
-        if verified.get(c["file"][:-len(".apk")]) != (c["sha256"], k):
+        v = verified.get(c["file"][:-len(".apk")])
+        if v is None or v[:2] != (c["sha256"], k):
             raise RecipeError(f"{k}: no stock-key verification bound to its identity and full hash")
+        c["arch"] = v[2]  # the signed control arch the guest reported; joined to the raw bytes below
     planned = {f"{e['name']}={e['version']}": e for e in (p["inputs"].get("apk_local") or [])}
     got_local = {k: c for k, c in closure.items() if c["source"] == "local"}
     if sorted(planned) != sorted(got_local):
@@ -1158,8 +1179,10 @@ def check_dependency_evidence(out, p, abi, upload_path=None):
     # Independent raw-byte identity join (T10.010.004 repair 2): every closure
     # entry's bytes -- retained in the export, or the plan's own uploaded local
     # input -- are parsed for their control identity, which must equal the
-    # claimed name=version, the expected arch, the full file hash/size, the
-    # plan's identity and the installed database C:.
+    # claimed name=version, the full file hash/size, the plan's identity and the
+    # installed database C:. Its arch must be a dependency arch AND equal the
+    # verification row's arch, and for a planned local input the plan's
+    # recorded actual arch: both allowed labels can still disagree.
     cdir = out / "apk-closure"
     files = {f.name for f in cdir.iterdir()} if cdir.is_dir() else set()
     if p["mode"] == "resolve":
@@ -1182,8 +1205,12 @@ def check_dependency_evidence(out, p, abi, upload_path=None):
         idn = apk_identity(data)
         if f"{idn['name']}={idn['version']}" != k:
             raise RecipeError(f"{k}: the file's own control identity is {idn['name']}={idn['version']}")
-        if idn["arch"] != p["abi_expect"]["arch"]:
+        if idn["arch"] not in allowed:
             raise RecipeError(f"{k}: control arch {idn['arch']!r}")
+        if c["arch"] != idn["arch"]:
+            raise RecipeError(f"{k}: verification arch {c['arch']!r} != control arch {idn['arch']!r} of its bytes")
+        if k in planned and planned[k].get("arch") != idn["arch"]:
+            raise RecipeError(f"{k}: plan arch {planned[k].get('arch')!r} != control arch {idn['arch']!r}")
         if ident[k] != idn["q1"]:
             raise RecipeError(f"{k}: installed C: {ident[k]} != control identity {idn['q1']} of its bytes")
         if k in planned and planned[k].get("q1") not in (None, idn["q1"]):
@@ -1192,8 +1219,9 @@ def check_dependency_evidence(out, p, abi, upload_path=None):
     retained = None
     if p["mode"] == "resolve":
         _, ments = load_local_manifest(cdir / "MANIFEST.json", p["abi_expect"]["arch"])
-        mview = sorted((f"{e['name']}={e['version']}", e["sha256"], e["bytes"], e["file"]) for e in ments)
-        if mview != sorted((k, c["sha256"], c["bytes"], c["file"]) for k, c in closure.items()):
+        mview = sorted((f"{e['name']}={e['version']}", e["sha256"], e["bytes"], e["file"], e["identity"]["arch"])
+                       for e in ments)
+        if mview != sorted((k, c["sha256"], c["bytes"], c["file"], c["arch"]) for k, c in closure.items()):
             raise RecipeError("retained MANIFEST.json differs from the closure record")
         retained = {"manifest": str(cdir / "MANIFEST.json"),
                     "manifest_sha256": sha256((cdir / "MANIFEST.json").read_bytes())}

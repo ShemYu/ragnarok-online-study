@@ -61,9 +61,13 @@ def fake_elf(marker):
 KEYS_EVIDENCE = b"0123  ./alpine-devel@lists.alpinelinux.org-stock.rsa.pub\n"
 
 
+# Synthetic architecture-independent repository additions (T10.010.004 noarch).
+NOARCH_REPO = {"synthetic-noarch-data=1.0-r0"}
+
+
 def fake_apk_bytes(nv):
     """Synthetic stand-in (tar.gz with .PKGINFO, see pkg_bytes): NOT a signed APK."""
-    return pkg_bytes(*nv.split("=", 1))
+    return pkg_bytes(*nv.split("=", 1), arch="noarch" if nv in NOARCH_REPO else "aarch64")
 
 
 def dep_evidence(plan, delta, local_data=None):
@@ -92,10 +96,13 @@ def dep_evidence(plan, delta, local_data=None):
             k += 1
         closure.append(f"{d} {h} {b} {f} {src}\n")
         try:
-            idents.append(f"{d} {q1_of(data)}\n")
+            idn = br.apk_identity(data)
+            idents.append(f"{d} {idn['q1']}\n")
+            arch = idn["arch"]  # the guest reports the signed control's ACTUAL arch
         except br.RecipeError:
             idents.append(f"{d} Q1{'A' * 27}=\n")  # unparseable bytes: only for negative fixtures
-        verify.append(f"{f[:-4]} {h} {d.replace('=', ' ', 1)} aarch64 OK\n")
+            arch = "aarch64"
+        verify.append(f"{f[:-4]} {h} {d.replace('=', ' ', 1)} {arch} OK\n")
         name, ver = d.split("=", 1)
         manifest.append({"file": f, "name": name, "version": ver, "bytes": b, "sha256": h})
         if plan["mode"] == "resolve" or src == "repo":
@@ -1248,12 +1255,13 @@ def q1_of(data):
 LOCAL_DEV = {"musl-dev": "1.2.5-r23", "openssl-dev": "3.5.8-r0", "zlib-dev": "1.3.2-r0"}
 
 
-def write_manifest(d, pkgs, **override):
-    """pkgs: {name: version}; writes <name>-<version>.apk + MANIFEST.json in d."""
+def write_manifest(d, pkgs, arches=None, **override):
+    """pkgs: {name: version}; writes <name>-<version>.apk + MANIFEST.json in d.
+    arches: optional {name: control arch} (default aarch64)."""
     d.mkdir(parents=True, exist_ok=True)
     entries = []
     for n, v in sorted(pkgs.items()):
-        data = pkg_bytes(n, v)
+        data = pkg_bytes(n, v, arch=(arches or {}).get(n, "aarch64"))
         f = f"{n}-{v}.apk"
         (d / f).write_bytes(data)
         entries.append({"file": f, "name": n, "version": v, "bytes": len(data),
@@ -1309,7 +1317,8 @@ class LocalInputPlanTests(RecipeBase):
                         self.assertEqual(hashlib.sha256(t.extractfile(f"local-{i}.apk").read()).hexdigest(),
                                          e["sha256"])
                         self.assertEqual(lst.decode().splitlines()[i],
-                                         f"{i} {e['sha256']} {e['bytes']} {e['name']} {e['version']} {got[i]['q1']}")
+                                         f"{i} {e['sha256']} {e['bytes']} {e['name']} {e['version']} {got[i]['q1']} "
+                                         f"{got[i]['arch']}")
                         self.assertEqual(got[i]["q1"], q1_of((self.ld / e["file"]).read_bytes()))
                 self.assertTrue(p["apk_package_network"])  # partial closure: repository additions remain
         a, _, _ = self.plan("again", mode="build", apk_local=man)
@@ -1530,12 +1539,13 @@ class GuestDependencyTests(unittest.TestCase):
         (self.fake / "simulate").write_text(simulate_rows(self.delta) + extra_sim + "OK: simulated\n")
         (self.fake / "adds").write_text("".join(d + "\n" for d in self.delta))
 
-    def write_local(self, pkgs, tamper=None):
+    def write_local(self, pkgs, tamper=None, arches=None):
         rows = []
         for i, (n, v) in enumerate(sorted(pkgs.items())):
-            data = pkg_bytes(n, v)
+            a = (arches or {}).get(n, "aarch64")
+            data = pkg_bytes(n, v, arch=a)
             (self.inn / f"local-{i}.apk").write_bytes(data)
-            rows.append(f"{i} {hashlib.sha256(data).hexdigest()} {len(data)} {n} {v} {q1_of(data)}\n")
+            rows.append(f"{i} {hashlib.sha256(data).hexdigest()} {len(data)} {n} {v} {q1_of(data)} {a}\n")
         (self.tmp / "local.list").write_text("".join(rows))
         if tamper:
             tamper()
@@ -1633,7 +1643,7 @@ class GuestDependencyTests(unittest.TestCase):
         rows = (self.tmp / "local.list").read_text().splitlines()
         data = (self.inn / f"local-{i}.apk").read_bytes()
         f = rows[i].split()
-        rows[i] = " ".join([f[0], hashlib.sha256(data).hexdigest(), str(len(data))] + f[3:5] + [q1_of(data)])
+        rows[i] = " ".join([f[0], hashlib.sha256(data).hexdigest(), str(len(data))] + f[3:5] + [q1_of(data)] + f[6:])
         (self.tmp / "local.list").write_text("\n".join(rows) + "\n")
 
     def test_local_input_refusals_before_solver(self):
@@ -2203,6 +2213,367 @@ class IdentityJoinTests(ClosureFixture):
             self.assertIn("not its planned control identity", (g.out / "RESULT").read_text())
         finally:
             g.tearDown()
+
+
+# ---------------------------------------------------------------- noarch repair
+NOARCH_LOCAL = {"git-init-template": "2.52.0-r0"}
+ACTUAL_NOARCH = {"file": "git-init-template-2.52.0-r0.apk", "nv": "git-init-template=2.52.0-r0",
+                 "sha256": "186a00427cc7ea94ad05b0831320d2a77f757743033392998a28b7247e410e63",
+                 "bytes": 10347, "q1": "Q10b47slZtNgJtx4xoEbWIPstc52o="}
+ACTUAL_NATIVE = {  # Root's frozen five-APK packet: four historically authenticated aarch64 files
+    "busybox-1.37.0-r30.apk": "d3c919f1f142e41ba83c7dbcc392388f23f840dda6867719e660ebb9cc681254",
+    "musl-dev-1.2.5-r23.apk": "19032a762b8c6967d3789de1bf540754a0121e517402022eebd3ae6f1c9965a4",
+    "openssl-dev-3.5.8-r0.apk": "cfd5c8ca8f12817a869e445b474bae8395afeab3029eb0b0f4bae7703f0163b1",
+    "zlib-dev-1.3.2-r0.apk": "18a7f594ad7439629cb5889e4f0ad71075dd9f0cd4729a0461ba1501e21bc583"}
+
+
+def set_verify_arch(f, tag, arch):
+    """Change only the arch field of one verification row (hash/identity untouched)."""
+    rows = []
+    for x in f["apk-verify.txt"].decode().splitlines():
+        parts = x.split(" ")
+        if parts[0] == tag:
+            parts[4:5] = [arch] if arch else []
+        rows.append(" ".join(parts) + "\n")
+    f["apk-verify.txt"] = "".join(rows).encode()
+
+
+class NoarchDependencyTests(ClosureFixture):
+    """T10.010.004 noarch repair: a dependency package may declare the native
+    target (aarch64) or noarch; its ACTUAL value is retained and must agree
+    across verification row, raw control bytes and the local plan. Synthetic
+    bytes authenticate nothing; the private case reads Root's frozen packet
+    only through isolated copies."""
+
+    def setUp(self):
+        super().setUp()
+        self.nld = self.tmp / "nlocal"
+        pkgs = dict(LOCAL_DEV, **NOARCH_LOCAL)
+        self.nman, self.nentries = write_manifest(self.nld, pkgs, arches={"git-init-template": "noarch"})
+        self.ndata = {f"{e['name']}={e['version']}": (self.nld / e["file"]).read_bytes() for e in self.nentries}
+        self.ndelta = sorted(set(self.delta) | {"git-init-template=2.52.0-r0"} | NOARCH_REPO)
+        (self.tmp / "nlock").write_text("".join(d + "\n" for d in self.ndelta))
+
+    def run_plan(self, name, mode, man, ldata, delta):
+        kw = {"apk_lock": self.tmp / "nlock"} if mode == "build" else {}
+        p, path, admit = self.plan(name, mode=mode, apk_local=man, **kw)
+        e = self.engine(export=lambda cid: export_tar(p, cid, (lambda f: f.pop("unpatched/map-server"))
+                                                      if mode == "resolve" else None, delta=delta, local_data=ldata))
+        br.execute(path, e.sock, admit, poll=0, sleep=lambda s: None)
+        cid = json.loads((self.tmp / name / "EXECUTION.json").read_text())["container_id"]
+        return p, path, cid
+
+    def export(self, p, path, cid, delta, ldata, tamper=None, plan_edit=None):
+        """Validate one export; plan_edit rewrites a COPY of the run directory's PLAN.json."""
+        tag = uuid.uuid4().hex
+        if plan_edit:
+            run = self.tmp / f"run-{tag}"
+            shutil.copytree(path.parent, run)
+            q = json.loads((run / "PLAN.json").read_text())
+            plan_edit(q)
+            (run / "PLAN.json").write_text(json.dumps(q))
+            path = run / "PLAN.json"
+
+        def t(f):
+            if p["mode"] == "resolve":
+                f.pop("unpatched/map-server")
+            if tamper:
+                tamper(f)
+        tar = self.tmp / f"e{tag}.tar"
+        tar.write_bytes(export_tar(p, cid, t, delta=delta, local_data=ldata))
+        return br.validate_export(path, tar, self.tmp / f"v{tag}")
+
+    def refused(self, *a, **kw):
+        with self.assertRaises(br.RecipeError) as cm:
+            self.export(*a, **kw)
+        return str(cm.exception)
+
+    def test_local_plan_retains_actual_noarch_and_refuses_other_arches(self):
+        for mode in ("resolve", "build"):
+            with self.subTest(mode):
+                kw = {"apk_lock": self.tmp / "nlock"} if mode == "build" else {}
+                p, _, _ = self.plan(f"np-{mode}", mode=mode, apk_local=self.nman, **kw)
+                arch = {e["name"]: e["arch"] for e in p["inputs"]["apk_local"]}
+                self.assertEqual(arch, {"git-init-template": "noarch", "musl-dev": "aarch64",
+                                        "openssl-dev": "aarch64", "zlib-dev": "aarch64"})
+                self.assertEqual(p["abi_expect"]["arch"], "aarch64")  # native target unchanged
+                self.assertIn("EXPECT_ARCH='aarch64'", p["inputs"]["inputs_env"])
+                with tarfile.open(self.tmp / f"np-{mode}" / "upload.tar") as t:
+                    lst = t.extractfile("apk-local.list").read().decode().splitlines()
+                self.assertEqual([x.split()[6] for x in lst], [arch[x.split()[3]] for x in lst])
+        d = self.tmp / "badarch"
+        d.mkdir()
+        bad = {"x86_64": "x86_64", "unknown": "riscv64", "empty": "", "case": "Noarch", "trailing": "noarch ",
+               "list": "aarch64,noarch", "all": "all"}
+        for i, (name, a) in enumerate(bad.items()):
+            with self.subTest(name):
+                info = (f"pkgname = git-init-template\npkgver = 2.52.0-r0\narch = {a}\ndatahash = {'ab' * 32}\n").encode()
+                data = pkg_bytes("git-init-template", "2.52.0-r0", pkginfo=info)
+                (d / "g.apk").write_bytes(data)
+                (d / "m.json").write_text(json.dumps({"schema": br.LOCAL_SCHEMA, "packages": [
+                    {"file": "g.apk", "name": "git-init-template", "version": "2.52.0-r0", "bytes": len(data),
+                     "sha256": hashlib.sha256(data).hexdigest()}]}))
+                with self.assertRaises(br.RecipeError):
+                    self.plan(f"ba{i}", mode="resolve", apk_local=d / "m.json")
+                self.assertFalse((self.tmp / f"ba{i}").exists())
+        for native in ("noarch", "x86_64", ""):  # the native target itself is never relaxed
+            with self.subTest(native=native), self.assertRaises(br.RecipeError):
+                br.load_local_manifest(self.nman, arch=native)
+
+    def test_guest_verifies_noarch_with_actual_arch_bound_to_plan(self):
+        g = GuestDependencyTests("test_fd0_closed_is_replaced_by_dev_null_for_steps")
+
+        def fresh(local_arches, repo_noarch=True):
+            g.tearDown(), g.setUp()
+            pk = dict(LOCAL_DEV, **NOARCH_LOCAL)
+            g.write_local(pk, arches=local_arches)
+            g.local = {f"{n}={v}" for n, v in pk.items()}
+            extra = set(NOARCH_REPO) if repo_noarch else set()
+            g.set_delta(set(g.delta) | g.local | extra)
+            for nv in extra:
+                n, v = nv.split("=", 1)
+                (g.fake / "repo" / f"{nv}.apk").write_bytes(pkg_bytes(n, v, arch="noarch"))
+        g.setUp()
+        try:
+            fresh({"git-init-template": "noarch"})
+            r = g.run_deps(extra="retain_closure")
+            self.assertEqual(r.returncode, 0, r.stderr)
+            rows = {x.split()[2] + "=" + x.split()[3]: x.split()[4] for x in (g.out / "apk-verify.txt").read_text().splitlines()}
+            self.assertEqual(rows.pop("git-init-template=2.52.0-r0"), "noarch")
+            self.assertEqual(rows.pop("synthetic-noarch-data=1.0-r0"), "noarch")
+            self.assertEqual(set(rows.values()), {"aarch64"})
+            self.assertFalse([c for c in g.calls() if "--arch" in c or "--allow-untrusted" in c])
+            _, ents = br.load_local_manifest(g.out / "apk-closure" / "MANIFEST.json")
+            self.assertEqual({e["name"]: e["identity"]["arch"] for e in ents}["git-init-template"], "noarch")
+
+            def list_arch(i, a):
+                rows = (g.tmp / "local.list").read_text().splitlines()
+                f = rows[i].split(" ")
+                rows[i] = " ".join(f[:6] + ([a] if a is not None else []))
+                (g.tmp / "local.list").write_text("\n".join(rows) + "\n")
+            gi = 0  # sorted: git-init-template is local-0, musl-dev is local-1
+
+            def badsig():
+                h = hashlib.sha256((g.inn / f"local-{gi}.apk").read_bytes()).hexdigest()
+                (g.fake / "badsig").write_text(h + "\n")
+
+            def x86_bytes():
+                (g.inn / "local-0.apk").write_bytes(pkg_bytes("git-init-template", "2.52.0-r0", arch="x86_64"))
+                g.relist(0)
+            cases = {  # name: (tamper, refusal text)
+                "noarch bytes planned as aarch64": (lambda: list_arch(gi, "aarch64"), "is not the planned aarch64"),
+                "aarch64 bytes planned as noarch": (lambda: list_arch(1, "noarch"), "is not the planned noarch"),
+                "planned arch missing": (lambda: list_arch(gi, None), "local list 0 arch"),
+                "planned arch unknown": (lambda: list_arch(gi, "x86_64"), "local list 0 arch"),
+                "planned arch quoted-empty token": (lambda: list_arch(gi, "''"), "local list 0 arch"),
+                "unsigned noarch input": (badsig, "apk-verify-local-0"),
+                "x86_64 bytes, coherent list hash": (x86_bytes, "local-0 arch x86_64"),
+            }
+            for name, (tamper, needle) in cases.items():
+                with self.subTest(name):
+                    fresh({"git-init-template": "noarch"})
+                    tamper()
+                    r = g.run_deps()
+                    self.assertNotEqual(r.returncode, 0)
+                    self.assertIn(needle, (g.out / "RESULT").read_text())
+                    self.assertFalse([c for c in g.calls() if "--simulate" in c], "solver ran after a refusal")
+                    self.assertEqual(g.real_adds(), [])
+            with self.subTest("repository addition with a foreign arch"):
+                fresh({"git-init-template": "noarch"})
+                (g.fake / "repo" / "synthetic-noarch-data=1.0-r0.apk").write_bytes(
+                    pkg_bytes("synthetic-noarch-data", "1.0-r0", arch="x86_64"))
+                r = g.run_deps()
+                self.assertNotEqual(r.returncode, 0)
+                self.assertRegex((g.out / "RESULT").read_text(), r"repo-\d+ arch x86_64")
+                self.assertEqual(g.real_adds(), [])
+            with self.subTest("native target cannot become noarch"):
+                env_bad = subprocess.run(["/bin/sh", "-c", f'. "{br.GUEST_LIB}"; EXPECT_ARCH=noarch; '
+                                          'dependency_arch noarch && echo accepted || echo refused'],
+                                         capture_output=True, text=True, timeout=10, env={"PATH": os.environ["PATH"]})
+                self.assertEqual(env_bad.stdout.strip(), "refused")
+        finally:
+            g.tearDown()
+
+    def _arch_counterexamples(self, p, path, cid, delta, ldata, local_nv, native_nv):
+        """Coherent hashes/C/Q1; only an architecture record differs."""
+        def tag_of(f, nv):
+            return next(x.split()[3][:-4] for x in f["apk-closure.txt"].decode().splitlines() if x.split()[0] == nv)
+
+        def row(nv, a):
+            return lambda f: set_verify_arch(f, tag_of(f, nv), a)
+        x86 = pkg_bytes(*native_nv.split("=", 1), arch="x86_64")
+        aarch_for_noarch = pkg_bytes("synthetic-noarch-data", "1.0-r0", arch="aarch64")
+        cases = {
+            "local noarch row says aarch64": (row(local_nv, "aarch64"), "verification arch 'aarch64' != control arch 'noarch'"),
+            "native row says noarch": (row(native_nv, "noarch"), "verification arch 'noarch' != control arch 'aarch64'"),
+            "repo noarch row says aarch64": (row("synthetic-noarch-data=1.0-r0", "aarch64"), "verification arch"),
+            "row arch unknown": (row(local_nv, "riscv64"), "verification line"),
+            "row arch x86_64": (row(native_nv, "x86_64"), "verification line"),
+            "row arch missing": (row(local_nv, ""), "verification line"),
+            "noarch repo bytes swapped for aarch64, C and hash rebound": (
+                lambda f: (rebind(f, "synthetic-noarch-data=1.0-r0", aarch_for_noarch),
+                           set_ident(f, "synthetic-noarch-data=1.0-r0", q1_of(aarch_for_noarch))),
+                "verification arch 'noarch' != control arch 'aarch64'"),
+            "x86_64 bytes, row/C/hash all rebound": (
+                lambda f: (rebind(f, native_nv, x86), set_ident(f, native_nv, q1_of(x86)),
+                           set_verify_arch(f, tag_of(f, native_nv), "x86_64")), "verification line"),
+            "x86_64 bytes, aarch64 row": (
+                lambda f: (rebind(f, native_nv, x86), set_ident(f, native_nv, q1_of(x86))), "control arch"),
+        }
+        for name, (tamper, why) in cases.items():
+            with self.subTest(name):
+                self.assertIn(why, self.refused(p, path, cid, delta, ldata, tamper=tamper))
+
+        def plan_arch(nv, a):
+            def edit(q):
+                for e in q["inputs"]["apk_local"]:
+                    if f"{e['name']}={e['version']}" == nv:
+                        if a is None:
+                            del e["arch"]
+                        else:
+                            e["arch"] = a
+            return edit
+        musl = "musl-dev=1.2.5-r23"
+        for name, (edit, why) in {
+            "plan arch missing": (plan_arch(local_nv, None), "plan arch None"),
+            "plan noarch changed to aarch64": (plan_arch(local_nv, "aarch64"), "plan arch 'aarch64' != control arch 'noarch'"),
+            "plan aarch64 changed to noarch": (plan_arch(musl, "noarch"), "plan arch 'noarch' != control arch 'aarch64'"),
+            "plan arch unknown": (plan_arch(local_nv, "x86_64"), "plan arch 'x86_64'"),
+        }.items():
+            with self.subTest(name):
+                self.assertIn(why, self.refused(p, path, cid, delta, ldata, plan_edit=edit))
+
+    def test_resolve_export_binds_actual_arch_across_row_raw_and_plan(self):
+        p, path, cid = self.run_plan("nres", "resolve", self.nman, self.ndata, self.ndelta)
+        r = self.export(p, path, cid, self.ndelta, self.ndata)
+        arch = {k: v["arch"] for k, v in r["derived_identity"].items()}
+        self.assertEqual(arch.pop("git-init-template=2.52.0-r0"), "noarch")
+        self.assertEqual(arch.pop("synthetic-noarch-data=1.0-r0"), "noarch")
+        self.assertEqual(set(arch.values()), {"aarch64"})
+        self.assertEqual(r["closure"]["git-init-template=2.52.0-r0"]["arch"], "noarch")
+        self.assertEqual(r["closure"]["git-init-template=2.52.0-r0"]["source"], "local")
+        self.assertEqual(r["closure"]["synthetic-noarch-data=1.0-r0"]["source"], "repo")
+        self.assertEqual(r["lock_candidate"], self.ndelta)
+        # the retained manifest replays as a build-mode local input with the same actual arches
+        _, ments = br.load_local_manifest(Path(r["retained_closure"]["manifest"]))
+        self.assertEqual({f"{e['name']}={e['version']}": e["identity"]["arch"] for e in ments},
+                         {k: v["arch"] for k, v in r["derived_identity"].items()})
+        self._arch_counterexamples(p, path, cid, self.ndelta, self.ndata, "git-init-template=2.52.0-r0",
+                                   "gcc=15.2.0-r2")
+
+    def test_build_export_binds_actual_arch_from_upload(self):
+        p, path, cid = self.run_plan("nbld", "build", self.nman, self.ndata, None)
+        art = self.export(p, path, cid, None, self.ndata)
+        dc = art["dependency_closure"]
+        self.assertEqual((dc["git-init-template=2.52.0-r0"]["source"], dc["git-init-template=2.52.0-r0"]["arch"]),
+                         ("local", "noarch"))
+        self.assertEqual((dc["synthetic-noarch-data=1.0-r0"]["source"], dc["synthetic-noarch-data=1.0-r0"]["arch"]),
+                         ("repo", "noarch"))
+        self.assertEqual(dc["musl-dev=1.2.5-r23"]["arch"], "aarch64")
+        self._arch_counterexamples(p, path, cid, None, self.ndata, "git-init-template=2.52.0-r0", "gcc=15.2.0-r2")
+
+    @unittest.skipUnless(os.environ.get("T10_APK_IDENTITY_DIR") and os.environ.get("T10_APK_SIMULATE_LOG"),
+                         "private frozen noarch packet not provided")
+    def test_actual_retained_noarch_input(self):
+        """Root-only/private: the frozen five-APK packet and its actual 47-row
+        simulate log. Read once, then used only through isolated copies. This
+        binds bytes/derived identity only: the noarch file has NO stock-key
+        authentication here (the modelled guest apk verifies nothing)."""
+        src = Path(os.environ["T10_APK_IDENTITY_DIR"])
+        raw = {f: (src / f).read_bytes() for f in [ACTUAL_NOARCH["file"]] + sorted(ACTUAL_NATIVE)}
+        log_text = Path(os.environ["T10_APK_SIMULATE_LOG"]).read_text()
+        self.assertEqual(hashlib.sha256(log_text.encode()).hexdigest(),
+                         "8f6f1f2e7004cdbfbdaa0c90645b8ccc85cb23b589b078a4c7a47dfc0ce7cfec")
+        for f, h in ACTUAL_NATIVE.items():
+            i = br.apk_identity(raw[f])
+            self.assertEqual((i["sha256"], i["arch"]), (h, "aarch64"), f)
+        ni = br.apk_identity(raw[ACTUAL_NOARCH["file"]])
+        self.assertEqual((f"{ni['name']}={ni['version']}", ni["arch"], ni["q1"], ni["sha256"], ni["bytes"]),
+                         (ACTUAL_NOARCH["nv"], "noarch", ACTUAL_NOARCH["q1"], ACTUAL_NOARCH["sha256"],
+                          ACTUAL_NOARCH["bytes"]))
+        # isolated manifest directory: the actual noarch file + the three actual development files
+        d = self.tmp / "actual"
+        d.mkdir()
+        files = [ACTUAL_NOARCH["file"], "musl-dev-1.2.5-r23.apk", "openssl-dev-3.5.8-r0.apk", "zlib-dev-1.3.2-r0.apk"]
+        ents = []
+        for f in files:
+            (d / f).write_bytes(raw[f])
+            i = br.apk_identity(raw[f])
+            ents.append({"file": f, "name": i["name"], "version": i["version"], "bytes": len(raw[f]),
+                         "sha256": i["sha256"]})
+        (d / "MANIFEST.json").write_text(json.dumps({"schema": br.LOCAL_SCHEMA, "packages": ents}))
+        ldata = {f"{e['name']}={e['version']}": raw[e["file"]] for e in ents}
+        # actual solver plan, parsed by the real guest parser
+        ps_ = ParseSimulateTests("test_captured_padded_47_row_format")
+        ps_.setUp()
+        try:
+            res, delta = ps_.parse(log_text)
+        finally:
+            ps_.tearDown()
+        self.assertEqual(res.returncode, 0, res.stderr)
+        self.assertEqual(len(delta), 47)
+        self.assertIn(ACTUAL_NOARCH["nv"], delta)
+        p, path, cid = self.run_plan("actual-res", "resolve", d / "MANIFEST.json", ldata, delta)
+        got = {f"{e['name']}={e['version']}": e for e in p["inputs"]["apk_local"]}
+        self.assertEqual((got[ACTUAL_NOARCH["nv"]]["arch"], got[ACTUAL_NOARCH["nv"]]["q1"]),
+                         ("noarch", ACTUAL_NOARCH["q1"]))
+        # modelled guest transaction from exactly the plan's upload and the ACTUAL simulate log
+        g = GuestDependencyTests("test_fd0_closed_is_replaced_by_dev_null_for_steps")
+        g.setUp()
+        try:
+            with tarfile.open(self.tmp / "actual-res" / "upload.tar") as t:
+                for m in t.getmembers():
+                    if m.name.startswith("local-") or m.name == "apk-local.list":
+                        (g.inn / m.name).write_bytes(t.extractfile(m).read())
+            shutil.copy(g.inn / "apk-local.list", g.tmp / "local.list")
+            g.set_delta(delta)
+            (g.fake / "simulate").write_text(log_text)  # the actual captured solver output
+            for x in g.fake.glob("repo/*.apk"):
+                x.unlink()
+            for nv in delta:
+                if nv not in ldata:
+                    (g.fake / "repo" / f"{nv}.apk").write_bytes(fake_apk_bytes(nv))
+            r = g.run_deps(extra="retain_closure")
+            self.assertEqual(r.returncode, 0, r.stderr)
+            rows = {x.split()[2] + "=" + x.split()[3]: x.split()[4] for x in (g.out / "apk-verify.txt").read_text().splitlines()}
+            self.assertEqual(rows[ACTUAL_NOARCH["nv"]], "noarch")
+            self.assertEqual(set(rows), set(delta))
+            self.assertEqual(set(v for k, v in rows.items() if k != ACTUAL_NOARCH["nv"]), {"aarch64"})
+            # the guest refuses the actual noarch bytes when planned as aarch64
+            lst = (g.tmp / "local.list").read_text().splitlines()
+            gi = next(i for i, x in enumerate(lst) if x.split()[3] == "git-init-template")
+            lst[gi] = lst[gi].rsplit(" ", 1)[0] + " aarch64"
+            g.tearDown(), g.setUp()
+            with tarfile.open(self.tmp / "actual-res" / "upload.tar") as t:
+                for m in t.getmembers():
+                    if m.name.startswith("local-"):
+                        (g.inn / m.name).write_bytes(t.extractfile(m).read())
+            (g.tmp / "local.list").write_text("\n".join(lst) + "\n")
+            g.set_delta(delta)
+            (g.fake / "simulate").write_text(log_text)
+            r = g.run_deps()
+            self.assertNotEqual(r.returncode, 0)
+            self.assertIn(f"local-{gi} arch noarch is not the planned aarch64", (g.out / "RESULT").read_text())
+            self.assertEqual(g.real_adds(), [])
+        finally:
+            g.tearDown()
+        # host export join on the actual bytes; then the actual-arch counterexamples
+        r = self.export(p, path, cid, delta, ldata)
+        self.assertEqual(r["derived_identity"][ACTUAL_NOARCH["nv"]]["arch"], "noarch")
+        self.assertEqual(r["installed_identity"][ACTUAL_NOARCH["nv"]], ACTUAL_NOARCH["q1"])
+        tag = got[ACTUAL_NOARCH["nv"]]["member"][:-4]
+        self.assertIn("verification arch 'aarch64' != control arch 'noarch'",
+                      self.refused(p, path, cid, delta, ldata, tamper=lambda f: set_verify_arch(f, tag, "aarch64")))
+
+        def relabel(q):
+            for e in q["inputs"]["apk_local"]:
+                if e["name"] == "git-init-template":
+                    e["arch"] = "aarch64"
+        self.assertIn("plan arch 'aarch64' != control arch 'noarch'",
+                      self.refused(p, path, cid, delta, ldata, plan_edit=relabel))
+        # the canonical frozen packet was only read
+        for f, data in raw.items():
+            self.assertEqual(hashlib.sha256((src / f).read_bytes()).hexdigest(), hashlib.sha256(data).hexdigest())
 
 
 # ---------------------------------------------------------------- repair 3

@@ -44,11 +44,11 @@ and no dependency transaction or build has run.**
 | --- | --- |
 | Valid fd0 | `guest_build.sh` runs `exec 0< /dev/null` before sourcing anything or calling apk. `step` also gives every child `< /dev/null`. Scripts, triggers and signature checking stay enabled. Basis: in Root's actual pair, closed stdin returned 2 with fchdir/child 127, and /dev/null returned 0 with the real post-upgrade and trigger. Descriptor numbers were not traced, so the fix guarantees fd0 validity. It does not claim to observe a syscall. |
 | Local APK inputs | Optional `plan --apk-local MANIFEST.json` / `apk_local=`, in both modes. Format: `{"schema": "t10.010.004/apk-local/v1", "packages": [{"file", "name", "version", "bytes", "sha256"}]}`. Files are plain basenames beside the manifest; nothing is discovered. Keys are exact, so a caller's `verified` flag is refused. Each file is opened `O_NOFOLLOW` (FIFOs cannot block) and must be a regular file with one link. It is read bounded (128 MiB per file, 512 MiB total) and must keep the same inode/size/mtime during the read and at its name afterwards. Bytes, SHA-256 and gzip (APK v2) magic must match. Duplicate files, names, hashes or JSON keys refuse, as do conflicts with the base, ABI, delta lock or libunwind 1.8.1. Every refusal happens before the run directory exists. Files upload as generated `local-<i>.apk` plus `apk-local.list`, bound by `LOCAL_LIST_SHA256` in `inputs.env` (`none` when absent). Callers without local input get the previous upload member set. |
-| Guest authentication | `verify_apk` rechecks size and SHA-256, then runs real `apk --no-network verify` with the image's unchanged default keys. The log must contain OK. The signed `.PKGINFO` pkgname, pkgver and arch must equal the expected identity. The stock key-directory digest is recorded before and after, and must be equal. Never used: `--allow-untrusted`, `--keys-dir`, `--no-scripts`, `--force-*`, `--arch` or `upgrade`. |
+| Guest authentication | `verify_apk` rechecks size and SHA-256, then runs real `apk --no-network verify` with the image's unchanged default keys. The log must contain OK. The signed `.PKGINFO` pkgname and pkgver must equal the expected identity; its arch must be `aarch64` or `noarch` (and equal the planned arch for a local input), and the actual value is written to `apk-verify.txt` (see the noarch repair). The stock key-directory digest is recorded before and after, and must be equal. Never used: `--allow-untrusted`, `--keys-dir`, `--no-scripts`, `--force-*`, `--arch` or `upgrade`. |
 | Exact base to the solver | `deps_transaction` hands the solver every frozen `name=version` base line, the WANT set (`libunwind-dev~1.8.1`), the exact delta pins (build mode) and the local files. An `add --simulate` runs first. Any transaction other than `Installing` refuses before the real install (Upgrading/Downgrading/Replacing/Purging/Reinstalling). In build mode, the simulated delta must equal `apk.lock`. The existing before/after equality and exact-delta checks are unchanged. |
 | Retained closure | Repository additions are fetched one by one (`apk fetch --output <generated dir> name=version`) and must yield exactly one regular file. Each is renamed `repo-<k>.apk` and authenticated like a local input. One transaction (`--no-network --repositories-file /dev/null`) then installs from exactly those files. Resolve exports carry `apk-closure/<file>` bytes, `apk-closure.txt` (`name=version sha256 bytes file source`) and `apk-closure/MANIFEST.json` in the `--apk-local` format, and the installed-database `C:` identities. Base packages are not re-downloaded. |
 | Offline build | `plan --mode build --apk-local <resolve dest>/out/apk-closure/MANIFEST.json` with the reviewed lock and base. When the manifest covers the whole delta, the plan records `apk_package_network: false`, and the guest runs both solver and install with `--no-network --repositories-file /dev/null`. **The offline replay has not been exercised on a real guest.** Container networking itself is unchanged. |
-| Export join | `check_dependency_evidence` joins: base-current = base-candidate (or plan base); solver delta = lock candidate (or plan lock); before = base; names before/after; after = before ∪ delta with no extra, removal or upgrade; keys unchanged; installed identities cover the delta exactly once; closure = delta, with every file bound to a stock-key verification line (tag, full SHA-256, name=version, arch, OK); local entries = plan's; retained bytes and MANIFEST.json = closure. Contradictions fail even with coherent SHA256SUMS. Resolve output stays `candidate only`. |
+| Export join | `check_dependency_evidence` joins: base-current = base-candidate (or plan base); solver delta = lock candidate (or plan lock); before = base; names before/after; after = before ∪ delta with no extra, removal or upgrade; keys unchanged; installed identities cover the delta exactly once; closure = delta, with every file bound to a stock-key verification line (tag, full SHA-256, name=version, actual arch, OK); local entries = plan's; retained bytes and MANIFEST.json = closure. Contradictions fail even with coherent SHA256SUMS. Resolve output stays `candidate only`. |
 
 ### Repair 2: raw-byte identity join
 
@@ -165,6 +165,45 @@ The fetch exit status is never acceptance. Whatever the status:
 - The single offline install and the host raw N/V/A/Q1/full-hash join are unchanged.
 
 This path is **source-supported, not runtime verified**.
+
+### Noarch repair: architecture-independent dependency packages
+
+This answers [the noarch brief](../../../docs/project/tasks/T10.010.004-dependency-noarch.md).
+Root's actual `git-init-template` 2.52.0-r0 (10347 bytes, SHA-256
+`186a0042…0e63`, Q1 `Q10b47slZtNgJtx4xoEbWIPstc52o=`) declares
+`arch = noarch`. The old public loader, guest verifier and export validator
+all required `aarch64`. Pinned apk-tools `44dcdfc` `database.c`
+`apk_db_arch_compatible()` accepts noarch independently of the native arches,
+so no `--arch` override is needed or used.
+
+- **Native target unchanged.** `NATIVE_ARCH = "aarch64"` drives `EXPECT_ARCH`,
+  `apk --print-arch`, `abi_expect.arch`, the musl interpreter and the ELF
+  machine check. `dependency_arches()` refuses any other native value.
+- **Dependency arch set.** A dependency package may declare exactly `aarch64`
+  or `noarch` (case-sensitive, no whitespace or lists). Anything else refuses.
+  The actual value is never relabeled.
+- **Plan.** The five-field manifest API is unchanged. `load_local_manifest`
+  derives arch from the file's own control member. The plan's `apk_local[]`
+  records the actual arch. `apk-local.list` gains a seventh field:
+  `<index> <sha256> <bytes> <name> <version> <Q1> <arch>`.
+- **Guest.** `check_local_list` refuses a missing or non-dependency arch.
+  `verify_apk` still requires real stock-key `apk verify` OK. It accepts a
+  signed arch of `EXPECT_ARCH` or `noarch`, requires a local input's signed
+  arch to equal its planned arch, and records the actual arch in
+  `apk-verify.txt`. Repository additions record their actual signed arch.
+  `dependency_arch` refuses `EXPECT_ARCH=noarch`.
+- **Host join.** The verification row arch must be a dependency arch. It
+  must equal the raw control arch parsed from the same bytes. For a planned
+  local input, the plan's recorded arch must also equal it; a missing or
+  contradictory plan arch refuses. Membership alone does not pass: the two
+  allowed labels must still agree on every record. The closure, the derived
+  identity and the resolve `MANIFEST.json` view carry the actual arch.
+- **Unchanged.** N/V, full SHA-256, size, Q1, installed `C:`, exact
+  inventories, the 26-pin base, the exact delta, offline install, signatures,
+  scripts and triggers, WANT/libunwind, lifecycle and fd0 controls.
+
+This is **source-only**. The new APK still has no stock-key authentication.
+Synthetic and modelled tests do not prove an actual noarch install.
 
 ## Files (all under `tools/renewal/native_capacity/`)
 
@@ -290,6 +329,7 @@ removal, `verify` passes.
 | `test_coin_capacity.py` on `prepared2/source` | `pins ok 9`; clean patch; 133 cases / 63 probes / 0 failures; **9/9 mutants caught** |
 | `test_prepare_source.py` | **20/20 OK** (repair 2) |
 | `test_build_recipe.py` | **56/56 OK**, ×3 repeats (about 25 s each; repair 4) |
+| `test_build_recipe.py` with `T10_APK_IDENTITY_DIR`/`T10_APK_SIMULATE_LOG` on the frozen noarch packet, isolated copy (noarch repair, 2026-11-04) | **91/91 OK**, 0 skipped (86 existing + 5 noarch) |
 | `ruff check tools/renewal/native_capacity/` (ruff 0.16.9, repo `ruff.toml`) | All checks passed |
 | `sh -n` guest scripts | OK |
 | plan-only demo on the real tree (`--mode resolve`, placeholder image `sha256:0…0`, no Engine) | upload `6bee45a7…08ac`, expected cgroup `memory.max=1610612736`, `memory.swap.max=1048576`, `cpu.max=200000 100000`, `pids.max=1024`, absolute bound 14880 s; `--mode build` without a lock refused; `--memory-mib 0` refused |

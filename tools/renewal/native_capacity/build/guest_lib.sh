@@ -122,7 +122,9 @@ lock_candidate() {
 # Exact-base dependency transaction with authenticated, retained package bytes.
 # Production values are literal in guest_build.sh; host tests point them at
 # fixtures (and a modelled APK command):
-#   APK           package tool ("apk"); EXPECT_ARCH  aarch64
+#   APK           package tool ("apk"); EXPECT_ARCH  aarch64 (native target;
+#                 a dependency package may instead declare noarch -- apk-tools
+#                 44dcdfc apk_db_arch_compatible() -- and keeps that actual value)
 #   APK_KEYS_DIR  the image's unchanged stock trusted keys (/etc/apk/keys)
 #   APK_DB        installed database (/lib/apk/db/installed)
 #   STAGE         owned staging directory (/work/closure); IN, OUT, WANT
@@ -132,14 +134,17 @@ lock_candidate() {
 sha_of() { sha256sum "$1" | cut -d' ' -f1; }
 size_of() { wc -c < "$1" | tr -d ' '; }
 
-# check_local_list <list>: "<index> <sha256> <bytes> <name> <version> <Q1>"
+# check_local_list <list>: "<index> <sha256> <bytes> <name> <version> <Q1> <arch>"
 # lines, indices 0..n-1 in order, unique names. Q1 is the host-derived control
-# identity (apk_identity), joined to the installed database after install. Indices name generated upload files
+# identity (apk_identity), joined to the installed database after install; arch
+# is the planned actual control arch (dependency_arch), which the signed
+# .PKGINFO must equal. Indices name generated upload files
 # ($IN/local-<index>.apk); no caller string is ever used as a path.
 check_local_list() {
     _n=0
-    while IFS=' ' read -r _i _sha _bytes _nm _v _q1 _extra; do
+    while IFS=' ' read -r _i _sha _bytes _nm _v _q1 _arch _extra; do
         [ -z "$_extra" ] && [ "$_i" = "$_n" ] || die "local list line $_n malformed"
+        dependency_arch "$_arch" || die "local list $_n arch '$_arch'"
         case "$_q1" in Q1*=) ;; *) die "local list $_n identity digest" ;; esac
         case "${_q1#Q1}" in *[!A-Za-z0-9+/=]*) die "local list $_n identity digest" ;; esac
         [ "${#_q1}" = 30 ] || die "local list $_n identity digest length"
@@ -157,13 +162,20 @@ apk_keys_digest() { # stable listing of every stock trusted-key entry and its ha
     ( cd "$APK_KEYS_DIR" && find . ! -type d -exec sha256sum {} + ) | LC_ALL=C sort -k2
 }
 
+dependency_arch() { # dependency_arch <arch>: the native target or noarch, nothing else
+    [ -n "$EXPECT_ARCH" ] && [ "$EXPECT_ARCH" != noarch ] || return 1
+    case "$1" in "$EXPECT_ARCH"|noarch) return 0 ;; *) return 1 ;; esac
+}
+
 pkginfo_field() { # pkginfo_field <.PKGINFO> <key>: exactly one "key = value"
     awk -v k="$2" '$1 == k && $2 == "=" && NF == 3 { n++; v = $3 } END { if (n != 1) exit 1; print v }' "$1"
 }
 
-# verify_apk <file> <sha256> <bytes> <name> <version> <tag>: recheck bytes,
-# authenticate with the stock keys (real apk verify), then require the signed
-# control segment's pkgname/pkgver/arch to be exactly the expected identity.
+# verify_apk <file> <sha256> <bytes> <name> <version> <tag> [<planned-arch>]:
+# recheck bytes, authenticate with the stock keys (real apk verify), then
+# require the signed control segment's pkgname/pkgver to be exactly the
+# expected identity and its arch a dependency arch (EXPECT_ARCH or noarch),
+# equal to the planned arch when one is given. The ACTUAL arch is recorded.
 verify_apk() {
     _vf=$1; _vt=$6
     [ -f "$_vf" ] && [ ! -L "$_vf" ] || die "apk $_vt is not a regular file"
@@ -176,7 +188,8 @@ verify_apk() {
     _pv=$(pkginfo_field "$STAGE/$_vt.pkginfo" pkgver) || die "apk $_vt pkgver"
     _pa=$(pkginfo_field "$STAGE/$_vt.pkginfo" arch) || die "apk $_vt arch"
     [ "$_pn=$_pv" = "$4=$5" ] || die "apk $_vt identity $_pn=$_pv is not $4=$5"
-    [ "$_pa" = "$EXPECT_ARCH" ] || die "apk $_vt arch $_pa"
+    dependency_arch "$_pa" || die "apk $_vt arch $_pa"
+    [ -z "${7:-}" ] || [ "$_pa" = "$7" ] || die "apk $_vt arch $_pa is not the planned $7"
     printf '%s %s %s %s %s OK\n' "$_vt" "$2" "$_pn" "$_pv" "$_pa" >> "$OUT/apk-verify.txt"
 }
 
@@ -242,10 +255,11 @@ deps_transaction() {
     cut -d= -f1 "$_base" | LC_ALL=C sort > "$STAGE/base.names"
     _files=""
     : > "$STAGE/local.q1"
-    while IFS=' ' read -r _i _sha _bytes _nm _v _q1; do
+    while IFS=' ' read -r _i _sha _bytes _nm _v _q1 _arch; do
         ! grep -qx -- "$_nm" "$STAGE/base.names" || die "local input $_nm would replace a frozen base package"
         printf '%s=%s %s\n' "$_nm" "$_v" "$_q1" >> "$STAGE/local.q1"
-        verify_apk "$IN/local-$_i.apk" "$_sha" "$_bytes" "$_nm" "$_v" "local-$_i"
+        [ -n "$_arch" ] || die "local input $_nm has no planned arch"
+        verify_apk "$IN/local-$_i.apk" "$_sha" "$_bytes" "$_nm" "$_v" "local-$_i" "$_arch"
         printf '%s=%s %s %s local-%s.apk local\n' "$_nm" "$_v" "$_sha" "$_bytes" "$_i" >> "$STAGE/local.src"
         _files="$_files $IN/local-$_i.apk"
     done < "$_local"

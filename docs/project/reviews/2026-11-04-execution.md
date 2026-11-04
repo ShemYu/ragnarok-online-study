@@ -926,3 +926,14 @@ the frozen delta and all inputs remain unchanged. Host parsing/transport is
 qualified; all47 stock-key/install/closure checks remain open. Claude338ca82f
 is returned for Root review and Grok's source result is pending. The build VM
 remains stopped. See [complete candidate reconciliation](2026-11-04-T10.010.004-root.md#complete-host-candidate-set-reconciled).
+
+Root compares Claude338ca82f and Grok e0dfec0b from the same frozen base.
+Both isolated91-test suites pass without skips and1374 protected files remain
+unchanged. Root's further target-label counterexample is accepted by Grok and
+correctly refused by Claude. Select/integrate Claude's exact source blobs;
+cachedRuff/shell/diff checks and16 independent Root controls pass. Both settled
+supplier terminals are released with branches preserved. The independently
+reviewed v2 all-local draft passes8 pure controls but retains unqualified pin
+placeholders and creates no runtime plan. Next: rebind/admit fresh all-local47
+stock-key/install/closure checks; no closure/full build/task closure is claimed.
+See [source comparison and verification](2026-11-04-T10.010.004-root.md#noarch-source-comparison-and-root-verification).

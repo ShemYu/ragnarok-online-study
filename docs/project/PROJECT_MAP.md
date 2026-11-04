@@ -23,7 +23,7 @@ FULL MODERN / RENEWAL PERSONAL GAME
 |   [x] APK3 exact-fetch correction [SOURCE VERIFIED]
 |   [x] Actual44 stock-selected URLs / empty payload / owned cleanup
 |   [x] Complete GCC host measurement / exact raw identity / child cleanup
-|   [ ] Dependency noarch repair [CURRENT; source comparison]
+|   [ ] All-local47 dependency closure [CURRENT; real VM checks next]
 |   [ ] Remaining33 host downloads [PARALLEL] -> signed47
 |   [ ] Qualified dependencies -> full builds -> ordinary-item A/B
 |   [ ] Binary/mod/text gate [SOURCE INTEGRATED; RUNTIME OPEN]
@@ -62,10 +62,11 @@ solver rows without base upgrades. The300s bulk fetch times out, so Root
 captures all44 exact URLs and verifies a complete54.7MB GCC host transfer.
 All44 repository files now pass Root host checks; with3 matching dev inputs,
 the47-file manifest matches the frozen delta (122065747bytes,46aarch64/1noarch).
-All download children are reaped. Claude338ca82f is returned for Root review;
-Grok's same-base source result is pending. Select/verify the repair and rebind
-the wrappers before all47 stock-key/install/closure qualification. The VM is
-stopped and no full compiler has run.
+All download children are reaped. Claude338ca82f is selected/source-integrated:
+both candidates pass Root's91-test runs, but a further native-target
+counterexample rejects Grok's candidate. Rebind the reviewed v2 wrapper before
+all47 stock-key/install/closure qualification. The VM is stopped and no full
+compiler has run. Both settled worker terminals are released.
 
 Release-gate source and reward/save analysis are integrated within their
 recorded limits. Their actual runtime pins and native/game/save gates remain

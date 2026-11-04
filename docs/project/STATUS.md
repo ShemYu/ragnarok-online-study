@@ -21,7 +21,7 @@ ledger remains **4/14 checkpoints qualified**: one accepted and three ready
 for user review, with **82 resource gaps open**. These are separate ledgers,
 not percentages of playable content, translation or remaining effort.
 
-## Current action — repair dependency architecture checks
+## Current action — qualify the all-local dependency closure
 
 Root host checks now cover **44/44 repository files**. Combined with the three
 matching development inputs, all47 staged files match the frozen exact delta:
@@ -31,18 +31,18 @@ remain unqualified. Root corrected its own name-versus-full-tuple sorting
 assertion without changing inputs or repeating downloads. The separate
 save-free build VM remains stopped; no personal game/SQL action occurs.
 
-Claude's [noarch repair](tasks/T10.010.004-dependency-noarch.md) is returned as
-candidate338ca82f; Grok's result is pending. Both started at the confirmed same
-26bb3781 base. Root source review/tests and comparison remain open. Accept native-target or architecture-independent
-dependency metadata, preserve actual arch and bind verification-row/raw/local
-plan agreement. Keep signatures, raw SHA/Q1/installed-C/base26 and ARM64 VM/
-ABI/ELF requirements intact. The private host correction/controls are verified
-and its33-file admission was committed before execution. All host helpers are
-now terminal, so their old source-pin restriction no longer prevents a later
-Root-verified source integration. See [complete candidate reconciliation](reviews/2026-11-04-T10.010.004-root.md#complete-host-candidate-set-reconciled).
+Root selects/integrates Claude338ca82f after equal-base comparison: both
+candidates pass Root's isolated91-test suites with no skips and1374 protected
+files unchanged. A further Root counterexample finds Grok accepts a changed
+build-target label; Claude rejects it. Claude also passes16 independent checks.
+Actual noarch/aarch64 values remain joined across guest rows, raw bytes and
+local plans; VM/ABI/ELF stays ARM64. Both settled supplier terminals are released
+with their branches preserved. See [source selection and limits](reviews/2026-11-04-T10.010.004-root.md#noarch-source-comparison-and-root-verification).
 
-After selecting and verifying the source repair, Root must rebind/review the
-all-local wrapper and admit fresh resolution from the pinned47-file manifest.
+Root must rebind/review the all-local wrapper and admit fresh resolution from
+the pinned47-file manifest. The reviewed v2 draft passes8 pure controls but
+deliberately refuses helper imports/preparation until its selected-source pins
+are rebound. It has generated no runtime plans/admission.
 Require all47 actual stock-key checks, exact frozen47 delta, unchanged complete
 26-package base/ABI, fresh cgroup/headroom evidence, offline install and owned
 cleanup. Resolve simulation remains online. The all-local/compiler wrappers
