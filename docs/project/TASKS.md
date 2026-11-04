@@ -1,6 +1,6 @@
 # Unfinished task board
 
-Updated: 2026-11-04 JST. Owner: coordinator unless explicitly dispatched.
+Updated: 2026-11-05 JST. Owner: coordinator unless explicitly dispatched.
 **The active goal resumes the seven expert-audit tasks.** Historical
 `in_progress` rows are unfinished dispositions, not evidence of a live worker.
 Current dispatches and verification are recorded in the
@@ -28,7 +28,9 @@ source lanes; installed-state mutations require the later runtime gates.
 1. T10.010.004 integrated isolated client/game and ordinary-item A/B. Full
    artifacts/images/loaders, actual startup reads and managed-client protocol/
    static/owned-stop checks pass Root. Qualify supported isolated DB backup/
-   restore before item mutations; integrated rendering/parser/items/save open.
+   restore before item mutations. First close discovery's preservation and
+   SQL-profile faults; candidate4 source repair is dispatched. Integrated
+   rendering/parser/items/save remain open.
 2. T10.010.004–007: ordinary-item regression, release
    capability gate and reward/save qualification, then supported normal
    integration and journal/progression/save checks.
@@ -76,7 +78,7 @@ source lanes; installed-state mutations require the later runtime gates.
 | T10.008 | P3 functional source | Supported Traditional Chinese True quest-text mod generator | Existing supported System-table route; independent source lane from T10.007, normal journal gate later uses actual server admission | `in_progress` | Install/relink the supported True quest-text overlay and verify the normal journal against its oracle. |
 | T10.009 | P3 functional source | Chapter1 starter transport and checked18368→18369Messenger handoff | Integrated2734d8f starter, supported mechanics/commands and existing destination metadata; independent of broader geometry | `in_progress` | Complete supported normal integration of first-edge travel, Messenger handoff, fruit/return and saves. |
 | T10.010 | P3 functional source | Fruit village arrival, Shasha/Maysel through18371, real rewards and resume | Qualified T10.009 source; retained mechanics/native binding; independent of pending normal installation | `in_progress` | NEXT: admit startup of the qualified exact 0.3.2 images, then test parser, actors, rewards, save and withdrawal before normal installation. |
-| T10.010.004 | P3 native qualification | Full binary build/start and ordinary-item A/B regression | T10.010.003 | `in_progress` | [Managed-client protocol/static/owned stop Root-qualified](reviews/2026-11-04-T10.010.004-root.md#managed-client-protocol-static-and-owned-stop-personally-qualified): actual Node0/730ms, six HTTP200/four exact static bodies, effective256MiB/5000-entry cache, graceful child exit0/owner removal/free ports. Independent compatible replay passes despite original Python3.9 post-check refusal;2084 inputs/1107 existing files/personal unchanged, two0600 outputs only. VM stopped. Startup process/17-mount reads already qualified. Next isolated supported DB backup/restore, integrated rendering/fixture parsing/200rows, ordinary A/B/probe purity/save. |
+| T10.010.004 | P3 native qualification | Full binary build/start and ordinary-item A/B regression | T10.010.003 | `in_progress` | [Discovery candidate4 repair](reviews/2026-11-05-T10.010.004-db-discovery-root.md) dispatched for preservation and bounded SQL profiles. Candidate3 has66 isolated controls passing; real read-only preflight passes, but live discovery is unadmitted. Root must verify the repair, capture metadata/dump and qualify supported isolated backup/restore. Full artifacts/images/loaders, startup process/17 mounts and managed-client protocol/static/owned stop are already qualified. Integrated rendering, fixture parsing/200rows, ordinary A/B, probe purity and saves remain open. |
 | T10.010.005 | P3 release safety | Binary/mod/text/config compatibility manifest and pre-install gate | Source phase integrated; execution needs .004/.006 and isolated .007 | `in_progress` | [Claude source selected/integrated](reviews/2026-11-04-T10.010.005-root.md#selected-source-and-integrated-verification) as efa9af82. Integrated113 synthetic tests and real release/withdrawal refusals pass;644 tracked files unchanged. Bind actual evidence, then rehearse installation/Apply/save/restart/withdrawal and journal/play; runtime pins and acceptance stay open. |
 | T10.010.006 | P3 reward/save qualification | Actual EXP, callback, save and uncertain-delivery acceptance | Analysis parallel to .004; actual validation needs .004 | `in_progress` | [Root/Astra review](reviews/2026-11-04-T10.010.006-root.md) selects Claude2f2a610f source/runbook, integrated as a75eeb2e after both repaired reports and unchanged17 pins/5121-file tree. Test rewards, level-up, save/re-entry/restart/repeat after .004; interruption stays skipped/not captured without a qualified observation method. Effective EXP and runtime acceptance remain unqualified. |
 | T10.010.007 | P3 native to normal story | Real parser/actors/story, supported install, persistence and withdrawal | T10.010.004–006; refreshed ownership/current backup | `planned` | Verify in isolated state, then normal play with progress preserved before the user's evaluation. |

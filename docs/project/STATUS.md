@@ -34,9 +34,14 @@ The latest Claude candidate passes66 pure/fake-lifecycle controls, compilation
 and lint. Prior failures are addressed, but asserted-hit I/O probes still show
 missing exception-safe preservation, and CREATE/SET profiles admit opaque
 options/extra statements. Require the narrow remaining repair before live use.
+The candidate4 source-only follow-up is dispatched asctx_372b2a582d58;
+Root will inspect and test a fresh isolated copy when it reports. A separate
+reviewer is preparing focused CREATE/SET boundary specimens without execution.
 Grok's original compiles/lints and passes its helper/decoder groups but has
 broader lifecycle/metadata gaps; it is not selected. The [paired review](reviews/2026-11-05-T10.010.004-discovery-suppliers.md)
 keeps original source scores separate from later repair quality.
+Its settled worker is now released with an archived transcript; source,
+reports, branch and worktree remain preserved.
 
 Root's real read-only preflight passes:41 input/2084 protected/1109 actual-world
 pins, indirect import sources, stopped VM binding and host checks match. No VM

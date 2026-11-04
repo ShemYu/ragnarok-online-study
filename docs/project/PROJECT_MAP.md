@@ -3,8 +3,9 @@
 Updated: 2026-11-05 JST. **Seven-task execution active.**
 All three prerequisite source/tooling tasks are integrated. Both full binary
 artifacts, immutable images and original-library loaders pass Root's replay;
-process/mount and managed-client protocol/static checks are qualified;
-integrated rendering and ordinary items are next.
+process/mount and managed-client protocol/static checks are qualified.
+Discovery's narrow source repair is active before supported DB backup/restore,
+integrated rendering and ordinary items.
 Release-gate and reward/save source are integrated. See
 [the detailed next actions](NEXT_ACTIONS.md) and [audit](reviews/2026-10-29-T00.005.md).
 
@@ -26,6 +27,7 @@ FULL MODERN / RENEWAL PERSONAL GAME
 |   [ ] Ordinary-item NPC fixtures [CLAUDE SOURCE SELECTED; PARSER OPEN]
 |   [x] Startup process/mount readbacks [ROOT VERIFIED; PARSER OPEN]
 |   [x] Managed client identity/static/owned stop [ROOT VERIFIED]
+|   [ ] Live DB discovery [CANDIDATE4 SOURCE REPAIR ACTIVE]
 |   [ ] Isolated DB backup/restore -> integrated rendering/item A/B
 |   [ ] Binary/mod/text gate [SOURCE INTEGRATED; RUNTIME OPEN]
 |   [ ] Real EXP/callback/save [ANALYSIS INTEGRATED; RUNTIME OPEN]
@@ -57,6 +59,10 @@ The ledger remains **4/14 parent checkpoints qualified**, not 29% of the
 world/story completed. The content denominator and full-milestone estimate
 remain unfinished. Basic local play and saved progress are already available.
 Three of seven audit tasks are self-verified (about 43% by task count only).
+The current discovery candidate passes66 fake controls, but added Root probes
+still find preservation and CREATE/SET-profile faults. Candidate4 is dispatched;
+live discovery is unadmitted. Grok's original is preserved but not selected,
+and its settled worker is released. See the [current discovery record](reviews/2026-11-05-T10.010.004-db-discovery-root.md).
 The separate4GiB build VM is stopped after the repaired full pair succeeds:
 844.4s/exit0/no timeout. Root reproduces105 artifact files and nine resource
 files, checks exact47/base26 and native loader/marker/owner identities, with342
