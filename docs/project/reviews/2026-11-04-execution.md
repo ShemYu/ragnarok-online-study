@@ -26,6 +26,12 @@ results govern these records. The frozen-packet count remains unchanged.
 
 ## Next independent source lane: T10.010.005
 
+Current serial runtime action: [T10.010.004](2026-11-04-T10.010.004-root.md).
+Root's actual read-only checks find unchanged services/local image, expose and
+repair close-framed HTTP handling, and prepare one bounded resource probe.
+No Engine write or compiler action has occurred. The .005 Claude source
+candidate `4161e4cd` is submitted; it is not Root-verified or integrated yet.
+
 Root freezes [the release compatibility brief](../tasks/T10.010.005.md) and
 [equal input profile](../fixtures/T10.010.005-inputs.json) from `0a2a2494`.
 The 17 project files independently reproduce contract SHA-256

@@ -30,6 +30,11 @@ Claude/Grok pair from `51f927a2`, independently of actual native execution.
 Its real admission must refuse until missing runtime/text facts are qualified.
 The two release-gate workers remain under supervision. Root owns the next
 serial runtime experiment.
+The [current .004 preflight](reviews/2026-11-04-T10.010.004-root.md) confirms
+unchanged five-service bindings and the local stock image. A real GET exposes
+close-framed HTTP handling absent from the old fake tests; repair `8b6e347f`
+passes 56 tests and actual read-only GETs. The tiny no-network resource probe
+is prepared for equal source reviews; no actual probe/build has run yet.
 
 Pre-merge maintenance: lint/CI checkpoint `86e98d9` is verified. At the user's
 subsequent request, the retired Godot/Character Lab source is preserved under
