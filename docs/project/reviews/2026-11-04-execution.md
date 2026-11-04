@@ -770,3 +770,10 @@ runbook records these gates. A full retained closure can also support a
 separately pinned network-none compiler plan. All are source findings;
 actual payload/startup/closure/compiler/items remain unqualified. See the
 [Root preflight](2026-11-04-T10.010.004-root.md#parallel-source-preflight-for-the-full-build-and-disposable-world).
+
+Both repair transcripts show current work. Root reinforces isolated mutation
+controls with both suppliers after observing one in-place exploratory mutant
+in Claude's task checkout; final stable-baseline identity verification remains
+required. Root also writes and independently reviews the private build-mode
+controller draft. Syntax/source review pass; no plan/admission/VM run occurs.
+The closure-binding wrapper and all actual compiler/item gates remain open.
