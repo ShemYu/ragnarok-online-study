@@ -72,6 +72,9 @@ Grok's active worker; selection and real closure replay remain open.
 The [EXP/callback/save analysis brief](tasks/T10.010.006.md) freezes the freshly
 reverified source and explicitly unknown effective EXP facts. Both Claude/Grok
 analysis workers are now ready from the samed1993ac base, parallel to .004.
+Claude ce9e7d64 is submitted. [Root/Astra source review](reviews/2026-11-04-T10.010.006-root.md)
+confirms the main separate-save/callback findings but requires conditional
+crash-window, ACK, carry-capacity and EXP-example corrections before selection.
 [Image source readiness](reviews/2026-11-04-T10.010.004-image-source.md)
 also finds the existing single-COPY build path is implemented; actual image
 creation and all runtime reward/save checks remain open.
