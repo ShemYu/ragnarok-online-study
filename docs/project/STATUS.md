@@ -23,31 +23,33 @@ not percentages of playable content, translation or remaining effort.
 
 ## Current action — DB qualification before integrated items
 
-**Next:** finish review/admission of the read-only live metadata/dump capture.
-Both original suppliers and Claude candidate3 have delivered; source copies
+**Next:** bind candidate4's actual read-only preflight, then prepare/review the
+live metadata/dump capture admission. Both original suppliers and Claude
+candidate4 have delivered; source copies
 and task branches are preserved. The common41-file input contract stays frozen.
 Root handles report wakes without inbox polling; source work is not on its own
 runtime qualification. See the [current review and evidence](reviews/2026-11-05-T10.010.004-db-discovery-root.md)
 and [frozen discovery contract](reviews/2026-11-05-T10.010.004-db-discovery-brief.md).
 
-The latest Claude candidate passes66 pure/fake-lifecycle controls, compilation
-and lint. Prior failures are addressed, but asserted-hit I/O probes still show
-missing exception-safe preservation, and CREATE/SET profiles admit opaque
-options/extra statements. Require the narrow remaining repair before live use.
-The candidate4 source-only follow-up is dispatched asctx_372b2a582d58;
-Root will inspect and test a fresh isolated copy when it reports. A separate
-reviewer is preparing focused CREATE/SET boundary specimens without execution.
+Claude candidate4 passes76 pure/fake-lifecycle controls, compilation and lint,
+retaining all66 prior cases. Root's13 independent focused checks also pass:
+two positive native-format specimens, eight SQL-profile refusals and three
+single-hit I/O faults with no direct fake DB TERM/down. Source peer reviews
+find no remaining blocker within these repairs. The observed preservation and
+CREATE/SET faults are closed in the synthetic contract; current producer/dialect,
+actual helpers and complete runtime admission remain unqualified.
 Grok's original compiles/lints and passes its helper/decoder groups but has
 broader lifecycle/metadata gaps; it is not selected. The [paired review](reviews/2026-11-05-T10.010.004-discovery-suppliers.md)
 keeps original source scores separate from later repair quality.
 Its settled worker is now released with an archived transcript; source,
 reports, branch and worktree remain preserved.
 
-Root's real read-only preflight passes:41 input/2084 protected/1109 actual-world
+Root's earlier candidate2 real read-only preflight passes:41 input/2084 protected/1109 actual-world
 pins, indirect import sources, stopped VM binding and host checks match. No VM
 starts and no Engine API/SQL runs. Current personal-service equality, guest
 resources, complete Engine census and actual metadata/dialect/log/archive
-behavior remain before-startup/live gates. **Live discovery is unadmitted.**
+behavior remain before-startup/live gates. Rebind the repaired source rather
+than inherit candidate2's admission. **Live discovery is unadmitted.**
 
 The supported-backup codec v2 passes51 isolated synthetic controls, compilation
 and lint, preserving all original32 cases. This repairs observed newline and
