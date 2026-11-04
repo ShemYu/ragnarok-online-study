@@ -54,7 +54,8 @@ its fresh source and Grok's original delivery await Orca report wakes.
 The separate supported-backup codec passes32 synthetic controls and lint,
 but Root reproduces numeric-literal/type-join gaps and an actual-format header
 assumption. It needs a narrow source repair before further grammar replay;
-this does not qualify actual backup/restore or delay discovery worker review.
+the native drafter is assigned a fresh source-only revision. This does not
+qualify actual backup/restore or delay discovery worker review.
 Root/native/Astra source review identifies the old1107/current1109 baseline
 distinction, explicit DB cwd, split quiescence and unknown-exec shutdown gate.
 Refresh the exact owned VM/world/resources and personal projections before
