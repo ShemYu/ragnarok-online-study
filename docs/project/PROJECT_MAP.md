@@ -30,7 +30,7 @@ FULL MODERN / RENEWAL PERSONAL GAME
 |   [x] Fresh successful normal closure [ROOT QUALIFIED; v4]
 |   [x] Offline compiler admission [FAILED RUN PRESERVED; token consumed]
 |   [ ] Full unpatched/patched builds [CAP OOM; RESOURCE RETRY NEXT]
-|   [ ] Ordinary-item NPC fixtures [CLAUDE CANDIDATE; GROK PENDING]
+|   [ ] Ordinary-item NPC fixtures [BOTH SUBMITTED; CORRECTIONS OPEN]
 |   [ ] Immutable binary readback -> ordinary-item A/B
 |   [ ] Binary/mod/text gate [SOURCE INTEGRATED; RUNTIME OPEN]
 |   [ ] Real EXP/callback/save [ANALYSIS INTEGRATED; RUNTIME OPEN]
@@ -86,7 +86,10 @@ consumed run stays failed. Root/Astra recommend2560MiB in the same4GiB VM with
 unchanged768MiB reserve and fresh3328MiB headroom gate. Prepare/review/commit a
 fresh resource-only admission before retry. The independent
 [fixture lane](tasks/T10.010.004-ordinary-fixtures.md) has Claude8e24ad10
-submitted and Grok pending; Root comparison/parser/item results remain open.
+and Grok2008f8cd submitted; equal budget corrections and Root comparison/parser/
+item results remain open. New compiler-controller-v2/wrapper-v5 source passes
+Root's19 fixed/177 qualification pin checks and independent Astra review;
+fresh PLAN/PHASE preparation and admission are next.
 
 Release-gate source and reward/save analysis are integrated within their
 recorded limits. Their actual runtime pins and native/game/save gates remain

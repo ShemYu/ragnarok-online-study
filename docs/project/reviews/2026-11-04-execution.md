@@ -1051,3 +1051,10 @@ result. See [Root's bound and source evidence](2026-11-04-T10.010.004-root.md#fi
 After36cf0fc9, the identical correction starts Claude's same-terminal repair
 follow-up ctx_d4d9ba34c6d6 ready and is enqueued to Grok's original dispatch.
 Grok's read/adoption remains unproved. No corrected fixture result exists yet.
+
+Root creates resource-only compiler-controller-v2/wrapper-v5, preserving old
+sources and successful dependency bindings. Root's19 fixed/177 qualification
+pin checks, AST/checksum ordering and independent Astra review pass. No
+preparation/runtime is claimed; commit [source verification](2026-11-04-T10.010.004-root.md#resource-only-compiler-sources-personally-verified)
+before fresh PLAN/PHASE preparation. An explicit wake returns Grok2008f8cd's
+first fixture; budget-addendum adoption and Root selection remain open.

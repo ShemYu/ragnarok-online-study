@@ -47,15 +47,19 @@ VM,2CPUs/jobs1 and unchanged768MiB reserve. Require fresh MemAvailable at least
 3489660928bytes before compilation. Only new private controller/wrapper
 versions and resource bindings are needed; source/toolchain/flags/ABI/offline
 controls stay fixed. The historical dependency threshold remains unchanged.
-Next create/review fresh versions, prepare and independently verify a new
-PLAN/PHASE, then commit its admission before one bounded retry. The higher
+Fresh controller-v2/wrapper-v5 source is now Root/Astra reviewed:only resource
+literals, controller pin/import and new output bindings change. Root's19 fixed
+pins and177 qualification pins pass, with fresh outputs absent. Next prepare
+and independently verify a new PLAN/PHASE, then commit admission before retry. The higher
 cap is a justified experiment, not proof that the full build will finish.
 
 The independent [ordinary-item fixture](tasks/T10.010.004-ordinary-fixtures.md)
 lane uses the same ced65a38 base and frozen eight-file packet. Claude8e24ad10
 has submitted four source files. Root verifies a source-derived200-row logging
 budget counterexample and a report scope error; the [equal follow-up](tasks/T10.010.004-fixture-budget.md)
-requires correction without disabling guards. Grok's result is pending.
+requires correction without disabling guards. Grok2008f8cd is also submitted;
+its first report does not address the added budget acceptance. Root review is
+pending; do not treat the old enqueue as adoption.
 Claude's repair follow-up is ready; identical guidance is enqueued to Grok
 (read/adoption not yet proved).
 Neither candidate is selected or parser/runtime-qualified. Workers
