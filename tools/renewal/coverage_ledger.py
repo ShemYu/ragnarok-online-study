@@ -468,6 +468,13 @@ def summarize_roots(roots, catalogs):
 
 # --------------------------------------------------------- category facts
 
+def not_counts(doc):
+    """Keep a producer's negated not_counts_of annotation negated in the ledger."""
+    text = doc["not_counts_of"]
+    need(isinstance(text, str) and text, "INPUT_SHAPE", "not_counts_of is not a string")
+    return f"Not counts of: {text}."
+
+
 def build_categories(docs, paths, roots):
     P, mc, sel, yg, mon, sp, q = (docs["profile"], docs["map_cache"], docs["selection"],
                                   docs["yaml"], docs["monster"], docs["spawn"], docs["quoted"])
@@ -550,12 +557,14 @@ def build_categories(docs, paths, roots):
              S(None, None)),
         fact("monsters.mob_db_raw_declarations", "present", mon["counts"]["raw_declarations"],
              "raw MOB_DB declarations", QI, "server", S("monster", "/counts/raw_declarations"),
-             "Declarations, not accepted/effective monsters."),
+             "Raw declarations only. " + not_counts(mon)),
         fact("monsters.distinct_declared_ids", "present",
              mon["counts"]["distinct_supported_declared_ids"], "declared IDs", QI, "server",
-             S("monster", "/counts/distinct_supported_declared_ids")),
+             S("monster", "/counts/distinct_supported_declared_ids"),
+             "Declared IDs only. " + not_counts(mon)),
         fact("monsters.effective_table", "unknown", None, "monsters", N, "server",
-             S("monster", "/not_counts_of")),
+             S("monster", "/not_counts_of"),
+             "Unknown: the projection explicitly excludes the effective table. " + not_counts(mon)),
         fact("spawns.framing_events", "present", c["events"], "events", QI, "server",
              S("spawn", "/counters/events")),
         fact("spawns.static_supported", "present", c["static_supported"], "events", QI, "server",
@@ -577,9 +586,11 @@ def build_categories(docs, paths, roots):
     ]
     cats["items_skills"] = [
         fact("items.item_db_raw_rows", "present", dbs["ITEM_DB"]["raw_rows"], "raw rows", QI,
-             "server", S("yaml", "/databases/ITEM_DB/raw_rows"), yg["not_counts_of"]),
+             "server", S("yaml", "/databases/ITEM_DB/raw_rows"),
+             "Raw declaration rows only. " + not_counts(yg)),
         fact("skills.skill_db_raw_rows", "present", dbs["SKILL_DB"]["raw_rows"], "raw rows", QI,
-             "server", S("yaml", "/databases/SKILL_DB/raw_rows"), yg["not_counts_of"]),
+             "server", S("yaml", "/databases/SKILL_DB/raw_rows"),
+             "Raw declaration rows only. " + not_counts(yg)),
         fact("items_skills.yaml_edges_skipped", "unknown", yg["counts"]["edges_skipped"],
              "import edges", QI, "server", S("yaml", "/counts/edges_skipped"),
              "Skipped by mode: " + json.dumps(yg["counts"]["skip_reasons"], sort_keys=True)),

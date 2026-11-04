@@ -954,7 +954,7 @@
    {
     "evidence_level": "qualified_inventory_manifest",
     "id": "items.item_db_raw_rows",
-    "note": "accepted, effective, loaded, spawned or playable entities",
+    "note": "Raw declaration rows only. Not counts of: accepted, effective, loaded, spawned or playable entities.",
     "scope": "server",
     "source": {
      "input": ".tools/renewal/t06-yaml-graph-candidates/integrated-1/yaml-graph-manifest.json",
@@ -967,7 +967,7 @@
    {
     "evidence_level": "qualified_inventory_manifest",
     "id": "skills.skill_db_raw_rows",
-    "note": "accepted, effective, loaded, spawned or playable entities",
+    "note": "Raw declaration rows only. Not counts of: accepted, effective, loaded, spawned or playable entities.",
     "scope": "server",
     "source": {
      "input": ".tools/renewal/t06-yaml-graph-candidates/integrated-1/yaml-graph-manifest.json",
@@ -1175,7 +1175,7 @@
    {
     "evidence_level": "qualified_inventory_manifest",
     "id": "monsters.mob_db_raw_declarations",
-    "note": "Declarations, not accepted/effective monsters.",
+    "note": "Raw declarations only. Not counts of: accepted, effective, merged, loaded, spawned or playable monsters.",
     "scope": "server",
     "source": {
      "input": ".tools/renewal/t06-monster-projection-candidates/integrated-1/actual-1/monster-projection-manifest.json",
@@ -1188,6 +1188,7 @@
    {
     "evidence_level": "qualified_inventory_manifest",
     "id": "monsters.distinct_declared_ids",
+    "note": "Declared IDs only. Not counts of: accepted, effective, merged, loaded, spawned or playable monsters.",
     "scope": "server",
     "source": {
      "input": ".tools/renewal/t06-monster-projection-candidates/integrated-1/actual-1/monster-projection-manifest.json",
@@ -1200,6 +1201,7 @@
    {
     "evidence_level": "not_observed",
     "id": "monsters.effective_table",
+    "note": "Unknown: the projection explicitly excludes the effective table. Not counts of: accepted, effective, merged, loaded, spawned or playable monsters.",
     "scope": "server",
     "source": {
      "input": ".tools/renewal/t06-monster-projection-candidates/integrated-1/actual-1/monster-projection-manifest.json",
