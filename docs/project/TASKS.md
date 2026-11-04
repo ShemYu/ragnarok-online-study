@@ -28,7 +28,8 @@ source lanes; installed-state mutations require the later runtime gates.
 1. T10.010.004 supported isolated startup and ordinary-item A/B. Both full
    artifacts, immutable images and original-library loaders are Root-qualified;
    the three prerequisite source/tooling tasks are integrated. Managed-client
-   source/prepared admission pass; checkpoint then run the host-only launch.
+   source/admission pass. First host probe refuses before launch on one macOS
+   environment key; world/inputs remain unchanged. Fresh corrected phase next.
 2. T10.010.004–007: ordinary-item regression, release
    capability gate and reward/save qualification, then supported normal
    integration and journal/progression/save checks.

@@ -41,15 +41,16 @@ pass. Registration and reads do not qualify saved DB content or full-world
 functionality. Four map/one character startup errors remain to classify;
 all-NPC/parser acceptance, rendering, items, probe purity and saves stay open.
 
-**Next:** run the prepared managed-client phase once after its admission is
-committed/pushed. Root and Astra clear the revised controller/wrapper source;
-Node syntax and Python compile/Ruff pass. Preparation18472 and non-consuming
-admission73729 exit0, binding2071 protected files,1107 world files, stopped VM
-and five personal services. Six GETs/four static hashes and absent first-use/
-execution paths pass separate Root checks. No client launch yet.
+**Current client probe refuses before launch.** After admission38289295 is
+pushed, actual69031 exits1 at the exact parent-environment guard in68ms:
+native macOS Node adds only `__CF_USER_TEXT_ENCODING`; all six supplied values
+match. No helper/client starts or HTTP GET occurs. Root proves all1107 world
+files exactly unchanged and2071 protected inputs/stopped VM/personal checks
+pass. Preserve this consumed phase. Checkpoint the refusal, then narrowly
+bind/normalize that OS field and prepare a fresh phase; no game-goal change.
 Actual managed identity/readiness, allowed writes, effective cache limits,
 static routing and owned stop still require verification. See
-[prepared admission](reviews/2026-11-04-T10.010.004-root.md#managed-client-prepared-admission).
+[prelaunch refusal](reviews/2026-11-04-T10.010.004-root.md#managed-client-prelaunch-environment-refusal).
 Start with the bounded host-only protocol/static check while the VM remains
 off, then integrate the owned client with the same disposable game for rendering
 and ordinary-item A/B. Do not infer gameplay from HTTP health. Preserve Chinese

@@ -69,8 +69,10 @@ three controls, both strict API captures and ordered TERM/exited0; down0 stops
 the VM. All1978 protected and88 terminal files/personal projections remain
 unchanged. Eighteen generated changes are stat-only; no host content changes.
 Five startup errors remain unclassified. Managed-client controller source and
-current read-only admission pass; commit that admission before one bounded
-identity/static/owned-stop launch, then integrated rendering and ordinary items. Neither
+current read-only admission pass. First probe refuses before launch on one
+macOS-injected environment key; all world/VM/personal inputs are unchanged.
+Checkpoint and narrow that guard before a fresh probe, then integrated rendering
+and ordinary items. Neither
 registration nor reads qualify full-world/parser/play/save acceptance. See
 [Root's result](reviews/2026-11-04-T10.010.004-root.md#initialized-process-and-mounts-personally-qualified).
 
