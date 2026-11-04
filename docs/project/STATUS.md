@@ -46,14 +46,15 @@ pushed, actual69031 exits1 at the exact parent-environment guard in68ms:
 native macOS Node adds only `__CF_USER_TEXT_ENCODING`; all six supplied values
 match. No helper/client starts or HTTP GET occurs. Root proves all1107 world
 files exactly unchanged and2071 protected inputs/stopped VM/personal checks
-pass. Refusal4d775e71 is pushed. Root reads/syntax-checks the narrow correction:
-record only that key's value hash, remove it before the exact six-key/value
-comparison, retain all other refusals. Revised Python compile/Ruff pass; old
-phase/evidence will be protected in the new context. Checkpoint source, then
-prepare/admit a fresh phase; no new client launch or game-goal change.
+pass. Refusal4d775e71 and source correction9e98c111 are pushed. Root/Astra
+clear the narrow normalization before the exact six-key/value comparison.
+Fresh preparation77277 and current admission95103 exit0:2084 protected files,
+1107 unchanged world files, stopped VM and personal projections match. Pure
+phase differential confirms unchanged policy/environment/GET expectations.
+Commit this admission before one launch; no new client or game-goal change.
 Actual managed identity/readiness, allowed writes, effective cache limits,
 static routing and owned stop still require verification. See
-[prelaunch refusal](reviews/2026-11-04-T10.010.004-root.md#managed-client-prelaunch-environment-refusal).
+[fresh prepared admission](reviews/2026-11-04-T10.010.004-root.md#normalized-client-fresh-prepared-admission).
 Start with the bounded host-only protocol/static check while the VM remains
 off, then integrate the owned client with the same disposable game for rendering
 and ordinary-item A/B. Do not infer gameplay from HTTP health. Preserve Chinese

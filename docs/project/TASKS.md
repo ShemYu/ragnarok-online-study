@@ -29,7 +29,8 @@ source lanes; installed-state mutations require the later runtime gates.
    artifacts, immutable images and original-library loaders are Root-qualified;
    the three prerequisite source/tooling tasks are integrated. Managed-client
    source/admission pass. First host probe refuses before launch on one macOS
-   environment key; world/inputs remain unchanged. Fresh corrected phase next.
+   environment key; world/inputs remain unchanged. Narrow correction and fresh
+   phase admission pass; checkpoint then one host-only launch next.
 2. T10.010.004–007: ordinary-item regression, release
    capability gate and reward/save qualification, then supported normal
    integration and journal/progression/save checks.

@@ -71,8 +71,8 @@ unchanged. Eighteen generated changes are stat-only; no host content changes.
 Five startup errors remain unclassified. Managed-client controller source and
 current read-only admission pass. First probe refuses before launch on one
 macOS-injected environment key; all world/VM/personal inputs are unchanged.
-Checkpoint and narrow that guard before a fresh probe, then integrated rendering
-and ordinary items. Neither
+The narrow normalization and fresh2084-input admission pass; checkpoint before
+one fresh probe, then integrated rendering and ordinary items. Neither
 registration nor reads qualify full-world/parser/play/save acceptance. See
 [Root's result](reviews/2026-11-04-T10.010.004-root.md#initialized-process-and-mounts-personally-qualified).
 
