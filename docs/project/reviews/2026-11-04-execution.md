@@ -687,3 +687,15 @@ VM down/daemon departure/socket closure pass, and personal five-service
 projections are identical. There is no guest PASS/SHA256SUMS or qualified
 closure. See [failure and next repair](2026-11-04-T10.010.004-root.md#actual-exact-base-solver-reaches47-installs-counter-parser-refuses).
 The main goal is unchanged; the seven-task count remains3/7 closed.
+
+## Same actual-format correction delivered
+
+At frozen570750b, Claude receives ready follow-up ctx_5fda6936e5c6 on its
+existing owned terminal. The same exact body is queued to active Grok as
+msg_1de9b8e0ca13. Both retain the original six-path source-only scope and
+all previous identity/base/ABI/closure requirements. These receipts prove
+delivery/queueing, not correction or runtime success. No new worker fleet
+is created. Private apk-counter-format-dispatch-root-1/DISPATCH_ROOT.json
+SHA-256:
+f70dfa5e9e99a6e6d6900bfd84021b986fc9d415568870d58aacbb4d7e79be71.
+Normal publication of570750b succeeds. The consumed resolver remains stopped.
