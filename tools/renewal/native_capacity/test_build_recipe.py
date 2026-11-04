@@ -12,6 +12,7 @@ a compiled binary.
 """
 
 import base64
+import gzip
 import hashlib
 import http.server
 import io
@@ -55,15 +56,63 @@ def fake_elf(marker):
     return bytes(head) + b"npc/re/scripts_main.conf\0" + marker
 
 
-def export_tar(plan, cid, tamper=None, owner=(0, 0)):
+KEYS_EVIDENCE = b"0123  ./alpine-devel@lists.alpinelinux.org-stock.rsa.pub\n"
+
+
+def fake_apk_bytes(nv):
+    """Synthetic stand-in (tar.gz with .PKGINFO, see pkg_bytes): NOT a signed APK."""
+    return pkg_bytes(*nv.split("=", 1))
+
+
+def dep_evidence(plan, delta, local_data=None):
+    """Coherent T10.010.004 dependency evidence for a synthetic export."""
+    local_data = local_data or {}
+    nv = lambda x: x.replace("=", "-", 1)  # noqa: E731
+    base = BASE_LOCK.split()
+    locals_ = {f"{e['name']}={e['version']}": e for e in plan["inputs"].get("apk_local") or []}
+    files = {"apk-before.txt": "".join(x + "\n" for x in APK_BEFORE).encode(),
+             "apk-names-before.txt": "".join(x.split("=")[0] + "\n" for x in base).encode(),
+             "apk-after.txt": "".join(x + "\n" for x in sorted(APK_BEFORE + [nv(d) for d in delta])).encode(),
+             "apk-names-after.txt": "".join(x + "\n" for x in sorted(
+                 [b.split("=")[0] for b in base] + [d.split("=")[0] for d in delta])).encode(),
+             "apk-simulate.delta": "".join(d + "\n" for d in delta).encode(),
+             "apk-keys-before.txt": KEYS_EVIDENCE, "apk-keys-after.txt": KEYS_EVIDENCE,
+             "apk-installed-identity.txt": "".join(f"{d} Q1{'A' * 27}=\n" for d in delta).encode()}
+    closure, verify, manifest, k = [], [], [], 0
+    for d in delta:
+        if d in locals_:
+            e = locals_[d]
+            data, f, h, b = local_data.get(d, b""), e["member"], e["sha256"], e["bytes"]
+            src = "local"
+        else:
+            data, f, src = fake_apk_bytes(d), f"repo-{k}.apk", "repo"
+            h, b = hashlib.sha256(data).hexdigest(), len(data)
+            k += 1
+        closure.append(f"{d} {h} {b} {f} {src}\n")
+        verify.append(f"{f[:-4]} {h} {d.replace('=', ' ', 1)} aarch64 OK\n")
+        name, ver = d.split("=", 1)
+        manifest.append({"file": f, "name": name, "version": ver, "bytes": b, "sha256": h})
+        if plan["mode"] == "resolve":
+            files[f"apk-closure/{f}"] = data
+    files["apk-closure.txt"] = "".join(sorted(closure)).encode()
+    files["apk-verify.txt"] = "".join(verify).encode()
+    if plan["mode"] == "resolve":
+        files["apk-closure/MANIFEST.json"] = json.dumps({"schema": br.LOCAL_SCHEMA, "packages": manifest}).encode()
+    return files
+
+
+def export_tar(plan, cid, tamper=None, owner=(0, 0), delta=None, local_data=None):
     cg = plan["expected_cgroup"]
-    locked = sorted(x.replace("=", "-", 1) for x in plan["inputs"]["apk_lock"] or [])
+    if delta is None:
+        delta = plan["inputs"]["apk_lock"] if plan["mode"] == "build" else LOCK.split()
     files = {"RESULT": b"PASS\n", "toolchain.txt": b"gcc 15\n", "environment.txt": b"nproc=4\n",
              "apk.base.current": BASE_LOCK.encode(),
-             "apk-before.txt": "\n".join(APK_BEFORE).encode() + b"\n",
-             "apk-after.txt": "\n".join(sorted(APK_BEFORE + locked)).encode() + b"\n",
              "cgroup.txt": ("".join(f"{k}={v}\n" for k, v in cg.items()) + f"id={cid}\n").encode(),
              "logs/steps.log": b"x PASS\n"}
+    files.update(dep_evidence(plan, delta, local_data))
+    if plan["mode"] == "resolve":
+        files["apk.lock.candidate"] = "".join(d + "\n" for d in delta).encode()
+        files["apk.base.candidate"] = BASE_LOCK.encode()
     for v, marker in (("unpatched", b""), ("patched", b"ros_ch1_coin_capacity\0")):
         files[f"{v}/map-server"] = fake_elf(marker)
         files[f"{v}/map-server.debug"] = b"dbg" + v.encode()
@@ -1133,7 +1182,547 @@ class GuestLibTests(unittest.TestCase):
             self.assertIn(needle, s)
         self.assertNotIn("ln -sfn", s)
         self.assertNotIn("rm -f /rathena", s)
-        self.assertLess(s.index("check_cgroup\n"), s.index("step apk-"))  # every check precedes install
+        self.assertLess(s.index("check_cgroup\n"), s.index("deps_transaction \""))  # every check precedes install
+
+
+# ====================================================================== T10.010.004
+# Scope of everything below: synthetic fixtures. The "APK" files are tar.gz
+# stand-ins holding only a .PKGINFO; they carry no signature. FAKE_APK models
+# apk's verify/simulate/fetch/add/info results from fixture files. These prove
+# the recipe's binding, ordering, constraint and refusal logic -- they do NOT
+# authenticate any package, resolve a real repository or run a transaction.
+
+def pkg_bytes(name, version, arch="aarch64", pkgname=None):
+    """Synthetic APK v2 stand-in: gzip tar with a .PKGINFO (no signature)."""
+    info = f"# synthetic\npkgname = {pkgname or name}\npkgver = {version}\narch = {arch}\n".encode()
+    raw = io.BytesIO()
+    with tarfile.open(fileobj=raw, mode="w") as t:
+        ti = tarfile.TarInfo(".PKGINFO")
+        ti.size, ti.mtime = len(info), 0
+        t.addfile(ti, io.BytesIO(info))
+    return gzip.compress(raw.getvalue(), mtime=0)
+
+
+LOCAL_DEV = {"musl-dev": "1.2.5-r23", "openssl-dev": "3.5.8-r0", "zlib-dev": "1.3.2-r0"}
+
+
+def write_manifest(d, pkgs, **override):
+    """pkgs: {name: version}; writes <name>-<version>.apk + MANIFEST.json in d."""
+    d.mkdir(parents=True, exist_ok=True)
+    entries = []
+    for n, v in sorted(pkgs.items()):
+        data = pkg_bytes(n, v)
+        f = f"{n}-{v}.apk"
+        (d / f).write_bytes(data)
+        entries.append({"file": f, "name": n, "version": v, "bytes": len(data),
+                        "sha256": hashlib.sha256(data).hexdigest()})
+    m = {"schema": br.LOCAL_SCHEMA, "packages": entries}
+    m.update(override)
+    (d / "MANIFEST.json").write_text(json.dumps(m))
+    return d / "MANIFEST.json", entries
+
+
+class LocalInputPlanTests(RecipeBase):
+    """--apk-local binding: bytes/SHA-256, safe regular single-link identity,
+    strict manifest, conflicts; refusal before any run directory exists."""
+
+    def setUp(self):
+        super().setUp()
+        self.ld = self.tmp / "local"
+        # build-mode delta that includes the local development packages
+        lock = dict(line.split("=", 1) for line in LOCK.split())
+        lock.update(LOCAL_DEV)
+        self.lock.write_text("".join(f"{k}={v}\n" for k, v in sorted(lock.items())))
+
+    def refuse(self, name, mode="resolve", text=None, **kw):
+        with self.assertRaises(br.RecipeError) as cm:
+            self.plan(name, mode=mode, **kw)
+        self.assertFalse((self.tmp / name).exists(), "a partial plan was created")
+        if text:
+            self.assertIn(text, str(cm.exception))
+        return cm.exception
+
+    def test_no_local_input_callers_unchanged(self):
+        p, _, _ = self.plan("plain")
+        self.assertIsNone(p["inputs"]["apk_local"])
+        self.assertIn("LOCAL_LIST_SHA256='none'", p["inputs"]["inputs_env"])
+        self.assertTrue(p["apk_package_network"])
+        with tarfile.open(self.tmp / "plain" / "upload.tar") as t:
+            self.assertFalse([n for n in t.getnames() if n.startswith("local-") or n == "apk-local.list"])
+
+    def test_local_inputs_both_modes_bound_into_upload(self):
+        man, entries = write_manifest(self.ld, LOCAL_DEV)
+        for mode in ("resolve", "build"):
+            with self.subTest(mode):
+                p, _, _ = self.plan(mode, mode=mode, apk_local=man)
+                got = p["inputs"]["apk_local"]
+                self.assertEqual([(e["member"], e["name"], e["sha256"]) for e in got],
+                                 [(f"local-{i}.apk", e["name"], e["sha256"]) for i, e in enumerate(entries)])
+                with tarfile.open(self.tmp / mode / "upload.tar") as t:
+                    lst = t.extractfile("apk-local.list").read()
+                    self.assertEqual(hashlib.sha256(lst).hexdigest(), p["inputs"]["apk_local_list_sha256"])
+                    self.assertIn(f"LOCAL_LIST_SHA256='{p['inputs']['apk_local_list_sha256']}'",
+                                  p["inputs"]["inputs_env"])
+                    for i, e in enumerate(entries):
+                        self.assertEqual(hashlib.sha256(t.extractfile(f"local-{i}.apk").read()).hexdigest(),
+                                         e["sha256"])
+                        self.assertEqual(lst.decode().splitlines()[i],
+                                         f"{i} {e['sha256']} {e['bytes']} {e['name']} {e['version']}")
+                self.assertTrue(p["apk_package_network"])  # partial closure: repository additions remain
+        a, _, _ = self.plan("again", mode="build", apk_local=man)
+        b, _, _ = self.plan("again2", mode="build", apk_local=man)
+        self.assertEqual(a["inputs"]["upload_tar_sha256"], b["inputs"]["upload_tar_sha256"])
+
+    def test_missing_changed_unsafe_inputs_refused(self):
+        def fresh():
+            shutil.rmtree(self.ld, ignore_errors=True)
+            return write_manifest(self.ld, LOCAL_DEV)
+        man, entries = fresh()
+        f0 = self.ld / entries[0]["file"]
+        cases = {
+            "missing file": lambda: f0.unlink(),
+            "changed bytes": lambda: f0.write_bytes(f0.read_bytes()[:-1] + b"X"),
+            "size mismatch": lambda: f0.write_bytes(f0.read_bytes() + b"X"),
+            "symlink": lambda: (f0.rename(self.ld / "real.apk"), f0.symlink_to(self.ld / "real.apk")),
+            "hard link": lambda: os.link(f0, self.ld / "second-link"),
+            "directory": lambda: (f0.unlink(), f0.mkdir()),
+            "fifo": lambda: (f0.unlink(), os.mkfifo(f0)),
+        }
+        for i, (name, mutate) in enumerate(cases.items()):
+            with self.subTest(name):
+                man, entries = fresh()
+                mutate()
+                self.refuse(f"unsafe{i}", apk_local=man)
+
+    def test_manifest_strictness_and_conflicts(self):
+        man, entries = write_manifest(self.ld, LOCAL_DEV)
+        good = json.loads(man.read_text())
+
+        def with_(mut):
+            m = json.loads(json.dumps(good))
+            mut(m)
+            return json.dumps(m)
+        e0 = dict(good["packages"][0])
+        bad = {
+            "caller verified flag": with_(lambda m: m["packages"][0].__setitem__("verified", True)),
+            "top-level extra": with_(lambda m: m.__setitem__("trusted", True)),
+            "schema": with_(lambda m: m.__setitem__("schema", "other")),
+            "empty": with_(lambda m: m.__setitem__("packages", [])),
+            "traversal": with_(lambda m: m["packages"][0].__setitem__("file", "../x.apk")),
+            "subdir": with_(lambda m: m["packages"][0].__setitem__("file", "a/x.apk")),
+            "bool bytes": with_(lambda m: m["packages"][0].__setitem__("bytes", True)),
+            "bad version": with_(lambda m: m["packages"][0].__setitem__("version", "1.2.5")),
+            "duplicate entry": with_(lambda m: m["packages"].append(dict(e0))),
+            "duplicate name": with_(lambda m: m["packages"].append(dict(e0, file="other.apk", sha256="0" * 64))),
+            "duplicate file": with_(lambda m: m["packages"].append(dict(e0, name="x-dev", sha256="0" * 64))),
+            "duplicate sha": with_(lambda m: m["packages"].append(dict(e0, name="x-dev", file="o.apk"))),
+            "duplicate json key": man.read_text().replace('"schema"', '"schema": "x", "schema"', 1),
+        }
+        for i, (name, text) in enumerate(bad.items()):
+            with self.subTest(name):
+                man.write_text(text)
+                self.refuse(f"strict{i}", apk_local=man)
+        man.write_text(json.dumps(good))
+        (self.ld / "notgz.apk").write_bytes(b"PK\x03\x04 not gzip")
+        h = hashlib.sha256(b"PK\x03\x04 not gzip").hexdigest()
+        (self.ld / "ng.json").write_text(json.dumps({"schema": br.LOCAL_SCHEMA, "packages": [
+            {"file": "notgz.apk", "name": "x-dev", "version": "1-r0", "bytes": 13, "sha256": h}]}))
+        self.refuse("notgz", apk_local=self.ld / "ng.json", text="gzip")
+        # conflicts with the frozen base / delta / ABI / libunwind requirement
+        conflicts = {"base package": ({"bash": "5.3-r0"}, "build"), "abi musl": ({"musl": "1.2.5-r23"}, "resolve"),
+                     "version vs lock": ({"musl-dev": "1.2.5-r24"}, "build"),
+                     "not in lock": ({"curl-dev": "8.0-r0"}, "build"),
+                     "libunwind": ({"libunwind-dev": "1.9.0-r0"}, "resolve")}
+        for i, (name, (pkgs, mode)) in enumerate(conflicts.items()):
+            with self.subTest(name):
+                d = self.tmp / f"c{i}"
+                m, _ = write_manifest(d, pkgs)
+                self.refuse(f"conflict{i}", mode=mode, apk_local=m)
+
+    def test_change_during_read_and_replacement_refused(self):
+        man, entries = write_manifest(self.ld, LOCAL_DEV)
+        target = str(self.ld / entries[0]["file"])
+        real_read = os.read
+        state = {"grown": False}
+
+        def growing_read(fd, n):
+            out = real_read(fd, n)
+            if not state["grown"] and os.fstat(fd).st_size == entries[0]["bytes"]:
+                state["grown"] = True
+                with open(target, "ab") as fh:
+                    fh.write(b"appended while reading")
+            return out
+        with mock.patch.object(br.os, "read", growing_read):
+            self.refuse("grow", apk_local=man)
+        man, entries = write_manifest(self.ld, LOCAL_DEV)
+        real_lstat = os.lstat
+
+        def swapped_lstat(name, *a, **k):
+            st = real_lstat(name, *a, **k)
+            if name == entries[0]["file"]:
+                return os.stat_result((st.st_mode, st.st_ino + 1) + tuple(st)[2:])
+            return st
+        with mock.patch.object(br.os, "lstat", swapped_lstat):
+            self.refuse("swap", apk_local=man, text="replaced")
+
+
+FAKE_APK = r"""#!/bin/sh
+# Modelled apk (synthetic): records argv, answers from $FAKE fixture files.
+printf '%s\n' "$*" >> "$FAKE/calls"
+while :; do
+    case "$1" in --no-network|--no-cache|--simulate) shift ;; --repositories-file) shift 2 ;; *) break ;; esac
+done
+cmd=$1; shift
+case "$cmd" in
+verify)
+    for f; do
+        h=$(sha256sum "$f" | cut -d' ' -f1)
+        if grep -qx "$h" "$FAKE/badsig" 2>/dev/null; then echo "$f: UNTRUSTED signature"; exit 1; fi
+        echo "$f: OK"
+    done ;;
+add)
+    case " $* " in *" --simulate "*) sim=1 ;; *) sim=0 ;; esac
+    if [ "$sim" = 1 ]; then
+        [ ! -e "$FAKE/sim_fail" ] || { echo "ERROR: unable to select packages"; exit 1; }
+        cat "$FAKE/simulate"
+    else
+        cat "$FAKE/adds" >> "$FAKE/installed"
+        LC_ALL=C sort -o "$FAKE/installed" "$FAKE/installed"
+        while IFS= read -r nv; do printf 'C:Q1%s=\nP:%s\nV:%s\n\n' AAAAAAAAAAAAAAAAAAAAAAAAAAA "${nv%%=*}" "${nv#*=}"; done \
+            < "$FAKE/adds" >> "$FAKE/db"
+    fi ;;
+fetch)
+    [ "$1" = --no-cache ] && shift
+    [ "$1" = --output ] || exit 9
+    d=$2; nv=$3
+    [ -f "$FAKE/repo/$nv.apk" ] || { echo "ERROR: $nv: unable to fetch"; exit 1; }
+    cp "$FAKE/repo/$nv.apk" "$d/${nv%%=*}-${nv#*=}.apk" ;;
+info)
+    if [ "${1:-}" = -v ]; then sed 's/=/-/' "$FAKE/installed"; else cut -d= -f1 "$FAKE/installed"; fi ;;
+*) exit 8 ;;
+esac
+"""
+
+WANT_S = " ".join(br.WANT)
+
+
+class GuestDependencyTests(unittest.TestCase):
+    """Real guest_lib.sh deps_transaction/retain_closure under /bin/sh with a
+    modelled APK. Proves ordering, exact-base constraints, refusals and the
+    retained closure format only (see the scope note above)."""
+
+    def setUp(self):
+        self.tmp = Path(tempfile.mkdtemp(prefix="t10-010-004-deps-"))
+        self.fake, self.inn, self.out, self.stage = (self.tmp / x for x in ("fake", "in", "out", "stage"))
+        for d in (self.fake / "repo", self.inn, self.out / "logs", self.tmp / "bin", self.tmp / "keys"):
+            d.mkdir(parents=True)
+        (self.tmp / "bin" / "apk").write_text(FAKE_APK)
+        (self.tmp / "bin" / "timeout").write_text('#!/bin/sh\nshift\nexec "$@"\n')  # host has no timeout(1)
+        for x in ("apk", "timeout"):
+            os.chmod(self.tmp / "bin" / x, 0o755)
+        (self.tmp / "keys" / "alpine-stock.rsa.pub").write_text("stock key\n")
+        self.base_lines = BASE_LOCK.split()
+        (self.tmp / "base").write_text(BASE_LOCK)
+        (self.fake / "installed").write_text(BASE_LOCK)
+        (self.fake / "db").write_text("".join(f"C:Q1{'B' * 27}=\nP:{x.split('=')[0]}\nV:{x.split('=')[1]}\n\n"
+                                              for x in self.base_lines))
+        (self.out / "apk-before.txt").write_text("".join(x + "\n" for x in APK_BEFORE))
+        delta = {line.split("=", 1)[0]: line for line in LOCK.split()}
+        delta.update({n: f"{n}={v}" for n, v in LOCAL_DEV.items()})  # the local zlib-dev replaces the repo one
+        self.set_delta(delta.values())
+        self.local = {f"{n}={v}" for n, v in LOCAL_DEV.items()}
+        self.write_local(LOCAL_DEV)
+        for d in self.delta:
+            if d not in self.local:
+                n, v = d.split("=", 1)
+                (self.fake / "repo" / f"{d}.apk").write_bytes(pkg_bytes(n, v))
+
+    def tearDown(self):
+        shutil.rmtree(self.tmp, ignore_errors=True)
+
+    def set_delta(self, delta, extra_sim=""):
+        self.delta = sorted(delta)
+        (self.fake / "simulate").write_text("".join(
+            f"({i + 1}/{len(self.delta)}) Installing {d.split('=')[0]} ({d.split('=', 1)[1]})\n"
+            for i, d in enumerate(self.delta)) + extra_sim + "OK: simulated\n")
+        (self.fake / "adds").write_text("".join(d + "\n" for d in self.delta))
+
+    def write_local(self, pkgs, tamper=None):
+        rows = []
+        for i, (n, v) in enumerate(sorted(pkgs.items())):
+            data = pkg_bytes(n, v)
+            (self.inn / f"local-{i}.apk").write_bytes(data)
+            rows.append(f"{i} {hashlib.sha256(data).hexdigest()} {len(data)} {n} {v}\n")
+        (self.tmp / "local.list").write_text("".join(rows))
+        if tamper:
+            tamper()
+
+    def run_deps(self, lock="", offline=0, extra=""):
+        env = {"OUT": str(self.out), "IN": str(self.inn), "STAGE": str(self.stage), "FAKE": str(self.fake),
+               "APK": str(self.tmp / "bin" / "apk"), "APK_KEYS_DIR": str(self.tmp / "keys"),
+               "APK_DB": str(self.fake / "db"), "WANT": WANT_S, "EXPECT_ARCH": "aarch64", "STEP_TIMEOUT": "30",
+               "PATH": f"{self.tmp / 'bin'}:{os.environ['PATH']}", "LC_ALL": "C"}
+        script = (f'set -eu; . "{br.GUEST_LIB}"; exec 0<&-; check_local_list "{self.tmp / "local.list"}"; '
+                  f'deps_transaction "{self.tmp / "base"}" "{self.tmp / "local.list"}" "{lock}" {offline}; {extra}')
+        return subprocess.run(["/bin/sh", "-c", script], env=env, capture_output=True, text=True, timeout=60)
+
+    def calls(self):
+        p = self.fake / "calls"
+        return p.read_text().splitlines() if p.exists() else []
+
+    def real_adds(self):
+        return [c for c in self.calls() if c.startswith("add ") and "--simulate" not in c.split()]
+
+    def test_success_orders_verification_before_transaction_and_pins_whole_base(self):
+        r = self.run_deps(extra="retain_closure")
+        self.assertEqual(r.returncode, 0, r.stderr)
+        calls = self.calls()
+        sim = [i for i, c in enumerate(calls) if c.startswith("add --simulate ")]
+        add = [i for i, c in enumerate(calls) if c in self.real_adds()]
+        ver = [i for i, c in enumerate(calls) if " verify " in f" {c} "]
+        local_ver = [i for i in ver if "/local-" in calls[i]]
+        self.assertEqual((len(sim), len(add), len(local_ver), len(ver)), (1, 1, 3, len(self.delta)))
+        self.assertLess(max(local_ver), sim[0])      # local inputs authenticated before the solver sees them
+        self.assertLess(max(ver), add[0])            # every closure file authenticated before installation
+        for i in ver:
+            self.assertTrue(calls[i].startswith("--no-network verify "), calls[i])
+        self.assertTrue(calls[add[0]].startswith("add --no-network --no-cache --repositories-file /dev/null "))
+        for i in (sim[0], add[0]):
+            toks = calls[i].split()
+            for b in self.base_lines:                # every exact frozen base pin is a solver constraint
+                self.assertIn(b, toks)
+            for w in br.WANT:
+                self.assertIn("libunwind-dev~1.8.1" if w == "libunwind-dev" else w, toks)
+        joined = "\n".join(calls)
+        for forbidden in ("--allow-untrusted", "--keys-dir", "--no-scripts", "--force", "--arch", "upgrade"):
+            self.assertNotIn(forbidden, joined)
+        fetches = [c for c in calls if c.startswith("fetch --no-cache --output ")]
+        self.assertEqual(sorted(c.split()[-1] for c in fetches), sorted(set(self.delta) - self.local))
+        closure = (self.out / "apk-closure.txt").read_text().splitlines()
+        self.assertEqual([c.split()[0] for c in closure], self.delta)
+        self.assertEqual(sorted(c.split()[4] for c in closure).count("local"), 3)
+        ident = (self.out / "apk-installed-identity.txt").read_text().splitlines()
+        self.assertEqual([x.split()[0] for x in ident], self.delta)
+        # the retained manifest is the documented local-input format, bound by bytes/hash
+        raw, ents = br.load_local_manifest(self.out / "apk-closure" / "MANIFEST.json")
+        self.assertEqual(sorted(f"{e['name']}={e['version']}" for e in ents), self.delta)
+        for line in closure:
+            nv, h, b, f, _ = line.split()
+            self.assertEqual(hashlib.sha256((self.out / "apk-closure" / f).read_bytes()).hexdigest(), h)
+
+    def test_conflicting_repository_refuses_before_any_transaction(self):
+        # the solver proposes a base upgrade: refused from its plan, nothing installed
+        self.set_delta(self.delta, extra_sim="(9/9) Upgrading musl (1.2.5-r23 -> 1.2.5-r24)\n")
+        r = self.run_deps()
+        self.assertNotEqual(r.returncode, 0)
+        self.assertIn("changes existing packages", (self.out / "RESULT").read_text())
+        self.assertEqual(self.real_adds(), [])
+        self.assertEqual((self.fake / "installed").read_text(), BASE_LOCK)
+        # the solver itself cannot satisfy the exact base pins
+        self.tearDown(), self.setUp()
+        (self.fake / "sim_fail").write_text("")
+        r = self.run_deps()
+        self.assertNotEqual(r.returncode, 0)
+        self.assertIn("apk-simulate", (self.out / "RESULT").read_text())
+        self.assertEqual(self.real_adds(), [])
+
+    def relist(self, i):
+        """Rebind list row i to the current file bytes, so only the signed identity differs."""
+        rows = (self.tmp / "local.list").read_text().splitlines()
+        data = (self.inn / f"local-{i}.apk").read_bytes()
+        f = rows[i].split()
+        rows[i] = " ".join([f[0], hashlib.sha256(data).hexdigest(), str(len(data))] + f[3:])
+        (self.tmp / "local.list").write_text("\n".join(rows) + "\n")
+
+    def test_local_input_refusals_before_solver(self):
+        def bad_sig():
+            h = hashlib.sha256((self.inn / "local-1.apk").read_bytes()).hexdigest()
+            (self.fake / "badsig").write_text(h + "\n")
+
+        def flip_byte():  # the planned list keeps its hash; the uploaded bytes change
+            b = bytearray((self.inn / "local-0.apk").read_bytes())
+            b[len(b) // 2] ^= 0xFF
+            (self.inn / "local-0.apk").write_bytes(bytes(b))
+
+        def other_name():
+            (self.inn / "local-2.apk").write_bytes(pkg_bytes("zlib-dev", "1.3.2-r0", pkgname="zlib"))
+            self.relist(2)
+
+        def other_arch():
+            (self.inn / "local-0.apk").write_bytes(pkg_bytes("musl-dev", "1.2.5-r23", arch="x86_64"))
+            self.relist(0)
+        cases = {
+            "untrusted signature": (LOCAL_DEV, bad_sig, "apk-verify-local-1"),
+            "bytes changed after planning": (LOCAL_DEV, flip_byte, "local-0 sha256 changed"),
+            "signed identity differs": (LOCAL_DEV, other_name, "identity"),
+            "wrong arch": (LOCAL_DEV, other_arch, "local-0 arch"),
+            "replaces base": ({"bash": "5.3-r0"}, None, "frozen base"),
+        }
+        for name, (pkgs, tamper, needle) in cases.items():
+            with self.subTest(name):
+                self.tearDown(), self.setUp()
+                self.write_local(pkgs)
+                if tamper:
+                    tamper()
+                r = self.run_deps()
+                self.assertNotEqual(r.returncode, 0)
+                self.assertIn(needle, (self.out / "RESULT").read_text())
+                self.assertFalse([c for c in self.calls() if "--simulate" in c], "solver ran after a refusal")
+                self.assertEqual(self.real_adds(), [])
+
+    def test_repository_fetch_identity_and_install_drift_refused(self):
+        repo = sorted(set(self.delta) - self.local)
+        n, v = repo[0].split("=", 1)
+        (self.fake / "repo" / f"{repo[0]}.apk").write_bytes(pkg_bytes(n, "0.0-r0"))  # mirror serves other bytes
+        r = self.run_deps()
+        self.assertNotEqual(r.returncode, 0)
+        self.assertIn("identity", (self.out / "RESULT").read_text())
+        self.assertEqual(self.real_adds(), [])
+        self.tearDown(), self.setUp()
+        (self.fake / "adds").write_text((self.fake / "adds").read_text() + "zzz-extra=1-r0\n")
+        r = self.run_deps()
+        self.assertNotEqual(r.returncode, 0)
+        self.assertIn("closure differs from the lock", (self.out / "RESULT").read_text())
+
+    def test_build_lock_mismatch_and_offline_completeness(self):
+        lock = self.tmp / "lock"
+        lock.write_text("".join(d + "\n" for d in self.delta if d != self.delta[0]))
+        r = self.run_deps(lock=str(lock))
+        self.assertNotEqual(r.returncode, 0)
+        self.assertIn("differs from the qualified lock", (self.out / "RESULT").read_text())
+        self.assertFalse([c for c in self.calls() if c.startswith("fetch ")])
+        self.assertEqual(self.real_adds(), [])
+        # offline flag with an incomplete local closure refuses instead of reaching for the network
+        self.tearDown(), self.setUp()
+        lock = self.tmp / "lock"
+        lock.write_text("".join(d + "\n" for d in self.delta))
+        r = self.run_deps(lock=str(lock), offline=1)
+        self.assertNotEqual(r.returncode, 0)
+        self.assertIn("offline closure lacks", (self.out / "RESULT").read_text())
+        self.assertFalse([c for c in self.calls() if c.startswith("fetch ")])
+        self.assertTrue(all("--no-network" in c.split() for c in self.calls() if not c.startswith("info")))
+
+    def test_fd0_closed_is_replaced_by_dev_null_for_steps(self):
+        env = {"OUT": str(self.out), "STEP_TIMEOUT": "5", "PATH": f"{self.tmp / 'bin'}:{os.environ['PATH']}"}
+        bare = subprocess.run(["/bin/sh", "-c", "exec 0<&-; cat"], env=env, capture_output=True, timeout=10)
+        self.assertNotEqual(bare.returncode, 0)  # control: a child with closed fd0 fails to read it
+        r = subprocess.run(["/bin/sh", "-c", f'set -eu; . "{br.GUEST_LIB}"; exec 0<&-; step fd0 cat'],
+                           env=env, capture_output=True, text=True, timeout=10)
+        self.assertEqual(r.returncode, 0, r.stderr)
+        g = br.GUEST.read_text()
+        first_apk = min(g.index(x) for x in ("apk --print-arch", "deps_transaction \"", "apk info"))
+        self.assertLess(g.index("exec 0< /dev/null"), first_apk)
+        self.assertLess(g.index("exec 0< /dev/null"), g.index('. "$IN/guest_lib.sh"'))
+
+
+class ClosureReplayAndExportTests(RecipeBase):
+    """Resolve export -> strict join -> build plan from the retained closure ->
+    offline guest transaction from exactly those bytes (modelled APK)."""
+
+    def setUp(self):
+        super().setUp()
+        self.ld = self.tmp / "local"
+        self.man, self.entries = write_manifest(self.ld, LOCAL_DEV)
+        self.local_data = {f"{e['name']}={e['version']}": (self.ld / e["file"]).read_bytes() for e in self.entries}
+        delta = {line.split("=", 1)[0]: line for line in LOCK.split()}
+        delta.update({n: f"{n}={v}" for n, v in LOCAL_DEV.items()})
+        self.delta = sorted(delta.values())
+
+    def resolve_run(self, name="res"):
+        e = self.engine()
+        p, path, admit = self.plan(name, mode="resolve", apk_local=self.man)
+
+        def files(f):
+            f.pop("unpatched/map-server")
+        e.export_fn = lambda cid: export_tar(p, cid, files, delta=self.delta, local_data=self.local_data)
+        br.execute(path, e.sock, admit, poll=0, sleep=lambda s: None)
+        cid = json.loads((self.tmp / name / "EXECUTION.json").read_text())["container_id"]
+        return p, path, cid
+
+    def test_complete_closure_replays_offline_in_build(self):
+        p, path, cid = self.resolve_run()
+        r = br.validate_export(path, self.tmp / "res" / "export.tar", self.tmp / "res-v")
+        self.assertIn("candidate only", r["note"])
+        self.assertEqual(sorted(r["closure"]), self.delta)
+        self.assertEqual(r["lock_candidate"], self.delta)
+        (self.tmp / "qlock").write_text("".join(d + "\n" for d in r["lock_candidate"]))
+        (self.tmp / "qbase").write_text("".join(d + "\n" for d in r["base_candidate"]))
+        bp, bpath, _ = self.plan("b-offline", mode="build", apk_lock=self.tmp / "qlock", apk_base=self.tmp / "qbase",
+                                 apk_local=Path(r["retained_closure"]["manifest"]))
+        self.assertFalse(bp["apk_package_network"])
+        self.assertIn("needs no package network", bp["network"])
+        by_nv = {f"{e['name']}={e['version']}": e for e in bp["inputs"]["apk_local"]}
+        self.assertEqual(sorted(by_nv), self.delta)
+        for nv, c in r["closure"].items():
+            self.assertEqual(by_nv[nv]["sha256"], c["sha256"])  # bound by full hash, not by name
+        # replay: run the real guest transaction on exactly the uploaded bytes, offline, modelled APK
+        g = GuestDependencyTests("test_fd0_closed_is_replaced_by_dev_null_for_steps")
+        g.setUp()
+        try:
+            with tarfile.open(self.tmp / "b-offline" / "upload.tar") as t:
+                for m in t.getmembers():
+                    if m.name.startswith("local-") or m.name in ("apk-local.list", "apk.lock"):
+                        (g.inn / m.name).write_bytes(t.extractfile(m).read())
+            shutil.copy(g.inn / "apk-local.list", g.tmp / "local.list")
+            g.set_delta(self.delta)
+            res = g.run_deps(lock=str(g.inn / "apk.lock"), offline=1)
+            self.assertEqual(res.returncode, 0, res.stderr)
+            calls = g.calls()
+            self.assertFalse([c for c in calls if c.startswith("fetch ")])
+            self.assertTrue(all("--no-network" in c.split() for c in calls if not c.startswith("info")), calls)
+            self.assertEqual(len([c for c in calls if " verify " in f" {c} "]), len(self.delta))
+            self.assertEqual({x.split()[4] for x in (g.out / "apk-closure.txt").read_text().splitlines()}, {"local"})
+        finally:
+            g.tearDown()
+
+    def test_contradictory_exports_fail_with_coherent_checksums(self):
+        p, path, cid = self.resolve_run()
+        nvd = [d.replace("=", "-", 1) for d in self.delta]
+
+        def sub(name, old, new):
+            return lambda f: f.__setitem__(name, f[name].replace(old, new, 1))
+
+        def drop_line(name, line):
+            return lambda f: f.__setitem__(name, b"".join(x + b"\n" for x in f[name].splitlines() if x != line))
+        first_closure = None
+
+        def closure_hash(f):
+            line = f["apk-closure.txt"].splitlines()[0].split()
+            f["apk-closure.txt"] = f["apk-closure.txt"].replace(line[1], b"0" * 64, 1)
+        cases = {
+            "lock candidate vs solver delta": lambda f: f.__setitem__("apk.lock.candidate",
+                                                                      f["apk.lock.candidate"] + b"zzz=1-r0\n"),
+            "base candidate vs base current": sub("apk.base.candidate", b"bash=5.3-r0", b"bash=5.3-r1"),
+            "base upgraded with consistent names": sub("apk-after.txt", b"musl-1.2.5-r23", b"musl-1.2.5-r24"),
+            "delta package missing after": drop_line("apk-after.txt", nvd[0].encode()),
+            "names-before contradiction": drop_line("apk-names-before.txt", b"bash"),
+            "closure lacks a delta package": lambda f: f.__setitem__(
+                "apk-closure.txt", b"".join(x + b"\n" for x in f["apk-closure.txt"].splitlines()[1:])),
+            "closure hash differs from retained bytes": closure_hash,
+            "retained extra file": lambda f: f.__setitem__("apk-closure/repo-99.apk", fake_apk_bytes("x=1-r0")),
+            "verification missing": lambda f: f.__setitem__(
+                "apk-verify.txt", b"".join(x + b"\n" for x in f["apk-verify.txt"].splitlines()[1:])),
+            "verification for other identity": sub("apk-verify.txt", b" aarch64 OK", b" x86_64 OK"),
+            "installed identity missing": lambda f: f.__setitem__(
+                "apk-installed-identity.txt", f["apk-installed-identity.txt"].split(b"\n", 1)[1]),
+            "trusted keys changed": lambda f: f.__setitem__("apk-keys-after.txt", b"other key\n"),
+            "manifest differs": sub("apk-closure/MANIFEST.json", b'"bytes": ', b'"bytes": 1'),
+            "local input substituted": lambda f: f.__setitem__(
+                "apk-closure.txt", f["apk-closure.txt"].replace(b" local-0.apk local", b" local-0.apk repo")),
+        }
+        self.assertIsNone(first_closure)
+        for name, tamper in cases.items():
+            with self.subTest(name):
+                tar = self.tmp / f"{abs(hash(name))}.tar"
+                tar.write_bytes(export_tar(p, cid, lambda f, t=tamper: (f.pop("unpatched/map-server"), t(f)),
+                                           delta=self.delta, local_data=self.local_data))
+                with self.assertRaises(br.RecipeError):
+                    br.validate_export(path, tar, self.tmp / f"x-{abs(hash(name))}")
+        # the untampered export with the same generator validates
+        good = self.tmp / "good.tar"
+        good.write_bytes(export_tar(p, cid, lambda f: f.pop("unpatched/map-server"), delta=self.delta,
+                                    local_data=self.local_data))
+        self.assertEqual(br.validate_export(path, good, self.tmp / "good-v")["lock_candidate"], self.delta)
 
 
 if __name__ == "__main__":

@@ -1,4 +1,4 @@
-# T10.010.003 guest library, sourced by guest_build.sh and by host tests.
+# T10.010.003/.004 guest library, sourced by guest_build.sh and by host tests.
 # POSIX sh (busybox ash compatible). Every check fails closed.
 #
 # Paths are parameters only so host tests can point them at fixtures;
@@ -16,9 +16,12 @@ die() {
 }
 
 step() { # step <name> <cmd...>: bounded by STEP_TIMEOUT, logged; nonzero/timeout fails
+    # Every step child gets a valid fd0 on /dev/null (T10.010.004): with fd0
+    # closed, Root's actual APK trigger launch failed (fchdir ENOTDIR, child 127);
+    # with fd0 on /dev/null the same reinstall and trigger succeeded.
     _name=$1; shift
     log "begin $_name"
-    if ! timeout "$STEP_TIMEOUT" "$@" > "$OUT/logs/$_name.log" 2>&1; then
+    if ! timeout "$STEP_TIMEOUT" "$@" < /dev/null > "$OUT/logs/$_name.log" 2>&1; then
         tail -n 40 "$OUT/logs/$_name.log" >&2 || true
         die "$_name"
     fi
@@ -113,6 +116,177 @@ lock_candidate() {
         [ "$_hits" = 1 ] || die "lock candidate: $_n has $_hits version entries"
         printf '%s=%s\n' "$_n" "${_pv#"$_n"-}"
     done
+}
+
+# ---------------------------------------------------------------- T10.010.004
+# Exact-base dependency transaction with authenticated, retained package bytes.
+# Production values are literal in guest_build.sh; host tests point them at
+# fixtures (and a modelled APK command):
+#   APK           package tool ("apk"); EXPECT_ARCH  aarch64
+#   APK_KEYS_DIR  the image's unchanged stock trusted keys (/etc/apk/keys)
+#   APK_DB        installed database (/lib/apk/db/installed)
+#   STAGE         owned staging directory (/work/closure); IN, OUT, WANT
+# Never used: --allow-untrusted, --keys-dir, --no-scripts, --force-*, --arch,
+# imported keys or repository-base upgrades.
+
+sha_of() { sha256sum "$1" | cut -d' ' -f1; }
+size_of() { wc -c < "$1" | tr -d ' '; }
+
+# check_local_list <list>: "<index> <sha256> <bytes> <name> <version>" lines,
+# indices 0..n-1 in order, unique names. Indices name generated upload files
+# ($IN/local-<index>.apk); no caller string is ever used as a path.
+check_local_list() {
+    _n=0
+    while IFS=' ' read -r _i _sha _bytes _nm _v _extra; do
+        [ -z "$_extra" ] && [ "$_i" = "$_n" ] || die "local list line $_n malformed"
+        case "$_sha" in *[!0-9a-f]*|'') die "local list $_n sha256" ;; esac
+        [ "${#_sha}" = 64 ] || die "local list $_n sha256 length"
+        is_uint "$_bytes" && [ "$_bytes" -gt 0 ] || die "local list $_n bytes"
+        case "$_nm=$_v" in *[!A-Za-z0-9._+~=-]*|=*|*=|*=*=*) die "local list $_n identity" ;; esac
+        _n=$((_n + 1))
+    done < "$1"
+    [ -z "$(cut -d' ' -f4 "$1" | LC_ALL=C sort | uniq -d)" ] || die "local list has duplicate names"
+}
+
+apk_keys_digest() { # stable listing of every stock trusted-key entry and its hash
+    [ -d "$APK_KEYS_DIR" ] && [ ! -L "$APK_KEYS_DIR" ] || die "trusted keys dir missing"
+    ( cd "$APK_KEYS_DIR" && find . ! -type d -exec sha256sum {} + ) | LC_ALL=C sort -k2
+}
+
+pkginfo_field() { # pkginfo_field <.PKGINFO> <key>: exactly one "key = value"
+    awk -v k="$2" '$1 == k && $2 == "=" && NF == 3 { n++; v = $3 } END { if (n != 1) exit 1; print v }' "$1"
+}
+
+# verify_apk <file> <sha256> <bytes> <name> <version> <tag>: recheck bytes,
+# authenticate with the stock keys (real apk verify), then require the signed
+# control segment's pkgname/pkgver/arch to be exactly the expected identity.
+verify_apk() {
+    _vf=$1; _vt=$6
+    [ -f "$_vf" ] && [ ! -L "$_vf" ] || die "apk $_vt is not a regular file"
+    [ "$(size_of "$_vf")" = "$3" ] || die "apk $_vt size changed"
+    [ "$(sha_of "$_vf")" = "$2" ] || die "apk $_vt sha256 changed"
+    step "apk-verify-$_vt" "$APK" --no-network verify "$_vf"
+    grep -qw OK "$OUT/logs/apk-verify-$_vt.log" || die "apk verify $_vt reported no OK"
+    tar -xzOf "$_vf" .PKGINFO > "$STAGE/$_vt.pkginfo" 2> /dev/null || die "apk $_vt has no .PKGINFO"
+    _pn=$(pkginfo_field "$STAGE/$_vt.pkginfo" pkgname) || die "apk $_vt pkgname"
+    _pv=$(pkginfo_field "$STAGE/$_vt.pkginfo" pkgver) || die "apk $_vt pkgver"
+    _pa=$(pkginfo_field "$STAGE/$_vt.pkginfo" arch) || die "apk $_vt arch"
+    [ "$_pn=$_pv" = "$4=$5" ] || die "apk $_vt identity $_pn=$_pv is not $4=$5"
+    [ "$_pa" = "$EXPECT_ARCH" ] || die "apk $_vt arch $_pa"
+    printf '%s %s %s %s %s OK\n' "$_vt" "$2" "$_pn" "$_pv" "$_pa" >> "$OUT/apk-verify.txt"
+}
+
+# parse_simulate <log> <out>: the solver's plan must consist only of
+# "(i/n) Installing <name> (<version>)"; any upgrade/downgrade/replace/purge/
+# reinstall of anything refuses before the real transaction.
+parse_simulate() {
+    awk -v bad="$OUT/apk-simulate.refused" '
+        /^\([0-9]+\/[0-9]+\) / {
+            if ($2 == "Installing" && NF == 4 && $4 ~ /^\(.+\)$/) { print $3 "=" substr($4, 2, length($4) - 2); next }
+            print > bad; refused = 1 }
+        END { exit refused ? 3 : 0 }' "$1" > "$2.unsorted" || die "solver plan changes existing packages: $(tr '\n' ' ' < "$OUT/apk-simulate.refused")"
+    LC_ALL=C sort "$2.unsorted" > "$2"
+    rm -f "$2.unsorted"
+}
+
+# deps_transaction <base> <local-list> <lock|""> <offline 0|1>
+#   1. local inputs: size/hash recheck, stock-key signature, signed identity
+#   2. solver constraints = EVERY exact frozen base pin + WANT (libunwind-dev~1.8.1)
+#      + exact delta pins (build) + the authenticated local files
+#   3. simulate; refuse any non-install; delta must equal the lock (build)
+#   4. repository additions: fetch exact pins to generated paths, authenticate
+#   5. one transaction from exactly the authenticated files, no package network,
+#      scripts/triggers and signature checking left enabled
+#   6. installed delta == solver delta, base unchanged, trusted keys unchanged
+# Requires $OUT/apk-before.txt. Writes apk-closure.txt (name=version sha256
+# bytes file source), apk-verify.txt, apk-installed-identity.txt.
+deps_transaction() {
+    _base=$1; _local=$2; _lock=$3; _offline=$4
+    rm -rf "$STAGE"; mkdir -p "$STAGE"
+    : > "$OUT/apk-verify.txt"; : > "$STAGE/local.src"; : > "$STAGE/repo.src"
+    apk_keys_digest > "$OUT/apk-keys-before.txt"
+    [ -s "$OUT/apk-keys-before.txt" ] || die "no stock trusted keys"
+    cut -d= -f1 "$_base" | LC_ALL=C sort > "$STAGE/base.names"
+    _files=""
+    while IFS=' ' read -r _i _sha _bytes _nm _v; do
+        ! grep -qx -- "$_nm" "$STAGE/base.names" || die "local input $_nm would replace a frozen base package"
+        verify_apk "$IN/local-$_i.apk" "$_sha" "$_bytes" "$_nm" "$_v" "local-$_i"
+        printf '%s=%s %s %s local-%s.apk local\n' "$_nm" "$_v" "$_sha" "$_bytes" "$_i" >> "$STAGE/local.src"
+        _files="$_files $IN/local-$_i.apk"
+    done < "$_local"
+    { cat "$_base"
+      printf '%s\n' $WANT | sed 's/^libunwind-dev$/libunwind-dev~1.8.1/'
+      if [ -n "$_lock" ]; then cat "$_lock"; fi; } > "$OUT/apk-constraints.txt"
+    if [ "$_offline" = 1 ]; then
+        _net="--no-network --no-cache --repositories-file /dev/null"
+    else
+        _net="--no-cache"
+    fi
+    # shellcheck disable=SC2046,SC2086  # validated name=version tokens and generated paths only
+    step apk-simulate "$APK" add --simulate $_net $(cat "$OUT/apk-constraints.txt") $_files
+    parse_simulate "$OUT/logs/apk-simulate.log" "$OUT/apk-simulate.delta"
+    check_lock_file "$OUT/apk-simulate.delta" empty-ok
+    if [ -n "$_lock" ]; then
+        cmp -s "$OUT/apk-simulate.delta" "$_lock" || die "solver delta differs from the qualified lock"
+    fi
+    check_coverage "$_base" "$OUT/apk-simulate.delta" $WANT
+    while IFS=' ' read -r _nv _rest; do  # a file loop, not a pipeline: die must end the guest
+        grep -qxF -- "$_nv" "$OUT/apk-simulate.delta" || die "local input $_nv is not in the solver delta"
+    done < "$STAGE/local.src"
+    _k=0
+    while IFS= read -r _nv; do
+        if awk -v nv="$_nv" '$1 == nv { f = 1 } END { exit !f }' "$STAGE/local.src"; then continue; fi
+        [ "$_offline" = 0 ] || die "offline closure lacks $_nv"
+        _d="$STAGE/fetch-$_k"; mkdir "$_d"
+        step "apk-fetch-$_k" "$APK" fetch --no-cache --output "$_d" "$_nv"
+        [ "$(find "$_d" ! -type d | wc -l | tr -d ' ')" = 1 ] || die "fetch $_nv did not yield exactly one file"
+        _ff=$(find "$_d" -type f -name '*.apk')
+        [ -n "$_ff" ] && [ ! -L "$_ff" ] || die "fetch $_nv is not one regular .apk"
+        mv "$_ff" "$STAGE/repo-$_k.apk"
+        rmdir "$_d"
+        _sha=$(sha_of "$STAGE/repo-$_k.apk"); _bytes=$(size_of "$STAGE/repo-$_k.apk")
+        verify_apk "$STAGE/repo-$_k.apk" "$_sha" "$_bytes" "${_nv%%=*}" "${_nv#*=}" "repo-$_k"
+        printf '%s %s %s repo-%s.apk repo\n' "$_nv" "$_sha" "$_bytes" "$_k" >> "$STAGE/repo.src"
+        _files="$_files $STAGE/repo-$_k.apk"
+        _k=$((_k + 1))
+    done < "$OUT/apk-simulate.delta"
+    cat "$STAGE/local.src" "$STAGE/repo.src" | LC_ALL=C sort > "$OUT/apk-closure.txt"
+    cut -d' ' -f1 "$OUT/apk-closure.txt" | cmp -s - "$OUT/apk-simulate.delta" || die "closure differs from the solver delta"
+    # shellcheck disable=SC2046,SC2086
+    step apk-add "$APK" add --no-network --no-cache --repositories-file /dev/null \
+        $(cat "$OUT/apk-constraints.txt") $_files
+    "$APK" info -v 2> /dev/null | LC_ALL=C sort > "$OUT/apk-after.txt"
+    "$APK" info 2> /dev/null | LC_ALL=C sort > "$OUT/apk-names-after.txt"
+    check_deps "$OUT/apk-before.txt" "$OUT/apk-after.txt" "$OUT/apk-simulate.delta"
+    apk_keys_digest > "$OUT/apk-keys-after.txt"
+    cmp -s "$OUT/apk-keys-before.txt" "$OUT/apk-keys-after.txt" || die "stock trusted keys changed"
+    # Installed-database records are blank-line separated; C: (identity) may precede P:/V:.
+    awk 'function flush() { if ((p "=" v) in want && c != "") print p "=" v, c; p = v = c = "" }
+         FILENAME == ARGV[1] { want[$1] = 1; next }
+         /^$/ { flush(); next }
+         /^P:/ { p = substr($0, 3) } /^V:/ { v = substr($0, 3) } /^C:/ { c = substr($0, 3) }
+         END { flush() }' "$OUT/apk-simulate.delta" "$APK_DB" | LC_ALL=C sort > "$OUT/apk-installed-identity.txt"
+    cut -d' ' -f1 "$OUT/apk-installed-identity.txt" | cmp -s - "$OUT/apk-simulate.delta" \
+        || die "installed database identities do not cover the delta exactly once"
+}
+
+# retain_closure: copy every authenticated delta file into the export with its
+# generated name, recheck its hash, and write MANIFEST.json in the documented
+# local-input format (usable as plan --apk-local for an offline build).
+retain_closure() {
+    mkdir -p "$OUT/apk-closure"
+    _first=1
+    { printf '{"schema": "t10.010.004/apk-local/v1", "packages": ['
+      while IFS=' ' read -r _nv _sha _bytes _file _src; do
+          case "$_src" in local) _from="$IN/$_file" ;; repo) _from="$STAGE/$_file" ;; *) die "closure source $_src" ;; esac
+          cp "$_from" "$OUT/apk-closure/$_file"
+          [ "$(sha_of "$OUT/apk-closure/$_file")" = "$_sha" ] || die "retained $_file hash"
+          [ "$_first" = 1 ] || printf ', '
+          _first=0
+          printf '{"file": "%s", "name": "%s", "version": "%s", "bytes": %s, "sha256": "%s"}' \
+              "$_file" "${_nv%%=*}" "${_nv#*=}" "$_bytes" "$_sha"
+      done < "$OUT/apk-closure.txt"
+      printf ']}\n'; } > "$OUT/apk-closure/MANIFEST.json"
 }
 
 # finalize: the last log line precedes the immutable checksums; nothing is

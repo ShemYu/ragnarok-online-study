@@ -4,7 +4,9 @@ Root executes this in T10.010.004; this task only implements and tests it.
 
   plan            verify a prepared tree, write deterministic inputs and PLAN.json
                   (no Engine contact). --mode resolve qualifies dependencies only;
-                  --mode build requires an explicit exact apk lock.
+                  --mode build requires an explicit exact apk lock. Optional
+                  --apk-local MANIFEST.json (either mode, T10.010.004) adds bound,
+                  stock-key-authenticated local APK inputs; see load_local_manifest.
   execute         ONE owned compiler container through the slim Engine API:
                   census -> create -> PUT inputs -> PUT owner.env -> start ->
                   poll -> [kill] -> logs -> GET /work/out -> delete -> 404
@@ -40,6 +42,7 @@ import os
 from pathlib import Path
 import re
 import signal
+import stat
 import socket
 import sys
 import tarfile
@@ -76,6 +79,9 @@ LIMITS = {  # positive bounds for every resource parameter
     "post_budget": (30, 3600), "cleanup_budget": (30, 3600),
 }
 BODY_CAP = {"json": 8 * MIB, "logs": 64 * MIB, "export": 1024 * MIB, "import": 256 * MIB}
+LOCAL_SCHEMA = "t10.010.004/apk-local/v1"
+LOCAL_CAP = {"manifest": MIB, "file": 128 * MIB, "total": 512 * MIB, "packages": 256}
+DEPS_RECIPE = "t10.010.004/deps/v1"
 
 
 class RecipeError(Exception):
@@ -215,6 +221,148 @@ def parse_deps(lock, base, abi=None):
     return sorted(f"{k}={v}" for k, v in d.items()), sorted(f"{k}={v}" for k, v in b.items())
 
 
+NAME_RE = r"[A-Za-z0-9][A-Za-z0-9._+-]*"
+VERSION_RE = r"[0-9][A-Za-z0-9._+~-]*-r\d+"
+LOCAL_FILE_RE = r"[A-Za-z0-9][A-Za-z0-9._+-]*\.apk"
+LOCAL_KEYS = {"file", "name", "version", "bytes", "sha256"}
+
+
+def _no_dup_keys(pairs):
+    keys = [k for k, _ in pairs]
+    if len(keys) != len(set(keys)):
+        raise RecipeError(f"local manifest has duplicate keys {sorted(keys)}")
+    return dict(pairs)
+
+
+def read_bound(dirfd, name, cap, want_bytes=None):
+    """Read one file named relative to dirfd: final component not a symlink,
+    a regular file with exactly one link, at most cap bytes (and exactly
+    want_bytes if given), unchanged while read and still the same inode at
+    that name afterwards. Never blocks on a FIFO (O_NONBLOCK, then S_ISREG)."""
+    flags = os.O_RDONLY | os.O_NOFOLLOW | getattr(os, "O_NONBLOCK", 0)
+    try:
+        fd = os.open(name, flags, dir_fd=dirfd)
+    except OSError as exc:
+        raise RecipeError(f"local input {name!r}: cannot open safely ({exc.strerror})") from exc
+    try:
+        st = os.fstat(fd)
+        if not stat.S_ISREG(st.st_mode):
+            raise RecipeError(f"local input {name!r} is not a regular file")
+        if st.st_nlink != 1:
+            raise RecipeError(f"local input {name!r} has {st.st_nlink} links (single-link files only)")
+        if st.st_size > cap:
+            raise RecipeError(f"local input {name!r} is {st.st_size} bytes > cap {cap}")
+        if want_bytes is not None and st.st_size != want_bytes:
+            raise RecipeError(f"local input {name!r} is {st.st_size} bytes, manifest says {want_bytes}")
+        chunks, total = [], 0
+        while True:
+            c = os.read(fd, min(1 << 20, cap + 1 - total))
+            if not c:
+                break
+            total += len(c)
+            chunks.append(c)
+            if total > cap:
+                raise RecipeError(f"local input {name!r} grew past cap {cap}")
+        data = b"".join(chunks)
+        st2 = os.fstat(fd)
+    finally:
+        os.close(fd)
+    ident = lambda s_: (s_.st_dev, s_.st_ino, s_.st_size, s_.st_mtime_ns, s_.st_nlink)  # noqa: E731
+    if len(data) != st.st_size or ident(st2) != ident(st):
+        raise RecipeError(f"local input {name!r} changed while being read")
+    try:
+        after = os.lstat(name, dir_fd=dirfd)
+    except OSError as exc:
+        raise RecipeError(f"local input {name!r} vanished after reading") from exc
+    if ident(after) != ident(st):
+        raise RecipeError(f"local input {name!r} was replaced while being read")
+    return data
+
+
+def load_local_manifest(path):
+    """Explicit local APK inputs (T10.010.004). The manifest is a small JSON file:
+
+      {"schema": "t10.010.004/apk-local/v1",
+       "packages": [{"file": "musl-dev-1.2.5-r23.apk", "name": "musl-dev",
+                     "version": "1.2.5-r23", "bytes": 2528533, "sha256": "<64 hex>"}]}
+
+    "file" is a plain basename in the manifest's own directory; nothing else is
+    discovered. Keys are exact (no caller "verified"/trust flag is accepted).
+    Every file is read once, bounded, as a safe regular single-link file, and its
+    byte count, SHA-256 and gzip (APK v2) magic must match before it can enter an
+    upload. Duplicate files, names or hashes refuse. Only the guest's real
+    stock-key verification authenticates a package; this binds bytes only.
+    Returns (manifest_bytes, [entry + "data"], sorted by name)."""
+    path = Path(path)
+    try:
+        dirfd = os.open(str(path.parent), os.O_RDONLY | getattr(os, "O_DIRECTORY", 0))
+    except OSError as exc:
+        raise RecipeError(f"local manifest directory {path.parent}: {exc.strerror}") from exc
+    try:
+        raw = read_bound(dirfd, path.name, LOCAL_CAP["manifest"])
+        try:
+            m = json.loads(raw.decode(), object_pairs_hook=_no_dup_keys)
+        except (UnicodeDecodeError, ValueError) as exc:
+            raise RecipeError(f"local manifest is not JSON: {exc}") from exc
+        if not isinstance(m, dict) or set(m) != {"schema", "packages"} or m["schema"] != LOCAL_SCHEMA:
+            raise RecipeError(f"local manifest must be exactly {{schema: {LOCAL_SCHEMA}, packages}}")
+        pk = m["packages"]
+        if not isinstance(pk, list) or not 1 <= len(pk) <= LOCAL_CAP["packages"]:
+            raise RecipeError("local manifest packages must be a non-empty bounded list")
+        entries, total = [], 0
+        for i, e in enumerate(pk):
+            if not isinstance(e, dict) or set(e) != LOCAL_KEYS:
+                raise RecipeError(f"local package {i} must have exactly keys {sorted(LOCAL_KEYS)}")
+            f, n, v, b, h = e["file"], e["name"], e["version"], e["bytes"], e["sha256"]
+            if not (isinstance(f, str) and re.fullmatch(LOCAL_FILE_RE, f) and f not in (".apk",)):
+                raise RecipeError(f"local package {i} file {f!r} is not a plain .apk basename")
+            if not (isinstance(n, str) and re.fullmatch(NAME_RE, n)):
+                raise RecipeError(f"local package {i} name {n!r}")
+            if not (isinstance(v, str) and re.fullmatch(VERSION_RE, v)):
+                raise RecipeError(f"local package {i} version {v!r}")
+            if not isinstance(b, int) or isinstance(b, bool) or not 0 < b <= LOCAL_CAP["file"]:
+                raise RecipeError(f"local package {i} bytes {b!r}")
+            if not (isinstance(h, str) and re.fullmatch(r"[0-9a-f]{64}", h)):
+                raise RecipeError(f"local package {i} sha256 {h!r}")
+            total += b
+            if total > LOCAL_CAP["total"]:
+                raise RecipeError(f"local inputs exceed {LOCAL_CAP['total']} bytes")
+            entries.append(dict(e))
+        for key in ("file", "name", "sha256"):
+            vals = [e[key] for e in entries]
+            if len(vals) != len(set(vals)):
+                raise RecipeError(f"local manifest has duplicate/conflicting {key} entries")
+        for e in entries:
+            data = read_bound(dirfd, e["file"], LOCAL_CAP["file"], e["bytes"])
+            if sha256(data) != e["sha256"]:
+                raise RecipeError(f"local input {e['file']} sha256 differs from the manifest")
+            if data[:2] != b"\x1f\x8b":
+                raise RecipeError(f"local input {e['file']} is not a gzip (APK v2) package")
+            e["data"] = data
+    finally:
+        os.close(dirfd)
+    return raw, sorted(entries, key=lambda e: e["name"])
+
+
+def local_conflicts(entries, base=None, lock=None, abi_names=("musl", "libstdc++")):
+    """Refuse local inputs that would replace a frozen base/ABI package, that
+    conflict with the build delta, or that put libunwind-dev off 1.8.1."""
+    for e in entries:
+        n, v = e["name"], e["version"]
+        if n in abi_names or (base is not None and n in base):
+            raise RecipeError(f"local input {n}={v} would replace a frozen base package")
+        if lock is not None and lock.get(n) != v:
+            raise RecipeError(f"local input {n}={v} conflicts with the delta lock ({lock.get(n)!r})")
+        if n == "libunwind-dev" and not re.fullmatch(r"1\.8\.1-r\d+", v):
+            raise RecipeError("local libunwind-dev is not ~1.8.1")
+
+
+def local_list(entries):
+    """Guest list: "<index> <sha256> <bytes> <name> <version>"; index names local-<index>.apk."""
+    return "".join(f"{i} {e['sha256']} {e['bytes']} {e['name']} {e['version']}\n"
+                   for i, e in enumerate(entries)).encode()
+
+
 def expected_cgroup(memory, memory_swap, nano_cpus, pids):
     """slim-runtime cgroup_setup, for the values this plan requests."""
     swap = memory_swap - memory if memory_swap > memory else memory
@@ -224,7 +372,8 @@ def expected_cgroup(memory, memory_swap, nano_cpus, pids):
 
 def plan(prepared, rundir, base_image, expect_musl, expect_libstdcxx, mem_available, host_cpus, mode="build",
          apk_lock=None, apk_base=None, memory_mib=1536, cpus=2, jobs=1, pids=1024, step_timeout=3600, deadline=4 * 3600,
-         reserve_mib=768, post_budget=300, cleanup_budget=180, packetver="20221005", manifest=None, pins=None):
+         reserve_mib=768, post_budget=300, cleanup_budget=180, packetver="20221005", manifest=None, pins=None,
+         apk_local=None):
     manifest = manifest or ps.load_manifest(ps.MANIFEST)
     if not re.fullmatch(r"sha256:[0-9a-f]{64}", base_image or ""):
         raise RecipeError("base image must be an immutable local image ID sha256:<64 hex>")
@@ -257,6 +406,16 @@ def plan(prepared, rundir, base_image, expect_musl, expect_libstdcxx, mem_availa
         parse_deps(lock, base, (expect_musl, expect_libstdcxx))
     elif apk_lock is not None or apk_base is not None:
         raise RecipeError("resolve mode takes no lock or base")
+    local_raw, local = None, []
+    if apk_local is not None:
+        local_raw, local = load_local_manifest(apk_local)
+        if mode == "build":
+            local_conflicts(local, _dep_lines(base, "apk base", False), _dep_lines(lock, "apk lock", True))
+        else:
+            local_conflicts(local)
+    llist = local_list(local) if local else b""
+    lock_map = _dep_lines(lock, "apk lock", True) if mode == "build" else {}
+    offline = mode == "build" and set(lock_map.items()) <= {(e["name"], e["version"]) for e in local}
     rundir = Path(rundir).resolve()
     if rundir.exists():
         raise RecipeError(f"{rundir} exists; refuse to reuse run state")
@@ -277,13 +436,17 @@ def plan(prepared, rundir, base_image, expect_musl, expect_libstdcxx, mem_availa
         ("STEP_TIMEOUT", step_timeout), ("EXPECT_MUSL", expect_musl), ("EXPECT_LIBSTDCXX", expect_libstdcxx),
         ("EXPECT_ARCH", "aarch64"), ("EXPECT_MEMORY_MAX", cg["memory.max"]),
         ("EXPECT_SWAP_MAX", cg["memory.swap.max"]), ("EXPECT_CPU_MAX", cg["cpu.max"]),
-        ("EXPECT_PIDS_MAX", cg["pids.max"]))).encode()
+        ("EXPECT_PIDS_MAX", cg["pids.max"]), ("LOCAL_LIST_SHA256", sha256(llist) if local else "none"))).encode()
     members = {"source.tar.gz": (src, 0o644), "coin_capacity.patch": (patch, 0o644),
                "guest_build.sh": (guest, 0o755), "guest_lib.sh": (lib, 0o644),
                "crash_verify.sh": (cverify, 0o644), "inputs.env": (env, 0o644)}
     if mode == "build":
         members["apk.lock"] = (lock, 0o644)
         members["apk.base"] = (base, 0o644)
+    if local:
+        members["apk-local.list"] = (llist, 0o644)
+        for i, e in enumerate(local):
+            members[f"local-{i}.apk"] = (e["data"], 0o644)
     upload = wrapper_tar(members)
     run_id = uuid.uuid4().hex[:12]
     create = {
@@ -316,7 +479,14 @@ def plan(prepared, rundir, base_image, expect_musl, expect_libstdcxx, mem_availa
                    "apk_lock": lock.decode().splitlines() if mode == "build" else None,
                    "apk_base_sha256": sha256(base) if mode == "build" else None,
                    "apk_base": base.decode().splitlines() if mode == "build" else None,
-                   "inputs_env": env.decode(), "upload_tar_sha256": sha256(upload), "upload_tar_bytes": len(upload)},
+                   "inputs_env": env.decode(), "upload_tar_sha256": sha256(upload), "upload_tar_bytes": len(upload),
+                   "apk_local_manifest_sha256": sha256(local_raw) if local else None,
+                   "apk_local_list_sha256": sha256(llist) if local else None,
+                   "apk_local": [{"member": f"local-{i}.apk", "name": e["name"], "version": e["version"],
+                                  "bytes": e["bytes"], "sha256": e["sha256"], "manifest_file": e["file"]}
+                                 for i, e in enumerate(local)] or None},
+        "dependency_recipe": DEPS_RECIPE,
+        "apk_package_network": not offline,
         "packetver": packetver,
         "abi_expect": {"musl": expect_musl, "libstdc++": expect_libstdcxx, "arch": "aarch64"},
         "artifact_owner": ARTIFACT_OWNER,
@@ -328,7 +498,9 @@ def plan(prepared, rundir, base_image, expect_musl, expect_libstdcxx, mem_availa
                    "absolute_bound_s": deadline + post_budget + cleanup_budget,
                    "mem_available_at_plan": mem_available, "reserve_bytes": reserve_mib * MIB},
         "create": create,
-        "network": "default container networking is required for apk; no offline package closure exists",
+        "network": ("default container networking is retained; the build's complete authenticated local closure "
+                    "needs no package network (offline replay not yet exercised)" if offline else
+                    "default container networking is required for the apk index and repository additions"),
     }
     (rundir / "PLAN.json").write_text(json.dumps(p, indent=1, sort_keys=True) + "\n")
     return p
@@ -708,6 +880,114 @@ def check_cgroup_evidence(out, plan, container_id):
         raise RecipeError(f"guest cgroup id {got.get('id')!r} is not container {container_id!r}")
 
 
+def _text_lines(path, what):
+    try:
+        lines = path.read_text().splitlines()
+    except (OSError, UnicodeDecodeError) as exc:
+        raise RecipeError(f"export lacks readable {what}") from exc
+    if len(lines) != len(set(lines)):
+        raise RecipeError(f"export {what} has duplicate lines")
+    return lines
+
+
+def check_dependency_evidence(out, p, abi):
+    """Join every dependency inventory (T10.010.004). Contradictory exports fail
+    even when SHA256SUMS is coherent: base-current vs base-candidate (or the
+    plan's base), names/versions before and after, the solver delta, the lock
+    candidate (or the plan's lock), installed identities, the authenticated
+    closure (identity + full SHA-256 per file) and, in resolve mode, the
+    retained signed bytes and their build-usable MANIFEST.json."""
+    nv = lambda line: line.replace("=", "-", 1)  # noqa: E731
+    base_cur = (out / "apk.base.current").read_bytes()
+    sim = (out / "apk-simulate.delta").read_bytes()
+    if p["mode"] == "resolve":
+        cand, bcand = (out / "apk.lock.candidate").read_bytes(), (out / "apk.base.candidate").read_bytes()
+        if bcand != base_cur:
+            raise RecipeError("base candidate differs from the frozen base-current inventory")
+        if cand != sim:
+            raise RecipeError("lock candidate differs from the solver delta")
+        delta_b, base_b = cand, bcand
+    else:
+        delta_b = "".join(line + "\n" for line in p["inputs"]["apk_lock"]).encode()
+        base_b = "".join(line + "\n" for line in p["inputs"]["apk_base"]).encode()
+        if base_cur != base_b:
+            raise RecipeError("image packages differ from the plan's frozen base")
+        if sim != delta_b:
+            raise RecipeError("solver delta differs from the plan's delta lock")
+    delta, base = parse_deps(delta_b, base_b, abi)
+    bname = sorted(x.split("=", 1)[0] for x in base)
+    dname = sorted(x.split("=", 1)[0] for x in delta)
+    before = _text_lines(out / "apk-before.txt", "apk-before.txt")
+    after = _text_lines(out / "apk-after.txt", "apk-after.txt")
+    if sorted(before) != sorted(nv(x) for x in base):
+        raise RecipeError("apk-before versions differ from the frozen base")
+    if _text_lines(out / "apk-names-before.txt", "apk-names-before.txt") != bname:
+        raise RecipeError("apk-names-before differs from the frozen base names")
+    if sorted(after) != sorted(set(before) | {nv(x) for x in delta}) or len(after) != len(before) + len(delta):
+        raise RecipeError("installed closure differs from base + exact delta (upgrade, removal or extra)")
+    if _text_lines(out / "apk-names-after.txt", "apk-names-after.txt") != sorted(bname + dname):
+        raise RecipeError("apk-names-after differs from base + delta names")
+    keys = (out / "apk-keys-before.txt").read_bytes()
+    if not keys or keys != (out / "apk-keys-after.txt").read_bytes():
+        raise RecipeError("stock trusted-key evidence missing or changed")
+    ident = {}
+    for line in _text_lines(out / "apk-installed-identity.txt", "installed identities"):
+        k, _, c = line.partition(" ")
+        if not re.fullmatch(r"Q1[A-Za-z0-9+/]{27}=", c) or k in ident:
+            raise RecipeError(f"installed identity line {line!r}")
+        ident[k] = c
+    if sorted(ident) != delta:
+        raise RecipeError("installed database identities do not cover the delta exactly")
+    closure = {}
+    for line in _text_lines(out / "apk-closure.txt", "apk-closure.txt"):
+        parts = line.split(" ")
+        if len(parts) != 5 or not re.fullmatch(r"[0-9a-f]{64}", parts[1]) or not parts[2].isdigit():
+            raise RecipeError(f"closure line {line!r}")
+        k, h, b, f, src = parts
+        if not re.fullmatch(rf"{src}-\d+\.apk", f) or src not in ("local", "repo") or k in closure:
+            raise RecipeError(f"closure line {line!r}")
+        closure[k] = {"sha256": h, "bytes": int(b), "file": f, "source": src}
+    if sorted(closure) != delta:
+        raise RecipeError("authenticated closure differs from the exact delta")
+    if len({c["file"] for c in closure.values()}) != len(closure):
+        raise RecipeError("closure reuses a file name")
+    verified = {}
+    for line in _text_lines(out / "apk-verify.txt", "apk-verify.txt"):
+        parts = line.split(" ")
+        if len(parts) != 6 or parts[5] != "OK" or parts[4] != p["abi_expect"]["arch"] or parts[0] in verified:
+            raise RecipeError(f"verification line {line!r}")
+        verified[parts[0]] = (parts[1], f"{parts[2]}={parts[3]}")
+    for k, c in closure.items():
+        if verified.get(c["file"][:-len(".apk")]) != (c["sha256"], k):
+            raise RecipeError(f"{k}: no stock-key verification bound to its identity and full hash")
+    planned = {f"{e['name']}={e['version']}": e for e in (p["inputs"].get("apk_local") or [])}
+    got_local = {k: c for k, c in closure.items() if c["source"] == "local"}
+    if sorted(planned) != sorted(got_local):
+        raise RecipeError("closure local inputs differ from the plan's local inputs")
+    for k, e in planned.items():
+        c = got_local[k]
+        if (c["sha256"], c["bytes"], c["file"]) != (e["sha256"], e["bytes"], e["member"]):
+            raise RecipeError(f"local input {k} differs from the plan")
+    retained = None
+    if p["mode"] == "resolve":
+        cdir = out / "apk-closure"
+        files = {f.name for f in cdir.iterdir()} if cdir.is_dir() else set()
+        if files != {c["file"] for c in closure.values()} | {"MANIFEST.json"}:
+            raise RecipeError("retained closure files differ from the closure record")
+        for k, c in closure.items():
+            data = (cdir / c["file"]).read_bytes()
+            if (sha256(data), len(data)) != (c["sha256"], c["bytes"]):
+                raise RecipeError(f"retained {k} bytes differ from the closure record")
+        _, ments = load_local_manifest(cdir / "MANIFEST.json")
+        mview = sorted((f"{e['name']}={e['version']}", e["sha256"], e["bytes"], e["file"]) for e in ments)
+        if mview != sorted((k, c["sha256"], c["bytes"], c["file"]) for k, c in closure.items()):
+            raise RecipeError("retained MANIFEST.json differs from the closure record")
+        retained = {"manifest": str(cdir / "MANIFEST.json"),
+                    "manifest_sha256": sha256((cdir / "MANIFEST.json").read_bytes())}
+    return {"delta": delta, "base": base, "closure": closure, "installed_identity": ident,
+            "trusted_keys_sha256": sha256(keys), "retained": retained}
+
+
 def validate_export(plan_path, export_tar, dest):
     plan_path = Path(plan_path)
     p = json.loads(plan_path.read_text())
@@ -724,12 +1004,15 @@ def validate_export(plan_path, export_tar, dest):
         if f"{name}-{want}" not in apk_before:
             raise RecipeError(f"base {name} != {want}")
     abi = (p["abi_expect"]["musl"], p["abi_expect"]["libstdc++"])
+    deps = check_dependency_evidence(out, p, abi)
     if p["mode"] == "resolve":
         cand, bcand = (out / "apk.lock.candidate").read_bytes(), (out / "apk.base.candidate").read_bytes()
-        lines, blines = parse_deps(cand, bcand, abi)
+        lines, blines = deps["delta"], deps["base"]
         result = {"schema": "t10.010.003/resolve/v2", "run_id": p["run_id"], "lock_candidate": lines,
                   "lock_candidate_sha256": sha256(cand), "base_candidate": blines,
-                  "base_candidate_sha256": sha256(bcand),
+                  "base_candidate_sha256": sha256(bcand), "dependency_recipe": DEPS_RECIPE,
+                  "closure": deps["closure"], "installed_identity": deps["installed_identity"],
+                  "trusted_keys_sha256": deps["trusted_keys_sha256"], "retained_closure": deps["retained"],
                   "note": "candidate only: Root must review and qualify it before a build plan uses it"}
         (Path(dest) / "RESOLVE.json").write_text(json.dumps(result, indent=1, sort_keys=True) + "\n")
         return result
@@ -737,7 +1020,7 @@ def validate_export(plan_path, export_tar, dest):
     for name, want in (("musl", p["abi_expect"]["musl"]), ("libstdc++", p["abi_expect"]["libstdc++"])):
         if f"{name}-{want}" not in apk:
             raise RecipeError(f"{name} != {want}")
-    if (out / "apk.base.current").read_text().splitlines() != p["inputs"]["apk_base"]:
+    if (out / "apk.base.current").read_text().splitlines() != p["inputs"]["apk_base"]:  # also in deps
         raise RecipeError("image packages differ from the plan's frozen base")
     locked = sorted(line.replace("=", "-", 1) for line in p["inputs"]["apk_lock"])
     added = sorted(set(apk) - set(apk_before))
@@ -776,7 +1059,8 @@ def validate_export(plan_path, export_tar, dest):
               "toolchain": (out / "toolchain.txt").read_text().splitlines(),
               "environment": (out / "environment.txt").read_text().splitlines(),
               "cgroup": (out / "cgroup.txt").read_text().splitlines(),
-              "prepared_tree_sha256": p["prepared"]["tree_sha256"]}
+              "prepared_tree_sha256": p["prepared"]["tree_sha256"],
+              "dependency_closure": deps["closure"], "trusted_keys_sha256": deps["trusted_keys_sha256"]}
     (Path(dest) / "ARTIFACTS.json").write_text(json.dumps(result, indent=1, sort_keys=True) + "\n")
     return result
 
@@ -892,6 +1176,8 @@ def main(argv=None):
     a.add_argument("--mode", choices=("resolve", "build"), required=True)
     a.add_argument("--apk-lock", type=Path)
     a.add_argument("--apk-base", type=Path)
+    a.add_argument("--apk-local", type=Path,
+                   help="optional local APK manifest (t10.010.004/apk-local/v1); files beside it, bound by bytes/SHA-256")
     a.add_argument("--base-image", required=True)
     a.add_argument("--expect-musl", required=True)
     a.add_argument("--expect-libstdcxx", required=True)
@@ -926,7 +1212,7 @@ def main(argv=None):
         if o.cmd == "plan":
             r = plan(o.prepared, o.rundir, o.base_image, o.expect_musl, o.expect_libstdcxx, o.mem_available_bytes,
                      o.host_cpus, o.mode, o.apk_lock, o.apk_base, o.memory_mib, o.cpus, o.jobs, o.pids, o.step_timeout,
-                     o.deadline, o.reserve_mib, o.post_budget, o.cleanup_budget)
+                     o.deadline, o.reserve_mib, o.post_budget, o.cleanup_budget, apk_local=o.apk_local)
             r = {"run_id": r["run_id"], "mode": r["mode"], "inputs": r["inputs"], "limits": r["limits"],
                  "expected_cgroup": r["expected_cgroup"], "admit": sha256((o.rundir / "PLAN.json").read_bytes())}
         elif o.cmd == "execute":

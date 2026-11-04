@@ -1,5 +1,5 @@
 #!/bin/sh
-# T10.010.003 guest build: one complete renewal Linux/arm64 map-server, built
+# T10.010.003/.004 guest build: one complete renewal Linux/arm64 map-server, built
 # twice from the same prepared source and toolchain -- unpatched and with
 # coin_capacity.patch -- so T10.010.004 can compare them.
 #
@@ -10,6 +10,8 @@
 #   crash_verify.sh      the app's crash-trace verify.sh with its two
 #                        hardcoded roots rewritten to owned /work/crash paths
 #   apk.base, apk.lock   exact "name=version" frozen base and install delta (build mode)
+#   apk-local.list, local-<i>.apk  optional authenticated-on-arrival local APKs
+#                        (generated names; T10.010.004), either mode
 #   guest_lib.sh         checks (also exercised by host tests)
 #   inputs.env           hashes, mode, limits, expected ABI versions
 #   owner.env            CONTAINER_ID (second PUT, after create)
@@ -23,6 +25,11 @@
 # --enable-packetver, crash-trace check, era check, objcopy/strip/debuglink.
 set -eu
 umask 022
+# T10.010.004: Slim closes fd0 (OpenStdin=false). Root's actual control showed
+# APK's trigger launch failing with fd0 closed and succeeding with fd0 on
+# /dev/null (descriptor numbers were not traced). Keep fd0 valid for the whole
+# guest; scripts and signature checking stay enabled.
+exec 0< /dev/null
 IN=/work/in
 OUT=/work/out
 mkdir -p "$OUT/logs"
@@ -33,9 +40,13 @@ mkdir -p "$OUT/logs"
 CG_SELF=/proc/self/cgroup
 CG_MOUNTS=/proc/self/mountinfo
 CG_VIEW=/run/root-cgroup-view
+APK=apk
+APK_KEYS_DIR=/etc/apk/keys
+APK_DB=/lib/apk/db/installed
+STAGE=/work/closure
 : "${MODE:?}" "${SOURCE_SHA256:?}" "${PATCH_SHA256:?}" "${PACKETVER:?}" "${JOBS:?}" "${STEP_TIMEOUT:?}"
 : "${EXPECT_MUSL:?}" "${EXPECT_LIBSTDCXX:?}" "${EXPECT_ARCH:?}" "${CRASH_VERIFY_ORIG_SHA256:?}"
-: "${CRASH_VERIFY_SHA256:?}" "${LOCK_SHA256:?}" "${BASE_SHA256:?}"
+: "${CRASH_VERIFY_SHA256:?}" "${LOCK_SHA256:?}" "${BASE_SHA256:?}" "${LOCAL_LIST_SHA256:?}"
 
 sha() { sha256sum "$1" | cut -d' ' -f1; }
 
@@ -49,6 +60,7 @@ check_cgroup
     echo "alpine=$(cat /etc/alpine-release)"
     echo "uname=$(uname -srm)"
     echo "nproc=$(nproc)"
+    echo "apk=$(apk --version)"
     grep -E '^(MemTotal|MemAvailable):' /proc/meminfo
 } > "$OUT/environment.txt" 2>&1
 apk info -v 2>/dev/null | LC_ALL=C sort > "$OUT/apk-before.txt"
@@ -62,21 +74,32 @@ WANT="bash git make cmake gcc g++ zlib-dev mariadb-dev linux-headers libunwind-d
 # stock image already has (frozen); DELTA = exact name=version of every package
 # the install adds. WANT must be covered by BASE + DELTA; DELTA never re-pins a
 # BASE package; the install must leave every BASE package unchanged.
+# T10.010.004: every BASE pin is a solver constraint (a conflicting repository
+# refuses instead of upgrading), every DELTA file is authenticated with the
+# stock keys and installed offline from exactly those bytes.
 : > "$OUT/empty"
 lock_candidate "$OUT/empty" "$OUT/apk-names-before.txt" "$OUT/apk-before.txt" > "$OUT/apk.base.current" || die "base freeze"
+if [ "$LOCAL_LIST_SHA256" = none ]; then
+    : > "$OUT/apk-local.list"
+else
+    [ "$(sha "$IN/apk-local.list")" = "$LOCAL_LIST_SHA256" ] || die "apk-local.list sha256"
+    cp "$IN/apk-local.list" "$OUT/apk-local.list"
+    check_local_list "$OUT/apk-local.list"
+fi
 case "$MODE" in
 resolve)
-    # Qualification run only: resolve the current closure, record it, build nothing.
-    step apk-resolve apk add --no-cache $(printf '%s\n' $WANT | sed 's/^libunwind-dev$/libunwind-dev~1.8.1/')
-    apk info -v 2>/dev/null | LC_ALL=C sort > "$OUT/apk-after.txt"
-    apk info 2>/dev/null | LC_ALL=C sort > "$OUT/apk-names-after.txt"
-    LC_ALL=C comm -23 "$OUT/apk-before.txt" "$OUT/apk-after.txt" > "$OUT/deps-removed.txt"
-    [ ! -s "$OUT/deps-removed.txt" ] || die "resolve upgraded/removed base packages: $(tr '\n' ' ' < "$OUT/deps-removed.txt")"
+    # Qualification run only: resolve the exact-base closure, retain it, build nothing.
+    deps_transaction "$OUT/apk.base.current" "$OUT/apk-local.list" "" 0
     grep -q '^libunwind-dev-1\.8\.1-' "$OUT/apk-after.txt" || die "libunwind-dev is not ~1.8.1"
     # Candidates for Root to review/qualify: the delta and the frozen base.
     lock_candidate "$OUT/apk-names-before.txt" "$OUT/apk-names-after.txt" "$OUT/apk-after.txt" > "$OUT/apk.lock.candidate" || die "lock candidate"
+    cmp -s "$OUT/apk.lock.candidate" "$OUT/apk-simulate.delta" || die "installed names differ from the solver delta"
     cp "$OUT/apk.base.current" "$OUT/apk.base.candidate"
     check_coverage "$OUT/apk.base.candidate" "$OUT/apk.lock.candidate" $WANT
+    grep -qx "musl-$EXPECT_MUSL" "$OUT/apk-after.txt" || die "musl changed from $EXPECT_MUSL (runtime ABI)"
+    grep -qx "libstdc++-$EXPECT_LIBSTDCXX" "$OUT/apk-after.txt" || die "libstdc++ changed from $EXPECT_LIBSTDCXX (runtime ABI)"
+    retain_closure
+    rm -rf "$STAGE"
     finalize
     exit 0 ;;
 build)
@@ -87,12 +110,15 @@ build)
     # The stock image must be exactly the qualified base, before anything changes.
     cmp -s "$OUT/apk.base.current" "$IN/apk.base" || die "image packages differ from the qualified base"
     check_coverage "$IN/apk.base" "$IN/apk.lock" $WANT
-    # Exact delta pins only; an unavailable pin fails here, before compilation.
-    if [ -s "$IN/apk.lock" ]; then
-        step apk-add apk add --no-cache $(cat "$IN/apk.lock")
-    fi
-    apk info -v 2>/dev/null | LC_ALL=C sort > "$OUT/apk-after.txt"
-    check_deps "$OUT/apk-before.txt" "$OUT/apk-after.txt" "$IN/apk.lock"
+    # Complete local closure -> no package network (solver and install offline).
+    OFFLINE=1
+    while IFS= read -r _nv; do
+        awk -v nv="$_nv" '($4 "=" $5) == nv { f = 1 } END { exit !f }' "$OUT/apk-local.list" || OFFLINE=0
+    done < "$IN/apk.lock"
+    echo "offline=$OFFLINE" > "$OUT/apk-mode.txt"
+    # Exact base + delta pins; an unavailable/conflicting pin fails here, before compilation.
+    deps_transaction "$IN/apk.base" "$OUT/apk-local.list" "$IN/apk.lock" "$OFFLINE"
+    rm -rf "$STAGE"
     grep -qx "musl-$EXPECT_MUSL" "$OUT/apk-after.txt" || die "musl changed from $EXPECT_MUSL (runtime ABI)"
     grep -qx "libstdc++-$EXPECT_LIBSTDCXX" "$OUT/apk-after.txt" || die "libstdc++ changed from $EXPECT_LIBSTDCXX (runtime ABI)" ;;
 *) die "unknown MODE $MODE" ;;
