@@ -49,6 +49,12 @@ mandatory pruning/era/whole-data/completion corrections. Neither first plan
 is executable as written. The actual WC-observation/capture method and bounded
 actuator still need Root qualification; no new VM/DB/client action occurs. See
 [paired review and corrected contract](reviews/2026-11-05-T10.010.004-db-plan-root.md).
+Root's source-derived backup-byte admission passes25 isolated synthetic controls,
+including invalid UTF-8, ambiguous/late stamps and changed input pins. This
+qualifies only that helper; no actual backup, staging hash or restore is proved.
+The observer and complete-snapshot oracle are being drafted independently;
+Root retains executable review and all runtime ownership. See
+[byte-admission checkpoint](reviews/2026-11-04-T10.010.004-root.md#backup-byte-identity-admission-controls-qualified).
 Qualify a supported DB-only backup/restore and complete semantic readback
 before ordinary-item mutations. Use the same owned VM/world/client, refreshed
 1109-file world baseline, existing Chinese assets and bounded resources. Then
