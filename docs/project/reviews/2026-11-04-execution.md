@@ -1353,3 +1353,16 @@ pins/six payloads/original1905/prior64 evidence,1107-file world/28 mutable outpu
 resource plan/upload and current stopped/resources/ports/unused markers pass.
 Astra pure-file review agrees. Commit [admission](2026-11-04-T10.010.004-root.md#initialized-diagnostic-resume-prepared-admission)
 before consuming once. No resumed VM/up/SQL or actual API exec has begun.
+
+
+After admission43dba540 is committed/pushed, actual initialized resume85017
+exits0: up0/11.944s, five exact images/current1265 registration, complete process
+cwd/UID/GID/binary and17 generated-file API reads. All five ordered TERM/exited0
+checks pass; down0/.864s stops the VM. Root's fresh external check90586 and
+file-only replay18698 exit0, joining nine resource files, projection/three
+controls, both complete strict captures and shutdown logs. All1978 protected
+and88 terminal files/personal projections remain unchanged;18 generated files
+change stat only with identical content and no additions/deletions. See
+[Root qualification](2026-11-04-T10.010.004-root.md#initialized-process-and-mounts-personally-qualified).
+Commit before managed client work. Five startup errors and parser/client/item/
+probe-purity/save acceptance stay open;3/7 audit closure is unchanged.

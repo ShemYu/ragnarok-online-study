@@ -21,85 +21,57 @@ ledger remains **4/14 checkpoints qualified**: one accepted and three ready
 for user review, with **82 resource gaps open**. These are separate ledgers,
 not percentages of playable content, translation or remaining effort.
 
-## Current action — complete startup readbacks
+## Current action — managed client, then ordinary items
 
-**The disposable server starts; full startup qualification remains open.**
-After admissiond7a21f3f is committed/pushed, supported up exits0 in21.182s.
-All five services use the admitted immutable images. The current character
-server registers1265 maps; captured process/file hashes match the qualified
-unpatched binary. This is registration of that server's map set, not proof of
-full-world coverage or working maps/quests.
+**Actual process and generated-mount startup readbacks pass Root verification.**
+After admission43dba540 is committed/pushed, initialized restart85017 exits0:
+supported up0/11.944s, five exact-image services and1265 registered maps. Complete
+API capture proves map executable/cwd, UID/GID1000 and both binary hashes;
+all17 generated conf/NPC/Kafra files are read with matching bytes as the game
+user. Exact existing volume/network/images are retained. Five ordered TERM/
+exited0 checks precede down0/0.864s; the VM is stopped. See
+[Root's qualified result](reviews/2026-11-04-T10.010.004-root.md#initialized-process-and-mounts-personally-qualified).
 
-The strict controller exits1 because bundled CLI exec captures only the two
-SHA rows, omitting preceding cwd/UID/GID fields. Root keeps that failure:
-process user/cwd and generated-mount reads remain unqualified. Astra identifies
-client header-buffer loss in pinned source, consistent with the missing prefix;
-no wire capture proves exactly which bytes were lost. The supported correction
-is the existing bounded Engine API without Upgrade, strict complete-frame/EOF
-capture and matching terminal exec inspection. Keep the original assertions.
+Root independently replays nine resource files, service projection/three
+negative controls, both strict raw API captures/terminal execs and shutdown
+request/log joins. All1978 protected inputs and88 terminal files remain unchanged.
+The1107-file world has no additions/deletions;18 admitted generated files change
+stat only, with all content unchanged. Fresh current stopped/personal checks
+pass. Registration and reads do not qualify saved DB content or full-world
+functionality. Four map/one character startup errors remain to classify;
+all-NPC/parser acceptance, rendering, items, probe purity and saves stay open.
 
-**Clean shutdown and preservation pass the controller's actual checks.** All
-five exact services receive ordered signal-only TERM, exit0 without escalation,
-and supported down exits0/0.849s with the VM stopped. All1905 protected inputs
-and personal projections are unchanged;28 generated host files/262737bytes are
-retained. Root's fresh stopped/personal/input checks pass. Root
-independently replays nine resource files, the service projection/three negative
-controls and ordered shutdown; all64 terminal files remain unchanged. See
-[the actual partial result](reviews/2026-11-04-T10.010.004-root.md#initialized-startup-partial-process-readback-incomplete).
+**Next:** commit this checkpoint, then complete/admit the managed-client
+controller. Source/Node preparation passes: exact helper loads on pinned Node
+v24.20.0 without Electron/npm. Actual managed identity/readiness, allowed writes,
+cache/log bounds, static routing and owned stop still require verification.
+Start with the bounded host-only protocol/static check while the VM remains
+off, then integrate the owned client with the same disposable game for rendering
+and ordinary-item A/B. Do not infer gameplay from HTTP health. Preserve Chinese
+inputs, existing DB/network,4GiB/CPU2 limits and all personal state; internet stays
+connected. See [client preparation](reviews/2026-11-04-T10.010.004-root.md#managed-client-source-plan-and-node-import).
 
-**Capture source/local controls pass.** Partial-result checkpoint238937bd is
-committed/pushed. The generic Engine-API helper passes Root review, Astra source
-review, ten modeled cases and a real local Unix HTTP close-delimited prefix/EOF
-test. No actual Engine exec follows from those controls. See
-[capture checkpoint](reviews/2026-11-04-T10.010.004-root.md#non-upgrade-exec-capture-source-and-local-controls).
+Completed prerequisites stay in dated evidence:
 
-**Client source/module preparation also passes its scoped checks.** Root
-reviews the direct managed launch plan, pins the existing Node v24.20.0 and
-imports the exact helper definitions successfully. No asset method/child/
-browser starts; actual protocol, write bounds, readiness and rendering stay
-open. See [Node/source result](reviews/2026-11-04-T10.010.004-root.md#managed-client-source-plan-and-node-import).
-
-**Initialized restart source/preflight passes.** Root and Astra review the
-controller; read-only preflight passes1976 inputs/six payloads, exact world and
-current stopped/ports/resources. It preserves1905 original inputs/prior64
-terminal files, keeps generated outputs mutable, uses complete API readbacks
-and has no raw initialized-VM shutdown fallback. See
-[resume source checkpoint](reviews/2026-11-04-T10.010.004-root.md#initialized-diagnostic-resume-source-and-preflight).
-
-**The initialized restart is prepared/admitted, not consumed.** After source
-7289d5a0 is committed/pushed, Root verifies1978 content/stat pins, six payloads,
-the1107-file world/28 mutable outputs, current stopped ownership/resources/ports
-and unused markers. Astra file review agrees. See
-[prepared admission](reviews/2026-11-04-T10.010.004-root.md#initialized-diagnostic-resume-prepared-admission).
-
-**Next:** commit the admission, then execute phase9e06ccd1 once. Preserve
-its DB volume/network and freeze the same Renewal/mod selection; ordinary up
-repeats schema/grant/config operations. Refresh current world/output inventory,
-not the old first-use loader. Complete API process/generated-mount readbacks,
-then managed client and ordinary-item A/B. Keep4GiB/CPU2 and internet connected;
-personal state remains untouched.
-
-Completed prerequisites stay scoped in dated evidence:
-
-- [Full server artifacts](reviews/2026-11-04-T10.010.004-root.md#compiler6-full-artifacts-personally-qualified),
-  [immutable images/original loaders](reviews/2026-11-04-T10.010.004-root.md#image-pair-and-original-loaders-personally-qualified),
+- [Full artifacts](reviews/2026-11-04-T10.010.004-root.md#compiler6-full-artifacts-personally-qualified),
+  [images/original loaders](reviews/2026-11-04-T10.010.004-root.md#image-pair-and-original-loaders-personally-qualified),
   [host assets/Chinese bytes](reviews/2026-11-04-T10.010.004-root.md#ordinary-host-assets-linked-and-personally-read-back)
-  and [four read-only bind/user reads](reviews/2026-11-04-T10.010.004-root.md#read-only-user-mount-diagnostic-personally-qualified)
-  pass Root's applicable checks. None proves gameplay or persistence.
+  and [four diagnostic bind/user reads](reviews/2026-11-04-T10.010.004-root.md#read-only-user-mount-diagnostic-personally-qualified)
+  pass their scoped Root checks. None proves gameplay/persistence.
 - [Ordinary fixtures](reviews/2026-11-04-T10.010.004-root.md#ordinary-fixture-comparison-closed-claude-selected)
-  are source-selected/integrated; real parsing/200-row capture, effective items,
-  ordinary A/B behavior, probe purity and saves remain open. Both settled
-  supplier terminals are released; branches retained.
-- Earlier OOM/report refusals and the first pre-SQL DB-cwd refusal remain
-  preserved. The corrected DB projection passes actual-metadata controls.
-  No verified finding forces a goal change.
+  are source-selected/integrated; actual parsing/200-row capture, effective items,
+  ordinary A/B, capacity-probe purity and saves remain open. Settled suppliers
+  are released; branches retained.
+- Earlier OOM/report/DB-cwd refusals and incomplete CLI output are preserved.
+  The bounded Engine capture restores the missing readbacks without relaxing
+  assertions. No verified finding requires changing the goal.
 
 ## Four audit tasks remain open
 
 - **T10.010.004 — full binaries and ordinary items.** Both full artifacts and
   their exact dependency closure, immutable images and original-library loaders
-  pass Root's fresh offline replay. Complete isolated startup readbacks, admit
-  the managed client, then verify ordinary stack/new-slot,
+  pass Root's fresh offline replay. Process/generated-mount readbacks are also
+  qualified. Admit the managed client, then verify ordinary stack/new-slot,
   weight/full-bag, equipment/rental/GUID and save/re-entry behavior. The capacity
   probe must remain read-only. Use the [ordinary-item runbook](runbooks/T10.010.004-ordinary-item-verification.md)
   and [image source readiness](reviews/2026-11-04-T10.010.004-image-source.md).

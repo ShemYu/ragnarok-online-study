@@ -3,7 +3,7 @@
 Updated: 2026-11-05 JST. **Seven-task execution active.**
 All three prerequisite source/tooling tasks are integrated. Both full binary
 artifacts, immutable images and original-library loaders pass Root's replay;
-startup readbacks and ordinary items are next.
+process/mount readbacks are qualified; managed client and ordinary items are next.
 Release-gate and reward/save source are integrated. See
 [the detailed next actions](NEXT_ACTIONS.md) and [audit](reviews/2026-10-29-T00.005.md).
 
@@ -23,8 +23,8 @@ FULL MODERN / RENEWAL PERSONAL GAME
 |   [x] Immutable images / original-library loader checks [ROOT VERIFIED]
 |   [x] Read-only bind/user diagnostic [FOUR EXACT READS VERIFIED]
 |   [ ] Ordinary-item NPC fixtures [CLAUDE SOURCE SELECTED; PARSER OPEN]
-|   [ ] Startup readbacks [FIVE SERVICES/1265 MAP REGISTRATION OBSERVED]
-|   [ ] Actual cwd/UID/GID and generated mounts -> client/item A/B
+|   [x] Startup process/mount readbacks [ROOT VERIFIED; PARSER OPEN]
+|   [ ] Managed client/protocol/static -> integrated rendering/item A/B
 |   [ ] Binary/mod/text gate [SOURCE INTEGRATED; RUNTIME OPEN]
 |   [ ] Real EXP/callback/save [ANALYSIS INTEGRATED; RUNTIME OPEN]
 |   [ ] Isolated native parser / actors / quest states / rewards
@@ -62,24 +62,23 @@ protected files unchanged. Both owned containers are deleted/404 and personal
 projections remain unchanged. The corrected report is complete; both binary
 hashes equal the previous compiled pair. Historical OOM/refused runs stay fixed.
 
-The disposable server now starts through supported up in21.182s with all five
-admitted images and1265 registered maps. Strict process checks refuse incomplete
-CLI output: both SHA rows match, but cwd/UID/GID are missing. Root's partial
-replay reproduces nine resource files, the service projection/three negative
-controls and ordered TERM/exited0 evidence. Supported down exits0;1905 protected
-and64 terminal files/personal projections remain unchanged. The initialized
-owned DB/network remain for the next diagnostic restart; VM is stopped.
-Use the bounded Engine API to complete process/generated-mount reads before
-managed client and ordinary items. Five startup errors remain to classify;
-registration is not full-world/parser/play/save acceptance. See
-[Root's partial result](reviews/2026-11-04-T10.010.004-root.md#initialized-startup-partial-process-readback-incomplete).
+Initialized startup readbacks now pass Root: supported up0/11.944s with five
+admitted images/1265-map registration, complete map process cwd/UID/GID/binary
+and17 generated-file reads. Fresh replay checks nine resource files, projections/
+three controls, both strict API captures and ordered TERM/exited0; down0 stops
+the VM. All1978 protected and88 terminal files/personal projections remain
+unchanged. Eighteen generated changes are stat-only; no host content changes.
+Five startup errors remain unclassified. Next bounded managed-client identity/
+static/owned-stop checks, then integrated rendering and ordinary items. Neither
+registration nor reads qualify full-world/parser/play/save acceptance. See
+[Root's result](reviews/2026-11-04-T10.010.004-root.md#initialized-process-and-mounts-personally-qualified).
 
 Both ordinary-fixture candidates pass Root's source review after the equal
 budget correction. Claude fbf1fcc6 is selected as four exact blobs for simpler
 control flow and guard margin. Both settled workers are released, branches
 retained. Real parsing,200-row completion/capture, effective items, probe purity
-and persistence are still open. Complete startup/mount/client admission
-also remains open; fresh host state does not isolate the Engine's fixed DB
+and persistence are still open. Managed client/integrated rendering admission
+remains open; fresh host state does not isolate the Engine's fixed DB
 volume or container names. Final app up can prune unused untagged images even
 without a bundle. See the [current result](reviews/2026-11-04-T10.010.004-root.md#image-pair-and-original-loaders-personally-qualified).
 Fresh host assets are now linked/read back:59 generated files, selected Chinese
