@@ -1448,6 +1448,15 @@ info)
 esac
 """
 
+def simulate_rows(delta, pad=True):
+    """apk-tools 3.0.8 simulate rows: the counter is space-padded to the
+    total's width, as in Root's captured log ("( 1/47) Installing ...")."""
+    n = len(delta)
+    w = len(str(n)) if pad else 0
+    return "".join(f"({i + 1:>{w}}/{n}) Installing {d.split('=', 1)[0]} ({d.split('=', 1)[1]})\n"
+                   for i, d in enumerate(delta))
+
+
 WANT_S = " ".join(br.WANT)
 
 
@@ -1487,9 +1496,7 @@ class GuestDependencyTests(unittest.TestCase):
 
     def set_delta(self, delta, extra_sim=""):
         self.delta = sorted(delta)
-        (self.fake / "simulate").write_text("".join(
-            f"({i + 1}/{len(self.delta)}) Installing {d.split('=')[0]} ({d.split('=', 1)[1]})\n"
-            for i, d in enumerate(self.delta)) + extra_sim + "OK: simulated\n")
+        (self.fake / "simulate").write_text(simulate_rows(self.delta) + extra_sim + "OK: simulated\n")
         (self.fake / "adds").write_text("".join(d + "\n" for d in self.delta))
 
     def write_local(self, pkgs, tamper=None):
@@ -1571,7 +1578,8 @@ class GuestDependencyTests(unittest.TestCase):
 
     def test_conflicting_repository_refuses_before_any_transaction(self):
         # the solver proposes a base upgrade: refused from its plan, nothing installed
-        self.set_delta(self.delta, extra_sim="(9/9) Upgrading musl (1.2.5-r23 -> 1.2.5-r24)\n")
+        n = len(self.delta) + 1  # the upgrade is the last row of a padded, otherwise valid plan
+        self.set_delta(self.delta, extra_sim=f"({n:>{len(str(n))}}/{n}) Upgrading musl (1.2.5-r23 -> 1.2.5-r24)\n")
         r = self.run_deps()
         self.assertNotEqual(r.returncode, 0)
         self.assertIn("changes existing packages", (self.out / "RESULT").read_text())
@@ -2031,6 +2039,129 @@ class IdentityJoinTests(ClosureFixture):
             self.assertIn("not its planned control identity", (g.out / "RESULT").read_text())
         finally:
             g.tearDown()
+
+
+# ---------------------------------------------------------------- repair 3
+CAPTURED_SHAPE = (  # synthetic rows in the exact shape of Root's captured 47-row log
+    ["jansson=2.14.1-r0", "zstd-libs=1.5.7-r2", "binutils=2.45.1-r0", "acl-libs=2.3.2-r1",
+     "libbz2=1.0.8-r6", "libexpat=2.10.0-r0", "lz4-libs=1.10.0-r0", "libarchive=3.8.11-r0",
+     "rhash-libs=1.4.6-r0"] + [f"synthetic-{i:02d}=1.{i}.0-r0" for i in range(10, 48)])
+
+
+class ParseSimulateTests(unittest.TestCase):
+    """Real guest_lib.sh parse_simulate under /bin/sh on solver-output text.
+    Text fixtures only; no APK is run."""
+
+    def setUp(self):
+        self.tmp = Path(tempfile.mkdtemp(prefix="t10-010-004-sim-"))
+        (self.tmp / "out" / "logs").mkdir(parents=True)
+
+    def tearDown(self):
+        shutil.rmtree(self.tmp, ignore_errors=True)
+
+    def parse(self, text):
+        log = self.tmp / "sim.log"
+        log.write_text(text)
+        for f in (self.tmp / "delta", self.tmp / "out" / "RESULT", self.tmp / "out" / "apk-simulate.refused"):
+            f.unlink(missing_ok=True)
+        r = subprocess.run(["/bin/sh", "-c", f'set -eu; . "{br.GUEST_LIB}"; parse_simulate "{log}" "{self.tmp / "delta"}"'],
+                           env={"OUT": str(self.tmp / "out"), "PATH": os.environ["PATH"], "LC_ALL": "C"},
+                           capture_output=True, text=True, timeout=30)
+        rows = (self.tmp / "delta").read_text().splitlines() if r.returncode == 0 else None
+        return r, rows
+
+    def test_captured_padded_47_row_format(self):
+        text = simulate_rows(CAPTURED_SHAPE) + "OK: 341.3 MiB in 73 packages\n"
+        self.assertTrue(text.startswith("( 1/47) Installing jansson (2.14.1-r0)\n( 2/47) "))
+        self.assertIn("(10/47) Installing synthetic-10", text)
+        r, rows = self.parse(text)
+        self.assertEqual(r.returncode, 0, r.stderr)
+        self.assertEqual(rows, sorted(CAPTURED_SHAPE))  # all 47, incl. the 9 the old parser dropped
+        self.assertIn("binutils=2.45.1-r0", rows)
+
+    def test_supported_counter_forms(self):
+        cases = {
+            "single digit": simulate_rows(CAPTURED_SHAPE[:3]),
+            "two-digit padded": simulate_rows(CAPTURED_SHAPE[:12]),
+            "two-digit unpadded": simulate_rows(CAPTURED_SHAPE[:12], pad=False),
+            "three-digit padded": simulate_rows([f"p{i:03d}=1-r0" for i in range(101)]),
+            "empty plan": "OK: 73 packages, nothing to do\n",
+        }
+        for name, text in cases.items():
+            with self.subTest(name):
+                r, rows = self.parse(text)
+                self.assertEqual(r.returncode, 0, r.stderr)
+                self.assertEqual(len(rows), text.count("Installing"))
+
+    def test_forbidden_and_malformed_rows_refuse(self):
+        ok = simulate_rows(CAPTURED_SHAPE[:12]).splitlines(keepends=True)
+
+        def at(i, line):
+            rows = list(ok)
+            rows[i] = line
+            return "".join(rows)
+        cases = {
+            "padded upgrade": at(0, "( 1/12) Upgrading musl (1.2.5-r23 -> 1.2.5-r24)\n"),
+            "unpadded upgrade": at(9, "(10/12) Upgrading musl (1.2.5-r23 -> 1.2.5-r24)\n"),
+            "padded downgrade": at(1, "( 2/12) Downgrading zlib (1.3.2-r1 -> 1.3.2-r0)\n"),
+            "padded reinstall": at(2, "( 3/12) Reinstalling busybox (1.37.0-r30)\n"),
+            "padded replace": at(3, "( 4/12) Replacing libssl3 (3.5.8-r0)\n"),
+            "padded purge": at(4, "( 5/12) Purging zlib (1.3.2-r0)\n"),
+            "padded remove": at(5, "( 6/12) Removing zlib (1.3.2-r0)\n"),
+            "unknown action": at(6, "( 7/12) Frobbing zlib (1.3.2-r0)\n"),
+            "wrong padding width": at(0, "(  1/12) Installing jansson (2.14.1-r0)\n"),
+            "tab padding": at(0, "(\t1/12) Installing jansson (2.14.1-r0)\n"),
+            "zero counter": at(0, "( 0/12) Installing jansson (2.14.1-r0)\n"),
+            "out of order": at(1, "( 3/12) Installing zstd-libs (1.5.7-r2)\n"),
+            "changing total": at(1, "( 2/13) Installing zstd-libs (1.5.7-r2)\n"),
+            "missing parens": at(1, "( 2/12) Installing zstd-libs 1.5.7-r2\n"),
+            "extra field": at(1, "( 2/12) Installing zstd-libs (1.5.7-r2) extra\n"),
+            "double space": at(1, "( 2/12) Installing  zstd-libs (1.5.7-r2)\n"),
+            "bad name": at(1, "( 2/12) Installing -zstd (1.5.7-r2)\n"),
+            "bad version": at(1, "( 2/12) Installing zstd-libs (1.5.7)\n"),
+            "duplicate package": at(1, "( 2/12) Installing jansson (2.14.1-r0)\n"),
+            "truncated plan": "".join(ok[:-1]),
+            "row beyond total": "".join(ok) + "(13/12) Installing extra (1-r0)\n",
+            "uncounted action": "".join(ok) + "Upgrading musl (1.2.5-r23 -> 1.2.5-r24)\n",
+            "malformed counter": at(1, "(2/x) Installing zstd-libs (1.5.7-r2)\n"),
+            "paren line not a row": "".join(ok) + "(note) something\n",
+        }
+        for name, text in cases.items():
+            with self.subTest(name):
+                r, rows = self.parse(text)
+                self.assertNotEqual(r.returncode, 0, f"{name} accepted: {rows}")
+                self.assertTrue((self.tmp / "out" / "RESULT").read_text().startswith("FAIL solver plan refused"))
+
+    def test_padded_upgrade_never_reaches_install(self):
+        g = GuestDependencyTests("test_fd0_closed_is_replaced_by_dev_null_for_steps")
+        g.setUp()
+        try:
+            g.set_delta(g.delta)
+            rows = (g.fake / "simulate").read_text().splitlines()
+            n = len(g.delta)
+            self.assertTrue(rows[0].startswith(f"({1:>{len(str(n))}}/{n}) "))  # modelled apk pads like the real log
+            rows[0] = f"({1:>{len(str(n))}}/{n}) Upgrading musl (1.2.5-r23 -> 1.2.5-r24)"
+            (g.fake / "simulate").write_text("\n".join(rows) + "\n")
+            r = g.run_deps()
+            self.assertNotEqual(r.returncode, 0)
+            self.assertEqual(g.real_adds(), [])
+            self.assertFalse([c for c in g.calls() if c.startswith("fetch ")])
+        finally:
+            g.tearDown()
+
+    @unittest.skipUnless(os.environ.get("T10_APK_SIMULATE_LOG"), "private captured log not provided")
+    def test_actual_captured_log_replay(self):
+        """Root-only/private: the actual failed-phase simulate log (diagnostic only, not a PASS)."""
+        log = Path(os.environ["T10_APK_SIMULATE_LOG"])
+        self.assertEqual(hashlib.sha256(log.read_bytes()).hexdigest(),
+                         "8f6f1f2e7004cdbfbdaa0c90645b8ccc85cb23b589b078a4c7a47dfc0ce7cfec")
+        r, rows = self.parse(log.read_text())
+        self.assertEqual(r.returncode, 0, r.stderr)
+        self.assertEqual(len(rows), 47)
+        for nv in ("binutils=2.45.1-r0", "jansson=2.14.1-r0", "zstd-libs=1.5.7-r2", "libunwind-dev=1.8.1-r0",
+                   "musl-dev=1.2.5-r23", "openssl-dev=3.5.8-r0", "zlib-dev=1.3.2-r0"):
+            self.assertIn(nv, rows)
+        self.assertFalse([x for x in rows if x.split("=")[0] in ("musl", "libstdc++", "zlib", "libcrypto3", "libssl3")])
 
 
 if __name__ == "__main__":

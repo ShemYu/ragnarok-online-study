@@ -181,14 +181,39 @@ verify_apk() {
 }
 
 # parse_simulate <log> <out>: the solver's plan must consist only of
-# "(i/n) Installing <name> (<version>)"; any upgrade/downgrade/replace/purge/
-# reinstall of anything refuses before the real transaction.
+# "(i/n) Installing <name> (<version>)" rows. apk-tools 3.0.8 pads the
+# counter to the width of n -- actual: "( 1/47) Installing jansson (2.14.1-r0)"
+# -- so a counter is accepted unpadded or space-padded to exactly n's width.
+# Every line that starts with "(" or names a transaction action is a
+# transaction row and must parse completely: counters 1..n in order with one
+# constant n, a valid name and "(version)", unique names, and exactly n rows.
+# Any upgrade/downgrade/reinstall/replace/purge/remove/unknown action or
+# malformed row refuses before anything is fetched or installed; no
+# transaction-shaped line is ever dropped silently.
 parse_simulate() {
     awk -v bad="$OUT/apk-simulate.refused" '
-        /^\([0-9]+\/[0-9]+\) / {
-            if ($2 == "Installing" && NF == 4 && $4 ~ /^\(.+\)$/) { print $3 "=" substr($4, 2, length($4) - 2); next }
-            print > bad; refused = 1 }
-        END { exit refused ? 3 : 0 }' "$1" > "$2.unsorted" || die "solver plan changes existing packages: $(tr '\n' ' ' < "$OUT/apk-simulate.refused")"
+        function refuse(why) { print why ": " $0 > bad; refused = 1 }
+        /^\(/ {
+            if (!match($0, /^\( *[0-9]+\/[0-9]+\) /)) { refuse("malformed counter"); next }
+            head = substr($0, 2, RLENGTH - 3); rest = substr($0, RLENGTH + 1)
+            split(head, c, "/"); lead = c[1]; tot = c[2]; idx = lead; sub(/^ +/, "", idx)
+            if (idx !~ /^[1-9][0-9]*$/ || tot !~ /^[1-9][0-9]*$/) { refuse("bad counter"); next }
+            if (length(lead) != length(idx) && length(lead) != length(tot)) { refuse("bad counter padding"); next }
+            if (total == "") total = tot
+            if (tot != total) { refuse("changing transaction total"); next }
+            rows++
+            if (idx + 0 != rows) { refuse("out-of-order counter"); next }
+            if (split(rest, w, " ") != 3 || rest != w[1] " " w[2] " " w[3]) { refuse("malformed row"); next }
+            if (w[1] != "Installing") { refuse("forbidden or unknown action"); next }
+            if (w[2] !~ /^[A-Za-z0-9][A-Za-z0-9._+-]*$/) { refuse("bad package name"); next }
+            if (w[3] !~ /^\([0-9][A-Za-z0-9._+~-]*-r[0-9]+\)$/) { refuse("bad package version"); next }
+            if (w[2] in seen) { refuse("duplicate package"); next }
+            seen[w[2]] = 1
+            print w[2] "=" substr(w[3], 2, length(w[3]) - 2); next }
+        /(Installing|Upgrading|Downgrading|Reinstalling|Replacing|Purging|Removing|Deleting)/ { refuse("uncounted transaction"); next }
+        END {
+            if (rows != total + 0) { $0 = rows " of " total; refuse("row count differs from the transaction total") }
+            exit refused ? 3 : 0 }' "$1" > "$2.unsorted" || die "solver plan refused (changes existing packages or malformed): $(tr '\n' ' ' < "$OUT/apk-simulate.refused")"
     LC_ALL=C sort "$2.unsorted" > "$2"
     rm -f "$2.unsorted"
 }

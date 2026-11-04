@@ -96,6 +96,33 @@ and Root's two coherent-export counterexamples against `f5342ebf`.
 - **Offline replay.** The complete-offline build plan, guest transaction
   and host validation all use those same bytes.
 
+### Repair 3: actual APK transaction-counter format
+
+This answers [the counter-format brief](../../../docs/project/tasks/T10.010.004-dependency-repair-3.md).
+
+Root's actual exact-base resolve on the selected integrated recipe printed
+space-padded counters, for example `( 1/47) Installing jansson (2.14.1-r0)`.
+The old parser matched only unpadded counters. It skipped rows 1–9, so
+coverage refused because binutils was missing. A padded `Upgrading` row
+would also have been skipped silently.
+
+`parse_simulate` now uses a strict row grammar:
+
+- Every line starting with `(`, and every line naming a transaction action,
+  is a transaction row and must parse completely.
+- Counters may be unpadded or space-padded to exactly the total's width.
+  They must run 1..n in order with one constant n, and there must be exactly n rows.
+- The action must be `Installing`, followed by a valid name and `(version-rN)`.
+  Names must be unique.
+- Refused before any fetch or install: upgrade, downgrade, reinstall,
+  replace, purge, remove, unknown actions, wrong padding, tabs, a zero or
+  out-of-order counter, a changing total, a truncated or extended plan,
+  missing parentheses, extra fields, double spaces, a bad name or version,
+  a duplicate package, a malformed counter, and an uncounted action line.
+
+Unchanged: all 26 solver pins, WANT/libunwind 1.8.1, signature checks and
+scripts, raw identity joins, offline replay and the lifecycle.
+
 ## Files (all under `tools/renewal/native_capacity/`)
 
 | Path | Role |
@@ -106,7 +133,7 @@ and Root's two coherent-export counterexamples against `f5342ebf`.
 | `build/guest_build.sh` | Guest main: checks, then dependencies, then unpatched + patched renewal `map-server` |
 | `build/guest_lib.sh` | Guest checks: cgroup, lock, closure, lock candidate, finalize. Sourced by the guest and by host tests |
 | `build_recipe.py` | `plan` / `execute` / `validate-export` / `image-context` / `import-check` |
-| `test_prepare_source.py`, `test_build_recipe.py` | 20 + 76 focused tests (20 added by T10.010.004, one private-only skip; synthetic) |
+| `test_prepare_source.py`, `test_build_recipe.py` | 20 + 81 focused tests (25 added by T10.010.004, two private-only skips; synthetic) |
 
 ## 1. Source identity and preparation (unchanged result, verified again)
 
