@@ -848,3 +848,7 @@ no-redirect field also exposes a separate validator mismatch; Root reproduces
 it without network. A narrow source-only v2 will accept null/empty with zero
 redirects and use600s transfer/620s parent bounds. No automatic retry/resume,
 full-file success or closure is claimed. See [actual refusal](2026-11-04-T10.010.004-root.md#first-host-transfer-measures-a-slow-path-and-hits-its-deadline).
+
+Root verifies the narrow six-change v2 diff, unchanged v1, five nullable-field
+controls and all fresh GCC-root-2 plan pins. That one fresh600s/620s measurement
+is admitted; the old partial/consumed phase is not reused. See [revised admission](2026-11-04-T10.010.004-root.md#revised-one-file-measurement-reviewed-and-admitted).
