@@ -1,5 +1,33 @@
 # Seven-task execution — 2026-11-04
 
+## Current checkpoint
+
+Three of seven tasks remain self-verified/integrated; 41 rows and all 82
+functional resource gaps remain open. The following older completion and
+dispatch snapshots retain their original scope.
+
+Root's [personal-world resource probe](2026-11-04-T10.010.004-root.md#actual-personal-probe-and-save-preservation)
+now passes after admission `12a4918d`: one owned probe exits 0 in 10.2 s,
+93 ownership inspections pass, deletion/404 and all five original service
+projections pass, and four complete save-table outputs remain byte-identical.
+All three characters stay offline. Available memory is 1283903488 bytes,
+below the unchanged 2415919104-byte gate. Attributed read-only stats and pinned
+primary source establish balloon-held RAM. Root/Astra select a separate
+bounded 4 GiB build-only VM with startup ballooning disabled, subject to a
+committed exact launch/cleanup admission and actual headroom checks. No new
+VM exists; no personal restart/RAM change, compiler or package install occurs.
+
+Root runs both first-repaired release suites: Claude 77 pass / Grok 55 pass,
+with 12 protected inputs unchanged and both checkouts clean. Independent
+scratch controls still reproduce stale staged-folder closure and uncaught
+deep JSON in both. Real admission remains false. Root freezes
+[the same second source repair](../tasks/T10.010.005-repair-2.md), including
+an exact offline same-name withdrawal replacement/failure procedure.
+[Root's evidence](2026-11-04-T10.010.005-root.md#second-root-check-of-repaired-candidates)
+records exact candidate/result hashes. Neither candidate is selected.
+
+## Earlier completion snapshots
+
 Latest completion: [T06.005.001 selection/integration](2026-11-04-T06.005.001-root.md).
 Root verifies both final candidates and the selected integrated ledger. One
 of seven audit tasks is self-verified; all 82 functional gaps stay open. The

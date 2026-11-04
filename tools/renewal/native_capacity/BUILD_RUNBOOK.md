@@ -13,9 +13,12 @@ brief `docs/project/tasks/T10.010.003.md` (SHA-256 `7bd1791f…a5a3f8`).
 **Status: selected and integrated; Root verifies preparation/recipe scope.**
 See [Root's selection, actual tests and remaining runtime gates](../../../docs/project/reviews/2026-11-04-T10.010.003-root.md).
 Historical worker results below retain their original scope.
-The subsequent [actual Root resource probe](../../../docs/project/reviews/2026-11-04-T10.010.004-root.md#actual-resource-probe-passes-default-headroom-gate-refuses)
-passes cgroup/mount/limit readback, bounded archive/lifecycle and cleanup404.
-The observed 1.27 GiB headroom refuses the unchanged default planning gate.
+The subsequent [actual personal Root resource probe](../../../docs/project/reviews/2026-11-04-T10.010.004-root.md#actual-personal-probe-and-save-preservation)
+passes cgroup/mount/limit readback, bounded archive/lifecycle, save preservation
+and cleanup404. Its 1.20 GiB available memory refuses the unchanged 1536 MiB
+compiler plus 768 MiB reserve gate. Attributed stats establish balloon-held
+RAM; Root selects a fresh 4 GiB build-only VM with startup ballooning disabled,
+subject to committed lifecycle admission and actual headroom checks.
 Dependencies and compiler/export/binary qualification remain pending; do not
 interpret the historical fake-only results below as current runtime coverage.
 - Source preparation was executed and checked on the host.

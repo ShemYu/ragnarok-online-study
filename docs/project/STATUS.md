@@ -28,19 +28,24 @@ historical admission; its safe runner reports failure without canonical changes.
 The [release-gate source phase](tasks/T10.010.005.md) has submitted both equal
 Claude/Grok candidates from `51f927a2`, independently of actual native execution.
 Its real admission must refuse until missing runtime/text facts are qualified.
-Root runs both candidates' 75/38 synthetic tests and Ruff successfully, but
-[independent counterexamples](reviews/2026-11-04-T10.010.005-root.md) expose
-missing qualification/staging bindings. Both need the same repair gate;
-neither is selected or integrated. With probe reviews complete, both same
-Orca terminals now repair the release gates. Root owns serial runtime work.
+Root runs the first repaired candidates' 77/55 synthetic tests successfully.
+[New independent controls](reviews/2026-11-04-T10.010.005-root.md#second-root-check-of-repaired-candidates)
+still expose stale folder inventories and uncaught deep JSON. Both need the
+[same second repair](tasks/T10.010.005-repair-2.md), including a concrete offline
+withdrawal replacement procedure. Neither is selected/integrated. Root owns
+serial runtime work; suppliers own isolated source repairs.
 The [current .004 ownership correction](reviews/2026-11-04-T10.010.004-root.md#ownership-correction-before-further-admission)
 finds four concurrent worlds. The completed resource probe and 1.27 GiB
-headroom refusal apply to the default instance. Intended personal ro4 currently
-has its saved 8192 MiB setting and about 7.75 GiB actual total RAM; available
-headroom remains unproved. No RAM adjustment is planned from the wrong-world
-sample. Root's target-bound probe admission follows seven negative controls,
-fresh source/socket/service pins and three offline characters in read-only
-SQL. No compiler/package install, restart or progress write has occurred.
+headroom refusal apply to the default instance. The later
+[target-bound personal probe](reviews/2026-11-04-T10.010.004-root.md#actual-personal-probe-and-save-preservation)
+passes: 7.75 GiB total but only 1.20 GiB available. All five service projections
+and four complete save-table outputs remain identical; three characters stay
+offline. Attributed stats confirm the balloon holds 5847 MiB of an 8192 MiB
+ceiling. Root selects a separate bounded 4 GiB build-only VM, with ballooning
+disabled only for its new daemon; exact lifecycle admission is next and no
+new VM exists yet. The unchanged 1536+768 MiB gate must pass actual readback
+before resolve. No personal RAM adjustment/restart, compiler/package install
+or progress write has occurred.
 
 Pre-merge maintenance: lint/CI checkpoint `86e98d9` is verified. At the user's
 subsequent request, the retired Godot/Character Lab source is preserved under
@@ -64,9 +69,10 @@ This is not a percentage of playable content, effort or translation.
 
 1. **Actual binary experiment.** T00.006, T06.005.001 and T10.010.003 are
    integrated within their documented limits. T10.010.004's tiny resource probe
-   passed on the default instance; run the corrected personal-world probe and
-   refresh applicable backup/restore qualification, then dependency
-   resolution before admitting a bounded actual build. Full content stays open.
+   passed on both the default and correctly bound personal instance. Admit a
+   fresh build-only VM, verify actual headroom/ABI and resolve dependencies
+   before admitting a bounded actual build. Current personal recovery proof
+   remains required before later existing-state mutations. Full content stays open.
    No broad discovery or stock
    `checkweight` substitution. These address confirmed verification/release
    gaps without changing the goal.
@@ -76,9 +82,9 @@ This is not a percentage of playable content, effort or translation.
    The project has not installed the compiler or built a custom image; fresh
    toolchain qualification is pending. The new builtin is unavailable in stock
    binaries.
-   The corrected Nov4 ownership check finds about 7.75 GiB total RAM on
-   personal ro4. Its fresh available memory and limit readbacks still gate
-   admission; the earlier 3.82 GiB measurement belongs to another instance.
+   Personal ro4's fresh limit readbacks pass, but balloon-held memory leaves
+   insufficient available RAM. The selected new build VM must pass the same
+   limit/readback and reserve gates; no compiler is admitted yet.
    See [the current ownership correction](reviews/2026-11-04-T10.010.004-root.md#ownership-correction-before-further-admission).
 3. **Native and normal story integration.** First qualify ordinary-item
    behavior because the patch touches general insertion. Check script parsing, four actors,
@@ -128,7 +134,9 @@ Evidence: [saved user state](reviews/2026-10-25-user-assassin-play.md#current-of
 
 The three prerequisite source lanes are integrated. Root owns serial runtime
 execution/verification for .004; both .005 source candidates need the frozen
-repairs before Root selection.
+second repairs before Root selection. Fresh build-only state initialization
+uses the workflow's isolated-new-state allowance; it does not establish
+current ro4 backup/restore qualification.
 Refresh current Engine/socket/service/save bindings; old IDs, start times,
 RAM assumptions and consumed probe admissions are not reusable authority.
 
