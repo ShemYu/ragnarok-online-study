@@ -98,6 +98,24 @@ receipts and exact delivered body remain under the execution packet's
 findings and commit the admission checkpoint before the one-shot run. No
 Engine write, probe, package installation or build has occurred.
 
+### Revised probe review delivery
+
+Root commits the release counterexamples and revised unused probe gate at
+`3c4d6fa607a7d22c1a9274a9898f4434988f75e0`. Documentation checks pass
+56 local links/anchors, 41 task rows and 627 public paths; whitespace is clean.
+The identical revision-2 delivery body has SHA-256
+`57cba71da1b77ee4b76db057fbd44317e6d2485ae1df82dbfcb6c799331ca886`.
+
+Claude receives a new follow-up Task `task_6066a2f0db74`, Dispatch
+`ctx_19682b07e419`, ready on its reused terminal. Grok's original review is
+still active: `send` queues message `msg_98f3446453ed` to its existing Dispatch
+`ctx_2a81eecaffd5`, instructing it to review the same revised identities.
+Do not infer a new Grok Task or worker completion from that enqueue receipt.
+Exact body/receipts are private under `probe-review-dispatch-root-2/`.
+Root ends the turn for Orca's wakes rather than polling. No new terminal is
+created and no actual probe is admitted. Release repairs remain the next
+supplier implementation task after these recommendations settle.
+
 ## Original activation authority
 
 The active thread goal explicitly asks to finish the seven actions in the
