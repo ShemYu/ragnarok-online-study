@@ -28,8 +28,8 @@ FULL MODERN / RENEWAL PERSONAL GAME
 |   [ ] Ordinary-item NPC fixtures [CLAUDE SOURCE SELECTED; PARSER OPEN]
 |   [x] Startup process/mount readbacks [ROOT VERIFIED; PARSER OPEN]
 |   [x] Managed client identity/static/owned stop [ROOT VERIFIED]
-|   [x] Live DB metadata / clean shutdown [ROOT VERIFIED; FK REFUSAL]
-|   [ ] Complete DB discovery [PHASE3 ADMITTED; ACTUAL CAPTURE NEXT]
+|   [x] Live DB metadata / clean shutdown [ROOT VERIFIED; FK-AWARE]
+|   [x] Complete DB discovery [ROOT VERIFIED; ROW SEMANTICS OPEN]
 |   [ ] Same-PID restore launch gate [SOURCE DISPATCHED: CLAUDE + GROK]
 |   [ ] Isolated DB backup/restore -> integrated rendering/item A/B
 |   [ ] Binary/mod/text gate [SOURCE INTEGRATED; RUNTIME OPEN]
@@ -62,28 +62,18 @@ The ledger remains **4/14 parent checkpoints qualified**, not 29% of the
 world/story completed. The content denominator and full-milestone estimate
 remain unfinished. Basic local play and saved progress are already available.
 Three of seven audit tasks are self-verified (about 43% by task count only).
-Discovery candidate6 passes98 authored controls,13 independent profile/I/O
-probes and four independent actual-hit directory swaps. The observed temp/
-fixture faults are repaired within that synthetic contract. Candidate4's
-shared-temp pre-start refusal remains preserved. Candidate6's actual phase2
-captures73tables/844columns and refuses one unsupported foreign key before
-dump. Root replays raw evidence and clean DB shutdown, then verifies fresh
-1109world/2084protected pins, five unchanged personal services and stopped VM.
-Candidate8 repairs the overlay fields/roles, preserving C7's FK sources and
-lifecycle. Root qualifies145 authored controls,13 profile/I/O probes,4 swaps
-and14 independent FK probes. Actual41/2084/8-record authentication, full fresh
-stopped/1109-world/personal5 equality pass. Fresh phase3 preparation now passes,
-including full selected/current/phase.binding, resource/env/temp and world/
-personal checks. Final source/phase review and6 native custody probes pass;
-the exact unused phase is admitted after publication, with full state equality
-required immediately before the one-use run. Actual capture is next.
+C8 actual discovery is Root-qualified:73tables/844columns, complete ordered FK
+metadata/actions and a matching97401-byte native dump profile. Five exact execs,
+two archives/manifests, clean shutdown and fresh1109-world/2084-protected/
+personal5/stopped-state checks replay successfully. All120 phase evidence files
+stay unchanged. Tuple data, relational integrity and snapshot/restore/gameplay
+semantics remain open. Phase3 is consumed; qualification-root-3 is the latest
+terminal baseline. Preserve historical inputs/admissions and bind a fresh
+full-state gate before another operation.
 Independent restore-launch proposals use the same frozen packet/brief. Claude
 delivers partial/unrun controls with native API/source gaps; Grok is live.
-Paired selection and launch qualification remain open.
-Root's direct-interpreter/shebang fake checks do not qualify actual restore.
-No dump, backup/restore or integrated game qualification follows yet.
-Grok's original is preserved but not selected,
-and its settled worker is released. See the [current discovery record](reviews/2026-11-05-T10.010.004-db-discovery-root.md).
+Paired selection/launch controls and actual backup/restore/S0–S4 remain open.
+See the [qualified capture](reviews/2026-11-05-T10.010.004-db-discovery-root.md#candidate8-actual-native-dump-profile-and-settled-preservation-qualified).
 The separate4GiB build VM is stopped after the repaired full pair succeeds:
 844.4s/exit0/no timeout. Root reproduces105 artifact files and nine resource
 files, checks exact47/base26 and native loader/marker/owner identities, with342

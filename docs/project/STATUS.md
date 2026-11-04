@@ -23,50 +23,45 @@ not percentages of playable content, translation or remaining effort.
 
 ## Current action — DB qualification before integrated items
 
-**Next:** execute the exact admitted candidate8 phase after confirming publication,
-with mandatory full stopped-state continuity checks. Candidate8's narrow
-overlay repair is delivered and personally qualified for source/controls and
-actual-record readback. Four body compilations and Ruff pass;145 authored fake
-controls retain every132 prior name. Root's13 profile/I/O probes and four
-actual-hit directory-swap probes pass in separate isolated copies. A separately
-authored FK fixture passes two positives and12 single-hit negatives. These
-groups prove their respective contracts, not actual native dump/restore.
+**Next:** admit the captured native dump through the full SQL codec/oracle
+and input-byte gates, then qualify supported isolated backup/restore and S0–S4
+semantics once the same-PID restore launcher is selected and verified.
 
-The actual readback authenticates the original41 inputs,2084 protected files
-and eight terminal-overlay records before guarded helper imports. Full fresh
-1109-world and stopped VM/disk/socket records equal the selected post-phase2
-baseline; six GETs confirm all five original personal-service projections.
-That readback left phase3 absent and performed no preparation or VM/app/SQL.
-Root then prepares fresh phase3 under the full-state guard: the child exits0/
-no stderr in3.340492seconds and exact policy/resource/env/temp readbacks pass.
-Full selected/current/phase.binding equality and world/personal preservation
-pass before and after. Phase3 is unused. Final source/phase checks and six native fake custody probes
-now pass; Root admits the exact one-use run after publishing this checkpoint.
-No VM/app/SQL/restore action has occurred yet. See the [prepared-phase checkpoint](reviews/2026-11-05-T10.010.004-db-discovery-root.md#candidate8-fresh-phase3-preparation-personally-qualified)
-and [candidate8 checkpoint](reviews/2026-11-05-T10.010.004-db-discovery-root.md#candidate8-source-controls-and-actual-readback-personally-qualified).
+**Actual DB discovery is now Root-qualified.** Candidate8's one-use phase3
+settles in35.936456seconds, controller exit0, empty stderr and no outer custody
+error/cancellation. Root replays all five exact exec requests/responses,
+completion markers, both guest/archive manifests, complete metadata/root
+visibility, actual client/producer and the native dump profile. It captures
+73tables,844columns,164index rows,77constraints,120KCU rows and one RC/FK;
+ordered FK endpoints/index/actions agree with DDL. The97401-byte dump has
+73CREATE tables and no warnings. Its tuple data, relational integrity,
+snapshot/restore coherence and gameplay semantics remain unqualified.
 
-**Required outer guard:** standalone C8 checks only owner/home/kernel/pristine
-against the selected stopped record. Root must require full dictionary
-equality, including disks/sockets, immediately before preparation, again after
-preparation joined to the full phase.binding, and before the exact admitted
-run. Refuse drift without rebasing. C8's internal full phase/current equality
-then runs before LAUNCHED/boot. Keep exclusive Root custody and a fresh unused
-phase; this is a point-in-time workflow guard, not a universal race guarantee.
-The [final admission record](reviews/2026-11-05-T10.010.004-db-discovery-root.md#candidate8-final-run-guard-and-admission) binds the exact phase/source/wrapper; its immediate full-state guard must pass before launch.
+All five services exit0 in order, logs prove one new clean DB shutdown, and
+supported down completes. A fresh Root readback confirms the stopped VM/disk/
+socket record,1109 post-run world pins,2084 protected pins and all five original
+personal-service projections. The resource export/cgroup/base checks replay;
+private app TMPDIR remains stable/empty. All120 phase evidence files remain
+unchanged. Only the admitted10rewrites/7stable identity changes/secret ctime
+change occur; no world path is added/deleted and11 preserved inputs match.
+See the [qualified capture](reviews/2026-11-05-T10.010.004-db-discovery-root.md#candidate8-actual-native-dump-profile-and-settled-preservation-qualified).
 
-Candidate6's qualified phase2 remains the actual metadata baseline:73tables,
-844columns,164index rows and77constraints, including one unsupported foreign
-key. It settled exit0 with clean ordered service/DB shutdown and preserved
-personal/protected state, refusing before any dump. C8 preserves C7's reviewed
-FK capture/decoder bytes and lifecycle, repairing flat record fields and exact
-source/record/snapshot/command roles. Ordered FK endpoints/actions and native
-dump grammar still require the next actual capture. Preserve phase2 and both
-historical/current baselines; never reuse its old admission. Earlier attempts
-and original supplier scores remain in the [dated discovery record](reviews/2026-11-05-T10.010.004-db-discovery-root.md)
-and [paired review](reviews/2026-11-05-T10.010.004-discovery-suppliers.md).
-The frozen [discovery](reviews/2026-11-05-T10.010.004-db-discovery-brief.md)
-and [FK/overlay](reviews/2026-11-05-T10.010.004-db-fk-brief.md) contracts remain
-unchanged. Root handles explicit report wakes without inbox polling.
+**Current terminal baseline:** private B/db-discovery-qualification-root-3
+holds the qualified fresh world/stopped/personal snapshots and reconciliation.
+The post-phase3 world/stopped pins supersede phase2 for later operations;
+retain both. Original41 inputs, eight-record overlay and consumed phases1–3
+stay immutable. Do not rerun a consumed phase or authorize another startup
+with its old admission. New preparation must explicitly bind the latest
+qualified baseline and repeat full selected/current/phase equality under
+exclusive Root custody. No new runtime phase or restore is admitted yet.
+
+C8 source/controls and the corrected outer custody wrapper remain separately
+scoped in the dated record:145 authored,13 profile/I/O,4 directory swaps,
+14 independent FK and6 native fake custody probes pass. Root's first extended
+replay refused a logs directory mistaken for a file; it is preserved. Only
+that read-only comparison is repaired in a fresh qualifier; the live capture
+is executed once. Earlier attempts/original supplier scores stay in the
+[paired review](reviews/2026-11-05-T10.010.004-discovery-suppliers.md).
 No verified finding requires a goal change.
 
 The supported-backup codec v2 passes51 isolated synthetic controls, compilation
