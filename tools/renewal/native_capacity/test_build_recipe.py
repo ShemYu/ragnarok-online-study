@@ -716,6 +716,79 @@ class CancellationTests(RecipeBase):
         self.assertEqual(e.containers, {})
         self.assertIn(("DELETE", "/containers/c1"), e.calls)
 
+    @staticmethod
+    def _two_failures(real, body_exc, cleanup):
+        """Root's reproduction: HEAD (body) fails, then cleanup fails too."""
+        def call(self, method, path, *a, **k):
+            if method == "HEAD":
+                raise body_exc
+            if cleanup == "delete" and method == "DELETE":
+                raise br.RecipeError("DELETE refused (injected)")
+            if cleanup == "confirm" and method == "GET" and path.endswith("/json"):
+                raise br.EngineStatusError(200, "still present (injected)")
+            return real(self, method, path, *a, **k)
+        return call
+
+    def test_import_cancel_plus_cleanup_failure_keeps_ownership_detail(self):
+        for cleanup in ("delete", "confirm"):
+            with self.subTest(cleanup):
+                e = self.engine()
+                rec = self.tmp / f"import-{cleanup}.json"
+                cause = br.Cancelled("SIGTERM")
+                before = signal.getsignal(signal.SIGTERM)
+                with mock.patch.object(br.Engine, "call", self._two_failures(br.Engine.call, cause, cleanup)):
+                    with self.assertRaises(br.CancelledUnresolved) as cm:
+                        br.import_check(e.sock, "sha256:" + "cd" * 32, "patched", "0" * 64, record=rec)
+                exc = cm.exception
+                self.assertIsInstance(exc, br.Cancelled)  # still a cancellation (exit 143)
+                self.assertIs(exc.__cause__, cause)        # original cause preserved
+                d = exc.detail
+                self.assertEqual(d["container_id"], "c1")
+                self.assertTrue(d["name"].startswith("t10-010-003-import-"))
+                self.assertIn("UNRESOLVED", d["message"])
+                self.assertIn("injected", d["cleanup_error"])
+                self.assertIn("Cancelled: SIGTERM", d["primary"])
+                saved = json.loads(rec.read_text())  # durable, written before propagation
+                self.assertEqual((saved["deleted"], saved["unresolved"]["container_id"]), (False, "c1"))
+                if cleanup == "delete":
+                    self.assertIn("c1", e.containers)  # refused delete: the object really remains
+                else:
+                    self.assertNotIn("c1", e.containers)  # deleted, but absence never confirmed
+                self.assertIs(signal.getsignal(signal.SIGTERM), before)
+
+    def test_import_error_plus_cleanup_failure_chains_cause(self):
+        e = self.engine()
+        cause = br.EngineIOError("HEAD transport failure (injected)")
+        with mock.patch.object(br.Engine, "call", self._two_failures(br.Engine.call, cause, "delete")):
+            with self.assertRaises(br.CleanupUnresolved) as cm:
+                br.import_check(e.sock, "sha256:" + "cd" * 32, "patched", "0" * 64)
+        self.assertIs(cm.exception.__cause__, cause)
+        self.assertEqual(cm.exception.detail["container_id"], "c1")
+        self.assertIn("original failure", str(cm.exception))
+
+    def test_import_cancel_with_confirmed_cleanup_is_plain_cancel(self):
+        e = self.engine()
+        rec = self.tmp / "import-ok.json"
+        cause = br.Cancelled("SIGTERM")
+        with mock.patch.object(br.Engine, "call", self._two_failures(br.Engine.call, cause, None)):
+            with self.assertRaises(br.Cancelled) as cm:
+                br.import_check(e.sock, "sha256:" + "cd" * 32, "patched", "0" * 64, record=rec)
+        self.assertIs(cm.exception, cause)
+        self.assertNotIsInstance(cm.exception, br.CancelledUnresolved)
+        saved = json.loads(rec.read_text())
+        self.assertEqual((saved["deleted"], "unresolved" in saved), (True, False))
+        self.assertEqual(e.containers, {})
+
+    def test_import_cli_cancel_unresolved_exit_143(self):
+        e = self.engine()
+        rec = self.tmp / "cli.json"
+        with mock.patch.object(br.Engine, "call", self._two_failures(br.Engine.call, br.Cancelled("SIGTERM"),
+                                                                      "delete")):
+            rc = br.main(["import-check", "--engine-socket", e.sock, "--image", "sha256:" + "cd" * 32,
+                          "--variant", "patched", "--expect-sha256", "0" * 64, "--record", str(rec)])
+        self.assertEqual(rc, 143)
+        self.assertEqual(json.loads(rec.read_text())["unresolved"]["container_id"], "c1")
+
     def test_import_cleanup_refusal_unresolved(self):
         e = self.engine(faults={("DELETE", "c1"): "refuse"})
         with self.assertRaises(br.RecipeError) as cm:

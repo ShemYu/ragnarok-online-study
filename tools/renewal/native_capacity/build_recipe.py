@@ -96,6 +96,24 @@ class Cancelled(BaseException):
     """SIGTERM/SIGINT: unwinds through owned cleanup, never swallowed."""
 
 
+class CleanupUnresolved(RecipeError):
+    """An owned object could not be deleted/confirmed absent. .detail holds
+    the ownership record; __cause__ is the original failure, if any."""
+
+    def __init__(self, detail):
+        super().__init__(detail["message"])
+        self.detail = detail
+
+
+class CancelledUnresolved(Cancelled):
+    """Cancellation whose owned-object cleanup also failed: still a
+    cancellation (exit 143), carrying the same ownership record."""
+
+    def __init__(self, detail):
+        super().__init__(detail["message"])
+        self.detail = detail
+
+
 def sha256(b):
     return hashlib.sha256(b).hexdigest()
 
@@ -760,11 +778,17 @@ def image_context(artifacts_dir, variant, base_image, dest):
             "dockerfile_sha256": sha256((dest / "Dockerfile").read_bytes())}
 
 
-def import_check(sock, image, variant, expect_sha256, budget=300, owner=IMPORT_OWNER, cleanup_budget=120):
+def import_check(sock, image, variant, expect_sha256, budget=300, owner=IMPORT_OWNER, cleanup_budget=120,
+                 record=None):
     """Create (not start) a container, HEAD+GET the imported file and compare
     bytes, tar uid/gid/mode and stat mode with the declaration; delete it.
     Same rules as execute: one shielded create, exact name + labels recovery,
-    no retry; SIGTERM/SIGINT unwind through deletion of any owned ID."""
+    no retry; SIGTERM/SIGINT unwind through deletion of any owned ID.
+
+    Outcome (record, if given, is written before anything propagates):
+      cleanup confirmed          -> result, or the original exception/Cancelled
+      cleanup refused/unconfirmed-> CleanupUnresolved, or CancelledUnresolved
+                                    if cancelled; __cause__ = original failure"""
     e = Engine(sock)
     until = time.monotonic() + budget
     run_id = uuid.uuid4().hex[:12]
@@ -772,28 +796,32 @@ def import_check(sock, image, variant, expect_sha256, budget=300, owner=IMPORT_O
     target = IMPORT_DEST.format(variant=variant)
     res = {"ok": False, "name": name, "run_id": run_id}
     holder = {"cid": None}
+    primary = None
     old = {s: signal.signal(s, _raise_cancel) for s in SIGNALS}
     try:
-        cid, ambiguous = create_owned(e, name, {"Image": image, "Entrypoint": ["/bin/true"],
-                                                "Labels": {ROLE_LABEL: "import-check", RUN_LABEL: run_id}},
-                                      run_id, "import-check", until, 60, res, holder)
-        if ambiguous:
-            raise RecipeError("create response ambiguous; aborted (no retry)" + (
-                "" if cid else f"; possible late orphan {name} (run label {run_id}) UNRESOLVED"))
-        _, hdr, _ = e.call("HEAD", f"/containers/{cid}/archive?path={target}", ok=(200,), until=until)
-        stat = json.loads(base64.b64decode(hdr.get("X-Docker-Container-Path-Stat", "")))
-        _, _, tarb = e.call("GET", f"/containers/{cid}/archive?path={target}", ok=(200,),
-                            cap=BODY_CAP["import"], until=until)
-        with tarfile.open(fileobj=io.BytesIO(tarb)) as tar:
-            members = tar.getmembers()
-            if len(members) != 1 or not members[0].isfile():
-                raise RecipeError("import archive must hold exactly one regular file")
-            m = members[0]
-            data = tar.extractfile(m).read()
-        got = {"uid": m.uid, "gid": m.gid, "mode": oct(m.mode & 0o7777)}
-        res.update(sha256=sha256(data), tar=got, stat_mode=oct(stat.get("mode", 0) & 0o7777),
-                   ok=sha256(data) == expect_sha256 and got == owner
-                   and oct(stat.get("mode", 0) & 0o7777) == owner["mode"])
+        try:
+            cid, ambiguous = create_owned(e, name, {"Image": image, "Entrypoint": ["/bin/true"],
+                                                    "Labels": {ROLE_LABEL: "import-check", RUN_LABEL: run_id}},
+                                          run_id, "import-check", until, 60, res, holder)
+            if ambiguous:
+                raise RecipeError("create response ambiguous; aborted (no retry)" + (
+                    "" if cid else f"; possible late orphan {name} (run label {run_id}) UNRESOLVED"))
+            _, hdr, _ = e.call("HEAD", f"/containers/{cid}/archive?path={target}", ok=(200,), until=until)
+            stat = json.loads(base64.b64decode(hdr.get("X-Docker-Container-Path-Stat", "")))
+            _, _, tarb = e.call("GET", f"/containers/{cid}/archive?path={target}", ok=(200,),
+                                cap=BODY_CAP["import"], until=until)
+            with tarfile.open(fileobj=io.BytesIO(tarb)) as tar:
+                members = tar.getmembers()
+                if len(members) != 1 or not members[0].isfile():
+                    raise RecipeError("import archive must hold exactly one regular file")
+                m = members[0]
+                data = tar.extractfile(m).read()
+            got = {"uid": m.uid, "gid": m.gid, "mode": oct(m.mode & 0o7777)}
+            res.update(sha256=sha256(data), tar=got, stat_mode=oct(stat.get("mode", 0) & 0o7777),
+                       ok=sha256(data) == expect_sha256 and got == owner
+                       and oct(stat.get("mode", 0) & 0o7777) == owner["mode"])
+        except BaseException as exc:  # held, not swallowed: re-raised (or chained) below
+            primary = exc
     finally:
         for s in old:
             signal.signal(s, signal.SIG_IGN)
@@ -803,17 +831,31 @@ def import_check(sock, image, variant, expect_sha256, budget=300, owner=IMPORT_O
                 cu = time.monotonic() + cleanup_budget
                 try:
                     e.call("DELETE", f"/containers/{cid}?force=1", ok=(204, 404), until=cu)
-                    e.call("GET", f"/containers/{cid}/json", ok=(404,), until=cu)
+                    e.call("GET", f"/containers/{cid}/json", ok=(404,), until=cu)  # confirm absence
                     res["deleted"] = True
                 except RecipeError as exc:
                     res["deleted"] = False
                     res["cleanup_error"] = str(exc)
+            res["primary"] = None if primary is None else f"{type(primary).__name__}: {primary}"
             res["requests"] = e.log
+            if holder["cid"] and not res.get("deleted"):
+                res["unresolved"] = {
+                    "message": (f"import-check container {holder['cid']} (name {name}, run label {run_id}) "
+                                f"cleanup UNRESOLVED: {res.get('cleanup_error')}"
+                                + (f"; original failure: {res['primary']}" if primary is not None else "")),
+                    "container_id": holder["cid"], "name": name, "run_id": run_id,
+                    "cleanup_error": res.get("cleanup_error"), "primary": res["primary"]}
+            if record is not None:
+                Path(record).write_text(json.dumps(res, indent=1, default=str) + "\n")
         finally:
             for s, h in old.items():
                 signal.signal(s, h)
-    if holder["cid"] and not res.get("deleted"):
-        raise RecipeError(f"import-check container {holder['cid']} cleanup UNRESOLVED: {res.get('cleanup_error')}")
+    if "unresolved" in res:
+        if isinstance(primary, Cancelled):
+            raise CancelledUnresolved(res["unresolved"]) from primary
+        raise CleanupUnresolved(res["unresolved"]) from primary
+    if primary is not None:
+        raise primary
     return res
 
 
@@ -853,6 +895,8 @@ def main(argv=None):
     c.add_argument("--image", required=True)
     c.add_argument("--variant", required=True)
     c.add_argument("--expect-sha256", required=True)
+    c.add_argument("--record", required=True, type=Path,
+                   help="JSON outcome record, written before any failure/cancellation propagates")
     o = ap.parse_args(argv)
     try:
         if o.cmd == "plan":
@@ -869,13 +913,15 @@ def main(argv=None):
         elif o.cmd == "image-context":
             r = image_context(o.artifacts, o.variant, o.base_image, o.dest)
         else:
-            r = import_check(o.engine_socket, o.image, o.variant, o.expect_sha256)
+            r = import_check(o.engine_socket, o.image, o.variant, o.expect_sha256, record=o.record)
             r.pop("requests", None)
             if not r["ok"]:
                 print("FAIL", json.dumps(r, sort_keys=True))
                 return 1
     except Cancelled as exc:
         print("FAIL cancelled", exc)
+        if getattr(exc, "detail", None):
+            print("UNRESOLVED", json.dumps(exc.detail, sort_keys=True))
         return 143
     except (RecipeError, ps.PrepError, OSError, KeyError, ValueError) as exc:
         print("FAIL", exc)
