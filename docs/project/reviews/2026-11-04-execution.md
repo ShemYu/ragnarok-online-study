@@ -1040,3 +1040,10 @@ No retry or binary is qualified. See [failure, proof and bounded repair](2026-11
 An explicit Orca wake returns Claude fixture8e24ad10 as a source candidate.
 Root review is pending, Grok remains independent; no parser/runtime selection
 or loading is claimed. Source fixtures continue alongside compiler recovery.
+
+Root/independent review finds a source-derived200-row instruction-budget
+counterexample and a callsub-scope explanation error in Claude's first fixture.
+The [equal follow-up](../tasks/T10.010.004-fixture-budget.md) requires complete
+readouts under the unchanged guard, with the same additional pinned mmo.hpp
+source for both suppliers. This is source correction, not a parser/runtime
+result. See [Root's bound and source evidence](2026-11-04-T10.010.004-root.md#fixture-source-review-finds-a-command-budget-counterexample).

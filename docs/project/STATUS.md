@@ -53,8 +53,10 @@ cap is a justified experiment, not proof that the full build will finish.
 
 The independent [ordinary-item fixture](tasks/T10.010.004-ordinary-fixtures.md)
 lane uses the same ced65a38 base and frozen eight-file packet. Claude8e24ad10
-has submitted four source files; Root review is pending. Grok's result is
-pending. Neither candidate is selected or parser/runtime-qualified. Workers
+has submitted four source files. Root verifies a source-derived200-row logging
+budget counterexample and a report scope error; the [equal follow-up](tasks/T10.010.004-fixture-budget.md)
+requires correction without disabling guards. Grok's result is pending.
+Neither candidate is selected or parser/runtime-qualified. Workers
 have no VM/game access. Root alone owns future runtime; no controller is live
 now. Earlier steps remain in the [dated record](reviews/2026-11-04-T10.010.004-root.md).
 
