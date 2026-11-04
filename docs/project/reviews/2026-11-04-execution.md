@@ -595,3 +595,23 @@ Private DISPATCH_ROOT.json SHA-256:
 The first normal push of clarificatione7a4405 returns GitHub Internal Server
 Error; Root keeps the local committed evidence and retries normal publication
 after this receipt checkpoint. No rule/config or force-push change is made.
+
+
+## Reward/save analysis reviewed and equal corrections delivered
+
+Claude ce9e7d64 submits only the two allowed Markdown files. Root verifies
+all17 frozen source/public pins and reads the consequential source paths;
+independent Astra review confirms the separate-save/callback findings while
+correcting carry-capacity, ACK lookup and conditional persistence claims.
+No runtime/test/SQL action is performed. Root records the exact open facts
+and source limits in [the .006 review](2026-11-04-T10.010.006-root.md).
+
+Both receive [the same correction](../tasks/T10.010.006-repair.md). Claude's
+settled source report gets ready follow-up ctx_a3ab64508bc5; the same body is
+queued to active Grok ctx_79328f44e2c0 as msg_c8fc7c2993a2. Receipts establish
+delivery, not completion. Private dispatch record SHA-256:
+`ee0a31626261ab863870e0b7fbf2f4bfca3414852a120eb6b7c1318c6c5882a3`.
+Root also reads the separate Grok dependency worker once: authoritative
+agent status is fresh/live/working, with source/test activity observed; the
+clipped transcript is not a completion report. No restart or release is made.
+The normal publication of6b22b1f succeeds; origin/main is unchanged.
