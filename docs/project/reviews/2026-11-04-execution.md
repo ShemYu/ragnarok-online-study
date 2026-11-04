@@ -1345,3 +1345,11 @@ ownership/resources/ports. Original1905 files and64 terminal files stay fixed;
 the complete API capture, and initialized cleanup has no raw shutdown fallback.
 Compilation/Ruff pass. Commit [source readiness](2026-11-04-T10.010.004-root.md#initialized-diagnostic-resume-source-and-preflight)
 before preparation. No new phase, VM/up/SQL or actual API exec occurs yet.
+
+
+After source7289d5a0 is committed/pushed, initialized resume preparation51044
+exits0 and Root's non-consuming admission35939 exits0. All1978 content/stat
+pins/six payloads/original1905/prior64 evidence,1107-file world/28 mutable outputs,
+resource plan/upload and current stopped/resources/ports/unused markers pass.
+Astra pure-file review agrees. Commit [admission](2026-11-04-T10.010.004-root.md#initialized-diagnostic-resume-prepared-admission)
+before consuming once. No resumed VM/up/SQL or actual API exec has begun.

@@ -66,8 +66,13 @@ terminal files, keeps generated outputs mutable, uses complete API readbacks
 and has no raw initialized-VM shutdown fallback. See
 [resume source checkpoint](reviews/2026-11-04-T10.010.004-root.md#initialized-diagnostic-resume-source-and-preflight).
 
-**Next:** commit this source checkpoint, prepare/admit a new one-use phase,
-then execute the same-version diagnostic restart. Preserve
+**The initialized restart is prepared/admitted, not consumed.** After source
+7289d5a0 is committed/pushed, Root verifies1978 content/stat pins, six payloads,
+the1107-file world/28 mutable outputs, current stopped ownership/resources/ports
+and unused markers. Astra file review agrees. See
+[prepared admission](reviews/2026-11-04-T10.010.004-root.md#initialized-diagnostic-resume-prepared-admission).
+
+**Next:** commit the admission, then execute phase9e06ccd1 once. Preserve
 its DB volume/network and freeze the same Renewal/mod selection; ordinary up
 repeats schema/grant/config operations. Refresh current world/output inventory,
 not the old first-use loader. Complete API process/generated-mount readbacks,
