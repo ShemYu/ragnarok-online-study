@@ -58,10 +58,13 @@ then fails: the repository upgrades four frozen base packages and APK's trigger
 launcher exits127. Both owned containers are deleted and VM shutdown passes;
 no lock or full build is qualified. Astra/primary-source review identifies
 separate package-drift and closed-stdin leads. Matching APK candidates are
-retained but signatures and causal stdio A/B remain unverified. The
-[exact diagnostic admission](tasks/T10.010.004-apk-diagnostic.md) is prepared;
-syntax and invalid-token pre-launch refusal pass. Next: actual input
-authentication and causal control before any recipe repair.
+now authenticated by the actual stock-key verifier. The first closed-stdin
+reinstall succeeds, leaving the cause unproved; a config-file fd0 confound
+explains why this trial differs from the original resolver. The
+[revised diagnostic admission](tasks/T10.010.004-apk-diagnostic-2.md) removes
+that confound and records both trial outcomes. All26 versions, personal
+service projections and owned cleanup pass. Next: the revised causal control
+before recipe repair and exact-base dependency resolution.
 No personal RAM adjustment/restart, game/DB service or progress write occurs.
 
 Pre-merge maintenance: lint/CI checkpoint `86e98d9` is verified. At the user's
