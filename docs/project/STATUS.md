@@ -55,10 +55,11 @@ qualifies only that helper; no actual backup, staging hash or restore is proved.
 The independent observer/oracle source drafts are delivered. Root checks the
 oracle's authored pure controls; they pass but do not exercise the full parser,
 capture or roundtrip paths. Those controls and observer review remain open.
-First complete local runs refuse on harness issues: an omitted macOS-injected
-environment key and an error expectation that overlooks an earlier correct
-sequence refusal. Original evidence is preserved; corrected controls need
-fresh runs. No real database action occurs.
+The repaired full synthetic oracle suite passes34cases, including32 refusals.
+Observer controls advance through capture/refusal cases, then stop on a stale
+pipe-flag fixture baseline; a pipe-only diagnostic confirms the cause. Original
+failures remain fixed and a minimal repair needs a fresh run. No real database
+action or actual dump-dialect qualification occurs.
 Root retains executable review and all runtime ownership. See
 [byte-admission checkpoint](reviews/2026-11-04-T10.010.004-root.md#backup-byte-identity-admission-controls-qualified).
 Capture live metadata/dump dialect read-only before admitting fixture writes;
