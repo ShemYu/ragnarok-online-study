@@ -633,3 +633,24 @@ fixes the first correction, with two residual callback-timing and C4
 observation claims; Grok0aea57f7 still needs explicit first-correction bounds.
 The same narrow clarification is frozen for both. No actual reward/save or
 installed-state action occurs. The task count remains3/7 closed.
+
+
+## Verified dependency and reward/save source integrated
+
+Root selects Claude ada8cd77 after76 tests and both independent raw-identity
+controls, importing ea1c611e/f1a3ee80. The integrated executable AST and other
+selected source bytes match the personally tested candidate; only the old
+unsupported /build501 module comment is corrected. Shell syntax, cached
+Ruff and indexed source syntax (80 Python/45 JavaScript) pass.
+
+Both .006 corrected reports are reviewed. Claude2f2a610f is selected for
+its corrected conditional save/callback/EXP runbook, importing
+e6286919/df359fcb/a75eeb2e. Both documents match the selected bytes;17 pins
+and the5121-file source digest match. Runtime inputs and reward/save
+acceptance stay open. Grok's second-clarification continuation times out;
+Root keeps that harness delivery issue separate from the reviewed candidate.
+
+Actual exact-base closure is next in the stopped save-free build VM;
+no existing game or save has changed. The seven-task count remains3/7
+closed. Initial normal publication of9c43446 receives GitHub Internal Server
+Error; the checkpoint is retained locally and the normal retry remains next.

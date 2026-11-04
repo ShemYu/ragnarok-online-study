@@ -16,9 +16,11 @@ Root executes this in T10.010.004; this task only implements and tests it.
                   imported file's bytes, mode and owner, delete it
 
 Engine facts used (pinned slim source, nebula 2e9cf43):
-- slimd router/archive: only containers json/create/inspect/start/kill/
-  archive GET+PUT/logs/DELETE are used. No /build, commit or image save
-  (501), no /wait (an HTTP disconnect does not cancel it), no exec or pull.
+- This container recipe uses only containers json/create/inspect/start/kill/
+  archive GET+PUT/logs/DELETE. It does not call /build, commit, image save,
+  exec or pull. It avoids /wait because an HTTP disconnect does not cancel it.
+  Separately, pinned slim source implements the no-RUN single-COPY /build
+  path; that image-creation step needs its own admission and actual check.
 - PUT archive buffers the whole body (2 GiB cap), does not decompress it and
   unpacks with preserved permissions; GET archive streams a tar (owners kept).
 - mounts.rs: HostConfig.Binds creates a missing bind source; Mounts

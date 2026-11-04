@@ -17,7 +17,7 @@ unchanged. No additional local-main merge is part of this execution checkpoint.
 Publication recovered: a later normal retry publishes the release-gate source
 and checkpoint `107e352`; remote feature equals that commit and `origin/main`
 remains unchanged. [Hosted source CI](https://github.com/ShemYu/ragnarok-online-study/actions/runs/41816752719)
-passes, including the new explicit release-gate step. The earlier server-error
+passes on107e352, including the new explicit release-gate step; later HEAD CI is not yet checked. The earlier server-error
 attempts remain recorded in the execution history; no rules/config are changed.
 
 Three of seven audit tasks are now `self_verified` and integrated:
@@ -63,20 +63,23 @@ versions, personal service projections and owned cleanup pass. Next: the
 exact-base resolution with retained signed package bytes before a full build.
 Claude/Grok source-only repairs are now dispatched from the same30439b1 base;
 both report ready. Root retains serial runtime ownership and the VM is stopped.
-Claude submits repaired ada8cd77. Root's76 tests (including the four actual
-retained APKs) pass, all638 tracked files stay unchanged, and both independent
-coherent-export counterexamples now refuse while the valid baseline passes.
-Independent source review finds no material residual join blocker. Grok
-submits35d7f3a, but Orca reports its queued identity correction did not reach
-the finished worker; the identical correction is resent as ready follow-up
-ctx_256f02ab970a. No dependency recipe is selected and no real closure/full
-build is qualified.
-The [EXP/callback/save source analyses](tasks/T10.010.006.md) are both
-submitted: Claude76e2c22a and Grok0aea57f7. Root/Astra review finds two
-remaining callback-timing/interruption-observation limits, recorded in
-[the same narrow clarification](tasks/T10.010.006-repair-2.md). The earlier
-conditional collision/carry/save bounds also still apply to Grok's report.
-Neither analysis is integrated; actual EXP/reward/save checks remain open.
+The corrected dependency recipe is now selected/integrated from Claude
+ada8cd77 as f1a3ee80. Root's76 tests (including all four retained APKs) pass,
+all638 tracked files stay unchanged, and both independent coherent-export
+counterexamples now refuse while the valid baseline passes. Grok35d7f3a
+lacks that join and predates delivery of the common correction; its
+continuation timeout is kept separate from candidate quality. Its correction
+continues as an alternative, with no main-path dependency. Next: one fresh
+exact-base resolution, then separately admit full builds. No real closure
+or full build is qualified.
+The [EXP/callback/save source analysis](reviews/2026-11-04-T10.010.006-root.md)
+is selected/integrated from Claude2f2a610f as a75eeb2e after Root/Astra
+checks both repaired analyses. All17 pins and the5121-file source digest
+remain unchanged. The selected runbook preserves conditional ID collisions,
+carry contributors/save windows and native EXP expectations, distinguishes
+achievement callbacks from queued events, and leaves C4 skipped/not captured
+without a qualified observation method. .006 is still in_progress: actual
+reward/save/re-entry/restart/level-up remain unqualified.
 [Image source readiness](reviews/2026-11-04-T10.010.004-image-source.md)
 also finds the existing single-COPY build path is implemented; actual image
 creation and all runtime reward/save checks remain open.
@@ -171,8 +174,8 @@ Evidence: [saved user state](reviews/2026-10-25-user-assassin-play.md#current-of
 
 The three prerequisite source lanes are integrated. Root owns serial runtime
 execution/verification for .004; .005 source is integrated, with runtime
-pins deliberately unqualified. Paired .004 recipe and .006 source repairs
-remain under Root review. Fresh build-only state initialization
+pins deliberately unqualified. The .004 dependency recipe and .006 analysis
+source are selected/integrated; real exact-base closure is the next experiment. Fresh build-only state initialization
 uses the workflow's isolated-new-state allowance; it does not establish
 current ro4 backup/restore qualification.
 Refresh current Engine/socket/service/save bindings; old IDs, start times,

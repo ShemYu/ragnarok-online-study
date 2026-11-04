@@ -2,7 +2,7 @@
 
 Updated: 2026-11-04 JST. **Seven-task execution resumed.**
 All three prerequisite source/tooling tasks are integrated. Root's actual
-binary experiment is next; release-gate source work runs in parallel. See
+binary experiment is next; release-gate and reward/save source are integrated. See
 [the detailed next actions](NEXT_ACTIONS.md) and [audit](reviews/2026-10-29-T00.005.md).
 
 ```text
@@ -17,10 +17,11 @@ FULL MODERN / RENEWAL PERSONAL GAME
 |   Exact 0.3.2 source is qualified; native runtime work remains:
 |   [x] Isolated build VM resource/image/cleanup characterization
 |   [x] APK signatures / causal closed-vs-valid stdin diagnostic
-|   [ ] Exact-base signed dependency recipe repair [CURRENT; PARALLEL]
+|   [x] Exact-base dependency recipe repair [SOURCE VERIFIED]
+|   [ ] Actual exact-base signed dependency closure [CURRENT]
 |   [ ] Qualified dependencies -> full builds -> ordinary-item A/B
 |   [ ] Binary/mod/text gate [SOURCE INTEGRATED; RUNTIME OPEN]
-|   [ ] Real EXP/callback/save [SOURCE ANALYSIS; PARALLEL]
+|   [ ] Real EXP/callback/save [ANALYSIS INTEGRATED; RUNTIME OPEN]
 |   [ ] Isolated native parser / actors / quest states / rewards
 |   [ ] Save, re-entry, repeat and withdrawal checks
 |   [ ] Supported normal installation and full settings Apply
@@ -53,8 +54,9 @@ The personal resource probe passes with saves preserved. A separate 4 GiB
 build VM now passes image/resources/cleanup with3.61 GiB available and is
 stopped. Root authenticates all four APKs and reproduces the trigger-launch
 failure with closed stdin; the same actual reinstall succeeds with /dev/null.
-The next source repair must also freeze all26 base versions and retain signed
-dependency bytes for replay. Claude's release-gate source is selected and
+The repaired recipe is now integrated after Root76 tests and independent
+identity controls. Actual exact-base resolution still has to freeze all26
+base versions and retain authenticated dependency bytes for offline replay. Claude's release-gate source is selected and
 integrated; Root's113 integrated tests and real release/withdrawal refusals
 pass with644 tracked files unchanged. All actual release/runtime gates remain open.
 See [safe runner](reviews/2026-11-04-T00.006-root.md) and
