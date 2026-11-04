@@ -50,8 +50,11 @@ multiline tuple format; this is historical format evidence, not a current
 schema or restore proof. See [current review and next action](reviews/2026-11-05-T10.010.004-db-discovery-root.md)
 and [dispatch record](reviews/2026-11-04-T10.010.004-root.md#discovery-workers-dispatched-and-live).
 Claude repairctx_5efe029e4fb0 is delivered and hash-frozen. Root reviews it
-and its46 authored pure/fake-lifecycle controls; an initial pre-up fallback
-still needs refusal testing/repair. Grok's original source delivery is pending.
+and personally passes its46 authored pure/fake-lifecycle controls, compilation
+and lint. Ten new synthetic probes still expose pre-up cleanup, evidence,
+cleanup-marker and dialect/log-profile failures. A source-only repair and a
+separately bounded read-only real-helper preflight remain; live discovery is
+unadmitted. Grok's original source delivery is pending.
 The separate supported-backup codec passes32 synthetic controls and lint,
 but Root reproduces numeric-literal/type-join gaps and an actual-format header
 assumption. It needs a narrow source repair before further grammar replay;
