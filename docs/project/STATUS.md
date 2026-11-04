@@ -23,22 +23,21 @@ not percentages of playable content, translation or remaining effort.
 
 ## Current action — DB qualification before integrated items
 
-**Next:** execute candidate6's admitted one-use phase2 capture.
-Its fresh actual read-only preflight and prepare-only commands pass. Root verifies98 authored controls,
-13 independent profile/I/O probes and four independent actual-hit directory
-swaps, with compile/lint passing. Both observed temp/control faults are repaired
-within that synthetic contract; no remaining blocker was found in the narrow
-source reviews. Phase2/private app-tmp/resource files are prepared and read
-back, with no LAUNCHED marker. Root and the independent final source/phase
-review find no blocker; the exact run is admitted after this checkpoint is
-published, with all fresh runtime gates still required.
+**Next:** extend discovery to capture and validate the actual foreign key,
+using a separately authenticated post-run baseline before another admission.
+Candidate6's one-use phase2 runs and settles in36.030seconds, exit0/no stderr.
+Root independently replays the raw requests/responses, metadata archive,
+guest manifest, completion markers, root visibility and shutdown records.
+Actual metadata has73tables,844columns,164index rows and77constraints,
+including one foreign key. The profile correctly refuses that unsupported
+constraint before any dump. This qualifies metadata capture and safe refusal,
+not complete discovery, a backup, restore or game behavior.
 
 Candidate4's earlier run refused before any VM command on a shared-temp file.
 That phase/refusal and the unrelated file stay preserved. Candidate6 uses a
 private phase-owned TMPDIR for app up/down only, keeping the historical
-environment for direct VM boot. Exact private-dir identity and environment
-are bound in actual preparation; the app's honoring of TMPDIR remains a live
-startup observation.
+environment for direct VM boot. Its admitted physical0700 directory remains
+the same and empty before/after up/down and at Root's fresh readback.
 Both original suppliers and Claude candidate6 have delivered; source copies
 and task branches are preserved. The common41-file input contract stays frozen.
 Root handles report wakes without inbox polling; source work is not on its own
@@ -49,21 +48,25 @@ The98 controls retain all92 prior authored cases. Root's13 profile/I/O probes
 retain their scoped passes; the four new swap probes assert one hit each,
 no substituted-directory enumeration and closed opened handles. Directory
 checks are point-in-time guards under Root's exclusive phase custody.
-Current producer/dialect, actual helpers and runtime results remain unqualified.
+The actual metadata helpers, retained evidence and settled shutdown are now
+qualified within this refusal. Dump producer/dialect remains unqualified.
 Grok's original compiles/lints and passes its helper/decoder groups but has
 broader lifecycle/metadata gaps; it is not selected. The [paired review](reviews/2026-11-05-T10.010.004-discovery-suppliers.md)
 keeps original source scores separate from later repair quality.
 Its settled worker is now released with an archived transcript; source,
 reports, branch and worktree remain preserved.
 
-Root's repaired candidate6 real read-only preflight passes:41 input/2084 protected/1109 actual-world
-pins, indirect import sources, stopped VM binding and host checks match. No VM
-starts and no Engine API/SQL runs. Current personal-service equality, guest
-resources, complete Engine census and actual metadata/dialect/log/archive
-behavior remain before-startup/live gates. This uses a fresh source admission,
-separate from all earlier admissions. Preparation creates the private empty0700
-app-tmp and changes exactly TMPDIR in app up/down's environment; direct VM
-boot keeps its historical environment. **No live metadata/dump was captured.**
+All four game services and the DB exit0 in the admitted order; retained logs
+prove one new clean DB shutdown before supported down. Root's fresh independent
+read-only check passes:2084protected files,1109post-run world files, the stopped
+VM/disk binding and all five personal-service projections match. No retained
+world path is added; only the admitted generated-output changes occur. The
+87 phase evidence files remain unchanged during qualification. The current
+baseline differs from the pre-up baseline; preserve both and bind a fresh
+overlay for the next phase. Do not reuse phase2 or its old world admission.
+The FK extension must capture ordered columns, referenced endpoints and
+referential rules and join them to bounded DDL; merely allowing FOREIGN KEY
+would leave the schema unchecked. No verified finding requires a goal change.
 
 The supported-backup codec v2 passes51 isolated synthetic controls, compilation
 and lint, preserving all original32 cases. This repairs observed newline and

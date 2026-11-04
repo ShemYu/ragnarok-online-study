@@ -28,7 +28,8 @@ FULL MODERN / RENEWAL PERSONAL GAME
 |   [ ] Ordinary-item NPC fixtures [CLAUDE SOURCE SELECTED; PARSER OPEN]
 |   [x] Startup process/mount readbacks [ROOT VERIFIED; PARSER OPEN]
 |   [x] Managed client identity/static/owned stop [ROOT VERIFIED]
-|   [ ] Live DB discovery [CANDIDATE6 PHASE2 ADMITTED; NOT RUN]
+|   [x] Live DB metadata / clean shutdown [ROOT VERIFIED; FK REFUSAL]
+|   [ ] Complete DB discovery [FOREIGN-KEY PROFILE EXTENSION NEXT]
 |   [ ] Isolated DB backup/restore -> integrated rendering/item A/B
 |   [ ] Binary/mod/text gate [SOURCE INTEGRATED; RUNTIME OPEN]
 |   [ ] Real EXP/callback/save [ANALYSIS INTEGRATED; RUNTIME OPEN]
@@ -63,9 +64,12 @@ Three of seven audit tasks are self-verified (about 43% by task count only).
 Discovery candidate6 passes98 authored controls,13 independent profile/I/O
 probes and four independent actual-hit directory swaps. The observed temp/
 fixture faults are repaired within that synthetic contract. Candidate4's
-shared-temp pre-start refusal remains preserved; fresh candidate6 actual
-preflight/phase2 preparation and final admission review pass,
-with no live capture yet.
+shared-temp pre-start refusal remains preserved. Candidate6's actual phase2
+captures73tables/844columns and refuses one unsupported foreign key before
+dump. Root replays raw evidence and clean DB shutdown, then verifies fresh
+1109world/2084protected pins, five unchanged personal services and stopped VM.
+Extend complete FK metadata/DDL checks against a fresh post-run baseline.
+No dump, backup/restore or integrated game qualification follows yet.
 Grok's original is preserved but not selected,
 and its settled worker is released. See the [current discovery record](reviews/2026-11-05-T10.010.004-db-discovery-root.md).
 The separate4GiB build VM is stopped after the repaired full pair succeeds:
