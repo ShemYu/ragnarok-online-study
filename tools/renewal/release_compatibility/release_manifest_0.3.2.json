@@ -1,0 +1,269 @@
+{
+ "schema": "ro-solo-release-compatibility-manifest.v1",
+ "manifest_class": "actual",
+ "task": "T10.010.005",
+ "release_id": "ro-solo-ch1-entry@0.3.2+tc-true-quest-text@0.1.0",
+ "source_snapshot": "0a2a2494ad59b8e325b3271a72f0bb55ee57bd78",
+ "project_contract_sha256": "645a1d21b68c05940122f256164e35c4fa0a15ef99ae9d91a9da943ed9d57855",
+ "note": "Pins below are frozen source facts. Every null is a runtime fact Root pins after T10.010.004 in a separate reviewed commit; while any is null, real admission refuses.",
+ "story": {
+  "name": "ro-solo-ch1-entry",
+  "version": "0.3.2",
+  "superseded_versions": [
+   "0.1.0",
+   "0.2.0"
+  ],
+  "requires": {
+   "app": ">=1.6.3",
+   "era": "renewal"
+  },
+  "requires_supported_keys": [
+   "app",
+   "era",
+   "mods",
+   "client"
+  ],
+  "files": {
+   "story.mod_json": {
+    "relpath": "mod.json",
+    "bytes": 1026,
+    "sha256": "62df61fa4c9a384f89a301a7eae50e60d6b1df4df2eab5fc6b47f16641d9cd77"
+   },
+   "story.quest_db": {
+    "relpath": "db/quest_db.yml",
+    "bytes": 517,
+    "sha256": "2a1b0b0ee1588240e9845b68146226e21545d09bf7b2c99217069aa37bced23f"
+   },
+   "story.npc.entry": {
+    "relpath": "npc/entry.txt",
+    "bytes": 7701,
+    "sha256": "f008ee0146a4830d1965a4bda6597879d3d09dfdd430418d35785b595517d3b8"
+   },
+   "story.npc.first_edge": {
+    "relpath": "npc/first_edge.txt",
+    "bytes": 5544,
+    "sha256": "4738d9497618c276e0a8db0e5ecdd3744cb5a88c460294ea0caa6cb8ac0adbe1"
+   },
+   "story.npc.fruit_village": {
+    "relpath": "npc/fruit_village.txt",
+    "bytes": 17959,
+    "sha256": "f82e8d0997774f95d2fa6c593ad7d228ccb1571b9a21d6dcdb0cd766f7bb9557"
+   }
+  }
+ },
+ "text": {
+  "name": "tc-true-quest-text",
+  "version": "0.1.0",
+  "mod_manifest": {
+   "name": "tc-true-quest-text",
+   "version": "0.1.0",
+   "author": "RO solo project",
+   "description": "Traditional Chinese True quest-text overlay",
+   "requires": {
+    "app": ">=1.6.3",
+    "era": "renewal"
+   }
+  },
+  "table": {
+   "relpath": "System/OngoingQuestInfoList-tc-true-quest-text.lub",
+   "bytes": 2248204,
+   "sha256": "49264cdd9b30ecad3416c721d153f91688455daa243e6af6ae04ad49bb805c00"
+  }
+ },
+ "app": {
+  "commit": "2c3b2612973fb8d0ae6ad366a2b298686f2404cb",
+  "tree": "8cab46745c01bc49d62b5f43b209a88910686151",
+  "files": {
+   "app.electron/main.js": {
+    "path": "electron/main.js",
+    "bytes": 200609,
+    "sha256": "9ff6bfe98497ca2e86965c9da4070f0ca102ff6a0c6490275e409f1b9666f75b"
+   },
+   "app.electron/settings-store.js": {
+    "path": "electron/settings-store.js",
+    "bytes": 4885,
+    "sha256": "8924f58f5e5552333dcf008918567695bb4e025f8d40ccf34cbe9e6e0971425e"
+   },
+   "app.stack/src/mods.rs": {
+    "path": "stack/src/mods.rs",
+    "bytes": 207449,
+    "sha256": "474a2dbadf74ee41d4e9ad06439a53b05ab744d1696b87b208ac58c014512ba6"
+   },
+   "app.stack/src/cmds.rs": {
+    "path": "stack/src/cmds.rs",
+    "bytes": 167113,
+    "sha256": "0c44deaa5c66b839f84f9600449fd76aeeb0d2615534b738d10970a972e2a1a4"
+   },
+   "app.stack/src/assets.rs": {
+    "path": "stack/src/assets.rs",
+    "bytes": 102728,
+    "sha256": "6cfa790e5eadf4af600c8d9ebd612c8bf462b9b7a330fdbaa8b5f98a2ccb7ee3"
+   },
+   "app.stack/src/assets/client_tables.rs": {
+    "path": "stack/src/assets/client_tables.rs",
+    "bytes": 42585,
+    "sha256": "f134f2d227d4890988ff97aaeda86e83ec336f43aed24e8dc1fb7a6b2bca1d36"
+   }
+  }
+ },
+ "native": {
+  "source_revision": "0693b8c69911d5ca42269684aa036b67d67f4d3e",
+  "prepared_source_tree_sha256": "b64e850bd0d0fddbcda1df619d9a2544f27e286301a0e7d69b5f827ea3d40f32",
+  "patch": {
+   "path": "tools/renewal/native_capacity/coin_capacity.patch",
+   "bytes": 7669,
+   "sha256": "9c84d8463d15f99b721d385562b10ed3d5c9e1a3c39a954dfe5bccd331f5411d"
+  },
+  "builtin": {
+   "name": "ros_ch1_coin_capacity",
+   "arguments": 0,
+   "fits": 1,
+   "no_fit": 0,
+   "unsupported": -1
+  },
+  "packet_version": 20221005,
+  "platform": "linux/arm64",
+  "executable": {
+   "bytes": null,
+   "sha256": null
+  },
+  "stock_executable_sha256": null,
+  "image_id": null,
+  "abi": null,
+  "effective_config_sha256": null
+ },
+ "item": {
+  "alias": "Ch1_Root_Coin",
+  "id": 1001972,
+  "type": "Etc",
+  "weight": 1,
+  "stackable": true,
+  "guid": false,
+  "pet": false,
+  "stack_restrictions": "bound from qualified evidence; native and effective records must agree; no modeled default"
+ },
+ "routes": {
+  "maps": [
+   "prt_fild05",
+   "ygg_edge",
+   "ygg_fruit"
+  ],
+  "connections": [
+   {
+    "name": "ROSOLO_CH1_EDGE_IN",
+    "from": [
+     "ygg_edge",
+     164,
+     140
+    ],
+    "to": [
+     "ygg_fruit",
+     73,
+     117
+    ]
+   },
+   {
+    "name": "ROSOLO_CH1_FRUIT_OUT",
+    "from": [
+     "ygg_fruit",
+     71,
+     114
+    ],
+    "to": [
+     "ygg_edge",
+     168,
+     139
+    ]
+   },
+   {
+    "name": "回程#ROSOLO_CH1_RET",
+    "from": [
+     "ygg_edge",
+     216,
+     91
+    ],
+    "to": [
+     "prt_fild05",
+     353,
+     248
+    ]
+   }
+  ],
+  "first_edge_block": {
+   "role": "story.npc.first_edge",
+   "first_line": 129,
+   "last_line": 138,
+   "bytes": 249,
+   "sha256": "e315e1467196b56c0cf936acfedae785ff0d4e1554a9e9fc365f6b1ceba9b9ae"
+  }
+ },
+ "npc_imports": [
+  "npc/entry.txt",
+  "npc/first_edge.txt",
+  "npc/fruit_village.txt"
+ ],
+ "quests": {
+  "db_type": "QUEST_DB",
+  "db_version": 3,
+  "rows": [
+   {
+    "id": 18368,
+    "title_sha256": "a71c099afc2f2439f8b1a39944fd2424a2efeb99d4f24715f470bbdaa940ba12"
+   },
+   {
+    "id": 18369,
+    "title_sha256": "cdef2c43bd2100a0194eafc67036410906fb93a69571026be44c0e4619c7e46e"
+   },
+   {
+    "id": 18370,
+    "title_sha256": "c110a8a52040a7ad5345cc3503b694548af8f9bb38523769bfcd9184102c6e36"
+   },
+   {
+    "id": 18371,
+    "title_sha256": "e2daadf50038d2878e4bc87abfc16eb249cc5ad3fc9a549ea58677675a89c4e3"
+   }
+  ]
+ },
+ "text_expectations": {
+  "resource": "System/OngoingQuestInfoList-tc-true-quest-text.lub",
+  "decoder": {
+   "langtype": 4
+  },
+  "hash_basis": "SHA-256 of the UTF-8 encoding of the Big5-decoded client field",
+  "public_title_sha256": {
+   "18368": "a71c099afc2f2439f8b1a39944fd2424a2efeb99d4f24715f470bbdaa940ba12",
+   "18369": "cdef2c43bd2100a0194eafc67036410906fb93a69571026be44c0e4619c7e46e",
+   "18370": "c110a8a52040a7ad5345cc3503b694548af8f9bb38523769bfcd9184102c6e36",
+   "18371": "e2daadf50038d2878e4bc87abfc16eb249cc5ad3fc9a549ea58677675a89c4e3"
+  },
+  "public_summary_sha256": {
+   "18368": "2bbdf105102f7663b88da765fc5c3dc112e438a11bc6a837f086c8b650f47124",
+   "18369": "7721b04586c508490b947e1598590daad3c16fb6aa2d05e32ab192bc30ce7fbe",
+   "18370": "ada64123eb02d110dbb3c39020b9fda05f2445730590960dda5f29c1eb1e5246",
+   "18371": "72cde7aa5d58a17969e96a6307c5651206324932a89c08df9351dfc804d32121"
+  },
+  "description": "no frozen hash; a Root-pinned complete reference packet must supply every element for all four IDs"
+ },
+ "required_roles": [
+  "app.electron/main.js",
+  "app.electron/settings-store.js",
+  "app.stack/src/assets.rs",
+  "app.stack/src/assets/client_tables.rs",
+  "app.stack/src/cmds.rs",
+  "app.stack/src/mods.rs",
+  "effective.facts",
+  "native.executable",
+  "native.parser_log",
+  "native.patch",
+  "native.qualification",
+  "story.mod_json",
+  "story.npc.entry",
+  "story.npc.first_edge",
+  "story.npc.fruit_village",
+  "story.quest_db",
+  "text.effective",
+  "text.mod_json",
+  "text.reference",
+  "text.table"
+ ]
+}
