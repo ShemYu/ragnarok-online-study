@@ -21,7 +21,7 @@ ledger remains **4/14 checkpoints qualified**: one accepted and three ready
 for user review, with **82 resource gaps open**. These are separate ledgers,
 not percentages of playable content, translation or remaining effort.
 
-## Current action — repair installed dependency ordering
+## Current action — prepare the offline full compiler pair
 
 All44 repository downloads and3 matching dev inputs reconcile to the frozen
 47-file manifest (122065747bytes;46aarch64/1noarch); every host child is reaped.
@@ -29,36 +29,33 @@ Selected noarch source is committed/pushed as de5b216e after Root's equal-base
 91-test runs and independent counterexamples. Both settled supplier terminals
 are released with branches preserved.
 
-**New actual progress:** all47 files pass real stock-key verification and
-install offline with scripts/triggers enabled. Original26 packages and keys
-stay unchanged; installed C: values match all raw uploaded Q1 identities.
-The final resolve gate fails: lock_candidate emits name order while the solver
-expects full name=version order. The candidate matches the frozen delta when
-complete tuples are sorted. Keep the exact comparison and repair its producer.
-The [equal source brief](tasks/T10.010.004-installed-order.md) freezes the real
-packet, prefix-pair/empty/refusal tests and fail-closed stage-status requirements.
-Both workers start from the same confirmed a6103005 base. Claude17c8a233 now
-passes Root's isolated97 tests with no skips, all1388 protected files unchanged,
-and7 independent producer controls. Source review finds no blocker; Grok's
-result is pending. The settled Claude terminal is released with branch retained.
-Root provisionally integrates it as1ac079c7 for the isolated runtime while Grok
-completes independently. Final supplier comparison remains open; frozen common
-inputs/Grok checkout are unchanged. Fresh v4 helper/upload/PLAN/PHASE bind both
-new guest-script hashes. Root verifies all124 pins/six payloads and unconsumed
-markers without calling admission. Commit this admission before the next run;
-no prior phase is reused. See [fresh v4 admission](reviews/2026-11-04-T10.010.004-root.md#fresh-v4-runtime-admission-after-ordering-repair).
-See [actual result and limits](reviews/2026-11-04-T10.010.004-root.md#actual-offline-install-passes-final-ordering-gate-fails).
+**New actual progress:** the fresh v4 resolve completes normally after the
+ordering repair. All47 stock-key checks and offline installation pass with
+scripts/triggers enabled; original26 packages and keys remain unchanged.
+Root independently replays the exported archive: all123 saved output files
+match, and all47 retained raw N/V/size/SHA/Q1/actual-arch identities join to
+the PLAN and installed database. The exact frozen delta matches byte for byte.
+The resulting177-file qualification record is ready for the offline compiler.
+See [actual v4 qualification](reviews/2026-11-04-T10.010.004-root.md#fresh-v4-closure-personally-qualified).
+
+The [equal ordering comparison](reviews/2026-11-04-T10.010.004-root.md#ordering-comparison-closed-claude-retained)
+is complete. Root verifies Claude17c8a233 with97 tests and Grok73e21eef with101,
+both with no skips and7 common independent controls. Keep Claude's exact
+integration1ac079c7: it avoids scratch files and directly replays the actual
+base26 ordering. Both settled terminals are released, branches preserved.
 
 Both containers are deleted/404, the owned VM is stopped again, and personal
 five-service projections are identical. No compiler/game/SQL action occurs.
 Phase3 is consumed/failed; phase2 remains retired without runtime. Neither may
 be reset or reused. Review PHASE/pins directly; admitted_phase consumes its
-one-use marker and belongs only in run. After Root selects/verifies the repair,
-rebind fresh wrapper/source pins and admit a new normal successful closure.
-The compiler v3 draft also rechecks checksums before its execution-time
-dependency reader after an Astra finding; Root's7 source/model controls pass.
-It still requires future qualified closure/source bindings before preparation.
-No closure/full build is qualified; no goal change is required.
+one-use marker and belongs only in run. The successful v4 admission is consumed
+as well; preserve its qualified output and never rerun that phase.
+The compiler v3 draft rechecks checksums before its execution-time dependency
+reader after an Astra finding; Root's7 source/model controls pass. Next create
+a fresh operational wrapper with the selected source hashes and actual v4
+qualification, verify its plan/admission without consuming it, and commit that
+checkpoint before execution. No compiler/full binaries are qualified. No goal
+change is required.
 
 Renew stopped VM ownership/resources before runtime; old IDs, consumed
 admissions and snapshots are not authority. Earlier source/transfer/admission
@@ -68,8 +65,9 @@ The [pre-trim snapshot](HISTORY-2026-11-04-STATUS.md) preserves prior chronology
 ## Four audit tasks remain open
 
 - **T10.010.004 — full binaries and ordinary items.** Selected exact-fetch
-  source is integrated as `73014940`; dependency closure is the current gate.
-  Then compile corresponding unpatched/patched full binaries, export/read back
+  source is integrated as `73014940`; dependency closure is now Root-qualified.
+  Prepare/verify the offline compiler admission, then compile corresponding
+  unpatched/patched full binaries, export/read back
   immutable images, start in isolated state and verify ordinary stack/new-slot,
   weight/full-bag, equipment/rental/GUID and save/re-entry behavior. The capacity
   probe must remain read-only. Use the [ordinary-item runbook](runbooks/T10.010.004-ordinary-item-verification.md)

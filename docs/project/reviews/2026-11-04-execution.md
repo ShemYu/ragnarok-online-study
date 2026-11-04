@@ -989,3 +989,16 @@ schema and2 exact guest-script hashes. Root checks all124 phase pins,6 payloads,
 47 identities/upload rows and unconsumed markers without calling admission.
 Commit the exact final phase token before dependency-only execution; no
 compiler/game/SQL or normal closure result is implied. See [v4 admission](2026-11-04-T10.010.004-root.md#fresh-v4-runtime-admission-after-ordering-repair).
+
+Grok73e21eef returns and passes Root's isolated101-test suite with no skips,
+all1389 protected files unchanged, plus the same7 producer controls. Root
+retains Claude17c8a233/1ac079c7 after reviewing both: fewer scratch-state paths
+and direct actual-base coverage. Grok's exact settled terminal is released,
+branch retained. See [final ordering comparison](2026-11-04-T10.010.004-root.md#ordering-comparison-closed-claude-retained).
+
+The fresh v4 normal resolve then passes. Root independently replays its actual
+export:123 saved files match, all47 raw/PLAN/installed identities join, original26
+and keys stay unchanged. Both exact containers are deleted/404, VM shutdown
+passes and personal projections remain identical. Root records177-file
+qualification for the offline compiler; no compiler/game/save result is implied.
+Next bind/review/commit a fresh compiler admission. See [actual v4 qualification](2026-11-04-T10.010.004-root.md#fresh-v4-closure-personally-qualified).

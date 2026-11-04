@@ -25,10 +25,11 @@ FULL MODERN / RENEWAL PERSONAL GAME
 |   [x] Complete GCC host measurement / exact raw identity / child cleanup
 |   [x] Complete44 host downloads +3dev -> exact47 manifest
 |   [x] Actual47 stock-key authentication and offline install
-|   [x] Tuple ordering [ROOT SOURCE VERIFIED; provisional Claude]
-|   [ ] Final supplier comparison [Grok running independently]
-|   [ ] Fresh successful normal closure [CURRENT; v4 admission ready]
-|   [ ] Qualified dependencies -> full builds -> ordinary-item A/B
+|   [x] Tuple ordering [ROOT SOURCE VERIFIED; Claude retained]
+|   [x] Final supplier comparison [both verified; terminals released]
+|   [x] Fresh successful normal closure [ROOT QUALIFIED; v4]
+|   [ ] Offline compiler admission -> full builds [CURRENT]
+|   [ ] Immutable binary readback -> ordinary-item A/B
 |   [ ] Binary/mod/text gate [SOURCE INTEGRATED; RUNTIME OPEN]
 |   [ ] Real EXP/callback/save [ANALYSIS INTEGRATED; RUNTIME OPEN]
 |   [ ] Isolated native parser / actors / quest states / rewards
@@ -65,20 +66,19 @@ solver rows without base upgrades. The300s bulk fetch times out, so Root
 captures all44 exact URLs and verifies a complete54.7MB GCC host transfer.
 All44 repository files now pass Root host checks; with3 matching dev inputs,
 the47-file manifest matches the frozen delta (122065747bytes,46aarch64/1noarch).
-All download children are reaped. Claude338ca82f is selected/source-integrated:
-both candidates pass Root's91-test runs, but a further native-target
-counterexample rejects Grok's candidate. The real v3 run authenticates/installs
-all47 offline and preserves base26/keys/installed-C identities. Final candidate
-ordering fails despite exact set equality. Claude's producer correction passes
-Root97 tests/7 controls and is provisionally integrated as1ac079c7; final Grok
-comparison under the [equal brief](tasks/T10.010.004-installed-order.md) stays
-open. Fresh v4 source/input/admission pins are reviewed before the next run.
-Both containers are deleted, VM stopped and personal projections identical;
-no full compiler has run. Both settled noarch-worker terminals are released.
+All download children are reaped. Noarch and ordering repairs are selected and
+integrated after equal supplier checks. Claude17c8a233 is retained as1ac079c7;
+Root verifies97 Claude tests,101 Grok tests and7 common controls for each.
+The fresh v4 run passes normal resolve, all47 stock-key/offline installation
+and exact ordering gates. Root independently replays all123 saved output files,
+joins every retained raw identity to PLAN/installed C: and qualifies the closure
+for an offline compiler. Original26/keys stay unchanged. Both containers are
+deleted, VM stopped and personal projections identical. All settled noarch and
+ordering supplier terminals are released. No full compiler has run.
 
 Release-gate source and reward/save analysis are integrated within their
 recorded limits. Their actual runtime pins and native/game/save gates remain
-open. The [current Root record](reviews/2026-11-04-T10.010.004-root.md#actual-offline-install-passes-final-ordering-gate-fails)
+open. The [current Root record](reviews/2026-11-04-T10.010.004-root.md#fresh-v4-closure-personally-qualified)
 preserves completed chronology and the next checks.
 See [safe runner](reviews/2026-11-04-T00.006-root.md) and
 [coverage verification](reviews/2026-11-04-T06.005.001-root.md) and
