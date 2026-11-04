@@ -29,7 +29,7 @@ FULL MODERN / RENEWAL PERSONAL GAME
 |   [x] Startup process/mount readbacks [ROOT VERIFIED; PARSER OPEN]
 |   [x] Managed client identity/static/owned stop [ROOT VERIFIED]
 |   [x] Live DB metadata / clean shutdown [ROOT VERIFIED; FK REFUSAL]
-|   [ ] Complete DB discovery [C8 OVERLAY REPAIR DISPATCHED: CLAUDE]
+|   [ ] Complete DB discovery [C8 SOURCE/READBACK QUALIFIED; PHASE3 NEXT]
 |   [ ] Same-PID restore launch gate [SOURCE DISPATCHED: GROK]
 |   [ ] Isolated DB backup/restore -> integrated rendering/item A/B
 |   [ ] Binary/mod/text gate [SOURCE INTEGRATED; RUNTIME OPEN]
@@ -69,12 +69,14 @@ shared-temp pre-start refusal remains preserved. Candidate6's actual phase2
 captures73tables/844columns and refuses one unsupported foreign key before
 dump. Root replays raw evidence and clean DB shutdown, then verifies fresh
 1109world/2084protected pins, five unchanged personal services and stopped VM.
-Claude's candidate7 compiles/lints and passes132 authored fake controls;
-Root's actual read-only overlay parse refuses the wrong execution-field shape,
-and two synthetic probes find exact-role gaps. Repair those in fresh C8 before
-runtime admission; that C8 repair is now dispatched. The independent frozen
-restore-launch source assignment is dispatched to Grok; Claude's independent
-same-input comparison follows after its FK repair settles.
+Candidate8 repairs the overlay fields/roles, preserving C7's FK sources and
+lifecycle. Root qualifies145 authored controls,13 profile/I/O probes,4 swaps
+and14 independent FK probes. Actual41/2084/8-record authentication, full fresh
+stopped/1109-world/personal5 equality pass. Phase3 is absent: require full
+selected/current equality before preparation, again joined to phase.binding
+after preparation, and before admitted run. No current capture admission yet.
+The independent restore-launch source assignment is dispatched to Grok;
+Claude's same-input proposal follows after publishing this C8 checkpoint.
 Root's direct-interpreter/shebang fake checks do not qualify actual restore.
 No dump, backup/restore or integrated game qualification follows yet.
 Grok's original is preserved but not selected,

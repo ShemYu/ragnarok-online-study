@@ -23,68 +23,45 @@ not percentages of playable content, translation or remaining effort.
 
 ## Current action — DB qualification before integrated items
 
-**Next:** repair candidate7's terminal-overlay field/role handling in a fresh
-candidate8, then independently retest before fresh preflight/capture admission.
-The [candidate7 source contract](reviews/2026-11-05-T10.010.004-db-fk-brief.md)
-is frozen for the existing Claude repair lane. Astra's design and a narrow
-independent brief review are read by Root; the reported missing record-shape
-descriptor is supplied and its joins checked against the eight pinned overlay
-records. This authorizes source work only; no next runtime phase is admitted.
-Candidate7 is delivered and Root freezes its exact bytes. Four body compilations,
-Ruff and132 authored fake controls pass, retaining all98 prior names. The actual
-read-only overlay parse refuses because the implementation/fixture expects
-nested execution fields, while the frozen descriptor/records use flat keys.
-Two Root synthetic probes also reproduce lost exact source/snapshot roles.
-The bounded FK source review finds no blocker; the whole candidate is not
-admitted and phase3 remains absent. Repair the overlay/fixtures without
-changing capture, decoder or lifecycle behavior. See the [candidate7 record](reviews/2026-11-05-T10.010.004-db-discovery-root.md#candidate7-controls-pass-actual-overlay-and-strict-role-gaps-remain).
-Root handles explicit report wakes without polling the orchestration inbox.
-After6693f628 is confirmed published/clean, Claude's narrow candidate8 follow-up
-is accepted asctx_99b65bcc93e6/task_07021f9ade85, state ready. It preserves
-C7's capture/decoder and repairs only the overlay, fixtures and handoff.
-No candidate8 delivery, control pass or runtime admission exists yet.
-Candidate6's one-use phase2 runs and settles in36.030seconds, exit0/no stderr.
-Root independently replays the raw requests/responses, metadata archive,
-guest manifest, completion markers, root visibility and shutdown records.
-Actual metadata has73tables,844columns,164index rows and77constraints,
-including one foreign key. The profile correctly refuses that unsupported
-constraint before any dump. This qualifies metadata capture and safe refusal,
-not complete discovery, a backup, restore or game behavior.
+**Next:** prepare and separately admit the fresh candidate8 discovery phase,
+with mandatory full stopped-state continuity checks. Candidate8's narrow
+overlay repair is delivered and personally qualified for source/controls and
+actual-record readback. Four body compilations and Ruff pass;145 authored fake
+controls retain every132 prior name. Root's13 profile/I/O probes and four
+actual-hit directory-swap probes pass in separate isolated copies. A separately
+authored FK fixture passes two positives and12 single-hit negatives. These
+groups prove their respective contracts, not actual native dump/restore.
 
-Candidate4's earlier run refused before any VM command on a shared-temp file.
-That phase/refusal and the unrelated file stay preserved. Candidate6 uses a
-private phase-owned TMPDIR for app up/down only, keeping the historical
-environment for direct VM boot. Its admitted physical0700 directory remains
-the same and empty before/after up/down and at Root's fresh readback.
-Both original suppliers and Claude candidate6 have delivered; source copies
-and task branches are preserved. The common41-file input contract stays frozen.
-Root handles report wakes without inbox polling; source work is not on its own
-runtime qualification. See the [current review and evidence](reviews/2026-11-05-T10.010.004-db-discovery-root.md)
-and [frozen discovery contract](reviews/2026-11-05-T10.010.004-db-discovery-brief.md).
+The actual readback authenticates the original41 inputs,2084 protected files
+and eight terminal-overlay records before guarded helper imports. Full fresh
+1109-world and stopped VM/disk/socket records equal the selected post-phase2
+baseline; six GETs confirm all five original personal-service projections.
+Phase3 remains absent; no preparation, VM/app/SQL or restore occurs. See the
+[candidate8 checkpoint](reviews/2026-11-05-T10.010.004-db-discovery-root.md#candidate8-source-controls-and-actual-readback-personally-qualified).
 
-The98 controls retain all92 prior authored cases. Root's13 profile/I/O probes
-retain their scoped passes; the four new swap probes assert one hit each,
-no substituted-directory enumeration and closed opened handles. Directory
-checks are point-in-time guards under Root's exclusive phase custody.
-The actual metadata helpers, retained evidence and settled shutdown are now
-qualified within this refusal. Dump producer/dialect remains unqualified.
-Grok's original compiles/lints and passes its helper/decoder groups but has
-broader lifecycle/metadata gaps; it is not selected. The [paired review](reviews/2026-11-05-T10.010.004-discovery-suppliers.md)
-keeps original source scores separate from later repair quality.
-Its settled worker is now released with an archived transcript; source,
-reports, branch and worktree remain preserved.
+**Required outer guard:** standalone C8 checks only owner/home/kernel/pristine
+against the selected stopped record. Root must require full dictionary
+equality, including disks/sockets, immediately before preparation, again after
+preparation joined to the full phase.binding, and before the exact admitted
+run. Refuse drift without rebasing. C8's internal full phase/current equality
+then runs before LAUNCHED/boot. Keep exclusive Root custody and a fresh unused
+phase; this is a point-in-time workflow guard, not a universal race guarantee.
+No runtime phase is admitted by the completed readback.
 
-All four game services and the DB exit0 in the admitted order; retained logs
-prove one new clean DB shutdown before supported down. Root's fresh independent
-read-only check passes:2084protected files,1109post-run world files, the stopped
-VM/disk binding and all five personal-service projections match. No retained
-world path is added; only the admitted generated-output changes occur. The
-87 phase evidence files remain unchanged during qualification. The current
-baseline differs from the pre-up baseline; preserve both and bind a fresh
-overlay for the next phase. Do not reuse phase2 or its old world admission.
-The FK extension must capture ordered columns, referenced endpoints and
-referential rules and join them to bounded DDL; merely allowing FOREIGN KEY
-would leave the schema unchecked. No verified finding requires a goal change.
+Candidate6's qualified phase2 remains the actual metadata baseline:73tables,
+844columns,164index rows and77constraints, including one unsupported foreign
+key. It settled exit0 with clean ordered service/DB shutdown and preserved
+personal/protected state, refusing before any dump. C8 preserves C7's reviewed
+FK capture/decoder bytes and lifecycle, repairing flat record fields and exact
+source/record/snapshot/command roles. Ordered FK endpoints/actions and native
+dump grammar still require the next actual capture. Preserve phase2 and both
+historical/current baselines; never reuse its old admission. Earlier attempts
+and original supplier scores remain in the [dated discovery record](reviews/2026-11-05-T10.010.004-db-discovery-root.md)
+and [paired review](reviews/2026-11-05-T10.010.004-discovery-suppliers.md).
+The frozen [discovery](reviews/2026-11-05-T10.010.004-db-discovery-brief.md)
+and [FK/overlay](reviews/2026-11-05-T10.010.004-db-fk-brief.md) contracts remain
+unchanged. Root handles explicit report wakes without inbox polling.
+No verified finding requires a goal change.
 
 The supported-backup codec v2 passes51 isolated synthetic controls, compilation
 and lint, preserving all original32 cases. This repairs observed newline and
