@@ -1,6 +1,19 @@
 # Seven-task execution — 2026-11-04
 
-## Current checkpoint
+## Latest actual runtime result
+
+[Separate build-only VM characterization passes](2026-11-04-T10.010.004-root.md#actual-build-only-vm-characterization-passes)
+after revised admission `dddc41d`. Root reads both execution records, rechecks
+exported sums/cgroup evidence and owned request targets, and proves actual
+daemon/socket departure. Local pinned image import succeeds; the128 MiB probe
+exits0 in10.3 s with93 owned inspections; delete204/404 and empty inventories
+pass. Fresh available RAM3876589568 bytes exceeds the unchanged2415919104-byte
+gate. Graceful down takes0.541 s. Five personal service snapshots are identical.
+No APK/compiler/game/DB/progress action occurs. Next is bounded dependency
+qualification on the stopped owned save-free engine. Three of seven tasks
+remain closed; this prerequisite result does not complete .004.
+
+## Earlier current checkpoint
 
 Three of seven tasks remain self-verified/integrated; 41 rows and all 82
 functional resource gaps remain open. The following older completion and

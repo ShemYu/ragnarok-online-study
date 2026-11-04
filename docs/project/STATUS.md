@@ -41,15 +41,14 @@ headroom refusal apply to the default instance. The later
 passes: 7.75 GiB total but only 1.20 GiB available. All five service projections
 and four complete save-table outputs remain identical; three characters stay
 offline. Attributed stats confirm the balloon holds 5847 MiB of an 8192 MiB
-ceiling. The first separate 4 GiB VM boots, but a truncated macOS process
-column causes identity refusal before import; Root resolves its exact owner
-and gracefully stops it, preserving all personal service projections.
-[The corrected new-target admission](tasks/T10.010.004-build-vm-probe-2.md)
-uses full command/birth plus loaded-image descriptors and four focused controls.
-The new target is absent; mandatory shutdown and balloon opt-out remain.
-The unchanged 1536+768 MiB gate must pass actual readback
-before resolve. No personal RAM adjustment/restart, compiler/package install
-or progress write has occurred.
+ceiling. The [actual separate 4 GiB build VM characterization](reviews/2026-11-04-T10.010.004-root.md#actual-build-only-vm-characterization-passes)
+now passes after correcting macOS process-column truncation: local image
+import, identity, own cgroup/limit readbacks,3.61 GiB available RAM and owned
+cleanup all pass. The unchanged1536+768 MiB gate is met. The VM is gracefully
+stopped, its probe deleted, no containers/volumes remain, and five personal
+service projections are identical. Next is bounded dependency qualification
+on this save-free build engine. No personal RAM adjustment/restart,
+compiler/package install or progress write has occurred.
 
 Pre-merge maintenance: lint/CI checkpoint `86e98d9` is verified. At the user's
 subsequent request, the retired Godot/Character Lab source is preserved under
@@ -74,8 +73,8 @@ This is not a percentage of playable content, effort or translation.
 1. **Actual binary experiment.** T00.006, T06.005.001 and T10.010.003 are
    integrated within their documented limits. T10.010.004's tiny resource probe
    passed on both the default and correctly bound personal instance. Admit a
-   fresh build-only VM, verify actual headroom/ABI and resolve dependencies
-   before admitting a bounded actual build. Current personal recovery proof
+   fresh build-only VM now passes actual headroom/ABI/cleanup. Qualify dependency
+   resolution before admitting a bounded actual build. Current personal recovery proof
    remains required before later existing-state mutations. Full content stays open.
    No broad discovery or stock
    `checkweight` substitution. These address confirmed verification/release
@@ -86,9 +85,9 @@ This is not a percentage of playable content, effort or translation.
    The project has not installed the compiler or built a custom image; fresh
    toolchain qualification is pending. The new builtin is unavailable in stock
    binaries.
-   Personal ro4's fresh limit readbacks pass, but balloon-held memory leaves
-   insufficient available RAM. The selected new build VM must pass the same
-   limit/readback and reserve gates; no compiler is admitted yet.
+   Personal ro4's balloon-held memory remains untouched. The separate build
+   VM passes actual limits/headroom and is stopped. Actual dependency closure
+   and full-build fit remain unproved; no compiler is admitted yet.
    See [the current ownership correction](reviews/2026-11-04-T10.010.004-root.md#ownership-correction-before-further-admission).
 3. **Native and normal story integration.** First qualify ordinary-item
    behavior because the patch touches general insertion. Check script parsing, four actors,

@@ -15,7 +15,8 @@ FULL MODERN / RENEWAL PERSONAL GAME
 |
 +-- Story lane [AFTER SOURCE/BUILD RECIPE]
 |   Exact 0.3.2 source is qualified; native runtime work remains:
-|   [ ] Fresh build VM -> full compile/export -> ordinary-item A/B [NEXT]
+|   [x] Isolated build VM resource/image/cleanup characterization
+|   [ ] Dependencies -> full compile/export -> ordinary-item A/B [NEXT]
 |   [ ] Binary/mod/text gate [SECOND SOURCE REPAIR; PARALLEL]
 |   [ ] Real EXP/callback/save and uncertain-reward acceptance
 |   [ ] Isolated native parser / actors / quest states / rewards
@@ -46,9 +47,9 @@ The ledger remains **4/14 parent checkpoints qualified**, not 29% of the
 world/story completed. The content denominator and full-milestone estimate
 remain unfinished. Basic local play and saved progress are already available.
 Three of seven audit tasks are self-verified (about 43% by task count only).
-The personal resource probe passes with saves preserved. Ballooning leaves
-insufficient compile headroom; a separate 4 GiB build VM is selected but not
-yet started. Release candidates pass 77/55 tests but need two reproduced
+The personal resource probe passes with saves preserved. A separate 4 GiB
+build VM now passes image/resources/cleanup with3.61 GiB available and is
+stopped. Dependency qualification is next. Release candidates pass77/55 tests but need two reproduced
 edge-case repairs and a concrete withdrawal sequence before selection.
 See [safe runner](reviews/2026-11-04-T00.006-root.md) and
 [coverage verification](reviews/2026-11-04-T06.005.001-root.md) and

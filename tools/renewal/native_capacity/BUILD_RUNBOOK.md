@@ -17,8 +17,10 @@ The subsequent [actual personal Root resource probe](../../../docs/project/revie
 passes cgroup/mount/limit readback, bounded archive/lifecycle, save preservation
 and cleanup404. Its 1.20 GiB available memory refuses the unchanged 1536 MiB
 compiler plus 768 MiB reserve gate. Attributed stats establish balloon-held
-RAM; Root selects a fresh 4 GiB build-only VM with startup ballooning disabled,
-subject to committed lifecycle admission and actual headroom checks.
+RAM. [Root's separate 4 GiB build VM](../../../docs/project/reviews/2026-11-04-T10.010.004-root.md#actual-build-only-vm-characterization-passes)
+subsequently passes local image/ownership/cgroup/cleanup and the unchanged
+headroom gate with3.61 GiB available; it is stopped. Dependency resolution
+and full compilation remain unexecuted.
 Dependencies and compiler/export/binary qualification remain pending; do not
 interpret the historical fake-only results below as current runtime coverage.
 - Source preparation was executed and checked on the host.
