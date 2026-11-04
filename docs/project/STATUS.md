@@ -21,41 +21,37 @@ ledger remains **4/14 checkpoints qualified**: one accepted and three ready
 for user review, with **82 resource gaps open**. These are separate ledgers,
 not percentages of playable content, translation or remaining effort.
 
-## Current action — qualify the all-local dependency closure
+## Current action — repair installed dependency ordering
 
-Root host checks now cover **44/44 repository files**. Combined with the three
-matching development inputs, all47 staged files match the frozen exact delta:
-122065747bytes,46aarch64 and one actual noarch. Every download child is reaped.
-The five-field manifest is pinned; all47 stock-key authentication and install
-remain unqualified. Root corrected its own name-versus-full-tuple sorting
-assertion without changing inputs or repeating downloads. The separate
-save-free build VM remains stopped; no personal game/SQL action occurs.
+All44 repository downloads and3 matching dev inputs reconcile to the frozen
+47-file manifest (122065747bytes;46aarch64/1noarch); every host child is reaped.
+Selected noarch source is committed/pushed as de5b216e after Root's equal-base
+91-test runs and independent counterexamples. Both settled supplier terminals
+are released with branches preserved.
 
-Root selects/integrates Claude338ca82f after equal-base comparison: both
-candidates pass Root's isolated91-test suites with no skips and1374 protected
-files unchanged. A further Root counterexample finds Grok accepts a changed
-build-target label; Claude rejects it. Claude also passes16 independent checks.
-Actual noarch/aarch64 values remain joined across guest rows, raw bytes and
-local plans; VM/ABI/ELF stays ARM64. Both settled supplier terminals are released
-with their branches preserved. See [source selection and limits](reviews/2026-11-04-T10.010.004-root.md#noarch-source-comparison-and-root-verification).
+**New actual progress:** all47 files pass real stock-key verification and
+install offline with scripts/triggers enabled. Original26 packages and keys
+stay unchanged; installed C: values match all raw uploaded Q1 identities.
+The final resolve gate fails: lock_candidate emits name order while the solver
+expects full name=version order. The candidate matches the frozen delta when
+complete tuples are sorted. Keep the exact comparison and repair its producer.
+The [equal source brief](tasks/T10.010.004-installed-order.md) freezes the real
+packet, prefix-pair/empty/refusal tests and fail-closed stage-status requirements.
+See [actual result and limits](reviews/2026-11-04-T10.010.004-root.md#actual-offline-install-passes-final-ordering-gate-fails).
 
-Selected source is committed/pushed as de5b216e. Root rebinds the wrapper and
-reviews a fresh v3 all-local phase with124 source/input/generated pins and six
-runtime payload pins. It is unconsumed; actual stock-key/install checks are
-next. The preceding v2 phase was consumed by Root's mistaken preflight call
-without starting runtime; it is preserved/retired rather than reset or reused.
-See [fresh admission and exact hashes](reviews/2026-11-04-T10.010.004-root.md#fresh-all-local-phase-reviewed-before-execution).
-Require all47 actual stock-key checks, exact frozen47 delta, unchanged complete
-26-package base/ABI, fresh cgroup/headroom evidence, offline install and owned
-cleanup. Resolve simulation remains online. The all-local/compiler wrappers
-include a reviewed/prepared all-local phase and a compiler draft. The compiler
-still needs fresh qualified-closure/source bindings before preparation.
-No closure or full build is qualified.
+Both containers are deleted/404, the owned VM is stopped again, and personal
+five-service projections are identical. No compiler/game/SQL action occurs.
+Phase3 is consumed/failed; phase2 remains retired without runtime. Neither may
+be reset or reused. Review PHASE/pins directly; admitted_phase consumes its
+one-use marker and belongs only in run. After Root selects/verifies the repair,
+rebind fresh wrapper/source pins and admit a new normal successful closure.
+Compiler drafts still require that future qualified closure before preparation.
+No closure/full build is qualified; no goal change is required.
 
 Renew stopped VM ownership/resources before runtime; old IDs, consumed
-admissions and snapshots are not authority. Earlier stdin/parser/readiness/
-fetch/transfer results remain in the [dated Root record](reviews/2026-11-04-T10.010.004-root.md).
-The [pre-trim snapshot](HISTORY-2026-11-04-STATUS.md) preserves the full chronology.
+admissions and snapshots are not authority. Earlier source/transfer/admission
+results remain in the [dated Root record](reviews/2026-11-04-T10.010.004-root.md).
+The [pre-trim snapshot](HISTORY-2026-11-04-STATUS.md) preserves prior chronology.
 
 ## Four audit tasks remain open
 

@@ -945,3 +945,13 @@ rebound and independently reviewed without consuming admission. All124 pins,
 six payloads and47 identities agree; no runtime marker exists. Commit this
 admission checkpoint before the dependency-only VM run. See [fresh all-local
 admission](2026-11-04-T10.010.004-root.md#fresh-all-local-phase-reviewed-before-execution).
+
+The actual v3 run passes fresh resources/base26, all47 stock-key checks and
+one complete offline install with scripts/triggers. Root joins all installed-C
+values to raw Q1, exact47 additions and unchanged base/keys. The final resolve
+gate fails because lock_candidate emits name-sorted tuples while the solver
+sorts full name=version strings. Keep the gate, freeze the real packet and
+[equal fail-closed producer repair](../tasks/T10.010.004-installed-order.md).
+Both owned containers are deleted204/404, VM shutdown succeeds and personal
+projections are identical. Phase3 stays consumed/failed; no normal closure or
+compiler output is qualified. See [actual progress and refusal](2026-11-04-T10.010.004-root.md#actual-offline-install-passes-final-ordering-gate-fails).

@@ -23,8 +23,10 @@ FULL MODERN / RENEWAL PERSONAL GAME
 |   [x] APK3 exact-fetch correction [SOURCE VERIFIED]
 |   [x] Actual44 stock-selected URLs / empty payload / owned cleanup
 |   [x] Complete GCC host measurement / exact raw identity / child cleanup
-|   [ ] All-local47 dependency closure [CURRENT; real VM checks next]
-|   [ ] Remaining33 host downloads [PARALLEL] -> signed47
+|   [x] Complete44 host downloads +3dev -> exact47 manifest
+|   [x] Actual47 stock-key authentication and offline install
+|   [ ] Canonical installed tuple ordering [CURRENT; source repair]
+|   [ ] Fresh successful normal closure qualification
 |   [ ] Qualified dependencies -> full builds -> ordinary-item A/B
 |   [ ] Binary/mod/text gate [SOURCE INTEGRATED; RUNTIME OPEN]
 |   [ ] Real EXP/callback/save [ANALYSIS INTEGRATED; RUNTIME OPEN]
@@ -64,13 +66,16 @@ All44 repository files now pass Root host checks; with3 matching dev inputs,
 the47-file manifest matches the frozen delta (122065747bytes,46aarch64/1noarch).
 All download children are reaped. Claude338ca82f is selected/source-integrated:
 both candidates pass Root's91-test runs, but a further native-target
-counterexample rejects Grok's candidate. A rebound/reviewed fresh v3 phase is
-ready for all47 stock-key/install/closure qualification. The VM is stopped and no full
-compiler has run. Both settled worker terminals are released.
+counterexample rejects Grok's candidate. The real v3 run authenticates/installs
+all47 offline and preserves base26/keys/installed-C identities. Final candidate
+ordering fails despite exact set equality. Repair the producer with the
+[equal brief](tasks/T10.010.004-installed-order.md), then use a fresh phase.
+Both containers are deleted, VM stopped and personal projections identical;
+no full compiler has run. Both settled noarch-worker terminals are released.
 
 Release-gate source and reward/save analysis are integrated within their
 recorded limits. Their actual runtime pins and native/game/save gates remain
-open. The [current Root record](reviews/2026-11-04-T10.010.004-root.md#complete-host-candidate-set-reconciled)
+open. The [current Root record](reviews/2026-11-04-T10.010.004-root.md#actual-offline-install-passes-final-ordering-gate-fails)
 preserves completed chronology and the next checks.
 See [safe runner](reviews/2026-11-04-T00.006-root.md) and
 [coverage verification](reviews/2026-11-04-T06.005.001-root.md) and
