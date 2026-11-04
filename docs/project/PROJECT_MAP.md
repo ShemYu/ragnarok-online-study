@@ -4,9 +4,9 @@ Updated: 2026-11-05 JST. **Seven-task execution active.**
 All three prerequisite source/tooling tasks are integrated. Both full binary
 artifacts, immutable images and original-library loaders pass Root's replay;
 process/mount and managed-client protocol/static checks are qualified.
-Discovery's narrow source repair passes isolated checks; actual admission is
-next before supported DB backup/restore,
-integrated rendering and ordinary items.
+Actual DB discovery and settled preservation pass Root's replay. Independent
+full definitions/counts, supported backup, oracle compatibility and launch
+custody remain open before integrated rendering and ordinary items.
 Release-gate and reward/save source are integrated. See
 [the detailed next actions](NEXT_ACTIONS.md) and [audit](reviews/2026-10-29-T00.005.md).
 
@@ -30,7 +30,8 @@ FULL MODERN / RENEWAL PERSONAL GAME
 |   [x] Managed client identity/static/owned stop [ROOT VERIFIED]
 |   [x] Live DB metadata / clean shutdown [ROOT VERIFIED; FK-AWARE]
 |   [x] Complete DB discovery [ROOT VERIFIED; ROW SEMANTICS OPEN]
-|   [ ] Same-PID restore launch gate [SOURCE DISPATCHED: CLAUDE + GROK]
+|   [ ] Full definitions/counts + supported B0 [DESIGN; TWO EXTRA CLAUSES OPEN]
+|   [ ] Same-PID restore launch gate [BOTH REVIEWED; REPAIR REQUIRED]
 |   [ ] Isolated DB backup/restore -> integrated rendering/item A/B
 |   [ ] Binary/mod/text gate [SOURCE INTEGRATED; RUNTIME OPEN]
 |   [ ] Real EXP/callback/save [ANALYSIS INTEGRATED; RUNTIME OPEN]
@@ -71,8 +72,15 @@ semantics remain open. Phase3 is consumed; qualification-root-3 is the latest
 terminal baseline. Preserve historical inputs/admissions and bind a fresh
 full-state gate before another operation.
 Independent restore-launch proposals use the same frozen packet/brief. Claude
-delivers partial/unrun controls with native API/source gaps; Grok is live.
-Paired selection/launch controls and actual backup/restore/S0–S4 remain open.
+and Grok each score11/20 on first-delivery source assessment; neither is
+selected/admitted. Their24/74 authored controls are unrun; unsafe custody and
+ineffective negatives need repair. Exact interpreter support is a separate
+native-custody prerequisite. The actual catalog has two timestamp EXTRA
+clauses the current oracle rejects; retain them and repair narrowly.
+Independent counts/full definitions, supported B0, launch controls and actual
+backup/restore/S0–S4 remain open. See the
+[paired review](reviews/2026-11-05-T10.010.004-launch-suppliers.md) and
+[catalog prerequisites](reviews/2026-11-05-T10.010.004-full-catalog-root.md).
 See the [qualified capture](reviews/2026-11-05-T10.010.004-db-discovery-root.md#candidate8-actual-native-dump-profile-and-settled-preservation-qualified).
 The separate4GiB build VM is stopped after the repaired full pair succeeds:
 844.4s/exit0/no timeout. Root reproduces105 artifact files and nine resource

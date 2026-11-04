@@ -28,7 +28,10 @@ under quiescence, plus a same-state supported app-stamped backup. Qualify the
 full SQL codec/oracle and input-byte gates, then isolated backup/restore and
 S0–S4 once the same-PID launcher is selected and verified. The direct discovery
 dump has no app stamp; do not synthesize one or infer independent counts from
-its INSERT lines. The codec has not been called on it.
+its INSERT lines. The codec has not been called on it. Before capture, finish
+the bounded timestamp-oracle repair, supported-backup transitive source check
+and actual SHOW CREATE transport qualification, then admit a new versioned
+capture gate. See [Root's prerequisite findings](reviews/2026-11-05-T10.010.004-full-catalog-root.md).
 
 **Actual DB discovery is now Root-qualified.** Candidate8's one-use phase3
 settles in35.936456seconds, controller exit0, empty stderr and no outer custody
@@ -80,17 +83,23 @@ Two source reviews expose the native app's PATH widening; the contract includes
 that source-defined projection before Docker overrides. Paired source work
 can proceed independently; implementation/selected-source controls/actual
 restore remain unqualified. See the [launch preparation record](reviews/2026-11-05-T10.010.004-db-launch-root.md).
-Grok source assignmentctx_9245522e29b9/task_2f0bc2d158fb is accepted ready
-in its reopened preserved worktree. After publishingdd415993 and confirming
-clean state, Root reauthenticates the same eleven-file packet/brief and sends
-Claude the independent launch task. Orca acceptsctx_67e826bb6fa1/
-task_81017cb416c6, ready on the retained lane. Claude now delivers four frozen unexecuted files and24 authored/unrun partial
-controls. The exact pinned interpreter lacks os.waitid, which its gate requires;
-Root verifies that capability directly. Independent source review reports
-further custody/evidence/protocol/control gaps; no launch source is selected
-or runtime-admitted. Grok's specific worker is verified live; Root waits for
-its explicit report wake before paired first-delivery selection. See the
-[delivery record](reviews/2026-11-05-T10.010.004-db-launch-root.md#claude-first-delivery-frozen-native-api-gap-verified).
+Both independent launch first deliveries are now frozen and source-reviewed.
+Claude24 and Grok74 authored controls remain unrun. All six Python bodies
+compile without import; Ruff reports three unused imports for Claude and
+passes for Grok. Both receive11/20 for this source task, with material native
+wait/custody, protocol, evidence and harness gaps. Neither is selected or
+runtime-admitted. Root keeps the exact interpreter fixed and requests a bounded
+native-custody design before safe fake controls/repair. One raced Grok wrap-up
+follow-up fails readiness; the original source task remains delivered and no
+restart/terminal-exit assumption follows. See the
+[paired assessment](reviews/2026-11-05-T10.010.004-launch-suppliers.md).
+
+Root's pure check of the authenticated73-table/844-column catalog identifies
+two actual timestamp EXTRA clauses rejected by the current oracle. All844
+codec type profiles pass separately. Preserve those exact clauses; a narrow
+reviewed repair is needed. Independent full definitions/counts and supported
+B0 remain absent. This metadata finding does not qualify rows or restore and
+does not require a goal change.
 
 Root owns all runtime work. Refresh the exact owned VM/world/resources and
 personal projections before startup. Supported ordinary up can initialize/write
