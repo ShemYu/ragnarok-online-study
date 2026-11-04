@@ -114,7 +114,11 @@ services and valid local settings; otherwise backup can recreate/switch DBs.
 Current runtime preconditions remain unobserved. The
 [timestamp repair contract](reviews/2026-11-05-T10.010.004-timestamp-oracle-brief.md)
 and common five-file pure packet pass independent source design review;
-paired proposals and Root verification follow separately.
+Claude ctx_610aa37c9b67/task_106e34086ecb and Grok
+ctx_85a8a53c4d6b/task_c42600ade6c1 are now accepted ready on separate clean
+same-base branches with the identical prompt. Source delivery, Root controls
+and selection remain pending. Root awaits explicit report wakes; no runtime
+admission or audit closure follows from dispatch.
 
 Root owns all runtime work. Refresh the exact owned VM/world/resources and
 personal projections before startup. Supported ordinary up can initialize/write
