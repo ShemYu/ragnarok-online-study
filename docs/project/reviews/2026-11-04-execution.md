@@ -1105,3 +1105,16 @@ ready on separate Claude/Grok worktrees. Root confirms both initial bases are
 exact972ba115 and both receive the same frozen brief/packet. Source candidates
 and causal tests are pending; runtime remains solely Root-owned and stopped.
 See [dispatch bindings](2026-11-04-T10.010.004-root.md#equal-interpreter-report-repair-dispatched).
+
+Claude847fc6d1 passes Root's isolated101-test run, all private replays enabled,
+no skips/1411 protected files unchanged. Root's old-producer causal copy yields
+the expected five failures; syntax/pinned Ruff pass. Its settled worker is
+released. Grok remains independent/in progress; repair selection is pending.
+See [source verification](2026-11-04-T10.010.004-root.md#claude-interpreter-repair-personally-source-verified).
+
+Root stages/pins999files/107278460bytes for the fresh Renewal world without
+invoking binaries or copying personal state/saves. A sidecar-equality refusal
+is retained; primary packaging source documents post-sign byte differences,
+so actual hashes and retained pre-sign metadata are bound separately. Root
+identifies the existing direct managed browser route; actual launch and
+assets/Chinese/image/port/mount/DB bindings stay open. See [staging evidence](2026-11-04-T10.010.004-root.md#fresh-host-payload-staged-without-runtime-execution).

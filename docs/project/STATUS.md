@@ -51,6 +51,13 @@ ctx_4a650aee54f7. They receive one identical brief/packet and own separate three
 file candidates without runtime access. Results and Root selection are pending;
 the VM remains stopped. Orca wakes Root when reports arrive; do not inbox-poll.
 
+Claude847fc6d1 has now passed Root's isolated101-test run with all four private
+replays enabled and no skips; all1411 protected files remain unchanged. The
+same new tests against the old producer yield the expected five failures.
+Shell syntax/pinned Ruff pass; independent source review finds no gap. Its
+settled terminal is released, branch retained. Grok is still preparing its
+independent candidate. Neither repair is selected/integrated yet.
+
 The [ordinary fixtures](tasks/T10.010.004-ordinary-fixtures.md) comparison is
 closed after both suppliers correct the200-row source-budget counterexample.
 Root verifies both on isolated archives with all15 protected files unchanged.
@@ -66,6 +73,13 @@ not disable successful up's final pruning of unused untagged images. Retain
 owned A/B tags and admit that Engine-wide side effect. The complete fresh
 supervisor/config/SQL/mod/client payload and actual image/port/mount bindings
 remain to be qualified; source inspection does not initialize a world.
+Root stages999 independent regular files/107278460bytes for the fixed Renewal
+test, pins every copied byte/mode and confirms current source identities stay
+unchanged during readback. No binary is invoked and state/saves remain absent.
+Pre-sign checksum sidecars are retained separately from actual executable hashes;
+their mismatch does not establish corruption or these files' signing provenance.
+The source-supported direct managed asset-server route is identified; actual
+RemoteClient protocol, client assets/Chinese overlay and world launch stay open.
 
 ## Four audit tasks remain open
 
