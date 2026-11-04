@@ -24,7 +24,7 @@ FULL MODERN / RENEWAL PERSONAL GAME
 |   [x] Actual44 stock-selected URLs / empty payload / owned cleanup
 |   [x] Complete GCC host measurement / exact raw identity / child cleanup
 |   [ ] Dependency noarch repair [CURRENT; source comparison]
-|   [ ] Remaining33 downloads + retained noarch requalification -> signed47
+|   [ ] Remaining33 host downloads [PARALLEL] -> signed47
 |   [ ] Qualified dependencies -> full builds -> ordinary-item A/B
 |   [ ] Binary/mod/text gate [SOURCE INTEGRATED; RUNTIME OPEN]
 |   [ ] Real EXP/callback/save [ANALYSIS INTEGRATED; RUNTIME OPEN]
@@ -60,11 +60,11 @@ The separate4GiB build VM passes actual image/resource/cleanup checks and is
 stopped. Exact-base parsing/fetch source is integrated; the guest parses47
 solver rows without base upgrades. The300s bulk fetch times out, so Root
 captures all44 exact URLs and verifies a complete54.7MB GCC host transfer.
-Ten repository files now have Root raw-byte verification. A complete
-architecture-independent git-init-template is quarantined by an overly strict
-architecture gate;33 files remain unattempted. Equal source-only Claude/Grok
+Eleven repository files now pass Root host checks, including the retained
+noarch file requalified without redownloading. Thirty-three fresh v4 transfers
+are admitted independently of the public architecture-gate repair. Equal source-only Claude/Grok
 repairs are running from the same base before all47 stock-key/install/closure
-qualification. All host handles are terminal; no full compiler has run.
+qualification. The host collection remains bounded; the VM is stopped and no full compiler has run.
 
 Release-gate source and reward/save analysis are integrated within their
 recorded limits. Their actual runtime pins and native/game/save gates remain

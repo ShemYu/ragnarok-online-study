@@ -23,18 +23,18 @@ not percentages of playable content, translation or remaining effort.
 
 ## Current action — repair dependency architecture checks
 
-Actual host work verifies **10/44 repository files**. One additional complete
-10347-byte git-init-template APK declares noarch and is quarantined by the
-old aarch64-only gate. Its signatures/install remain unqualified;33 selected
-files have not completed acquisition. All host handles are terminal/reaped and
-the separate save-free build VM is stopped. No personal game/SQL action occurs.
+Root host checks now cover **11/44 repository files**, including the previous
+complete noarch transfer requalified without redownloading. Signatures/install
+remain unqualified. Continue the33 fresh v4 plans at max two live helpers,
+128MiB reserved each under512MiB, with bounded retries and stop/drain on failure.
+The separate save-free build VM remains stopped; no personal game/SQL action occurs.
 
 Claude/Grok [noarch repairs](tasks/T10.010.004-dependency-noarch.md) are running
 from the same26bb3781 base, confirmed in both checkouts. Accept native-target or architecture-independent
 dependency metadata, preserve actual arch and bind verification-row/raw/local
 plan agreement. Keep signatures, raw SHA/Q1/installed-C/base26 and ARM64 VM/
-ABI/ELF requirements intact. Root reviews the private host-helper correction
-and may acquire remaining files independently after a new admission. Do not
+ABI/ELF requirements intact. The private host correction/controls are verified
+and its33-file admission is committed before execution. Do not
 integrate changed public recipe pins while any old host helper is live.
 See [actual refusal and next source repair](reviews/2026-11-04-T10.010.004-root.md#actual-noarch-package-exposes-a-dependency-validation-defect).
 

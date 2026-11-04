@@ -909,3 +909,11 @@ Claude terminal after verifying its state; transcript/branch/commits remain.
 Root next reviews the independent private host correction before new admission.
 No candidate or runtime result is inferred from worker activity. See [dispatch
 and release](2026-11-04-T10.010.004-root.md#equal-noarch-workers-start-old-settled-session-released).
+
+Root reviews the private v4 host correction and eight pure controls. The
+previous complete noarch transfer is requalified from its original bound
+HTTP/cleanup/body evidence without redownloading or changing the old refusal.
+Repository candidates are11/44; stock authentication remains open. Root
+prepares/reviews33 fresh v4 plans for bounded max-two acquisition in parallel
+with supplier source work. Public source integration waits for terminal host
+handles. See [host checks, provenance and admission](2026-11-04-T10.010.004-root.md#host-noarch-correction-verified-retained-transfer-requalified).
