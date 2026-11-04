@@ -1318,3 +1318,12 @@ fields and five startup errors unresolved. Commit this checkpoint, then admit
 same-version diagnostic reuse of the initialized disposable DB/network, with
 mutable generated-content deltas and immutable inputs/personal state protected.
 No client/item/parser/story/save gate or additional audit task closes.
+
+
+After partial checkpoint238937bd is committed/pushed, Root and Astra source-
+review a generic bounded non-Upgrade exec capture helper. Root's ten modeled
+cases and real local Unix HTTP response pass: complete77-byte framed body/prefix
+survives headers/body in one send and close-delimited EOF; nine modeled faults
+refuse. Compilation/Ruff pass. See [source/local controls](2026-11-04-T10.010.004-root.md#non-upgrade-exec-capture-source-and-local-controls).
+Commit before initialized-world continuation. No actual Engine exec, VM restart,
+generated-mount or completed process-identity result is inferred.

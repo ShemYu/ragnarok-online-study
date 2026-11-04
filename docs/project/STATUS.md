@@ -47,8 +47,14 @@ independently replays nine resource files, the service projection/three negative
 controls and ordered shutdown; all64 terminal files remain unchanged. See
 [the actual partial result](reviews/2026-11-04-T10.010.004-root.md#initialized-startup-partial-process-readback-incomplete).
 
-**Next:** commit the partial-result replay, then source-review/admit a
-same-version diagnostic restart of this initialized disposable world. Preserve
+**Capture source/local controls pass.** Partial-result checkpoint238937bd is
+committed/pushed. The generic Engine-API helper passes Root review, Astra source
+review, ten modeled cases and a real local Unix HTTP close-delimited prefix/EOF
+test. No actual Engine exec follows from those controls. See
+[capture checkpoint](reviews/2026-11-04-T10.010.004-root.md#non-upgrade-exec-capture-source-and-local-controls).
+
+**Next:** commit these controls, then source-review/admit a same-version
+diagnostic restart of this initialized disposable world. Preserve
 its DB volume/network and freeze the same Renewal/mod selection; ordinary up
 repeats schema/grant/config operations. Refresh current world/output inventory,
 not the old first-use loader. Complete API process/generated-mount readbacks,
