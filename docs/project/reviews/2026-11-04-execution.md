@@ -542,3 +542,15 @@ or alternate publication route is used. Root retains the local checkpoint
 and will retry later. The hosted source/CI cannot yet be claimed updated;
 local source verification remains valid. Independent dependency-repair work
 continues in its frozen branches.
+
+
+## Publication recovered and hosted CI qualified
+
+A later normal push succeeds through107e352. Root's fresh ls-remote matches
+the feature HEAD; origin/main remains c6314bbd. No rule/config/force change
+is made. Hosted Source checks run41816752719 completes successfully on that
+exact head, including the new release/withdrawal fixture step. This resolves
+the publication failure above and validates source CI only. The full native
+build and game/runtime acceptance remain open. Both dependency workers are
+confirmed live/in_progress; EXP/save source analysis and image-import source
+readiness can proceed independently while they implement.

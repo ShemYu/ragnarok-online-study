@@ -14,11 +14,11 @@ See [audit findings](reviews/2026-10-29-T00.005.md),
 [current execution record](reviews/2026-11-04-execution.md).
 Feature-branch checkpoints/publication remain authorized; `origin/main` stays
 unchanged. No additional local-main merge is part of this execution checkpoint.
-Publication note: local release-gate integration/checkpoint `34876e5` is
-verified, but two normal pushes return GitHub Internal Server Error. Remote
-feature remains `7217a81`; the new source and this documentation are committed
-locally and awaiting publication. Root will retry later without rule/config
-changes or force-push. This does not block independent local source work.
+Publication recovered: a later normal retry publishes the release-gate source
+and checkpoint `107e352`; remote feature equals that commit and `origin/main`
+remains unchanged. [Hosted source CI](https://github.com/ShemYu/ragnarok-online-study/actions/runs/41816752719)
+passes, including the new explicit release-gate step. The earlier server-error
+attempts remain recorded in the execution history; no rules/config are changed.
 
 Three of seven audit tasks are now `self_verified` and integrated:
 [T00.006 safe verification](reviews/2026-11-04-T00.006-root.md) and
@@ -63,6 +63,11 @@ versions, personal service projections and owned cleanup pass. Next: the
 exact-base resolution with retained signed package bytes before a full build.
 Claude/Grok source-only repairs are now dispatched from the same30439b1 base;
 both report ready. Root retains serial runtime ownership and the VM is stopped.
+The [EXP/callback/save analysis brief](tasks/T10.010.006.md) freezes the freshly
+reverified source and explicitly unknown effective EXP facts for parallel
+work. [Image source readiness](reviews/2026-11-04-T10.010.004-image-source.md)
+also finds the existing single-COPY build path is implemented; actual image
+creation and all runtime reward/save checks remain open.
 No personal RAM adjustment/restart, game/DB service or progress write occurs.
 
 Pre-merge maintenance: lint/CI checkpoint `86e98d9` is verified. At the user's
