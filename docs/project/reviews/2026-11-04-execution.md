@@ -1280,3 +1280,12 @@ source; Root's eight modeled controls and v2 read-only stopped preflight pass
 1898 inputs/six payloads. See [source checkpoint](2026-11-04-T10.010.004-root.md#supported-first-start-source-and-stop-controls).
 Commit before preparation. No phase, VM/game/DB/SQL or client is started;
 actual process/mount/registration/parser/item/save results remain open.
+
+
+After source e32e4933 is committed/pushed, first-start preparation session5595
+exits0. Root's non-consuming admission session26152 passes1902 pins/six
+payloads, original resource payload, exact policy/environment/image IDs,
+current stopped ownership/resources/ports and no execution markers. Astra
+pure-file review agrees. Commit [the admission](2026-11-04-T10.010.004-root.md#supported-first-start-prepared-admission)
+before one supported isolated startup. No game/DB/SQL or client has started;
+actual runtime and all four audit tasks remain open.

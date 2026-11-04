@@ -70,8 +70,14 @@ without escalation; ambiguity preserves the VM. Read-only preflight passes
 modeled results, not actual SQL/service evidence. See
 [startup source checkpoint](reviews/2026-11-04-T10.010.004-root.md#supported-first-start-source-and-stop-controls).
 
-**Next:** prepare/admit supported startup in the disposable world using its own
-state and the owned Engine. Verify actual generated conf/NPC mount access and process
+**First startup is prepared/admitted, not consumed.** After source
+checkpoint e32e4933 is committed/pushed, Root prepares the one-use phase and
+verifies1902 pins, six payloads, unchanged resource upload, exact environment/
+policy/current stopped ownership and unused execution markers. Astra agrees
+in pure-file review. See [prepared admission](reviews/2026-11-04-T10.010.004-root.md#supported-first-start-prepared-admission).
+
+**Next:** commit this admission, then execute supported startup in the
+disposable world using its own state and the owned Engine. Verify actual generated conf/NPC mount access and process
 identity; the diagnostic does not qualify those future mounts. Fresh host
 state alone does not isolate an Engine's fixed
 container names or DB volume. Verify their absence, images, mounts, six ports,
