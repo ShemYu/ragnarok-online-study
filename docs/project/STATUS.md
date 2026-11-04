@@ -21,67 +21,52 @@ ledger remains **4/14 checkpoints qualified**: one accepted and three ready
 for user review, with **82 resource gaps open**. These are separate ledgers,
 not percentages of playable content, translation or remaining effort.
 
-## Current action — verify the live memory-adjusted compiler
+## Current action — repair the compiler's interpreter-report capture
 
-The fresh v4 dependency closure remains Root-qualified:47 stock-key/offline
-installs, exact retained raw/PLAN/installed identities and original26 packages
-pass. Root independently replays123 output files and records177 evidence pins.
-The equal ordering comparison is closed; Claude17c8a233 is retained as1ac079c7.
-Both ordering-worker terminals are released, branches preserved.
+The qualified dependency-v4 closure and original26-package base remain fixed.
+The2560MiB retry compiles **both full server variants**, exits0/no timeout
+in844.1s and exports271896576bytes. Root independently re-extracts104 files,
+checks exact hashes,47 raw/PLAN/installed identities, base26, native cgroups,
+Renewal/builtin markers, distinct binaries and tar owners/modes.
 
-**The first full offline compiler fails.** Under the1536MiB cap, cc1plus is
-killed while compiling unpatched population_engine.o. The owned VM's kernel
-log names that exact container with CONSTRAINT_MEMCG, confirming a compiler
-cgroup OOM. Root re-extracts the failed export:47 offline dependency joins and
-base26 still pass; no full binary is exported. Resource/extract/crash-trace/
-configure passed first. See [failure and kernel proof](reviews/2026-11-04-T10.010.004-root.md#first-full-compiler-fails-at-confirmed-cgroup-oom).
+**Overall build qualification is refused.** guest_build.sh captures only the
+first two wrapped INTERP lines from readelf, omitting the interpreter path.
+Root and independent review directly parse both ELF program-header tables and
+find the expected /lib/ld-musl-aarch64.so.1. This is a report-producer defect;
+the strict validator and original refused evidence stay unchanged. Exec54479
+is terminal, phase5 is consumed/failed, and neither may be replayed. See
+[actual compiler result](reviews/2026-11-04-T10.010.004-root.md#both-variants-compile-interpreter-report-refuses-qualification).
 
-Both owned containers are deleted/404, VM shutdown exits0 and the owned daemon
-departs. Personal five-service projections are byte-identical. Exec42607 is
-terminal; full-build phase4 is consumed/failed and must not be replayed.
-The failed evidence and successful dependency qualification stay preserved.
-No game/SQL/save writes or goal change occur.
+Both owned containers are deleted/404; VM shutdown exits0, daemon departs and
+personal five-service projections are byte-identical. Root confirms the owned
+stopped binding. No images, game, SQL or saves were changed. The earlier1536MiB
+OOM remains preserved separately. The [equal narrow repair](tasks/T10.010.004-interpreter-report.md)
+changes only guest capture, focused regression tests and its source report.
+Root must verify/select it, then prepare/review/commit a fresh admission before
+another serial actual compiler run. No goal change is indicated.
 
-Root/Astra review recommends a fresh2560MiB compiler cap inside the same4GiB
-VM,2CPUs/jobs1 and unchanged768MiB reserve. Require fresh MemAvailable at least
-3489660928bytes before compilation. Only new private controller/wrapper
-versions and resource bindings are needed; source/toolchain/flags/ABI/offline
-controls stay fixed. The historical dependency threshold remains unchanged.
-Fresh controller-v2/wrapper-v5 source is now Root/Astra reviewed:only resource
-literals, controller pin/import and new output bindings change. Root's19 fixed
-pins and177 qualification pins pass. Fresh PLAN/PHASE5 is prepared; Root checks
-201 pins/six payloads,56 upload members/47 raw identities, exact new resource
-values and the current owned stopped-state binding. Execution markers are
-absent at review; independent Astra finds no blocker. [Admission](reviews/2026-11-04-T10.010.004-root.md#fresh-memory-adjusted-compiler-admission)
-is committed/pushed4cca3dae before the new serial run. Its token is consumed.
-Root confirms fresh available3959771136bytes exceeds the3489660928 gate,
-resource/base26 pass, and the exact running compiler's native cgroup matches
-the2.5GiB plan. Extract/crash-trace/configure pass; unpatched make is running.
-Live exec54479 owns the controller:resume it and inspect existing files, never
-replay phase5. Full output, final cleanup/personal comparisons remain pending.
+The [ordinary fixtures](tasks/T10.010.004-ordinary-fixtures.md) comparison is
+closed after both suppliers correct the200-row source-budget counterexample.
+Root verifies both on isolated archives with all15 protected files unchanged.
+Claude fbf1fcc6 is selected/integrated as four exact blobs: simpler while loop,
+426-goto bound, adjacent probes and the additional enchant-grade field. Grok
+48cb6e39 also passes source review with conservative44624-command/1729-goto
+bounds. Both workers are released and branches retained. This is a task-local
+source choice; actual parsing,200-row completion/capture, effective items,
+probe purity and persistence remain open. See [selection](reviews/2026-11-04-T10.010.004-root.md#ordinary-fixture-comparison-closed-claude-selected).
 
-The independent [ordinary-item fixture](tasks/T10.010.004-ordinary-fixtures.md)
-lane uses the same ced65a38 base and frozen eight-file packet. Claude's first
-8e24ad10 candidate has a source-derived200-row logging
-budget counterexample and a report scope error; the [equal follow-up](tasks/T10.010.004-fixture-budget.md)
-requires correction without disabling guards. Grok's first2008f8cd candidate
-also fails the source budget case; corrected comparison remains open.
-Claude's correctedfbf1fcc6 passes Root's isolated archive/static/source review:
-all15 protected files unchanged, complete fields/format arity, source budget
-42200 commands/426 gotos at200rows. Actual parsing/budget/capture remain open.
-Its exact settled worker is released, branch preserved. Grok's repair is
-confirmed ready/live asctx_61e23d0785f8 and has read the budget message; revised
-output is pending. Use that current dispatch, not the old settled handle.
-Neither candidate is selected or parser/runtime-qualified. Workers
-have no VM/game access. Root alone owns live exec54479. See [current runtime
-and fixture evidence](reviews/2026-11-04-T10.010.004-root.md#memory-adjusted-run-live-and-one-fixture-source-verified).
+Root also corrects the ordinary-item runbook: omitting the image bundle does
+not disable successful up's final pruning of unused untagged images. Retain
+owned A/B tags and admit that Engine-wide side effect. The complete fresh
+supervisor/config/SQL/mod/client payload and actual image/port/mount bindings
+remain to be qualified; source inspection does not initialize a world.
 
 ## Four audit tasks remain open
 
 - **T10.010.004 — full binaries and ordinary items.** Selected exact-fetch
   source is integrated as `73014940`; dependency closure is now Root-qualified.
-  The memory-adjusted serial run is live; verify corresponding
-  unpatched/patched full binaries, export/read back
+  Both variants compile, but report capture refuses qualification. Correct the
+  producer, verify a fresh comparable pair, then export/read back
   immutable images, start in isolated state and verify ordinary stack/new-slot,
   weight/full-bag, equipment/rental/GUID and save/re-entry behavior. The capacity
   probe must remain read-only. Use the [ordinary-item runbook](runbooks/T10.010.004-ordinary-item-verification.md)

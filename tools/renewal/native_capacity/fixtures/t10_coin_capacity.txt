@@ -1,0 +1,50 @@
+//===== T10.010.004 patched-only capacity probe fixture =====================
+//= Load ONLY on the patched map server after Root qualifies builtin
+//= registration and effective item 1001972. Source-only candidate: parser,
+//= placement, GM group and console capture are UNQUALIFIED.
+//= One GM level 99 interaction calls the no-argument builtin twice with no
+//= yield or snapshot between calls (before/after snapshots only, for the
+//= stock command budget). It grants, reserves and deletes nothing and writes
+//= no persistent variable. Return meanings (exact): 1 = Ch1_Root_Coin x10 fits
+//= now, 0 = native capacity refusal, -1 = unsupported actor/item/config.
+//= A logged value is not proof of the read-only contract or expected result.
+//= Marker: T10CC case=coin_capacity phase=<before|after|result> ...
+//=============================================================================
+prontera,151,150,4	script	T10 Coin Capacity#t10cc	4_M_MANAGER,{
+	if (getgmlevel() < 99) {
+		mes "[T10 Coin Capacity]";
+		mes "GM level 99 required.";
+		close;
+	}
+	mes "[T10 Coin Capacity]";
+	mes "Two read-only capacity calls.";
+	mes "Rows/weight go to the map-server console.";
+	if (select("Run both calls now", "Cancel") != 1) {
+		close;
+	}
+	.@run = gettimetick(0);
+	callsub L_Snap, "T10CC case=coin_capacity phase=before run=" + .@run;
+	.@r1 = ros_ch1_coin_capacity();
+	.@r2 = ros_ch1_coin_capacity();
+	callsub L_Snap, "T10CC case=coin_capacity phase=after run=" + .@run;
+	debugmes "T10CC case=coin_capacity phase=result run=" + .@run + " r1=" + .@r1 + " r2=" + .@r2 + " legend=1:fits,0:native_refusal,-1:unsupported";
+	mes "Returns: " + .@r1 + " / " + .@r2;
+	mes "Root must verify state is unchanged.";
+	close;
+
+// getarg(0)=marker key. callsub runs this in a NEW .@ scope; the key is passed
+// in. Reads only, no yield. Budget: one sprintf debugmes per row in a while
+// loop (see the T10.010.004 fixture review for the compiled-command bound).
+L_Snap:
+	.@k$ = getarg(0);
+	getinventorylist;
+	.@n = @inventorylist_count;
+	debugmes sprintf("%s actor_cid=%d actor_aid=%d epoch=%d tick=%d weight=%d maxweight=%d count=%d", .@k$, getcharid(0), getcharid(3), gettimetick(2), gettimetick(0), Weight, MaxWeight, .@n);
+	.@i = 0;
+	while (.@i < .@n) {
+		debugmes sprintf("%s row=%d idx=%d id=%d amount=%d identify=%d refine=%d attribute=%d cards=%d,%d,%d,%d bound=%d expire=%d equip=%d enchantgrade=%d", .@k$, .@i, @inventorylist_idx[.@i], @inventorylist_id[.@i], @inventorylist_amount[.@i], @inventorylist_identify[.@i], @inventorylist_refine[.@i], @inventorylist_attribute[.@i], @inventorylist_card1[.@i], @inventorylist_card2[.@i], @inventorylist_card3[.@i], @inventorylist_card4[.@i], @inventorylist_bound[.@i], @inventorylist_expire[.@i], @inventorylist_equip[.@i], @inventorylist_enchantgrade[.@i]);
+		.@i++;
+	}
+	debugmes .@k$ + " end rows=" + .@n;
+	return;
+}

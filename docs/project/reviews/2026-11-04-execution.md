@@ -1078,3 +1078,24 @@ protected files unchanged, format/source/budget checks and corrected426-goto
 derivation. This remains source-only; the settled worker is released/branch
 retained. Grok's current repairctx_61e23d0785f8 is confirmed live and reading
 the budget message. See [live gates and source verification](2026-11-04-T10.010.004-root.md#memory-adjusted-run-live-and-one-fixture-source-verified).
+
+Compiler5 now completes both full variants, exit0/no timeout in844.1s, but the
+strict postvalidator refuses incomplete ELF interpreter-report capture. Root
+replays104 raw-export files,47 identities/base26/cgroups and both native ELF
+PT_INTERP paths. The defect is the guest grep context, not an observed native
+interpreter mismatch. Original failed admission/evidence remain fixed; source
+repair and a fresh actual run are required. Both containers are deleted/404,
+VM down/stopped binding passes and personal projections remain identical.
+See [actual result and equal repair brief](2026-11-04-T10.010.004-root.md#both-variants-compile-interpreter-report-refuses-qualification).
+
+Grok48cb6e39 passes Root's final archive/source/static budget review after the
+report clarification, with15 protected files unchanged. Both fixture suppliers
+meet the amended source contract. Root selects Claude fbf1fcc6 as four exact
+blobs for simpler control flow and guard margin; actual parsing/items/purity/
+persistence stay open. Both exact settled terminals are released and branches
+retained. See [comparison and selection](2026-11-04-T10.010.004-root.md#ordinary-fixture-comparison-closed-claude-selected).
+
+Fresh-world source review also corrects the runbook: no bundle does not skip
+successful up's final unused-untagged-image prune. Retain owned A/B tags and
+admit the Engine-wide side effect. Complete payload and actual image/port/
+mount/service bindings remain open; no world startup occurred.

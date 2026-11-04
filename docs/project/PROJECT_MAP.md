@@ -2,7 +2,7 @@
 
 Updated: 2026-11-05 JST. **Seven-task execution active.**
 All three prerequisite source/tooling tasks are integrated. Root's actual
-binary experiment is next; release-gate and reward/save source are integrated. See
+binary experiment compiled both variants; report repair is next; release-gate and reward/save source are integrated. See
 [the detailed next actions](NEXT_ACTIONS.md) and [audit](reviews/2026-10-29-T00.005.md).
 
 ```text
@@ -29,8 +29,8 @@ FULL MODERN / RENEWAL PERSONAL GAME
 |   [x] Final supplier comparison [both verified; terminals released]
 |   [x] Fresh successful normal closure [ROOT QUALIFIED; v4]
 |   [x] Offline compiler admission [FAILED RUN PRESERVED; token consumed]
-|   [ ] Full unpatched/patched builds [2.5GiB RUN LIVE; unpatched make]
-|   [ ] Ordinary-item NPC fixtures [CLAUDE SOURCE VERIFIED; GROK REPAIR LIVE]
+|   [ ] Full unpatched/patched builds [COMPILED; REPORT GATE REFUSED]
+|   [ ] Ordinary-item NPC fixtures [CLAUDE SOURCE SELECTED; PARSER OPEN]
 |   [ ] Immutable binary readback -> ordinary-item A/B
 |   [ ] Binary/mod/text gate [SOURCE INTEGRATED; RUNTIME OPEN]
 |   [ ] Real EXP/callback/save [ANALYSIS INTEGRATED; RUNTIME OPEN]
@@ -62,40 +62,24 @@ The ledger remains **4/14 parent checkpoints qualified**, not 29% of the
 world/story completed. The content denominator and full-milestone estimate
 remain unfinished. Basic local play and saved progress are already available.
 Three of seven audit tasks are self-verified (about 43% by task count only).
-The separate4GiB build VM passes actual image/resource/cleanup checks and is
-stopped. Exact-base parsing/fetch source is integrated; the guest parses47
-solver rows without base upgrades. The300s bulk fetch times out, so Root
-captures all44 exact URLs and verifies a complete54.7MB GCC host transfer.
-All44 repository files now pass Root host checks; with3 matching dev inputs,
-the47-file manifest matches the frozen delta (122065747bytes,46aarch64/1noarch).
-All download children are reaped. Noarch and ordering repairs are selected and
-integrated after equal supplier checks. Claude17c8a233 is retained as1ac079c7;
-Root verifies97 Claude tests,101 Grok tests and7 common controls for each.
-The fresh v4 run passes normal resolve, all47 stock-key/offline installation
-and exact ordering gates. Root independently replays all123 saved output files,
-joins every retained raw identity to PLAN/installed C: and qualifies the closure
-for an offline compiler. Original26/keys stay unchanged. Both containers are
-deleted, VM stopped and personal projections identical. All settled noarch and
-ordering supplier terminals are released. The fresh offline compiler admission
-passes Root's201-pin/56-member/47-identity readback and independent Astra review.
-The first full compiler passes resource/base26 and offline dependency gates,
-then fails compiling population_engine.o. Exact-container kernel evidence
-confirms the1536MiB compiler cgroup OOM. Both containers are deleted/404, VM
-stopped and personal projections unchanged. No full binary is qualified; the
-consumed run stays failed. Root/Astra recommend2560MiB in the same4GiB VM with
-unchanged768MiB reserve and fresh3328MiB headroom gate. Prepare/review/commit a
-fresh resource-only admission before retry. The independent
-[fixture lane](tasks/T10.010.004-ordinary-fixtures.md) has Claude8e24ad10
-and Grok2008f8cd submitted; equal budget corrections and Root comparison/parser/
-item results remain open. New compiler-controller-v2/wrapper-v5 source passes
-Root's19 fixed/177 qualification pin checks and independent Astra review;
-fresh PLAN/PHASE5 also passes Root's201-pin/56-member/47-identity and current
-stopped-state review. Admission4cca3dae precedes the live retry. Root verifies
-fresh3959771136-byte headroom, original26 and actual2.5GiB compiler cgroups;
-unpatched make is running under exec54479. Output/final cleanup remain pending.
-Claudefbf1fcc6 passes Root's source-only fixture checks and its worker is
-released. Grok's current repairctx_61e23d0785f8 is confirmed live/read; comparison
-and real parsing/items remain open.
+The separate4GiB build VM is stopped. The actual dependency closure is
+Root-qualified: all47 raw/PLAN/installed identities join, base26 and trusted
+keys stay unchanged. Supplier ordering/noarch repairs are source-integrated.
+The first compiler's1536MiB cgroup OOM is preserved. The fresh2560MiB retry
+compiles both variants in844.1s with exit0/no timeout; Root replays104 exported
+files and checks dependency/cgroup/owner/ELF identities. Overall qualification
+still refuses incomplete interpreter-report capture. Both native ELF paths are
+correct; a narrow producer repair and fresh actual run are next. No image or
+runtime item result is qualified. Both containers are deleted/404, VM down and
+personal projections unchanged; exec54479 is terminal, phase5 cannot be replayed.
+
+Both ordinary-fixture candidates pass Root's source review after the equal
+budget correction. Claude fbf1fcc6 is selected as four exact blobs for simpler
+control flow and guard margin. Both settled workers are released, branches
+retained. Real parsing,200-row completion/capture, effective items, probe purity
+and persistence are still open. Fresh-world payload/image/port/mount admission
+also remains open; final app up can prune unused untagged images even without
+a bundle. See the [current result](reviews/2026-11-04-T10.010.004-root.md#both-variants-compile-interpreter-report-refuses-qualification).
 
 Release-gate source and reward/save analysis are integrated within their
 recorded limits. Their actual runtime pins and native/game/save gates remain

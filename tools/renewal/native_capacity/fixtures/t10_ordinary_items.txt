@@ -1,0 +1,74 @@
+//===== T10.010.004 ordinary-item fixture (common: unpatched + patched) =====
+//= Source-only candidate. Parser, placement, GM group, effective item data
+//= and console capture are UNQUALIFIED until Root loads it with @loadnpc in a
+//= disposable world. Only explicit GM level 99 menu choices grant fixed items.
+//= No OnInit, timers, persistent variables, deletion, stat/slot/weight writes,
+//= SQL, save, warp or privilege changes. Script completion is NOT action
+//= success: compare the before/after rows and native Weight/MaxWeight.
+//= Marker: T10OI case=<case> phase=<before|action|after> run=<tick> ...
+//=============================================================================
+prontera,150,150,4	script	T10 Ordinary Items#t10oi	4_M_MANAGER,{
+	if (getgmlevel() < 99) {
+		mes "[T10 Ordinary Items]";
+		mes "GM level 99 required.";
+		close;
+	}
+	mes "[T10 Ordinary Items]";
+	mes "Choose one bounded action.";
+	mes "Rows/weight go to the map-server console.";
+	.@c = select(
+		"Read inventory only",
+		"909 x2 ordinary",
+		"909 x3 ordinary",
+		"909 x1 ordinary (refusal probe)",
+		"909 x1 BOUND_CHAR",
+		"909 rental 3600s",
+		"1201 Knife x2 (may partially succeed)",
+		"1201 Knife x1 (slot/refusal probe)",
+		"1201 Knife +4 Fabre metadata x1",
+		"12900 x2 (if UniqueId=true)",
+		"12900 x1 (if UniqueId=true)",
+		"Cancel");
+	if (.@c < 1 || .@c > 11) {
+		close;
+	}
+	setarray .@case$[1], "read", "909x2", "909x3", "909x1", "909bound_char", "909rent3600", "1201x2", "1201x1", "1201ref4_fabre", "12900x2", "12900x1";
+	setarray .@cmd$[1], "none", "getitem 909,2", "getitem 909,3", "getitem 909,1", "getitembound 909,1,BOUND_CHAR", "rentitem 909,3600", "getitem 1201,2", "getitem 1201,1", "getitem2 1201,1,1,4,0,4002,0,0,0", "getitem 12900,2", "getitem 12900,1";
+	.@run = gettimetick(0);
+	callsub L_Snap, "T10OI case=" + .@case$[.@c] + " phase=before run=" + .@run;
+	if (.@c == 1) {
+		mes "Read-only snapshot logged.";
+		close;
+	}
+	debugmes "T10OI case=" + .@case$[.@c] + " phase=action run=" + .@run + " cmd=" + .@cmd$[.@c] + " epoch=" + gettimetick(2);
+	if (.@c == 2) getitem 909,2;
+	else if (.@c == 3) getitem 909,3;
+	else if (.@c == 4) getitem 909,1;
+	else if (.@c == 5) getitembound 909,1,BOUND_CHAR;
+	else if (.@c == 6) rentitem 909,3600;
+	else if (.@c == 7) getitem 1201,2;
+	else if (.@c == 8) getitem 1201,1;
+	else if (.@c == 9) getitem2 1201,1,1,4,0,4002,0,0,0;
+	else if (.@c == 10) getitem 12900,2;
+	else if (.@c == 11) getitem 12900,1;
+	callsub L_Snap, "T10OI case=" + .@case$[.@c] + " phase=after run=" + .@run;
+	mes "Command returned; outcome UNVERIFIED.";
+	mes "Compare console before/after rows.";
+	close;
+
+// getarg(0)=marker key. callsub runs this in a NEW .@ scope; the key is passed
+// in. Reads only, no yield. Budget: one sprintf debugmes per row in a while
+// loop (see the T10.010.004 fixture review for the compiled-command bound).
+L_Snap:
+	.@k$ = getarg(0);
+	getinventorylist;
+	.@n = @inventorylist_count;
+	debugmes sprintf("%s actor_cid=%d actor_aid=%d epoch=%d tick=%d weight=%d maxweight=%d count=%d", .@k$, getcharid(0), getcharid(3), gettimetick(2), gettimetick(0), Weight, MaxWeight, .@n);
+	.@i = 0;
+	while (.@i < .@n) {
+		debugmes sprintf("%s row=%d idx=%d id=%d amount=%d identify=%d refine=%d attribute=%d cards=%d,%d,%d,%d bound=%d expire=%d equip=%d enchantgrade=%d", .@k$, .@i, @inventorylist_idx[.@i], @inventorylist_id[.@i], @inventorylist_amount[.@i], @inventorylist_identify[.@i], @inventorylist_refine[.@i], @inventorylist_attribute[.@i], @inventorylist_card1[.@i], @inventorylist_card2[.@i], @inventorylist_card3[.@i], @inventorylist_card4[.@i], @inventorylist_bound[.@i], @inventorylist_expire[.@i], @inventorylist_equip[.@i], @inventorylist_enchantgrade[.@i]);
+		.@i++;
+	}
+	debugmes .@k$ + " end rows=" + .@n;
+	return;
+}
