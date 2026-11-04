@@ -41,15 +41,14 @@ preservation; all25 terminal files remain unchanged. No client relaunch is
 needed. The earlier macOS environment refusal and narrow normalization are
 preserved. These are scoped client checks, not rendering/game/item/save proof.
 
-**Next:** compare bounded source-only DB rehearsal plans from Claude/Grok under
-the [frozen brief](reviews/2026-11-05-T10.010.004-db-roundtrip-brief.md), then
-design/admit the integrated disposable run. Claude's source-only plan is
-delivered and Root-read; Grok's independent proposal remains pending. No
-candidate is selected. Root finds an image-pruning claim needing correction
-and requests a narrow Astra review of two semantic capture claims. Root retains/
-rehashes ten exact existing app Git objects for source verification;
-no VM/DB/client action occurs. See
-[initial plan review](reviews/2026-11-04-T10.010.004-root.md#claude-db-plan-delivered-initial-root-review).
+**Next:** implement/review the corrected disposable DB rehearsal design.
+Both independent source plans are Root-read and compared: Claude14/20,
+Grok12/20 for these initial plans only. Root selects Claude's quiescent
+full-snapshot sequence, combines Grok's interface/environment details and adds
+mandatory pruning/era/whole-data/completion corrections. Neither first plan
+is executable as written. The actual WC-observation/capture method and bounded
+actuator still need Root qualification; no new VM/DB/client action occurs. See
+[paired review and corrected contract](reviews/2026-11-05-T10.010.004-db-plan-root.md).
 Qualify a supported DB-only backup/restore and complete semantic readback
 before ordinary-item mutations. Use the same owned VM/world/client, refreshed
 1109-file world baseline, existing Chinese assets and bounded resources. Then
