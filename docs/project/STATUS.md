@@ -2,259 +2,123 @@
 
 Updated: 2026-11-04 JST. Owner: coordinating Codex.
 
-**The active thread goal resumes the seven expert-audit tasks with Orca workers.**
-The first three independent lanes are safe test isolation, provisional content
-coverage and reproducible native source/build preparation. They start with
-isolated source work. Runtime execution remains serial under Root, after fresh
-ownership/resource bindings and backup/restore checks. The installed game and
-existing saves have not been changed by this activation checkpoint.
-
-See [audit findings](reviews/2026-10-29-T00.005.md),
-[the seven tasks](NEXT_ACTIONS.md) and the
-[current execution record](reviews/2026-11-04-execution.md).
-Feature-branch checkpoints/publication remain authorized; `origin/main` stays
-unchanged. No additional local-main merge is part of this execution checkpoint.
-Normal feature publication recovers after a GitHub server-error retry:
-selected source/checkpoint47bfe3d is pushed, with origin/main unchanged.
-Later checkpoints through6d44abc4 are also confirmed published; origin/main
-remains c6314bbd.
-[Hosted source CI](https://github.com/ShemYu/ragnarok-online-study/actions/runs/41829538480)
-passes on6d44abc4, including the explicit release-gate step; later HEAD CI
-is not yet checked. No rules/config/force changes are made.
-
-Three of seven audit tasks are now `self_verified` and integrated:
-[T00.006 safe verification](reviews/2026-11-04-T00.006-root.md) and
-[T06.005.001 provisional ledger](reviews/2026-11-04-T06.005.001-root.md), and
-[T10.010.003 native preparation/recipe](reviews/2026-11-04-T10.010.003-root.md).
-Root checks the pairs, selects and rechecks integrated implementations. Fresh
-native preparation reproduces all nine pins; 20 preparation/45 recipe tests
-and the 133-case/9-mutant host check pass. All 82 functional gaps remain open.
-All six original supplier terminals are released. No full map-server build
-has started. The real private constructor suite remains 48/56 due to stale
-historical admission; its safe runner reports failure without canonical changes.
-The [release-gate source phase](tasks/T10.010.005.md) is now integrated from
-Claude candidate `b9038ee6` as `efa9af82` after Root compares both repaired
-candidates. Its common release/withdrawal reader and inventory machinery
-provide the simpler maintenance boundary. Root's integrated113 synthetic
-tests and real-mode refusals pass, with all644 tracked files unchanged.
-Runtime pins remain null; actual .005 release qualification is still open.
-The synthetic gate checks are added to the explicit public CI list; no
-installed-game action is performed. See [Root selection](reviews/2026-11-04-T10.010.005-root.md).
-The [current .004 ownership correction](reviews/2026-11-04-T10.010.004-root.md#ownership-correction-before-further-admission)
-finds four concurrent worlds. The completed resource probe and 1.27 GiB
-headroom refusal apply to the default instance. The later
-[target-bound personal probe](reviews/2026-11-04-T10.010.004-root.md#actual-personal-probe-and-save-preservation)
-passes: 7.75 GiB total but only 1.20 GiB available. All five service projections
-and four complete save-table outputs remain identical; three characters stay
-offline. Attributed stats confirm the balloon holds 5847 MiB of an 8192 MiB
-ceiling. The [actual separate 4 GiB build VM characterization](reviews/2026-11-04-T10.010.004-root.md#actual-build-only-vm-characterization-passes)
-now passes after correcting macOS process-column truncation: local image
-import, identity, own cgroup/limit readbacks,3.61 GiB available RAM and owned
-cleanup all pass. The unchanged1536+768 MiB gate is met. The VM is gracefully
-stopped, its probe deleted, and five personal service projections are identical.
-[The actual dependency attempt](reviews/2026-11-04-T10.010.004-root.md#actual-dependency-failure-and-next-diagnostic)
-then fails: the repository upgrades four frozen base packages and APK's trigger
-launcher exits127. Both owned containers are deleted and VM shutdown passes;
-no lock or full build is qualified. Astra/primary-source review identifies
-separate package-drift and closed-stdin leads. Matching APK candidates are
-now authenticated by the actual stock-key verifier. After removing a config
-file confound, the real closed/null control reproduces fchdir/child127 only
-with closed stdin; /dev/null completes the real reinstall and trigger. All26
-versions, personal service projections and owned cleanup pass. Next: the
-[equal dependency-recipe repair](tasks/T10.010.004-dependency-repair.md), then
-exact-base resolution with retained signed package bytes before a full build.
-Claude/Grok source-only repairs are now dispatched from the same30439b1 base;
-both report ready. Root retains serial runtime ownership and the VM is stopped.
-The corrected dependency recipe is now selected/integrated from Claude
-ada8cd77 as f1a3ee80. Root's76 tests (including all four retained APKs) pass,
-all638 tracked files stay unchanged, and both independent coherent-export
-counterexamples now refuse while the valid baseline passes. Grok35d7f3a
-lacks that join and predates delivery of the common correction; its
-continuation timeout is kept separate from candidate quality. Its correction
-continues as an alternative, with no main-path dependency. The fresh actual resolve authenticates all three local APKs, preserves
-the original26-package base and proposes47 installs with no base upgrades.
-It stops before installation because the parser skips APK's space-padded
-single-digit counters, producing38 rows. Root reproduces this and freezes
-[the same narrow correction](tasks/T10.010.004-dependency-repair-3.md).
-Claude d58059e9 is now selected/integrated as67efe092 after Root81 tests,
-unchanged638 files and direct actual-log/refusal controls. A fresh replay
-phase reaches a readiness refusal before any container/package action.
-A separate GET-only diagnostic captures the correct tuple in three samples.
-Root adds a40s readiness retry with the same exact predicate and retained
-observations; four modelled controls and independent review pass. A fresh
-retry captures187 correct identity samples whose MemTotal is one4KiB
-page above the old snapshot. Root restores the original characterized
-3800–4096MiB band; pinned4096MiB config/control and the fresh1536+768MiB
-available-memory gate stay unchanged. Seven controls and narrow review
-pass. Fresh phase6 now passes actual resources/base/signatures and parses
-all47 solver rows correctly. Its first exact package fetch refuses before
-installation. Root's pinned upstream source review identifies a nonrecursive
-lookup defect and a proposed full-package-field workaround. The equal
-[fetch repair](tasks/T10.010.004-dependency-repair-4.md) is Root-verified for
-source: Root selects Claude ea2f73d8 after86
-tests with zero skips and unchanged638 candidate-copy/656 main-worktree
-identities, plus source/independent review, Ruff and shell syntax. Four exact
-files integrate as73014940. The fresh actual resolve6/phase7 starts package
-downloads, then its300s batch step terminates before completion; total328.2s,
-no install. Root/Astra chooses actual stock-selected URL capture followed by
-a bounded host-transfer measurement and all-local qualification with all47
-real stock-key checks. The actual URL diagnostic now passes: Root verifies44
-exact HTTPS selections, no payload files, unchanged stock26/keys, deleted
-containers, stopped VM and identical personal projections. One measured host
-GCC download is next after source review/admission; transfer speed is unknown.
-Grok f9b146d9 fixes earlier inflation/fetch issues, but Root's direct replay
-still accepts three malformed uncounted actions; its32-local/16MiB limits
-also constrain this route. It remains unselected and its settled owned
-terminal is released with transcript preserved. Actual closure/full build
-remains unqualified. The first unretained readiness
-mismatch remains unclassified. The VM is stopped, both containers deleted
-and five personal service projections identical.
-The [EXP/callback/save source analysis](reviews/2026-11-04-T10.010.006-root.md)
-is selected/integrated from Claude2f2a610f as a75eeb2e after Root/Astra
-checks both repaired analyses. All17 pins and the5121-file source digest
-remain unchanged. The selected runbook preserves conditional ID collisions,
-carry contributors/save windows and native EXP expectations, distinguishes
-achievement callbacks from queued events, and leaves C4 skipped/not captured
-without a qualified observation method. .006 is still in_progress: actual
-reward/save/re-entry/restart/level-up remain unqualified.
-[Image source readiness](reviews/2026-11-04-T10.010.004-image-source.md)
-also finds the existing single-COPY build path is implemented; actual image
-creation and all runtime reward/save checks remain open.
-No personal RAM adjustment/restart, game/DB service or progress write occurs.
-
-Pre-merge maintenance: lint/CI checkpoint `86e98d9` is verified. At the user's
-subsequent request, the retired Godot/Character Lab source is preserved under
-tag `archive/legacy-prototypes-2026-10-25` and removed from the active tree.
-See [archive verification and recovery](reviews/2026-10-25-T00.003.md). The
-Renewal implementation and unfinished game gates remain unchanged.
-
-## Goal and current boundary
-
+**Seven-task execution is active. Root owns serial runtime verification.**
 The goal remains the full Modern/Renewal game on this Mac: maps, monsters,
-ordinary story/quests, persistent personal progress and eventual Traditional
-Chinese throughout. Functionality comes first. Party-only activities and
-solo adaptations remain a later phase. See [Goal](GOAL.md).
+ordinary story/quests, persistent progress and Traditional Chinese throughout.
+Functionality comes first; keep existing Chinese overlays enabled. Party-only
+activities and solo adaptations remain later-phase work. The exact episode
+and complete world/story coverage are unverified. See [Goal](GOAL.md).
 
-The local browser game is playable in tested scenarios. Complete world/story
-coverage is unverified. The ledger remains **4/14 parent checkpoints qualified**
-(one accepted, three ready for user review), with **82 resource gaps open**.
-This is not a percentage of playable content, effort or translation.
+**Only 3/7 audit tasks are `self_verified` and integrated:**
 
-## Unfinished work, in priority order
+- [T00.006 safe verification](reviews/2026-11-04-T00.006-root.md).
+- [T06.005.001 provisional coverage ledger](reviews/2026-11-04-T06.005.001-root.md).
+- [T10.010.003 native source preparation/build recipe](reviews/2026-11-04-T10.010.003-root.md).
 
-1. **Actual binary experiment.** T00.006, T06.005.001 and T10.010.003 are
-   integrated within their documented limits. T10.010.004's tiny resource probe
-   passed on both the default and correctly bound personal instance. A separate
-   build-only VM now passes actual headroom/ABI/cleanup. Diagnose the failed
-   dependency transaction, authenticate matching APKs and qualify exact-base
-   resolution before admitting a bounded actual build. Current personal recovery proof
-   remains required before later existing-state mutations. Full content stays open.
-   No broad discovery or stock
-   `checkweight` substitution. These address confirmed verification/release
-   gaps without changing the goal.
-2. **Native build for the 0.3.2 story extension.** Qualify the bounded
-   Linux/arm64 toolchain, exact dependencies/ABI, resource and deadline controls,
-   cancellation/cleanup and binary export. Compile the exact prepared source.
-   One discarded dependency container installs toolchain packages but fails its
-   trigger; no compiler closure, custom game image or binary is qualified.
-   The new builtin is unavailable in stock
-   binaries.
-   Personal ro4's balloon-held memory remains untouched. The separate build
-   VM passes actual limits/headroom and is stopped. Actual dependency closure
-   and full-build fit remain unproved; no full build is admitted yet.
-   See [the current ownership correction](reviews/2026-11-04-T10.010.004-root.md#ownership-correction-before-further-admission).
-3. **Native and normal story integration.** First qualify ordinary-item
-   behavior because the patch touches general insertion. Check script parsing, four actors,
-   state transitions, capacity/refusal cases, actual rewards, repeats, saves
-   and withdrawal in isolation. Then supported installation/full Apply and
-   normal journal/travel/progression checks. Source tests and isolated earlier
-   scenes do not close these normal-game gates.
-4. **Full world/content coverage.** Finish effective maps/spawns/monsters,
-   items/skills, NPCs, quest chains, instances, dynamic resources and the 82-gap
-   reconciliation. Declare the coherent version/content boundary and estimate
-   remaining work from it. Do not silently narrow the full-game goal.
-5. **Remaining Chinese and input coverage.** Keep current overlays enabled;
-   finish the unresolved UI, NPC/story/system text and real macOS IME checks
-   after functional work.
-6. **Final qualification and handoff.** Complete required coverage, offline,
-   performance and recovery checks, rehearse the user runbook and obtain
-   explicit milestone acceptance. Keep the Mac's internet connected.
+These scoped source/tooling completions do not close the four runtime audit
+tasks below. The [task board](TASKS.md) has **41 unfinished rows**. The parent
+ledger remains **4/14 checkpoints qualified**: one accepted and three ready
+for user review, with **82 resource gaps open**. These are separate ledgers,
+not percentages of playable content, translation or remaining effort.
 
-The [unfinished task board](TASKS.md) holds the remaining IDs, dependencies and
-next actions. The [ASCII map](PROJECT_MAP.md) shows the execution order.
+## Current action — repair dependency architecture checks
 
-## Historical last runtime baseline — refresh before runtime work
+Actual host work verifies **10/44 repository files**. One additional complete
+10347-byte git-init-template APK declares noarch and is quarantined by the
+old aarch64-only gate. Its signatures/install remain unqualified;33 selected
+files have not completed acquisition. All host handles are terminal/reaped and
+the separate save-free build VM is stopped. No personal game/SQL action occurs.
 
-- The user finished the personal playtest. Its tab is absent; all three
-  characters are offline. Assassin's latest position and all complete
-  character/quest/inventory/skill outputs are saved.
-- The fresh 13.57 MB whole-world backup passes supported inspection and Root's
-  exact 22-file manifest check. Backup and the later VM restart preserve all
-  four complete save-table outputs. Private backups/assets/credentials stay
-  outside Git.
-- The supported RAM setting is persisted at 8192 MiB. The restarted guest
-  reports 8318238720 bytes of kernel memory and four CPUs. All five new
-  services retain the prior images, mounts, configuration, ports and arguments;
-  the database volume and disk backing remain the same.
-- The complete 0.3.2 source is integrated at `3931f8f`; its corrected capacity
-  source passes 133 C++ cases and 120 NPC tests. This is source qualification,
-  with native parsing/rewards/persistence still pending.
-- At the pre-pause fleet check: 345 released, ten user-retained and zero
-  reclaimable. No compiler worker was launched before the pause.
+Compare the equal Claude/Grok [noarch repair](tasks/T10.010.004-dependency-noarch.md)
+from the same frozen base. Accept native-target or architecture-independent
+dependency metadata, preserve actual arch and bind verification-row/raw/local
+plan agreement. Keep signatures, raw SHA/Q1/installed-C/base26 and ARM64 VM/
+ABI/ELF requirements intact. Root reviews the private host-helper correction
+and may acquire remaining files independently after a new admission. Do not
+integrate changed public recipe pins while any old host helper is live.
+See [actual refusal and next source repair](reviews/2026-11-04-T10.010.004-root.md#actual-noarch-package-exposes-a-dependency-validation-defect).
 
-Evidence: [saved user state](reviews/2026-10-25-user-assassin-play.md#current-offline-saves-are-verified-after-the-test),
-[source integration](reviews/2026-10-25-T10.010.md#corrected-exact-capacity-source-passes-and-the-complete-package-is-integrated),
-[fresh backup](reviews/2026-10-25-T10.010.md#idle-saves-and-fresh-whole-world-backup-pass),
-[8 GiB restart](reviews/2026-10-25-T10.010.md#supported-idle-ram-restart-and-save-preservation-pass).
+After44 captured selections plus the three matching dev inputs reconcile,
+Root must review a pinned47-file manifest and admit fresh all-local resolution.
+Require all47 actual stock-key checks, exact frozen47 delta, unchanged complete
+26-package base/ABI, fresh cgroup/headroom evidence, offline install and owned
+cleanup. Resolve simulation remains online. The all-local/compiler wrappers
+are source-only drafts; rebind their architecture checks and source pins after
+selection before preparation. No closure or full build is qualified.
 
-## Current action and ownership
+Renew stopped VM ownership/resources before runtime; old IDs, consumed
+admissions and snapshots are not authority. Earlier stdin/parser/readiness/
+fetch/transfer results remain in the [dated Root record](reviews/2026-11-04-T10.010.004-root.md).
+The [pre-trim snapshot](HISTORY-2026-11-04-STATUS.md) preserves the full chronology.
 
-The three prerequisite source lanes are integrated. Root owns serial runtime
-execution/verification for .004; .005 source is integrated, with runtime
-pins deliberately unqualified. The .004 dependency recipe and .006 analysis
-source are selected/integrated; the counter-format repair is verified.
-The URL capture and revised complete GCC transfer are verified:54.7MB in254.5s,
-exact raw identity/hash and clean child exit. Repository files are9/44 verified;
-two zero-byte connection failures are safely drained. Execute35 fresh v3 plans
-with bounded native curl retries, max two live helpers and128MiB reserved each
-under a512MiB completed-plus-live cap. Stop on failure/unresolved cleanup.
-All47
-must still pass actual stock-key/raw-identity/offline-install qualification.
-Resolve6/phase7 is consumed; do not repeat it. The exact-fetch source remains
-Root-verified/integrated. Fresh build-only state initialization
-uses the workflow's isolated-new-state allowance; it does not establish
-current ro4 backup/restore qualification.
-Refresh current Engine/socket/service/save bindings; old IDs, start times,
-RAM assumptions and consumed probe admissions are not reusable authority.
+## Four audit tasks remain open
 
-The expert re-audit refines that next action: reproducible source preparation
-and the full-binary/ordinary-item proof come before more story authoring.
-Safe test isolation and provisional coverage can run in parallel. The current
-model's no-replay reward alert is not persistent quarantine or crash-atomic
-delivery; T10.010.006 qualifies the actual native save/EXP behavior.
+- **T10.010.004 — full binaries and ordinary items.** Selected exact-fetch
+  source is integrated as `73014940`; dependency closure is the current gate.
+  Then compile corresponding unpatched/patched full binaries, export/read back
+  immutable images, start in isolated state and verify ordinary stack/new-slot,
+  weight/full-bag, equipment/rental/GUID and save/re-entry behavior. The capacity
+  probe must remain read-only. Use the [ordinary-item runbook](runbooks/T10.010.004-ordinary-item-verification.md)
+  and [image source readiness](reviews/2026-11-04-T10.010.004-image-source.md).
+- **T10.010.005 — coherent release and withdrawal.** Gate/manifests/runbooks
+  are source-integrated as `efa9af82`; actual runtime pins remain unqualified.
+  Bind .004/.006/isolated .007 evidence, then rehearse installation, full Apply,
+  save/restart, journal/play and withdrawal. Preserve all four quest definitions
+  and three exits. See [selected source and remaining gate](reviews/2026-11-04-T10.010.005-root.md#selected-source-and-integrated-verification).
+- **T10.010.006 — real rewards and persistence.** Analysis/runbook are
+  source-integrated as `a75eeb2e`; actual EXP, level-up, callback, reward,
+  save/re-entry/restart and repeat behavior remain unqualified. C4 stays
+  skipped/not captured without a qualified observation method; durable
+  quarantine and crash atomicity are unproved. See [selected analysis](reviews/2026-11-04-T10.010.006-root.md#corrected-source-analysis-selected-and-integrated).
+- **T10.010.007 — native story to normal play.** After .004–.006, verify the
+  real parser/OnInit, four actors, quest states, capacity/refusal/retry, rewards,
+  persistence and withdrawal in isolation, then supported normal installation,
+  full Apply and ordinary journal/travel/progression with progress preserved.
+  See [the frozen seven-task contracts](NEXT_ACTIONS.md#seven-bounded-tasks).
 
-Keep the frozen normal 0.2.0 staging separate from source 0.3.2. Do not install
-0.3.2 against stock binaries. [The existing normal-apply runbook](runbooks/T10.008-T10.009-normal-apply.md)
-is the frozen **0.2.0-only** reference; its three-row acceptance/withdrawal is
-unsafe for 0.3.2 D-state progress. T10.010.005 must produce a separate matching
-release/apply sheet retaining all four quest definitions and all three exits.
+Keep frozen normal **0.2.0 staging** separate from **0.3.2 source**. Do not
+install 0.3.2 against stock binaries or substitute stock `checkweight` for its
+native capability. The [old normal-apply runbook](runbooks/T10.008-T10.009-normal-apply.md)
+is 0.2.0-only; its three-row withdrawal is unsafe for 0.3.2 D-state progress.
+Source tests and earlier isolated scenes do not close these runtime gates.
 
-## Records and Git
+## Other unfinished milestone work
 
-- [Completed work and historical snapshots](HISTORY.md): prior verification,
-  provider comparisons, failures and original task dispositions.
-- [Workflow](WORKFLOW.md): equal model comparison, Root verification,
-  documentation maintenance, checkpoints and external-state rollback.
-- Branch: `ShemYu/reverse-the-Ragnarok-Online-to-play-by-myself`.
-  The current user request authorizes committing and pushing this feature
-  branch. Keep downloaded assets, raw evidence, accounts and saves local.
-- Cleanup source checkpoint `9536d59` and the legacy archive tag are pushed.
-  [Hosted CI passes](https://github.com/ShemYu/ragnarok-online-study/actions/runs/40192204732)
-  on that source revision; subsequent maintenance only records the result.
-  [The archive review](reviews/2026-10-25-T00.003.md)
-  contains checks, recovery, provider-availability limits and the remaining
-  paused game boundary.
-- The user authorizes the local-main merge on 2026-10-28. The reviewed source
-  fast-forwards from `c6314bb` to `7e527bd`; the documentation checkpoint is
-  included by the same fast-forward process. Feature publication continues,
-  while `origin/main` remains at `c6314bb`. See [merge verification and rollback](reviews/2026-10-28-T00.004.md).
+1. **Full-world coverage:** reconcile effective maps/spawns/monsters,
+   items/skills, NPCs, quest chains, instances and dynamic resources; resolve
+   the 82 gaps and declare a coherent version/content boundary and estimate.
+   Basic local play is available in tested scenarios, not full-game proof.
+2. **Chinese/input:** after functionality, finish remaining UI, NPC/story,
+   system text and real macOS IME checks using existing resources first.
+3. **Final qualification:** complete required coverage, offline/performance
+   and recovery checks, rehearse the user guide and obtain explicit acceptance.
+   T11 party-only adaptations do not block milestone 1.
+
+Use [Tasks](TASKS.md) for IDs/dependencies, [Project map](PROJECT_MAP.md) for
+the remaining flow and [Next actions](NEXT_ACTIONS.md) for audit acceptance.
+
+## Ownership, preservation and Git
+
+- Four game worlds were identified; the save-free build VM is separate.
+  Their bindings are not interchangeable. Refresh the exact intended world,
+  Engine/socket/service/save bindings and resource evidence before runtime.
+  Root retains serial runtime ownership; source work can proceed independently.
+- Before changing existing personal state, make a named current backup and
+  prove restoration on isolated state under [Workflow](WORKFLOW.md#rollback).
+  Fresh build-only initialization uses the isolated-new-state allowance;
+  it does not qualify personal backup/restore or authorize personal RAM/restart.
+- [Oct25 saves, backup inspection and RAM projections](reviews/2026-10-25-T10.010.md#idle-saves-and-fresh-whole-world-backup-pass)
+  are historical evidence, not current ownership or restored-backup proof.
+  Old IDs, start times, memory snapshots and admissions are not authority.
+- Keep the Mac's internet connected. Keep assets, installers, raw evidence,
+  backups, credentials and saves private; publish source and redacted evidence.
+- Commit/push only the coordination feature branch,
+  `ShemYu/reverse-the-Ragnarok-Online-to-play-by-myself`; `origin/main` remains
+  unchanged at `c6314bbd`. No new local-main merge or history/rule changes are
+  authorized. Record verified checkpoints before advancing; Git cannot restore
+  external game state.
+
+[History](HISTORY.md) and the [dated execution record](reviews/2026-11-04-execution.md)
+retain completed results, comparisons and failed attempts. This STATUS is the
+authority for execution state and next action; dated evidence retains its
+original scope. Archiving `ready_for_user` work does not accept it.

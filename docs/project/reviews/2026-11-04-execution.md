@@ -885,3 +885,19 @@ unchanged620s parent/validation/cleanup and three final-header controls.
 Thirty-five fresh individually checked v3 plans are admitted at max two live
 helpers; older unconsumed plans are unused. All47 signatures/install/closure
 remain open. See [primary evidence, limits and admission](2026-11-04-T10.010.004-root.md#repeated-connection-timeout-motivates-bounded-native-retries).
+
+## Actual noarch dependency needs a focused source repair
+
+Collection3 stops on a complete10347-byte git-init-template whose raw metadata
+is noarch; the old aarch64-only gate refuses it after HTTP200/curl0. Root drains
+and verifies G++;10/44 repository files now pass,33 are unattempted and one
+complete file remains quarantined. All handles are terminal; VM remains stopped.
+Pinned primary source/Root/Astra confirm noarch package compatibility while
+native VM/ABI/ELF remains ARM64. The [equal repair brief](../tasks/T10.010.004-dependency-noarch.md)
+freezes common actual inputs and requires actual architecture agreement, stock
+authentication and all existing joins. Source comparison is next. No goal change.
+
+Root integrates the reviewed concise STATUS draft after refreshing its runtime
+facts; the [full prior snapshot](../HISTORY-2026-11-04-STATUS.md) preserves the
+completed chronology. Task/ledger/gap counts stay unchanged. See [actual defect,
+preservation and next checks](2026-11-04-T10.010.004-root.md#actual-noarch-package-exposes-a-dependency-validation-defect).
