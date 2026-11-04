@@ -45,6 +45,12 @@ changes only guest capture, focused regression tests and its source report.
 Root must verify/select it, then prepare/review/commit a fresh admission before
 another serial actual compiler run. No goal change is indicated.
 
+After checkpoint972ba115 is committed/pushed, both equal source-repair workers
+start ready from that exact confirmed base: Claude ctx_eaf19d7fdee5 and Grok
+ctx_4a650aee54f7. They receive one identical brief/packet and own separate three-
+file candidates without runtime access. Results and Root selection are pending;
+the VM remains stopped. Orca wakes Root when reports arrive; do not inbox-poll.
+
 The [ordinary fixtures](tasks/T10.010.004-ordinary-fixtures.md) comparison is
 closed after both suppliers correct the200-row source-budget counterexample.
 Root verifies both on isolated archives with all15 protected files unchanged.

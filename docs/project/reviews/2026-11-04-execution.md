@@ -1099,3 +1099,9 @@ Fresh-world source review also corrects the runbook: no bundle does not skip
 successful up's final unused-untagged-image prune. Retain owned A/B tags and
 admit the Engine-wide side effect. Complete payload and actual image/port/
 mount/service bindings remain open; no world startup occurred.
+
+After972ba115 is committed/pushed, equal interpreter-report repairs start
+ready on separate Claude/Grok worktrees. Root confirms both initial bases are
+exact972ba115 and both receive the same frozen brief/packet. Source candidates
+and causal tests are pending; runtime remains solely Root-owned and stopped.
+See [dispatch bindings](2026-11-04-T10.010.004-root.md#equal-interpreter-report-repair-dispatched).
