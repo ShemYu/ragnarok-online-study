@@ -1047,3 +1047,7 @@ The [equal follow-up](../tasks/T10.010.004-fixture-budget.md) requires complete
 readouts under the unchanged guard, with the same additional pinned mmo.hpp
 source for both suppliers. This is source correction, not a parser/runtime
 result. See [Root's bound and source evidence](2026-11-04-T10.010.004-root.md#fixture-source-review-finds-a-command-budget-counterexample).
+
+After36cf0fc9, the identical correction starts Claude's same-terminal repair
+follow-up ctx_d4d9ba34c6d6 ready and is enqueued to Grok's original dispatch.
+Grok's read/adoption remains unproved. No corrected fixture result exists yet.
