@@ -79,6 +79,9 @@ WANT="bash git make cmake gcc g++ zlib-dev mariadb-dev linux-headers libunwind-d
 # stock keys and installed offline from exactly those bytes.
 : > "$OUT/empty"
 lock_candidate "$OUT/empty" "$OUT/apk-names-before.txt" "$OUT/apk-before.txt" > "$OUT/apk.base.current" || die "base freeze"
+# canonical name=version order (prefix pairs: alpine-baselayout-data sorts before
+# alpine-baselayout=), unique -- the order build-mode compares byte for byte
+check_lock_file "$OUT/apk.base.current" nonempty
 if [ "$LOCAL_LIST_SHA256" = none ]; then
     : > "$OUT/apk-local.list"
 else
@@ -92,6 +95,7 @@ resolve)
     deps_transaction "$OUT/apk.base.current" "$OUT/apk-local.list" "" 0
     grep -q '^libunwind-dev-1\.8\.1-' "$OUT/apk-after.txt" || die "libunwind-dev is not ~1.8.1"
     # Candidates for Root to review/qualify: the delta and the frozen base.
+    # Exact byte equality in canonical complete-tuple order (never a set/count test).
     lock_candidate "$OUT/apk-names-before.txt" "$OUT/apk-names-after.txt" "$OUT/apk-after.txt" > "$OUT/apk.lock.candidate" || die "lock candidate"
     cmp -s "$OUT/apk.lock.candidate" "$OUT/apk-simulate.delta" || die "installed names differ from the solver delta"
     cp "$OUT/apk.base.current" "$OUT/apk.base.candidate"

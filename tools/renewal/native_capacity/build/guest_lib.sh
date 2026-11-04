@@ -108,14 +108,33 @@ check_deps() {
 
 # lock_candidate <names-before> <names-after> <versions-after>: for each
 # added package name, its exact installed "name-<digit>..." entry -> name=version.
+# Output is in canonical complete-tuple order (LC_ALL=C sort of "name=version",
+# no dedup), the order of apk-simulate.delta and check_lock_file. Name order
+# differs for prefix pairs ('-' sorts before '='): Root's actual 47-file run
+# failed "installed names differ from the solver delta" on fmt-dev/fmt,
+# git-init-template/git and libucontext-dev/libucontext (T10.010.004).
+# Fail-closed in every calling context, including "lock_candidate ... > f ||
+# die" where set -e is suspended: no pipeline whose last stage could mask an
+# earlier failure; comm, the lookup and the sort each have their status
+# checked explicitly; the loop runs in this shell, so its die ends the guest.
+# No additions -> zero bytes, success.
 lock_candidate() {
-    LC_ALL=C comm -13 "$1" "$2" | while IFS= read -r _n; do
+    _lc_added=$(LC_ALL=C comm -13 "$1" "$2") || die "lock candidate: comm $1 $2 failed"
+    [ -n "$_lc_added" ] || return 0
+    _lc_rows=""
+    while IFS= read -r _n; do
         # exact "name-" prefix followed by a digit; no regex built from the name
-        _pv=$(awk -v n="$_n" 'index($0, n "-") == 1 && substr($0, length(n) + 2, 1) ~ /[0-9]/' "$3")
+        _pv=$(awk -v n="$_n" 'index($0, n "-") == 1 && substr($0, length(n) + 2, 1) ~ /[0-9]/' "$3") \
+            || die "lock candidate: version lookup for $_n failed"
         _hits=$(printf '%s' "$_pv" | grep -c . || true)
         [ "$_hits" = 1 ] || die "lock candidate: $_n has $_hits version entries"
-        printf '%s=%s\n' "$_n" "${_pv#"$_n"-}"
-    done
+        _lc_rows="$_lc_rows$_n=${_pv#"$_n"-}
+"
+    done <<EOF
+$_lc_added
+EOF
+    _lc_sorted=$(printf '%s' "$_lc_rows" | LC_ALL=C sort) || die "lock candidate: sort failed"
+    printf '%s\n' "$_lc_sorted"
 }
 
 # ---------------------------------------------------------------- T10.010.004

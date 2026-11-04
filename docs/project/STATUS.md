@@ -41,7 +41,10 @@ Both workers start from the same confirmed a6103005 base. Claude17c8a233 now
 passes Root's isolated97 tests with no skips, all1388 protected files unchanged,
 and7 independent producer controls. Source review finds no blocker; Grok's
 result is pending. The settled Claude terminal is released with branch retained.
-Root comparison/selection and the next fresh runtime phase remain open.
+Root provisionally integrates that verified candidate for the isolated runtime
+path while Grok completes independently. Final supplier comparison remains
+open; the frozen common inputs and Grok checkout are unchanged. Prepare a fresh
+phase with both new guest-script pins before runtime; no prior phase is reused.
 See [actual result and limits](reviews/2026-11-04-T10.010.004-root.md#actual-offline-install-passes-final-ordering-gate-fails).
 
 Both containers are deleted/404, the owned VM is stopped again, and personal

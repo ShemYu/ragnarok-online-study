@@ -1199,6 +1199,265 @@ class GuestLibTests(unittest.TestCase):
         self.assertLess(s.index("check_cgroup\n"), s.index("deps_transaction \""))  # every check precedes install
 
 
+# ------------------------------------------------- T10.010.004 installed order
+# Root's actual 47-file offline install passed every authentication/identity
+# gate and then failed "installed names differ from the solver delta":
+# lock_candidate emitted NAME order, apk-simulate.delta is complete-tuple
+# order, and prefix pairs differ ('-' 0x2d sorts before '=' 0x3d). These tests
+# run the real guest_lib.sh and the exact production lines of guest_build.sh.
+
+# The base a6103005 function, verbatim: name order, and its comm/die sit in a
+# pipeline whose status is only the loop's.
+OLD_NAME_ORDER = r'''lock_candidate() {
+    LC_ALL=C comm -13 "$1" "$2" | while IFS= read -r _n; do
+        _pv=$(awk -v n="$_n" 'index($0, n "-") == 1 && substr($0, length(n) + 2, 1) ~ /[0-9]/' "$3")
+        _hits=$(printf '%s' "$_pv" | grep -c . || true)
+        [ "$_hits" = 1 ] || die "lock candidate: $_n has $_hits version entries"
+        printf '%s=%s\n' "$_n" "${_pv#"$_n"-}"
+    done
+}'''
+# The tempting one-line repair: a final pipe to sort masks the loop's die.
+NAIVE_SORT = OLD_NAME_ORDER.replace("    done\n}", "    done | LC_ALL=C sort\n}")
+# ... and with -u it would also hide duplicate rows.
+SORT_U = OLD_NAME_ORDER.replace("    done\n}", "    done | LC_ALL=C sort -u\n}")
+
+# The production resolve/base-freeze lines, taken verbatim from guest_build.sh.
+PRODUCTION_NEEDLES = (
+    ': > "$OUT/empty"',
+    'lock_candidate "$OUT/empty" "$OUT/apk-names-before.txt" "$OUT/apk-before.txt" > "$OUT/apk.base.current" || die "base freeze"',
+    'check_lock_file "$OUT/apk.base.current" nonempty',
+    'lock_candidate "$OUT/apk-names-before.txt" "$OUT/apk-names-after.txt" "$OUT/apk-after.txt" > "$OUT/apk.lock.candidate" || die "lock candidate"',
+    'cmp -s "$OUT/apk.lock.candidate" "$OUT/apk-simulate.delta" || die "installed names differ from the solver delta"',
+    'cp "$OUT/apk.base.current" "$OUT/apk.base.candidate"',
+    'check_coverage "$OUT/apk.base.candidate" "$OUT/apk.lock.candidate" $WANT',
+)
+INSTALLED_ORDER_ROOT_SHA = "8f9204a661f0b4cb046721d4f09f3b63172b22ea9869049894953c904e5d5bb8"
+
+
+def production_lines():
+    g = [ln.strip() for ln in br.GUEST.read_text().splitlines()]
+    want = [ln for ln in g if ln.startswith("WANT=")]
+    assert len(want) == 1, want
+    for n in PRODUCTION_NEEDLES:
+        assert g.count(n) == 1, f"production line not found exactly once: {n}"
+    return "\n".join(want + list(PRODUCTION_NEEDLES))
+
+
+class InstalledOrderTests(unittest.TestCase):
+    """Real guest_lib.sh lock_candidate in the production OR-list context."""
+
+    def setUp(self):
+        self.tmp = Path(tempfile.mkdtemp(prefix="t10-010-004-order-"))
+        self.out = self.tmp / "out"
+        (self.out / "logs").mkdir(parents=True)
+
+    def tearDown(self):
+        shutil.rmtree(self.tmp, ignore_errors=True)
+
+    def sh(self, script, impl=None):
+        (self.out / "RESULT").unlink(missing_ok=True)
+        override = f"\n{impl}\n" if impl else "\n"
+        return subprocess.run(["/bin/sh", "-c", f'set -eu; . "{br.GUEST_LIB}";{override}{script}\necho REACHED'],
+                              env={"OUT": str(self.out), "PATH": os.environ["PATH"], "LC_ALL": "C"},
+                              capture_output=True, text=True, timeout=30)
+
+    def result(self):
+        f = self.out / "RESULT"
+        return f.read_text() if f.exists() else None
+
+    def write(self, before, after, delta=None):
+        """before/after: {name: version}; writes the guest's sorted inventories."""
+        o = self.out
+        (o / "apk-names-before.txt").write_text("".join(f"{n}\n" for n in sorted(before)))
+        (o / "apk-before.txt").write_text("".join(sorted(f"{n}-{v}\n" for n, v in before.items())))
+        (o / "apk-names-after.txt").write_text("".join(f"{n}\n" for n in sorted(after)))
+        (o / "apk-after.txt").write_text("".join(sorted(f"{n}-{v}\n" for n, v in after.items())))
+        if delta is None:
+            delta = sorted(f"{n}={v}" for n, v in after.items() if n not in before)
+        (o / "apk-simulate.delta").write_text("".join(d + "\n" for d in delta))
+
+    def refused(self, r, why):
+        self.assertNotEqual(r.returncode, 0, r.stdout + r.stderr)
+        self.assertNotIn("REACHED", r.stdout)
+        self.assertEqual(self.result(), f"FAIL {why}\n")
+
+    def accepted(self, r):
+        self.assertEqual(r.returncode, 0, r.stderr)
+        self.assertIn("REACHED", r.stdout)
+        self.assertIsNone(self.result())
+
+    BASE = {"alpine-baselayout": "3.7.2-r0", "alpine-baselayout-data": "3.7.2-r0", "bash": "5.3.3-r1",
+            "busybox": "1.37.0-r30", "busybox-binsh": "1.37.0-r30", "libstdc++": "15.2.0-r2",
+            "libunwind": "1.8.1-r0", "musl": "1.2.5-r23"}
+    ADDED = {"fmt": "11.2.0-r1", "fmt-dev": "11.2.0-r1", "git": "2.52.0-r0", "git-init-template": "2.52.0-r0",
+             "libucontext": "1.3.3-r0", "libucontext-dev": "1.3.3-r0", "libunwind-dev": "1.8.1-r0",
+             "binutils": "2.45.1-r0", "cmake": "4.1.3-r0", "g++": "15.2.0-r2", "gcc": "15.2.0-r2",
+             "linux-headers": "6.16.12-r0", "make": "4.4.1-r3", "mariadb-dev": "11.4.9-r0",
+             "patch": "2.8-r0", "zlib-dev": "1.3.2-r0"}
+
+    def test_prefix_pair_delta_and_base_are_canonical_in_production_lines(self):
+        self.write(self.BASE, {**self.BASE, **self.ADDED})
+        delta = (self.out / "apk-simulate.delta").read_text()
+        for pair in ("fmt-dev=11.2.0-r1\nfmt=11.2.0-r1\n", "git-init-template=2.52.0-r0\ngit=2.52.0-r0\n",
+                     "libucontext-dev=1.3.3-r0\nlibucontext=1.3.3-r0\n"):
+            self.assertIn(pair, delta)  # the solver's complete-tuple order
+        r = self.sh(production_lines())
+        self.accepted(r)
+        self.assertEqual((self.out / "apk.lock.candidate").read_text(), delta)
+        base = (self.out / "apk.base.candidate").read_text()
+        self.assertEqual(base, "".join(sorted(f"{n}={v}\n" for n, v in self.BASE.items())))
+        self.assertIn("alpine-baselayout-data=3.7.2-r0\nalpine-baselayout=3.7.2-r0\n", base)
+        self.assertIn("busybox-binsh=1.37.0-r30\nbusybox=1.37.0-r30\n", base)
+        # the base a6103005 implementation reproduces Root's failure on the same data
+        self.refused(self.sh(production_lines(), OLD_NAME_ORDER), "dependency list "
+                     f"{self.out}/apk.base.current not sorted/unique")
+        prod = production_lines().replace('check_lock_file "$OUT/apk.base.current" nonempty\n', "")
+        self.refused(self.sh(prod, OLD_NAME_ORDER), "installed names differ from the solver delta")
+
+    def test_empty_additions_are_zero_bytes_and_success(self):
+        self.write(self.BASE, dict(self.BASE))
+        cand = self.out / "cand"
+        r = self.sh(f'lock_candidate "$OUT/apk-names-before.txt" "$OUT/apk-names-after.txt" "$OUT/apk-after.txt" '
+                    f'> "{cand}" || die "lock candidate"')
+        self.accepted(r)
+        self.assertEqual(cand.read_bytes(), b"")
+        self.assertEqual((self.out / "apk-simulate.delta").read_bytes(), b"")
+        self.assertEqual(self.sh(f'cmp -s "{cand}" "$OUT/apk-simulate.delta" || die x').returncode, 0)
+
+    def test_missing_ambiguous_and_failed_lookup_refuse_in_or_list_context(self):
+        after = {**self.BASE, "aaa-missing": "1-r0", "zzz": "1-r0"}
+        cases = {
+            # the failing name sorts FIRST, a valid name follows it
+            "missing version, then a valid name": (
+                lambda: (self.out / "apk-after.txt").write_text(
+                    (self.out / "apk-after.txt").read_text().replace("aaa-missing-1-r0\n", "")),
+                "lock candidate: aaa-missing has 0 version entries"),
+            "two version entries, then a valid name": (
+                lambda: (self.out / "apk-after.txt").write_text(
+                    "aaa-missing-0-r0\n" + (self.out / "apk-after.txt").read_text()),
+                "lock candidate: aaa-missing has 2 version entries"),
+            "unreadable versions file": (
+                lambda: (self.out / "apk-after.txt").unlink(),
+                "lock candidate: version lookup for aaa-missing failed"),
+            "failed comm": (
+                lambda: (self.out / "apk-names-after.txt").unlink(),
+                f"lock candidate: comm {self.out}/apk-names-before.txt {self.out}/apk-names-after.txt failed"),
+        }
+        line = PRODUCTION_NEEDLES[3]
+        for name, (mutate, why) in cases.items():
+            with self.subTest(name):
+                self.write(self.BASE, after)
+                mutate()
+                self.refused(self.sh(line), why)
+                self.refused(self.sh(f"{line}\nexit 0"), why)  # exit status alone is not the evidence
+                # mutant detection: a naive final sort (and the old pipeline,
+                # for comm) let the production OR-list continue
+                for impl in (NAIVE_SORT, SORT_U) + ((OLD_NAME_ORDER,) if name == "failed comm" else ()):
+                    m = self.sh(line, impl)
+                    self.assertEqual(m.returncode, 0, f"{name}: mutant unexpectedly refused")
+                    self.assertIn("REACHED", m.stdout)
+        # the base freeze has the same calling form: a failed comm must not freeze an empty base
+        self.write(self.BASE, after)
+        (self.out / "apk-names-before.txt").unlink()
+        self.refused(self.sh(production_lines()), f"lock candidate: comm {self.out}/empty "
+                     f"{self.out}/apk-names-before.txt failed")
+        m = self.sh(f"{PRODUCTION_NEEDLES[0]}\n{PRODUCTION_NEEDLES[1]}", OLD_NAME_ORDER)
+        self.assertIn("REACHED", m.stdout)
+        self.assertEqual((self.out / "apk.base.current").read_bytes(), b"")  # what the old code froze
+
+    def test_duplicates_kept_so_exact_gates_refuse(self):
+        self.write(self.BASE, {**self.BASE, "foo": "1-r0"})
+        (self.out / "apk-names-after.txt").write_text(
+            (self.out / "apk-names-after.txt").read_text().replace("foo\n", "foo\nfoo\n"))
+        cand = self.out / "apk.lock.candidate"
+        self.accepted(self.sh(PRODUCTION_NEEDLES[3]))
+        self.assertEqual(cand.read_text(), "foo=1-r0\nfoo=1-r0\n")  # sort without -u
+        self.refused(self.sh(PRODUCTION_NEEDLES[4]), "installed names differ from the solver delta")
+        self.refused(self.sh(f'check_lock_file "{cand}" empty-ok'), f"dependency list {cand} not sorted/unique")
+        self.accepted(self.sh(f"{PRODUCTION_NEEDLES[3]}\n{PRODUCTION_NEEDLES[4]}", SORT_U))  # -u would hide it
+
+    def test_extra_missing_version_and_base_changes_still_refuse(self):
+        full = {**self.BASE, **self.ADDED}
+        delta = sorted(f"{n}={v}" for n, v in self.ADDED.items())
+        cases = {
+            "extra installed package": ({**full, "extra": "1-r0"}, delta, "installed names differ from the solver delta"),
+            "missing prefix-pair package": ({k: v for k, v in full.items() if k != "fmt"}, delta,
+                                            "installed names differ from the solver delta"),
+            "different installed version": ({**full, "fmt": "11.2.0-r2"}, delta,
+                                            "installed names differ from the solver delta"),
+            "delta permuted to name order": (full, sorted(delta, key=lambda x: x.split("=")[0]),
+                                             "installed names differ from the solver delta"),
+        }
+        for name, (after, d, why) in cases.items():
+            with self.subTest(name):
+                self.write(self.BASE, after, d)
+                self.refused(self.sh(production_lines()), why)
+        # base change: the install upgraded a base package (check_deps), and a
+        # base package pinned again in the delta (check_coverage)
+        self.write(self.BASE, full)
+        after = (self.out / "apk-after.txt").read_text().replace("musl-1.2.5-r23", "musl-1.2.5-r24")
+        (self.out / "apk-after.txt").write_text(after)
+        self.refused(self.sh('check_deps "$OUT/apk-before.txt" "$OUT/apk-after.txt" "$OUT/apk-simulate.delta"'),
+                     "dependency install changed preinstalled packages: musl-1.2.5-r23 ")
+        self.write(self.BASE, full, sorted(delta + ["busybox=1.37.0-r31"]))
+        self.refused(self.sh(f'{production_lines().split(chr(10))[0]}\n{PRODUCTION_NEEDLES[0]}\n{PRODUCTION_NEEDLES[1]}\n'
+                             'check_coverage "$OUT/apk.base.current" "$OUT/apk-simulate.delta" $WANT'),
+                     "delta re-pins base packages")
+
+    @unittest.skipUnless(os.environ.get("T10_APK_INSTALLED_ORDER_DIR"), "private installed-order packet not provided")
+    def test_actual_installed_order_packet(self):
+        """Root-only/private: the actual failed-phase inventories (source replay, not a runtime PASS)."""
+        src = Path(os.environ["T10_APK_INSTALLED_ORDER_DIR"])
+        root = (src / "INPUTS_ROOT.json").read_bytes()
+        self.assertEqual(hashlib.sha256(root).hexdigest(), INSTALLED_ORDER_ROOT_SHA)
+        files = json.loads(root)["files"]
+        self.assertEqual(len(files), 9)
+        for rel, pin in files.items():  # ordinary-file copies only; the packet is never written
+            p = src / rel
+            self.assertTrue(p.is_file() and not p.is_symlink(), rel)
+            data = p.read_bytes()
+            self.assertEqual((len(data), hashlib.sha256(data).hexdigest()), (pin["bytes"], pin["sha256"]), rel)
+            if rel in ("apk-before.txt", "apk-after.txt", "apk-names-before.txt", "apk-names-after.txt",
+                       "apk-simulate.delta"):
+                (self.out / rel).write_bytes(data)
+        delta = (self.out / "apk-simulate.delta").read_bytes()
+        self.assertEqual(len(delta.splitlines()), 47)
+        self.assertEqual(len((self.out / "apk-names-before.txt").read_bytes().splitlines()), 26)
+        r = self.sh(production_lines() + '\ncheck_deps "$OUT/apk-before.txt" "$OUT/apk-after.txt" "$OUT/apk-simulate.delta"')
+        self.accepted(r)
+        cand = (self.out / "apk.lock.candidate").read_bytes()
+        self.assertEqual(cand, delta)
+        self.assertEqual(hashlib.sha256(cand).hexdigest(), files["apk-simulate.delta"]["sha256"])
+        for pair in (b"fmt-dev=11.2.0-r1\nfmt=11.2.0-r1\n", b"git-init-template=2.52.0-r0\ngit=2.52.0-r0\n",
+                     b"libucontext-dev=1.3.3-r0\nlibucontext=1.3.3-r0\n"):
+            self.assertIn(pair, cand)
+        base = (self.out / "apk.base.candidate").read_bytes()
+        before = (self.out / "apk-before.txt").read_text().split()
+        self.assertEqual(len(base.splitlines()), 26)
+        self.assertEqual(base.splitlines(), sorted(base.splitlines()))
+        self.assertEqual(sorted(x.decode().replace("=", "-", 1) for x in base.splitlines()), sorted(before))
+        self.assertIn(b"alpine-baselayout-data=3.7.2-r0\nalpine-baselayout=3.7.2-r0\n", base)
+        # base a6103005 reproduces Root's exact failing candidate and RESULT bytes
+        prod = production_lines().replace('check_lock_file "$OUT/apk.base.current" nonempty\n', "")
+        old = self.sh(prod, OLD_NAME_ORDER)
+        self.assertNotEqual(old.returncode, 0)
+        self.assertEqual(hashlib.sha256((self.out / "apk.lock.candidate").read_bytes()).hexdigest(),
+                         files["apk.lock.candidate"]["sha256"])
+        self.assertEqual(hashlib.sha256((self.out / "RESULT").read_bytes()).hexdigest(), files["RESULT"]["sha256"])
+        # counterexamples on the actual inventories still refuse
+        names_after = (self.out / "apk-names-after.txt").read_text()
+        for name, mutate, why in (
+            ("drop installed fmt", lambda: (self.out / "apk-names-after.txt").write_text(
+                names_after.replace("fmt\n", "")), "installed names differ from the solver delta"),
+            ("ambiguous git", lambda: (self.out / "apk-after.txt").write_text(
+                (self.out / "apk-after.txt").read_text() + "git-9-r0\n"), "lock candidate: git has 2 version entries")):
+            with self.subTest(name):
+                for rel in ("apk-after.txt", "apk-names-after.txt"):
+                    (self.out / rel).write_bytes((src / rel).read_bytes())
+                mutate()
+                self.refused(self.sh(production_lines()), why)
+
+
 # ====================================================================== T10.010.004
 # Scope of everything below: synthetic fixtures. The "APK" files are tar.gz
 # stand-ins holding only a .PKGINFO; they carry no signature. FAKE_APK models

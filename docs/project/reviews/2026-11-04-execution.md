@@ -976,3 +976,10 @@ source/model checks reproduce/refuse the changed-key pair and confirm unset
 bindings prevent helper imports/preparation. Future closure/source bindings
 remain unqualified; no compiler plan/admission/runtime is claimed. See [draft
 correction and limits](2026-11-04-T10.010.004-root.md#compiler-draft-evidence-drift-guard-corrected).
+
+Root confirms Grok remains live with focused tests passing; its full report
+is pending. Provisionally integrate Root-verified Claude17c8a233 to advance
+the isolated runtime path independently. All five blobs equal that candidate;
+Grok's common inputs/checkout remain unchanged and final comparison stays
+open. Require fresh guest-script/helper/upload/phase bindings before a new
+run; failed phase3 is never reused. See [provisional source decision](2026-11-04-T10.010.004-root.md#verified-ordering-source-provisionally-advances-isolated-runtime).

@@ -205,6 +205,49 @@ so no `--arch` override is needed or used.
 This is **source-only**. The new APK still has no stock-key authentication.
 Synthetic and modelled tests do not prove an actual noarch install.
 
+### Installed-order repair: canonical `name=version` tuples
+
+This answers [the installed-order brief](../../../docs/project/tasks/T10.010.004-installed-order.md).
+Root's actual 47-file offline install passed authentication, identity and
+installed `C:` checks, then failed `installed names differ from the solver
+delta`. `lock_candidate` emitted packages in **name** order, while
+`apk-simulate.delta` (and `check_lock_file`, and the host `_dep_lines`) use
+complete-tuple order. The two differ for prefix pairs because `-` (0x2d)
+sorts before `=` (0x3d): `fmt-dev=` precedes `fmt=`, and likewise
+`git-init-template`/`git` and `libucontext-dev`/`libucontext`. The frozen
+26-package base has the same shape (`alpine-baselayout-data`/
+`alpine-baselayout`, `busybox-binsh`/`busybox`). That base would also have
+failed the build-mode `check_lock_file` and byte comparison.
+
+- **Producer.** `lock_candidate` emits `LC_ALL=C sort` of complete
+  `name=version` rows, without `-u`, so a duplicate row still reaches the
+  exact gates and is refused there. The resolve gate stays an exact byte
+  `cmp` against the unchanged solver delta, not a set or count test.
+- **Fail-closed in the production `lock_candidate … > f || die` context.**
+  In that context `set -e` is suspended. `comm` runs in a command
+  substitution with an explicit status check. The per-name loop runs in the
+  current shell, reading a here-document rather than a pipe, so its `die`
+  ends the guest. Each lookup checks its `awk` status; zero or multiple
+  version entries refuse. The final sort is an explicitly checked command
+  substitution, so no pipe to `sort` can mask an earlier refusal. No additions
+  produce zero bytes and success.
+- **Base freeze.** `guest_build.sh` now runs `check_lock_file` on
+  `apk.base.current` immediately after the freeze. The base is therefore
+  canonical in both modes before any dependency action.
+- **Unchanged.** Raw identity and authentication, the actual noarch/native
+  agreement, the seven-field internal list, the five-field manifest, the
+  exact 47-row delta and 26-row base, offline install, fd0, resources and
+  deadlines, cleanup, and the ARM64 VM/ABI/ELF target.
+
+Tests (`InstalledOrderTests`) run the real `guest_lib.sh` and the
+production lines of `guest_build.sh`, taken verbatim. A private-only test
+replays Root's actual nine-file packet via `T10_APK_INSTALLED_ORDER_DIR`. It
+reproduces the old failing candidate and `RESULT` bytes with the base
+function, and shows that the repaired candidate equals the frozen delta byte
+for byte. Mutants catch a naive final `| sort` that masks a refusal, `sort -u`
+and the old masked `comm`. This is **source replay only**. It does not
+qualify the failed runtime phase, which needs a fresh Root admission.
+
 ## Files (all under `tools/renewal/native_capacity/`)
 
 | Path | Role |
@@ -215,7 +258,7 @@ Synthetic and modelled tests do not prove an actual noarch install.
 | `build/guest_build.sh` | Guest main: checks, then dependencies, then unpatched + patched renewal `map-server` |
 | `build/guest_lib.sh` | Guest checks: cgroup, lock, closure, lock candidate, finalize. Sourced by the guest and by host tests |
 | `build_recipe.py` | `plan` / `execute` / `validate-export` / `image-context` / `import-check` |
-| `test_prepare_source.py`, `test_build_recipe.py` | 20 + 86 focused tests (30 added by T10.010.004, two private-only skips; synthetic) |
+| `test_prepare_source.py`, `test_build_recipe.py` | 20 + 97 focused tests (41 added by T10.010.004; four private-only, skipped without their inputs; otherwise synthetic) |
 
 ## 1. Source identity and preparation (unchanged result, verified again)
 
@@ -330,6 +373,7 @@ removal, `verify` passes.
 | `test_prepare_source.py` | **20/20 OK** (repair 2) |
 | `test_build_recipe.py` | **56/56 OK**, ×3 repeats (about 25 s each; repair 4) |
 | `test_build_recipe.py` with `T10_APK_IDENTITY_DIR`/`T10_APK_SIMULATE_LOG` on the frozen noarch packet, isolated copy (noarch repair, 2026-11-04) | **91/91 OK**, 0 skipped (86 existing + 5 noarch) |
+| `test_build_recipe.py` with `T10_APK_IDENTITY_DIR`/`T10_APK_SIMULATE_LOG` + `T10_APK_INSTALLED_ORDER_DIR` (actual nine-file packet), Git-archive copy (installed-order repair, 2026-11-04) | **97/97 OK**, 0 skipped (91 existing + 6 installed-order); without private inputs 97 OK, 4 skipped |
 | `ruff check tools/renewal/native_capacity/` (ruff 0.16.9, repo `ruff.toml`) | All checks passed |
 | `sh -n` guest scripts | OK |
 | plan-only demo on the real tree (`--mode resolve`, placeholder image `sha256:0…0`, no Engine) | upload `6bee45a7…08ac`, expected cgroup `memory.max=1610612736`, `memory.swap.max=1048576`, `cpu.max=200000 100000`, `pids.max=1024`, absolute bound 14880 s; `--mode build` without a lock refused; `--memory-mib 0` refused |
