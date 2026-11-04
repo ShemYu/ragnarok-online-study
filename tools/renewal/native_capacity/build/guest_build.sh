@@ -174,7 +174,10 @@ build_variant() { # build_variant <unpatched|patched>
     chmod 0755 "$OUT/$v/map-server"
     readelf -h "$OUT/$v/map-server" > "$OUT/$v/elf-header.txt"
     readelf -d "$OUT/$v/map-server" | grep -E 'NEEDED|RUNPATH|RPATH' > "$OUT/$v/dynamic.txt" || true
-    readelf -l "$OUT/$v/map-server" | grep -A1 INTERP > "$OUT/$v/interp.txt" || true
+    # T10.010.004: keep the complete program-header report. readelf wraps each
+    # header over two lines, so the old grep -A1 INTERP kept only the offset
+    # and size rows and lost "[Requesting program interpreter: ...]".
+    readelf -l "$OUT/$v/map-server" > "$OUT/$v/interp.txt" || die "$v readelf -l"
     # musl's loader resolves the NEEDED set (no separate ldd package needed).
     "/lib/ld-musl-$EXPECT_ARCH.so.1" --list "$OUT/$v/map-server" > "$OUT/$v/ldd.txt" 2>&1 || die "$v ldd"
     ! grep -q 'not found' "$OUT/$v/ldd.txt" || die "$v unresolved library"

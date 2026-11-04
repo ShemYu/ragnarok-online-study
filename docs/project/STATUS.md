@@ -21,7 +21,7 @@ ledger remains **4/14 checkpoints qualified**: one accepted and three ready
 for user review, with **82 resource gaps open**. These are separate ledgers,
 not percentages of playable content, translation or remaining effort.
 
-## Current action — repair the compiler's interpreter-report capture
+## Current action — refresh dependencies for the selected capture repair
 
 The qualified dependency-v4 closure and original26-package base remain fixed.
 The2560MiB retry compiles **both full server variants**, exits0/no timeout
@@ -42,21 +42,27 @@ personal five-service projections are byte-identical. Root confirms the owned
 stopped binding. No images, game, SQL or saves were changed. The earlier1536MiB
 OOM remains preserved separately. The [equal narrow repair](tasks/T10.010.004-interpreter-report.md)
 changes only guest capture, focused regression tests and its source report.
-Root must verify/select it, then prepare/review/commit a fresh admission before
-another serial actual compiler run. No goal change is indicated.
+Root has source-verified/selected the repair; fresh preparation/review/committed
+admission is still required before another serial actual run. No goal change
+is indicated.
 
-After checkpoint972ba115 is committed/pushed, both equal source-repair workers
-start ready from that exact confirmed base: Claude ctx_eaf19d7fdee5 and Grok
-ctx_4a650aee54f7. They receive one identical brief/packet and own separate three-
-file candidates without runtime access. Results and Root selection are pending;
-the VM remains stopped. Orca wakes Root when reports arrive; do not inbox-poll.
+The equal repair comparison is closed. Claude847fc6d1 passes Root's isolated
+101tests and Grokade20eec passes100, both with all private replays/no skips and
+1411 protected files unchanged. Both pass the same12 Root producer controls,
+original-producer counterexamples, shell syntax and pinned Ruff. Select Claude
+as three exact blobs: explicit die records the failing operation and covers
+failure after output. Its source is integrated; both settled terminals are
+released and branches preserved. Actual capture/binary qualification stays open.
 
-Claude847fc6d1 has now passed Root's isolated101-test run with all four private
-replays enabled and no skips; all1411 protected files remain unchanged. The
-same new tests against the old producer yield the expected five failures.
-Shell syntax/pinned Ruff pass; independent source review finds no gap. Its
-settled terminal is released, branch retained. Grok is still preparing its
-independent candidate. Neither repair is selected/integrated yet.
+The new guest hash intentionally breaks the historical-current source-pin join
+for the old dependency-v4 admission. Keep that evidence immutable. Root/Astra
+choose a fresh exact47 resolve instead of adding an exception. New private
+resolver5 changes only three output paths, schema and guest pin; Root verifies
+23fixedpins, five-literal AST equivalence and unused paths. Commit this source
+checkpoint before fresh preparation/admission. Resolver1536MiB/headroom2415919104,
+reserve768MiB and all controls stay fixed; compiler6 will retain2560MiB and
+3489660928-byte headroom. No new dependency run or admission is implied yet.
+See [repair selection and refresh](reviews/2026-11-04-T10.010.004-root.md#interpreter-repair-comparison-closed-claude-selected).
 
 The [ordinary fixtures](tasks/T10.010.004-ordinary-fixtures.md) comparison is
 closed after both suppliers correct the200-row source-budget counterexample.
@@ -70,23 +76,29 @@ probe purity and persistence remain open. See [selection](reviews/2026-11-04-T10
 
 Root also corrects the ordinary-item runbook: omitting the image bundle does
 not disable successful up's final pruning of unused untagged images. Retain
-owned A/B tags and admit that Engine-wide side effect. The complete fresh
-supervisor/config/SQL/mod/client payload and actual image/port/mount bindings
-remain to be qualified; source inspection does not initialize a world.
+owned A/B tags and admit that Engine-wide side effect. The fresh host payload
+is now staged/pinned; actual image/port/mount and complete startup bindings
+remain unqualified. Source inspection does not initialize a game world.
 Root stages999 independent regular files/107278460bytes for the fixed Renewal
 test, pins every copied byte/mode and confirms current source identities stay
-unchanged during readback. No binary is invoked and state/saves remain absent.
+unchanged during readback. No binary is invoked; no DB or saves are initialized.
 Pre-sign checksum sidecars are retained separately from actual executable hashes;
 their mismatch does not establish corruption or these files' signing provenance.
-The source-supported direct managed asset-server route is identified; actual
+Four selected Chinese overlay trees and their enable/disable lists are now
+copied/pinned too:18files/42999972bytes, source identities unchanged. Minimal
+fresh settings bind client_taiwan and packetver20221005. No client-detection
+record is fabricated; copied Carocc is executable stock-derived NPC content
+with quest/zeny/travel effects outside the item cases. The source-supported
+direct managed asset-server route is identified; actual
 RemoteClient protocol, client assets/Chinese overlay and world launch stay open.
 
 ## Four audit tasks remain open
 
 - **T10.010.004 — full binaries and ordinary items.** Selected exact-fetch
   source is integrated as `73014940`; dependency closure is now Root-qualified.
-  Both variants compile, but report capture refuses qualification. Correct the
-  producer, verify a fresh comparable pair, then export/read back
+  Both variants compile, but report capture refuses qualification. The repaired
+  producer source is now selected; refresh its dependency binding, verify a fresh
+  comparable pair, then export/read back
   immutable images, start in isolated state and verify ordinary stack/new-slot,
   weight/full-bag, equipment/rental/GUID and save/re-entry behavior. The capacity
   probe must remain read-only. Use the [ordinary-item runbook](runbooks/T10.010.004-ordinary-item-verification.md)

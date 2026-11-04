@@ -1118,3 +1118,18 @@ is retained; primary packaging source documents post-sign byte differences,
 so actual hashes and retained pre-sign metadata are bound separately. Root
 identifies the existing direct managed browser route; actual launch and
 assets/Chinese/image/port/mount/DB bindings stay open. See [staging evidence](2026-11-04-T10.010.004-root.md#fresh-host-payload-staged-without-runtime-execution).
+
+Grokade20eec passes Root's isolated100tests/no skips/1411-file preservation.
+Both suppliers pass the same12 Root producer controls and source/lint/syntax
+contract. Root selects three exact Claude847fc6d1 blobs for explicit failure
+diagnostics and smaller test scaffolding, and releases Grok's settled terminal.
+Both branches remain. New source must receive a fresh exact47 qualification;
+Root/Astra preserve the historical-current pin guard and reject an exception.
+Resolver5's five-literal source binding passes Root23pins/AST and independent
+source review. Commit before preparation. See [selection and next admission](2026-11-04-T10.010.004-root.md#interpreter-repair-comparison-closed-claude-selected).
+
+Root also stages/pins18 selected Chinese overlay/list files and explicit
+client_taiwan/packetver20221005 settings in fresh state, preserving source
+identities. Carocc is executable stock-derived NPC content; its quest/zeny/
+travel choices remain outside item cases. Actual overlays/client/GRF linkage
+are open. See [selected inputs](2026-11-04-T10.010.004-root.md#selected-chinese-inputs-staged-explicitly).

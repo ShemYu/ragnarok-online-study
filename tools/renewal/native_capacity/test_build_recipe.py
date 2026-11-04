@@ -2967,5 +2967,166 @@ class ParseSimulateTests(unittest.TestCase):
         self.assertIn("indented transaction row", (self.tmp / "out" / "apk-simulate.refused").read_text())
 
 
+
+# ------------------------------------------------- T10.010.004 interpreter report
+# Compiler5 built both variants (exit 0) but the unchanged strict validator
+# refused interp.txt: readelf -l wraps each program header over two lines, so
+# the old "grep -A1 INTERP" kept only the offset and size rows, never the
+# "[Requesting program interpreter: ...]" line. These tests run the exact
+# production statement from guest_build.sh under /bin/sh with guest_lib.sh and a
+# CONTROLLED readelf shell stub on PATH. The stub prints realistic GNU readelf -l
+# text; it is not binutils and proves nothing about a real VM, binary or game.
+
+# The base 972ba115 statement, verbatim.
+OLD_INTERP_CAPTURE = 'readelf -l "$OUT/$v/map-server" | grep -A1 INTERP > "$OUT/$v/interp.txt" || true'
+INTERP_PREFIX = 'readelf -l "$OUT/$v/map-server"'
+# What the old statement kept from WRAPPED_READELF_L: byte-identical (SHA-256 pin)
+# to Root's refused compiler5 interp.txt for both variants (141 bytes).
+OLD_CAPTURE_SHA = "ee30ec76f3d31d89420de61c7b72131266b8d6646300a89a43e792d45fc062b5"
+MUSL = "/lib/ld-musl-aarch64.so.1"
+WRAPPED_READELF_L = f"""
+Elf file type is DYN (Position-Independent Executable file)
+Entry point 0x29c2ec
+There are 9 program headers, starting at offset 64
+
+Program Headers:
+  Type           Offset             VirtAddr           PhysAddr
+                 FileSiz            MemSiz              Flags  Align
+  PHDR           0x0000000000000040 0x0000000000000040 0x0000000000000040
+                 0x00000000000001f8 0x00000000000001f8  R      0x8
+  INTERP         0x000000000000025c 0x000000000000025c 0x000000000000025c
+                 0x000000000000001a 0x000000000000001a  R      0x1
+      [Requesting program interpreter: {MUSL}]
+  LOAD           0x0000000000000000 0x0000000000000000 0x0000000000000000
+                 0x0000000000a1b2c0 0x0000000000a1b2c0  R E    0x10000
+  LOAD           0x0000000000a2bd10 0x0000000000a3bd10 0x0000000000a3bd10
+                 0x0000000000041a08 0x00000000000a6c58  RW     0x10000
+  DYNAMIC        0x0000000000a5e8f8 0x0000000000a6e8f8 0x0000000000a6e8f8
+                 0x0000000000000220 0x0000000000000220  RW     0x8
+  NOTE           0x0000000000000278 0x0000000000000278 0x0000000000000278
+                 0x0000000000000024 0x0000000000000024  R      0x4
+  GNU_EH_FRAME   0x00000000009c4f10 0x00000000009c4f10 0x00000000009c4f10
+                 0x000000000000c3fc 0x000000000000c3fc  R      0x4
+  GNU_STACK      0x0000000000000000 0x0000000000000000 0x0000000000000000
+                 0x0000000000000000 0x0000000000000000  RW     0x10
+  GNU_RELRO      0x0000000000a2bd10 0x0000000000a3bd10 0x0000000000a3bd10
+                 0x00000000000332f0 0x00000000000332f0  R      0x1
+
+ Section to Segment mapping:
+  Segment Sections...
+   00
+   01     .interp
+   02     .interp .note.gnu.build-id .gnu.hash .dynsym .dynstr .rela.dyn .rela.plt .init .plt .text .fini .rodata .eh_frame_hdr .eh_frame
+   03     .init_array .fini_array .data.rel.ro .dynamic .got .got.plt .data .bss
+   04     .dynamic
+   05     .note.gnu.build-id
+   06     .eh_frame_hdr
+   07
+   08     .init_array .fini_array .data.rel.ro .dynamic .got
+"""
+
+
+def production_interp_capture():
+    lines = [ln.strip() for ln in br.GUEST.read_text().splitlines() if ln.strip().startswith(INTERP_PREFIX)]
+    assert len(lines) == 1, f"interpreter capture statement not found exactly once: {lines}"
+    return lines[0]
+
+
+class InterpreterReportTests(RecipeBase):
+    """Actual guest capture statement -> interp.txt -> unchanged validate_export."""
+
+    def setUp(self):
+        super().setUp()
+        self.out = self.tmp / "out"
+        (self.out / "logs").mkdir(parents=True)
+        (self.out / "patched").mkdir()
+        (self.out / "patched" / "map-server").write_bytes(fake_elf(b"ros_ch1_coin_capacity\0"))
+        (self.tmp / "bin").mkdir()
+
+    def capture(self, statement, text=WRAPPED_READELF_L, status=0):
+        """Run one capture statement for v=patched with a controlled readelf stub."""
+        (self.tmp / "readelf.txt").write_text(text)
+        stub = self.tmp / "bin" / "readelf"
+        stub.write_text('#!/bin/sh\n[ "$#" = 2 ] && [ "$1" = -l ] && [ "$2" = "$OUT/patched/map-server" ] || exit 64\n'
+                        f'cat "{self.tmp / "readelf.txt"}"\nexit {status}\n')
+        stub.chmod(0o755)
+        (self.out / "RESULT").unlink(missing_ok=True)
+        (self.out / "patched" / "interp.txt").unlink(missing_ok=True)
+        r = subprocess.run(["/bin/sh", "-c", f'set -eu; . "{br.GUEST_LIB}"; v=patched\n{statement}\necho REACHED'],
+                           env={"OUT": str(self.out), "PATH": f"{self.tmp / 'bin'}:{os.environ['PATH']}", "LC_ALL": "C"},
+                           capture_output=True, text=True, timeout=30)
+        f = self.out / "RESULT"
+        return r, (f.read_text() if f.exists() else None)
+
+    def report(self):
+        return (self.out / "patched" / "interp.txt").read_bytes()
+
+    def validate(self, name, interp):
+        """The unchanged host validator on a fake export carrying this interp.txt (fake Engine socket only)."""
+        holder = {}
+        e = self.engine(export=lambda cid: export_tar(holder["p"], cid))
+        p, path, admit = self.plan(name=f"run-{name}")
+        holder["p"] = p
+        br.execute(path, e.sock, admit, poll=0, sleep=lambda s: None)
+        cid = json.loads((path.parent / "EXECUTION.json").read_text())["container_id"]
+        tar = self.tmp / f"{name}.tar"
+        tar.write_bytes(export_tar(p, cid, lambda f: f.__setitem__("patched/interp.txt", interp)))
+        return br.validate_export(path, tar, self.tmp / f"x-{name}")
+
+    def test_old_statement_loses_wrapped_interpreter_and_validator_refuses(self):
+        r, result = self.capture(OLD_INTERP_CAPTURE)
+        self.assertEqual(r.returncode, 0, r.stderr)
+        self.assertIsNone(result)
+        old = self.report()
+        self.assertEqual(hashlib.sha256(old).hexdigest(), OLD_CAPTURE_SHA)  # == compiler5's refused bytes
+        self.assertEqual(len(old), 141)
+        self.assertNotIn(MUSL.encode(), old)
+        with self.assertRaisesRegex(br.RecipeError, "patched: interpreter"):
+            self.validate("old", old)
+
+    def test_production_statement_keeps_complete_report_and_validator_accepts(self):
+        stmt = production_interp_capture()
+        r, result = self.capture(stmt)
+        self.assertEqual(r.returncode, 0, r.stderr)
+        self.assertIn("REACHED", r.stdout)
+        self.assertIsNone(result)
+        self.assertIn(f"[Requesting program interpreter: {MUSL}]".encode(), self.report())
+        self.assertEqual(self.report(), WRAPPED_READELF_L.encode())  # complete, unfiltered
+        self.validate("new", self.report())
+        self.assertNotIn("grep", stmt)  # no context filtering ...
+        self.assertNotIn("|| true", stmt)  # ... and no masked failure
+
+    def test_failed_readelf_refuses(self):
+        stmt = production_interp_capture()
+        for name, text, status in (("partial-output", WRAPPED_READELF_L, 1), ("no-output", "", 2)):
+            with self.subTest(name):
+                r, result = self.capture(stmt, text, status)
+                self.assertNotEqual(r.returncode, 0, r.stdout)
+                self.assertNotIn("REACHED", r.stdout)
+                self.assertEqual(result, "FAIL patched readelf -l\n")
+        # Control: the old statement masked the same failure and continued.
+        r, result = self.capture(OLD_INTERP_CAPTURE, "", 2)
+        self.assertEqual(r.returncode, 0, r.stderr)
+        self.assertIn("REACHED", r.stdout)
+        self.assertIsNone(result)
+
+    def test_missing_or_wrong_interpreter_still_refused(self):
+        stmt = production_interp_capture()
+        line = f"      [Requesting program interpreter: {MUSL}]\n"
+        assert WRAPPED_READELF_L.count(line) == 1
+        cases = {
+            "missing": WRAPPED_READELF_L.replace(line, ""),
+            "wrong": WRAPPED_READELF_L.replace(MUSL, "/lib/ld-linux-aarch64.so.1"),
+            "empty": "",
+        }
+        for name, text in cases.items():
+            with self.subTest(name):
+                r, result = self.capture(stmt, text)
+                self.assertEqual(r.returncode, 0, r.stderr)  # producer reports faithfully; host decides
+                self.assertEqual(self.report(), text.encode())
+                with self.assertRaisesRegex(br.RecipeError, "patched: interpreter"):
+                    self.validate(name, self.report())
+
+
 if __name__ == "__main__":
     unittest.main(verbosity=2)
