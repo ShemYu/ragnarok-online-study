@@ -222,6 +222,21 @@ dependency separation, cancellation-safe create/import and output-root link
 checks. The worker reports 41 recipe/20 preparation tests. These are candidate
 claims pending Root's next check, not an executed guest or integrated task.
 
+Root then personally runs the submitted 20 preparation tests, 41 recipe/guest
+fixture tests and pinned Ruff: all pass. Actual process times are 14.80 s,
+20.30 s and 0.035 s. A further combined-failure control still finds an import
+gap: fake create returns an owned ID, HEAD raises `Cancelled`, DELETE refuses;
+only `Cancelled` propagates, losing cleanup failure and ownership detail.
+The check after `finally` is skipped while unwinding. This does not invalidate
+the repaired execute path, but it fails the frozen import cleanup contract.
+No real Engine is contacted. Repair dispatch `ctx_f6bac435906a`, task
+`task_efe7b20e1076`, now owns this narrow final correction.
+
+| Latest private evidence | SHA-256 |
+| --- | --- |
+| `native-final-root-1/RESULT_ROOT.json` | `317265d47ff82fefd77fdbde9edbf71617a97c74c8206e18517448b5e95c9000` |
+| `native-import-fault-root-1/RESULT_ROOT.json` | `43a3715a6c2a16471135a68e6df15fea5ab123caedda1687541aad009d338d1a` |
+
 | Additional private evidence under the same execution directory | SHA-256 |
 | --- | --- |
 | `native-repair-controls-root-2/RESULT_ROOT.json` | `847fc4421407862f354a9515e3318e01c7c39df6bdd482f80d3ca11669a863c1` |

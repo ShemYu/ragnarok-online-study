@@ -15,6 +15,26 @@ the non-selected native Grok terminal are released with archived transcripts.
 
 ## Authority and preserved boundaries
 
+## Next independent source lane: T10.010.005
+
+Root freezes [the release compatibility brief](../tasks/T10.010.005.md) and
+[equal input profile](../fixtures/T10.010.005-inputs.json) from `0a2a2494`.
+The 17 project files independently reproduce contract SHA-256
+`645a1d21b68c05940122f256164e35c4fa0a15ef99ae9d91a9da943ed9d57855`.
+Six primary app-source bodies are read directly from the already fetched
+pinned public Git objects, written to one ignored read-only common packet and
+individually hashed. No installed/user state is an input. Profile SHA-256:
+`7ce4212793f539ab1fc8c18212d58c916458a0691ea37c634c5e0b48ac310530`.
+
+This source phase is independent of the remaining native import-cleanup
+repair. Native binary/parser/effective-data/full-text reference inputs are
+explicitly absent, so real pre-install admission must refuse. The task's
+actual release/install acceptance remains dependent on .004 and later Root
+runtime checks. Dispatch receipts and introducing base are recorded below
+once accepted; no live worker is implied by freezing a brief.
+
+## Original activation authority
+
 The active thread goal explicitly asks to finish the seven actions in the
 user-supplied audit summary with Orca subagents, selecting suppliers by task
 fit. Root read the attached summary before proceeding. This resumes the prior

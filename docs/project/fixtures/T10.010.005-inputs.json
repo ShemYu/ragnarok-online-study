@@ -1,0 +1,145 @@
+{
+  "schema": "renewal-release-compatibility-inputs-v1",
+  "task": "T10.010.005",
+  "source_snapshot": "0a2a2494ad59b8e325b3271a72f0bb55ee57bd78",
+  "input_boundary": "Fixed source facts only. Runtime binary, parser, effective data, text reference and install evidence not supplied; no actual install admission can pass.",
+  "project_contract_sha256": "645a1d21b68c05940122f256164e35c4fa0a15ef99ae9d91a9da943ed9d57855",
+  "project_inputs": [
+    {
+      "path": "docs/project/fixtures/T10.008-profile.json",
+      "bytes": 2081,
+      "sha256": "e20ba28a16ddfa58a777ea614dc8fd019a26d6b238cfcfc695ed1ef0ffc21f2d"
+    },
+    {
+      "path": "docs/project/fixtures/T10.010-profile.json",
+      "bytes": 1966,
+      "sha256": "f611174ce853850da0737d1d77f52d19e3b15c5a6f010eb5b1f97d3bf6e5e3a9"
+    },
+    {
+      "path": "docs/project/fixtures/T10.010.002-profile.json",
+      "bytes": 2094,
+      "sha256": "d52c747d4c1d5ad1f2b69542afbb1329560662c784aab3b41284a28fc8142839"
+    },
+    {
+      "path": "docs/project/runbooks/T10.008-T10.009-normal-apply.md",
+      "bytes": 12143,
+      "sha256": "1314201e2734cd6e425c24d4b2d3702d496f258c8c3617706ee4454c7ab986a2"
+    },
+    {
+      "path": "tools/renewal/CHAPTER1_ENTRY.md",
+      "bytes": 16916,
+      "sha256": "c63bb30960068fadab2b20bc2cf7912d5bca0b2e6a94fa0f99819d9e2d19bd92"
+    },
+    {
+      "path": "tools/renewal/chapter1_entry/ro-solo-ch1-entry/db/quest_db.yml",
+      "bytes": 517,
+      "sha256": "2a1b0b0ee1588240e9845b68146226e21545d09bf7b2c99217069aa37bced23f"
+    },
+    {
+      "path": "tools/renewal/chapter1_entry/ro-solo-ch1-entry/mod.json",
+      "bytes": 1026,
+      "sha256": "62df61fa4c9a384f89a301a7eae50e60d6b1df4df2eab5fc6b47f16641d9cd77"
+    },
+    {
+      "path": "tools/renewal/chapter1_entry/ro-solo-ch1-entry/npc/entry.txt",
+      "bytes": 7701,
+      "sha256": "f008ee0146a4830d1965a4bda6597879d3d09dfdd430418d35785b595517d3b8"
+    },
+    {
+      "path": "tools/renewal/chapter1_entry/ro-solo-ch1-entry/npc/first_edge.txt",
+      "bytes": 5544,
+      "sha256": "4738d9497618c276e0a8db0e5ecdd3744cb5a88c460294ea0caa6cb8ac0adbe1"
+    },
+    {
+      "path": "tools/renewal/chapter1_entry/ro-solo-ch1-entry/npc/fruit_village.txt",
+      "bytes": 17959,
+      "sha256": "f82e8d0997774f95d2fa6c593ad7d228ccb1571b9a21d6dcdb0cd766f7bb9557"
+    },
+    {
+      "path": "tools/renewal/native_capacity/coin_capacity.patch",
+      "bytes": 7669,
+      "sha256": "9c84d8463d15f99b721d385562b10ed3d5c9e1a3c39a954dfe5bccd331f5411d"
+    },
+    {
+      "path": "tools/renewal/native_capacity/coin_capacity_fixture.cpp",
+      "bytes": 23925,
+      "sha256": "ac8aa45f1af769d151e1b470d9998075ab7ef9999c7fd076502467d48d613a30"
+    },
+    {
+      "path": "tools/renewal/native_capacity/test_coin_capacity.py",
+      "bytes": 13485,
+      "sha256": "538927f1b8bbd165388f781bb23e154d5b62232f466775d0c038c0126a14955a"
+    },
+    {
+      "path": "tools/renewal/quest_registration_tail.js",
+      "bytes": 15211,
+      "sha256": "0eb63300b03b9ed9fc49b18fbb329a80f4f2f3aee1439c98b20a89f2168d9508"
+    },
+    {
+      "path": "tools/renewal/quest_text_projection.mjs",
+      "bytes": 22513,
+      "sha256": "feb3e1813455775a0386b707343563ec7348ad31efe84e658a8ccee7cf2ffd25"
+    },
+    {
+      "path": "tools/renewal/quest_true_text_mod.py",
+      "bytes": 8039,
+      "sha256": "4d4498445c4d29f63884ab7e28146802315406ac86065a55cf5f8166bf1c4747"
+    },
+    {
+      "path": "tools/renewal/test_chapter1_entry.py",
+      "bytes": 115242,
+      "sha256": "b36385564b24a0beed47ae038b962bae04b3e29dfd53700f7a156f1609ce1d18"
+    }
+  ],
+  "app": {
+    "commit": "2c3b2612973fb8d0ae6ad366a2b298686f2404cb",
+    "tree": "8cab46745c01bc49d62b5f43b209a88910686151",
+    "inputs": [
+      {
+        "path": "electron/main.js",
+        "packet_path": "app/electron/main.js",
+        "bytes": 200609,
+        "sha256": "9ff6bfe98497ca2e86965c9da4070f0ca102ff6a0c6490275e409f1b9666f75b"
+      },
+      {
+        "path": "electron/settings-store.js",
+        "packet_path": "app/electron/settings-store.js",
+        "bytes": 4885,
+        "sha256": "8924f58f5e5552333dcf008918567695bb4e025f8d40ccf34cbe9e6e0971425e"
+      },
+      {
+        "path": "stack/src/mods.rs",
+        "packet_path": "app/stack/src/mods.rs",
+        "bytes": 207449,
+        "sha256": "474a2dbadf74ee41d4e9ad06439a53b05ab744d1696b87b208ac58c014512ba6"
+      },
+      {
+        "path": "stack/src/cmds.rs",
+        "packet_path": "app/stack/src/cmds.rs",
+        "bytes": 167113,
+        "sha256": "0c44deaa5c66b839f84f9600449fd76aeeb0d2615534b738d10970a972e2a1a4"
+      },
+      {
+        "path": "stack/src/assets.rs",
+        "packet_path": "app/stack/src/assets.rs",
+        "bytes": 102728,
+        "sha256": "6cfa790e5eadf4af600c8d9ebd612c8bf462b9b7a330fdbaa8b5f98a2ccb7ee3"
+      },
+      {
+        "path": "stack/src/assets/client_tables.rs",
+        "packet_path": "app/stack/src/assets/client_tables.rs",
+        "bytes": 42585,
+        "sha256": "f134f2d227d4890988ff97aaeda86e83ec336f43aed24e8dc1fb7a6b2bca1d36"
+      }
+    ]
+  },
+  "not_admitted": [
+    "native binaries/images",
+    "native builtin/parser receipts",
+    "effective item/config/import facts",
+    "complete four-record Description reference",
+    "actual customQuestInfo/decoder or journal state",
+    "installed mods/saves/accounts"
+  ],
+  "runtime_evidence_must_be_supplied_by": "Root after T10.010.004 qualification, explicit inputs and exact pins; authored positives cannot supply actual qualification"
+}
