@@ -23,9 +23,12 @@ not percentages of playable content, translation or remaining effort.
 
 ## Current action — DB qualification before integrated items
 
-**Next:** admit the captured native dump through the full SQL codec/oracle
-and input-byte gates, then qualify supported isolated backup/restore and S0–S4
-semantics once the same-PID restore launcher is selected and verified.
+**Next:** capture independent full definitions and exact per-table row counts
+under quiescence, plus a same-state supported app-stamped backup. Qualify the
+full SQL codec/oracle and input-byte gates, then isolated backup/restore and
+S0–S4 once the same-PID launcher is selected and verified. The direct discovery
+dump has no app stamp; do not synthesize one or infer independent counts from
+its INSERT lines. The codec has not been called on it.
 
 **Actual DB discovery is now Root-qualified.** Candidate8's one-use phase3
 settles in35.936456seconds, controller exit0, empty stderr and no outer custody
