@@ -1,5 +1,28 @@
 # Seven-task execution — 2026-11-04
 
+## Dependency admission and source-lane checkpoint
+
+[One dependency-only phase](../tasks/T10.010.004-dependency-resolve.md) is
+prepared/admitted on the stopped owned build VM. It pins the selected resolve
+plan, source/payload/state witnesses and new resource plan. Three invalid
+admission/target/source controls refuse before launch; independent source
+review finds no material blocker. Every boot refreshes actual headroom and
+own cgroups before APK. Full compile remains unadmitted; raw package joins
+remain Root's required post-resolve qualification.
+
+Grok reports second repair `925e7b36` through accepted message `msg_cb05b248322b`.
+Root runs69 tests and original stage/deep-JSON counterexamples successfully,
+preserving all619 tracked files. Revised runbook still has executable
+same-name failure recovery and release/withdrawal contract defects; see
+[Root's source record](2026-11-04-T10.010.005-root.md#grok-second-repair-code-controls-pass-procedure-needs-correction).
+Claude remains quota-limited before commit/report; no source selection yet.
+
+Publication recovers: a later normal feature push succeeds through `f40699b7`.
+Root directly confirms that exact remote feature tip and unchanged remote
+main `c6314bbd85caa01f54fdcc38d62168e101e2c5a4`. The earlier rejection records
+are historical; no force/rule change was needed. Subsequent checkpoints must
+still be pushed and verified before claiming current synchronization.
+
 ## Latest actual runtime result
 
 [Separate build-only VM characterization passes](2026-11-04-T10.010.004-root.md#actual-build-only-vm-characterization-passes)

@@ -34,6 +34,10 @@ still expose stale folder inventories and uncaught deep JSON. Both need the
 [same second repair](tasks/T10.010.005-repair-2.md), including a concrete offline
 withdrawal replacement procedure. Neither is selected/integrated. Root owns
 serial runtime work; suppliers own isolated source repairs.
+Grok's second repair now passes Root's69 tests and the two original edge-case
+controls with all619 tracked files unchanged, but its same-name failure
+recovery/withdrawal contracts still need correction. Claude is quota-limited
+before its report/commit. Source selection and actual release admission stay open.
 The [current .004 ownership correction](reviews/2026-11-04-T10.010.004-root.md#ownership-correction-before-further-admission)
 finds four concurrent worlds. The completed resource probe and 1.27 GiB
 headroom refusal apply to the default instance. The later
@@ -46,8 +50,9 @@ now passes after correcting macOS process-column truncation: local image
 import, identity, own cgroup/limit readbacks,3.61 GiB available RAM and owned
 cleanup all pass. The unchanged1536+768 MiB gate is met. The VM is gracefully
 stopped, its probe deleted, no containers/volumes remain, and five personal
-service projections are identical. Next is bounded dependency qualification
-on this save-free build engine. No personal RAM adjustment/restart,
+service projections are identical. [Bounded dependency-only execution is admitted](tasks/T10.010.004-dependency-resolve.md)
+on this save-free build engine, conditional on a new boot/resource/headroom check.
+No personal RAM adjustment/restart,
 compiler/package install or progress write has occurred.
 
 Pre-merge maintenance: lint/CI checkpoint `86e98d9` is verified. At the user's
@@ -72,8 +77,8 @@ This is not a percentage of playable content, effort or translation.
 
 1. **Actual binary experiment.** T00.006, T06.005.001 and T10.010.003 are
    integrated within their documented limits. T10.010.004's tiny resource probe
-   passed on both the default and correctly bound personal instance. Admit a
-   fresh build-only VM now passes actual headroom/ABI/cleanup. Qualify dependency
+   passed on both the default and correctly bound personal instance. A separate
+   build-only VM now passes actual headroom/ABI/cleanup. Qualify dependency
    resolution before admitting a bounded actual build. Current personal recovery proof
    remains required before later existing-state mutations. Full content stays open.
    No broad discovery or stock
