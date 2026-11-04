@@ -20,7 +20,7 @@ FULL MODERN / RENEWAL PERSONAL GAME
 |   [ ] Exact-base signed dependency recipe repair [CURRENT; PARALLEL]
 |   [ ] Qualified dependencies -> full builds -> ordinary-item A/B
 |   [ ] Binary/mod/text gate [SOURCE INTEGRATED; RUNTIME OPEN]
-|   [ ] Real EXP/callback/save and uncertain-reward acceptance
+|   [ ] Real EXP/callback/save [SOURCE ANALYSIS; PARALLEL]
 |   [ ] Isolated native parser / actors / quest states / rewards
 |   [ ] Save, re-entry, repeat and withdrawal checks
 |   [ ] Supported normal installation and full settings Apply

@@ -63,9 +63,12 @@ versions, personal service projections and owned cleanup pass. Next: the
 exact-base resolution with retained signed package bytes before a full build.
 Claude/Grok source-only repairs are now dispatched from the same30439b1 base;
 both report ready. Root retains serial runtime ownership and the VM is stopped.
+Claude has submitted f5342ebf; Root's69 tests pass with638 tracked files
+unchanged. Source review/Grok comparison and real closure replay remain open.
 The [EXP/callback/save analysis brief](tasks/T10.010.006.md) freezes the freshly
-reverified source and explicitly unknown effective EXP facts for parallel
-work. [Image source readiness](reviews/2026-11-04-T10.010.004-image-source.md)
+reverified source and explicitly unknown effective EXP facts. Both Claude/Grok
+analysis workers are now ready from the samed1993ac base, parallel to .004.
+[Image source readiness](reviews/2026-11-04-T10.010.004-image-source.md)
 also finds the existing single-COPY build path is implemented; actual image
 creation and all runtime reward/save checks remain open.
 No personal RAM adjustment/restart, game/DB service or progress write occurs.

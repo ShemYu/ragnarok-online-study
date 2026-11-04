@@ -554,3 +554,25 @@ the publication failure above and validates source CI only. The full native
 build and game/runtime acceptance remain open. Both dependency workers are
 confirmed live/in_progress; EXP/save source analysis and image-import source
 readiness can proceed independently while they implement.
+
+
+## EXP/callback/save source analysis starts in parallel
+
+Root refreshes the entire5121-file prepared tree and reproduces all source
+pins, then freezes explicit control/save-path anchors, story/patch pins and
+scenario facts with actual effective EXP inputs left unknown. Astra's narrow
+source consultation identifies queued versus direct callbacks, separate
+quest/status/inventory saves and the warning's lack of durable quarantine.
+These are source leads for independent checking, not actual reward/save proof.
+
+Both analysis suppliers start fromd1993ac64282e650d01b51ba1b25a39a2725a706
+with the same brief and spec. Spec SHA-256
+`465243c1ae5e993d09b1638836db6855e42cb300d364461e396ba02d7667fb84`;
+brief SHA-256
+`91d7c92df6b287f0c43c8917d94b32772be6373b075f941dc15bfa729c6f13fe`.
+Claude ctx_b47ea6011b08 and Grok ctx_79328f44e2c0 both report ready in their
+separate task branches. Only report/runbook Markdown edits are allowed; no
+installed-state, runtime or new implementation framework. This advances
+[.006 analysis](../tasks/T10.010.006.md) while .004 remains on the build path.
+Root will verify the analyses before selecting a usable runbook; actual
+EXP/callback/save/restart/interruption acceptance is still open.
