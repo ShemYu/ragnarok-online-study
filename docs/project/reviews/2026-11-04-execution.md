@@ -1199,3 +1199,11 @@ review and actual replay without changing runtime policy. See
 [Root artifact qualification](2026-11-04-T10.010.004-root.md#compiler6-full-artifacts-personally-qualified).
 Commit this artifact checkpoint before image preparation. Images/original
 libraries, supported startup and all gameplay/save gates remain open.
+
+After artifact checkpoint92bfa841 is committed/pushed, Root source-verifies a
+bounded immutable-image/loader controller. Root preflight passes463 guarded
+paths/six payloads/current stopped binding; Astra and separate loader review
+find no material source blocker. New exact Engine API blobs establish Config/
+RootFS inspect joins and a source-only501 image-save boundary. No independent
+whole-layer entry claim follows. Commit [the source checkpoint](2026-11-04-T10.010.004-root.md#image-pair-source-and-preflight-verified)
+before preparation. No image phase/API mutation/runtime start/probe exists yet.
