@@ -51,6 +51,10 @@ schema or restore proof. See [current review and next action](reviews/2026-11-05
 and [dispatch record](reviews/2026-11-04-T10.010.004-root.md#discovery-workers-dispatched-and-live).
 The concrete Claude repair is delivered as follow-upctx_5efe029e4fb0/ready;
 its fresh source and Grok's original delivery await Orca report wakes.
+The separate supported-backup codec passes32 synthetic controls and lint,
+but Root reproduces numeric-literal/type-join gaps and an actual-format header
+assumption. It needs a narrow source repair before further grammar replay;
+this does not qualify actual backup/restore or delay discovery worker review.
 Root/native/Astra source review identifies the old1107/current1109 baseline
 distinction, explicit DB cwd, split quiescence and unknown-exec shutdown gate.
 Refresh the exact owned VM/world/resources and personal projections before
