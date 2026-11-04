@@ -83,8 +83,10 @@ backup/restore/S0–S4 remain open. See the
 [catalog prerequisites](reviews/2026-11-05-T10.010.004-full-catalog-root.md).
 Backup transitive source is now authenticated across16 files; runtime must
 prove the no-switch route. Native kqueue/raw-wait feasibility now passes seven
-Root-run direct-fake cases; full launch integration remains open. The timestamp repair's frozen
-contract/packet pass independent design review. Claude's first repair passes
+Root-run direct-fake cases; full launch integration remains open.
+Root chooses Claude original as the launch repair basis; the complete repair
+contract passes independent source design review and awaits implementation.
+The timestamp repair's contract/packet pass independent design review. Claude's first repair passes
 163 Root-run controls and actual catalog admission with clauses preserved;
 Grok's report and paired selection remain pending. Independent capture and
 actual backup/restore remain open. See the

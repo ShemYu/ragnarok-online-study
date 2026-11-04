@@ -94,7 +94,11 @@ kqueue/raw-wait design. Root reads its source/SDK/Python basis, then personally
 qualifies seven direct-host-fake primitive cases: exit0, empty stderr, all
 actors reaped and both streams at EOF in0.344006seconds. Lost wait authority
 stays ECHILD and nonzero/signal status is preserved. Full launch repair and
-its controls remain open. One raced Grok wrap-up
+its controls remain open. Claude original is now chosen as the repair basis
+for its correct spawn/configuration sequence and smaller gate. The full
+[repair contract](reviews/2026-11-05-T10.010.004-db-launch-repair-brief.md)
+passes independent source design review; repaired implementation is next.
+Both original scores remain fixed. One raced Grok wrap-up
 follow-up fails readiness; the original source task remains delivered and no
 restart/terminal-exit assumption follows. See the
 [paired assessment](reviews/2026-11-05-T10.010.004-launch-suppliers.md).
