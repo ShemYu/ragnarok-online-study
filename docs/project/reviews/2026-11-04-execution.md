@@ -1133,3 +1133,12 @@ client_taiwan/packetver20221005 settings in fresh state, preserving source
 identities. Carocc is executable stock-derived NPC content; its quest/zeny/
 travel choices remain outside item cases. Actual overlays/client/GRF linkage
 are open. See [selected inputs](2026-11-04-T10.010.004-root.md#selected-chinese-inputs-staged-explicitly).
+
+After source checkpointd3b1b71c is committed/pushed, Root prepares dependency5
+and verifies124 pins/six payloads,54 upload members and all47 raw/source/PLAN
+identity joins. Only the selected producer changes in the upload; current
+owned stopped binding/pressure/ports and absent markers pass. Independent
+Astra file review finds no blocker. Commit this [fresh admission](2026-11-04-T10.010.004-root.md#fresh-dependency5-admission-for-the-selected-producer)
+before its one serial run; no new actual dependency/binary result is implied.
+Root also fully pins the existing2.17GB GRF read-only without identity changes;
+assets/client linkage and resource coverage remain open.

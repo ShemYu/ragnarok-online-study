@@ -58,10 +58,15 @@ The new guest hash intentionally breaks the historical-current source-pin join
 for the old dependency-v4 admission. Keep that evidence immutable. Root/Astra
 choose a fresh exact47 resolve instead of adding an exception. New private
 resolver5 changes only three output paths, schema and guest pin; Root verifies
-23fixedpins, five-literal AST equivalence and unused paths. Commit this source
-checkpoint before fresh preparation/admission. Resolver1536MiB/headroom2415919104,
-reserve768MiB and all controls stay fixed; compiler6 will retain2560MiB and
-3489660928-byte headroom. No new dependency run or admission is implied yet.
+23fixedpins, five-literal AST equivalence and unused paths. Source checkpoint
+d3b1b71c is committed/pushed before fresh dependency5 preparation. Root and
+Astra now review124 source/input/generated pins, six payloads,54 regular upload
+members and all47 raw/source/PLAN identities. Only guest_build.sh differs from
+the old upload; inputs.env stays equal. Current owned stopped binding matches,
+and all execution/admission markers are absent. Commit this admission before
+its one serial run. Resolver1536MiB/headroom2415919104, reserve768MiB and controls
+stay fixed; compiler6 will retain2560MiB/3489660928-byte headroom. No new actual
+dependency result is qualified. See [prepared admission](reviews/2026-11-04-T10.010.004-root.md#fresh-dependency5-admission-for-the-selected-producer).
 See [repair selection and refresh](reviews/2026-11-04-T10.010.004-root.md#interpreter-repair-comparison-closed-claude-selected).
 
 The [ordinary fixtures](tasks/T10.010.004-ordinary-fixtures.md) comparison is
@@ -91,6 +96,9 @@ record is fabricated; copied Carocc is executable stock-derived NPC content
 with quest/zeny/travel effects outside the item cases. The source-supported
 direct managed asset-server route is identified; actual
 RemoteClient protocol, client assets/Chinese overlay and world launch stay open.
+The existing selected2172616301-byte GRF is now fully content-pinned read-only;
+its source identities stay unchanged. It is not yet linked or content-complete
+qualified by this hash.
 
 ## Four audit tasks remain open
 
