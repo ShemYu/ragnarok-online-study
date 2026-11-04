@@ -55,6 +55,14 @@ rows, safe documentation commands and an explicit 0.2.0-only runbook banner.
 All original 37 unfinished IDs/statuses/dependencies survive. No game gate is
 closed and no installed files, saves or gameplay change in this inspection.
 
+T06.005.001 is `self_verified` for provisional metadata/tooling on 2026-11-04.
+Root verifies both final candidates, reconciles all 82 descriptor tuples,
+selects Claude's generator and checks the integrated result. See
+[selection, checks, limits and rollback](reviews/2026-11-04-T06.005.001-root.md).
+The active board now has 43 unfinished rows. This completes one of the seven
+audit tasks; T06/T07, all 82 functional gaps and the 4/14 parent ledger stay
+open/unchanged. Both settled coverage terminals are released with output archived.
+
 ## Preserved snapshots
 
 - [Original task ledger and acceptance contracts](HISTORY-2026-10-25-TASKS.md):

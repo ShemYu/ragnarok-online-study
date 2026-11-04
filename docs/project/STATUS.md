@@ -15,13 +15,16 @@ See [audit findings](reviews/2026-10-29-T00.005.md),
 Feature-branch checkpoints/publication remain authorized; `origin/main` stays
 unchanged. No additional local-main merge is part of this execution checkpoint.
 
-Latest [Root verification](reviews/2026-11-04-root-verification.md): all six
-initial candidates are submitted. Fresh public native source reconstruction,
-nine source pins and the 133-case/9-mutant host check pass. Root independently
-reconciles both coverage ledgers to all 82 roots. Candidate cleanup/output/
-build-recipe repairs remain open; no candidate is integrated or real compiler
-container started. Historical private admission is stale despite matching
-bytes; keep that failure visible and preserve its old evidence.
+Latest [coverage selection and integration](reviews/2026-11-04-T06.005.001-root.md):
+T06.005.001 is `self_verified`, the first of seven audit tasks completed within
+its provisional metadata/tooling scope. Root verifies both repaired candidates,
+selects Claude's generator and rechecks it after integration. All 82 functional
+gaps remain open. Both settled coverage terminals are released.
+The [other candidate checks](reviews/2026-11-04-root-verification.md) remain
+active: fresh native source/nine pins/133 cases/9 mutants pass, while runner
+evidence handling and build-recipe qualification remain open. No real compiler
+container has started. Historical private admission remains stale despite
+matching bytes; preserve that failure and its old evidence.
 
 Pre-merge maintenance: lint/CI checkpoint `86e98d9` is verified. At the user's
 subsequent request, the retired Godot/Character Lab source is preserved under
@@ -43,9 +46,10 @@ This is not a percentage of playable content, effort or translation.
 
 ## Unfinished work, in priority order
 
-1. **Parallel prerequisites.** Make mutation suites self-isolating (T00.006),
-   publish a provisional coverage ledger now (T06.005.001), and reconstruct the
-   exact native source/build recipe (T10.010.003). No broad discovery or stock
+1. **Parallel prerequisites.** Make mutation suites self-isolating (T00.006)
+   and reconstruct the exact native source/build recipe (T10.010.003). The
+   provisional ledger T06.005.001 is integrated; full content stays open.
+   No broad discovery or stock
    `checkweight` substitution. These address confirmed verification/release
    gaps without changing the goal.
 2. **Native build for the 0.3.2 story extension.** Qualify the bounded

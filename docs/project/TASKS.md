@@ -18,14 +18,15 @@ newly designed tasks use [Next actions](NEXT_ACTIONS.md) for their bounded
 acceptance; freeze their task-specific execution inputs before dispatch.
 
 The expert re-audit adds seven planned children to the 37 previously unfinished
+rows. T06.005.001 is now self-verified in [History](HISTORY.md), leaving 43 open
 rows. Their bounded outputs, acceptance and parallel lanes are defined in
 [Next actions](NEXT_ACTIONS.md). Their execution starts with three independent
 source lanes; installed-state mutations require the later runtime gates.
 
 ## Resume order
 
-1. In parallel: T00.006 safe verification, T06.005.001 provisional coverage and
-   T10.010.003 reproducible native source/build recipe.
+1. In parallel: T00.006 safe verification and T10.010.003 reproducible native
+   source/build recipe. T06.005.001's provisional ledger is integrated.
 2. T10.010.004–007: full native build and ordinary-item regression, release
    capability gate and reward/save qualification, then supported normal
    integration and journal/progression/save checks.
@@ -62,7 +63,6 @@ source lanes; installed-state mutations require the later runtime gates.
 | T06.006 | P2 ordinary gameplay verification | Isolated multi-stage quest and effective runtime-load evidence | .008 checkpoint; paired plan; proved fresh state isolation/preservation | `in_progress` | Complete effective-runtime and ordinary multi-stage quest evidence. |
 | T06.006.003 | P2 root serial progression | Ordinary intro/Eden membership, hunt, rewards and persistence | Qualified .002separate world; corrected actual T07.001 paired scenario | `in_progress` | Finish the ordinary intro/Eden hunt, rewards and persistence scenario after the current story lane. |
 | T06.005 | P2 | Reconciled content/gap report | T06.002–T06.004 | `planned` | Publish the reconciled required-content and gap report after its inventory inputs qualify. |
-| T06.005.001 | P2 provisional coverage | Version/content ledger with evidence levels and 82-gap joins | Already qualified T06/T07 inventories; unknown inputs stay unknown | `in_progress` | Root checks final annotation/output/provenance repairs, then selects/integrates. Both initial 82-root tuples and raw totals reconcile; [review](reviews/2026-11-04-root-verification.md). |
 | T07 | P2 | Full-game version/coverage contract and gap-based estimate | Verified partial T06 inputs; full T06 completion still required | `in_progress` | Declare a coherent Renewal content/version contract and estimate the actual remaining gaps. |
 | T07.007 | P2 modern asset acquisition | Official October Taiwan package, full extracted manifest and exact terrain/dependency catalog | Independent verified official metadata; common base6e05dfc | `in_progress` | Finish the official-package/dependency reconciliation and remaining production map gates. |
 | T07.007.011 | P2 actual map loading/rendering | Four target maps through production image/instance/compile/GPU paths | Qualified .010 assets; exact actual client bundles and fresh viewer origin | `in_progress` | Complete the four target maps through genuine production render paths; isolated samples stay scoped. |

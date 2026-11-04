@@ -1,8 +1,9 @@
 # Expert re-audit — next actions
 
 Designed 2026-10-29; execution activated 2026-11-04 by the current thread goal.
-The seven tasks remain unverified until their acceptance gates pass. The first
-three source lanes have frozen briefs; see the
+T06.005.001 is self-verified for provisional metadata/tooling and integrated;
+see [Root's selection](reviews/2026-11-04-T06.005.001-root.md). Six audit tasks
+remain open. The first three source lanes have frozen briefs; see the
 [execution record](reviews/2026-11-04-execution.md) for dispatch and results.
 [Audit evidence](reviews/2026-10-29-T00.005.md) distinguishes confirmed findings
 from missing runtime proof. The full Modern/Renewal goal is unchanged.
@@ -20,7 +21,8 @@ No new permanent marker or transaction system is selected by this audit.
 
 All tasks use Root as coordinator. Implementation candidates follow the paired
 workflow, with separate ownership and Root verification before user evaluation.
-The acceptance column describes future evidence, not a result already obtained.
+The acceptance column defines each contract; completion is recorded above and
+in History.
 
 | ID / priority | Deliverable and dependencies | Objective verification and end-user acceptance |
 | --- | --- | --- |
@@ -38,7 +40,7 @@ The acceptance column describes future evidence, not a result already obtained.
 Inspection/design complete; execution resumed 2026-11-04
  |
  +-- T00.006     safe, reproducible verification ----------+
- +-- T06.005.001 coverage ledger / 82-gap reconciliation --+--> full-content plan
+ +-- T06.005.001 coverage ledger [SELF-VERIFIED] ----------+--> full-content plan
  |
  +-- T10.010.003 exact sources + build recipe
        +-- T10.010.004 full binary + ordinary items ------+

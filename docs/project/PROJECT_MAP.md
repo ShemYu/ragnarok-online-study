@@ -1,15 +1,16 @@
 # Remaining work and supervision
 
 Updated: 2026-11-04 JST. **Seven-task execution resumed.**
-The initial source lanes have independent Claude/Grok Orca candidates dispatched. See
+The provisional coverage task is integrated; the remaining source lanes have
+independent Claude/Grok candidates under Root verification. See
 [the detailed next actions](NEXT_ACTIONS.md) and [audit](reviews/2026-10-29-T00.005.md).
 
 ```text
 FULL MODERN / RENEWAL PERSONAL GAME
 |
-+-- Parallel prerequisites [CANDIDATES DISPATCHED; NOT VERIFIED]
++-- Parallel prerequisites [1 OF 3 SELF-VERIFIED]
 |   [ ] T00.006: safe public/private test classification and isolated runner
-|   [ ] T06.005.001: provisional content ledger / 82-gap joins
+|   [x] T06.005.001: provisional content ledger / 82-gap joins
 |   [ ] T10.010.003: reproducible native sources / bounded build recipe
 |
 +-- Story lane [AFTER SOURCE/BUILD RECIPE]
@@ -44,6 +45,9 @@ FULL MODERN / RENEWAL PERSONAL GAME
 The ledger remains **4/14 parent checkpoints qualified**, not 29% of the
 world/story completed. The content denominator and full-milestone estimate
 remain unfinished. Basic local play and saved progress are already available.
+One of the seven audit tasks is self-verified (about 14% by task count only).
+See [coverage verification](reviews/2026-11-04-T06.005.001-root.md); all 82
+functional gaps remain open.
 
 [Current status](STATUS.md) is authoritative for pause state, the preserved
 baseline and the next action. [Unfinished tasks](TASKS.md) gives task-level

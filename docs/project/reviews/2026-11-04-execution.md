@@ -1,5 +1,11 @@
 # Seven-task execution — 2026-11-04
 
+Latest completion: [T06.005.001 selection/integration](2026-11-04-T06.005.001-root.md).
+Root verifies both final candidates and the selected integrated ledger. One
+of seven audit tasks is self-verified; all 82 functional gaps stay open. The
+two settled coverage terminals are released. The dated snapshots below retain
+their original dispatch/verification scope.
+
 ## Authority and preserved boundaries
 
 The active thread goal explicitly asks to finish the seven actions in the
