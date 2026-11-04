@@ -23,7 +23,7 @@ not percentages of playable content, translation or remaining effort.
 
 ## Current action — DB qualification before integrated items
 
-**Next:** complete final review and separately admit the prepared candidate8 phase,
+**Next:** execute the exact admitted candidate8 phase after confirming publication,
 with mandatory full stopped-state continuity checks. Candidate8's narrow
 overlay repair is delivered and personally qualified for source/controls and
 actual-record readback. Four body compilations and Ruff pass;145 authored fake
@@ -40,8 +40,9 @@ That readback left phase3 absent and performed no preparation or VM/app/SQL.
 Root then prepares fresh phase3 under the full-state guard: the child exits0/
 no stderr in3.340492seconds and exact policy/resource/env/temp readbacks pass.
 Full selected/current/phase.binding equality and world/personal preservation
-pass before and after. Phase3 is unused; no runtime admission or VM/app/SQL/
-restore action occurs. See the [prepared-phase checkpoint](reviews/2026-11-05-T10.010.004-db-discovery-root.md#candidate8-fresh-phase3-preparation-personally-qualified)
+pass before and after. Phase3 is unused. Final source/phase checks and six native fake custody probes
+now pass; Root admits the exact one-use run after publishing this checkpoint.
+No VM/app/SQL/restore action has occurred yet. See the [prepared-phase checkpoint](reviews/2026-11-05-T10.010.004-db-discovery-root.md#candidate8-fresh-phase3-preparation-personally-qualified)
 and [candidate8 checkpoint](reviews/2026-11-05-T10.010.004-db-discovery-root.md#candidate8-source-controls-and-actual-readback-personally-qualified).
 
 **Required outer guard:** standalone C8 checks only owner/home/kernel/pristine
@@ -51,7 +52,7 @@ preparation joined to the full phase.binding, and before the exact admitted
 run. Refuse drift without rebasing. C8's internal full phase/current equality
 then runs before LAUNCHED/boot. Keep exclusive Root custody and a fresh unused
 phase; this is a point-in-time workflow guard, not a universal race guarantee.
-The readback and prepared phase do not themselves admit runtime.
+The [final admission record](reviews/2026-11-05-T10.010.004-db-discovery-root.md#candidate8-final-run-guard-and-admission) binds the exact phase/source/wrapper; its immediate full-state guard must pass before launch.
 
 Candidate6's qualified phase2 remains the actual metadata baseline:73tables,
 844columns,164index rows and77constraints, including one unsupported foreign
@@ -85,9 +86,13 @@ Grok source assignmentctx_9245522e29b9/task_2f0bc2d158fb is accepted ready
 in its reopened preserved worktree. After publishingdd415993 and confirming
 clean state, Root reauthenticates the same eleven-file packet/brief and sends
 Claude the independent launch task. Orca acceptsctx_67e826bb6fa1/
-task_81017cb416c6, ready on the retained lane. Both current assignments are
-independent source work; no delivery, selected implementation, control pass
-or runtime admission is inferred. Root awaits explicit report wakes.
+task_81017cb416c6, ready on the retained lane. Claude now delivers four frozen unexecuted files and24 authored/unrun partial
+controls. The exact pinned interpreter lacks os.waitid, which its gate requires;
+Root verifies that capability directly. Independent source review reports
+further custody/evidence/protocol/control gaps; no launch source is selected
+or runtime-admitted. Grok's specific worker is verified live; Root waits for
+its explicit report wake before paired first-delivery selection. See the
+[delivery record](reviews/2026-11-05-T10.010.004-db-launch-root.md#claude-first-delivery-frozen-native-api-gap-verified).
 
 Root owns all runtime work. Refresh the exact owned VM/world/resources and
 personal projections before startup. Supported ordinary up can initialize/write

@@ -29,7 +29,7 @@ FULL MODERN / RENEWAL PERSONAL GAME
 |   [x] Startup process/mount readbacks [ROOT VERIFIED; PARSER OPEN]
 |   [x] Managed client identity/static/owned stop [ROOT VERIFIED]
 |   [x] Live DB metadata / clean shutdown [ROOT VERIFIED; FK REFUSAL]
-|   [ ] Complete DB discovery [PHASE3 PREPARED; FINAL ADMISSION NEXT]
+|   [ ] Complete DB discovery [PHASE3 ADMITTED; ACTUAL CAPTURE NEXT]
 |   [ ] Same-PID restore launch gate [SOURCE DISPATCHED: CLAUDE + GROK]
 |   [ ] Isolated DB backup/restore -> integrated rendering/item A/B
 |   [ ] Binary/mod/text gate [SOURCE INTEGRATED; RUNTIME OPEN]
@@ -74,10 +74,12 @@ lifecycle. Root qualifies145 authored controls,13 profile/I/O probes,4 swaps
 and14 independent FK probes. Actual41/2084/8-record authentication, full fresh
 stopped/1109-world/personal5 equality pass. Fresh phase3 preparation now passes,
 including full selected/current/phase.binding, resource/env/temp and world/
-personal checks. It is unused; final review/admission must repeat full state
-equality immediately before run. No current capture admission yet.
-Independent restore-launch source assignments are dispatched to both Claude
-and Grok with the identical frozen packet/brief after C8 publication.
+personal checks. Final source/phase review and6 native custody probes pass;
+the exact unused phase is admitted after publication, with full state equality
+required immediately before the one-use run. Actual capture is next.
+Independent restore-launch proposals use the same frozen packet/brief. Claude
+delivers partial/unrun controls with native API/source gaps; Grok is live.
+Paired selection and launch qualification remain open.
 Root's direct-interpreter/shebang fake checks do not qualify actual restore.
 No dump, backup/restore or integrated game qualification follows yet.
 Grok's original is preserved but not selected,
