@@ -1327,3 +1327,12 @@ survives headers/body in one send and close-delimited EOF; nine modeled faults
 refuse. Compilation/Ruff pass. See [source/local controls](2026-11-04-T10.010.004-root.md#non-upgrade-exec-capture-source-and-local-controls).
 Commit before initialized-world continuation. No actual Engine exec, VM restart,
 generated-mount or completed process-identity result is inferred.
+
+
+In parallel after capture checkpoint2faeb519 is committed/pushed, Root reviews
+the source-only managed-client plan and pins the existing Node v24.20.0.
+Actual exact-helper definition import exits0 in the retained CommonJS context;
+all expected exports and unchanged bytes pass. No AssetServer method/child/
+network/browser starts. See [source/Node preparation](2026-11-04-T10.010.004-root.md#managed-client-source-plan-and-node-import).
+Actual startup readbacks remain first; client environment/cache/log/write
+bounds, protocol/readiness and rendering stay open.

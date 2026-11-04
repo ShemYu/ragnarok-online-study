@@ -53,8 +53,14 @@ review, ten modeled cases and a real local Unix HTTP close-delimited prefix/EOF
 test. No actual Engine exec follows from those controls. See
 [capture checkpoint](reviews/2026-11-04-T10.010.004-root.md#non-upgrade-exec-capture-source-and-local-controls).
 
-**Next:** commit these controls, then source-review/admit a same-version
-diagnostic restart of this initialized disposable world. Preserve
+**Client source/module preparation also passes its scoped checks.** Root
+reviews the direct managed launch plan, pins the existing Node v24.20.0 and
+imports the exact helper definitions successfully. No asset method/child/
+browser starts; actual protocol, write bounds, readiness and rendering stay
+open. See [Node/source result](reviews/2026-11-04-T10.010.004-root.md#managed-client-source-plan-and-node-import).
+
+**Next:** capture controls are committed/pushed as2faeb519. Review/admit the
+same-version diagnostic restart controller for this initialized disposable world. Preserve
 its DB volume/network and freeze the same Renewal/mod selection; ordinary up
 repeats schema/grant/config operations. Refresh current world/output inventory,
 not the old first-use loader. Complete API process/generated-mount readbacks,
