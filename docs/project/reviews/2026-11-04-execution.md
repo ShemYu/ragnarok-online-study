@@ -777,3 +777,16 @@ in Claude's task checkout; final stable-baseline identity verification remains
 required. Root also writes and independently reviews the private build-mode
 controller draft. Syntax/source review pass; no plan/admission/VM run occurs.
 The closure-binding wrapper and all actual compiler/item gates remain open.
+
+## Fetch repair selected; next actual resolver prepared
+
+Root86 tests pass with both real private inputs and zero skips. All638
+candidate-copy and656 main-worktree tracked identities remain unchanged;
+source/independent review, cached Ruff and shell syntax pass. Claude ea2f73d8
+is imported as73014940 with all four files byte-identical to the tested
+commit. Its disclosed earlier mutant identity changes stay separate from
+the final stable baseline. Grok's correcting alternative continues live.
+The lifecycle mismatch is corrected; redundant reminders settle without
+code changes. Fresh resolve6/phase7 source/input/resource/closure-only pins
+are checked. Execute this new admission next; no closure/full build is yet
+qualified. See [Root verification and bindings](2026-11-04-T10.010.004-root.md#exact-fetch-source-verified-and-integrated-fresh-real-resolve-prepared).

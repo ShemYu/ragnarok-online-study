@@ -20,7 +20,7 @@ FULL MODERN / RENEWAL PERSONAL GAME
 |   [x] Exact-base dependency recipe repair [SOURCE VERIFIED]
 |   [x] APK counter-format repair [SOURCE VERIFIED]
 |   [x] Real guest parses all47 solver rows [ACTUAL VERIFIED]
-|   [ ] APK3 exact-fetch correction [CURRENT SOURCE REPAIR]
+|   [x] APK3 exact-fetch correction [SOURCE VERIFIED]
 |   [ ] Actual exact-base signed dependency closure [CURRENT]
 |   [ ] Qualified dependencies -> full builds -> ordinary-item A/B
 |   [ ] Binary/mod/text gate [SOURCE INTEGRATED; RUNTIME OPEN]
@@ -61,8 +61,10 @@ The repaired recipe is now integrated after Root76 tests and independent
 identity controls. The first exact-base solve proposes47 installs without upgrades, but the
 parser drops padded counter rows and refuses before installation. The format repair passes Root81 tests and now parses all47 rows
 in the actual guest. The first exact package fetch then refuses before install;
-Root identifies a pinned-source lookup defect. Complete the equal fetch
-repair before a new closure admission. Claude's release-gate source is selected and
+Root identifies a pinned-source lookup defect. Its fetch repair now passes
+Root86 tests with zero skips and unchanged candidate-copy/main identities;
+the exact source is integrated. Fresh resolve6/phase7 is prepared for the
+next actual closure run. Claude's release-gate source is selected and
 integrated; Root's113 integrated tests and real release/withdrawal refusals
 pass with644 tracked files unchanged. All actual release/runtime gates remain open.
 See [safe runner](reviews/2026-11-04-T00.006-root.md) and

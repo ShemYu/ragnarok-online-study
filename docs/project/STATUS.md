@@ -91,9 +91,12 @@ all47 solver rows correctly. Its first exact package fetch refuses before
 installation. Root's pinned upstream source review identifies a nonrecursive
 lookup defect and a proposed full-package-field workaround. The equal
 [fetch repair](tasks/T10.010.004-dependency-repair-4.md) is the next source
-action. Identical frozen ae4c846 briefs are dispatched as ready follow-ups
-to both retained Claude/Grok workers; no new fleet is created. No
-closure/full build is qualified. The first unretained readiness
+action is now complete for source: Root selects Claude ea2f73d8 after86
+tests with zero skips and unchanged638 candidate-copy/656 main-worktree
+identities, plus source/independent review, Ruff and shell syntax. Four exact
+files integrate as73014940. Grok repair4 remains live. Fresh resolve6/phase7
+is prepared with the same constraints; actual closure/full build remains
+unqualified. The first unretained readiness
 mismatch remains unclassified. The VM is stopped, both containers deleted
 and five personal service projections identical.
 The [EXP/callback/save source analysis](reviews/2026-11-04-T10.010.006-root.md)
@@ -200,8 +203,9 @@ The three prerequisite source lanes are integrated. Root owns serial runtime
 execution/verification for .004; .005 source is integrated, with runtime
 pins deliberately unqualified. The .004 dependency recipe and .006 analysis
 source are selected/integrated; the counter-format repair is verified.
-Complete and Root-verify the exact-fetch source repair, then execute a new
-exact-base closure admission. The previous phase is consumed. Fresh build-only state initialization
+Execute the newly prepared resolve6/phase7 exact-base closure admission and
+inspect its actual result. The exact-fetch source is Root-verified/integrated;
+the previous phase is consumed. Fresh build-only state initialization
 uses the workflow's isolated-new-state allowance; it does not establish
 current ro4 backup/restore qualification.
 Refresh current Engine/socket/service/save bindings; old IDs, start times,
