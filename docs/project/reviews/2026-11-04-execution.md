@@ -1245,3 +1245,12 @@ wrong-source admission refuses before phase creation. Reviews clear the
 neutral read_failed/status/stderr/stat/capability evidence contract. Commit
 [this source checkpoint](2026-11-04-T10.010.004-root.md#read-only-user-mount-source-and-preflight)
 before preparation. No probe phase, VM, app up or SQL is started.
+
+
+Source checkpoint5d8d66b4 is committed/pushed before read-only mount/user
+preparation exec60707 exits0/8.946s. Root personally verifies1896 pins/six
+payloads, unchanged resource probe, exact user script/limits/four direct RO
+mounts plus cgroup, harmless fixture modes/identities and current stopped
+binding. Astra pure-file review agrees; actual markers remain absent. Commit
+[prepared admission](2026-11-04-T10.010.004-root.md#read-only-user-mount-prepared-admission)
+before one serial run. No VM, user-read, game/DB or SQL result exists yet.
