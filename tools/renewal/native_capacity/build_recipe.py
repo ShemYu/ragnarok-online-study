@@ -336,14 +336,25 @@ def plan(prepared, rundir, base_image, expect_musl, expect_libstdcxx, mem_availa
 
 # ------------------------------------------------------------------ engine
 class UnixHTTPConnection(http.client.HTTPConnection):
+    """HTTP over a Unix socket. `transport` keeps the connected socket for the
+    whole request: for a close-framed response (Connection: close, or EOF
+    framing) http.client's getresponse() calls self.close(), setting
+    self.sock=None and handing the body to the HTTPResponse. CPython defers
+    the descriptor's real close while the response's makefile reference is
+    open, so settimeout()/shutdown() on the retained transport still govern
+    the body read."""
+
     def __init__(self, path, timeout):
         super().__init__("localhost", timeout=timeout)
         self.unix_path = path
+        self.transport = None
 
     def connect(self):
-        self.sock = socket.socket(socket.AF_UNIX, socket.SOCK_STREAM)
-        self.sock.settimeout(self.timeout)
-        self.sock.connect(self.unix_path)
+        s = socket.socket(socket.AF_UNIX, socket.SOCK_STREAM)
+        self.transport = s  # retained before connect so the deadline timer can always reach it
+        s.settimeout(self.timeout)
+        s.connect(self.unix_path)
+        self.sock = s
 
 
 class Engine:
@@ -369,14 +380,23 @@ class Engine:
         self.log.append(entry)
         conn = UnixHTTPConnection(self.sock, left())
         fired = threading.Event()
+        r = None
 
         def expire():  # absolute bound regardless of how slowly bytes trickle in
             fired.set()
-            try:
-                if conn.sock is not None:
-                    conn.sock.shutdown(socket.SHUT_RDWR)
-            except OSError:
-                pass
+            t = conn.transport
+            if t is not None:
+                try:
+                    t.shutdown(socket.SHUT_RDWR)
+                except OSError:
+                    pass
+
+        capped = {"by_deadline": False}
+
+        def arm():  # idle timeout for the next blocking operation, never past the absolute end
+            t = left()
+            capped["by_deadline"] = t < self.idle  # a timeout now IS the absolute deadline
+            conn.transport.settimeout(t)
 
         timer = threading.Timer(max(0.0, end - time.monotonic()), expire)
         timer.daemon = True
@@ -385,11 +405,11 @@ class Engine:
             data = json.dumps(body).encode() if isinstance(body, (dict, list)) else body
             headers = {"Content-Type": ctype} if data is not None else {}
             conn.request(method, API + path, body=data, headers=headers)
-            conn.sock.settimeout(left())
-            r = conn.getresponse()
+            arm()
+            r = conn.getresponse()  # may close conn (conn.sock=None) for close-framed responses
             chunks, total = [], 0
             while True:
-                conn.sock.settimeout(left())
+                arm()
                 c = r.read1(65536) if method != "HEAD" else b""
                 if not c:
                     break
@@ -408,12 +428,16 @@ class Engine:
             return r.status, dict(r.getheaders()), payload
         except (socket.timeout, http.client.HTTPException, ConnectionError, OSError, ValueError) as exc:
             entry["error"] = type(exc).__name__
-            if fired.is_set():
+            if fired.is_set() or (isinstance(exc, socket.timeout) and capped["by_deadline"]):
                 raise EngineIOError(f"{method} {path}: absolute request deadline exceeded") from exc
             raise EngineIOError(f"{method} {path}: {type(exc).__name__}: {exc}") from exc
         finally:
             timer.cancel()
+            if r is not None:
+                r.close()  # releases the body's reference to the transport
             conn.close()
+            if conn.transport is not None:
+                conn.transport.close()
 
 
 def census(engine, name, until):

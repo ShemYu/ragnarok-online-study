@@ -802,6 +802,209 @@ class CancellationTests(RecipeBase):
         self.assertEqual((e.creates, e.containers), (1, {}))
 
 
+class RawUnixServer:
+    """Real Unix-socket HTTP peer with byte-exact scripted responses, so the
+    framing (Connection: close, EOF-framed, drip, stall, truncation) is what
+    the test says -- not what http.server would choose."""
+
+    def __init__(self, respond):
+        self.respond, self.requests = respond, []
+        self.dir = Path(tempfile.mkdtemp(prefix="raw-", dir="/tmp"))
+        self.sock_path = str(self.dir / "e.sock")
+        self.srv = __import__("socket").socket(__import__("socket").AF_UNIX)
+        self.srv.bind(self.sock_path)
+        self.srv.listen(8)
+        self.stop = threading.Event()
+        threading.Thread(target=self.loop, daemon=True).start()
+
+    def loop(self):
+        while not self.stop.is_set():
+            try:
+                c, _ = self.srv.accept()
+            except OSError:
+                return
+            threading.Thread(target=self.serve, args=(c,), daemon=True).start()
+
+    def serve(self, c):
+        try:
+            buf = b""
+            while b"\r\n\r\n" not in buf:
+                d = c.recv(65536)
+                if not d:
+                    return
+                buf += d
+            head, _, rest = buf.partition(b"\r\n\r\n")
+            line = head.split(b"\r\n")[0].decode()
+            n = 0
+            for h in head.split(b"\r\n")[1:]:
+                if h.lower().startswith(b"content-length:"):
+                    n = int(h.split(b":", 1)[1])
+            while len(rest) < n:
+                rest += c.recv(65536)
+            self.requests.append(line)
+            self.respond(c, line)
+        except OSError:
+            pass
+        finally:
+            try:
+                c.close()
+            except OSError:
+                pass
+
+    def close(self):
+        self.stop.set()
+        self.srv.close()
+        shutil.rmtree(self.dir, ignore_errors=True)
+
+
+VERSION = b'{"ApiVersion":"1.43","Os":"linux","Arch":"arm64"}'
+
+
+class CloseFramedTests(unittest.TestCase):
+    """Root's first real probe failed on a close-framed GET /version
+    (AttributeError: NoneType.settimeout). These run real HTTP over Unix sockets."""
+
+    def setUp(self):
+        self.servers = []
+
+    def tearDown(self):
+        for sv in self.servers:
+            sv.close()
+
+    def serve(self, respond):
+        sv = RawUnixServer(respond)
+        self.servers.append(sv)
+        return sv
+
+    def test_connection_close_with_length_succeeds(self):
+        sv = self.serve(lambda c, line: c.sendall(
+            b"HTTP/1.1 200 OK\r\nContent-Type: application/json\r\nConnection: close\r\n"
+            b"Content-Length: %d\r\n\r\n" % len(VERSION) + VERSION))
+        st, hdr, body = br.Engine(sv.sock_path).call("GET", "/version")
+        self.assertEqual((st, json.loads(body)["ApiVersion"]), (200, "1.43"))
+        self.assertEqual(sv.requests, ["GET /v1.43/version HTTP/1.1"])
+
+    def test_eof_framed_body_succeeds(self):
+        def respond(c, line):
+            c.sendall(b"HTTP/1.0 200 OK\r\nContent-Type: application/json\r\n\r\n")
+            for i in range(0, len(VERSION), 7):
+                c.sendall(VERSION[i:i + 7])
+                time.sleep(0.01)
+        sv = self.serve(respond)
+        st, _, body = br.Engine(sv.sock_path).call("GET", "/version")
+        self.assertEqual((st, body), (200, VERSION))
+
+    def test_close_framed_drip_hits_absolute_deadline(self):
+        # every byte arrives well inside the idle timeout; the whole body never fits the budget
+        def respond(c, line):
+            c.sendall(b"HTTP/1.1 200 OK\r\nConnection: close\r\nContent-Length: 400\r\n\r\n")
+            for _ in range(400):
+                c.sendall(b"x")
+                time.sleep(0.05)
+        sv = self.serve(respond)
+        t = time.monotonic()
+        with self.assertRaises(br.EngineIOError) as cm:
+            br.Engine(sv.sock_path, idle=1.0).call("GET", "/version", budget=1.0)
+        self.assertLess(time.monotonic() - t, 3.0)
+        self.assertIn("absolute request deadline", str(cm.exception))
+
+    def test_eof_framed_drip_hits_absolute_deadline(self):
+        def respond(c, line):
+            c.sendall(b"HTTP/1.0 200 OK\r\n\r\n")
+            for _ in range(400):
+                c.sendall(b"x")
+                time.sleep(0.05)
+        sv = self.serve(respond)
+        t = time.monotonic()
+        with self.assertRaises(br.EngineIOError):
+            br.Engine(sv.sock_path, idle=1.0).call("GET", "/version", budget=1.0)
+        self.assertLess(time.monotonic() - t, 3.0)
+
+    def test_close_framed_stall_hits_idle_timeout(self):
+        def respond(c, line):
+            c.sendall(b"HTTP/1.1 200 OK\r\nConnection: close\r\nContent-Length: 10\r\n\r\nab")
+            time.sleep(3)
+        sv = self.serve(respond)
+        t = time.monotonic()
+        with self.assertRaises(br.EngineIOError):
+            br.Engine(sv.sock_path, idle=0.3).call("GET", "/version", budget=30)
+        self.assertLess(time.monotonic() - t, 2.0)
+
+    def test_slow_headers_hit_absolute_deadline(self):
+        def respond(c, line):
+            for b in b"HTTP/1.1 200 OK\r\nConnection: close\r\n":
+                c.sendall(bytes([b]))
+                time.sleep(0.05)
+        sv = self.serve(respond)
+        t = time.monotonic()
+        with self.assertRaises(br.EngineIOError):
+            br.Engine(sv.sock_path, idle=1.0).call("GET", "/version", budget=0.8)
+        self.assertLess(time.monotonic() - t, 3.0)
+
+    def test_close_framed_truncation_detected(self):
+        sv = self.serve(lambda c, line: c.sendall(
+            b"HTTP/1.1 200 OK\r\nConnection: close\r\nContent-Length: 100\r\n\r\nshort"))
+        with self.assertRaises(br.EngineIOError) as cm:
+            br.Engine(sv.sock_path).call("GET", "/version")
+        self.assertIn("truncated", str(cm.exception))
+
+    def test_close_framed_cap(self):
+        def respond(c, line):
+            c.sendall(b"HTTP/1.0 200 OK\r\n\r\n" + b"y" * 5000)
+        sv = self.serve(respond)
+        with self.assertRaises(br.EngineIOError) as cm:
+            br.Engine(sv.sock_path).call("GET", "/version", cap=1000)
+        self.assertIn("exceeds", str(cm.exception))
+
+    def test_close_framed_head_and_error_status(self):
+        stat = base64.b64encode(b'{"mode":493}').decode().encode()
+
+        def respond(c, line):
+            if line.startswith("HEAD"):
+                c.sendall(b"HTTP/1.1 200 OK\r\nConnection: close\r\nContent-Length: 12345\r\n"
+                          b"X-Docker-Container-Path-Stat: " + stat + b"\r\n\r\n")
+            else:
+                msg = b'{"message":"no such container"}'
+                c.sendall(b"HTTP/1.1 404 Not Found\r\nConnection: close\r\nContent-Length: %d\r\n\r\n"
+                          % len(msg) + msg)
+        sv = self.serve(respond)
+        e = br.Engine(sv.sock_path)
+        st, hdr, body = e.call("HEAD", "/containers/x/archive?path=/a", ok=(200,))
+        self.assertEqual((st, body, hdr["X-Docker-Container-Path-Stat"]), (200, b"", stat.decode()))
+        with self.assertRaises(br.EngineStatusError) as cm:
+            e.call("GET", "/containers/x/json")
+        self.assertEqual(cm.exception.status, 404)
+        st, _, _ = e.call("GET", "/containers/x/json", ok=(404,))  # lifecycle 404-confirmation contract
+        self.assertEqual(st, 404)
+
+    def test_close_framed_create_keeps_lifecycle_semantics(self):
+        created = []
+
+        def respond(c, line):
+            if line.startswith("POST /v1.43/containers/create"):
+                created.append(line)
+                body = b'{"Id":"real1","Warnings":[]}'
+                c.sendall(b"HTTP/1.1 201 Created\r\nConnection: close\r\nContent-Length: %d\r\n\r\n"
+                          % len(body) + body)
+            elif line.startswith("GET /v1.43/containers/json"):
+                c.sendall(b"HTTP/1.0 200 OK\r\n\r\n[]")
+        sv = self.serve(respond)
+        res, holder = {}, {}
+        cid, ambiguous = br.create_owned(br.Engine(sv.sock_path), "n", {"Image": "x"}, "r", "compiler",
+                                         time.monotonic() + 10, 5, res, holder)
+        self.assertEqual((cid, ambiguous, holder["cid"], len(created)), ("real1", False, "real1", 1))
+
+    def test_no_descriptor_leak(self):
+        sv = self.serve(lambda c, line: c.sendall(
+            b"HTTP/1.1 200 OK\r\nConnection: close\r\nContent-Length: %d\r\n\r\n" % len(VERSION) + VERSION))
+        e = br.Engine(sv.sock_path)
+        e.call("GET", "/version")
+        fds = len(os.listdir("/dev/fd"))
+        for _ in range(50):
+            e.call("GET", "/version")
+        self.assertLessEqual(len(os.listdir("/dev/fd")), fds + 2)
+
+
 class GuestLibTests(unittest.TestCase):
     """Run the real guest_lib.sh functions under /bin/sh on fixture files."""
 
