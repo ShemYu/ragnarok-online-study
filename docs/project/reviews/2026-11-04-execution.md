@@ -840,3 +840,11 @@ a wrong-token CLI control refuses before a child/consumed record. Five pins
 match. One bounded GCC measurement is admitted, with no redirects/retries,
 180s curl/200s parent bounds and128MiB per file. Actual transfer, signature
 and closure remain unqualified. See [host admission](2026-11-04-T10.010.004-root.md#one-file-host-measurement-source-verified-and-admitted).
+
+The actual transfer reaches its180s curl deadline after38302541 of54697112
+advertised bytes (212780bytes/s partial average). Root verifies return28,
+owned child reaping, unchanged pins and no promoted APK. Actual curl's null
+no-redirect field also exposes a separate validator mismatch; Root reproduces
+it without network. A narrow source-only v2 will accept null/empty with zero
+redirects and use600s transfer/620s parent bounds. No automatic retry/resume,
+full-file success or closure is claimed. See [actual refusal](2026-11-04-T10.010.004-root.md#first-host-transfer-measures-a-slow-path-and-hits-its-deadline).
