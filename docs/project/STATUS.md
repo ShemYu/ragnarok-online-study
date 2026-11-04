@@ -23,7 +23,7 @@ not percentages of playable content, translation or remaining effort.
 
 ## Current action — DB qualification before integrated items
 
-**Next:** prepare and separately admit the fresh candidate8 discovery phase,
+**Next:** complete final review and separately admit the prepared candidate8 phase,
 with mandatory full stopped-state continuity checks. Candidate8's narrow
 overlay repair is delivered and personally qualified for source/controls and
 actual-record readback. Four body compilations and Ruff pass;145 authored fake
@@ -36,8 +36,13 @@ The actual readback authenticates the original41 inputs,2084 protected files
 and eight terminal-overlay records before guarded helper imports. Full fresh
 1109-world and stopped VM/disk/socket records equal the selected post-phase2
 baseline; six GETs confirm all five original personal-service projections.
-Phase3 remains absent; no preparation, VM/app/SQL or restore occurs. See the
-[candidate8 checkpoint](reviews/2026-11-05-T10.010.004-db-discovery-root.md#candidate8-source-controls-and-actual-readback-personally-qualified).
+That readback left phase3 absent and performed no preparation or VM/app/SQL.
+Root then prepares fresh phase3 under the full-state guard: the child exits0/
+no stderr in3.340492seconds and exact policy/resource/env/temp readbacks pass.
+Full selected/current/phase.binding equality and world/personal preservation
+pass before and after. Phase3 is unused; no runtime admission or VM/app/SQL/
+restore action occurs. See the [prepared-phase checkpoint](reviews/2026-11-05-T10.010.004-db-discovery-root.md#candidate8-fresh-phase3-preparation-personally-qualified)
+and [candidate8 checkpoint](reviews/2026-11-05-T10.010.004-db-discovery-root.md#candidate8-source-controls-and-actual-readback-personally-qualified).
 
 **Required outer guard:** standalone C8 checks only owner/home/kernel/pristine
 against the selected stopped record. Root must require full dictionary
@@ -46,7 +51,7 @@ preparation joined to the full phase.binding, and before the exact admitted
 run. Refuse drift without rebasing. C8's internal full phase/current equality
 then runs before LAUNCHED/boot. Keep exclusive Root custody and a fresh unused
 phase; this is a point-in-time workflow guard, not a universal race guarantee.
-No runtime phase is admitted by the completed readback.
+The readback and prepared phase do not themselves admit runtime.
 
 Candidate6's qualified phase2 remains the actual metadata baseline:73tables,
 844columns,164index rows and77constraints, including one unsupported foreign
