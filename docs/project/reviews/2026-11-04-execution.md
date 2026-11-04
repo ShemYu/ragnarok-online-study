@@ -654,3 +654,19 @@ Actual exact-base closure is next in the stopped save-free build VM;
 no existing game or save has changed. The seven-task count remains3/7
 closed. Initial normal publication of9c43446 receives GitHub Internal Server
 Error; the checkpoint is retained locally and the normal retry remains next.
+
+
+## Publication recovered; settled analysis workers released
+
+The next normal feature push succeeds through47bfe3d. Fresh ls-remote
+matches the feature HEAD and origin/main remains c6314bbd. No force/config
+change is used. Later hosted CI is not claimed checked.
+
+Root confirms both final reward-analysis assignments succeeded/settled,
+then releases ctx_ec3a85707401 and ctx_ea173a87c985. Both receipts say
+closed_agent_terminal with transcript captured; committed task branches
+remain. No new retry of the unnecessary timed-out analysis correction is
+started. The dependency Claude session is retained for immediate real-resolve
+repair if needed; Grok's correcting alternative is still assigned.
+Private reward-source-release-root-1/RELEASE_ROOT.json SHA-256:
+232e6ab061267e94f70db4d655e4b54e48a3398014920d77a8aa020ee76c0d20.

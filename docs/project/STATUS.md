@@ -14,11 +14,11 @@ See [audit findings](reviews/2026-10-29-T00.005.md),
 [current execution record](reviews/2026-11-04-execution.md).
 Feature-branch checkpoints/publication remain authorized; `origin/main` stays
 unchanged. No additional local-main merge is part of this execution checkpoint.
-Publication recovered: a later normal retry publishes the release-gate source
-and checkpoint `107e352`; remote feature equals that commit and `origin/main`
-remains unchanged. [Hosted source CI](https://github.com/ShemYu/ragnarok-online-study/actions/runs/41816752719)
-passes on107e352, including the new explicit release-gate step; later HEAD CI is not yet checked. The earlier server-error
-attempts remain recorded in the execution history; no rules/config are changed.
+Normal feature publication recovers after a GitHub server-error retry:
+selected source/checkpoint47bfe3d is pushed, with origin/main unchanged.
+[Hosted source CI](https://github.com/ShemYu/ragnarok-online-study/actions/runs/41816752719)
+passes on107e352, including the explicit release-gate step; later HEAD CI
+is not yet checked. No rules/config/force changes are made.
 
 Three of seven audit tasks are now `self_verified` and integrated:
 [T00.006 safe verification](reviews/2026-11-04-T00.006-root.md) and
