@@ -1,0 +1,80 @@
+{
+  "schema": "t10.010.003/source-manifest/v1",
+  "description": "Full rAthena source plus the app's ordered server overlays/transforms, reconstructed from public pinned repositories. The transform list mirrors scripts/apply-server-mods.sh at the pinned app commit; the pinned script blobs below make any upstream change to those semantics a hard failure.",
+  "repositories": {
+    "rathena": {
+      "url": "https://github.com/rathena/rathena.git",
+      "app_vendor_pin_url": "https://github.com/Flux159/rathena.git",
+      "commit": "0693b8c69911d5ca42269684aa036b67d67f4d3e",
+      "tree": "e7122969bfca08f0dd1dc65e5cc723dcd7411170",
+      "files": 5049
+    },
+    "app": {
+      "url": "https://github.com/Flux159/ragnarokoffline.app.git",
+      "commit": "2c3b2612973fb8d0ae6ad366a2b298686f2404cb",
+      "tree": "8cab46745c01bc49d62b5f43b209a88910686151"
+    }
+  },
+  "app_semantics_blobs": {
+    "scripts/apply-server-mods.sh": "e646c969e6343ab62783dc0ae8136339cbc2e6a5",
+    "scripts/apply-crash-trace.py": "278acd76afae5058a9594fcf23a60cd1d10f0656",
+    "scripts/apply-party-chat-hook.py": "cea0e63ee91d8dd32ccf2cd39ab1812a06442a36",
+    "containers/rathena/Dockerfile": "aea2a7401fbb2132946b3da4f414274221c1faf2",
+    "config/VENDOR_PINS": "8feb2fe90a991890fcbdab52190a117296450ca8",
+    "config/PACKETVERS": "64e5b6e3d83ca53d5dd4582dac46b3a0b4be2385"
+  },
+  "steps": [
+    {
+      "id": "crash-trace",
+      "op": "app_python",
+      "script": "scripts/apply-crash-trace.py",
+      "args": [
+        "{tree}"
+      ]
+    },
+    {
+      "id": "population-files",
+      "op": "copy_tree",
+      "from": "third-party/population-engine/files",
+      "expect_files": 65
+    },
+    {
+      "id": "population-patches",
+      "op": "patch_series",
+      "glob": "third-party/population-engine/patches/*.patch",
+      "expect_patches": 36,
+      "fuzz_allowlist": {
+        "0001-population-engine-hooks.patch": {
+          "fuzz": 1,
+          "file": "src/map/pc.cpp",
+          "sha256_after": "bf611356a23674233969d1eb37c32bff551b5ce94bf28517777d755975bb24b6",
+          "reason": "pc.cpp include hunk: the fork adds skill_lua.hpp after skill.hpp, so the last trailing context line differs; the two population includes still land after pet.hpp inside the include block (unique)."
+        }
+      }
+    },
+    {
+      "id": "party-chat-hook",
+      "op": "app_python",
+      "script": "scripts/apply-party-chat-hook.py",
+      "args": [
+        "{tree}/src/map/clif.cpp"
+      ]
+    },
+    {
+      "id": "server-mods-stamp",
+      "op": "stamp_concat_sha256",
+      "glob": "third-party/population-engine/patches/*.patch",
+      "to": ".ragnarokmac-server-mods"
+    },
+    {
+      "id": "build-dockerfile",
+      "op": "copy_file",
+      "from": "containers/rathena/Dockerfile",
+      "to": "Dockerfile.ragnarokmac"
+    }
+  ],
+  "prepared_tree": {
+    "files": 5121,
+    "sha256": "b64e850bd0d0fddbcda1df619d9a2544f27e286301a0e7d69b5f827ea3d40f32"
+  }
+}
