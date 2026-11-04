@@ -22,7 +22,8 @@ FULL MODERN / RENEWAL PERSONAL GAME
 |   [x] Real guest parses all47 solver rows [ACTUAL VERIFIED]
 |   [x] APK3 exact-fetch correction [SOURCE VERIFIED]
 |   [x] Actual44 stock-selected URLs / empty payload / owned cleanup
-|   [ ] Measured host transfer -> all47 signed local closure [CURRENT]
+|   [x] Complete GCC host measurement / exact raw identity / child cleanup
+|   [ ] Remaining43 downloads -> all47 signed local closure [CURRENT]
 |   [ ] Qualified dependencies -> full builds -> ordinary-item A/B
 |   [ ] Binary/mod/text gate [SOURCE INTEGRATED; RUNTIME OPEN]
 |   [ ] Real EXP/callback/save [ANALYSIS INTEGRATED; RUNTIME OPEN]

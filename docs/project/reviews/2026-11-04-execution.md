@@ -860,3 +860,11 @@ stock-key checks, offline install and the existing resource/owned-cleanup/
 personal-finally path. Simulation remains online with the existing bounded
 fetch fallback. No real47-file manifest or VM phase is prepared. See [source
 checks and limits](2026-11-04-T10.010.004-root.md#all-local-resolve-wrapper-source-checked-while-host-transfer-runs).
+
+GCC-root-2 now completes54.7MB in254.5s. Root verifies exact URL/HTTP200,
+full bytes/hash/raw identity, unchanged pins and owned child return/reaping.
+Root prepares/reviews43 fresh individual plans and admits a maximum-three
+parallel collection under a512MiB completed-plus-live-reservation cap.
+Independent policy review passes; any failure/unresolved cleanup stops new
+launches. All47 actual stock-key/install/closure qualification remains open.
+See [measurement, collection policy and exact hashes](2026-11-04-T10.010.004-root.md#complete-gcc-transfer-verified-remaining43-individually-admitted).

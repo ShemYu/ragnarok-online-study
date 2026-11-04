@@ -213,11 +213,11 @@ The three prerequisite source lanes are integrated. Root owns serial runtime
 execution/verification for .004; .005 source is integrated, with runtime
 pins deliberately unqualified. The .004 dependency recipe and .006 analysis
 source are selected/integrated; the counter-format repair is verified.
-The URL-capture phase is consumed and verified. The first host GCC attempt
-times out at180s after38.3/54.7MB, with owned child reaped and no accepted APK.
-The narrow600s/620s revision and actual null-redirect correction now pass Root's
-diff/controls/pin checks. Execute the admitted fresh GCC-root-2 transfer before
-acquiring the rest. All47
+The URL capture and revised complete GCC transfer are verified:54.7MB in254.5s,
+exact raw identity/hash and clean child exit. Acquire the43 remaining individually
+admitted files with at most three live helpers, reserving128MiB each under a
+512MiB completed-plus-live cap. Stop new launches on failure/unresolved cleanup.
+All47
 must still pass actual stock-key/raw-identity/offline-install qualification.
 Resolve6/phase7 is consumed; do not repeat it. The exact-fetch source remains
 Root-verified/integrated. Fresh build-only state initialization
