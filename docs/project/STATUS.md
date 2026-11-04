@@ -39,6 +39,10 @@ The bounded FK source review finds no blocker; the whole candidate is not
 admitted and phase3 remains absent. Repair the overlay/fixtures without
 changing capture, decoder or lifecycle behavior. See the [candidate7 record](reviews/2026-11-05-T10.010.004-db-discovery-root.md#candidate7-controls-pass-actual-overlay-and-strict-role-gaps-remain).
 Root handles explicit report wakes without polling the orchestration inbox.
+After6693f628 is confirmed published/clean, Claude's narrow candidate8 follow-up
+is accepted asctx_99b65bcc93e6/task_07021f9ade85, state ready. It preserves
+C7's capture/decoder and repairs only the overlay, fixtures and handoff.
+No candidate8 delivery, control pass or runtime admission exists yet.
 Candidate6's one-use phase2 runs and settles in36.030seconds, exit0/no stderr.
 Root independently replays the raw requests/responses, metadata archive,
 guest manifest, completion markers, root visibility and shutdown records.
@@ -95,6 +99,10 @@ Two source reviews expose the native app's PATH widening; the contract includes
 that source-defined projection before Docker overrides. Paired source work
 can proceed independently; implementation/selected-source controls/actual
 restore remain unqualified. See the [launch preparation record](reviews/2026-11-05-T10.010.004-db-launch-root.md).
+Grok source assignmentctx_9245522e29b9/task_2f0bc2d158fb is accepted ready
+in its reopened preserved worktree. Claude receives the identical launch
+packet/brief only after its FK repair settles; the paired comparison is
+pending. These two current assignments are independent source work.
 
 Root owns all runtime work. Refresh the exact owned VM/world/resources and
 personal projections before startup. Supported ordinary up can initialize/write

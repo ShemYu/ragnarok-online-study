@@ -29,8 +29,8 @@ FULL MODERN / RENEWAL PERSONAL GAME
 |   [x] Startup process/mount readbacks [ROOT VERIFIED; PARSER OPEN]
 |   [x] Managed client identity/static/owned stop [ROOT VERIFIED]
 |   [x] Live DB metadata / clean shutdown [ROOT VERIFIED; FK REFUSAL]
-|   [ ] Complete DB discovery [C7 OVERLAY/FIXTURE REPAIR NEXT]
-|   [ ] Same-PID restore launch gate [SOURCE CONTRACT FROZEN]
+|   [ ] Complete DB discovery [C8 OVERLAY REPAIR DISPATCHED: CLAUDE]
+|   [ ] Same-PID restore launch gate [SOURCE DISPATCHED: GROK]
 |   [ ] Isolated DB backup/restore -> integrated rendering/item A/B
 |   [ ] Binary/mod/text gate [SOURCE INTEGRATED; RUNTIME OPEN]
 |   [ ] Real EXP/callback/save [ANALYSIS INTEGRATED; RUNTIME OPEN]
@@ -72,7 +72,9 @@ dump. Root replays raw evidence and clean DB shutdown, then verifies fresh
 Claude's candidate7 compiles/lints and passes132 authored fake controls;
 Root's actual read-only overlay parse refuses the wrong execution-field shape,
 and two synthetic probes find exact-role gaps. Repair those in fresh C8 before
-runtime admission. The independent restore-launch contract is also frozen;
+runtime admission; that C8 repair is now dispatched. The independent frozen
+restore-launch source assignment is dispatched to Grok; Claude's independent
+same-input comparison follows after its FK repair settles.
 Root's direct-interpreter/shebang fake checks do not qualify actual restore.
 No dump, backup/restore or integrated game qualification follows yet.
 Grok's original is preserved but not selected,
