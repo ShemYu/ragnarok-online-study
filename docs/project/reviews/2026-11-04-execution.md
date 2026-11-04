@@ -868,3 +868,11 @@ parallel collection under a512MiB completed-plus-live-reservation cap.
 Independent policy review passes; any failure/unresolved cleanup stops new
 launches. All47 actual stock-key/install/closure qualification remains open.
 See [measurement, collection policy and exact hashes](2026-11-04-T10.010.004-root.md#complete-gcc-transfer-verified-remaining43-individually-admitted).
+
+The collection stops after a binutils zero-byte15s connection timeout. Root
+checks child reaping and drains the live CMake handle. Four additional files
+pass Root raw verification; none remain live. Root admits a new39-file
+continuation at max two live helpers, using one fresh binutils plan and38
+unconsumed plans. All prior verified bytes are retained and pins rechecked.
+This is a connection issue, not a new package/goal defect. See [stop, evidence
+and new admission](2026-11-04-T10.010.004-root.md#collection-stops-on-zero-byte-connection-failure-fresh-continuation-admitted).
