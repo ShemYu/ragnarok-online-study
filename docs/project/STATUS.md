@@ -64,7 +64,10 @@ exact-base resolution with retained signed package bytes before a full build.
 Claude/Grok source-only repairs are now dispatched from the same30439b1 base;
 both report ready. Root retains serial runtime ownership and the VM is stopped.
 Claude has submitted f5342ebf; Root's69 tests pass with638 tracked files
-unchanged. Source review/Grok comparison and real closure replay remain open.
+unchanged. Root's independent coherent-export controls expose a missing
+APK-bytes/installed-control-identity join. The
+[same correction](tasks/T10.010.004-dependency-repair-2.md) is frozen for both
+suppliers; selection and real closure replay remain open.
 The [EXP/callback/save analysis brief](tasks/T10.010.006.md) freezes the freshly
 reverified source and explicitly unknown effective EXP facts. Both Claude/Grok
 analysis workers are now ready from the samed1993ac base, parallel to .004.
