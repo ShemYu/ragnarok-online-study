@@ -1160,3 +1160,12 @@ with197 protected files unchanged. Independent Astra finds no source blocker.
 Controller2,2560MiB/3489660928-byte headroom, network-none and all prior gates
 remain. Commit [this source checkpoint](2026-11-04-T10.010.004-root.md#compiler6-source-bound-to-fresh-dependency5)
 before preparation. New output paths are absent; no compiler phase/run exists.
+
+After source checkpointfac361f1 is committed/pushed, Root prepares compiler6
+and personally reviews201 source/input/generated pins, six runtime payloads,
+56 upload members/all47 raw identities, resource policy/probe and current
+owned stopped binding/pressure/ports. All execution markers are absent.
+Only guest_build.sh differs from old compiler5 upload; other55 member bodies
+and inputs.env are identical. Final phasecee3a51c is distinct from the
+intermediatecade4e2a. Commit the [prepared admission](2026-11-04-T10.010.004-root.md#compiler6-prepared-admission)
+before its one serial actual run; no new binary/runtime qualification yet.
