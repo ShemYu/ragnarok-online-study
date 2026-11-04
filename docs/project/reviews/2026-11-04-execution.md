@@ -790,3 +790,22 @@ The lifecycle mismatch is corrected; redundant reminders settle without
 code changes. Fresh resolve6/phase7 source/input/resource/closure-only pins
 are checked. Execute this new admission next; no closure/full build is yet
 qualified. See [Root verification and bindings](2026-11-04-T10.010.004-root.md#exact-fetch-source-verified-and-integrated-fresh-real-resolve-prepared).
+
+## Real download step times out; transfer measurement is next
+
+Actual resolve6/phase7 gets past lookup and starts downloads, but its300s
+batch step terminates before completion (328.2s overall, before apk-add).
+Resource/base/signatures/47-row parsing pass. Root verifies failed evidence,
+both containers deleted/404, finite owned VM shutdown and identical personal
+service projections. No closure/compiler is qualified;3/7 tasks stay closed.
+Root/Astra selects actual URL-only stock selection, followed by one bounded
+host transfer measurement and full all47 local authentication/qualification.
+The source-only diagnostic draft is assigned; no new runtime phase exists.
+
+Root checks Grok f9b146d9: important fixes land, but direct controls still
+accept three uncounted transaction forms and source retains restrictive caps/
+an unchecked fetch exit. It remains unselected. Its exact settled terminal
+is released with transcript/committed branch preserved. Compiler-wrapper
+source guards are also corrected and pass three host refusal controls;
+no compiler preparation occurs. Hosted Source checks pass6d44abc4. See
+[current actual evidence and next route](2026-11-04-T10.010.004-root.md#actual-batch-reaches-downloads-but-its-step-budget-expires).

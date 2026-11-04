@@ -16,10 +16,10 @@ Feature-branch checkpoints/publication remain authorized; `origin/main` stays
 unchanged. No additional local-main merge is part of this execution checkpoint.
 Normal feature publication recovers after a GitHub server-error retry:
 selected source/checkpoint47bfe3d is pushed, with origin/main unchanged.
-Later checkpoints through5bd22362 are also confirmed published; origin/main
+Later checkpoints through6d44abc4 are also confirmed published; origin/main
 remains c6314bbd.
-[Hosted source CI](https://github.com/ShemYu/ragnarok-online-study/actions/runs/41816752719)
-passes on107e352, including the explicit release-gate step; later HEAD CI
+[Hosted source CI](https://github.com/ShemYu/ragnarok-online-study/actions/runs/41829538480)
+passes on6d44abc4, including the explicit release-gate step; later HEAD CI
 is not yet checked. No rules/config/force changes are made.
 
 Three of seven audit tasks are now `self_verified` and integrated:
@@ -90,13 +90,20 @@ pass. Fresh phase6 now passes actual resources/base/signatures and parses
 all47 solver rows correctly. Its first exact package fetch refuses before
 installation. Root's pinned upstream source review identifies a nonrecursive
 lookup defect and a proposed full-package-field workaround. The equal
-[fetch repair](tasks/T10.010.004-dependency-repair-4.md) is the next source
-action is now complete for source: Root selects Claude ea2f73d8 after86
+[fetch repair](tasks/T10.010.004-dependency-repair-4.md) is Root-verified for
+source: Root selects Claude ea2f73d8 after86
 tests with zero skips and unchanged638 candidate-copy/656 main-worktree
 identities, plus source/independent review, Ruff and shell syntax. Four exact
-files integrate as73014940. Grok repair4 remains live. Fresh resolve6/phase7
-is prepared with the same constraints; actual closure/full build remains
-unqualified. The first unretained readiness
+files integrate as73014940. The fresh actual resolve6/phase7 starts package
+downloads, then its300s batch step terminates before completion; total328.2s,
+no install. Root/Astra chooses actual stock-selected URL capture followed by
+a bounded host-transfer measurement and all-local qualification with all47
+real stock-key checks. That URL diagnostic is being drafted source-only.
+Grok f9b146d9 fixes earlier inflation/fetch issues, but Root's direct replay
+still accepts three malformed uncounted actions; its32-local/16MiB limits
+also constrain this route. It remains unselected and its settled owned
+terminal is released with transcript preserved. Actual closure/full build
+remains unqualified. The first unretained readiness
 mismatch remains unclassified. The VM is stopped, both containers deleted
 and five personal service projections identical.
 The [EXP/callback/save source analysis](reviews/2026-11-04-T10.010.006-root.md)
@@ -203,9 +210,12 @@ The three prerequisite source lanes are integrated. Root owns serial runtime
 execution/verification for .004; .005 source is integrated, with runtime
 pins deliberately unqualified. The .004 dependency recipe and .006 analysis
 source are selected/integrated; the counter-format repair is verified.
-Execute the newly prepared resolve6/phase7 exact-base closure admission and
-inspect its actual result. The exact-fetch source is Root-verified/integrated;
-the previous phase is consumed. Fresh build-only state initialization
+Root-review the source-only URL-capture diagnostic, then prepare/admit it
+to capture exact stock-selected URLs without APK payload downloads. Measure
+one bounded host transfer before acquiring the remaining exact files. All47
+must still pass actual stock-key/raw-identity/offline-install qualification.
+Resolve6/phase7 is consumed; do not repeat it. The exact-fetch source remains
+Root-verified/integrated. Fresh build-only state initialization
 uses the workflow's isolated-new-state allowance; it does not establish
 current ro4 backup/restore qualification.
 Refresh current Engine/socket/service/save bindings; old IDs, start times,
