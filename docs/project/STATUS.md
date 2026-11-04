@@ -59,8 +59,15 @@ imports the exact helper definitions successfully. No asset method/child/
 browser starts; actual protocol, write bounds, readiness and rendering stay
 open. See [Node/source result](reviews/2026-11-04-T10.010.004-root.md#managed-client-source-plan-and-node-import).
 
-**Next:** capture controls are committed/pushed as2faeb519. Review/admit the
-same-version diagnostic restart controller for this initialized disposable world. Preserve
+**Initialized restart source/preflight passes.** Root and Astra review the
+controller; read-only preflight passes1976 inputs/six payloads, exact world and
+current stopped/ports/resources. It preserves1905 original inputs/prior64
+terminal files, keeps generated outputs mutable, uses complete API readbacks
+and has no raw initialized-VM shutdown fallback. See
+[resume source checkpoint](reviews/2026-11-04-T10.010.004-root.md#initialized-diagnostic-resume-source-and-preflight).
+
+**Next:** commit this source checkpoint, prepare/admit a new one-use phase,
+then execute the same-version diagnostic restart. Preserve
 its DB volume/network and freeze the same Renewal/mod selection; ordinary up
 repeats schema/grant/config operations. Refresh current world/output inventory,
 not the old first-use loader. Complete API process/generated-mount readbacks,

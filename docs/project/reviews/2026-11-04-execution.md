@@ -1336,3 +1336,12 @@ all expected exports and unchanged bytes pass. No AssetServer method/child/
 network/browser starts. See [source/Node preparation](2026-11-04-T10.010.004-root.md#managed-client-source-plan-and-node-import).
 Actual startup readbacks remain first; client environment/cache/log/write
 bounds, protocol/readiness and rendering stay open.
+
+
+Root and Astra source-review the initialized-state diagnostic resume. Read-only
+preflight70300 exits0 with1976 inputs/six payloads/exact world/current stopped
+ownership/resources/ports. Original1905 files and64 terminal files stay fixed;
+28 generated outputs are mutable with explicit deltas. Both readbacks require
+the complete API capture, and initialized cleanup has no raw shutdown fallback.
+Compilation/Ruff pass. Commit [source readiness](2026-11-04-T10.010.004-root.md#initialized-diagnostic-resume-source-and-preflight)
+before preparation. No new phase, VM/up/SQL or actual API exec occurs yet.
