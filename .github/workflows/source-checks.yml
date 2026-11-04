@@ -33,3 +33,5 @@ jobs:
           tests/renewal/quest_registration_tail.test.mjs
       - name: Check Chapter 1 source and progression models
         run: python3 -I -B tools/renewal/test_chapter1_entry.py
+      - name: Check release and withdrawal gate fixtures
+        run: python3 -I -B -W error tools/renewal/release_compatibility/test_release_gate.py

@@ -19,7 +19,7 @@ FULL MODERN / RENEWAL PERSONAL GAME
 |   [x] APK signatures / causal closed-vs-valid stdin diagnostic
 |   [ ] Exact-base signed dependency recipe repair [CURRENT; PARALLEL]
 |   [ ] Qualified dependencies -> full builds -> ordinary-item A/B
-|   [ ] Binary/mod/text gate [SOURCE REPAIRS; PARALLEL]
+|   [ ] Binary/mod/text gate [SOURCE INTEGRATED; RUNTIME OPEN]
 |   [ ] Real EXP/callback/save and uncertain-reward acceptance
 |   [ ] Isolated native parser / actors / quest states / rewards
 |   [ ] Save, re-entry, repeat and withdrawal checks
@@ -54,9 +54,9 @@ build VM now passes image/resources/cleanup with3.61 GiB available and is
 stopped. Root authenticates all four APKs and reproduces the trigger-launch
 failure with closed stdin; the same actual reinstall succeeds with /dev/null.
 The next source repair must also freeze all26 base versions and retain signed
-dependency bytes for replay. Both final release-gate repairs are submitted;
-Root's113/79 tests pass for Claude/Grok, with620 tracked files unchanged in
-each. Source selection and all actual release/runtime gates remain open.
+dependency bytes for replay. Claude's release-gate source is selected and
+integrated; Root's113 integrated tests and real release/withdrawal refusals
+pass with644 tracked files unchanged. All actual release/runtime gates remain open.
 See [safe runner](reviews/2026-11-04-T00.006-root.md) and
 [coverage verification](reviews/2026-11-04-T06.005.001-root.md) and
 [native preparation](reviews/2026-11-04-T10.010.003-root.md); all 82 functional

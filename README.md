@@ -45,6 +45,7 @@ python3 tools/check_source.py
 uvx --from ruff==0.16.9 ruff check --config ruff.toml --no-cache tools tests
 node --test tests/renewal/quest_text_projection.test.mjs tests/renewal/quest_registration_tail.test.mjs
 python3 -I -B tools/renewal/test_chapter1_entry.py
+python3 -I -B -W error tools/renewal/release_compatibility/test_release_gate.py
 ```
 
 The lint command uses `uvx` to run the pinned tool in isolation; an existing

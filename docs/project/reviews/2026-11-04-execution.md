@@ -512,3 +512,21 @@ ready. These are starts, not successful repairs. No model override or
 provider-cost measurement is made. Source candidates must report/commit,
 then Root compares and verifies before runtime admission. The build VM stays
 stopped. Final release-gate comparison remains independent Root work.
+
+
+## Release-gate source selected and integrated
+
+Root selects Claude b9038ee6 after personally checking both final candidates
+and reading their gates/contracts/runbooks. Both pass scoped checks; Claude
+reuses one bounded reader/census/revalidation and a common admission result,
+with fewer operational concepts than the alternative subject-digest path.
+Only the selected seven-file closure is imported as71f5a7a3/e5de7dc0/efa9af82.
+Root's integrated113 tests pass, both real contracts refuse their missing
+runtime evidence, and all644 tracked files remain identical during checks.
+The synthetic suite is added to the explicit CI list and test classification.
+No installed-game or save action occurs; .005 remains in_progress.
+See [selection/evidence](2026-11-04-T10.010.005-root.md#selected-source-and-integrated-verification).
+
+Orca releases the two settled release-worker terminals with transcripts
+captured: ctx_98adfc4b5c05 and ctx_b5824dac423d. Their committed branches are
+retained; only the new exact-base dependency workers need live sessions.

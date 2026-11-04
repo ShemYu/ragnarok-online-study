@@ -10,7 +10,7 @@ not a full private-constructor or game-runtime pass.
 
 | Purpose | Command | Inputs |
 | --- | --- | --- |
-| Public CI list (unchanged) | See [root README](../../README.md#source-only-checks) and `.github/workflows/source-checks.yml` | Tracked source only |
+| Public CI list | See [root README](../../README.md#source-only-checks) and `.github/workflows/source-checks.yml` | Tracked source only |
 | Runner checks, public part | `node --test tests/renewal/run_isolated_suite.test.mjs` | Authored synthetic suite only; two private cases skip with a reason |
 | Runner checks, private part | `T00_006_CORPUS=<abs canonical checkout> node --test tests/renewal/run_isolated_suite.test.mjs` | Run from a separate source checkout; explicit corpus differs from that checkout |
 | List registered mutation suites | `node tools/renewal/run_isolated_suite.mjs --list` | None |
@@ -126,12 +126,13 @@ Not covered: stdout itself being unwritable, a failure to write `before.json`/`c
 
 Static classification from headers and source. Only the CI list, the runner checks and the private model suite were executed for this task. No broad discovery was run. "Writes `.tools`" means ignored private state created under the *invoking* checkout. That is harmless in a fresh worktree, but it creates directories when invoked inside the canonical checkout.
 
-### Public, CI members (unchanged)
+### Public, CI members
 
 | Entry | Invocation | Notes |
 | --- | --- | --- |
 | `tests/renewal/quest_text_projection.test.mjs`, `tests/renewal/quest_registration_tail.test.mjs` | `node --test <both>` | Authored only |
 | `tools/renewal/test_chapter1_entry.py` | `python3 -I -B <file>` | Own committed source only |
+| `tools/renewal/release_compatibility/test_release_gate.py` | `python3 -I -B -W error <file>` | Synthetic packets in private temporary trees; tracked story/patch/manifest reads only; no Engine, private inputs, package install or game execution. Root's integrated113 tests preserve all644 tracked files. |
 
 ### Public authored, not in CI
 

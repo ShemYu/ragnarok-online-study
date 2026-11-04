@@ -25,23 +25,14 @@ and the 133-case/9-mutant host check pass. All 82 functional gaps remain open.
 All six original supplier terminals are released. No full map-server build
 has started. The real private constructor suite remains 48/56 due to stale
 historical admission; its safe runner reports failure without canonical changes.
-The [release-gate source phase](tasks/T10.010.005.md) has submitted both equal
-Claude/Grok candidates from `51f927a2`, independently of actual native execution.
-Its real admission must refuse until missing runtime/text facts are qualified.
-Root runs the first repaired candidates' 77/55 synthetic tests successfully.
-[New independent controls](reviews/2026-11-04-T10.010.005-root.md#second-root-check-of-repaired-candidates)
-still expose stale folder inventories and uncaught deep JSON. Both need the
-[same second repair](tasks/T10.010.005-repair-2.md), including a concrete offline
-withdrawal replacement procedure. Neither is selected/integrated. Root owns
-serial runtime work; suppliers own isolated source repairs.
-Grok's second repair now passes Root's69 tests and the two original edge-case
-controls with all619 tracked files unchanged, but its same-name failure
-recovery/withdrawal contracts still need correction. Claude has now resumed
-and submitted `b9038ee6`; Root's113 tests pass with all620 tracked files
-unchanged, and independent source review finds no material blocker in the
-scoped repairs. The [same replacement/withdrawal clarification](tasks/T10.010.005-replacement-clarification.md)
-has now produced Grok `73cd559c` too. Root's79 tests pass with all620 tracked
-files unchanged; final source comparison/selection and actual release admission stay open.
+The [release-gate source phase](tasks/T10.010.005.md) is now integrated from
+Claude candidate `b9038ee6` as `efa9af82` after Root compares both repaired
+candidates. Its common release/withdrawal reader and inventory machinery
+provide the simpler maintenance boundary. Root's integrated113 synthetic
+tests and real-mode refusals pass, with all644 tracked files unchanged.
+Runtime pins remain null; actual .005 release qualification is still open.
+The synthetic gate checks are added to the explicit public CI list; no
+installed-game action is performed. See [Root selection](reviews/2026-11-04-T10.010.005-root.md).
 The [current .004 ownership correction](reviews/2026-11-04-T10.010.004-root.md#ownership-correction-before-further-admission)
 finds four concurrent worlds. The completed resource probe and 1.27 GiB
 headroom refusal apply to the default instance. The later
