@@ -49,6 +49,8 @@ The candidate is not admitted; no live discovery is executed. Root also checks t
 multiline tuple format; this is historical format evidence, not a current
 schema or restore proof. See [current review and next action](reviews/2026-11-05-T10.010.004-db-discovery-root.md)
 and [dispatch record](reviews/2026-11-04-T10.010.004-root.md#discovery-workers-dispatched-and-live).
+The concrete Claude repair is delivered as follow-upctx_5efe029e4fb0/ready;
+its fresh source and Grok's original delivery await Orca report wakes.
 Root/native/Astra source review identifies the old1107/current1109 baseline
 distinction, explicit DB cwd, split quiescence and unknown-exec shutdown gate.
 Refresh the exact owned VM/world/resources and personal projections before
