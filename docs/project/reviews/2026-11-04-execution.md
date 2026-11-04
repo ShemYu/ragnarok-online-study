@@ -57,12 +57,46 @@ normal-world progress during source candidate work. A verified constraint
 that forces a goal change must be reported to the user with evidence/options;
 ordinary bounded defects are repaired within the agreed goal.
 
-## Current checkpoint
+## Dispatch checkpoint
 
-Activation and frozen briefs prepared; candidate dispatch pending at this
-checkpoint. The seven tasks have not passed their acceptance gates. The
-existing parent ledger remains 4/14 qualified, with 82 functional resource
-gaps open; neither number is a content-completion percentage.
+The activation/frozen-input commit is
+`a06f1037ac6ecf308db6a963e06391ebbf586cbd`, published to the feature upstream.
+All six Orca launches report `ready`, with terminal mode, separate child
+worktrees, setup skipped and no model override. This proves dispatch, not
+completion or a model-quality result. The same spec bytes and base are used
+within each pair; private spec hashes are retained under
+`.tools/renewal/seven-task-execution-2026-11-04/DISPATCH_INPUTS_ROOT.json`.
 
-Next owner: Root dispatches both suppliers for each initial lane, records the
-receipts and evaluates delivered candidates under the current Orca lifecycle.
+| Task / supplier | Orca Task | Dispatch | Worktree suffix |
+| --- | --- | --- | --- |
+| T00.006 / Claude | `task_c49ddd4d4eaf` | `ctx_951b11c8d835` | `t00-006-claude-nov04-a1` |
+| T00.006 / Grok | `task_ad12cae2c829` | `ctx_e406fd3b13ed` | `t00-006-grok-nov04-a1` |
+| T06.005.001 / Claude | `task_b4ab181e9721` | `ctx_bb5449c23e18` | `t06-005-001-claude-nov04-a1` |
+| T06.005.001 / Grok | `task_e5d366a0fa96` | `ctx_b64fc7ebf887` | `t06-005-001-grok-nov04-a1` |
+| T10.010.003 / Claude | `task_6ec67e31b1e1` | `ctx_a9020b863dca` | `t10-010-003-claude-nov04-a1` |
+| T10.010.003 / Grok | `task_6cc9d45a6b12` | `ctx_06bb8f6e3a0e` | `t10-010-003-grok-nov04-a1` |
+
+New-child launch receipts set `keptOpen: true`; Root must release each settled
+worker when no follow-up needs its chat. No unrelated retained worker is
+included. Under the current Orca guide, Root ends the turn after dispatch and
+handles the wake-provided check when results/questions arrive; no polling or
+watch script consumes the inbox.
+
+Root's activation verification: 86 local links/anchors and all 44 task rows
+pass the documentation checker; staged diff whitespace passes; public-tree
+guard passes 599 indexed paths. Root personally hashes all 11 common coverage
+metadata inputs (5760162 bytes) and confirms the five independently supplied
+profile/gap/join/full839 pins. This is input admission, not new raw-catalog or
+runtime qualification. The helper's broader metadata inventory is advisory.
+No game tests or app actions are needed for this documentation checkpoint.
+
+The seven tasks have not passed their acceptance gates. The existing parent
+ledger remains 4/14 qualified, with 82 functional resource gaps open; neither
+number is a content-completion percentage. T10.010.004–007 remain dependent on
+Root's verified inputs and serial runtime gates, not merely a worker PASS.
+
+Next owner: independent Orca workers implement their bounded candidates;
+Root handles delivered questions/results, verifies and compares both,
+integrates the qualified output, commits its evidence and starts the next
+cleared gate. Cost/tokens and actual underlying model versions are not yet
+observed.

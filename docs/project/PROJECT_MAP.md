@@ -1,13 +1,13 @@
 # Remaining work and supervision
 
 Updated: 2026-11-04 JST. **Seven-task execution resumed.**
-The initial source lanes are being prepared for independent Orca candidates. See
+The initial source lanes have independent Claude/Grok Orca candidates dispatched. See
 [the detailed next actions](NEXT_ACTIONS.md) and [audit](reviews/2026-10-29-T00.005.md).
 
 ```text
 FULL MODERN / RENEWAL PERSONAL GAME
 |
-+-- Parallel prerequisites [IMPLEMENTATION STARTING; NOT VERIFIED]
++-- Parallel prerequisites [CANDIDATES DISPATCHED; NOT VERIFIED]
 |   [ ] T00.006: safe public/private test classification and isolated runner
 |   [ ] T06.005.001: provisional content ledger / 82-gap joins
 |   [ ] T10.010.003: reproducible native sources / bounded build recipe
