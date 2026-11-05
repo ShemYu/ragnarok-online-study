@@ -128,9 +128,11 @@ The single native case refuses before READY, launcher raw-reaped3, zeroGO/app
 release/signals and no retained resources. Two actual controlled startup probes
 show Python adds one absent fixture key and preserves the map when it is
 explicitly declared. The bounded Astra candidate2 repair now combines that
-fixture correction with the two cross-case fixes. Orca accepts follow-up
-ctx_2d6bed06c359/task_703c4b9e8a4c, ready, on the preserved source lane.
-Root reviews/reruns fresh copies after delivery; no native/full-gate or Engine/VM/real-restore pass is claimed.
+fixture correction with the two cross-case fixes. Its delivered source is now
+frozen; Root reads the full delta/README/independent review and finds no material
+blocker. Fresh composition/guard compile and pass lint; two new no-actor
+regressions plus native_positive are next in one guarded fresh run. No
+native/full-gate or Engine/VM/real-restore pass is claimed.
 Both original scores remain fixed. One raced Grok wrap-up
 follow-up fails readiness; the original source task remains delivered and no
 restart/terminal-exit assumption follows. See the
@@ -180,8 +182,11 @@ no client/VM/container starts. The settled Grok image-profile terminal is confir
 sentinel verifier is source-designed/reviewed; independent Claude/Grok workers
 are accepted ready on the same3b0a6802 base and identical invented inputs
 (ctx_080eb242cd63/task_5c43ca3e1df8 and
-ctx_b60b2ee745e0/task_a4229cc52115). Root candidate checks/runtime admission
-and actual transport remain open. See the
+ctx_b60b2ee745e0/task_a4229cc52115). Claude source is delivered/frozen and
+passes fresh compile/lint, with independent review active and73 authored cases
+unrun; Grok is pending. Shared Root corpusv2 corrects one test overconstraint
+and its68 fixture constructions pass without candidate calls. Candidate
+execution/selection, runtime admission and actual transport remain open. See the
 [client-format record](reviews/2026-11-05-T10.010.004-client-format-root.md).
 
 Root owns all runtime work. Refresh the exact owned VM/world/resources and
