@@ -122,11 +122,14 @@ reviews correct the earlier ownership boundaries but reveal two cross-case
 regressions: persistent stdout duplication and repeated cancellation-token
 consumption. Repair those before interacting/full-suite runs;84 authored
 entries remain unrun and original coverage gaps remain required. Root prepares
-a guarded, fresh native_positive-only composition as the next isolated fake
-checkpoint. Its first external guard refuses before harness start because a
-whole-stat comparison includes access time; fresh v2 preserves all identity/byte
-checks while excluding atime and is compiled/linted, unrun. No Engine/VM or
-real restore action is admitted.
+a guarded, fresh native_positive-only composition. Its first guard refusal
+(access-time comparison) is preserved; v2 authenticates and starts the harness.
+The single native case refuses before READY, launcher raw-reaped3, zeroGO/app
+release/signals and no retained resources. Two actual controlled startup probes
+show Python adds one absent fixture key and preserves the map when it is
+explicitly declared. The bounded Astra candidate2 repair now combines that
+fixture correction with the two cross-case fixes. Root reruns fresh copies
+after delivery; no native/full-gate or Engine/VM/real-restore pass is claimed.
 Both original scores remain fixed. One raced Grok wrap-up
 follow-up fails readiness; the original source task remains delivered and no
 restart/terminal-exit assumption follows. See the
