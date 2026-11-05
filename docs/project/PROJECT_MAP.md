@@ -91,7 +91,10 @@ one GO and receipt join, but harness retains descendants:positive and its
 controller needed separate cleanup. C3's config-only reader repair for valid0.2
 passes6/6 focused no-actor checks. Root replays all34 saved files and completes
 the one-use driver-only disposition with original-supervisor exit137; the old
-run stays unresolved. Fresh native baseline/full coverage remain open.
+run stays unresolved. The fresh C3/C6 native baseline now passes in1.067seconds
+with normal driver exit0 and no unresolved inventory. Full coverage stays open.
+Execution is paused at the user's request; use the
+[resume checkpoint](reviews/2026-11-05-resume-checkpoint.md) before new work.
 A fresh file-only check confirms41source/120evidence/2114unique
 protected-world files; VM/socket/personal/resource admission still follows.
 The pure format comparison is complete: both pass68 shared cases; unchanged

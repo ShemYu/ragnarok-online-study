@@ -1,8 +1,10 @@
-# Current status — expert-action execution
+# Current status — paused at user request
 
 Updated: 2026-11-05 JST. Owner: coordinating Codex.
 
-**Seven-task execution is active. Root owns serial runtime verification.**
+**Paused at the user's2026-11-05 request to save a checkpoint for later.**
+No new testing or worker dispatch until the user resumes. Root owns serial
+runtime verification. Start with the [resume checkpoint](reviews/2026-11-05-resume-checkpoint.md).
 The goal remains the full Modern/Renewal game on this Mac: maps, monsters,
 ordinary story/quests, persistent progress and Traditional Chinese throughout.
 Functionality comes first; keep existing Chinese overlays enabled. Party-only
@@ -23,10 +25,11 @@ not percentages of playable content, translation or remaining effort.
 
 ## Current action — DB qualification before integrated items
 
-**Immediate next:** qualify a fresh native baseline after the reviewed separate
-idle-driver disposition completes. The
-config-reader repair now passes all six focused no-actor checks; the old fake
-app completed but its original harness remains unresolved. Then capture
+**On resume:** finish the full launcher-coverage map and qualify remaining
+required controls. The repaired C3/C6 native-positive baseline now passes in
+1.067seconds with natural driver exit0, no errors/unresolved inventory and
+unchanged source pins. The old run remains unresolved; its idle driver was
+separately collected after reviewed cleanup. Then capture
 independent full definitions and exact per-table row counts under quiescence,
 plus a same-state supported app-stamped backup. Qualify the
 full SQL codec/oracle and input-byte gates, then isolated backup/restore and
@@ -103,14 +106,18 @@ no-actor fixture are the [next source correction](reviews/2026-11-05-T10.010.004
 Astra C3 is delivered/frozen and passes Root plus independent source review,
 compile/lint and6/6 fresh no-actor checks, including the two original fixture
 checks and both C2 regressions. All86 prior registered names remain,88total.
-This does not settle the already-running old decoder or qualify a native run.
+Those six controls alone do not qualify a native run; the old decoder required
+the separate cleanup below.
 Root's independent34-file saved-chain replay now exits0 and verifies complete
 historical actor closure. A separate one-use driver-only disposition guard
 passes corrected source review, compile and lint. Root completes its required
 fresh151-row live inventory, unchanged saved-chain replay and exact owner
 checks, one-use driver-only action, guard exit0 and original-supervisor exit137.
 Preserve the failed run; no original evidence or live code is altered. Fresh
-C3 native baseline and full required coverage remain open.
+C3 native baseline now passes in1.067seconds with original-supervisor exit0;
+Root checks all75 retained run files, streams/receipt/terminal ordering and
+unchanged sources. Full required coverage remains open. No new testing starts
+after the pause request.
 Original missing full-contract/native cases remain required. Earlier source
 iterations and actual refusals stay in the
 [launch record](reviews/2026-11-05-T10.010.004-db-launch-root.md).
