@@ -31,7 +31,7 @@ FULL MODERN / RENEWAL PERSONAL GAME
 |   [x] Live DB metadata / clean shutdown [ROOT VERIFIED; FK-AWARE]
 |   [x] Complete DB discovery [ROOT VERIFIED; ROW SEMANTICS OPEN]
 |   [ ] Full definitions/counts + supported B0 [CAPTURE OPEN; TIMESTAMP FIXED]
-|   [ ] Same-PID restore launch gate [C4 BUG REPRODUCED; HARNESS REVIEW OPEN]
+|   [ ] Same-PID restore launch gate [C5 FILE HELPERS PASS; HARNESS REPAIR OPEN]
 |   [ ] Isolated DB backup/restore -> integrated rendering/item A/B
 |   [ ] Binary/mod/text gate [SOURCE INTEGRATED; RUNTIME OPEN]
 |   [ ] Real EXP/callback/save [ANALYSIS INTEGRATED; RUNTIME OPEN]
@@ -88,10 +88,10 @@ Root chooses Claude original as the launch repair basis; the complete repair
 contract passes independent source design review; candidate2 gate/harness
 reviews find material source gaps. Its57 authored controls remain unrun.
 Focused C3 delivery still has source gaps; Claude gate and Astra harness
-repairs are delivered on separate source lanes. C4 file-helper controls pass11/12
-and reproduce a restoration-cancel bug; tiny C5 repair/rerun is next. Astra
-harness ownership/coverage source reviews are active;84 reported entries remain
-unrun. Root native execution remains open.
+repairs are delivered on separate source lanes. C5 now passes the unchanged12
+file-helper cases. Astra reviews require two cross-case corrections before
+full-suite execution;84 entries remain unrun. A guarded first native-positive
+fake checkpoint is prepared, with real-runtime admission still open.
 The timestamp repair is selected: both suppliers pass114 shared Root cases
 and actual catalog admission; Claude163total/Grok148total pass. Root chooses
 Claude's unchanged source for fewer fixture corrections. Independent capture

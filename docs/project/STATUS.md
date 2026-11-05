@@ -115,12 +115,15 @@ the three prior paths are corrected, but restoration-time cancellation and
 one F841 unused binding remain. Root personally runs twelve reviewed no-actor
 file-helper controls: eleven pass, one honestly fails and reproduces cancellation
 during successful handler restoration. Source/module/actual signal state is
-preserved; no actors start. The tiny C5 source follow-up is accepted ready as
-ctx_15bb2ef331bf/task_4802cc449bc5; Root reruns the unchanged controls after delivery.
-Astra's source-only harness is now frozen from its clean d66a58c6 branch,
-configured gpt-6-astra/xhigh. Its reported84 entries remain unrun; independent
-ownership and coverage reviews are active. Root composition/native execution
-remain open.
+preserved; no actors start. C5's two-hunk repair now passes Root's same unchanged12 file-helper controls,
+compilation and lint, preserving source/module/actual-handler state. It does
+not qualify native/full-gate behavior. Astra's full source and both independent
+reviews correct the earlier ownership boundaries but reveal two cross-case
+regressions: persistent stdout duplication and repeated cancellation-token
+consumption. Repair those before interacting/full-suite runs;84 authored
+entries remain unrun and original coverage gaps remain required. Root prepares
+a guarded, fresh native_positive-only composition as the next isolated fake
+checkpoint; no Engine/VM or real restore action is admitted.
 Both original scores remain fixed. One raced Grok wrap-up
 follow-up fails readiness; the original source task remains delivered and no
 restart/terminal-exit assumption follows. See the
