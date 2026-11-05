@@ -141,9 +141,12 @@ absent-User serialization difference and an unsupported hard-link refusal.
 Root confirms protected archive preservation, reviews the two exact source
 corrections and runs fresh copies with syntax/lint passes. The third probe
 authenticates archive/config/layers before its conservative hard-link refusal;
-no artifact/entrypoint pass or runtime default-user claim follows. Next inspect
-actual link/path metadata to choose a bounded target audit. No client/VM/
-container starts; SQL format qualification remains open. See the
+no full artifact/entrypoint pass or runtime default-user claim follows. A fresh
+Root metadata census now passes with all254 links confined by name/target to
+timezone data, no whiteouts and one6088-byte entrypoint candidate exactly equal
+to pinned app source. Focused link-exception/source interpretation is next;
+no overlay or runtime claim follows from the census. No client/VM/container
+starts; SQL format qualification remains open. See the
 [client-format record](reviews/2026-11-05-T10.010.004-client-format-root.md).
 
 Root owns all runtime work. Refresh the exact owned VM/world/resources and
