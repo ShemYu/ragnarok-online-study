@@ -23,9 +23,10 @@ not percentages of playable content, translation or remaining effort.
 
 ## Current action — DB qualification before integrated items
 
-**Immediate next:** repair the isolated launch harness's config-only JSON
-reader and separately resolve its retained test owner. The latest fake app
-completes, but the overall native baseline remains unqualified. Then capture
+**Immediate next:** resolve the retained host-fake test owner through the
+reviewed separate disposition, then qualify a fresh native baseline. The
+config-reader repair now passes all six focused no-actor checks; the old fake
+app completed but its original harness remains unresolved. Then capture
 independent full definitions and exact per-table row counts under quiescence,
 plus a same-state supported app-stamped backup. Qualify the
 full SQL codec/oracle and input-byte gates, then isolated backup/restore and
@@ -62,7 +63,13 @@ retain both. Original41 inputs, eight-record overlay and consumed phases1–3
 stay immutable. Do not rerun a consumed phase or authorize another startup
 with its old admission. New preparation must explicitly bind the latest
 qualified baseline and repeat full selected/current/phase equality under
-exclusive Root custody. No new runtime phase or restore is admitted yet.
+exclusive Root custody. Root now personally rechecks the specified file
+baseline: all41 source/120 prior evidence files and2114 unique protected/world
+files match. The first result writer's directory-link-count refusal stays
+unqualified; fresh corrected output exits0 with all checks preserved. See the
+[file-only baseline record](reviews/2026-11-05-T10.010.004-next-baseline-root.md).
+Fresh VM/socket/personal/resource checks still follow; no new runtime phase
+or restore is admitted yet.
 
 C8 source/controls and the corrected outer custody wrapper remain separately
 scoped in the dated record:145 authored,13 profile/I/O,4 directory swaps,
@@ -93,8 +100,10 @@ The exact harness source defect is a generic integer-only JSON decoder applied
 to the valid observer config's limits.term_grace_s0.2. Two independent source/
 fake-record reviews agree. A scoped admission reader and source-shaped
 no-actor fixture are the [next source correction](reviews/2026-11-05-T10.010.004-harness-c3-repair-brief.md).
-Astra C3 is accepted ready as ctx_8a4b454a5f30/task_90148583e1bd on the
-preserved source lane. Root awaits delivery for review/fresh-copy checks.
+Astra C3 is delivered/frozen and passes Root plus independent source review,
+compile/lint and6/6 fresh no-actor checks, including the two original fixture
+checks and both C2 regressions. All86 prior registered names remain,88total.
+This does not settle the already-running old decoder or qualify a native run.
 The current owner has no release protocol; preserve it and the failed run,
 handle separate disposition explicitly and do not alter evidence or live code.
 Original missing full-contract/native cases remain required. Earlier source
