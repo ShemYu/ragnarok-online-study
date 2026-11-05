@@ -30,6 +30,7 @@ FULL MODERN / RENEWAL PERSONAL GAME
 |   [x] Managed client identity/static/owned stop [ROOT VERIFIED]
 |   [x] Live DB metadata / clean shutdown [ROOT VERIFIED; FK-AWARE]
 |   [x] Complete DB discovery [ROOT VERIFIED; ROW SEMANTICS OPEN]
+|   [ ] Client SQL format [PURE VERIFIER DESIGN READY; ACTUAL TRANSPORT OPEN]
 |   [ ] Full definitions/counts + supported B0 [CAPTURE OPEN; TIMESTAMP FIXED]
 |   [ ] Same-PID restore launch gate [C5 FILE HELPERS PASS; HARNESS REPAIR OPEN]
 |   [ ] Isolated DB backup/restore -> integrated rendering/item A/B
