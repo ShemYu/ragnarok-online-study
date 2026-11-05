@@ -177,9 +177,11 @@ replay now qualifies the entrypoint/client/init artifact projection: exact
 entrypoint source, identified client, empty init scripts and254 admissible
 links. Runtime user/defaults, SQL transport and initialization remain open;
 no client/VM/container starts. The settled Grok image-profile terminal is confirmed released. A pure18-record
-sentinel verifier is now source-designed/reviewed for paired Claude/Grok work
-with identical invented inputs; Root runtime admission and actual transport
-remain open. See the
+sentinel verifier is source-designed/reviewed; independent Claude/Grok workers
+are accepted ready on the same3b0a6802 base and identical invented inputs
+(ctx_080eb242cd63/task_5c43ca3e1df8 and
+ctx_b60b2ee745e0/task_a4229cc52115). Root candidate checks/runtime admission
+and actual transport remain open. See the
 [client-format record](reviews/2026-11-05-T10.010.004-client-format-root.md).
 
 Root owns all runtime work. Refresh the exact owned VM/world/resources and
