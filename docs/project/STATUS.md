@@ -93,6 +93,8 @@ The exact harness source defect is a generic integer-only JSON decoder applied
 to the valid observer config's limits.term_grace_s0.2. Two independent source/
 fake-record reviews agree. A scoped admission reader and source-shaped
 no-actor fixture are the [next source correction](reviews/2026-11-05-T10.010.004-harness-c3-repair-brief.md).
+Astra C3 is accepted ready as ctx_8a4b454a5f30/task_90148583e1bd on the
+preserved source lane. Root awaits delivery for review/fresh-copy checks.
 The current owner has no release protocol; preserve it and the failed run,
 handle separate disposition explicitly and do not alter evidence or live code.
 Original missing full-contract/native cases remain required. Earlier source
