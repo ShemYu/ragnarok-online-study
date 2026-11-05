@@ -102,7 +102,10 @@ delivered and frozen from the clean preserved task lane. Its57 authored
 controls remain unrun. Independent reviews find a confirmed native stdlib
 ownership refusal plus finalization, cancellation, FD and live-custody gaps.
 Root reads the finding paths and confirms the root-owned dependency. Process
-execution is withheld; the focused C3 addendum retains full acceptance.
+execution is withheld. The focused C3 addendum passes source design review
+after Root applies the narrow publication clarification; full acceptance
+remains. Candidate3 source repair is accepted ready as
+ctx_c24e7b89f0b4/task_c3dad2ebbdc4 on the preserved Claude lane.
 Implementation/native qualification remain open.
 Both original scores remain fixed. One raced Grok wrap-up
 follow-up fails readiness; the original source task remains delivered and no
@@ -133,13 +136,14 @@ files preserved. The separate launcher repair needs source corrections; no
 runtime admission or audit closure follows from source delivery/selection.
 Unproven older resources remain untouched.
 
-The first offline client-image probe refuses an incorrect61-character hash
-literal. Root confirms protected archive preservation; an exact one-literal
-repair passes syntax/lint, then exposes one raw-config omission: User absent
-versus empty in inspection. Other fields agree. A narrow reported serialization
-exception is authored but unexecuted; runtime user/default behavior remains
-unqualified. No client/VM/container starts. Next qualify the artifact profile
-and actual entrypoint before the SQL format experiment. See the
+Offline client-image probes retain a wrong hash literal, the demonstrated
+absent-User serialization difference and an unsupported hard-link refusal.
+Root confirms protected archive preservation, reviews the two exact source
+corrections and runs fresh copies with syntax/lint passes. The third probe
+authenticates archive/config/layers before its conservative hard-link refusal;
+no artifact/entrypoint pass or runtime default-user claim follows. Next inspect
+actual link/path metadata to choose a bounded target audit. No client/VM/
+container starts; SQL format qualification remains open. See the
 [client-format record](reviews/2026-11-05-T10.010.004-client-format-root.md).
 
 Root owns all runtime work. Refresh the exact owned VM/world/resources and

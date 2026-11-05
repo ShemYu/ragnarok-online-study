@@ -31,7 +31,7 @@ FULL MODERN / RENEWAL PERSONAL GAME
 |   [x] Live DB metadata / clean shutdown [ROOT VERIFIED; FK-AWARE]
 |   [x] Complete DB discovery [ROOT VERIFIED; ROW SEMANTICS OPEN]
 |   [ ] Full definitions/counts + supported B0 [CAPTURE OPEN; TIMESTAMP FIXED]
-|   [ ] Same-PID restore launch gate [C2 NEEDS SOURCE FIXES; CONTROLS OPEN]
+|   [ ] Same-PID restore launch gate [C3 REPAIR ASSIGNED; CONTROLS OPEN]
 |   [ ] Isolated DB backup/restore -> integrated rendering/item A/B
 |   [ ] Binary/mod/text gate [SOURCE INTEGRATED; RUNTIME OPEN]
 |   [ ] Real EXP/callback/save [ANALYSIS INTEGRATED; RUNTIME OPEN]
@@ -87,7 +87,8 @@ Root-run direct-fake cases; full launch integration remains open.
 Root chooses Claude original as the launch repair basis; the complete repair
 contract passes independent source design review; candidate2 gate/harness
 reviews find material source gaps. Its57 authored controls remain unrun.
-Focused C3 corrections precede Root execution; qualification remains open.
+Focused C3 repair is accepted on the preserved Claude lane; Root execution
+and qualification remain open.
 The timestamp repair is selected: both suppliers pass114 shared Root cases
 and actual catalog admission; Claude163total/Grok148total pass. Root chooses
 Claude's unchanged source for fewer fixture corrections. Independent capture
