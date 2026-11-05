@@ -23,8 +23,8 @@ not percentages of playable content, translation or remaining effort.
 
 ## Current action — DB qualification before integrated items
 
-**Immediate next:** resolve the retained host-fake test owner through the
-reviewed separate disposition, then qualify a fresh native baseline. The
+**Immediate next:** qualify a fresh native baseline after the reviewed separate
+idle-driver disposition completes. The
 config-reader repair now passes all six focused no-actor checks; the old fake
 app completed but its original harness remains unresolved. Then capture
 independent full definitions and exact per-table row counts under quiescence,
@@ -91,10 +91,10 @@ The native kqueue/raw-wait primitive passes seven Root host-fake cases. Claude
 C6 gate passes source reviews, compile/lint, unchanged12 file-helper and21
 parser checks. Astra C2 passes both cross-case regressions. The latest guarded
 native positive reaches two held reads, one GO, unchanged-observer receipt
-join and app raw-reaped0 with complete streams, but **the harness remains
-unresolved and its owner is live**. Root retains session51837, which reports
-only descendants:positive. No VM/Engine/DB starts and no native baseline PASS
-or command exit is claimed.
+join and app raw-reaped0 with complete streams, but **the original harness
+remains unresolved**. Its false descendant predicate kept the idle driver live;
+Root's separate reviewed disposition now observes original session51837 settle
+with exit137. No native baseline PASS or VM/Engine/DB start follows from cleanup.
 
 The exact harness source defect is a generic integer-only JSON decoder applied
 to the valid observer config's limits.term_grace_s0.2. Two independent source/
@@ -106,10 +106,11 @@ checks and both C2 regressions. All86 prior registered names remain,88total.
 This does not settle the already-running old decoder or qualify a native run.
 Root's independent34-file saved-chain replay now exits0 and verifies complete
 historical actor closure. A separate one-use driver-only disposition guard
-passes corrected source review, compile and lint. It still requires fresh
-session inventory/exact live identity and original-supervisor observed
-collection; no signal or settlement is claimed at this checkpoint. Preserve
-the failed run and do not alter its evidence or live code.
+passes corrected source review, compile and lint. Root completes its required
+fresh151-row live inventory, unchanged saved-chain replay and exact owner
+checks, one-use driver-only action, guard exit0 and original-supervisor exit137.
+Preserve the failed run; no original evidence or live code is altered. Fresh
+C3 native baseline and full required coverage remain open.
 Original missing full-contract/native cases remain required. Earlier source
 iterations and actual refusals stay in the
 [launch record](reviews/2026-11-05-T10.010.004-db-launch-root.md).

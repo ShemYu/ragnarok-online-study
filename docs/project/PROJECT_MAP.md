@@ -88,9 +88,11 @@ Root-run direct-fake cases; full launch integration remains open.
 C6 gate passes unchanged12 file-helper and21 parser checks; Astra C2 passes
 its focused regressions. Latest native fake app completes after both held reads,
 one GO and receipt join, but harness retains descendants:positive and its
-controller stays live. C3's config-only reader repair for valid0.2 passes6/6
-focused no-actor checks; separate owner disposition and fresh native baseline
-remain open. A fresh file-only check confirms41source/120evidence/2114unique
+controller needed separate cleanup. C3's config-only reader repair for valid0.2
+passes6/6 focused no-actor checks. Root replays all34 saved files and completes
+the one-use driver-only disposition with original-supervisor exit137; the old
+run stays unresolved. Fresh native baseline/full coverage remain open.
+A fresh file-only check confirms41source/120evidence/2114unique
 protected-world files; VM/socket/personal/resource admission still follows.
 The pure format comparison is complete: both pass68 shared cases; unchanged
 Claude source is selected by a smaller-source tie-break. Actual SQL transport
