@@ -108,8 +108,11 @@ remains. Candidate3 is now delivered, frozen and fully source-reviewed.
 Its67 controls remain unrun: three gate publication/FD gaps and four harness
 ownership/descendant boundaries still prevent process execution. Root splits
 the next source repair into Claude gate-only and Astra harness-only scopes,
-preserving interfaces and full acceptance. Dispatch/Root integration and
-native qualification remain open.
+preserving interfaces and full acceptance. Both are accepted ready:
+ctx_4f4e11017137/task_f7a3fcc4682a and
+ctx_52d4cee2b138/task_b9fac90b438f. Astra has a separate clean branch at
+d66a58c6, configured gpt-6-astra/xhigh. Source delivery, Root compatibility/
+execution and native qualification remain open.
 Both original scores remain fixed. One raced Grok wrap-up
 follow-up fails readiness; the original source task remains delivered and no
 restart/terminal-exit assumption follows. See the
@@ -148,8 +151,9 @@ no full artifact/entrypoint pass or runtime default-user claim follows. A fresh
 Root metadata census now passes with all254 links confined by name/target to
 timezone data, no whiteouts and one6088-byte entrypoint candidate exactly equal
 to pinned app source. The focused direct-regular timezone exception passes
-source design review; bounded Grok source implementation/pure controls are
-next. Actual replay, overlay target resolution and SQL format remain open;
+source design review. Grok source implementation/pure controls are accepted
+ready as ctx_52ef5678f627/task_2a3e169ff4a9 on the reopened clean preserved
+lane. Delivery, actual replay, overlay target resolution and SQL format remain open;
 no client/VM/container starts. See the
 [client-format record](reviews/2026-11-05-T10.010.004-client-format-root.md).
 
