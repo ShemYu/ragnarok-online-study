@@ -104,9 +104,12 @@ ownership refusal plus finalization, cancellation, FD and live-custody gaps.
 Root reads the finding paths and confirms the root-owned dependency. Process
 execution is withheld. The focused C3 addendum passes source design review
 after Root applies the narrow publication clarification; full acceptance
-remains. Candidate3 source repair is accepted ready as
-ctx_c24e7b89f0b4/task_c3dad2ebbdc4 on the preserved Claude lane.
-Implementation/native qualification remain open.
+remains. Candidate3 is now delivered, frozen and fully source-reviewed.
+Its67 controls remain unrun: three gate publication/FD gaps and four harness
+ownership/descendant boundaries still prevent process execution. Root splits
+the next source repair into Claude gate-only and Astra harness-only scopes,
+preserving interfaces and full acceptance. Dispatch/Root integration and
+native qualification remain open.
 Both original scores remain fixed. One raced Grok wrap-up
 follow-up fails readiness; the original source task remains delivered and no
 restart/terminal-exit assumption follows. See the
@@ -144,9 +147,10 @@ authenticates archive/config/layers before its conservative hard-link refusal;
 no full artifact/entrypoint pass or runtime default-user claim follows. A fresh
 Root metadata census now passes with all254 links confined by name/target to
 timezone data, no whiteouts and one6088-byte entrypoint candidate exactly equal
-to pinned app source. Focused link-exception/source interpretation is next;
-no overlay or runtime claim follows from the census. No client/VM/container
-starts; SQL format qualification remains open. See the
+to pinned app source. The focused direct-regular timezone exception passes
+source design review; bounded Grok source implementation/pure controls are
+next. Actual replay, overlay target resolution and SQL format remain open;
+no client/VM/container starts. See the
 [client-format record](reviews/2026-11-05-T10.010.004-client-format-root.md).
 
 Root owns all runtime work. Refresh the exact owned VM/world/resources and
