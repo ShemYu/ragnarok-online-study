@@ -30,7 +30,7 @@ FULL MODERN / RENEWAL PERSONAL GAME
 |   [x] Managed client identity/static/owned stop [ROOT VERIFIED]
 |   [x] Live DB metadata / clean shutdown [ROOT VERIFIED; FK-AWARE]
 |   [x] Complete DB discovery [ROOT VERIFIED; ROW SEMANTICS OPEN]
-|   [ ] Full definitions/counts + supported B0 [DESIGN; TWO EXTRA CLAUSES OPEN]
+|   [ ] Full definitions/counts + supported B0 [CAPTURE OPEN; TIMESTAMP FIXED]
 |   [ ] Same-PID restore launch gate [CLAUDE REPAIR ASSIGNED; CONTROLS OPEN]
 |   [ ] Isolated DB backup/restore -> integrated rendering/item A/B
 |   [ ] Binary/mod/text gate [SOURCE INTEGRATED; RUNTIME OPEN]
@@ -75,8 +75,8 @@ Independent restore-launch proposals use the same frozen packet/brief. Claude
 and Grok each score11/20 on first-delivery source assessment; neither is
 selected/admitted. Their24/74 authored controls are unrun; unsafe custody and
 ineffective negatives need repair. Exact interpreter support is a separate
-native-custody prerequisite. The actual catalog has two timestamp EXTRA
-clauses the current oracle rejects; retain them and repair narrowly.
+native-custody prerequisite. The actual catalog's two timestamp EXTRA
+clauses are now admitted by the selected metadata-compatible oracle.
 Independent counts/full definitions, supported B0, launch controls and actual
 backup/restore/S0–S4 remain open. See the
 [paired review](reviews/2026-11-05-T10.010.004-launch-suppliers.md) and
@@ -87,11 +87,10 @@ Root-run direct-fake cases; full launch integration remains open.
 Root chooses Claude original as the launch repair basis; the complete repair
 contract passes independent source design review; candidate2 source repair is
 accepted on the preserved task lane. Root verification remains open.
-The timestamp repair's contract/packet pass independent design review. Claude's first repair passes
-163 Root-run controls and actual catalog admission with clauses preserved;
-Grok's first delivery is frozen with34 unrun controls; equal Root verification
-and paired selection remain pending. Independent capture and
-actual backup/restore remain open. See the
+The timestamp repair is selected: both suppliers pass114 shared Root cases
+and actual catalog admission; Claude163total/Grok148total pass. Root chooses
+Claude's unchanged source for fewer fixture corrections. Independent capture
+and actual backup/restore remain open. See the
 [compatibility result](reviews/2026-11-05-T10.010.004-timestamp-oracle-root.md).
 See the [qualified capture](reviews/2026-11-05-T10.010.004-db-discovery-root.md#candidate8-actual-native-dump-profile-and-settled-preservation-qualified).
 The separate4GiB build VM is stopped after the repaired full pair succeeds:

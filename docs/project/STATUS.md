@@ -28,10 +28,10 @@ under quiescence, plus a same-state supported app-stamped backup. Qualify the
 full SQL codec/oracle and input-byte gates, then isolated backup/restore and
 S0–S4 once the same-PID launcher is selected and verified. The direct discovery
 dump has no app stamp; do not synthesize one or infer independent counts from
-its INSERT lines. The codec has not been called on it. Before capture, finish
-the bounded timestamp-oracle repair and actual SHOW CREATE transport
-qualification, then admit a new versioned
-capture gate. See [Root's prerequisite findings](reviews/2026-11-05-T10.010.004-full-catalog-root.md).
+its INSERT lines. The codec has not been called on it. Timestamp compatibility
+is repaired and selected; next qualify the actual SHOW CREATE transport and
+new versioned capture gate. See
+[Root's prerequisite findings](reviews/2026-11-05-T10.010.004-full-catalog-root.md).
 
 **Actual DB discovery is now Root-qualified.** Candidate8's one-use phase3
 settles in35.936456seconds, controller exit0, empty stderr and no outer custody
@@ -105,35 +105,29 @@ follow-up fails readiness; the original source task remains delivered and no
 restart/terminal-exit assumption follows. See the
 [paired assessment](reviews/2026-11-05-T10.010.004-launch-suppliers.md).
 
-The original oracle rejects two actual timestamp EXTRA clauses. Claude's
-first repair now passes Root's34 original oracle,51 original codec,49 supplier
-and29 independent controls (163total). The authenticated73-table/844-column
-actual catalog admits without dropping clauses or changing bytes. Exact diff,
-compilation and lint pass. No actual rows or backup are parsed. Grok now
-delivers four frozen source files with34 authored/unrun controls; its equal
-Root verification and paired selection are next. The selected oracle is not
-yet replaced.
-Independent full definitions/counts and supported B0 remain absent. See the
-[compatibility result](reviews/2026-11-05-T10.010.004-timestamp-oracle-root.md).
+**Timestamp compatibility is selected and Root-qualified.** Both repairs pass
+the same114 original/independent cases and actual73-table/844-column catalog
+admission, preserving both clauses and all metadata. Claude163total cases and
+Grok148total pass, with compile/lint/exact-diff checks. Root chooses Claude
+(20/20 vs18/20) because Grok's control fixtures need two corrections; neither
+score is a general model ranking. Selected unchanged oracle/codec bytes live
+in private B/db-supported-backup-codec-source-root-3, manifest
+2f94ef9f52f40912aaf681a3629b9738dbe792ec970f8e38972f4d420c195407.
+Original packets/suites stay immutable. This qualifies only metadata
+compatibility; no actual rows/backup are parsed. Independent full definitions,
+counts, supported B0 and restore remain open. See the
+[paired result](reviews/2026-11-05-T10.010.004-timestamp-oracle-root.md#paired-verification-complete-claude-compatibility-source-selected).
 
 Supported-backup transitive source inspection is complete. Root authenticates
 16 exact app source bodies and personally reads the stop/restart, era-switch,
 stamp and export paths. A fresh capture must positively prove matching running
 Renewal DB/volume/marker, absent prere selector/volume, already-stopped game
 services and valid local settings; otherwise backup can recreate/switch DBs.
-Current runtime preconditions remain unobserved. The
-[timestamp repair contract](reviews/2026-11-05-T10.010.004-timestamp-oracle-brief.md)
-and common five-file pure packet pass independent source design review;
-Claude ctx_610aa37c9b67/task_106e34086ecb and Grok
-ctx_85a8a53c4d6b/task_c42600ade6c1 are now accepted ready on separate clean
-same-base branches with the identical prompt. Claude's first delivery/Root
-checks are qualified as above; Grok's first delivery is now frozen, with source
-review queued and equal Root checks/paired selection pending. Root awaits the
-separate launcher-repair report; no runtime admission or audit closure follows
-from source delivery.
-Claude's completed timestamp terminal is released with its transcript/source
-branch preserved. Grok's source lane is retained through verification;
-unproven older resources remain untouched.
+Current runtime preconditions remain unobserved. Both completed timestamp
+worker terminals are released with transcripts, source branches and frozen
+files preserved. The separate launcher repair remains active; no runtime
+admission or audit closure follows from source selection. Unproven older
+resources remain untouched.
 
 Root owns all runtime work. Refresh the exact owned VM/world/resources and
 personal projections before startup. Supported ordinary up can initialize/write
