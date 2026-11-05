@@ -134,9 +134,12 @@ blocker. Fresh composition/guard compile and pass lint; two new no-actor
 regressions pass in the fresh run. Native_positive now reaches READY then
 refuses at held-reader record shape; ps child raw-reaped0, launcher raw-reaped3,
 zeroGO/app release/signals and no retained resources. Prior actual same-recipe
-records reproduce a one-versus-five-space parser defect. Focused C6 source
-repair is accepted ready as ctx_98d904aa3e0f/task_c7264e9e7f96, preserving
-raw diagnostics before parse and accepting ASCII padding without weaker identity. No native/full-gate or runtime pass is claimed.
+records reproduce a one-versus-five-space parser defect. C6 is now delivered/frozen and passes Root plus independent source review.
+Fresh copies pass compile/lint, the unchanged12 file-helper cases and21 focused
+parser cases, preserving source/module/actual handlers with no handoff. A fresh
+guarded native-positive-only composition is statically ready; run it after
+this checkpoint. The parser seam is modeled, so no native/full-gate or runtime
+pass is claimed.
 Both original scores remain fixed. One raced Grok wrap-up
 follow-up fails readiness; the original source task remains delivered and no
 restart/terminal-exit assumption follows. See the

@@ -93,8 +93,9 @@ repairs are delivered on separate source lanes. C5 now passes the unchanged12
 file-helper cases. Astra reviews require two cross-case corrections before
 full-suite execution. Astra C2 now passes both new no-actor regressions.
 Native positive reaches READY then refuses on ps padding; all actors are
-reaped without release. Claude C6 reader/raw-diagnostic correction is assigned;
-native positive and real-runtime admission remain open.
+reaped without release. Claude C6 now passes source reviews, compile/lint,
+unchanged12 file-helper and21 parser checks. The fresh guarded native-positive
+composition is ready; native positive and real-runtime admission remain open.
 The timestamp repair is selected: both suppliers pass114 shared Root cases
 and actual catalog admission; Claude163total/Grok148total pass. Root chooses
 Claude's unchanged source for fewer fixture corrections. Independent capture
