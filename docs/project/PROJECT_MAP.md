@@ -30,7 +30,7 @@ FULL MODERN / RENEWAL PERSONAL GAME
 |   [x] Managed client identity/static/owned stop [ROOT VERIFIED]
 |   [x] Live DB metadata / clean shutdown [ROOT VERIFIED; FK-AWARE]
 |   [x] Complete DB discovery [ROOT VERIFIED; ROW SEMANTICS OPEN]
-|   [ ] Client SQL format [PAIRED VERIFIER WORKERS READY; TRANSPORT OPEN]
+|   [ ] Client SQL format [CLAUDE PURE CHECKS PASS; GROK/TRANSPORT OPEN]
 |   [ ] Full definitions/counts + supported B0 [CAPTURE OPEN; TIMESTAMP FIXED]
 |   [ ] Same-PID restore launch gate [TWO HARNESS FIXES PASS; READER REPAIR OPEN]
 |   [ ] Isolated DB backup/restore -> integrated rendering/item A/B
@@ -91,10 +91,10 @@ reviews find material source gaps. Its57 authored controls remain unrun.
 Focused C3 delivery still has source gaps; Claude gate and Astra harness
 repairs are delivered on separate source lanes. C5 now passes the unchanged12
 file-helper cases. Astra reviews require two cross-case corrections before
-full-suite execution. The first guarded native-positive fake refuses before
-READY and raw-reaps its launcher3; an actual startup probe identifies a missing
-fixture environment key. All three corrections go to Astra; native positive
-and real-runtime admission remain open.
+full-suite execution. Astra C2 now passes both new no-actor regressions.
+Native positive reaches READY then refuses on ps padding; all actors are
+reaped without release. Claude C6 reader/raw-diagnostic correction is assigned;
+native positive and real-runtime admission remain open.
 The timestamp repair is selected: both suppliers pass114 shared Root cases
 and actual catalog admission; Claude163total/Grok148total pass. Root chooses
 Claude's unchanged source for fewer fixture corrections. Independent capture

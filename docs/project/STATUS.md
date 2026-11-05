@@ -135,8 +135,8 @@ regressions pass in the fresh run. Native_positive now reaches READY then
 refuses at held-reader record shape; ps child raw-reaped0, launcher raw-reaped3,
 zeroGO/app release/signals and no retained resources. Prior actual same-recipe
 records reproduce a one-versus-five-space parser defect. Focused C6 source
-repair will preserve raw diagnostics before parse and accept ASCII padding
-without weaker identity. No native/full-gate or runtime pass is claimed.
+repair is accepted ready as ctx_98d904aa3e0f/task_c7264e9e7f96, preserving
+raw diagnostics before parse and accepting ASCII padding without weaker identity. No native/full-gate or runtime pass is claimed.
 Both original scores remain fixed. One raced Grok wrap-up
 follow-up fails readiness; the original source task remains delivered and no
 restart/terminal-exit assumption follows. See the
