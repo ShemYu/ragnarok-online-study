@@ -128,8 +128,9 @@ The single native case refuses before READY, launcher raw-reaped3, zeroGO/app
 release/signals and no retained resources. Two actual controlled startup probes
 show Python adds one absent fixture key and preserves the map when it is
 explicitly declared. The bounded Astra candidate2 repair now combines that
-fixture correction with the two cross-case fixes. Root reruns fresh copies
-after delivery; no native/full-gate or Engine/VM/real-restore pass is claimed.
+fixture correction with the two cross-case fixes. Orca accepts follow-up
+ctx_2d6bed06c359/task_703c4b9e8a4c, ready, on the preserved source lane.
+Root reviews/reruns fresh copies after delivery; no native/full-gate or Engine/VM/real-restore pass is claimed.
 Both original scores remain fixed. One raced Grok wrap-up
 follow-up fails readiness; the original source task remains delivered and no
 restart/terminal-exit assumption follows. See the
