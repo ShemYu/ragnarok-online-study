@@ -104,8 +104,12 @@ Astra C3 is delivered/frozen and passes Root plus independent source review,
 compile/lint and6/6 fresh no-actor checks, including the two original fixture
 checks and both C2 regressions. All86 prior registered names remain,88total.
 This does not settle the already-running old decoder or qualify a native run.
-The current owner has no release protocol; preserve it and the failed run,
-handle separate disposition explicitly and do not alter evidence or live code.
+Root's independent34-file saved-chain replay now exits0 and verifies complete
+historical actor closure. A separate one-use driver-only disposition guard
+passes corrected source review, compile and lint. It still requires fresh
+session inventory/exact live identity and original-supervisor observed
+collection; no signal or settlement is claimed at this checkpoint. Preserve
+the failed run and do not alter its evidence or live code.
 Original missing full-contract/native cases remain required. Earlier source
 iterations and actual refusals stay in the
 [launch record](reviews/2026-11-05-T10.010.004-db-launch-root.md).
