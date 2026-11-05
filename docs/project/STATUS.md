@@ -110,9 +110,12 @@ ownership/descendant boundaries still prevent process execution. Root splits
 the next source repair into Claude gate-only and Astra harness-only scopes,
 preserving interfaces and full acceptance. Both are accepted ready:
 ctx_4f4e11017137/task_f7a3fcc4682a and
-ctx_52d4cee2b138/task_b9fac90b438f. Astra has a separate clean branch at
-d66a58c6, configured gpt-6-astra/xhigh. Source delivery, Root compatibility/
-execution and native qualification remain open.
+ctx_52d4cee2b138/task_b9fac90b438f. Claude gate-only C4 is now frozen/reviewed:
+the three prior paths are corrected, but restoration-time cancellation and
+one F841 unused binding remain. Fresh compilation passes; twelve no-actor
+controls are authored, unrun and under review. Astra's latest explicit status
+reports harness work in progress on its separate d66a58c6 branch, configured
+gpt-6-astra/xhigh. Root composition/native execution remain open.
 Both original scores remain fixed. One raced Grok wrap-up
 follow-up fails readiness; the original source task remains delivered and no
 restart/terminal-exit assumption follows. See the
@@ -153,7 +156,9 @@ timezone data, no whiteouts and one6088-byte entrypoint candidate exactly equal
 to pinned app source. The focused direct-regular timezone exception passes
 source design review. Grok source implementation/pure controls are accepted
 ready as ctx_52ef5678f627/task_2a3e169ff4a9 on the reopened clean preserved
-lane. Delivery, actual replay, overlay target resolution and SQL format remain open;
+lane. Its delivery passes complete source review, fresh compile/lint and30
+Root-run pure controls; source bytes stay unchanged. Actual archive replay,
+target projection and SQL format remain open;
 no client/VM/container starts. See the
 [client-format record](reviews/2026-11-05-T10.010.004-client-format-root.md).
 
