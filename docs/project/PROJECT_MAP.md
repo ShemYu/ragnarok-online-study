@@ -85,17 +85,14 @@ backup/restore/S0–S4 remain open. See the
 Backup transitive source is now authenticated across16 files; runtime must
 prove the no-switch route. Native kqueue/raw-wait feasibility now passes seven
 Root-run direct-fake cases; full launch integration remains open.
-Root chooses Claude original as the launch repair basis; the complete repair
-contract passes independent source design review; candidate2 gate/harness
-reviews find material source gaps. Its57 authored controls remain unrun.
-Focused C3 delivery still has source gaps; Claude gate and Astra harness
-repairs are delivered on separate source lanes. C5 now passes the unchanged12
-file-helper cases. Astra reviews require two cross-case corrections before
-full-suite execution. Astra C2 now passes both new no-actor regressions.
-Native positive reaches READY then refuses on ps padding; all actors are
-reaped without release. Claude C6 now passes source reviews, compile/lint,
-unchanged12 file-helper and21 parser checks. The fresh guarded native-positive
-composition is ready; native positive and real-runtime admission remain open.
+C6 gate passes unchanged12 file-helper and21 parser checks; Astra C2 passes
+its focused regressions. Latest native fake app completes after both held reads,
+one GO and receipt join, but harness retains descendants:positive and its
+controller stays live. A config-only reader fix for valid0.2 is next; separate
+owner disposition, native baseline and actual-runtime admission remain open.
+The pure format comparison is complete: both pass68 shared cases; unchanged
+Claude source is selected by a smaller-source tie-break. Actual SQL transport
+remains open. Detailed iterations stay in the dated records.
 The timestamp repair is selected: both suppliers pass114 shared Root cases
 and actual catalog admission; Claude163total/Grok148total pass. Root chooses
 Claude's unchanged source for fewer fixture corrections. Independent capture

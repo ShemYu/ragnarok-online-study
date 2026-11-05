@@ -23,8 +23,11 @@ not percentages of playable content, translation or remaining effort.
 
 ## Current action — DB qualification before integrated items
 
-**Next:** capture independent full definitions and exact per-table row counts
-under quiescence, plus a same-state supported app-stamped backup. Qualify the
+**Immediate next:** repair the isolated launch harness's config-only JSON
+reader and separately resolve its retained test owner. The latest fake app
+completes, but the overall native baseline remains unqualified. Then capture
+independent full definitions and exact per-table row counts under quiescence,
+plus a same-state supported app-stamped backup. Qualify the
 full SQL codec/oracle and input-byte gates, then isolated backup/restore and
 S0–S4 once the same-PID launcher is selected and verified. The direct discovery
 dump has no app stamp; do not synthesize one or infer independent counts from
@@ -76,74 +79,28 @@ type/literal-profile problems within that subset. Actual full definitions,
 producer/session, root metadata and supported backup/restore semantics remain
 unqualified. Byte-admission, full synthetic oracle and observer controls retain
 their earlier scoped passes in the [local-control record](reviews/2026-11-04-T10.010.004-root.md#observer-local-controls-personally-qualified).
-The same-PID restore launcher and outer custody handling are still unfinished.
-Root qualifies direct-interpreter and shebang fake identity/settlement, then
-freezes the [launch source contract](reviews/2026-11-05-T10.010.004-db-launch-brief.md).
-Two source reviews expose the native app's PATH widening; the contract includes
-that source-defined projection before Docker overrides. Paired source work
-can proceed independently; implementation/selected-source controls/actual
-restore remain unqualified. See the [launch preparation record](reviews/2026-11-05-T10.010.004-db-launch-root.md).
-Both independent launch first deliveries are now frozen and source-reviewed.
-Claude24 and Grok74 authored controls remain unrun. All six Python bodies
-compile without import; Ruff reports three unused imports for Claude and
-passes for Grok. Both receive11/20 for this source task, with material native
-wait/custody, protocol, evidence and harness gaps. Neither is selected or
-runtime-admitted. Root keeps the exact interpreter fixed and requests a bounded
-native-custody design before safe fake controls/repair. Astra now delivers the
-kqueue/raw-wait design. Root reads its source/SDK/Python basis, then personally
-qualifies seven direct-host-fake primitive cases: exit0, empty stderr, all
-actors reaped and both streams at EOF in0.344006seconds. Lost wait authority
-stays ECHILD and nonzero/signal status is preserved. Full launch repair and
-its controls remain open. Claude original is now chosen as the repair basis
-for its correct spawn/configuration sequence and smaller gate. The full
-[repair contract](reviews/2026-11-05-T10.010.004-db-launch-repair-brief.md)
-passes independent source design review. Claude candidate2 source repair is
-delivered and frozen from the clean preserved task lane. Its57 authored
-controls remain unrun. Independent reviews find a confirmed native stdlib
-ownership refusal plus finalization, cancellation, FD and live-custody gaps.
-Root reads the finding paths and confirms the root-owned dependency. Process
-execution is withheld. The focused C3 addendum passes source design review
-after Root applies the narrow publication clarification; full acceptance
-remains. Candidate3 is now delivered, frozen and fully source-reviewed.
-Its67 controls remain unrun: three gate publication/FD gaps and four harness
-ownership/descendant boundaries still prevent process execution. Root splits
-the next source repair into Claude gate-only and Astra harness-only scopes,
-preserving interfaces and full acceptance. Both are accepted ready:
-ctx_4f4e11017137/task_f7a3fcc4682a and
-ctx_52d4cee2b138/task_b9fac90b438f. Claude gate-only C4 is now frozen/reviewed:
-the three prior paths are corrected, but restoration-time cancellation and
-one F841 unused binding remain. Root personally runs twelve reviewed no-actor
-file-helper controls: eleven pass, one honestly fails and reproduces cancellation
-during successful handler restoration. Source/module/actual signal state is
-preserved; no actors start. C5's two-hunk repair now passes Root's same unchanged12 file-helper controls,
-compilation and lint, preserving source/module/actual-handler state. It does
-not qualify native/full-gate behavior. Astra's full source and both independent
-reviews correct the earlier ownership boundaries but reveal two cross-case
-regressions: persistent stdout duplication and repeated cancellation-token
-consumption. Repair those before interacting/full-suite runs;84 authored
-entries remain unrun and original coverage gaps remain required. Root prepares
-a guarded, fresh native_positive-only composition. Its first guard refusal
-(access-time comparison) is preserved; v2 authenticates and starts the harness.
-The single native case refuses before READY, launcher raw-reaped3, zeroGO/app
-release/signals and no retained resources. Two actual controlled startup probes
-show Python adds one absent fixture key and preserves the map when it is
-explicitly declared. The bounded Astra candidate2 repair now combines that
-fixture correction with the two cross-case fixes. Its delivered source is now
-frozen; Root reads the full delta/README/independent review and finds no material
-blocker. Fresh composition/guard compile and pass lint; two new no-actor
-regressions pass in the fresh run. Native_positive now reaches READY then
-refuses at held-reader record shape; ps child raw-reaped0, launcher raw-reaped3,
-zeroGO/app release/signals and no retained resources. Prior actual same-recipe
-records reproduce a one-versus-five-space parser defect. C6 is now delivered/frozen and passes Root plus independent source review.
-Fresh copies pass compile/lint, the unchanged12 file-helper cases and21 focused
-parser cases, preserving source/module/actual handlers with no handoff. A fresh
-guarded native-positive-only composition is statically ready; run it after
-this checkpoint. The parser seam is modeled, so no native/full-gate or runtime
-pass is claimed.
-Both original scores remain fixed. One raced Grok wrap-up
-follow-up fails readiness; the original source task remains delivered and no
-restart/terminal-exit assumption follows. See the
-[paired assessment](reviews/2026-11-05-T10.010.004-launch-suppliers.md).
+The same-PID restore launcher and outer custody handling remain unfinished.
+The native kqueue/raw-wait primitive passes seven Root host-fake cases. Claude
+C6 gate passes source reviews, compile/lint, unchanged12 file-helper and21
+parser checks. Astra C2 passes both cross-case regressions. The latest guarded
+native positive reaches two held reads, one GO, unchanged-observer receipt
+join and app raw-reaped0 with complete streams, but **the harness remains
+unresolved and its owner is live**. Root retains session51837, which reports
+only descendants:positive. No VM/Engine/DB starts and no native baseline PASS
+or command exit is claimed.
+
+The exact harness source defect is a generic integer-only JSON decoder applied
+to the valid observer config's limits.term_grace_s0.2. Two independent source/
+fake-record reviews agree. A scoped admission reader and source-shaped
+no-actor fixture are the [next source correction](reviews/2026-11-05-T10.010.004-harness-c3-repair-brief.md).
+The current owner has no release protocol; preserve it and the failed run,
+handle separate disposition explicitly and do not alter evidence or live code.
+Original missing full-contract/native cases remain required. Earlier source
+iterations and actual refusals stay in the
+[launch record](reviews/2026-11-05-T10.010.004-db-launch-root.md).
+Both original launch first-delivery scores remain11/20. The older raced Grok
+wrap-up follow-up failed readiness; no restart/terminal-exit assumption follows.
+See the [paired assessment](reviews/2026-11-05-T10.010.004-launch-suppliers.md).
 
 **Timestamp compatibility is selected and Root-qualified.** Both repairs pass
 the same114 original/independent cases and actual73-table/844-column catalog
@@ -185,16 +142,14 @@ Root-run pure controls; source bytes stay unchanged. Root's actual archive
 replay now qualifies the entrypoint/client/init artifact projection: exact
 entrypoint source, identified client, empty init scripts and254 admissible
 links. Runtime user/defaults, SQL transport and initialization remain open;
-no client/VM/container starts. The settled Grok image-profile terminal is confirmed released. A pure18-record
-sentinel verifier is source-designed/reviewed; independent Claude/Grok workers
-are accepted ready on the same3b0a6802 base and identical invented inputs
-(ctx_080eb242cd63/task_5c43ca3e1df8 and
-ctx_b60b2ee745e0/task_a4229cc52115). Claude source is delivered/frozen and
-passes full review/compile/lint and Root
-execution:68/68 shared corpus plus73/73 authored pure checks, all inputs
-preserved. Grok is pending; comparison/selection remains open. Shared corpusv2
-corrects a Root test overconstraint without changing the supplier contract.
-Runtime admission and actual transport remain open. See the
+no client/VM/container starts. The settled Grok image-profile terminal is confirmed released. The pure18-record sentinel-verifier comparison is complete. Both suppliers
+pass the identical68 Root cases; Claude also passes73 authored checks and
+Grok25 grouped checks, with compile/lint and unchanged inputs. Both score20/20
+for this component; Root selects unchanged Claude source as the smaller
+maintenance option. This is a scoped tie-break, not a provider ranking or
+actual transport qualification. Both settled supplier terminals are released
+with sources/transcripts preserved. Actual SQL transport, disposable controller
+and new runtime admission remain open. See the
 [client-format record](reviews/2026-11-05-T10.010.004-client-format-root.md).
 
 Root owns all runtime work. Refresh the exact owned VM/world/resources and
