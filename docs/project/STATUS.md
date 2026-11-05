@@ -123,7 +123,10 @@ regressions: persistent stdout duplication and repeated cancellation-token
 consumption. Repair those before interacting/full-suite runs;84 authored
 entries remain unrun and original coverage gaps remain required. Root prepares
 a guarded, fresh native_positive-only composition as the next isolated fake
-checkpoint; no Engine/VM or real restore action is admitted.
+checkpoint. Its first external guard refuses before harness start because a
+whole-stat comparison includes access time; fresh v2 preserves all identity/byte
+checks while excluding atime and is compiled/linted, unrun. No Engine/VM or
+real restore action is admitted.
 Both original scores remain fixed. One raced Grok wrap-up
 follow-up fails readiness; the original source task remains delivered and no
 restart/terminal-exit assumption follows. See the
