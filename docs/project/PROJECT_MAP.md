@@ -32,7 +32,7 @@ FULL MODERN / RENEWAL PERSONAL GAME
 |   [x] Complete DB discovery [ROOT VERIFIED; ROW SEMANTICS OPEN]
 |   [ ] Client SQL format [PAIRED VERIFIER WORKERS READY; TRANSPORT OPEN]
 |   [ ] Full definitions/counts + supported B0 [CAPTURE OPEN; TIMESTAMP FIXED]
-|   [ ] Same-PID restore launch gate [C5 FILE HELPERS PASS; HARNESS REPAIR OPEN]
+|   [ ] Same-PID restore launch gate [TWO HARNESS FIXES PASS; READER REPAIR OPEN]
 |   [ ] Isolated DB backup/restore -> integrated rendering/item A/B
 |   [ ] Binary/mod/text gate [SOURCE INTEGRATED; RUNTIME OPEN]
 |   [ ] Real EXP/callback/save [ANALYSIS INTEGRATED; RUNTIME OPEN]
