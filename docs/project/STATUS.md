@@ -115,7 +115,8 @@ the three prior paths are corrected, but restoration-time cancellation and
 one F841 unused binding remain. Root personally runs twelve reviewed no-actor
 file-helper controls: eleven pass, one honestly fails and reproduces cancellation
 during successful handler restoration. Source/module/actual signal state is
-preserved; no actors start. A tiny C5 repair and unchanged-control rerun are next.
+preserved; no actors start. The tiny C5 source follow-up is accepted ready as
+ctx_15bb2ef331bf/task_4802cc449bc5; Root reruns the unchanged controls after delivery.
 Astra's source-only harness is now frozen from its clean d66a58c6 branch,
 configured gpt-6-astra/xhigh. Its reported84 entries remain unrun; independent
 ownership and coverage reviews are active. Root composition/native execution
