@@ -99,8 +99,11 @@ for its correct spawn/configuration sequence and smaller gate. The full
 [repair contract](reviews/2026-11-05-T10.010.004-db-launch-repair-brief.md)
 passes independent source design review. Claude candidate2 source repair is
 delivered and frozen from the clean preserved task lane. Its57 authored
-controls remain unrun; independent gate and harness source reviews precede
-Root's isolated execution. Implementation/native qualification remain open.
+controls remain unrun. Independent reviews find a confirmed native stdlib
+ownership refusal plus finalization, cancellation, FD and live-custody gaps.
+Root reads the finding paths and confirms the root-owned dependency. Process
+execution is withheld; the focused C3 addendum retains full acceptance.
+Implementation/native qualification remain open.
 Both original scores remain fixed. One raced Grok wrap-up
 follow-up fails readiness; the original source task remains delivered and no
 restart/terminal-exit assumption follows. See the
@@ -126,16 +129,18 @@ Renewal DB/volume/marker, absent prere selector/volume, already-stopped game
 services and valid local settings; otherwise backup can recreate/switch DBs.
 Current runtime preconditions remain unobserved. Both completed timestamp
 worker terminals are released with transcripts, source branches and frozen
-files preserved. The separate launcher repair is under source review; no
+files preserved. The separate launcher repair needs source corrections; no
 runtime admission or audit closure follows from source delivery/selection.
 Unproven older resources remain untouched.
 
 The first offline client-image probe refuses an incorrect61-character hash
-literal. Root independently confirms the archive's exact protected SHA and
-identity are unchanged. A one-literal fresh source repair is delivered but
-not yet executed. No client/VM/container starts. Preserve the refusal; next
-qualify the corrected artifact profile and actual entrypoint before the SQL
-format experiment. See the [client-format record](reviews/2026-11-05-T10.010.004-client-format-root.md).
+literal. Root confirms protected archive preservation; an exact one-literal
+repair passes syntax/lint, then exposes one raw-config omission: User absent
+versus empty in inspection. Other fields agree. A narrow reported serialization
+exception is authored but unexecuted; runtime user/default behavior remains
+unqualified. No client/VM/container starts. Next qualify the artifact profile
+and actual entrypoint before the SQL format experiment. See the
+[client-format record](reviews/2026-11-05-T10.010.004-client-format-root.md).
 
 Root owns all runtime work. Refresh the exact owned VM/world/resources and
 personal projections before startup. Supported ordinary up can initialize/write
